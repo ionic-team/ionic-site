@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704141732, Dark Theme
+ * vE2E-201704141749, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -1141,56 +1141,216 @@ ion-footer {
 .nav-decor {
   display: none; }
 
-[text-left] {
-  text-align: left; }
-
 [text-center] {
-  text-align: center; }
-
-[text-right] {
-  text-align: right; }
-
-[text-start] {
-  text-align: start; }
-
-[text-end] {
-  text-align: end; }
+  text-align: center !important; }
 
 [text-justify] {
-  text-align: justify; }
+  text-align: justify !important; }
+
+[text-start] {
+  text-align: start !important; }
+
+[text-end] {
+  text-align: end !important; }
+
+[text-left] {
+  text-align: left !important; }
+
+[text-right] {
+  text-align: right !important; }
 
 [text-nowrap] {
-  white-space: nowrap; }
+  white-space: nowrap !important; }
 
 [text-wrap] {
-  white-space: normal; }
+  white-space: normal !important; }
+
+@media (min-width: 576px) {
+  [text-sm-center] {
+    text-align: center !important; }
+  [text-sm-justify] {
+    text-align: justify !important; }
+  [text-sm-start] {
+    text-align: start !important; }
+  [text-sm-end] {
+    text-align: end !important; }
+  [text-sm-left] {
+    text-align: left !important; }
+  [text-sm-right] {
+    text-align: right !important; }
+  [text-sm-nowrap] {
+    white-space: nowrap !important; }
+  [text-sm-wrap] {
+    white-space: normal !important; } }
+
+@media (min-width: 768px) {
+  [text-md-center] {
+    text-align: center !important; }
+  [text-md-justify] {
+    text-align: justify !important; }
+  [text-md-start] {
+    text-align: start !important; }
+  [text-md-end] {
+    text-align: end !important; }
+  [text-md-left] {
+    text-align: left !important; }
+  [text-md-right] {
+    text-align: right !important; }
+  [text-md-nowrap] {
+    white-space: nowrap !important; }
+  [text-md-wrap] {
+    white-space: normal !important; } }
+
+@media (min-width: 992px) {
+  [text-lg-center] {
+    text-align: center !important; }
+  [text-lg-justify] {
+    text-align: justify !important; }
+  [text-lg-start] {
+    text-align: start !important; }
+  [text-lg-end] {
+    text-align: end !important; }
+  [text-lg-left] {
+    text-align: left !important; }
+  [text-lg-right] {
+    text-align: right !important; }
+  [text-lg-nowrap] {
+    white-space: nowrap !important; }
+  [text-lg-wrap] {
+    white-space: normal !important; } }
+
+@media (min-width: 1200px) {
+  [text-xl-center] {
+    text-align: center !important; }
+  [text-xl-justify] {
+    text-align: justify !important; }
+  [text-xl-start] {
+    text-align: start !important; }
+  [text-xl-end] {
+    text-align: end !important; }
+  [text-xl-left] {
+    text-align: left !important; }
+  [text-xl-right] {
+    text-align: right !important; }
+  [text-xl-nowrap] {
+    white-space: nowrap !important; }
+  [text-xl-wrap] {
+    white-space: normal !important; } }
 
 [text-uppercase] {
-  text-transform: uppercase; }
+  text-transform: uppercase !important; }
 
 [text-lowercase] {
-  text-transform: lowercase; }
+  text-transform: lowercase !important; }
 
 [text-capitalize] {
-  text-transform: capitalize; }
+  text-transform: capitalize !important; }
+
+@media (min-width: 576px) {
+  [text-sm-uppercase] {
+    text-transform: uppercase !important; }
+  [text-sm-lowercase] {
+    text-transform: lowercase !important; }
+  [text-sm-capitalize] {
+    text-transform: capitalize !important; } }
+
+@media (min-width: 768px) {
+  [text-md-uppercase] {
+    text-transform: uppercase !important; }
+  [text-md-lowercase] {
+    text-transform: lowercase !important; }
+  [text-md-capitalize] {
+    text-transform: capitalize !important; } }
+
+@media (min-width: 992px) {
+  [text-lg-uppercase] {
+    text-transform: uppercase !important; }
+  [text-lg-lowercase] {
+    text-transform: lowercase !important; }
+  [text-lg-capitalize] {
+    text-transform: capitalize !important; } }
+
+@media (min-width: 1200px) {
+  [text-xl-uppercase] {
+    text-transform: uppercase !important; }
+  [text-xl-lowercase] {
+    text-transform: lowercase !important; }
+  [text-xl-capitalize] {
+    text-transform: capitalize !important; } }
 
 [pull-left] {
-  float: left; }
+  float: left !important; }
 
 [pull-right] {
-  float: right; }
+  float: right !important; }
 
 [pull-start] {
-  float: left; }
+  float: left !important; }
 
 [pull-end] {
-  float: right; }
+  float: right !important; }
 
 [dir="rtl"] [pull-start] {
-  float: right; }
+  float: right !important; }
 
 [dir="rtl"] [pull-end] {
-  float: left; }
+  float: left !important; }
+
+@media (min-width: 576px) {
+  [pull-sm-left] {
+    float: left !important; }
+  [pull-sm-right] {
+    float: right !important; }
+  [pull-sm-start] {
+    float: left !important; }
+  [pull-sm-end] {
+    float: right !important; }
+  [dir="rtl"] [pull-sm-start] {
+    float: right !important; }
+  [dir="rtl"] [pull-sm-end] {
+    float: left !important; } }
+
+@media (min-width: 768px) {
+  [pull-md-left] {
+    float: left !important; }
+  [pull-md-right] {
+    float: right !important; }
+  [pull-md-start] {
+    float: left !important; }
+  [pull-md-end] {
+    float: right !important; }
+  [dir="rtl"] [pull-md-start] {
+    float: right !important; }
+  [dir="rtl"] [pull-md-end] {
+    float: left !important; } }
+
+@media (min-width: 992px) {
+  [pull-lg-left] {
+    float: left !important; }
+  [pull-lg-right] {
+    float: right !important; }
+  [pull-lg-start] {
+    float: left !important; }
+  [pull-lg-end] {
+    float: right !important; }
+  [dir="rtl"] [pull-lg-start] {
+    float: right !important; }
+  [dir="rtl"] [pull-lg-end] {
+    float: left !important; } }
+
+@media (min-width: 1200px) {
+  [pull-xl-left] {
+    float: left !important; }
+  [pull-xl-right] {
+    float: right !important; }
+  [pull-xl-start] {
+    float: left !important; }
+  [pull-xl-end] {
+    float: right !important; }
+  [dir="rtl"] [pull-xl-start] {
+    float: right !important; }
+  [dir="rtl"] [pull-xl-end] {
+    float: left !important; } }
 
 ion-app.ios {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;

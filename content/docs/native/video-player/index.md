@@ -49,7 +49,7 @@ $ npm install --save @ionic-native/video-player
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { VideoPlayer } from &#39;@ionic-native/video-player;
+<pre><code class="lang-typescript">import { VideoPlayer } from &#39;@ionic-native/video-player&#39;;
 
 constructor(private videoPlayer: VideoPlayer) { }
 

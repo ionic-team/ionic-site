@@ -135,7 +135,7 @@ errors if a deeplink comes through that does not match a given path.
 
 
 This is a convenience version of `route` that takes a reference to a NavController
-from Ionic, or a custom class that conforms to this protocol:
+from Ionic 2, or a custom class that conforms to this protocol:
 
 NavController.push = function(View, Params){}
 
@@ -188,7 +188,7 @@ errors if a deeplink comes through that does not match a given path.
   </tr>
   </thead>
   <tbody>
-
+  
   <tr>
     <td>
       $route
@@ -199,10 +199,10 @@ errors if a deeplink comes through that does not match a given path.
     <td>
       <p>The route info for the matched route</p>
 
-
+      
     </td>
   </tr>
-
+  
   <tr>
     <td>
       $args
@@ -213,10 +213,10 @@ errors if a deeplink comes through that does not match a given path.
     <td>
       <p>Any arguments passed either through route parameters or GET parameters</p>
 
-
+      
     </td>
   </tr>
-
+  
   <tr>
     <td>
       $link
@@ -229,10 +229,10 @@ errors if a deeplink comes through that does not match a given path.
 any internal native data available as &quot;extras&quot; at the time
 the route was matched (for example, Facebook sometimes adds extra data)</p>
 
-
+      
     </td>
   </tr>
-
+  
   </tbody>
 </table>
 

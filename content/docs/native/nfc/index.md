@@ -242,7 +242,7 @@ Registers an event listener for formatable NDEF tags.
 </div><h3><a class="anchor" name="write" href="#write"></a><code>write(message)</code></h3>
 
 
-Qrites an NdefMessage to a NFC tag.
+Writes an NdefMessage(array of ndef records) to a NFC tag.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -279,7 +279,7 @@ Makes a NFC tag read only. **Warning** this is permanent.
 </div><h3><a class="anchor" name="share" href="#share"></a><code>share(message)</code></h3>
 
 
-Shares an NDEF Message via peer-to-peer.
+Shares an NDEF Message(array of ndef records) via peer-to-peer.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -362,7 +362,7 @@ Stop sharing NDEF data via NFC handover.
 </div><h3><a class="anchor" name="showSettings" href="#showSettings"></a><code>showSettings()</code></h3>
 
 
-Show the NFC settings on the device.
+Opens the device's NFC settings.
 
 
 <div class="return-value" markdown="1">
@@ -382,7 +382,7 @@ Check if NFC is available and enabled on this device.
 
 
 
-Convert bytes to string
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -412,7 +412,7 @@ Convert bytes to string
 
 
 
-Convert string to bytes
+Convert string to byte array.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -442,7 +442,8 @@ Convert string to bytes
 
 
 
-Convert bytes to hex string
+Convert byte array to hex string
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

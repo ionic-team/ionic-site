@@ -55,8 +55,8 @@ constructor(private filePath: FilePath) { }
 ...
 
 this.filePath.resolveNativePath(path)
-  .then(filePath =&gt; console.log(filePath);
-  .catch(err =&gt; console.log(err);
+  .then(filePath =&gt; console.log(filePath))
+  .catch(err =&gt; console.log(err));
 </code></pre>
 
 

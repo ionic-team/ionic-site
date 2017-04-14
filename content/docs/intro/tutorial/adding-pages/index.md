@@ -93,7 +93,7 @@ All pages have both a class, and an associated template that's being compiled as
 </ion-header>
 
 
-+<ion-content padding>
+<ion-content padding>
 
   <h3>Welcome to your first Ionic app!</h3>
 

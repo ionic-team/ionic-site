@@ -53,7 +53,7 @@ constructor(private googlePlus: GooglePlus) { }
 
 ...
 
-this.googlePlus.login()
+this.googlePlus.login({})
   .then(res =&gt; console.log(res))
   .catch(err =&gt; console.error(err));
 </code></pre>

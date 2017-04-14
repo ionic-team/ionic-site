@@ -62,7 +62,7 @@ this.socialSharing.canShareViaEmail().then(() =&gt; {
 });
 
 // Share via email
-this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@example.org&#39;).then(() =&gt; {
+this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, [&#39;recipient@example.org&#39;]).then(() =&gt; {
   // Success!
 }).catch(() =&gt; {
   // Error!

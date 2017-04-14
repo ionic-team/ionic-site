@@ -71,9 +71,8 @@ this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate)
      });
 
      // get file duration
-     file.getDuration().then((duration) =&gt; {
-        console.log(position);
-     });
+     let duration = file.getDuration();
+     console.log(duration);
 
      // skip to 10 seconds (expects int value in ms)
      file.seekTo(10000);

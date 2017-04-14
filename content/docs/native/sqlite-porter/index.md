@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/sqlite-porter
 
 
 <h2>Usage</h2>
-<pre><code>import { SQLitePorter } from &#39;ionic-native&#39;;
+<pre><code>import { SQLitePorter } from &#39;@ionic-native/sqlite-porter&#39;;
 
 
 constructor(private sqlitePorter: SQLitePorter) { }

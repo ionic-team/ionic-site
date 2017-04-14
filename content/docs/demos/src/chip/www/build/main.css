@@ -18496,6 +18496,18 @@ ion-segment {
   border-radius: 0 4px 4px 0;
 }
 
+[dir="rtl"] .segment-ios .segment-button:first-of-type {
+  margin-left: 0;
+  border-left-width: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+[dir="rtl"] .segment-ios .segment-button:last-of-type {
+  margin-right: 0;
+  border-left-width: 1px;
+  border-radius: 4px 0 0 4px;
+}
+
 .segment-ios.segment-disabled {
   opacity: .4;
   pointer-events: none;

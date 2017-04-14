@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704141749, Default Theme
+ * vE2E-201704141813, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -1278,78 +1278,78 @@ ion-footer {
   [text-xl-capitalize] {
     text-transform: capitalize !important; } }
 
-[pull-left] {
+[float-left] {
   float: left !important; }
 
-[pull-right] {
+[float-right] {
   float: right !important; }
 
-[pull-start] {
+[float-start] {
   float: left !important; }
 
-[pull-end] {
+[float-end] {
   float: right !important; }
 
-[dir="rtl"] [pull-start] {
+[dir="rtl"] [float-start] {
   float: right !important; }
 
-[dir="rtl"] [pull-end] {
+[dir="rtl"] [float-end] {
   float: left !important; }
 
 @media (min-width: 576px) {
-  [pull-sm-left] {
+  [float-sm-left] {
     float: left !important; }
-  [pull-sm-right] {
+  [float-sm-right] {
     float: right !important; }
-  [pull-sm-start] {
+  [float-sm-start] {
     float: left !important; }
-  [pull-sm-end] {
+  [float-sm-end] {
     float: right !important; }
-  [dir="rtl"] [pull-sm-start] {
+  [dir="rtl"] [float-sm-start] {
     float: right !important; }
-  [dir="rtl"] [pull-sm-end] {
+  [dir="rtl"] [float-sm-end] {
     float: left !important; } }
 
 @media (min-width: 768px) {
-  [pull-md-left] {
+  [float-md-left] {
     float: left !important; }
-  [pull-md-right] {
+  [float-md-right] {
     float: right !important; }
-  [pull-md-start] {
+  [float-md-start] {
     float: left !important; }
-  [pull-md-end] {
+  [float-md-end] {
     float: right !important; }
-  [dir="rtl"] [pull-md-start] {
+  [dir="rtl"] [float-md-start] {
     float: right !important; }
-  [dir="rtl"] [pull-md-end] {
+  [dir="rtl"] [float-md-end] {
     float: left !important; } }
 
 @media (min-width: 992px) {
-  [pull-lg-left] {
+  [float-lg-left] {
     float: left !important; }
-  [pull-lg-right] {
+  [float-lg-right] {
     float: right !important; }
-  [pull-lg-start] {
+  [float-lg-start] {
     float: left !important; }
-  [pull-lg-end] {
+  [float-lg-end] {
     float: right !important; }
-  [dir="rtl"] [pull-lg-start] {
+  [dir="rtl"] [float-lg-start] {
     float: right !important; }
-  [dir="rtl"] [pull-lg-end] {
+  [dir="rtl"] [float-lg-end] {
     float: left !important; } }
 
 @media (min-width: 1200px) {
-  [pull-xl-left] {
+  [float-xl-left] {
     float: left !important; }
-  [pull-xl-right] {
+  [float-xl-right] {
     float: right !important; }
-  [pull-xl-start] {
+  [float-xl-start] {
     float: left !important; }
-  [pull-xl-end] {
+  [float-xl-end] {
     float: right !important; }
-  [dir="rtl"] [pull-xl-start] {
+  [dir="rtl"] [float-xl-start] {
     float: right !important; }
-  [dir="rtl"] [pull-xl-end] {
+  [dir="rtl"] [float-xl-end] {
     float: left !important; } }
 
 ion-app.ios {

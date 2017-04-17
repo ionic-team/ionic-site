@@ -44955,7 +44955,7 @@ const SWIPER_EFFECTS = {
                     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["k" /* transform */])(cubeShadow, 'scale3d(' + scale1 + ', 1, ' + scale2 + ') translate3d(0px, ' + (s.renderedHeight / 2 + offset) + 'px, ' + (-s.renderedHeight / 2 / scale2) + 'px) rotateX(-90deg)');
                 }
             }
-            var zFactor = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_platform_utils__["d" /* isSafari */])(plt) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_platform_utils__["c" /* isIosUIWebView */])(plt)) ? (-s._renderedSize / 2) : 0;
+            var zFactor = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_platform_utils__["e" /* isSafari */])(plt) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_platform_utils__["c" /* isIosUIWebView */])(plt)) ? (-s._renderedSize / 2) : 0;
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["k" /* transform */])(s._wrapper, 'translate3d(0px,0,' + zFactor + 'px) rotateX(' + (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["b" /* isHorizontal */])(s) ? 0 : wrapperRotate) + 'deg) rotateY(' + (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["b" /* isHorizontal */])(s) ? -wrapperRotate : 0) + 'deg)');
         },
         setTransition: function (s, plt, duration) {
@@ -47799,6 +47799,19 @@ const PLATFORM_CONFIGS = {
         },
         isMatch(plt) {
             return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_utils__["b" /* isCordova */])(plt);
+        }
+    },
+    'electron': {
+        superset: 'core',
+        initialize: function (plt) {
+            plt.prepareReady = function () {
+                plt.windowLoad(function () {
+                    plt.triggerReady('electron');
+                });
+            };
+        },
+        isMatch(plt) {
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__platform_utils__["d" /* isElectron */])(plt);
         }
     }
 };
@@ -54474,13 +54487,17 @@ class OverlayProxy {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["b"] = isCordova;
+/* harmony export (immutable) */ __webpack_exports__["d"] = isElectron;
 /* harmony export (immutable) */ __webpack_exports__["a"] = isIos;
-/* harmony export (immutable) */ __webpack_exports__["d"] = isSafari;
+/* harmony export (immutable) */ __webpack_exports__["e"] = isSafari;
 /* unused harmony export isWKWebView */
 /* harmony export (immutable) */ __webpack_exports__["c"] = isIosUIWebView;
 function isCordova(plt) {
     const win = plt.win();
     return !!(win['cordova'] || win['PhoneGap'] || win['phonegap']);
+}
+function isElectron(plt) {
+    return plt.testUserAgent('Electron');
 }
 function isIos(plt) {
     return plt.testNavigatorPlatform('iphone|ipad|ipod');

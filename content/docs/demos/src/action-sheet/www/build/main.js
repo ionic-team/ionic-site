@@ -42065,8 +42065,9 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__item_sliding__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform_platform__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_sliding__ = __webpack_require__(100);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemOptions; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -42080,17 +42081,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 let ItemOptions = class ItemOptions {
-    constructor(_elementRef, _renderer) {
+    constructor(_elementRef, _renderer, _plt) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
+        this._plt = _plt;
         this.ionSwipe = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
     }
     getSides() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(this.side) && this.side === 'left') {
-            return __WEBPACK_IMPORTED_MODULE_2__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(this.side)) {
+            switch (this.side) {
+                case 'left':
+                    return __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
+                case 'right':
+                    return __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
+                case 'start':
+                    return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
+                case 'end':
+                    return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
+            }
         }
-        return __WEBPACK_IMPORTED_MODULE_2__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
+        return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
     }
     width() {
         return this._elementRef.nativeElement.offsetWidth;
@@ -42108,10 +42120,10 @@ ItemOptions = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
         selector: 'ion-item-options',
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__platform_platform__["b" /* Platform */]) === "function" && _d || Object])
 ], ItemOptions);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=item-options.js.map
 
 /***/ }),

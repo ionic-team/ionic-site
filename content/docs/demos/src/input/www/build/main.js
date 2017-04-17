@@ -45848,7 +45848,7 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /*
             }
             else {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__["o" /* getComponent */])(this._linker, tab.root).then(viewController => {
-                    if (viewController !== active.component) {
+                    if (viewController.component !== active.component) {
                         return tab.setRoot(tab.root);
                     }
                 }).catch(() => {

@@ -34,8 +34,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 ...
 
-export function HttpLoaderFactory(http: Http) {
-  return new TranslateHttpLoader(http, './assets/i18n', '.json');
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 ```
 and then adding the following to your NgModules imports array:
@@ -46,7 +46,7 @@ and then adding the following to your NgModules imports array:
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (createTranslateLoader),
         deps: [Http]
       }
     })

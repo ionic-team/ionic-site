@@ -1,23 +1,23 @@
 ---
 layout: fluid/docs_base
 category: resources
-id: using_ng2_translate
-title: Using NG2-Translate
+id: using_ngx_translate
+title: Using ngx-translate
 header_sub_title: Ionic Resources
 ---
 
-# Using NG2-Translate
+# Using ngx-translate
 
 ### Installing
 
-To install NG2-Translate run `npm install ng2-translate --save`.
+To install ngx-translate run `npm install npm install @ngx-translate/core @ngx-translate/http-loader --save`.
 
 ### Bootstrapping
 
-To use NG2-Translate, it must first be imported and added to the imports array in the NgModule of the application. Here’s an example of how to do this:
+To use ngx-translate, it must first be imported and added to the imports array in the NgModule of the application. Here’s an example of how to do this:
 
 ```typescript
-import { TranslateModule } from 'ng2-translate/ng2-translate';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -29,8 +29,13 @@ import { TranslateModule } from 'ng2-translate/ng2-translate';
 By default this will look for your translation json files in `i18n/`, but for Ionic you must change this to look in the `src/assets` directory. We can do this by creating a function that returns a new TranslateLoader:
 
 ```typescript
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+...
+
 export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 ```
 and then adding the following to your NgModules imports array:
@@ -39,9 +44,11 @@ and then adding the following to your NgModules imports array:
 @NgModule({
   imports: [
     TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
     })
   ]
 })
@@ -49,7 +56,7 @@ and then adding the following to your NgModules imports array:
 
 ### Usage
 
-Once the above steps have been completed, we can begin to use NG2-Translate in your Ionic 2 app. The first step is to set up the translation assets. The translation assets are just json objects, as shown below:
+Once the above steps have been completed, we can begin to use in your Ionic app. The first step is to set up the translation assets. The translation assets are just json objects, as shown below:
 
 es.json
 
@@ -82,7 +89,7 @@ Instead of writing the actual string as the title, we write the key of the strin
 The `TranslateService`  can be used both to change the current language the app is using and to translate JavaScript values in an application. To use the `TranslateService` in your app you must first import it and set the default language.
 
 ```typescript
-import {TranslateService} from 'ng2-translate';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'page-schedule',
@@ -115,4 +122,4 @@ translateService.get('HELLO').subscribe(
 
 It takes the key of the string that needs to be translated from the translation assets. We then subscribe to the observable, and it will return the translated string.
 
-For more information on how to use NG2-Translate, check out its [docs](https://github.com/ocombe/ng2-translate).
+For more information on how to use ngx-translate, check out its [docs](https://github.com/ngx-translate/core).

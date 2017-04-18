@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704172023, Dark Theme
+ * vE2E-201704181644, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -10615,6 +10615,9 @@ ion-select {
   opacity: .4;
   pointer-events: none; }
 
+.select-popover ion-list {
+  margin: -1px 0 -1px 0; }
+
 .select-ios {
   padding: 11px 8px 11px 16px; }
 
@@ -12429,19 +12432,19 @@ ion-toast {
 .item-ios .toggle-ios[item-left] {
   padding: 6px 16px 5px 0; }
 
-.toggle-ios-primary .toggle-checked {
+.toggle-ios-primary.toggle-checked .toggle-icon {
   background-color: #007aff; }
 
-.toggle-ios-secondary .toggle-checked {
+.toggle-ios-secondary.toggle-checked .toggle-icon {
   background-color: #32db64; }
 
-.toggle-ios-danger .toggle-checked {
+.toggle-ios-danger.toggle-checked .toggle-icon {
   background-color: #d91e18; }
 
-.toggle-ios-light .toggle-checked {
+.toggle-ios-light.toggle-checked .toggle-icon {
   background-color: #f4f4f4; }
 
-.toggle-ios-dark .toggle-checked {
+.toggle-ios-dark.toggle-checked .toggle-icon {
   background-color: #222; }
 
 .toggle-md {

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Action Sheet</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L45">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L54">
   Improve this doc
 </a>
 
@@ -40,7 +40,7 @@ $ npm install --save @ionic-native/action-sheet
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Browser</li>
 </ul>
 
 
@@ -60,10 +60,12 @@ let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
 
 const options: ActionSheetOptions = {
   title: &#39;What do you want with this image?&#39;,
+  subtitle: &#39;Choose an action&#39;
   buttonLabels: buttonLabels,
   addCancelButtonWithLabel: &#39;Cancel&#39;,
   addDestructiveButtonWithLabel: &#39;Delete&#39;,
-  androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_DARK
+  androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_DARK,
+  destructiveButtonLast: true
 };
 
 this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
@@ -172,6 +174,20 @@ Progamtically hide the native ActionSheet
   
   <tr>
     <td>
+      subtitle
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The subtitle for the actionsheet (IOS only)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       androidTheme
     </td>
     <td>
@@ -251,6 +267,20 @@ Progamtically hide the native ActionSheet
       <p>On an iPad, set the X,Y position</p>
 
       <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      destructiveButtonLast
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Choose if destructive button will be the last</p>
+
+      
     </td>
   </tr>
   

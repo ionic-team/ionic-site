@@ -146,7 +146,16 @@ You MUST call this method in your fetch callbackFn provided to #configure in ord
 
 
 
+<h3><a class="anchor" name="status" href="#status"></a><code>status()</code></h3>
 
+
+Return the status of the background-fetch
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

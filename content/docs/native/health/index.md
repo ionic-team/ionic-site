@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Health</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L139">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L154">
   Improve this doc
 </a>
 
@@ -56,8 +56,19 @@ constructor(private health: Health) { }
 ...
 
 this.health.isAvailable()
+.then((available:boolean) =&gt; {
+  console.log(available);
+  this.health.requestAuthorization([
+    &#39;distance&#39;, &#39;nutrition&#39;,  //read and write permissions
+    {
+      read: [&#39;steps&#39;],       //read only permission
+      write: [&#39;height&#39;, &#39;weight&#39;]  //write only permission
+    }
+  ])
   .then(res =&gt; console.log(res))
   .catch(e =&gt; console.log(e));
+})
+.catch(e =&gt; console.log(e));
 </code></pre>
 <p>See description at <a href="https://github.com/dariosalvi78/cordova-plugin-health">https://github.com/dariosalvi78/cordova-plugin-health</a> for a full list of Datatypes and see examples.</p>
 
@@ -102,7 +113,7 @@ This function is only available on Android.
 </div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(datatypes)</code></h3>
 
 
-Requests read and write access to a set of data types. It is recommendable to always explain why the app
+Requests read and/or write access to a set of data types. It is recommendable to always explain why the app
 needs access to the data before asking the user to authorize it.
 This function must be called before using the query and store functions, even if the authorization has already
 been given at some point in the past.
@@ -130,10 +141,10 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
     <td>
       datatypes</td>
     <td>
-      <code>Array&lt;String&gt;</code>
+      <code>Array&lt;string | HealthDataType&gt;</code>
     </td>
     <td>
-      <p>a list of data types you want to be granted access to</p>
+      <p>a list of data types you want to be granted access to.</p>
 </td>
   </tr>
   </tbody>
@@ -146,7 +157,11 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
 
 
 Check if the app has authorization to read/write a set of datatypes.
-This function is similar to requestAuthorization() and has similar quirks.
+
+Quirks of isAuthorized()
+
+In iOS, this function will only check authorization status for writeable data.
+Read-only data will always be considered as not authorized. This is an intended behaviour of HealthKit.
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -161,10 +176,10 @@ This function is similar to requestAuthorization() and has similar quirks.
     <td>
       datatypes</td>
     <td>
-      <code>Array&lt;String&gt;</code>
+      <code>Array&lt;string | HealthDataType&gt;</code>
     </td>
     <td>
-      <p>a list of data types you want to be granted access to</p>
+      <p>a list of data types you want to check access of, same as in requestAuthorization</p>
 </td>
   </tr>
   </tbody>

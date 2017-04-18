@@ -124,6 +124,26 @@ this.cameraPreview.stopCamera();
 
 
 <h2>Instance Members</h2>
+<h3><a class="anchor" name="EXPOSURE_MODES" href="#EXPOSURE_MODES"></a><code>EXPOSURE_MODES</code></h3>
+
+
+
+
+<h3><a class="anchor" name="FLASH_MODE" href="#FLASH_MODE"></a><code>FLASH_MODE</code></h3>
+
+
+
+
+<h3><a class="anchor" name="COLOR_EFFECT" href="#COLOR_EFFECT"></a><code>COLOR_EFFECT</code></h3>
+
+
+
+
+<h3><a class="anchor" name="CAMERA_DIRECTION" href="#CAMERA_DIRECTION"></a><code>CAMERA_DIRECTION</code></h3>
+
+
+
+
 <h3><a class="anchor" name="startCamera" href="#startCamera"></a><code>startCamera(options)</code></h3>
 
 
@@ -157,8 +177,6 @@ Starts the camera preview instance.
 </div><h3><a class="anchor" name="stopCamera" href="#stopCamera"></a><code>stopCamera()</code></h3>
 
 
-
-
 Stops the camera preview instance. (iOS & Android)
 
 
@@ -166,8 +184,6 @@ Stops the camera preview instance. (iOS & Android)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="switchCamera" href="#switchCamera"></a><code>switchCamera()</code></h3>
-
-
 
 
 Switch from the rear camera and front camera, if available.
@@ -179,8 +195,6 @@ Switch from the rear camera and front camera, if available.
 </div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
-
-
 Hide the camera preview box.
 
 
@@ -188,8 +202,6 @@ Hide the camera preview box.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
-
-
 
 
 Show the camera preview box.
@@ -291,12 +303,27 @@ Set the zoom (Android)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getMaxZoom" href="#getMaxZoom"></a><code>getMaxZoom()</code></h3>
+
+
+Get the maximum zoom (Android)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getZoom" href="#getZoom"></a><code>getZoom()</code></h3>
+
+
+Get current zoom (Android)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="setPreviewSize" href="#setPreviewSize"></a><code>setPreviewSize(dimensions)</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
 Set the preview Size
@@ -352,6 +379,122 @@ Set the flashmode
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSupportedPictureSizes" href="#getSupportedPictureSizes"></a><code>getSupportedPictureSizes()</code></h3>
+
+
+Get supported picture sizes
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSupportedFlashModes" href="#getSupportedFlashModes"></a><code>getSupportedFlashModes()</code></h3>
+
+
+Get supported flash modes
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getExposureMode" href="#getExposureMode"></a><code>getExposureMode()</code></h3>
+
+
+Get exposure mode
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getExposureModes" href="#getExposureModes"></a><code>getExposureModes()</code></h3>
+
+
+Get exposure modes
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setExposureMode" href="#setExposureMode"></a><code>setExposureMode(lock)</code></h3>
+
+
+
+
+Set exposure mode
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      lock</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getExposureCompensation" href="#getExposureCompensation"></a><code>getExposureCompensation()</code></h3>
+
+
+Get exposure compensation (Android)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setExposureCompensation" href="#setExposureCompensation"></a><code>setExposureCompensation(exposureCompensation)</code></h3>
+
+
+
+
+Set exposure compensation (Android)
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      exposureCompensation</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getExposureCompensationRange" href="#getExposureCompensationRange"></a><code>getExposureCompensationRange()</code></h3>
+
+
+Get exposure compensation range (Android)
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

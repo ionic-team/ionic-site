@@ -226,6 +226,20 @@ Forward geocode a given address to find coordinates
   
   <tr>
     <td>
+      district
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The district.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       countryName
     </td>
     <td>

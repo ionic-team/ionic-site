@@ -178,25 +178,6 @@ for the properties that each interface accepts.</p>
 
 
 
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <div id="open"></div>
 
 <h3>

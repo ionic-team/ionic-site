@@ -92,7 +92,7 @@ this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate)
 
 // Recording to a file
 this.media.create(&#39;path/to/file.mp3&#39;)
-  .then((file: MedieObject) =&gt; {
+  .then((file: MediaObject) =&gt; {
 
     file.startRecord();
 

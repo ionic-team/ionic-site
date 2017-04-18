@@ -15375,22 +15375,18 @@ class ViewController {
         if (instance && instance[methodName]) {
             try {
                 var result = instance[methodName]();
-                if (result === false) {
-                    return false;
-                }
-                else if (result instanceof Promise) {
+                if (result instanceof Promise) {
                     return result;
                 }
                 else {
-                    return true;
+                    return Promise.resolve(result !== false);
                 }
             }
             catch (e) {
-                console.error(`${this.name} ${methodName} error: ${e.message}`);
-                return false;
+                return Promise.reject(`${this.name} ${methodName} error: ${e.message}`);
             }
         }
-        return true;
+        return Promise.resolve(true);
     }
     _lifecycle(lifecycle) {
         const instance = this.instance;
@@ -20106,9 +20102,9 @@ let App = class App {
         const portal = this._appRoot._getPortal(appPortal);
         enteringView._setNav(portal);
         opts.keyboardClose = false;
-        opts.direction = __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["k" /* DIRECTION_FORWARD */];
+        opts.direction = __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["j" /* DIRECTION_FORWARD */];
         if (!opts.animation) {
-            opts.animation = enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["k" /* DIRECTION_FORWARD */]);
+            opts.animation = enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["j" /* DIRECTION_FORWARD */]);
         }
         enteringView.setLeavingOpts({
             keyboardClose: false,
@@ -26792,6 +26788,9 @@ class Animation {
         }
         return 0;
     }
+    isRoot() {
+        return !this.parent;
+    }
     duration(milliseconds) {
         this._dur = milliseconds;
         return this;
@@ -29172,10 +29171,10 @@ class UIEventManager {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__view_controller__ = __webpack_require__(4);
-/* harmony export (immutable) */ __webpack_exports__["o"] = getComponent;
-/* harmony export (immutable) */ __webpack_exports__["j"] = convertToView;
+/* harmony export (immutable) */ __webpack_exports__["n"] = getComponent;
+/* unused harmony export convertToView */
 /* harmony export (immutable) */ __webpack_exports__["d"] = convertToViews;
-/* harmony export (immutable) */ __webpack_exports__["l"] = setZIndex;
+/* harmony export (immutable) */ __webpack_exports__["k"] = setZIndex;
 /* harmony export (immutable) */ __webpack_exports__["e"] = isTabs;
 /* harmony export (immutable) */ __webpack_exports__["c"] = isTab;
 /* harmony export (immutable) */ __webpack_exports__["b"] = isNav;
@@ -29200,7 +29199,6 @@ function convertToView(linker, nameOrPageOrView, params) {
         }
         return getComponent(linker, nameOrPageOrView, params);
     }
-    console.error(`invalid page component: ${nameOrPageOrView}`);
     return Promise.resolve(null);
 }
 function convertToViews(linker, pages) {
@@ -29274,16 +29272,16 @@ const STATE_DESTROYED = 4;
 /* harmony export (immutable) */ __webpack_exports__["g"] = STATE_DESTROYED;
 
 const INIT_ZINDEX = 100;
-/* harmony export (immutable) */ __webpack_exports__["m"] = INIT_ZINDEX;
+/* harmony export (immutable) */ __webpack_exports__["l"] = INIT_ZINDEX;
 
 const DIRECTION_BACK = 'back';
 /* harmony export (immutable) */ __webpack_exports__["a"] = DIRECTION_BACK;
 
 const DIRECTION_FORWARD = 'forward';
-/* harmony export (immutable) */ __webpack_exports__["k"] = DIRECTION_FORWARD;
+/* harmony export (immutable) */ __webpack_exports__["j"] = DIRECTION_FORWARD;
 
 const DIRECTION_SWITCH = 'switch';
-/* harmony export (immutable) */ __webpack_exports__["n"] = DIRECTION_SWITCH;
+/* harmony export (immutable) */ __webpack_exports__["m"] = DIRECTION_SWITCH;
 
 //# sourceMappingURL=nav-util.js.map
 
@@ -29406,12 +29404,12 @@ let TransitionController = class TransitionController {
         this._trns = {};
     }
     getRootTrnsId(nav) {
-        let parent = nav.parent;
-        while (parent) {
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(parent._trnsId)) {
-                return parent._trnsId;
+        nav = nav.parent;
+        while (nav) {
+            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(nav._trnsId)) {
+                return nav._trnsId;
             }
-            parent = parent.parent;
+            nav = nav.parent;
         }
         return null;
     }
@@ -34475,12 +34473,10 @@ class Transition extends __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a"
     registerStart(trnsStart) {
         this._trnsStart = trnsStart;
     }
-    isRoot() {
-        return !this.parent;
-    }
     start() {
         this._trnsStart && this._trnsStart();
         this._trnsStart = null;
+        this.parent && this.parent.start();
     }
     destroy() {
         super.destroy();
@@ -34847,7 +34843,6 @@ let ModuleLoader = class ModuleLoader {
             this._promiseMap.set(modulePath, promise);
         }
         return promise.then(loadedModule => {
-            this._promiseMap.delete(modulePath);
             console.timeEnd(`ModuleLoader, load: ${modulePath}'`);
             const ref = loadedModule.create(this._injector);
             const component = ref.injector.get(LAZY_LOADED_TOKEN);
@@ -36661,9 +36656,7 @@ let AlertCmp = class AlertCmp {
             }
         }
         if (shouldDismiss) {
-            this.dismiss(button.role).catch(() => {
-                console.debug('alert can not be dismissed');
-            });
+            this.dismiss(button.role);
         }
     }
     rbClick(checkedInput) {
@@ -37497,9 +37490,7 @@ let ModalCmp = class ModalCmp {
             const opts = {
                 minClickBlockDuration: 400
             };
-            return this._viewCtrl.dismiss(null, 'backdrop', opts).catch(() => {
-                console.debug('Dismiss modal by clicking backdrop was cancelled');
-            });
+            return this._viewCtrl.dismiss(null, 'backdrop', opts);
         }
     }
     _keyUp(ev) {
@@ -39777,34 +39768,25 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._swipeBackCheck();
     }
     push(page, params, opts, done) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* convertToView */])(this._linker, page, params).then(viewController => {
-            return this._queueTrns({
-                insertStart: -1,
-                insertViews: [viewController],
-                opts: opts,
-            }, done);
-        }).catch((err) => {
-            console.error('Failed to navigate: ', err.message);
-            throw err;
-        });
+        return this._queueTrns({
+            insertStart: -1,
+            insertViews: [{ page: page, params: params }],
+            opts: opts,
+        }, done);
     }
     insert(insertIndex, page, params, opts, done) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* convertToView */])(this._linker, page, params).then(viewController => {
-            return this._queueTrns({
-                insertStart: insertIndex,
-                insertViews: [viewController],
-                opts: opts,
-            }, done);
-        });
+        return this._queueTrns({
+            insertStart: insertIndex,
+            insertViews: [{ page: page, params: params }],
+            opts: opts,
+        }, done);
     }
     insertPages(insertIndex, insertPages, opts, done) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* convertToViews */])(this._linker, insertPages).then(viewControllers => {
-            return this._queueTrns({
-                insertStart: insertIndex,
-                insertViews: viewControllers,
-                opts: opts,
-            }, done);
-        });
+        return this._queueTrns({
+            insertStart: insertIndex,
+            insertViews: insertPages,
+            opts: opts,
+        }, done);
     }
     pop(opts, done) {
         return this._queueTrns({
@@ -39858,16 +39840,9 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         }, done);
     }
     setRoot(pageOrViewCtrl, params, opts, done) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* convertToView */])(this._linker, pageOrViewCtrl, params).then((viewController) => {
-            return this._setPages([viewController], opts, done);
-        });
+        return this.setPages([{ page: pageOrViewCtrl, params: params }], opts, done);
     }
-    setPages(pages, opts, done) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* convertToViews */])(this._linker, pages).then(viewControllers => {
-            return this._setPages(viewControllers, opts, done);
-        });
-    }
-    _setPages(viewControllers, opts, done) {
+    setPages(viewControllers, opts, done) {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* isBlank */])(opts)) {
             opts = {};
         }
@@ -39883,106 +39858,85 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         }, done);
     }
     _queueTrns(ti, done) {
-        let promise;
-        let resolve = done;
-        let reject = done;
-        if (done === undefined) {
-            promise = new Promise((res, rej) => {
-                resolve = res;
-                reject = rej;
-            });
-        }
-        ti.resolve = (hasCompleted, isAsync, enteringName, leavingName, direction) => {
-            this._trnsId = null;
-            this._init = true;
-            resolve && resolve(hasCompleted, isAsync, enteringName, leavingName, direction);
-            this.setTransitioning(false);
-            this._swipeBackCheck();
-            this._nextTrns();
-        };
-        ti.reject = (rejectReason, transition) => {
-            this._trnsId = null;
-            this._queue.length = 0;
-            while (transition) {
-                var enteringView = transition.enteringView;
-                if (enteringView && (enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["i" /* STATE_ATTACHED */])) {
-                    this._destroyView(enteringView);
-                }
-                if (transition.isRoot()) {
-                    this._trnsCtrl.destroy(transition.trnsId);
-                    break;
-                }
-                transition = transition.parent;
-            }
-            reject && reject(false, false, rejectReason);
-            this.setTransitioning(false);
-            this._swipeBackCheck();
-            this._nextTrns();
-        };
-        if (ti.insertViews) {
-            ti.insertViews = ti.insertViews.filter(v => v !== null);
-            if (ti.insertViews.length === 0) {
-                ti.reject('invalid views to insert');
-                return promise;
-            }
-        }
-        else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeStart) && this._views.length === 0 && !this._isPortal) {
-            ti.reject('no views in the stack to be removed');
-            return promise;
+        const promise = new Promise((resolve, reject) => {
+            ti.resolve = resolve;
+            ti.reject = reject;
+        });
+        ti.done = done;
+        if (ti.insertViews && ti.insertViews.length === 0) {
+            ti.insertViews = undefined;
         }
         this._queue.push(ti);
         this._nextTrns();
         return promise;
     }
+    _success(result, ti) {
+        this._init = true;
+        this._trnsId = null;
+        this.setTransitioning(false);
+        this._swipeBackCheck();
+        this._nextTrns();
+        if (ti.done) {
+            ti.done(result.hasCompleted, result.requiresTransition, result.enteringName, result.leavingName, result.direction);
+        }
+        ti.resolve(result.hasCompleted);
+    }
+    _failed(rejectReason, ti) {
+        this._trnsId = null;
+        this._queue.length = 0;
+        this.setTransitioning(false);
+        this._swipeBackCheck();
+        this._nextTrns();
+        if (ti.done) {
+            ti.done(false, false, rejectReason);
+        }
+        if (ti.reject) {
+            ti.reject(rejectReason);
+        }
+        else {
+            ti.resolve(false);
+        }
+    }
     _nextTrns() {
         if (this.isTransitioning()) {
             return false;
         }
-        const ti = this._nextTI();
-        if (!ti) {
-            return false;
-        }
-        const insertViews = ti.insertViews;
-        if (insertViews) {
-            for (var i = 0; i < insertViews.length; i++) {
-                var nav = insertViews[i]._nav;
-                if (nav && nav !== this || insertViews[i]._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */]) {
-                    ti.reject('leavingView and enteringView are null. stack is already empty');
-                    return false;
-                }
-            }
-        }
-        const leavingView = this.getActive();
-        const enteringView = this._getEnteringView(ti, leavingView);
-        if (!leavingView && !enteringView) {
-            ti.reject('leavingView and enteringView are null. stack is already empty');
-            return false;
-        }
-        this.setTransitioning(true);
-        if (enteringView && enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_NEW */]) {
-            this._viewInit(enteringView);
-        }
-        const requiresTransition = ti.requiresTransition = (ti.enteringRequiresTransition || ti.leavingRequiresTransition) && enteringView !== leavingView;
-        if (requiresTransition) {
-            return this._viewTest(enteringView, leavingView, ti);
-        }
-        else {
-            return this._postViewInit(enteringView, leavingView, ti);
-        }
-    }
-    _nextTI() {
         const ti = this._queue.shift();
         if (!ti) {
-            return null;
+            return false;
         }
+        let enteringView;
+        let leavingView;
+        this._startTI(ti)
+            .then(() => this._loadLazyLoading(ti))
+            .then(() => {
+            leavingView = this.getActive();
+            enteringView = this._getEnteringView(ti, leavingView);
+            if (!leavingView && !enteringView) {
+                throw 'no views in the stack to be removed';
+            }
+            if (enteringView && enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_NEW */]) {
+                this._viewInit(enteringView);
+            }
+            ti.requiresTransition = (ti.enteringRequiresTransition || ti.leavingRequiresTransition) && enteringView !== leavingView;
+        })
+            .then(() => this._viewTest(enteringView, leavingView, ti))
+            .then(() => this._postViewInit(enteringView, leavingView, ti))
+            .then(() => this._transition(enteringView, leavingView, ti))
+            .then((result) => this._success(result, ti))
+            .catch((rejectReason) => this._failed(rejectReason, ti));
+        return true;
+    }
+    _startTI(ti) {
         const viewsLength = this._views.length;
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeView)) {
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeStart), 'removeView needs removeStart');
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeCount), 'removeView needs removeCount');
-            var index = this._views.indexOf(ti.removeView);
-            if (index >= 0) {
-                ti.removeStart += index;
+            const index = this.indexOf(ti.removeView);
+            if (index < 0) {
+                return Promise.reject('removeView was not found');
             }
+            ti.removeStart += index;
         }
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeStart)) {
             if (ti.removeStart < 0) {
@@ -39999,7 +39953,32 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             }
             ti.enteringRequiresTransition = (ti.insertStart === viewsLength);
         }
-        return ti;
+        this.setTransitioning(true);
+        return Promise.resolve();
+    }
+    _loadLazyLoading(ti) {
+        const insertViews = ti.insertViews;
+        if (insertViews) {
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(insertViews.length > 0, 'length can not be zero');
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* convertToViews */])(this._linker, insertViews).then((viewControllers) => {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(insertViews.length === viewControllers.length, 'lengths does not match');
+                for (var i = 0; i < viewControllers.length; i++) {
+                    var view = viewControllers[i];
+                    if (!view) {
+                        throw 'invalid views to insert';
+                    }
+                    var nav = view._nav;
+                    if (nav && nav !== this) {
+                        throw 'inserted view was already inserted';
+                    }
+                    if (viewControllers[i]._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */]) {
+                        throw 'inserted view was already destroyed';
+                    }
+                }
+                ti.insertViews = viewControllers;
+            });
+        }
+        return Promise.resolve();
     }
     _getEnteringView(ti, leavingView) {
         const insertViews = ti.insertViews;
@@ -40048,8 +40027,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(finalBalance >= 0, 'final balance can not be negative');
         if (finalBalance === 0 && !this._isPortal) {
             console.warn(`You can't remove all the pages in the navigation stack. nav.pop() is probably called too many times.`, this, this.getNativeElement());
-            ti.reject('navigation stack needs at least one root page');
-            return false;
+            throw 'navigation stack needs at least one root page';
         }
         if (insertViews) {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(opts.id)) {
@@ -40060,7 +40038,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 this._insertViewAt(view, ti.insertStart + i);
             }
             if (ti.enteringRequiresTransition) {
-                opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["k" /* DIRECTION_FORWARD */];
+                opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* DIRECTION_FORWARD */];
             }
         }
         if (destroyQueue && destroyQueue.length > 0) {
@@ -40076,11 +40054,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 this._destroyView(destroyQueue[i]);
             }
         }
-        if (!ti.requiresTransition) {
-            ti.resolve(true, false);
-            return true;
-        }
-        if (!opts.animation) {
+        if (ti.requiresTransition && !opts.animation) {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(ti.removeStart)) {
                 opts.animation = (leavingView || enteringView).getTransitionName(opts.direction);
             }
@@ -40088,8 +40062,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 opts.animation = (enteringView || leavingView).getTransitionName(opts.direction);
             }
         }
-        this._transitionInit(enteringView, leavingView, opts, ti.resolve);
-        return true;
+        ti.opts = opts;
     }
     _viewInit(enteringView) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(enteringView, 'enteringView must be non null');
@@ -40119,43 +40092,36 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._zone.run(this._didLoad.bind(this, view));
     }
     _viewTest(enteringView, leavingView, ti) {
+        if (!ti.requiresTransition) {
+            return Promise.resolve();
+        }
         const promises = [];
         if (leavingView) {
-            var leavingTestResult = leavingView._lifecycleTest('Leave');
-            if (leavingTestResult === false) {
-                ti.reject((leavingTestResult !== false ? leavingTestResult : `ionViewCanLeave rejected`));
-                return false;
-            }
-            else if (leavingTestResult instanceof Promise) {
-                promises.push(leavingTestResult);
-            }
+            promises.push(leavingView._lifecycleTest('Leave'));
         }
         if (enteringView) {
-            var enteringTestResult = enteringView._lifecycleTest('Enter');
-            if (enteringTestResult === false) {
-                ti.reject((enteringTestResult !== false ? enteringTestResult : `ionViewCanEnter rejected`));
-                return false;
+            promises.push(enteringView._lifecycleTest('Enter'));
+        }
+        if (promises.length === 0) {
+            return Promise.resolve();
+        }
+        return Promise.all(promises).then((values) => {
+            if (values.some(result => result === false)) {
+                throw 'canEnter/Leave returned false';
             }
-            else if (enteringTestResult instanceof Promise) {
-                promises.push(enteringTestResult);
-            }
-        }
-        if (promises.length) {
-            Promise.all(promises).then((values) => {
-                if (values.some(result => result === false)) {
-                    ti.reject(`ionViewCanEnter rejected`);
-                }
-                else {
-                    this._postViewInit(enteringView, leavingView, ti);
-                }
-            }).catch(ti.reject);
-            return true;
-        }
-        else {
-            return this._postViewInit(enteringView, leavingView, ti);
-        }
+        }).catch((reason) => {
+            ti.reject = null;
+            throw reason;
+        });
     }
-    _transitionInit(enteringView, leavingView, opts, resolve) {
+    _transition(enteringView, leavingView, ti) {
+        if (!ti.requiresTransition) {
+            return Promise.resolve({
+                hasCompleted: true,
+                requiresTransition: false
+            });
+        }
+        const opts = ti.opts;
         this._trnsId = this._trnsCtrl.getRootTrnsId(this);
         if (this._trnsId === null) {
             this._trnsId = this._trnsCtrl.nextId();
@@ -40174,11 +40140,8 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (transition.isRoot() && opts.progressAnimation) {
             this._sbTrns = transition;
         }
-        transition.registerStart(() => {
-            this._transitionStart(transition, enteringView, leavingView, opts, resolve);
-            if (transition.parent) {
-                transition.parent.start();
-            }
+        const promise = new Promise(resolve => transition.registerStart(resolve)).then(() => {
+            return this._transitionStart(transition, enteringView, leavingView, opts);
         });
         if (enteringView && (enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_INITIALIZED */])) {
             this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
@@ -40186,11 +40149,12 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (!transition.hasChildren) {
             transition.start();
         }
+        return promise;
     }
-    _transitionStart(transition, enteringView, leavingView, opts, resolve) {
+    _transitionStart(transition, enteringView, leavingView, opts) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'isTransitioning() has to be true');
         this._trnsId = null;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["l" /* setZIndex */])(this, enteringView, leavingView, opts.direction, this._renderer);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["k" /* setZIndex */])(this, enteringView, leavingView, opts.direction, this._renderer);
         enteringView && enteringView._domShow(true, this._renderer);
         leavingView && leavingView._domShow(true, this._renderer);
         transition.init();
@@ -40204,10 +40168,10 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             transition.duration(0);
         }
         transition.beforeAddRead(this._viewsWillLifecycles.bind(this, enteringView, leavingView));
-        transition.onFinish(() => {
-            this._zone.run(this._transitionFinish.bind(this, transition, opts, resolve));
-        });
         const duration = transition.getDuration();
+        const promise = new Promise(resolve => {
+            transition.onFinish(resolve);
+        });
         if (transition.isRoot()) {
             if (duration > DISABLE_APP_MINIMUM_DURATION && opts.disableApp !== false) {
                 this._app.setEnabled(false, duration + ACTIVE_TRANSITION_OFFSET, opts.minClickBlockDuration);
@@ -40222,8 +40186,11 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 transition.play();
             }
         }
+        return promise.then(() => this._zone.run(() => {
+            return this._transitionFinish(transition, opts);
+        }));
     }
-    _transitionFinish(transition, opts, resolve) {
+    _transitionFinish(transition, opts) {
         const hasCompleted = transition.hasCompleted;
         const enteringView = transition.enteringView;
         const leavingView = transition.leavingView;
@@ -40253,7 +40220,13 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 this._keyboard.close();
             }
         }
-        resolve(hasCompleted, true, enteringName, leavingName, opts.direction);
+        return {
+            hasCompleted: hasCompleted,
+            requiresTransition: true,
+            enteringName: enteringName,
+            leavingName: leavingName,
+            direction: opts.direction
+        };
     }
     _viewsWillLifecycles(enteringView, leavingView) {
         if (enteringView || leavingView) {
@@ -40314,7 +40287,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (!this._isPortal && reorderZIndexes) {
             for (i = 0; i < views.length; i++) {
                 view = views[i];
-                view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["m" /* INIT_ZINDEX */] + 1, this._renderer);
+                view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["l" /* INIT_ZINDEX */] + 1, this._renderer);
             }
         }
     }
@@ -42792,9 +42765,7 @@ let NavPush = class NavPush {
     }
     onClick() {
         if (this._nav && this.navPush) {
-            this._nav.push(this.navPush, this.navParams).catch(() => {
-                console.debug('navPush was rejected');
-            });
+            this._nav.push(this.navPush, this.navParams);
             return false;
         }
         return true;
@@ -45260,7 +45231,7 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controll
             this._dom.read(() => {
                 this.resize();
             });
-            done(true);
+            done();
         }
     }
     resize() {
@@ -45585,7 +45556,7 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /*
             selectedTab.load(opts, () => {
                 this._tabSwitchEnd(selectedTab, selectedPage, currentPage);
                 if (opts.updateUrl !== false) {
-                    this._linker.navChange(__WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__["n" /* DIRECTION_SWITCH */]);
+                    this._linker.navChange(__WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__["m" /* DIRECTION_SWITCH */]);
                 }
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["c" /* assert */])(this.getSelected() === selectedTab, 'selected tab does not match');
                 this._fireChangeEvent(selectedTab);
@@ -45658,12 +45629,10 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /*
                 active._cmp.instance.ionSelected();
             }
             else if (tab.length() > 1) {
-                tab.popToRoot().catch(() => {
-                    console.debug('Tabs: pop to root was cancelled');
-                });
+                tab.popToRoot();
             }
             else {
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__["o" /* getComponent */])(this._linker, tab.root).then(viewController => {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__["n" /* getComponent */])(this._linker, tab.root).then(viewController => {
                     if (viewController.component !== active.component) {
                         return tab.setRoot(tab.root);
                     }

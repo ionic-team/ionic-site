@@ -30,7 +30,6 @@ module.exports = function router(app) {
   .get('/press', (req, res) => { res.render('press'); })
   .get('/privacy', (req, res) => { markdown(res, 'privacy-policy'); })
   .get('/products', (req, res) => { res.render('products/index'); })
-  .get('/products/pricing', (req, res) => { res.render('products/pricing'); })
   .get('/products/contact', (req, res) => { res.render('products/contact'); })
   .get('/products/view', (req, res) => { res.render('products/view'); })
   .get('/support', (req, res) => { res.render('support'); })

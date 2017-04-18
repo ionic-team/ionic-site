@@ -137,6 +137,10 @@
         h4 {
           color: white;
         }
+
+        p {
+          color: rgba(white, .7);
+        }
       }
     }
 
@@ -167,7 +171,7 @@
       font-weight: 400;
       line-height: 1.8em;
       margin-bottom: 30px;
-      color: rgba(white, .7);
+      color: rgba(black, .7);
 
       a {
         &:hover {

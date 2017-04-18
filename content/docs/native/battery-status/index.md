@@ -57,7 +57,7 @@ constructor(private batteryStatus: BatteryStatus) { }
 
 // watch change in battery status
 let subscription = this.batteryStatus.onChange().subscribe(
- (status: StatusObject) =&gt; {
+ (status: BatteryStatusResponse) =&gt; {
    console.log(status.level, status.isPlugged);
  }
 );

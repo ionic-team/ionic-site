@@ -252,7 +252,7 @@ Deletes a database
 <h3><a class="anchor" name="executeSql" href="#executeSql"></a><code>executeSql()</code></h3>
 
 
-Execute SQL on the opened database. Note, you must call `openDatabase` first, and
+Execute SQL on the opened database. Note, you must call `create` first, and
 ensure it resolved and successfully opened the database.
 
 

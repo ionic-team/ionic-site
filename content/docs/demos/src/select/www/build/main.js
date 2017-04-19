@@ -37382,12 +37382,12 @@ let ModalCmp = class ModalCmp {
             }
             const componentFactory = cfr.resolveComponentFactory(component);
             const componentRef = this._viewport.createComponent(componentFactory, this._viewport.length, this._viewport.parentInjector, []);
-            this._viewCtrl._setInstance(componentRef.instance);
             this._setCssClass(componentRef, 'ion-page');
             this._setCssClass(componentRef, 'show-page');
-            this._enabled = true;
+            this._viewCtrl._setInstance(componentRef.instance);
             this._viewCtrl.willEnter.subscribe(this._viewWillEnter.bind(this));
             this._viewCtrl.didLeave.subscribe(this._viewDidLeave.bind(this));
+            this._enabled = true;
         }
     }
     _viewWillEnter() {

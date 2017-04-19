@@ -555,6 +555,25 @@
         display: none;
       }
 
+      .app,
+      .toggle {
+        transition: .7s right cubic-bezier(0.490, 1.650, 0.730, 1.130);
+      }
+
+      &.done {
+        .app,
+        .toggle {
+          transition: none;
+        }
+      }
+
+      &.active {
+        .app,
+        .toggle {
+          right: 65%;
+        }
+      }
+
       header {
         padding: 24px 38px 28px;
         position: relative;

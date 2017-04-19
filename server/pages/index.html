@@ -470,6 +470,31 @@ $('.quotees li').click(function(ev) {
 // kick things off
 startTestimonialRotation();
 
+function isScrolledIntoView(el) {
+  var elemTop = el.getBoundingClientRect().top;
+  var elemBottom = el.getBoundingClientRect().bottom;
+
+  var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+  return isVisible;
+}
+
+var codeTriggered = false;
+var codeBox = document.getElementsByClassName('code-box')[0];
+
+function checkCodeBoxScroll(){
+  if (!codeTriggered && isScrolledIntoView(codeBox)) {
+    codeTriggered = true;
+    codeBox.classList.add('active');
+
+    setTimeout(function() {
+      codeBox.classList.add('done');
+    }, 910);
+  }
+}
+
+$(window).scroll(checkCodeBoxScroll);
+checkCodeBoxScroll();
+
 // $('#slider').slick({
 //   dots: true,
 //   infinite: true,

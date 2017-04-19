@@ -14,7 +14,7 @@
   }
 
   .app {
-    right: 65%;
+    right: 0;
     position: absolute;
     overflow: hidden;
     padding: 9px 0 0 9px;
@@ -88,7 +88,7 @@
     width: 4px;
     top: 0 !important;
     bottom: 0;
-    right: 65%;
+    right: 0;
     position: absolute;
     box-shadow: 0 0 18px rgba(0,0,0,.1),0 0 4px rgba(0,0,0,.06);
     background: white;

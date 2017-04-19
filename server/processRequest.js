@@ -1,4 +1,5 @@
 var employees       = require('./data/employees');
+var frameworkInfo   = require('./data/framework-info');
 var redirects       = require('./data/redirects');
 var trustedPartners = require('./data/trusted-partners');
 var url             = require('url');
@@ -65,7 +66,8 @@ module.exports = function(req, res, next) {
     domain: req.get('host'),
     url: req.originalUrl,
     dev: req.get('host').indexOf('localhost') === 0,
-    trustedPartners: shuffle(trustedPartners)
+    trustedPartners: shuffle(trustedPartners),
+    frameworkInfo: frameworkInfo
   };
 
   return next();

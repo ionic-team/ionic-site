@@ -1,5 +1,5 @@
 ---
-layout: v2_fluid/docs_base
+layout: fluid/docs_base
 version: "2.0.1"
 category: storage
 id: "storage"
@@ -141,7 +141,7 @@ Reflect the readiness of the store.
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves when the store is ready</p>
+  <code>Promise</code> <p>Returns a promise that resolves when the store is ready</p>
 
 
 </div>
@@ -170,7 +170,7 @@ Get the value associated with the given key.
       </td>
       <td>
         
-  
+  <code>any</code>
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -185,7 +185,7 @@ Get the value associated with the given key.
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves with the value</p>
+  <code>Promise</code> <p>Returns a promise with the value of the given key</p>
 
 
 </div>
@@ -214,7 +214,7 @@ Set the value for the given key.
       </td>
       <td>
         
-  
+  <code>any</code>
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -231,7 +231,7 @@ Set the value for the given key.
       </td>
       <td>
         
-  
+  <code>any</code>
       </td>
       <td>
         <p>the value for this key</p>
@@ -246,7 +246,7 @@ Set the value for the given key.
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves when the value is set</p>
+  <code>Promise</code> <p>Returns a promise that resolves when the key and value are set</p>
 
 
 </div>
@@ -275,7 +275,7 @@ Remove any value associated with this key.
       </td>
       <td>
         
-  
+  <code>any</code>
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -290,7 +290,7 @@ Remove any value associated with this key.
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves when the value is removed</p>
+  <code>Promise</code> <p>Returns a promise that resolves when the value is removed</p>
 
 
 </div>
@@ -306,7 +306,83 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves when the store is cleared</p>
+  <code>Promise</code> <p>Returns a promise that resolves when the store is cleared</p>
+
+
+</div>
+
+
+<div id="length"></div>
+<h3><a class="anchor" name="length" href="#length"></a><code>length()</code>
+  
+</h3>
+
+
+
+
+<div class="return-value">
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise that resolves with the number of keys stored.</p>
+
+
+</div>
+
+
+<div id="keys"></div>
+<h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code>
+  
+</h3>
+
+
+
+
+<div class="return-value">
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise that resolves with the keys in the store.</p>
+
+
+</div>
+
+
+<div id="forEach"></div>
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(iteratorCallback)</code>
+  
+</h3>
+Iterate through each key,value pair.
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        iteratorCallback
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>a callback of the form (value, key, iterationNumber)</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<div class="return-value">
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise that resolves when the iteration has finished.</p>
 
 
 </div>

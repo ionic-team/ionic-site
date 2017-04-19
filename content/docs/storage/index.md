@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: v2_fluid/docs_base
 version: "2.0.1"
 category: storage
 id: "storage"
@@ -307,82 +307,6 @@ Clear the entire key value store. WARNING: HOT!
 <div class="return-value">
 <b>Returns:</b> 
    <p>Promise that resolves when the store is cleared</p>
-
-
-</div>
-
-
-<div id="length"></div>
-<h3><a class="anchor" name="length" href="#length"></a><code>length()</code>
-  
-</h3>
-
-
-
-
-<div class="return-value">
-<b>Returns:</b> 
-   <p>Promise that resolves with the number of keys stored.</p>
-
-
-</div>
-
-
-<div id="keys"></div>
-<h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code>
-  
-</h3>
-
-
-
-
-<div class="return-value">
-<b>Returns:</b> 
-   <p>Promise that resolves with the keys in the store.</p>
-
-
-</div>
-
-
-<div id="forEach"></div>
-<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(iteratorCallback)</code>
-  
-</h3>
-Iterate through each key,value pair.
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        iteratorCallback
-        
-        
-      </td>
-      <td>
-        
-  
-      </td>
-      <td>
-        <p>a callback of the form (value, key, iterationNumber)</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-<div class="return-value">
-<b>Returns:</b> 
-   <p>Promise that resolves when the iteration has finished.</p>
 
 
 </div>

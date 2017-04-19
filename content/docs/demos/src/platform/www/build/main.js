@@ -54141,7 +54141,9 @@ let VirtualScroll = class VirtualScroll {
                 data.bottomCell = (cells.length - 1);
             }
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__virtual_util__["d" /* adjustRendered */])(cells, data);
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__virtual_util__["e" /* populateNodeData */])(data.topCell, data.bottomCell, data.viewWidth, true, cells, records, nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, needClean);
+            this._zone.run(() => {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__virtual_util__["e" /* populateNodeData */])(data.topCell, data.bottomCell, data.viewWidth, true, cells, records, nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, needClean);
+            });
             if (needClean) {
                 this._cd.detectChanges();
             }
@@ -63145,9 +63147,10 @@ function populateNodeData(startCellIndex, endCellIndex, viewportWidth, scrolling
             totalNodes = nodes.push(availableNode);
         }
         availableNode.cell = cellIndex;
-        availableNode.view.context.$implicit = cell.data || records[cell.record];
-        availableNode.view.context.index = cellIndex;
-        availableNode.view.context.count = recordsLength;
+        var context = availableNode.view.context;
+        context.$implicit = cell.data || records[cell.record];
+        context.index = cellIndex;
+        context.count = recordsLength;
         availableNode.hasChanges = true;
         availableNode.lastTransform = null;
         hasChanges = true;

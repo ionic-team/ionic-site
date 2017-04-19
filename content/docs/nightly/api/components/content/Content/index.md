@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/content/content.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/content/content.ts#L16">
 Improve this doc
 </a>
 
@@ -528,7 +528,7 @@ If the content is actively scrolling or not.
 </h3>
 
 Tell the content to recalculate its dimensions. This should be called
-after dynamically adding/removing headers, footers, or tabs.
+after dynamically adding headers, footers, or tabs.
 
 
 
@@ -917,9 +917,7 @@ to transparent.</p>
     
   </tbody>
 </table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>Resizing the content. If the height of <code>ion-header</code>, <code>ion-footer</code> or <code>ion-tabbar</code>
-changes dynamically, <code>content.resize()</code> has to be called in order to update the
-layout of <code>Content</code>.</p>
+<p>Resizing the content</p>
 <pre><code class="lang-ts">@Component({
   template: `
     &lt;ion-header&gt;

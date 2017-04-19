@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>An Avatar is a component that creates a circular image for an item.
-Avatars can be placed on the left or right side of an item with the <code>item-left</code> or <code>item-right</code> directive.</p>
+Avatar&#39;s can be placed on the left or right side of an item with the <code>item-left</code> or <code>item-right</code> directive.</p>
 
 
 

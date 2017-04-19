@@ -247,15 +247,6 @@ with <code>from</code> and <code>to</code> properties.</p>
       </tr>
       
       <tr>
-        <td><code>$item-ios-avatar-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the avatar in the item</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
           <td><code>56px</code></td>
@@ -382,15 +373,6 @@ with <code>from</code> and <code>to</code> properties.</p>
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-avatar-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       
@@ -557,15 +539,6 @@ with <code>from</code> and <code>to</code> properties.</p>
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-avatar-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       

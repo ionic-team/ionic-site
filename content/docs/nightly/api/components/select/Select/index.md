@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L21">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L18">
 Improve this doc
 </a>
 
@@ -51,16 +51,12 @@ dialog will appear with all of the options in a large, easy to select list
 for users.</p>
 <p>The select component takes child <code>ion-option</code> components. If <code>ion-option</code> is not
 given a <code>value</code> attribute then it will use its text as the value.</p>
-<p>If <code>ngModel</code> is bound to <code>ion-select</code>, the selected value will be based on the
-bound value of the model. Otherwise, the <code>selected</code> attribute can be used on
-<code>ion-option</code> components.</p>
 <h3 id="interfaces">Interfaces</h3>
 <p>By default, the <code>ion-select</code> uses the <a href="../../alert/AlertController">AlertController API</a>
 to open up the overlay of options in an alert. The interface can be changed to use the
-<a href="../../action-sheet/ActionSheetController">ActionSheetController API</a> or
-<a href="../../popover/PopoverController">PopoverController API</a> by passing <code>action-sheet</code> or <code>popover</code>,
-respectively, to the <code>interface</code> property. Read on to the other sections for the limitations
-of the different interfaces.</p>
+<a href="../../action-sheet/ActionSheetController">ActionSheetController API</a> by passing
+<code>action-sheet</code> to the <code>interface</code> property. Read the other sections for the limitations of the
+action sheet interface.</p>
 <h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
 <p>The standard <code>ion-select</code> component allows the user to select only one
 option. When selecting only one option the alert interface presents users with
@@ -71,7 +67,7 @@ component&#39;s value receives the value of the selected option&#39;s value.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Gender&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
-    &lt;ion-option value=&quot;f&quot;&gt;Female&lt;/ion-option&gt;
+    &lt;ion-option value=&quot;f&quot; selected=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
     &lt;ion-option value=&quot;m&quot;&gt;Male&lt;/ion-option&gt;
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
@@ -83,7 +79,7 @@ overlay presents users with a checkbox styled list of options. The
 <code>ion-select multiple=&quot;true&quot;</code> component&#39;s value receives an array of all the
 selected option values. In the example below, because each option is not given
 a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
-<p>Note: the <code>action-sheet</code> and <code>popover</code> interfaces will not work with a multi-value select.</p>
+<p>Note: the action sheet interface will not work with a multi-value select.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Toppings&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;toppings&quot; multiple=&quot;true&quot;&gt;
@@ -103,26 +99,23 @@ can be customized using the <code>cancelText</code> and <code>okText</code> attr
   ...
 &lt;/ion-select&gt;
 </code></pre>
-<p>The <code>action-sheet</code> and <code>popover</code> interfaces do not have an <code>OK</code> button, clicking
+<p>The action sheet interface does not have an <code>OK</code> button, clicking
 on any of the options will automatically close the overlay and select
 that value.</p>
 <h3 id="select-options">Select Options</h3>
-<p>Since <code>ion-select</code> uses the <code>Alert</code>, <code>Action Sheet</code> and <code>Popover</code> interfaces, options can be
+<p>Since <code>ion-select</code> uses the <code>Alert</code> and <code>Action Sheet</code> interfaces, options can be
 passed to these components through the <code>selectOptions</code> property. This can be used
 to pass a custom title, subtitle, css class, and more. See the
-<a href="../../alert/AlertController/#create">AlertController API docs</a>,
-<a href="../../action-sheet/ActionSheetController/#create">ActionSheetController API docs</a>, and
-<a href="../../popover/PopoverController/#create">PopoverController API docs</a>
+<a href="../../alert/AlertController/#create">AlertController API docs</a> and
+<a href="../../action-sheet/ActionSheetController/#create">ActionSheetController API docs</a>
 for the properties that each interface accepts.</p>
-<p>For example, to change the <code>mode</code> of the overlay, pass it into <code>selectOptions</code>.</p>
 <pre><code class="lang-html">&lt;ion-select [selectOptions]=&quot;selectOptions&quot;&gt;
   ...
 &lt;/ion-select&gt;
 </code></pre>
 <pre><code class="lang-ts">this.selectOptions = {
   title: &#39;Pizza Toppings&#39;,
-  subTitle: &#39;Select your toppings&#39;,
-  mode: &#39;md&#39;
+  subTitle: &#39;Select your toppings&#39;
 };
 </code></pre>
 
@@ -145,25 +138,6 @@ for the properties that each interface accepts.</p>
 <h3>
 <a class="anchor" name="config" href="#config"></a>
 <code>config</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="deepLinker"></div>
-
-<h3>
-<a class="anchor" name="deepLinker" href="#deepLinker"></a>
-<code>deepLinker</code>
   
 
 </h3>
@@ -236,9 +210,16 @@ Open the select interface.
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>interface</td>
       <td><code>string</code></td>
-      <td><p> The interface the select should use: <code>action-sheet</code>, <code>popover</code> or <code>alert</code>. Default: <code>alert</code>.</p>
+      <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
 </td>
     </tr>
     
@@ -299,6 +280,12 @@ create options for each interface.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>ionChange</td>
+      <td><p> Emitted when the selection has changed.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -309,11 +296,7 @@ create options for each interface.</p>
     
       
       
-      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
       
       
       
@@ -328,55 +311,6 @@ create options for each interface.</p>
   </div>
 
 
-  
-  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$select-popover-list-margin-top</code></td>
-        
-          <td><code>-1px</code></td>
-        
-        <td><p>Margin top of the select popover list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$select-popover-list-margin-right</code></td>
-        
-          <td><code>0</code></td>
-        
-        <td><p>Margin right of the select popover list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$select-popover-list-margin-bottom</code></td>
-        
-          <td><code>-1px</code></td>
-        
-        <td><p>Margin bottom of the select popover list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$select-popover-list-margin-left</code></td>
-        
-          <td><code>0</code></td>
-        
-        <td><p>Margin left of the select popover list</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>

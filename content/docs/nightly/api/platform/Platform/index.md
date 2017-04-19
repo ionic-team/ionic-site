@@ -532,7 +532,7 @@ if this registered action has the highest priority.</p>
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Function</code> <p>A function that, when called, will unregister
-the back button action.</p>
+the its back button action.</p>
 
 
 </div>
@@ -642,7 +642,7 @@ direction needs to be dynamically changed per user/session.
 
 <h3>
 <a class="anchor" name="setLang" href="#setLang"></a>
-<code>setLang(language,&nbsp;updateDocument)</code>
+<code>setLang(language)</code>
   
 
 </h3>
@@ -677,23 +677,6 @@ the language needs to be dynamically changed per user/session.
       </td>
       <td>
         <p>Examples: <code>en-US</code>, <code>en-GB</code>, <code>ar</code>, <code>de</code>, <code>zh</code>, <code>es-MX</code></p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        updateDocument
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Specifies whether the <code>lang</code> attribute of <code>&lt;html&gt;</code> should be updated</p>
 
         
       </td>

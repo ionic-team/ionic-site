@@ -311,7 +311,8 @@ Similar to Angular 2 route guards, but are more integrated with NavController. F
   ){}
 
   pushPage(){
-    this.navCtrl.push(DetailPage);
+    this.navCtrl.push(DetailPage)
+     .catch(()=&gt; console.log(&#39;should I stay or should I go now&#39;))
   }
 
   ionViewCanLeave(): boolean{
@@ -325,7 +326,7 @@ Similar to Angular 2 route guards, but are more integrated with NavController. F
   }
 }
 </code></pre>
-<p>We need to make sure that our <code>navCtrl.push</code> has a catch in order to catch the and handle the error.
+<p>We need to make sure that or <code>navCtrl.push</code> has a catch in order to catch the and handle the error.
 If you need to prevent a view from entering, you can do the same thing</p>
 <pre><code class="lang-ts">export class MyClass{
  constructor(
@@ -333,7 +334,8 @@ If you need to prevent a view from entering, you can do the same thing</p>
   ){}
 
   pushPage(){
-    this.navCtrl.push(DetailPage);
+    this.navCtrl.push(DetailPage)
+     .catch(()=&gt; console.log(&#39;should I stay or should I go now&#39;))
   }
 
 }
@@ -1637,25 +1639,6 @@ Set the root for the current navigation stack.
 
 
 </div>
-
-
-
-
-<div id="swipeBackEnabled"></div>
-
-<h3>
-<a class="anchor" name="swipeBackEnabled" href="#swipeBackEnabled"></a>
-<code>swipeBackEnabled</code>
-  
-
-</h3>
-
-
-
-
-
-
-
 
 
 

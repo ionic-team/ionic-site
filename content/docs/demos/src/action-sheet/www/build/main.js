@@ -37365,23 +37365,23 @@ let ModalCmp = class ModalCmp {
         }
     }
     ionViewPreLoad() {
-        this._load(this._navParams.data.component);
-    }
-    _load(component) {
-        if (component) {
-            let cfr = this.moduleLoader.getComponentFactoryResolver(component);
-            if (!cfr) {
-                cfr = this._cfr;
-            }
-            const componentFactory = cfr.resolveComponentFactory(component);
-            const componentRef = this._viewport.createComponent(componentFactory, this._viewport.length, this._viewport.parentInjector, []);
-            this._setCssClass(componentRef, 'ion-page');
-            this._setCssClass(componentRef, 'show-page');
-            this._viewCtrl._setInstance(componentRef.instance);
-            this._viewCtrl.willEnter.subscribe(this._viewWillEnter.bind(this));
-            this._viewCtrl.didLeave.subscribe(this._viewDidLeave.bind(this));
-            this._enabled = true;
+        const component = this._navParams.data.component;
+        if (!component) {
+            console.warn('modal\'s page was not defined');
+            return;
         }
+        let cfr = this.moduleLoader.getComponentFactoryResolver(component);
+        if (!cfr) {
+            cfr = this._cfr;
+        }
+        const componentFactory = cfr.resolveComponentFactory(component);
+        const componentRef = this._viewport.createComponent(componentFactory, this._viewport.length, this._viewport.parentInjector, []);
+        this._setCssClass(componentRef, 'ion-page');
+        this._setCssClass(componentRef, 'show-page');
+        this._viewCtrl._setInstance(componentRef.instance);
+        this._viewCtrl.willEnter.subscribe(this._viewWillEnter.bind(this));
+        this._viewCtrl.didLeave.subscribe(this._viewDidLeave.bind(this));
+        this._enabled = true;
     }
     _viewWillEnter() {
         this._gestureBlocker.block();
@@ -42962,8 +42962,7 @@ ItemContent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform_platform__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_sliding__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__item_sliding__ = __webpack_require__(109);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemOptions; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -42977,7 +42976,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 let ItemOptions = class ItemOptions {
     constructor(_elementRef, _renderer, _plt) {
         this._elementRef = _elementRef;
@@ -42986,19 +42984,16 @@ let ItemOptions = class ItemOptions {
         this.ionSwipe = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
     }
     getSides() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["a" /* isPresent */])(this.side)) {
-            switch (this.side) {
-                case 'left':
-                    return __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
-                case 'right':
-                    return __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
-                case 'start':
-                    return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
-                case 'end':
-                    return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
-            }
+        switch (this.side) {
+            case 'left':
+                return __WEBPACK_IMPORTED_MODULE_2__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
+            case 'right':
+                return __WEBPACK_IMPORTED_MODULE_2__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
+            case 'start':
+                return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_2__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */] : __WEBPACK_IMPORTED_MODULE_2__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */];
+            default:
+                return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_2__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */] : __WEBPACK_IMPORTED_MODULE_2__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
         }
-        return this._plt.isRTL() ? __WEBPACK_IMPORTED_MODULE_3__item_sliding__["a" /* ITEM_SIDE_FLAG_LEFT */] : __WEBPACK_IMPORTED_MODULE_3__item_sliding__["b" /* ITEM_SIDE_FLAG_RIGHT */];
     }
     width() {
         return this._elementRef.nativeElement.offsetWidth;

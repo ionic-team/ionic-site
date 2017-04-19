@@ -64,7 +64,7 @@ If you've used the paths suggested, you should have something like this.
   export PATH=$ANDROID_HOME/tools:$PATH
 ```
 
-apply these changes by re-sourcing .bash_profileA
+Apply these changes by re-sourcing .bash_profileA
 
 ```bash
   source ~/.bash_profile

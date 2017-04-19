@@ -15392,12 +15392,7 @@ class ViewController {
         const instance = this.instance;
         const methodName = 'ionView' + lifecycle;
         if (instance && instance[methodName]) {
-            try {
-                instance[methodName]();
-            }
-            catch (e) {
-                console.error(`${this.name} ${methodName} error: ${e.message}`);
-            }
+            instance[methodName]();
         }
     }
 }
@@ -35719,8 +35714,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller_base__["a" /* NavControllerBase */] {
-    constructor(viewCtrl, parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl) {
-        super(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl);
+    constructor(viewCtrl, parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl, errHandler) {
+        super(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl, errHandler);
         this._hasInit = false;
         if (viewCtrl) {
             viewCtrl._setContent(this);
@@ -35803,10 +35798,10 @@ Nav = Nav_1 = __decorate([
     __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(12, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _r || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]) === "function" && _s || Object])
 ], Nav);
 
-var Nav_1, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+var Nav_1, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
 //# sourceMappingURL=nav.js.map
 
 /***/ }),
@@ -37442,8 +37437,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 let OverlayPortal = class OverlayPortal extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller_base__["a" /* NavControllerBase */] {
-    constructor(app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, viewPort, domCtrl) {
-        super(null, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl);
+    constructor(app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, viewPort, domCtrl, errHandler) {
+        super(null, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl, errHandler);
         this._isPortal = true;
         this._init = true;
         this.setViewport(viewPort);
@@ -37469,10 +37464,10 @@ OverlayPortal = __decorate([
     }),
     __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Inject */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(() => __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]))),
     __param(10, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__platform_platform__["b" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _o || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__platform_platform__["b" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]) === "function" && _p || Object])
 ], OverlayPortal);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 //# sourceMappingURL=overlay-portal.js.map
 
 /***/ }),
@@ -39549,7 +39544,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a" /* Ion */] {
-    constructor(parent, _app, config, plt, _keyboard, elementRef, _zone, renderer, _cfr, _gestureCtrl, _trnsCtrl, _linker, _domCtrl) {
+    constructor(parent, _app, config, plt, _keyboard, elementRef, _zone, renderer, _cfr, _gestureCtrl, _trnsCtrl, _linker, _domCtrl, _errHandler) {
         super(config, elementRef, renderer);
         this.parent = parent;
         this._app = _app;
@@ -39562,6 +39557,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._trnsCtrl = _trnsCtrl;
         this._linker = _linker;
         this._domCtrl = _domCtrl;
+        this._errHandler = _errHandler;
         this._children = [];
         this._ids = -1;
         this._init = false;
@@ -39790,7 +39786,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                     if (nav && nav !== this) {
                         throw 'inserted view was already inserted';
                     }
-                    if (viewControllers[i]._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */]) {
+                    if (view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */]) {
                         throw 'inserted view was already destroyed';
                     }
                 }
@@ -40116,49 +40112,84 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     }
     _willLoad(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
-        view._willLoad();
+        try {
+            view._willLoad();
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _didLoad(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._didLoad();
-        this.viewDidLoad.emit(view);
-        this._app.viewDidLoad.emit(view);
+        try {
+            view._didLoad();
+            this.viewDidLoad.emit(view);
+            this._app.viewDidLoad.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _willEnter(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._willEnter();
-        this.viewWillEnter.emit(view);
-        this._app.viewWillEnter.emit(view);
+        try {
+            view._willEnter();
+            this.viewWillEnter.emit(view);
+            this._app.viewWillEnter.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _didEnter(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._didEnter();
-        this.viewDidEnter.emit(view);
-        this._app.viewDidEnter.emit(view);
+        try {
+            view._didEnter();
+            this.viewDidEnter.emit(view);
+            this._app.viewDidEnter.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _willLeave(view, willUnload) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._willLeave(willUnload);
-        this.viewWillLeave.emit(view);
-        this._app.viewWillLeave.emit(view);
+        try {
+            view._willLeave(willUnload);
+            this.viewWillLeave.emit(view);
+            this._app.viewWillLeave.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _didLeave(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._didLeave();
-        this.viewDidLeave.emit(view);
-        this._app.viewDidLeave.emit(view);
+        try {
+            view._didLeave();
+            this.viewDidLeave.emit(view);
+            this._app.viewDidLeave.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     _willUnload(view) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this.isTransitioning(), 'nav controller should be transitioning');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
-        view._willUnload();
-        this.viewWillUnload.emit(view);
-        this._app.viewWillUnload.emit(view);
+        try {
+            view._willUnload();
+            this.viewWillUnload.emit(view);
+            this._app.viewWillUnload.emit(view);
+        }
+        catch (e) {
+            this._errHandler && this._errHandler.handleError(e);
+        }
     }
     hasChildren() {
         return this._children.length > 0;
@@ -45143,8 +45174,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller_base__["a" /* NavControllerBase */] {
-    constructor(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, _cd, gestureCtrl, transCtrl, linker, _dom) {
-        super(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, _dom);
+    constructor(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, _cd, gestureCtrl, transCtrl, linker, _dom, errHandler) {
+        super(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, _dom, errHandler);
         this._cd = _cd;
         this.linker = linker;
         this._dom = _dom;
@@ -45302,10 +45333,10 @@ Tab = __decorate([
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None,
     }),
     __param(12, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_10__tabs__["a" /* Tabs */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__tabs__["a" /* Tabs */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _s || Object])
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_10__tabs__["a" /* Tabs */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__tabs__["a" /* Tabs */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _s || Object, typeof (_t = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]) === "function" && _t || Object])
 ], Tab);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
 //# sourceMappingURL=tab.js.map
 
 /***/ }),
@@ -56015,7 +56046,8 @@ function View_AppComponent_0(l) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_11__src_navigation_deep_linker__["b" /* DeepLinker */]
             ],
-            __WEBPACK_IMPORTED_MODULE_12__src_platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_12__src_platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], { root: [
                 0,
                 'root'
@@ -58696,7 +58728,8 @@ function View_IonicApp_0(l) {
                 __WEBPACK_IMPORTED_MODULE_8__navigation_deep_linker__["b" /* DeepLinker */]
             ],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
-            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], { _overlayPortal: [
                 0,
                 '_overlayPortal'
@@ -58731,7 +58764,8 @@ function View_IonicApp_0(l) {
                 __WEBPACK_IMPORTED_MODULE_8__navigation_deep_linker__["b" /* DeepLinker */]
             ],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
-            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], { _overlayPortal: [
                 0,
                 '_overlayPortal'
@@ -58771,7 +58805,8 @@ function View_IonicApp_0(l) {
                 __WEBPACK_IMPORTED_MODULE_8__navigation_deep_linker__["b" /* DeepLinker */]
             ],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
-            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], { _overlayPortal: [
                 0,
                 '_overlayPortal'
@@ -58806,7 +58841,8 @@ function View_IonicApp_0(l) {
                 __WEBPACK_IMPORTED_MODULE_8__navigation_deep_linker__["b" /* DeepLinker */]
             ],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
-            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_9__platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], { _overlayPortal: [
                 0,
                 '_overlayPortal'
@@ -60300,7 +60336,8 @@ function View_Nav_Host_0(l) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_10__navigation_deep_linker__["b" /* DeepLinker */]
             ],
-            __WEBPACK_IMPORTED_MODULE_11__platform_dom_controller__["a" /* DomController */]
+            __WEBPACK_IMPORTED_MODULE_11__platform_dom_controller__["a" /* DomController */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ErrorHandler */]
         ], null, null),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵprd */](3072, null, __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__["a" /* RootNode */], null, [__WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */]])
     ], null, null);

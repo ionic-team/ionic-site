@@ -445,13 +445,6 @@ days which are not valid for the selected month.</p>
     </tr>
     
     <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>displayFormat</td>
       <td><code>string</code></td>
       <td><p> The display format of the date and time as text that shows
@@ -597,12 +590,6 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
     <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the datetime selection was cancelled.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionChange</td>
-      <td><p> Emitted when the datetime selection has changed.</p>
 </td>
     </tr>
     

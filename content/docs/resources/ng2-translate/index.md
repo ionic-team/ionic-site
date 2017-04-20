@@ -54,8 +54,8 @@ and then adding the following to your NgModules imports array:
 })
 ```
 
-## Lazy loading
-When you want to use Ionics lazy loading pages, you have to configure your yourpage.mdoule.ts files
+## Lazy loading pages
+If you want to use Ionics lazy loading pages together with ngx-translate, you have to configure your yourpage.mdoule.ts files
 
 ```typescript
 import { NgModule } from '@angular/core';

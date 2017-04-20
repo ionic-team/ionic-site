@@ -98,6 +98,13 @@
     "spritePosition": 3250
   },
   {
+    "name":"Andrew Haire",
+    "title":"Marketing Director",
+    "description":"",
+    "twitter":"achaire",
+    "spritePosition": 3500
+  },
+  {
     "name":"Lee Schmidt",
     "title":"Creator Developer",
     "description":"At Ionic, Lee’s main quest is working on Creator, wielding a MacBook and a cup of coffee (he gains +1 intelligence for each additional cup). When he’s not writing code, he likes to swim, bike, run, and compete in triathlons.",
@@ -110,6 +117,13 @@
     "description":"Family, code, and the Wisconsin Badgers. That's what Dan is all about. When not hacking on Ionic or other open source projects, Dan enjoys watching sports and hanging out with his wife, son, and dog.",
     "twitter":"danbucholtz",
     "spritePosition": 4000
+  },
+  {
+    "name":"Swami Kumaresan",
+    "title":"COO",
+    "description":"",
+    "twitter":"swami78",
+    "spritePosition": 4250
   },
   {
     "name":"Josh Thomas",

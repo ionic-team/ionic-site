@@ -219,7 +219,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
   '!content/_includes/head_includes.html', '!content/_includes/fluid/head.html',
-  '!content/_includes/fluid/footer_tags.html'], ['jekyll-rebuild']);
+  '!content/_includes/fluid/footer_tags.html', 'content/js/site.js'], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {

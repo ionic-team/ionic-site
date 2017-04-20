@@ -14892,9 +14892,9 @@ class Platform {
                     if (this.hasFocusedTextInput() === false) {
                         this._isPortrait = null;
                     }
-                    this.resize.emit();
+                    this.zone.run(() => this.resize.emit());
                 }, 200);
-            }, { passive: true, zone: true });
+            }, { passive: true, zone: false });
         }, 2000);
     }
     setPlatformConfigs(platformConfigs) {

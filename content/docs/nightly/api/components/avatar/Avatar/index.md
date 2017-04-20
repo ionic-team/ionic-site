@@ -57,27 +57,6 @@ Avatars can be placed on the left or right side of an item with the <code>item-l
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="test"></div>
-
-<h3>
-<a class="anchor" name="test" href="#test"></a>
-<code>test</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

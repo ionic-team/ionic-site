@@ -167,7 +167,7 @@ index and prints it:</p>
 
 <h3>
 <a class="anchor" name="enableKeyboardControl" href="#enableKeyboardControl"></a>
-<code>enableKeyboardControl(shouldEnableKeyboard)</code>
+<code>enableKeyboardControl()</code>
   
 
 </h3>
@@ -175,35 +175,6 @@ index and prints it:</p>
 Enable or disable keyboard control.
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldEnableKeyboard
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If set to true the slider can be controled by a keyboard.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -356,7 +327,7 @@ Get the total number of slides.
 
 <h3>
 <a class="anchor" name="lockSwipeToNext" href="#lockSwipeToNext"></a>
-<code>lockSwipeToNext(shouldLockSwipeToNext)</code>
+<code>lockSwipeToNext()</code>
   
 
 </h3>
@@ -364,36 +335,6 @@ Get the total number of slides.
 Lock or unlock the ability to slide to the next slides.
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldLockSwipeToNext
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If set to true the user will not be able to swipe to the next slide. 
-Set to false to unlock this behaviour.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -406,7 +347,7 @@ Set to false to unlock this behaviour.</p>
 
 <h3>
 <a class="anchor" name="lockSwipeToPrev" href="#lockSwipeToPrev"></a>
-<code>lockSwipeToPrev(shouldLockSwipeToPrev)</code>
+<code>lockSwipeToPrev()</code>
   
 
 </h3>
@@ -414,36 +355,6 @@ Set to false to unlock this behaviour.</p>
 Lock or unlock the ability to slide to the previous slides.
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldLockSwipeToPrev
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If set to true the user will not be able to swipe to the previous slide.
-Set to false to unlock this behaviour.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -456,7 +367,7 @@ Set to false to unlock this behaviour.</p>
 
 <h3>
 <a class="anchor" name="lockSwipes" href="#lockSwipes"></a>
-<code>lockSwipes(shouldLockSwipes)</code>
+<code>lockSwipes()</code>
   
 
 </h3>
@@ -464,36 +375,6 @@ Set to false to unlock this behaviour.</p>
 Lock or unlock the ability to slide to change slides.
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldLockSwipes
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If set to true user can not swipe in either direction on slide. 
-False allows swiping in both directions.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

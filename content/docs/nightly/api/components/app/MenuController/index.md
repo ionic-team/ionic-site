@@ -33,7 +33,7 @@ MenuController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/menu/menu-controller.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/app/menu-controller.ts#L2">
 Improve this doc
 </a>
 
@@ -681,23 +681,7 @@ will close.
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
-      
-      
-      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
+    <h3 ng-init="setSassPlatform('base')">All</h3>
     
   </div>
 
@@ -714,122 +698,83 @@ will close.
     <tbody>
       
       <tr>
-        <td><code>$menu-width</code></td>
+        <td><code>$font-size-root</code></td>
         
-          <td><code>304px</code></td>
+          <td><code>62.5%</code></td>
         
-        <td><p>Width of the menu</p>
+        <td><p>Font size of the root html</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$menu-small-width</code></td>
+        <td><code>$headings-font-weight</code></td>
         
-          <td><code>$menu-width - 40px</code></td>
+          <td><code>500</code></td>
         
-        <td><p>Width of the menu on small devices (under 340px)</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$menu-ios-background</code></td>
-        
-          <td><code>$background-ios-color</code></td>
-        
-        <td><p>Background of the menu</p>
+        <td><p>Font weight of all headings</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$menu-ios-box-shadow-color</code></td>
+        <td><code>$headings-line-height</code></td>
         
-          <td><code>rgba(0, 0, 0, .25)</code></td>
+          <td><code>1.2</code></td>
         
-        <td><p>Box shadow color of the menu</p>
+        <td><p>Line height of all headings</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$menu-ios-box-shadow</code></td>
+        <td><code>$h1-font-size</code></td>
         
-          <td><code>0 0 10px $menu-ios-box-shadow-color</code></td>
+          <td><code>2.6rem</code></td>
         
-        <td><p>Box shadow of the menu</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$menu-md-background</code></td>
-        
-          <td><code>$background-md-color</code></td>
-        
-        <td><p>Background of the menu</p>
+        <td><p>Font size of heading level 1</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$menu-md-box-shadow-color</code></td>
+        <td><code>$h2-font-size</code></td>
         
-          <td><code>rgba(0, 0, 0, .25)</code></td>
+          <td><code>2.4rem</code></td>
         
-        <td><p>Box shadow color of the menu</p>
+        <td><p>Font size of heading level 2</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$menu-md-box-shadow</code></td>
+        <td><code>$h3-font-size</code></td>
         
-          <td><code>0 0 10px $menu-md-box-shadow-color</code></td>
+          <td><code>2.2rem</code></td>
         
-        <td><p>Box shadow of the menu</p>
+        <td><p>Font size of heading level 3</p>
 </td>
       </tr>
       
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
-    <thead>
       <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
+        <td><code>$h4-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size of heading level 4</p>
+</td>
       </tr>
-    </thead>
-    <tbody>
       
       <tr>
-        <td><code>$menu-wp-background</code></td>
+        <td><code>$h5-font-size</code></td>
         
-          <td><code>#f2f2f2</code></td>
+          <td><code>1.8rem</code></td>
         
-        <td><p>Background of the menu</p>
+        <td><p>Font size of heading level 5</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h6-font-size</code></td>
+        
+          <td><code>1.6rem</code></td>
+        
+        <td><p>Font size of heading level 6</p>
 </td>
       </tr>
       

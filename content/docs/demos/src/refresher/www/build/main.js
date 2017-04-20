@@ -40259,11 +40259,12 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(insertViews.length > 0, 'length can not be zero');
             return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* convertToViews */])(this._linker, insertViews).then((viewControllers) => {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(insertViews.length === viewControllers.length, 'lengths does not match');
+                viewControllers = viewControllers.filter(v => v !== null);
+                if (viewControllers.length === 0) {
+                    throw 'invalid views to insert';
+                }
                 for (var i = 0; i < viewControllers.length; i++) {
                     var view = viewControllers[i];
-                    if (!view) {
-                        throw 'invalid views to insert';
-                    }
                     var nav = view._nav;
                     if (nav && nav !== this) {
                         throw 'inserted view was already inserted';

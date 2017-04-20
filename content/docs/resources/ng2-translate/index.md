@@ -54,6 +54,30 @@ and then adding the following to your NgModules imports array:
 })
 ```
 
+## Lazy loading
+When you want to use Ionics lazy loading pages, you have to configure your yourpage.mdoule.ts files
+
+```typescript
+import { NgModule } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+import { TranslateModule } from '@ngx-translate/core';
+import { HelloPage } from './hello-page';
+
+@NgModule({
+  declarations: [
+    HelloPage,
+  ],
+  imports: [
+    IonicPageModule.forChild(HelloPage),
+    TranslateModule.forChild()
+  ],
+  exports: [
+    HelloPage
+  ]
+})
+export class HelloPageModule {}
+```
+
 ### Usage
 
 Once the above steps have been completed, we can begin to use in your Ionic app. The first step is to set up the translation assets. The translation assets are just json objects, as shown below:

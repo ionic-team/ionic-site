@@ -29,7 +29,7 @@ $ sudo npm install -g ionic
 One of the most important commands is the `start` command, which creates a new Ionic project. Let's try it out:
 
 ```bash
-$ ionic start myAwesomeApp --v2
+$ ionic start myAwesomeApp
 ```
 
 This will create a new app named `myAwesomeApp`. Let's `cd` in to that directory, and run another Ionic CLI command:

@@ -26,7 +26,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
 
 ```bash
-$ ionic start MyIonic2Project tutorial --v2
+$ ionic start MyIonic2Project tutorial
 ```
 
 - `start` will tell the CLI create a new app.
@@ -44,7 +44,7 @@ If the tutorial template isn't something you want to use, Ionic has a few templa
 - `super`: starter project with over 14 ready to use page designs
 - `tutorial`: a guided starter project
 
-If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+If you don't specify a template by running `ionic start MyIonic2Project`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 
 
 

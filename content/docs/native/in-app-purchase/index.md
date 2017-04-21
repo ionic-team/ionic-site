@@ -55,7 +55,7 @@ constructor(private iap: InAppPurchase) { }
 ...
 
 this.iap
- .getProducts([&#39;com.yourapp.prod1&#39;, &#39;com.yourapp.prod2&#39;, ...])
+ .getProducts([prod1&#39;, &#39;prod2&#39;, ...])
  .then((products) =&gt; {
    console.log(products);
     //  [{ productId: &#39;com.yourapp.prod1&#39;, &#39;title&#39;: &#39;...&#39;, description: &#39;...&#39;, price: &#39;...&#39; }, ...]

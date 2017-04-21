@@ -434,6 +434,15 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
+        <td><code>$toggle-md-padding</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding of standalone toggle</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$toggle-md-item-left-padding</code></td>
         
           <td><code>12px 18px 12px 2px</code></td>

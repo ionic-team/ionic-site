@@ -450,6 +450,52 @@ Observable that emits before any view unloads in the app.
 </td>
       </tr>
       
+      <tr>
+        <td><code>$include-responsive-utilities</code></td>
+        
+          <td><code>true</code></td>
+        
+        <td><p>Whether to include all of the responsive utility attributes</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$include-text-alignment-utilities</code></td>
+        
+          <td><code>$include-responsive-utilities</code></td>
+        
+        <td><p>Whether to include all of the responsive text alignment attributes</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$include-text-transform-utilities</code></td>
+        
+          <td><code>$include-responsive-utilities</code></td>
+        
+        <td><p>Whether to include all of the responsive text transform attributes</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$include-float-element-utilities</code></td>
+        
+          <td><code>$include-responsive-utilities</code></td>
+        
+        <td><p>Whether to include all of the responsive float attributes</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$screen-breakpoints</code></td>
+        
+          <td><code>(&#10;  xs: 0,&#10;  sm: 576px,&#10;  md: 768px,&#10;  lg: 992px,&#10;  xl: 1200px&#10;)</code></td>
+        
+        <td><p>The minimum dimensions at which your layout will change,
+adapting to different screen sizes, for use in media queries</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   

@@ -12,7 +12,7 @@ header_sub_title: Ionic Resources
   Improve this doc
 </a>
 
-There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM, and how they relate to Ionic.
+There is a lot of new terminology in Ionic, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM, and how they relate to Ionic.
 
 ## Ionic NPM packages - What's in a name?
 
@@ -27,13 +27,7 @@ The CLI (**C**ommand **L**ine **I**nterface) is the main tool that you will use 
 npm install -g ionic
 ```
 
-This will install the latest stable release of the Ionic CLI. To install the latest beta release, which is currently required for V2 development, run:
-
-
-```bash
-# if on linux/osx, run with sudo
-npm install -g ionic@beta
-```
+This will install the latest stable release of the Ionic CLI.
 
 Then we can use the CLI from the command line by running `ionic <command>`.
 
@@ -51,13 +45,13 @@ The framework is available on NPM under the name `ionic-angular`. When you creat
 }
 ```
 
-Here we are saying that this project depends on the `ionic-angular` package and it uses the version `2.0.0-beta.3`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
+Here we are saying that this project depends on the `ionic-angular` package and it uses the version `3.0.0`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
 
 ```bash
 npm outdated
 
-Package                           Current          Wanted          Latest  Location
-ionic-angular                2.0.0-beta.3    2.0.0-beta.3    2.0.0-beta.4  myApp
+Package                           Current          Wanted          Latest     Location
+ionic-angular                       3.0.0           3.0.1           3.0.0        myAp0
 ```
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-beta.4`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "2.0.0-beta.4"`, and then run `npm update`.
+This tells us that there is an update to the ionic-framework package, version `3.0.1`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "3.0.1"`, and then run `npm update`.

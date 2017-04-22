@@ -31,7 +31,7 @@ In `src/app/app.component.ts`, the `MyApp` component specifies this in its const
 
 ```ts
 ...
-import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
+import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 ...
 
 export class MyApp {
@@ -39,15 +39,11 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage: any = HelloIonicPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-    constructor(
-      private platform: Platform,
-      private menu: MenuController
-    ) {
-    ...
-  }
-
+    constructor(private platform: Platform, private menu: MenuController, ...) {
+      ...
+    }
   ...
 }
 
@@ -133,17 +129,17 @@ import {ItemDetailsPage} from '../item-details/item-details';
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{ title: string, note: string, icon: string }>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+      'american-football', 'boat', 'bluetooth', 'build'];
 
     this.items = [];
-    for(let i = 1; i < 11; i++) {
+    for (let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Item ' + i,
         note: 'This is item #' + i,

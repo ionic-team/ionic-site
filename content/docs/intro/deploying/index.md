@@ -19,6 +19,7 @@ Deploying to an Android device is a fairly straightforward process. If you have 
 
 ### Requirements
 
+- [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html)
 - [Android Studio](https://developer.android.com/studio/index.html)
 - Updated Android SDK tools, platform and component dependencies. Available through Android Studio's [SDK Manager](https://developer.android.com/studio/intro/update.html)
 
@@ -40,7 +41,41 @@ ionic run android --prod --release
 ionic build android --prod --release
 ```
 
-This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play store.
+This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play Store.
+
+### Sign Android APK
+If you want to release your app in the Google Play Store, you have to sign your APK file.
+To do this, you have to create a new certificate/keystore.
+
+Let’s generate your private key using the keytool command that comes with the JDK:
+```bash
+keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
+```
+You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jsk created in the current directory.
+
+__Note__: Make sure to save this file somewhere safe, if you lose it you won’t be able to submit updates to your app!
+
+To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
+
+```bash
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jsk android-release-unsigned.apk alias_name
+```
+
+This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
+
+```bash
+zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
+```
+
+To erify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:
+
+```bash
+apksigner verify HelloWorld.apk
+```
+
+Now we have our final release binary called HelloWorld.apk and we can release this on the Google Play Store for all the world to enjoy!
+
+All steps can also be found here: [Android SDK docs](https://developer.android.com/studio/publish/app-signing.html#signing-manually)
 
 ## iOS Devices
 

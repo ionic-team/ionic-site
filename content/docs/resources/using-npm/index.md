@@ -54,4 +54,4 @@ Package                           Current          Wanted          Latest     Lo
 ionic-angular                       3.0.0           3.0.0           3.0.1        myAp0
 ```
 
-This tells us that there is an update to the ionic-framework package, version `3.0.1`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "3.0.1"`, and then run `npm update`.
+This tells us that there is an update to the ionic-framework package, version `3.0.1`. To get this update, we can run `npm install ionic-angular@latest --save`. Alternatively, we could update our `package.json` to `"ionic-angular": "3.0.1"`, and then run `npm update`.

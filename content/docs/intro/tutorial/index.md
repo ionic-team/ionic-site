@@ -26,13 +26,12 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
 
 ```bash
-$ ionic start MyIonic2Project tutorial
+$ ionic start MyIonicProject tutorial
 ```
 
 - `start` will tell the CLI create a new app.
-- `MyIonic2Project` will be the directory name and the app name from your project.
+- `MyIonicProject` will be the directory name and the app name from your project.
 - `tutorial` will be the starter template for your project.
-- `--v2` tells the CLI that you want a 2.0 project.
 
 Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
@@ -44,7 +43,7 @@ If the tutorial template isn't something you want to use, Ionic has a few templa
 - `super`: starter project with over 14 ready to use page designs
 - `tutorial`: a guided starter project
 
-If you don't specify a template by running `ionic start MyIonic2Project`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+If you don't specify a template by running `ionic start MyIonicProject`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 
 
 
@@ -52,7 +51,7 @@ If you don't specify a template by running `ionic start MyIonic2Project`, the [t
 Now, you can `cd` into the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
 
 ```bash
-$ cd MyIonic2Project/
+$ cd MyIonicProject/
 $ ionic serve
 ```
 

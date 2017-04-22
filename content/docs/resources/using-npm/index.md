@@ -51,7 +51,7 @@ Here we are saying that this project depends on the `ionic-angular` package and 
 npm outdated
 
 Package                           Current          Wanted          Latest     Location
-ionic-angular                       3.0.0           3.0.1           3.0.0        myAp0
+ionic-angular                       3.0.0           3.0.0           3.0.1        myAp0
 ```
 
 This tells us that there is an update to the ionic-framework package, version `3.0.1`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "3.0.1"`, and then run `npm update`.

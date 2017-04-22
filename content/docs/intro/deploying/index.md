@@ -67,7 +67,7 @@ This signs the APK in place. Finally, we need to run the zip align tool to optim
 zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
 ```
 
-To erify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:
+To verify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:
 
 ```bash
 apksigner verify HelloWorld.apk

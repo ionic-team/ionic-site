@@ -47,6 +47,11 @@ touch ~/.bash_profile
 
 Then open that file in your favorite editor.
 
+```bash
+# Opens with TextEdit
+open -a TextEdit ~/.bash_profile
+```
+
 From here, we'll need to add a few lines. These are the reference to Java and the Android SDK location we copied down earlier.
 
 If you've used the paths suggested, you should have something like this.
@@ -64,7 +69,7 @@ If you've used the paths suggested, you should have something like this.
   export PATH=$ANDROID_HOME/tools:$PATH
 ```
 
-Apply these changes by re-sourcing .bash_profileA
+Apply these changes by re-sourcing .bash_profile
 
 ```bash
   source ~/.bash_profile

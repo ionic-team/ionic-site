@@ -92,14 +92,14 @@ The `TranslateService`  can be used both to change the current language the app 
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-    selector: 'page-schedule',
-    templateUrl: 'schedule.html'
+  selector: 'page-schedule',
+  templateUrl: 'schedule.html'
 })
 export class SchedulePage {
-    constructor(translate: TranslateService) {
-        // this language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang('en');
-    }
+  constructor(translate: TranslateService) {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+  }
 }
 ```
 

@@ -283,7 +283,7 @@ Returns `true` if the app is in portait mode.
 
 <h3>
 <a class="anchor" name="isRTL" href="#isRTL"></a>
-<code>isRTL()</code>
+<code>isRTL</code>
   
 
 </h3>
@@ -588,7 +588,7 @@ out from the background, however, it would not fire on a standard web browser.
 
 <h3>
 <a class="anchor" name="setDir" href="#setDir"></a>
-<code>setDir(dir)</code>
+<code>setDir(dir,&nbsp;updateDocument)</code>
   
 
 </h3>
@@ -624,6 +624,22 @@ direction needs to be dynamically changed per user/session.
       <td>
         <p>Examples: <code>rtl</code>, <code>ltr</code></p>
 
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        updateDocument
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        
         
       </td>
     </tr>

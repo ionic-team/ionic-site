@@ -28,9 +28,9 @@ This will give you a html file, sass file, and a js file with your component def
 To create a service, you can replace `page` with `provider`:
 
 ```bash
-ionic g provider MyProvider
+ionic g provider MyData
 
-√ Create src/providers/my-provider/my-provider.ts
+√ Create src/providers/my-data/my-data.ts
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.

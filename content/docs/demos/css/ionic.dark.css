@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704241322, Dark Theme
+ * vE2E-201704241552, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -7621,6 +7621,10 @@ ion-label[floating] {
   transition: transform 150ms ease-in-out;
   transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out; }
 
+[dir="rtl"] .label-ios[floating] {
+  -webkit-transform-origin: right top;
+  transform-origin: right top; }
+
 .input-has-focus .label-ios[floating],
 .input-has-value .label-ios[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(0.8);
@@ -7684,6 +7688,10 @@ ion-label[floating] {
   transition: -webkit-transform 150ms ease-in-out;
   transition: transform 150ms ease-in-out;
   transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out; }
+
+[dir="rtl"] .label-md[floating] {
+  -webkit-transform-origin: right top;
+  transform-origin: right top; }
 
 .label-md[stacked],
 .label-md[floating] {
@@ -7750,6 +7758,12 @@ ion-label[floating] {
   transform: translate3d(8px, 34px, 0);
   -webkit-transform-origin: left top;
   transform-origin: left top; }
+
+[dir="rtl"] .label-wp[floating] {
+  -webkit-transform: translate3d(-8px, 34px, 0);
+  transform: translate3d(-8px, 34px, 0);
+  -webkit-transform-origin: right top;
+  transform-origin: right top; }
 
 .label-wp[stacked],
 .label-wp[floating] {

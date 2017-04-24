@@ -39497,6 +39497,9 @@ function enableTouchControl(s) {
     return true;
 }
 function cleanupStyles(s) {
+    if (!s.container || !s._wrapper) {
+        return;
+    }
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["j" /* removeClass */])(s.container, s._classNames);
     s.container.removeAttribute('style');
     s._wrapper.removeAttribute('style');
@@ -61612,7 +61615,7 @@ function processRecords(stopAtHeight, records, cells, headerFn, footerFn, data) 
     let startRecordIndex;
     let previousCell;
     let tmpData;
-    let lastRecordIndex = (records.length - 1);
+    let lastRecordIndex = records ? (records.length - 1) : -1;
     if (cells.length) {
         previousCell = cells[cells.length - 1];
         if (previousCell.top + previousCell.height > stopAtHeight) {
@@ -61684,11 +61687,11 @@ function addCell(previousCell, recordIndex, tmpl, tmplData, cellWidth, cellHeigh
     return newCell;
 }
 function populateNodeData(startCellIndex, endCellIndex, viewportWidth, scrollingDown, cells, records, nodes, viewContainer, itmTmp, hdrTmp, ftrTmp, initialLoad) {
-    const recordsLength = records.length;
-    if (!recordsLength) {
+    if (!records || records.length === 0) {
         nodes.length = 0;
         return true;
     }
+    const recordsLength = records.length;
     let hasChanges = false;
     let node;
     let availableNode;

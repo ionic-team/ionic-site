@@ -15556,6 +15556,11 @@ ion-list[inset] {
   background: transparent;
 }
 
+[dir="rtl"] .list-header-ios {
+  padding-right: 16px;
+  padding-left: 0;
+}
+
 .list-header-ios-primary {
   color: #fff;
   background-color: #387ef5;
@@ -15685,6 +15690,11 @@ ion-list[inset] {
   border-top: 1px solid #dedede;
   font-size: 1.4rem;
   color: #757575;
+}
+
+[dir="rtl"] .list-header-md {
+  padding-right: 16px;
+  padding-left: 0;
 }
 
 .list-header-md-primary {
@@ -15824,6 +15834,11 @@ ion-list[inset] {
   border-bottom: 1px solid transparent;
   font-size: 2rem;
   color: #000;
+}
+
+[dir="rtl"] .list-header-wp {
+  padding-right: 16px;
+  padding-left: 0;
 }
 
 .list-header-wp-primary {

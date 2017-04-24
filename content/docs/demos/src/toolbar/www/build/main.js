@@ -39549,6 +39549,10 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         return promise;
     }
     _success(result, ti) {
+        if (this._queue === null) {
+            this._fireError('nav controller was destroyed', ti);
+            return;
+        }
         this._init = true;
         this._trnsId = null;
         this.setTransitioning(false);
@@ -39560,11 +39564,18 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         ti.resolve(result.hasCompleted);
     }
     _failed(rejectReason, ti) {
+        if (this._queue === null) {
+            this._fireError('nav controller was destroyed', ti);
+            return;
+        }
         this._trnsId = null;
         this._queue.length = 0;
         this.setTransitioning(false);
         this._swipeBackCheck();
         this._nextTrns();
+        this._fireError(rejectReason, ti);
+    }
+    _fireError(rejectReason, ti) {
         if (ti.done) {
             ti.done(false, false, rejectReason);
         }

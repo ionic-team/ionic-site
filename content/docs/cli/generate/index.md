@@ -37,4 +37,4 @@ This will create a standard class with a simple `http` get request using Angular
 
 ### A quick note on naming conventions
 
-Ionic uses kebab-casing for file names (`my-about-page.html`) and css classes (`.my-about-page`), and uses PascalCasing for JavaScript classes in ES6/TypeScript (`MyAboutPage`). Using this convention, developers can pick up any Ionic project and quickly become productive, similar to Rails.
+Ionic uses PascalCasing for JavaScript classes in ES6/TypeScript (`MyAboutPage`). Using this convention, developers can pick up any Ionic project and quickly become productive, similar to Rails.

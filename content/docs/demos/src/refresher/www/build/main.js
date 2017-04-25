@@ -14533,12 +14533,13 @@ function isCheckedProperty(a, b) {
     return (a == b);
 }
 ;
-function isRightSide(side, isRTL) {
+function isRightSide(side, isRTL, defaultRight = false) {
     switch (side) {
         case 'right': return true;
         case 'left': return false;
         case 'end': return !isRTL;
-        default: return isRTL;
+        case 'start': return isRTL;
+        default: return defaultRight ? !isRTL : isRTL;
     }
 }
 function reorderArray(array, indexes) {
@@ -41383,7 +41384,7 @@ let ItemOptions = class ItemOptions {
         this.ionSwipe = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
     }
     isRightSide() {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["u" /* isRightSide */])(this.side, this._plt.isRTL);
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["u" /* isRightSide */])(this.side, this._plt.isRTL, true);
     }
     width() {
         return this._elementRef.nativeElement.offsetWidth;

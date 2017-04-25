@@ -44348,7 +44348,7 @@ IonicGestureConfig = __decorate([
 class SlideEdgeGesture extends __WEBPACK_IMPORTED_MODULE_0__slide_gesture__["a" /* SlideGesture */] {
     constructor(plt, element, opts = {}) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["i" /* defaults */])(opts, {
-            edge: 'left',
+            edge: 'start',
             maxEdgeStart: 50
         });
         super(plt, element, opts);
@@ -44361,7 +44361,7 @@ class SlideEdgeGesture extends __WEBPACK_IMPORTED_MODULE_0__slide_gesture__["a" 
             switch (value) {
                 case 'start': return isRTL ? 'right' : 'left';
                 case 'end': return isRTL ? 'left' : 'right';
-                default: value;
+                default: return value;
             }
         });
     }

@@ -34389,6 +34389,12 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     isFocus() {
         return this._isFocus;
     }
+    hasValue() {
+        const val = this._value;
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["b" /* isArray */])(val)
+            ? val.length > 0
+            : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["a" /* isPresent */])(val);
+    }
     ngOnDestroy() {
         this._form && this._form.deregister(this);
         this._init = false;
@@ -34400,10 +34406,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         if (!this._item) {
             return;
         }
-        const hasValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["b" /* isArray */])(val)
-            ? val.length > 0
-            : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["a" /* isPresent */])(val);
-        this._item.setElementClass('input-has-value', hasValue);
+        this._item.setElementClass('input-has-value', this.hasValue());
     }
     initFocus() { }
     _inputNormalize(val) {
@@ -49666,6 +49669,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         this._multi = false;
         this._texts = [];
         this._text = '';
+        this._values = [];
         this.cancelText = 'Cancel';
         this.okText = 'OK';
         this.selectOptions = {};
@@ -49797,27 +49801,22 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     set options(val) {
         this._options = val;
-        if (this._value.length === 0) {
+        if (this._values.length === 0) {
             this.writeValue(val.filter(o => o.selected).map(o => o.value));
         }
         else {
             this._inputUpdated();
         }
     }
-    _inputNormalize(val) {
-        if (Array.isArray(val)) {
-            return val;
-        }
-        return [val + ''];
-    }
     _inputShouldChange(val) {
         return !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["r" /* deepEqual */])(this._value, val);
     }
     _inputUpdated() {
         this._texts.length = 0;
+        this._values = Array.isArray(this._value) ? this._value : [this._value + ''];
         if (this._options) {
             this._options.forEach(option => {
-                option.selected = this._value.some(selectValue => {
+                option.selected = this._values.some(selectValue => {
                     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["s" /* isCheckedProperty */])(selectValue, option.value);
                 });
                 if (option.selected) {

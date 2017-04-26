@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/segment/www/"
+preview_device_url: "/docs/demos/src/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -84,6 +84,27 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="isActive"></div>
+
+<h3>
+<a class="anchor" name="isActive" href="#isActive"></a>
+<code>isActive</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

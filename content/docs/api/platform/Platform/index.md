@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Platform"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/platform/www/"
+preview_device_url: "/docs/demos/src/platform/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -283,7 +283,7 @@ Returns `true` if the app is in portait mode.
 
 <h3>
 <a class="anchor" name="isRTL" href="#isRTL"></a>
-<code>isRTL()</code>
+<code>isRTL</code>
   
 
 </h3>
@@ -532,7 +532,7 @@ if this registered action has the highest priority.</p>
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Function</code> <p>A function that, when called, will unregister
-the its back button action.</p>
+the back button action.</p>
 
 
 </div>
@@ -588,7 +588,7 @@ out from the background, however, it would not fire on a standard web browser.
 
 <h3>
 <a class="anchor" name="setDir" href="#setDir"></a>
-<code>setDir(dir)</code>
+<code>setDir(dir,&nbsp;updateDocument)</code>
   
 
 </h3>
@@ -628,6 +628,22 @@ direction needs to be dynamically changed per user/session.
       </td>
     </tr>
     
+    <tr>
+      <td>
+        updateDocument
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -642,7 +658,7 @@ direction needs to be dynamically changed per user/session.
 
 <h3>
 <a class="anchor" name="setLang" href="#setLang"></a>
-<code>setLang(language)</code>
+<code>setLang(language,&nbsp;updateDocument)</code>
   
 
 </h3>
@@ -677,6 +693,23 @@ the language needs to be dynamically changed per user/session.
       </td>
       <td>
         <p>Examples: <code>en-US</code>, <code>en-GB</code>, <code>ar</code>, <code>de</code>, <code>zh</code>, <code>es-MX</code></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        updateDocument
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Specifies whether the <code>lang</code> attribute of <code>&lt;html&gt;</code> should be updated</p>
 
         
       </td>

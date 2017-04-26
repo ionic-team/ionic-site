@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Item"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/item/www/"
+preview_device_url: "/docs/demos/src/item/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -375,6 +375,15 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
+        <td><code>$item-ios-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
           <td><code>56px</code></td>
@@ -501,6 +510,15 @@ be added to <code>ion-item</code> to transform the text.</p>
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       
@@ -667,6 +685,15 @@ be added to <code>ion-item</code> to transform the text.</p>
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       

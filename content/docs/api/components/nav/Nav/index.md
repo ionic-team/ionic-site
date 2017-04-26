@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Nav"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/navigation/www/"
+preview_device_url: "/docs/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -180,13 +180,6 @@ class MyApp {
       <td>rootParams</td>
       <td><code>object</code></td>
       <td><p> Any nav-params to pass to the root page of this nav.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>swipeBackEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     

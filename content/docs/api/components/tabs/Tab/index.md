@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/tabs/www/"
+preview_device_url: "/docs/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L16">
 Improve this doc
 </a>
 
@@ -173,13 +173,6 @@ Default: <code>true</code>.</p>
       <td><code>boolean</code></td>
       <td><p> If true, the tab button is visible within the
 tabbar. Default: <code>true</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>swipeBackEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-options.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-options.ts#L4">
 Improve this doc
 </a>
 
@@ -193,6 +193,15 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
       </tr>
       
       <tr>
+        <td><code>$item-ios-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
           <td><code>56px</code></td>
@@ -319,6 +328,15 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       
@@ -485,6 +503,15 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "NavPush"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/navigation/www/"
+preview_device_url: "/docs/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -69,6 +69,8 @@ component you would like to push:</p>
   template: `&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
+  params: Object;
+  pushPage: any;
   constructor(){
     this.pushPage = LoginPage;
     this.params = { id: 42 };

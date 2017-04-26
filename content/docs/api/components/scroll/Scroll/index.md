@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.0.1"
+version: "3.1.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Scroll"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/scroll/www/"
+preview_device_url: "/docs/demos/src/scroll/"
 angular_controller: APIDemoCtrl 
 ---
 

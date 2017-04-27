@@ -47,6 +47,11 @@ touch ~/.bash_profile
 
 Then open that file in your favorite editor.
 
+```bash
+# Opens with TextEdit
+open -a TextEdit ~/.bash_profile
+```
+
 From here, we'll need to add a few lines. These are the reference to Java and the Android SDK location we copied down earlier.
 
 If you've used the paths suggested, you should have something like this.
@@ -57,8 +62,17 @@ If you've used the paths suggested, you should have something like this.
   export JAVA_HOME=$(/usr/libexec/java_home)
   # Add that to the global PATH variable
   export PATH=${JAVA_HOME}/bin:$PATH
-  # Add the Android SDK to the PATH variable
-  export PATH=${PATH}:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools
+  # Set Android_HOME
+  export ANDROID_HOME~=/Library/Android/sdk/
+  # Add the Android SDK to the ANDROID_HOME variable
+  export PATH=$ANDROID_HOME/platform-tools:$PATH
+  export PATH=$ANDROID_HOME/tools:$PATH
+```
+
+Apply these changes by re-sourcing .bash_profile
+
+```bash
+  source ~/.bash_profile
 ```
 
 From here, we can quit the terminal and then start it back up again. If there are no errors, you should be able to run

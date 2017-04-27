@@ -34612,7 +34612,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._form && this._form.deregister(this);
         this._init = false;
     }
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         this._initialize();
     }
     _inputCheckHasValue(val) {
@@ -37723,10 +37723,6 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
     set animated(val) {
         this._animated = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
-    ngAfterViewInit() {
-        this._initialize();
-        this.positionElements();
-    }
     ngOnInit() {
         const showCancelButton = this.showCancelButton;
         if (typeof showCancelButton === 'string') {
@@ -37734,11 +37730,9 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
         }
     }
     _inputUpdated() {
-        if (this._searchbarInput) {
-            var ele = this._searchbarInput.nativeElement;
-            if (ele) {
-                ele.value = this.value;
-            }
+        const ele = this._searchbarInput.nativeElement;
+        if (ele) {
+            ele.value = this.value;
         }
         this.positionElements();
     }
@@ -37758,9 +37752,6 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
         }
     }
     positionPlaceholder() {
-        if (!this._searchbarInput || !this._searchbarIcon) {
-            return;
-        }
         const inputEle = this._searchbarInput.nativeElement;
         const iconEle = this._searchbarIcon.nativeElement;
         if (this._shouldAlignLeft) {
@@ -37781,9 +37772,6 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
         }
     }
     positionCancelButton() {
-        if (!this._cancelButton || !this._cancelButton.nativeElement) {
-            return;
-        }
         const showShowCancel = this._isFocus;
         if (showShowCancel !== this._isCancelVisible) {
             var cancelStyleEle = this._cancelButton.nativeElement;
@@ -42141,7 +42129,8 @@ var _a, _b, _c, _d, _e, _f, _g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_base_input__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__segment_button__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_util__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__segment_button__ = __webpack_require__(49);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Segment; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -42160,28 +42149,31 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
 let Segment = class Segment extends __WEBPACK_IMPORTED_MODULE_3__util_base_input__["a" /* BaseInput */] {
     constructor(config, elementRef, renderer, ngControl) {
         super(config, elementRef, renderer, 'segment', null, null, null, ngControl);
     }
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         this._initialize();
         this._buttons.forEach(button => {
             button.ionSelect.subscribe((selectedButton) => this.value = selectedButton.value);
         });
     }
     _inputUpdated() {
-        if (this._buttons) {
-            var buttons = this._buttons.toArray();
-            var value = this.value;
-            for (var button of buttons) {
-                button.isActive = (button.value === value);
-            }
+        if (!this._buttons) {
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["c" /* assert */])(false, 'buttons are undefined');
+            return;
+        }
+        const buttons = this._buttons.toArray();
+        const value = this.value;
+        for (var button of buttons) {
+            button.isActive = (button.value === value);
         }
     }
 };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ContentChildren */])(__WEBPACK_IMPORTED_MODULE_4__segment_button__["a" /* SegmentButton */]),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ContentChildren */])(__WEBPACK_IMPORTED_MODULE_5__segment_button__["a" /* SegmentButton */]),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* QueryList */]) === "function" && _a || Object)
 ], Segment.prototype, "_buttons", void 0);
 Segment = __decorate([
@@ -46281,7 +46273,7 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         this.placeholder = '';
         this.ionCancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
     }
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         ['monthNames', 'monthShortNames', 'dayNames', 'dayShortNames'].forEach(type => {
             this._locale[type] = convertToArrayOfStrings(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(this[type]) ? this[type] : this._config.get(type), type);
         });
@@ -49094,7 +49086,7 @@ let Range = Range_1 = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base
         }
         return null;
     }
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         this._initialize();
         this._events.pointerEvents({
             element: this._slider.nativeElement,
@@ -54094,7 +54086,7 @@ function View_PageOne_1(l) {
         }, { update: 'ngModelChange' }),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵprd */](1024, null, __WEBPACK_IMPORTED_MODULE_10__angular_forms__["g" /* NgControl */], null, [__WEBPACK_IMPORTED_MODULE_10__angular_forms__["h" /* NgModel */]]),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_10__angular_forms__["i" /* NgControlStatus */], [__WEBPACK_IMPORTED_MODULE_10__angular_forms__["g" /* NgControl */]], null, null),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](2170880, null, 1, __WEBPACK_IMPORTED_MODULE_11__src_components_segment_segment__["a" /* Segment */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](598016, null, 1, __WEBPACK_IMPORTED_MODULE_11__src_components_segment_segment__["a" /* Segment */], [
             __WEBPACK_IMPORTED_MODULE_4__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -54369,7 +54361,7 @@ function View_PageOne_2(l) {
         }, { update: 'ngModelChange' }),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵprd */](1024, null, __WEBPACK_IMPORTED_MODULE_10__angular_forms__["g" /* NgControl */], null, [__WEBPACK_IMPORTED_MODULE_10__angular_forms__["h" /* NgModel */]]),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_10__angular_forms__["i" /* NgControlStatus */], [__WEBPACK_IMPORTED_MODULE_10__angular_forms__["g" /* NgControl */]], null, null),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](2170880, null, 1, __WEBPACK_IMPORTED_MODULE_11__src_components_segment_segment__["a" /* Segment */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](598016, null, 1, __WEBPACK_IMPORTED_MODULE_11__src_components_segment_segment__["a" /* Segment */], [
             __WEBPACK_IMPORTED_MODULE_4__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -54653,7 +54645,7 @@ function View_PageOne_3(l) {
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_14__src_components_searchbar_searchbar_ngfactory__["a" /* View_Searchbar_0 */], __WEBPACK_IMPORTED_MODULE_14__src_components_searchbar_searchbar_ngfactory__["b" /* RenderType_Searchbar */])),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](2220032, null, 0, __WEBPACK_IMPORTED_MODULE_15__src_components_searchbar_searchbar__["a" /* Searchbar */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](647168, null, 0, __WEBPACK_IMPORTED_MODULE_15__src_components_searchbar_searchbar__["a" /* Searchbar */], [
             __WEBPACK_IMPORTED_MODULE_4__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_16__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -54745,7 +54737,7 @@ function View_PageOne_4(l) {
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_14__src_components_searchbar_searchbar_ngfactory__["a" /* View_Searchbar_0 */], __WEBPACK_IMPORTED_MODULE_14__src_components_searchbar_searchbar_ngfactory__["b" /* RenderType_Searchbar */])),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](2220032, null, 0, __WEBPACK_IMPORTED_MODULE_15__src_components_searchbar_searchbar__["a" /* Searchbar */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](647168, null, 0, __WEBPACK_IMPORTED_MODULE_15__src_components_searchbar_searchbar__["a" /* Searchbar */], [
             __WEBPACK_IMPORTED_MODULE_4__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_16__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -61008,7 +61000,7 @@ function View_Searchbar_Host_0(l) {
                 null
             ]
         ], null, null, View_Searchbar_0, RenderType_Searchbar)),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](2220032, null, 0, __WEBPACK_IMPORTED_MODULE_1__searchbar__["a" /* Searchbar */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](647168, null, 0, __WEBPACK_IMPORTED_MODULE_1__searchbar__["a" /* Searchbar */], [
             __WEBPACK_IMPORTED_MODULE_4__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_6__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],

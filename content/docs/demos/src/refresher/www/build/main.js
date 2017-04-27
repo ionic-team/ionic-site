@@ -34353,6 +34353,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._disabled = false;
         this._debouncer = new __WEBPACK_IMPORTED_MODULE_3__debouncer__["a" /* TimeoutDebouncer */](0);
         this._init = false;
+        this._initModel = false;
         this.ionFocus = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionBlur = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
@@ -34391,7 +34392,12 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     }
     writeValue(val) {
         if (this._writeValue(val)) {
-            this._fireIonChange();
+            if (this._initModel) {
+                this._fireIonChange();
+            }
+            else if (this._init) {
+                this._initModel = true;
+            }
         }
     }
     _writeValue(val) {
@@ -34399,9 +34405,14 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["q" /* isUndefined */])(val)) {
             return false;
         }
-        const normalized = (val === null)
-            ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* deepCopy */])(this._defaultValue)
-            : this._inputNormalize(val);
+        let normalized;
+        if (val === null) {
+            normalized = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* deepCopy */])(this._defaultValue);
+            this._inputReset();
+        }
+        else {
+            normalized = this._inputNormalize(val);
+        }
         const notUpdate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["q" /* isUndefined */])(normalized) || !this._inputShouldChange(normalized);
         if (notUpdate) {
             return false;
@@ -34418,7 +34429,8 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         if (this._init) {
             this._debouncer.debounce(() => {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'IonChange: should be zoned');
-                this.ionChange.emit(this);
+                this.ionChange.emit(this._inputChangeEvent());
+                this._initModel = true;
             });
         }
     }
@@ -34485,11 +34497,15 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._item.setElementClass('input-has-value', this.hasValue());
     }
     initFocus() { }
+    _inputReset() { }
     _inputNormalize(val) {
         return val;
     }
     _inputShouldChange(val) {
         return this._value !== val;
+    }
+    _inputChangeEvent() {
+        return this;
     }
     _inputUpdated() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(this._init, 'component should be initialized');
@@ -45912,6 +45928,7 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         this._pickerCtrl = _pickerCtrl;
         this._text = '';
         this._locale = {};
+        this._internalValue = {};
         this.cancelText = 'Cancel';
         this.doneText = 'Done';
         this.pickerOptions = {};
@@ -45924,15 +45941,21 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         });
         this._initialize();
     }
+    _inputReset() {
+        this._internalValue = {};
+    }
+    _inputCheckHasValue(val) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["a" /* updateDate */])(this._internalValue, val);
+        super._inputCheckHasValue(val);
+    }
     _inputUpdated() {
         this.updateText();
     }
-    _inputNormalize(val) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["a" /* updateDate */])(this._value, val);
-        return this._value;
-    }
     _inputShouldChange() {
         return true;
+    }
+    _inputChangeEvent() {
+        return this.value;
     }
     _click(ev) {
         if (ev.detail === 0) {
@@ -46110,7 +46133,7 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         this._text = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["j" /* renderDateTime */])(template, this.getValue(), this._locale);
     }
     getValue() {
-        return this._value;
+        return this._internalValue;
     }
     calcMinMax(now) {
         const todaysYear = (now || new Date()).getFullYear();
@@ -49911,6 +49934,9 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     _inputShouldChange(val) {
         return !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["r" /* deepEqual */])(this._value, val);
+    }
+    _inputChangeEvent() {
+        return this.value;
     }
     _inputUpdated() {
         this._texts.length = 0;

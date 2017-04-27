@@ -3,7 +3,9 @@ var tools = require('../../tools');
 module.exports = function(req, res) {
 
   var m = {
-    to: ['brody@ionic.io'],
+    to: [
+      'brody@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
+    ],
     from: 'sales@ionic.io',
     name: 'Ionic Enterprise',
     subject: 'Ionic Enterprise Sub. Entry',

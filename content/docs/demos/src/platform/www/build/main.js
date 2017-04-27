@@ -34261,7 +34261,6 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         let normalized;
         if (val === null) {
             normalized = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* deepCopy */])(this._defaultValue);
-            this._inputReset();
         }
         else {
             normalized = this._inputNormalize(val);
@@ -34324,7 +34323,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._inputUpdated();
     }
     onChange() {
-        this._onChanged && this._onChanged(this._value);
+        this._onChanged && this._onChanged(this._inputNgModelEvent());
         this._onTouched && this._onTouched();
     }
     isFocus() {
@@ -34350,7 +34349,6 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._item.setElementClass('input-has-value', this.hasValue());
     }
     initFocus() { }
-    _inputReset() { }
     _inputNormalize(val) {
         return val;
     }
@@ -34359,6 +34357,9 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     }
     _inputChangeEvent() {
         return this;
+    }
+    _inputNgModelEvent() {
+        return this._value;
     }
     _inputUpdated() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(this._init, 'component should be initialized');
@@ -46338,7 +46339,6 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         this._pickerCtrl = _pickerCtrl;
         this._text = '';
         this._locale = {};
-        this._internalValue = {};
         this.cancelText = 'Cancel';
         this.doneText = 'Done';
         this.pickerOptions = {};
@@ -46351,12 +46351,9 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
         });
         this._initialize();
     }
-    _inputReset() {
-        this._internalValue = {};
-    }
-    _inputCheckHasValue(val) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["a" /* updateDate */])(this._internalValue, val);
-        super._inputCheckHasValue(val);
+    _inputNormalize(val) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["a" /* updateDate */])(this._value, val);
+        return this._value;
     }
     _inputUpdated() {
         this.updateText();
@@ -46366,6 +46363,9 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
     }
     _inputChangeEvent() {
         return this.value;
+    }
+    _inputNgModelEvent() {
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["b" /* convertDataToISO */])(this.value);
     }
     _click(ev) {
         if (ev.detail === 0) {
@@ -46416,14 +46416,14 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
                 template = template.replace('{~}', 'D');
             }
             template = template.replace(/{~}/g, '');
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["b" /* parseTemplate */])(template).forEach(format => {
-                let key = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["c" /* convertFormatToKey */])(format);
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["c" /* parseTemplate */])(template).forEach(format => {
+                let key = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["d" /* convertFormatToKey */])(format);
                 let values;
                 if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(this[key + 'Values'])) {
                     values = convertToArrayOfNumbers(this[key + 'Values'], key);
                 }
                 else {
-                    values = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["d" /* dateValueRange */])(format, this._min, this._max);
+                    values = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["e" /* dateValueRange */])(format, this._min, this._max);
                 }
                 const column = {
                     name: key,
@@ -46431,11 +46431,11 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
                     options: values.map(val => {
                         return {
                             value: val,
-                            text: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["e" /* renderTextFormat */])(format, val, null, this._locale),
+                            text: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["f" /* renderTextFormat */])(format, val, null, this._locale),
                         };
                     })
                 };
-                const optValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["f" /* getValueFromFormat */])(this.getValue(), format);
+                const optValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["g" /* getValueFromFormat */])(this.getValue(), format);
                 const selectedIndex = column.options.findIndex(opt => opt.value === optValue);
                 if (selectedIndex >= 0) {
                     column.selectedIndex = selectedIndex;
@@ -46473,8 +46473,8 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
             ub[index] = opt.value;
             var disabled = opt.disabled = (value < lowerBounds[index] ||
                 value > upperBounds[index] ||
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["g" /* dateSortValue */])(ub[0], ub[1], ub[2], ub[3], ub[4]) < min ||
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["g" /* dateSortValue */])(lb[0], lb[1], lb[2], lb[3], lb[4]) > max);
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["h" /* dateSortValue */])(ub[0], ub[1], ub[2], ub[3], ub[4]) < min ||
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["h" /* dateSortValue */])(lb[0], lb[1], lb[2], lb[3], lb[4]) > max);
             if (!disabled) {
                 indexMin = Math.min(indexMin, i);
                 indexMax = Math.max(indexMax, i);
@@ -46489,8 +46489,8 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
     }
     validate() {
         const today = new Date();
-        const minCompareVal = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["h" /* dateDataSortValue */])(this._min);
-        const maxCompareVal = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["h" /* dateDataSortValue */])(this._max);
+        const minCompareVal = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["i" /* dateDataSortValue */])(this._min);
+        const maxCompareVal = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["i" /* dateDataSortValue */])(this._max);
         const yearCol = this._picker.getColumn('year');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* assert */])(minCompareVal <= maxCompareVal, 'invalid min/max value');
         let selectedYear = today.getFullYear();
@@ -46504,7 +46504,7 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
             }
         }
         const selectedMonth = this.validateColumn('month', 1, minCompareVal, maxCompareVal, [selectedYear, 0, 0, 0, 0], [selectedYear, 12, 31, 23, 59]);
-        const numDaysInMonth = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["i" /* daysInMonth */])(selectedMonth, selectedYear);
+        const numDaysInMonth = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["j" /* daysInMonth */])(selectedMonth, selectedYear);
         const selectedDay = this.validateColumn('day', 2, minCompareVal, maxCompareVal, [selectedYear, selectedMonth, 0, 0, 0], [selectedYear, selectedMonth, numDaysInMonth, 23, 59]);
         const selectedHour = this.validateColumn('hour', 3, minCompareVal, maxCompareVal, [selectedYear, selectedMonth, selectedDay, 0, 0], [selectedYear, selectedMonth, selectedDay, 23, 59]);
         this.validateColumn('minute', 4, minCompareVal, maxCompareVal, [selectedYear, selectedMonth, selectedDay, selectedHour, 0], [selectedYear, selectedMonth, selectedDay, selectedHour, 59]);
@@ -46540,10 +46540,10 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
     }
     updateText() {
         const template = this.displayFormat || this.pickerFormat || DEFAULT_FORMAT;
-        this._text = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["j" /* renderDateTime */])(template, this.getValue(), this._locale);
+        this._text = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["k" /* renderDateTime */])(template, this.getValue(), this._locale);
     }
     getValue() {
-        return this._internalValue;
+        return this._value;
     }
     calcMinMax(now) {
         const todaysYear = (now || new Date()).getFullYear();
@@ -46564,8 +46564,8 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
                 this.max = todaysYear.toString();
             }
         }
-        const min = this._min = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["k" /* parseDate */])(this.min);
-        const max = this._max = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["k" /* parseDate */])(this.max);
+        const min = this._min = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["l" /* parseDate */])(this.min);
+        const max = this._max = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_datetime_util__["l" /* parseDate */])(this.max);
         min.year = min.year || todaysYear;
         max.year = max.year || todaysYear;
         min.month = min.month || 1;
@@ -63188,19 +63188,19 @@ class WPTransition extends __WEBPACK_IMPORTED_MODULE_2__page_transition__["a" /*
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(2);
-/* harmony export (immutable) */ __webpack_exports__["j"] = renderDateTime;
-/* harmony export (immutable) */ __webpack_exports__["e"] = renderTextFormat;
-/* harmony export (immutable) */ __webpack_exports__["d"] = dateValueRange;
-/* harmony export (immutable) */ __webpack_exports__["g"] = dateSortValue;
-/* harmony export (immutable) */ __webpack_exports__["h"] = dateDataSortValue;
-/* harmony export (immutable) */ __webpack_exports__["i"] = daysInMonth;
+/* harmony export (immutable) */ __webpack_exports__["k"] = renderDateTime;
+/* harmony export (immutable) */ __webpack_exports__["f"] = renderTextFormat;
+/* harmony export (immutable) */ __webpack_exports__["e"] = dateValueRange;
+/* harmony export (immutable) */ __webpack_exports__["h"] = dateSortValue;
+/* harmony export (immutable) */ __webpack_exports__["i"] = dateDataSortValue;
+/* harmony export (immutable) */ __webpack_exports__["j"] = daysInMonth;
 /* unused harmony export isLeapYear */
-/* harmony export (immutable) */ __webpack_exports__["k"] = parseDate;
+/* harmony export (immutable) */ __webpack_exports__["l"] = parseDate;
 /* harmony export (immutable) */ __webpack_exports__["a"] = updateDate;
-/* harmony export (immutable) */ __webpack_exports__["b"] = parseTemplate;
-/* harmony export (immutable) */ __webpack_exports__["f"] = getValueFromFormat;
-/* harmony export (immutable) */ __webpack_exports__["c"] = convertFormatToKey;
-/* unused harmony export convertDataToISO */
+/* harmony export (immutable) */ __webpack_exports__["c"] = parseTemplate;
+/* harmony export (immutable) */ __webpack_exports__["g"] = getValueFromFormat;
+/* harmony export (immutable) */ __webpack_exports__["d"] = convertFormatToKey;
+/* harmony export (immutable) */ __webpack_exports__["b"] = convertDataToISO;
 
 function renderDateTime(template, value, locale) {
     if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["d" /* isBlank */])(value)) {

@@ -30,7 +30,7 @@ To create a service, you can replace `page` with `provider`:
 ```bash
 ionic g provider MyData
 
-√ Create app/providers/my-data/my-data.ts
+√ Create app/providers/my-data.ts
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.

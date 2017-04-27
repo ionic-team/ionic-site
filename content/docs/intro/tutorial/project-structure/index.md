@@ -52,7 +52,7 @@ Near the top of the file, we should see this:
 
 @NgModule({
   declarations: [MyApp,HelloIonicPage, ItemDetailsPage, ListPage],
-  imports: [IonicModule.forRoot(MyApp)],
+  imports: [ BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp,HelloIonicPage,ItemDetailsPage,ListPage],
   providers: []

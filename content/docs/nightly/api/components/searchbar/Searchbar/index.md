@@ -90,6 +90,25 @@ Improve this doc
 
 
 
+
+<div id="setFocus"></div>
+
+<h3>
+<a class="anchor" name="setFocus" href="#setFocus"></a>
+<code>setFocus()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-bluetooth-serial
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-bluetooth-serial
 $ npm install --save @ionic-native/bluetooth-serial
 </code></pre>
 <p>Repo:

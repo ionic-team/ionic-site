@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add de.appplant.cordova.plugin.printer
+<pre><code class="nohighlight">$ ionic plugin add --save de.appplant.cordova.plugin.printer
 $ npm install --save @ionic-native/printer
 </code></pre>
 <p>Repo:

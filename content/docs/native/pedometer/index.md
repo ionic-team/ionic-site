@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pedometer
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-pedometer
 $ npm install --save @ionic-native/pedometer
 </code></pre>
 <p>Repo:
@@ -49,7 +49,7 @@ such as step counts and other information about the distance travelled.</p>
 
 
 <h2>Usage</h2>
-<pre><code>import { Pedometer } from &#39;ionic-native&#39;;
+<pre><code>import { Pedometer } from &#39;@ionic-native/pedometer&#39;;
 
 Pedometer.isDistanceAvailable()
   .then((available: boolean) =&gt; console.log(available))

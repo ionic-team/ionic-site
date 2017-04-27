@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L126">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L144">
   Improve this doc
 </a>
 
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-media
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-media
 $ npm install --save @ionic-native/media
 </code></pre>
 <p>Repo:
@@ -55,50 +55,46 @@ constructor(private media: MediaPlugin) { }
 // We can optionally pass a second argument to track the status of the media
 
 const onStatusUpdate = (status) =&gt; console.log(status);
+const onSuccess = () =&gt; console.log(&#39;Action is successful.&#39;);
+const onError = (error) =&gt; console.error(error.message);
 
-this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate)
-  .then((file: MediaObject) =&gt; {
+const file: MediaObject = this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate, onSuccess, onError);
 
-     // play the file
-     file.play();
+// play the file
+file.play();
 
-     // pause the file
-     file.pause();
+// pause the file
+file.pause();
 
-     // get current playback position
-      file.getCurrentPosition().then((position) =&gt; {
-        console.log(position);
-     });
+// get current playback position
+file.getCurrentPosition().then((position) =&gt; {
+  console.log(position);
+});
 
-     // get file duration
-     let duration = file.getDuration();
-     console.log(duration);
+// get file duration
+let duration = file.getDuration();
+console.log(duration);
 
-     // skip to 10 seconds (expects int value in ms)
-     file.seekTo(10000);
+// skip to 10 seconds (expects int value in ms)
+file.seekTo(10000);
 
-     // stop playing the file
-     file.stop();
+// stop playing the file
+file.stop();
 
-     // release the native audio resource
-     // Platform Quirks:
-     // iOS simply create a new instance and the old one will be overwritten
-     // Android you must call release() to destroy instances of media when you are done
-     file.release();
+// release the native audio resource
+// Platform Quirks:
+// iOS simply create a new instance and the old one will be overwritten
+// Android you must call release() to destroy instances of media when you are done
+file.release();
 
-  })
-  .catch(e =&gt; console.log(&#39;Error opening media file&#39;, e));
 
 
 // Recording to a file
-this.media.create(&#39;path/to/file.mp3&#39;)
-  .then((file: MediaObject) =&gt; {
+const file: MediaObject = this.media.create(&#39;path/to/file.mp3&#39;);
 
-    file.startRecord();
+file.startRecord();
 
-    file.stopRecord();
-
-  });
+file.stopRecord();
 </code></pre>
 
 
@@ -109,7 +105,7 @@ this.media.create(&#39;path/to/file.mp3&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate)</code></h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate,&nbsp;onSuccess,&nbsp;onError)</code></h3>
 
 
 Open a media file
@@ -137,10 +133,32 @@ Open a media file
     <td>
       onStatusUpdate</td>
     <td>
+      <code>MediaStatusUpdateCallback</code>
+    </td>
+    <td>
+      <p>A callback function to be invoked when the status of the file changes<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onSuccess</td>
+    <td>
       <code>Function</code>
     </td>
     <td>
-      <p>A callback function to be invoked when the status of the file changes</p>
+      <p>A callback function to be invoked after the current play, record, or stop action is completed<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onError</td>
+    <td>
+      <code>MediaErrorCallback</code>
+    </td>
+    <td>
+      <p>A callback function is be invoked if an error occurs.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -148,7 +166,7 @@ Open a media file
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;MediaObject&gt;</code> 
+  <b>Returns:</b> <code>MediaObject</code> 
 </div>
 
 <h2><a class="anchor" name="MediaObject" href="#MediaObject"></a>MediaObject</h2>
@@ -313,6 +331,53 @@ Resumes recording
 Stops playing an audio file.
 
 
+
+
+
+
+
+<h2><a class="anchor" name="MediaError" href="#MediaError"></a>MediaError</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Error message</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      code
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Error code</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

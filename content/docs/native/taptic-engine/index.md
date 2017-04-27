@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-taptic-engine
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-taptic-engine
 $ npm install --save @ionic-native/taptic-engine
 </code></pre>
 <p>Repo:
@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/taptic-engine
 
 
 <h2>Usage</h2>
-<pre><code class="lang-ts">import { TapticEngine } from &#39;@ionic-native/taptic-engine;
+<pre><code class="lang-ts">import { TapticEngine } from &#39;@ionic-native/taptic-engine&#39;;
 
 ...
 

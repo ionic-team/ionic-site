@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add http://github.com/don/cordova-filechooser.git
+<pre><code class="nohighlight">$ ionic plugin add --save http://github.com/don/cordova-filechooser.git
 $ npm install --save @ionic-native/file-chooser
 </code></pre>
 <p>Repo:

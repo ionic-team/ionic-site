@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add call-number
+<pre><code class="nohighlight">$ ionic plugin add --save call-number
 $ npm install --save @ionic-native/call-number
 </code></pre>
 <p>Repo:
@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/call-number
 
 
 <h2>Usage</h2>
-<pre><code>import {CallNumber} from &#39;@ionic-native/call-number&#39;;
+<pre><code>import { CallNumber } from &#39;@ionic-native/call-number&#39;;
 
 constructor(private callNumber: CallNumber) { }
 

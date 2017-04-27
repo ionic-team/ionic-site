@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
+<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/protonet/cordova-plugin-image-resizer.git
 $ npm install --save @ionic-native/image-resizer
 </code></pre>
 <p>Repo:

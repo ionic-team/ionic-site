@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-ble-central
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-ble-central
 $ npm install --save @ionic-native/ble
 </code></pre>
 <p>Repo:

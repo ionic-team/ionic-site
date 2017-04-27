@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add com.telerik.plugins.nativepagetransitions
+<pre><code class="nohighlight">$ ionic plugin add --save com.telerik.plugins.nativepagetransitions
 $ npm install --save @ionic-native/native-page-transitions
 </code></pre>
 <p>Repo:

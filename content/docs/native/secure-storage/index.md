@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-secure-storage
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-secure-storage
 $ npm install --save @ionic-native/secure-storage
 </code></pre>
 <p>Repo:
@@ -122,7 +122,7 @@ Creates a namespaced storage.
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="get" href="#get"></a><code>get(reference)</code></h3>
+<h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code></h3>
 
 
 
@@ -139,7 +139,7 @@ Gets a stored item
   <tbody>
   <tr>
     <td>
-      reference</td>
+      key</td>
     <td>
       <code>string</code>
     </td>
@@ -151,8 +151,8 @@ Gets a stored item
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="set" href="#set"></a><code>set(reference,&nbsp;value)</code></h3>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+</div><h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code></h3>
 
 
 
@@ -169,7 +169,7 @@ Stores a value
   <tbody>
   <tr>
     <td>
-      reference</td>
+      key</td>
     <td>
       <code>string</code>
     </td>
@@ -192,7 +192,7 @@ Stores a value
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code></h3>
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(key)</code></h3>
 
 
 
@@ -209,7 +209,7 @@ Removes a single stored item
   <tbody>
   <tr>
     <td>
-      reference</td>
+      key</td>
     <td>
       <code>string</code>
     </td>
@@ -221,7 +221,7 @@ Removes a single stored item
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> returns a promise that resolves with the key that was removed
 </div><h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code></h3>
 
 
@@ -232,7 +232,7 @@ Get all references from the storage.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string[]&gt;</code> returns a promise that resolves with array of keys storage
 </div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 

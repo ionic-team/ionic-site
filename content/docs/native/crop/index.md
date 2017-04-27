@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-crop
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-crop
 $ npm install --save @ionic-native/crop
 </code></pre>
 <p>Repo:
@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/crop
 
 
 <h2>Usage</h2>
-<pre><code>import {Crop} from &#39;@ionic-native/crop&#39;;
+<pre><code>import { Crop } from &#39;@ionic-native/crop&#39;;
 
 constructor(private crop: Crop) { }
 

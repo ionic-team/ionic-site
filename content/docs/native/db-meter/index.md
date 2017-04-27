@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-dbmeter
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-dbmeter
 $ npm install --save @ionic-native/db-meter
 </code></pre>
 <p>Repo:

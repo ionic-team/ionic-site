@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-actionsheet
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-actionsheet
 $ npm install --save @ionic-native/action-sheet
 </code></pre>
 <p>Repo:
@@ -60,7 +60,7 @@ let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
 
 const options: ActionSheetOptions = {
   title: &#39;What do you want with this image?&#39;,
-  subtitle: &#39;Choose an action&#39;
+  subtitle: &#39;Choose an action&#39;,
   buttonLabels: buttonLabels,
   addCancelButtonWithLabel: &#39;Cancel&#39;,
   addDestructiveButtonWithLabel: &#39;Delete&#39;,

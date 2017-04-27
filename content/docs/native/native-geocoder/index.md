@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.4"
+version: "3.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-nativegeocoder
+<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-nativegeocoder
 $ npm install --save @ionic-native/native-geocoder
 </code></pre>
 <p>Repo:

@@ -49536,7 +49536,6 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         this._multi = false;
         this._texts = [];
         this._text = '';
-        this._values = [];
         this.cancelText = 'Cancel';
         this.okText = 'OK';
         this.selectOptions = {};
@@ -49554,6 +49553,11 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     _keyup() {
         this.open();
+    }
+    getValues() {
+        const values = Array.isArray(this._value) ? this._value : [this._value];
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["c" /* assert */])(!this._multi && values.length <= 1, 'single only can have one value');
+        return values;
     }
     open(ev) {
         if (this.isFocus() || this._disabled) {
@@ -49668,7 +49672,8 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     set options(val) {
         this._options = val;
-        if (this._values.length === 0) {
+        const values = this.getValues();
+        if (values.length === 0) {
             this.writeValue(val.filter(o => o.selected).map(o => o.value));
         }
         else {
@@ -49683,10 +49688,9 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     _inputUpdated() {
         this._texts.length = 0;
-        this._values = Array.isArray(this._value) ? this._value : [this._value + ''];
         if (this._options) {
             this._options.forEach(option => {
-                option.selected = this._values.some(selectValue => {
+                option.selected = this.getValues().some(selectValue => {
                     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["s" /* isCheckedProperty */])(selectValue, option.value);
                 });
                 if (option.selected) {

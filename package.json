@@ -72,6 +72,7 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
     "nunjucks": "^3.0.0",
+    "pipedrive": "^3.0.1",
     "psi": "^1.0.4",
     "request": "^2.81.0",
     "run-sequence": "^1.2.2",

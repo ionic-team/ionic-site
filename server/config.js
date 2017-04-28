@@ -11,6 +11,9 @@ module.exports = {
 
   // Email
   SENDGRID_APIKEY: process.env.SENDGRID_APIKEY || '',
+
+  // Pipedrive CRM
+  PIPEDRIVE_TOKEN: process.env.PIPEDRIVE_TOKEN || null,
 };
 
 function bool(str) {

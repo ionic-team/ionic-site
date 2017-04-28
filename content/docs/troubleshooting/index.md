@@ -76,7 +76,7 @@ There are a few things you can check. Make sure:
 
 Here's an example using an attribute selector:
 
-```ts
+```typescript
 @Directive({
   selector: '[my-dir]' // <-- [my-dir] because it's an attribute
 })                     // Could be my-dir, [my-dir], .my-dir
@@ -125,7 +125,7 @@ add the `tappable` attribute to your element.
 Decorators should have parentheses `()` after an annotation. Some examples
 include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
 
-```ts
+```typescript
 @Directive({
   selector: 'my-dir'
 })
@@ -135,7 +135,6 @@ class MyDirective {
   constructor(@Optional parent: ParentComponent) {}
 }
 ```
-
 
 
 ### Cordova plugins not working in the browser
@@ -169,7 +168,7 @@ of them you will end up with multiple instances of the provider. You should
 inject the provider once in the parent component if you want it to be available
 to the child components.
 
-```ts
+```typescript
 let id = 0;
 export class MyService {
   id:number;
@@ -219,8 +218,8 @@ this by specifying the class of the parameter. Make sure:
 - You are importing the parameter's class.
 - You have properly annotated the parameter or specified its type.
 
-```ts
-import {MyService} from 'my-service'; //Don't forget to import me!
+```typescript
+import { MyService } from 'my-service'; //Don't forget to import me!
 
 @Component({
   template: `Hello World`
@@ -236,11 +235,11 @@ export class MyClass {
 Sometimes circular references within your code can cause this error. Circular
 references mean that two objects depend on each other, and so there is no way to
 declare both of them before each other. To get around this, we can use the
-[`forwardRef`](https://angular.io/docs/ts/latest/api/core/forwardRef-function.html)
+[`forwardRef`](https://angular.io/docs/ts/latest/api/core/index/forwardRef-function.html)
 function built in to Angular.
 
 ```ts
-import {forwardRef} from 'angular2/core';
+import { forwardRef } from '@angular/core';
 
 @Component({
   selector: 'my-button',
@@ -263,7 +262,6 @@ class MyIcon {
 ```
 
 
-
 ### No provider for ParamType! (MyClass -> ParamType)
 
 This means Angular knows the type of parameter it is supposed to inject, but it
@@ -273,8 +271,8 @@ If the parameter is a service, make sure you have added the specified class to
 the list of providers available to your app:
 
 
-```ts
-import {MyService} from 'my-service';
+```typescript
+import { MyService } from 'my-service';
 
 @Component({
   templateUrl: 'app/app.html',
@@ -395,7 +393,7 @@ this will instantiate a new NgForm:
 This error happens when you are trying to use a component, provider pipe or
 directive that has not been imported and added to your ngModule. Whenever you
 add a new component, provider, pipe or directive to your app, you must add it to
-the ngModule in the `app/app.module.ts` file for Angular to be able to use it.
+the ngModule in the `src/app/app.module.ts` file for Angular to be able to use it.
 To fix this error you can import the offending component, provider, pipe or
 directive into the app.module file and then if it is a provider add it to the
 `providers` array and for a component, pipe or directive add it to both the

@@ -109,7 +109,7 @@ Get notified when the user opens a notification
   <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
-Grant permission to recieve push notifications
+Grant permission to receive push notifications
 
 
 <div class="return-value" markdown="1">
@@ -123,7 +123,7 @@ Grant permission to recieve push notifications
   <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
-Check permission to recieve push notifications
+Check permission to receive push notifications
 
 
 <div class="return-value" markdown="1">

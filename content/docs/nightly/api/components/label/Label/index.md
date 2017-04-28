@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Label"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/label/www/"
+preview_device_url: "/docs/demos/src/label/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -190,6 +190,24 @@ A stacked label will always appear on top of the input.
     <tbody>
       
       <tr>
+        <td><code>$label-ios-text-color</code></td>
+        
+          <td><code>unset</code></td>
+        
+        <td><p>Text color of the label by an input, select, or datetime</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-ios-text-color-focused</code></td>
+        
+          <td><code>unset</code></td>
+        
+        <td><p>Text color of the stacked/floating label when it is focused</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$label-ios-margin</code></td>
         
           <td><code>$item-ios-padding-top ($item-ios-padding-right / 2) $item-ios-padding-bottom 0</code></td>
@@ -216,7 +234,7 @@ A stacked label will always appear on top of the input.
         
           <td><code>#999</code></td>
         
-        <td><p>Text color of the label</p>
+        <td><p>Text color of the label by an input, select, or datetime</p>
 </td>
       </tr>
       
@@ -225,7 +243,7 @@ A stacked label will always appear on top of the input.
         
           <td><code>color($colors-md, primary)</code></td>
         
-        <td><p>Text color of the label when it has focused</p>
+        <td><p>Text color of the stacked/floating label when it is focused</p>
 </td>
       </tr>
       
@@ -256,7 +274,7 @@ A stacked label will always appear on top of the input.
         
           <td><code>#999</code></td>
         
-        <td><p>Text color of the label</p>
+        <td><p>Text color of the label by an input, select, or datetime</p>
 </td>
       </tr>
       
@@ -265,7 +283,7 @@ A stacked label will always appear on top of the input.
         
           <td><code>color($colors-wp, primary)</code></td>
         
-        <td><p>Text color of the label when it has focused</p>
+        <td><p>Text color of the stacked/floating label when it is focused</p>
 </td>
       </tr>
       

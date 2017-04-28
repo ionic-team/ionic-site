@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704282116, Dark Theme
+ * vE2E-201704282221, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -7601,6 +7601,11 @@ ion-label[floating] {
 .label-ios {
   margin: 11px 8px 11px 0; }
 
+.item-input .label-ios,
+.item-select .label-ios,
+.item-datetime .label-ios {
+  color: unset; }
+
 .label-ios + ion-input .text-input,
 .label-ios + ion-textarea .text-input,
 .label-ios + .input + .cloned-input {
@@ -7634,6 +7639,10 @@ ion-label[floating] {
 .item-ios.item-label-floating [item-right] {
   margin-top: 6px;
   margin-bottom: 6px; }
+
+.input-has-focus .label-ios[stacked],
+.input-has-focus .label-ios[floating] {
+  color: unset; }
 
 .label-ios-primary,
 .item-input .label-ios-primary,

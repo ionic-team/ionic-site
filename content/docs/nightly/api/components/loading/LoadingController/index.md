@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "LoadingController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/loading/www/"
+preview_device_url: "/docs/demos/src/loading/"
 angular_controller: APIDemoCtrl 
 ---
 

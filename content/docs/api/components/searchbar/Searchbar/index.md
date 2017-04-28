@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.0"
+version: "3.1.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Searchbar"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/searchbar/www/"
+preview_device_url: "/docs/demos/src/searchbar/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -77,6 +77,25 @@ Improve this doc
 <h3>
 <a class="anchor" name="positionPlaceholder" href="#positionPlaceholder"></a>
 <code>positionPlaceholder()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="setFocus"></div>
+
+<h3>
+<a class="anchor" name="setFocus" href="#setFocus"></a>
+<code>setFocus()</code>
   
 
 </h3>

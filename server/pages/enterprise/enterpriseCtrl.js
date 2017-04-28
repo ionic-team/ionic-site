@@ -11,8 +11,8 @@ module.exports = function(req, res) {
 
   var m = {
     to: [
-      'brody@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
-      // 'perry@ionic.io'
+      // 'brody@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
+      'perry@ionic.io'
     ],
     from: 'sales@ionic.io',
     name: 'Ionic Enterprise',
@@ -95,6 +95,24 @@ module.exports = function(req, res) {
 	          resolve(response)
           })
         })
+      },
+      addNote: (note) => {
+        console.log('adding note')
+        return new Promise((resolve, reject) => {
+          pipedrive.Notes.add({
+            content: note.content,
+            deal_id: note.deal_id,
+            person_id: note.person_id,
+            org_id: note.org_id
+          }, (err, response) => {
+	          if (err) {
+              reject(err);
+              return console.error(err);
+            }
+            // console.log(response);
+	          resolve(response)
+          })
+        })
       }
     }
 
@@ -114,6 +132,11 @@ module.exports = function(req, res) {
         user_id: asigneeId, // brody
         person_id: person.id,
         org_id: person.org_id
+      })).then((deal) => pd.addNote({
+        content: objToString(req.body).replace(/\n/g, ' | '),
+        deal_id: deal.id,
+        person_id: deal.person_id,
+        org_id: deal.org_id
       })).then(resolve);
    }));
 

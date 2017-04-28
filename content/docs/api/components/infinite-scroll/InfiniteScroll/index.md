@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "InfiniteScroll"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/infinite-scroll/"
+preview_device_url: "/docs/demos/src/infinite-scroll/www/"
 angular_controller: APIDemoCtrl 
 ---
 

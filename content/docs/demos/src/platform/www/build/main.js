@@ -50047,7 +50047,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     }
     getValues() {
         const values = Array.isArray(this._value) ? this._value : [this._value];
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["c" /* assert */])(!this._multi && values.length <= 1, 'single only can have one value');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["c" /* assert */])(this._multi || values.length <= 1, 'single only can have one value');
         return values;
     }
     open(ev) {

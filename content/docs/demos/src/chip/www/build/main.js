@@ -50642,7 +50642,7 @@ let Toggle = Toggle_1 = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_b
     set checked(val) {
         this.value = val;
     }
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         this._initialize();
         this._gesture = new __WEBPACK_IMPORTED_MODULE_12__toggle_gesture__["a" /* ToggleGesture */](this._plt, this, this._gestureCtrl, this._domCtrl);
         this._gesture.listen();

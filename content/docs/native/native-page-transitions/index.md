@@ -271,6 +271,24 @@ Cancel pending transition
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="executePendingTransition" href="#executePendingTransition"></a><code>executePendingTransition()</code></h3>
+
+
+Execute pending transition
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="cancelPendingTransition" href="#cancelPendingTransition"></a><code>cancelPendingTransition()</code></h3>
+
+
+Cancel pending transition
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

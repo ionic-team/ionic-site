@@ -55,7 +55,7 @@ constructor(private iap: InAppPurchase) { }
 ...
 
 this.iap
- .getProducts([&#39;com.yourapp.prod1&#39;, &#39;com.yourapp.prod2&#39;, ...])
+ .getProducts([&#39;prod1&#39;, &#39;prod2&#39;, ...])
  .then((products) =&gt; {
    console.log(products);
     //  [{ productId: &#39;com.yourapp.prod1&#39;, &#39;title&#39;: &#39;...&#39;, description: &#39;...&#39;, price: &#39;...&#39; }, ...]
@@ -66,7 +66,7 @@ this.iap
 
 
 this.iap
-  .buy(&#39;com.yourapp.prod1&#39;)
+  .buy(&#39;prod1&#39;)
   .then((data)=&gt; {
     console.log(data);
     // {
@@ -261,7 +261,7 @@ Get the receipt.
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <pre><code class="lang-ts">// fist buy the product...
 this.iap
-  .buy(&#39;com.yourapp.consumable_prod1&#39;)
+  .buy(&#39;consumable_prod1&#39;)
   .then(data =&gt; this.iap.consume(data.productType, data.receipt, data.signature))
   .then(() =&gt; console.log(&#39;product was successfully consumed!&#39;))
   .catch( err=&gt; console.log(err))

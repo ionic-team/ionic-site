@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/instagram
 
 
 <h2>Usage</h2>
-<pre><code>import { Instagram } from &#39;@ionic-native/instagram&#39;;
+<pre><code class="lang-typescript">import { Instagram } from &#39;@ionic-native/instagram&#39;;
 
 constructor(private instagram: Instagram) { }
 

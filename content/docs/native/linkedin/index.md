@@ -49,7 +49,7 @@ $ npm install --save @ionic-native/linkedin
 
 
 <h2>Usage</h2>
-<pre><code>import { LinkedIn } from &#39;@ionic-native/linkedin&#39;;
+<pre><code class="lang-typescript">import { LinkedIn } from &#39;@ionic-native/linkedin&#39;;
 
 constructor(private linkedin: LinkedIn) { }
 

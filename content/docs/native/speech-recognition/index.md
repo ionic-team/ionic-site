@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/speech-recognition
 
 
 <h2>Usage</h2>
-<pre><code>import { SpeechRecognition } from &#39;@ionic-native/speech-recognition&#39;;
+<pre><code class="lang-typescript">import { SpeechRecognition } from &#39;@ionic-native/speech-recognition&#39;;
 
 constructor(private speechRecognition: SpeechRecognition) { }
 

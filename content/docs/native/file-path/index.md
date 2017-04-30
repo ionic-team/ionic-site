@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/file-path
 
 
 <h2>Usage</h2>
-<pre><code>import { FilePath } from &#39;@ionic-native/file-path&#39;;
+<pre><code class="lang-typescript">import { FilePath } from &#39;@ionic-native/file-path&#39;;
 
 constructor(private filePath: FilePath) { }
 

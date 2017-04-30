@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/safari-view-controller
 
 
 <h2>Usage</h2>
-<pre><code>import { SafariViewController } from &#39;@ionic-native/safari-view-controller&#39;;
+<pre><code class="lang-typescript">import { SafariViewController } from &#39;@ionic-native/safari-view-controller&#39;;
 
 constructor(private safariViewController: SafariViewController) { }
 

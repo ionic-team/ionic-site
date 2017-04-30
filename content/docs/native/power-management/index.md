@@ -44,7 +44,7 @@ It should be used for applications which keep running for a long time without an
 
 
 <h2>Usage</h2>
-<pre><code>import { PowerManagement } from &#39;@ionic-native/power-management&#39;;
+<pre><code class="lang-typescript">import { PowerManagement } from &#39;@ionic-native/power-management&#39;;
 
 constructor(private powerManagement: PowerManagement) { }
 

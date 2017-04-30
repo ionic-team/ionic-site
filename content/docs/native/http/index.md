@@ -53,7 +53,7 @@ $ npm install --save @ionic-native/http
 
 
 <h2>Usage</h2>
-<pre><code>import { HTTP } from &#39;@ionic-native/http&#39;;
+<pre><code class="lang-typescript">import { HTTP } from &#39;@ionic-native/http&#39;;
 
 constructor(private http: HTTP) { }
 

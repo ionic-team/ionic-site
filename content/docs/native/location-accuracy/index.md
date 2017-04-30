@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/location-accuracy
 
 
 <h2>Usage</h2>
-<pre><code>import { LocationAccuracy } from &#39;@ionic-native/location-accuracy&#39;;
+<pre><code class="lang-typescript">import { LocationAccuracy } from &#39;@ionic-native/location-accuracy&#39;;
 
 constructor(private locationAccuracy: LocationAccuracy) { }
 

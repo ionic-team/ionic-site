@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/gyroscope
 
 
 <h2>Usage</h2>
-<pre><code>import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from &#39;@ionic-native/gyroscope&#39;;
+<pre><code class="lang-typescript">import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from &#39;@ionic-native/gyroscope&#39;;
 
 
 constructor(private gyroscope: Gyroscope) { }

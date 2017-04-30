@@ -65,57 +65,57 @@ constructor(private ble: BLE) { }
 <h2 id="peripheral-data">Peripheral Data</h2>
 <p>Peripheral Data is passed to the success callback when scanning and connecting. Limited data is passed when scanning.</p>
 <pre><code class="lang-typescript">{
-    &quot;name&quot;: &quot;Battery Demo&quot;,
-    &quot;id&quot;: &quot;20:FF:D0:FF:D1:C0&quot;,
-    &quot;advertising&quot;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
-    &quot;rssi&quot;: -55
+    &#39;name&#39;: &#39;Battery Demo&#39;,
+    &#39;id&#39;: &#39;20:FF:D0:FF:D1:C0&#39;,
+    &#39;advertising&#39;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
+    &#39;rssi&#39;: -55
 }
 </code></pre>
 <p>After connecting, the peripheral object also includes service, characteristic and descriptor information.</p>
 <pre><code class="lang-typescript">{
-    &quot;name&quot;: &quot;Battery Demo&quot;,
-    &quot;id&quot;: &quot;20:FF:D0:FF:D1:C0&quot;,
-    &quot;advertising&quot;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
-    &quot;rssi&quot;: -55,
-    &quot;services&quot;: [
-        &quot;1800&quot;,
-        &quot;1801&quot;,
-        &quot;180f&quot;
+    &#39;name&#39;: &#39;Battery Demo&#39;,
+    &#39;id&#39;: &#39;20:FF:D0:FF:D1:C0&#39;,
+    &#39;advertising&#39;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
+    &#39;rssi&#39;: -55,
+    &#39;services&#39;: [
+        &#39;1800&#39;,
+        &#39;1801&#39;,
+        &#39;180f&#39;
     ],
-    &quot;characteristics&quot;: [
+    &#39;characteristics&#39;: [
         {
-            &quot;service&quot;: &quot;1800&quot;,
-            &quot;characteristic&quot;: &quot;2a00&quot;,
-            &quot;properties&quot;: [
-                &quot;Read&quot;
+            &#39;service&#39;: &#39;1800&#39;,
+            &#39;characteristic&#39;: &#39;2a00&#39;,
+            &#39;properties&#39;: [
+                &#39;Read&#39;
             ]
         },
         {
-            &quot;service&quot;: &quot;1800&quot;,
-            &quot;characteristic&quot;: &quot;2a01&quot;,
-            &quot;properties&quot;: [
-                &quot;Read&quot;
+            &#39;service&#39;: &#39;1800&#39;,
+            &#39;characteristic&#39;: &#39;2a01&#39;,
+            &#39;properties&#39;: [
+                &#39;Read&#39;
             ]
         },
         {
-            &quot;service&quot;: &quot;1801&quot;,
-            &quot;characteristic&quot;: &quot;2a05&quot;,
-            &quot;properties&quot;: [
-                &quot;Read&quot;
+            &#39;service&#39;: &#39;1801&#39;,
+            &#39;characteristic&#39;: &#39;2a05&#39;,
+            &#39;properties&#39;: [
+                &#39;Read&#39;
             ]
         },
         {
-            &quot;service&quot;: &quot;180f&quot;,
-            &quot;characteristic&quot;: &quot;2a19&quot;,
-            &quot;properties&quot;: [
-                &quot;Read&quot;
+            &#39;service&#39;: &#39;180f&#39;,
+            &#39;characteristic&#39;: &#39;2a19&#39;,
+            &#39;properties&#39;: [
+                &#39;Read&#39;
             ],
-            &quot;descriptors&quot;: [
+            &#39;descriptors&#39;: [
                 {
-                    &quot;uuid&quot;: &quot;2901&quot;
+                    &#39;uuid&#39;: &#39;2901&#39;
                 },
                 {
-                    &quot;uuid&quot;: &quot;2904&quot;
+                    &#39;uuid&#39;: &#39;2904&#39;
                 }
             ]
         }
@@ -127,34 +127,34 @@ constructor(private ble: BLE) { }
 <p>The advertising information for both Android and iOS appears to be a combination of advertising data and scan response data.</p>
 <h3 id="android">Android</h3>
 <pre><code class="lang-typescript"> {
-     &quot;name&quot;: &quot;demo&quot;,
-     &quot;id&quot;: &quot;00:1A:7D:DA:71:13&quot;,
-     &quot;advertising&quot;: ArrayBuffer,
-    &quot;rssi&quot;: -37
+     &#39;name&#39;: &#39;demo&#39;,
+     &#39;id&#39;: &#39;00:1A:7D:DA:71:13&#39;,
+     &#39;advertising&#39;: ArrayBuffer,
+    &#39;rssi&#39;: -37
 }
 </code></pre>
 <p>Convert the advertising info to a Uint8Array for processing. <code>var adData = new Uint8Array(peripheral.advertising)</code></p>
 <h3 id="ios">iOS</h3>
 <p>Note that iOS uses the string value of the constants for the <a href="https://developer.apple.com/library/ios/documentation/CoreBluetooth/Reference/CBCentralManagerDelegate_Protocol/index.html#//apple_ref/doc/constant_group/Advertisement_Data_Retrieval_Keys">Advertisement Data Retrieval Keys</a>. This will likely change in the future.</p>
 <pre><code class="lang-typescript">{
-    &quot;name&quot;: &quot;demo&quot;,
-    &quot;id&quot;: &quot;D8479A4F-7517-BCD3-91B5-3302B2F81802&quot;,
-    &quot;advertising&quot;: {
-        &quot;kCBAdvDataChannel&quot;: 37,
-        &quot;kCBAdvDataServiceData&quot;: {
-            &quot;FED8&quot;: {
-                &quot;byteLength&quot;: 7 // data not shown
+    &#39;name&#39;: &#39;demo&#39;,
+    &#39;id&#39;: &#39;D8479A4F-7517-BCD3-91B5-3302B2F81802&#39;,
+    &#39;advertising&#39;: {
+        &#39;kCBAdvDataChannel&#39;: 37,
+        &#39;kCBAdvDataServiceData&#39;: {
+            &#39;FED8&#39;: {
+                &#39;byteLength&#39;: 7 // data not shown
             }
         },
-        &quot;kCBAdvDataLocalName&quot;: &quot;demo&quot;,
-        &quot;kCBAdvDataServiceUUIDs&quot;: [&quot;FED8&quot;],
-        &quot;kCBAdvDataManufacturerData&quot;: {
-            &quot;byteLength&quot;: 7  // data not shown
+        &#39;kCBAdvDataLocalName&#39;: &#39;demo&#39;,
+        &#39;kCBAdvDataServiceUUIDs&#39;: [&#39;FED8&#39;],
+        &#39;kCBAdvDataManufacturerData&#39;: {
+            &#39;byteLength&#39;: 7  // data not shown
         },
-        &quot;kCBAdvDataTxPowerLevel&quot;: 32,
-        &quot;kCBAdvDataIsConnectable&quot;: true
+        &#39;kCBAdvDataTxPowerLevel&#39;: 32,
+        &#39;kCBAdvDataIsConnectable&#39;: true
     },
-    &quot;rssi&quot;: -53
+    &#39;rssi&#39;: -53
 }
 </code></pre>
 <h2 id="typed-arrays">Typed Arrays</h2>

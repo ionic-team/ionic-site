@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/serial
 
 
 <h2>Usage</h2>
-<pre><code>import { Serial } from &#39;@ionic-native/serial&#39;;
+<pre><code class="lang-typescript">import { Serial } from &#39;@ionic-native/serial&#39;;
 
 constructor(private serial: Serial) { }
 

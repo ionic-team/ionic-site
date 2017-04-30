@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/backlight
 
 
 <h2>Usage</h2>
-<pre><code>import { Backlight } from &#39;@ionic-native/backlight&#39;;
+<pre><code class="lang-typescript">import { Backlight } from &#39;@ionic-native/backlight&#39;;
 
 constructor(private backlight: Backlight) { }
 

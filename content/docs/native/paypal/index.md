@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/paypal
 
 
 <h2>Usage</h2>
-<pre><code>import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/paypal&#39;;
+<pre><code class="lang-typescript">import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/paypal&#39;;
 
 constructor(private payPal: PayPal) { }
 
@@ -56,8 +56,8 @@ constructor(private payPal: PayPal) { }
 
 
 this.payPal.init({
-  PayPalEnvironmentProduction: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
-  PayPalEnvironmentSandbox: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
+  PayPalEnvironmentProduction: &#39;YOUR_PRODUCTION_CLIENT_ID&#39;,
+  PayPalEnvironmentSandbox: &#39;YOUR_SANDBOX_CLIENT_ID&#39;
 }).then(() =&gt; {
   // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
   this.payPal.prepareToRender(&#39;PayPalEnvironmentSandbox&#39;, new PayPalConfiguration({

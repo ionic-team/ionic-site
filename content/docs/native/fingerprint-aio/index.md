@@ -62,8 +62,8 @@ constructor(private faio: FingerprintAIO) { }
 ...
 
 this.faio.show({
-    clientId: &quot;Fingerprint-Demo&quot;,
-    clientSecret: &quot;password&quot;, //Only necessary for Android
+    clientId: &#39;Fingerprint-Demo&#39;,
+    clientSecret: &#39;password&#39;, //Only necessary for Android
     disableBackup:true  //Only for Android(optional)
 })
 .then((result: any) =&gt; console.log(result))

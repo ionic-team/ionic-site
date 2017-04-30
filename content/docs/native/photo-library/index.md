@@ -50,7 +50,7 @@ cdvphotolibrary urls should be trusted by Angular. See plugin homepage to learn 
 
 
 <h2>Usage</h2>
-<pre><code>import { PhotoLibrary } from &#39;@ionic-native/photo-library&#39;;
+<pre><code class="lang-typescript">import { PhotoLibrary } from &#39;@ionic-native/photo-library&#39;;
 
 constructor(private photoLibrary: PhotoLibrary) { }
 
@@ -71,10 +71,10 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
       });
     },
     error: err =&gt; {},
-    complete: () =&gt; { console.log(&quot;could not get photos&quot;); }
+    complete: () =&gt; { console.log(&#39;could not get photos&#39;); }
   });
 })
-.catch(err =&gt; console.log(&quot;permissions weren&#39;t granted&quot;));
+.catch(err =&gt; console.log(&#39;permissions weren&#39;t granted&#39;));
 </code></pre>
 
 

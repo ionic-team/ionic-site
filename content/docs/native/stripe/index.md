@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/stripe
 
 
 <h2>Usage</h2>
-<pre><code>import { Stripe } from &#39;@ionic-native/stripe&#39;;
+<pre><code class="lang-typescript">import { Stripe } from &#39;@ionic-native/stripe&#39;;
 
 constructor(private stripe: Stripe) { }
 

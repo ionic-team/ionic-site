@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/pinterest
 
 
 <h2>Usage</h2>
-<pre><code>import { Pinterest, PinterestUser, PinterestPin, PinterestBoard } from &#39;@ionic-native/pinterest&#39;;
+<pre><code class="lang-typescript">import { Pinterest, PinterestUser, PinterestPin, PinterestBoard } from &#39;@ionic-native/pinterest&#39;;
 
 constructor(private pinterest: Pinterest) { }
 

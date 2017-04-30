@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/card-io
 
 
 <h2>Usage</h2>
-<pre><code>import { CardIO } from &#39;@ionic-native/card-io&#39;;
+<pre><code class="lang-typescript">import { CardIO } from &#39;@ionic-native/card-io&#39;;
 
 constructor(private cardIO: CardIO) { }
 

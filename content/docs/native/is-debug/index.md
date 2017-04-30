@@ -49,7 +49,7 @@ Debug mode is when the app is built and installed locally via xcode / eclipse / 
 
 
 <h2>Usage</h2>
-<pre><code>import { IsDebug } from &#39;@ionic-native/is-debug&#39;;
+<pre><code class="lang-typescript">import { IsDebug } from &#39;@ionic-native/is-debug&#39;;
 
 constructor(private isDebug: IsDebug) { }
 

@@ -49,7 +49,7 @@ $ npm install --save @ionic-native/alipay
 
 
 <h2>Usage</h2>
-<pre><code>import { Alipay, AlipayOrder } from &#39;@ionic-native/alipay&#39;;
+<pre><code class="lang-typescript">import { Alipay, AlipayOrder } from &#39;@ionic-native/alipay&#39;;
 
 constructor(private alipay: Alipay) {
 

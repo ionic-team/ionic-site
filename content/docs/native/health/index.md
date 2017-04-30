@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/health
 
 
 <h2>Usage</h2>
-<pre><code>import { Health } from &#39;@ionic-native/health&#39;;
+<pre><code class="lang-typescript">import { Health } from &#39;@ionic-native/health&#39;;
 
 
 constructor(private health: Health) { }

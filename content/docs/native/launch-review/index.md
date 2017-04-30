@@ -50,7 +50,7 @@ On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses th
 
 
 <h2>Usage</h2>
-<pre><code>import { LaunchReview } from &#39;@ionic-native/launch-review&#39;;
+<pre><code class="lang-typescript">import { LaunchReview } from &#39;@ionic-native/launch-review&#39;;
 
 constructor(private launchReview: LaunchReview) { }
 

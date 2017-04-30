@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/broadcaster
 
 
 <h2>Usage</h2>
-<pre><code>import { Broadcaster } from &#39;@ionic-native/broadcaster&#39;;
+<pre><code class="lang-typescript">import { Broadcaster } from &#39;@ionic-native/broadcaster&#39;;
 
 constructor(private broadcaster: Broadcaster) { }
 

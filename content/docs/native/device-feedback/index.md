@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/device-feedback
 
 
 <h2>Usage</h2>
-<pre><code>import { DeviceFeedback } from &#39;@ionic-native/device-feedback&#39;;
+<pre><code class="lang-typescript">import { DeviceFeedback } from &#39;@ionic-native/device-feedback&#39;;
 
 constructor(private deviceFeedback: DeviceFeedback) { }
 

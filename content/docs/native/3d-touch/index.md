@@ -48,21 +48,21 @@ $ npm install --save @ionic-native/three-dee-touch
 
 <h2>Usage</h2>
 <p>Please do refer to the original plugin&#39;s repo for detailed usage. The usage example here might not be sufficient.</p>
-<pre><code>import { ThreeDeeTouch, ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch } from &#39;@ionic-native/three-dee-touch&#39;;
+<pre><code class="lang-typescript">import { ThreeDeeTouch, ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch } from &#39;@ionic-native/three-dee-touch&#39;;
 
 constructor(private threeDeeTouch: ThreeDeeTouch) { }
 
 ...
 
-this.threeDeeTouch.isAvailable().then(isAvailable =&gt; console.log(&quot;3D Touch available? &quot; + isAvailable));
+this.threeDeeTouch.isAvailable().then(isAvailable =&gt; console.log(&#39;3D Touch available? &#39; + isAvailable));
 
 this.threeDeeTouch.watchForceTouches()
   .subscribe(
     (data: ThreeDeeTouchForceTouch) =&gt; {
-      console.log(&quot;Force touch %&quot; + data.force);
-      console.log(&quot;Force touch timestamp: &quot; + data.timestamp);
-      console.log(&quot;Force touch x: &quot; + data.x);
-      console.log(&quot;Force touch y: &quot; + data.y);
+      console.log(&#39;Force touch %&#39; + data.force);
+      console.log(&#39;Force touch timestamp: &#39; + data.timestamp);
+      console.log(&#39;Force touch x: &#39; + data.x);
+      console.log(&#39;Force touch y: &#39; + data.y);
     }
   );
 

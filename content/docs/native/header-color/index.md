@@ -54,7 +54,7 @@ constructor(private headerColor: HeaderColor) { }
 
 ...
 
-this.headerColor.tint(&quot;#becb29&quot;);
+this.headerColor.tint(&#39;#becb29&#39;);
 </code></pre>
 
 

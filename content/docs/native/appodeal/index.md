@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/appodeal
 
 
 <h2>Usage</h2>
-<pre><code>import { Appodeal } from &#39;@ionic-native/appodeal&#39;;
+<pre><code class="lang-typescript">import { Appodeal } from &#39;@ionic-native/appodeal&#39;;
 
 constructor(private appodeal: Appodeal) {
 

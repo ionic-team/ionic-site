@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/google-maps
 
 
 <h2>Usage</h2>
-<pre><code>import {
+<pre><code class="lang-typescript">import {
  GoogleMaps,
  GoogleMap,
  GoogleMapsEvent,

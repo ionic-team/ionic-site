@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/firebase
 
 
 <h2>Usage</h2>
-<pre><code>import { Firebase } from &#39;@ionic-native/firebase&#39;;
+<pre><code class="lang-typescript">import { Firebase } from &#39;@ionic-native/firebase&#39;;
 
 constructor(private firebase: Firebase) { }
 

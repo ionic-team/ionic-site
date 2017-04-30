@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/intel-security
 
 
 <h2>Usage</h2>
-<pre><code>import { IntelSecurity } from &#39;@ionic-native/intel-security&#39;;
+<pre><code class="lang-typescript">import { IntelSecurity } from &#39;@ionic-native/intel-security&#39;;
 ...
 constructor(private intelSecurity: IntelSecurity) { }
 ...

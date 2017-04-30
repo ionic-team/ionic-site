@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/file-chooser
 
 
 <h2>Usage</h2>
-<pre><code>import { FileChooser } from &#39;@ionic-native/file-chooser&#39;;
+<pre><code class="lang-typescript">import { FileChooser } from &#39;@ionic-native/file-chooser&#39;;
 
 constructor(private fileChooser: FileChooser) { }
 

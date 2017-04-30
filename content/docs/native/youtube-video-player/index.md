@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/youtube-video-player
 
 
 <h2>Usage</h2>
-<pre><code>import { YoutubeVideoPlayer } from &#39;@ionic-native/youtube-video-player&#39;;
+<pre><code class="lang-typescript">import { YoutubeVideoPlayer } from &#39;@ionic-native/youtube-video-player&#39;;
 
 constructor(private youtube: YoutubeVideoPlayer) { }
 

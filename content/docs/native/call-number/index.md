@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/call-number
 
 
 <h2>Usage</h2>
-<pre><code>import { CallNumber } from &#39;@ionic-native/call-number&#39;;
+<pre><code class="lang-typescript">import { CallNumber } from &#39;@ionic-native/call-number&#39;;
 
 constructor(private callNumber: CallNumber) { }
 

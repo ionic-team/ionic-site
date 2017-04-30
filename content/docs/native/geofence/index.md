@@ -49,7 +49,7 @@ Geofences persist after device reboot. Geofences will be monitored even when the
 
 
 <h2>Usage</h2>
-<pre><code>import { Geofence } from &#39;@ionic-native/geofence&#39;;
+<pre><code class="lang-typescript">import { Geofence } from &#39;@ionic-native/geofence&#39;;
 
 ...
 
@@ -67,15 +67,15 @@ constructor(private geofence: Geofence) {
 private addGeofence() {
   //options describing geofence
   let fence = {
-    id: &quot;69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb&quot;, //any unique ID
+    id: &#39;69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb&#39;, //any unique ID
     latitude:       37.285951, //center of geofence radius
     longitude:      -121.936650,
     radius:         100, //radius to edge of geofence
     transitionType: 3, //see &#39;Transition Types&#39; below
     notification: { //notification settings
         id:             1, //any unique ID
-        title:          &quot;You crossed a fence&quot;, //notification title
-        text:           &quot;You just arrived to Gliwice city center.&quot;, //notification body
+        title:          &#39;You crossed a fence&#39;, //notification title
+        text:           &#39;You just arrived to Gliwice city center.&#39;, //notification body
         openAppOnClick: true //open app when notification is tapped
     }
   }

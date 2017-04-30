@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/in-app-purchase
 
 
 <h2>Usage</h2>
-<pre><code class="lang-ts">import { InAppPurchase } from &#39;@ionic-native/in-app-purchase&#39;;
+<pre><code class="lang-typescript">import { InAppPurchase } from &#39;@ionic-native/in-app-purchase&#39;;
 
 constructor(private iap: InAppPurchase) { }
 
@@ -259,7 +259,7 @@ Get the receipt.
 </div>
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<pre><code class="lang-ts">// fist buy the product...
+<pre><code class="lang-typescript">// fist buy the product...
 this.iap
   .buy(&#39;consumable_prod1&#39;)
   .then(data =&gt; this.iap.consume(data.productType, data.receipt, data.signature))

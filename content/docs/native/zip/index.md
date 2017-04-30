@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/zip
 
 
 <h2>Usage</h2>
-<pre><code>import { Zip } from &#39;@ionic-native/zip&#39;;
+<pre><code class="lang-typescript">import { Zip } from &#39;@ionic-native/zip&#39;;
 
 constructor(private zip: Zip) { }
 

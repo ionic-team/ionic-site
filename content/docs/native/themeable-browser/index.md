@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/themeable-browser
 
 
 <h2>Usage</h2>
-<pre><code>import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from &#39;@ionic-native/themeable-browser&#39;;
+<pre><code class="lang-typescript">import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from &#39;@ionic-native/themeable-browser&#39;;
 
 constructor(private themeableBrowser: ThemeableBrowser) { }
 

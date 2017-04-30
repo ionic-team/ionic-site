@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/browser-tab
 
 
 <h2>Usage</h2>
-<pre><code>import { BrowserTab } from &#39;@ionic-native/browser-tab&#39;;
+<pre><code class="lang-typescript">import { BrowserTab } from &#39;@ionic-native/browser-tab&#39;;
 
 constructor(private browserTab: BrowserTab) {
 

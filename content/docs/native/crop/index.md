@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/crop
 
 
 <h2>Usage</h2>
-<pre><code>import { Crop } from &#39;@ionic-native/crop&#39;;
+<pre><code class="lang-typescript">import { Crop } from &#39;@ionic-native/crop&#39;;
 
 constructor(private crop: Crop) { }
 
@@ -56,8 +56,8 @@ constructor(private crop: Crop) { }
 
 this.crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
   .then(
-    newImage =&gt; console.log(&quot;new image path is: &quot; + newImage),
-    error =&gt; console.error(&quot;Error cropping image&quot;, error)
+    newImage =&gt; console.log(&#39;new image path is: &#39; + newImage),
+    error =&gt; console.error(&#39;Error cropping image&#39;, error)
   );
 </code></pre>
 

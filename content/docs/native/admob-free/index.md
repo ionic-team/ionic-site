@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/admob-free
 
 
 <h2>Usage</h2>
-<pre><code>import { AdMobFree, AdMobFreeBannerConfig } from &#39;@ionic-native/admob-free&#39;;
+<pre><code class="lang-typescript">import { AdMobFree, AdMobFreeBannerConfig } from &#39;@ionic-native/admob-free&#39;;
 
 
 constructor(private admobFree: AdMobFree) { }

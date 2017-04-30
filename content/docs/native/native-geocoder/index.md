@@ -61,11 +61,11 @@ constructor(private nativeGeocoder: NativeGeocoder) { }
 ...
 
 this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&quot;The address is &quot; + result.street + &quot; in &quot; + result.countryCode))
+  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&#39;The address is &#39; + result.street + &#39; in &#39; + result.countryCode))
   .catch((error: any) =&gt; console.log(error));
 
-this.nativeGeocoder.forwardGeocode(&quot;Berlin&quot;)
-  .then((coordinates: NativeGeocoderForwardResult) =&gt; console.log(&quot;The coordinates are latitude=&quot; + coordinates.latitude + &quot; and longitude=&quot; + coordinates.longitude))
+this.nativeGeocoder.forwardGeocode(&#39;Berlin&#39;)
+  .then((coordinates: NativeGeocoderForwardResult) =&gt; console.log(&#39;The coordinates are latitude=&#39; + coordinates.latitude + &#39; and longitude=&#39; + coordinates.longitude))
   .catch((error: any) =&gt; console.log(error));
 </code></pre>
 

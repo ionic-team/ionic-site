@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/text-to-speech
 
 
 <h2>Usage</h2>
-<pre><code>import { TextToSpeech } from &#39;@ionic-native/text-to-speech&#39;;
+<pre><code class="lang-typescript">import { TextToSpeech } from &#39;@ionic-native/text-to-speech&#39;;
 
 constructor(private tts: TextToSpeech) { }
 

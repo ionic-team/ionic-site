@@ -51,7 +51,7 @@ $ npm install --save @ionic-native/nfc
 
 
 <h2>Usage</h2>
-<pre><code>import { NFC, Ndef } from &#39;@ionic-native/nfc&#39;;
+<pre><code class="lang-typescript">import { NFC, Ndef } from &#39;@ionic-native/nfc&#39;;
 
 constructor(private nfc: NFC, private ndef: Ndef) { }
 

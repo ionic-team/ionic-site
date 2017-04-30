@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/couchbase-lite
 
 
 <h2>Usage</h2>
-<pre><code>import { CouchbaseLite } from &#39;@ionic-native/couchbase-lite&#39;;
+<pre><code class="lang-typescript">import { CouchbaseLite } from &#39;@ionic-native/couchbase-lite&#39;;
 
 constructor(private couchbase: CouchbaseLite) {
 

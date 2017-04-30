@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/jins-meme
 
 
 <h2>Usage</h2>
-<pre><code>import { JinsMeme } from &#39;@ionic-native/jins-meme&#39;;
+<pre><code class="lang-typescript">import { JinsMeme } from &#39;@ionic-native/jins-meme&#39;;
 
 constructor(private jinsMeme: JinsMeme) { }
 

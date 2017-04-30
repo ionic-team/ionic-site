@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/mixpanel
 
 
 <h2>Usage</h2>
-<pre><code>import { Mixpanel, MixpanelPeople } from &#39;@ionic-native/mixpanel&#39;;
+<pre><code class="lang-typescript">import { Mixpanel, MixpanelPeople } from &#39;@ionic-native/mixpanel&#39;;
 
 constructor(private mixpanel: Mixpanel, private mixpanelPeople: MixpanelPeople) { }
 

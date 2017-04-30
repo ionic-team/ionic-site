@@ -49,14 +49,14 @@ $ npm install --save @ionic-native/zbar
 
 
 <h2>Usage</h2>
-<pre><code>import { ZBar, ZBarOptions } from &#39;@ionic-native/z-bar&#39;;
+<pre><code class="lang-typescript">import { ZBar, ZBarOptions } from &#39;@ionic-native/z-bar&#39;;
 
 constructor(private zbar: ZBar) { }
 
 ...
 
 let ZBarOptions = {
-      flash: &quot;off&quot;,
+      flash: &#39;off&#39;,
       drawSight: false
     };
 

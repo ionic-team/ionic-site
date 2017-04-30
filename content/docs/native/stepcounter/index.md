@@ -53,7 +53,7 @@ $ npm install --save @ionic-native/stepcounter
 
 
 <h2>Usage</h2>
-<pre><code>import { Stepcounter } from &#39;@ionic-native/stepcounter&#39;;
+<pre><code class="lang-typescript">import { Stepcounter } from &#39;@ionic-native/stepcounter&#39;;
 
 constructor(private stepcounter: Stepcounter) { }
 

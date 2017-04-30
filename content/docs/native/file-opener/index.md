@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/file-opener
 
 
 <h2>Usage</h2>
-<pre><code>import { FileOpener } from &#39;@ionic-native/file-opener&#39;;
+<pre><code class="lang-typescript">import { FileOpener } from &#39;@ionic-native/file-opener&#39;;
 
 constructor(private fileOpener: FileOpener) { }
 

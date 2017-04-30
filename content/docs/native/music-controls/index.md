@@ -45,7 +45,7 @@ Handle also headset event (plug, unplug, headset button).</p>
 
 
 <h2>Usage</h2>
-<pre><code>import { MusicControls } from &#39;@ionic-native/music-controls&#39;;
+<pre><code class="lang-typescript">import { MusicControls } from &#39;@ionic-native/music-controls&#39;;
 
 constructor(private musicControls: MusicControls) { }
 

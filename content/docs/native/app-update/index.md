@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/app-update
 &lt;/update&gt;
 </code></pre>
 <p>Then use the following code:</p>
-<pre><code>import { AppUpdate } from &#39;@ionic-native/app-update&#39;;
+<pre><code class="lang-typescript">import { AppUpdate } from &#39;@ionic-native/app-update&#39;;
 
 constructor(private appUpdate: AppUpdate) {
 

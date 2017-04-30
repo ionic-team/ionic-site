@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/native-page-transitions
 
 
 <h2>Usage</h2>
-<pre><code>import { NativePageTransitions, NativeTransitionOptions } from &#39;@ionic-native/native-page-transitions&#39;;
+<pre><code class="lang-typescript">import { NativePageTransitions, NativeTransitionOptions } from &#39;@ionic-native/native-page-transitions&#39;;
 
 constructor(private nativePageTransitions: NativePageTransitions) { }
 

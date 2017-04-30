@@ -48,14 +48,14 @@ $ npm install --save @ionic-native/sqlite-porter
 
 
 <h2>Usage</h2>
-<pre><code>import { SQLitePorter } from &#39;@ionic-native/sqlite-porter&#39;;
+<pre><code class="lang-typescript">import { SQLitePorter } from &#39;@ionic-native/sqlite-porter&#39;;
 
 
 constructor(private sqlitePorter: SQLitePorter) { }
 
 ...
 
-let db = window.openDatabase(&quot;Test&quot;, &quot;1.0&quot;, &quot;TestDB&quot;, 1 * 1024);
+let db = window.openDatabase(&#39;Test&#39;, &#39;1.0&#39;, &#39;TestDB&#39;, 1 * 1024);
 // or we can use SQLite plugin
 // we will assume that we injected SQLite into this component as sqlite
 this.sqlite.create({
@@ -68,8 +68,8 @@ this.sqlite.create({
   });
 
 
-let sql = &quot;CREATE TABLE Artist ([Id] PRIMARY KEY, [Title]);&quot; +
-           &quot;INSERT INTO Artist(Id,Title) VALUES (&#39;1&#39;,&#39;Fred&#39;);&quot;;
+let sql = &#39;CREATE TABLE Artist ([Id] PRIMARY KEY, [Title]);&#39; +
+           &#39;INSERT INTO Artist(Id,Title) VALUES (&quot;1&quot;,&quot;Fred&quot;);&#39;;
 
 this.sqlitePorter.importSqlToDb(db, sql)
   .then(() =&gt; console.log(&#39;Imported&#39;))

@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/market
 
 
 <h2>Usage</h2>
-<pre><code>import { Market } from &#39;@ionic-native/market&#39;;
+<pre><code class="lang-typescript">import { Market } from &#39;@ionic-native/market&#39;;
 
 constructor(private market: Market) { }
 

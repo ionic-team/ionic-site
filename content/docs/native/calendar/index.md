@@ -49,7 +49,7 @@ $ npm install --save @ionic-native/calendar
 
 
 <h2>Usage</h2>
-<pre><code>import { Calendar } from &#39;@ionic-native/calendar&#39;;
+<pre><code class="lang-typescript">import { Calendar } from &#39;@ionic-native/calendar&#39;;
 
 constructor(private calendar: Calendar) { }
 

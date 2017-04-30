@@ -60,18 +60,18 @@ this.androidFingerprintAuth.isAvailable()
     if(result.isAvailable){
       // it is available
 
-      this.androidFingerprintAuth.encrypt({ clientId: &quot;myAppName&quot;, username: &quot;myUsername&quot;, password: &quot;myPassword&quot; })
+      this.androidFingerprintAuth.encrypt({ clientId: &#39;myAppName&#39;, username: &#39;myUsername&#39;, password: &#39;myPassword&#39; })
         .then(result =&gt; {
            if (result.withFingerprint) {
-               console.log(&quot;Successfully encrypted credentials.&quot;);
-               console.log(&quot;Encrypted credentials: &quot; + result.token);
+               console.log(&#39;Successfully encrypted credentials.&#39;);
+               console.log(&#39;Encrypted credentials: &#39; + result.token);
            } else if (result.withBackup) {
              console.log(&#39;Successfully authenticated with backup password!&#39;);
            } else console.log(&#39;Didn\&#39;t authenticate!&#39;);
         })
         .catch(error =&gt; {
-           if (error === &quot;Cancelled&quot;) {
-             console.log(&quot;Fingerprint authentication cancelled&quot;);
+           if (error === &#39;Cancelled&#39;) {
+             console.log(&#39;Fingerprint authentication cancelled&#39;);
            } else console.error(error)
         });
 

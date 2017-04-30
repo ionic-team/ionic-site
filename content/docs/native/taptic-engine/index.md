@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/taptic-engine
 
 
 <h2>Usage</h2>
-<pre><code class="lang-ts">import { TapticEngine } from &#39;@ionic-native/taptic-engine&#39;;
+<pre><code class="lang-typescript">import { TapticEngine } from &#39;@ionic-native/taptic-engine&#39;;
 
 ...
 

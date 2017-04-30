@@ -56,7 +56,7 @@ constructor(private videoPlayer: VideoPlayer) { }
 ...
 
 // Playing a video.
-this.videoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =&gt; {
+this.videoPlayer.play(&#39;file:///android_asset/www/movie.mp4&#39;).then(() =&gt; {
  console.log(&#39;video completed&#39;);
 }).catch(err =&gt; {
  console.log(err);

@@ -49,7 +49,7 @@ such as step counts and other information about the distance travelled.</p>
 
 
 <h2>Usage</h2>
-<pre><code>import { Pedometer } from &#39;@ionic-native/pedometer&#39;;
+<pre><code class="lang-typescript">import { Pedometer } from &#39;@ionic-native/pedometer&#39;;
 
 Pedometer.isDistanceAvailable()
   .then((available: boolean) =&gt; console.log(available))

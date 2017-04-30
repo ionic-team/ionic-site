@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/unique-device-id
 
 
 <h2>Usage</h2>
-<pre><code>import { UniqueDeviceID } from &#39;@ionic-native/unique-device-id&#39;;
+<pre><code class="lang-typescript">import { UniqueDeviceID } from &#39;@ionic-native/unique-device-id&#39;;
 
 constructor(private uniqueDeviceID: UniqueDeviceID) { }
 

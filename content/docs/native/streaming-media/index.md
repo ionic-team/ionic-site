@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/streaming-media
 
 
 <h2>Usage</h2>
-<pre><code>import { StreamingMedia, StreamingVideoOptions } from &#39;@ionic-native/streaming-media&#39;;
+<pre><code class="lang-typescript">import { StreamingMedia, StreamingVideoOptions } from &#39;@ionic-native/streaming-media&#39;;
 
 constructor(private streamingMedia: StreamingMedia) { }
 

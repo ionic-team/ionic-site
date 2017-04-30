@@ -58,19 +58,19 @@ constructor(private secureStorage: SecureStorage) { }
 this.secureStorage.create(&#39;my_store_name&#39;)
   .then((storage: SecureStorageObject) =&gt; {
 
-     storage.get(&#39;myitem&#39;)
+     storage.get(&#39;key&#39;)
        .then(
          data =&gt; console.log(data),
          error =&gt; console.log(error)
      );
 
-     storage.set(&#39;myitem&#39;, &#39;myvalue&#39;)
+     storage.set(&#39;key&#39;, &#39;value&#39;)
        .then(
         data =&gt; console.log(data),
          error =&gt; console.log(error)
      );
 
-     storage.remove(&#39;myitem&#39;)
+     storage.remove(&#39;key&#39;)
      .then(
          data =&gt; console.log(data),
          error =&gt; console.log(error)

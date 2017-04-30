@@ -124,7 +124,12 @@ this.cameraPreview.stopCamera();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="EXPOSURE_MODES" href="#EXPOSURE_MODES"></a><code>EXPOSURE_MODES</code></h3>
+<h3><a class="anchor" name="FOCUS_MODE" href="#FOCUS_MODE"></a><code>FOCUS_MODE</code></h3>
+
+
+
+
+<h3><a class="anchor" name="EXPOSURE_MODE" href="#EXPOSURE_MODE"></a><code>EXPOSURE_MODE</code></h3>
 
 
 
@@ -352,6 +357,64 @@ Set the preview Size
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getFocusMode" href="#getFocusMode"></a><code>getFocusMode()</code></h3>
+
+
+Get focus mode
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setFocusMode" href="#setFocusMode"></a><code>setFocusMode(focusMode)</code></h3>
+
+
+
+
+Set the focus mode
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      focusMode</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>&#39;fixed&#39;, &#39;auto&#39;, &#39;continuous-picture&#39;, &#39;continuous-video&#39; (iOS &amp; Android), &#39;edof&#39;, &#39;infinity&#39;, &#39;macro&#39; (Android Only)<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSupportedFocusModes" href="#getSupportedFocusModes"></a><code>getSupportedFocusModes()</code></h3>
+
+
+Get supported focus modes
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getFlashMode" href="#getFlashMode"></a><code>getFlashMode()</code></h3>
+
+
+Get the current flash mode
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="setFlashMode" href="#setFlashMode"></a><code>setFlashMode(flashMode)</code></h3>
 
 
@@ -383,19 +446,19 @@ Set the flashmode
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getSupportedPictureSizes" href="#getSupportedPictureSizes"></a><code>getSupportedPictureSizes()</code></h3>
+</div><h3><a class="anchor" name="getSupportedFlashModes" href="#getSupportedFlashModes"></a><code>getSupportedFlashModes()</code></h3>
 
 
-Get supported picture sizes
+Get supported flash modes
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getSupportedFlashModes" href="#getSupportedFlashModes"></a><code>getSupportedFlashModes()</code></h3>
+</div><h3><a class="anchor" name="getSupportedPictureSizes" href="#getSupportedPictureSizes"></a><code>getSupportedPictureSizes()</code></h3>
 
 
-Get supported flash modes
+Get supported picture sizes
 
 
 <div class="return-value" markdown="1">

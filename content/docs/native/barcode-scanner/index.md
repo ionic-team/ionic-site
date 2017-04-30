@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Barcode Scanner</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L56">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L62">
   Improve this doc
 </a>
 
@@ -303,6 +303,61 @@ NOTE: not well supported on Android
       <p>Display scanned text for X ms. 0 suppresses it entirely, default 1500. Supported on Android only.</p>
 
       <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="BarcodeScanResult" href="#BarcodeScanResult"></a>BarcodeScanResult</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      format
+    </td>
+    <td>
+      <code>&#39;QR_CODE&#39; | &#39;DATA_MATRIX&#39; | &#39;UPC_E&#39; | &#39;UPC_A&#39; | &#39;EAN_8&#39; | &#39;EAN_13&#39; | &#39;CODE_128&#39; | &#39;CODE_39&#39; | &#39;CODE_93&#39; | &#39;CODABAR&#39; | &#39;ITF&#39; | &#39;RSS14&#39; | &#39;RSS_EXPANDED&#39; | &#39;PDF417&#39; | &#39;AZTEC&#39; | &#39;MSI&#39;</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      cancelled
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      text
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
     </td>
   </tr>
   

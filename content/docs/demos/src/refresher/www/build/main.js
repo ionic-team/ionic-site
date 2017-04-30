@@ -56522,7 +56522,8 @@ class ItemReorderGesture {
         this.reorderList._reorderEmit(fromIndex, toIndex);
     }
     itemForCoord(coord) {
-        const x = this.offset.x - 100;
+        const sideOffset = this.plt.isRTL ? 100 : -100;
+        const x = this.offset.x + sideOffset;
         const y = coord.y;
         const element = this.plt.getElementFromPoint(x, y);
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["b" /* findReorderItem */])(element, this.reorderList.getNativeElement());

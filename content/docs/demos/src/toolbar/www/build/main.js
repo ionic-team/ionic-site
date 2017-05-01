@@ -49713,7 +49713,15 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
                 this.value = value;
                 this.ionChange.emit(value);
             }
+            this._overlay = undefined;
         });
+        this._overlay = overlay;
+    }
+    close() {
+        if (!this._overlay || !this.isFocus()) {
+            return;
+        }
+        return this._overlay.dismiss();
     }
     get multiple() {
         return this._multi;

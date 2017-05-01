@@ -140,6 +140,26 @@ for the properties that each interface accepts.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="close"></div>
+
+<h3>
+<a class="anchor" name="close" href="#close"></a>
+<code>close()</code>
+  
+
+</h3>
+
+Close the select interface.
+
+
+
+
+
+
+
+
+
+
 <div id="config"></div>
 
 <h3>

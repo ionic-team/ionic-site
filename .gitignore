@@ -25,3 +25,4 @@ linkchecker.html
 /content/_includes/fluid/head.prod.html
 /server/pages/_includes/head.prod.html
 /server/pages/_includes/scripts.prod.html
+/.vscode

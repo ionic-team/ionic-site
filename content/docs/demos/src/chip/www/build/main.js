@@ -16060,6 +16060,7 @@ let App = class App {
         this._rootNav = nav;
     }
     present(enteringView, opts, appPortal) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["c" /* assert */])(enteringView.isOverlay, 'presented view controller needs to be an overlay');
         const portal = this._appRoot._getPortal(appPortal);
         enteringView._setNav(portal);
         opts.keyboardClose = false;
@@ -39830,7 +39831,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     dismissPageChangeViews() {
         for (let view of this._views) {
             if (view.data && view.data.dismissOnPageChange) {
-                view.dismiss().catch(null);
+                view.dismiss().catch(() => { });
             }
         }
     }
@@ -40331,8 +40332,10 @@ let OverlayPortal = class OverlayPortal extends __WEBPACK_IMPORTED_MODULE_7__nav
         this._isPortal = true;
         this._init = true;
         this.setViewport(viewPort);
-        app.viewDidLeave.subscribe((ev) => {
-            !ev.isOverlay && this.dismissPageChangeViews();
+        app.viewDidLeave.subscribe((view) => {
+            if (!view.isOverlay) {
+                this.dismissPageChangeViews();
+            }
         });
     }
     set _overlayPortal(val) {

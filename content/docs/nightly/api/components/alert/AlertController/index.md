@@ -275,7 +275,7 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
-<td>Whether the alert should be dismissed by tapping the backdrop.</td>
+<td>Whether the alert should be dismissed by tapping the backdrop. Default true.</td>
 </tr>
 </tbody>
 </table>

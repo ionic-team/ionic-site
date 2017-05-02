@@ -1203,7 +1203,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-md-head-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the alert head</p>
 </td>
@@ -1473,7 +1473,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-md-button-text-align</code></td>
         
-          <td><code>right</code></td>
+          <td><code>end</code></td>
         
         <td><p>Text align of the alert button</p>
 </td>
@@ -1954,7 +1954,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-wp-head-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the alert head</p>
 </td>

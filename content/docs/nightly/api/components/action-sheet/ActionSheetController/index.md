@@ -602,7 +602,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$action-sheet-md-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the action sheet</p>
 </td>
@@ -768,7 +768,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$action-sheet-wp-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the action sheet</p>
 </td>

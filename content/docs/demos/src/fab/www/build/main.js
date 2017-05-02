@@ -282,7 +282,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.2
+ * @license Angular v4.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -1138,7 +1138,7 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('4.0.2');
+var VERSION = new Version('4.1.0');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -8173,7 +8173,6 @@ var DefaultKeyValueDiffer = (function () {
                 insertBefore._prev._next = null;
             }
             this._removalsHead = insertBefore;
-            this._removalsTail = insertBefore;
             for (var /** @type {?} */ record = insertBefore; record !== null; record = record._nextRemoved) {
                 if (record === this._mapHead) {
                     this._mapHead = null;
@@ -8186,6 +8185,11 @@ var DefaultKeyValueDiffer = (function () {
                 record._next = null;
             }
         }
+        // Make sure tails have no next records from previous runs
+        if (this._changesTail)
+            this._changesTail._nextChanged = null;
+        if (this._additionsTail)
+            this._additionsTail._nextAdded = null;
         return this.isDirty;
     };
     /**
@@ -8231,7 +8235,7 @@ var DefaultKeyValueDiffer = (function () {
      */
     DefaultKeyValueDiffer.prototype._getOrCreateRecordForKey = function (key, value) {
         if (this._records.has(key)) {
-            var /** @type {?} */ record_1 = this._records.get(key);
+            var /** @type {?} */ record_1 = ((this._records.get(key)));
             this._maybeAddToChanges(record_1, value);
             var /** @type {?} */ prev = record_1._prev;
             var /** @type {?} */ next = record_1._next;
@@ -8273,7 +8277,7 @@ var DefaultKeyValueDiffer = (function () {
             }
             this._changesHead = this._changesTail = null;
             this._additionsHead = this._additionsTail = null;
-            this._removalsHead = this._removalsTail = null;
+            this._removalsHead = null;
         }
     };
     /**
@@ -8323,22 +8327,11 @@ var DefaultKeyValueDiffer = (function () {
         var /** @type {?} */ changes = [];
         var /** @type {?} */ additions = [];
         var /** @type {?} */ removals = [];
-        var /** @type {?} */ record;
-        for (record = this._mapHead; record !== null; record = record._next) {
-            items.push(stringify(record));
-        }
-        for (record = this._previousMapHead; record !== null; record = record._nextPrevious) {
-            previous.push(stringify(record));
-        }
-        for (record = this._changesHead; record !== null; record = record._nextChanged) {
-            changes.push(stringify(record));
-        }
-        for (record = this._additionsHead; record !== null; record = record._nextAdded) {
-            additions.push(stringify(record));
-        }
-        for (record = this._removalsHead; record !== null; record = record._nextRemoved) {
-            removals.push(stringify(record));
-        }
+        this.forEachItem(function (r) { return items.push(stringify(r)); });
+        this.forEachPreviousItem(function (r) { return previous.push(stringify(r)); });
+        this.forEachChangedItem(function (r) { return changes.push(stringify(r)); });
+        this.forEachAddedItem(function (r) { return additions.push(stringify(r)); });
+        this.forEachRemovedItem(function (r) { return removals.push(stringify(r)); });
         return 'map: ' + items.join(', ') + '\n' +
             'previous: ' + previous.join(', ') + '\n' +
             'additions: ' + additions.join(', ') + '\n' +
@@ -9782,7 +9775,7 @@ function setElementClass(view, renderNode$$1, name, value) {
  * @return {?}
  */
 function setElementStyle(view, binding, renderNode$$1, name, value) {
-    var /** @type {?} */ renderValue = view.root.sanitizer.sanitize(SecurityContext.STYLE, value);
+    var /** @type {?} */ renderValue = view.root.sanitizer.sanitize(SecurityContext.STYLE, /** @type {?} */ (value));
     if (renderValue != null) {
         renderValue = renderValue.toString();
         var /** @type {?} */ unit = binding.suffix;
@@ -10055,8 +10048,9 @@ var ComponentFactory_ = (function (_super) {
          */
         get: function () {
             var /** @type {?} */ inputsArr = [];
-            for (var /** @type {?} */ propName in this._inputs) {
-                var /** @type {?} */ templateName = this._inputs[propName];
+            var /** @type {?} */ inputs = ((this._inputs));
+            for (var /** @type {?} */ propName in inputs) {
+                var /** @type {?} */ templateName = inputs[propName];
                 inputsArr.push({ propName: propName, templateName: templateName });
             }
             return inputsArr;
@@ -14247,6 +14241,7 @@ function transition$$1(stateChangeExpr, steps) {
  * @description
  * Entry point for all public APIs of the core package.
  */
+// This file only reexports content of the `src` folder. Keep it that way.
 /**
  * Generated bundle index. Do not edit.
  */
@@ -16291,7 +16286,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.2
+ * @license Angular v4.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -16350,30 +16345,21 @@ var PlatformLocation = (function () {
      * @return {?}
      */
     PlatformLocation.prototype.onHashChange = function (fn) { };
-    Object.defineProperty(PlatformLocation.prototype, "pathname", {
-        /**
-         * @return {?}
-         */
-        get: function () { return null; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PlatformLocation.prototype, "search", {
-        /**
-         * @return {?}
-         */
-        get: function () { return null; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PlatformLocation.prototype, "hash", {
-        /**
-         * @return {?}
-         */
-        get: function () { return null; },
-        enumerable: true,
-        configurable: true
-    });
+    /**
+     * @abstract
+     * @return {?}
+     */
+    PlatformLocation.prototype.pathname = function () { };
+    /**
+     * @abstract
+     * @return {?}
+     */
+    PlatformLocation.prototype.search = function () { };
+    /**
+     * @abstract
+     * @return {?}
+     */
+    PlatformLocation.prototype.hash = function () { };
     /**
      * @abstract
      * @param {?} state
@@ -16642,8 +16628,6 @@ var Location = (function () {
      * @return {?}
      */
     Location.prototype.subscribe = function (onNext, onThrow, onReturn) {
-        if (onThrow === void 0) { onThrow = null; }
-        if (onReturn === void 0) { onReturn = null; }
         return this._subject.subscribe({ next: onNext, error: onThrow, complete: onReturn });
     };
     /**
@@ -18015,7 +17999,7 @@ var NgForOf = (function () {
         var /** @type {?} */ insertTuples = [];
         changes.forEachOperation(function (item, adjustedPreviousIndex, currentIndex) {
             if (item.previousIndex == null) {
-                var /** @type {?} */ view = _this._viewContainer.createEmbeddedView(_this._template, new NgForOfContext(null, _this.ngForOf, null, null), currentIndex);
+                var /** @type {?} */ view = _this._viewContainer.createEmbeddedView(_this._template, new NgForOfContext(/** @type {?} */ ((null)), _this.ngForOf, -1, -1), currentIndex);
                 var /** @type {?} */ tuple = new RecordViewTuple(item, view);
                 insertTuples.push(tuple);
             }
@@ -18023,7 +18007,7 @@ var NgForOf = (function () {
                 _this._viewContainer.remove(adjustedPreviousIndex);
             }
             else {
-                var /** @type {?} */ view = _this._viewContainer.get(adjustedPreviousIndex);
+                var /** @type {?} */ view = ((_this._viewContainer.get(adjustedPreviousIndex)));
                 _this._viewContainer.move(view, currentIndex);
                 var /** @type {?} */ tuple = new RecordViewTuple(item, /** @type {?} */ (view));
                 insertTuples.push(tuple);
@@ -19012,7 +18996,7 @@ var AsyncPipe = (function () {
         this._latestReturnedValue = null;
         this._subscription = null;
         this._obj = null;
-        this._strategy = null;
+        this._strategy = ((null));
     }
     /**
      * @return {?}
@@ -19071,7 +19055,7 @@ var AsyncPipe = (function () {
      * @return {?}
      */
     AsyncPipe.prototype._dispose = function () {
-        this._strategy.dispose(this._subscription);
+        this._strategy.dispose(/** @type {?} */ ((this._subscription)));
         this._latestValue = null;
         this._latestReturnedValue = null;
         this._subscription = null;
@@ -19233,7 +19217,7 @@ var NumberFormatter = (function () {
             style: NumberFormatStyle[style].toLowerCase()
         };
         if (style == NumberFormatStyle.Currency) {
-            options.currency = currency;
+            options.currency = typeof currency == 'string' ? currency : undefined;
             options.currencyDisplay = currencyAsSymbol ? 'symbol' : 'code';
         }
         return new Intl.NumberFormat(locale, options).format(num);
@@ -19419,15 +19403,16 @@ function dateFormatter(format, date, locale) {
         parts = [];
         var /** @type {?} */ match = void 0;
         DATE_FORMATS_SPLIT.exec(format);
-        while (format) {
-            match = DATE_FORMATS_SPLIT.exec(format);
+        var /** @type {?} */ _format = format;
+        while (_format) {
+            match = DATE_FORMATS_SPLIT.exec(_format);
             if (match) {
                 parts = parts.concat(match.slice(1));
-                format = parts.pop();
+                _format = ((parts.pop()));
             }
             else {
-                parts.push(format);
-                format = null;
+                parts.push(_format);
+                _format = null;
             }
         }
         DATE_FORMATTER_CACHE.set(cacheKey, parts);
@@ -19471,7 +19456,7 @@ var _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(-(\d+))?)?$/;
  * @param {?} locale
  * @param {?} value
  * @param {?} style
- * @param {?} digits
+ * @param {?=} digits
  * @param {?=} currency
  * @param {?=} currencyAsSymbol
  * @return {?}
@@ -19486,9 +19471,9 @@ function formatNumber(pipe, locale, value, style, digits, currency, currencyAsSy
     if (typeof value !== 'number') {
         throw invalidPipeArgumentError(pipe, value);
     }
-    var /** @type {?} */ minInt;
-    var /** @type {?} */ minFraction;
-    var /** @type {?} */ maxFraction;
+    var /** @type {?} */ minInt = undefined;
+    var /** @type {?} */ minFraction = undefined;
+    var /** @type {?} */ maxFraction = undefined;
     if (style !== NumberFormatStyle.Currency) {
         // rely on Intl default for currency
         minInt = 1;
@@ -19558,7 +19543,6 @@ var DecimalPipe = (function () {
      * @return {?}
      */
     DecimalPipe.prototype.transform = function (value, digits) {
-        if (digits === void 0) { digits = null; }
         return formatNumber(DecimalPipe, this._locale, value, NumberFormatStyle.Decimal, digits);
     };
     return DecimalPipe;
@@ -19605,7 +19589,6 @@ var PercentPipe = (function () {
      * @return {?}
      */
     PercentPipe.prototype.transform = function (value, digits) {
-        if (digits === void 0) { digits = null; }
         return formatNumber(PercentPipe, this._locale, value, NumberFormatStyle.Percent, digits);
     };
     return PercentPipe;
@@ -19660,7 +19643,6 @@ var CurrencyPipe = (function () {
     CurrencyPipe.prototype.transform = function (value, currencyCode, symbolDisplay, digits) {
         if (currencyCode === void 0) { currencyCode = 'USD'; }
         if (symbolDisplay === void 0) { symbolDisplay = false; }
-        if (digits === void 0) { digits = null; }
         return formatNumber(CurrencyPipe, this._locale, value, NumberFormatStyle.Currency, digits, currencyCode, symbolDisplay);
     };
     return CurrencyPipe;
@@ -20241,7 +20223,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.1.0');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -21436,7 +21418,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.2
+ * @license Angular v4.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -21463,14 +21445,11 @@ var __extends = (this && this.__extends) || function (d, b) {
 var AbstractControlDirective = (function () {
     function AbstractControlDirective() {
     }
-    Object.defineProperty(AbstractControlDirective.prototype, "control", {
-        /**
-         * @return {?}
-         */
-        get: function () { throw new Error('unimplemented'); },
-        enumerable: true,
-        configurable: true
-    });
+    /**
+     * @abstract
+     * @return {?}
+     */
+    AbstractControlDirective.prototype.control = function () { };
     Object.defineProperty(AbstractControlDirective.prototype, "value", {
         /**
          * @return {?}
@@ -21563,7 +21542,9 @@ var AbstractControlDirective = (function () {
         /**
          * @return {?}
          */
-        get: function () { return this.control ? this.control.statusChanges : null; },
+        get: function () {
+            return this.control ? this.control.statusChanges : null;
+        },
         enumerable: true,
         configurable: true
     });
@@ -21571,7 +21552,9 @@ var AbstractControlDirective = (function () {
         /**
          * @return {?}
          */
-        get: function () { return this.control ? this.control.valueChanges : null; },
+        get: function () {
+            return this.control ? this.control.valueChanges : null;
+        },
         enumerable: true,
         configurable: true
     });
@@ -21598,7 +21581,6 @@ var AbstractControlDirective = (function () {
      * @return {?}
      */
     AbstractControlDirective.prototype.hasError = function (errorCode, path) {
-        if (path === void 0) { path = null; }
         return this.control ? this.control.hasError(errorCode, path) : false;
     };
     /**
@@ -21607,7 +21589,6 @@ var AbstractControlDirective = (function () {
      * @return {?}
      */
     AbstractControlDirective.prototype.getError = function (errorCode, path) {
-        if (path === void 0) { path = null; }
         return this.control ? this.control.getError(errorCode, path) : null;
     };
     return AbstractControlDirective;
@@ -21625,6 +21606,7 @@ var AbstractControlDirective = (function () {
  * Only used by the forms module.
  *
  * \@stable
+ * @abstract
  */
 var ControlContainer = (function (_super) {
     __extends(ControlContainer, _super);
@@ -21802,15 +21784,13 @@ var Validators = (function () {
      */
     Validators.nullValidator = function (c) { return null; };
     /**
-     * Compose multiple validators into a single function that returns the union
-     * of the individual error maps.
      * @param {?} validators
      * @return {?}
      */
     Validators.compose = function (validators) {
         if (!validators)
             return null;
-        var /** @type {?} */ presentValidators = validators.filter(isPresent);
+        var /** @type {?} */ presentValidators = (validators.filter(isPresent));
         if (presentValidators.length == 0)
             return null;
         return function (control) {
@@ -21824,7 +21804,7 @@ var Validators = (function () {
     Validators.composeAsync = function (validators) {
         if (!validators)
             return null;
-        var /** @type {?} */ presentValidators = validators.filter(isPresent);
+        var /** @type {?} */ presentValidators = (validators.filter(isPresent));
         if (presentValidators.length == 0)
             return null;
         return function (control) {
@@ -21874,7 +21854,7 @@ function _executeAsyncValidators(control, validators) {
  */
 function _mergeErrors(arrayOfErrors) {
     var /** @type {?} */ res = arrayOfErrors.reduce(function (res, errors) {
-        return errors != null ? __assign({}, res, errors) : res;
+        return errors != null ? __assign({}, /** @type {?} */ ((res)), errors) : ((res));
     }, {});
     return Object.keys(res).length === 0 ? null : res;
 }
@@ -23017,7 +22997,7 @@ var SelectMultipleControlValueAccessor = (function () {
     SelectMultipleControlValueAccessor.prototype._getOptionId = function (value) {
         for (var _i = 0, _a = Array.from(this._optionMap.keys()); _i < _a.length; _i++) {
             var id = _a[_i];
-            if (this._compareWith(this._optionMap.get(id)._value, value))
+            if (this._compareWith(/** @type {?} */ ((this._optionMap.get(id)))._value, value))
                 return id;
         }
         return null;
@@ -23029,7 +23009,7 @@ var SelectMultipleControlValueAccessor = (function () {
      */
     SelectMultipleControlValueAccessor.prototype._getOptionValue = function (valueString) {
         var /** @type {?} */ id = _extractId$1(valueString);
-        return this._optionMap.has(id) ? this._optionMap.get(id)._value : valueString;
+        return this._optionMap.has(id) ? ((this._optionMap.get(id)))._value : valueString;
     };
     return SelectMultipleControlValueAccessor;
 }());
@@ -23163,7 +23143,7 @@ NgSelectMultipleOption.propDecorators = {
  * @return {?}
  */
 function controlPath(name, parent) {
-    return parent.path.concat([name]);
+    return ((parent.path)).concat([name]);
 }
 /**
  * @param {?} control
@@ -23175,35 +23155,38 @@ function setUpControl(control, dir) {
         _throwError(dir, 'Cannot find control with');
     if (!dir.valueAccessor)
         _throwError(dir, 'No value accessor for form control with');
-    control.validator = Validators.compose([control.validator, dir.validator]);
-    control.asyncValidator = Validators.composeAsync([control.asyncValidator, dir.asyncValidator]);
-    dir.valueAccessor.writeValue(control.value);
+    control.validator = Validators.compose([/** @type {?} */ ((control.validator)), dir.validator]);
+    control.asyncValidator = Validators.composeAsync([/** @type {?} */ ((control.asyncValidator)), dir.asyncValidator]); /** @type {?} */
+    ((dir.valueAccessor)).writeValue(control.value); /** @type {?} */
+    ((
     // view -> model
-    dir.valueAccessor.registerOnChange(function (newValue) {
+    dir.valueAccessor)).registerOnChange(function (newValue) {
         dir.viewToModelUpdate(newValue);
         control.markAsDirty();
         control.setValue(newValue, { emitModelToViewChange: false });
-    });
+    }); /** @type {?} */
+    ((
     // touched
-    dir.valueAccessor.registerOnTouched(function () { return control.markAsTouched(); });
+    dir.valueAccessor)).registerOnTouched(function () { return control.markAsTouched(); });
     control.registerOnChange(function (newValue, emitModelEvent) {
+        ((
         // control -> view
-        dir.valueAccessor.writeValue(newValue);
+        dir.valueAccessor)).writeValue(newValue);
         // control -> ngModel
         if (emitModelEvent)
             dir.viewToModelUpdate(newValue);
     });
-    if (dir.valueAccessor.setDisabledState) {
-        control.registerOnDisabledChange(function (isDisabled) { dir.valueAccessor.setDisabledState(isDisabled); });
+    if (((dir.valueAccessor)).setDisabledState) {
+        control.registerOnDisabledChange(function (isDisabled) { /** @type {?} */ ((((dir.valueAccessor)).setDisabledState))(isDisabled); });
     }
     // re-run validation when validator binding changes, e.g. minlength=3 -> minlength=4
     dir._rawValidators.forEach(function (validator) {
         if (((validator)).registerOnValidatorChange)
-            ((validator)).registerOnValidatorChange(function () { return control.updateValueAndValidity(); });
+            ((((validator)).registerOnValidatorChange))(function () { return control.updateValueAndValidity(); });
     });
     dir._rawAsyncValidators.forEach(function (validator) {
         if (((validator)).registerOnValidatorChange)
-            ((validator)).registerOnValidatorChange(function () { return control.updateValueAndValidity(); });
+            ((((validator)).registerOnValidatorChange))(function () { return control.updateValueAndValidity(); });
     });
 }
 /**
@@ -23212,8 +23195,8 @@ function setUpControl(control, dir) {
  * @return {?}
  */
 function cleanUpControl(control, dir) {
-    dir.valueAccessor.registerOnChange(function () { return _noControlError(dir); });
-    dir.valueAccessor.registerOnTouched(function () { return _noControlError(dir); });
+    ((dir.valueAccessor)).registerOnChange(function () { return _noControlError(dir); }); /** @type {?} */
+    ((dir.valueAccessor)).registerOnTouched(function () { return _noControlError(dir); });
     dir._rawValidators.forEach(function (validator) {
         if (validator.registerOnValidatorChange) {
             validator.registerOnValidatorChange(null);
@@ -23252,10 +23235,10 @@ function _noControlError(dir) {
  */
 function _throwError(dir, message) {
     var /** @type {?} */ messageEnd;
-    if (dir.path.length > 1) {
-        messageEnd = "path: '" + dir.path.join(' -> ') + "'";
+    if (((dir.path)).length > 1) {
+        messageEnd = "path: '" + ((dir.path)).join(' -> ') + "'";
     }
-    else if (dir.path[0]) {
+    else if (((dir.path))[0]) {
         messageEnd = "name: '" + dir.path + "'";
     }
     else {
@@ -23314,9 +23297,9 @@ function isBuiltInAccessor(valueAccessor) {
 function selectValueAccessor(dir, valueAccessors) {
     if (!valueAccessors)
         return null;
-    var /** @type {?} */ defaultAccessor;
-    var /** @type {?} */ builtinAccessor;
-    var /** @type {?} */ customAccessor;
+    var /** @type {?} */ defaultAccessor = undefined;
+    var /** @type {?} */ builtinAccessor = undefined;
+    var /** @type {?} */ customAccessor = undefined;
     valueAccessors.forEach(function (v) {
         if (v.constructor === DefaultValueAccessor) {
             defaultAccessor = v;
@@ -23362,8 +23345,8 @@ var AbstractFormGroupDirective = (function (_super) {
      * @return {?}
      */
     AbstractFormGroupDirective.prototype.ngOnInit = function () {
-        this._checkParentType();
-        this.formDirective.addFormGroup(this);
+        this._checkParentType(); /** @type {?} */
+        ((this.formDirective)).addFormGroup(this);
     };
     /**
      * @return {?}
@@ -23378,7 +23361,7 @@ var AbstractFormGroupDirective = (function (_super) {
          * Get the {\@link FormGroup} backing this binding.
          * @return {?}
          */
-        get: function () { return this.formDirective.getFormGroup(this); },
+        get: function () { return ((this.formDirective)).getFormGroup(this); },
         enumerable: true,
         configurable: true
     });
@@ -23412,7 +23395,9 @@ var AbstractFormGroupDirective = (function (_super) {
         /**
          * @return {?}
          */
-        get: function () { return composeAsyncValidators(this._asyncValidators); },
+        get: function () {
+            return composeAsyncValidators(this._asyncValidators);
+        },
         enumerable: true,
         configurable: true
     });
@@ -23607,18 +23592,19 @@ function _find(control, path, delimiter) {
     }, control);
 }
 /**
- * @param {?} validator
+ * @param {?=} validator
  * @return {?}
  */
 function coerceToValidator(validator) {
-    return Array.isArray(validator) ? composeValidators(validator) : validator;
+    return Array.isArray(validator) ? composeValidators(validator) : validator || null;
 }
 /**
- * @param {?} asyncValidator
+ * @param {?=} asyncValidator
  * @return {?}
  */
 function coerceToAsyncValidator(asyncValidator) {
-    return Array.isArray(asyncValidator) ? composeAsyncValidators(asyncValidator) : asyncValidator;
+    return Array.isArray(asyncValidator) ? composeAsyncValidators(asyncValidator) :
+        asyncValidator || null;
 }
 /**
  * \@whatItDoes This is the base class for {\@link FormControl}, {\@link FormGroup}, and
@@ -23946,7 +23932,7 @@ var AbstractControl = (function () {
             this._valueChanges.emit(this._value);
             this._statusChanges.emit(this._status);
         }
-        this._updateAncestors(onlySelf);
+        this._updateAncestors(!!onlySelf);
         this._onDisabledChange.forEach(function (changeFn) { return changeFn(true); });
     };
     /**
@@ -23963,7 +23949,7 @@ var AbstractControl = (function () {
         this._status = VALID;
         this._forEachChild(function (control) { control.enable({ onlySelf: true }); });
         this.updateValueAndValidity({ onlySelf: true, emitEvent: emitEvent });
-        this._updateAncestors(onlySelf);
+        this._updateAncestors(!!onlySelf);
         this._onDisabledChange.forEach(function (changeFn) { return changeFn(false); });
     };
     /**
@@ -24054,7 +24040,7 @@ var AbstractControl = (function () {
         return this.validator ? this.validator(this) : null;
     };
     /**
-     * @param {?} emitEvent
+     * @param {?=} emitEvent
      * @return {?}
      */
     AbstractControl.prototype._runAsyncValidator = function (emitEvent) {
@@ -24131,7 +24117,6 @@ var AbstractControl = (function () {
      * @return {?}
      */
     AbstractControl.prototype.getError = function (errorCode, path) {
-        if (path === void 0) { path = null; }
         var /** @type {?} */ control = path ? this.get(path) : this;
         return control && control._errors ? control._errors[errorCode] : null;
     };
@@ -24144,10 +24129,7 @@ var AbstractControl = (function () {
      * @param {?=} path
      * @return {?}
      */
-    AbstractControl.prototype.hasError = function (errorCode, path) {
-        if (path === void 0) { path = null; }
-        return !!this.getError(errorCode, path);
-    };
+    AbstractControl.prototype.hasError = function (errorCode, path) { return !!this.getError(errorCode, path); };
     Object.defineProperty(AbstractControl.prototype, "root", {
         /**
          * Retrieves the top-level ancestor of this control.
@@ -24340,8 +24322,6 @@ var FormControl = (function (_super) {
      */
     function FormControl(formState, validator, asyncValidator) {
         if (formState === void 0) { formState = null; }
-        if (validator === void 0) { validator = null; }
-        if (asyncValidator === void 0) { asyncValidator = null; }
         var _this = _super.call(this, coerceToValidator(validator), coerceToAsyncValidator(asyncValidator)) || this;
         /**
          * \@internal
@@ -24555,9 +24535,7 @@ var FormGroup = (function (_super) {
      * @param {?=} asyncValidator
      */
     function FormGroup(controls, validator, asyncValidator) {
-        if (validator === void 0) { validator = null; }
-        if (asyncValidator === void 0) { asyncValidator = null; }
-        var _this = _super.call(this, validator, asyncValidator) || this;
+        var _this = _super.call(this, validator || null, asyncValidator || null) || this;
         _this.controls = controls;
         _this._initObservables();
         _this._setUpControls();
@@ -24911,9 +24889,7 @@ var FormArray = (function (_super) {
      * @param {?=} asyncValidator
      */
     function FormArray(controls, validator, asyncValidator) {
-        if (validator === void 0) { validator = null; }
-        if (asyncValidator === void 0) { asyncValidator = null; }
-        var _this = _super.call(this, validator, asyncValidator) || this;
+        var _this = _super.call(this, validator || null, asyncValidator || null) || this;
         _this.controls = controls;
         _this._initObservables();
         _this._setUpControls();
@@ -25358,7 +25334,7 @@ var NgForm = (function (_super) {
     NgForm.prototype.updateModel = function (dir, value) {
         var _this = this;
         resolvedPromise.then(function () {
-            var /** @type {?} */ ctrl = (_this.form.get(dir.path));
+            var /** @type {?} */ ctrl = (_this.form.get(/** @type {?} */ ((dir.path))));
             ctrl.setValue(value);
         });
     };
@@ -25737,7 +25713,7 @@ var NgModel = (function (_super) {
      * @return {?}
      */
     NgModel.prototype._isStandalone = function () {
-        return !this._parent || (this.options && this.options.standalone);
+        return !this._parent || !!(this.options && this.options.standalone);
     };
     /**
      * @return {?}
@@ -25959,8 +25935,8 @@ var FormControlDirective = (function (_super) {
     FormControlDirective.prototype.ngOnChanges = function (changes) {
         if (this._isControlChanged(changes)) {
             setUpControl(this.form, this);
-            if (this.control.disabled && this.valueAccessor.setDisabledState) {
-                this.valueAccessor.setDisabledState(true);
+            if (this.control.disabled && ((this.valueAccessor)).setDisabledState) {
+                ((((this.valueAccessor)).setDisabledState))(true);
             }
             this.form.updateValueAndValidity({ emitEvent: false });
         }
@@ -26095,7 +26071,7 @@ var FormGroupDirective = (function (_super) {
         _this._asyncValidators = _asyncValidators;
         _this._submitted = false;
         _this.directives = [];
-        _this.form = null;
+        _this.form = ((null));
         _this.ngSubmit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         return _this;
     }
@@ -26265,9 +26241,9 @@ var FormGroupDirective = (function (_super) {
      */
     FormGroupDirective.prototype._updateValidators = function () {
         var /** @type {?} */ sync = composeValidators(this._validators);
-        this.form.validator = Validators.compose([this.form.validator, sync]);
+        this.form.validator = Validators.compose([/** @type {?} */ ((this.form.validator)), /** @type {?} */ ((sync))]);
         var /** @type {?} */ async = composeAsyncValidators(this._asyncValidators);
-        this.form.asyncValidator = Validators.composeAsync([this.form.asyncValidator, async]);
+        this.form.asyncValidator = Validators.composeAsync([/** @type {?} */ ((this.form.asyncValidator)), /** @type {?} */ ((async))]);
     };
     /**
      * @return {?}
@@ -26473,8 +26449,8 @@ var FormArrayName = (function (_super) {
      * @return {?}
      */
     FormArrayName.prototype.ngOnInit = function () {
-        this._checkParentType();
-        this.formDirective.addFormArray(this);
+        this._checkParentType(); /** @type {?} */
+        ((this.formDirective)).addFormArray(this);
     };
     /**
      * @return {?}
@@ -26488,7 +26464,7 @@ var FormArrayName = (function (_super) {
         /**
          * @return {?}
          */
-        get: function () { return this.formDirective.getFormArray(this); },
+        get: function () { return ((this.formDirective)).getFormArray(this); },
         enumerable: true,
         configurable: true
     });
@@ -26522,7 +26498,9 @@ var FormArrayName = (function (_super) {
         /**
          * @return {?}
          */
-        get: function () { return composeAsyncValidators(this._asyncValidators); },
+        get: function () {
+            return composeAsyncValidators(this._asyncValidators);
+        },
         enumerable: true,
         configurable: true
     });
@@ -26679,7 +26657,7 @@ var FormControlName = (function (_super) {
         /**
          * @return {?}
          */
-        get: function () { return controlPath(this.name, this._parent); },
+        get: function () { return controlPath(this.name, /** @type {?} */ ((this._parent))); },
         enumerable: true,
         configurable: true
     });
@@ -26704,7 +26682,7 @@ var FormControlName = (function (_super) {
          * @return {?}
          */
         get: function () {
-            return composeAsyncValidators(this._rawAsyncValidators);
+            return ((composeAsyncValidators(this._rawAsyncValidators)));
         },
         enumerable: true,
         configurable: true
@@ -26736,8 +26714,8 @@ var FormControlName = (function (_super) {
     FormControlName.prototype._setUpControl = function () {
         this._checkParentType();
         this._control = this.formDirective.addControl(this);
-        if (this.control.disabled && this.valueAccessor.setDisabledState) {
-            this.valueAccessor.setDisabledState(true);
+        if (this.control.disabled && ((this.valueAccessor)).setDisabledState) {
+            ((((this.valueAccessor)).setDisabledState))(true);
         }
         this._added = true;
     };
@@ -27194,8 +27172,6 @@ var FormBuilder = (function () {
      * @return {?}
      */
     FormBuilder.prototype.control = function (formState, validator, asyncValidator) {
-        if (validator === void 0) { validator = null; }
-        if (asyncValidator === void 0) { asyncValidator = null; }
         return new FormControl(formState, validator, asyncValidator);
     };
     /**
@@ -27208,8 +27184,6 @@ var FormBuilder = (function () {
      */
     FormBuilder.prototype.array = function (controlsConfig, validator, asyncValidator) {
         var _this = this;
-        if (validator === void 0) { validator = null; }
-        if (asyncValidator === void 0) { asyncValidator = null; }
         var /** @type {?} */ controls = controlsConfig.map(function (c) { return _this._createControl(c); });
         return new FormArray(controls, validator, asyncValidator);
     };
@@ -27270,7 +27244,7 @@ FormBuilder.ctorParameters = function () { return []; };
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.1.0');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -29398,7 +29372,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.2
+ * @license Angular v4.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -29411,7 +29385,7 @@ var __extends = (this && this.__extends) || function (d, b) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var _DOM = null;
+var _DOM = ((null));
 /**
  * @return {?}
  */
@@ -29440,7 +29414,7 @@ function setRootDomAdapter(adapter) {
  */
 var DomAdapter = (function () {
     function DomAdapter() {
-        this.resourceLoaderType = null;
+        this.resourceLoaderType = ((null));
     }
     /**
      * @abstract
@@ -30857,7 +30831,6 @@ var BrowserDomAdapter = (function (_super) {
      * @return {?}
      */
     BrowserDomAdapter.prototype.hasStyle = function (element, styleName, styleValue) {
-        if (styleValue === void 0) { styleValue = null; }
         var /** @type {?} */ value = this.getStyle(element, styleName) || '';
         return styleValue ? value == styleValue : value.length > 0;
     };
@@ -31082,6 +31055,7 @@ var BrowserDomAdapter = (function (_super) {
         if (target === 'body') {
             return document.body;
         }
+        return null;
     };
     /**
      * @return {?}
@@ -31177,7 +31151,7 @@ var baseElement = null;
  */
 function getBaseElementHref() {
     if (!baseElement) {
-        baseElement = document.querySelector('base');
+        baseElement = ((document.querySelector('base')));
         if (!baseElement) {
             return null;
         }
@@ -31225,7 +31199,7 @@ function setValueOnPath(global, path, value) {
     var /** @type {?} */ parts = path.split('.');
     var /** @type {?} */ obj = global;
     while (parts.length > 1) {
-        var /** @type {?} */ name = parts.shift();
+        var /** @type {?} */ name = ((parts.shift()));
         if (obj.hasOwnProperty(name) && obj[name] != null) {
             obj = obj[name];
         }
@@ -31236,7 +31210,7 @@ function setValueOnPath(global, path, value) {
     if (obj === undefined || obj === null) {
         obj = {};
     }
-    obj[parts.shift()] = value;
+    obj[((parts.shift()))] = value;
 }
 /**
  * @license
@@ -31307,7 +31281,7 @@ var BrowserPlatformLocation = (function (_super) {
     /**
      * @return {?}
      */
-    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function () { return getDOM().getBaseHref(this._doc); };
+    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function () { return ((getDOM().getBaseHref(this._doc))); };
     /**
      * @param {?} fn
      * @return {?}
@@ -31474,7 +31448,7 @@ var Meta = (function () {
         if (!tag)
             return null;
         selector = selector || this._parseSelector(tag);
-        var /** @type {?} */ meta = this.getTag(selector);
+        var /** @type {?} */ meta = ((this.getTag(selector)));
         if (meta) {
             return this._setMetaElementAttributes(tag, meta);
         }
@@ -31484,7 +31458,7 @@ var Meta = (function () {
      * @param {?} attrSelector
      * @return {?}
      */
-    Meta.prototype.removeTag = function (attrSelector) { this.removeTagElement(this.getTag(attrSelector)); };
+    Meta.prototype.removeTag = function (attrSelector) { this.removeTagElement(/** @type {?} */ ((this.getTag(attrSelector)))); };
     /**
      * @param {?} meta
      * @return {?}
@@ -31503,7 +31477,7 @@ var Meta = (function () {
         if (forceCreation === void 0) { forceCreation = false; }
         if (!forceCreation) {
             var /** @type {?} */ selector = this._parseSelector(meta);
-            var /** @type {?} */ elem = this.getTag(selector);
+            var /** @type {?} */ elem = ((this.getTag(selector)));
             // It's allowed to have multiple elements with the same name so it's not enough to
             // just check that element with the same name already present on the page. We also need to
             // check if element has tag attributes
@@ -32667,7 +32641,7 @@ var KeyEventsPlugin = (function (_super) {
      * @return {?}
      */
     KeyEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
-        var /** @type {?} */ parsedEvent = KeyEventsPlugin.parseEventName(eventName);
+        var /** @type {?} */ parsedEvent = ((KeyEventsPlugin.parseEventName(eventName)));
         var /** @type {?} */ outsideHandler = KeyEventsPlugin.eventCallback(parsedEvent['fullKey'], handler, this.manager.getZone());
         return this.manager.getZone().runOutsideAngular(function () {
             return getDOM().onAndCancel(element, parsedEvent['domEventName'], outsideHandler);
@@ -32683,7 +32657,7 @@ var KeyEventsPlugin = (function (_super) {
         if ((parts.length === 0) || !(domEventName === 'keydown' || domEventName === 'keyup')) {
             return null;
         }
-        var /** @type {?} */ key = KeyEventsPlugin._normalizeKey(parts.pop());
+        var /** @type {?} */ key = KeyEventsPlugin._normalizeKey(/** @type {?} */ ((parts.pop())));
         var /** @type {?} */ fullKey = '';
         MODIFIER_KEYS.forEach(function (modifierName) {
             var /** @type {?} */ index = parts.indexOf(modifierName);
@@ -32832,7 +32806,7 @@ function sanitizeSrcset(srcset) {
 /** A <body> element that can be safely used to parse untrusted HTML. Lazily initialized below. */
 var inertElement = null;
 /** Lazily initialized to make sure the DOM adapter gets set before use. */
-var DOM = null;
+var DOM = ((null));
 /**
  * Returns an HTML element that is guaranteed to not execute code when creating elements in it.
  * @return {?}
@@ -32941,20 +32915,20 @@ var SanitizingHtmlSerializer = (function () {
         // This cannot use a TreeWalker, as it has to run on Angular's various DOM adapters.
         // However this code never accesses properties off of `document` before deleting its contents
         // again, so it shouldn't be vulnerable to DOM clobbering.
-        var /** @type {?} */ current = el.firstChild;
+        var /** @type {?} */ current = ((el.firstChild));
         while (current) {
             if (DOM.isElementNode(current)) {
                 this.startElement(/** @type {?} */ (current));
             }
             else if (DOM.isTextNode(current)) {
-                this.chars(DOM.nodeValue(current));
+                this.chars(/** @type {?} */ ((DOM.nodeValue(current))));
             }
             else {
                 // Strip non-element, non-text nodes.
                 this.sanitizedSomething = true;
             }
             if (DOM.firstChild(current)) {
-                current = DOM.firstChild(current);
+                current = ((DOM.firstChild(current)));
                 continue;
             }
             while (current) {
@@ -32962,12 +32936,12 @@ var SanitizingHtmlSerializer = (function () {
                 if (DOM.isElementNode(current)) {
                     this.endElement(/** @type {?} */ (current));
                 }
-                var /** @type {?} */ next = checkClobberedElement(current, DOM.nextSibling(current));
+                var /** @type {?} */ next = checkClobberedElement(current, /** @type {?} */ ((DOM.nextSibling(current))));
                 if (next) {
                     current = next;
                     break;
                 }
-                current = checkClobberedElement(current, DOM.parentElement(current));
+                current = checkClobberedElement(current, /** @type {?} */ ((DOM.parentElement(current))));
             }
         }
         return this.buf.join('');
@@ -33351,7 +33325,7 @@ var DomSanitizerImpl = (function (_super) {
             return null;
         switch (ctx) {
             case __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* SecurityContext */].NONE:
-                return value;
+                return (value);
             case __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* SecurityContext */].HTML:
                 if (value instanceof SafeHtmlImpl)
                     return value.changingThisBreaksApplicationSecurity;
@@ -33361,7 +33335,7 @@ var DomSanitizerImpl = (function (_super) {
                 if (value instanceof SafeStyleImpl)
                     return value.changingThisBreaksApplicationSecurity;
                 this.checkNotSafeValue(value, 'Style');
-                return sanitizeStyle(value);
+                return sanitizeStyle(/** @type {?} */ (value));
             case __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* SecurityContext */].SCRIPT:
                 if (value instanceof SafeScriptImpl)
                     return value.changingThisBreaksApplicationSecurity;
@@ -33793,7 +33767,7 @@ var By = (function () {
      * @return {?}
      */
     By.directive = function (type) {
-        return function (debugElement) { return debugElement.providerTokens.indexOf(type) !== -1; };
+        return function (debugElement) { return ((debugElement.providerTokens)).indexOf(type) !== -1; };
     };
     return By;
 }());
@@ -33819,7 +33793,7 @@ var By = (function () {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Z" /* Version */]('4.0.2');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Z" /* Version */]('4.1.0');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -66664,5 +66638,3 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a
 /***/ })
 /******/ ]);
 //# sourceMappingURL=main.js.map
-
-(function(w){var i=w.Ionic=w.Ionic||{};i.angular='4.0.2';})(window);

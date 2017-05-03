@@ -49,8 +49,9 @@ $ npm install --save @ionic-native/admob
 
 <h2>Usage</h2>
 <pre><code class="lang-typescript">import { AdMob } from &#39;@ionic-native/admob&#39;;
+import { Platform } from &#39;ionic-angular&#39;;
 
-constructor(private admob: AdMob) { }
+constructor(private admob: AdMob, private platform: Platform ) { }
 
 ionViewDidLoad() {
   this.admob.onAdDismiss()
@@ -58,7 +59,13 @@ ionViewDidLoad() {
 }
 
 onClick() {
-  this.admob.prepareInterstitial(&#39;YOUR_ADID&#39;)
+  let adId;
+  if(this.platform.is(&#39;android&#39;) {
+    adId = &#39;YOUR_ADID_ANDROID&#39;;
+  } else if (this.platform.is(&#39;ios&#39;)) {
+    adId = &#39;YOUR_ADID_IOS&#39;;
+  }
+  this.admob.prepareInterstitial(adId)
     .then(() =&gt; { this.admob.showInterstitial(); });
 }
 </code></pre>

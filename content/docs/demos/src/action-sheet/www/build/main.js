@@ -37652,6 +37652,10 @@ let SelectPopover = class SelectPopover {
         return checkedOption ? checkedOption.value : undefined;
     }
     set value(value) {
+        let checkedOption = this.options.find(option => option.value === value);
+        if (checkedOption && checkedOption.handler) {
+            checkedOption.handler();
+        }
         this.viewController.dismiss(value);
     }
     ngOnInit() {
@@ -50119,7 +50123,11 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
                 text: input.text,
                 checked: input.selected,
                 disabled: input.disabled,
-                value: input.value
+                value: input.value,
+                handler: () => {
+                    this.value = input.value;
+                    input.ionSelect.emit(input.value);
+                }
             }));
             overlay = new __WEBPACK_IMPORTED_MODULE_4__popover_popover__["a" /* Popover */](this._app, __WEBPACK_IMPORTED_MODULE_14__select_popover_component__["a" /* SelectPopover */], {
                 options: popoverOptions
@@ -50164,10 +50172,6 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         this._fireFocus();
         overlay.onDidDismiss((value) => {
             this._fireBlur();
-            if (this.interface === 'popover' && value) {
-                this.value = value;
-                this.ionChange.emit(value);
-            }
             this._overlay = undefined;
         });
         this._overlay = overlay;

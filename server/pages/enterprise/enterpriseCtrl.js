@@ -11,8 +11,8 @@ module.exports = function(req, res) {
 
   var m = {
     to: [
-      // 'brody@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
-      'perry@ionic.io'
+      'brody@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
+      // 'perry@ionic.io'
     ],
     from: 'sales@ionic.io',
     name: 'Ionic Enterprise',

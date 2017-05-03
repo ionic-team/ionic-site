@@ -80,7 +80,12 @@ loadMap() {
 
  // listen to MAP_READY event
  // You must wait for this event to fire before adding something to the map or modifying it in anyway
- map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
+ map.one(GoogleMapsEvent.MAP_READY).then(
+   () =&gt; {
+     console.log(&#39;Map is ready!&#39;);
+     // Now you can add elements to the map like the marker
+   }
+ );
 
  // create LatLng object
  let ionic: LatLng = new LatLng(43.0741904,-89.3809802);

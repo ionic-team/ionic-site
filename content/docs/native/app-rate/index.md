@@ -54,12 +54,24 @@ $ npm install --save @ionic-native/app-rate
 constructor(private appRate: AppRate) { }
 
 ...
+// set certain preferences
+this.appRate.preferences.storeAppURL = {
+  ios: &#39;&lt;app_id&gt;&#39;,
+  android: &#39;market://details?id=&lt;package_name&gt;&#39;,
+  windows: &#39;ms-windows-store://review/?ProductId=&lt;store_id&gt;&#39;
+};
 
- this.appRate.preferences.storeAppURL = {
-   ios: &#39;&lt;my_app_id&gt;&#39;,
+this.appRate.promptForRating(true);
+
+// or, override the whole preferences object
+this.appRate.preferences = {
+  usesUntilPrompt: 3,
+  storeAppURL: {
+   ios: &#39;&lt;app_id&gt;&#39;,
    android: &#39;market://details?id=&lt;package_name&gt;&#39;,
-   windows: &#39;ms-windows-store://review/?ProductId=&lt;Store_ID&gt;&#39;
- };
+   windows: &#39;ms-windows-store://review/?ProductId=&lt;store_id&gt;&#39;
+  }
+};
 
 this.appRate.promptForRating(false);
 </code></pre>

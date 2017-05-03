@@ -82,7 +82,7 @@ Here's an example using an attribute selector:
 })                     // Could be my-dir, [my-dir], .my-dir
 class MyDir {
   constructor() {
-    console.log("I'm alive!");
+    console.log('I'm alive!');
   }
 }
 
@@ -97,7 +97,7 @@ class MyDir {
 
   directives: [MyDir] // <-- Don't forget me! (only if your ionic-angular version is below RC0)
 })
-class MyPage {}
+class MyPage { }
 ```
 
 ## Click Delays
@@ -114,7 +114,7 @@ normally clickable. When you do this you may experience a `300ms` delay from the
 time you click the element to the event firing. To remove this delay, you can
 add the `tappable` attribute to your element.
 
-```
+```html
  <div tappable (click)="doClick()">I am clickable!</div>
 ```
 
@@ -132,7 +132,7 @@ include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
 class MyDirective {
   // Wrong, should be @Optional()
   // @Optional does nothing here, so MyDirective will error if parent is undefined
-  constructor(@Optional parent: ParentComponent) {}
+  constructor( @Optional parent: ParentComponent) { }
 }
 ```
 
@@ -171,7 +171,7 @@ to the child components.
 ```typescript
 let id = 0;
 export class MyService {
-  id:number;
+  id: number;
 
   constructor() {
     this.id = id++;
@@ -186,7 +186,7 @@ export class MyService {
 class MyComp {
   // id is 1, s is a different MyService instance than MyApp
   constructor(s: MyService) {
-    console.log("MyService id is: " + s.id);
+    console.log('MyService id is: ' + s.id);
   }
 }
 
@@ -198,7 +198,7 @@ class MyComp {
 class MyApp {
   // id is 0
   constructor(s: MyService) {
-    console.log("MyService id is: " + s.id);
+    console.log('MyService id is: ' + s.id);
   }
 }
 ```
@@ -250,14 +250,14 @@ import { forwardRef } from '@angular/core';
   directives: [forwardRef(() => MyIcon)] // MyIcon has not been defined yet
 })                                       // forwardRef resolves as MyIcon when MyIcon is needed
 class MyButton {
-  constructor() {}
+  constructor() { }
 }
 
 @Directive({
   selector: 'icon'
 })
 class MyIcon {
-  constructor(containerButton: MyButton) {} // MyButton has been defined
+  constructor(containerButton: MyButton) { } // MyButton has been defined
 }
 ```
 
@@ -278,7 +278,7 @@ import { MyService } from 'my-service';
   templateUrl: 'app/app.html',
   providers: [MyService] // Don't forget me!
 })
-class MyApp {
+class MyApp { }
 ```
 
 If the parameter is another component or directive (for example, a parent
@@ -291,7 +291,7 @@ If the parameter is another component or directive (for example, a parent
     it is actually a parent if you are expecting it to be a parent). This is
     probably easiest understood with an example:
 
-```ts
+```typescript
 @Component({
   selector: 'my-comp',
   template: '<p my-dir></p>',
@@ -299,7 +299,7 @@ If the parameter is another component or directive (for example, a parent
 })
 class MyComp {
   constructor() {
-    this.name = "My Component";
+    this.name = 'My Component';
   }
 }
 
@@ -311,18 +311,18 @@ class MyDir {
 
     // Errors when directive is on regular div because there is no MyComp in the
     // component tree so there is no MyComp to inject
-    console.log("Host component's name: " + c.name);
+    console.log('Host component's name: ' + c.name);
 
   }
 }
 
 @Component({
   template: "<my-comp></my-comp>" + // No error in MyDir constructor, MyComp is parent of MyDir
-            "<my-comp my-dir></my-comp>" + // No error in MyDir constructor, MyComp is host of MyDir
-            "<div my-dir></div>", // Errors in MyDir constructor
+  "<my-comp my-dir></my-comp>" + // No error in MyDir constructor, MyComp is host of MyDir
+  "<div my-dir></div>", // Errors in MyDir constructor
   directives: [MyComp, MyDir]
 })
-class MyApp {}
+class MyApp { }
 ```
 
 Here's a diagram illustrating what injectors are available:
@@ -346,15 +346,15 @@ No MyComp to inject        +------+------+
 To expand on the previous example, you can use the Angular 2 `@Optional` a
 nnotation if you don't always expect a component/directive reference:
 
-```ts
+```typescript
 @Directive({
   selector: '[my-dir]'
 })
 class MyDir {
-  constructor(@Optional() c: MyComp) {
+  constructor( @Optional() c: MyComp) {
     // No longer errors if c is undefined
     if (c) {
-      console.log("Host component's name: " + c.name);
+      console.log('Host component's name: ' + c.name);
     }
   }
 }
@@ -380,12 +380,12 @@ or NgFormModel.  In most cases, this can be resolved by making sure your form
 control is within an actual form element.  NgForm uses `form` as a selector so
 this will instantiate a new NgForm:
 
-```ts
+```typescript
 @Component({
   template:
-    '<form>' +
-      '<input ngControl="login">' +
-    '</form>'
+  '<form>' +
+  '<input ngControl="login">' +
+  '</form>'
 })
 ```
 ### No component factory found for <component name>

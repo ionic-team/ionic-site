@@ -50,11 +50,11 @@ $ npm install --save @ionic-native/app-preferences
 <h2>Usage</h2>
 <pre><code class="lang-typescript">import { AppPreferences } from &#39;@ionic-native/app-preferences&#39;;
 
-constructor(private appPreferences: AppPreferences) {
+constructor(private appPreferences: AppPreferences) { }
 
-  this.appPreferences.fetch(&#39;key&#39;).then((res) =&gt; { console.log(res); });
+...
 
-}
+this.appPreferences.fetch(&#39;key&#39;).then((res) =&gt; { console.log(res); });
 </code></pre>
 
 

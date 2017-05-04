@@ -36200,28 +36200,26 @@ let ActionSheetCmp = class ActionSheetCmp {
         }
     }
     ionViewDidLoad() {
-        let buttons = [];
-        this.d.buttons.forEach((button) => {
+        this.d.buttons = this.d.buttons.map(button => {
             if (typeof button === 'string') {
                 button = { text: button };
             }
             if (!button.cssClass) {
                 button.cssClass = '';
             }
-            if (button.role === 'cancel') {
-                this.d.cancelButton = button;
-            }
-            else {
-                if (button.role === 'destructive') {
+            switch (button.role) {
+                case 'cancel':
+                    this.cancelButton = button;
+                    return null;
+                case 'destructive':
                     button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
-                }
-                else if (button.role === 'selected') {
+                    break;
+                case 'selected':
                     button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-selected';
-                }
-                buttons.push(button);
+                    break;
             }
-        });
-        this.d.buttons = buttons;
+            return button;
+        }).filter(button => button !== null);
     }
     ionViewWillEnter() {
         this.gestureBlocker.block();
@@ -36259,8 +36257,8 @@ let ActionSheetCmp = class ActionSheetCmp {
     }
     bdClick() {
         if (this.enabled && this.d.enableBackdropDismiss) {
-            if (this.d.cancelButton) {
-                this.click(this.d.cancelButton);
+            if (this.cancelButton) {
+                this.click(this.cancelButton);
             }
             else {
                 this.dismiss('backdrop');
@@ -36275,7 +36273,7 @@ let ActionSheetCmp = class ActionSheetCmp {
     }
     ngOnDestroy() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["c" /* assert */])(this.gestureBlocker.blocked === false, 'gesture blocker must be already unblocked');
-        this.d = null;
+        this.d = this.cancelButton = null;
         this.gestureBlocker.destroy();
     }
 };
@@ -36299,10 +36297,10 @@ ActionSheetCmp = __decorate([
             '{{b.text}}' +
             '</button>' +
             '</div>' +
-            '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-            '<button ion-button="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-left]="d.cancelButton.icon ? \'\' : null" [ngClass]="d.cancelButton.cssClass">' +
-            '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon>' +
-            '{{d.cancelButton.text}}' +
+            '<div class="action-sheet-group" *ngIf="cancelButton">' +
+            '<button ion-button="action-sheet-button" (click)="click(cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-left]="cancelButton.icon ? \'\' : null" [ngClass]="cancelButton.cssClass">' +
+            '<ion-icon [name]="cancelButton.icon" *ngIf="cancelButton.icon" class="action-sheet-icon"></ion-icon>' +
+            '{{cancelButton.text}}' +
             '</button>' +
             '</div>' +
             '</div>' +
@@ -40140,7 +40138,7 @@ class ActionSheet extends __WEBPACK_IMPORTED_MODULE_3__navigation_view_controlle
         config.setTransition('action-sheet-wp-slide-out', __WEBPACK_IMPORTED_MODULE_1__action_sheet_transitions__["f" /* ActionSheetWpSlideOut */]);
     }
     getTransitionName(direction) {
-        let key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
+        const key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
         return this._nav && this._nav.config.get(key);
     }
     setTitle(title) {
@@ -50126,7 +50124,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         }
         overlay.present(selectOptions);
         this._fireFocus();
-        overlay.onDidDismiss((value) => {
+        overlay.onDidDismiss(() => {
             this._fireBlur();
             this._overlay = undefined;
         });
@@ -54413,7 +54411,7 @@ function View_ActionSheetCmp_6(l) {
         }, null)
     ], (ck, v) => {
         var co = v.component;
-        const currVal_1 = co.d.cancelButton.icon;
+        const currVal_1 = co.cancelButton.icon;
         ck(v, 1, 0, currVal_1);
     }, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1)._hidden;
@@ -54449,7 +54447,7 @@ function View_ActionSheetCmp_5(l) {
             var ad = true;
             var co = v.component;
             if (('click' === en)) {
-                const pd_0 = (co.click(co.d.cancelButton) !== false);
+                const pd_0 = (co.click(co.cancelButton) !== false);
                 ad = (pd_0 && ad);
             }
             return ad;
@@ -54494,15 +54492,15 @@ function View_ActionSheetCmp_5(l) {
     ], (ck, v) => {
         var co = v.component;
         const currVal_1 = 'action-sheet-cancel disable-hover';
-        const currVal_2 = co.d.cancelButton.cssClass;
+        const currVal_2 = co.cancelButton.cssClass;
         ck(v, 2, 0, currVal_1, currVal_2);
-        const currVal_3 = co.d.cancelButton.icon;
+        const currVal_3 = co.cancelButton.icon;
         ck(v, 5, 0, currVal_3);
     }, (ck, v) => {
         var co = v.component;
-        const currVal_0 = (co.d.cancelButton.icon ? '' : null);
+        const currVal_0 = (co.cancelButton.icon ? '' : null);
         ck(v, 1, 0, currVal_0);
-        const currVal_4 = co.d.cancelButton.text;
+        const currVal_4 = co.cancelButton.text;
         ck(v, 6, 0, currVal_4);
     });
 }
@@ -54603,7 +54601,7 @@ function View_ActionSheetCmp_0(l) {
         ck(v, 8, 0, currVal_2);
         const currVal_3 = co.d.buttons;
         ck(v, 10, 0, currVal_3);
-        const currVal_4 = co.d.cancelButton;
+        const currVal_4 = co.cancelButton;
         ck(v, 12, 0, currVal_4);
     }, (ck, v) => {
         var co = v.component;
@@ -54664,6 +54662,7 @@ const ActionSheetCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32
 /* 198 */
 /***/ (function(module, exports) {
 
+;
 //# sourceMappingURL=action-sheet-options.js.map
 
 /***/ }),

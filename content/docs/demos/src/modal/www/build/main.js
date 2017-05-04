@@ -40306,7 +40306,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             if (ti.removeCount < 0) {
                 ti.removeCount = (viewsLength - ti.removeStart);
             }
-            ti.leavingRequiresTransition = ((ti.removeStart + ti.removeCount) === viewsLength);
+            ti.leavingRequiresTransition = (ti.removeCount > 0) && ((ti.removeStart + ti.removeCount) === viewsLength);
         }
         if (ti.insertViews) {
             if (ti.insertStart < 0 || ti.insertStart > viewsLength) {

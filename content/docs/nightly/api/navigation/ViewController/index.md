@@ -175,7 +175,7 @@ Observable to be subscribed to when the current component is no long active
 
 <h3>
 <a class="anchor" name="dismiss" href="#dismiss"></a>
-<code>dismiss(data,&nbsp;role ,&nbsp;NavOptions)</code>
+<code>dismiss(data,&nbsp;role ,&nbsp;navOptions)</code>
   
 
 </h3>
@@ -229,7 +229,7 @@ Dismiss the current viewController
     
     <tr>
       <td>
-        NavOptions
+        navOptions
         
         
       </td>
@@ -497,7 +497,7 @@ Called when the current viewController will be dismissed
 
 <h3>
 <a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
-<code>setBackButtonText(backButtonText)</code>
+<code>setBackButtonText(val)</code>
   
 
 </h3>
@@ -518,7 +518,7 @@ after `ionViewWillEnter` to make sure the  DOM has been rendered.
     
     <tr>
       <td>
-        backButtonText
+        val
         
         
       </td>

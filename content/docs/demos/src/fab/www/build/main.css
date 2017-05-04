@@ -17390,7 +17390,7 @@ ion-range ion-icon {
   text-align: center;
   position: absolute;
   top: 21px;
-  left: 0%;
+  left: 0;
   margin-top: -21px;
   margin-left: -21px;
   width: 42px;
@@ -17534,7 +17534,7 @@ ion-range ion-icon {
   text-align: center;
   position: absolute;
   top: 21px;
-  left: 0%;
+  left: 0;
   margin-top: -21px;
   margin-left: -21px;
   width: 42px;
@@ -17817,7 +17817,7 @@ ion-range ion-icon {
   text-align: center;
   position: absolute;
   top: 21px;
-  left: 0%;
+  left: 0;
   margin-top: -21px;
   margin-left: -21px;
   width: 42px;
@@ -19805,7 +19805,7 @@ button.swiper-pagination-bullet {
 .swiper-container-cube .swiper-cube-shadow {
   position: absolute;
   left: 0;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background: #000;

@@ -51185,9 +51185,7 @@ let VirtualScroll = class VirtualScroll {
     }
     set virtualScroll(val) {
         this._records = val;
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["d" /* isBlank */])(this._differ) && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(val)) {
-            this._differ = this._iterableDiffers.find(val).create(this.virtualTrackBy);
-        }
+        this._updateDiffer();
     }
     set headerFn(val) {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["n" /* isFunction */])(val)) {
@@ -51198,6 +51196,15 @@ let VirtualScroll = class VirtualScroll {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["n" /* isFunction */])(val)) {
             this._ftrFn = val.bind((this._ctrl._cmp) || this);
         }
+    }
+    set virtualTrackBy(val) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(val)) {
+            this._virtualTrackBy = val;
+            this._updateDiffer();
+        }
+    }
+    get virtualTrackBy() {
+        return this._virtualTrackBy;
     }
     ngDoCheck() {
         if (!this._init) {
@@ -51250,6 +51257,11 @@ let VirtualScroll = class VirtualScroll {
             return this._differ.diff(this._records);
         }
         return null;
+    }
+    _updateDiffer() {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["d" /* isBlank */])(this._differ) && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(this._records)) {
+            this._differ = this._iterableDiffers.find(this._records).create(this._virtualTrackBy);
+        }
     }
     renderVirtual(needClean) {
         this._plt.raf(() => {
@@ -51450,20 +51462,21 @@ __decorate([
 ], VirtualScroll.prototype, "footerFn", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"]) === "function" && _d || Object)
-], VirtualScroll.prototype, "virtualTrackBy", void 0);
+    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"]) === "function" && _d || Object),
+    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TrackByFn"]) === "function" && _e || Object])
+], VirtualScroll.prototype, "virtualTrackBy", null);
 VirtualScroll = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
         selector: '[virtualScroll]'
     }),
-    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3__content_content__["a" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__content_content__["a" /* Content */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_6__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_platform__["b" /* Platform */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _p || Object])
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_3__content_content__["a" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__content_content__["a" /* Content */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_6__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_platform__["b" /* Platform */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _q || Object])
 ], VirtualScroll);
 
 const SCROLL_DIFFERENCE_MINIMUM = 40;
 const SCROLL_QUEUE_NO_CHANGES = 1;
 const SCROLL_QUEUE_CHANGE_DETECTION = 2;
 const SCROLL_QUEUE_DOM_WRITE = 3;
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 //# sourceMappingURL=virtual-scroll.js.map
 
 /***/ }),

@@ -14417,6 +14417,7 @@ const ConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Opaqu
 /* harmony export (immutable) */ __webpack_exports__["p"] = deepCopy;
 /* harmony export (immutable) */ __webpack_exports__["r"] = deepEqual;
 /* unused harmony export debounce */
+/* unused harmony export normalizeURL */
 /* harmony export (immutable) */ __webpack_exports__["i"] = defaults;
 /* unused harmony export isBoolean */
 /* harmony export (immutable) */ __webpack_exports__["t"] = isString;
@@ -14475,6 +14476,13 @@ function debounce(fn, wait, immediate = false) {
             result = fn.apply(context, args);
         return result;
     };
+}
+function normalizeURL(url) {
+    const ionic = window['Ionic'];
+    if (ionic && ionic.normalizeURL) {
+        return ionic.normalizeURL(url);
+    }
+    return url;
 }
 function defaults(dest, ...args) {
     for (var i = arguments.length - 1; i >= 1; i--) {
@@ -50942,7 +50950,6 @@ let VirtualScroll = class VirtualScroll {
             scrollTop: 0,
         };
         this._queue = SCROLL_QUEUE_NO_CHANGES;
-        this._recordSize = 0;
         this.bufferRatio = 3;
         this.approxItemWidth = '100%';
         this.approxHeaderWidth = '100%';
@@ -50984,6 +50991,14 @@ let VirtualScroll = class VirtualScroll {
     get virtualTrackBy() {
         return this._virtualTrackBy;
     }
+    firstRecord() {
+        const cells = this._cells;
+        return (cells.length > 0) ? cells[0].record : 0;
+    }
+    lastRecord() {
+        const cells = this._cells;
+        return (cells.length > 0) ? cells[cells.length - 1].record : 0;
+    }
     ngDoCheck() {
         if (!this._init) {
             return;
@@ -50994,22 +51009,29 @@ let VirtualScroll = class VirtualScroll {
         }
         let needClean = false;
         if (changes) {
-            changes.forEachOperation((item, _, cindex) => {
-                if (item.previousIndex != null || (cindex < this._recordSize)) {
+            var lastRecord = this.lastRecord() + 1;
+            changes.forEachOperation((_, pindex, cindex) => {
+                if (pindex === null && (cindex < lastRecord)) {
+                    console.debug('adding record before current position, slow path');
                     needClean = true;
+                    return;
+                }
+                if (pindex < lastRecord && cindex === null) {
+                    console.debug('removing record before current position, slow path');
+                    needClean = true;
+                    return;
                 }
             });
         }
         else {
             needClean = true;
         }
-        this._recordSize = this._records.length;
         this.readUpdate(needClean);
         this.writeUpdate(needClean);
     }
     readUpdate(needClean) {
         if (needClean) {
-            console.debug(`virtual-scroll, readUpdate: slow path`);
+            console.debug('virtual-scroll, readUpdate: slow path');
             this._cells.length = 0;
             this._nodes.length = 0;
             this._itmTmp.viewContainer.clear();
@@ -51020,7 +51042,7 @@ let VirtualScroll = class VirtualScroll {
         }
     }
     writeUpdate(needClean) {
-        console.debug(`virtual-scroll, writeUpdate`);
+        console.debug('virtual-scroll, writeUpdate need clean:', needClean);
         const data = this._data;
         const stopAtHeight = (data.scrollTop + data.renderHeight);
         data.scrollDiff = SCROLL_DIFFERENCE_MINIMUM + 1;
@@ -51760,6 +51782,7 @@ class SlideGesture extends __WEBPACK_IMPORTED_MODULE_0__pan_gesture__["a" /* Pan
 /* unused harmony reexport IonicTapInput */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__util_util__ = __webpack_require__(2);
 /* unused harmony reexport reorderArray */
+/* unused harmony reexport normalizeURL */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__animations_animation__ = __webpack_require__(14);
 /* unused harmony reexport Animation */
 /* unused harmony reexport AnimationOptions */

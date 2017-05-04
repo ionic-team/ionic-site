@@ -52757,18 +52757,27 @@ class TimeoutDebouncer {
 /***/ (function(module, exports) {
 
 var g;
-g = (function () {
-    return this;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
 })();
+
 try {
-    g = g || Function("return this")() || (1, eval)("this");
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
 }
-catch (e) {
-    if (typeof window === "object")
-        g = window;
-}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
 module.exports = g;
-//# sourceMappingURL=global.js.map
+
 
 /***/ }),
 /* 183 */

@@ -56,7 +56,7 @@ constructor(private iab: InAppBrowser) { }
 ...
 
 
-const browser = this.iab.create(&#39;https://ionic.io&#39;);
+const browser = this.iab.create(&#39;https://ionicframework.com/&#39;);
 
 browser.executeScript(...);
 browser.insertCSS(...);

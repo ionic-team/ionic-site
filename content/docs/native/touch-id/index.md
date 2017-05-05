@@ -198,6 +198,16 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+</div><h3><a class="anchor" name="didFingerprintDatabaseChange" href="#didFingerprintDatabaseChange"></a><code>didFingerprintDatabaseChange()</code></h3>
+
+
+Checks if the fingerpringt database changed.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if yes, rejects if no.
 </div>
 
 

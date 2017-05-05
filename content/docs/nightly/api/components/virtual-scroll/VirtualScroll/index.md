@@ -176,7 +176,7 @@ rendered, and HTTP requests are efficiently controlled while scrolling.</p>
 virtual scroll isn&#39;t aware of the dimensions until after they have been
 rendered. For the initial render, virtual scroll still needs to set
 how many items should be built. With &quot;approx&quot; property inputs, such as
-<code>approxItemHeight</code>, we&#39;re able to give virtual sroll an approximate size,
+<code>approxItemHeight</code>, we&#39;re able to give virtual scroll an approximate size,
 therefore allowing virtual scroll to decide how many items should be
 created.</p>
 <h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>

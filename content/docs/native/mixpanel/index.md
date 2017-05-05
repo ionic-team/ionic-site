@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/mixpanel
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { Mixpanel, MixpanelPeople } from &#39;@ionic-native/mixpanel&#39;;
+<pre><code class="lang-typescript">import { Mixpanel } from &#39;@ionic-native/mixpanel&#39;;
 
 constructor(private mixpanel: Mixpanel, private mixpanelPeople: MixpanelPeople) { }
 
@@ -248,15 +248,6 @@ this.mixpanel.init(token)
   </tr>
   </tbody>
 </table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="showSurvey" href="#showSurvey"></a><code>showSurvey()</code></h3>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

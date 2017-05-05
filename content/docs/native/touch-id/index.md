@@ -201,7 +201,7 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 </div><h3><a class="anchor" name="didFingerprintDatabaseChange" href="#didFingerprintDatabaseChange"></a><code>didFingerprintDatabaseChange()</code></h3>
 
 
-Checks if the fingerpringt database changed.
+Checks if the fingerprint database changed.
 
 
 

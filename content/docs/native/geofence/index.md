@@ -70,7 +70,7 @@ private addGeofence() {
     id: &#39;69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb&#39;, //any unique ID
     latitude:       37.285951, //center of geofence radius
     longitude:      -121.936650,
-    radius:         100, //radius to edge of geofence
+    radius:         100, //radius to edge of geofence in meters
     transitionType: 3, //see &#39;Transition Types&#39; below
     notification: { //notification settings
         id:             1, //any unique ID

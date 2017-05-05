@@ -850,7 +850,6 @@ A data url is of the form:
 
 
 Read file and return data as a binary data.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

@@ -198,7 +198,7 @@ Create a loading indicator. See below for options.
   <code>LoadingOptions</code>
       </td>
       <td>
-        <p>Loading options</p>
+        <p>Loading options<strong class="tag">Optional</strong></p>
 
         
       </td>

@@ -277,18 +277,18 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-ios-item-left-padding</code></td>
+        <td><code>$toggle-ios-item-start-padding</code></td>
         
-          <td><code>6px 16px 5px 0</code></td>
+          <td><code>$toggle-ios-item-left-padding</code></td>
         
         <td><p>Padding of the toggle positioned on the left in an item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-ios-item-right-padding</code></td>
+        <td><code>$toggle-ios-item-end-padding</code></td>
         
-          <td><code>6px ($item-ios-padding-right / 2) 5px ($item-ios-padding-left)</code></td>
+          <td><code>$toggle-ios-item-right-padding</code></td>
         
         <td><p>Padding of the toggle positioned on the right in an item</p>
 </td>
@@ -443,20 +443,20 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-item-left-padding</code></td>
+        <td><code>$toggle-md-item-start-padding</code></td>
         
-          <td><code>12px 18px 12px 2px</code></td>
+          <td><code>$toggle-md-item-left-padding</code></td>
         
-        <td><p>Padding of the toggle positioned on the left in an item</p>
+        <td><p>Padding of the toggle positioned on the start in an item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-item-right-padding</code></td>
+        <td><code>$toggle-md-item-end-padding</code></td>
         
-          <td><code>12px ($item-md-padding-right / 2) 12px $item-md-padding-left</code></td>
+          <td><code>$toggle-md-item-right-padding</code></td>
         
-        <td><p>Padding of the toggle positioned on the right in an item</p>
+        <td><p>Padding of the toggle positioned on the end in an item</p>
 </td>
       </tr>
       
@@ -645,20 +645,20 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-wp-item-left-padding</code></td>
+        <td><code>$toggle-wp-item-start-padding</code></td>
         
-          <td><code>12px 18px 12px 2px</code></td>
+          <td><code>$toggle-wp-item-left-padding</code></td>
         
-        <td><p>Padding of the toggle positioned on the left in an item</p>
+        <td><p>Padding of the toggle positioned on the start in an item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-wp-item-right-padding</code></td>
+        <td><code>$toggle-wp-item-end-padding</code></td>
         
-          <td><code>12px ($item-wp-padding-right / 2) 12px $item-wp-padding-left</code></td>
+          <td><code>$toggle-wp-item-right-padding</code></td>
         
-        <td><p>Padding of the toggle positioned on the right in an item</p>
+        <td><p>Padding of the toggle positioned on the end in an item</p>
 </td>
       </tr>
       

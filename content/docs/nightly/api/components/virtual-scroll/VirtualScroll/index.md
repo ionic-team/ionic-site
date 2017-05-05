@@ -129,7 +129,7 @@ images while scrolling quickly.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
-    &lt;ion-avatar item-left&gt;
+    &lt;ion-avatar item-start&gt;
       &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
     &lt;/ion-avatar&gt;
    {% raw %} {{ item.firstName }} {{ item.lastName }}{% endraw %}

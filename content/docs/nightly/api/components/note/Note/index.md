@@ -54,11 +54,11 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-list&gt;
     &lt;ion-item&gt;
-      &lt;ion-note item-left&gt;
+      &lt;ion-note item-start&gt;
         Left Note
       &lt;/ion-note&gt;
       My Item
-      &lt;ion-note item-right&gt;
+      &lt;ion-note item-end&gt;
         Right Note
       &lt;/ion-note&gt;
     &lt;/ion-item&gt;

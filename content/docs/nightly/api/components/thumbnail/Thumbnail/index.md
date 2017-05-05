@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>A Thumbnail is a component that creates a squared image for an item.
-Thumbnails can be place on the left or right side of an item with the <code>item-left</code> or <code>item-right</code> directive.</p>
+Thumbnails can be place on the left or right side of an item with the <code>item-start</code> or <code>item-end</code> directive.</p>
 
 
 

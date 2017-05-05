@@ -26546,7 +26546,7 @@ __decorate([
 Item = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'ion-list-header,ion-item,[ion-item],ion-item-divider',
-        template: '<ng-content select="[item-left],ion-checkbox:not([item-right])"></ng-content>' +
+        template: '<ng-content select="[item-start],[item-left],ion-checkbox:not([item-end]):not([item-right])"></ng-content>' +
             '<div class="item-inner">' +
             '<div class="input-wrapper">' +
             '<ng-content select="ion-label"></ng-content>' +
@@ -26555,7 +26555,7 @@ Item = __decorate([
             '</ion-label>' +
             '<ng-content select="ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]"></ng-content>' +
             '</div>' +
-            '<ng-content select="[item-right],ion-radio,ion-toggle"></ng-content>' +
+            '<ng-content select="[item-end],[item-right],ion-radio,ion-toggle"></ng-content>' +
             '<ion-reorder *ngIf="_hasReorder"></ion-reorder>' +
             '</div>' +
             '<div class="button-effect"></div>',
@@ -47653,11 +47653,11 @@ const ItemNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf
     color: 'color',
     mode: 'mode'
 }, {}, [
-    '[item-left],ion-checkbox:not([item-right])',
+    '[item-start],[item-left],ion-checkbox:not([item-end]):not([item-right])',
     'ion-label',
     '*',
     'ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]',
-    '[item-right],ion-radio,ion-toggle'
+    '[item-end],[item-right],ion-radio,ion-toggle'
 ]);
 /* unused harmony export ItemNgFactory */
 
@@ -54169,7 +54169,7 @@ function View_PageOne_0(l) {
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_22__src_components_item_item_content__["a" /* ItemContent */], [], null, null),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](2, ['\n      '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, 0, 4, 'ion-avatar', [[
-                'item-left',
+                'item-start',
                 ''
             ]
         ], null, null, null, null, null)),
@@ -54328,7 +54328,7 @@ function View_PageOne_0(l) {
                 'ios-chatbubbles-outline'
             ],
             [
-                'item-right',
+                'item-end',
                 ''
             ],
             [
@@ -54378,7 +54378,7 @@ function View_PageOne_0(l) {
                 'ios-call-outline'
             ],
             [
-                'item-right',
+                'item-end',
                 ''
             ],
             [

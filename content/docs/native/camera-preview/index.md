@@ -562,6 +562,44 @@ Get exposure compensation range (Android)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="tapToFocus" href="#tapToFocus"></a><code>tapToFocus(xPoint,&nbsp;yPoint)</code></h3>
+
+
+Set specific focus point. Note, this assumes the camera is full-screen.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      xPoint</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      yPoint</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

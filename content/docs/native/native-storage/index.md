@@ -141,6 +141,15 @@ Gets a stored item
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code></h3>
+
+
+Retrieving all keys
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code></h3>
 
 

@@ -46492,6 +46492,12 @@ let DateTime = DateTime_1 = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__
     getValue() {
         return this._value;
     }
+    hasValue() {
+        const val = this._value;
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(val)
+            && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["l" /* isObject */])(val)
+            && Object.keys(val).length > 0;
+    }
     calcMinMax(now) {
         const todaysYear = (now || new Date()).getFullYear();
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(this.yearValues)) {

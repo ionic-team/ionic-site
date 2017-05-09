@@ -225,6 +225,18 @@ Enable GPS-tracking in background (Android).
 
 
 
+<h3><a class="anchor" name="disableWebViewOptimizations" href="#disableWebViewOptimizations"></a><code>disableWebViewOptimizations()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Enable GPS-tracking in background (Android).
+
+
+
 <h3><a class="anchor" name="moveToForeground" href="#moveToForeground"></a><code>moveToForeground()</code></h3>
 
 

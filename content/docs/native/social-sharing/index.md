@@ -798,7 +798,38 @@ Share via AppName
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="setIPadPopupCoordinates" href="#setIPadPopupCoordinates"></a><code>setIPadPopupCoordinates(targetBounds)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+defines the popup position before call the share method.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      targetBounds</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>left, top, width, height</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 
 

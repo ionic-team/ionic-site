@@ -92,6 +92,9 @@ constructor(private fb: Facebook) { }
 this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;])
   .then((res: FacebookLoginResponse) =&gt; console.log(&#39;Logged into Facebook!&#39;, res))
   .catch(e =&gt; console.log(&#39;Error logging into Facebook&#39;, e));
+
+
+this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
 </code></pre>
 
 
@@ -102,6 +105,11 @@ this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;
 
 
 <h2>Instance Members</h2>
+<h3><a class="anchor" name="EVENTS" href="#EVENTS"></a><code>EVENTS</code></h3>
+
+
+
+
 <h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code></h3>
 
 
@@ -149,16 +157,17 @@ Login to Facebook to authenticate this app.
 
 ```typescript
 {
-  status: "connected",
+  status: 'connected',
   authResponse: {
     session_key: true,
-    accessToken: "kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn",
+    accessToken: 'kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn',
     expiresIn: 5183979,
-    sig: "...",
-    secret: "...",
-    userID: "634565435"
+    sig: '...',
+    secret: '...',
+    userID: '634565435'
   }
 }
+
 ```
 
 <table class="table param-table" style="margin:0;">
@@ -211,13 +220,13 @@ Resolves with a response like:
 ```
 {
   authResponse: {
-    userID: "12345678912345",
-    accessToken: "kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn",
+    userID: '12345678912345',
+    accessToken: 'kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn',
     session_Key: true,
-    expiresIn: "5183738",
-    sig: "..."
+    expiresIn: '5183738',
+    sig: '...'
   },
-  status: "connected"
+  status: 'connected'
 }
 ```
 
@@ -245,10 +254,10 @@ Show one of various Facebook dialogs. Example of options for a Share dialog:
 
 ```
 {
-  method: "share",
-  href: "http://example.com",
-  caption: "Such caption, very feed.",
-  description: "Much description",
+  method: 'share',
+  href: 'http://example.com',
+  caption: 'Such caption, very feed.',
+  description: 'Much description',
   picture: 'http://example.com/image.png'
 }
 ```

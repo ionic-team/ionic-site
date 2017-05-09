@@ -79,7 +79,9 @@ building the form within a modal instead.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private alertCtrl: AlertController) {
+<pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
+
+constructor(private alertCtrl: AlertController) {
 
 }
 

@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/android-fingerprint-auth
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { AndroidFingerprintAuth, AFAAuthOptions } from &#39;@ionic-native/android-fingerprint-auth&#39;;
+<pre><code class="lang-typescript">import { AndroidFingerprintAuth } from &#39;@ionic-native/android-fingerprint-auth&#39;;
 
 constructor(private androidFingerprintAuth: AndroidFingerprintAuth) { }
 
@@ -70,7 +70,7 @@ this.androidFingerprintAuth.isAvailable()
            } else console.log(&#39;Didn\&#39;t authenticate!&#39;);
         })
         .catch(error =&gt; {
-           if (error === &#39;Cancelled&#39;) {
+           if (error === this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED) {
              console.log(&#39;Fingerprint authentication cancelled&#39;);
            } else console.error(error)
         });
@@ -90,6 +90,11 @@ this.androidFingerprintAuth.isAvailable()
 
 
 <h2>Instance Members</h2>
+<h3><a class="anchor" name="ERRORS" href="#ERRORS"></a><code>ERRORS</code></h3>
+
+
+
+
 <h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(options)</code></h3>
 
 

@@ -26,8 +26,8 @@ docType: "class"
 $ npm install --save @ionic-native/document-viewer
 </code></pre>
 <p>Repo:
-  <a href="DocumentViewer">
-    DocumentViewer
+  <a href="https://github.com/sitewaerts/cordova-plugin-document-viewer">
+    https://github.com/sitewaerts/cordova-plugin-document-viewer
   </a>
 </p>
 
@@ -78,7 +78,7 @@ Displays the email composer pre-filled with data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the EmailComposer has been opened
-</div><h3><a class="anchor" name="canViewDocument" href="#canViewDocument"></a><code>canViewDocument(url,&nbsp;contentType,&nbsp;options)</code></h3>
+</div><h3><a class="anchor" name="canViewDocument" href="#canViewDocument"></a><code>canViewDocument(url,&nbsp;contentType,&nbsp;options,&nbsp;onPossible,&nbsp;onMissingApp,&nbsp;onImpossible,&nbsp;onError)</code></h3>
 
 
 
@@ -126,10 +126,54 @@ Check if the document can be shown
       <p>options</p>
 </td>
   </tr>
+  
+  <tr>
+    <td>
+      onPossible</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onMissingApp</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onImpossible</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onError</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="viewDocument" href="#viewDocument"></a><code>viewDocument(url,&nbsp;contentType,&nbsp;options)</code></h3>
+<h3><a class="anchor" name="viewDocument" href="#viewDocument"></a><code>viewDocument(url,&nbsp;contentType,&nbsp;options,&nbsp;onShow,&nbsp;onClose,&nbsp;onMissingApp,&nbsp;onError)</code></h3>
 
 
 
@@ -175,6 +219,50 @@ Opens the file
     </td>
     <td>
       <p>options</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onShow</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onClose</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onMissingApp</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      onError</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

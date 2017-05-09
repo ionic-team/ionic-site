@@ -51450,6 +51450,7 @@ let VirtualScroll = class VirtualScroll {
         this._nodes = [];
         this._vHeight = 0;
         this._lastCheck = 0;
+        this._recordSize = 0;
         this._data = {
             scrollTop: 0,
         };
@@ -51513,7 +51514,7 @@ let VirtualScroll = class VirtualScroll {
         }
         let needClean = false;
         if (changes) {
-            var lastRecord = this.lastRecord() + 1;
+            var lastRecord = this._recordSize;
             changes.forEachOperation((_, pindex, cindex) => {
                 if (pindex === null && (cindex < lastRecord)) {
                     console.debug('adding record before current position, slow path');
@@ -51530,6 +51531,7 @@ let VirtualScroll = class VirtualScroll {
         else {
             needClean = true;
         }
+        this._recordSize = this._records.length;
         this.readUpdate(needClean);
         this.writeUpdate(needClean);
     }

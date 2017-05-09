@@ -118,11 +118,6 @@ Grant permission to receive push notifications
 </div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
 Check permission to receive push notifications
 
 
@@ -387,9 +382,6 @@ Set a user property for use in Analytics
 
 
 
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
 
 Fetch Remote Config parameter values for your app
 <table class="table param-table" style="margin:0;">
@@ -419,11 +411,6 @@ Fetch Remote Config parameter values for your app
 </div><h3><a class="anchor" name="activateFetched" href="#activateFetched"></a><code>activateFetched()</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
 Activate the Remote Config fetched config
 
 
@@ -433,9 +420,6 @@ Activate the Remote Config fetched config
 </div><h3><a class="anchor" name="getValue" href="#getValue"></a><code>getValue(key,&nbsp;namespace)</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
 Retrieve a Remote Config value

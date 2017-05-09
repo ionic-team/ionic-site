@@ -6089,7 +6089,7 @@ button[disabled],
 
 .button-md.activated {
   background-color: #3474e1;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent;
 }
 
 .button-md .button-effect {

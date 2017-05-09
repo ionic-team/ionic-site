@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201705091720, Default Theme
+ * vE2E-201705091954, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -1810,7 +1810,7 @@ button[disabled],
 
 .button-md.activated {
   background-color: #2e74eb;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21); }
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21), 0 0 0 0 transparent; }
 
 .button-md .button-effect {
   background-color: #fff; }

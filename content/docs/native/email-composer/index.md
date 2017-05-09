@@ -11,7 +11,7 @@ doc: "Email Composer"
 docType: "class"
 ---
 
-<h1 class="api-title">Email Composer<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Email Composer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L23">
   Improve this doc
@@ -19,12 +19,6 @@ docType: "class"
 
 
 
-
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/hypery2k/cordova-email-plugin/issues">plugin repo</a>.
-</p>
 
 
 
@@ -39,8 +33,6 @@ $ npm install --save @ionic-native/email-composer
 
 
 <p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
-<p>DISCLAIMER: This plugin is experiencing issues with the latest versions of Cordova. Use at your own risk. Functionality is not guaranteed. Please stay tuned for a more stable version.
-A good alternative to this plugin is the social sharing plugin.</p>
 
 
 

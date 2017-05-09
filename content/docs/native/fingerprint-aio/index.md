@@ -11,7 +11,7 @@ doc: "Fingerprint AIO"
 docType: "class"
 ---
 
-<h1 class="api-title">Fingerprint AIO<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Fingerprint AIO</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
   Improve this doc
@@ -19,12 +19,6 @@ docType: "class"
 
 
 
-
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio/issues">plugin repo</a>.
-</p>
 
 
 

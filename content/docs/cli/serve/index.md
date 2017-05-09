@@ -1,12 +1,46 @@
 ---
-layout: fluid/docs_cli_base
+layout: fluid/docs_base
 category: cli
 id: cli-serve
 command_name: serve
-title: Serve
+title: serve
 header_sub_title: Ionic CLI
 ---
 
-## Description
+# `$ serve`
 
-Use `ionic serve` to start a local development server for app dev and testing. This is useful for both desktop browser testing, and to test within a device browser which is connected to the same network. Additionally, this command starts LiveReload which is used to monitor changes in the file system. As soon as you save a file the browser is refreshed automatically.
+Start a local development server for app dev/testing
+## Synopsis
+
+```bash
+$ ionic serve 
+```
+  
+## Details
+
+
+
+
+
+Option | Description
+------ | ----------
+`--consolelogs`, `-c` | Print app console logs to Ionic CLI
+`--serverlogs`, `-s` | Print dev server logs to Ionic CLI
+`--port`, `-p` | Dev server HTTP port
+`--livereload-port`, `-r` | Live Reload port
+`--nobrowser`, `-b` | Disable launching a browser
+`--nolivereload`, `-d` | Do not start live reload
+`--noproxy`, `-x` | Do not add proxies
+`--address` | Network address for server
+`--browser`, `-w` | Specifies the browser to use (safari, firefox, chrome)
+`--browseroption`, `-o` | Specifies a path to open to (/#/tab/dash)
+`--lab`, `-l` | Test your apps on multiple platform types in the browser
+`--nogulp` | Disable gulp
+`--nosass` | Disable sass
+`--platform`, `-t` | Start serve with a specific platform (ios/android)
+
+## Examples
+
+```bash
+$ ionic serve --lab --consolelogs -s
+```

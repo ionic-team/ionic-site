@@ -136,12 +136,35 @@ On Android this requires permission. `<uses-permission android:name="android.per
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraAvailable" href="#isCameraAvailable"></a><code>isCameraAvailable()</code></h3>
+</div><h3><a class="anchor" name="isCameraAvailable" href="#isCameraAvailable"></a><code>isCameraAvailable(externalStorage)</code></h3>
+
+
 
 
 Checks if the device has a camera. On Android this returns true if the device has a camera. On iOS this returns true if both the device has a camera AND the application is authorized to use it. On Windows 10 Mobile this returns true if both the device has a rear-facing camera AND the
 application is authorized to use it.
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      externalStorage</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -374,7 +397,7 @@ Checks if camera hardware is present on device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraAuthorized" href="#isCameraAuthorized"></a><code>isCameraAuthorized()</code></h3>
+</div><h3><a class="anchor" name="isCameraAuthorized" href="#isCameraAuthorized"></a><code>isCameraAuthorized(externalStorage)</code></h3>
 
 
 
@@ -384,12 +407,33 @@ Checks if camera hardware is present on device.
 
 Checks if the application is authorized to use the camera.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return TRUE as permissions are already granted at installation time.
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      externalStorage</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getCameraAuthorizationStatus" href="#getCameraAuthorizationStatus"></a><code>getCameraAuthorizationStatus()</code></h3>
+</div><h3><a class="anchor" name="getCameraAuthorizationStatus" href="#getCameraAuthorizationStatus"></a><code>getCameraAuthorizationStatus(externalStorage)</code></h3>
 
 
 
@@ -398,12 +442,33 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
 
 
 Returns the camera authorization status for the application.
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      externalStorage</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestCameraAuthorization" href="#requestCameraAuthorization"></a><code>requestCameraAuthorization()</code></h3>
+</div><h3><a class="anchor" name="requestCameraAuthorization" href="#requestCameraAuthorization"></a><code>requestCameraAuthorization(externalStorage)</code></h3>
 
 
 
@@ -412,7 +477,28 @@ Returns the camera authorization status for the application.
 
 
 Requests camera authorization for the application.
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      externalStorage</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Android only: If true, requests permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -1160,7 +1246,7 @@ Returns the authorization status for the application to use the Camera Roll in P
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="requestCameraRollAuthorization" href="#requestCameraRollAuthorization"></a><code>requestCameraRollAuthorization()</code></h3>
 
 

@@ -55,7 +55,7 @@ constructor(private broadcaster: Broadcaster) { }
 ...
 
 // Listen to events from Native
-this.broadcaster.addEventListener(&#39;eventName&#39;).then((event) =&gt; console.log(event));
+this.broadcaster.addEventListener(&#39;eventName&#39;).subscribe((event) =&gt; console.log(event));
 
 // Send event to Native
 this.broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.log(&#39;success&#39;));

@@ -63,7 +63,7 @@ If you've used the paths suggested, you should have something like this.
   # Add that to the global PATH variable
   export PATH=${JAVA_HOME}/bin:$PATH
   # Set Android_HOME
-  export ANDROID_HOME~=/Library/Android/sdk/
+  export ANDROID_HOME=/Library/Android/sdk/
   # Add the Android SDK to the ANDROID_HOME variable
   export PATH=$ANDROID_HOME/platform-tools:$PATH
   export PATH=$ANDROID_HOME/tools:$PATH

@@ -150,7 +150,7 @@ Set a preference value
     <td>
       value</td>
     <td>
-      <code>string</code>
+      <code>any</code>
     </td>
     <td>
       <p>Value</p>

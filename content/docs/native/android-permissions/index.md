@@ -32,8 +32,8 @@ $ npm install --save @ionic-native/android-permissions
 </p>
 
 
-<p>This plugin is designed for supporting Android new permissions checking mechanism.
-YOur will find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
+<p>This plugin is designed to support Android new permissions checking mechanism.</p>
+<p>You can find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
 
 
 
@@ -57,7 +57,7 @@ constructor(private androidPermissions: AndroidPermissions) { }
 ...
 
 this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-  success =&gt; console.log(&#39;Permission geranted&#39;),
+  success =&gt; console.log(&#39;Permission granted&#39;),
   err =&gt; this.androidPermissions.requestPermissions(this.androidPermissions.PERMISSION.CAMERA)
 );
 

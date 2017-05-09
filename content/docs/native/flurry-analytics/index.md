@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Flurry Analytics</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L72">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L172">
   Improve this doc
 </a>
 
@@ -48,20 +48,23 @@ $ npm install --save @ionic-native/flurry-analytics
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { FlurryAnalytics } from &#39;ionic-native/flurry-analytics&#39;;
+<pre><code class="lang-typescript">import { FlurryAnalytics, FlurryAnalyticsObject, FlurryAnalyticsOptions } from &#39;ionic-native/flurry-analytics&#39;;
 
 constructor(private flurryAnalytics: FlurryAnalytics) { }
 
 ...
 
-constant options: FlurryAnalyticsOptions = {
+const options: FlurryAnalyticsOptions = {
+ appKey: &#39;&lt;your app key&gt;&#39;, // REQUIRED
  reportSessionsOnClose: true,
  enableLogging: true
-}
+};
 
-FlurryAnalytics.init(&#39;12345678965412303214&#39;, options)
-  .then((something: any) =&gt; doSomething(something))
-  .catch((error: any) =&gt; console.log(error));
+let fa: FlurryAnalyticsObject = this.flurryAnalytics.create(options);
+
+fa.logEvent(&#39;event name&#39;)
+  .then(() =&gt; console.log(&#39;Logged an event!&#39;))
+  .catch(e =&gt; console.log(&#39;Error logging the event&#39;, e));
 </code></pre>
 
 
@@ -72,10 +75,9 @@ FlurryAnalytics.init(&#39;12345678965412303214&#39;, options)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="init" href="#init"></a><code>init(appKey,&nbsp;options)</code></h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(options)</code></h3>
 
-
-Set the setting for Flurry Analytics
+Creates a new instance of FlurryAnalyticsObject
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -87,23 +89,12 @@ Set the setting for Flurry Analytics
   <tbody>
   <tr>
     <td>
-      appKey</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>API key is required</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
       options</td>
     <td>
       <code>FlurryAnalyticsOptions</code>
     </td>
     <td>
-      <p>is optional</p>
+      <p>options</p>
 </td>
   </tr>
   </tbody>
@@ -111,8 +102,16 @@ Set the setting for Flurry Analytics
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(eventName,&nbsp;params)</code></h3>
+  <b>Returns:</b> <code>FlurryAnalyticsObject</code> 
+</div>
+
+<h2><a class="anchor" name="FlurryAnalyticsObject" href="#FlurryAnalyticsObject"></a>FlurryAnalyticsObject</h2>
+
+
+
+
+<h2>Instance Members</h2>
+<h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(eventName,&nbsp;params)</code></h3>
 
 
 
@@ -134,7 +133,7 @@ This function set the Event
       <code>string</code>
     </td>
     <td>
-      <p>The param to configure name of Event</p>
+      <p>Name of the event</p>
 </td>
   </tr>
   
@@ -145,7 +144,7 @@ This function set the Event
       <code>Object</code>
     </td>
     <td>
-      <p>optional</p>
+      <p>Optional params<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -153,13 +152,13 @@ This function set the Event
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when event is set
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when event is sent
 </div><h3><a class="anchor" name="startTimedEvent" href="#startTimedEvent"></a><code>startTimedEvent(eventName,&nbsp;params)</code></h3>
 
 
 
 
-This function start a timed event
+Start a timed event
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -173,10 +172,11 @@ This function start a timed event
     <td>
       eventName</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
-      </td>
+      <p>Name of the event</p>
+</td>
   </tr>
   
   <tr>
@@ -186,7 +186,7 @@ This function start a timed event
       <code>Object</code>
     </td>
     <td>
-      <p>optional</p>
+      <p>Optional params<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -200,7 +200,7 @@ This function start a timed event
 
 
 
-This function complete a timed event
+Complete a timed event
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -214,10 +214,11 @@ This function complete a timed event
     <td>
       eventName</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
-      </td>
+      <p>Name of the event</p>
+</td>
   </tr>
   
   <tr>
@@ -227,7 +228,7 @@ This function complete a timed event
       <code>Object</code>
     </td>
     <td>
-      <p>optional</p>
+      <p>Optional params<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -237,8 +238,6 @@ This function complete a timed event
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when timed event is ended tracking
 </div><h3><a class="anchor" name="logError" href="#logError"></a><code>logError(code,&nbsp;message)</code></h3>
-
-
 
 
 This function log an error
@@ -285,9 +284,7 @@ This function log a page view
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setLocation" href="#setLocation"></a><code>setLocation(location)</code></h3>
-
-
+</div><h3><a class="anchor" name="setLocation" href="#setLocation"></a><code>setLocation(location,&nbsp;message)</code></h3>
 
 
 This function set the location for the event
@@ -305,7 +302,17 @@ This function set the location for the event
     <td>
       location</td>
     <td>
-      
+      <code>FlurryAnalyticsLocation</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -337,8 +344,6 @@ Only needed for older versions of Android
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
-
-
 
 
 

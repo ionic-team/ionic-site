@@ -11,14 +11,20 @@ doc: "WheelSelector Plugin"
 docType: "class"
 ---
 
-<h1 class="api-title">WheelSelector Plugin</h1>
+<h1 class="api-title">WheelSelector Plugin<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
   Improve this doc
 </a>
 
 
 
+
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit any issues to the <a target="_blank"
+  href="https://github.com/jasonmamy/cordova-wheel-selector-plugin/issues">plugin repo</a>.
+</p>
 
 
 
@@ -48,7 +54,7 @@ $ npm install --save @ionic-native/wheel-selector
 
 
 <h2>Usage</h2>
-<pre><code>import { WheelSelector } from &#39;ionic-native&#39;;
+<pre><code>import { WheelSelector } from &#39;@ionic-native/wheel-selector&#39;;
 
 
 constructor(private selector: WheelSelector) { }
@@ -120,6 +126,20 @@ Shows the wheel selector
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;WheelSelectorData&gt;</code> Returns a promise that resolves with the selected items, or an error.
+</div><h3><a class="anchor" name="hideSelector" href="#hideSelector"></a><code>hideSelector()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Hide the selector
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
 </div>
 
 
@@ -157,12 +177,10 @@ Shows the wheel selector
       items
     </td>
     <td>
-      <code>{}</code>
+      <code>WheelSelectorItem[]</code>
     </td>
     <td>
-      <p>The items to display (array of items).<br>Example, 2 wheels: 
-[{description: &quot;1&quot;, description: &quot;2&quot;, description: &quot;3&quot;}, 
-{description: &quot;Apple&quot;, description: &quot;Pear&quot;, description: &quot;Banana&quot;}]</p>
+      <p>The items to display (array of items).</p>
 
       
     </td>
@@ -173,7 +191,7 @@ Shows the wheel selector
       defaultItems
     </td>
     <td>
-      <code>any</code>
+      <code>WheelSelectorItem[]</code>
     </td>
     <td>
       <p>Which items to display by default, example [&quot;2&quot;,&quot;Apple&quot;] (if items.length is 2 for instance)</p>

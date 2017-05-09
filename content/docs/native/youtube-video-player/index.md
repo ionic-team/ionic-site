@@ -22,12 +22,12 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/Glitchbone/CordovaYoutubeVideoPlayer.git
+<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/JonSmart/CordovaYoutubeVideoPlayer
 $ npm install --save @ionic-native/youtube-video-player
 </code></pre>
 <p>Repo:
-  <a href="https://github.com/Glitchbone/CordovaYoutubeVideoPlayer">
-    https://github.com/Glitchbone/CordovaYoutubeVideoPlayer
+  <a href="https://github.com/JonSmart/CordovaYoutubeVideoPlayer">
+    https://github.com/JonSmart/CordovaYoutubeVideoPlayer
   </a>
 </p>
 
@@ -48,6 +48,10 @@ $ npm install --save @ionic-native/youtube-video-player
 
 
 <h2>Usage</h2>
+<p>For Android 5.0+ you will need to add the following to config.xml</p>
+<pre><code class="lang-xml">&lt;preference name=&quot;YouTubeDataApiKey&quot; value=&quot;[YOUR YOUTUBE API]&quot; /&gt;
+</code></pre>
+<p>For more information: <a href="https://developers.google.com/youtube/v3/getting-started">https://developers.google.com/youtube/v3/getting-started</a></p>
 <pre><code class="lang-typescript">import { YoutubeVideoPlayer } from &#39;@ionic-native/youtube-video-player&#39;;
 
 constructor(private youtube: YoutubeVideoPlayer) { }

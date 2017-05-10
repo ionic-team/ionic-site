@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -95,7 +95,7 @@ option with a simple <code>get</code> method.</p>
 
 <h3>
 <a class="anchor" name="get" href="#get"></a>
-<code>get(parameter)</code>
+<code>get(param)</code>
   
 
 </h3>
@@ -126,7 +126,7 @@ export class MyClass{
     
     <tr>
       <td>
-        parameter
+        param
         
         
       </td>

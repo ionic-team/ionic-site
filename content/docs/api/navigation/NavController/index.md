@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -1554,7 +1554,7 @@ navigation params to the individual pages in the array.
 
 <h3>
 <a class="anchor" name="setRoot" href="#setRoot"></a>
-<code>setRoot(page,&nbsp;params,&nbsp;opts)</code>
+<code>setRoot(pageOrViewCtrl,&nbsp;params,&nbsp;opts,&nbsp;done)</code>
   
 
 </h3>
@@ -1574,7 +1574,7 @@ Set the root for the current navigation stack.
     
     <tr>
       <td>
-        page
+        pageOrViewCtrl
         
         
       </td>
@@ -1618,6 +1618,23 @@ Set the root for the current navigation stack.
       </td>
       <td>
         <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        done
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>Callback function on done.</p>
 
         
       </td>

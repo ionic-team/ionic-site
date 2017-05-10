@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -457,7 +457,7 @@ export MyApp {
 
 <h3>
 <a class="anchor" name="registerBackButtonAction" href="#registerBackButtonAction"></a>
-<code>registerBackButtonAction(callback,&nbsp;priority)</code>
+<code>registerBackButtonAction(fn,&nbsp;priority)</code>
   
 
 </h3>
@@ -488,7 +488,7 @@ actions has the highest priority and should be called.
     
     <tr>
       <td>
-        callback
+        fn
         
         
       </td>

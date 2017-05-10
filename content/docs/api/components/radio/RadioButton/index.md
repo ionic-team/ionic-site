@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -237,20 +237,20 @@ For more information, see <a href="/docs/theming/theming-your-app">Theming your 
       </tr>
       
       <tr>
-        <td><code>$radio-ios-item-left-margin</code></td>
+        <td><code>$radio-ios-item-start-margin</code></td>
         
-          <td><code>8px 21px 8px 3px</code></td>
+          <td><code>$radio-ios-item-left-margin</code></td>
         
-        <td><p>Margin of the item-left in a radio</p>
+        <td><p>Margin of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-ios-item-right-margin</code></td>
+        <td><code>$radio-ios-item-end-margin</code></td>
         
-          <td><code>$item-ios-padding-media-top 11px $item-ios-padding-media-bottom ($item-ios-padding-left / 2)</code></td>
+          <td><code>$radio-ios-item-right-margin</code></td>
         
-        <td><p>Margin of the item-right in a radio</p>
+        <td><p>Margin of the item-end in a radio</p>
 </td>
       </tr>
       
@@ -358,20 +358,20 @@ For more information, see <a href="/docs/theming/theming-your-app">Theming your 
       </tr>
       
       <tr>
-        <td><code>$radio-md-item-left-margin</code></td>
+        <td><code>$radio-md-item-start-margin</code></td>
         
-          <td><code>11px 36px 10px 4px</code></td>
+          <td><code>$radio-md-item-left-margin</code></td>
         
-        <td><p>Margin of the item-left in a radio</p>
+        <td><p>Margin of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-md-item-right-margin</code></td>
+        <td><code>$radio-md-item-end-margin</code></td>
         
-          <td><code>$item-md-padding-media-top 10px $item-md-padding-media-bottom 0</code></td>
+          <td><code>$radio-md-item-right-margin</code></td>
         
-        <td><p>Margin of the item-right in a radio</p>
+        <td><p>Margin of the item-end in a radio</p>
 </td>
       </tr>
       
@@ -470,20 +470,20 @@ For more information, see <a href="/docs/theming/theming-your-app">Theming your 
       </tr>
       
       <tr>
-        <td><code>$radio-wp-item-left-margin</code></td>
+        <td><code>$radio-wp-item-start-margin</code></td>
         
-          <td><code>9px 20px 9px 4px</code></td>
+          <td><code>$radio-wp-item-left-margin</code></td>
         
-        <td><p>Margin of the item-left in a radio</p>
+        <td><p>Margin of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-wp-item-right-margin</code></td>
+        <td><code>$radio-wp-item-end-margin</code></td>
         
-          <td><code>11px 10px 10px 0</code></td>
+          <td><code>$radio-wp-item-right-margin</code></td>
         
-        <td><p>Margin of the item-right in a radio</p>
+        <td><p>Margin of the item-end in a radio</p>
 </td>
       </tr>
       

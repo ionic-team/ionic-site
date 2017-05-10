@@ -10,6 +10,13 @@
 
   
     
+{% elsif page.versionHref == "/docs/3.1.1" %}
+    
+  {% include fluid/api_menu_flat_3.1.1.html %}
+  
+
+  
+    
 {% elsif page.versionHref == "/docs/3.1.0" %}
     
   {% include fluid/api_menu_flat_3.1.0.html %}
@@ -66,5 +73,5 @@
 
 
 {% else %}
-  {% include fluid/api_menu_flat_3.1.1.html %}
+  {% include fluid/api_menu_flat_3.2.0.html %}
 {% endif %}

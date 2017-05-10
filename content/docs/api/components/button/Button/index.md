@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -791,7 +791,7 @@ class E2EPage {
       <tr>
         <td><code>$button-md-box-shadow-activated</code></td>
         
-          <td><code>0 3px 5px rgba(0, 0, 0, .14), 0 3px 5px rgba(0, 0, 0, .21)</code></td>
+          <td><code>0 3px 5px rgba(0, 0, 0, .14), 0 3px 5px rgba(0, 0, 0, .21), 0 0 0 0 transparent</code></td>
         
         <td><p>Box shadow of the activated button</p>
 </td>

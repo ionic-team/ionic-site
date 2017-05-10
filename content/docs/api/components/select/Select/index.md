@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L14">
 Improve this doc
 </a>
 
@@ -139,6 +139,26 @@ for the properties that each interface accepts.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="close"></div>
+
+<h3>
+<a class="anchor" name="close" href="#close"></a>
+<code>close()</code>
+  
+
+</h3>
+
+Close the select interface.
+
+
+
+
+
+
+
+
+
 
 <div id="config"></div>
 

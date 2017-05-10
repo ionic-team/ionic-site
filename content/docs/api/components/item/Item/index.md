@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -121,11 +121,11 @@ that attribute inside of the item:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>item-left</code></td>
+<td><code>item-start</code></td>
 <td>Placed to the left of all other elements, outside of the inner item.</td>
 </tr>
 <tr>
-<td><code>item-right</code></td>
+<td><code>item-end</code></td>
 <td>Placed to the right of all other elements, inside of the inner item, outside of the input wrapper.</td>
 </tr>
 <tr>
@@ -135,10 +135,10 @@ that attribute inside of the item:</p>
 </tbody>
 </table>
 <h3 id="checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</h3>
-<p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-left</code> attribute.
+<p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-start</code> attribute.
 <a href="../../radio/RadioButton">Radios</a> and <a href="../../toggle/Toggle">Toggles</a> are positioned in the same place
-as the <code>item-right</code> attribute. All of these components can be positioned differently by adding the
-<code>item-left</code> or <code>item-right</code> attribute.</p>
+as the <code>item-end</code> attribute. All of these components can be positioned differently by adding the
+<code>item-start</code> or <code>item-end</code> attribute.</p>
 <h3 id="content-and-inputs">Content and Inputs</h3>
 <p>A <a href="../../label/Label">Label</a> is placed inside of the item to the left of all content and inputs. The
 following components are all placed in the same position as the <code>item-content</code> attribute: <a href="../../select/Select">Select</a>,
@@ -212,9 +212,9 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- List header with buttons on each side --&gt;
   &lt;ion-list-header&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     List Header
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-list-header&gt;
 
   &lt;!-- Loops through and creates multiple items --&gt;
@@ -224,7 +224,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Button item with an icon on the left --&gt;
   &lt;button ion-item&gt;
-    &lt;ion-icon name=&quot;star&quot; item-left&gt;&lt;/ion-icon&gt;
+    &lt;ion-icon name=&quot;star&quot; item-start&gt;&lt;/ion-icon&gt;
     Button Item
   &lt;/button&gt;
 
@@ -240,25 +240,25 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Item with left and right buttons --&gt;
   &lt;ion-item&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     Item
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item divider with a right button --&gt;
   &lt;ion-item-divider&gt;
     Item Divider
-    &lt;button ion-button item-right&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-end&gt;Button&lt;/button&gt;
   &lt;/ion-item-divider&gt;
 
   &lt;!-- Disabled button item with left and right buttons --&gt;
   &lt;button ion-item disabled&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;home&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
     Disabled Button Item
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
@@ -266,18 +266,18 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Item with an avatar on the left and button on the right --&gt;
   &lt;ion-item&gt;
-    &lt;ion-avatar item-left&gt;
+    &lt;ion-avatar item-start&gt;
       &lt;img src=&quot;img/my-avatar.png&quot;&gt;
     &lt;/ion-avatar&gt;
     Avatar Item
-    &lt;button ion-button outline item-right&gt;View&lt;/button&gt;
+    &lt;button ion-button outline item-end&gt;View&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item with a thumbnail on the right --&gt;
   &lt;ion-item&gt;
     &lt;h2&gt;Item&lt;/h2&gt;
     &lt;p&gt;Item Paragraph&lt;/p&gt;
-    &lt;ion-thumbnail item-right&gt;
+    &lt;ion-thumbnail item-end&gt;
       &lt;img src=&quot;img/my-thumbnail.png&quot;&gt;
     &lt;/ion-thumbnail&gt;
   &lt;/ion-item&gt;

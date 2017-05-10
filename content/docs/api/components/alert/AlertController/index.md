@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.2.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -79,7 +79,9 @@ building the form within a modal instead.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private alertCtrl: AlertController) {
+<pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
+
+constructor(private alertCtrl: AlertController) {
 
 }
 
@@ -275,7 +277,7 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
-<td>Whether the alert should be dismissed by tapping the backdrop.</td>
+<td>Whether the alert should be dismissed by tapping the backdrop. Default true.</td>
 </tr>
 </tbody>
 </table>
@@ -1203,7 +1205,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-md-head-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the alert head</p>
 </td>
@@ -1473,7 +1475,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-md-button-text-align</code></td>
         
-          <td><code>right</code></td>
+          <td><code>end</code></td>
         
         <td><p>Text align of the alert button</p>
 </td>
@@ -1954,7 +1956,7 @@ out before starting a new transition.</p>
       <tr>
         <td><code>$alert-wp-head-text-align</code></td>
         
-          <td><code>left</code></td>
+          <td><code>start</code></td>
         
         <td><p>Text align of the alert head</p>
 </td>

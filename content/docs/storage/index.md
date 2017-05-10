@@ -72,17 +72,13 @@ export class AppModule {}
 
 export class MyApp {
   constructor(storage: Storage) {
+    // set a key/value
+    storage.set(&#39;name &#39;, &#39; Max &#39;);
 
-     storage.ready().then(() =&gt; {
-
-       // set a key/value
-       storage.set(&#39;name&#39;, &#39;Max&#39;);
-
-       // Or to get a key/value pair
-       storage.get(&#39;age&#39;).then((val) =&gt; {
-         console.log(&#39;Your age is&#39;, val);
-       })
-     });
+    // Or to get a key/value pair
+    storage.get(&#39;age &#39;).then((val) =&gt; {
+      console.log(&#39;Your age is&#39;, val);
+    });
   }
 }
 </code></pre>

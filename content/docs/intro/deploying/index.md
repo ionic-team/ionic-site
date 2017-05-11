@@ -51,14 +51,14 @@ Let’s generate your private key using the keytool command that comes with the 
 ```bash
 keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 ```
-You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jsk created in the current directory.
+You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jks created in the current directory.
 
 __Note__: Make sure to save this file somewhere safe, if you lose it you won’t be able to submit updates to your app!
 
 To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
 
 ```bash
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jsk android-release-unsigned.apk alias_name
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk my-alias
 ```
 
 This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:

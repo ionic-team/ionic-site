@@ -37870,7 +37870,7 @@ Searchbar = __decorate([
             '<ion-icon name="md-arrow-back"></ion-icon>' +
             '</button>' +
             '<div #searchbarIcon class="searchbar-search-icon"></div>' +
-            '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" ' +
+            '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" ' +
             '[attr.placeholder]="placeholder" ' +
             '[attr.type]="type" ' +
             '[attr.autocomplete]="_autocomplete" ' +
@@ -60739,11 +60739,11 @@ function View_Searchbar_0(l) {
                 ad = (pd_0 && ad);
             }
             if (('blur' === en)) {
-                const pd_1 = (co.inputBlurred($event) !== false);
+                const pd_1 = (co.inputBlurred() !== false);
                 ad = (pd_1 && ad);
             }
             if (('focus' === en)) {
-                const pd_2 = (co.inputFocused($event) !== false);
+                const pd_2 = (co.inputFocused() !== false);
                 ad = (pd_2 && ad);
             }
             return ad;

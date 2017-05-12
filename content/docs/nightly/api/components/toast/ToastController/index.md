@@ -331,11 +331,38 @@ Create a new toast component. See options below
       </tr>
       
       <tr>
-        <td><code>$toast-ios-title-padding</code></td>
+        <td><code>$toast-ios-title-padding-top</code></td>
         
           <td><code>1.5rem</code></td>
         
-        <td><p>Padding of the toast title</p>
+        <td><p>Padding top of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-padding-end</code></td>
+        
+          <td><code>$toast-ios-title-padding-top</code></td>
+        
+        <td><p>Padding end of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-padding-bottom</code></td>
+        
+          <td><code>$toast-ios-title-padding-top</code></td>
+        
+        <td><p>Padding bottom of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-padding-start</code></td>
+        
+          <td><code>$toast-ios-title-padding-end</code></td>
+        
+        <td><p>Padding start of the toast title</p>
 </td>
       </tr>
       
@@ -380,11 +407,38 @@ Create a new toast component. See options below
       </tr>
       
       <tr>
-        <td><code>$toast-md-title-padding</code></td>
+        <td><code>$toast-md-title-padding-top</code></td>
         
-          <td><code>19px 16px 17px</code></td>
+          <td><code>19px</code></td>
         
-        <td><p>Padding of the toast title</p>
+        <td><p>Padding top of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-padding-bottom</code></td>
+        
+          <td><code>17px</code></td>
+        
+        <td><p>Padding bottom of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-padding-start</code></td>
+        
+          <td><code>$toast-md-title-padding-end</code></td>
+        
+        <td><p>Padding start of the toast title</p>
 </td>
       </tr>
       
@@ -447,11 +501,38 @@ Create a new toast component. See options below
       </tr>
       
       <tr>
-        <td><code>$toast-wp-title-padding</code></td>
+        <td><code>$toast-wp-title-padding-top</code></td>
         
           <td><code>1.5rem</code></td>
         
-        <td><p>Padding of the toast title</p>
+        <td><p>Padding top of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-padding-end</code></td>
+        
+          <td><code>$toast-wp-title-padding-top</code></td>
+        
+        <td><p>Padding end of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-padding-bottom</code></td>
+        
+          <td><code>$toast-wp-title-padding-top</code></td>
+        
+        <td><p>Padding bottom of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-padding-start</code></td>
+        
+          <td><code>$toast-wp-title-padding-end</code></td>
+        
+        <td><p>Padding start of the toast title</p>
 </td>
       </tr>
       

@@ -248,20 +248,74 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$checkbox-ios-item-start-margin</code></td>
+        <td><code>$checkbox-ios-item-start-margin-top</code></td>
         
-          <td><code>$checkbox-ios-item-left-margin</code></td>
+          <td><code>$item-ios-padding-media-top</code></td>
         
-        <td><p>Margin of the start checkbox item</p>
+        <td><p>Margin top of the left checkbox item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$checkbox-ios-item-end-margin</code></td>
+        <td><code>$checkbox-ios-item-start-margin-end</code></td>
         
-          <td><code>$checkbox-ios-item-right-margin</code></td>
+          <td><code>$item-ios-padding-end</code></td>
         
-        <td><p>Margin of the end checkbox item</p>
+        <td><p>Margin end of the left checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-start-margin-bottom</code></td>
+        
+          <td><code>$item-ios-padding-media-bottom</code></td>
+        
+        <td><p>Margin bottom of the left checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-start-margin-start</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Margin start of the left checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-end-margin-top</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin top of the right checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-end-margin-end</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Margin end of the right checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-end-margin-bottom</code></td>
+        
+          <td><code>9px</code></td>
+        
+        <td><p>Margin bottom of the right checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-ios-item-end-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the right checkbox item</p>
 </td>
       </tr>
       
@@ -302,24 +356,6 @@ for more info on forms and inputs.</p>
           <td><code>$list-md-border-color</code></td>
         
         <td><p>Border bottom color of the checkbox</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$checkbox-md-padding</code></td>
-        
-          <td><code>$item-md-padding-top ($item-md-padding-right / 2) $item-md-padding-bottom 0</code></td>
-        
-        <td><p>Padding of the checkbox</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$checkbox-md-margin</code></td>
-        
-          <td><code>0</code></td>
-        
-        <td><p>Margin of the checkbox</p>
 </td>
       </tr>
       
@@ -450,20 +486,74 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$checkbox-md-item-start-margin</code></td>
+        <td><code>$checkbox-md-item-start-margin-top</code></td>
         
-          <td><code>$checkbox-md-item-left-margin</code></td>
+          <td><code>$item-md-padding-media-top</code></td>
         
-        <td><p>Margin of the start checkbox item</p>
+        <td><p>Margin top of the start checkbox item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$checkbox-md-item-end-margin</code></td>
+        <td><code>$checkbox-md-item-start-margin-end</code></td>
         
-          <td><code>$checkbox-md-item-right-margin</code></td>
+          <td><code>36px</code></td>
         
-        <td><p>Margin of the end checkbox item</p>
+        <td><p>Margin end of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-start-margin-bottom</code></td>
+        
+          <td><code>$item-md-padding-media-bottom</code></td>
+        
+        <td><p>Margin bottom of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-start-margin-start</code></td>
+        
+          <td><code>4px</code></td>
+        
+        <td><p>Margin start of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-end-margin-top</code></td>
+        
+          <td><code>11px</code></td>
+        
+        <td><p>Margin top of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-end-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-end-margin-bottom</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin bottom of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-md-item-end-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the end checkbox item</p>
 </td>
       </tr>
       
@@ -504,24 +594,6 @@ for more info on forms and inputs.</p>
           <td><code>$list-wp-border-color</code></td>
         
         <td><p>Border bottom color of the checkbox</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$checkbox-wp-padding</code></td>
-        
-          <td><code>$item-wp-padding-top ($item-wp-padding-right / 2) $item-wp-padding-bottom 0</code></td>
-        
-        <td><p>Padding of the checkbox</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$checkbox-wp-margin</code></td>
-        
-          <td><code>0</code></td>
-        
-        <td><p>Margin of the checkbox</p>
 </td>
       </tr>
       
@@ -634,20 +706,74 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$checkbox-wp-item-start-margin</code></td>
+        <td><code>$checkbox-wp-item-start-margin-top</code></td>
         
-          <td><code>$checkbox-wp-item-left-margin</code></td>
+          <td><code>$item-wp-padding-media-top</code></td>
         
-        <td><p>Margin of the start checkbox item</p>
+        <td><p>Margin top of the start checkbox item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$checkbox-wp-item-end-margin</code></td>
+        <td><code>$checkbox-wp-item-start-margin-end</code></td>
         
-          <td><code>$checkbox-wp-item-right-margin</code></td>
+          <td><code>$item-wp-padding-end</code></td>
         
-        <td><p>Margin of the end checkbox item</p>
+        <td><p>Margin end of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-start-margin-bottom</code></td>
+        
+          <td><code>$item-wp-padding-media-bottom</code></td>
+        
+        <td><p>Margin bottom of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-start-margin-start</code></td>
+        
+          <td><code>4px</code></td>
+        
+        <td><p>Margin start of the start checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-end-margin-top</code></td>
+        
+          <td><code>11px</code></td>
+        
+        <td><p>Margin top of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-end-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-end-margin-bottom</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin bottom of the end checkbox item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$checkbox-wp-item-end-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the end checkbox item</p>
 </td>
       </tr>
       

@@ -365,7 +365,7 @@ on extra small screens before becoming horizontal on small screens.</p>
 <h2 id="reordering">Reordering</h2>
 <h3 id="offsetting-columns">Offsetting columns</h3>
 <p>Move columns to the right by adding the <code>offset-*</code> attributes. These attributes
-increase the margin left of the column by <code>*</code> columns. For example, in the following
+increase the margin start of the column by <code>*</code> columns. For example, in the following
 grid the last column will be offset by 3 columns and take up 3 columns:</p>
 <pre><code>&lt;ion-grid&gt;
   &lt;ion-row&gt;

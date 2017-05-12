@@ -639,11 +639,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-ios-padding-right</code></td>
+        <td><code>$datetime-ios-padding-end</code></td>
         
-          <td><code>($item-ios-padding-right / 2)</code></td>
+          <td><code>$datetime-ios-padding-right</code></td>
         
-        <td><p>Padding right of the DateTime component</p>
+        <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
       
@@ -657,11 +657,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-ios-padding-left</code></td>
+        <td><code>$datetime-ios-padding-start</code></td>
         
-          <td><code>$item-ios-padding-left</code></td>
+          <td><code>$datetime-ios-padding-left</code></td>
         
-        <td><p>Padding left of the DateTime component</p>
+        <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
       
@@ -697,11 +697,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-md-padding-right</code></td>
+        <td><code>$datetime-md-padding-end</code></td>
         
-          <td><code>($item-md-padding-right / 2)</code></td>
+          <td><code>$datetime-md-padding-right</code></td>
         
-        <td><p>Padding right of the DateTime component</p>
+        <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
       
@@ -715,11 +715,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-md-padding-left</code></td>
+        <td><code>$datetime-md-padding-start</code></td>
         
-          <td><code>$item-md-padding-left</code></td>
+          <td><code>$datetime-md-padding-left</code></td>
         
-        <td><p>Padding left of the DateTime component</p>
+        <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
       
@@ -764,11 +764,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-wp-padding-right</code></td>
+        <td><code>$datetime-wp-padding-end</code></td>
         
-          <td><code>($item-wp-padding-right / 2)</code></td>
+          <td><code>$datetime-wp-padding-right</code></td>
         
-        <td><p>Padding right of the DateTime component</p>
+        <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
       
@@ -782,11 +782,11 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
       
       <tr>
-        <td><code>$datetime-wp-padding-left</code></td>
+        <td><code>$datetime-wp-padding-start</code></td>
         
-          <td><code>$item-wp-padding-left</code></td>
+          <td><code>$datetime-wp-padding-left</code></td>
         
-        <td><p>Padding left of the DateTime component</p>
+        <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
       

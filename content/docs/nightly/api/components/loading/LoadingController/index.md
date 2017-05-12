@@ -299,11 +299,38 @@ Create a loading indicator. See below for options.
     <tbody>
       
       <tr>
-        <td><code>$loading-ios-padding</code></td>
+        <td><code>$loading-ios-padding-top</code></td>
         
-          <td><code>24px 34px</code></td>
+          <td><code>24px</code></td>
         
-        <td><p>Padding of the loading wrapper</p>
+        <td><p>Padding top of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-ios-padding-end</code></td>
+        
+          <td><code>34px</code></td>
+        
+        <td><p>Padding end of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-ios-padding-bottom</code></td>
+        
+          <td><code>$loading-ios-padding-top</code></td>
+        
+        <td><p>Padding bottom of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-ios-padding-start</code></td>
+        
+          <td><code>$loading-ios-padding-end</code></td>
+        
+        <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
       
@@ -429,11 +456,38 @@ Create a loading indicator. See below for options.
     <tbody>
       
       <tr>
-        <td><code>$loading-md-padding</code></td>
+        <td><code>$loading-md-padding-top</code></td>
         
           <td><code>24px</code></td>
         
-        <td><p>Padding of the loading wrapper</p>
+        <td><p>Padding top of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-md-padding-end</code></td>
+        
+          <td><code>$loading-md-padding-top</code></td>
+        
+        <td><p>Padding end of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-md-padding-bottom</code></td>
+        
+          <td><code>$loading-md-padding-top</code></td>
+        
+        <td><p>Padding bottom of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-md-padding-start</code></td>
+        
+          <td><code>$loading-md-padding-end</code></td>
+        
+        <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
       
@@ -568,11 +622,38 @@ Create a loading indicator. See below for options.
     <tbody>
       
       <tr>
-        <td><code>$loading-wp-padding</code></td>
+        <td><code>$loading-wp-padding-top</code></td>
         
           <td><code>20px</code></td>
         
-        <td><p>Padding of the loading wrapper</p>
+        <td><p>Padding top of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-wp-padding-end</code></td>
+        
+          <td><code>$loading-wp-padding-top</code></td>
+        
+        <td><p>Padding end of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-wp-padding-bottom</code></td>
+        
+          <td><code>$loading-wp-padding-top</code></td>
+        
+        <td><p>Padding bottom of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-wp-padding-start</code></td>
+        
+          <td><code>$loading-wp-padding-end</code></td>
+        
+        <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
       

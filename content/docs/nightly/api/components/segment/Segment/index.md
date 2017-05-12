@@ -418,11 +418,38 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
       </tr>
       
       <tr>
-        <td><code>$segment-button-md-padding</code></td>
+        <td><code>$segment-button-md-padding-top</code></td>
         
-          <td><code>0 6px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the segment button</p>
+        <td><p>Padding top of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-md-padding-end</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Padding end of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-md-padding-bottom</code></td>
+        
+          <td><code>$segment-button-md-padding-top</code></td>
+        
+        <td><p>Padding bottom of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-md-padding-start</code></td>
+        
+          <td><code>$segment-button-md-padding-end</code></td>
+        
+        <td><p>Padding start of the segment button</p>
 </td>
       </tr>
       
@@ -503,11 +530,38 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
       </tr>
       
       <tr>
-        <td><code>$segment-button-wp-padding</code></td>
+        <td><code>$segment-button-wp-padding-top</code></td>
         
-          <td><code>0 6px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the segment button</p>
+        <td><p>Padding top of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-wp-padding-end</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Padding end of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-wp-padding-bottom</code></td>
+        
+          <td><code>$segment-button-wp-padding-top</code></td>
+        
+        <td><p>Padding bottom of the segment button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$segment-button-wp-padding-start</code></td>
+        
+          <td><code>$segment-button-wp-padding-end</code></td>
+        
+        <td><p>Padding start of the segment button</p>
 </td>
       </tr>
       

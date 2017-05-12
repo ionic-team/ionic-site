@@ -277,20 +277,74 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-ios-item-start-padding</code></td>
+        <td><code>$toggle-ios-item-start-padding-top</code></td>
         
-          <td><code>$toggle-ios-item-left-padding</code></td>
+          <td><code>6px</code></td>
         
-        <td><p>Padding of the toggle positioned on the left in an item</p>
+        <td><p>Padding top of the toggle positioned on the start in an item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-ios-item-end-padding</code></td>
+        <td><code>$toggle-ios-item-start-padding-end</code></td>
         
-          <td><code>$toggle-ios-item-right-padding</code></td>
+          <td><code>16px</code></td>
         
-        <td><p>Padding of the toggle positioned on the right in an item</p>
+        <td><p>Padding end of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-start-padding-bottom</code></td>
+        
+          <td><code>5px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-start-padding-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding start of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-end-padding-top</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Padding top of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-end-padding-end</code></td>
+        
+          <td><code>($item-ios-padding-end / 2)</code></td>
+        
+        <td><p>Padding end of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-end-padding-bottom</code></td>
+        
+          <td><code>5px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-ios-item-end-padding-start</code></td>
+        
+          <td><code>$item-ios-padding-start</code></td>
+        
+        <td><p>Padding start of the toggle positioned on the end in an item</p>
 </td>
       </tr>
       
@@ -407,11 +461,38 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-media-margin</code></td>
+        <td><code>$toggle-md-media-margin-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Margin of the toggle</p>
+        <td><p>Margin top of the toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-media-margin-end</code></td>
+        
+          <td><code>$toggle-md-media-margin-top</code></td>
+        
+        <td><p>Margin end of the toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-media-margin-bottom</code></td>
+        
+          <td><code>$toggle-md-media-margin-top</code></td>
+        
+        <td><p>Margin bottom of the toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-media-margin-start</code></td>
+        
+          <td><code>$toggle-md-media-margin-end</code></td>
+        
+        <td><p>Margin start of the toggle</p>
 </td>
       </tr>
       
@@ -434,29 +515,110 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-padding</code></td>
+        <td><code>$toggle-md-padding-top</code></td>
         
           <td><code>12px</code></td>
         
-        <td><p>Padding of standalone toggle</p>
+        <td><p>Padding top of standalone toggle</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-item-start-padding</code></td>
+        <td><code>$toggle-md-padding-end</code></td>
         
-          <td><code>$toggle-md-item-left-padding</code></td>
+          <td><code>$toggle-md-padding-top</code></td>
         
-        <td><p>Padding of the toggle positioned on the start in an item</p>
+        <td><p>Padding end of standalone toggle</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-md-item-end-padding</code></td>
+        <td><code>$toggle-md-padding-bottom</code></td>
         
-          <td><code>$toggle-md-item-right-padding</code></td>
+          <td><code>$toggle-md-padding-top</code></td>
         
-        <td><p>Padding of the toggle positioned on the end in an item</p>
+        <td><p>Padding bottom of standalone toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-padding-start</code></td>
+        
+          <td><code>$toggle-md-padding-end</code></td>
+        
+        <td><p>Padding start of standalone toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-start-padding-top</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding top of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-start-padding-end</code></td>
+        
+          <td><code>18px</code></td>
+        
+        <td><p>Padding end of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-start-padding-bottom</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-start-padding-start</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Padding start the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-end-padding-top</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding top of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-end-padding-end</code></td>
+        
+          <td><code>($item-md-padding-end / 2)</code></td>
+        
+        <td><p>Padding end of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-end-padding-bottom</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-item-end-padding-start</code></td>
+        
+          <td><code>$item-md-padding-start</code></td>
+        
+        <td><p>Padding start of the toggle positioned on the end in an item</p>
 </td>
       </tr>
       
@@ -645,20 +807,74 @@ for more info on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$toggle-wp-item-start-padding</code></td>
+        <td><code>$toggle-wp-item-start-padding-top</code></td>
         
-          <td><code>$toggle-wp-item-left-padding</code></td>
+          <td><code>12px</code></td>
         
-        <td><p>Padding of the toggle positioned on the start in an item</p>
+        <td><p>Padding top of the toggle positioned on the start in an item</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$toggle-wp-item-end-padding</code></td>
+        <td><code>$toggle-wp-item-start-padding-end</code></td>
         
-          <td><code>$toggle-wp-item-right-padding</code></td>
+          <td><code>18px</code></td>
         
-        <td><p>Padding of the toggle positioned on the end in an item</p>
+        <td><p>Padding end of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-start-padding-bottom</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-start-padding-start</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Padding start the toggle positioned on the start in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-end-padding-top</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding top of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-end-padding-end</code></td>
+        
+          <td><code>($item-wp-padding-end / 2)</code></td>
+        
+        <td><p>Padding end of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-end-padding-bottom</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding bottom of the toggle positioned on the end in an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-wp-item-end-padding-start</code></td>
+        
+          <td><code>$item-wp-padding-start</code></td>
+        
+        <td><p>Padding start of the toggle positioned on the end in an item</p>
 </td>
       </tr>
       

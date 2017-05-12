@@ -229,20 +229,74 @@ for more information on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$radio-ios-item-start-margin</code></td>
+        <td><code>$radio-ios-item-start-margin-top</code></td>
         
-          <td><code>$radio-ios-item-left-margin</code></td>
+          <td><code>8px</code></td>
         
-        <td><p>Margin of the item-start in a radio</p>
+        <td><p>Margin top of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-ios-item-end-margin</code></td>
+        <td><code>$radio-ios-item-start-margin-end</code></td>
         
-          <td><code>$radio-ios-item-right-margin</code></td>
+          <td><code>21px</code></td>
         
-        <td><p>Margin of the item-end in a radio</p>
+        <td><p>Margin end of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-start-margin-bottom</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Margin bottom of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-start-margin-start</code></td>
+        
+          <td><code>3px</code></td>
+        
+        <td><p>Margin start of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-end-margin-top</code></td>
+        
+          <td><code>$item-ios-padding-media-top</code></td>
+        
+        <td><p>Margin top of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-end-margin-end</code></td>
+        
+          <td><code>11px</code></td>
+        
+        <td><p>Margin end of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-end-margin-bottom</code></td>
+        
+          <td><code>$item-ios-padding-media-bottom</code></td>
+        
+        <td><p>Margin bottom of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-ios-item-end-margin-start</code></td>
+        
+          <td><code>($item-ios-padding-start / 2)</code></td>
+        
+        <td><p>Margin start of the item-end in a radio</p>
 </td>
       </tr>
       
@@ -350,20 +404,74 @@ for more information on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$radio-md-item-start-margin</code></td>
+        <td><code>$radio-md-item-start-margin-top</code></td>
         
-          <td><code>$radio-md-item-left-margin</code></td>
+          <td><code>11px</code></td>
         
-        <td><p>Margin of the item-start in a radio</p>
+        <td><p>Margin top of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-md-item-end-margin</code></td>
+        <td><code>$radio-md-item-start-margin-end</code></td>
         
-          <td><code>$radio-md-item-right-margin</code></td>
+          <td><code>36px</code></td>
         
-        <td><p>Margin of the item-end in a radio</p>
+        <td><p>Margin end of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-start-margin-bottom</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin bottom of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-start-margin-start</code></td>
+        
+          <td><code>4px</code></td>
+        
+        <td><p>Margin start of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-end-margin-top</code></td>
+        
+          <td><code>$item-md-padding-media-top</code></td>
+        
+        <td><p>Margin top of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-end-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-end-margin-bottom</code></td>
+        
+          <td><code>$item-md-padding-media-bottom</code></td>
+        
+        <td><p>Margin bottom of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-md-item-end-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the item-end in a radio</p>
 </td>
       </tr>
       
@@ -462,20 +570,74 @@ for more information on forms and inputs.</p>
       </tr>
       
       <tr>
-        <td><code>$radio-wp-item-start-margin</code></td>
+        <td><code>$radio-wp-item-start-margin-top</code></td>
         
-          <td><code>$radio-wp-item-left-margin</code></td>
+          <td><code>9px</code></td>
         
-        <td><p>Margin of the item-start in a radio</p>
+        <td><p>Margin top of the item-start in a radio</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$radio-wp-item-end-margin</code></td>
+        <td><code>$radio-wp-item-start-margin-end</code></td>
         
-          <td><code>$radio-wp-item-right-margin</code></td>
+          <td><code>20px</code></td>
         
-        <td><p>Margin of the item-end in a radio</p>
+        <td><p>Margin end of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-start-margin-bottom</code></td>
+        
+          <td><code>9px</code></td>
+        
+        <td><p>Margin bottom of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-start-margin-start</code></td>
+        
+          <td><code>4px</code></td>
+        
+        <td><p>Margin start of the item-start in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-end-margin-top</code></td>
+        
+          <td><code>11px</code></td>
+        
+        <td><p>Margin top of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-end-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-end-margin-bottom</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin bottom of the item-end in a radio</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$radio-wp-item-end-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the item-end in a radio</p>
 </td>
       </tr>
       

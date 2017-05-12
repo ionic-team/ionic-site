@@ -43,6 +43,8 @@ From the startmenu, search for "System Environment Variables". From here, we'll 
 
 - `JAVA_HOME` : The path to where Java is installed.
 
+- `GRADLE_HOME` : The path to where gradle is installed
+
 - `PATH` : Two entries, one where Tools are installed for the Android SDK, and another for Platform tools
 
 
@@ -65,7 +67,7 @@ To build apps for Windows Universal, download and install Visual Studio 2015 Com
 With everything installed, you'll be able to add a windows platform from the command line with this command:
 
 ```bash
-ionic platform add windows
+ionic cordova platform add windows
 ```
 
 By default the `build` command produces two packages: Windows 8.1 and Windows Phone 8.1, which Ionic does not support. To upgrade Windows package to version 10 the following configuration setting must be added to configuration file (config.xml).

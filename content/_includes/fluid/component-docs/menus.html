@@ -19,16 +19,22 @@ _For more information, Check out the [API docs](../api/components/menu/Menu)._
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item (click)="openPage(loginPage)">
-        Login
+      <button ion-item (click)="openPage(homePage)">
+        Home
       </button>
-      <button ion-item (click)="openPage(signupPage)">
-        Signup
+      <button ion-item (click)="openPage(friendsPage)">
+        Friends
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        Events
+      </button>
+      <button ion-item (click)="closeMenu()">
+        Close Menu
       </button>
     </ion-list>
   </ion-content>

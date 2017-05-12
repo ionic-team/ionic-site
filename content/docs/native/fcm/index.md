@@ -72,7 +72,7 @@ fcm.onTokenRefresh().subscribe(token=&gt;{
   backend.registerToken(token);
 })
 
-fcm.unsubscribeToTopic(&#39;marketing&#39;);
+fcm.unsubscribeFromTopic(&#39;marketing&#39;);
 </code></pre>
 
 
@@ -135,7 +135,7 @@ Subscribes you to a [topic](https://firebase.google.com/docs/notifications/andro
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise resolving in result of subscribing to a topic
-</div><h3><a class="anchor" name="unsubscribeToTopic" href="#unsubscribeToTopic"></a><code>unsubscribeToTopic(topic)</code></h3>
+</div><h3><a class="anchor" name="unsubscribeFromTopic" href="#unsubscribeFromTopic"></a><code>unsubscribeFromTopic(topic)</code></h3>
 
 
 Unubscribes you from a [topic](https://firebase.google.com/docs/notifications/android/console-topics)

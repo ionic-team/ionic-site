@@ -32,7 +32,7 @@ $ npm install --save @ionic-native/header-color
 </p>
 
 
-<p>Cordova plugin to change color of header in multitask view</p>
+<p>Cordova plugin to change color of header in Android Multitask View</p>
 
 
 

@@ -192,7 +192,7 @@ A stacked label will always appear on top of the input.
       <tr>
         <td><code>$label-ios-text-color</code></td>
         
-          <td><code>unset</code></td>
+          <td><code>null</code></td>
         
         <td><p>Text color of the label by an input, select, or datetime</p>
 </td>
@@ -201,7 +201,7 @@ A stacked label will always appear on top of the input.
       <tr>
         <td><code>$label-ios-text-color-focused</code></td>
         
-          <td><code>unset</code></td>
+          <td><code>null</code></td>
         
         <td><p>Text color of the stacked/floating label when it is focused</p>
 </td>

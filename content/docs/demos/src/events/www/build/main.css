@@ -15176,12 +15176,6 @@ ion-label[floating] {
   margin: 11px 8px 11px 0;
 }
 
-.item-input .label-ios,
-.item-select .label-ios,
-.item-datetime .label-ios {
-  color: unset;
-}
-
 .label-ios + ion-input .text-input,
 .label-ios + ion-textarea .text-input,
 .label-ios + .input + .cloned-input {
@@ -15222,11 +15216,6 @@ ion-label[floating] {
 .item-ios.item-label-floating [item-end] {
   margin-top: 6px;
   margin-bottom: 6px;
-}
-
-.input-has-focus .label-ios[stacked],
-.input-has-focus .label-ios[floating] {
-  color: unset;
 }
 
 .label-ios-primary,

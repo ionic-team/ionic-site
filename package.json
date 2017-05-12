@@ -76,7 +76,7 @@
     "psi": "^1.0.4",
     "request": "^2.81.0",
     "run-sequence": "^1.2.2",
-    "sendgrid": "^2.0.0",
+    "sendgrid": "^5.1.0",
     "tiny-lr": "0.0.5"
   }
 }

@@ -1,6 +1,6 @@
 const config = require('./config');
 const request   = require('request');
-const sendgrid = require('sendgrid')(config.SENDGRID_APIKEY);
+const sg = require('sendgrid')(config.SENDGRID_APIKEY);
 
 module.exports = {
   bustCloudflareCache: () => {
@@ -37,24 +37,60 @@ module.exports = {
 
   email: (toEmails, from, fromName, subject, text) => {
     var emailData = {
-      to: toEmails,
-      subject: subject,
-      text: text,
-      from: from,
-      fromname: fromName
-    };
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: {
+        personalizations: [{
+          to: toEmails.map((email)=>{return {email: email}}),
+          subject: subject
+        }],
+        from: {
+          email: from, 
+          name: fromName
+        },
+        content: [{
+          type: 'text/plain',
+          value: text
+        }]
+      }
+    }
 
-    return new Promise((resolve, reject) => {
-      sendgrid.send(emailData, function(err, result) {
-        if (err) {
-          // do you have an .env file?
-          console.error('Sendgrid error:', err);
-          reject(err);
-          return;
-        }
-        console.log('Sent email', result);
-        resolve(result);
-      });
-    });
+    return sg.API(emailData)
+  },
+
+  addContactList: (name) => {
+    var requestParams = {
+      method: 'POST',
+      path: '/v3/contactdb/lists',
+      body: [{
+        name: name
+      }]
+    }
+
+    return sg.API(requestParams)
+  },
+
+  saveEmail: (opts) => {
+    var requestParams = {
+      method: 'POST',
+      path: '/v3/contactdb/recipients',
+      body: [{
+        email: opts.email,
+        first_name: opts.first_name,
+        last_name: opts.last_name
+      }]
+    }
+
+    return sg.API(requestParams)
+  },
+
+  addEmailToList: (opts) => {
+   
+    var requestParams = {
+      method: 'POST',
+      path: `/v3/contactdb/lists/${opts.list_id}/recipients/${opts.user}`,
+      body: {}
+    }
+    return sg.API(requestParams)
   }
 };

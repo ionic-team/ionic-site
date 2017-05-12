@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/camera-preview
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { CameraPreview, PictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
+<pre><code class="lang-typescript">import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
 
 constructor(private cameraPreview: CameraPreview) { }
 
@@ -91,7 +91,7 @@ this.cameraPreview.setOnPictureTakenHandler().subscribe((result) =&gt; {
 
 
 // picture options
-const pictureOpts: PictureOptions = {
+const pictureOpts: CameraPreviewPictureOptions = {
   width: 1280,
   height: 1280,
   quality: 85

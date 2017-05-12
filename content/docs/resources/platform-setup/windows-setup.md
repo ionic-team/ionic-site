@@ -71,7 +71,7 @@ To build apps for Windows Universal, download and install Visual Studio 2015 Com
 With everything installed, you'll be able to add a windows platform from the command line with this command:
 
 ```bash
-ionic platform add windows
+ionic cordova platform add windows
 ```
 
 By default the `build` command produces two packages: Windows 8.1 and Windows Phone 8.1, which Ionic does not support. To upgrade Windows package to version 10 the following configuration setting must be added to configuration file (config.xml).

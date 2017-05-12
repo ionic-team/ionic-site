@@ -65,7 +65,7 @@ onClick() {
   } else if (this.platform.is(&#39;ios&#39;)) {
     adId = &#39;YOUR_ADID_IOS&#39;;
   }
-  this.admob.prepareInterstitial(adId)
+  this.admob.prepareInterstitial({adId: adId})
     .then(() =&gt; { this.admob.showInterstitial(); });
 }
 </code></pre>

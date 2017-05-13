@@ -14,6 +14,8 @@ The mixins should have the same structure as the full property:
 - @position
 - @border-radius
 - @text-align
+- @transform (@translate3d)
+- @transform-origin
 
 ### Custom directional support
 When you want to add custom directional support (sometimes it is needed), you should do:
@@ -39,7 +41,6 @@ element {
 
 ### Future properties
 - @border (@border-horizontal)
-- @transform($translate3d, $scale, $origin-horizontal, $origin-vertical) 
 - @background-position($horizontal, $vertical)
 
 ### Directional naming
@@ -74,6 +75,7 @@ We kept the naming `left` and `right` where possible, to actually mean left and 
 - border-bottom-right-radius
 - border-bottom-left-radius
 - text-align
+- transform-origin
 
 ### Deprecated variables
 We decided that to get the best support we need to split variables like `$item-margin: 0 1px 2px 3px` to:

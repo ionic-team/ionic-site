@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Alipay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L61">
   Improve this doc
 </a>
 

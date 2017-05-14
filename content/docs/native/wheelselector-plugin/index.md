@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">WheelSelector Plugin<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L50">
   Improve this doc
 </a>
 
@@ -74,12 +74,34 @@ let jsonData = {
     ],
   };
 
+  //use most of the default values
   this.selector.show({
     title: &quot;Select some Fruit&quot;,
     items: [
-      [jsonData.numbers],
-      [jsonData.fruits]
+      jsonData.numbers,
+      jsonData.fruits
+    ]
+  }).then(
+    result =&gt; {
+      console.log(&#39;Selected: &#39; + result[0].description + &#39; at index: &#39; + result[0].index
+        + &#39; and &#39; + result[1].description + &#39; at index: &#39; + result[1].index);
+    },
+    err =&gt; console.log(&#39;Error occurred while getting result: &#39;, err)
+    );
+
+  ...
+
+  //set some initial default values to display: &quot;2&quot;, &quot;Tangerine&quot;
+  this.selector.show({
+    title: &quot;Select some Fruit&quot;,
+    items: [
+      jsonData.numbers,
+      jsonData.fruits
     ],
+    defaultItems: [
+      jsonData.numbers[1],
+      jsonData.fruits[2]
+    ]
   }).then(
     result =&gt; {
       console.log(&#39;Selected: &#39; + result[0].description + &#39; at index: &#39; + result[0].index
@@ -177,7 +199,7 @@ Hide the selector
       items
     </td>
     <td>
-      <code>WheelSelectorItem[]</code>
+      <code>Array&lt;Array&lt;WheelSelectorItem&gt;&gt;</code>
     </td>
     <td>
       <p>The items to display (array of items).</p>
@@ -191,7 +213,7 @@ Hide the selector
       defaultItems
     </td>
     <td>
-      <code>WheelSelectorItem[]</code>
+      <code>Array&lt;WheelSelectorItem&gt;</code>
     </td>
     <td>
       <p>Which items to display by default, example [&quot;2&quot;,&quot;Apple&quot;] (if items.length is 2 for instance)</p>
@@ -255,22 +277,6 @@ Default: light</p>
     <td>
       <p>Whether to have the wheels &#39;wrap&#39; (Android only)
 Default: false</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      displayKey
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The json key to display, by default it is description, this allows for setting any
-key/value to be displayed
-Default: description</p>
 
       <em>(optional)</em>
     </td>

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Web Intent<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L2">
   Improve this doc
 </a>
 

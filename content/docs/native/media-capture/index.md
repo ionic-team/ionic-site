@@ -298,7 +298,7 @@ is fired if the capture call is unsuccessful
       getFormatData
     </td>
     <td>
-      <code></code>
+      <code>void</code>
     </td>
     <td>
       <p>Retrieves the format information of the media file.</p>

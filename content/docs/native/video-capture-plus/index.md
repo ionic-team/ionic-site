@@ -208,7 +208,7 @@ Starts recordings
       getFormatData
     </td>
     <td>
-      <code></code>
+      <code>any</code>
     </td>
     <td>
       <p>Retrieves the format information of the media file.</p>

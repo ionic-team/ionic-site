@@ -118,7 +118,7 @@ Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
 ```typescript
-var subscription = this.geolocation.watchPosition()
+const subscription = this.geolocation.watchPosition()
                               .filter((p) => p.coords !== undefined) //Filter Out Errors
                               .subscribe(position => {
   console.log(position.coords.longitude + ' ' + position.coords.latitude);

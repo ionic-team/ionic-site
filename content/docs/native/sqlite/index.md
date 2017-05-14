@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L141">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L104">
   Improve this doc
 </a>
 
@@ -158,6 +158,12 @@ Deletes a database
 
 
 
+<h3><a class="anchor" name="openDBs" href="#openDBs"></a><code>openDBs()</code></h3>
+
+
+
+
+
 <h3><a class="anchor" name="addTransaction" href="#addTransaction"></a><code>addTransaction()</code></h3>
 
 
@@ -213,7 +219,7 @@ Deletes a database
     <td>
       fn</td>
     <td>
-      <code>any</code>
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -232,7 +238,7 @@ Deletes a database
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
+<h3><a class="anchor" name="open" href="#open"></a><code>open()</code></h3>
 
 
 
@@ -241,15 +247,16 @@ Deletes a database
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code></h3>
+</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 
 
 
-
-
-<h3><a class="anchor" name="executeSql" href="#executeSql"></a><code>executeSql()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="executeSql" href="#executeSql"></a><code>executeSql()</code></h3>
 
 
 Execute SQL on the opened database. Note, you must call `create` first, and
@@ -257,45 +264,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-<h3><a class="anchor" name="addStatement" href="#addStatement"></a><code>addStatement(sql,&nbsp;values)</code></h3>
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      sql</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      values</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="sqlBatch" href="#sqlBatch"></a><code>sqlBatch(sqlStatements)</code></h3>
+<h3><a class="anchor" name="sqlBatch" href="#sqlBatch"></a><code>sqlBatch(sqlStatements)</code></h3>
 
 
 
@@ -312,7 +281,7 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlStatements</td>
     <td>
-      <code>any</code>
+      <code>Array&lt;string | string[]&gt;</code>
     </td>
     <td>
       </td>
@@ -330,150 +299,6 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-<h3><a class="anchor" name="handleStatementSuccess" href="#handleStatementSuccess"></a><code>handleStatementSuccess(handler,&nbsp;response)</code></h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      handler</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      response</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="handleStatementFailure" href="#handleStatementFailure"></a><code>handleStatementFailure(handler,&nbsp;response)</code></h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      handler</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      response</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="run" href="#run"></a><code>run()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="abort" href="#abort"></a><code>abort(txFailure)</code></h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      txFailure</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="abortFromQ" href="#abortFromQ"></a><code>abortFromQ(sqlerror)</code></h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      sqlerror</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
 
 
 
@@ -530,6 +355,139 @@ ensure it resolved and successfully opened the database.
       <p>iOS Database Location. Example: &#39;Library&#39;</p>
 
       <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="SQLiteTransaction" href="#SQLiteTransaction"></a>SQLiteTransaction</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      start
+    </td>
+    <td>
+      <code>() =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      executeSql
+    </td>
+    <td>
+      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      addStatement
+    </td>
+    <td>
+      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      handleStatementSuccess
+    </td>
+    <td>
+      <code>(handler: Function, response: any) =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      handleStatementFailure
+    </td>
+    <td>
+      <code>(handler: Function, response: any) =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      run
+    </td>
+    <td>
+      <code>() =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      abort
+    </td>
+    <td>
+      <code>(txFailure: any) =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      finish
+    </td>
+    <td>
+      <code>() =&gt; void</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      abortFromQ
+    </td>
+    <td>
+      <code>(sqlerror: any) =&gt; void</code>
+    </td>
+    <td>
+      
+      
     </td>
   </tr>
   

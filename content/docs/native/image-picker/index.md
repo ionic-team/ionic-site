@@ -157,7 +157,7 @@ Request permission to read images
       <code>number</code>
     </td>
     <td>
-      <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it.</p>
+      <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it. (Android only)</p>
 
       <em>(optional)</em>
     </td>

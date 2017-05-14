@@ -60,7 +60,7 @@ ionViewDidLoad() {
 
 onClick() {
   let adId;
-  if(this.platform.is(&#39;android&#39;) {
+  if(this.platform.is(&#39;android&#39;)) {
     adId = &#39;YOUR_ADID_ANDROID&#39;;
   } else if (this.platform.is(&#39;ios&#39;)) {
     adId = &#39;YOUR_ADID_IOS&#39;;

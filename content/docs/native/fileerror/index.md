@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">FileError</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L476">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L482">
   Improve this doc
 </a>
 

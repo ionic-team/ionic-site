@@ -53863,7 +53863,7 @@ function View_PageOne_1(l) {
         ], null, null, null, null)),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](0, ['\n  ']))
     ], null, (ck, v) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵinlineInterpolate */](1, '../assets/slide', v.context.$implicit, '.jpeg');
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵinlineInterpolate */](1, './assets/slide', v.context.$implicit, '.jpeg');
         ck(v, 3, 0, currVal_0);
     });
 }

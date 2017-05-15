@@ -21,6 +21,8 @@ module.exports = function(req, res, next) {
     return res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/tutorials') == 0) {
     return res.redirect(301, 'http://ionicframework.com/getting-started');
+  } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
+    return res.redirect(301, '/docs/cli/');
   } else if (req.headers.host.indexOf('learn.') == 0) {
     return res.redirect(301, 'http://ionicframework.com/docs/');
   }

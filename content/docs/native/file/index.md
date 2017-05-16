@@ -26,8 +26,8 @@ docType: "class"
 $ npm install --save @ionic-native/file
 </code></pre>
 <p>Repo:
-  <a href="https: //github.com/apache/cordova-plugin-file">
-    https: //github.com/apache/cordova-plugin-file
+  <a href="https://github.com/apache/cordova-plugin-file">
+    https://github.com/apache/cordova-plugin-file
   </a>
 </p>
 

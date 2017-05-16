@@ -54,10 +54,11 @@ $ npm install --save @ionic-native/document-viewer
 constructor(private document: DocumentViewer) { }
 
 ...
-const options = {
+const options: DocumentViewerOptions = {
   title: &#39;My PDF&#39;
 }
-this.document.view(&#39;assets/myFile.pdf&#39;, &#39;application/pdf&#39;, options)
+
+this.document.viewDocument(&#39;assets/myFile.pdf&#39;, &#39;application/pdf&#39;, options)
 </code></pre>
 
 

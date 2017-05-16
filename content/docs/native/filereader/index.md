@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">FileReader</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L501">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L547">
   Improve this doc
 </a>
 
@@ -37,6 +37,12 @@ docType: "class"
 
 
 <h3><a class="anchor" name="DONE" href="#DONE"></a><code>DONE()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="READ_CHUNK_SIZE" href="#READ_CHUNK_SIZE"></a><code>READ_CHUNK_SIZE()</code></h3>
 
 
 

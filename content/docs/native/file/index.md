@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">File</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L534">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L581">
   Improve this doc
 </a>
 
@@ -1213,6 +1213,24 @@ Get a file
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;FileEntry&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name=" IFile" href="# IFile"></a> IFile</h2>
+
+
+<h2><a class="anchor" name=" Entry" href="# Entry"></a> Entry</h2>
+
+
+<h2><a class="anchor" name=" DirectoryEntry" href="# DirectoryEntry"></a> DirectoryEntry</h2>
+
+
+<h2><a class="anchor" name=" DirectoryReader" href="# DirectoryReader"></a> DirectoryReader</h2>
+
+
+<h2><a class="anchor" name=" FileSystem" href="# FileSystem"></a> FileSystem</h2>
 
 
 

@@ -255,7 +255,7 @@ For windows, it represents the value in the badge notification which could be a 
       additionalData
     </td>
     <td>
-      <code>NotificationEventAdditionalData | any</code>
+      <code>NotificationEventAdditionalData &amp; any</code>
     </td>
     <td>
       <p>An optional collection of data sent by the 3rd party push service that does not fit in the above properties.</p>

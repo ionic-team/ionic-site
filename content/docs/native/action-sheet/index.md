@@ -280,7 +280,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Choose if destructive button will be the last</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

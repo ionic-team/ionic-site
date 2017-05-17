@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Flurry Analytics</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L172">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L175">
   Improve this doc
 </a>
 
@@ -144,7 +144,7 @@ This function set the Event
       <code>Object</code>
     </td>
     <td>
-      <p>Optional params<strong class="tag">Optional</strong></p>
+      <p>Optional params</p>
 </td>
   </tr>
   </tbody>
@@ -186,7 +186,7 @@ Start a timed event
       <code>Object</code>
     </td>
     <td>
-      <p>Optional params<strong class="tag">Optional</strong></p>
+      <p>Optional params</p>
 </td>
   </tr>
   </tbody>
@@ -228,7 +228,7 @@ Complete a timed event
       <code>Object</code>
     </td>
     <td>
-      <p>Optional params<strong class="tag">Optional</strong></p>
+      <p>Optional params</p>
 </td>
   </tr>
   </tbody>

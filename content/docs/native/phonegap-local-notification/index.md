@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save phonegap-local-notifications
+<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-local-notifications
 $ npm install --save @ionic-native/phonegap-local-notification
 </code></pre>
 <p>Repo:

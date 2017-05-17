@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-gyroscope
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-gyroscope
 $ npm install --save @ionic-native/gyroscope
 </code></pre>
 <p>Repo:

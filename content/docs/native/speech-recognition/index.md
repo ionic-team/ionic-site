@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-speechrecognition
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-speechrecognition
 $ npm install --save @ionic-native/speech-recognition
 </code></pre>
 <p>Repo:

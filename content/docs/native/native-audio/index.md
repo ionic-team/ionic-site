@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-nativeaudio
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-nativeaudio
 $ npm install --save @ionic-native/native-audio
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save uk.co.workingedge.cordova.plugin.sqliteporter
+<pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
 $ npm install --save @ionic-native/sqlite-porter
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-flashlight
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flashlight
 $ npm install --save @ionic-native/flashlight
 </code></pre>
 <p>Repo:

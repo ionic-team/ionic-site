@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/phonegap/phonegap-mobile-accessibility.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/phonegap/phonegap-mobile-accessibility.git
 $ npm install --save @ionic-native/mobile-accessibility
 </code></pre>
 <p>Repo:

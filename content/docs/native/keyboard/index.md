@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save ionic-plugin-keyboard
+<pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-keyboard
 $ npm install --save @ionic-native/keyboard
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save call-number
+<pre><code class="nohighlight">$ ionic cordova plugin add call-number
 $ npm install --save @ionic-native/call-number
 </code></pre>
 <p>Repo:

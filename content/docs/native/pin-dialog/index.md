@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-pin-dialog
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pin-dialog
 $ npm install --save @ionic-native/pin-dialog
 </code></pre>
 <p>Repo:

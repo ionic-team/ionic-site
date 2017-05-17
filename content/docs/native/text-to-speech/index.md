@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-tts
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-tts
 $ npm install --save @ionic-native/text-to-speech
 </code></pre>
 <p>Repo:

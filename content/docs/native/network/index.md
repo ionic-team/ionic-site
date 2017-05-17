@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-network-information
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-network-information
 $ npm install --save @ionic-native/network
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-sim
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-sim
 $ npm install --save @ionic-native/sim
 </code></pre>
 <p>Repo:

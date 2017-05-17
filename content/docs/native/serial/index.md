@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordovarduino
+<pre><code class="nohighlight">$ ionic cordova plugin add cordovarduino
 $ npm install --save @ionic-native/serial
 </code></pre>
 <p>Repo:

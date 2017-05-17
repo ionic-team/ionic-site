@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-nativestorage
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-nativestorage
 $ npm install --save @ionic-native/native-storage
 </code></pre>
 <p>Repo:

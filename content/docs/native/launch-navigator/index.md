@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save uk.co.workingedge.phonegap.plugin.launchnavigator
+<pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
 $ npm install --save @ionic-native/launch-navigator
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-secure-storage
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-secure-storage
 $ npm install --save @ionic-native/secure-storage
 </code></pre>
 <p>Repo:

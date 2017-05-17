@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-appavailability
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-appavailability
 $ npm install --save @ionic-native/app-availability
 </code></pre>
 <p>Repo:

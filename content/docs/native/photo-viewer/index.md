@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save com-sarriaroman-photoviewer
+<pre><code class="nohighlight">$ ionic cordova plugin add com-sarriaroman-photoviewer
 $ npm install --save @ionic-native/photo-viewer
 </code></pre>
 <p>Repo:

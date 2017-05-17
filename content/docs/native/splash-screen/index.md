@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-splashscreen
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-splashscreen
 $ npm install --save @ionic-native/splash-screen
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-stripe
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-stripe
 $ npm install --save @ionic-native/stripe
 </code></pre>
 <p>Repo:

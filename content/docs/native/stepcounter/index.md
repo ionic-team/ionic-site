@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/Slidee/cordova-plugin-stepcounter
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Slidee/cordova-plugin-stepcounter
 $ npm install --save @ionic-native/stepcounter
 </code></pre>
 <p>Repo:

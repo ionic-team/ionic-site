@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-x-toast
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-toast
 $ npm install --save @ionic-native/toast
 </code></pre>
 <p>Repo:

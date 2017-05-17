@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
 $ npm install --save @ionic-native/web-intent
 </code></pre>
 <p>Repo:

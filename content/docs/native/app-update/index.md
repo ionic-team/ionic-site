@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-app-update
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-app-update
 $ npm install --save @ionic-native/app-update
 </code></pre>
 <p>Repo:

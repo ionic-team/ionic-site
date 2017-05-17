@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-intercom
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-intercom
 $ npm install --save @ionic-native/intercom
 </code></pre>
 <p>Repo:

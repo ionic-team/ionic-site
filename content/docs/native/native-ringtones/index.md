@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-native-ringtones
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-ringtones
 $ npm install --save @ionic-native/native-ringtones
 </code></pre>
 <p>Repo:

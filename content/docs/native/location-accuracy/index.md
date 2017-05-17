@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-request-location-accuracy
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-request-location-accuracy
 $ npm install --save @ionic-native/location-accuracy
 </code></pre>
 <p>Repo:

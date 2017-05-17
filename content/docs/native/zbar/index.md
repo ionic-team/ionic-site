@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-cszbar
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-cszbar
 $ npm install --save @ionic-native/zbar
 </code></pre>
 <p>Repo:

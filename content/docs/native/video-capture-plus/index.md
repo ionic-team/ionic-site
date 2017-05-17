@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin.git
 $ npm install --save @ionic-native/video-capture-plus
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-document-viewer
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-document-viewer
 $ npm install --save @ionic-native/document-viewer
 </code></pre>
 <p>Repo:

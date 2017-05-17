@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save phonegap-plugin-barcodescanner
+<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-barcodescanner
 $ npm install --save @ionic-native/barcode-scanner
 </code></pre>
 <p>Repo:

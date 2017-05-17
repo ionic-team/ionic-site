@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-actionsheet
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-actionsheet
 $ npm install --save @ionic-native/action-sheet
 </code></pre>
 <p>Repo:

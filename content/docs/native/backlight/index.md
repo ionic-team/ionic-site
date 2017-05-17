@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-backlight
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-backlight
 $ npm install --save @ionic-native/backlight
 </code></pre>
 <p>Repo:

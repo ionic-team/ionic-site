@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-health
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-health
 $ npm install --save @ionic-native/health
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-market
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-market
 $ npm install --save @ionic-native/market
 </code></pre>
 <p>Repo:

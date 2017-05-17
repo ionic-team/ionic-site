@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-camera
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera
 $ npm install --save @ionic-native/camera
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/tomloprod/cordova-plugin-appminimize.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/tomloprod/cordova-plugin-appminimize.git
 $ npm install --save @ionic-native/app-minimize
 </code></pre>
 <p>Repo:

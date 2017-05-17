@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-nativegeocoder
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-nativegeocoder
 $ npm install --save @ionic-native/native-geocoder
 </code></pre>
 <p>Repo:

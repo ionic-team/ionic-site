@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-ble-central
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ble-central
 $ npm install --save @ionic-native/ble
 </code></pre>
 <p>Repo:

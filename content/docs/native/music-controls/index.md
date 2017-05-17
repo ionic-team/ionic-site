@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-music-controls
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-music-controls
 $ npm install --save @ionic-native/music-controls
 </code></pre>
 <p>Repo:

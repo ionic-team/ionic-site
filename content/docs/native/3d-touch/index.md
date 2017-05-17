@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-3dtouch
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-3dtouch
 $ npm install --save @ionic-native/three-dee-touch
 </code></pre>
 <p>Repo:

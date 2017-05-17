@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-code-push
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-code-push
 $ npm install --save @ionic-native/code-push
 </code></pre>
 <p>Repo:

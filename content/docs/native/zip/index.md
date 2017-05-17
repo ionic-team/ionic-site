@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-zip
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zip
 $ npm install --save @ionic-native/zip
 </code></pre>
 <p>Repo:

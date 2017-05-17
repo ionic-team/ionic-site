@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-zeroconf
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zeroconf
 $ npm install --save @ionic-native/zeroconf
 </code></pre>
 <p>Repo:

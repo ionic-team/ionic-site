@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-browsertab
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-browsertab
 $ npm install --save @ionic-native/browser-tab
 </code></pre>
 <p>Repo:

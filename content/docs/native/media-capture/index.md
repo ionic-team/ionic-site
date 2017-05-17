@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-media-capture
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media-capture
 $ npm install --save @ionic-native/media-capture
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save com.paypal.cordova.mobilesdk
+<pre><code class="nohighlight">$ ionic cordova plugin add com.paypal.cordova.mobilesdk
 $ npm install --save @ionic-native/paypal
 </code></pre>
 <p>Repo:

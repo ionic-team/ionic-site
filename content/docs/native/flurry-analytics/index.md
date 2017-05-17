@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-flurryanalytics
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flurryanalytics
 $ npm install --save @ionic-native/flurry-analytics
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save com.telerik.plugins.healthkit
+<pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
 $ npm install --save @ionic-native/health-kit
 </code></pre>
 <p>Repo:

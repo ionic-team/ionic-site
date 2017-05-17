@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-wheel-selector-plugin
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-wheel-selector-plugin
 $ npm install --save @ionic-native/wheel-selector
 </code></pre>
 <p>Repo:

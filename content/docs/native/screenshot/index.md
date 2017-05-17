@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/gitawego/cordova-screenshot.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/gitawego/cordova-screenshot.git
 $ npm install --save @ionic-native/screenshot
 </code></pre>
 <p>Repo:

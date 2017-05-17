@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-pedometer
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pedometer
 $ npm install --save @ionic-native/pedometer
 </code></pre>
 <p>Repo:

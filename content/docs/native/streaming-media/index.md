@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-streaming-media
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-streaming-media
 $ npm install --save @ionic-native/streaming-media
 </code></pre>
 <p>Repo:

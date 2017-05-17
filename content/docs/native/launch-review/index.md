@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-launch-review
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-launch-review
 $ npm install --save @ionic-native/launch-review
 </code></pre>
 <p>Repo:

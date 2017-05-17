@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-shake
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-shake
 $ npm install --save @ionic-native/shake
 </code></pre>
 <p>Repo:

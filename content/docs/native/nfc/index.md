@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save phonegap-nfc
+<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-nfc
 $ npm install --save @ionic-native/nfc
 </code></pre>
 <p>Repo:

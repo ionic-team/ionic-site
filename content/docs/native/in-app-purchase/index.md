@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-inapppurchase
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inapppurchase
 $ npm install --save @ionic-native/in-app-purchase
 </code></pre>
 <p>Repo:

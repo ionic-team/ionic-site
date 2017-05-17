@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-globalization
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-globalization
 $ npm install --save @ionic-native/globalization
 </code></pre>
 <p>Repo:

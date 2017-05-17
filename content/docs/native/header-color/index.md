@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-headercolor
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-headercolor
 $ npm install --save @ionic-native/header-color
 </code></pre>
 <p>Repo:

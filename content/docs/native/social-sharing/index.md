@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-x-socialsharing
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-socialsharing
 $ npm install --save @ionic-native/social-sharing
 </code></pre>
 <p>Repo:

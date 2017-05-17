@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-device-motion
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-device-motion
 $ npm install --save @ionic-native/device-motion
 </code></pre>
 <p>Repo:

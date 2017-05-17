@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-fcm
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fcm
 $ npm install --save @ionic-native/fcm
 </code></pre>
 <p>Repo:

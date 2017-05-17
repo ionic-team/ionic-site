@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-badge
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-badge
 $ npm install --save @ionic-native/badge
 </code></pre>
 <p>Repo:

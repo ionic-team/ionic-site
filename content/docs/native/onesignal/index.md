@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save onesignal-cordova-plugin
+<pre><code class="nohighlight">$ ionic cordova plugin add onesignal-cordova-plugin
 $ npm install --save @ionic-native/onesignal
 </code></pre>
 <p>Repo:

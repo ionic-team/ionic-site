@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-sqlite-storage
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-sqlite-storage
 $ npm install --save @ionic-native/sqlite
 </code></pre>
 <p>Repo:

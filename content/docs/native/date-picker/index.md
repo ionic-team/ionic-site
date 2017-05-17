@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-datepicker
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-datepicker
 $ npm install --save @ionic-native/date-picker
 </code></pre>
 <p>Repo:

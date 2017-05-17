@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-background-fetch
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-fetch
 $ npm install --save @ionic-native/background-fetch
 </code></pre>
 <p>Repo:

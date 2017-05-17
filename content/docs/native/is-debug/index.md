@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-is-debug
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-is-debug
 $ npm install --save @ionic-native/is-debug
 </code></pre>
 <p>Repo:

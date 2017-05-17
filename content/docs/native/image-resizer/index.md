@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/protonet/cordova-plugin-image-resizer.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
 $ npm install --save @ionic-native/image-resizer
 </code></pre>
 <p>Repo:

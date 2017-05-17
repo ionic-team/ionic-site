@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-safariviewcontroller
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-safariviewcontroller
 $ npm install --save @ionic-native/safari-view-controller
 </code></pre>
 <p>Repo:

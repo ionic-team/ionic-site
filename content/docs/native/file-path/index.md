@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-filepath
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-filepath
 $ npm install --save @ionic-native/file-path
 </code></pre>
 <p>Repo:

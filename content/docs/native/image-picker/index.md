@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/Telerik-Verified-Plugins/ImagePicker
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
 $ npm install --save @ionic-native/image-picker
 </code></pre>
 <p>Repo:

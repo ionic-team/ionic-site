@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-geofence
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
 $ npm install --save @ionic-native/geofence
 </code></pre>
 <p>Repo:

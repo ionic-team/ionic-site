@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save de.appplant.cordova.plugin.local-notification
+<pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.local-notification
 $ npm install --save @ionic-native/local-notifications
 </code></pre>
 <p>Repo:

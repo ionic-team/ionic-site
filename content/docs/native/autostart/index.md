@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-autostart
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-autostart
 $ npm install --save @ionic-native/autostart
 </code></pre>
 <p>Repo:

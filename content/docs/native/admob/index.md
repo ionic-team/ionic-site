@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-admobpro
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admobpro
 $ npm install --save @ionic-native/admob
 </code></pre>
 <p>Repo:

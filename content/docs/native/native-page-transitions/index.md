@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save com.telerik.plugins.nativepagetransitions
+<pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.nativepagetransitions
 $ npm install --save @ionic-native/native-page-transitions
 </code></pre>
 <p>Repo:

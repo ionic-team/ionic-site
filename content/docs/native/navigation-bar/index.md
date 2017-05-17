@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-navigationbar
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-navigationbar
 $ npm install --save @ionic-native/navigation-bar
 </code></pre>
 <p>Repo:

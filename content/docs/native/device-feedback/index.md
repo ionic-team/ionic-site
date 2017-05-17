@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-velda-devicefeedback
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-velda-devicefeedback
 $ npm install --save @ionic-native/device-feedback
 </code></pre>
 <p>Repo:

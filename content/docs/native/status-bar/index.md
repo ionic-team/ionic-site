@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-statusbar
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-statusbar
 $ npm install --save @ionic-native/status-bar
 </code></pre>
 <p>Repo:

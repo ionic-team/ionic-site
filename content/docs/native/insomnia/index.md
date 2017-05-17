@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
 $ npm install --save @ionic-native/insomnia
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-apprate
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-apprate
 $ npm install --save @ionic-native/app-rate
 </code></pre>
 <p>Repo:

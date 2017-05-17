@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-taptic-engine
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-taptic-engine
 $ npm install --save @ionic-native/taptic-engine
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-powermanagement-orig
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-powermanagement-orig
 $ npm install --save @ionic-native/power-management
 </code></pre>
 <p>Repo:

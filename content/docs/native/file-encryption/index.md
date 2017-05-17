@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-safe
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-safe
 $ npm install --save @ionic-native/file-encryption
 </code></pre>
 <p>Repo:

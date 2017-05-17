@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-contacts
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-contacts
 $ npm install --save @ionic-native/contacts
 </code></pre>
 <p>Repo:

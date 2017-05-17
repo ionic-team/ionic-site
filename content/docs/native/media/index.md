@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-media
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media
 $ npm install --save @ionic-native/media
 </code></pre>
 <p>Repo:

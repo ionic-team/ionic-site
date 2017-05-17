@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/don/cordova-filechooser.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/don/cordova-filechooser.git
 $ npm install --save @ionic-native/file-chooser
 </code></pre>
 <p>Repo:

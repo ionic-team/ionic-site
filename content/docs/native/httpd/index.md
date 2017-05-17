@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/floatinghotpot/cordova-httpd.git
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/floatinghotpot/cordova-httpd.git
 $ npm install --save @ionic-native/httpd
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-device
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-device
 $ npm install --save @ionic-native/device
 </code></pre>
 <p>Repo:

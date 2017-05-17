@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-ios-keychain
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ios-keychain
 $ npm install --save @ionic-native/keychain
 </code></pre>
 <p>Repo:

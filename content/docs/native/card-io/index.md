@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save card.io.cordova.mobilesdk
+<pre><code class="nohighlight">$ ionic cordova plugin add card.io.cordova.mobilesdk
 $ npm install --save @ionic-native/card-io
 </code></pre>
 <p>Repo:

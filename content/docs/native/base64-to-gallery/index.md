@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-base64-to-gallery
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-base64-to-gallery
 $ npm install --save @ionic-native/base64-to-gallery
 </code></pre>
 <p>Repo:

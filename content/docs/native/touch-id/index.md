@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-touch-id
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-touch-id
 $ npm install --save @ionic-native/touch-id
 </code></pre>
 <p>Repo:

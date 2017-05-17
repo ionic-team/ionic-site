@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova.plugins.diagnostic
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova.plugins.diagnostic
 $ npm install --save @ionic-native/diagnostic
 </code></pre>
 <p>Repo:

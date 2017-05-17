@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-mixpanel
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-mixpanel
 $ npm install --save @ionic-native/mixpanel
 </code></pre>
 <p>Repo:

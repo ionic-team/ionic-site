@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-admob-free
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admob-free
 $ npm install --save @ionic-native/admob-free
 </code></pre>
 <p>Repo:

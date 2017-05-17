@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-spinner-dialog
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-spinner-dialog
 $ npm install --save @ionic-native/spinner-dialog
 </code></pre>
 <p>Repo:

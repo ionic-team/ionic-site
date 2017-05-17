@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
 $ npm install --save @ionic-native/couchbase-lite
 </code></pre>
 <p>Repo:

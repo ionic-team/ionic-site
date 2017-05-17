@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/moust/cordova-plugin-videoplayer
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/moust/cordova-plugin-videoplayer
 $ npm install --save @ionic-native/video-player
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-vibration
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-vibration
 $ npm install --save @ionic-native/vibration
 </code></pre>
 <p>Repo:

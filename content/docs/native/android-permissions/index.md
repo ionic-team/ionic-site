@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-android-permissions
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-permissions
 $ npm install --save @ionic-native/android-permissions
 </code></pre>
 <p>Repo:

@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-sms-plugin
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-sms-plugin
 $ npm install --save @ionic-native/sms
 </code></pre>
 <p>Repo:

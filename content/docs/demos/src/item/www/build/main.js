@@ -49708,9 +49708,19 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
             var textWidth = tempSpan.offsetWidth;
             doc.body.removeChild(tempSpan);
             var inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
-            inputEle.style.paddingLeft = inputLeft;
+            if (this._plt.isRTL) {
+                inputEle.style.paddingRight = inputLeft;
+            }
+            else {
+                inputEle.style.paddingLeft = inputLeft;
+            }
             var iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
-            iconEle.style.marginLeft = iconLeft;
+            if (this._plt.isRTL) {
+                iconEle.style.marginRight = iconLeft;
+            }
+            else {
+                iconEle.style.marginLeft = iconLeft;
+            }
         }
     }
     positionCancelButton() {
@@ -49720,12 +49730,22 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
             var cancelStyle = cancelStyleEle.style;
             this._isCancelVisible = showShowCancel;
             if (showShowCancel) {
-                cancelStyle.marginRight = '0';
+                if (this._plt.isRTL) {
+                    cancelStyle.marginLeft = '0';
+                }
+                else {
+                    cancelStyle.marginRight = '0';
+                }
             }
             else {
                 var offset = cancelStyleEle.offsetWidth;
                 if (offset > 0) {
-                    cancelStyle.marginRight = -offset + 'px';
+                    if (this._plt.isRTL) {
+                        cancelStyle.marginLeft = -offset + 'px';
+                    }
+                    else {
+                        cancelStyle.marginRight = -offset + 'px';
+                    }
                 }
             }
         }

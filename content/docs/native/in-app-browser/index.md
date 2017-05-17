@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L146">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
   Improve this doc
 </a>
 
@@ -219,6 +219,7 @@ Injects CSS into the InAppBrowser window.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
+
 
 A method that allows you to listen to events happening in the browser.
 <table class="table param-table" style="margin:0;">

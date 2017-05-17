@@ -241,12 +241,21 @@ Opens a member's profile
 </div><h3><a class="anchor" name="hasActiveSession" href="#hasActiveSession"></a><code>hasActiveSession()</code></h3>
 
 
-Checks if there is already an existing active session. This should be used to avoid unecessary login.
+Checks if there is already an existing active session. This should be used to avoid unnecessary login.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates whether there is an active session
+</div><h3><a class="anchor" name="getActiveSession" href="#getActiveSession"></a><code>getActiveSession()</code></h3>
+
+
+Checks if there is an active session and returns the access token if it exists.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves with an object that contains an access token if there is an active session
 </div>
 
 

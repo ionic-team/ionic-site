@@ -106,6 +106,35 @@ Check permission
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission(permission)</code></h3>
+
+
+Request permission
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      permission</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the permission to request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="requestPermissions" href="#requestPermissions"></a><code>requestPermissions(permissions)</code></h3>
 
 
@@ -123,7 +152,7 @@ Request permissions
     <td>
       permissions</td>
     <td>
-      <code>array</code>
+      <code>Array&lt;Sstring&gt;</code>
     </td>
     <td>
       <p>An array with permissions</p>

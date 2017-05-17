@@ -130,6 +130,8 @@ file.stopRecord();
 <h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate,&nbsp;onSuccess,&nbsp;onError)</code></h3>
 
 
+
+
 Open a media file
 <table class="table param-table" style="margin:0;">
   <thead>

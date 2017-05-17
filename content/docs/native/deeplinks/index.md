@@ -93,7 +93,7 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="route" href="#route"></a><code>route(Define)</code></h3>
+<h3><a class="anchor" name="route" href="#route"></a><code>route(paths)</code></h3>
 
 
 
@@ -111,12 +111,12 @@ Define a set of paths to match against incoming deeplinks.
   <tbody>
   <tr>
     <td>
-      Define</td>
+      paths</td>
     <td>
       <code>paths</code>
     </td>
     <td>
-      <p>a set of paths to match against incoming deeplinks.
+      <p>Define a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
@@ -129,7 +129,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(Define)</code></h3>
+</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(navController,&nbsp;paths)</code></h3>
 
 
 
@@ -153,16 +153,26 @@ control over the behavior of a matching deeplink, use the plain `route` method.
   <tbody>
   <tr>
     <td>
-      Define</td>
+      navController</td>
     <td>
-      <code>paths</code>
+      <code>Nav</code>
     </td>
     <td>
-      <p>a set of paths to match against incoming deeplinks.
+      <p>Define a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 </td>
+  </tr>
+  
+  <tr>
+    <td>
+      paths</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      </td>
   </tr>
   </tbody>
 </table>

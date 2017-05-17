@@ -152,7 +152,7 @@ Request permissions
     <td>
       permissions</td>
     <td>
-      <code>Array&lt;Sstring&gt;</code>
+      <code>Array&lt;string&gt;</code>
     </td>
     <td>
       <p>An array with permissions</p>

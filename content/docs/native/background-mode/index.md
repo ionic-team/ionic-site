@@ -129,7 +129,7 @@ Available only for Android platform.
     <td>
       options</td>
     <td>
-      <code>Configure</code>
+      <code>BackgroundModeConfiguration</code>
     </td>
     <td>
       <p>List of option to configure. See table below</p>
@@ -161,7 +161,7 @@ Available only for Android platform.
     <td>
       options</td>
     <td>
-      <code>Configure</code>
+      <code>BackgroundModeConfiguration</code>
     </td>
     <td>
       <p>Any options you want to update. See table below.</p>

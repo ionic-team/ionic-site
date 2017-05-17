@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Printer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L42">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L39">
   Improve this doc
 </a>
 
@@ -26,8 +26,8 @@ docType: "class"
 $ npm install --save @ionic-native/printer
 </code></pre>
 <p>Repo:
-  <a href="https://github.com/katzer/cordova-plugin-printer.git">
-    https://github.com/katzer/cordova-plugin-printer.git
+  <a href="https://github.com/katzer/cordova-plugin-printer">
+    https://github.com/katzer/cordova-plugin-printer
   </a>
 </p>
 
@@ -77,14 +77,33 @@ this.printer.print(content, options).then(onSuccess, onError);
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
-
 Checks whether to device is capable of printing.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="check" href="#check"></a><code>check()</code></h3>
+
+
+Checks if the printer service is available (iOS) or if printer services are installed and enabled (Android).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolve with an object indicating whether printing is available, and providing the number of printers available
+</div><h3><a class="anchor" name="pick" href="#pick"></a><code>pick()</code></h3>
+
+
+Displays a system interface allowing the user to select an available printer. To speak with a printer directly you need to know the network address by picking them before via `printer.pick`.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="print" href="#print"></a><code>print(content,&nbsp;options)</code></h3>
+
+
 
 
 Sends content to the printer.

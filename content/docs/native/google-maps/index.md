@@ -1155,7 +1155,7 @@ Set the marker position.
     <td>
       latLng</td>
     <td>
-      <code>GoogleMapLatLng</code>
+      <code>LatLng</code>
     </td>
     <td>
       </td>
@@ -1171,7 +1171,7 @@ Return the marker position.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;GoogleMapLatLng&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
 </div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 

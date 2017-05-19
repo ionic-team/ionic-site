@@ -24850,6 +24850,7 @@ ion-navbar.toolbar {
 
 .back-button-ios {
   margin: 0;
+  z-index: 99;
   overflow: visible;
   -webkit-order: 0;
   -ms-flex-order: 0;

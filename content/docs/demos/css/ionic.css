@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201705192036, Default Theme
+ * vE2E-201705192126, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -14876,6 +14876,7 @@ ion-navbar.toolbar {
 
 .back-button-ios {
   margin: 0;
+  z-index: 99;
   overflow: visible;
   -webkit-order: 0;
   -ms-flex-order: 0;

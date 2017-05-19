@@ -38751,8 +38751,10 @@ function cleanupStyles(s) {
     if (!s.container || !s._wrapper) {
         return;
     }
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["j" /* removeClass */])(s.container, s._classNames);
-    s.container.removeAttribute('style');
+    if (s.container) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["j" /* removeClass */])(s.container, s._classNames);
+        s.container.removeAttribute('style');
+    }
     s._wrapper.removeAttribute('style');
     if (s._slides && s._slides.length) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["j" /* removeClass */])(s._slides, [

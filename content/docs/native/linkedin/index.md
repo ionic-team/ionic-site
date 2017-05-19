@@ -22,12 +22,12 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
 $ npm install --save @ionic-native/linkedin
 </code></pre>
 <p>Repo:
-  <a href="https://github.com/zyramedia/cordova-plugin-linkedin">
-    https://github.com/zyramedia/cordova-plugin-linkedin
+  <a href="https://github.com/zyra/cordova-plugin-linkedin">
+    https://github.com/zyra/cordova-plugin-linkedin
   </a>
 </p>
 

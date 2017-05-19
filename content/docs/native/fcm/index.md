@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/fcm
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { FCM } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { FCM } from &#39;@ionic-native/fcm&#39;;
 
 constructor(private fcm: FCM) {}
 

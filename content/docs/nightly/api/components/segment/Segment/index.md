@@ -63,11 +63,11 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 &lt;ion-content&gt;
   &lt;!-- Segment in content --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; color=&quot;primary&quot;&gt;
-    &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
+  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; color=&quot;primary&quot; (ionChange)=&quot;segmentChanged($event)&quot;&gt;
+    &lt;ion-segment-button value=&quot;friends&quot;&gt;
       Friends
     &lt;/ion-segment-button&gt;
-    &lt;ion-segment-button value=&quot;enemies&quot; (ionSelect)=&quot;selectedEnemies()&quot;&gt;
+    &lt;ion-segment-button value=&quot;enemies&quot;&gt;
       Enemies
     &lt;/ion-segment-button&gt;
   &lt;/ion-segment&gt;

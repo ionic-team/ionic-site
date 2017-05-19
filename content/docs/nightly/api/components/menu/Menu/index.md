@@ -159,7 +159,7 @@ export class MyPage {
  }
 }
 </code></pre>
-<p>See the <a href="../MenuController">MenuController</a> API docs for all of the methods
+<p>See the <a href="../../app/MenuController">MenuController</a> API docs for all of the methods
 and usage information.</p>
 
 
@@ -436,7 +436,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href="/docs/components#menus">Menu Component Docs</a>,
-<a href="../MenuController">MenuController API Docs</a>,
+<a href="../../app/MenuController">MenuController API Docs</a>,
 <a href="../../nav/Nav">Nav API Docs</a>,
 <a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
 

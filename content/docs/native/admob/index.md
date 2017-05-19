@@ -33,6 +33,7 @@ $ npm install --save @ionic-native/admob
 
 
 <p>Plugin for Google Ads, including AdMob / DFP (doubleclick for publisher) and mediations to other Ad networks.</p>
+<p>IMPORTANT NOTICE: this plugin takes a percentage out of your earnings if you profit more than $1,000. Read more about this on the plugin&#39;s repo. For a completely free alternative, see <a href="../admob-free">AdMob Free</a>.</p>
 
 
 

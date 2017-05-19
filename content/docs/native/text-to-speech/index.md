@@ -62,7 +62,7 @@ this.tts.speak(&#39;Hello World&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="speak" href="#speak"></a><code>speak(options)</code></h3>
+<h3><a class="anchor" name="speak" href="#speak"></a><code>speak(textOrOptions)</code></h3>
 
 
 
@@ -79,7 +79,7 @@ This function speaks
   <tbody>
   <tr>
     <td>
-      options</td>
+      textOrOptions</td>
     <td>
       <code>string</code>|<code>TTSOptions</code>
     </td>

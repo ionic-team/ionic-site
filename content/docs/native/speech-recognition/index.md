@@ -11,7 +11,7 @@ doc: "Speech Recognition"
 docType: "class"
 ---
 
-<h1 class="api-title">Speech Recognition<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Speech Recognition</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
   Improve this doc
@@ -19,12 +19,6 @@ docType: "class"
 
 
 
-
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/pbakondy/cordova-plugin-speechrecognition/issues">plugin repo</a>.
-</p>
 
 
 

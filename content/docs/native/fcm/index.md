@@ -61,7 +61,7 @@ fcm.getToken().then(token=&gt;{
 })
 
 fcm.onNotification().subscribe(data=&gt;{
-  if(data.wasPressed){
+  if(data.wasTapped){
     console.log(&quot;Received in background&quot;);
   } else {
     console.log(&quot;Received in foreground&quot;);

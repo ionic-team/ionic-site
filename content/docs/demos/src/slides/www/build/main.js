@@ -48517,6 +48517,7 @@ let Range = Range_1 = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base
         val = Math.round(val);
         if (!isNaN(val)) {
             this._min = val;
+            this._inputUpdated();
         }
     }
     get max() {
@@ -48526,6 +48527,7 @@ let Range = Range_1 = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base
         val = Math.round(val);
         if (!isNaN(val)) {
             this._max = val;
+            this._inputUpdated();
         }
     }
     get step() {

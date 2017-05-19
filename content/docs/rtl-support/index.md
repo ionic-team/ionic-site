@@ -39,12 +39,18 @@ element {
 }
 ```
 
-### Future properties
-- @border (@border-horizontal)
-- @background-position($horizontal, $vertical)
+### Future
+- Mixins
+  - @border (@border-horizontal)
+  - @background-position($horizontal, $vertical)
+- Typescript
+  - iOS back/forward transition
+  - Update menu side in runtime - https://github.com/driftyco/ionic/pull/11336
+  - Toggle gesture
 
 ### Directional naming
 We kept the naming `left` and `right` where possible, to actually mean left and right, both on ltr and on rtl, but added new names: `start` and `end` where `start` means left on ltr, right on rtl, and `end` means right on ltr, left on rtl.
+We recommend using just `start` and `end`, as for 99% of the cases those are the correct sides on both directions.
 
 ##### New names
 - `item-start` & `item-end`
@@ -54,19 +60,25 @@ We kept the naming `left` and `right` where possible, to actually mean left and 
 - `margin-start` & `margin-end`
 - `text-start` & `text-end`
 - `start` and `end` for FABs
-- `flip-rtl` and `unflip-rtl` for `ion-icon` (arrows are flipped by default)
 
 ##### Deprecated names
 - `item-left` & `item-right`
 - `icon-left` & `icon-right`
 
+##### Ionicons
+- Arrow icons with `forward` or `back` are flipped for RTL.
+
 ### Disabled properties
 - padding
 - padding-left
 - padding-right
+- padding-top
+- padding-bottom
 - margin
 - margin-left
 - margin-right
+- margin-top
+- margin-bottom
 - right
 - left
 - border-radius
@@ -100,15 +112,19 @@ For example:
     <!-- actual ltr -->
     <any dir="rtl">
         <!-- mostly rtl, but inherits some ltr -->
-        <any dir="ltr">
-            <!-- mostly rtl, but inherits some ltr -->
-        </any>
     </any>
 </any>
 <any dir="rtl">
     <!-- actual rtl -->
+    <any dir="ltr">
+        <!-- mostly rtl, but inherits some ltr -->
+    </any>
 </any>
 ```
+
+### Real-time direction change
+You can change the direction in real time (`platform.setDir('rtl', true)`), but currently we are aware that some things might get stuck in a direction, and aren't correct. (Style that is controlled from TS)
+We recommend setting the direction as in-advance as possible, but plan to fix the real time directional support.
 
 ### CSS direction support
 We can not support `direction: rtl` in scss, because properties like `padding-block-start` are not available in all browsers, and stuff like `float: start` does not exist at all.

@@ -104,7 +104,29 @@ for more info on forms and inputs.</p>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<pre><code class="lang-html">&lt;!-- Call function when state changes --&gt;
+ &lt;ion-list&gt;
+
+   &lt;ion-item&gt;
+     &lt;ion-label&gt;Cucumber&lt;/ion-label&gt;
+     &lt;ion-checkbox [(ngModel)]=&quot;cucumber&quot; (ionChange)=&quot;updateCucumber()&quot;&gt;&lt;/ion-checkbox&gt;
+   &lt;/ion-item&gt;
+
+ &lt;/ion-list&gt;
+</code></pre>
+<pre><code class="lang-ts">@Component({
+  templateUrl: &#39;main.html&#39;
+})
+class SaladPage {
+  cucumber: boolean;
+
+  updateCucumber() {
+    console.log(&quot;Cucumbers new state:&quot; + this.cucumber);
+  }
+}
+</code></pre>
+
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>

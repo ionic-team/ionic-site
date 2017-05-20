@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
+<pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
 $ npm install --save @ionic-native/deeplinks
 </code></pre>
 <p>Repo:

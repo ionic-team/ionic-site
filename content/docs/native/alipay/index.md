@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
+<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
 $ npm install --save @ionic-native/alipay
 </code></pre>
 <p>Repo:

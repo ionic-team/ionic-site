@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
+<pre><code class="nohighlight">$ ionic cordova plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
 $ npm install --save @ionic-native/rollbar
 </code></pre>
 <p>Repo:

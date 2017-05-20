@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
+<pre><code class="nohighlight">$ ionic cordova plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
 $ npm install --save @ionic-native/twitter-connect
 </code></pre>
 <p>Repo:

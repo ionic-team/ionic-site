@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
 $ npm install --save @ionic-native/facebook
 </code></pre>
 <p>Repo:
@@ -40,7 +40,7 @@ $ npm install --save @ionic-native/facebook
 <p>Retrieve the <code>App ID</code> and <code>App Name</code>.</p>
 <p><a href="https://developers.facebook.com/apps/"><img src="/img/docs/native/Facebook/2.png" alt="fb-getstarted-2"></a></p>
 <p>Then type in the following command in your Terminal, where APP_ID and APP_NAME are the values from the Facebook Developer portal.</p>
-<pre><code class="lang-bash">ionic plugin add cordova-plugin-facebook4 --save --variable APP_ID=&quot;123456789&quot; --variable APP_NAME=&quot;myApplication&quot;
+<pre><code class="lang-bash">ionic plugin add cordova-plugin-facebook4 --variable APP_ID=&quot;123456789&quot; --variable APP_NAME=&quot;myApplication&quot;
 </code></pre>
 <p>After, you&#39;ll need to add the native platforms you&#39;ll be using to your app in the Facebook Developer portal under your app&#39;s Settings:</p>
 <p><a href="https://developers.facebook.com/apps/"><img src="/img/docs/native/Facebook/3.png" alt="fb-getstarted-3"></a></p>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
 $ npm install --save @ionic-native/photo-library
 </code></pre>
 <p>Repo:

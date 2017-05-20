@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.0"
+version: "3.10.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
+<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
 $ npm install --save @ionic-native/pinterest
 </code></pre>
 <p>Repo:

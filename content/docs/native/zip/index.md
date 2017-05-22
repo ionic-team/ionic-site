@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zip
-$ npm install --save @ionic-native/zip
-</code></pre>
+<p>A Cordova plugin to unzip files in Android and iOS.</p>
+
+
 <p>Repo:
   <a href="https://github.com/MobileChromeApps/cordova-plugin-zip">
     https://github.com/MobileChromeApps/cordova-plugin-zip
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/zip
 </p>
 
 
-<p>A Cordova plugin to unzip files in Android and iOS.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zip
+$ npm install --save @ionic-native/zip
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

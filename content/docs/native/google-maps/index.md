@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
-$ npm install --save @ionic-native/google-maps
-</code></pre>
+<p>This plugin uses the native Google Maps SDK</p>
+
+
 <p>Repo:
   <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps">
     https://github.com/mapsplugin/cordova-plugin-googlemaps
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/google-maps
 </p>
 
 
-<p>This plugin uses the native Google Maps SDK</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
+$ npm install --save @ionic-native/google-maps
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-dialogs
-$ npm install --save @ionic-native/dialogs
-</code></pre>
+<p>This plugin gives you ability to access and customize the device native dialogs.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-dialogs</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-dialogs">Dialogs plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-dialogs.git">
     https://github.com/apache/cordova-plugin-dialogs.git
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/dialogs
 </p>
 
 
-<p>This plugin gives you ability to access and customize the device native dialogs.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-dialogs</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-dialogs">Dialogs plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-dialogs
+$ npm install --save @ionic-native/dialogs
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

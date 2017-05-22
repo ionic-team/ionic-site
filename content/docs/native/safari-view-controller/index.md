@@ -22,9 +22,8 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-safariviewcontroller
-$ npm install --save @ionic-native/safari-view-controller
-</code></pre>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">
     https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
@@ -32,7 +31,15 @@ $ npm install --save @ionic-native/safari-view-controller
 </p>
 
 
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-safariviewcontroller
+$ npm install --save @ionic-native/safari-view-controller
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

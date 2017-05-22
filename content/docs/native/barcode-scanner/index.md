@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-barcodescanner
-$ npm install --save @ionic-native/barcode-scanner
-</code></pre>
+<p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
+<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
     https://github.com/phonegap/phonegap-plugin-barcodescanner
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/barcode-scanner
 </p>
 
 
-<p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
-<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-barcodescanner
+$ npm install --save @ionic-native/barcode-scanner
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

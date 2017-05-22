@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-launch-review
-$ npm install --save @ionic-native/launch-review
-</code></pre>
+<p>This launches the native store app in order for the user to leave a review.
+On Android, the plugin opens the the app&#39;s storepage in the Play Store where the user can leave a review by pressing the stars to give a rating.
+On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses the Review tab, where the user can leave a review by pressing &quot;Write a review&quot;.</p>
+
+
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-launch-review">
     https://github.com/dpa99c/cordova-launch-review
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/launch-review
 </p>
 
 
-<p>This launches the native store app in order for the user to leave a review.
-On Android, the plugin opens the the app&#39;s storepage in the Play Store where the user can leave a review by pressing the stars to give a rating.
-On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses the Review tab, where the user can leave a review by pressing &quot;Write a review&quot;.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-launch-review
+$ npm install --save @ionic-native/launch-review
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-streaming-media
-$ npm install --save @ionic-native/streaming-media
-</code></pre>
+<p>This plugin allows you to stream audio and video in a fullscreen, native player on iOS and Android.</p>
+
+
 <p>Repo:
   <a href="https://github.com/nchutchind/cordova-plugin-streaming-media">
     https://github.com/nchutchind/cordova-plugin-streaming-media
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/streaming-media
 </p>
 
 
-<p>This plugin allows you to stream audio and video in a fullscreen, native player on iOS and Android.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-streaming-media
+$ npm install --save @ionic-native/streaming-media
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

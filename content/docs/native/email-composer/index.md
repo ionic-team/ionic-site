@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-email
-$ npm install --save @ionic-native/email-composer
-</code></pre>
+<p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-email-plugin">
     https://github.com/hypery2k/cordova-email-plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/email-composer
 </p>
 
 
-<p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-email
+$ npm install --save @ionic-native/email-composer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
-$ npm install --save @ionic-native/image-picker
-</code></pre>
+<p>Cordova Plugin For Multiple Image Selection</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
+For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/ImagePicker">
     https://github.com/Telerik-Verified-Plugins/ImagePicker
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/image-picker
 </p>
 
 
-<p>Cordova Plugin For Multiple Image Selection</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
-For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
+$ npm install --save @ionic-native/image-picker
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-taptic-engine
-$ npm install --save @ionic-native/taptic-engine
-</code></pre>
+<p>An Ionic plugin to use Taptic Engine API on iPHone 7, 7 Plus or newer.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-taptic-engine">
     https://github.com/EddyVerbruggen/cordova-plugin-taptic-engine
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/taptic-engine
 </p>
 
 
-<p>An Ionic plugin to use Taptic Engine API on iPHone 7, 7 Plus or newer.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-taptic-engine
+$ npm install --save @ionic-native/taptic-engine
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

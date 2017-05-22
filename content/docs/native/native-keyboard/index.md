@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-keyboard
-$ npm install --save @ionic-native/native-keyboard
-</code></pre>
+<p>A cross platform WhatsApp / Messenger / Slack -style keyboard even. For your Cordova app.</p>
+<p>IMPORTANT NOTICE: this plugin is paid, please read more about this at the <a href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard#i-like-it-hook-me-up">plugin&#39;s repo</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard">
     https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/native-keyboard
 </p>
 
 
-<p>A cross platform WhatsApp / Messenger / Slack -style keyboard even. For your Cordova app.</p>
-<p>IMPORTANT NOTICE: this plugin is paid, please read more about this at the <a href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard#i-like-it-hook-me-up">plugin&#39;s repo</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-keyboard
+$ npm install --save @ionic-native/native-keyboard
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

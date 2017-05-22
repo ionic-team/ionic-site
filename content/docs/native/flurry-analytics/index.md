@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flurryanalytics
-$ npm install --save @ionic-native/flurry-analytics
-</code></pre>
+<p>This plugin connects to Flurry Analytics SDK</p>
+
+
 <p>Repo:
   <a href="https://github.com/blakgeek/cordova-plugin-flurryanalytics.git">
     https://github.com/blakgeek/cordova-plugin-flurryanalytics.git
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/flurry-analytics
 </p>
 
 
-<p>This plugin connects to Flurry Analytics SDK</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flurryanalytics
+$ npm install --save @ionic-native/flurry-analytics
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

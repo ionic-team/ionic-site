@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
-$ npm install --save @ionic-native/facebook
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/jeduan/cordova-plugin-facebook4">
-    https://github.com/jeduan/cordova-plugin-facebook4
-  </a>
-</p>
-
-
 <p>Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-facebook4</code>. For more info, please see the <a href="https://github.com/jeduan/cordova-plugin-facebook4">Facebook Connect</a>.</p>
 <h4 id="installation">Installation</h4>
@@ -69,6 +59,23 @@ $ npm install --save @ionic-native/facebook
 <p>Events are listed on the <a href="https://www.facebook.com/insights/">insights page</a>.</p>
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
 
+
+<p>Repo:
+  <a href="https://github.com/jeduan/cordova-plugin-facebook4">
+    https://github.com/jeduan/cordova-plugin-facebook4
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+$ npm install --save @ionic-native/facebook
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

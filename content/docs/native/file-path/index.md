@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-filepath
-$ npm install --save @ionic-native/file-path
-</code></pre>
+<p>This plugin allows you to resolve the native filesystem path for Android content URIs and is based on code in the aFileChooser library.</p>
+
+
 <p>Repo:
   <a href="https://github.com/hiddentao/cordova-plugin-filepath">
     https://github.com/hiddentao/cordova-plugin-filepath
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/file-path
 </p>
 
 
-<p>This plugin allows you to resolve the native filesystem path for Android content URIs and is based on code in the aFileChooser library.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-filepath
+$ npm install --save @ionic-native/file-path
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

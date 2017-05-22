@@ -28,9 +28,8 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
-$ npm install --save @ionic-native/web-intent
-</code></pre>
+
+
 <p>Repo:
   <a href="https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent">
     https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent
@@ -38,7 +37,15 @@ $ npm install --save @ionic-native/web-intent
 </p>
 
 
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
+$ npm install --save @ionic-native/web-intent
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

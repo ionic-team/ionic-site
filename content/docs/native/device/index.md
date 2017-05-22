@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-device
-$ npm install --save @ionic-native/device
-</code></pre>
+<p>Access information about the underlying device and platform.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device">
     https://github.com/apache/cordova-plugin-device
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/device
 </p>
 
 
-<p>Access information about the underlying device and platform.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-device
+$ npm install --save @ionic-native/device
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

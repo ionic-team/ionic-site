@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
-$ npm install --save @ionic-native/rollbar
-</code></pre>
+<p>This plugin adds Rollbar App monitoring to your application</p>
+
+
 <p>Repo:
   <a href="https://github.com/Resgrid/cordova-plugins-rollbar">
     https://github.com/Resgrid/cordova-plugins-rollbar
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/rollbar
 </p>
 
 
-<p>This plugin adds Rollbar App monitoring to your application</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
+$ npm install --save @ionic-native/rollbar
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

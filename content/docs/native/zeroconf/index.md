@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zeroconf
-$ npm install --save @ionic-native/zeroconf
-</code></pre>
+<p>This plugin allows you to browse and publish Zeroconf/Bonjour/mDNS services.</p>
+
+
 <p>Repo:
   <a href="https://github.com/becvert/cordova-plugin-zeroconf">
     https://github.com/becvert/cordova-plugin-zeroconf
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/zeroconf
 </p>
 
 
-<p>This plugin allows you to browse and publish Zeroconf/Bonjour/mDNS services.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zeroconf
+$ npm install --save @ionic-native/zeroconf
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

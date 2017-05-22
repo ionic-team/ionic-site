@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-splashscreen
-$ npm install --save @ionic-native/splash-screen
-</code></pre>
+<p>This plugin displays and hides a splash screen during application launch. The methods below allows showing and hiding the splashscreen after the app has loaded.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-splashscreen">
     https://github.com/apache/cordova-plugin-splashscreen
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/splash-screen
 </p>
 
 
-<p>This plugin displays and hides a splash screen during application launch. The methods below allows showing and hiding the splashscreen after the app has loaded.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-splashscreen
+$ npm install --save @ionic-native/splash-screen
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

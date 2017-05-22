@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-tts
-$ npm install --save @ionic-native/text-to-speech
-</code></pre>
+<p>Text to Speech plugin</p>
+
+
 <p>Repo:
   <a href="https://github.com/vilic/cordova-plugin-tts">
     https://github.com/vilic/cordova-plugin-tts
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/text-to-speech
 </p>
 
 
-<p>Text to Speech plugin</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-tts
+$ npm install --save @ionic-native/text-to-speech
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

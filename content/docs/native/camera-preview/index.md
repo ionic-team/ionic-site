@@ -28,9 +28,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera-preview
-$ npm install --save @ionic-native/camera-preview
-</code></pre>
+<p>Showing camera preview in HTML</p>
+<p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">
     https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview
@@ -38,9 +39,15 @@ $ npm install --save @ionic-native/camera-preview
 </p>
 
 
-<p>Showing camera preview in HTML</p>
-<p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera-preview
+$ npm install --save @ionic-native/camera-preview
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

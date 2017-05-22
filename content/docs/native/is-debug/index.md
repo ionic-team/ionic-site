@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-is-debug
-$ npm install --save @ionic-native/is-debug
-</code></pre>
+<p>Detect if the app is running in debug mode or not.
+Debug mode is when the app is built and installed locally via xcode / eclipse / the cordova cli etc, compared to release mode when the app was downloaded from the app / play store via an end user.</p>
+
+
 <p>Repo:
   <a href="https://github.com/mattlewis92/cordova-plugin-is-debug">
     https://github.com/mattlewis92/cordova-plugin-is-debug
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/is-debug
 </p>
 
 
-<p>Detect if the app is running in debug mode or not.
-Debug mode is when the app is built and installed locally via xcode / eclipse / the cordova cli etc, compared to release mode when the app was downloaded from the app / play store via an end user.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-is-debug
+$ npm install --save @ionic-native/is-debug
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

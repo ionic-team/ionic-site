@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/tomloprod/cordova-plugin-appminimize.git
-$ npm install --save @ionic-native/app-minimize
-</code></pre>
+<p>AppMinimize is a plugin to minimize the application on android devices</p>
+
+
 <p>Repo:
   <a href="https://github.com/tomloprod/cordova-plugin-appminimize">
     https://github.com/tomloprod/cordova-plugin-appminimize
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/app-minimize
 </p>
 
 
-<p>AppMinimize is a plugin to minimize the application on android devices</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/tomloprod/cordova-plugin-appminimize.git
+$ npm install --save @ionic-native/app-minimize
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

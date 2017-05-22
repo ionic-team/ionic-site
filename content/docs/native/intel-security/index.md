@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add com-intel-security-cordova-plugin
-$ npm install --save @ionic-native/intel-security
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/AppSecurityApi/com-intel-security-cordova-plugin">
-    https://github.com/AppSecurityApi/com-intel-security-cordova-plugin
-  </a>
-</p>
-
-
 <p>The App Security API enables the use of security properties and capabilities on the platform, using a new set of API defined for application developers. You are not required to be a security expert to make good use of the API. Key elements, such as encryption of data and establishments of capabilities, is abstracted and done by the API implementation, for you.</p>
 <p>For example:</p>
 <ul>
@@ -40,6 +30,23 @@ $ npm install --save @ionic-native/intel-security
 </ul>
 <p>For more information please visit the <a href="https://software.intel.com/en-us/app-security-api/api">API documentation</a>.</p>
 
+
+<p>Repo:
+  <a href="https://github.com/AppSecurityApi/com-intel-security-cordova-plugin">
+    https://github.com/AppSecurityApi/com-intel-security-cordova-plugin
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add com-intel-security-cordova-plugin
+$ npm install --save @ionic-native/intel-security
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

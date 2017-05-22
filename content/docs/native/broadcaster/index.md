@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-broadcaster
-$ npm install --save @ionic-native/broadcaster
-</code></pre>
+<p>This plugin adds exchanging events between native code and your app.</p>
+
+
 <p>Repo:
   <a href="https://github.com/bsorrentino/cordova-broadcaster">
     https://github.com/bsorrentino/cordova-broadcaster
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/broadcaster
 </p>
 
 
-<p>This plugin adds exchanging events between native code and your app.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-broadcaster
+$ npm install --save @ionic-native/broadcaster
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

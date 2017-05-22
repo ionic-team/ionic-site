@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase
-$ npm install --save @ionic-native/firebase
-</code></pre>
+<p>This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project! Android and iOS supported (including iOS 10).</p>
+
+
 <p>Repo:
   <a href="https://github.com/arnesson/cordova-plugin-firebase">
     https://github.com/arnesson/cordova-plugin-firebase
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/firebase
 </p>
 
 
-<p>This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project! Android and iOS supported (including iOS 10).</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase
+$ npm install --save @ionic-native/firebase
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

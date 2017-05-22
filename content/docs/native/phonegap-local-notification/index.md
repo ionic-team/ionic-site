@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-local-notifications
-$ npm install --save @ionic-native/phonegap-local-notification
-</code></pre>
+<p>The Local Notification plugin gives developers the ability to post notifications from their app that show up in the device’s notification area.
+The API for the local notification plugin follows the W3C Web Notifications specification: <a href="https://www.w3.org/TR/notifications/">https://www.w3.org/TR/notifications/</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-local-notification">
     https://github.com/phonegap/phonegap-plugin-local-notification
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/phonegap-local-notification
 </p>
 
 
-<p>The Local Notification plugin gives developers the ability to post notifications from their app that show up in the device’s notification area.
-The API for the local notification plugin follows the W3C Web Notifications specification: <a href="https://www.w3.org/TR/notifications/">https://www.w3.org/TR/notifications/</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-local-notifications
+$ npm install --save @ionic-native/phonegap-local-notification
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

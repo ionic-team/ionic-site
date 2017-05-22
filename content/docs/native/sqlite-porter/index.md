@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
-$ npm install --save @ionic-native/sqlite-porter
-</code></pre>
+<p>This Cordova/Phonegap plugin can be used to import/export to/from a SQLite database using either SQL or JSON.</p>
+
+
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-sqlite-porter">
     https://github.com/dpa99c/cordova-sqlite-porter
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/sqlite-porter
 </p>
 
 
-<p>This Cordova/Phonegap plugin can be used to import/export to/from a SQLite database using either SQL or JSON.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
+$ npm install --save @ionic-native/sqlite-porter
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-apprate
-$ npm install --save @ionic-native/app-rate
-</code></pre>
+<p>The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never.</p>
+<p>Requires Cordova plugin: cordova-plugin-apprate. For more info, please see the <a href="https://github.com/pushandplay/cordova-plugin-apprate">AppRate plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/pushandplay/cordova-plugin-apprate">
     https://github.com/pushandplay/cordova-plugin-apprate
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/app-rate
 </p>
 
 
-<p>The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never.</p>
-<p>Requires Cordova plugin: cordova-plugin-apprate. For more info, please see the <a href="https://github.com/pushandplay/cordova-plugin-apprate">AppRate plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-apprate
+$ npm install --save @ionic-native/app-rate
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

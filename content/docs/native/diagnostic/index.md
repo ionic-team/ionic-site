@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova.plugins.diagnostic
-$ npm install --save @ionic-native/diagnostic
-</code></pre>
+<p>Checks whether device hardware features are enabled or available to the app, e.g. camera, GPS, wifi</p>
+
+
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-diagnostic-plugin">
     https://github.com/dpa99c/cordova-diagnostic-plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/diagnostic
 </p>
 
 
-<p>Checks whether device hardware features are enabled or available to the app, e.g. camera, GPS, wifi</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova.plugins.diagnostic
+$ npm install --save @ionic-native/diagnostic
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

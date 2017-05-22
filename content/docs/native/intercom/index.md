@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-intercom
-$ npm install --save @ionic-native/intercom
-</code></pre>
+<p>This is a plugin that allows your Ionic app to use Intercom for iOS and/or Intercom for Android.
+Follow the offical documentation to setup this plugin correctly: <a href="https://developers.intercom.com/docs/cordova-phonegap-configuration">https://developers.intercom.com/docs/cordova-phonegap-configuration</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/intercom/intercom-cordova">
     https://github.com/intercom/intercom-cordova
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/intercom
 </p>
 
 
-<p>This is a plugin that allows your Ionic app to use Intercom for iOS and/or Intercom for Android.
-Follow the offical documentation to setup this plugin correctly: <a href="https://developers.intercom.com/docs/cordova-phonegap-configuration">https://developers.intercom.com/docs/cordova-phonegap-configuration</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-intercom
+$ npm install --save @ionic-native/intercom
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

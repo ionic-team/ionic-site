@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-market
-$ npm install --save @ionic-native/market
-</code></pre>
+<p>Opens an app&#39;s page in the market place (Google Play, App Store)</p>
+
+
 <p>Repo:
   <a href="https://github.com/xmartlabs/cordova-plugin-market">
     https://github.com/xmartlabs/cordova-plugin-market
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/market
 </p>
 
 
-<p>Opens an app&#39;s page in the market place (Google Play, App Store)</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-market
+$ npm install --save @ionic-native/market
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

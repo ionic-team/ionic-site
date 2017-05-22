@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-gyroscope
-$ npm install --save @ionic-native/gyroscope
-</code></pre>
+<p>Read Gyroscope sensor data</p>
+
+
 <p>Repo:
   <a href="https://github.com/NeoLSN/cordova-plugin-gyroscope">
     https://github.com/NeoLSN/cordova-plugin-gyroscope
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/gyroscope
 </p>
 
 
-<p>Read Gyroscope sensor data</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-gyroscope
+$ npm install --save @ionic-native/gyroscope
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/LouisT/cordova-useragent
-$ npm install --save @ionic-native/user-agent
-</code></pre>
+<p>The UserAgent plugin provides functions to set the HTTP  user-agent header. For more info about User-Agents, please <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">see the HTTP User-Agent docs</a>.</p>
+<p>Requires Cordova plugin: <code>cordova-useragent</code>. For more info, please see the <a href="https://github.com/LouisT/cordova-useragent">User-Agent plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/LouisT/cordova-useragent">
     https://github.com/LouisT/cordova-useragent
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/user-agent
 </p>
 
 
-<p>The UserAgent plugin provides functions to set the HTTP  user-agent header. For more info about User-Agents, please <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">see the HTTP User-Agent docs</a>.</p>
-<p>Requires Cordova plugin: <code>cordova-useragent</code>. For more info, please see the <a href="https://github.com/LouisT/cordova-useragent">User-Agent plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/LouisT/cordova-useragent
+$ npm install --save @ionic-native/user-agent
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

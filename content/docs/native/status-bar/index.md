@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-statusbar
-$ npm install --save @ionic-native/status-bar
-</code></pre>
+<p>Manage the appearance of the native status bar.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-statusbar">
     https://github.com/apache/cordova-plugin-statusbar
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/status-bar
 </p>
 
 
-<p>Manage the appearance of the native status bar.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-statusbar
+$ npm install --save @ionic-native/status-bar
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

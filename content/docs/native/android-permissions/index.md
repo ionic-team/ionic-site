@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-permissions
-$ npm install --save @ionic-native/android-permissions
-</code></pre>
+<p>This plugin is designed to support Android new permissions checking mechanism.</p>
+<p>You can find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/NeoLSN/cordova-plugin-android-permissions">
     https://github.com/NeoLSN/cordova-plugin-android-permissions
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/android-permissions
 </p>
 
 
-<p>This plugin is designed to support Android new permissions checking mechanism.</p>
-<p>You can find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-permissions
+$ npm install --save @ionic-native/android-permissions
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

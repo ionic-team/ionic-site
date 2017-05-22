@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-socialsharing
-$ npm install --save @ionic-native/social-sharing
-</code></pre>
+<p>Share text, files, images, and links via social networks, sms, and email.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/social-sharing
 </p>
 
 
-<p>Share text, files, images, and links via social networks, sms, and email.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-socialsharing
+$ npm install --save @ionic-native/social-sharing
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

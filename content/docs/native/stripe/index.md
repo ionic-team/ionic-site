@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-stripe
-$ npm install --save @ionic-native/stripe
-</code></pre>
+<p>A plugin that allows you to use Stripe&#39;s Native SDKs for Android and iOS.</p>
+
+
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-stripe">
     https://github.com/zyramedia/cordova-plugin-stripe
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/stripe
 </p>
 
 
-<p>A plugin that allows you to use Stripe&#39;s Native SDKs for Android and iOS.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-stripe
+$ npm install --save @ionic-native/stripe
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

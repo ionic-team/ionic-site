@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/moust/cordova-plugin-videoplayer
-$ npm install --save @ionic-native/video-player
-</code></pre>
+<p>A Codova plugin that simply allows you to immediately play a video in fullscreen mode.</p>
+<p>Requires Cordova plugin: <code>com.moust.cordova.videoplayer</code>. For more info, please see the <a href="https://github.com/moust/cordova-plugin-videoplayer">VideoPlayer plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/moust/cordova-plugin-videoplayer">
     https://github.com/moust/cordova-plugin-videoplayer
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/video-player
 </p>
 
 
-<p>A Codova plugin that simply allows you to immediately play a video in fullscreen mode.</p>
-<p>Requires Cordova plugin: <code>com.moust.cordova.videoplayer</code>. For more info, please see the <a href="https://github.com/moust/cordova-plugin-videoplayer">VideoPlayer plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/moust/cordova-plugin-videoplayer
+$ npm install --save @ionic-native/video-player
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

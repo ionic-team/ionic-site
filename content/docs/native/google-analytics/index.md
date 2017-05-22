@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-google-analytics
-$ npm install --save @ionic-native/google-analytics
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/danwilson/google-analytics-plugin">
-    https://github.com/danwilson/google-analytics-plugin
-  </a>
-</p>
-
-
 <p>This plugin connects to Google&#39;s native Universal Analytics SDK
 Prerequisites:</p>
 <ul>
@@ -40,6 +30,23 @@ Prerequisites:</p>
 <li>(Android) Google Play Services SDK installed via <a href="https://developer.android.com/sdk/installing/adding-packages.html">Android SDK Manager</a></li>
 </ul>
 
+
+<p>Repo:
+  <a href="https://github.com/danwilson/google-analytics-plugin">
+    https://github.com/danwilson/google-analytics-plugin
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-google-analytics
+$ npm install --save @ionic-native/google-analytics
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

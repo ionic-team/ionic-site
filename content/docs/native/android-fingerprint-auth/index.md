@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-fingerprint-auth
-$ npm install --save @ionic-native/android-fingerprint-auth
-</code></pre>
+<p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
+
+
 <p>Repo:
   <a href="https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth">
     https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/android-fingerprint-auth
 </p>
 
 
-<p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-fingerprint-auth
+$ npm install --save @ionic-native/android-fingerprint-auth
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

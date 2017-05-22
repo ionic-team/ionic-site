@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-backlight
-$ npm install --save @ionic-native/backlight
-</code></pre>
+<p>This plugin adds turning on/off the device backlight.</p>
+
+
 <p>Repo:
   <a href="https://github.com/mebibou/cordova-plugin-backlight">
     https://github.com/mebibou/cordova-plugin-backlight
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/backlight
 </p>
 
 
-<p>This plugin adds turning on/off the device backlight.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-backlight
+$ npm install --save @ionic-native/backlight
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-wheel-selector-plugin
-$ npm install --save @ionic-native/wheel-selector
-</code></pre>
+<p>Native wheel selector for Cordova (Android/iOS).</p>
+
+
 <p>Repo:
   <a href="https://github.com/jasonmamy/cordova-wheel-selector-plugin">
     https://github.com/jasonmamy/cordova-wheel-selector-plugin
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/wheel-selector
 </p>
 
 
-<p>Native wheel selector for Cordova (Android/iOS).</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-wheel-selector-plugin
+$ npm install --save @ionic-native/wheel-selector
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

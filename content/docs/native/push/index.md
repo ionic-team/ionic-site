@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
-$ npm install --save @ionic-native/push
-</code></pre>
+<p>Register and receive push notifications.</p>
+<p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
+<p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-push">
     https://github.com/phonegap/phonegap-plugin-push
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/push
 </p>
 
 
-<p>Register and receive push notifications.</p>
-<p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
-<p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
+$ npm install --save @ionic-native/push
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

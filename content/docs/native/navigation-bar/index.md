@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-navigationbar
-$ npm install --save @ionic-native/navigation-bar
-</code></pre>
+<p>The NavigationBar plugin can you to hide and auto hide the android navigation bar.</p>
+
+
 <p>Repo:
   <a href="https://github.com/cranberrygame/cordova-plugin-navigationbar">
     https://github.com/cranberrygame/cordova-plugin-navigationbar
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/navigation-bar
 </p>
 
 
-<p>The NavigationBar plugin can you to hide and auto hide the android navigation bar.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-navigationbar
+$ npm install --save @ionic-native/navigation-bar
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

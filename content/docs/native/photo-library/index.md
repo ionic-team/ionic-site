@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
-$ npm install --save @ionic-native/photo-library
-</code></pre>
+<p>The PhotoLibrary plugin allows access to photos from device by url. So you can use plain img tag to display photos and their thumbnails, and different 3rd party libraries as well.
+Saving photos and videos to the library is also supported.
+cdvphotolibrary urls should be trusted by Angular. See plugin homepage to learn how.</p>
+
+
 <p>Repo:
   <a href="https://github.com/terikon/cordova-plugin-photo-library">
     https://github.com/terikon/cordova-plugin-photo-library
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/photo-library
 </p>
 
 
-<p>The PhotoLibrary plugin allows access to photos from device by url. So you can use plain img tag to display photos and their thumbnails, and different 3rd party libraries as well.
-Saving photos and videos to the library is also supported.
-cdvphotolibrary urls should be trusted by Angular. See plugin homepage to learn how.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
+$ npm install --save @ionic-native/photo-library
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

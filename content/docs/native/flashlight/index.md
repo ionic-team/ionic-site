@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flashlight
-$ npm install --save @ionic-native/flashlight
-</code></pre>
+<p>This plugin allows you to switch the flashlight / torch of the device on and off.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-flashlight</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin">Flashlight plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
     https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/flashlight
 </p>
 
 
-<p>This plugin allows you to switch the flashlight / torch of the device on and off.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-flashlight</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin">Flashlight plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-flashlight
+$ npm install --save @ionic-native/flashlight
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

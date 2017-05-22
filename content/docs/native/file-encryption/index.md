@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-safe
-$ npm install --save @ionic-native/file-encryption
-</code></pre>
+<p>Simple file encryption for Cordova.</p>
+
+
 <p>Repo:
   <a href="https://github.com/disusered/cordova-safe">
     https://github.com/disusered/cordova-safe
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/file-encryption
 </p>
 
 
-<p>Simple file encryption for Cordova.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-safe
+$ npm install --save @ionic-native/file-encryption
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

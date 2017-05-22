@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-cszbar
-$ npm install --save @ionic-native/zbar
-</code></pre>
+<p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/tjwoon/csZBar">
     https://github.com/tjwoon/csZBar
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/zbar
 </p>
 
 
-<p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-cszbar
+$ npm install --save @ionic-native/zbar
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

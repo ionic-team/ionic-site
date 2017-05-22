@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
-$ npm install --save @ionic-native/clipboard
-</code></pre>
+<p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
+<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
+For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/VersoSolutions/CordovaClipboard">
     https://github.com/VersoSolutions/CordovaClipboard
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/clipboard
 </p>
 
 
-<p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
-<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
-For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+$ npm install --save @ionic-native/clipboard
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-actionsheet
-$ npm install --save @ionic-native/action-sheet
-</code></pre>
+<p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">ActionSheet plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
     https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/action-sheet
 </p>
 
 
-<p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">ActionSheet plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-actionsheet
+$ npm install --save @ionic-native/action-sheet
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

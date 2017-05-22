@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
-$ npm install --save @ionic-native/geofence
-</code></pre>
+<p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
+Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
+
+
 <p>Repo:
   <a href="https://github.com/cowbell/cordova-plugin-geofence/">
     https://github.com/cowbell/cordova-plugin-geofence/
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/geofence
 </p>
 
 
-<p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
-Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
+$ npm install --save @ionic-native/geofence
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

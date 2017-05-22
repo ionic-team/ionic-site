@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
-$ npm install --save @ionic-native/insomnia
-</code></pre>
+<p>Prevent the screen of the mobile device from falling asleep.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/insomnia
 </p>
 
 
-<p>Prevent the screen of the mobile device from falling asleep.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
+$ npm install --save @ionic-native/insomnia
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-base64-to-gallery
-$ npm install --save @ionic-native/base64-to-gallery
-</code></pre>
+<p>This plugin allows you to save base64 data as a png image into the device</p>
+
+
 <p>Repo:
   <a href="https://github.com/Nexxa/cordova-base64-to-gallery">
     https://github.com/Nexxa/cordova-base64-to-gallery
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/base64-to-gallery
 </p>
 
 
-<p>This plugin allows you to save base64 data as a png image into the device</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-base64-to-gallery
+$ npm install --save @ionic-native/base64-to-gallery
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

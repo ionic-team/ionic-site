@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-mode
-$ npm install --save @ionic-native/background-mode
-</code></pre>
+<p>Cordova plugin to prevent the app from going to sleep while in background.
+Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-background-mode">
     https://github.com/katzer/cordova-plugin-background-mode
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/background-mode
 </p>
 
 
-<p>Cordova plugin to prevent the app from going to sleep while in background.
-Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-mode
+$ npm install --save @ionic-native/background-mode
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

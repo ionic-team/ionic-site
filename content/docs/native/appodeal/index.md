@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/appodeal/appodeal-cordova-plugin
-$ npm install --save @ionic-native/appodeal
-</code></pre>
+<p>Plugin to serve ads through native Appodeal SDKs</p>
+
+
 <p>Repo:
   <a href="https://github.com/appodeal/appodeal-cordova-plugin.git">
     https://github.com/appodeal/appodeal-cordova-plugin.git
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/appodeal
 </p>
 
 
-<p>Plugin to serve ads through native Appodeal SDKs</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/appodeal/appodeal-cordova-plugin
+$ npm install --save @ionic-native/appodeal
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

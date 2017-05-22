@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pedometer
-$ npm install --save @ionic-native/pedometer
-</code></pre>
+<p>Fetch pedestrian-related pedometer data,
+such as step counts and other information about the distance travelled.</p>
+
+
 <p>Repo:
   <a href="https://github.com/leecrossley/cordova-plugin-pedometer">
     https://github.com/leecrossley/cordova-plugin-pedometer
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/pedometer
 </p>
 
 
-<p>Fetch pedestrian-related pedometer data,
-such as step counts and other information about the distance travelled.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pedometer
+$ npm install --save @ionic-native/pedometer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

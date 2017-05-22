@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/phonegap/phonegap-mobile-accessibility.git
-$ npm install --save @ionic-native/mobile-accessibility
-</code></pre>
+<p>This plugin exposes information on the status of various accessibility features of mobile operating systems, including, for example, whether a screen reader is running, invert colors is enabled, and the preferred scaling for text.
+It also allows an application to send a string to be spoken by the screen reader, or a command to stop the screen reader from speaking.</p>
+
+
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-mobile-accessibility">
     https://github.com/phonegap/phonegap-mobile-accessibility
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/mobile-accessibility
 </p>
 
 
-<p>This plugin exposes information on the status of various accessibility features of mobile operating systems, including, for example, whether a screen reader is running, invert colors is enabled, and the preferred scaling for text.
-It also allows an application to send a string to be spoken by the screen reader, or a command to stop the screen reader from speaking.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/phonegap/phonegap-mobile-accessibility.git
+$ npm install --save @ionic-native/mobile-accessibility
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

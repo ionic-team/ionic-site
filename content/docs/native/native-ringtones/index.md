@@ -28,9 +28,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-ringtones
-$ npm install --save @ionic-native/native-ringtones
-</code></pre>
+<p>The plugin helps get the native ringtones list on Android or IOS devices.
+And you can also use this plugin to play or stop the native ringtones and custom ringtones(added in the www folder).</p>
+
+
 <p>Repo:
   <a href="https://github.com/TongZhangzt/cordova-plugin-native-ringtones">
     https://github.com/TongZhangzt/cordova-plugin-native-ringtones
@@ -38,9 +39,15 @@ $ npm install --save @ionic-native/native-ringtones
 </p>
 
 
-<p>The plugin helps get the native ringtones list on Android or IOS devices.
-And you can also use this plugin to play or stop the native ringtones and custom ringtones(added in the www folder).</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-ringtones
+$ npm install --save @ionic-native/native-ringtones
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/JonSmart/CordovaYoutubeVideoPlayer
-$ npm install --save @ionic-native/youtube-video-player
-</code></pre>
+<p>Plays YouTube videos in Native YouTube App</p>
+
+
 <p>Repo:
   <a href="https://github.com/JonSmart/CordovaYoutubeVideoPlayer">
     https://github.com/JonSmart/CordovaYoutubeVideoPlayer
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/youtube-video-player
 </p>
 
 
-<p>Plays YouTube videos in Native YouTube App</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/JonSmart/CordovaYoutubeVideoPlayer
+$ npm install --save @ionic-native/youtube-video-player
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

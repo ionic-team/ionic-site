@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-brightness
-$ npm install --save @ionic-native/brightness
-</code></pre>
+<p>The Brightness plugin let you control the display brightness of your device.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-brightness</code>. For more info, please see the <a href="https://github.com/mgcrea/cordova-plugin-brightness">Brightness plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/mgcrea/cordova-plugin-brightness">
     https://github.com/mgcrea/cordova-plugin-brightness
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/brightness
 </p>
 
 
-<p>The Brightness plugin let you control the display brightness of your device.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-brightness</code>. For more info, please see the <a href="https://github.com/mgcrea/cordova-plugin-brightness">Brightness plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-brightness
+$ npm install --save @ionic-native/brightness
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

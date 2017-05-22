@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
-$ npm install --save @ionic-native/linkedin
-</code></pre>
+<p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
+<p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
+
+
 <p>Repo:
   <a href="https://github.com/zyra/cordova-plugin-linkedin">
     https://github.com/zyra/cordova-plugin-linkedin
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/linkedin
 </p>
 
 
-<p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
-<p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
+$ npm install --save @ionic-native/linkedin
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

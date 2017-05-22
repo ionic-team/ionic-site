@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-sqlite-storage
-$ npm install --save @ionic-native/sqlite
-</code></pre>
+<p>Access SQLite databases on the device.</p>
+
+
 <p>Repo:
   <a href="https://github.com/litehelpers/Cordova-sqlite-storage">
     https://github.com/litehelpers/Cordova-sqlite-storage
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/sqlite
 </p>
 
 
-<p>Access SQLite databases on the device.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-sqlite-storage
+$ npm install --save @ionic-native/sqlite
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

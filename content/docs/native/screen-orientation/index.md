@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-screen-orientation
-$ npm install --save @ionic-native/screen-orientation
-</code></pre>
+<p>Cordova plugin to set/lock the screen orientation in a common way for iOS, Android, WP8 and Blackberry 10.
+This plugin is based on an early version of Screen Orientation API so the api does not currently match the current spec.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-screen-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-screen-orientation">Screen Orientation plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-screen-orientation">
     https://github.com/apache/cordova-plugin-screen-orientation
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/screen-orientation
 </p>
 
 
-<p>Cordova plugin to set/lock the screen orientation in a common way for iOS, Android, WP8 and Blackberry 10.
-This plugin is based on an early version of Screen Orientation API so the api does not currently match the current spec.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-screen-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-screen-orientation">Screen Orientation plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-screen-orientation
+$ npm install --save @ionic-native/screen-orientation
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

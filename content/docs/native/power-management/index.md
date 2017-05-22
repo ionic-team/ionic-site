@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-powermanagement-orig
-$ npm install --save @ionic-native/power-management
-</code></pre>
+<p>The PowerManagement plugin offers access to the devices power-management functionality.
+It should be used for applications which keep running for a long time without any user interaction.</p>
+
+
 <p>Repo:
   <a href="https://github.com/Viras-/cordova-plugin-powermanagement">
     https://github.com/Viras-/cordova-plugin-powermanagement
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/power-management
 </p>
 
 
-<p>The PowerManagement plugin offers access to the devices power-management functionality.
-It should be used for applications which keep running for a long time without any user interaction.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-powermanagement-orig
+$ npm install --save @ionic-native/power-management
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

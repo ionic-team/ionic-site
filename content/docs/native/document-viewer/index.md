@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-document-viewer
-$ npm install --save @ionic-native/document-viewer
-</code></pre>
+<p>This plugin offers a slim API to view PDF files which are either stored in the apps assets folder (/www/*) or in any other file system directory available via the cordova file plugin.</p>
+
+
 <p>Repo:
   <a href="https://github.com/sitewaerts/cordova-plugin-document-viewer">
     https://github.com/sitewaerts/cordova-plugin-document-viewer
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/document-viewer
 </p>
 
 
-<p>This plugin offers a slim API to view PDF files which are either stored in the apps assets folder (/www/*) or in any other file system directory available via the cordova file plugin.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-document-viewer
+$ npm install --save @ionic-native/document-viewer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add call-number
-$ npm install --save @ionic-native/call-number
-</code></pre>
+<p>Call a number directly from your Cordova/Ionic application.</p>
+
+
 <p>Repo:
   <a href="https://github.com/Rohfosho/CordovaCallNumberPlugin">
     https://github.com/Rohfosho/CordovaCallNumberPlugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/call-number
 </p>
 
 
-<p>Call a number directly from your Cordova/Ionic application.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add call-number
+$ npm install --save @ionic-native/call-number
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

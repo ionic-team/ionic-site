@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
-$ npm install --save @ionic-native/health-kit
-</code></pre>
+<p>The HealthKit plugin allows you to read data from and write data to the iOS 8+ HealthKit framework.
+Any data saved shows up in the iOS Health app and is available for other iOS apps.</p>
+
+
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/HealthKit">
     https://github.com/Telerik-Verified-Plugins/HealthKit
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/health-kit
 </p>
 
 
-<p>The HealthKit plugin allows you to read data from and write data to the iOS 8+ HealthKit framework.
-Any data saved shows up in the iOS Health app and is available for other iOS apps.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
+$ npm install --save @ionic-native/health-kit
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

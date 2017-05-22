@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media
-$ npm install --save @ionic-native/media
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-media">
-    https://github.com/apache/cordova-plugin-media
-  </a>
-</p>
-
-
 <p>Some hints if you are using iOS and recording doesn&#39;t work:
 1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
 Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
@@ -55,6 +45,23 @@ this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(
 </code></pre>
 <p>You can find the reasons here: <a href="https://github.com/driftyco/ionic-native/issues/1452#issuecomment-299605906">https://github.com/driftyco/ionic-native/issues/1452#issuecomment-299605906</a></p>
 
+
+<p>Repo:
+  <a href="https://github.com/apache/cordova-plugin-media">
+    https://github.com/apache/cordova-plugin-media
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media
+$ npm install --save @ionic-native/media
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-http
-$ npm install --save @ionic-native/http
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/wymsee/cordova-HTTP">
-    https://github.com/wymsee/cordova-HTTP
-  </a>
-</p>
-
-
 <p>Cordova / Phonegap plugin for communicating with HTTP servers. Supports iOS and Android.</p>
 <p>Advantages over Javascript requests:</p>
 <ul>
@@ -39,6 +29,23 @@ $ npm install --save @ionic-native/http
 <li>SSL Pinning</li>
 </ul>
 
+
+<p>Repo:
+  <a href="https://github.com/wymsee/cordova-HTTP">
+    https://github.com/wymsee/cordova-HTTP
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-http
+$ npm install --save @ionic-native/http
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,8 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-spinner-dialog
-$ npm install --save @ionic-native/spinner-dialog
-</code></pre>
+
+
 <p>Repo:
   <a href="https://github.com/Paldom/SpinnerDialog">
     https://github.com/Paldom/SpinnerDialog
@@ -32,7 +31,15 @@ $ npm install --save @ionic-native/spinner-dialog
 </p>
 
 
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-spinner-dialog
+$ npm install --save @ionic-native/spinner-dialog
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

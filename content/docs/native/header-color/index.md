@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-headercolor
-$ npm install --save @ionic-native/header-color
-</code></pre>
+<p>Cordova plugin to change color of header in Android Multitask View</p>
+
+
 <p>Repo:
   <a href="https://github.com/tomloprod/cordova-plugin-headercolor">
     https://github.com/tomloprod/cordova-plugin-headercolor
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/header-color
 </p>
 
 
-<p>Cordova plugin to change color of header in Android Multitask View</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-headercolor
+$ npm install --save @ionic-native/header-color
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
-$ npm install --save @ionic-native/deeplinks
-</code></pre>
+<p>This plugin handles deeplinks on iOS and Android for both custom URL scheme links
+and Universal App Links.</p>
+
+
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-deeplinks">
     https://github.com/driftyco/ionic-plugin-deeplinks
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/deeplinks
 </p>
 
 
-<p>This plugin handles deeplinks on iOS and Android for both custom URL scheme links
-and Universal App Links.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
+$ npm install --save @ionic-native/deeplinks
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

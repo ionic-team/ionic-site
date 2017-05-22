@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inapppurchase
-$ npm install --save @ionic-native/in-app-purchase
-</code></pre>
+<p>A lightweight Cordova plugin for in app purchases on iOS/Android.</p>
+
+
 <p>Repo:
   <a href="https://github.com/AlexDisler/cordova-plugin-inapppurchase">
     https://github.com/AlexDisler/cordova-plugin-inapppurchase
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/in-app-purchase
 </p>
 
 
-<p>A lightweight Cordova plugin for in app purchases on iOS/Android.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inapppurchase
+$ npm install --save @ionic-native/in-app-purchase
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

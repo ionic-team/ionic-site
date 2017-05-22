@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-themeablebrowser
-$ npm install --save @ionic-native/themeable-browser
-</code></pre>
+<p>In-app browser that allows styling.</p>
+
+
 <p>Repo:
   <a href="https://github.com/initialxy/cordova-plugin-themeablebrowser">
     https://github.com/initialxy/cordova-plugin-themeablebrowser
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/themeable-browser
 </p>
 
 
-<p>In-app browser that allows styling.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-themeablebrowser
+$ npm install --save @ionic-native/themeable-browser
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

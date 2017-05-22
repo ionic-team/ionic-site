@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ios-keychain
-$ npm install --save @ionic-native/keychain
-</code></pre>
+<p>Get and set data in the iOS Keychain</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-ios-keychain</code>. For more info, please see the <a href="https://github.com/driftyco/cordova-plugin-ios-keychain">Keychain plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/driftyco/cordova-plugin-ios-keychain/">
     https://github.com/driftyco/cordova-plugin-ios-keychain/
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/keychain
 </p>
 
 
-<p>Get and set data in the iOS Keychain</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-ios-keychain</code>. For more info, please see the <a href="https://github.com/driftyco/cordova-plugin-ios-keychain">Keychain plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ios-keychain
+$ npm install --save @ionic-native/keychain
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

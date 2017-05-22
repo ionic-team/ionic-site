@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add com-sarriaroman-photoviewer
-$ npm install --save @ionic-native/photo-viewer
-</code></pre>
+<p>This plugin can display your image in full screen with the ability to pan, zoom, and share the image.</p>
+
+
 <p>Repo:
   <a href="https://github.com/sarriaroman/photoviewer">
     https://github.com/sarriaroman/photoviewer
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/photo-viewer
 </p>
 
 
-<p>This plugin can display your image in full screen with the ability to pan, zoom, and share the image.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add com-sarriaroman-photoviewer
+$ npm install --save @ionic-native/photo-viewer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

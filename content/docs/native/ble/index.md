@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ble-central
-$ npm install --save @ionic-native/ble
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/don/cordova-plugin-ble-central">
-    https://github.com/don/cordova-plugin-ble-central
-  </a>
-</p>
-
-
 <p>This plugin enables communication between a phone and Bluetooth Low Energy (BLE) peripherals.</p>
 <p>The plugin provides a simple JavaScript API for iOS and Android.</p>
 <ul>
@@ -44,6 +34,23 @@ $ npm install --save @ionic-native/ble
 <p>Advertising information is returned when scanning for peripherals. Service, characteristic, and property info is returned when connecting to a peripheral. All access is via service and characteristic UUIDs. The plugin manages handles internally.</p>
 <p>Simultaneous connections to multiple peripherals are supported.</p>
 
+
+<p>Repo:
+  <a href="https://github.com/don/cordova-plugin-ble-central">
+    https://github.com/don/cordova-plugin-ble-central
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ble-central
+$ npm install --save @ionic-native/ble
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

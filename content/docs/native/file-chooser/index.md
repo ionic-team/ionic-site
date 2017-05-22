@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/don/cordova-filechooser.git
-$ npm install --save @ionic-native/file-chooser
-</code></pre>
+<p>Opens the file picker on Android for the user to select a file, returns a file URI.</p>
+
+
 <p>Repo:
   <a href="https://github.com/don/cordova-filechooser">
     https://github.com/don/cordova-filechooser
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/file-chooser
 </p>
 
 
-<p>Opens the file picker on Android for the user to select a file, returns a file URI.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/don/cordova-filechooser.git
+$ npm install --save @ionic-native/file-chooser
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

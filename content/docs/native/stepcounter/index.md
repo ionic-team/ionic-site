@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Slidee/cordova-plugin-stepcounter
-$ npm install --save @ionic-native/stepcounter
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/Slidee/cordova-plugin-stepcounter">
-    https://github.com/Slidee/cordova-plugin-stepcounter
-  </a>
-</p>
-
-
 <p>Cordova plugin for using device&#39;s stepcounter on Android (API &gt; 19)</p>
 <p>Use to</p>
 <ul>
@@ -39,6 +29,23 @@ $ npm install --save @ionic-native/stepcounter
 <li>read device&#39;s stepcounter data</li>
 </ul>
 
+
+<p>Repo:
+  <a href="https://github.com/Slidee/cordova-plugin-stepcounter">
+    https://github.com/Slidee/cordova-plugin-stepcounter
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Slidee/cordova-plugin-stepcounter
+$ npm install --save @ionic-native/stepcounter
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file
-$ npm install --save @ionic-native/file
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-file">
-    https://github.com/apache/cordova-plugin-file
-  </a>
-</p>
-
-
 <p>This plugin implements a File API allowing read/write access to files residing on the device.</p>
 <p>The File class implements static convenience functions to access files and directories.</p>
 <p>Example:</p>
@@ -48,6 +38,23 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
  Although most of the plugin code was written when an earlier spec was current: http: //www.w3.org/TR/2011/WD-file-system-api-20110419/
  It also implements the FileWriter spec : http: //dev.w3.org/2009/dap/file-system/file-writer.html</p>
 
+
+<p>Repo:
+  <a href="https://github.com/apache/cordova-plugin-file">
+    https://github.com/apache/cordova-plugin-file
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file
+$ npm install --save @ionic-native/file
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

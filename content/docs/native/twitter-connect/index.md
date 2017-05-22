@@ -22,16 +22,6 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic cordova plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
-$ npm install --save @ionic-native/twitter-connect
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
-    https://github.com/ManifestWebDesign/twitter-connect-plugin
-  </a>
-</p>
-
-
 <p>Plugin to use Twitter Single Sign On
 Uses Twitter&#39;s Fabric SDK</p>
 <pre><code class="lang-typescript">import { TwitterConnect } from &#39;@ionic-native/twitter-connect&#39;;
@@ -57,6 +47,23 @@ this.twitter.login().then(onSuccess, onError);
 this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 </code></pre>
 
+
+<p>Repo:
+  <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
+    https://github.com/ManifestWebDesign/twitter-connect-plugin
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
+$ npm install --save @ionic-native/twitter-connect
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

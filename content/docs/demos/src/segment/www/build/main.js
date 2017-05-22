@@ -51491,7 +51491,7 @@ let VirtualScroll = class VirtualScroll {
         return null;
     }
     _updateDiffer() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["d" /* isBlank */])(this._differ) && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(this._records)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(this._records)) {
             this._differ = this._iterableDiffers.find(this._records).create(this._virtualTrackBy);
         }
     }

@@ -3755,6 +3755,20 @@ ion-icon {
   speak: none;
 }
 
+[dir="rtl"] ion-icon[aria-label^="arrow"]::before, [dir="rtl"] ion-icon[flip-rtl]::before {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] ion-icon[unflip-rtl]::before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+ion-icon::before {
+  display: inline-block;
+}
+
 @font-face {
   font-family: "Roboto";
   font-style: normal;

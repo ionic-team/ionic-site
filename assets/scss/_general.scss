@@ -100,10 +100,10 @@ html {
 
 body {
   min-height: 100%;
-  margin: 0 0 -130px; // bottom = footer height
+  margin: 20px 0 -130px; // bottom = footer height
 
   @media (max-width: $screen-xs-max) {
-    margin-top: 38px;
+    margin-top: 50px;
   }
 }
 

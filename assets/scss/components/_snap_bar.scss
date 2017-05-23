@@ -55,9 +55,10 @@ body.docs #snap-bar {
     top: 0;
   }
 }
+body.has-snap {
+  margin-top: 0;
 
-@media (max-width: $screen-xs-max) {
-  body.has-snap {
+  @media (max-width: $screen-xs-max) {
     margin-top: 0;
   }
 }

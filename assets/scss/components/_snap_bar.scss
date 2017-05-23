@@ -41,3 +41,24 @@
     }
   }
 }
+body.docs #snap-bar {
+  + .navbar {
+    margin-top: 0;
+  
+    @media (max-width: $screen-xs-max) {
+      padding-top: 0;
+    }
+  }
+
+  ~ .docs-container .side-nav {
+    padding-top: 38px;
+    top: 0;
+  }
+}
+body.has-snap {
+  margin-top: 0;
+
+  @media (max-width: $screen-xs-max) {
+    margin-top: 0;
+  }
+}

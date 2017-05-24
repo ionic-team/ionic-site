@@ -34640,6 +34640,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
             return;
         }
         this._item.setElementClass('input-has-value', this.hasValue());
+        this._item.setElementClass('item-input-has-value', this.hasValue());
     }
     initFocus() { }
     _inputNormalize(val) {
@@ -47258,12 +47259,14 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_8__ion__["a" /
         if (this._item) {
             var hasValue = (inputValue !== null && inputValue !== undefined && inputValue !== '');
             this._item.setElementClass('input-has-value', hasValue);
+            this._item.setElementClass('item-input-has-value', hasValue);
         }
     }
     focusChange(inputHasFocus) {
         if (this._item) {
             console.debug(`input-base, focusChange, inputHasFocus: ${inputHasFocus}, ${this._item.getNativeElement().nodeName}.${this._item.getNativeElement().className}`);
             this._item.setElementClass('input-has-focus', inputHasFocus);
+            this._item.setElementClass('item-input-has-focus', inputHasFocus);
         }
         if (this._clearOnEdit && !inputHasFocus && this.hasValue()) {
             this._didBlurAfterEdit = true;

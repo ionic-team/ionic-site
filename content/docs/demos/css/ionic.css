@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201705241526, Default Theme
+ * vE2E-201705241850, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -7564,15 +7564,21 @@ input.text-input:-webkit-autofill {
 .input[disabled] .input-cover {
   pointer-events: none; }
 
+.item-input-has-focus .input-cover,
 .input-has-focus .input-cover {
   display: none; }
 
+.item-input-has-focus,
 .input-has-focus {
   pointer-events: none; }
 
+.item-input-has-focus input,
 .input-has-focus input,
+.item-input-has-focus textarea,
 .input-has-focus textarea,
+.item-input-has-focus a,
 .input-has-focus a,
+.item-input-has-focus button,
 .input-has-focus button {
   pointer-events: auto; }
 
@@ -7596,6 +7602,7 @@ input.text-input:-webkit-autofill {
   background-repeat: no-repeat;
   background-position: center; }
 
+.item-input-has-focus.item-input-has-value .text-input-clear-icon,
 .input-has-focus.input-has-value .text-input-clear-icon {
   display: block; }
 
@@ -7685,34 +7692,40 @@ input.text-input:-webkit-autofill {
   margin-top: 6.5px;
   margin-bottom: 6.5px; }
 
+.item-md.item-input.item-input-has-focus .item-inner,
 .item-md.item-input.input-has-focus .item-inner {
   border-bottom-color: #327eff;
   box-shadow: inset 0 -1px 0 0 #327eff; }
 
+.list-md .item-input.item-input-has-focus:last-child,
 .list-md .item-input.input-has-focus:last-child {
   border-bottom-color: #327eff;
   box-shadow: inset 0 -1px 0 0 #327eff; }
+  .list-md .item-input.item-input-has-focus:last-child .item-inner,
   .list-md .item-input.input-has-focus:last-child .item-inner {
     box-shadow: none; }
 
-.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #32db64;
   box-shadow: inset 0 -1px 0 0 #32db64; }
 
-.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
   border-bottom-color: #32db64;
   box-shadow: inset 0 -1px 0 0 #32db64; }
-  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+  .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner,
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner {
     box-shadow: none; }
 
-.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #f53d3d;
   box-shadow: inset 0 -1px 0 0 #f53d3d; }
 
-.list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+.list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
   border-bottom-color: #f53d3d;
   box-shadow: inset 0 -1px 0 0 #f53d3d; }
-  .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+  .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner {
     box-shadow: none; }
 
 .item-label-stacked .text-input-md,
@@ -7775,13 +7788,15 @@ input.text-input:-webkit-autofill {
   margin-top: 6.5px;
   margin-bottom: 6.5px; }
 
+.item-wp.item-input.item-input-has-focus .text-input,
 .item-wp.item-input.input-has-focus .text-input {
   border-color: #327eff; }
 
-.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
+.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #32db64; }
 
-.item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input {
+.item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #f53d3d; }
 
 .item-label-stacked .text-input-wp,
@@ -8961,7 +8976,9 @@ ion-label[floating] {
   -webkit-transform-origin: right top;
   transform-origin: right top; }
 
+.item-input-has-focus .label-ios[floating],
 .input-has-focus .label-ios[floating],
+.item-input-has-value .label-ios[floating],
 .input-has-value .label-ios[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(0.8);
   transform: translate3d(0, 0, 0) scale(0.8); }
@@ -9045,11 +9062,15 @@ ion-label[floating] {
     margin-right: 0;
     margin-left: initial; }
 
+.item-input-has-focus .label-md[stacked],
 .input-has-focus .label-md[stacked],
+.item-input-has-focus .label-md[floating],
 .input-has-focus .label-md[floating] {
   color: #327eff; }
 
+.item-input-has-focus .label-md[floating],
 .input-has-focus .label-md[floating],
+.item-input-has-value .label-md[floating],
 .input-has-value .label-md[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(0.8);
   transform: translate3d(0, 0, 0) scale(0.8); }
@@ -9128,11 +9149,15 @@ ion-label[floating] {
     margin-right: 0;
     margin-left: initial; }
 
+.item-input-has-focus .label-wp[stacked],
 .input-has-focus .label-wp[stacked],
+.item-input-has-focus .label-wp[floating],
 .input-has-focus .label-wp[floating] {
   color: #327eff; }
 
+.item-input-has-focus .label-wp[floating],
 .input-has-focus .label-wp[floating],
+.item-input-has-value .label-wp[floating],
 .input-has-value .label-wp[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(0.8);
   transform: translate3d(0, 0, 0) scale(0.8); }

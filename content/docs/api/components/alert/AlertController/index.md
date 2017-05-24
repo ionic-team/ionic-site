@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -542,11 +542,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-head-padding</code></td>
+        <td><code>$alert-ios-head-padding-top</code></td>
         
-          <td><code>12px 16px 7px</code></td>
+          <td><code>12px</code></td>
         
-        <td><p>Padding of the alert head</p>
+        <td><p>Padding top of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-head-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-head-padding-bottom</code></td>
+        
+          <td><code>7px</code></td>
+        
+        <td><p>Padding bottom of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-head-padding-start</code></td>
+        
+          <td><code>$alert-ios-head-padding-end</code></td>
+        
+        <td><p>Padding start of the alert head</p>
 </td>
       </tr>
       
@@ -605,11 +632,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-message-padding</code></td>
+        <td><code>$alert-ios-message-padding-top</code></td>
         
-          <td><code>0 16px 21px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the alert message</p>
+        <td><p>Padding top of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-padding-bottom</code></td>
+        
+          <td><code>21px</code></td>
+        
+        <td><p>Padding bottom of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-padding-start</code></td>
+        
+          <td><code>$alert-ios-message-padding-end</code></td>
+        
+        <td><p>Padding start of the alert message</p>
 </td>
       </tr>
       
@@ -641,11 +695,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-message-padding-empty</code></td>
+        <td><code>$alert-ios-message-empty-padding-top</code></td>
         
-          <td><code>0 0 12px 0</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the alert empty message</p>
+        <td><p>Padding top of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-empty-padding-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding end of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-empty-padding-bottom</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding bottom of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-message-empty-padding-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding start of the alert empty message</p>
 </td>
       </tr>
       
@@ -668,11 +749,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-input-padding</code></td>
+        <td><code>$alert-ios-input-padding-top</code></td>
         
           <td><code>6px</code></td>
         
-        <td><p>Padding on the alert input</p>
+        <td><p>Padding top on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-input-padding-end</code></td>
+        
+          <td><code>$alert-ios-input-padding-top</code></td>
+        
+        <td><p>Padding end on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-input-padding-bottom</code></td>
+        
+          <td><code>$alert-ios-input-padding-top</code></td>
+        
+        <td><p>Padding bottom on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-input-padding-start</code></td>
+        
+          <td><code>$alert-ios-input-padding-end</code></td>
+        
+        <td><p>Padding start on the alert input</p>
 </td>
       </tr>
       
@@ -848,11 +956,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-radio-label-padding</code></td>
+        <td><code>$alert-ios-radio-label-padding-top</code></td>
         
           <td><code>13px</code></td>
         
-        <td><p>Padding on the label for the radio alert</p>
+        <td><p>Padding top on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-radio-label-padding-end</code></td>
+        
+          <td><code>$alert-ios-radio-label-padding-top</code></td>
+        
+        <td><p>Padding end on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-radio-label-padding-bottom</code></td>
+        
+          <td><code>$alert-ios-radio-label-padding-top</code></td>
+        
+        <td><p>Padding bottom on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-radio-label-padding-start</code></td>
+        
+          <td><code>$alert-ios-radio-label-padding-end</code></td>
+        
+        <td><p>Padding start on the label for the radio alert</p>
 </td>
       </tr>
       
@@ -956,11 +1091,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-checkbox-label-padding</code></td>
+        <td><code>$alert-ios-checkbox-label-padding-top</code></td>
         
           <td><code>13px</code></td>
         
-        <td><p>Padding of the label for the checkbox in the alert</p>
+        <td><p>Padding top of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-label-padding-end</code></td>
+        
+          <td><code>$alert-ios-checkbox-label-padding-top</code></td>
+        
+        <td><p>Padding end of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-label-padding-bottom</code></td>
+        
+          <td><code>$alert-ios-checkbox-label-padding-top</code></td>
+        
+        <td><p>Padding bottom of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-label-padding-start</code></td>
+        
+          <td><code>$alert-ios-checkbox-label-padding-end</code></td>
+        
+        <td><p>Padding start of the label for the checkbox in the alert</p>
 </td>
       </tr>
       
@@ -983,11 +1145,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-checkbox-margin</code></td>
+        <td><code>$alert-ios-checkbox-margin-top</code></td>
         
-          <td><code>10px 6px 10px 16px</code></td>
+          <td><code>10px</code></td>
         
-        <td><p>Margin of the checkbox in the alert</p>
+        <td><p>Margin top of the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-margin-end</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Margin end of the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-margin-bottom</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin bottom of the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-margin-start</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Margin start of the checkbox in the alert</p>
 </td>
       </tr>
       
@@ -1194,11 +1383,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-head-padding</code></td>
+        <td><code>$alert-md-head-padding-top</code></td>
         
-          <td><code>24px 24px 20px 24px</code></td>
+          <td><code>24px</code></td>
         
-        <td><p>Padding of the alert head</p>
+        <td><p>Padding top of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-head-padding-end</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding end of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-head-padding-bottom</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Padding bottom of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-head-padding-start</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding start of the alert head</p>
 </td>
       </tr>
       
@@ -1230,11 +1446,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-message-padding</code></td>
+        <td><code>$alert-md-message-padding-top</code></td>
         
-          <td><code>0 24px 24px 24px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the alert message</p>
+        <td><p>Padding top of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-padding-end</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding end of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-padding-bottom</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding bottom of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-padding-start</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding start of the alert message</p>
 </td>
       </tr>
       
@@ -1257,11 +1500,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-message-padding-empty</code></td>
+        <td><code>$alert-md-message-empty-padding-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Padding of the alert empty message</p>
+        <td><p>Padding top of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-empty-padding-end</code></td>
+        
+          <td><code>$alert-md-message-empty-padding-top</code></td>
+        
+        <td><p>Padding end of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-empty-padding-bottom</code></td>
+        
+          <td><code>$alert-md-message-empty-padding-top</code></td>
+        
+        <td><p>Padding bottom of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-message-empty-padding-start</code></td>
+        
+          <td><code>$alert-md-message-empty-padding-end</code></td>
+        
+        <td><p>Padding start of the alert empty message</p>
 </td>
       </tr>
       
@@ -1347,11 +1617,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-input-margin-right</code></td>
+        <td><code>$alert-md-input-margin-end</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$alert-md-input-margin-right</code></td>
         
-        <td><p>Margin right of the alert input</p>
+        <td><p>Margin end of the alert input</p>
 </td>
       </tr>
       
@@ -1365,11 +1635,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-input-margin-left</code></td>
+        <td><code>$alert-md-input-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$alert-md-input-margin-left</code></td>
         
-        <td><p>Margin left of the alert input</p>
+        <td><p>Margin start of the alert input</p>
 </td>
       </tr>
       
@@ -1383,11 +1653,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-button-group-padding</code></td>
+        <td><code>$alert-md-button-group-padding-top</code></td>
         
-          <td><code>8px 8px 8px 24px</code></td>
+          <td><code>8px</code></td>
         
-        <td><p>Padding of the alert button group</p>
+        <td><p>Padding top of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-group-padding-end</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding end of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-group-padding-bottom</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding bottom of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-group-padding-start</code></td>
+        
+          <td><code>24px</code></td>
+        
+        <td><p>Padding start of the alert button group</p>
 </td>
       </tr>
       
@@ -1401,20 +1698,74 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-button-padding</code></td>
+        <td><code>$alert-md-button-padding-top</code></td>
         
           <td><code>10px</code></td>
         
-        <td><p>Padding of the alert button</p>
+        <td><p>Padding top of the alert button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$alert-md-button-margin</code></td>
+        <td><code>$alert-md-button-padding-end</code></td>
         
-          <td><code>0 8px 0 0</code></td>
+          <td><code>$alert-md-button-padding-top</code></td>
         
-        <td><p>Margin of the alert button</p>
+        <td><p>Padding end of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-padding-bottom</code></td>
+        
+          <td><code>$alert-md-button-padding-top</code></td>
+        
+        <td><p>Padding bottom of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-padding-start</code></td>
+        
+          <td><code>$alert-md-button-padding-end</code></td>
+        
+        <td><p>Padding start of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-margin-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin top of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-margin-end</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Margin end of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-margin-bottom</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin bottom of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-button-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the alert button</p>
 </td>
       </tr>
       
@@ -1500,11 +1851,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-radio-label-padding</code></td>
+        <td><code>$alert-md-radio-label-padding-top</code></td>
         
-          <td><code>13px 26px</code></td>
+          <td><code>13px</code></td>
         
-        <td><p>Padding on the label for the radio alert</p>
+        <td><p>Padding top on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-radio-label-padding-end</code></td>
+        
+          <td><code>26px</code></td>
+        
+        <td><p>Padding end on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-radio-label-padding-bottom</code></td>
+        
+          <td><code>$alert-md-radio-label-padding-top</code></td>
+        
+        <td><p>Padding bottom on the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-radio-label-padding-start</code></td>
+        
+          <td><code>$alert-md-radio-label-padding-end</code></td>
+        
+        <td><p>Padding start on the label for the radio alert</p>
 </td>
       </tr>
       
@@ -1680,11 +2058,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-checkbox-label-padding</code></td>
+        <td><code>$alert-md-checkbox-label-padding-top</code></td>
         
-          <td><code>13px 26px</code></td>
+          <td><code>13px</code></td>
         
-        <td><p>Padding of the label for the checkbox in the alert</p>
+        <td><p>Padding top of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-checkbox-label-padding-end</code></td>
+        
+          <td><code>26px</code></td>
+        
+        <td><p>Padding end of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-checkbox-label-padding-bottom</code></td>
+        
+          <td><code>$alert-md-checkbox-label-padding-top</code></td>
+        
+        <td><p>Padding bottom of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-md-checkbox-label-padding-start</code></td>
+        
+          <td><code>$alert-md-checkbox-label-padding-end</code></td>
+        
+        <td><p>Padding start of the label for the checkbox in the alert</p>
 </td>
       </tr>
       
@@ -1945,11 +2350,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-head-padding</code></td>
+        <td><code>$alert-wp-head-padding-top</code></td>
         
-          <td><code>20px 22px 5px 22px</code></td>
+          <td><code>20px</code></td>
         
-        <td><p>Padding of the alert head</p>
+        <td><p>Padding top of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-head-padding-end</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding end of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-head-padding-bottom</code></td>
+        
+          <td><code>5px</code></td>
+        
+        <td><p>Padding bottom of the alert head</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-head-padding-start</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding start of the alert head</p>
 </td>
       </tr>
       
@@ -1990,20 +2422,74 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-message-padding</code></td>
+        <td><code>$alert-wp-message-padding-top</code></td>
         
-          <td><code>0 22px 8px 22px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the alert message</p>
+        <td><p>Padding top of the alert message</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-message-padding-empty</code></td>
+        <td><code>$alert-wp-message-padding-end</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding end of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-padding-bottom</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding bottom of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-padding-start</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding start of the alert message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-empty-padding-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Padding of the alert empty message</p>
+        <td><p>Padding top of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-empty-padding-end</code></td>
+        
+          <td><code>$alert-wp-message-empty-padding-top</code></td>
+        
+        <td><p>Padding end of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-empty-padding-bottom</code></td>
+        
+          <td><code>$alert-wp-message-empty-padding-top</code></td>
+        
+        <td><p>Padding bottom of the alert empty message</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-message-empty-padding-start</code></td>
+        
+          <td><code>$alert-wp-message-empty-padding-end</code></td>
+        
+        <td><p>Padding start of the alert empty message</p>
 </td>
       </tr>
       
@@ -2035,20 +2521,74 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-input-margin</code></td>
+        <td><code>$alert-wp-input-margin-top</code></td>
         
-          <td><code>5px 0 5px 0</code></td>
+          <td><code>5px</code></td>
         
-        <td><p>Margin of the alert input</p>
+        <td><p>Margin top of the alert input</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-input-padding</code></td>
+        <td><code>$alert-wp-input-margin-end</code></td>
         
-          <td><code>0 8px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding on the alert input</p>
+        <td><p>Margin end of the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-margin-bottom</code></td>
+        
+          <td><code>5px</code></td>
+        
+        <td><p>Margin bottom of the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-padding-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-padding-end</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding end on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-padding-bottom</code></td>
+        
+          <td><code>$alert-wp-input-padding-top</code></td>
+        
+        <td><p>Padding bottom on the alert input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-input-padding-start</code></td>
+        
+          <td><code>$alert-wp-input-padding-end</code></td>
+        
+        <td><p>Padding start on the alert input</p>
 </td>
       </tr>
       
@@ -2107,11 +2647,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-button-padding</code></td>
+        <td><code>$alert-wp-button-padding-top</code></td>
         
           <td><code>5px</code></td>
         
-        <td><p>Padding of the alert button</p>
+        <td><p>Padding top of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-padding-end</code></td>
+        
+          <td><code>$alert-wp-button-padding-top</code></td>
+        
+        <td><p>Padding end of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-padding-bottom</code></td>
+        
+          <td><code>$alert-wp-button-padding-top</code></td>
+        
+        <td><p>Padding bottom of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-padding-start</code></td>
+        
+          <td><code>$alert-wp-button-padding-end</code></td>
+        
+        <td><p>Padding start of the alert button</p>
 </td>
       </tr>
       
@@ -2170,20 +2737,47 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-button-margin-right</code></td>
+        <td><code>$alert-wp-button-margin-end</code></td>
         
-          <td><code>1%</code></td>
+          <td><code>$alert-wp-button-margin-right</code></td>
         
-        <td><p>Margin right of the alert button</p>
+        <td><p>Margin end of the alert button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-button-group-padding</code></td>
+        <td><code>$alert-wp-button-group-padding-top</code></td>
         
-          <td><code>20px 22px 20px 22px</code></td>
+          <td><code>20px</code></td>
         
-        <td><p>Padding of the alert button group</p>
+        <td><p>Padding top of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-group-padding-end</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding end of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-group-padding-bottom</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Padding bottom of the alert button group</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-button-group-padding-start</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Padding start of the alert button group</p>
 </td>
       </tr>
       
@@ -2242,11 +2836,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-radio-label-padding</code></td>
+        <td><code>$alert-wp-radio-label-padding-top</code></td>
         
-          <td><code>13px 26px</code></td>
+          <td><code>13px</code></td>
         
-        <td><p>Padding of the label for the radio alert</p>
+        <td><p>Padding top of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-radio-label-padding-end</code></td>
+        
+          <td><code>26px</code></td>
+        
+        <td><p>Padding end of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-radio-label-padding-bottom</code></td>
+        
+          <td><code>$alert-wp-radio-label-padding-top</code></td>
+        
+        <td><p>Padding bottom of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-radio-label-padding-start</code></td>
+        
+          <td><code>$alert-wp-radio-label-padding-end</code></td>
+        
+        <td><p>Padding start of the label for the radio alert</p>
 </td>
       </tr>
       
@@ -2386,11 +3007,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-checkbox-label-padding</code></td>
+        <td><code>$alert-wp-checkbox-label-padding-top</code></td>
         
-          <td><code>13px 26px</code></td>
+          <td><code>13px</code></td>
         
-        <td><p>Padding of the label for the checkbox in the alert</p>
+        <td><p>Padding top of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-checkbox-label-padding-end</code></td>
+        
+          <td><code>26px</code></td>
+        
+        <td><p>Padding end of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-checkbox-label-padding-bottom</code></td>
+        
+          <td><code>$alert-wp-checkbox-label-padding-top</code></td>
+        
+        <td><p>Padding bottom of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-checkbox-label-padding-start</code></td>
+        
+          <td><code>$alert-wp-checkbox-label-padding-end</code></td>
+        
+        <td><p>Padding start of the label for the checkbox in the alert</p>
 </td>
       </tr>
       

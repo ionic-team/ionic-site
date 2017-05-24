@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -192,7 +192,7 @@ A stacked label will always appear on top of the input.
       <tr>
         <td><code>$label-ios-text-color</code></td>
         
-          <td><code>unset</code></td>
+          <td><code>null</code></td>
         
         <td><p>Text color of the label by an input, select, or datetime</p>
 </td>
@@ -201,18 +201,45 @@ A stacked label will always appear on top of the input.
       <tr>
         <td><code>$label-ios-text-color-focused</code></td>
         
-          <td><code>unset</code></td>
+          <td><code>null</code></td>
         
         <td><p>Text color of the stacked/floating label when it is focused</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$label-ios-margin</code></td>
+        <td><code>$label-ios-margin-top</code></td>
         
-          <td><code>$item-ios-padding-top ($item-ios-padding-right / 2) $item-ios-padding-bottom 0</code></td>
+          <td><code>$item-ios-padding-top</code></td>
         
-        <td><p>Margin of the label</p>
+        <td><p>Margin top of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-ios-margin-end</code></td>
+        
+          <td><code>($item-ios-padding-end / 2)</code></td>
+        
+        <td><p>Margin end of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-ios-margin-bottom</code></td>
+        
+          <td><code>$item-ios-padding-bottom</code></td>
+        
+        <td><p>Margin bottom of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-ios-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the label</p>
 </td>
       </tr>
       
@@ -248,11 +275,38 @@ A stacked label will always appear on top of the input.
       </tr>
       
       <tr>
-        <td><code>$label-md-margin</code></td>
+        <td><code>$label-md-margin-top</code></td>
         
-          <td><code>$item-md-padding-top ($item-md-padding-right / 2) $item-md-padding-bottom 0</code></td>
+          <td><code>$item-md-padding-top</code></td>
         
-        <td><p>Margin of the label</p>
+        <td><p>Margin top of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-md-margin-end</code></td>
+        
+          <td><code>($item-md-padding-end / 2)</code></td>
+        
+        <td><p>Margin end of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-md-margin-bottom</code></td>
+        
+          <td><code>$item-md-padding-bottom</code></td>
+        
+        <td><p>Margin bottom of the label</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$label-md-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the label</p>
 </td>
       </tr>
       

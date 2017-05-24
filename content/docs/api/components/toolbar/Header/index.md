@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -305,11 +305,38 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
       </tr>
       
       <tr>
-        <td><code>$toolbar-wp-title-padding</code></td>
+        <td><code>$toolbar-wp-title-padding-top</code></td>
         
-          <td><code>0 6px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the toolbar title</p>
+        <td><p>Padding top of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-end</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Padding end of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-bottom</code></td>
+        
+          <td><code>$toolbar-wp-title-padding-top</code></td>
+        
+        <td><p>Padding bottom of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-start</code></td>
+        
+          <td><code>$toolbar-wp-title-padding-end</code></td>
+        
+        <td><p>Padding start of the toolbar title</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -489,11 +489,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-padding</code></td>
+        <td><code>$tabs-ios-tab-padding-top</code></td>
         
-          <td><code>0 2px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding on the tab button</p>
+        <td><p>Padding top on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-padding-end</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Padding end on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-padding-bottom</code></td>
+        
+          <td><code>$tabs-ios-tab-padding-top</code></td>
+        
+        <td><p>Padding bottom on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-padding-start</code></td>
+        
+          <td><code>$tabs-ios-tab-padding-end</code></td>
+        
+        <td><p>Padding start on the tab button</p>
 </td>
       </tr>
       
@@ -583,11 +610,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td><code>$tabs-md-tab-padding</code></td>
+        <td><code>$tabs-md-tab-padding-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Padding on the tab button</p>
+        <td><p>Padding top on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-end</code></td>
+        
+          <td><code>$tabs-md-tab-padding-top</code></td>
+        
+        <td><p>Padding end on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-bottom</code></td>
+        
+          <td><code>$tabs-md-tab-padding-top</code></td>
+        
+        <td><p>Padding bottom on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-start</code></td>
+        
+          <td><code>$tabs-md-tab-padding-end</code></td>
+        
+        <td><p>Padding start on the tab button</p>
 </td>
       </tr>
       
@@ -664,11 +718,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-padding-active</code></td>
+        <td><code>$tabs-md-tab-padding-active-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Padding of the active tab button</p>
+        <td><p>Padding top of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-active-end</code></td>
+        
+          <td><code>$tabs-md-tab-padding-active-top</code></td>
+        
+        <td><p>Padding end of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-active-bottom</code></td>
+        
+          <td><code>$tabs-md-tab-padding-active-top</code></td>
+        
+        <td><p>Padding bottom of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-active-start</code></td>
+        
+          <td><code>$tabs-md-tab-padding-active-end</code></td>
+        
+        <td><p>Padding start of the active tab button</p>
 </td>
       </tr>
       
@@ -682,11 +763,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-margin</code></td>
+        <td><code>$tabs-md-tab-text-margin-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Margin on the tab button text</p>
+        <td><p>Margin top on the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-margin-end</code></td>
+        
+          <td><code>$tabs-md-tab-text-margin-top</code></td>
+        
+        <td><p>Margin end on the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-margin-bottom</code></td>
+        
+          <td><code>$tabs-md-tab-text-margin-top</code></td>
+        
+        <td><p>Margin bottom on the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-margin-start</code></td>
+        
+          <td><code>$tabs-md-tab-text-margin-end</code></td>
+        
+        <td><p>Margin start on the tab button text</p>
 </td>
       </tr>
       
@@ -803,11 +911,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td><code>$tabs-wp-tab-padding</code></td>
+        <td><code>$tabs-wp-tab-padding-top</code></td>
         
-          <td><code>12px 10px 5px 10px</code></td>
+          <td><code>12px</code></td>
         
-        <td><p>Padding on the tab button</p>
+        <td><p>Padding top on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-padding-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Padding end on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-padding-bottom</code></td>
+        
+          <td><code>5px</code></td>
+        
+        <td><p>Padding bottom on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-padding-start</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Padding start on the tab button</p>
 </td>
       </tr>
       

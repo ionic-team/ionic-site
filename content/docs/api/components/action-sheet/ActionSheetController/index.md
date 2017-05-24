@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -389,11 +389,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-ios-padding</code></td>
+        <td><code>$action-sheet-ios-padding-top</code></td>
         
-          <td><code>0 10px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the action sheet</p>
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-ios-padding-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Padding end of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-ios-padding-bottom</code></td>
+        
+          <td><code>$action-sheet-ios-padding-top</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-ios-padding-start</code></td>
+        
+          <td><code>$action-sheet-ios-padding-end</code></td>
+        
+        <td><p>Padding start of the action sheet</p>
 </td>
       </tr>
       
@@ -645,11 +672,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-title-padding</code></td>
+        <td><code>$action-sheet-md-title-padding-top</code></td>
         
-          <td><code>11px 16px 17px</code></td>
+          <td><code>11px</code></td>
         
-        <td><p>Padding of the action sheet title</p>
+        <td><p>Padding top of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-title-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-title-padding-bottom</code></td>
+        
+          <td><code>17px</code></td>
+        
+        <td><p>Padding bottom of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-title-padding-start</code></td>
+        
+          <td><code>$action-sheet-md-title-padding-end</code></td>
+        
+        <td><p>Padding start of the action sheet title</p>
 </td>
       </tr>
       
@@ -681,11 +735,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-button-padding</code></td>
+        <td><code>$action-sheet-md-button-padding-top</code></td>
         
-          <td><code>0 16px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the action sheet button</p>
+        <td><p>Padding top of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-button-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-button-padding-bottom</code></td>
+        
+          <td><code>$action-sheet-md-button-padding-top</code></td>
+        
+        <td><p>Padding bottom of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-button-padding-start</code></td>
+        
+          <td><code>$action-sheet-md-button-padding-end</code></td>
+        
+        <td><p>Padding start of the action sheet button</p>
 </td>
       </tr>
       
@@ -744,11 +825,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-icon-margin</code></td>
+        <td><code>$action-sheet-md-icon-margin-top</code></td>
         
-          <td><code>0 32px 0 0</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the icon in the action sheet button</p>
+        <td><p>Margin top of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-icon-margin-end</code></td>
+        
+          <td><code>32px</code></td>
+        
+        <td><p>Margin end of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-icon-margin-bottom</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin bottom of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-icon-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the icon in the action sheet button</p>
 </td>
       </tr>
       
@@ -802,11 +910,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-wp-title-padding</code></td>
+        <td><code>$action-sheet-wp-title-padding-top</code></td>
         
-          <td><code>11px 16px 17px</code></td>
+          <td><code>11px</code></td>
         
-        <td><p>Padding of the action sheet title</p>
+        <td><p>Padding top of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-title-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-title-padding-bottom</code></td>
+        
+          <td><code>17px</code></td>
+        
+        <td><p>Padding bottom of the action sheet title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-title-padding-start</code></td>
+        
+          <td><code>$action-sheet-wp-title-padding-end</code></td>
+        
+        <td><p>Padding start of the action sheet title</p>
 </td>
       </tr>
       
@@ -865,11 +1000,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-wp-button-padding</code></td>
+        <td><code>$action-sheet-wp-button-padding-top</code></td>
         
-          <td><code>0 16px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the action sheet button</p>
+        <td><p>Padding top of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-button-padding-end</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Padding end of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-button-padding-bottom</code></td>
+        
+          <td><code>$action-sheet-wp-button-padding-top</code></td>
+        
+        <td><p>Padding bottom of the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-button-padding-start</code></td>
+        
+          <td><code>$action-sheet-wp-button-padding-end</code></td>
+        
+        <td><p>Padding start of the action sheet button</p>
 </td>
       </tr>
       
@@ -937,11 +1099,38 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-wp-icon-margin</code></td>
+        <td><code>$action-sheet-wp-icon-margin-top</code></td>
         
-          <td><code>0 20px 0 0</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the icon in the action sheet button</p>
+        <td><p>Margin top of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-icon-margin-end</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Margin end of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-icon-margin-bottom</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin bottom of the icon in the action sheet button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-icon-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the icon in the action sheet button</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.2.0"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -274,7 +274,7 @@ on the step property value. Defaults to <code>false</code>.</p>
         
           <td><code>16px</code></td>
         
-        <td><p>Padding left/right of the range</p>
+        <td><p>Padding start/end of the range</p>
 </td>
       </tr>
       
@@ -450,11 +450,38 @@ on the step property value. Defaults to <code>false</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$range-ios-pin-padding</code></td>
+        <td><code>$range-ios-pin-padding-top</code></td>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding of the range pin</p>
+        <td><p>Padding top of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-ios-pin-padding-end</code></td>
+        
+          <td><code>$range-ios-pin-padding-top</code></td>
+        
+        <td><p>Padding end of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-ios-pin-padding-bottom</code></td>
+        
+          <td><code>$range-ios-pin-padding-top</code></td>
+        
+        <td><p>Padding bottom of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-ios-pin-padding-start</code></td>
+        
+          <td><code>$range-ios-pin-padding-end</code></td>
+        
+        <td><p>Padding start of the range pin</p>
 </td>
       </tr>
       
@@ -485,7 +512,7 @@ on the step property value. Defaults to <code>false</code>.</p>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding left/right of the range</p>
+        <td><p>Padding start/end of the range</p>
 </td>
       </tr>
       
@@ -674,7 +701,7 @@ on the step property value. Defaults to <code>false</code>.</p>
         
           <td><code>0</code></td>
         
-        <td><p>Padding left/right of the range pin</p>
+        <td><p>Padding start/end of the range pin</p>
 </td>
       </tr>
       
@@ -714,7 +741,7 @@ on the step property value. Defaults to <code>false</code>.</p>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding left/right of the range</p>
+        <td><p>Padding start/end of the range</p>
 </td>
       </tr>
       
@@ -881,11 +908,38 @@ on the step property value. Defaults to <code>false</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$range-wp-pin-padding</code></td>
+        <td><code>$range-wp-pin-padding-top</code></td>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding of the range pin</p>
+        <td><p>Padding top of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-wp-pin-padding-end</code></td>
+        
+          <td><code>$range-wp-pin-padding-top</code></td>
+        
+        <td><p>Padding end of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-wp-pin-padding-bottom</code></td>
+        
+          <td><code>$range-wp-pin-padding-top</code></td>
+        
+        <td><p>Padding bottom of the range pin</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$range-wp-pin-padding-start</code></td>
+        
+          <td><code>$range-wp-pin-padding-end</code></td>
+        
+        <td><p>Padding start of the range pin</p>
 </td>
       </tr>
       

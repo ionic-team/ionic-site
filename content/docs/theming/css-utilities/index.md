@@ -22,6 +22,19 @@ next_page_link: /docs/theming/responsive-grid/
 
 Ionic provides a set of utility attributes that can be used on any element in order to modify the text or adjust the padding or margin.
 
+
+- [Text Modification](#text-modification)
+  - [Text Alignment](#text-alignment)
+  - [Text Transformation](#text-transformation)
+  - [Responsive Text Attributes](#responsive-text-attributes)
+- [Element Placement](#element-placement)
+  - [Float Elements](#float-elements)
+  - [Responsive Float Attributes](#responsive-float-attributes)
+- [Content Space](#content-space)
+  - [Element Padding](#element-padding)
+  - [Element Margin](#element-margin)
+- [Setting Attributes Dynamically](#setting-attributes-dynamically)
+
 ## Text Modification
 
 ### Text Alignment
@@ -30,6 +43,8 @@ Ionic provides a set of utility attributes that can be used on any element in or
 |-------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `text-left`       | `text-align: left`     | The inline contents are aligned to the left edge of the line box.                                                                                                   |
 | `text-right`      | `text-align: right`    | The inline contents are aligned to the right edge of the line box.                                                                                                  |
+| `text-start`      | `text-align: start`    | The same as `text-left` if direction is left-to-right and `text-right` if direction is right-to-left.                                                                         |
+| `text-end`        | `text-align: end`      | The same as `text-right` if direction is left-to-right and `text-left` if direction is right-to-left.                                                                         |
 | `text-center`     | `text-align: center`   | The inline contents are centered within the line box.                                                                                                               |
 | `text-justify`    | `text-align: justify`  | The inline contents are justified. Text should be spaced to line up its left and right edges to the left and right edges of the line box, except for the last line. |
 | `text-wrap`       | `white-space: nowrap`  | Sequences of whitespace are collapsed. Newline characters in the source are handled as other whitespace. Breaks lines as necessary to fill line boxes.              |
@@ -135,6 +150,72 @@ Ionic provides a set of utility attributes that can be used on any element in or
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
 </div>
 ```
+
+### Responsive Text Attributes
+
+All of the text attributes listed above have additional attributes to modify the text based on the screen size. Instead of `text-` in each attribute, use `text-{breakpoint}-` to only use the attribute on specific screen sizes, where `{breakpoint}` is one of the defined breakpoints in the `$screen-breakpoints` variable.
+The table below shows the default behavior, where `{modifier}` is any of the following: `left`, `right`, `start`, `end`, `center`, `justify`, `wrap`, `nowrap`, `uppercase`, `lowercase`, or `capitalize`, as they are described above.
+
+| Attribute             | Description                                                         |
+|-----------------------|---------------------------------------------------------------------|
+| `text-{modifier}`     | Applies the modifier to the element on all screen sizes.            |
+| `text-sm-{modifier}`  | Applies the modifier to the element when `min-width: 576px`.        |
+| `text-md-{modifier}`  | Applies the modifier to the element when `min-width: 768px`.        |
+| `text-lg-{modifier}`  | Applies the modifier to the element when `min-width: 992px`.        |
+| `text-xl-{modifier}`  | Applies the modifier to the element when `min-width: 1200px`.       |
+
+
+## Element Placement
+
+### Float Elements
+
+The float CSS property specifies that an element should be placed along the left or right side of its container, where text and inline elements will wrap around it. This way, the element is taken from the normal flow of the web page, though still remaining a part of the flow, contrary to absolute positioning.
+
+| Attribute         | Style Rule                    | Description                                                                                                       |
+|-------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `float-left`       | `float: left`                 | The element will float on the left side of its containing block.                                                  |
+| `float-right`      | `float: right`                | The element will float on the right side of its containing block.                                                 |
+| `float-start`      | `float: left | float: right`  | The same as `float-left` if direction is left-to-right and `float-right` if direction is right-to-left.             |
+| `float-end`        | `float: left | float: right`  | The same as `float-right` if direction is left-to-right and `float-left` if direction is right-to-left.             |
+
+<ion-grid>
+  <ion-row>
+    <ion-col float-left>
+      <b>float-left</b><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+    </ion-col>
+    <ion-col float-right>
+      <b>float-right</b><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<i>Note: the example above is shown with custom styling.</i>
+
+```html
+<div float-left>
+  <b>float-left</b><br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+</div>
+<div float-right>
+  <b>float-right</b><br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+</div>
+```
+
+### Responsive Float Attributes
+
+All of the float attributes listed above have additional attributes to modify the float based on the screen size. Instead of `float-` in each attribute, use `float-{breakpoint}-` to only use the attribute on specific screen sizes, where `{breakpoint}` is one of the defined breakpoints in the `$screen-breakpoints` variable.
+The table below shows the default behavior, where `{modifier}` is any of the following: `left`, `right`, `start`, or `end`, as they are described above.
+
+| Attribute              | Description                                                         |
+|------------------------|---------------------------------------------------------------------|
+| `float-{modifier}`     | Applies the modifier to the element on all screen sizes.            |
+| `float-sm-{modifier}`  | Applies the modifier to the element when `min-width: 576px`.        |
+| `float-md-{modifier}`  | Applies the modifier to the element when `min-width: 768px`.        |
+| `float-lg-{modifier}`  | Applies the modifier to the element when `min-width: 992px`.        |
+| `float-xl-{modifier}`  | Applies the modifier to the element when `min-width: 1200px`.       |
 
 
 ## Content Space

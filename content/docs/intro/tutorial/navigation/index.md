@@ -17,11 +17,9 @@ prev_page_link: /docs//intro/tutorial/adding-pages/
 Improve this doc
 </a>
 
-
 Recall from the previous section we had a function inside our `ListPage` class that looked something like this:
 
-
-```ts
+```typescript
 itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
@@ -31,9 +29,9 @@ itemTapped(event, item) {
 
 You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/pages/list/list.ts` so we can use it:
 
-```ts
+```typescript
 ...
-import {ItemDetailsPage} from '../item-details/item-details';
+import { ItemDetailsPage } from '../pages/item-details/item-details';
 ```
 
 After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page! Notice that the menu-toggle is replaced with a back button instead. This is a native style that Ionic follows, but can be configured.
@@ -44,8 +42,6 @@ Navigation in Ionic works like a simple stack, where we `push` new pages onto th
 
 
 > When it comes to URLs, the latest Ionic works a bit differently than Ionic v1.x. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example).  This means we aren't limited to using `href` to navigate around. However,  we still have the option to use a URL to navigate to a page when necessary.
-
-
 
 
 ### Next Steps

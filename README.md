@@ -23,7 +23,7 @@ Ionic v1 and v2 now automatically deploy their changes to an Ionic staging serve
 2. Optionally preview the changes by running `gulp docs` in the Ionic v1/2 repo, and `gulp watch` in ionic site, which should be a sibling directory of the `ionic` and `ionic2` repos.
 3. Commit and push changes
 4. Sit back. The [Ionic v1 CI tasks](https://circleci.com/gh/driftyco/ionic) and the [Ionic v2 CI tasks](https://circleci.com/gh/driftyco/ionic2) will generate the new docs and push them to the `ionic-site` repo. The `ionic-site` CI tasks will then build them and automatically deploy them to the staging server.
-5. Preview changes on the [staging server](http://ionic-site-staging.herokuapp.com/) and promote the changes to production if all looks well. Be sure to give the site a quick look over to make sure things look good.
+5. Preview changes on the [staging server](https://ionic-site-staging.herokuapp.com/) and promote the changes to production if all looks well. Be sure to give the site a quick look over to make sure things look good.
 
 ## Third Party Libraries
 
@@ -64,7 +64,7 @@ git remote add staging git@heroku.com:ionic-site-staging.git
 - Make your changes
 - Run `gulp`
 - `git push origin master`
-- View the staging server at [http://ionic-site-staging.herokuapp.com/](http://ionic-site-staging.herokuapp.com/)
+- View the staging server at [https://ionic-site-staging.herokuapp.com/](https://ionic-site-staging.herokuapp.com/)
 - Promote the staging server to production
 - `heroku pipelines:promote -r staging`
 - Watch the build server at [https://circleci.com/gh/driftyco/ionic-site](https://circleci.com/gh/driftyco/ionic-site)
@@ -73,9 +73,9 @@ git remote add staging git@heroku.com:ionic-site-staging.git
 ## Community
 
 * Follow [@ionicframework on Twitter](https://twitter.com/ionicframework).
-* Subscribe to the [Ionic Newsletter](http://ionicframework.com/subscribe/).
-* Have a question that's not a feature request or bug report? [Discuss on the Ionic Forum](http://forum.ionicframework.com/).
-* Read our [Blog](http://ionicframework.com/blog/).
+* Subscribe to the [Ionic Newsletter](https://ionicframework.com/subscribe/).
+* Have a question that's not a feature request or bug report? [Discuss on the Ionic Forum](https://forum.ionicframework.com/).
+* Read our [Blog](https://ionicframework.com/blog/).
 * Have a feature request or find a bug? [Submit an issue](https://github.com/driftyco/ionic/issues).
 
 

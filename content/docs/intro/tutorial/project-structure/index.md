@@ -48,8 +48,7 @@ Inside of the `src` directory we find our raw, uncompiled code. This is where mo
 
 Near the top of the file, we should see this:
 
-```ts
-
+```typescript
 @NgModule({
   declarations: [MyApp,HelloIonicPage, ItemDetailsPage, ListPage],
   imports: [ BrowserModule, IonicModule.forRoot(MyApp)],

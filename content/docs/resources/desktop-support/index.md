@@ -112,7 +112,7 @@ In a native environment, you're bound to make calls to some sort of native API. 
 
 - Use Ionic Native plugins when possible.
 
-Ionic Native has its own internal logic to detect if it is inside of a native environment. If it's not, instead of throwing a runtime error, it will simply print a warning informing you of the situation. This won't break your app and it will continue to work as expected.
+Ionic Native has its own internal logic to detect if it is inside of a native environment. Instead of throwing a runtime error, it will simply print a warning informing you of the situation, if it is not and Cordova plugins are not available. This way your app won't break and it will continue to work - although without the native functionality.
 
 - Detect native platform.
 

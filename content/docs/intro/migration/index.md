@@ -13,14 +13,14 @@ header_sub_title: Getting Started with Ionic
 
 Ionic is built on top of Angular, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular, take a look at [Learn Angular](http://learnangular2.com/).
 
-In Ionic, things should feel quite familiar. All the concepts from Ionic Vv1 are still in the latest versions, though they may look slightly different. You still have views and controllers like you did in v2, but they have been merged into one instance.
+In Ionic, things should feel quite familiar. All the concepts from Ionic v1 are still in the latest versions, though they may look slightly different. You still have views and controllers like you did in v1, but they have been merged into one instance.
 
 Take this v1 example.
 
 
 v1
 
-```
+```javascript
 .config(function($stateProvider){
   $stateProvider
   .state('main', {
@@ -37,7 +37,7 @@ v1
 
 You can rewrite this using the latest Ionic like this:
 
-```
+```typescript
 @Component({
   templateUrl:'main/main.html'
 })
@@ -52,12 +52,11 @@ Other changes, like navigation changes, are much different, but for good reasons
 
 # Migrating from Angular 1
 
-
-While Angular 2 requires apps to be updated for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with [John Papa's Angular Style guide](https://github.com/johnpapa/angular-styleguide) or [Todd Motto's Angular Style guide](https://github.com/toddmotto/angularjs-styleguide). Both of these will provide you with steps you can take to prepare your code for migration.
+While Angular requires apps to be updated for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with [John Papa's Angular Style guide](https://github.com/johnpapa/angular-styleguide) or [Todd Motto's Angular Style guide](https://github.com/toddmotto/angularjs-styleguide). Both of these will provide you with steps you can take to prepare your code for migration.
 
 ### ControllerAs Syntax
 
-ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to `$scope`, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
+ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to `$scope`, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
 
 _index.html_
 
@@ -123,7 +122,7 @@ _app.js_
 
 _app.ts_
 
-```javascript
+```typescript
 
     export class MainCtrl{
       constructor(){
@@ -137,7 +136,7 @@ _app.ts_
 
 ### Project Structure
 
-With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
+With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic and Angular will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
 
 ```
     |-www/

@@ -227,6 +227,11 @@ Create a modal to display. See below for options.
 <td><code>boolean</code></td>
 <td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
 </tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Additional classes for custom styles, separated by spaces.</td>
+</tr>
 </tbody>
 </table>
 <p>A modal can also emit data, which is useful when it is used to add or edit

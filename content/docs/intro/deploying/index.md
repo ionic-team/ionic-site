@@ -93,7 +93,7 @@ To start, you'll need to set up a provisioning profile to code sign your apps.
 
 #### Using an Apple ID
 
-1. Open XCode preferences (Xcode > Preferences...)
+1. Open Xcode preferences (Xcode > Preferences...)
 2. Click the 'Accounts' tab
 3. Login with your Apple ID (+ > Add Apple ID...)
 

@@ -113,9 +113,9 @@ Adding [icons](#icons) to list items is a great way to hint about the contents o
 ```html
 <ion-list>
   <ion-item>
-    <ion-icon name="leaf" item-left></ion-icon>
+    <ion-icon name="leaf" item-start></ion-icon>
       Herbology
-    <ion-icon name="rose" item-right></ion-icon>
+    <ion-icon name="rose" item-end></ion-icon>
   </ion-item>
 </ion-list>
 ```
@@ -131,7 +131,7 @@ Item avatars showcase an image larger than an icon, but smaller than a thumbnail
 ```html
 <ion-list>
   <ion-item>
-    <ion-avatar item-left>
+    <ion-avatar item-start>
       <img src="img/avatar-cher.png">
     </ion-avatar>
     <h2>Cher</h2>
@@ -150,7 +150,7 @@ Multi-line lists are identical to regular lists, except items have multiple line
 ```html
 <ion-list>
   <ion-item>
-    <ion-avatar item-left>
+    <ion-avatar item-start>
       <img src="img/avatar-finn.png">
     </ion-avatar>
     <h2>Finn</h2>
@@ -173,7 +173,7 @@ For more information, Check out the [API docs](../api/components/item/ItemSlidin
 <ion-list>
   <ion-item-sliding>
     <ion-item>
-      <ion-avatar item-left>
+      <ion-avatar item-start>
         <img src="img/slimer.png">
       </ion-avatar>
       <h2>Slimer</h2>
@@ -209,12 +209,12 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
 ```html
 <ion-list>
   <ion-item>
-    <ion-thumbnail item-left>
+    <ion-thumbnail item-start>
       <img src="img/thumbnail-totoro.png">
     </ion-thumbnail>
     <h2>My Neighbor Totoro</h2>
     <p>Hayao Miyazaki • 1988</p>
-    <button ion-button clear item-right>View</button>
+    <button ion-button clear item-end>View</button>
   </ion-item>
 </ion-list>
 ```

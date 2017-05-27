@@ -50122,7 +50122,7 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
     }
     _inputUpdated() {
         const ele = this._searchbarInput.nativeElement;
-        if (ele) {
+        if (ele && ele.value !== this.value) {
             ele.value = this.value;
         }
         this.positionElements();

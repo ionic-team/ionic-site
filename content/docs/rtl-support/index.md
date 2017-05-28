@@ -1,7 +1,8 @@
 # RTL support
 The goal is to have full RTL support for all of ionic.
-If you don't need RTL support, you can set `$include-rtl: false`, and your css bundle will be smaller.
 This means that every property that controls horizontal sides (left, right) must go away.
+
+*Note: If your app is always using a specific direction, use `$app-direction: ltr`,  or `$app-direction: rtl` and your css bundle will be smaller.
 
 ### Directional mixins
 To remove all directional properties, we built mixins to handle them in LTR as default, and for RTL automaically.
@@ -17,10 +18,14 @@ The mixins should have the same structure as the full property:
 - @transform (@translate3d)
 - @transform-origin
 
+### Future Mixins
+- @border (@border-horizontal)
+- @background-position($horizontal, $vertical)
+
 ### Custom directional support
 When you want to add custom directional support (sometimes it is needed), you should do:
 ```scss
-element {
+selector {
     // Include directional properties
     @include padding(0, 10px, null, 5px);
     
@@ -39,14 +44,16 @@ element {
 }
 ```
 
-### Future
-- Mixins
-  - @border (@border-horizontal)
-  - @background-position($horizontal, $vertical)
-- Typescript
-  - iOS back/forward transition
-  - Update menu side in runtime - https://github.com/driftyco/ionic/pull/11336
-  - Toggle gesture
+##### Ionicons
+- Arrow icons with `forward` or `back` are flipped for RTL.
+
+### Other directional fixes that require merge (remove when merged)
+- Menu position - https://github.com/driftyco/ionic/pull/11336 WIP
+- iOS page transition - https://github.com/driftyco/ionic/pull/11820
+- Slide gesture - https://github.com/driftyco/ionic/pull/11822
+- Native input issues - https://github.com/driftyco/ionic/pull/11817
+- Toggle - https://github.com/driftyco/ionic/pull/11824
+- Item Sliding - https://github.com/driftyco/ionic/pull/11825
 
 ### Directional naming
 We kept the naming `left` and `right` where possible, to actually mean left and right, both on ltr and on rtl, but added new names: `start` and `end` where `start` means left on ltr, right on rtl, and `end` means right on ltr, left on rtl.
@@ -55,7 +62,7 @@ We recommend using just `start` and `end`, as for 99% of the cases those are the
 ##### New names
 - `item-start` & `item-end`
 - `icon-start` & `icon-end`
-- `side="start"` / `side="end"` for ion-menu (defaults to `start`)
+- `side="start"` & `side="end"` for ion-menu (defaults to `start`)
 - `padding-start` & `padding-end`
 - `margin-start` & `margin-end`
 - `text-start` & `text-end`
@@ -64,9 +71,6 @@ We recommend using just `start` and `end`, as for 99% of the cases those are the
 ##### Deprecated names
 - `item-left` & `item-right`
 - `icon-left` & `icon-right`
-
-##### Ionicons
-- Arrow icons with `forward` or `back` are flipped for RTL.
 
 ### Disabled properties
 - padding

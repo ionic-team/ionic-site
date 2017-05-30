@@ -81,7 +81,7 @@ Improve this doc
 
 &lt;ion-chip&gt;
   &lt;ion-avatar&gt;
-    &lt;img src=&quot;img/my-img.png&quot;&gt;
+    &lt;img src=&quot;assets/img/my-img.png&quot;&gt;
   &lt;/ion-avatar&gt;
   &lt;ion-label&gt;Default&lt;/ion-label&gt;
 &lt;/ion-chip&gt;

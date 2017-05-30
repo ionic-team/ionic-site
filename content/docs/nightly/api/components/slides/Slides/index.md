@@ -109,7 +109,7 @@ index and prints it:</p>
 
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();
-    console.log(&quot;Current index is&quot;, currentIndex);
+    console.log(&#39;Current index is&#39;, currentIndex);
   }
 }
 </code></pre>

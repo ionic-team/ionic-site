@@ -174,7 +174,7 @@ export MyPage {
   constructor(public plt: Platform) {
     if (this.plt.is('ios')) {
       // This will only print when on iOS
-      console.log("I'm an iOS device!");
+      console.log('I am an iOS device!');
     }
   }
 }

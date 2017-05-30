@@ -106,7 +106,7 @@ import { NavController } from &#39;ionic-angular&#39;;
 })
 export class MyApp {
    @ViewChild(&#39;myNav&#39;) nav: NavController
-   public rootPage = TabsPage;
+   public rootPage: any = TabsPage;
 
    // Wait for the components in MyApp&#39;s template to be initialized
    // In this case, we are waiting for the Nav with reference variable of &quot;#myNav&quot;

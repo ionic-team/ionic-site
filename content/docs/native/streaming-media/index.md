@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Streaming Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
   Improve this doc
 </a>
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Launch Navigator</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/launch-navigator/index.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/launch-navigator/index.ts#L58">
   Improve this doc
 </a>
 

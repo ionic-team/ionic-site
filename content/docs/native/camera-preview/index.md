@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
   Improve this doc
 </a>
 

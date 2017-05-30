@@ -33,7 +33,7 @@ ActionSheetController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L67">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L67">
 Improve this doc
 </a>
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L117">
   Improve this doc
 </a>
 
@@ -43,7 +43,7 @@ this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(
   window.setTimeout(() =&gt; file.stopRecord(), 10000);
 });
 </code></pre>
-<p>You can find the reasons here: <a href="https://github.com/driftyco/ionic-native/issues/1452#issuecomment-299605906">https://github.com/driftyco/ionic-native/issues/1452#issuecomment-299605906</a></p>
+<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
 
 
 <p>Repo:

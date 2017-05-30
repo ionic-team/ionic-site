@@ -116,4 +116,4 @@ console.dir(lodash);
 `console.dir` prints out all of the important details about an object and its API.
 
 ### Custom Build Configuration
-With most libraries, everything "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/driftyco/ionic-app-scripts#custom-config-files).
+With most libraries, everything "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/ionic-team/ionic-app-scripts#custom-config-files).

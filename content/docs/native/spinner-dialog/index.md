@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Spinner Dialog</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
   Improve this doc
 </a>
 

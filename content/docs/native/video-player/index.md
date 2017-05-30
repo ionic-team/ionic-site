@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Video Player</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/video-player/index.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/video-player/index.ts#L17">
   Improve this doc
 </a>
 

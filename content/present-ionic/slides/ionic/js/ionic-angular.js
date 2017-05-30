@@ -6037,7 +6037,7 @@ IonicModule
  *
  * ### Notes
  * - This directive requires the
- * [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard).
+ * [Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard).
  * - On Android not in fullscreen mode, i.e. you have
  *   `<preference name="Fullscreen" value="false" />` or no preference in your `config.xml` file,
  *   this directive is unnecessary since it is the default behavior.

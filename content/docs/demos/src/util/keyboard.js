@@ -30,7 +30,7 @@ export var Keyboard = (function () {
                 _this._tmr = nativeTimeout(function () {
                     // this custom cordova plugin event fires when the keyboard will hide
                     // useful when the virtual keyboard is closed natively
-                    // https://github.com/driftyco/ionic-plugin-keyboard
+                    // https://github.com/ionic-team/ionic-plugin-keyboard
                     if (hasFocusedTextInput()) {
                         focusOutActiveElement();
                     }

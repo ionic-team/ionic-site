@@ -9,7 +9,7 @@ header_sub_title: Getting Started with Ionic
 
 # Deploying to a Device
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
 Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](http://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
 

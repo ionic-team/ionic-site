@@ -44,4 +44,4 @@ angular.module('myModule', [])
 });
 ```
 
-For a more detailed example, see [js/ext/angular/test/gesture.html](https://github.com/driftyco/ionic/blob/master/js/ext/angular/test/gesture.html).
+For a more detailed example, see [js/ext/angular/test/gesture.html](https://github.com/ionic-team/ionic/blob/master/js/ext/angular/test/gesture.html).

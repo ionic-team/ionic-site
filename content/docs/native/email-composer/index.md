@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Email Composer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L27">
   Improve this doc
 </a>
 

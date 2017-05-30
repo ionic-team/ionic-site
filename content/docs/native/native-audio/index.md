@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Native Audio</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-audio/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/native-audio/index.ts#L1">
   Improve this doc
 </a>
 

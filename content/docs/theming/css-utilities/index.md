@@ -16,7 +16,7 @@ next_page_link: /docs/theming/responsive-grid/
 
 <h1 class="title">CSS Utilities</h1>
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/css-utilities/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/theming/css-utilities/index.md'>
   Improve this doc
 </a>
 

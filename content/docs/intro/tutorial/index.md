@@ -13,7 +13,7 @@ next_page_link: /docs//intro/tutorial/project-structure/
 
 # Ionic Tutorial
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/tutorial/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/tutorial/index.md'>
   Improve this doc
 </a>
 
@@ -43,7 +43,7 @@ If the tutorial template isn't something you want to use, Ionic has a few templa
 - `super`: starter project with over 14 ready to use page designs
 - `tutorial`: a guided starter project
 
-If you don't specify a template by running `ionic start MyIonicProject`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+If you don't specify a template by running `ionic start MyIonicProject`, the [tabs template](https://github.com/ionic-team/ionic2-starter-tabs) will be used.
 
 
 

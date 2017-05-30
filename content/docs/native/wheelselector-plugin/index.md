@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">WheelSelector Plugin<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
   Improve this doc
 </a>
 

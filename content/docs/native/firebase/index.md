@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Firebase<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/firebase/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase/index.ts#L2">
   Improve this doc
 </a>
 

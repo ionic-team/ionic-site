@@ -11,11 +11,11 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/modal.js#L80'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/service/modal.js#L80'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/angular/service/modal.js#L80'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/angular/service/modal.js#L80'>
 Improve this doc
 </a>
 </div>
@@ -97,7 +97,7 @@ Default: creates a child of $rootScope.</li>
 Default: &#39;slide-in-up&#39;</li>
 <li><code>{boolean=}</code> <code>focusFirstInput</code> Whether to autofocus the first input of
 the modal when shown. Will only show the keyboard on iOS, to force the keyboard to show
-on Android, please use the <a href="https://github.com/driftyco/ionic-plugin-keyboard#keyboardshow">Ionic keyboard plugin</a>.
+on Android, please use the <a href="https://github.com/ionic-team/ionic-plugin-keyboard#keyboardshow">Ionic keyboard plugin</a>.
 Default: false.</li>
 <li><code>{boolean=}</code> <code>backdropClickToClose</code> Whether to close the modal on clicking the backdrop.
 Default: true.</li>

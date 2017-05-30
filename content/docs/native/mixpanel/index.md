@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Mixpanel</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/mixpanel/index.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/mixpanel/index.ts#L3">
   Improve this doc
 </a>
 

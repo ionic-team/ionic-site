@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">ZBar</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
   Improve this doc
 </a>
 

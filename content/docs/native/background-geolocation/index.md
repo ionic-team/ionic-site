@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Geolocation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-geolocation/index.ts#L287">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-geolocation/index.ts#L287">
   Improve this doc
 </a>
 

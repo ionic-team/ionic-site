@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Safari View Controller</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L14">
   Improve this doc
 </a>
 

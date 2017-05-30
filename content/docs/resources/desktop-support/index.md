@@ -8,7 +8,7 @@ header_sub_title: Ionic Resources
 
 ### Desktop Support in Ionic
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/desktop-support/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/resources/desktop-support/index.md'>
   Improve this doc
 </a>
 
@@ -75,14 +75,14 @@ There's a lot going on here so let's dissect it a bit:
 - The `col-` attribute can have a breakpoint added before the size, `col-{breakpoint}-{size}`. This sets the size for the specified breakpoint and above.
 - If you apply a size without a breakpoint argument, it assumes the smallest break point, `xs`, so `col-12` === `col-xs-12`.
 
-A living example of this is the example app, [Ionic Conference](https://github.com/driftyco/ionic-conference-app/blob/master/src/pages/speaker-list/speaker-list.html) which uses the grid for it's speaker view.
+A living example of this is the example app, [Ionic Conference](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/speaker-list/speaker-list.html) which uses the grid for it's speaker view.
 
 ### Storage
 
 Most apps at some point will need to store some sort of data locally. Whether it's storing some json from an XHR request, or saving an auth token, you have many different storage options that you can use. On top of this, if you're running your app in a native environment, you can create a full SQLite database and store data there. All of these different storage mechanisms have their benefits and defects, but we shouldn't have to worry about that.
 
 
-In this case, [Ionic's Storage library](https://github.com/driftyco/ionic-storage) is a perfect candidate for our multi-environment use case. Built on top of the well tested [LocalForage](https://github.com/localForage/localForage) library, Ionic's storage class provides an adaptable storage mechanism that will pick the best storage solution for the current run time.
+In this case, [Ionic's Storage library](https://github.com/ionic-team/ionic-storage) is a perfect candidate for our multi-environment use case. Built on top of the well tested [LocalForage](https://github.com/localForage/localForage) library, Ionic's storage class provides an adaptable storage mechanism that will pick the best storage solution for the current run time.
 
 
 Currently this means it will run through SQLite for native, IndexDB (if available), WebSql, or Local Storage. By handling all of this, it frees you up to write to storage using a sane API.

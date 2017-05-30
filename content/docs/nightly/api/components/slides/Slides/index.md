@@ -385,7 +385,7 @@ Lock or unlock the ability to slide to the next slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true the user will not be able to swipe to the next slide. 
+        <p>If set to true the user will not be able to swipe to the next slide.
 Set to false to unlock this behaviour.</p>
 
         
@@ -485,7 +485,7 @@ Lock or unlock the ability to slide to change slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true user can not swipe in either direction on slide. 
+        <p>If set to true user can not swipe in either direction on slide.
 False allows swiping in both directions.</p>
 
         

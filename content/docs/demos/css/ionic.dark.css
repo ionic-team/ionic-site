@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201705271305, Dark Theme
+ * vE2E-201705301540, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -16643,15 +16643,15 @@ ion-navbar.toolbar {
 .toolbar-md-light .bar-button-default-md,
 .toolbar-md-light .bar-button-outline-md,
 .toolbar-md-light .toolbar-title-md {
-  color: #424242; }
+  color: #000; }
 
 .toolbar-md-light .bar-button-clear-md .button-effect,
 .toolbar-md-light .bar-button-default-md .button-effect,
 .toolbar-md-light .bar-button-outline-md .button-effect {
-  background-color: #424242; }
+  background-color: #000; }
 
 .toolbar-md-light .bar-button-outline-md {
-  border-color: #424242; }
+  border-color: #000; }
 
 .toolbar-md-light .bar-button-primary-md,
 .toolbar-md-light .bar-button-clear-md-primary,

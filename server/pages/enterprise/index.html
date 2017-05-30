@@ -18,7 +18,7 @@
 
 {% if notification %}
 <h2 class="container text-center {{notificationClass}}"
-    onClick="mixpanel.track('Form Success', {'test': 'Enterprise - 1'})">
+    ng-init="mixpanel.track('Form Success', {'test': 'Enterprise - 1'})">
   {{ notification }}
 </h2>
 {% endif %}
@@ -215,7 +215,8 @@
         <form action="/enterprise"
               class="form-inline container"
               method="post"
-              name="contact">
+              name="contact"
+              ng-submit="">
           <input class="form-control"
                  type="text"
                  name="first_name"

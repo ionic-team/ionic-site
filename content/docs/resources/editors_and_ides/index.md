@@ -23,14 +23,14 @@ The following are a list of editors and IDEs that we think will give you the mos
   <h3>
     <a href="#code">Visual Studio Code</a>
     </h3>
-  <p>VS Code is a new editor that comes with support for ES6 syntax, as well as TypeScript support. It will also prompt users to include TypeScript definition files and download them from <a href="http://definitelytyped.org/">Definitely Typed</a>. Visual Studio Code is free and works on OS X, Windows, and Linux.</p>
+  <p>VS Code is a new editor that comes with support for ES6 syntax, as well as TypeScript support. It will also prompt users to include TypeScript definition files and download them from <a href="http://definitelytyped.org/">Definitely Typed</a>. Visual Studio Code is free and works on macOS, Windows, and Linux.</p>
   <p><a href="https://code.visualstudio.com/">Official website</a></p>
 
 </section>
 
 <section id="atom">
 <h3><a href="#atom">Atom</a></h3>
-<p>Atom is cross platform editor built on web technologies. Atom has many plugins to make ES6/TypeScript development very easy. If there isn't something provided by Atom or a plugin, you can even make a plugin yourself, using JavaScript. Atom works on OS X, Windows, and Linux.</p>
+<p>Atom is cross platform editor built on web technologies. Atom has many plugins to make ES6/TypeScript development very easy. If there isn't something provided by Atom or a plugin, you can even make a plugin yourself, using JavaScript. Atom works on macOS, Windows, and Linux.</p>
 <p><a href="https://atom.io/packages/atom-typescript">Atom TypeScript</a></p>
 <p><a href="https://atom.io/">Atom official website</a></p>
 </section>
@@ -46,7 +46,7 @@ The following are a list of editors and IDEs that we think will give you the mos
 <section id="ALM">
   <h3><a href="#ALM">ALM</a></h3>
 
-<p>ALM is a free open source IDE built for typescript development, it can be run on any computer running chrome and can be hosted on a server and used on any computer with internet access.</p>
+<p>ALM is a free open source IDE built for typescript development, it can be run on any computer running Chrome and can be hosted on a server and used on any computer with internet access.</p>
 <p><a href="http://alm.tools/">ALM official website</a></p>
 </section>
 
@@ -54,7 +54,7 @@ The following are a list of editors and IDEs that we think will give you the mos
 <section id="angularide">
   <h3><a href="#angularide">Angular IDE by Webclipse</a></h3>
 
-<p>Angular IDE is a freemium IDE built for Angular 2 and TypeScript development providing integrated terminal support helping with node and npm management. Out of the box, Angular IDE includes code completion and validation for ES6, TypeScript, and Angular 2 HTML templates.</p>
+<p>Angular IDE is a freemium IDE built for Angular and TypeScript development providing integrated terminal support helping with node and npm management. Out of the box, Angular IDE includes code completion and validation for ES6, TypeScript, and Angular HTML templates.</p>
 <p><a href="https://www.genuitec.com/products/angular-ide/">Angular IDE official website</a></p>
 </section>
 

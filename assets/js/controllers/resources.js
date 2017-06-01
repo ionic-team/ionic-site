@@ -1,10 +1,13 @@
 IonicSiteModule
-.controller('ResourcesCtrl', ['$scope', '$location',
-  function($scope, $location) {
+.controller('ResourceCenterCtrl', ['$scope', function($scope) {
 
-  $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
-    $scope.$evalAsync(function() {
-      $scope.hash = window.location.hash.substr(2).split('?')[0];
-    });
-  });
+  $resourceCenterItems = document.getElementById('resource-center-items').children;
+
+  $scope.filter = function(category) {
+    if ($scope.current == category) {
+      $scope.current = null;
+      return;
+    }
+    $scope.current = category;
+  }
 }]);

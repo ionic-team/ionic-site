@@ -1,0 +1,270 @@
+#page-resource-center {
+  .navbar.transparent + .banner {
+    background: #00000c no-repeat center bottom url('/img/resource-center/cta-img.jpg');
+    background-size: cover;
+    padding-bottom: 200px;
+    padding-top: 92px;
+    margin-top: -72px;
+    color: white;
+    position: relative;
+
+    strong {
+      color: white;
+    }
+
+    hgroup {
+      padding-top: 50px;
+      background: no-repeat center 0 url('/img/resource-center/cta-resources-icon.png');
+      background-size: 60px;
+
+      p {
+        max-width: 660px;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+    }
+
+    .bar {
+      min-height: 64px;
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+      bottom: 0;
+
+      &::before,
+      &::after {
+        background: #283c61 repeat-y center bottom url('/img/resource-center/cta-img.jpg');
+        background-size: 100%;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        bottom: -5px;
+        left: -5px;
+        content: '';
+        filter: blur(15px);
+        filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='15');
+      }
+
+      &::after {
+        background: rgba(black, .2);
+      }
+
+      &.affix {
+        top: 0;
+        bottom: auto;
+        position: fixed;
+        z-index: 1;
+
+        &::before {
+          filter: blur(5px);
+          filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 5;
+      }
+
+      .categories {
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        text-align: left;
+        max-width: 560px;
+
+        li {
+          margin: 0 auto;
+          display: inline-block;
+
+          a {
+            color: rgba(white, .6);
+            font-size: 14px;
+            position: relative;
+            padding: 70px 5px 15px 5px;
+            transition: color .2s;
+            background: transparent;
+            cursor: pointer;
+
+            &::before,
+            &::after {
+              background: no-repeat center top url('/img/resource-center/filter-tabs.png');
+              background-size: 50px;
+              width: 50px;
+              height: 50px;
+              content: '';
+              position: absolute;
+              left: calc(50% - 25px);
+              top: 15px;
+              transition: opacity .2s;
+            }
+
+            &::after {
+              opacity: 0;
+            }
+
+            &.whitepaper::after {    background-position: center -50px;}
+            &.case-study::before {   background-position: center -100px;}
+            &.case-study::after {    background-position: center -150px;}
+            &.video::before {        background-position: center -200px;}
+            &.video::after {         background-position: center -250px;}
+            &.webinar::before {      background-position: center -300px;}
+            &.webinar::after {       background-position: center -350px;}
+
+            &.active,
+            &:active,
+            &:hover {
+              color: rgba(white, 1);
+              text-decoration: none;
+  
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1680px)  {
+      background-size: 1680px;
+
+      .bar::before {
+        background-size: 1680px;
+      }
+    }
+  }
+
+  section.container {
+    padding-top: 75px;
+    overflow-x: hidden;
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        flex: 0 1 255px;
+        padding: 150px 25px 15px;
+        margin-bottom: 35px;
+        position: relative;
+        text-align: center;
+        min-height: 265px;
+        min-width: 160px;
+        margin-right: 20px;
+        transition: all .3s linear;
+
+        &::before {
+          background: no-repeat top left url('/img/resource-center/resource-type-icon.png');
+          background-size: 140px;
+          width: 140px;
+          height: 140px;
+          content: '';
+          position: absolute;
+          top: 38px;
+          left: calc(50% - 70px);
+          transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          content: '';
+          border: 1px solid #e6ebf2;
+          border-radius: 4px;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+          transition: all .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+        }
+
+        &:hover,
+        &:active {
+          text-decoration: none;
+
+          &::before {
+            transform: translate3d(0, -50px, 0) scale3d(.5, .5, 1);
+          }
+
+          &::after {
+            border-color: #dde3eb;
+            transform: scale(1.05);
+          }
+
+          p {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition-duration: .2s;
+            transition-timing-function: ease;
+          }
+
+          h3 {
+            transform: translate3d(0, -110px, 0);
+          }
+        }
+
+        h3 {
+          font-size: 16px;
+          position: absolute;
+          color: $blacker;
+          top: 215px;
+          left: 0;
+          right: 0;
+          transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+        }
+
+        p {
+          opacity: 0;
+          color: $dark-grey;
+          position: relative;
+          transform: translate3d(0,35px,0);
+          transition: opacity .1s linear, transform .1s linear;
+          line-height: 20px;
+          font-size: 13px;
+          letter-spacing: -0.01em;
+          padding: 0 13px;
+        }
+
+        &.case-study::before { background-position: center -140px; }
+        &.video::before {      background-position: center -280px; }
+        &.webinar::before {    background-position: center -420px; }
+
+        &.ng-hide-add, 
+        &.ng-hide-remove {
+          transition: all .3s linear;
+        }
+        
+        &.ng-hide-add.ng-hide-add-active,
+        &.ng-hide-remove { 
+          flex-basis: 0; 
+          padding: 150px 0 15px;
+          min-width: 0;
+          margin-right: 0;
+          transform: scale(.01, 1);
+          opacity: 0;
+          display: block !important;
+        }
+
+        &.ng-hide:not(.ng-hide-add) { display: none;}
+        
+        &.ng-hide-remove.ng-hide-remove-active {
+          flex-basis: 255px;
+          padding: 150px 25px 15px;
+          min-width: 160px;
+          margin-right: 20px;
+          transform: scale(1, 1);
+        }
+      }
+
+      @media (max-width: 578px)  {
+        width: 255px;
+        margin: 0 auto;
+
+        > a {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

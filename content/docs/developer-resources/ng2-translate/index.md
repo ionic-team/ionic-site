@@ -10,7 +10,7 @@ header_sub_title: Ionic Resources
 
 ### Installing
 
-To install ngx-translate run `npm install npm install @ngx-translate/core @ngx-translate/http-loader --save`.
+To install ngx-translate run `npm install @ngx-translate/core @ngx-translate/http-loader --save`.
 
 ### Bootstrapping
 
@@ -113,7 +113,7 @@ Instead of writing the actual string as the title, we write the key of the strin
 The `TranslateService`  can be used both to change the current language the app is using and to translate JavaScript values in an application. To use the `TranslateService` in your app you must first import it and set the default language.
 
 ```typescript
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'page-schedule',

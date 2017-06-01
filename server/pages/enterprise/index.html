@@ -1,11 +1,11 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'enterprise' %}
 {% set mixpanelEnabled = true %}
+{% set bodyController = 'EnterpriseCtrl' %}
 
 {% block main %}
 
-<div class="banner" 
-     ng-init="mixpanel.track('Page Init', {'test': 'Enterprise - 1'})">
+<div class="banner" >
   <hgroup class="container">
     <h1>Ionic Enterprise</h1>
     <p>
@@ -17,8 +17,8 @@
 </div>
 
 {% if notification %}
-<h2 class="container text-center {{notificationClass}}"
-    ng-init="mixpanel.track('Form Success', {'test': 'Enterprise - 1'})">
+<h2 class="container text-center {{notificationClass}}" 
+    ng-init="success = true">
   {{ notification }}
 </h2>
 {% endif %}
@@ -216,40 +216,44 @@
               class="form-inline container"
               method="post"
               name="contact"
-              ng-submit="">
+              ng-submit="submit($event)">
           <input class="form-control"
                  type="text"
                  name="first_name"
                  placeholder="Your first name *"
-                 ng-focus="mixpanel.track('Form Progress', {'test': 'Enterprise - 1', 'field': 'first name'})"
+                 ng-focus="track('Form Progress', 'first name')"
                  required>
           <input class="form-control"
                 type="text"
                 name="last_name"
                 placeholder="Your last name *"
+                ng-focus="track('Form Progress', 'last name')"
                 required>
           <input class="form-control"
                  type="email"
                  name="email"
                  placeholder="Email *"
-                         
                  ng-model="email"
                  ng-class="{ 'invalid': contact.email.$error.email }"
+                 ng-focus="track('Form Progress', 'email')"
                  required>
           <input class="form-control"
                  type="text"
                  name="company"
                  placeholder="Company name *"
+                 ng-focus="track('Form Progress', 'company name')"
                  required>
           <input class="form-control"
                  type="text"
                  name="title"
                  placeholder="Job title *"
+                 ng-focus="track('Form Progress', 'job title')"
                  required>
           <input class="form-control"
                  type="tel"
                  name="phone"
                  placeholder="Phone *"
+                 ng-focus="track('Form Progress', 'phone')"
                  required>
           <div class="select-wrapper full-width"><select class="form-control select-helper"
                  name="employees"
@@ -265,14 +269,12 @@
                     cols="30"
                     rows="10"
                     placeholder="Send us a message"
+                    ng-focus="track('Form Progress', 'message')"
                     required
                     ></textarea>
 
           <input type="hidden" name="form_name" value="enterprise_contact" />
-          <button type="submit" 
-                  class="btn ionic" 
-                  value="Send message"
-                  onClick="mixpanel.track('Form Submit', {'test': 'Enterprise - 1'})">
+          <button type="submit" class="btn ionic" value="Send message">
             Send message
           </button>
         </form>

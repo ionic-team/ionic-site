@@ -2,8 +2,8 @@
   .navbar.transparent + .banner {
     background: #00000c no-repeat center bottom url('/img/resource-center/cta-img.jpg');
     background-size: cover;
-    padding-bottom: 200px;
-    padding-top: 92px;
+    padding-bottom: 184px;
+    padding-top: 85px;
     margin-top: -72px;
     color: white;
     position: relative;
@@ -14,13 +14,19 @@
 
     hgroup {
       padding-top: 50px;
-      background: no-repeat center 0 url('/img/resource-center/cta-resources-icon.png');
+      background: no-repeat center 18px url('/img/resource-center/cta-resources-icon.png');
       background-size: 60px;
+
+      h1 { 
+        font-size: 26px;
+        margin-top: 49px;
+        margin-bottom: 13px;
+      }
 
       p {
         max-width: 660px;
         margin: 0 auto;
-        font-size: 18px;
+        font-size: 19px;
       }
     }
 
@@ -46,7 +52,7 @@
       }
 
       &::after {
-        background: rgba(black, .2);
+        background: rgba(black, .4);
       }
 
       &.affix {
@@ -81,7 +87,7 @@
             color: rgba(white, .6);
             font-size: 14px;
             position: relative;
-            padding: 70px 5px 15px 5px;
+            padding: 71px 5px 13px 5px;
             transition: color .2s;
             background: transparent;
             cursor: pointer;
@@ -137,22 +143,40 @@
 
   section.container {
     padding-top: 75px;
-    overflow-x: hidden;
 
     .items {
       display: flex;
       flex-wrap: wrap;
 
+
       a {
-        flex: 0 1 255px;
-        padding: 150px 25px 15px;
+        display: inline-block;
+        padding: 164px 15px 15px;
         margin-bottom: 35px;
         position: relative;
         text-align: center;
+        margin-left: 12px;
+        margin-right: 12px;
         min-height: 265px;
-        min-width: 160px;
-        margin-right: 20px;
-        transition: all .3s linear;
+        vertical-align: top;
+        width: 265px;
+        transition:  .3s width, .3s height, .3s margin, .3s padding-right,
+                     .3s padding-left, .3s transform, .3s opacity;
+
+        @media (max-width: $screen-md-max)  {
+          margin-left: 19px;
+          margin-right: 19px;
+        }
+
+        @media (max-width: $screen-sm-max)  {
+          margin-left: 42px;
+          margin-right: 42px;
+        }
+
+        @media (max-width: $screen-xs-max)  {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
 
         &::before {
           background: no-repeat top left url('/img/resource-center/resource-type-icon.png');
@@ -161,7 +185,7 @@
           height: 140px;
           content: '';
           position: absolute;
-          top: 38px;
+          top: 43px;
           left: calc(50% - 70px);
           transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
         }
@@ -173,10 +197,10 @@
           bottom: 0;
           left: 0;
           content: '';
-          border: 1px solid #e6ebf2;
           border-radius: 4px;
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
-          transition: all .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+          transition: box-shadow .4s cubic-bezier(0.155, 1.105, 0.295, 1.12),
+                       transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
         }
 
         &:hover,
@@ -184,11 +208,11 @@
           text-decoration: none;
 
           &::before {
-            transform: translate3d(0, -50px, 0) scale3d(.5, .5, 1);
+            transform: translate3d(0, -57px, 0) scale3d(0.47, 0.47, 1);
           }
 
           &::after {
-            border-color: #dde3eb;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01),  0 6px 16px rgba(0, 0, 0, 0.15);
             transform: scale(1.05);
           }
 
@@ -200,7 +224,7 @@
           }
 
           h3 {
-            transform: translate3d(0, -110px, 0);
+            transform: translate3d(0, -109px, 0) scale(.9,.9);
           }
         }
 
@@ -208,53 +232,59 @@
           font-size: 16px;
           position: absolute;
           color: $blacker;
-          top: 215px;
-          left: 0;
-          right: 0;
+          top: 190px;
+          // left: calc(50% - 127px);
+          left: 12px;
+          width: 240px;
           transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+
+          &::after {
+            content: 'Whitepaper';
+            text-transform: uppercase;
+            font-size: 10px;
+            color: $grey;
+            display: block;
+            margin-top: 5px;
+            font-weight: 700;
+            letter-spacing: .03em;
+          }
         }
 
         p {
           opacity: 0;
           color: $dark-grey;
           position: relative;
-          transform: translate3d(0,35px,0);
+          transform: translate3d(0,55px,0);
           transition: opacity .1s linear, transform .1s linear;
           line-height: 20px;
           font-size: 13px;
           letter-spacing: -0.01em;
           padding: 0 13px;
+          width: 235px;
         }
 
-        &.case-study::before { background-position: center -140px; }
-        &.video::before {      background-position: center -280px; }
-        &.webinar::before {    background-position: center -420px; }
-
-        &.ng-hide-add, 
-        &.ng-hide-remove {
-          transition: all .3s linear;
-        }
-        
-        &.ng-hide-add.ng-hide-add-active,
-        &.ng-hide-remove { 
-          flex-basis: 0; 
-          padding: 150px 0 15px;
-          min-width: 0;
-          margin-right: 0;
-          transform: scale(.01, 1);
-          opacity: 0;
-          display: block !important;
+        &.case-study {
+          &::before { background-position: center -140px; }
         }
 
-        &.ng-hide:not(.ng-hide-add) { display: none;}
-        
-        &.ng-hide-remove.ng-hide-remove-active {
-          flex-basis: 255px;
-          padding: 150px 25px 15px;
-          min-width: 160px;
-          margin-right: 20px;
-          transform: scale(1, 1);
+        &.video {
+          &::before {      background-position: center -280px; }
         }
+
+        &.webinar {
+          &::before {    background-position: center -420px; }
+        }
+      }
+      
+      &.filtered a:not(.active) {
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        transform: scale3d(.01, .01, 1);
+        opacity: 0;
+        // transform-origin: left top;
       }
 
       @media (max-width: 578px)  {

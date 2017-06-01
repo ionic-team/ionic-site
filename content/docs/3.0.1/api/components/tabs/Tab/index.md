@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L15">
 Improve this doc
 </a>
 

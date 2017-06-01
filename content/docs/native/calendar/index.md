@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Calendar</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L50">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L50">
   Improve this doc
 </a>
 

@@ -24,6 +24,10 @@ module.exports = function(req, res, next) {
       // if version is pruned, redirect to latest release
       urlParts[2] = '';
       return res.redirect(301, urlParts.join('/').replace('//', '/'));
+    } else if (urlParts[2] == 'resources') {
+      // resources is now developer-resources
+      return res.redirect(301, 
+        req.path.replace('/resources', '/developer-resources'));
     }
   }
 

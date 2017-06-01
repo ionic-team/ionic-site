@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toggle/toggle.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/toggle/toggle.ts#L13">
 Improve this doc
 </a>
 
@@ -48,7 +48,7 @@ Improve this doc
 except it looks different and is easier to use on a touch device.
 Toggles can also have colors assigned to them, by adding any color
 attribute.</p>
-<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular Docs</a>
 for more info on forms and inputs.</p>
 
 

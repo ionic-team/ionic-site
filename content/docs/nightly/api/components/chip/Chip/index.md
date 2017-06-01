@@ -35,7 +35,7 @@ Chip
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/chip/chip.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/chip/chip.ts#L3">
 Improve this doc
 </a>
 
@@ -81,7 +81,7 @@ Improve this doc
 
 &lt;ion-chip&gt;
   &lt;ion-avatar&gt;
-    &lt;img src=&quot;img/my-img.png&quot;&gt;
+    &lt;img src=&quot;assets/img/my-img.png&quot;&gt;
   &lt;/ion-avatar&gt;
   &lt;ion-label&gt;Default&lt;/ion-label&gt;
 &lt;/ion-chip&gt;

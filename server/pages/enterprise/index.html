@@ -1,9 +1,11 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'enterprise' %}
+{% set mixpanelEnabled = true %}
 
 {% block main %}
 
-<div class="banner">
+<div class="banner" 
+     ng-init="mixpanel.track('Page Init', {'test': 'Enterprise - 1'})">
   <hgroup class="container">
     <h1>Ionic Enterprise</h1>
     <p>
@@ -15,7 +17,10 @@
 </div>
 
 {% if notification %}
-<h2 class="container text-center {{notificationClass}}">{{ notification }}</h2>
+<h2 class="container text-center {{notificationClass}}"
+    ng-init="mixpanel.track('Form Success', {'test': 'Enterprise - 1'})">
+  {{ notification }}
+</h2>
 {% endif %}
 <section class="container ready">
   <hgroup class="hero text-center">
@@ -174,7 +179,10 @@
 <section class="bar get-in-touch">
   <hgroup class="container">
     <h2>Ready to start building better apps, faster?</h2>
-    <a class="btn white sm" data-toggle="modal" data-target="#contactForm">
+    <a class="btn white sm" 
+       data-toggle="modal" 
+       data-target="#contactForm" 
+       onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})">
       Get in touch</a>
   </hgroup>
 </section>
@@ -182,14 +190,19 @@
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade" id="contactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal collapse fade" 
+     id="contactForm" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button"
                 class="close"
                 data-dismiss="modal"
-                aria-label="Close">
+                aria-label="Close"
+                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="hero text-center">
@@ -202,11 +215,13 @@
         <form action="/enterprise"
               class="form-inline container"
               method="post"
-              name="contact">
+              name="contact"
+              ng-submit="">
           <input class="form-control"
                  type="text"
                  name="first_name"
                  placeholder="Your first name *"
+                 ng-focus="mixpanel.track('Form Progress', {'test': 'Enterprise - 1', 'field': 'first name'})"
                  required>
           <input class="form-control"
                 type="text"
@@ -217,6 +232,7 @@
                  type="email"
                  name="email"
                  placeholder="Email *"
+                         
                  ng-model="email"
                  ng-class="{ 'invalid': contact.email.$error.email }"
                  required>
@@ -253,7 +269,10 @@
                     ></textarea>
 
           <input type="hidden" name="form_name" value="enterprise_contact" />
-          <button type="submit" class="btn ionic" value="Send message">
+          <button type="submit" 
+                  class="btn ionic" 
+                  value="Send message"
+                  onClick="mixpanel.track('Form Submit', {'test': 'Enterprise - 1'})">
             Send message
           </button>
         </form>

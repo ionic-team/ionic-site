@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Hotspot<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/hotspot/index.ts#L101">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/hotspot/index.ts#L101">
   Improve this doc
 </a>
 

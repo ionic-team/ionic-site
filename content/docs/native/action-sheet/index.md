@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Action Sheet</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L54">
   Improve this doc
 </a>
 

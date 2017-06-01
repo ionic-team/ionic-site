@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Device</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device/index.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device/index.ts#L3">
   Improve this doc
 </a>
 
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/device
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>OS X</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

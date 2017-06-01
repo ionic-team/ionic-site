@@ -33,7 +33,7 @@ LoadingController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L90">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master//src/components/loading/loading.ts#L90">
 Improve this doc
 </a>
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
   Improve this doc
 </a>
 

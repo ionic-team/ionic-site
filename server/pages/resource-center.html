@@ -1,0 +1,89 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'resource-center' %}
+{% set bodyController = 'ResourceCenterCtrl' %}
+
+{% block body_attributes %}
+  data-spy="scroll" data-target="#resource-center-nav"
+{% endblock %}
+
+{% block main %}
+
+<div class="banner">
+  <hgroup class="container">
+    <h1>Ionic Resource Center</h1>
+    <p>
+      Resources to learn how to build cross-platform apps like a pro
+    </p>
+  </hgroup>
+  <div class="bar" data-spy="affix" data-offset-top="375">
+    <div class="container" id="resource-center-nav" offset="-400">
+      <ul class="categories nav">
+        <li><a class="anchor whitepaper"
+               ng-class="{'active': current == 'whitepaper'}"
+               ng-click="filter('whitepaper')">Whitepapers</a></li>
+        <li><a class="anchor case-study"
+               ng-class="{'active': current == 'case-study'}"
+               ng-click="filter('case-study')">Case studies</a></li>
+        <li><a class="anchor video"
+               ng-class="{'active': current == 'video'}"
+               ng-click="filter('video')">Videos</a></li>
+        <li><a class="anchor webinar"
+               ng-class="{'active': current == 'webinar'}"
+               ng-click="filter('webinar')">Webinars</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="container">
+  <div class="items" id="resource-center-items">
+    <a href="" class="whitepaper" ng-hide="current && current != 'whitepaper'">
+      <hgroup>
+        <h3>The Mobile Delivery Gap</h3>
+        <p>
+          Kitsch elit laboris, semiotics dreamcatcher consectetur gochujang s
+          chlitz kickstarter subway tile reprehenderit farm-to-table selfies.
+          Venmo plaid eiusmod non hashtag migas.
+        </p>
+      </hgroup>
+    </a>
+    <a href="" class="case-study" ng-hide="current && current != 'case-study'">
+      <hgroup>
+        <h3>MarketWatch</h3>
+        <p>
+          Excepteur dolor whatever, woke ramps qui sint williamsburg franzen 
+          migas gentrify mustache tempor velit. Raw denim roof party esse sunt 
+          yuccie. Selvage photo booth DIY helvetica ramps.
+        </p>
+      </hgroup>
+    </a>
+    <a href="" class="video" ng-hide="current && current != 'video'">
+      <hgroup>
+        <h3>Evolution of Web on Mobile</h3>
+        <p>
+          Authentic selfies bicycle rights lomo vexillologist williamsburg. 
+          Raclette echo park subway tile, affogato salvia placeat pabst ex banjo 
+          poke ennui gluten-free master cleanse.
+        </p>
+      </hgroup>
+    </a>
+    <a href="" class="webinar" ng-hide="current && current != 'webinar'">
+      <hgroup>
+        <h3>The Hybrid Perspective</h3>
+        <p>
+          Leggings anim fingerstache, heirloom non meh seitan mollit narwhal. 
+          Odio taxidermy dolore dreamcatcher keytar gentrify. Incididunt four 
+          dollar toast keffiyeh hammock sustainable. 
+        </p>
+      </hgroup>
+    </a>
+  </div>
+</section>
+
+<div class="dark hero text-center">
+  <hgroup class="container">
+    <h3>Ionic is an ecosystem. See everything we offer.</h3>
+    <p><a href="/discover" class="btn white">Discover Ionic</a></p>
+  </hgroup>
+</div>
+{% endblock %}

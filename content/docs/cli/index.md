@@ -9,7 +9,7 @@ title: Ionic CLI Documentation
 
 
 The Ionic CLI is your go-to tool for developing Ionic apps. You can follow CLI
-development on [Github](https://github.com/driftyco/ionic-cli).
+development on [Github](https://github.com/ionic-team/ionic-cli).
 
 ## Installation
 

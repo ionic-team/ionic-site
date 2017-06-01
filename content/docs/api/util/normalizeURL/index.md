@@ -31,7 +31,7 @@ normalizeURL
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/util/util.ts#L49">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/util/util.ts#L49">
 Improve this doc
 </a>
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Appodeal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/appodeal/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/appodeal/index.ts#L2">
   Improve this doc
 </a>
 

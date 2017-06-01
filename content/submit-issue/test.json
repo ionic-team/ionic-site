@@ -3,11 +3,11 @@
   "incomplete_results": false,
   "items": [
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-learn/issues/13",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/13/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/13/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/13/events",
-      "html_url": "https://github.com/driftyco/ionic-learn/issues/13",
+      "url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/13",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/13/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/13/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/13/events",
+      "html_url": "https://github.com/ionic-team/ionic-learn/issues/13",
       "id": 33607231,
       "number": 13,
       "title": "Testing Your App",
@@ -32,17 +32,17 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic-learn/labels/formula",
+          "url": "https://api.github.com/repos/ionic-team/ionic-learn/labels/formula",
           "name": "formula",
           "color": "eb6420"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic-learn/labels/queued",
+          "url": "https://api.github.com/repos/ionic-team/ionic-learn/labels/queued",
           "name": "queued",
           "color": "0052cc"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic-learn/labels/screencast",
+          "url": "https://api.github.com/repos/ionic-team/ionic-learn/labels/screencast",
           "name": "screencast",
           "color": "fbca04"
         }
@@ -58,11 +58,11 @@
       "score": 10.274609
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-site/issues/149",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-site/issues/149/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-site/issues/149/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-site/issues/149/events",
-      "html_url": "https://github.com/driftyco/ionic-site/issues/149",
+      "url": "https://api.github.com/repos/ionic-team/ionic-site/issues/149",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/149/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/149/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/149/events",
+      "html_url": "https://github.com/ionic-team/ionic-site/issues/149",
       "id": 30585988,
       "number": 149,
       "title": "Guide - iOS mobile testing",
@@ -99,11 +99,11 @@
       "score": 9.99341
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-weather/issues/15",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/15/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/15/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/15/events",
-      "html_url": "https://github.com/driftyco/ionic-weather/issues/15",
+      "url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/15",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/15/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/15/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/15/events",
+      "html_url": "https://github.com/ionic-team/ionic-weather/issues/15",
       "id": 35838444,
       "number": 15,
       "title": "Working Demo",
@@ -140,11 +140,11 @@
       "score": 3.4485517
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-site/issues/190",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-site/issues/190/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-site/issues/190/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-site/issues/190/events",
-      "html_url": "https://github.com/driftyco/ionic-site/issues/190",
+      "url": "https://api.github.com/repos/ionic-team/ionic-site/issues/190",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/190/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/190/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/190/events",
+      "html_url": "https://github.com/ionic-team/ionic-site/issues/190",
       "id": 35337108,
       "number": 190,
       "title": "Tiny typo in Guide / Testing your App",
@@ -181,11 +181,11 @@
       "score": 3.432309
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-site/issues/148",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-site/issues/148/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-site/issues/148/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-site/issues/148/events",
-      "html_url": "https://github.com/driftyco/ionic-site/issues/148",
+      "url": "https://api.github.com/repos/ionic-team/ionic-site/issues/148",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/148/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/148/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/148/events",
+      "html_url": "https://github.com/ionic-team/ionic-site/issues/148",
       "id": 30584987,
       "number": 148,
       "title": "Guide - desktop browser testing....",
@@ -222,11 +222,11 @@
       "score": 3.0663767
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-learn/issues/64",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/64/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/64/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-learn/issues/64/events",
-      "html_url": "https://github.com/driftyco/ionic-learn/pull/64",
+      "url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/64",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/64/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/64/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-learn/issues/64/events",
+      "html_url": "https://github.com/ionic-team/ionic-learn/pull/64",
       "id": 36049519,
       "number": 64,
       "title": "Added tutorial for Protractor testing on the browser and with Ripple.",
@@ -260,20 +260,20 @@
       "updated_at": "2014-07-01T13:58:42Z",
       "closed_at": "2014-07-01T13:58:42Z",
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ionic-learn/pulls/64",
-        "html_url": "https://github.com/driftyco/ionic-learn/pull/64",
-        "diff_url": "https://github.com/driftyco/ionic-learn/pull/64.diff",
-        "patch_url": "https://github.com/driftyco/ionic-learn/pull/64.patch"
+        "url": "https://api.github.com/repos/ionic-team/ionic-learn/pulls/64",
+        "html_url": "https://github.com/ionic-team/ionic-learn/pull/64",
+        "diff_url": "https://github.com/ionic-team/ionic-learn/pull/64.diff",
+        "patch_url": "https://github.com/ionic-team/ionic-learn/pull/64.patch"
       },
-      "body": "I am new to nanoc, and I didn't see any unit tests or e2e tests. If there is some thing broken or some way to test, feel free to reject and let me know what I need to fix. \r\n\r\nI recently wrote my e2e tests and decided to make it work with ripple, there were a few hurdles and I thought other people might benefit from my trial and error. Then I went kind overboard and decided to just write an intro to protractor while I was at it. \r\n\r\n\r\nIt was suggested that I contribute it to learn-ionic here: https://github.com/driftyco/ionic/issues/1642#issuecomment-46443335\r\nLet me know what you think, and if you want me to rewrite anything before you would want to put it up.",
+      "body": "I am new to nanoc, and I didn't see any unit tests or e2e tests. If there is some thing broken or some way to test, feel free to reject and let me know what I need to fix. \r\n\r\nI recently wrote my e2e tests and decided to make it work with ripple, there were a few hurdles and I thought other people might benefit from my trial and error. Then I went kind overboard and decided to just write an intro to protractor while I was at it. \r\n\r\n\r\nIt was suggested that I contribute it to learn-ionic here: https://github.com/ionic-team/ionic/issues/1642#issuecomment-46443335\r\nLet me know what you think, and if you want me to rewrite anything before you would want to put it up.",
       "score": 2.4808795
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-site/issues/175",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-site/issues/175/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-site/issues/175/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-site/issues/175/events",
-      "html_url": "https://github.com/driftyco/ionic-site/pull/175",
+      "url": "https://api.github.com/repos/ionic-team/ionic-site/issues/175",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/175/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/175/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-site/issues/175/events",
+      "html_url": "https://github.com/ionic-team/ionic-site/pull/175",
       "id": 34501288,
       "number": 175,
       "title": "Update Testing Chapter to Reference Ionic's CLI",
@@ -307,20 +307,20 @@
       "updated_at": "2014-06-09T01:29:13Z",
       "closed_at": "2014-06-08T16:15:26Z",
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ionic-site/pulls/175",
-        "html_url": "https://github.com/driftyco/ionic-site/pull/175",
-        "diff_url": "https://github.com/driftyco/ionic-site/pull/175.diff",
-        "patch_url": "https://github.com/driftyco/ionic-site/pull/175.patch"
+        "url": "https://api.github.com/repos/ionic-team/ionic-site/pulls/175",
+        "html_url": "https://github.com/ionic-team/ionic-site/pull/175",
+        "diff_url": "https://github.com/ionic-team/ionic-site/pull/175.diff",
+        "patch_url": "https://github.com/ionic-team/ionic-site/pull/175.patch"
       },
       "body": "Replaces python server and some cordova commands with ionic's own commands",
       "score": 2.4397376
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/76",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/76/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/76/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/76/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/issues/76",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/76",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/76/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/76/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/76/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/issues/76",
       "id": 35732390,
       "number": 76,
       "title": "Phonegap Desktop",
@@ -357,11 +357,11 @@
       "score": 1.9425182
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/15",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/15/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/15/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/15/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/pull/15",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/15",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/15/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/15/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/15/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/pull/15",
       "id": 34809909,
       "number": 15,
       "title": "WIP: Service Mocks",
@@ -386,7 +386,7 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ng-cordova/labels/enhancement",
+          "url": "https://api.github.com/repos/ionic-team/ng-cordova/labels/enhancement",
           "name": "enhancement",
           "color": "84b6eb"
         }
@@ -399,20 +399,20 @@
       "updated_at": "2014-06-13T17:44:08Z",
       "closed_at": null,
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ng-cordova/pulls/15",
-        "html_url": "https://github.com/driftyco/ng-cordova/pull/15",
-        "diff_url": "https://github.com/driftyco/ng-cordova/pull/15.diff",
-        "patch_url": "https://github.com/driftyco/ng-cordova/pull/15.patch"
+        "url": "https://api.github.com/repos/ionic-team/ng-cordova/pulls/15",
+        "html_url": "https://github.com/ionic-team/ng-cordova/pull/15",
+        "diff_url": "https://github.com/ionic-team/ng-cordova/pull/15.diff",
+        "patch_url": "https://github.com/ionic-team/ng-cordova/pull/15.patch"
       },
       "body": "This is a WIP PR for adding support for desktop/unit testing mocks for common cordova services.\r\n\r\nThe idea is you can call cordova plugin services even if you are testing in a non-device setting where cordova doesn't exist. The calls will still work, or at the very least print a console warning.\r\n\r\nThen, you can \"mock\" the services for testing, like taking a photo:\r\n\r\n```javascript\r\n// Set up mock\r\n$cordovaCamera.whenGetPicture('profile', 'img/test/face.png');\r\n\r\n// In controller or somewhere else:\r\n$cordovaCamera.getPicture('profile').then(function(imageData) {\r\n});\r\n```",
       "score": 1.721735
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1644",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1644/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1644/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1644/events",
-      "html_url": "https://github.com/driftyco/ionic/pull/1644",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1644",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1644/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1644/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1644/events",
+      "html_url": "https://github.com/ionic-team/ionic/pull/1644",
       "id": 36006497,
       "number": 1644,
       "title": "fix(listItem): apply color styles to complex list items",
@@ -446,20 +446,20 @@
       "updated_at": "2014-06-18T18:51:34Z",
       "closed_at": "2014-06-18T18:51:34Z",
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ionic/pulls/1644",
-        "html_url": "https://github.com/driftyco/ionic/pull/1644",
-        "diff_url": "https://github.com/driftyco/ionic/pull/1644.diff",
-        "patch_url": "https://github.com/driftyco/ionic/pull/1644.patch"
+        "url": "https://api.github.com/repos/ionic-team/ionic/pulls/1644",
+        "html_url": "https://github.com/ionic-team/ionic/pull/1644",
+        "diff_url": "https://github.com/ionic-team/ionic/pull/1644.diff",
+        "patch_url": "https://github.com/ionic-team/ionic/pull/1644.patch"
       },
       "body": "Needs to be run through snapshot testing",
       "score": 1.6588814
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/134",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/134/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/134/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/134/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/pull/134",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/134",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/134/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/134/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/134/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/pull/134",
       "id": 38077252,
       "number": 134,
       "title": "Adding bluetoothSerial plugin",
@@ -493,20 +493,20 @@
       "updated_at": "2014-07-17T13:02:44Z",
       "closed_at": "2014-07-17T13:01:46Z",
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ng-cordova/pulls/134",
-        "html_url": "https://github.com/driftyco/ng-cordova/pull/134",
-        "diff_url": "https://github.com/driftyco/ng-cordova/pull/134.diff",
-        "patch_url": "https://github.com/driftyco/ng-cordova/pull/134.patch"
+        "url": "https://api.github.com/repos/ionic-team/ng-cordova/pulls/134",
+        "html_url": "https://github.com/ionic-team/ng-cordova/pull/134",
+        "diff_url": "https://github.com/ionic-team/ng-cordova/pull/134.diff",
+        "patch_url": "https://github.com/ionic-team/ng-cordova/pull/134.patch"
       },
       "body": "I am using this plugin, so my 2 cents.\r\nAdding bluetoothserial [bluetoothSerialPlugin](https://github.com/don/BluetoothSerial/)\r\nBTW great project!",
       "score": 1.278098
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-weather/issues/8",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/8/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/8/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/8/events",
-      "html_url": "https://github.com/driftyco/ionic-weather/issues/8",
+      "url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/8",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/8/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/8/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/8/events",
+      "html_url": "https://github.com/ionic-team/ionic-weather/issues/8",
       "id": 30570889,
       "number": 8,
       "title": "black background on Safari desktop browser",
@@ -543,11 +543,11 @@
       "score": 1.2406286
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1805",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1805/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1805/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1805/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1805",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1805",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1805/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1805/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1805/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1805",
       "id": 38192899,
       "number": 1805,
       "title": "Please use meta viewport on Codepen demos",
@@ -584,11 +584,11 @@
       "score": 1.1082424
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-weather/issues/9",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/9/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/9/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-weather/issues/9/events",
-      "html_url": "https://github.com/driftyco/ionic-weather/issues/9",
+      "url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/9",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/9/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/9/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-weather/issues/9/events",
+      "html_url": "https://github.com/ionic-team/ionic-weather/issues/9",
       "id": 30571023,
       "number": 9,
       "title": "display/interaction problems in desktop firefox",
@@ -625,11 +625,11 @@
       "score": 1.0572563
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1656",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1656/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1656/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1656/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1656",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1656",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1656/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1656/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1656/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1656",
       "id": 36226689,
       "number": 1656,
       "title": "ion-delete-button doesn't prevent action on Android",
@@ -654,17 +654,17 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/android",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/android",
           "name": "android",
           "color": "009800"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/needs+reply",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/needs+reply",
           "name": "needs reply",
           "color": "ededed"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/tap%2Fclick",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/tap%2Fclick",
           "name": "tap/click",
           "color": "fef2c0"
         }
@@ -698,11 +698,11 @@
       "score": 1.047587
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/79",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/79/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/79/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/79/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/pull/79",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/79",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/79/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/79/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/79/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/pull/79",
       "id": 35846711,
       "number": 79,
       "title": "ngDemo is a Phonegap-build ready demo that exercises most of the existin...",
@@ -736,20 +736,20 @@
       "updated_at": "2014-06-17T08:02:20Z",
       "closed_at": null,
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ng-cordova/pulls/79",
-        "html_url": "https://github.com/driftyco/ng-cordova/pull/79",
-        "diff_url": "https://github.com/driftyco/ng-cordova/pull/79.diff",
-        "patch_url": "https://github.com/driftyco/ng-cordova/pull/79.patch"
+        "url": "https://api.github.com/repos/ionic-team/ng-cordova/pulls/79",
+        "html_url": "https://github.com/ionic-team/ng-cordova/pull/79",
+        "diff_url": "https://github.com/ionic-team/ng-cordova/pull/79.diff",
+        "patch_url": "https://github.com/ionic-team/ng-cordova/pull/79.patch"
       },
       "body": "...g ngCordova plugins.  ngCordova lowers the bar for entry for Ionic/Angular users who may not yet have used a plugin.  This simple demo uses code from the ngCordova doc page and some additional sugar and window-dressing for smoke-testing use of new and existing ngCordova-defined plugins.  Currently, geolocation (works in browser, not in emulator or handset) and network do not work (pulling master keeps reverting the 'networkSate' error).  Also the Phonegap build config is Android only as I don't have an Apple app key.\r\n\r\n![screen shot 2014-06-16 at 7 41 49 pm](https://cloud.githubusercontent.com/assets/219851/3294787/3f5cf8da-f5b0-11e3-8391-1acae6a41b69.png)\r\n![screen shot 2014-06-16 at 7 42 34 pm](https://cloud.githubusercontent.com/assets/219851/3294788/41a0f5ce-f5b0-11e3-9d45-b815bccafb9a.png)\r\n![screen shot 2014-06-16 at 7 51 23 pm](https://cloud.githubusercontent.com/assets/219851/3294823/32607958-f5b1-11e3-993e-6a8d769d8b36.png)\r\n\r\n\r\n\r\n",
       "score": 1.0445186
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1739",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1739/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1739/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1739/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1739",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1739",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1739/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1739/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1739/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1739",
       "id": 37274103,
       "number": 1739,
       "title": "Request: Update starter projects",
@@ -774,7 +774,7 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/ready",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/ready",
           "name": "ready",
           "color": "ededed"
         }
@@ -804,15 +804,15 @@
       "created_at": "2014-07-07T14:34:11Z",
       "updated_at": "2014-07-13T18:58:10Z",
       "closed_at": null,
-      "body": "Originally reported here: https://github.com/driftyco/ionic-starter-maps/issues/1\r\n\r\nbut I'm extending it to the general case here. What would be really cool is if the starter projects also followed the [yeoman generator-angular](https://github.com/yeoman/generator-angular) structure so that they could be used with the community generators ([original](https://github.com/diegonetto/generator-ionic), [my fork](https://github.com/JaKXz/generator-ionic), etc) but I understand if that's asking too much.",
+      "body": "Originally reported here: https://github.com/ionic-team/ionic-starter-maps/issues/1\r\n\r\nbut I'm extending it to the general case here. What would be really cool is if the starter projects also followed the [yeoman generator-angular](https://github.com/yeoman/generator-angular) structure so that they could be used with the community generators ([original](https://github.com/diegonetto/generator-ionic), [my fork](https://github.com/JaKXz/generator-ionic), etc) but I understand if that's asking too much.",
       "score": 0.98255
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1398",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1398/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1398/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1398/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1398",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1398",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1398/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1398/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1398/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1398",
       "id": 33572502,
       "number": 1398,
       "title": "ion-tabs have issues on Samsung Galaxy Note 3 in beta5b",
@@ -837,17 +837,17 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/ready",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/ready",
           "name": "ready",
           "color": "ededed"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/tabs",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/tabs",
           "name": "tabs",
           "color": "207de5"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/tap%2Fclick",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/tap%2Fclick",
           "name": "tap/click",
           "color": "fef2c0"
         }
@@ -881,11 +881,11 @@
       "score": 0.81529623
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1706",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1706/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1706/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1706/events",
-      "html_url": "https://github.com/driftyco/ionic/pull/1706",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1706",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1706/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1706/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1706/events",
+      "html_url": "https://github.com/ionic-team/ionic/pull/1706",
       "id": 36813934,
       "number": 1706,
       "title": "Disable Back button anim. for certain transitions",
@@ -910,12 +910,12 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/animation",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/animation",
           "name": "animation",
           "color": "eb6420"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/in+progress",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/in+progress",
           "name": "in progress",
           "color": "ededed"
         }
@@ -946,20 +946,20 @@
       "updated_at": "2014-07-17T20:24:07Z",
       "closed_at": null,
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ionic/pulls/1706",
-        "html_url": "https://github.com/driftyco/ionic/pull/1706",
-        "diff_url": "https://github.com/driftyco/ionic/pull/1706.diff",
-        "patch_url": "https://github.com/driftyco/ionic/pull/1706.patch"
+        "url": "https://api.github.com/repos/ionic-team/ionic/pulls/1706",
+        "html_url": "https://github.com/ionic-team/ionic/pull/1706",
+        "diff_url": "https://github.com/ionic-team/ionic/pull/1706.diff",
+        "patch_url": "https://github.com/ionic-team/ionic/pull/1706.patch"
       },
       "body": "The Ion Nav Back Button is designed to be shown and hidden using the add/remove class animation, to ensure an iOS 7 style transition when going forward/back through a navigation structure (e.g. overview page > detail page.)\r\n\r\nThis transition works fine, except when transitioning from one view (e.g. detail page) to another view (e.g. a different tab page) where the back button should be hidden. This causes the 'Back' button to be animated out of existence, when in fact it should be immediately removed.\r\n\r\nE.g. In the Ionic Default Tab app, open 'Friends > Scruff McGruff', and then tab to 'Account'. You will notice a small delay before the 'Back' button is hidden, which is (noticeably) at a different time to when the Title is updated to 'Account' - both the title and the Back button should be updated/removed at the same time.\r\n\r\nIonic's ionNavBackButton directive should take account of the 'shouldAnimate' bool, so that the animation is not used when an immediate transition is required.\r\n\r\nThis pull request is an example of a potential fix to demonstrate how the back button transition animation should be disabled in certain circumstances.",
       "score": 0.7656865
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/714",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/714/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/714/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/714/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/714",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/714",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/714/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/714/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/714/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/714",
       "id": 28619071,
       "number": 714,
       "title": "[FEATURE] Swipe-To-Go-Back, iOS7-Style / Interactive View Transitions",
@@ -984,12 +984,12 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/discuss%2Ffuture",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/discuss%2Ffuture",
           "name": "discuss/future",
           "color": "ededed"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/service",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/service",
           "name": "service",
           "color": "006b75"
         }
@@ -1023,11 +1023,11 @@
       "score": 0.7518995
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-cli/issues/27",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-cli/issues/27/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-cli/issues/27/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-cli/issues/27/events",
-      "html_url": "https://github.com/driftyco/ionic-cli/issues/27",
+      "url": "https://api.github.com/repos/ionic-team/ionic-cli/issues/27",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-cli/issues/27/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-cli/issues/27/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-cli/issues/27/events",
+      "html_url": "https://github.com/ionic-team/ionic-cli/issues/27",
       "id": 33267609,
       "number": 27,
       "title": "Flags are not passed to cordova",
@@ -1064,11 +1064,11 @@
       "score": 0.74118817
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1255",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1255/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1255/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1255/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1255",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1255",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1255/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1255/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1255/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1255",
       "id": 32655598,
       "number": 1255,
       "title": "[feature request] Horizontal bouncy scrolling in android",
@@ -1093,22 +1093,22 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/android",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/android",
           "name": "android",
           "color": "009800"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/discuss%2Ffuture",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/discuss%2Ffuture",
           "name": "discuss/future",
           "color": "ededed"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/feature",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/feature",
           "name": "feature",
           "color": "84b6eb"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/scroll",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/scroll",
           "name": "scroll",
           "color": "eb6420"
         }
@@ -1124,11 +1124,11 @@
       "score": 0.7097977
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1434",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1434/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1434/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1434/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1434",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1434",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1434/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1434/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1434/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1434",
       "id": 33780301,
       "number": 1434,
       "title": "Delays on changing state of app",
@@ -1153,12 +1153,12 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/navigation",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/navigation",
           "name": "navigation",
           "color": "eb6420"
         },
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/ready",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/ready",
           "name": "ready",
           "color": "ededed"
         }
@@ -1174,11 +1174,11 @@
       "score": 0.663512
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1585",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1585/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1585/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1585/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1585",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1585",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1585/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1585/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1585/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1585",
       "id": 35206022,
       "number": 1585,
       "title": "Why a Python cmd on a npm/bower base project",
@@ -1215,11 +1215,11 @@
       "score": 0.49604312
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/31",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/31/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/31/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/31/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/31",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/31",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/31/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/31/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/31/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/31",
       "id": 20781397,
       "number": 31,
       "title": "Angular Testing Checklist",
@@ -1248,8 +1248,8 @@
       "state": "closed",
       "assignee": null,
       "milestone": {
-        "url": "https://api.github.com/repos/driftyco/ionic/milestones/1",
-        "labels_url": "https://api.github.com/repos/driftyco/ionic/milestones/1/labels",
+        "url": "https://api.github.com/repos/ionic-team/ionic/milestones/1",
+        "labels_url": "https://api.github.com/repos/ionic-team/ionic/milestones/1/labels",
         "id": 455845,
         "number": 1,
         "title": "0.9.0 Alpha",
@@ -1288,11 +1288,11 @@
       "score": 0.45541784
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/1285",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/1285/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/1285/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/1285/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/1285",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/1285",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/1285/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/1285/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/1285/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/1285",
       "id": 32894604,
       "number": 1285,
       "title": "iOS: Page able to be dragged horizontally",
@@ -1317,7 +1317,7 @@
       },
       "labels": [
         {
-          "url": "https://api.github.com/repos/driftyco/ionic/labels/needs+reply",
+          "url": "https://api.github.com/repos/ionic-team/ionic/labels/needs+reply",
           "name": "needs reply",
           "color": "ededed"
         }
@@ -1351,11 +1351,11 @@
       "score": 0.45349312
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/126",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/126/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/126/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/126/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/issues/126",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/126",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/126/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/126/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/126/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/issues/126",
       "id": 37702643,
       "number": 126,
       "title": "Not able to download file with $cordovaFile.downloadFile",
@@ -1392,11 +1392,11 @@
       "score": 0.44884655
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic/issues/940",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic/issues/940/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic/issues/940/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic/issues/940/events",
-      "html_url": "https://github.com/driftyco/ionic/issues/940",
+      "url": "https://api.github.com/repos/ionic-team/ionic/issues/940",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic/issues/940/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic/issues/940/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic/issues/940/events",
+      "html_url": "https://github.com/ionic-team/ionic/issues/940",
       "id": 30361605,
       "number": 940,
       "title": "(test): issuetemplate test",
@@ -1433,11 +1433,11 @@
       "score": 0.44558835
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ng-cordova/issues/50",
-      "labels_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/50/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/50/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ng-cordova/issues/50/events",
-      "html_url": "https://github.com/driftyco/ng-cordova/issues/50",
+      "url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/50",
+      "labels_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/50/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/50/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ng-cordova/issues/50/events",
+      "html_url": "https://github.com/ionic-team/ng-cordova/issues/50",
       "id": 35231026,
       "number": 50,
       "title": "Note in doc to include ng-cordova.js before cordova.js",
@@ -1474,11 +1474,11 @@
       "score": 0.4192198
     },
     {
-      "url": "https://api.github.com/repos/driftyco/ionic-plugins-keyboard/issues/12",
-      "labels_url": "https://api.github.com/repos/driftyco/ionic-plugins-keyboard/issues/12/labels{/name}",
-      "comments_url": "https://api.github.com/repos/driftyco/ionic-plugins-keyboard/issues/12/comments",
-      "events_url": "https://api.github.com/repos/driftyco/ionic-plugins-keyboard/issues/12/events",
-      "html_url": "https://github.com/driftyco/ionic-plugins-keyboard/pull/12",
+      "url": "https://api.github.com/repos/ionic-team/ionic-plugins-keyboard/issues/12",
+      "labels_url": "https://api.github.com/repos/ionic-team/ionic-plugins-keyboard/issues/12/labels{/name}",
+      "comments_url": "https://api.github.com/repos/ionic-team/ionic-plugins-keyboard/issues/12/comments",
+      "events_url": "https://api.github.com/repos/ionic-team/ionic-plugins-keyboard/issues/12/events",
+      "html_url": "https://github.com/ionic-team/ionic-plugins-keyboard/pull/12",
       "id": 33691716,
       "number": 12,
       "title": "android keyboard height bug fix, density incorrect",
@@ -1512,10 +1512,10 @@
       "updated_at": "2014-05-19T16:48:27Z",
       "closed_at": "2014-05-19T16:48:27Z",
       "pull_request": {
-        "url": "https://api.github.com/repos/driftyco/ionic-plugins-keyboard/pulls/12",
-        "html_url": "https://github.com/driftyco/ionic-plugins-keyboard/pull/12",
-        "diff_url": "https://github.com/driftyco/ionic-plugins-keyboard/pull/12.diff",
-        "patch_url": "https://github.com/driftyco/ionic-plugins-keyboard/pull/12.patch"
+        "url": "https://api.github.com/repos/ionic-team/ionic-plugins-keyboard/pulls/12",
+        "html_url": "https://github.com/ionic-team/ionic-plugins-keyboard/pull/12",
+        "diff_url": "https://github.com/ionic-team/ionic-plugins-keyboard/pull/12.diff",
+        "patch_url": "https://github.com/ionic-team/ionic-plugins-keyboard/pull/12.patch"
       },
       "body": "In testing with galaxy s2, the keyboard height was not being calculated correctly.  I found out the density was being set to an int.  \r\n\r\nFrom here..\r\nhttp://stackoverflow.com/questions/3166501/getting-the-screen-density-programmatically-in-android\r\n\r\nDensity can be .75, 1, 1.5, 2, ect. thus it was being rounded to the nearest integer and causing the incorrect keyboard height.\r\n\r\nI switched it to be a float",
       "score": 0.41907752

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Document Viewer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/document-viewer/index.ts#L29">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/document-viewer/index.ts#L29">
   Improve this doc
 </a>
 

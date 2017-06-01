@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Keyboard</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/keyboard/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/keyboard/index.ts#L2">
   Improve this doc
 </a>
 
@@ -25,8 +25,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/driftyco/ionic-plugin-keyboard">
-    https://github.com/driftyco/ionic-plugin-keyboard
+  <a href="https://github.com/ionic-team/ionic-plugin-keyboard">
+    https://github.com/ionic-team/ionic-plugin-keyboard
   </a>
 </p>
 

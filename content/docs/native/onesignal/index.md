@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L260">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L260">
   Improve this doc
 </a>
 

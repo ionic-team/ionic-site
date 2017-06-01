@@ -35,7 +35,7 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/slides/slides.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/slides/slides.ts#L12">
 Improve this doc
 </a>
 
@@ -109,7 +109,7 @@ index and prints it:</p>
 
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();
-    console.log(&quot;Current index is&quot;, currentIndex);
+    console.log(&#39;Current index is&#39;, currentIndex);
   }
 }
 </code></pre>
@@ -385,7 +385,7 @@ Lock or unlock the ability to slide to the next slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true the user will not be able to swipe to the next slide. 
+        <p>If set to true the user will not be able to swipe to the next slide.
 Set to false to unlock this behaviour.</p>
 
         
@@ -485,7 +485,7 @@ Lock or unlock the ability to slide to change slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true user can not swipe in either direction on slide. 
+        <p>If set to true user can not swipe in either direction on slide.
 False allows swiping in both directions.</p>
 
         
@@ -1038,7 +1038,7 @@ class MyPage {
 }
 </code></pre>
 <p>To see all of the available options, take a look at the
-<a href="https://github.com/driftyco/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
+<a href="https://github.com/ionic-team/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
 
 
 

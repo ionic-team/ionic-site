@@ -20,7 +20,7 @@ Storage
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L4">
+<a class="improve-docs" href="http://github.com/ionic-team/ionic/edit/master/src/storage.ts#L4">
 Improve this doc
 </a>
 

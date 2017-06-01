@@ -2384,7 +2384,7 @@ window.ionic = {
  * - Works with labels surrounding inputs
  * - Does not fire off a click if the user moves the pointer too far
  * - Adds and removes an 'activated' css class
- * - Multiple [unit tests](https://github.com/driftyco/ionic/blob/master/test/unit/utils/tap.unit.js) for each scenario
+ * - Multiple [unit tests](https://github.com/ionic-team/ionic/blob/master/test/unit/utils/tap.unit.js) for each scenario
  *
  */
 /*
@@ -3214,7 +3214,7 @@ ionic.DomUtil.ready(function(){
  * which can cause layout issues such as pushing headers up and out of view.
  *
  * The keyboard fixes work best in conjunction with the 
- * [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard),
+ * [Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard),
  * although it will perform reasonably well without.  However, if you are using
  * Cordova there is no reason not to use the plugin.
  *
@@ -3231,7 +3231,7 @@ ionic.DomUtil.ready(function(){
  *
  * ### Plugin Usage
  * Information on using the plugin can be found at 
- * [https://github.com/driftyco/ionic-plugins-keyboard](https://github.com/driftyco/ionic-plugins-keyboard).
+ * [https://github.com/ionic-team/ionic-plugins-keyboard](https://github.com/ionic-team/ionic-plugins-keyboard).
  *
  * ---------- 
  *
@@ -41091,7 +41091,7 @@ IonicModule
  *
  * ### Notes
  * - This directive requires the
- * [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard).
+ * [Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard).
  * - On Android not in fullscreen mode, i.e. you have
  *   `<preference name="Fullscreen" value="false" />` or no preference in your `config.xml` file,
  *   this directive is unnecessary since it is the default behavior.

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Keychain</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/keychain/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/keychain/index.ts#L1">
   Improve this doc
 </a>
 
@@ -23,12 +23,12 @@ docType: "class"
 
 
 <p>Get and set data in the iOS Keychain</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-ios-keychain</code>. For more info, please see the <a href="https://github.com/driftyco/cordova-plugin-ios-keychain">Keychain plugin docs</a>.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-ios-keychain</code>. For more info, please see the <a href="https://github.com/ionic-team/cordova-plugin-ios-keychain">Keychain plugin docs</a>.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/driftyco/cordova-plugin-ios-keychain/">
-    https://github.com/driftyco/cordova-plugin-ios-keychain/
+  <a href="https://github.com/ionic-team/cordova-plugin-ios-keychain/">
+    https://github.com/ionic-team/cordova-plugin-ios-keychain/
   </a>
 </p>
 

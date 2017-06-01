@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Deeplinks</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
   Improve this doc
 </a>
 
@@ -27,8 +27,8 @@ and Universal App Links.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/driftyco/ionic-plugin-deeplinks">
-    https://github.com/driftyco/ionic-plugin-deeplinks
+  <a href="https://github.com/ionic-team/ionic-plugin-deeplinks">
+    https://github.com/ionic-team/ionic-plugin-deeplinks
   </a>
 </p>
 
@@ -89,7 +89,7 @@ the actual navigation for you:</p>
     console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
   });
 </code></pre>
-<p>See the <a href="https://github.com/driftyco/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
+<p>See the <a href="https://github.com/ionic-team/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
 retrieve the <code>NavController</code> reference at runtime.</p>
 
 

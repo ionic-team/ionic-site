@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Health Kit</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L114">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L114">
   Improve this doc
 </a>
 

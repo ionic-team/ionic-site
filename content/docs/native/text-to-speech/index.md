@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Text To Speech</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/text-to-speech/index.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/text-to-speech/index.ts#L10">
   Improve this doc
 </a>
 

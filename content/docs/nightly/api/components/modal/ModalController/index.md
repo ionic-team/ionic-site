@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -226,6 +226,11 @@ Create a modal to display. See below for options.
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
 <td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 </tbody>
 </table>

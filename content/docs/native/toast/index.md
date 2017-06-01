@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Toast</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/toast/index.ts#L36">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/toast/index.ts#L36">
   Improve this doc
 </a>
 

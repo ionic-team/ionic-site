@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -124,7 +124,7 @@ Improve this doc
     <tr>
       <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> If true, enable searchbar animation.</p>
+      <td><p> If true, enable searchbar animation. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -166,7 +166,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> If true, show the cancel button.</p>
+      <td><p> If true, show the cancel button. Default <code>false</code>.</p>
 </td>
     </tr>
     

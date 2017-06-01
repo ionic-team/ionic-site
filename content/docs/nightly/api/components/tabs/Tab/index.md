@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L16">
 Improve this doc
 </a>
 
@@ -89,8 +89,8 @@ export class Tabs {
 
   // set some user information on chatParams
   chatParams = {
-    user1: &quot;admin&quot;,
-    user2: &quot;ionic&quot;
+    user1: &#39;admin&#39;,
+    user2: &#39;ionic&#39;
   };
 
   constructor() {
@@ -101,7 +101,7 @@ export class Tabs {
 <p>And in <code>ChatPage</code> you can get the data from <code>NavParams</code>:</p>
 <pre><code class="lang-ts">export class ChatPage {
   constructor(navParams: NavParams) {
-    console.log(&quot;Passed params&quot;, navParams.data);
+    console.log(&#39;Passed params&#39;, navParams.data);
   }
 }
 </code></pre>

@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706011558, Dark Theme
+ * vE2E-201706021709, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -16232,10 +16232,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .toolbar-md-primary .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .toolbar-md-primary .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-primary .bar-button-dark-md,
@@ -16405,10 +16405,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .toolbar-md-secondary .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .toolbar-md-secondary .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-secondary .bar-button-dark-md,
@@ -16578,10 +16578,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .toolbar-md-danger .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .toolbar-md-danger .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-danger .bar-button-dark-md,
@@ -16643,15 +16643,15 @@ ion-navbar.toolbar {
 .toolbar-md-light .bar-button-default-md,
 .toolbar-md-light .bar-button-outline-md,
 .toolbar-md-light .toolbar-title-md {
-  color: #000; }
+  color: #424242; }
 
 .toolbar-md-light .bar-button-clear-md .button-effect,
 .toolbar-md-light .bar-button-default-md .button-effect,
 .toolbar-md-light .bar-button-outline-md .button-effect {
-  background-color: #000; }
+  background-color: #424242; }
 
 .toolbar-md-light .bar-button-outline-md {
-  border-color: #000; }
+  border-color: #424242; }
 
 .toolbar-md-light .bar-button-primary-md,
 .toolbar-md-light .bar-button-clear-md-primary,
@@ -16751,10 +16751,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .toolbar-md-light .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .toolbar-md-light .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-light .bar-button-dark-md,
@@ -16803,10 +16803,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-dark .toolbar-background-md {
@@ -16924,10 +16924,10 @@ ion-navbar.toolbar {
     background-color: #e0e0e0; }
 
 .toolbar-md-dark .bar-button-solid-md-light {
-  color: #000;
+  color: #424242;
   background-color: #f4f4f4; }
   .toolbar-md-dark .bar-button-solid-md-light.activated {
-    color: #000;
+    color: #424242;
     background-color: #e0e0e0; }
 
 .toolbar-md-dark .bar-button-dark-md,

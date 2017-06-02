@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Browser Tab</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/browser-tab/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/browser-tab/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-browsertab
-$ npm install --save @ionic-native/browser-tab
-</code></pre>
+<p>This plugin provides an interface to in-app browser tabs that exist on some mobile platforms, specifically <a href="http://developer.android.com/tools/support-library/features.html#custom-tabs">Custom Tabs</a> on Android (including the <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a> implementation), and <a href="https://developer.apple.com/library/ios/documentation/SafariServices/Reference/SFSafariViewController_Ref/">SFSafariViewController</a> on iOS.</p>
+
+
 <p>Repo:
   <a href="https://github.com/google/cordova-plugin-browsertab">
     https://github.com/google/cordova-plugin-browsertab
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/browser-tab
 </p>
 
 
-<p>This plugin provides an interface to in-app browser tabs that exist on some mobile platforms, specifically <a href="http://developer.android.com/tools/support-library/features.html#custom-tabs">Custom Tabs</a> on Android (including the <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a> implementation), and <a href="https://developer.apple.com/library/ios/documentation/SafariServices/Reference/SFSafariViewController_Ref/">SFSafariViewController</a> on iOS.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-browsertab
+$ npm install --save @ionic-native/browser-tab
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

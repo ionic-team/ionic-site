@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-background-mode
-$ npm install --save @ionic-native/background-mode
-</code></pre>
+<p>Cordova plugin to prevent the app from going to sleep while in background.
+Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-background-mode">
     https://github.com/katzer/cordova-plugin-background-mode
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/background-mode
 </p>
 
 
-<p>Cordova plugin to prevent the app from going to sleep while in background.
-Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-mode
+$ npm install --save @ionic-native/background-mode
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -129,7 +136,7 @@ Available only for Android platform.
     <td>
       options</td>
     <td>
-      <code>Configure</code>
+      <code>BackgroundModeConfiguration</code>
     </td>
     <td>
       <p>List of option to configure. See table below</p>
@@ -161,7 +168,7 @@ Available only for Android platform.
     <td>
       options</td>
     <td>
-      <code>Configure</code>
+      <code>BackgroundModeConfiguration</code>
     </td>
     <td>
       <p>Any options you want to update. See table below.</p>
@@ -210,6 +217,18 @@ Listen for events that the plugin fires. Available events are `enable`, `disable
 
 
 Android allows to programmatically move from foreground to background.
+
+
+
+<h3><a class="anchor" name="disableWebViewOptimizations" href="#disableWebViewOptimizations"></a><code>disableWebViewOptimizations()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Enable GPS-tracking in background (Android).
 
 
 

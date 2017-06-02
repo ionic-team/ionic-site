@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -129,7 +129,7 @@ images while scrolling quickly.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
-    &lt;ion-avatar item-left&gt;
+    &lt;ion-avatar item-start&gt;
       &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
     &lt;/ion-avatar&gt;
    {% raw %} {{ item.firstName }} {{ item.lastName }}{% endraw %}
@@ -176,7 +176,7 @@ rendered, and HTTP requests are efficiently controlled while scrolling.</p>
 virtual scroll isn&#39;t aware of the dimensions until after they have been
 rendered. For the initial render, virtual scroll still needs to set
 how many items should be built. With &quot;approx&quot; property inputs, such as
-<code>approxItemHeight</code>, we&#39;re able to give virtual sroll an approximate size,
+<code>approxItemHeight</code>, we&#39;re able to give virtual scroll an approximate size,
 therefore allowing virtual scroll to decide how many items should be
 created.</p>
 <h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>
@@ -203,103 +203,6 @@ dataset, so please make sure they&#39;re performant.</p>
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="readUpdate"></div>
-
-<h3>
-<a class="anchor" name="readUpdate" href="#readUpdate"></a>
-<code>readUpdate()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="resize"></div>
-
-<h3>
-<a class="anchor" name="resize" href="#resize"></a>
-<code>resize()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="scrollUpdate"></div>
-
-<h3>
-<a class="anchor" name="scrollUpdate" href="#scrollUpdate"></a>
-<code>scrollUpdate()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="setElementClass"></div>
-
-<h3>
-<a class="anchor" name="setElementClass" href="#setElementClass"></a>
-<code>setElementClass()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="writeUpdate"></div>
-
-<h3>
-<a class="anchor" name="writeUpdate" href="#writeUpdate"></a>
-<code>writeUpdate()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

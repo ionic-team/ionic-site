@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L132">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-inappbrowser
-$ npm install --save @ionic-native/in-app-browser
-</code></pre>
+<p>Launches in app Browser</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-inappbrowser">
     https://github.com/apache/cordova-plugin-inappbrowser
@@ -32,14 +32,21 @@ $ npm install --save @ionic-native/in-app-browser
 </p>
 
 
-<p>Launches in app Browser</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inappbrowser
+$ npm install --save @ionic-native/in-app-browser
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Amazon</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>OS X</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 
@@ -56,7 +63,7 @@ constructor(private iab: InAppBrowser) { }
 ...
 
 
-const browser = this.iab.create(&#39;https://ionic.io&#39;);
+const browser = this.iab.create(&#39;https://ionicframework.com/&#39;);
 
 browser.executeScript(...);
 browser.insertCSS(...);
@@ -219,6 +226,7 @@ Injects CSS into the InAppBrowser window.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
+
 
 A method that allows you to listen to events happening in the browser.
 <table class="table param-table" style="margin:0;">

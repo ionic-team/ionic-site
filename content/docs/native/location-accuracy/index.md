@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Location Accuracy</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/location-accuracy/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/location-accuracy/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-request-location-accuracy
-$ npm install --save @ionic-native/location-accuracy
-</code></pre>
+<p>This Cordova/Phonegap plugin for Android and iOS to request enabling/changing of Location Services by triggering a native dialog from within the app, avoiding the need for the user to leave your app to change location settings manually.</p>
+
+
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-plugin-request-location-accuracy">
     https://github.com/dpa99c/cordova-plugin-request-location-accuracy
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/location-accuracy
 </p>
 
 
-<p>This Cordova/Phonegap plugin for Android and iOS to request enabling/changing of Location Services by triggering a native dialog from within the app, avoiding the need for the user to leave your app to change location settings manually.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-request-location-accuracy
+$ npm install --save @ionic-native/location-accuracy
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

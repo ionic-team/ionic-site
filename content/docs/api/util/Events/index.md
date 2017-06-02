@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Events
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/util/events.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/util/events.ts#L2">
 Improve this doc
 </a>
 
@@ -54,19 +54,21 @@ events across your app.</p>
 
 <pre><code class="lang-ts">import { Events } from &#39;ionic-angular&#39;;
 
-constructor(public events: Events) {}
-
 // first page (publish an event when a user is created)
-function createUser(user) {
+constructor(public events: Events) {}
+createUser(user) {
   console.log(&#39;User created!&#39;)
   events.publish(&#39;user:created&#39;, user, Date.now());
 }
 
-// second page (listen for the user created event)
-events.subscribe(&#39;user:created&#39;, (user, time) =&gt; {
-  // user and time are the same arguments passed in `events.publish(user, time)`
-  console.log(&#39;Welcome&#39;, user, &#39;at&#39;, time);
-});
+
+// second page (listen for the user created event after function is called)
+constructor(public events: Events) {
+  events.subscribe(&#39;user:created&#39;, (user, time) =&gt; {
+    // user and time are the same arguments passed in `events.publish(user, time)`
+    console.log(&#39;Welcome&#39;, user, &#39;at&#39;, time);
+  });
+}
 </code></pre>
 
 

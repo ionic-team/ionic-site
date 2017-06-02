@@ -14,7 +14,7 @@ next_page_link: /docs/theming/theming-your-app/
 ---
 
 <h1 class="title">Responsive Grid</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/responsive-grid/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/theming/responsive-grid/index.md'>
   Improve this doc
 </a>
 

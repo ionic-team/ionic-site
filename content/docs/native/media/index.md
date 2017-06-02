@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L144">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L117">
   Improve this doc
 </a>
 
@@ -22,9 +22,30 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-media
-$ npm install --save @ionic-native/media
+<p>Some hints if you are using iOS and recording doesn&#39;t work:
+1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
+Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
+Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
+2.) If that&#39;s not working, too, create the file before using.
+Example:</p>
+<pre><code class="lang-typescript">import { MediaPlugin, MediaObject } from &#39;@ionic-native/media&#39;;
+import { File } from &#39;@ionic-native/file&#39;;
+
+...
+
+constructor(private media: MediaPlugin, private file: File) { }
+
+...
+
+this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(() =&gt; {
+  let file = this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;);
+  file.startRecord();
+  window.setTimeout(() =&gt; file.stopRecord(), 10000);
+});
 </code></pre>
+<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-media">
     https://github.com/apache/cordova-plugin-media
@@ -32,7 +53,15 @@ $ npm install --save @ionic-native/media
 </p>
 
 
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media
+$ npm install --save @ionic-native/media
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -106,7 +135,6 @@ file.stopRecord();
 
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate,&nbsp;onSuccess,&nbsp;onError)</code></h3>
-
 
 Open a media file
 <table class="table param-table" style="margin:0;">

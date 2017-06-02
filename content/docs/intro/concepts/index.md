@@ -9,7 +9,7 @@ header_sub_title: Getting Started with Ionic
 
 # Core Concepts
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/concepts/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/concepts/index.md'>Improve this doc</a>
 
 If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.
 
@@ -28,7 +28,7 @@ Ionic is focused mainly on the look and feel, or the UI interaction, of an app. 
 
 Ionic is completely free and open source, released under the permissive [MIT](http://opensource.org/licenses/MIT) license, which means you can use Ionic in personal or commercial projects for free. For example, MIT is the same license used by such popular projects as jQuery and Ruby on Rails.
 
-This website and documentation content (found in the [ionic-site](https://github.com/driftyco/ionic-site) repo) is licensed under the Apache 2 license.
+This website and documentation content (found in the [ionic-site](https://github.com/ionic-team/ionic-site) repo) is licensed under the Apache 2 license.
 
 ### What is the Ionic CLI?
 

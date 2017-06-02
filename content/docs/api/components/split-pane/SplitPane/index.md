@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ SplitPane
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/split-pane/split-pane.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/split-pane/split-pane.ts#L22">
 Improve this doc
 </a>
 

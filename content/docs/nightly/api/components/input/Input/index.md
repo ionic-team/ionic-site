@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/input/input.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/input/input.ts#L16">
 Improve this doc
 </a>
 
@@ -339,11 +339,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-ios-margin-right</code></td>
+        <td><code>$text-input-ios-margin-end</code></td>
         
-          <td><code>($item-ios-padding-right / 2)</code></td>
+          <td><code>$text-input-ios-margin-right</code></td>
         
-        <td><p>Margin right of the input</p>
+        <td><p>Margin end of the input</p>
 </td>
       </tr>
       
@@ -357,11 +357,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-ios-margin-left</code></td>
+        <td><code>$text-input-ios-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$text-input-ios-margin-left</code></td>
         
-        <td><p>Margin left of the input</p>
+        <td><p>Margin start of the input</p>
 </td>
       </tr>
       
@@ -487,11 +487,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-md-margin-right</code></td>
+        <td><code>$text-input-md-margin-end</code></td>
         
-          <td><code>($item-md-padding-right / 2)</code></td>
+          <td><code>$text-input-md-margin-right</code></td>
         
-        <td><p>Margin right of the input</p>
+        <td><p>Margin end of the input</p>
 </td>
       </tr>
       
@@ -505,11 +505,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-md-margin-left</code></td>
+        <td><code>$text-input-md-margin-start</code></td>
         
-          <td><code>($item-md-padding-left / 2)</code></td>
+          <td><code>$text-input-md-margin-left</code></td>
         
-        <td><p>Margin left of the input</p>
+        <td><p>Margin start of the input</p>
 </td>
       </tr>
       
@@ -653,11 +653,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-wp-margin-right</code></td>
+        <td><code>$text-input-wp-margin-end</code></td>
         
-          <td><code>($item-wp-padding-right / 2)</code></td>
+          <td><code>$text-input-wp-margin-right</code></td>
         
-        <td><p>Margin right of the input</p>
+        <td><p>Margin end of the input</p>
 </td>
       </tr>
       
@@ -671,11 +671,11 @@ can be attached and will function as expected.</p>
       </tr>
       
       <tr>
-        <td><code>$text-input-wp-margin-left</code></td>
+        <td><code>$text-input-wp-margin-start</code></td>
         
-          <td><code>($item-wp-padding-left / 2)</code></td>
+          <td><code>$text-input-wp-margin-left</code></td>
         
-        <td><p>Margin left of the input</p>
+        <td><p>Margin start of the input</p>
 </td>
       </tr>
       

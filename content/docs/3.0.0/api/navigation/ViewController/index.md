@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/view-controller.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/navigation/view-controller.ts#L9">
 Improve this doc
 </a>
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Fetch</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-fetch/index.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-fetch/index.ts#L9">
   Improve this doc
 </a>
 
@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-background-fetch
-$ npm install --save @ionic-native/background-fetch
-</code></pre>
+<p>iOS Background Fetch Implementation. See: <a href="https://developer.apple.com/reference/uikit/uiapplication#1657399">https://developer.apple.com/reference/uikit/uiapplication#1657399</a>
+iOS Background Fetch is basically an API which wakes up your app about every 15 minutes (during the user&#39;s prime-time hours) and provides your app exactly 30s of background running-time. This plugin will execute your provided callbackFn whenever a background-fetch event occurs. There is no way to increase the rate which a fetch-event occurs and this plugin sets the rate to the most frequent possible value of UIApplicationBackgroundFetchIntervalMinimum -- iOS determines the rate automatically based upon device usage and time-of-day (ie: fetch-rate is about ~15min during prime-time hours; less frequently when the user is presumed to be sleeping, at 3am for example).
+For more detail, please see <a href="https://github.com/transistorsoft/cordova-plugin-background-fetch">https://github.com/transistorsoft/cordova-plugin-background-fetch</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/transistorsoft/cordova-plugin-background-fetch">
     https://github.com/transistorsoft/cordova-plugin-background-fetch
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/background-fetch
 </p>
 
 
-<p>iOS Background Fetch Implementation. See: <a href="https://developer.apple.com/reference/uikit/uiapplication#1657399">https://developer.apple.com/reference/uikit/uiapplication#1657399</a>
-iOS Background Fetch is basically an API which wakes up your app about every 15 minutes (during the user&#39;s prime-time hours) and provides your app exactly 30s of background running-time. This plugin will execute your provided callbackFn whenever a background-fetch event occurs. There is no way to increase the rate which a fetch-event occurs and this plugin sets the rate to the most frequent possible value of UIApplicationBackgroundFetchIntervalMinimum -- iOS determines the rate automatically based upon device usage and time-of-day (ie: fetch-rate is about ~15min during prime-time hours; less frequently when the user is presumed to be sleeping, at 3am for example).
-For more detail, please see <a href="https://github.com/transistorsoft/cordova-plugin-background-fetch">https://github.com/transistorsoft/cordova-plugin-background-fetch</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-fetch
+$ npm install --save @ionic-native/background-fetch
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

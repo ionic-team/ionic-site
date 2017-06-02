@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">LinkedIn</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/linkedin/index.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/linkedin/index.ts#L3">
   Improve this doc
 </a>
 
@@ -22,19 +22,26 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
-$ npm install --save @ionic-native/linkedin
-</code></pre>
+<p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
+<p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
+
+
 <p>Repo:
-  <a href="https://github.com/zyramedia/cordova-plugin-linkedin">
-    https://github.com/zyramedia/cordova-plugin-linkedin
+  <a href="https://github.com/zyra/cordova-plugin-linkedin">
+    https://github.com/zyra/cordova-plugin-linkedin
   </a>
 </p>
 
 
-<p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
-<p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
+$ npm install --save @ionic-native/linkedin
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -241,12 +248,21 @@ Opens a member's profile
 </div><h3><a class="anchor" name="hasActiveSession" href="#hasActiveSession"></a><code>hasActiveSession()</code></h3>
 
 
-Checks if there is already an existing active session. This should be used to avoid unecessary login.
+Checks if there is already an existing active session. This should be used to avoid unnecessary login.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates whether there is an active session
+</div><h3><a class="anchor" name="getActiveSession" href="#getActiveSession"></a><code>getActiveSession()</code></h3>
+
+
+Checks if there is an active session and returns the access token if it exists.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves with an object that contains an access token if there is an active session
 </div>
 
 

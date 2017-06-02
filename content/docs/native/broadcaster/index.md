@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Broadcaster</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/broadcaster/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/broadcaster/index.ts#L2">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-broadcaster
-$ npm install --save @ionic-native/broadcaster
-</code></pre>
+<p>This plugin adds exchanging events between native code and your app.</p>
+
+
 <p>Repo:
   <a href="https://github.com/bsorrentino/cordova-broadcaster">
     https://github.com/bsorrentino/cordova-broadcaster
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/broadcaster
 </p>
 
 
-<p>This plugin adds exchanging events between native code and your app.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-broadcaster
+$ npm install --save @ionic-native/broadcaster
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -55,7 +62,7 @@ constructor(private broadcaster: Broadcaster) { }
 ...
 
 // Listen to events from Native
-this.broadcaster.addEventListener(&#39;eventName&#39;).then((event) =&gt; console.log(event));
+this.broadcaster.addEventListener(&#39;eventName&#39;).subscribe((event) =&gt; console.log(event));
 
 // Send event to Native
 this.broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.log(&#39;success&#39;));

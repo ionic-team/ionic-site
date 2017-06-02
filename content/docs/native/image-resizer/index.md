@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Resizer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
   Improve this doc
 </a>
 
@@ -22,9 +22,12 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/protonet/cordova-plugin-image-resizer.git
-$ npm install --save @ionic-native/image-resizer
-</code></pre>
+<p>Cordova Plugin For Image Resize</p>
+<p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
+<code>ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
+<p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/protonet/cordova-plugin-image-resizer">
     https://github.com/protonet/cordova-plugin-image-resizer
@@ -32,11 +35,15 @@ $ npm install --save @ionic-native/image-resizer
 </p>
 
 
-<p>Cordova Plugin For Image Resize</p>
-<p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
-<code>ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
-<p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
+$ npm install --save @ionic-native/image-resizer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

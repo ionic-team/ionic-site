@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">AdMob</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L89">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L89">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-admobpro
-$ npm install --save @ionic-native/admob
-</code></pre>
+<p>Plugin for Google Ads, including AdMob / DFP (doubleclick for publisher) and mediations to other Ad networks.</p>
+<p>IMPORTANT NOTICE: this plugin takes a percentage out of your earnings if you profit more than $1,000. Read more about this on the plugin&#39;s repo. For a completely free alternative, see <a href="../admob-free">AdMob Free</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-admob-pro">
     https://github.com/floatinghotpot/cordova-admob-pro
@@ -32,8 +33,15 @@ $ npm install --save @ionic-native/admob
 </p>
 
 
-<p>Plugin for Google Ads, including AdMob / DFP (doubleclick for publisher) and mediations to other Ad networks.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admobpro
+$ npm install --save @ionic-native/admob
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -60,12 +68,12 @@ ionViewDidLoad() {
 
 onClick() {
   let adId;
-  if(this.platform.is(&#39;android&#39;) {
+  if(this.platform.is(&#39;android&#39;)) {
     adId = &#39;YOUR_ADID_ANDROID&#39;;
   } else if (this.platform.is(&#39;ios&#39;)) {
     adId = &#39;YOUR_ADID_IOS&#39;;
   }
-  this.admob.prepareInterstitial(adId)
+  this.admob.prepareInterstitial({adId: adId})
     .then(() =&gt; { this.admob.showInterstitial(); });
 }
 </code></pre>

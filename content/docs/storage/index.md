@@ -20,7 +20,7 @@ Storage
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L4">
+<a class="improve-docs" href="http://github.com/ionic-team/ionic/edit/master/src/storage.ts#L4">
 Improve this doc
 </a>
 
@@ -45,17 +45,18 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
 <p>First, if you&#39;d like to use SQLite, install the cordova-sqlite-storage plugin:</p>
 <pre><code class="lang-bash">cordova plugin add cordova-sqlite-storage --save
 </code></pre>
-<p>Next, install the package (comes by default for Ionic 2 apps &gt;= RC.0)</p>
+<p>Next, install the package (comes by default for Ionic apps &gt; Ionic V1):</p>
 <pre><code class="lang-bash">npm install --save @ionic/storage
 </code></pre>
-<p>Next, add it to the imports list in your <code>NgModule</code> declaration (for example, in <code>src/app.module.ts</code>):</p>
+<p>Next, add it to the imports list in your <code>NgModule</code> declaration (for example, in <code>src/app/app.module.ts</code>):</p>
 <pre><code class="lang-typescript">import { IonicStorageModule } from &#39;@ionic/storage&#39;;
 
 @NgModule({
   declarations: [
     // ...
   ],
-  imports: [
+  imports: [      
+    BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -63,7 +64,9 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
   entryComponents: [
     // ...
   ],
-  providers: []
+  providers: [
+    // ...
+  ]
 })
 export class AppModule {}
 </code></pre>
@@ -71,19 +74,17 @@ export class AppModule {}
 <pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
 
 export class MyApp {
-  constructor(storage: Storage) {
+  constructor(private storage: Storage) { }
 
-     storage.ready().then(() =&gt; {
+  ...
 
-       // set a key/value
-       storage.set(&#39;name&#39;, &#39;Max&#39;);
+  // set a key/value
+  storage.set(&#39;name&#39;, &#39;Max&#39;);
 
-       // Or to get a key/value pair
-       storage.get(&#39;age&#39;).then((val) =&gt; {
-         console.log(&#39;Your age is&#39;, val);
-       })
-     });
-  }
+  // Or to get a key/value pair
+  storage.get(&#39;age&#39;).then((val) =&gt; {
+    console.log(&#39;Your age is&#39;, val);
+  });
 }
 </code></pre>
 <h3 id="configuring-storage">Configuring Storage</h3>
@@ -93,18 +94,18 @@ options to pass to localForage. See the localForage config docs for possible opt
 <pre><code class="lang-typescript">import { IonicStorageModule } from &#39;@ionic/storage&#39;;
 
 @NgModule({
-  declarations: ...,
+  declarations: [...],
   imports: [
     IonicStorageModule.forRoot({
       name: &#39;__mydb&#39;,
          driverOrder: [&#39;indexeddb&#39;, &#39;sqlite&#39;, &#39;websql&#39;]
     })
   ],
-  bootstrap: ...,
-  entryComponents: ...,
-   providers: []
+  bootstrap: [...],
+  entryComponents: [...],
+   providers: [...]
 })
-export class AppModule {}
+export class AppModule { }
 </code></pre>
 
 
@@ -125,7 +126,7 @@ Get the name of the driver being used.
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Name of the driver</p>
+  <code>string</code>|<code>null</code> <p>Name of the driver</p>
 
 
 </div>
@@ -141,7 +142,7 @@ Reflect the readiness of the store.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves when the store is ready</p>
+  <code>Promise&lt;LocalForage&gt;</code> <p>Returns a promise that resolves when the store is ready</p>
 
 
 </div>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -31,7 +31,7 @@ Haptic
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/tap-click/haptic.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/tap-click/haptic.ts#L2">
 Improve this doc
 </a>
 
@@ -89,7 +89,7 @@ Check to see if the Haptic Plugin is available
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>Retuns true or false if the plugin is available</p>
+  <code>boolean</code> <p>Returns true or false if the plugin is available</p>
 
 
 </div>

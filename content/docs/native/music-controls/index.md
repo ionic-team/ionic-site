@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
   Improve this doc
 </a>
 
@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-music-controls
-$ npm install --save @ionic-native/music-controls
-</code></pre>
+<p>Music controls for Cordova applications.
+Display a &#39;media&#39; notification with play/pause, previous, next buttons, allowing the user to control the play.
+Handle also headset event (plug, unplug, headset button).</p>
+
+
 <p>Repo:
   <a href="https://github.com/homerours/cordova-music-controls-plugin">
     https://github.com/homerours/cordova-music-controls-plugin
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/music-controls
 </p>
 
 
-<p>Music controls for Cordova applications.
-Display a &#39;media&#39; notification with play/pause, previous, next buttons, allowing the user to control the play.
-Handle also headset event (plug, unplug, headset button).</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-music-controls
+$ npm install --save @ionic-native/music-controls
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

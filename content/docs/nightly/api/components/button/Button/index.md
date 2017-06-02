@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/button/button.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/button/button.ts#L4">
 Improve this doc
 </a>
 
@@ -295,11 +295,38 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$button-round-padding</code></td>
+        <td><code>$button-round-padding-top</code></td>
         
-          <td><code>0 2.6rem</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the round button</p>
+        <td><p>Padding top of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-round-padding-end</code></td>
+        
+          <td><code>2.6rem</code></td>
+        
+        <td><p>Padding end of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-round-padding-bottom</code></td>
+        
+          <td><code>$button-round-padding-top</code></td>
+        
+        <td><p>Padding bottom of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-round-padding-start</code></td>
+        
+          <td><code>$button-round-padding-end</code></td>
+        
+        <td><p>Padding start of the round button</p>
 </td>
       </tr>
       
@@ -326,20 +353,74 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$button-ios-margin</code></td>
+        <td><code>$button-ios-margin-top</code></td>
         
-          <td><code>.4rem .2rem</code></td>
+          <td><code>.4rem</code></td>
         
-        <td><p>Margin of the button</p>
+        <td><p>Margin top of the button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$button-ios-padding</code></td>
+        <td><code>$button-ios-margin-end</code></td>
         
-          <td><code>0 1em</code></td>
+          <td><code>.2rem</code></td>
         
-        <td><p>Padding of the button</p>
+        <td><p>Margin end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-margin-bottom</code></td>
+        
+          <td><code>.4rem</code></td>
+        
+        <td><p>Margin bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-margin-start</code></td>
+        
+          <td><code>.2rem</code></td>
+        
+        <td><p>Margin start of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-padding-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-padding-end</code></td>
+        
+          <td><code>1em</code></td>
+        
+        <td><p>Padding end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-padding-bottom</code></td>
+        
+          <td><code>$button-ios-padding-top</code></td>
+        
+        <td><p>Padding bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-padding-start</code></td>
+        
+          <td><code>$button-ios-padding-end</code></td>
+        
+        <td><p>Padding start of the button</p>
 </td>
       </tr>
       
@@ -416,11 +497,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-ios-large-padding</code></td>
+        <td><code>$button-ios-large-padding-top</code></td>
         
-          <td><code>0 1em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the large button</p>
+        <td><p>Padding top of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-large-padding-end</code></td>
+        
+          <td><code>1em</code></td>
+        
+        <td><p>Padding end of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-large-padding-bottom</code></td>
+        
+          <td><code>$button-ios-large-padding-top</code></td>
+        
+        <td><p>Padding bottom of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-large-padding-start</code></td>
+        
+          <td><code>$button-ios-large-padding-end</code></td>
+        
+        <td><p>Padding start of the large button</p>
 </td>
       </tr>
       
@@ -443,11 +551,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-ios-small-padding</code></td>
+        <td><code>$button-ios-small-padding-top</code></td>
         
-          <td><code>0 .9em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the small button</p>
+        <td><p>Padding top of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-small-padding-end</code></td>
+        
+          <td><code>.9em</code></td>
+        
+        <td><p>Padding end of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-small-padding-bottom</code></td>
+        
+          <td><code>$button-ios-small-padding-top</code></td>
+        
+        <td><p>Padding bottom of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-small-padding-start</code></td>
+        
+          <td><code>$button-ios-small-padding-end</code></td>
+        
+        <td><p>Padding start of the small button</p>
 </td>
       </tr>
       
@@ -614,11 +749,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-ios-round-padding</code></td>
+        <td><code>$button-ios-round-padding-top</code></td>
         
-          <td><code>$button-round-padding</code></td>
+          <td><code>$button-round-padding-top</code></td>
         
-        <td><p>Padding of the round button</p>
+        <td><p>Padding top of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-round-padding-end</code></td>
+        
+          <td><code>$button-round-padding-end</code></td>
+        
+        <td><p>Padding end of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-round-padding-bottom</code></td>
+        
+          <td><code>$button-round-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-round-padding-start</code></td>
+        
+          <td><code>$button-round-padding-start</code></td>
+        
+        <td><p>Padding start of the round button</p>
 </td>
       </tr>
       
@@ -654,20 +816,74 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$button-md-margin</code></td>
+        <td><code>$button-md-margin-top</code></td>
         
-          <td><code>.4rem .2rem</code></td>
+          <td><code>.4rem</code></td>
         
-        <td><p>Margin of the button</p>
+        <td><p>Margin top of the button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$button-md-padding</code></td>
+        <td><code>$button-md-margin-end</code></td>
         
-          <td><code>0 1.1em</code></td>
+          <td><code>.2rem</code></td>
         
-        <td><p>Padding of the button</p>
+        <td><p>Margin end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-margin-bottom</code></td>
+        
+          <td><code>.4rem</code></td>
+        
+        <td><p>Margin bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-margin-start</code></td>
+        
+          <td><code>.2rem</code></td>
+        
+        <td><p>Margin start of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-padding-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-padding-end</code></td>
+        
+          <td><code>1.1em</code></td>
+        
+        <td><p>Padding end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-padding-bottom</code></td>
+        
+          <td><code>$button-md-padding-top</code></td>
+        
+        <td><p>Padding bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-padding-start</code></td>
+        
+          <td><code>$button-md-padding-end</code></td>
+        
+        <td><p>Padding start of the button</p>
 </td>
       </tr>
       
@@ -791,7 +1007,7 @@ class E2EPage {
       <tr>
         <td><code>$button-md-box-shadow-activated</code></td>
         
-          <td><code>0 3px 5px rgba(0, 0, 0, .14), 0 3px 5px rgba(0, 0, 0, .21)</code></td>
+          <td><code>0 3px 5px rgba(0, 0, 0, .14), 0 3px 5px rgba(0, 0, 0, .21), 0 0 0 0 transparent</code></td>
         
         <td><p>Box shadow of the activated button</p>
 </td>
@@ -807,11 +1023,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-md-large-padding</code></td>
+        <td><code>$button-md-large-padding-top</code></td>
         
-          <td><code>0 1em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the large button</p>
+        <td><p>Padding top of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-large-padding-end</code></td>
+        
+          <td><code>1em</code></td>
+        
+        <td><p>Padding end of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-large-padding-bottom</code></td>
+        
+          <td><code>$button-md-large-padding-top</code></td>
+        
+        <td><p>Padding bottom of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-large-padding-start</code></td>
+        
+          <td><code>$button-md-large-padding-end</code></td>
+        
+        <td><p>Padding start of the large button</p>
 </td>
       </tr>
       
@@ -834,11 +1077,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-md-small-padding</code></td>
+        <td><code>$button-md-small-padding-top</code></td>
         
-          <td><code>0 .9em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the small button</p>
+        <td><p>Padding top of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-small-padding-end</code></td>
+        
+          <td><code>.9em</code></td>
+        
+        <td><p>Padding end of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-small-padding-bottom</code></td>
+        
+          <td><code>$button-md-small-padding-top</code></td>
+        
+        <td><p>Padding bottom of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-small-padding-start</code></td>
+        
+          <td><code>$button-md-small-padding-end</code></td>
+        
+        <td><p>Padding start of the small button</p>
 </td>
       </tr>
       
@@ -1050,11 +1320,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-md-round-padding</code></td>
+        <td><code>$button-md-round-padding-top</code></td>
         
-          <td><code>$button-round-padding</code></td>
+          <td><code>$button-round-padding-top</code></td>
         
-        <td><p>Padding of the round button</p>
+        <td><p>Padding top of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-round-padding-end</code></td>
+        
+          <td><code>$button-round-padding-end</code></td>
+        
+        <td><p>Padding end of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-round-padding-bottom</code></td>
+        
+          <td><code>$button-round-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-md-round-padding-start</code></td>
+        
+          <td><code>$button-round-padding-start</code></td>
+        
+        <td><p>Padding start of the round button</p>
 </td>
       </tr>
       
@@ -1090,20 +1387,74 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$button-wp-margin</code></td>
+        <td><code>$button-wp-margin-top</code></td>
         
-          <td><code>.4rem .2rem</code></td>
+          <td><code>.4rem</code></td>
         
-        <td><p>Margin of the button</p>
+        <td><p>Margin top of the button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$button-wp-padding</code></td>
+        <td><code>$button-wp-margin-end</code></td>
         
-          <td><code>0 1.1em</code></td>
+          <td><code>.2rem</code></td>
         
-        <td><p>Padding of the button</p>
+        <td><p>Margin end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-margin-bottom</code></td>
+        
+          <td><code>.4rem</code></td>
+        
+        <td><p>Margin bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-margin-start</code></td>
+        
+          <td><code>.2rem</code></td>
+        
+        <td><p>Margin start of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-padding-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-padding-end</code></td>
+        
+          <td><code>1.1em</code></td>
+        
+        <td><p>Padding end of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-padding-bottom</code></td>
+        
+          <td><code>$button-wp-padding-top</code></td>
+        
+        <td><p>Padding bottom of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-padding-start</code></td>
+        
+          <td><code>$button-wp-padding-end</code></td>
+        
+        <td><p>Padding start of the button</p>
 </td>
       </tr>
       
@@ -1189,11 +1540,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-wp-large-padding</code></td>
+        <td><code>$button-wp-large-padding-top</code></td>
         
-          <td><code>0 1em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the large button</p>
+        <td><p>Padding top of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-large-padding-end</code></td>
+        
+          <td><code>1em</code></td>
+        
+        <td><p>Padding end of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-large-padding-bottom</code></td>
+        
+          <td><code>$button-wp-large-padding-top</code></td>
+        
+        <td><p>Padding bottom of the large button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-large-padding-start</code></td>
+        
+          <td><code>$button-wp-large-padding-end</code></td>
+        
+        <td><p>Padding start of the large button</p>
 </td>
       </tr>
       
@@ -1216,11 +1594,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-wp-small-padding</code></td>
+        <td><code>$button-wp-small-padding-top</code></td>
         
-          <td><code>0 .9em</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the small button</p>
+        <td><p>Padding top of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-small-padding-end</code></td>
+        
+          <td><code>.9em</code></td>
+        
+        <td><p>Padding end of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-small-padding-bottom</code></td>
+        
+          <td><code>$button-wp-small-padding-top</code></td>
+        
+        <td><p>Padding bottom of the small button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-small-padding-start</code></td>
+        
+          <td><code>$button-wp-small-padding-end</code></td>
+        
+        <td><p>Padding start of the small button</p>
 </td>
       </tr>
       
@@ -1351,11 +1756,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$button-wp-round-padding</code></td>
+        <td><code>$button-wp-round-padding-top</code></td>
         
-          <td><code>$button-round-padding</code></td>
+          <td><code>$button-round-padding-top</code></td>
         
-        <td><p>Padding of the round button</p>
+        <td><p>Padding top of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-round-padding-end</code></td>
+        
+          <td><code>$button-round-padding-end</code></td>
+        
+        <td><p>Padding end of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-round-padding-bottom</code></td>
+        
+          <td><code>$button-round-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-round-padding-start</code></td>
+        
+          <td><code>$button-round-padding-start</code></td>
+        
+        <td><p>Padding start of the round button</p>
 </td>
       </tr>
       

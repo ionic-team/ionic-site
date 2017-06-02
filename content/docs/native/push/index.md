@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
   Improve this doc
 </a>
 
@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
-$ npm install --save @ionic-native/push
-</code></pre>
+<p>Register and receive push notifications.</p>
+<p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
+<p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-push">
     https://github.com/phonegap/phonegap-plugin-push
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/push
 </p>
 
 
-<p>Register and receive push notifications.</p>
-<p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
-<p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
+$ npm install --save @ionic-native/push
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -255,7 +262,7 @@ For windows, it represents the value in the badge notification which could be a 
       additionalData
     </td>
     <td>
-      <code>NotificationEventAdditionalData | any</code>
+      <code>NotificationEventAdditionalData &amp; any</code>
     </td>
     <td>
       <p>An optional collection of data sent by the 3rd party push service that does not fit in the above properties.</p>

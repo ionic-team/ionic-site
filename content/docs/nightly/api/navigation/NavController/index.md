@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-controller.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/navigation/nav-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -106,7 +106,7 @@ import { NavController } from &#39;ionic-angular&#39;;
 })
 export class MyApp {
    @ViewChild(&#39;myNav&#39;) nav: NavController
-   public rootPage = TabsPage;
+   public rootPage: any = TabsPage;
 
    // Wait for the components in MyApp&#39;s template to be initialized
    // In this case, we are waiting for the Nav with reference variable of &quot;#myNav&quot;

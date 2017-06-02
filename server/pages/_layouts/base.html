@@ -8,6 +8,7 @@
   </head>
   <body id="page-{{id}}"
         class="page-{{id}}
+               {% if id != 'enterprise' %}has-snap{% endif %}
                {% if header_style %}{{header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
@@ -15,13 +16,15 @@
         {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
         {% block body_attributes %}{% endblock %}>
 
-    <div id="snap-bar">
-      Add your voice:
-      <a href="https://goo.gl/forms/bodM9ebK7R4RdjF93" style="color: #fff">
-        <b>The 2017 Ionic Developer Survey is here</b>
-        <i class="ion-md-arrow-forward"></i>
-      </a>
-    </div>
+    {% if id != 'enterprise' %} 
+      <div id="snap-bar">
+        Check out
+        <a href="/enterprise" style="color: #fff">
+          <b>Ionic Enterprise</b>
+          <i class="ion-md-arrow-forward"></i>
+        </a>
+      </div>
+    {% endif %}
     {% include '../_includes/header.html' %}
 
     {% block main %}

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Note
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/note/note.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/note/note.ts#L3">
 Improve this doc
 </a>
 
@@ -54,11 +54,11 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-list&gt;
     &lt;ion-item&gt;
-      &lt;ion-note item-left&gt;
+      &lt;ion-note item-start&gt;
         Left Note
       &lt;/ion-note&gt;
       My Item
-      &lt;ion-note item-right&gt;
+      &lt;ion-note item-end&gt;
         Right Note
       &lt;/ion-note&gt;
     &lt;/ion-item&gt;

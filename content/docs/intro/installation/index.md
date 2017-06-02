@@ -10,7 +10,7 @@ next_page_link: /docs//intro/tutorial
 
 # Installing Ionic
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/installation/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/installation/index.md'>Improve this doc</a>
 
 Ionic apps are created and developed primarily through the Ionic command line utility (the "CLI"), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.
 
@@ -30,7 +30,7 @@ Once that's done, create your first Ionic app:
 $ ionic start cutePuppyPics
 ```
 
-Add --v1 if you'd like to use Ionic 1. To run your app, `cd` into the directory that was created and then run the `ionic serve` command to test your app right in the browser!
+Add --type ionic1 if you'd like to use Ionic 1. To run your app, `cd` into the directory that was created and then run the `ionic serve` command to test your app right in the browser!
 
 ```bash
 $ cd cutePuppyPics

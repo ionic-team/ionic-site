@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
   Improve this doc
 </a>
 
@@ -22,9 +22,11 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/Telerik-Verified-Plugins/ImagePicker
-$ npm install --save @ionic-native/image-picker
-</code></pre>
+<p>Cordova Plugin For Multiple Image Selection</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
+For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/ImagePicker">
     https://github.com/Telerik-Verified-Plugins/ImagePicker
@@ -32,10 +34,15 @@ $ npm install --save @ionic-native/image-picker
 </p>
 
 
-<p>Cordova Plugin For Multiple Image Selection</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
-For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
+$ npm install --save @ionic-native/image-picker
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -157,7 +164,7 @@ Request permission to read images
       <code>number</code>
     </td>
     <td>
-      <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it.</p>
+      <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it. (Android only)</p>
 
       <em>(optional)</em>
     </td>

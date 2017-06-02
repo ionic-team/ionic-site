@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Social Sharing</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/social-sharing/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/social-sharing/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-x-socialsharing
-$ npm install --save @ionic-native/social-sharing
-</code></pre>
+<p>Share text, files, images, and links via social networks, sms, and email.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/social-sharing
 </p>
 
 
-<p>Share text, files, images, and links via social networks, sms, and email.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-socialsharing
+$ npm install --save @ionic-native/social-sharing
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -798,7 +805,38 @@ Share via AppName
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="setIPadPopupCoordinates" href="#setIPadPopupCoordinates"></a><code>setIPadPopupCoordinates(targetBounds)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+defines the popup position before call the share method.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      targetBounds</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>left, top, width, height</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 
 

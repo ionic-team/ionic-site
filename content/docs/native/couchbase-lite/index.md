@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Couchbase Lite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/couchbase-lite/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/couchbase-lite/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
-$ npm install --save @ionic-native/couchbase-lite
-</code></pre>
+<p>Plugin to install Couchbase Lite in your PhoneGap app on iOS or Android</p>
+
+
 <p>Repo:
   <a href="https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin">
     https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/couchbase-lite
 </p>
 
 
-<p>Plugin to install Couchbase Lite in your PhoneGap app on iOS or Android</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
+$ npm install --save @ionic-native/couchbase-lite
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

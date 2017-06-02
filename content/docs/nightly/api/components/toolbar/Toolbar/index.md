@@ -35,7 +35,7 @@ Toolbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/toolbar/toolbar.ts#L3">
 Improve this doc
 </a>
 
@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p>A Toolbar is a generic bar that is positioned above or below content.
-Unlike a <a href="../../navbar/Navbar">Navbar</a>, a toolbar can be used as a subheader.
+Unlike a <a href="../Navbar/">Navbar</a>, a toolbar can be used as a subheader.
 When toolbars are placed within an <code>&lt;ion-header&gt;</code> or <code>&lt;ion-footer&gt;</code>,
 the toolbars stay fixed in their respective location. When placed within
 <code>&lt;ion-content&gt;</code>, toolbars will scroll with the content.</p>
@@ -382,11 +382,38 @@ attribute to the element.</p>
       </tr>
       
       <tr>
-        <td><code>$toolbar-wp-title-padding</code></td>
+        <td><code>$toolbar-wp-title-padding-top</code></td>
         
-          <td><code>0 6px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Padding of the toolbar title</p>
+        <td><p>Padding top of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-end</code></td>
+        
+          <td><code>6px</code></td>
+        
+        <td><p>Padding end of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-bottom</code></td>
+        
+          <td><code>$toolbar-wp-title-padding-top</code></td>
+        
+        <td><p>Padding bottom of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding-start</code></td>
+        
+          <td><code>$toolbar-wp-title-padding-end</code></td>
+        
+        <td><p>Padding start of the toolbar title</p>
 </td>
       </tr>
       
@@ -482,7 +509,7 @@ attribute to the element.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="../../navbar/Navbar/">Navbar API Docs</a><!-- end content block -->
+<a href="../Navbar/">Navbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

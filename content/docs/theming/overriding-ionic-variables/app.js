@@ -88,7 +88,7 @@ $(document).ready(function() {
         '<tr class="ionic">' +
         '<td><code>' + results[i].name + '</code></td>' +
         '<td><code>' + results[i].defaultValue + '</code></td>' +
-        '<td><a href="https://github.com/driftyco/ionic/blob/master/' +
+        '<td><a href="https://github.com/ionic-team/ionic/blob/master/' +
           results[i].file.replace('content/','') + '" data-toggle="tooltip" ' +
           'data-placement="right" title="' +
           results[i].file.replace('content/','') + '" target="_blank"><icon '+

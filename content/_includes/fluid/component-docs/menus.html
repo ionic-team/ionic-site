@@ -1,6 +1,6 @@
 <h2 id="menus" class="section-header">Menus</h2>
 
-<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/fluid/component-docs/menus.html">
+<a target="_blank" class="improve-v2-docs" href="https://github.com/ionic-team/ionic-site/edit/master/content/_includes/fluid/component-docs/menus.html">
   Improve this Doc
 </a>
 
@@ -11,7 +11,7 @@ Menu adapts to the appropriate style based on the platform.
 _For more information, Check out the [API docs](../api/components/menu/Menu)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/menus/basic">
+<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/menus/basic">
   Demo Source
 </a>
 
@@ -19,16 +19,22 @@ _For more information, Check out the [API docs](../api/components/menu/Menu)._
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item (click)="openPage(loginPage)">
-        Login
+      <button ion-item (click)="openPage(homePage)">
+        Home
       </button>
-      <button ion-item (click)="openPage(signupPage)">
-        Signup
+      <button ion-item (click)="openPage(friendsPage)">
+        Friends
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        Events
+      </button>
+      <button ion-item (click)="closeMenu()">
+        Close Menu
       </button>
     </ion-list>
   </ion-content>

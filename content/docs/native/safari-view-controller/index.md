@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Safari View Controller</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L14">
   Improve this doc
 </a>
 
@@ -22,9 +22,8 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-safariviewcontroller
-$ npm install --save @ionic-native/safari-view-controller
-</code></pre>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">
     https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
@@ -32,7 +31,15 @@ $ npm install --save @ionic-native/safari-view-controller
 </p>
 
 
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-safariviewcontroller
+$ npm install --save @ionic-native/safari-view-controller
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -201,20 +208,7 @@ For even better performance optimization, call this methods if there's more than
   
   <tr>
     <td>
-      url
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hidden
+      animated
     </td>
     <td>
       <code>boolean</code>
@@ -227,7 +221,7 @@ For even better performance optimization, call this methods if there's more than
   
   <tr>
     <td>
-      toolbarColor
+      barColor
     </td>
     <td>
       <code>string</code>
@@ -240,7 +234,33 @@ For even better performance optimization, call this methods if there's more than
   
   <tr>
     <td>
-      animated
+      controlTintColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      enterReaderModeIfAvailable
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hidden
     </td>
     <td>
       <code>boolean</code>
@@ -266,19 +286,6 @@ For even better performance optimization, call this methods if there's more than
   
   <tr>
     <td>
-      enterReaderModeIfAvailable
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       tintColor
     </td>
     <td>
@@ -292,7 +299,33 @@ For even better performance optimization, call this methods if there's more than
   
   <tr>
     <td>
+      toolbarColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       transition
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
     </td>
     <td>
       <code>string</code>

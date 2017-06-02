@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/spinner/spinner.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/spinner/spinner.ts#L4">
 Improve this doc
 </a>
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Printer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L42">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L39">
   Improve this doc
 </a>
 
@@ -22,18 +22,25 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save de.appplant.cordova.plugin.printer
-$ npm install --save @ionic-native/printer
-</code></pre>
+<p>Prints documents or HTML rendered content</p>
+
+
 <p>Repo:
-  <a href="https://github.com/katzer/cordova-plugin-printer.git">
-    https://github.com/katzer/cordova-plugin-printer.git
+  <a href="https://github.com/katzer/cordova-plugin-printer">
+    https://github.com/katzer/cordova-plugin-printer
   </a>
 </p>
 
 
-<p>Prints documents or HTML rendered content</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.printer
+$ npm install --save @ionic-native/printer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -77,14 +84,33 @@ this.printer.print(content, options).then(onSuccess, onError);
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
-
 Checks whether to device is capable of printing.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="check" href="#check"></a><code>check()</code></h3>
+
+
+Checks if the printer service is available (iOS) or if printer services are installed and enabled (Android).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolve with an object indicating whether printing is available, and providing the number of printers available
+</div><h3><a class="anchor" name="pick" href="#pick"></a><code>pick()</code></h3>
+
+
+Displays a system interface allowing the user to select an available printer. To speak with a printer directly you need to know the network address by picking them before via `printer.pick`.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="print" href="#print"></a><code>print(content,&nbsp;options)</code></h3>
+
+
 
 
 Sends content to the printer.

@@ -10,7 +10,7 @@ searchable: false
 ---
 
 <h1 id="Overview" class="banner">Ionic Native</h1>
-Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/) mobile app easy.
+Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](https://ionicframework.com/) mobile app easy.
 
 <h3 id="What_Ionic_Native_offers">What Ionic Native offers</h3>
 
@@ -18,7 +18,7 @@ Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make addi
 Ionic Native wraps Cordova plugin callbacks in a Promise or an [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular.
 
 
-```ts
+```typescript
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
 
@@ -76,7 +76,7 @@ npm install @ionic-native/camera --save
 Then install the plugin using Ionic or Cordova CLI:
 
 ```
-ionic plugin add cordova-plugin-camera
+ionic cordova plugin add cordova-plugin-camera
 ```
 
 All Cordova plugin package names are documented on the plugin's individual documentation. It is recommended to follow the installation instructions on each plugin's documentation, as some plugins require additional steps to fully install.

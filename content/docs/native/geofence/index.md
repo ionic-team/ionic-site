@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Geofence</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-geofence
-$ npm install --save @ionic-native/geofence
-</code></pre>
+<p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
+Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
+
+
 <p>Repo:
   <a href="https://github.com/cowbell/cordova-plugin-geofence/">
     https://github.com/cowbell/cordova-plugin-geofence/
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/geofence
 </p>
 
 
-<p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
-Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
+$ npm install --save @ionic-native/geofence
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -70,7 +77,7 @@ private addGeofence() {
     id: &#39;69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb&#39;, //any unique ID
     latitude:       37.285951, //center of geofence radius
     longitude:      -121.936650,
-    radius:         100, //radius to edge of geofence
+    radius:         100, //radius to edge of geofence in meters
     transitionType: 3, //see &#39;Transition Types&#39; below
     notification: { //notification settings
         id:             1, //any unique ID

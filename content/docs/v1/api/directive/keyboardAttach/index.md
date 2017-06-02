@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/keyboardAttach.js#L1'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/directive/keyboardAttach.js#L1'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/angular/directive/keyboardAttach.js#L1'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/angular/directive/keyboardAttach.js#L1'>
 Improve this doc
 </a>
 </div>
@@ -41,7 +41,7 @@ the keyboard when the keyboard shows. Currently only supports the
 
 ### Notes
 - This directive requires the
-[Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard).
+[Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard).
 - On Android not in fullscreen mode, i.e. you have
   `<preference name="Fullscreen" value="false" />` or no preference in your `config.xml` file,
   this directive is unnecessary since it is the default behavior.

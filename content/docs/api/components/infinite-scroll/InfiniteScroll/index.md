@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/infinite-scroll/infinite-scroll.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/infinite-scroll/infinite-scroll.ts#L4">
 Improve this doc
 </a>
 
@@ -364,11 +364,38 @@ your async operation has completed.</p>
     <tbody>
       
       <tr>
-        <td><code>$infinite-scroll-loading-margin</code></td>
+        <td><code>$infinite-scroll-loading-margin-top</code></td>
         
-          <td><code>0 0 32px 0</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the infinite scroll loading icon</p>
+        <td><p>Margin top of the infinite scroll loading icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the infinite scroll loading icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-margin-bottom</code></td>
+        
+          <td><code>32px</code></td>
+        
+        <td><p>Margin bottom of the infinite scroll loading icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-margin-start</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin start of the infinite scroll loading icon</p>
 </td>
       </tr>
       
@@ -391,11 +418,38 @@ your async operation has completed.</p>
       </tr>
       
       <tr>
-        <td><code>$infinite-scroll-loading-text-margin</code></td>
+        <td><code>$infinite-scroll-loading-text-margin-top</code></td>
         
-          <td><code>4px 32px 0 32px</code></td>
+          <td><code>4px</code></td>
         
-        <td><p>Margin of the infinite scroll loading text</p>
+        <td><p>Margin top of the infinite scroll loading text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-margin-end</code></td>
+        
+          <td><code>32px</code></td>
+        
+        <td><p>Margin end of the infinite scroll loading text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-margin-bottom</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin bottom of the infinite scroll loading text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-margin-start</code></td>
+        
+          <td><code>32px</code></td>
+        
+        <td><p>Margin start of the infinite scroll loading text</p>
 </td>
       </tr>
       

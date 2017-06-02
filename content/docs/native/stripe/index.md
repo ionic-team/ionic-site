@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Stripe</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L79">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L79">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-stripe
-$ npm install --save @ionic-native/stripe
-</code></pre>
+<p>A plugin that allows you to use Stripe&#39;s Native SDKs for Android and iOS.</p>
+
+
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-stripe">
     https://github.com/zyramedia/cordova-plugin-stripe
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/stripe
 </p>
 
 
-<p>A plugin that allows you to use Stripe&#39;s Native SDKs for Android and iOS.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-stripe
+$ npm install --save @ionic-native/stripe
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

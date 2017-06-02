@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Touch ID</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/touch-id/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/touch-id/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-touch-id
-$ npm install --save @ionic-native/touch-id
-</code></pre>
+<p>Scan the fingerprint of a user with the TouchID sensor.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-touch-id</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">TouchID plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
     https://github.com/EddyVerbruggen/cordova-plugin-touch-id
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/touch-id
 </p>
 
 
-<p>Scan the fingerprint of a user with the TouchID sensor.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-touch-id</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">TouchID plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-touch-id
+$ npm install --save @ionic-native/touch-id
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -198,6 +205,16 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+</div><h3><a class="anchor" name="didFingerprintDatabaseChange" href="#didFingerprintDatabaseChange"></a><code>didFingerprintDatabaseChange()</code></h3>
+
+
+Checks if the fingerprint database changed.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if yes, rejects if no.
 </div>
 
 

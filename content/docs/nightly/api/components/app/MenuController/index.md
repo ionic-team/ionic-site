@@ -33,7 +33,7 @@ MenuController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/app/menu-controller.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/menu-controller.ts#L2">
 Improve this doc
 </a>
 
@@ -42,7 +42,7 @@ Improve this doc
 
 
 
-<p>The MenuController is a provider which makes it easy to control a <a href="../Menu">Menu</a>.
+<p>The MenuController is a provider which makes it easy to control a <a href="../../Menu/Menu/">Menu</a>.
 Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
 The controller will grab a reference to the menu by the <code>side</code>, <code>id</code>, or, if neither
 of these are passed to it, it will grab the first menu it finds.</p>
@@ -54,7 +54,7 @@ of these are passed to it, it will grab the first menu it finds.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>Add a basic menu component to start with. See the <a href="../Menu">Menu</a> API docs
+<p>Add a basic menu component to start with. See the <a href="../../Menu/Menu/">Menu</a> API docs
 for more information on adding menu components.</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;

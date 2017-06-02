@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Code Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/code-push/index.ts#L395">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/code-push/index.ts#L395">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-code-push
-$ npm install --save @ionic-native/code-push
-</code></pre>
+<p>CodePush plugin for Cordova by Microsoft that supports iOS and Android.</p>
+<p>For more info, please see <a href="https://github.com/ksachdeva/ionic2-code-push-example">https://github.com/ksachdeva/ionic2-code-push-example</a></p>
+
+
 <p>Repo:
   <a href="https://github.com/Microsoft/cordova-plugin-code-push">
     https://github.com/Microsoft/cordova-plugin-code-push
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/code-push
 </p>
 
 
-<p>CodePush plugin for Cordova by Microsoft that supports iOS and Android.</p>
-<p>For more info, please see <a href="https://github.com/ksachdeva/ionic2-code-push-example">https://github.com/ksachdeva/ionic2-code-push-example</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-code-push
+$ npm install --save @ionic-native/code-push
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

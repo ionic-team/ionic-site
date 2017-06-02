@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,20 +11,26 @@ doc: "Firebase"
 docType: "class"
 ---
 
-<h1 class="api-title">Firebase</h1>
+<h1 class="api-title">Firebase<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/firebase/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase/index.ts#L2">
   Improve this doc
 </a>
 
 
 
 
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit any issues to the <a target="_blank"
+  href="https://github.com/arnesson/cordova-plugin-firebase/issues">plugin repo</a>.
+</p>
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-firebase
-$ npm install --save @ionic-native/firebase
-</code></pre>
+
+<p>This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project! Android and iOS supported (including iOS 10).</p>
+
+
 <p>Repo:
   <a href="https://github.com/arnesson/cordova-plugin-firebase">
     https://github.com/arnesson/cordova-plugin-firebase
@@ -32,8 +38,15 @@ $ npm install --save @ionic-native/firebase
 </p>
 
 
-<p>This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project! Android and iOS supported (including iOS 10).</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase
+$ npm install --save @ionic-native/firebase
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -116,11 +129,6 @@ Grant permission to receive push notifications
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
-
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Check permission to receive push notifications
@@ -387,9 +395,6 @@ Set a user property for use in Analytics
 
 
 
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
 
 Fetch Remote Config parameter values for your app
 <table class="table param-table" style="margin:0;">
@@ -419,11 +424,6 @@ Fetch Remote Config parameter values for your app
 </div><h3><a class="anchor" name="activateFetched" href="#activateFetched"></a><code>activateFetched()</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
 Activate the Remote Config fetched config
 
 
@@ -433,9 +433,6 @@ Activate the Remote Config fetched config
 </div><h3><a class="anchor" name="getValue" href="#getValue"></a><code>getValue(key,&nbsp;namespace)</code></h3>
 
 
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
 Retrieve a Remote Config value

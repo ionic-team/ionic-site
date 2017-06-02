@@ -85,6 +85,7 @@ module.exports = function(req, res) {
             user_id: deal.user_id, // brody
             person_id: deal.person_id,
             org_id: deal.org_id,
+            '6205dc9bf717d81a22659121b0f4c5407dcb86eb': 'Website Enterprise Form',
             visible_to: 3
           }, (err, response) => {
 	          if (err) {
@@ -131,14 +132,25 @@ module.exports = function(req, res) {
         title: 'Enterprise Website Lead: ' + req.body.company,
         user_id: asigneeId, // brody
         person_id: person.id,
-        org_id: person.org_id
+        org_id: person.org_id,
       })).then((deal) => pd.addNote({
         content: objToString(req.body).replace(/\n/g, ' | '),
         deal_id: deal.id,
         person_id: deal.person_id,
         org_id: deal.org_id
       })).then(resolve);
-   }));
+    }));
+
+    promises.push(tools.saveEmail({
+      email: req.body.email,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name
+    }).then((response)=>{
+      return tools.addEmailToList({
+        list_id: 1372369,
+        user: response.body.persisted_recipients[0]
+      })
+    }));
 
     // relfect because we want to show the page even if one of the tasks error
     Promise.all(promises.map(reflect)).then(values => {

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Native Storage</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-storage/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/native-storage/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-nativestorage
-$ npm install --save @ionic-native/native-storage
-</code></pre>
+<p>Native storage of variables in Android and iOS</p>
+
+
 <p>Repo:
   <a href="https://github.com/TheCocoaProject/cordova-plugin-nativestorage">
     https://github.com/TheCocoaProject/cordova-plugin-nativestorage
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/native-storage
 </p>
 
 
-<p>Native storage of variables in Android and iOS</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-nativestorage
+$ npm install --save @ionic-native/native-storage
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -137,6 +144,15 @@ Gets a stored item
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code></h3>
+
+
+Retrieving all keys
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

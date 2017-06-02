@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
   Improve this doc
 </a>
 
@@ -28,9 +28,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-camera-preview
-$ npm install --save @ionic-native/camera-preview
-</code></pre>
+<p>Showing camera preview in HTML</p>
+<p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">
     https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview
@@ -38,9 +39,15 @@ $ npm install --save @ionic-native/camera-preview
 </p>
 
 
-<p>Showing camera preview in HTML</p>
-<p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera-preview
+$ npm install --save @ionic-native/camera-preview
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -55,7 +62,7 @@ $ npm install --save @ionic-native/camera-preview
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { CameraPreview, PictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
+<pre><code class="lang-typescript">import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
 
 constructor(private cameraPreview: CameraPreview) { }
 
@@ -91,7 +98,7 @@ this.cameraPreview.setOnPictureTakenHandler().subscribe((result) =&gt; {
 
 
 // picture options
-const pictureOpts: PictureOptions = {
+const pictureOpts: CameraPreviewPictureOptions = {
   width: 1280,
   height: 1280,
   quality: 85
@@ -558,6 +565,44 @@ Set exposure compensation (Android)
 
 Get exposure compensation range (Android)
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="tapToFocus" href="#tapToFocus"></a><code>tapToFocus(xPoint,&nbsp;yPoint)</code></h3>
+
+
+Set specific focus point. Note, this assumes the camera is full-screen.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      xPoint</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      yPoint</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

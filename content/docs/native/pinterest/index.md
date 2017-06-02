@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Pinterest<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
   Improve this doc
 </a>
 
@@ -28,9 +28,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
-$ npm install --save @ionic-native/pinterest
-</code></pre>
+<p>Cordova plugin for Pinterest</p>
+
+
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-pinterest">
     https://github.com/zyramedia/cordova-plugin-pinterest
@@ -38,8 +38,15 @@ $ npm install --save @ionic-native/pinterest
 </p>
 
 
-<p>Cordova plugin for Pinterest</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
+$ npm install --save @ionic-native/pinterest
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

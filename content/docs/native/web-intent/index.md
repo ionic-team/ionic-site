@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,28 +11,41 @@ doc: "Web Intent"
 docType: "class"
 ---
 
-<h1 class="api-title">Web Intent</h1>
+<h1 class="api-title">Web Intent<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L2">
   Improve this doc
 </a>
 
 
 
 
-
-
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/Initsogar/cordova-webintent.git
-$ npm install --save @ionic-native/web-intent
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/Initsogar/cordova-webintent.git">
-    https://github.com/Initsogar/cordova-webintent.git
-  </a>
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit any issues to the <a target="_blank"
+  href="https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent/issues">plugin repo</a>.
 </p>
 
 
 
+
+
+<p>Repo:
+  <a href="https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent">
+    https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
+$ npm install --save @ionic-native/web-intent
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -119,10 +132,51 @@ Convenience constant for actions
 Convenience constant for actions
 
 
+<h3><a class="anchor" name="ACTION_GET_CONTENT" href="#ACTION_GET_CONTENT"></a><code>ACTION_GET_CONTENT</code></h3>
+
+
+Convenience constant for actions
+
+
+<h3><a class="anchor" name="ACTION_PICK" href="#ACTION_PICK"></a><code>ACTION_PICK</code></h3>
+
+
+Convenience constant for actions
+
+
 <h3><a class="anchor" name="startActivity" href="#startActivity"></a><code>startActivity(options)</code></h3>
 
 
 Launches an Android intent
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>{ action: any, url: string, type?: string }</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="startActivityForResult" href="#startActivityForResult"></a><code>startActivityForResult(options)</code></h3>
+
+
+Starts a new activity and return the result to the application
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -249,6 +303,69 @@ Sends a custom intent passing optional extras
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="registerBroadcastReceiver" href="#registerBroadcastReceiver"></a><code>registerBroadcastReceiver(filters)</code></h3>
+
+
+
+
+Registers a broadcast receiver for the specified filters
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      filters</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
+
+
+
+
+Unregisters a broadcast receiver
+
+
+
+<h3><a class="anchor" name="onIntent" href="#onIntent"></a><code>onIntent()</code></h3>
+
+
+
+
+Returns the content of the intent used whenever the application activity is launched
+
+
+
+<h3><a class="anchor" name="onActivityResult" href="#onActivityResult"></a><code>onActivityResult()</code></h3>
+
+
+
+
+
+
+
+
+<h3><a class="anchor" name="getIntent" href="#getIntent"></a><code>getIntent()</code></h3>
+
+
+
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

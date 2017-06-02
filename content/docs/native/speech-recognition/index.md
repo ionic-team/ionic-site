@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,26 +11,20 @@ doc: "Speech Recognition"
 docType: "class"
 ---
 
-<h1 class="api-title">Speech Recognition<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Speech Recognition</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
   Improve this doc
 </a>
 
 
 
 
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/pbakondy/cordova-plugin-speechrecognition/issues">plugin repo</a>.
-</p>
 
 
+<p>This plugin does speech recognition using cloud services</p>
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-speechrecognition
-$ npm install --save @ionic-native/speech-recognition
-</code></pre>
+
 <p>Repo:
   <a href="https://github.com/pbakondy/cordova-plugin-speechrecognition">
     https://github.com/pbakondy/cordova-plugin-speechrecognition
@@ -38,8 +32,15 @@ $ npm install --save @ionic-native/speech-recognition
 </p>
 
 
-<p>This plugin does speech recognition using cloud services</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-speechrecognition
+$ npm install --save @ionic-native/speech-recognition
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

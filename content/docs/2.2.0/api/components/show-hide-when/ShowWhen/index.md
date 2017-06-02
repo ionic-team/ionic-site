@@ -35,7 +35,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L54">
 Improve this doc
 </a>
 

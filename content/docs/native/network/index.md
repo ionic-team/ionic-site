@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Network</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L6">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-network-information
-$ npm install --save @ionic-native/network
-</code></pre>
+<p>Requires Cordova plugin: cordova-plugin-network-information. For more info, please see the <a href="https://github.com/apache/cordova-plugin-network-information">Network plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-network-information">
     https://github.com/apache/cordova-plugin-network-information
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/network
 </p>
 
 
-<p>Requires Cordova plugin: cordova-plugin-network-information. For more info, please see the <a href="https://github.com/apache/cordova-plugin-network-information">Network plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-network-information
+$ npm install --save @ionic-native/network
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -65,9 +72,9 @@ disconnectSubscription.unsubscribe();
 
 // watch network for a connection
 let connectSubscription = this.network.onConnect().subscribe(() =&gt; {
-  console.log(&#39;network connected!&#39;); 
+  console.log(&#39;network connected!&#39;);
   // We just got a connection but we need to wait briefly
-   // before we determine the connection type.  Might need to wait 
+   // before we determine the connection type. Might need to wait.
   // prior to doing any api requests as well.
   setTimeout(() =&gt; {
     if (this.network.type === &#39;wifi&#39;) {

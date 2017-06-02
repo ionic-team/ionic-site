@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,23 +13,13 @@ docType: "class"
 
 <h1 class="api-title">File</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L338">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L585">
   Improve this doc
 </a>
 
 
 
 
-
-
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-file
-$ npm install --save @ionic-native/file
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-file">
-    https://github.com/apache/cordova-plugin-file
-  </a>
-</p>
 
 
 <p>This plugin implements a File API allowing read/write access to files residing on the device.</p>
@@ -43,17 +33,34 @@ constructor(private file: File) { }
 
 this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesnt exist&#39;));
 </code></pre>
-<p> This plugin is based on several specs, including : The HTML5 File API <a href="http://www.w3.org/TR/FileAPI/">http://www.w3.org/TR/FileAPI/</a>
- The (now-defunct) Directories and System extensions Latest: <a href="http://www.w3.org/TR/2012/WD-file-system-api-20120417/">http://www.w3.org/TR/2012/WD-file-system-api-20120417/</a>
- Although most of the plugin code was written when an earlier spec was current: <a href="http://www.w3.org/TR/2011/WD-file-system-api-20110419/">http://www.w3.org/TR/2011/WD-file-system-api-20110419/</a>
- It also implements the FileWriter spec : <a href="http://dev.w3.org/2009/dap/file-system/file-writer.html">http://dev.w3.org/2009/dap/file-system/file-writer.html</a></p>
+<p> This plugin is based on several specs, including : The HTML5 File API http: //www.w3.org/TR/FileAPI/
+ The (now-defunct) Directories and System extensions Latest: http: //www.w3.org/TR/2012/WD-file-system-api-20120417/
+ Although most of the plugin code was written when an earlier spec was current: http: //www.w3.org/TR/2011/WD-file-system-api-20110419/
+ It also implements the FileWriter spec : http: //dev.w3.org/2009/dap/file-system/file-writer.html</p>
 
+
+<p>Repo:
+  <a href="https://github.com/apache/cordova-plugin-file">
+    https://github.com/apache/cordova-plugin-file
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file
+$ npm install --save @ionic-native/file
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>OS X</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 
@@ -698,7 +705,7 @@ Write a new file to the desired location.
     <td>
       options</td>
     <td>
-      <code>WriteOptions</code>
+      <code>IWriteOptions</code>
     </td>
     <td>
       <p>replace file if set to true. See WriteOptions for more information.</p>
@@ -808,7 +815,7 @@ Read the contents of a file as text.
 
 Read file and return data as a base64 encoded data url.
 A data url is of the form:
-     data:[<mediatype>][;base64],<data>
+     data: [<mediatype>][;base64],<data>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -850,7 +857,6 @@ A data url is of the form:
 
 
 Read file and return data as a binary data.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1214,6 +1220,24 @@ Get a file
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;FileEntry&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name=" IFile" href="# IFile"></a> IFile</h2>
+
+
+<h2><a class="anchor" name=" Entry" href="# Entry"></a> Entry</h2>
+
+
+<h2><a class="anchor" name=" DirectoryEntry" href="# DirectoryEntry"></a> DirectoryEntry</h2>
+
+
+<h2><a class="anchor" name=" DirectoryReader" href="# DirectoryReader"></a> DirectoryReader</h2>
+
+
+<h2><a class="anchor" name=" FileSystem" href="# FileSystem"></a> FileSystem</h2>
 
 
 

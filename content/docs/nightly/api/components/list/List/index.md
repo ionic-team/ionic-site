@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/list/list.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/list/list.ts#L8">
 Improve this doc
 </a>
 
@@ -167,11 +167,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-ios-margin-right</code></td>
+        <td><code>$list-ios-margin-end</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-ios-margin-right</code></td>
         
-        <td><p>Margin right of the list</p>
+        <td><p>Margin end of the list</p>
 </td>
       </tr>
       
@@ -185,11 +185,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-ios-margin-left</code></td>
+        <td><code>$list-ios-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-ios-margin-left</code></td>
         
-        <td><p>Margin left of the list</p>
+        <td><p>Margin start of the list</p>
 </td>
       </tr>
       
@@ -203,11 +203,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-ios-margin-right</code></td>
+        <td><code>$list-inset-ios-margin-end</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-ios-margin-right</code></td>
         
-        <td><p>Margin right of the inset list</p>
+        <td><p>Margin end of the inset list</p>
 </td>
       </tr>
       
@@ -221,11 +221,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-ios-margin-left</code></td>
+        <td><code>$list-inset-ios-margin-start</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-ios-margin-left</code></td>
         
-        <td><p>Margin left of the inset list</p>
+        <td><p>Margin start of the inset list</p>
 </td>
       </tr>
       
@@ -239,11 +239,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-ios-header-padding-left</code></td>
+        <td><code>$list-ios-header-padding-start</code></td>
         
-          <td><code>$item-ios-padding-left</code></td>
+          <td><code>$list-ios-header-padding-left</code></td>
         
-        <td><p>Padding left of the header in a list</p>
+        <td><p>Padding start of the header in a list</p>
 </td>
       </tr>
       
@@ -333,11 +333,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-md-margin-right</code></td>
+        <td><code>$list-md-margin-end</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-md-margin-right</code></td>
         
-        <td><p>Margin right of the list</p>
+        <td><p>Margin end of the list</p>
 </td>
       </tr>
       
@@ -351,11 +351,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-md-margin-left</code></td>
+        <td><code>$list-md-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-md-margin-left</code></td>
         
-        <td><p>Margin left of the list</p>
+        <td><p>Margin start of the list</p>
 </td>
       </tr>
       
@@ -369,11 +369,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-md-margin-right</code></td>
+        <td><code>$list-inset-md-margin-end</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-md-margin-right</code></td>
         
-        <td><p>Margin right of the inset list</p>
+        <td><p>Margin end of the inset list</p>
 </td>
       </tr>
       
@@ -387,11 +387,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-md-margin-left</code></td>
+        <td><code>$list-inset-md-margin-start</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-md-margin-left</code></td>
         
-        <td><p>Margin left of the inset list</p>
+        <td><p>Margin start of the inset list</p>
 </td>
       </tr>
       
@@ -414,11 +414,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-md-header-padding-left</code></td>
+        <td><code>$list-md-header-padding-start</code></td>
         
-          <td><code>$item-md-padding-left</code></td>
+          <td><code>$list-md-header-padding-left</code></td>
         
-        <td><p>Padding left of the header in a list</p>
+        <td><p>Padding start of the header in a list</p>
 </td>
       </tr>
       
@@ -481,11 +481,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-wp-margin-right</code></td>
+        <td><code>$list-wp-margin-end</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-wp-margin-right</code></td>
         
-        <td><p>Margin right of the list</p>
+        <td><p>Margin end of the list</p>
 </td>
       </tr>
       
@@ -499,11 +499,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-wp-margin-left</code></td>
+        <td><code>$list-wp-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$list-wp-margin-left</code></td>
         
-        <td><p>Margin left of the list</p>
+        <td><p>Margin start of the list</p>
 </td>
       </tr>
       
@@ -517,11 +517,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-wp-margin-right</code></td>
+        <td><code>$list-inset-wp-margin-end</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-wp-margin-right</code></td>
         
-        <td><p>Margin right of the inset list</p>
+        <td><p>Margin end of the inset list</p>
 </td>
       </tr>
       
@@ -535,11 +535,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-inset-wp-margin-left</code></td>
+        <td><code>$list-inset-wp-margin-start</code></td>
         
-          <td><code>16px</code></td>
+          <td><code>$list-inset-wp-margin-left</code></td>
         
-        <td><p>Margin left of the inset list</p>
+        <td><p>Margin start of the inset list</p>
 </td>
       </tr>
       
@@ -553,11 +553,11 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-wp-header-padding-left</code></td>
+        <td><code>$list-wp-header-padding-start</code></td>
         
-          <td><code>$item-wp-padding-left</code></td>
+          <td><code>$list-wp-header-padding-left</code></td>
         
-        <td><p>Padding left of the header in a list</p>
+        <td><p>Padding start of the header in a list</p>
 </td>
       </tr>
       

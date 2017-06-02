@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,23 +13,13 @@ docType: "class"
 
 <h1 class="api-title">Facebook</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L23">
   Improve this doc
 </a>
 
 
 
 
-
-
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
-$ npm install --save @ionic-native/facebook
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/jeduan/cordova-plugin-facebook4">
-    https://github.com/jeduan/cordova-plugin-facebook4
-  </a>
-</p>
 
 
 <p>Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android.</p>
@@ -40,7 +30,7 @@ $ npm install --save @ionic-native/facebook
 <p>Retrieve the <code>App ID</code> and <code>App Name</code>.</p>
 <p><a href="https://developers.facebook.com/apps/"><img src="/img/docs/native/Facebook/2.png" alt="fb-getstarted-2"></a></p>
 <p>Then type in the following command in your Terminal, where APP_ID and APP_NAME are the values from the Facebook Developer portal.</p>
-<pre><code class="lang-bash">ionic plugin add cordova-plugin-facebook4 --save --variable APP_ID=&quot;123456789&quot; --variable APP_NAME=&quot;myApplication&quot;
+<pre><code class="lang-bash">ionic plugin add cordova-plugin-facebook4 --variable APP_ID=&quot;123456789&quot; --variable APP_NAME=&quot;myApplication&quot;
 </code></pre>
 <p>After, you&#39;ll need to add the native platforms you&#39;ll be using to your app in the Facebook Developer portal under your app&#39;s Settings:</p>
 <p><a href="https://developers.facebook.com/apps/"><img src="/img/docs/native/Facebook/3.png" alt="fb-getstarted-3"></a></p>
@@ -70,6 +60,23 @@ $ npm install --save @ionic-native/facebook
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
 
 
+<p>Repo:
+  <a href="https://github.com/jeduan/cordova-plugin-facebook4">
+    https://github.com/jeduan/cordova-plugin-facebook4
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+$ npm install --save @ionic-native/facebook
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
+
 
 
 <h2>Supported platforms</h2>
@@ -92,6 +99,9 @@ constructor(private fb: Facebook) { }
 this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;])
   .then((res: FacebookLoginResponse) =&gt; console.log(&#39;Logged into Facebook!&#39;, res))
   .catch(e =&gt; console.log(&#39;Error logging into Facebook&#39;, e));
+
+
+this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
 </code></pre>
 
 
@@ -102,6 +112,11 @@ this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;
 
 
 <h2>Instance Members</h2>
+<h3><a class="anchor" name="EVENTS" href="#EVENTS"></a><code>EVENTS</code></h3>
+
+
+
+
 <h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code></h3>
 
 
@@ -149,16 +164,17 @@ Login to Facebook to authenticate this app.
 
 ```typescript
 {
-  status: "connected",
+  status: 'connected',
   authResponse: {
     session_key: true,
-    accessToken: "kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn",
+    accessToken: 'kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn',
     expiresIn: 5183979,
-    sig: "...",
-    secret: "...",
-    userID: "634565435"
+    sig: '...',
+    secret: '...',
+    userID: '634565435'
   }
 }
+
 ```
 
 <table class="table param-table" style="margin:0;">
@@ -211,13 +227,13 @@ Resolves with a response like:
 ```
 {
   authResponse: {
-    userID: "12345678912345",
-    accessToken: "kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn",
+    userID: '12345678912345',
+    accessToken: 'kgkh3g42kh4g23kh4g2kh34g2kg4k2h4gkh3g4k2h4gk23h4gk2h34gk234gk2h34AndSoOn',
     session_Key: true,
-    expiresIn: "5183738",
-    sig: "..."
+    expiresIn: '5183738',
+    sig: '...'
   },
-  status: "connected"
+  status: 'connected'
 }
 ```
 
@@ -245,10 +261,10 @@ Show one of various Facebook dialogs. Example of options for a Share dialog:
 
 ```
 {
-  method: "share",
-  href: "http://example.com",
-  caption: "Such caption, very feed.",
-  description: "Much description",
+  method: 'share',
+  href: 'http://example.com',
+  caption: 'Such caption, very feed.',
+  description: 'Much description',
   picture: 'http://example.com/image.png'
 }
 ```

@@ -1,12 +1,25 @@
 ---
-layout: fluid/docs_cli_base
+layout: fluid/docs_base
 category: cli
 id: cli-info
 command_name: info
-title: Info
+title: info
 header_sub_title: Ionic CLI
 ---
 
-## Description
+# `$ ionic info`
 
-The `ionic info` command prints out useful information about your system's Ionic environment and dependencies. This includes things such as your Ionic, Cordova, Node, and Xcode version. If submitting an issue on [Github](https://github.com/driftyco/ionic2/issues), pasting the output of this command can help others diagnose the issue more quickly.
+Print system/environment info
+## Synopsis
+
+```bash
+$ ionic info 
+```
+  
+## Details
+
+
+
+
+
+

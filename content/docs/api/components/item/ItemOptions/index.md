@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-options.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item-options.ts#L4">
 Improve this doc
 </a>
 
@@ -157,11 +157,38 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
       </tr>
       
       <tr>
-        <td><code>$item-ios-paragraph-margin</code></td>
+        <td><code>$item-ios-paragraph-margin-top</code></td>
         
-          <td><code>0 0 2px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the item paragraph</p>
+        <td><p>Margin top of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-bottom</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Margin bottom of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-start</code></td>
+        
+          <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+        <td><p>Margin start of the item paragraph</p>
 </td>
       </tr>
       
@@ -252,15 +279,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>#222</code></td>
         
         <td><p>Color for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-ios-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       
@@ -409,15 +427,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>1px solid $list-md-border-color</code></td>
         
         <td><p>Border bottom for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       
@@ -584,15 +593,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>2rem</code></td>
         
         <td><p>Font size for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       

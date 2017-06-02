@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Alipay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L61">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
-$ npm install --save @ionic-native/alipay
-</code></pre>
+<p>This plugin is used for Alipay APP support. Integrated with the latest SDK.</p>
+<p>Requires Cordova plugin: <code>cordova-alipay-base</code>. For more info, please see the <a href="https://github.com/xueron/cordova-alipay-base">Alipay plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/xueron/cordova-alipay-base">
     https://github.com/xueron/cordova-alipay-base
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/alipay
 </p>
 
 
-<p>This plugin is used for Alipay APP support. Integrated with the latest SDK.</p>
-<p>Requires Cordova plugin: <code>cordova-alipay-base</code>. For more info, please see the <a href="https://github.com/xueron/cordova-alipay-base">Alipay plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
+$ npm install --save @ionic-native/alipay
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

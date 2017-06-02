@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/select/select.ts#L14">
 Improve this doc
 </a>
 
@@ -139,6 +139,26 @@ for the properties that each interface accepts.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="close"></div>
+
+<h3>
+<a class="anchor" name="close" href="#close"></a>
+<code>close()</code>
+  
+
+</h3>
+
+Close the select interface.
+
+
+
+
+
+
+
+
+
 
 <div id="config"></div>
 
@@ -349,11 +369,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-popover-list-margin-right</code></td>
+        <td><code>$select-popover-list-margin-end</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$select-popover-list-margin-right</code></td>
         
-        <td><p>Margin right of the select popover list</p>
+        <td><p>Margin end of the select popover list</p>
 </td>
       </tr>
       
@@ -367,11 +387,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-popover-list-margin-left</code></td>
+        <td><code>$select-popover-list-margin-start</code></td>
         
-          <td><code>0</code></td>
+          <td><code>$select-popover-list-margin-left</code></td>
         
-        <td><p>Margin left of the select popover list</p>
+        <td><p>Margin start of the select popover list</p>
 </td>
       </tr>
       
@@ -398,11 +418,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-ios-padding-right</code></td>
+        <td><code>$select-ios-padding-end</code></td>
         
-          <td><code>($item-ios-padding-right / 2)</code></td>
+          <td><code>$select-ios-padding-right</code></td>
         
-        <td><p>Padding right of the select</p>
+        <td><p>Padding end of the select</p>
 </td>
       </tr>
       
@@ -416,11 +436,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-ios-padding-left</code></td>
+        <td><code>$select-ios-padding-start</code></td>
         
-          <td><code>$item-ios-padding-left</code></td>
+          <td><code>$select-ios-padding-left</code></td>
         
-        <td><p>Padding left of the select</p>
+        <td><p>Padding start of the select</p>
 </td>
       </tr>
       
@@ -465,11 +485,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-md-padding-right</code></td>
+        <td><code>$select-md-padding-end</code></td>
         
-          <td><code>($item-md-padding-right / 2)</code></td>
+          <td><code>$select-md-padding-right</code></td>
         
-        <td><p>Padding right of the select</p>
+        <td><p>Padding end of the select</p>
 </td>
       </tr>
       
@@ -483,11 +503,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-md-padding-left</code></td>
+        <td><code>$select-md-padding-start</code></td>
         
-          <td><code>$item-md-padding-left</code></td>
+          <td><code>$select-md-padding-left</code></td>
         
-        <td><p>Padding left of the select</p>
+        <td><p>Padding start of the select</p>
 </td>
       </tr>
       
@@ -534,9 +554,9 @@ create options for each interface.</p>
       <tr>
         <td><code>$select-wp-padding-horizontal</code></td>
         
-          <td><code>($item-wp-padding-right / 2)</code></td>
+          <td><code>($item-wp-padding-end / 2)</code></td>
         
-        <td><p>Padding left and right of the select</p>
+        <td><p>Padding start/end of the select</p>
 </td>
       </tr>
       
@@ -550,11 +570,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-wp-margin-right</code></td>
+        <td><code>$select-wp-margin-end</code></td>
         
-          <td><code>($item-wp-padding-right / 2)</code></td>
+          <td><code>$select-wp-margin-right</code></td>
         
-        <td><p>Margin right of the select</p>
+        <td><p>Margin end of the select</p>
 </td>
       </tr>
       
@@ -568,11 +588,11 @@ create options for each interface.</p>
       </tr>
       
       <tr>
-        <td><code>$select-wp-margin-left</code></td>
+        <td><code>$select-wp-margin-start</code></td>
         
-          <td><code>($item-wp-padding-left / 2)</code></td>
+          <td><code>$select-wp-margin-left</code></td>
         
-        <td><p>Margin left of the select</p>
+        <td><p>Margin start of the select</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Secure Storage</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L59">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-secure-storage
-$ npm install --save @ionic-native/secure-storage
-</code></pre>
+<p>This plugin gets, sets and removes key,value pairs from a device&#39;s secure storage.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-secure-storage</code>. For more info, please see the <a href="https://github.com/Crypho/cordova-plugin-secure-storage">Cordova Secure Storage docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/Crypho/cordova-plugin-secure-storage">
     https://github.com/Crypho/cordova-plugin-secure-storage
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/secure-storage
 </p>
 
 
-<p>This plugin gets, sets and removes key,value pairs from a device&#39;s secure storage.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-secure-storage</code>. For more info, please see the <a href="https://github.com/Crypho/cordova-plugin-secure-storage">Cordova Secure Storage docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-secure-storage
+$ npm install --save @ionic-native/secure-storage
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -88,6 +95,7 @@ this.secureStorage.create(&#39;my_store_name&#39;)
 
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(store)</code></h3>
+
 
 Creates a namespaced storage.
 <table class="table param-table" style="margin:0;">

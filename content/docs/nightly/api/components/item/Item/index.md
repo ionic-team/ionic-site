@@ -35,7 +35,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item.ts#L8">
 Improve this doc
 </a>
 
@@ -121,11 +121,11 @@ that attribute inside of the item:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>item-left</code></td>
+<td><code>item-start</code></td>
 <td>Placed to the left of all other elements, outside of the inner item.</td>
 </tr>
 <tr>
-<td><code>item-right</code></td>
+<td><code>item-end</code></td>
 <td>Placed to the right of all other elements, inside of the inner item, outside of the input wrapper.</td>
 </tr>
 <tr>
@@ -135,10 +135,10 @@ that attribute inside of the item:</p>
 </tbody>
 </table>
 <h3 id="checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</h3>
-<p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-left</code> attribute.
+<p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-start</code> attribute.
 <a href="../../radio/RadioButton">Radios</a> and <a href="../../toggle/Toggle">Toggles</a> are positioned in the same place
-as the <code>item-right</code> attribute. All of these components can be positioned differently by adding the
-<code>item-left</code> or <code>item-right</code> attribute.</p>
+as the <code>item-end</code> attribute. All of these components can be positioned differently by adding the
+<code>item-start</code> or <code>item-end</code> attribute.</p>
 <h3 id="content-and-inputs">Content and Inputs</h3>
 <p>A <a href="../../label/Label">Label</a> is placed inside of the item to the left of all content and inputs. The
 following components are all placed in the same position as the <code>item-content</code> attribute: <a href="../../select/Select">Select</a>,
@@ -212,9 +212,9 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- List header with buttons on each side --&gt;
   &lt;ion-list-header&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     List Header
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-list-header&gt;
 
   &lt;!-- Loops through and creates multiple items --&gt;
@@ -224,7 +224,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Button item with an icon on the left --&gt;
   &lt;button ion-item&gt;
-    &lt;ion-icon name=&quot;star&quot; item-left&gt;&lt;/ion-icon&gt;
+    &lt;ion-icon name=&quot;star&quot; item-start&gt;&lt;/ion-icon&gt;
     Button Item
   &lt;/button&gt;
 
@@ -240,25 +240,25 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Item with left and right buttons --&gt;
   &lt;ion-item&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     Item
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item divider with a right button --&gt;
   &lt;ion-item-divider&gt;
     Item Divider
-    &lt;button ion-button item-right&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-end&gt;Button&lt;/button&gt;
   &lt;/ion-item-divider&gt;
 
   &lt;!-- Disabled button item with left and right buttons --&gt;
   &lt;button ion-item disabled&gt;
-    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button item-start (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;home&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
     Disabled Button Item
-    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button outline item-end (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
@@ -266,18 +266,18 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Item with an avatar on the left and button on the right --&gt;
   &lt;ion-item&gt;
-    &lt;ion-avatar item-left&gt;
+    &lt;ion-avatar item-start&gt;
       &lt;img src=&quot;img/my-avatar.png&quot;&gt;
     &lt;/ion-avatar&gt;
     Avatar Item
-    &lt;button ion-button outline item-right&gt;View&lt;/button&gt;
+    &lt;button ion-button outline item-end&gt;View&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item with a thumbnail on the right --&gt;
   &lt;ion-item&gt;
     &lt;h2&gt;Item&lt;/h2&gt;
     &lt;p&gt;Item Paragraph&lt;/p&gt;
-    &lt;ion-thumbnail item-right&gt;
+    &lt;ion-thumbnail item-end&gt;
       &lt;img src=&quot;img/my-thumbnail.png&quot;&gt;
     &lt;/ion-thumbnail&gt;
   &lt;/ion-item&gt;
@@ -339,11 +339,38 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
-        <td><code>$item-ios-paragraph-margin</code></td>
+        <td><code>$item-ios-paragraph-margin-top</code></td>
         
-          <td><code>0 0 2px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the item paragraph</p>
+        <td><p>Margin top of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-bottom</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Margin bottom of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-start</code></td>
+        
+          <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+        <td><p>Margin start of the item paragraph</p>
 </td>
       </tr>
       
@@ -434,15 +461,6 @@ be added to <code>ion-item</code> to transform the text.</p>
           <td><code>#222</code></td>
         
         <td><p>Color for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-ios-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       
@@ -591,15 +609,6 @@ be added to <code>ion-item</code> to transform the text.</p>
           <td><code>1px solid $list-md-border-color</code></td>
         
         <td><p>Border bottom for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       
@@ -766,15 +775,6 @@ be added to <code>ion-item</code> to transform the text.</p>
           <td><code>2rem</code></td>
         
         <td><p>Font size for the divider</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-divider-padding</code></td>
-        
-          <td><code>5px 15px</code></td>
-        
-        <td><p>Padding for the divider</p>
 </td>
       </tr>
       

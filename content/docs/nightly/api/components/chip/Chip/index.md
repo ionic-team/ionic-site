@@ -35,7 +35,7 @@ Chip
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/chip/chip.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/chip/chip.ts#L3">
 Improve this doc
 </a>
 
@@ -81,7 +81,7 @@ Improve this doc
 
 &lt;ion-chip&gt;
   &lt;ion-avatar&gt;
-    &lt;img src=&quot;img/my-img.png&quot;&gt;
+    &lt;img src=&quot;assets/img/my-img.png&quot;&gt;
   &lt;/ion-avatar&gt;
   &lt;ion-label&gt;Default&lt;/ion-label&gt;
 &lt;/ion-chip&gt;
@@ -178,11 +178,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$chip-button-margin</code></td>
+        <td><code>$chip-button-margin-top</code></td>
         
           <td><code>0</code></td>
         
-        <td><p>Margin of the button in the chip</p>
+        <td><p>Margin top of the button in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-button-margin-end</code></td>
+        
+          <td><code>$chip-button-margin-top</code></td>
+        
+        <td><p>Margin end of the button in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-button-margin-bottom</code></td>
+        
+          <td><code>$chip-button-margin-top</code></td>
+        
+        <td><p>Margin bottom of the button in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-button-margin-start</code></td>
+        
+          <td><code>$chip-button-margin-end</code></td>
+        
+        <td><p>Margin start of the button in the chip</p>
 </td>
       </tr>
       
@@ -263,11 +290,38 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$chip-ios-margin</code></td>
+        <td><code>$chip-ios-margin-top</code></td>
         
-          <td><code>2px 0</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Margin of the chip</p>
+        <td><p>Margin top of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-margin-bottom</code></td>
+        
+          <td><code>$chip-ios-margin-top</code></td>
+        
+        <td><p>Margin bottom of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-margin-start</code></td>
+        
+          <td><code>$chip-ios-margin-end</code></td>
+        
+        <td><p>Margin start of the chip</p>
 </td>
       </tr>
       
@@ -317,11 +371,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$chip-ios-label-margin</code></td>
+        <td><code>$chip-ios-label-margin-top</code></td>
         
-          <td><code>0 10px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the label in the chip</p>
+        <td><p>Margin top of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-label-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-label-margin-bottom</code></td>
+        
+          <td><code>$chip-ios-label-margin-top</code></td>
+        
+        <td><p>Margin bottom of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-ios-label-margin-start</code></td>
+        
+          <td><code>$chip-ios-label-margin-end</code></td>
+        
+        <td><p>Margin start of the label in the chip</p>
 </td>
       </tr>
       
@@ -357,11 +438,38 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$chip-md-margin</code></td>
+        <td><code>$chip-md-margin-top</code></td>
         
-          <td><code>2px 0</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Margin of the chip</p>
+        <td><p>Margin top of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-margin-bottom</code></td>
+        
+          <td><code>$chip-md-margin-top</code></td>
+        
+        <td><p>Margin bottom of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-margin-start</code></td>
+        
+          <td><code>$chip-md-margin-end</code></td>
+        
+        <td><p>Margin start of the chip</p>
 </td>
       </tr>
       
@@ -411,11 +519,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$chip-md-label-margin</code></td>
+        <td><code>$chip-md-label-margin-top</code></td>
         
-          <td><code>0 10px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the label in the chip</p>
+        <td><p>Margin top of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-label-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-label-margin-bottom</code></td>
+        
+          <td><code>$chip-md-label-margin-top</code></td>
+        
+        <td><p>Margin bottom of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-md-label-margin-start</code></td>
+        
+          <td><code>$chip-md-label-margin-end</code></td>
+        
+        <td><p>Margin start of the label in the chip</p>
 </td>
       </tr>
       
@@ -451,11 +586,38 @@ class E2EPage {
     <tbody>
       
       <tr>
-        <td><code>$chip-wp-margin</code></td>
+        <td><code>$chip-wp-margin-top</code></td>
         
-          <td><code>2px 0</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Margin of the chip</p>
+        <td><p>Margin top of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-margin-bottom</code></td>
+        
+          <td><code>$chip-wp-margin-top</code></td>
+        
+        <td><p>Margin bottom of the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-margin-start</code></td>
+        
+          <td><code>$chip-wp-margin-end</code></td>
+        
+        <td><p>Margin start of the chip</p>
 </td>
       </tr>
       
@@ -505,11 +667,38 @@ class E2EPage {
       </tr>
       
       <tr>
-        <td><code>$chip-wp-label-margin</code></td>
+        <td><code>$chip-wp-label-margin-top</code></td>
         
-          <td><code>0 10px</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Margin of the label in the chip</p>
+        <td><p>Margin top of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-label-margin-end</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin end of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-label-margin-bottom</code></td>
+        
+          <td><code>$chip-wp-label-margin-top</code></td>
+        
+        <td><p>Margin bottom of the label in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$chip-wp-label-margin-start</code></td>
+        
+          <td><code>$chip-wp-label-margin-end</code></td>
+        
+        <td><p>Margin start of the label in the chip</p>
 </td>
       </tr>
       

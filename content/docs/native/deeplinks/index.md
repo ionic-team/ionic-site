@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Deeplinks</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
   Improve this doc
 </a>
 
@@ -22,19 +22,26 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
-$ npm install --save @ionic-native/deeplinks
-</code></pre>
+<p>This plugin handles deeplinks on iOS and Android for both custom URL scheme links
+and Universal App Links.</p>
+
+
 <p>Repo:
-  <a href="https://github.com/driftyco/ionic-plugin-deeplinks">
-    https://github.com/driftyco/ionic-plugin-deeplinks
+  <a href="https://github.com/ionic-team/ionic-plugin-deeplinks">
+    https://github.com/ionic-team/ionic-plugin-deeplinks
   </a>
 </p>
 
 
-<p>This plugin handles deeplinks on iOS and Android for both custom URL scheme links
-and Universal App Links.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
+$ npm install --save @ionic-native/deeplinks
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -82,7 +89,7 @@ the actual navigation for you:</p>
     console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
   });
 </code></pre>
-<p>See the <a href="https://github.com/driftyco/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
+<p>See the <a href="https://github.com/ionic-team/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
 retrieve the <code>NavController</code> reference at runtime.</p>
 
 
@@ -93,7 +100,7 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="route" href="#route"></a><code>route(Define)</code></h3>
+<h3><a class="anchor" name="route" href="#route"></a><code>route(paths)</code></h3>
 
 
 
@@ -111,12 +118,12 @@ Define a set of paths to match against incoming deeplinks.
   <tbody>
   <tr>
     <td>
-      Define</td>
+      paths</td>
     <td>
       <code>paths</code>
     </td>
     <td>
-      <p>a set of paths to match against incoming deeplinks.
+      <p>Define a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
@@ -129,7 +136,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(Define)</code></h3>
+</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(navController,&nbsp;paths)</code></h3>
 
 
 
@@ -153,16 +160,26 @@ control over the behavior of a matching deeplink, use the plain `route` method.
   <tbody>
   <tr>
     <td>
-      Define</td>
+      navController</td>
     <td>
-      <code>paths</code>
+      <code>Nav</code>
     </td>
     <td>
-      <p>a set of paths to match against incoming deeplinks.
+      <p>Define a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 </td>
+  </tr>
+  
+  <tr>
+    <td>
+      paths</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      </td>
   </tr>
   </tbody>
 </table>

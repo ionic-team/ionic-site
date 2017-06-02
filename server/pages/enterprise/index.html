@@ -1,202 +1,208 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'enterprise' %}
+{% set mixpanelEnabled = true %}
+{% set bodyController = 'EnterpriseCtrl' %}
 
 {% block main %}
 
-<div class="banner">
+<div class="banner" >
   <hgroup class="container">
-    <h1>Build better, more secure Ionic apps</h1>
+    <h1>Ionic Enterprise</h1>
     <p>
-      With, <strong>Ionic Framework Enterprise</strong> you get expert Ionic help when you need it. Let us help you build better apps.
+      Simplify app creation. Ionic makes it easy to build high performance apps 
+      that look & feel beautiful on any platform or device, with superpowered 
+      tools your teams will love.
     </p>
   </hgroup>
-  <div class="bar">
-    <div class="container">
-      <p>
-        <a data-toggle="modal" data-target="#contactForm">Contact us</a>
-        or compare Ionic Framework versions below
-      </p>
-    </div>
-  </div>
 </div>
 
 {% if notification %}
-<h2 class="container text-center {{notificationClass}}">{{ notification }}</h2>
+<h2 class="container text-center {{notificationClass}}" 
+    ng-init="success = true">
+  {{ notification }}
+</h2>
 {% endif %}
-<hgroup class="container hero text-center">
-  <h2>Keep your productivity high and your apps secure</h2>
-  <p class="lg">
-    The same Ionic Framework you know and love, with direct access to the Ionic team, priority hot fixes, support SLAs, and more
-  </p>
-</hgroup>
-<div class=" table-wrap">
-  <table class="container table">
-    <thead>
-      <tr>
-        <td></td>
-        <th>Ionic Framework</th>
-        <th><strong>Ionic Enterprise Framework</strong></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Our flagship Open Source HTML5 mobile framework">
-          Ionic SDK <i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Test and send your apps to stakeholders without complicated beta testing tools">
-          Ionic View<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="A graphical frontend to the powerful Ionic CLI">
-          Ionic Lab<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Our flexible and powerful command-line interface for Windows, Mac, and Linux">
-          CLI<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Access to the popular and highly-active Ionic Forum community">
-          Forum Support<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Support for using the full native power of the device">
-          Native Plugins<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td><i class="ion-ios-checkmark"></i></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <!--
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Client-side encryption for SQLite data stores, along with Keychain access and more">
-          Data Security<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      -->
+<section class="container ready">
+  <hgroup class="hero text-center">
+    <h2>Developer friendly, enterprise ready</h2>
+    <p class="lg">
+      Enable your developers to build apps with the technology they know & love 
+      across the entire app development process, with the tools, collaboration, 
+      and control you need to power your apps—company-wide.
+    </p>
+    <img src="/img/enterprise/macbook-dash-preview.jpg" />
+  </hgroup>
+  <ul class="features icons">
+    <li class="accelerated">
+      <h4>Accelerated time to market</h4>
+      <p>
+        Go from idea to app store in half the time, with Ionic there to guide 
+        you at every step.
+      </p>
+    </li>
+    <li class="noticed">
+      <h4>Apps that get noticed</h4>
+      <p>
+        Create beautiful, high-performant mobile apps that captivate your 
+        customers and elevate employees.
+      </p>
+    </li>
+    <li class="teams">
+      <h4>Empowering your teams</h4>
+      <p>
+        Turn in-house web dev teams and even citizen developers into powerful 
+        mobile app builders.
+      </p>
+    </li>
+    <li class="workflow">
+      <h4>Streamlined app workflow</h4>
+      <p>
+        Git integration and a centralized dashboard,enable efficient, agile 
+        development flow for teams.
+      </p>
+    </li>
+  </ul>
+</section>
 
-      <!--
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Ensure that users can't decipher your client-side code">
-          Code Obfuscation<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      -->
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Access to hot fixes of the Ionic Framework that don't have an available solution">
-          Hot Fixes<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="SLA for guaranteed response times">
-          Support SLA<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Kickstart your app development with a one-hour introductory session with the Ionic Team">
-          Introductory Session<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      <!--
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="A pre-configured app container with best-practices baked in and plugin updates">
-          Enterprise Container<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      -->
-      <!--
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Extra legal protection around OSS licensing">
-          Indemnification<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td><i class="ion-ios-checkmark"></i></td>
-      </tr>
-      -->
-      <tr>
-        <th><span data-toggle="tooltip"
-            data-placement="right"
-            title="Custom support for your app available at an extra cost">
-          Code Support<i class="ion-ios-information-circle"></i>
-        </span></th>
-        <td></td>
-        <td>Extra Cost</td>
-      </tr>
-      <tr>
-        <td class="empty"></td>
-        <td>Free! <span>MIT Licensed</span></td>
-        <td class="btn ionic"
-            data-toggle="modal"
-            data-target="#contactForm">
-          Contact us
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<section class="companies">
+  <div class="container">
+    <h2>Powering apps at some of the world’s smartest companies</h2>
+    <img src="/img/enterprise/logos.png" alt="enterprise company logos" />
+  </div>
+</section>
+
+<section class="solution container">
+  <h2>Our approach. Your solution.</h2>
+  <ul class="items icons">
+    <li class="platforms">
+      <h4>
+        Fully cross-platform apps
+      </h4>
+      <p>
+        Ionic apps work and look beautiful wherever they run. With Ionic, a 
+        single team can build desktop, progressive web, and native mobile apps 
+        across every major app store, all from a single shared codebase.
+      </p>
+    </li>
+    <li class="optimized">
+      <h4>Native and web optimized</h4>
+      <p> 
+        Ionic offers the best components for building highly interactive native 
+        and progressive web apps. By unlocking native APIs and plugins, Ionic 
+        brings the UI standards and device features of native apps together with 
+        the full power and flexibility of the open web.
+      </p>
+    </li>
+    <li class="design">
+      <h4>Beautifully designed</h4>
+      <p>
+        Clean, simple, and functional. Ionic is designed to work and display 
+        beautifully on all current mobile devices and platforms, with ready-made 
+        components and gorgeous (yet highly customizable) base themes.
+      </p>
+    </li>
+    <li class="performant">
+      <h4>Highly performant</h4>
+      <p> 
+        Performance is paramount. Ionic is built to perform and behave great on 
+        the latest mobile devices with best practices like efficient hardware 
+        accelerated transitions, and touch-optimized gestures.
+      </p>
+    </li>
+    <li class="developers">
+      <h4>The stack developers love</h4>
+      <p>
+        Happy developers build better apps. Ionic is the world's most popular 
+        cross-platform mobile development technology stack, backed by a massive 
+        international community.  Ionic also powers some of the best teams and 
+        companies on earth.
+      </p>
+    </li>
+    <li class="future">
+      <h4>Extensible, future-proof technology</h4>
+      <p>
+        With Ionic, you’re taking advantage of the single most adopted, 
+        tested, and dominate technology stack in the world: The Web. Rest 
+        assured, the Web has been around the longest, and it’s not going away 
+        anytime soon.
+      </p>
+    </li>
+  </ul>
+</section>
+
+<section class="powerful">
+  <div class="container">
+    <img src="/img/enterprise/enterprise-graphic.png" />
+    <hgroup>
+      <h2>
+        Powerful extensions, support, and peace of mind for Enterprise teams
+      </h2>
+      <p class="lg">
+        <strong>Ionic Enterprise</strong> enables your team to be as efficient 
+        and nimble as a startup, while also addressing the complex requirements 
+        of the modern enterprise. It’s everything you need to build, test, 
+        monitor, and deploy incredible apps.
+      </p>
+    </hgroup>
+    <ul class="why icons">
+      <li class="solution">
+        <h4>A complete enterprise solution</h4>
+        <p>
+          Ionic’s suite of products and services give you and your team all the 
+          tools needed to quickly move from app ideation to app store, allowing 
+          you to transition easily between the critical phases of your mobile or 
+          desktop development lifecycle.
+        </p>
+      </li>
+      <li class="support">
+        <h4>Support when your need it</h4>
+        <p>
+          Get priority access to hotfixes, with the option for premium code 
+          reviews and training from the core Ionic team.  Every Ionic Enterprise 
+          subscription comes with a dedicated Account Manager and a one hour 
+          Kickoff Session. Additional code review  available at extra cost.
+        </p>
+      </li>
+      <li class="tools">
+        <h4>Ionic best practices</h4>
+        <p>
+          Ensure your team moves forward in the best possible direction. From 
+          security and authentication, to plugin advice and integration, our 
+          Ionic experts help guide your development stages so you can save time 
+          and ship quality enterprise applications faster.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="bar get-in-touch">
+  <hgroup class="container">
+    <h2>Ready to start building better apps, faster?</h2>
+    <a class="btn white sm" 
+       data-toggle="modal" 
+       data-target="#contactForm" 
+       onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})">
+      Get in touch</a>
+  </hgroup>
+</section>
+
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade" id="contactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal collapse fade" 
+     id="contactForm" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button"
                 class="close"
                 data-dismiss="modal"
-                aria-label="Close">
+                aria-label="Close"
+                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="hero text-center">
@@ -209,16 +215,19 @@
         <form action="/enterprise"
               class="form-inline container"
               method="post"
-              name="contact">
+              name="contact"
+              ng-submit="submit($event)">
           <input class="form-control"
                  type="text"
                  name="first_name"
                  placeholder="Your first name *"
+                 ng-focus="track('Form Progress', 'first name')"
                  required>
           <input class="form-control"
                 type="text"
                 name="last_name"
                 placeholder="Your last name *"
+                ng-focus="track('Form Progress', 'last name')"
                 required>
           <input class="form-control"
                  type="email"
@@ -226,21 +235,25 @@
                  placeholder="Email *"
                  ng-model="email"
                  ng-class="{ 'invalid': contact.email.$error.email }"
+                 ng-focus="track('Form Progress', 'email')"
                  required>
           <input class="form-control"
                  type="text"
                  name="company"
                  placeholder="Company name *"
+                 ng-focus="track('Form Progress', 'company name')"
                  required>
           <input class="form-control"
                  type="text"
                  name="title"
                  placeholder="Job title *"
+                 ng-focus="track('Form Progress', 'job title')"
                  required>
           <input class="form-control"
                  type="tel"
                  name="phone"
                  placeholder="Phone *"
+                 ng-focus="track('Form Progress', 'phone')"
                  required>
           <div class="select-wrapper full-width"><select class="form-control select-helper"
                  name="employees"
@@ -256,6 +269,7 @@
                     cols="30"
                     rows="10"
                     placeholder="Send us a message"
+                    ng-focus="track('Form Progress', 'message')"
                     required
                     ></textarea>
 
@@ -268,5 +282,24 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
+
+{% block scripts %}
+<script>
+   /* Replace 'APP_ID' with your app ID */
+   window.intercomSettings = {
+    app_id: 'yqjddt6b'
+};
+   /* Replace 'APP_ID' with your app ID */
+   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
+     ic('reattach_activator');ic('update',intercomSettings);}else{var    
+     d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)   
+     {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+     s.type='text/javascript';s.async=true;
+     s.src='https://widget.intercom.io/widget/APP_ID';
+     var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
+     }if(w.attachEvent){w.attachEvent('onload',l);}else{
+       w.addEventListener('load',l,false);}}})()
+</script> 
 {% endblock %}

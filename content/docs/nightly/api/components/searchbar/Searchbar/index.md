@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -124,7 +124,7 @@ Improve this doc
     <tr>
       <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> If true, enable searchbar animation.</p>
+      <td><p> If true, enable searchbar animation. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -166,7 +166,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> If true, show the cancel button.</p>
+      <td><p> If true, show the cancel button. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -265,7 +265,7 @@ Improve this doc
         
           <td><code>8px</code></td>
         
-        <td><p>Padding left/right of the searchbar</p>
+        <td><p>Padding start/end of the searchbar</p>
 </td>
       </tr>
       
@@ -427,11 +427,38 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$searchbar-md-padding</code></td>
+        <td><code>$searchbar-md-padding-top</code></td>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding of the searchbar</p>
+        <td><p>Padding top of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-padding-end</code></td>
+        
+          <td><code>$searchbar-md-padding-top</code></td>
+        
+        <td><p>Padding end of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-padding-bottom</code></td>
+        
+          <td><code>$searchbar-md-padding-top</code></td>
+        
+        <td><p>Padding bottom of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-padding-start</code></td>
+        
+          <td><code>$searchbar-md-padding-end</code></td>
+        
+        <td><p>Padding start of the searchbar</p>
 </td>
       </tr>
       
@@ -575,11 +602,38 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$searchbar-wp-padding</code></td>
+        <td><code>$searchbar-wp-padding-top</code></td>
         
           <td><code>8px</code></td>
         
-        <td><p>Padding of the searchbar</p>
+        <td><p>Padding top of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-padding-end</code></td>
+        
+          <td><code>$searchbar-wp-padding-top</code></td>
+        
+        <td><p>Padding end of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-padding-bottom</code></td>
+        
+          <td><code>$searchbar-wp-padding-top</code></td>
+        
+        <td><p>Padding bottom of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-padding-start</code></td>
+        
+          <td><code>$searchbar-wp-padding-end</code></td>
+        
+        <td><p>Padding start of the searchbar</p>
 </td>
       </tr>
       
@@ -660,7 +714,7 @@ Improve this doc
         
           <td><code>8px</code></td>
         
-        <td><p>Padding left/right of the searchbar input</p>
+        <td><p>Padding start/end of the searchbar input</p>
 </td>
       </tr>
       

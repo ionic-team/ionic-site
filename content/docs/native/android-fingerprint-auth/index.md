@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Android Fingerprint Auth</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L96">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L96">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-android-fingerprint-auth
-$ npm install --save @ionic-native/android-fingerprint-auth
-</code></pre>
+<p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
+
+
 <p>Repo:
   <a href="https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth">
     https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/android-fingerprint-auth
 </p>
 
 
-<p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-fingerprint-auth
+$ npm install --save @ionic-native/android-fingerprint-auth
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -48,7 +55,7 @@ $ npm install --save @ionic-native/android-fingerprint-auth
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { AndroidFingerprintAuth, AFAAuthOptions } from &#39;@ionic-native/android-fingerprint-auth&#39;;
+<pre><code class="lang-typescript">import { AndroidFingerprintAuth } from &#39;@ionic-native/android-fingerprint-auth&#39;;
 
 constructor(private androidFingerprintAuth: AndroidFingerprintAuth) { }
 
@@ -70,7 +77,7 @@ this.androidFingerprintAuth.isAvailable()
            } else console.log(&#39;Didn\&#39;t authenticate!&#39;);
         })
         .catch(error =&gt; {
-           if (error === &#39;Cancelled&#39;) {
+           if (error === this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED) {
              console.log(&#39;Fingerprint authentication cancelled&#39;);
            } else console.error(error)
         });
@@ -90,6 +97,11 @@ this.androidFingerprintAuth.isAvailable()
 
 
 <h2>Instance Members</h2>
+<h3><a class="anchor" name="ERRORS" href="#ERRORS"></a><code>ERRORS</code></h3>
+
+
+
+
 <h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(options)</code></h3>
 
 

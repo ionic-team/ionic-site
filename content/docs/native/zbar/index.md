@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">ZBar</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
   Improve this doc
 </a>
 
@@ -22,9 +22,10 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-cszbar
-$ npm install --save @ionic-native/zbar
-</code></pre>
+<p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
+
+
 <p>Repo:
   <a href="https://github.com/tjwoon/csZBar">
     https://github.com/tjwoon/csZBar
@@ -32,9 +33,15 @@ $ npm install --save @ionic-native/zbar
 </p>
 
 
-<p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-cszbar
+$ npm install --save @ionic-native/zbar
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 
@@ -49,18 +56,18 @@ $ npm install --save @ionic-native/zbar
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { ZBar, ZBarOptions } from &#39;@ionic-native/z-bar&#39;;
+<pre><code class="lang-typescript">import { ZBar, ZBarOptions } from &#39;@ionic-native/zbar&#39;;
 
 constructor(private zbar: ZBar) { }
 
 ...
 
-let ZBarOptions = {
+let options: ZBarOptions = {
       flash: &#39;off&#39;,
       drawSight: false
     };
 
-this.zbar.scan(zBarOptions)
+this.zbar.scan(options)
    .then(result =&gt; {
       console.log(result); // Scanned code
    })

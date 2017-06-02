@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-params.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/navigation/nav-params.ts#L0">
 Improve this doc
 </a>
 
@@ -54,9 +54,9 @@ option with a simple <code>get</code> method.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
- constructor(public params: NavParams){
+ constructor(public navParams: NavParams){
    // userParams is an object we have in our nav-parameters
-   this.params.get(&#39;userParams&#39;);
+   this.navParams.get(&#39;userParams&#39;);
  }
 }
 </code></pre>
@@ -95,7 +95,7 @@ option with a simple <code>get</code> method.</p>
 
 <h3>
 <a class="anchor" name="get" href="#get"></a>
-<code>get(parameter)</code>
+<code>get(param)</code>
   
 
 </h3>
@@ -104,9 +104,9 @@ Get the value of a nav-parameter for the current view
 
 ```ts
 export class MyClass{
- constructor(public params: NavParams){
+ constructor(public navParams: NavParams){
    // userParams is an object we have in our nav-parameters
-   this.params.get('userParams');
+   this.navParams.get('userParams');
  }
 }
 ```
@@ -126,7 +126,7 @@ export class MyClass{
     
     <tr>
       <td>
-        parameter
+        param
         
         
       </td>

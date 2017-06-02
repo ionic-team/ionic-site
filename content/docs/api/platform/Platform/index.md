@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform.ts#L4">
 Improve this doc
 </a>
 
@@ -457,7 +457,7 @@ export MyApp {
 
 <h3>
 <a class="anchor" name="registerBackButtonAction" href="#registerBackButtonAction"></a>
-<code>registerBackButtonAction(callback,&nbsp;priority)</code>
+<code>registerBackButtonAction(fn,&nbsp;priority)</code>
   
 
 </h3>
@@ -488,7 +488,7 @@ actions has the highest priority and should be called.
     
     <tr>
       <td>
-        callback
+        fn
         
         
       </td>

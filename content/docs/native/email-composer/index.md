@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,26 +11,20 @@ doc: "Email Composer"
 docType: "class"
 ---
 
-<h1 class="api-title">Email Composer<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Email Composer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L27">
   Improve this doc
 </a>
 
 
 
 
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/hypery2k/cordova-email-plugin/issues">plugin repo</a>.
-</p>
 
 
+<p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-email
-$ npm install --save @ionic-native/email-composer
-</code></pre>
+
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-email-plugin">
     https://github.com/hypery2k/cordova-email-plugin
@@ -38,10 +32,15 @@ $ npm install --save @ionic-native/email-composer
 </p>
 
 
-<p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
-<p>DISCLAIMER: This plugin is experiencing issues with the latest versions of Cordova. Use at your own risk. Functionality is not guaranteed. Please stay tuned for a more stable version.
-A good alternative to this plugin is the social sharing plugin.</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-email
+$ npm install --save @ionic-native/email-composer
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

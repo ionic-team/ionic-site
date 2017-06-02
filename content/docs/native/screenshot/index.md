@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Screenshot</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screenshot/index.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/screenshot/index.ts#L3">
   Improve this doc
 </a>
 
@@ -22,9 +22,9 @@ docType: "class"
 
 
 
-<pre><code class="nohighlight">$ ionic plugin add --save https://github.com/gitawego/cordova-screenshot.git
-$ npm install --save @ionic-native/screenshot
-</code></pre>
+<p>Captures a screen shot</p>
+
+
 <p>Repo:
   <a href="https://github.com/gitawego/cordova-screenshot.git">
     https://github.com/gitawego/cordova-screenshot.git
@@ -32,8 +32,15 @@ $ npm install --save @ionic-native/screenshot
 </p>
 
 
-<p>Captures a screen shot</p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/gitawego/cordova-screenshot.git
+$ npm install --save @ionic-native/screenshot
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -129,7 +129,7 @@ images while scrolling quickly.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
-    &lt;ion-avatar item-left&gt;
+    &lt;ion-avatar item-start&gt;
       &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
     &lt;/ion-avatar&gt;
    {% raw %} {{ item.firstName }} {{ item.lastName }}{% endraw %}
@@ -176,7 +176,7 @@ rendered, and HTTP requests are efficiently controlled while scrolling.</p>
 virtual scroll isn&#39;t aware of the dimensions until after they have been
 rendered. For the initial render, virtual scroll still needs to set
 how many items should be built. With &quot;approx&quot; property inputs, such as
-<code>approxItemHeight</code>, we&#39;re able to give virtual sroll an approximate size,
+<code>approxItemHeight</code>, we&#39;re able to give virtual scroll an approximate size,
 therefore allowing virtual scroll to decide how many items should be
 created.</p>
 <h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>

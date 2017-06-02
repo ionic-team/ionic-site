@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,23 +13,13 @@ docType: "class"
 
 <h1 class="api-title">NFC</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L3">
   Improve this doc
 </a>
 
 
 
 
-
-
-<pre><code class="nohighlight">$ ionic plugin add --save phonegap-nfc
-$ npm install --save @ionic-native/nfc
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/chariotsolutions/phonegap-nfc">
-    https://github.com/chariotsolutions/phonegap-nfc
-  </a>
-</p>
 
 
 <p>The NFC plugin allows you to read and write NFC tags. You can also beam to, and receive from, other NFC enabled devices.</p>
@@ -42,6 +32,23 @@ $ npm install --save @ionic-native/nfc
 </ul>
 <p>This plugin uses NDEF (NFC Data Exchange Format) for maximum compatibilty between NFC devices, tag types, and operating systems.</p>
 
+
+<p>Repo:
+  <a href="https://github.com/chariotsolutions/phonegap-nfc">
+    https://github.com/chariotsolutions/phonegap-nfc
+  </a>
+</p>
+
+
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-nfc
+$ npm install --save @ionic-native/nfc
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.1.1"
+version: "3.3.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/menu/menu.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/menu/menu.ts#L17">
 Improve this doc
 </a>
 
@@ -49,7 +49,7 @@ view. By default, it slides in from the left, but the side can be overridden. Th
 will be displayed differently based on the mode, however the display type can be changed
 to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
 to the app&#39;s content element. There can be any number of menus attached to the content.
-These can be controlled from the templates, or programmatically using the <a href="../MenuController">MenuController</a>.</p>
+These can be controlled from the templates, or programmatically using the <a href="../app/MenuController">MenuController</a>.</p>
 
 
 
@@ -159,7 +159,7 @@ export class MyPage {
  }
 }
 </code></pre>
-<p>See the <a href="../MenuController">MenuController</a> API docs for all of the methods
+<p>See the <a href="../../app/MenuController">MenuController</a> API docs for all of the methods
 and usage information.</p>
 
 
@@ -436,7 +436,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href="/docs/components#menus">Menu Component Docs</a>,
-<a href="../MenuController">MenuController API Docs</a>,
+<a href="../../app/MenuController">MenuController API Docs</a>,
 <a href="../../nav/Nav">Nav API Docs</a>,
 <a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
 

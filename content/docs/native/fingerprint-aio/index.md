@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.10.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,26 +11,21 @@ doc: "Fingerprint AIO"
 docType: "class"
 ---
 
-<h1 class="api-title">Fingerprint AIO<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Fingerprint AIO</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
   Improve this doc
 </a>
 
 
 
 
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio/issues">plugin repo</a>.
-</p>
 
 
+<p>Use simple fingerprint authentication on Android and iOS.
+Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plugin, vist: <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio</a></p>
 
-<pre><code class="nohighlight">$ ionic plugin add --save cordova-plugin-fingerprint-aio
-$ npm install --save @ionic-native/fingerprint-aio
-</code></pre>
+
 <p>Repo:
   <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">
     https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
@@ -38,9 +33,15 @@ $ npm install --save @ionic-native/fingerprint-aio
 </p>
 
 
-<p>Use simple fingerprint authentication on Android and iOS.
-Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plugin, vist: <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio</a></p>
-
+<h2>Installation</h2>
+<ol class="installation">
+  <li>Install the Cordova and Ionic Native plugins:<br>
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fingerprint-aio
+$ npm install --save @ionic-native/fingerprint-aio
+</code></pre>
+  </li>
+  <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
+</ol>
 
 
 

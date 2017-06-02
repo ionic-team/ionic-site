@@ -147,6 +147,7 @@
     .items {
       display: flex;
       flex-wrap: wrap;
+      margin-bottom: 100px;
 
 
       a {
@@ -188,6 +189,8 @@
           top: 43px;
           left: calc(50% - 70px);
           transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+
+          transform: translate3d(0, -57px, 0) scale3d(0.47, 0.47, 1);
         }
 
         &::after {
@@ -207,25 +210,25 @@
         &:active {
           text-decoration: none;
 
-          &::before {
-            transform: translate3d(0, -57px, 0) scale3d(0.47, 0.47, 1);
-          }
+          // &::before {
+          //   transform: translate3d(0, -57px, 0) scale3d(0.47, 0.47, 1);
+          // }
 
           &::after {
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01),  0 6px 16px rgba(0, 0, 0, 0.15);
             transform: scale(1.05);
           }
 
-          p {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition-duration: .2s;
-            transition-timing-function: ease;
-          }
+          // p {
+          //   opacity: 1;
+          //   transform: translate3d(0, 0, 0);
+          //   transition-duration: .2s;
+          //   transition-timing-function: ease;
+          // }
 
-          h3 {
-            transform: translate3d(0, -109px, 0) scale(.9,.9);
-          }
+          // h3 {
+          //   transform: translate3d(0, -109px, 0) scale(.9,.9);
+          // }
         }
 
         h3 {
@@ -238,8 +241,10 @@
           width: 240px;
           transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
 
+          transform: translate3d(0, -109px, 0) scale(.9,.9);
+
           &::after {
-            content: 'Whitepaper';
+            content: 'Article';
             text-transform: uppercase;
             font-size: 10px;
             color: $grey;
@@ -261,18 +266,26 @@
           letter-spacing: -0.01em;
           padding: 0 13px;
           width: 235px;
+
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          transition-duration: .2s;
+          transition-timing-function: ease;
         }
 
         &.case-study {
           &::before { background-position: center -140px; }
+          h3::after { content: 'Case Study'; }
         }
 
         &.video {
           &::before {      background-position: center -280px; }
+          h3::after { content: 'Video'; }
         }
 
         &.webinar {
           &::before {    background-position: center -420px; }
+          h3::after { content: 'Webinar'; }
         }
       }
       

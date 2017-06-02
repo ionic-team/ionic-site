@@ -15762,11 +15762,7 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex;
 }
 
-ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
-  width: 100%;
-  visibility: visible;
-}
-
+ion-item-sliding.active-slide.active-options-left ion-item-options[side=left],
 ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
   width: 100%;
   visibility: visible;

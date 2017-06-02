@@ -9889,6 +9889,10 @@ ion-content.js-scroll > .scroll-content {
   touch-action: none;
 }
 
+ion-content.has-refresher > .scroll-content {
+  background-color: inherit;
+}
+
 .fixed-content {
   left: 0;
   right: 0;

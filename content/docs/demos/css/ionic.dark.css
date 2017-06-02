@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706021802, Dark Theme
+ * vE2E-201706021838, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -4082,6 +4082,9 @@ ion-content.js-scroll > .scroll-content {
   pointer-events: none;
   -ms-touch-action: none;
   touch-action: none; }
+
+ion-content.has-refresher > .scroll-content {
+  background-color: inherit; }
 
 .fixed-content {
   left: 0;

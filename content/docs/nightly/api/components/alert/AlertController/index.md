@@ -1028,11 +1028,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-radio-icon-left</code></td>
+        <td><code>$alert-ios-radio-icon-start</code></td>
         
-          <td><code>7px</code></td>
+          <td><code>$alert-ios-radio-icon-left</code></td>
         
-        <td><p>Left of the icon in the radio alert</p>
+        <td><p>Start of the icon in the radio alert</p>
 </td>
       </tr>
       
@@ -1262,11 +1262,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-ios-checkbox-icon-left</code></td>
+        <td><code>$alert-ios-checkbox-icon-start</code></td>
         
-          <td><code>7px</code></td>
+          <td><code>$alert-ios-checkbox-icon-left</code></td>
         
-        <td><p>Left of the icon in the checkbox alert</p>
+        <td><p>Start of the icon in the checkbox alert</p>
 </td>
       </tr>
       
@@ -1995,11 +1995,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-radio-icon-left</code></td>
+        <td><code>$alert-md-radio-icon-start</code></td>
         
-          <td><code>2px</code></td>
+          <td><code>$alert-md-radio-icon-left</code></td>
         
-        <td><p>Left of the icon in the alert radio</p>
+        <td><p>Start of the icon in the radio alert</p>
 </td>
       </tr>
       
@@ -2202,11 +2202,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-md-checkbox-icon-left</code></td>
+        <td><code>$alert-md-checkbox-icon-start</code></td>
         
-          <td><code>3px</code></td>
+          <td><code>$alert-md-checkbox-icon-left</code></td>
         
-        <td><p>Left of the icon in the checkbox alert</p>
+        <td><p>Start of the icon in the checkbox alert</p>
 </td>
       </tr>
       
@@ -2971,11 +2971,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-radio-icon-left</code></td>
+        <td><code>$alert-wp-radio-icon-start</code></td>
         
-          <td><code>2px</code></td>
+          <td><code>$alert-wp-radio-icon-left</code></td>
         
-        <td><p>Left of the icon in the radio alert</p>
+        <td><p>Start of the icon in the radio alert</p>
 </td>
       </tr>
       
@@ -3160,11 +3160,11 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$alert-wp-checkbox-icon-left</code></td>
+        <td><code>$alert-wp-checkbox-icon-start</code></td>
         
-          <td><code>3px</code></td>
+          <td><code>$alert-wp-checkbox-icon-left</code></td>
         
-        <td><p>Left of the icon in the checkbox alert</p>
+        <td><p>Start of the icon in the checkbox alert</p>
 </td>
       </tr>
       

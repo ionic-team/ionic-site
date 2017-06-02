@@ -104,9 +104,9 @@ to the (ionDrag)` event.</p>
 <h3 id="button-layout">Button Layout</h3>
 <p>If an icon is placed with text in the option button, by default it will
 display the icon on top of the text. This can be changed to display the icon
-to the left of the text by setting <code>icon-left</code> as an attribute on the
+to the left of the text by setting <code>icon-start</code> as an attribute on the
 <code>&lt;ion-item-options&gt;</code> element.</p>
-<pre><code class="lang-html">&lt;ion-item-options icon-left&gt;
+<pre><code class="lang-html">&lt;ion-item-options icon-start&gt;
   &lt;button ion-button (click)=&quot;archive(item)&quot;&gt;
     &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
     Archive

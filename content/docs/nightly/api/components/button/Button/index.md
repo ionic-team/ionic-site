@@ -80,12 +80,12 @@ and be enhanced by a wide range of attributes.</p>
 &lt;button ion-button round outline&gt;Outline + Round&lt;/button&gt;
 
 &lt;!-- Icons --&gt;
-&lt;button ion-button icon-left&gt;
+&lt;button ion-button icon-start&gt;
   &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
   Left Icon
 &lt;/button&gt;
 
-&lt;button ion-button icon-right&gt;
+&lt;button ion-button icon-end&gt;
   Right Icon
   &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;

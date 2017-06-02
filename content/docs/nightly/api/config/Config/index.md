@@ -231,7 +231,7 @@ chart displays each property with a description of what it controls.</p>
 <tr>
 <td><code>tabsLayout</code></td>
 <td><code>string</code></td>
-<td>The layout to use for all tabs. Available options: <code>&quot;icon-top&quot;</code>, <code>&quot;icon-left&quot;</code>, <code>&quot;icon-right&quot;</code>, <code>&quot;icon-bottom&quot;</code>, <code>&quot;icon-hide&quot;</code>, <code>&quot;title-hide&quot;</code>.</td>
+<td>The layout to use for all tabs. Available options: <code>&quot;icon-top&quot;</code>, <code>&quot;icon-start&quot;</code>, <code>&quot;icon-end&quot;</code>, <code>&quot;icon-bottom&quot;</code>, <code>&quot;icon-hide&quot;</code>, <code>&quot;title-hide&quot;</code>.</td>
 </tr>
 <tr>
 <td><code>tabsPlacement</code></td>

@@ -36806,13 +36806,13 @@ ActionSheetCmp = __decorate([
             '<div class="action-sheet-group">' +
             '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
             '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-            '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [attr.icon-left]="b.icon ? \'\' : null" [ngClass]="b.cssClass">' +
+            '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [attr.icon-start]="b.icon ? \'\' : null" [ngClass]="b.cssClass">' +
             '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon>' +
             '{{b.text}}' +
             '</button>' +
             '</div>' +
             '<div class="action-sheet-group" *ngIf="cancelButton">' +
-            '<button ion-button="action-sheet-button" (click)="click(cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-left]="cancelButton.icon ? \'\' : null" [ngClass]="cancelButton.cssClass">' +
+            '<button ion-button="action-sheet-button" (click)="click(cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-start]="cancelButton.icon ? \'\' : null" [ngClass]="cancelButton.cssClass">' +
             '<ion-icon [name]="cancelButton.icon" *ngIf="cancelButton.icon" class="action-sheet-icon"></ion-icon>' +
             '{{cancelButton.text}}' +
             '</button>' +
@@ -55721,7 +55721,7 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](null, ['\n      '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 5, 'button', [
             [
-                'icon-right',
+                'icon-end',
                 ''
             ],
             [
@@ -56129,7 +56129,7 @@ function View_ActionSheetCmp_3(l) {
             ]
         ], [[
                 1,
-                'icon-left',
+                'icon-start',
                 0
             ]
         ], [[
@@ -56248,7 +56248,7 @@ function View_ActionSheetCmp_5(l) {
             ]
         ], [[
                 1,
-                'icon-left',
+                'icon-start',
                 0
             ]
         ], [[

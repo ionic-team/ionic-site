@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706021734, Dark Theme
+ * vE2E-201706021802, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -1721,21 +1721,23 @@ button[disabled],
   border-right-width: 0;
   border-left-width: 0; }
 
-[icon-left] ion-icon {
+[icon-left] ion-icon,
+[icon-start] ion-icon {
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
   padding-right: 0.3em; }
-  [dir="rtl"] [icon-left] ion-icon {
+  [dir="rtl"] [icon-left] ion-icon, [dir="rtl"] [icon-start] ion-icon {
     padding-right: initial;
     padding-left: 0.3em; }
 
-[icon-right] ion-icon {
+[icon-right] ion-icon,
+[icon-end] ion-icon {
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
   padding-left: 0.4em; }
-  [dir="rtl"] [icon-right] ion-icon {
+  [dir="rtl"] [icon-right] ion-icon, [dir="rtl"] [icon-end] ion-icon {
     padding-right: 0.4em;
     padding-left: initial; }
 
@@ -8085,12 +8087,14 @@ ion-item-options .button {
   box-shadow: none;
   box-sizing: content-box; }
 
-ion-item-options:not([icon-left]) .button:not([icon-only]) .button-inner {
+ion-item-options:not([icon-left]) .button:not([icon-only]) .button-inner,
+ion-item-options:not([icon-start]) .button:not([icon-only]) .button-inner {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
 
-ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon {
+ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon,
+ion-item-options:not([icon-start]) .button:not([icon-only]) ion-icon {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 0.3em; }
@@ -13632,27 +13636,31 @@ ion-spinner.spinner-paused svg {
   order: 10; }
 
 [tabsLayout=icon-left] .tab-button,
-[tabsLayout=icon-right] .tab-button {
+[tabsLayout=icon-right] .tab-button,
+[tabsLayout=icon-start] .tab-button,
+[tabsLayout=icon-end] .tab-button {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row; }
 
-[tabsLayout=icon-left] .tab-button .tab-button-icon {
+[tabsLayout=icon-left] .tab-button .tab-button-icon,
+[tabsLayout=icon-start] .tab-button .tab-button-icon {
   padding-right: 8px;
   text-align: right;
   text-align: end; }
-  [dir="rtl"] [tabsLayout=icon-left] .tab-button .tab-button-icon {
+  [dir="rtl"] [tabsLayout=icon-left] .tab-button .tab-button-icon, [dir="rtl"] [tabsLayout=icon-start] .tab-button .tab-button-icon {
     padding-right: initial;
     padding-left: 8px; }
 
-[tabsLayout=icon-right] .tab-button .tab-button-icon {
+[tabsLayout=icon-right] .tab-button .tab-button-icon,
+[tabsLayout=icon-end] .tab-button .tab-button-icon {
   padding-left: 8px;
   text-align: left;
   text-align: start;
   -webkit-order: 10;
   -ms-flex-order: 10;
   order: 10; }
-  [dir="rtl"] [tabsLayout=icon-right] .tab-button .tab-button-icon {
+  [dir="rtl"] [tabsLayout=icon-right] .tab-button .tab-button-icon, [dir="rtl"] [tabsLayout=icon-end] .tab-button .tab-button-icon {
     padding-right: 8px;
     padding-left: initial; }
 
@@ -13689,9 +13697,11 @@ ion-spinner.spinner-paused svg {
 
 [tabsLayout=icon-bottom] .tab-badge,
 [tabsLayout=icon-left] .tab-badge,
-[tabsLayout=icon-right] .tab-badge {
+[tabsLayout=icon-right] .tab-badge,
+[tabsLayout=icon-start] .tab-badge,
+[tabsLayout=icon-end] .tab-badge {
   right: calc(50% - 50px); }
-  [dir="rtl"] [tabsLayout=icon-bottom] .tab-badge, [dir="rtl"] [tabsLayout=icon-left] .tab-badge, [dir="rtl"] [tabsLayout=icon-right] .tab-badge {
+  [dir="rtl"] [tabsLayout=icon-bottom] .tab-badge, [dir="rtl"] [tabsLayout=icon-left] .tab-badge, [dir="rtl"] [tabsLayout=icon-right] .tab-badge, [dir="rtl"] [tabsLayout=icon-start] .tab-badge, [dir="rtl"] [tabsLayout=icon-end] .tab-badge {
     right: auto;
     left: calc(50% - 50px); }
 
@@ -13743,12 +13753,16 @@ ion-spinner.spinner-paused svg {
   vertical-align: top; }
 
 .tabs-ios[tabsLayout=icon-right] .tab-button .tab-button-text,
-.tabs-ios[tabsLayout=icon-left] .tab-button .tab-button-text {
+.tabs-ios[tabsLayout=icon-left] .tab-button .tab-button-text,
+.tabs-ios[tabsLayout=icon-end] .tab-button .tab-button-text,
+.tabs-ios[tabsLayout=icon-start] .tab-button .tab-button-text {
   font-size: 1.4rem;
   line-height: 1.1; }
 
 .tabs-ios[tabsLayout=icon-right] .tab-button ion-icon,
-.tabs-ios[tabsLayout=icon-left] .tab-button ion-icon {
+.tabs-ios[tabsLayout=icon-left] .tab-button ion-icon,
+.tabs-ios[tabsLayout=icon-end] .tab-button ion-icon,
+.tabs-ios[tabsLayout=icon-start] .tab-button ion-icon {
   min-width: 24px;
   height: 26px;
   font-size: 24px; }
@@ -13893,7 +13907,8 @@ ion-spinner.spinner-paused svg {
   -webkit-transform: translate3d(0, -2px, 0);
   transform: translate3d(0, -2px, 0); }
 
-.tabs-md[tabsLayout=icon-right] .tab-button[aria-selected=true] .tab-button-icon {
+.tabs-md[tabsLayout=icon-right] .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-md[tabsLayout=icon-end] .tab-button[aria-selected=true] .tab-button-icon {
   -webkit-transform: translate3d(2px, 0, 0);
   transform: translate3d(2px, 0, 0); }
 
@@ -13901,7 +13916,8 @@ ion-spinner.spinner-paused svg {
   -webkit-transform: translate3d(0, 2px, 0);
   transform: translate3d(0, 2px, 0); }
 
-.tabs-md[tabsLayout=icon-left] .tab-button[aria-selected=true] .tab-button-icon {
+.tabs-md[tabsLayout=icon-left] .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-md[tabsLayout=icon-start] .tab-button[aria-selected=true] .tab-button-icon {
   -webkit-transform: translate3d(-2px, 0, 0);
   transform: translate3d(-2px, 0, 0); }
 
@@ -14058,11 +14074,15 @@ ion-spinner.spinner-paused svg {
   padding-bottom: 8px; }
 
 .tabs-wp[tabsLayout=icon-right] .tab-button,
-.tabs-wp[tabsLayout=icon-left] .tab-button {
+.tabs-wp[tabsLayout=icon-left] .tab-button,
+.tabs-wp[tabsLayout=icon-end] .tab-button,
+.tabs-wp[tabsLayout=icon-start] .tab-button {
   padding-bottom: 10px; }
 
 .tabs-wp[tabsLayout=icon-right] .tab-button ion-icon,
-.tabs-wp[tabsLayout=icon-left] .tab-button ion-icon {
+.tabs-wp[tabsLayout=icon-left] .tab-button ion-icon,
+.tabs-wp[tabsLayout=icon-end] .tab-button ion-icon,
+.tabs-wp[tabsLayout=icon-start] .tab-button ion-icon {
   min-width: 24px; }
 
 .tabs-wp[tabsLayout=icon-hide] .tab-button,
@@ -14868,21 +14888,21 @@ ion-navbar.toolbar {
     background-color: #ebebeb;
     opacity: .4; }
 
-.bar-button-ios.bar-button-icon-left ion-icon {
+.bar-button-ios.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-ios.bar-button-icon-left ion-icon {
+  [dir="rtl"] .bar-button-ios.bar-button-icon-start ion-icon {
     padding-right: initial;
     padding-left: 0.3em; }
 
-.bar-button-ios.bar-button-icon-right ion-icon {
+.bar-button-ios.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-ios.bar-button-icon-right ion-icon {
+  [dir="rtl"] .bar-button-ios.bar-button-icon-end ion-icon {
     padding-right: 0.4em;
     padding-left: initial; }
 
@@ -16015,21 +16035,21 @@ ion-navbar.toolbar {
     color: #424242;
     background-color: #ebebeb; }
 
-.bar-button-md.bar-button-icon-left ion-icon {
+.bar-button-md.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-md.bar-button-icon-left ion-icon {
+  [dir="rtl"] .bar-button-md.bar-button-icon-start ion-icon {
     padding-right: initial;
     padding-left: 0.3em; }
 
-.bar-button-md.bar-button-icon-right ion-icon {
+.bar-button-md.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-md.bar-button-icon-right ion-icon {
+  [dir="rtl"] .bar-button-md.bar-button-icon-end ion-icon {
     padding-right: 0.4em;
     padding-left: initial; }
 
@@ -17085,21 +17105,21 @@ ion-navbar.toolbar {
     color: #000;
     background-color: #ebebeb; }
 
-.bar-button-wp.bar-button-icon-left ion-icon {
+.bar-button-wp.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-wp.bar-button-icon-left ion-icon {
+  [dir="rtl"] .bar-button-wp.bar-button-icon-start ion-icon {
     padding-right: initial;
     padding-left: 0.3em; }
 
-.bar-button-wp.bar-button-icon-right ion-icon {
+.bar-button-wp.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none; }
-  [dir="rtl"] .bar-button-wp.bar-button-icon-right ion-icon {
+  [dir="rtl"] .bar-button-wp.bar-button-icon-end ion-icon {
     padding-right: 0.4em;
     padding-left: initial; }
 

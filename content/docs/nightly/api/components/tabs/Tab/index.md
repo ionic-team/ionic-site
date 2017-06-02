@@ -638,11 +638,11 @@ tabbar. Default: <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-end-transform-active</code></td>
         
-          <td><code>translate3d(2px, 0, 0)</code></td>
+          <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+        <td><p>Transform for the active tab button icon when the layout is icon-end</p>
 </td>
       </tr>
       
@@ -656,11 +656,11 @@ tabbar. Default: <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-start-transform-active</code></td>
         
-          <td><code>translate3d(-2px, 0, 0)</code></td>
+          <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+        <td><p>Transform for the active tab button icon when the layout is icon-start</p>
 </td>
       </tr>
       

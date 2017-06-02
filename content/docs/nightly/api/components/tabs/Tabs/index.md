@@ -413,7 +413,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tr>
       <td>tabsLayout</td>
       <td><code>string</code></td>
-      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
+      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-start</code>, <code>icon-end</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
@@ -844,11 +844,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-end-transform-active</code></td>
         
-          <td><code>translate3d(2px, 0, 0)</code></td>
+          <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+        <td><p>Transform for the active tab button icon when the layout is icon-end</p>
 </td>
       </tr>
       
@@ -862,11 +862,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-start-transform-active</code></td>
         
-          <td><code>translate3d(-2px, 0, 0)</code></td>
+          <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+        <td><p>Transform for the active tab button icon when the layout is icon-start</p>
 </td>
       </tr>
       

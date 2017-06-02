@@ -5940,26 +5940,28 @@ button[disabled],
   border-left-width: 0;
 }
 
-[icon-left] ion-icon {
+[icon-left] ion-icon,
+[icon-start] ion-icon {
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
   padding-right: 0.3em;
 }
 
-[dir="rtl"] [icon-left] ion-icon {
+[dir="rtl"] [icon-left] ion-icon, [dir="rtl"] [icon-start] ion-icon {
   padding-right: initial;
   padding-left: 0.3em;
 }
 
-[icon-right] ion-icon {
+[icon-right] ion-icon,
+[icon-end] ion-icon {
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
   padding-left: 0.4em;
 }
 
-[dir="rtl"] [icon-right] ion-icon {
+[dir="rtl"] [icon-right] ion-icon, [dir="rtl"] [icon-end] ion-icon {
   padding-right: 0.4em;
   padding-left: initial;
 }
@@ -15724,13 +15726,15 @@ ion-item-options .button {
   box-sizing: content-box;
 }
 
-ion-item-options:not([icon-left]) .button:not([icon-only]) .button-inner {
+ion-item-options:not([icon-left]) .button:not([icon-only]) .button-inner,
+ion-item-options:not([icon-start]) .button:not([icon-only]) .button-inner {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon {
+ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon,
+ion-item-options:not([icon-start]) .button:not([icon-only]) ion-icon {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 0.3em;
@@ -23201,24 +23205,28 @@ ion-spinner.spinner-paused svg {
 }
 
 [tabsLayout=icon-left] .tab-button,
-[tabsLayout=icon-right] .tab-button {
+[tabsLayout=icon-right] .tab-button,
+[tabsLayout=icon-start] .tab-button,
+[tabsLayout=icon-end] .tab-button {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
 
-[tabsLayout=icon-left] .tab-button .tab-button-icon {
+[tabsLayout=icon-left] .tab-button .tab-button-icon,
+[tabsLayout=icon-start] .tab-button .tab-button-icon {
   padding-right: 8px;
   text-align: right;
   text-align: end;
 }
 
-[dir="rtl"] [tabsLayout=icon-left] .tab-button .tab-button-icon {
+[dir="rtl"] [tabsLayout=icon-left] .tab-button .tab-button-icon, [dir="rtl"] [tabsLayout=icon-start] .tab-button .tab-button-icon {
   padding-right: initial;
   padding-left: 8px;
 }
 
-[tabsLayout=icon-right] .tab-button .tab-button-icon {
+[tabsLayout=icon-right] .tab-button .tab-button-icon,
+[tabsLayout=icon-end] .tab-button .tab-button-icon {
   padding-left: 8px;
   text-align: left;
   text-align: start;
@@ -23227,7 +23235,7 @@ ion-spinner.spinner-paused svg {
   order: 10;
 }
 
-[dir="rtl"] [tabsLayout=icon-right] .tab-button .tab-button-icon {
+[dir="rtl"] [tabsLayout=icon-right] .tab-button .tab-button-icon, [dir="rtl"] [tabsLayout=icon-end] .tab-button .tab-button-icon {
   padding-right: 8px;
   padding-left: initial;
 }
@@ -23274,11 +23282,13 @@ ion-spinner.spinner-paused svg {
 
 [tabsLayout=icon-bottom] .tab-badge,
 [tabsLayout=icon-left] .tab-badge,
-[tabsLayout=icon-right] .tab-badge {
+[tabsLayout=icon-right] .tab-badge,
+[tabsLayout=icon-start] .tab-badge,
+[tabsLayout=icon-end] .tab-badge {
   right: calc(50% - 50px);
 }
 
-[dir="rtl"] [tabsLayout=icon-bottom] .tab-badge, [dir="rtl"] [tabsLayout=icon-left] .tab-badge, [dir="rtl"] [tabsLayout=icon-right] .tab-badge {
+[dir="rtl"] [tabsLayout=icon-bottom] .tab-badge, [dir="rtl"] [tabsLayout=icon-left] .tab-badge, [dir="rtl"] [tabsLayout=icon-right] .tab-badge, [dir="rtl"] [tabsLayout=icon-start] .tab-badge, [dir="rtl"] [tabsLayout=icon-end] .tab-badge {
   right: auto;
   left: calc(50% - 50px);
 }
@@ -23340,13 +23350,17 @@ ion-spinner.spinner-paused svg {
 }
 
 .tabs-ios[tabsLayout=icon-right] .tab-button .tab-button-text,
-.tabs-ios[tabsLayout=icon-left] .tab-button .tab-button-text {
+.tabs-ios[tabsLayout=icon-left] .tab-button .tab-button-text,
+.tabs-ios[tabsLayout=icon-end] .tab-button .tab-button-text,
+.tabs-ios[tabsLayout=icon-start] .tab-button .tab-button-text {
   font-size: 1.4rem;
   line-height: 1.1;
 }
 
 .tabs-ios[tabsLayout=icon-right] .tab-button ion-icon,
-.tabs-ios[tabsLayout=icon-left] .tab-button ion-icon {
+.tabs-ios[tabsLayout=icon-left] .tab-button ion-icon,
+.tabs-ios[tabsLayout=icon-end] .tab-button ion-icon,
+.tabs-ios[tabsLayout=icon-start] .tab-button ion-icon {
   min-width: 24px;
   height: 26px;
   font-size: 24px;
@@ -23553,7 +23567,8 @@ ion-spinner.spinner-paused svg {
   transform: translate3d(0, -2px, 0);
 }
 
-.tabs-md[tabsLayout=icon-right] .tab-button[aria-selected=true] .tab-button-icon {
+.tabs-md[tabsLayout=icon-right] .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-md[tabsLayout=icon-end] .tab-button[aria-selected=true] .tab-button-icon {
   -webkit-transform: translate3d(2px, 0, 0);
   transform: translate3d(2px, 0, 0);
 }
@@ -23563,7 +23578,8 @@ ion-spinner.spinner-paused svg {
   transform: translate3d(0, 2px, 0);
 }
 
-.tabs-md[tabsLayout=icon-left] .tab-button[aria-selected=true] .tab-button-icon {
+.tabs-md[tabsLayout=icon-left] .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-md[tabsLayout=icon-start] .tab-button[aria-selected=true] .tab-button-icon {
   -webkit-transform: translate3d(-2px, 0, 0);
   transform: translate3d(-2px, 0, 0);
 }
@@ -23795,12 +23811,16 @@ ion-spinner.spinner-paused svg {
 }
 
 .tabs-wp[tabsLayout=icon-right] .tab-button,
-.tabs-wp[tabsLayout=icon-left] .tab-button {
+.tabs-wp[tabsLayout=icon-left] .tab-button,
+.tabs-wp[tabsLayout=icon-end] .tab-button,
+.tabs-wp[tabsLayout=icon-start] .tab-button {
   padding-bottom: 10px;
 }
 
 .tabs-wp[tabsLayout=icon-right] .tab-button ion-icon,
-.tabs-wp[tabsLayout=icon-left] .tab-button ion-icon {
+.tabs-wp[tabsLayout=icon-left] .tab-button ion-icon,
+.tabs-wp[tabsLayout=icon-end] .tab-button ion-icon,
+.tabs-wp[tabsLayout=icon-start] .tab-button ion-icon {
   min-width: 24px;
 }
 
@@ -24848,26 +24868,26 @@ ion-navbar.toolbar {
   opacity: .4;
 }
 
-.bar-button-ios.bar-button-icon-left ion-icon {
+.bar-button-ios.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-ios.bar-button-icon-left ion-icon {
+[dir="rtl"] .bar-button-ios.bar-button-icon-start ion-icon {
   padding-right: initial;
   padding-left: 0.3em;
 }
 
-.bar-button-ios.bar-button-icon-right ion-icon {
+.bar-button-ios.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-ios.bar-button-icon-right ion-icon {
+[dir="rtl"] .bar-button-ios.bar-button-icon-end ion-icon {
   padding-right: 0.4em;
   padding-left: initial;
 }
@@ -27451,26 +27471,26 @@ ion-navbar.toolbar {
   background-color: #515151;
 }
 
-.bar-button-md.bar-button-icon-left ion-icon {
+.bar-button-md.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-md.bar-button-icon-left ion-icon {
+[dir="rtl"] .bar-button-md.bar-button-icon-start ion-icon {
   padding-right: initial;
   padding-left: 0.3em;
 }
 
-.bar-button-md.bar-button-icon-right ion-icon {
+.bar-button-md.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-md.bar-button-icon-right ion-icon {
+[dir="rtl"] .bar-button-md.bar-button-icon-end ion-icon {
   padding-right: 0.4em;
   padding-left: initial;
 }
@@ -29918,26 +29938,26 @@ ion-navbar.toolbar {
   background-color: #141414;
 }
 
-.bar-button-wp.bar-button-icon-left ion-icon {
+.bar-button-wp.bar-button-icon-start ion-icon {
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-wp.bar-button-icon-left ion-icon {
+[dir="rtl"] .bar-button-wp.bar-button-icon-start ion-icon {
   padding-right: initial;
   padding-left: 0.3em;
 }
 
-.bar-button-wp.bar-button-icon-right ion-icon {
+.bar-button-wp.bar-button-icon-end ion-icon {
   padding-left: 0.4em;
   font-size: 1.4em;
   line-height: .67;
   pointer-events: none;
 }
 
-[dir="rtl"] .bar-button-wp.bar-button-icon-right ion-icon {
+[dir="rtl"] .bar-button-wp.bar-button-icon-end ion-icon {
   padding-right: 0.4em;
   padding-left: initial;
 }

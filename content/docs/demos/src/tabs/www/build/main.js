@@ -36965,13 +36965,13 @@ ActionSheetCmp = __decorate([
             '<div class="action-sheet-group">' +
             '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
             '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-            '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [attr.icon-left]="b.icon ? \'\' : null" [ngClass]="b.cssClass">' +
+            '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [attr.icon-start]="b.icon ? \'\' : null" [ngClass]="b.cssClass">' +
             '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon>' +
             '{{b.text}}' +
             '</button>' +
             '</div>' +
             '<div class="action-sheet-group" *ngIf="cancelButton">' +
-            '<button ion-button="action-sheet-button" (click)="click(cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-left]="cancelButton.icon ? \'\' : null" [ngClass]="cancelButton.cssClass">' +
+            '<button ion-button="action-sheet-button" (click)="click(cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-start]="cancelButton.icon ? \'\' : null" [ngClass]="cancelButton.cssClass">' +
             '<ion-icon [name]="cancelButton.icon" *ngIf="cancelButton.icon" class="action-sheet-icon"></ion-icon>' +
             '{{cancelButton.text}}' +
             '</button>' +
@@ -55150,7 +55150,7 @@ function View_PageOne_0(l) {
             ],
             [
                 'tabsLayout',
-                'icon-right'
+                'icon-end'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_16__src_components_tabs_tabs_ngfactory__["a" /* View_Tabs_0 */], __WEBPACK_IMPORTED_MODULE_16__src_components_tabs_tabs_ngfactory__["b" /* RenderType_Tabs */])),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_tabs_tabs__["a" /* Tabs */], [
@@ -55390,7 +55390,7 @@ function View_PageOne_0(l) {
             ],
             [
                 'tabsLayout',
-                'icon-left'
+                'icon-start'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_16__src_components_tabs_tabs_ngfactory__["a" /* View_Tabs_0 */], __WEBPACK_IMPORTED_MODULE_16__src_components_tabs_tabs_ngfactory__["b" /* RenderType_Tabs */])),
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_tabs_tabs__["a" /* Tabs */], [
@@ -56092,7 +56092,7 @@ function View_PageOne_0(l) {
         ck(v, 72, 0, currVal_68, currVal_69, currVal_70);
         const currVal_71 = 'light';
         const currVal_72 = '0';
-        const currVal_73 = 'icon-right';
+        const currVal_73 = 'icon-end';
         ck(v, 77, 0, currVal_71, currVal_72, currVal_73);
         const currVal_76 = co.root;
         const currVal_77 = 'Recents';
@@ -56109,7 +56109,7 @@ function View_PageOne_0(l) {
         const currVal_90 = 'secondary';
         ck(v, 87, 0, currVal_86, currVal_87, currVal_88, currVal_89, currVal_90);
         const currVal_91 = 'dark';
-        const currVal_92 = 'icon-left';
+        const currVal_92 = 'icon-start';
         ck(v, 92, 0, currVal_91, currVal_92);
         const currVal_95 = co.root;
         const currVal_96 = 'Recents';
@@ -56411,7 +56411,7 @@ function View_ActionSheetCmp_3(l) {
             ]
         ], [[
                 1,
-                'icon-left',
+                'icon-start',
                 0
             ]
         ], [[
@@ -56530,7 +56530,7 @@ function View_ActionSheetCmp_5(l) {
             ]
         ], [[
                 1,
-                'icon-left',
+                'icon-start',
                 0
             ]
         ], [[

@@ -43,7 +43,7 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>First, if you&#39;d like to use SQLite, install the cordova-sqlite-storage plugin:</p>
-<pre><code class="lang-bash">cordova plugin add cordova-sqlite-storage --save
+<pre><code class="lang-bash">ionic cordova plugin add cordova-sqlite-storage
 </code></pre>
 <p>Next, install the package (comes by default for Ionic apps &gt; Ionic V1):</p>
 <pre><code class="lang-bash">npm install --save @ionic/storage

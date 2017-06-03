@@ -9,9 +9,9 @@ Ionic apps utilize TypeScript and Sass code. This code needs to be converted int
 `@ionic/app-scripts` are a set of configurable scripts provided to make it easy to create a simple or a highly customized build process.
 
 ### How does it work?
-Ionic app’s are developed typically using the `ionic serve` and `ionic run` commands. Both of these commands need to compile the application’s code and combine it into one bundled file.
+Ionic app’s are developed typically using the `ionic serve` and `ionic cordova run` commands. Both of these commands need to compile the application’s code and combine it into one bundled file.
 
-When `ionic serve` or `ionic run` are invoked, it ultimately calls an [NPM script](https://docs.npmjs.com/misc/scripts). These npm scripts call the `@ionic/app-scripts` library to execute the build process.
+When `ionic serve` or `ionic cordova run` are invoked, it ultimately calls an [NPM script](https://docs.npmjs.com/misc/scripts). These npm scripts call the `@ionic/app-scripts` library to execute the build process.
 
 ### Why App Scripts?
 Most application’s share a similar build process. Rather than have each user create their own build process from scratch for their app, we thought that time would be better spent building out their Ionic app and leaving the details to us. This is our interpretation of what most users need from a build process.

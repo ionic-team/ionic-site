@@ -42,7 +42,7 @@ header_sub_title: Ionic Resources
     <p>The iOS simulator allows you to test and debug your app before running it on an actual device. Before it can be used, we need to install <a href="https://developer.apple.com/xcode/download/">Xcode</a>, Apple's IDE. The Ionic <a href="../resources/what-is/#cli">CLI</a> can then be used to run the app in the current directory on the simulator:</p>
 
     {% highlight bash %}
-    $ ionic emulate ios -lc
+    $ ionic cordova emulate ios -lc
     {% endhighlight %}
     <p>Passing in the <code>-lc</code> flag will enable livereload and log console output to your terminal.</p>
     <p>You can also use Xcode to launch the emulator and debug your app. Open up Xcode and open <code>../path-to-app/platforms/ios/myApp.xcodeproj</code>. After your app loads, you will be able to run it and see all console output inside of Xcode's output window.</p>

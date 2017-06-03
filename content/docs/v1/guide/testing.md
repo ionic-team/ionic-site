@@ -29,14 +29,14 @@ Try dragging the center content to the right (works with the mouse as well) to e
 You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, run:
 
 ```bash
-$ ionic build ios
-$ ionic emulate ios
+$ ionic cordova build ios
+$ ionic cordova emulate ios
 ```
 
 Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required Xcode or Android Eclipse project in `platforms/PLATFORM` inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root `www` folder, and when you've made changes to this folder, run the command:
 
 ```bash
-$ cordova prepare ios
+$ ionic cordova prepare ios
 ```
 
 Which will update the ios specific project with the code from the `www` folder. Note: this will overwrite any changes you've made to the `platforms/ios/www` and other platform-specific folders.
@@ -58,7 +58,7 @@ Since we are building a native (or "hybrid") app, we can (and should!) test it a
 Testing on Android is much easier and faster. To test on the device, simply plug it in, and run
 
 ```bash
-$ ionic run android
+$ ionic cordova run android
 ```
 
 If this doesn't work, make sure you have USB debugging enabled on your device, as [described](http://developer.android.com/tools/device.html) on the Android developer site.

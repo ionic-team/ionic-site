@@ -43,6 +43,7 @@ and then adding the following to your NgModules imports array:
 ```typescript
 @NgModule({
   imports: [
+    HttpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

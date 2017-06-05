@@ -39,7 +39,7 @@ Next, inside the new `SDK` location, we'll run `tools/android` to open the Andro
 Accept the license and let the packages install.
 
 ### Gradle
-If you isntall the ANdroid SDK without ANdroid Studio you have to install Gradle seperatly. Download Gradle from the offical [Gradle website](https://gradle.org/)
+If you install the Android SDK without ANdroid Studio you have to install Gradle seperatly. Download Gradle from the offical [Gradle website](https://gradle.org/)
 
 ### Environment Variables
 Now that everything's installed, we'll need to set some environment variables for our command line. Open your terminal and enter the following:

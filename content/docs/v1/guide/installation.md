@@ -109,7 +109,7 @@ That will create a folder called `todo` in the directory the command was run. Ne
     ├── ionic.project  // ionic configuration
     ├── package.json   // node dependencies
     ├── platforms      // iOS/Android specific builds will reside here
-    ├── plugins        // where your cordova/ionic cordova plugins will be installed
+    ├── plugins        // where your cordova/ionic plugins will be installed
     ├── scss           // scss code, which will output to www/css/
     └── www            // application - JS code and libs, CSS, images, etc.
 

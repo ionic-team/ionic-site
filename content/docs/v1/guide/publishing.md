@@ -145,7 +145,7 @@ You can learn more about managing your app in iTunes Connect from the [official 
 ## Building the app for production
 
 In the root directory of your application execute the following command:
-`ionic build ios --release`
+`ionic cordova build ios --release`
 
 If everything went well you'll see the **BUILD SUCCEEDED** output in the console.
 

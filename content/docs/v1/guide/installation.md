@@ -109,7 +109,7 @@ That will create a folder called `todo` in the directory the command was run. Ne
     ├── ionic.project  // ionic configuration
     ├── package.json   // node dependencies
     ├── platforms      // iOS/Android specific builds will reside here
-    ├── plugins        // where your cordova/ionic plugins will be installed
+    ├── plugins        // where your cordova/ionic cordova plugins will be installed
     ├── scss           // scss code, which will output to www/css/
     └── www            // application - JS code and libs, CSS, images, etc.
 
@@ -158,7 +158,7 @@ $ ionic cordova emulate ios
 a real device. Using the emulator isn't even recommended for native Android development.
 </p>
 <p>
-  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic run</code> instead of <code>ionic emulate</code> as a Genymotion image appears as a physical device to the operating system.
+  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic cordova run</code> instead of <code>ionic cordova emulate</code> as a Genymotion image appears as a physical device to the operating system.
 </p>
 <p>
 If you chose to emulate on Android, be patient as this takes several minutes as the Android emulator is booted up. If you don't see anything happen for a few minutes, make sure you've created an Android Virtual Device (AVD), and that it is using the Android SDK version 17 or above. You might have to <a href="http://stackoverflow.com/questions/7222906/failed-to-allocate-memory-8">reduce the amount of memory</a> the AVD is using if you don't see the emulator boot up in a minute. The platform guide above has more information. You may also want to double check that you have the sdk and platform tools in your PATH as noted in the platform guide.

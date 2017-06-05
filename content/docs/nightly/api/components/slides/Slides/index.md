@@ -822,6 +822,13 @@ Default: <code>null</code>.</p>
     </tr>
     
     <tr>
+      <td>centeredSlides</td>
+      <td><code>boolean</code></td>
+      <td><p> Center a slide in the middle of the screen.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>control</td>
       <td><code>Slides</code></td>
       <td><p> Pass another Slides instance or array of Slides instances

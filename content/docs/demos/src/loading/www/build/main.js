@@ -42641,10 +42641,10 @@ let Slides = Slides_1 = class Slides extends __WEBPACK_IMPORTED_MODULE_3__ion__[
         this.roundLengths = false;
         this._spaceBetween = 0;
         this._slidesPerView = 1;
+        this._centeredSlides = false;
         this.slidesPerColumn = 1;
         this.slidesPerColumnFill = 'column';
         this.slidesPerGroup = 1;
-        this.centeredSlides = false;
         this.slidesOffsetBefore = 0;
         this.slidesOffsetAfter = 0;
         this.autoplayDisableOnInteraction = true;
@@ -42837,7 +42837,13 @@ let Slides = Slides_1 = class Slides extends __WEBPACK_IMPORTED_MODULE_3__ion__[
         return this._slidesPerView;
     }
     set slidesPerView(val) {
-        this._slidesPerView = val === 'auto' ? 'auto' : parseInt(val, 10);
+        this._slidesPerView = val === 'auto' ? 'auto' : parseFloat(val);
+    }
+    get centeredSlides() {
+        return this._centeredSlides;
+    }
+    set centeredSlides(val) {
+        this._centeredSlides = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     _initSlides() {
         if (!this._init) {
@@ -42998,6 +43004,11 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], Slides.prototype, "slidesPerView", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Boolean])
+], Slides.prototype, "centeredSlides", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _a || Object)

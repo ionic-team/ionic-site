@@ -64585,8 +64585,6 @@ const EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 const OPACITY = 'opacity';
 const TRANSFORM = 'transform';
 const TRANSLATEX = 'translateX';
-const OFF_RIGHT = '99.5%';
-const OFF_LEFT = '-33%';
 const CENTER = '0%';
 const OFF_OPACITY = 0.8;
 const SHOW_BACK_BTN_CSS = 'show-back-button';
@@ -64594,6 +64592,8 @@ class IOSTransition extends __WEBPACK_IMPORTED_MODULE_2__page_transition__["a" /
     init() {
         super.init();
         const plt = this.plt;
+        const OFF_RIGHT = plt.isRTL ? '-99.5%' : '99.5%';
+        const OFF_LEFT = plt.isRTL ? '33%' : '-33%';
         const enteringView = this.enteringView;
         const leavingView = this.leavingView;
         const opts = this.opts;
@@ -64650,7 +64650,7 @@ class IOSTransition extends __WEBPACK_IMPORTED_MODULE_2__page_transition__["a" /
                             .beforeAddClass(SHOW_BACK_BTN_CSS)
                             .fromTo(OPACITY, 0.01, 1, true);
                         const enteringBackBtnText = new __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a" /* Animation */](plt, enteringNavbarEle.querySelector('.back-button-text'));
-                        enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
+                        enteringBackBtnText.fromTo(TRANSLATEX, (plt.isRTL ? '-100px' : '100px'), '0px');
                         enteringNavBar.add(enteringBackBtnText);
                     }
                     else {
@@ -64667,7 +64667,7 @@ class IOSTransition extends __WEBPACK_IMPORTED_MODULE_2__page_transition__["a" /
             if (backDirection) {
                 leavingContent
                     .beforeClearStyles([OPACITY])
-                    .fromTo(TRANSLATEX, CENTER, '100%');
+                    .fromTo(TRANSLATEX, CENTER, (plt.isRTL ? '-100%' : '100%'));
             }
             else {
                 leavingContent
@@ -64692,12 +64692,12 @@ class IOSTransition extends __WEBPACK_IMPORTED_MODULE_2__page_transition__["a" /
                 leavingTitle.fromTo(OPACITY, 0.99, 0);
                 leavingNavbarItems.fromTo(OPACITY, 0.99, 0);
                 if (backDirection) {
-                    leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
+                    leavingTitle.fromTo(TRANSLATEX, CENTER, (plt.isRTL ? '-100%' : '100%'));
                     leavingNavbarBg
                         .beforeClearStyles([OPACITY])
-                        .fromTo(TRANSLATEX, CENTER, '100%');
+                        .fromTo(TRANSLATEX, CENTER, (plt.isRTL ? '-100%' : '100%'));
                     let leavingBackBtnText = new __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a" /* Animation */](plt, leavingNavbarEle.querySelector('.back-button-text'));
-                    leavingBackBtnText.fromTo(TRANSLATEX, CENTER, (300) + 'px');
+                    leavingBackBtnText.fromTo(TRANSLATEX, CENTER, (plt.isRTL ? -300 : 300) + 'px');
                     leavingNavBar.add(leavingBackBtnText);
                 }
                 else {

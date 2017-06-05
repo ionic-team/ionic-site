@@ -53093,12 +53093,12 @@ class SlideGesture extends __WEBPACK_IMPORTED_MODULE_0__pan_gesture__["a" /* Pan
         let coord = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_dom__["a" /* pointerCoord */])(ev);
         let newPos = coord[this.direction];
         let newTimestamp = Date.now();
-        let velocity = (newPos - slide.pos) / (newTimestamp - slide.timestamp);
+        let velocity = (this.plt.isRTL ? (slide.pos - newPos) : (newPos - slide.pos)) / (newTimestamp - slide.timestamp);
         slide.pos = newPos;
         slide.timestamp = newTimestamp;
-        slide.distance = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["j" /* clamp */])(slide.min, newPos - slide.pointerStartPos + slide.elementStartPos, slide.max);
+        slide.distance = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["j" /* clamp */])(slide.min, (this.plt.isRTL ? slide.pointerStartPos - newPos : newPos - slide.pointerStartPos) + slide.elementStartPos, slide.max);
         slide.velocity = velocity;
-        slide.delta = newPos - slide.pointerStartPos;
+        slide.delta = (this.plt.isRTL ? slide.pointerStartPos - newPos : newPos - slide.pointerStartPos);
         this.onSlide(slide, ev);
     }
     onDragEnd(ev) {

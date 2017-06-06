@@ -62,29 +62,24 @@ npm install -g cordova ionic
           Create an Ionic project using one of our ready-made app templates, or a blank one to start
           fresh.
         </p>
-        <i>
-          Ionic 2 is coming soon! Try the <a
-          href="/docs//setup/installation/">Release Candidate</a> today, the
-          next generation of Ionic
-        </i>
       </div>
     </div>
     <div class="col-md-6 code">
-  {% highlight bash %}ionic start myApp tabs{% endhighlight %}
+  {% highlight bash %}ionic start myApp tabs{% endhighlight %} --type ionic1
     </div>
   </div>
   <div class="row" id="template-images">
     <div class="template">
       <div class="template-image" id="start-template-blank-image"></div>
-      <code>ionic start myApp blank</code>
+      <code>ionic start myApp blank --type ionic1</code>
     </div>
     <div class="template">
       <div class="template-image" id="start-template-tabs-image"></div>
-      <code>ionic start myApp tabs</code>
+      <code>ionic start myApp tabs --type ionic1</code>
     </div>
     <div class="template">
       <div class="template-image" id="start-template-sidemenu-image"></div>
-      <code>ionic start myApp sidemenu</code>
+      <code>ionic start myApp sidemenu --type ionic1</code>
     </div>
   </div>
   <div class="row">
@@ -108,9 +103,9 @@ npm install -g cordova ionic
 {% highlight bash %}
 
 cd myApp
-ionic platform add ios
-ionic build ios
-ionic emulate ios
+ionic cordova platform add ios
+ionic cordova build ios
+ionic cordova emulate ios
 
 {% endhighlight %}
     </div>

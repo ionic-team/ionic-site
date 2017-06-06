@@ -96,7 +96,7 @@ $ sudo npm install -g ionic
 
 Now, we need to create a new Cordova project somewhere on the computer for the code for our app:
 
-    $ ionic start todo blank
+    $ ionic start todo blank --type ionic1
 
 That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:
 
@@ -120,8 +120,8 @@ If you are planning on using any version control system, you can go ahead and se
 Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:
 
 ```bash
-$ ionic platform add ios
-$ ionic platform add android
+$ ionic cordova platform add ios
+$ ionic cordova platform add android
 ```
 
 If you see errors here, make sure to follow the platform guides above to install necessary platform tools.
@@ -144,8 +144,8 @@ If you see errors here, make sure to follow the platform guides above to install
 Just to make sure the default project worked, try building and running the project (substitute ios for android to build for Android instead):
 
 ```bash
-$ ionic build ios
-$ ionic emulate ios
+$ ionic cordova build ios
+$ ionic cordova emulate ios
 ```
 
 <button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-emulator-note">
@@ -158,7 +158,7 @@ $ ionic emulate ios
 a real device. Using the emulator isn't even recommended for native Android development.
 </p>
 <p>
-  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic run</code> instead of <code>ionic emulate</code> as a Genymotion image appears as a physical device to the operating system.
+  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic cordova run</code> instead of <code>ionic cordova emulate</code> as a Genymotion image appears as a physical device to the operating system.
 </p>
 <p>
 If you chose to emulate on Android, be patient as this takes several minutes as the Android emulator is booted up. If you don't see anything happen for a few minutes, make sure you've created an Android Virtual Device (AVD), and that it is using the Android SDK version 17 or above. You might have to <a href="http://stackoverflow.com/questions/7222906/failed-to-allocate-memory-8">reduce the amount of memory</a> the AVD is using if you don't see the emulator boot up in a minute. The platform guide above has more information. You may also want to double check that you have the sdk and platform tools in your PATH as noted in the platform guide.

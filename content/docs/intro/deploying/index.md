@@ -157,4 +157,4 @@ To get past this, we have to tell our iOS device to trust the certificate we cod
 
 <img src="/img/docs/deploying/verify.jpg">
 
-Now, go back to Xcode and hit that play button or run `ionic run ios --device` from the command line to install and launch your app on your iOS device.
+Now, go back to Xcode and hit that play button or run `ionic cordova run ios --device` from the command line to install and launch your app on your iOS device.

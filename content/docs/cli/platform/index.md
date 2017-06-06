@@ -9,4 +9,4 @@ header_sub_title: Ionic CLI
 
 ## Description
 
-The `platform` command adds a new platform for your application. Run `ionic platform add $platform` to add a specific platform, where `$platform` can be either `ios` or `android`.
+The `platform` command adds a new platform for your application. Run `ionic cordova platform add $platform` to add a specific platform, where `$platform` can be either `ios` or `android`.

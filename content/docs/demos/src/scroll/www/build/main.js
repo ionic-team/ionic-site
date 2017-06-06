@@ -15314,7 +15314,8 @@ function setupPlatform(doc, platformConfigs, zone) {
     plt.setZone(zone);
     const docElement = doc.documentElement;
     plt.setDocument(doc);
-    plt.setDir(docElement.dir, false);
+    const dir = docElement.dir;
+    plt.setDir(dir || 'ltr', !dir);
     plt.setLang(docElement.lang, false);
     plt.setCssProps(docElement);
     const win = doc.defaultView;

@@ -51,7 +51,7 @@ Let’s generate your private key using the keytool command that comes with the 
 ```bash
 keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 ```
-You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jsk created in the current directory.
+You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jks created in the current directory.
 
 __Note__: Make sure to save this file somewhere safe, if you lose it you won’t be able to submit updates to your app!
 

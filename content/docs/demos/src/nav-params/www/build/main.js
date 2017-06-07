@@ -14878,7 +14878,7 @@ class Platform {
         }
     }
     setDir(dir, updateDocument) {
-        this._dir = dir = (dir || '').toLowerCase();
+        this._dir = dir;
         this.isRTL = (dir === 'rtl');
         if (updateDocument !== false) {
             this._doc['documentElement'].setAttribute('dir', dir);
@@ -15315,7 +15315,7 @@ function setupPlatform(doc, platformConfigs, zone) {
     const docElement = doc.documentElement;
     plt.setDocument(doc);
     const dir = docElement.dir;
-    plt.setDir(dir || 'ltr', !dir);
+    plt.setDir(dir === 'rtl' ? 'rtl' : 'ltr', !dir);
     plt.setLang(docElement.lang, false);
     plt.setCssProps(docElement);
     const win = doc.defaultView;

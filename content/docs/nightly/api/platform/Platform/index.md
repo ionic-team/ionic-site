@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform.ts#L6">
 Improve this doc
 </a>
 
@@ -100,7 +100,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>string</code> 
+  <code>DocumentDirection</code> 
 
 </div>
 
@@ -619,7 +619,7 @@ direction needs to be dynamically changed per user/session.
       </td>
       <td>
         
-  <code>string</code>
+  <code>DocumentDirection</code>
       </td>
       <td>
         <p>Examples: <code>rtl</code>, <code>ltr</code></p>

@@ -113,6 +113,18 @@ to the left of the text by setting <code>icon-start</code> as an attribute on th
   &lt;/button&gt;
 &lt;/ion-item-options&gt;
 </code></pre>
+<h3 id="expandable-options">Expandable Options</h3>
+<p>Options can be expanded to take up the full width of the item if you swipe past
+a certain point. This can be combined with the <code>ionSwipe</code> event to call methods
+on the class.</p>
+<pre><code class="lang-html">&lt;ion-item-sliding (ionSwipe)=&quot;delete(item)&quot;&gt;
+  &lt;ion-item&gt;Item&lt;/ion-item&gt;
+  &lt;ion-item-options&gt;
+    &lt;button ion-button expandable (click)=&quot;delete(item)&quot;&gt;Delete&lt;/button&gt;
+  &lt;/ion-item-options&gt;
+&lt;/ion-item-sliding&gt;
+</code></pre>
+<p>We can call <code>delete</code> by either clicking the button, or by doing a full swipe on the item.</p>
 
 
 

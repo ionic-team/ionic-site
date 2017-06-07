@@ -18084,19 +18084,14 @@ ion-menu.show-menu {
   position: absolute;
 }
 
+[dir="ltr"] ion-menu[side=left] > .menu-inner, [dir="rtl"] ion-menu[side=left] > .menu-inner {
+  right: auto;
+  left: 0;
+}
+
 [dir="ltr"] ion-menu[side=right] > .menu-inner, [dir="rtl"] ion-menu[side=right] > .menu-inner {
   right: 0;
   left: auto;
-}
-
-[dir="ltr"] ion-menu[side=start] > .menu-inner {
-  left: 0;
-  right: auto;
-}
-
-[dir="rtl"] ion-menu[side=start] > .menu-inner {
-  left: auto;
-  right: 0;
 }
 
 [dir="ltr"] ion-menu[side=end] > .menu-inner {

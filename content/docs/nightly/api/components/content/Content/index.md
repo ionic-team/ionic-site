@@ -917,7 +917,38 @@ to transparent.</p>
     
   </tbody>
 </table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>Resizing the content. If the height of <code>ion-header</code>, <code>ion-footer</code> or <code>ion-tabbar</code>
+<h3 id="sroll-events">Sroll Events</h3>
+<p>Scroll events happen outside of Angular&#39;s Zones. This is for performance reasons. So
+if you&#39;re trying to bind a value to any scroll event, it will need to be wrapped in
+a <code>zone.run()</code></p>
+<pre><code class="lang-ts">import { Component, NgZone } from &#39;@angular/core&#39;;
+@Component({
+  template: `
+    &lt;ion-header&gt;
+      &lt;ion-navbar&gt;
+        &lt;ion-title&gt;{{scrollAmount}}&lt;/ion-title&gt;
+      &lt;/ion-navbar&gt;
+    &lt;/ion-header&gt;
+    &lt;ion-content (ionScroll)=&quot;scrollHandler($event)&quot;&gt;
+       &lt;p&gt; Some realllllllly long content &lt;/p&gt;
+    &lt;/ion-content&gt;
+`})
+class E2EPage {
+ public scrollAmount = 0;
+ constructor( public zone: NgZone){}
+ scrollHandler(event) {
+   console.log(`ScrollEvent: ${event}`)
+   this.zone.run(()=&gt;{
+     // since scrollAmount is data-binded,
+     // the update needs to happen in zone
+     this.scrollAmount++
+   })
+ }
+}
+</code></pre>
+<p>This goes for any scroll event, not just <code>ionScroll</code>.</p>
+<h3 id="resizing-the-content">Resizing the content</h3>
+<p>If the height of <code>ion-header</code>, <code>ion-footer</code> or <code>ion-tabbar</code>
 changes dynamically, <code>content.resize()</code> has to be called in order to update the
 layout of <code>Content</code>.</p>
 <pre><code class="lang-ts">@Component({

@@ -6652,7 +6652,6 @@ button[disabled],
 }
 
 .button-effect {
-  top: 0;
   position: absolute;
   z-index: 0;
   display: none;
@@ -6664,16 +6663,13 @@ button[disabled],
   pointer-events: none;
 }
 
-[dir="ltr"] .button-effect {
-  left: 0;
-}
-
-[dir="rtl"] .button-effect {
-  right: 0;
+[dir="ltr"] .button-effect, [dir="rtl"] .button-effect {
+  border-radius: 50%;
 }
 
 [dir="ltr"] .button-effect, [dir="rtl"] .button-effect {
-  border-radius: 50%;
+  top: 0;
+  left: 0;
 }
 
 .md .button-effect {

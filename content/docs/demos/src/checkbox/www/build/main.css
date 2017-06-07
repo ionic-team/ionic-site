@@ -6652,7 +6652,6 @@ button[disabled],
 }
 
 .button-effect {
-  top: 0;
   position: absolute;
   z-index: 0;
   display: none;
@@ -6664,16 +6663,13 @@ button[disabled],
   pointer-events: none;
 }
 
-[dir="ltr"] .button-effect {
-  left: 0;
-}
-
-[dir="rtl"] .button-effect {
-  right: 0;
+[dir="ltr"] .button-effect, [dir="rtl"] .button-effect {
+  border-radius: 50%;
 }
 
 [dir="ltr"] .button-effect, [dir="rtl"] .button-effect {
-  border-radius: 50%;
+  top: 0;
+  left: 0;
 }
 
 .md .button-effect {
@@ -18088,19 +18084,14 @@ ion-menu.show-menu {
   position: absolute;
 }
 
+[dir="ltr"] ion-menu[side=left] > .menu-inner, [dir="rtl"] ion-menu[side=left] > .menu-inner {
+  right: auto;
+  left: 0;
+}
+
 [dir="ltr"] ion-menu[side=right] > .menu-inner, [dir="rtl"] ion-menu[side=right] > .menu-inner {
   right: 0;
   left: auto;
-}
-
-[dir="ltr"] ion-menu[side=start] > .menu-inner {
-  left: 0;
-  right: auto;
-}
-
-[dir="rtl"] ion-menu[side=start] > .menu-inner {
-  left: auto;
-  right: 0;
 }
 
 [dir="ltr"] ion-menu[side=end] > .menu-inner {

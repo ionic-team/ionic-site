@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/globalization
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Windows Phone 8</li><li>Widnows</li><li>Browser</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Windows Phone 8</li><li>Windows</li><li>Browser</li>
 </ul>
 
 

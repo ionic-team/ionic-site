@@ -27,7 +27,7 @@ You'll want to install Xcode from Apple. You can either do this from the Mac App
 You'll need to download and install Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 ### Android
-Download [Android Studio](https://developer.android.com/studio/) and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
+Download [Android Studio](https://developer.android.com/studio/) and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed. Copy this down for future use.
 
 Next, inside the new `SDK` location, we'll run `tools/android` to open the Android SDK Manager. We'll want to install:
 
@@ -37,6 +37,9 @@ Next, inside the new `SDK` location, we'll run `tools/android` to open the Andro
 - Android Support Repository (found under "Extras")
 
 Accept the license and let the packages install.
+
+### Gradle
+If you install the Android SDK without ANdroid Studio you have to install Gradle seperatly. Download Gradle from the offical [Gradle website](https://gradle.org/)
 
 ### Environment Variables
 Now that everything's installed, we'll need to set some environment variables for our command line. Open your terminal and enter the following:
@@ -63,10 +66,13 @@ If you've used the paths suggested, you should have something like this.
   # Add that to the global PATH variable
   export PATH=${JAVA_HOME}/bin:$PATH
   # Set Android_HOME
-  export ANDROID_HOME~=/Library/Android/sdk/
+  export ANDROID_HOME=~/Library/Android/sdk/
   # Add the Android SDK to the ANDROID_HOME variable
   export PATH=$ANDROID_HOME/platform-tools:$PATH
   export PATH=$ANDROID_HOME/tools:$PATH
+  #Set GRADLE_HOME
+  export GRADLE_HOME=/Library/gradle/gradle-3.2
+  export PATH=$PATH:$GRADLE_HOME/bin
 ```
 
 Apply these changes by re-sourcing .bash_profile

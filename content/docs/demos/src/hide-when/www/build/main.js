@@ -36714,6 +36714,9 @@ let AlertCmp = class AlertCmp {
         if (this.inputType === 'checkbox') {
             return this.d.inputs.filter(i => i.checked).map(i => i.value);
         }
+        if (this.d.inputs.length === 0) {
+            return undefined;
+        }
         const values = {};
         this.d.inputs.forEach(i => {
             values[i.name] = i.value;

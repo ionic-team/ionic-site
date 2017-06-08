@@ -31,7 +31,7 @@ By default this will look for your translation json files in `i18n/`, but for Io
 ```typescript
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { Http } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 ...
 
 export function createTranslateLoader(http: Http) {
@@ -43,6 +43,7 @@ and then adding the following to your NgModules imports array:
 ```typescript
 @NgModule({
   imports: [
+    HttpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

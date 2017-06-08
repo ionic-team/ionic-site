@@ -602,11 +602,20 @@ tabbar. Default: <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-transform-origin</code></td>
+        <td><code>$tabs-md-tab-text-transform-origin-x</code></td>
         
-          <td><code>50% 80%</code></td>
+          <td><code>50%</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform-origin-y</code></td>
+        
+          <td><code>80%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       
@@ -629,47 +638,128 @@ tabbar. Default: <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-x-active</code></td>
         
-          <td><code>translate3d(0, -2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-end-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-y-active</code></td>
         
-          <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+          <td><code>-2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-end</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-bottom-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-z-active</code></td>
         
-          <td><code>translate3d(0, 2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-bottom</p>
+        <td><p>Transform z for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-start-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-x-active</code></td>
         
-          <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-start</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-right</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-origin</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-y-active</code></td>
         
-          <td><code>50% 150%</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-right-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-x-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-y-active</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-x-active</code></td>
+        
+          <td><code>-2px</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-y-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-x</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-y</code></td>
+        
+          <td><code>150%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       

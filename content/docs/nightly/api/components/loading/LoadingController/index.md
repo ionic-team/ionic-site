@@ -252,6 +252,11 @@ Create a loading indicator. See below for options.
 <td>Whether to show the backdrop. Default true.</td>
 </tr>
 <tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>Whether the loading indicator should be dismissed by tapping the backdrop. Default false.</td>
+</tr>
+<tr>
 <td>dismissOnPageChange</td>
 <td><code>boolean</code></td>
 <td>Whether to dismiss the indicator when navigating to a new page. Default false.</td>

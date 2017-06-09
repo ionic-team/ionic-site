@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706091459, Dark Theme
+ * vE2E-201706091922, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -11022,9 +11022,15 @@ ion-range ion-icon {
     [dir="rtl"] .range-md .range-pin::before {
       right: 50%; }
     [dir="ltr"] .range-md .range-pin::before {
-      border-radius: 50% 50% 50% 0; }
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 0; }
     [dir="rtl"] .range-md .range-pin::before {
-      border-radius: 50% 0 50% 50%; }
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 50%; }
     [dir="ltr"] .range-md .range-pin::before {
       margin-left: -13px; }
     [dir="rtl"] .range-md .range-pin::before {
@@ -11964,9 +11970,15 @@ ion-segment {
     background-color: rgba(0, 122, 255, 0.16);
     transition: 100ms all linear; }
   [dir="ltr"] .segment-ios .segment-button:first-of-type {
-    border-radius: 4px 0 0 4px; }
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 4px; }
   [dir="rtl"] .segment-ios .segment-button:first-of-type {
-    border-radius: 4px 4px 0 0; }
+    border-top-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 0; }
   [dir="ltr"] .segment-ios .segment-button:first-of-type {
     margin-right: 0; }
   [dir="rtl"] .segment-ios .segment-button:first-of-type {
@@ -11976,9 +11988,15 @@ ion-segment {
   .segment-ios .segment-button:last-of-type {
     border-left-width: 0; }
     [dir="ltr"] .segment-ios .segment-button:last-of-type {
-      border-radius: 0 4px 4px 0; }
+      border-top-left-radius: 0;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 0; }
     [dir="rtl"] .segment-ios .segment-button:last-of-type {
-      border-radius: 0 0 4px 4px; }
+      border-top-left-radius: 4px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 4px; }
     [dir="ltr"] .segment-ios .segment-button:last-of-type {
       margin-left: 0; }
     [dir="rtl"] .segment-ios .segment-button:last-of-type {
@@ -11986,17 +12004,9 @@ ion-segment {
 
 [dir="rtl"] .segment-ios .segment-button:first-of-type {
   border-left-width: 0; }
-  [dir="ltr"] [dir="rtl"] .segment-ios .segment-button:first-of-type {
-    margin-left: 0; }
-  [dir="rtl"] [dir="rtl"] .segment-ios .segment-button:first-of-type {
-    margin-right: 0; }
 
 [dir="rtl"] .segment-ios .segment-button:last-of-type {
   border-left-width: 1px; }
-  [dir="ltr"] [dir="rtl"] .segment-ios .segment-button:last-of-type {
-    margin-right: 0; }
-  [dir="rtl"] [dir="rtl"] .segment-ios .segment-button:last-of-type {
-    margin-left: 0; }
 
 .segment-ios.segment-disabled {
   opacity: .4;

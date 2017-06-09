@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ Geofences persist after device reboot. Geofences will be monitored even when the
 
 
 <p>Repo:
-  <a href="https://github.com/cowbell/cordova-plugin-geofence/">
-    https://github.com/cowbell/cordova-plugin-geofence/
+  <a href="https://github.com/cowbell/cordova-plugin-geofence">
+    https://github.com/cowbell/cordova-plugin-geofence
   </a>
 </p>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/geofence
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows Phone</li>
+  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -120,7 +120,7 @@ private addGeofence() {
 <h3 id="troubleshooting">Troubleshooting</h3>
 <h4 id="i-get-compile-errors-when-i-run-ionic-build-ios-or-ionic-run-ios-">I get compile errors when I run <code>ionic build ios</code> or <code>ionic run ios</code>.</h4>
 <p>This could be caused by the Cordova project directory in <code>/platforms/ios</code> not being named correctly.
-Try running <code>ionic platform rm &lt;platform&gt;</code> then run <code>ionic platform add &lt;platform&gt;</code> to recreate the
+Try running <code>ionic cordova platform rm &lt;platform&gt;</code> then run <code>ionic cordova platform add &lt;platform&gt;</code> to recreate the
 platform directories.</p>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -40,7 +40,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
 $ npm install --save @ionic-native/web-intent
 </code></pre>
   </li>

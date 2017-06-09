@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -35,7 +35,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
+    <pre><code class="nohighlight">$ ionic cordova plugin add couchbase-lite-phonegap-plugin
 $ npm install --save @ionic-native/couchbase-lite
 </code></pre>
   </li>

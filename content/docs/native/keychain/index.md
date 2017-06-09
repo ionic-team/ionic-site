@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/ionic-team/cordova-plugin-ios-keychain/">
-    https://github.com/ionic-team/cordova-plugin-ios-keychain/
+  <a href="https://github.com/ionic-team/cordova-plugin-ios-keychain">
+    https://github.com/ionic-team/cordova-plugin-ios-keychain
   </a>
 </p>
 

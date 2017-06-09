@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Phonegap Local Notification</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/phonegap-local-notification/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/phonegap-local-notification/index.ts#L50">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Browser</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 
 
 <h2>Usage</h2>
-<pre><code>import { PhonegapLocalNotifications } from &#39;@ionic-native/phonegap-local-notifications&#39;;
+<pre><code>import { PhonegapLocalNotification } from &#39;@ionic-native/phonegap-local-notification&#39;;
 
 
 constructor(private localNotification: PhonegapLocalNotifications) { }

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/app-rate
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows (experimental)</li>
+  <li>Android</li><li>BlackBerry 10</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

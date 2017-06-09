@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/google-plus
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Web</li><li>Android</li><li>iOS</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 

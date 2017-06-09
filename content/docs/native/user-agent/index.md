@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/LouisT/cordova-useragent">
-    https://github.com/LouisT/cordova-useragent
+  <a href="https://github.com/danielsogl/cordova-plugin-useragent">
+    https://github.com/danielsogl/cordova-plugin-useragent
   </a>
 </p>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/LouisT/cordova-useragent
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-useragent
 $ npm install --save @ionic-native/user-agent
 </code></pre>
   </li>

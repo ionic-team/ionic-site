@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Secure Storage</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L66">
   Improve this doc
 </a>
 
@@ -24,6 +24,7 @@ docType: "class"
 
 <p>This plugin gets, sets and removes key,value pairs from a device&#39;s secure storage.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-secure-storage</code>. For more info, please see the <a href="https://github.com/Crypho/cordova-plugin-secure-storage">Cordova Secure Storage docs</a>.</p>
+<p>The browser platform is supported as a mock only. Key/values are stored unencrypted in localStorage.</p>
 
 
 <p>Repo:
@@ -47,7 +48,7 @@ $ npm install --save @ionic-native/secure-storage
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -247,6 +248,15 @@ Get all references from the storage.
 
 
 Clear all references from the storage.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="secureDevice" href="#secureDevice"></a><code>secureDevice()</code></h3>
+
+
+Brings up the screen-lock settings
 
 
 <div class="return-value" markdown="1">

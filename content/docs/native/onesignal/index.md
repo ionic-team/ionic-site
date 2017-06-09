@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -25,6 +25,57 @@ docType: "class"
 <p>The OneSignal plugin is an client implementation for using the <a href="https://onesignal.com/">OneSignal</a> Service.
 OneSignal is a simple implementation for delivering push notifications.</p>
 <p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
+<h4 id="icons">Icons</h4>
+<p>If you want to use generated icons with command <code>ionic cordova resources</code>:</p>
+<ol>
+<li><p>Add a file to your <code>hooks</code> directory inside the <code>after_prepare</code> folder called <code>030_copy_android_notification_icons.js</code></p>
+</li>
+<li><p>Put the following code in it:</p>
+</li>
+</ol>
+<pre><code>#!/usr/bin/env node
+
+var filestocopy = [{
+    &quot;resources/android/icon/drawable-hdpi-icon.png&quot;:
+        &quot;platforms/android/res/drawable-hdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-mdpi-icon.png&quot;:
+        &quot;platforms/android/res/drawable-mdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xhdpi-icon.png&quot;:
+        &quot;platforms/android/res/drawable-xhdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xxhdpi-icon.png&quot;:
+        &quot;platforms/android/res/drawable-xxhdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xxxhdpi-icon.png&quot;:
+        &quot;platforms/android/res/drawable-xxxhdpi/ic_stat_onesignal_default.png&quot;
+} ];
+
+var fs = require(&#39;fs&#39;);
+var path = require(&#39;path&#39;);
+
+// no need to configure below
+var rootdir = process.argv[2];
+
+filestocopy.forEach(function(obj) {
+    Object.keys(obj).forEach(function(key) {
+        var val = obj[key];
+        var srcfile = path.join(rootdir, key);
+        var destfile = path.join(rootdir, val);
+        //console.log(&quot;copying &quot;+srcfile+&quot; to &quot;+destfile);
+        var destdir = path.dirname(destfile);
+        if (fs.existsSync(srcfile) &amp;&amp; fs.existsSync(destdir)) {
+            fs.createReadStream(srcfile).pipe(
+                fs.createWriteStream(destfile));
+        }
+    });
+});
+</code></pre>
+<ol>
+<li>From the root of your project make the file executable:
+<code>$ chmod +x hooks/after_prepare/030_copy_android_notification_icons.js</code></li>
+</ol>
 
 
 <p>Repo:
@@ -48,7 +99,7 @@ $ npm install --save @ionic-native/onesignal
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows</li><li>FireOS</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

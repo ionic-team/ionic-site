@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,7 +23,7 @@ docType: "class"
 <p class="beta-notice">
   This plugin is still in beta stage and may not work as expected. Please
   submit any issues to the <a target="_blank"
-  href="https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin/issues">plugin repo</a>.
+  href="https://github.com/danielsogl/cordova-plugin-video-capture-plus/issues">plugin repo</a>.
 </p>
 
 
@@ -37,8 +37,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin">
-    https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin
+  <a href="https://github.com/danielsogl/cordova-plugin-video-capture-plus">
+    https://github.com/danielsogl/cordova-plugin-video-capture-plus
   </a>
 </p>
 
@@ -46,7 +46,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-video-capture-plus
 $ npm install --save @ionic-native/video-capture-plus
 </code></pre>
   </li>

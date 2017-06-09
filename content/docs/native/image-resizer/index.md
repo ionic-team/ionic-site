@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 <p>Cordova Plugin For Image Resize</p>
 <p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
-<code>ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
+<code>ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
 <p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
 
 

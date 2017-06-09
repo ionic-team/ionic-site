@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-dialogs.git">
-    https://github.com/apache/cordova-plugin-dialogs.git
+  <a href="https://github.com/apache/cordova-plugin-dialogs">
+    https://github.com/apache/cordova-plugin-dialogs
   </a>
 </p>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/dialogs
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

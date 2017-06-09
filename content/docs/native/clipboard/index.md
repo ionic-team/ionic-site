@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,8 +28,8 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 
 
 <p>Repo:
-  <a href="https://github.com/VersoSolutions/CordovaClipboard">
-    https://github.com/VersoSolutions/CordovaClipboard
+  <a href="https://github.com/danielsogl/cordova-plugin-clipboard">
+    https://github.com/danielsogl/cordova-plugin-clipboard
   </a>
 </p>
 
@@ -37,7 +37,7 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add danielsogl-cordova-plugin-clipboard
 $ npm install --save @ionic-native/clipboard
 </code></pre>
   </li>
@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/clipboard
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
 
 

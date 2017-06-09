@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/in-app-browser
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Amazon</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>AmazonFire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

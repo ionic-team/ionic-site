@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/vibration
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows 8.1 Phone</li><li>Windows 8.1</li><li>Windows 10</li>
+  <li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -26,8 +26,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/JonSmart/CordovaYoutubeVideoPlayer">
-    https://github.com/JonSmart/CordovaYoutubeVideoPlayer
+  <a href="https://github.com/ihadeed/CordovaYoutubeVideoPlayer">
+    https://github.com/ihadeed/CordovaYoutubeVideoPlayer
   </a>
 </p>
 
@@ -35,7 +35,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/JonSmart/CordovaYoutubeVideoPlayer
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-youtube-video-player
 $ npm install --save @ionic-native/youtube-video-player
 </code></pre>
   </li>

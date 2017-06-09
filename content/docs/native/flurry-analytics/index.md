@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -26,8 +26,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/blakgeek/cordova-plugin-flurryanalytics.git">
-    https://github.com/blakgeek/cordova-plugin-flurryanalytics.git
+  <a href="https://github.com/blakgeek/cordova-plugin-flurryanalytics">
+    https://github.com/blakgeek/cordova-plugin-flurryanalytics
   </a>
 </p>
 
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/flurry-analytics
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Browser</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 

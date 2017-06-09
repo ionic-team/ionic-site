@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,7 @@ docType: "class"
 
 
 <p>Share text, files, images, and links via social networks, sms, and email.</p>
+<p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api</a></p>
 
 
 <p>Repo:
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/social-sharing
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

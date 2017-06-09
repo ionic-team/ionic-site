@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -146,7 +146,7 @@ Prevents the native UIScrollView from moving when an input is focused.
     <td>
       disable</td>
     <td>
-      
+      <code>boolean</code>
     </td>
     <td>
       </td>

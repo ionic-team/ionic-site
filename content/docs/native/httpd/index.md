@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -35,7 +35,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/floatinghotpot/cordova-httpd.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-httpd
 $ npm install --save @ionic-native/httpd
 </code></pre>
   </li>
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/httpd
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li>
+  <li>Android</li><li>iOS</li><li>macOS</li>
 </ul>
 
 

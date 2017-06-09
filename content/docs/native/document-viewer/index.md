@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -223,7 +223,7 @@ Opens the file
     <td>
       options</td>
     <td>
-      <code>Array&lt;DocumentViewerOptions&gt;</code>
+      <code>DocumentViewerOptions</code>
     </td>
     <td>
       <p>options</p>

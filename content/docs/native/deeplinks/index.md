@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/deeplinks
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li><li>Browser</li>
+  <li>Android</li><li>Browser</li><li>iOS</li>
 </ul>
 
 
@@ -74,7 +74,7 @@ this.deeplinks.route({
      console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
    });
 </code></pre>
-<p>Alternatively, if you&#39;re using Ionic 2, there&#39;s a convenience method that takes a reference to a <code>NavController</code> and handles
+<p>Alternatively, if you&#39;re using Ionic, there&#39;s a convenience method that takes a reference to a <code>NavController</code> and handles
 the actual navigation for you:</p>
 <pre><code class="lang-typescript">this.deeplinks.routeWithNavController(this.navController, {
   &#39;/about-us&#39;: AboutPage,
@@ -89,7 +89,7 @@ the actual navigation for you:</p>
     console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
   });
 </code></pre>
-<p>See the <a href="https://github.com/ionic-team/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
+<p>See the <a href="https://github.com/ionic-team/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic Deeplinks Demo</a> for an example of how to
 retrieve the <code>NavController</code> reference at runtime.</p>
 
 
@@ -142,7 +142,7 @@ errors if a deeplink comes through that does not match a given path.
 
 
 This is a convenience version of `route` that takes a reference to a NavController
-from Ionic 2, or a custom class that conforms to this protocol:
+from Ionic, or a custom class that conforms to this protocol:
 
 NavController.push = function(View, Params){}
 

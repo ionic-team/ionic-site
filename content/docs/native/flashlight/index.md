@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
-    https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
+  <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin">
+    https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin
   </a>
 </p>
 

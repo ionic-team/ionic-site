@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "3.12.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -37,7 +37,7 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
 $ npm install --save @ionic-native/image-picker
 </code></pre>
   </li>

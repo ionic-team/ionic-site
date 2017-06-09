@@ -15802,40 +15802,54 @@ ion-item-sliding .item {
 }
 
 ion-item-options {
-  top: 0;
   position: absolute;
   z-index: 1;
   display: none;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
   height: 100%;
   font-size: 14px;
   visibility: hidden;
 }
 
-[dir="ltr"] ion-item-options {
+[dir="ltr"] ion-item-options, [dir="rtl"] ion-item-options {
+  top: 0;
   right: 0;
 }
 
-[dir="rtl"] ion-item-options {
-  left: 0;
+[dir="ltr"] ion-item-options {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
-ion-item-options[side=left] {
+[dir="rtl"] ion-item-options {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
-[dir="ltr"] ion-item-options[side=left] {
-  left: 0;
+[dir="rtl"] ion-item-options:not([side=right]) {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   right: auto;
+  left: 0;
+}
+
+[dir="ltr"] ion-item-options[side=left], [dir="rtl"] ion-item-options[side=left] {
+  right: auto;
+  left: 0;
+}
+
+[dir="ltr"] ion-item-options[side=left] {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 [dir="rtl"] ion-item-options[side=left] {
-  left: auto;
-  right: 0;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 ion-item-options .button {
@@ -15872,6 +15886,11 @@ ion-item-options:not([icon-start]) .button:not([icon-only]) .button-inner {
   padding-bottom: 0.3em;
 }
 
+[dir="rtl"] ion-item-sliding.active-slide.active-options-left ion-item-options:not([side=right]) {
+  width: 100%;
+  visibility: visible;
+}
+
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {
   position: relative;
@@ -15906,35 +15925,45 @@ button[expandable] {
 }
 
 ion-item-sliding.active-swipe-right button[expandable] {
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
   transition-duration: .6s;
   transition-property: padding-left;
 }
 
-[dir="ltr"] ion-item-sliding.active-swipe-right button[expandable] {
+[dir="ltr"] ion-item-sliding.active-swipe-right button[expandable], [dir="rtl"] ion-item-sliding.active-swipe-right button[expandable] {
   padding-left: 90%;
 }
 
-[dir="rtl"] ion-item-sliding.active-swipe-right button[expandable] {
-  padding-right: 90%;
+[dir="ltr"] ion-item-sliding.active-swipe-right button[expandable] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
 }
 
-ion-item-sliding.active-swipe-left button[expandable] {
+[dir="rtl"] ion-item-sliding.active-swipe-right button[expandable] {
   -webkit-order: -1;
   -ms-flex-order: -1;
   order: -1;
+}
+
+ion-item-sliding.active-swipe-left button[expandable] {
   transition-duration: .6s;
   transition-property: padding-right;
 }
 
-[dir="ltr"] ion-item-sliding.active-swipe-left button[expandable] {
+[dir="ltr"] ion-item-sliding.active-swipe-left button[expandable], [dir="rtl"] ion-item-sliding.active-swipe-left button[expandable] {
   padding-right: 90%;
 }
 
+[dir="ltr"] ion-item-sliding.active-swipe-left button[expandable] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
 [dir="rtl"] ion-item-sliding.active-swipe-left button[expandable] {
-  padding-left: 90%;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
 }
 
 .item-ios {

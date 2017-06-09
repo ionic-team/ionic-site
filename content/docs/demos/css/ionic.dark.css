@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706092032, Dark Theme
+ * vE2E-201706092059, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -8015,31 +8015,43 @@ ion-item-sliding .item {
   position: static; }
 
 ion-item-options {
-  top: 0;
   position: absolute;
   z-index: 1;
   display: none;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
   height: 100%;
   font-size: 14px;
   visibility: hidden; }
-  [dir="ltr"] ion-item-options {
+  [dir="ltr"] ion-item-options, [dir="rtl"] ion-item-options {
+    top: 0;
     right: 0; }
+  [dir="ltr"] ion-item-options {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
   [dir="rtl"] ion-item-options {
-    left: 0; }
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    [dir="rtl"] ion-item-options:not([side=right]) {
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      right: auto;
+      left: 0; }
 
-ion-item-options[side=left] {
+[dir="ltr"] ion-item-options[side=left], [dir="rtl"] ion-item-options[side=left] {
+  right: auto;
+  left: 0; }
+
+[dir="ltr"] ion-item-options[side=left] {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start; }
-  [dir="ltr"] ion-item-options[side=left] {
-    left: 0;
-    right: auto; }
-  [dir="rtl"] ion-item-options[side=left] {
-    left: auto;
-    right: 0; }
+
+[dir="rtl"] ion-item-options[side=left] {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
 
 ion-item-options .button {
   height: 100%;
@@ -8064,6 +8076,10 @@ ion-item-options:not([icon-start]) .button:not([icon-only]) .button-inner {
 
 [dir="ltr"] ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon, [dir="ltr"] ion-item-options:not([icon-start]) .button:not([icon-only]) ion-icon, [dir="rtl"] ion-item-options:not([icon-left]) .button:not([icon-only]) ion-icon, [dir="rtl"] ion-item-options:not([icon-start]) .button:not([icon-only]) ion-icon {
   padding-bottom: 0.3em; }
+
+[dir="rtl"] ion-item-sliding.active-slide.active-options-left ion-item-options:not([side=right]) {
+  width: 100%;
+  visibility: visible; }
 
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {
@@ -8095,26 +8111,32 @@ button[expandable] {
   transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
 
 ion-item-sliding.active-swipe-right button[expandable] {
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
   transition-duration: .6s;
   transition-property: padding-left; }
-  [dir="ltr"] ion-item-sliding.active-swipe-right button[expandable] {
+  [dir="ltr"] ion-item-sliding.active-swipe-right button[expandable], [dir="rtl"] ion-item-sliding.active-swipe-right button[expandable] {
     padding-left: 90%; }
+  [dir="ltr"] ion-item-sliding.active-swipe-right button[expandable] {
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1; }
   [dir="rtl"] ion-item-sliding.active-swipe-right button[expandable] {
-    padding-right: 90%; }
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1; }
 
 ion-item-sliding.active-swipe-left button[expandable] {
-  -webkit-order: -1;
-  -ms-flex-order: -1;
-  order: -1;
   transition-duration: .6s;
   transition-property: padding-right; }
-  [dir="ltr"] ion-item-sliding.active-swipe-left button[expandable] {
+  [dir="ltr"] ion-item-sliding.active-swipe-left button[expandable], [dir="rtl"] ion-item-sliding.active-swipe-left button[expandable] {
     padding-right: 90%; }
+  [dir="ltr"] ion-item-sliding.active-swipe-left button[expandable] {
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1; }
   [dir="rtl"] ion-item-sliding.active-swipe-left button[expandable] {
-    padding-left: 90%; }
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1; }
 
 .item-ios {
   position: relative;

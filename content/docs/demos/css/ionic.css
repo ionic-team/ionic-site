@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706091352, Default Theme
+ * vE2E-201706091459, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -13030,10 +13030,35 @@ ion-slides {
 .split-pane-visible > ion-menu.menu-enabled > .ion-backdrop {
   display: hidden !important; }
 
-.split-pane-visible > .split-pane-side[side=right] {
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=start], [dir="rtl"] .split-pane-visible > .split-pane-side[side=start] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=end], [dir="rtl"] .split-pane-visible > .split-pane-side[side=end] {
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1; }
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=left] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
+
+[dir="rtl"] .split-pane-visible > .split-pane-side[side=left] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1; }
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=right] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1; }
+
+[dir="rtl"] .split-pane-visible > .split-pane-side[side=right] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
 
 .split-pane-ios.split-pane-visible > .split-pane-side {
   min-width: 270px;

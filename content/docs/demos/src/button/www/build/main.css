@@ -23576,10 +23576,40 @@ ion-spinner.spinner-paused svg {
   display: hidden !important;
 }
 
-.split-pane-visible > .split-pane-side[side=right] {
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=start], [dir="rtl"] .split-pane-visible > .split-pane-side[side=start] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=end], [dir="rtl"] .split-pane-visible > .split-pane-side[side=end] {
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+}
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=left] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+[dir="rtl"] .split-pane-visible > .split-pane-side[side=left] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+[dir="ltr"] .split-pane-visible > .split-pane-side[side=right] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+[dir="rtl"] .split-pane-visible > .split-pane-side[side=right] {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
 }
 
 .split-pane-ios.split-pane-visible > .split-pane-side {

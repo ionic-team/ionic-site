@@ -51055,26 +51055,10 @@ let Toggle = Toggle_1 = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_b
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* assert */])(false, '_startX must be valid');
             return;
         }
-        let dirty = false;
-        let value;
-        let activated;
-        if (this._value) {
-            if (currentX + 15 < this._startX) {
-                dirty = true;
-                value = false;
-                activated = true;
-            }
-        }
-        else if (currentX - 15 > this._startX) {
-            dirty = true;
-            value = true;
-            activated = (currentX < this._startX + 5);
-        }
-        if (dirty) {
+        if (this._shouldToggle(currentX, -15)) {
             this._zone.run(() => {
-                this.value = value;
+                this.value = !this.value;
                 this._startX = currentX;
-                this._activated = activated;
                 this._haptic.selection();
             });
         }
@@ -51086,20 +51070,26 @@ let Toggle = Toggle_1 = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_b
         }
         console.debug('toggle, _onDragEnd', endX);
         this._zone.run(() => {
-            if (this._value) {
-                if (this._startX + 4 > endX) {
-                    this.value = false;
-                    this._haptic.selection();
-                }
-            }
-            else if (this._startX - 4 < endX) {
-                this.value = true;
+            if (this._shouldToggle(endX, 4)) {
+                this.value = !this.value;
                 this._haptic.selection();
             }
             this._activated = false;
             this._fireBlur();
             this._startX = null;
         });
+    }
+    _shouldToggle(currentX, margin) {
+        const isLTR = !this._plt.isRTL;
+        const startX = this._startX;
+        if (this._value) {
+            return (isLTR && (startX + margin > currentX)) ||
+                (!isLTR && (startX - margin < currentX));
+        }
+        else {
+            return (isLTR && (startX - margin < currentX)) ||
+                (!isLTR && (startX + margin > currentX));
+        }
     }
     _keyup(ev) {
         if (ev.keyCode === __WEBPACK_IMPORTED_MODULE_10__platform_key__["a" /* KEY_SPACE */] || ev.keyCode === __WEBPACK_IMPORTED_MODULE_10__platform_key__["b" /* KEY_ENTER */]) {

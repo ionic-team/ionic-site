@@ -48309,10 +48309,11 @@ let Menu = Menu_1 = class Menu {
             return;
         }
         const isRightSide = this.isRightSide;
+        const isRTL = this._plt.isRTL;
         const opening = !this.isOpen;
         const shouldComplete = (opening)
-            ? isRightSide ? shouldCompleteLeft : shouldCompleteRight
-            : isRightSide ? shouldCompleteRight : shouldCompleteLeft;
+            ? (isRightSide !== isRTL) ? shouldCompleteLeft : shouldCompleteRight
+            : (isRightSide !== isRTL) ? shouldCompleteRight : shouldCompleteLeft;
         this._getType().setProgressEnd(shouldComplete, stepValue, velocity, (isOpen) => {
             console.debug('menu, swipeEnd', this.side);
             this._after(isOpen);
@@ -58395,12 +58396,12 @@ class MenuContentGesture extends __WEBPACK_IMPORTED_MODULE_1__gestures_slide_edg
         this.menu._swipeStart();
     }
     onSlide(slide, ev) {
-        const z = (this.menu.isRightSide ? slide.min : slide.max);
+        const z = (this.menu.isRightSide !== this.plt.isRTL ? slide.min : slide.max);
         const stepValue = (slide.distance / z);
         this.menu._swipeProgress(stepValue);
     }
     onSlideEnd(slide, ev) {
-        let z = (this.menu.isRightSide ? slide.min : slide.max);
+        let z = (this.menu.isRightSide !== this.plt.isRTL ? slide.min : slide.max);
         const currentStepValue = (slide.distance / z);
         const velocity = slide.velocity;
         z = Math.abs(z * 0.5);
@@ -58413,14 +58414,14 @@ class MenuContentGesture extends __WEBPACK_IMPORTED_MODULE_1__gestures_slide_edg
     }
     getElementStartPos(slide, ev) {
         const menu = this.menu;
-        if (menu.isRightSide) {
+        if (menu.isRightSide !== this.plt.isRTL) {
             return menu.isOpen ? slide.min : slide.max;
         }
         return menu.isOpen ? slide.max : slide.min;
     }
     getSlideBoundaries() {
         const menu = this.menu;
-        if (menu.isRightSide) {
+        if (menu.isRightSide !== this.plt.isRTL) {
             return {
                 min: -menu.width(),
                 max: 0

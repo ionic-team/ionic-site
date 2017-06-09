@@ -8,11 +8,19 @@ header_sub_title: Ionic Resources
 
 # Using NVM
 
-<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/resources/using-nvm/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/developer-resources/using-nvm/index.md'>
   Improve this doc
 </a>
 
-### Instalaltion on macOS and Linux
+`nvm` is a Node Version Manager that allows you to manage multiple active node.js installations with different versions.
+
+### General Usage
+
+With `nvm` you can install several node versions at the same time and switch between them as you wish. Global packages are installed per node, so you can e.g. have different Ionic CLI versions installed for different node versions.
+
+### macOS and Linux
+
+#### Installation
 To install or update nvm, you can use the install script using cURL:
 
 ```sh
@@ -47,10 +55,7 @@ If the above doesn't fix the problem, open your `.bash_profile` and add the foll
 
 - For more information about this issue and possible workarounds, please [refer here](https://github.com/creationix/nvm/issues/576)
 
-### Instalaltion on Windows
-To install NVM on windows, visit the [nvm-windows repo](https://github.com/coreybutler/nvm-windows) and downlaod the latest installer
-
-### Verify installation
+##### Verify installation
 
 To verify that nvm has been installed, do:
 
@@ -60,7 +65,7 @@ command -v nvm
 
 which should output 'nvm' if the installation was successful.
 
-### Usage
+#### Usage
 To download, compile, and install the latest release of node, do this:
 
 ```sh
@@ -96,3 +101,34 @@ In place of a version pointer like "0.10" or "5.0" or "4.2.1", you can use the f
  - `iojs`: this installs the latest version of [`io.js`](https://iojs.org/en/)
  - `stable`: this alias is deprecated, and only truly applies to `node` `v0.12` and earlier. Currently, this is an alias for `node`.
  - `unstable`: this alias points to `node` `v0.11` - the last "unstable" node release, since post-1.0, all node versions are stable. (in semver, versions communicate breakage, not stability).
+
+### Windows
+
+#### Installation
+To install NVM on windows, visit the [nvm-windows repo](https://github.com/coreybutler/nvm-windows) and download the latest installer
+
+#### Usage
+To list the available and installable node versions:
+```sh
+nvm list available
+```
+
+To install the selected node version call:
+```sh
+nvm install <version>
+```
+
+See how it installed and which node versions can be used:
+```sh
+nvm list
+```
+
+To activate a node installation, do:
+```sh
+nvm use <version>
+```
+
+And if a node version is not required any more, execute:
+```sh
+nvm uninstall <version>
+```

@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706091922, Default Theme
+ * vE2E-201706092015, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -9865,6 +9865,10 @@ ion-picker-cmp {
   -ms-flex-pack: center;
   justify-content: center;
   contain: strict; }
+  [dir="rtl"] .picker-columns {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
 
 .picker-col {
   position: relative;
@@ -9932,15 +9936,25 @@ ion-picker-cmp {
 .picker-opt-disabled {
   opacity: 0; }
 
-.picker-opts-left {
+[dir="ltr"] .picker-opts-left {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start; }
 
-.picker-opts-right {
+[dir="rtl"] .picker-opts-left {
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end; }
+
+[dir="ltr"] .picker-opts-right {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+
+[dir="rtl"] .picker-opts-right {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
 
 .picker-above-highlight,
 .picker-below-highlight {

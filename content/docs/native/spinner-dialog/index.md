@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "3.12.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -25,8 +25,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/Paldom/SpinnerDialog">
-    https://github.com/Paldom/SpinnerDialog
+  <a href="https://github.com/greybax/cordova-plugin-native-spinner">
+    https://github.com/greybax/cordova-plugin-native-spinner
   </a>
 </p>
 
@@ -34,7 +34,7 @@ docType: "class"
 <h2>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-spinner-dialog
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-spinner
 $ npm install --save @ionic-native/spinner-dialog
 </code></pre>
   </li>
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/spinner-dialog
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows</li>
 </ul>
 
 

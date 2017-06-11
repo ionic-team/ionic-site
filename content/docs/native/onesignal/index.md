@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "3.12.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L260">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L295">
   Improve this doc
 </a>
 
@@ -528,6 +528,35 @@ Setting to control how OneSignal notifications will be shown when one is receive
 
 
 You can call this method with false to opt users out of receiving all notifications through OneSignal.
+You can pass true later to opt users back into notifications.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getPermissionSubscriptionState" href="#getPermissionSubscriptionState"></a><code>getPermissionSubscriptionState(enable)</code></h3>
+
+
+
+
+Get the current notification and permission state. Returns a OSPermissionSubscriptionState type described below.
 You can pass true later to opt users back into notifications.
 
 <table class="table param-table" style="margin:0;">

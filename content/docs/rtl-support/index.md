@@ -15,12 +15,12 @@ The mixins should have the same structure as the full property:
 - @position
 - @border-radius
 - @text-align
-- @transform (@translate3d)
+- @transform
 - @transform-origin
+- @background-position
 
 ### Future Mixins
 - @border (@border-horizontal)
-- @background-position($horizontal, $vertical)
 
 ### Custom directional support
 When you want to add custom directional support (sometimes it is needed), you should do:

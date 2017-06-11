@@ -292,7 +292,7 @@ Whether to use JS or Native scrolling. Defaults to native scrolling. Setting thi
   <code>boolean</code>
       </td>
       <td>
-        <p>Defaults to <code>false</code> as of Ionic 1.2</p>
+        <p>Defaults to <code>false</code> as of Ionic V1.2</p>
 
         
       </td>

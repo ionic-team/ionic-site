@@ -53,11 +53,11 @@ Other changes, like navigation changes, are much different, but for good reasons
 # Migrating from Angular 1
 
 
-While Angular 2 requires apps to be updated for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with [John Papa's Angular Style guide](https://github.com/johnpapa/angular-styleguide) or [Todd Motto's Angular Style guide](https://github.com/toddmotto/angularjs-styleguide). Both of these will provide you with steps you can take to prepare your code for migration.
+While Angular requires apps to be updated for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with [John Papa's Angular Style guide](https://github.com/johnpapa/angular-styleguide) or [Todd Motto's Angular Style guide](https://github.com/toddmotto/angularjs-styleguide). Both of these will provide you with steps you can take to prepare your code for migration.
 
 ### ControllerAs Syntax
 
-ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to `$scope`, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
+ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to `$scope`, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
 
 _index.html_
 
@@ -137,7 +137,7 @@ _app.ts_
 
 ### Project Structure
 
-With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
+With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic and Angular will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
 
 ```
     |-www/

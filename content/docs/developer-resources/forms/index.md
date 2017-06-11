@@ -12,7 +12,7 @@ header_sub_title: Ionic Resources
   Improve this doc
 </a>
 
-Forms have gone through quite a bit of a change in Angular 2, but all for the best. Apps can have much more complicated and in depth forms than were allowed in Angular 1, and the new Forms module allows for this. Let's look at three distinct examples of forms and when you would want to use each one.
+Forms have gone through quite a bit of a change in Angular, but all for the best. Apps can have much more complicated and in depth forms than were allowed in Angular 1, and the new Forms module allows for this. Let's look at three distinct examples of forms and when you would want to use each one.
 
 
 ### Forms with `[(ngModel)]`
@@ -48,7 +48,7 @@ export class FormsPage {
 }
 ```
 
-This is very similar to how forms were made in Angular 1/Ionic 1 and will be the most familiar to other developers.
+This is very similar to how forms were made in Angular 1/Ionic V1 and will be the most familiar to other developers.
 
 >Note: If you use ngModel within a Form tag, you have to provide a `name` property. If you do not, you must set `standalone` to true in ngModelOptions.
 

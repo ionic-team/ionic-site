@@ -21,7 +21,7 @@ header_sub_title: Ionic Resources
 
   <section id="annotations">
     <h3><a href="#annotations">Annotations</a></h3>
-    <p>Annotations are used to add metadata to a class. <a href="#typescript">TypeScript</a> extends <a href="#es2015-es6">ES6</a> by adding annotations. While you can define your own annotations, the Ionic community often refers to two annotations provided by Angular 2: <code>@Component</code> and <code>@View</code>.
+    <p>Annotations are used to add metadata to a class. <a href="#typescript">TypeScript</a> extends <a href="#es2015-es6">ES6</a> by adding annotations. While you can define your own annotations, the Ionic community often refers to two annotations provided by Angular: <code>@Component</code> and <code>@View</code>.
     </p>
   </section>
 

@@ -13,8 +13,8 @@ header_sub_title: Getting Started with Ionic
 
 If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.
 
-### The Ionic Show / Ionic 2
-[![Ionic 2](http://img.youtube.com/vi/u6BFxtv_L-8/0.jpg)](http://www.youtube.com/watch?v=u6BFxtv_L-8)
+### The Ionic Show / Ionic
+[![Ionic](http://img.youtube.com/vi/u6BFxtv_L-8/0.jpg)](http://www.youtube.com/watch?v=u6BFxtv_L-8)
 
 ### What is Ionic Framework?
 
@@ -54,4 +54,4 @@ Now, Ionic has a massive international community of developers and contributors 
 
 ### What is Angular?
 
-[Angular](https://angular.io/) is the underlying framework that powers Ionic. It is responsible for the component API that is the building block of Ionic. For an overview on Angular, be sure to checkout the official [Angular Docs](https://angular.io/docs/ts/latest/) or checkout [Learn Angular 2](http://learnangular2.com/), which is maintained by the Ionic Team.
+[Angular](https://angular.io/) is the underlying framework that powers Ionic. It is responsible for the component API that is the building block of Ionic. For an overview on Angular, be sure to checkout the official [Angular Docs](https://angular.io/docs/ts/latest/) or checkout [Learn Angular](http://learnangular2.com/), which is maintained by the Ionic Team.

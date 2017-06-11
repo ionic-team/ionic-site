@@ -250,11 +250,11 @@ New usage, if you want to flip it in rtl:
 ```scss
     @include transform(translate3d(1px, 2px, 3px), scale(-1), translateY(1px));
     // LTR: transform: translate3d(1px, 2px, 3px) scale(-1) translateY(1px)
-    // RT:: transform: translate3d(calc(-1 * 1px), 2px, 3px) scale(-1) translateY(1px)
+    // RTL: transform: translate3d(calc(-1 * 1px), 2px, 3px) scale(-1) translateY(1px)
 ```
 - In addition, there is `flip-scale` which also flips the scale (of X) on rtl
 ```scss
     @include transform(translate3d(1px, 2px, 3px), flip-scale(1));
     // LTR: transform: translate3d(1px, 2px, 3px) scale(1)
-    // RT:: transform: translate3d(calc(-1 * 1px), 2px, 3px) scale(-1, 1)
+    // RTL: transform: translate3d(calc(-1 * 1px), 2px, 3px) scale(-1, 1)
 ```

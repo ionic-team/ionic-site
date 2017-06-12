@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L19">
 Improve this doc
 </a>
 
@@ -238,25 +238,6 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 </div>
-
-
-
-
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
 
 
 

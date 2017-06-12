@@ -15142,6 +15142,8 @@ input.text-input:-webkit-autofill {
   position: absolute;
   width: 100%;
   height: 100%;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 [dir="ltr"] .input-cover {
@@ -15175,20 +15177,6 @@ input.text-input:-webkit-autofill {
 .item-input-has-focus button,
 .input-has-focus button {
   pointer-events: auto;
-}
-
-[next-input] {
-  position: absolute;
-  bottom: 20px;
-  width: 1px;
-  height: 1px;
-  border: 0;
-  background: transparent;
-  pointer-events: none;
-}
-
-[dir="ltr"] [next-input], [dir="rtl"] [next-input] {
-  padding: 0;
 }
 
 .text-input-clear-icon {
@@ -23820,6 +23808,10 @@ ion-spinner.spinner-paused svg {
 
 [dir="rtl"] .tabbar {
   right: 0;
+}
+
+.tabbar-hidden .tabbar {
+  display: none;
 }
 
 .tabbar.show-tabbar {

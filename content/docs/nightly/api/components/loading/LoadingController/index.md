@@ -394,6 +394,15 @@ Create a loading indicator. See below for options.
       </tr>
       
       <tr>
+        <td><code>$loading-ios-content-margin-start</code></td>
+        
+          <td><code>$content-ios-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$loading-ios-spinner-color</code></td>
         
           <td><code>#69717d</code></td>
@@ -560,6 +569,15 @@ Create a loading indicator. See below for options.
       </tr>
       
       <tr>
+        <td><code>$loading-md-content-margin-start</code></td>
+        
+          <td><code>$content-md-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$loading-md-spinner-color</code></td>
         
           <td><code>color($colors-md, primary)</code></td>
@@ -704,6 +722,15 @@ Create a loading indicator. See below for options.
           <td><code>#000</code></td>
         
         <td><p>Background of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-wp-content-margin-start</code></td>
+        
+          <td><code>$content-wp-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
       

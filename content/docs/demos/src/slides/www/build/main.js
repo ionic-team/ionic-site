@@ -28568,6 +28568,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._zone = _zone;
         this._scrollPadding = 0;
         this._inputPolling = false;
+        this._hasRefresher = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
         this.ionScrollStart = new EventEmitterProxy();
@@ -28839,6 +28840,9 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         else if (this._tabsPlacement === 'bottom') {
             this._cBottom += this._tabbarHeight;
         }
+        if (this._hasRefresher) {
+            this._cTop -= 1;
+        }
         this._fTop = this._cTop;
         this._fBottom = this._cBottom;
         if (this._fullscreen) {
@@ -28973,7 +28977,8 @@ Content = __decorate([
             '</div>' +
             '<ng-content select="ion-refresher"></ng-content>',
         host: {
-            '[class.statusbar-padding]': 'statusbarPadding'
+            '[class.statusbar-padding]': 'statusbarPadding',
+            '[class.has-refresher]': '_hasRefresher'
         },
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None
@@ -42116,7 +42121,7 @@ let Refresher = class Refresher {
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
-        _content.setElementClass('has-refresher', true);
+        _content._hasRefresher = true;
         this._gesture = gestureCtrl.createGesture({
             name: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["g" /* GESTURE_REFRESHER */],
             priority: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["h" /* GESTURE_PRIORITY_REFRESHER */]

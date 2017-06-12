@@ -28376,6 +28376,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._zone = _zone;
         this._scrollPadding = 0;
         this._inputPolling = false;
+        this._hasRefresher = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
         this.ionScrollStart = new EventEmitterProxy();
@@ -28647,6 +28648,9 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         else if (this._tabsPlacement === 'bottom') {
             this._cBottom += this._tabbarHeight;
         }
+        if (this._hasRefresher) {
+            this._cTop -= 1;
+        }
         this._fTop = this._cTop;
         this._fBottom = this._cBottom;
         if (this._fullscreen) {
@@ -28781,7 +28785,8 @@ Content = __decorate([
             '</div>' +
             '<ng-content select="ion-refresher"></ng-content>',
         host: {
-            '[class.statusbar-padding]': 'statusbarPadding'
+            '[class.statusbar-padding]': 'statusbarPadding',
+            '[class.has-refresher]': '_hasRefresher'
         },
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None
@@ -41888,7 +41893,7 @@ let Refresher = class Refresher {
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
-        _content.setElementClass('has-refresher', true);
+        _content._hasRefresher = true;
         this._gesture = gestureCtrl.createGesture({
             name: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["g" /* GESTURE_REFRESHER */],
             priority: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["h" /* GESTURE_PRIORITY_REFRESHER */]
@@ -54909,9 +54914,15 @@ function View_PageOne_0(l) {
                 'class',
                 'outer-content'
             ]
-        ], [[
+        ], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_25__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_25__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
@@ -55739,39 +55750,39 @@ function View_PageOne_0(l) {
         ck(v, 26, 0, currVal_19);
         const currVal_23 = 'Top';
         ck(v, 30, 0, currVal_23);
-        const currVal_26 = co.getItems(co.appType);
-        ck(v, 51, 0, currVal_26);
-        const currVal_36 = co.safari;
-        ck(v, 65, 0, currVal_36);
-        const currVal_37 = 'dark';
-        ck(v, 68, 0, currVal_37);
-        const currVal_41 = 'Bookmarks';
-        ck(v, 72, 0, currVal_41);
-        const currVal_43 = 'book';
-        ck(v, 75, 0, currVal_43);
-        const currVal_47 = 'Reading List';
-        ck(v, 79, 0, currVal_47);
-        const currVal_49 = 'ios-glasses-outline';
-        const currVal_50 = 'md-glasses';
-        ck(v, 82, 0, currVal_49, currVal_50);
-        const currVal_54 = 'Shared Links';
-        ck(v, 86, 0, currVal_54);
-        const currVal_56 = 'ios-at-outline';
-        const currVal_57 = 'md-at';
-        ck(v, 89, 0, currVal_56, currVal_57);
-        const currVal_58 = co.getSafariItems(co.safari);
-        ck(v, 97, 0, currVal_58);
-        const currVal_62 = 'danger';
-        const currVal_63 = co.weather;
-        ck(v, 113, 0, currVal_62, currVal_63);
-        const currVal_73 = co.weather;
-        ck(v, 121, 0, currVal_73);
-        const currVal_74 = 'danger';
-        ck(v, 124, 0, currVal_74);
-        const currVal_78 = 'sunny';
-        ck(v, 128, 0, currVal_78);
-        const currVal_82 = 'rainy';
-        ck(v, 132, 0, currVal_82);
+        const currVal_27 = co.getItems(co.appType);
+        ck(v, 51, 0, currVal_27);
+        const currVal_37 = co.safari;
+        ck(v, 65, 0, currVal_37);
+        const currVal_38 = 'dark';
+        ck(v, 68, 0, currVal_38);
+        const currVal_42 = 'Bookmarks';
+        ck(v, 72, 0, currVal_42);
+        const currVal_44 = 'book';
+        ck(v, 75, 0, currVal_44);
+        const currVal_48 = 'Reading List';
+        ck(v, 79, 0, currVal_48);
+        const currVal_50 = 'ios-glasses-outline';
+        const currVal_51 = 'md-glasses';
+        ck(v, 82, 0, currVal_50, currVal_51);
+        const currVal_55 = 'Shared Links';
+        ck(v, 86, 0, currVal_55);
+        const currVal_57 = 'ios-at-outline';
+        const currVal_58 = 'md-at';
+        ck(v, 89, 0, currVal_57, currVal_58);
+        const currVal_59 = co.getSafariItems(co.safari);
+        ck(v, 97, 0, currVal_59);
+        const currVal_63 = 'danger';
+        const currVal_64 = co.weather;
+        ck(v, 113, 0, currVal_63, currVal_64);
+        const currVal_74 = co.weather;
+        ck(v, 121, 0, currVal_74);
+        const currVal_75 = 'danger';
+        ck(v, 124, 0, currVal_75);
+        const currVal_79 = 'sunny';
+        ck(v, 128, 0, currVal_79);
+        const currVal_83 = 'rainy';
+        ck(v, 132, 0, currVal_83);
     }, (ck, v) => {
         var co = v.component;
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._hidden;
@@ -55801,63 +55812,64 @@ function View_PageOne_0(l) {
         const currVal_22 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 30).isActive;
         ck(v, 29, 0, currVal_20, currVal_21, currVal_22);
         const currVal_24 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 37).statusbarPadding;
-        ck(v, 36, 0, currVal_24);
-        const currVal_25 = co.appType;
-        ck(v, 48, 0, currVal_25);
-        const currVal_27 = co.safari;
-        ck(v, 59, 0, currVal_27);
-        const currVal_28 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassUntouched;
-        const currVal_29 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassTouched;
-        const currVal_30 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassPristine;
-        const currVal_31 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassDirty;
-        const currVal_32 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassValid;
-        const currVal_33 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassInvalid;
-        const currVal_34 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassPending;
-        const currVal_35 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 68)._disabled;
-        ck(v, 64, 0, currVal_28, currVal_29, currVal_30, currVal_31, currVal_32, currVal_33, currVal_34, currVal_35);
-        const currVal_38 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72)._disabled;
-        const currVal_39 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).isActive;
+        const currVal_25 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 37)._hasRefresher;
+        ck(v, 36, 0, currVal_24, currVal_25);
+        const currVal_26 = co.appType;
+        ck(v, 48, 0, currVal_26);
+        const currVal_28 = co.safari;
+        ck(v, 59, 0, currVal_28);
+        const currVal_29 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassUntouched;
+        const currVal_30 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassTouched;
+        const currVal_31 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassPristine;
+        const currVal_32 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassDirty;
+        const currVal_33 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassValid;
+        const currVal_34 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassInvalid;
+        const currVal_35 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67).ngClassPending;
+        const currVal_36 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 68)._disabled;
+        ck(v, 64, 0, currVal_29, currVal_30, currVal_31, currVal_32, currVal_33, currVal_34, currVal_35, currVal_36);
+        const currVal_39 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72)._disabled;
         const currVal_40 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).isActive;
-        ck(v, 71, 0, currVal_38, currVal_39, currVal_40);
-        const currVal_42 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 75)._hidden;
-        ck(v, 74, 0, currVal_42);
-        const currVal_44 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 79)._disabled;
-        const currVal_45 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 79).isActive;
+        const currVal_41 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).isActive;
+        ck(v, 71, 0, currVal_39, currVal_40, currVal_41);
+        const currVal_43 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 75)._hidden;
+        ck(v, 74, 0, currVal_43);
+        const currVal_45 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 79)._disabled;
         const currVal_46 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 79).isActive;
-        ck(v, 78, 0, currVal_44, currVal_45, currVal_46);
-        const currVal_48 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 82)._hidden;
-        ck(v, 81, 0, currVal_48);
-        const currVal_51 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86)._disabled;
-        const currVal_52 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86).isActive;
+        const currVal_47 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 79).isActive;
+        ck(v, 78, 0, currVal_45, currVal_46, currVal_47);
+        const currVal_49 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 82)._hidden;
+        ck(v, 81, 0, currVal_49);
+        const currVal_52 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86)._disabled;
         const currVal_53 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86).isActive;
-        ck(v, 85, 0, currVal_51, currVal_52, currVal_53);
-        const currVal_55 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 89)._hidden;
-        ck(v, 88, 0, currVal_55);
-        const currVal_59 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 107)._sbPadding;
-        ck(v, 106, 0, currVal_59);
-        const currVal_60 = ((co.weather == 'sunny') ? '96' : '77');
-        ck(v, 111, 0, currVal_60);
-        const currVal_61 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 113)._hidden;
-        ck(v, 112, 0, currVal_61);
-        const currVal_64 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 118)._sbPadding;
-        ck(v, 117, 0, currVal_64);
-        const currVal_65 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassUntouched;
-        const currVal_66 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassTouched;
-        const currVal_67 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassPristine;
-        const currVal_68 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassDirty;
-        const currVal_69 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassValid;
-        const currVal_70 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassInvalid;
-        const currVal_71 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassPending;
-        const currVal_72 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 124)._disabled;
-        ck(v, 120, 0, currVal_65, currVal_66, currVal_67, currVal_68, currVal_69, currVal_70, currVal_71, currVal_72);
-        const currVal_75 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 128)._disabled;
-        const currVal_76 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 128).isActive;
+        const currVal_54 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86).isActive;
+        ck(v, 85, 0, currVal_52, currVal_53, currVal_54);
+        const currVal_56 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 89)._hidden;
+        ck(v, 88, 0, currVal_56);
+        const currVal_60 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 107)._sbPadding;
+        ck(v, 106, 0, currVal_60);
+        const currVal_61 = ((co.weather == 'sunny') ? '96' : '77');
+        ck(v, 111, 0, currVal_61);
+        const currVal_62 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 113)._hidden;
+        ck(v, 112, 0, currVal_62);
+        const currVal_65 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 118)._sbPadding;
+        ck(v, 117, 0, currVal_65);
+        const currVal_66 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassUntouched;
+        const currVal_67 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassTouched;
+        const currVal_68 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassPristine;
+        const currVal_69 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassDirty;
+        const currVal_70 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassValid;
+        const currVal_71 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassInvalid;
+        const currVal_72 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 123).ngClassPending;
+        const currVal_73 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 124)._disabled;
+        ck(v, 120, 0, currVal_66, currVal_67, currVal_68, currVal_69, currVal_70, currVal_71, currVal_72, currVal_73);
+        const currVal_76 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 128)._disabled;
         const currVal_77 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 128).isActive;
-        ck(v, 127, 0, currVal_75, currVal_76, currVal_77);
-        const currVal_79 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 132)._disabled;
-        const currVal_80 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 132).isActive;
+        const currVal_78 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 128).isActive;
+        ck(v, 127, 0, currVal_76, currVal_77, currVal_78);
+        const currVal_80 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 132)._disabled;
         const currVal_81 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 132).isActive;
-        ck(v, 131, 0, currVal_79, currVal_80, currVal_81);
+        const currVal_82 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 132).isActive;
+        ck(v, 131, 0, currVal_80, currVal_81, currVal_82);
     });
 }
 function View_PageOne_Host_0(l) {
@@ -57681,9 +57693,15 @@ function View_Content_0(l) {
 }
 function View_Content_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [
-        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
@@ -57707,7 +57725,8 @@ function View_Content_Host_0(l) {
         ], null, null)
     ], null, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1).statusbarPadding;
-        ck(v, 0, 0, currVal_0);
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1)._hasRefresher;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
 const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0, {

@@ -28184,6 +28184,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._zone = _zone;
         this._scrollPadding = 0;
         this._inputPolling = false;
+        this._hasRefresher = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
         this.ionScrollStart = new EventEmitterProxy();
@@ -28455,6 +28456,9 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         else if (this._tabsPlacement === 'bottom') {
             this._cBottom += this._tabbarHeight;
         }
+        if (this._hasRefresher) {
+            this._cTop -= 1;
+        }
         this._fTop = this._cTop;
         this._fBottom = this._cBottom;
         if (this._fullscreen) {
@@ -28589,7 +28593,8 @@ Content = __decorate([
             '</div>' +
             '<ng-content select="ion-refresher"></ng-content>',
         host: {
-            '[class.statusbar-padding]': 'statusbarPadding'
+            '[class.statusbar-padding]': 'statusbarPadding',
+            '[class.has-refresher]': '_hasRefresher'
         },
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None
@@ -42215,7 +42220,7 @@ let Refresher = class Refresher {
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
-        _content.setElementClass('has-refresher', true);
+        _content._hasRefresher = true;
         this._gesture = gestureCtrl.createGesture({
             name: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["g" /* GESTURE_REFRESHER */],
             priority: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["h" /* GESTURE_PRIORITY_REFRESHER */]
@@ -54383,9 +54388,15 @@ function View_PageOne_0(l) {
                 'class',
                 'label-demo'
             ]
-        ], [[
+        ], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
@@ -55296,52 +55307,53 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](1, ['\n\n'])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](null, ['\n']))
     ], (ck, v) => {
-        const currVal_3 = 'primary';
-        ck(v, 45, 0, currVal_3);
-        const currVal_4 = '+1 (555) 123-1234';
-        const currVal_5 = 'tel';
-        ck(v, 49, 0, currVal_4, currVal_5);
-        const currVal_7 = 'primary';
-        const currVal_8 = 'ios-chatbubbles-outline';
-        const currVal_9 = 'md-chatbubbles';
-        ck(v, 52, 0, currVal_7, currVal_8, currVal_9);
-        const currVal_11 = 'primary';
-        const currVal_12 = 'ios-call-outline';
-        const currVal_13 = 'md-call';
-        ck(v, 55, 0, currVal_11, currVal_12, currVal_13);
-        const currVal_14 = 'primary';
-        ck(v, 66, 0, currVal_14);
-        const currVal_15 = 'hi@ionic.io';
-        const currVal_16 = 'email';
-        ck(v, 70, 0, currVal_15, currVal_16);
-        const currVal_17 = 'primary';
-        ck(v, 81, 0, currVal_17);
-        const currVal_18 = 'November 21, 2013';
-        const currVal_19 = 'text';
-        ck(v, 85, 0, currVal_18, currVal_19);
-        const currVal_20 = 'primary';
-        ck(v, 96, 0, currVal_20);
-        const currVal_21 = '121 S Pinckney St\nMadison WI 53703\nUnited States';
-        ck(v, 100, 0, currVal_21);
-        const currVal_22 = 'dark';
-        ck(v, 112, 0, currVal_22);
+        const currVal_4 = 'primary';
+        ck(v, 45, 0, currVal_4);
+        const currVal_5 = '+1 (555) 123-1234';
+        const currVal_6 = 'tel';
+        ck(v, 49, 0, currVal_5, currVal_6);
+        const currVal_8 = 'primary';
+        const currVal_9 = 'ios-chatbubbles-outline';
+        const currVal_10 = 'md-chatbubbles';
+        ck(v, 52, 0, currVal_8, currVal_9, currVal_10);
+        const currVal_12 = 'primary';
+        const currVal_13 = 'ios-call-outline';
+        const currVal_14 = 'md-call';
+        ck(v, 55, 0, currVal_12, currVal_13, currVal_14);
+        const currVal_15 = 'primary';
+        ck(v, 66, 0, currVal_15);
+        const currVal_16 = 'hi@ionic.io';
+        const currVal_17 = 'email';
+        ck(v, 70, 0, currVal_16, currVal_17);
+        const currVal_18 = 'primary';
+        ck(v, 81, 0, currVal_18);
+        const currVal_19 = 'November 21, 2013';
+        const currVal_20 = 'text';
+        ck(v, 85, 0, currVal_19, currVal_20);
+        const currVal_21 = 'primary';
+        ck(v, 96, 0, currVal_21);
+        const currVal_22 = '121 S Pinckney St\nMadison WI 53703\nUnited States';
+        ck(v, 100, 0, currVal_22);
+        const currVal_23 = 'dark';
+        ck(v, 112, 0, currVal_23);
         ck(v, 116, 0);
-        const currVal_23 = 'primary';
-        ck(v, 127, 0, currVal_23);
         const currVal_24 = 'primary';
-        ck(v, 139, 0, currVal_24);
+        ck(v, 127, 0, currVal_24);
         const currVal_25 = 'primary';
-        ck(v, 151, 0, currVal_25);
+        ck(v, 139, 0, currVal_25);
+        const currVal_26 = 'primary';
+        ck(v, 151, 0, currVal_26);
     }, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._hidden;
         const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._sbPadding;
         ck(v, 3, 0, currVal_0, currVal_1);
         const currVal_2 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13).statusbarPadding;
-        ck(v, 12, 0, currVal_2);
-        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 52)._hidden;
-        ck(v, 51, 0, currVal_6);
-        const currVal_10 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 55)._hidden;
-        ck(v, 54, 0, currVal_10);
+        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13)._hasRefresher;
+        ck(v, 12, 0, currVal_2, currVal_3);
+        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 52)._hidden;
+        ck(v, 51, 0, currVal_7);
+        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 55)._hidden;
+        ck(v, 54, 0, currVal_11);
     });
 }
 function View_PageOne_Host_0(l) {
@@ -57165,9 +57177,15 @@ function View_Content_0(l) {
 }
 function View_Content_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [
-        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
@@ -57191,7 +57209,8 @@ function View_Content_Host_0(l) {
         ], null, null)
     ], null, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1).statusbarPadding;
-        ck(v, 0, 0, currVal_0);
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1)._hasRefresher;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
 const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0, {

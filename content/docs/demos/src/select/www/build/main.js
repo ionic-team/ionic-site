@@ -28376,6 +28376,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._zone = _zone;
         this._scrollPadding = 0;
         this._inputPolling = false;
+        this._hasRefresher = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
         this.ionScrollStart = new EventEmitterProxy();
@@ -28647,6 +28648,9 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         else if (this._tabsPlacement === 'bottom') {
             this._cBottom += this._tabbarHeight;
         }
+        if (this._hasRefresher) {
+            this._cTop -= 1;
+        }
         this._fTop = this._cTop;
         this._fBottom = this._cBottom;
         if (this._fullscreen) {
@@ -28781,7 +28785,8 @@ Content = __decorate([
             '</div>' +
             '<ng-content select="ion-refresher"></ng-content>',
         host: {
-            '[class.statusbar-padding]': 'statusbarPadding'
+            '[class.statusbar-padding]': 'statusbarPadding',
+            '[class.has-refresher]': '_hasRefresher'
         },
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None
@@ -41960,7 +41965,7 @@ let Refresher = class Refresher {
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
-        _content.setElementClass('has-refresher', true);
+        _content._hasRefresher = true;
         this._gesture = gestureCtrl.createGesture({
             name: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["g" /* GESTURE_REFRESHER */],
             priority: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["h" /* GESTURE_PRIORITY_REFRESHER */]
@@ -54439,9 +54444,15 @@ function View_PageOne_0(l) {
                 'class',
                 'outer-content'
             ]
-        ], [[
+        ], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_12__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_12__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
@@ -57646,263 +57657,264 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](null, ['\n']))
     ], (ck, v) => {
         var co = v.component;
-        const currVal_11 = co.gender;
-        ck(v, 41, 0, currVal_11);
-        const currVal_12 = 'f';
-        ck(v, 46, 0, currVal_12);
-        const currVal_13 = 'm';
-        ck(v, 50, 0, currVal_13);
-        const currVal_22 = 'Dismiss';
-        const currVal_23 = 'Okay';
-        ck(v, 67, 0, currVal_22, currVal_23);
-        const currVal_24 = co.gaming;
-        ck(v, 70, 0, currVal_24);
-        const currVal_25 = 'nes';
-        ck(v, 75, 0, currVal_25);
-        const currVal_26 = 'n64';
-        ck(v, 79, 0, currVal_26);
-        const currVal_27 = 'ps';
-        ck(v, 83, 0, currVal_27);
-        const currVal_28 = 'genesis';
-        ck(v, 87, 0, currVal_28);
-        const currVal_29 = 'saturn';
-        ck(v, 91, 0, currVal_29);
-        const currVal_30 = 'snes';
-        ck(v, 95, 0, currVal_30);
-        const currVal_32 = '01';
-        ck(v, 117, 0, currVal_32);
-        const currVal_33 = '02';
-        ck(v, 121, 0, currVal_33);
-        const currVal_34 = 'true';
-        const currVal_35 = '03';
-        ck(v, 125, 0, currVal_34, currVal_35);
-        const currVal_36 = '04';
-        ck(v, 129, 0, currVal_36);
-        const currVal_37 = '05';
-        ck(v, 133, 0, currVal_37);
-        const currVal_38 = '06';
-        ck(v, 137, 0, currVal_38);
-        const currVal_39 = '07';
-        ck(v, 141, 0, currVal_39);
-        const currVal_40 = '08';
-        ck(v, 145, 0, currVal_40);
-        const currVal_41 = '09';
-        ck(v, 149, 0, currVal_41);
-        const currVal_42 = '10';
-        ck(v, 153, 0, currVal_42);
-        const currVal_43 = '11';
-        ck(v, 157, 0, currVal_43);
-        const currVal_44 = '12';
-        ck(v, 161, 0, currVal_44);
-        const currVal_46 = 'true';
-        ck(v, 191, 0, currVal_46);
-        const currVal_55 = 'popover';
-        ck(v, 240, 0, currVal_55);
-        const currVal_56 = co.gender;
-        ck(v, 243, 0, currVal_56);
-        const currVal_57 = 'f';
-        ck(v, 248, 0, currVal_57);
-        const currVal_58 = 'm';
-        ck(v, 252, 0, currVal_58);
-        const currVal_67 = 'Dismiss';
-        const currVal_68 = 'Okay';
-        const currVal_69 = 'popover';
-        ck(v, 269, 0, currVal_67, currVal_68, currVal_69);
-        const currVal_70 = co.gaming;
-        ck(v, 272, 0, currVal_70);
-        const currVal_71 = 'nes';
-        ck(v, 277, 0, currVal_71);
-        const currVal_72 = 'n64';
-        ck(v, 281, 0, currVal_72);
-        const currVal_73 = 'ps';
-        ck(v, 285, 0, currVal_73);
-        const currVal_74 = 'genesis';
-        ck(v, 289, 0, currVal_74);
-        const currVal_75 = 'saturn';
-        ck(v, 293, 0, currVal_75);
-        const currVal_76 = 'snes';
-        ck(v, 297, 0, currVal_76);
-        const currVal_78 = 'popover';
-        ck(v, 314, 0, currVal_78);
-        const currVal_79 = '01';
-        ck(v, 319, 0, currVal_79);
-        const currVal_80 = '02';
-        ck(v, 323, 0, currVal_80);
-        const currVal_81 = 'true';
-        const currVal_82 = '03';
-        ck(v, 327, 0, currVal_81, currVal_82);
-        const currVal_83 = '04';
-        ck(v, 331, 0, currVal_83);
-        const currVal_84 = '05';
-        ck(v, 335, 0, currVal_84);
-        const currVal_85 = '06';
-        ck(v, 339, 0, currVal_85);
-        const currVal_86 = '07';
-        ck(v, 343, 0, currVal_86);
-        const currVal_87 = '08';
-        ck(v, 347, 0, currVal_87);
-        const currVal_88 = '09';
-        ck(v, 351, 0, currVal_88);
-        const currVal_89 = '10';
-        ck(v, 355, 0, currVal_89);
-        const currVal_90 = '11';
-        ck(v, 359, 0, currVal_90);
-        const currVal_91 = '12';
-        ck(v, 363, 0, currVal_91);
-        const currVal_93 = 'popover';
-        ck(v, 368, 0, currVal_93);
-        const currVal_94 = 'true';
-        ck(v, 393, 0, currVal_94);
-        const currVal_103 = 'Nah';
-        const currVal_104 = 'Okay!';
-        const currVal_105 = 'true';
-        ck(v, 442, 0, currVal_103, currVal_104, currVal_105);
-        const currVal_106 = co.toppings;
-        ck(v, 445, 0, currVal_106);
-        const currVal_107 = 'bacon';
-        ck(v, 450, 0, currVal_107);
-        const currVal_108 = 'olives';
-        ck(v, 454, 0, currVal_108);
-        const currVal_109 = 'xcheese';
-        ck(v, 458, 0, currVal_109);
-        const currVal_110 = 'peppers';
-        ck(v, 462, 0, currVal_110);
-        const currVal_111 = 'mushrooms';
-        ck(v, 466, 0, currVal_111);
-        const currVal_112 = 'onions';
-        ck(v, 470, 0, currVal_112);
-        const currVal_113 = 'pepperoni';
-        ck(v, 474, 0, currVal_113);
-        const currVal_114 = 'pineapple';
-        ck(v, 478, 0, currVal_114);
-        const currVal_115 = 'sausage';
-        ck(v, 482, 0, currVal_115);
-        const currVal_116 = 'Spinach';
-        ck(v, 486, 0, currVal_116);
-        const currVal_125 = co.petAlertOpts;
-        const currVal_126 = 'true';
-        ck(v, 503, 0, currVal_125, currVal_126);
-        const currVal_127 = co.pets;
-        ck(v, 506, 0, currVal_127);
-        const currVal_128 = co.petData;
-        ck(v, 511, 0, currVal_128);
-        const currVal_130 = 'true';
-        const currVal_131 = '';
-        ck(v, 527, 0, currVal_130, currVal_131);
-        const currVal_140 = 'action-sheet';
-        ck(v, 561, 0, currVal_140);
-        const currVal_141 = co.notifications;
-        ck(v, 564, 0, currVal_141);
-        const currVal_142 = 'mute_15';
-        ck(v, 569, 0, currVal_142);
-        const currVal_143 = 'mute_1';
-        ck(v, 573, 0, currVal_143);
-        const currVal_144 = 'mute_23';
-        ck(v, 577, 0, currVal_144);
-        const currVal_145 = 'mute_inf';
-        ck(v, 581, 0, currVal_145);
-        const currVal_154 = 'action-sheet';
-        ck(v, 598, 0, currVal_154);
-        const currVal_155 = co.rating;
-        ck(v, 601, 0, currVal_155);
-        const currVal_156 = '1';
-        ck(v, 606, 0, currVal_156);
-        const currVal_157 = '2';
-        ck(v, 610, 0, currVal_157);
-        const currVal_158 = '3';
-        ck(v, 614, 0, currVal_158);
-        const currVal_159 = '4';
-        ck(v, 618, 0, currVal_159);
-        const currVal_160 = '5';
-        ck(v, 622, 0, currVal_160);
+        const currVal_12 = co.gender;
+        ck(v, 41, 0, currVal_12);
+        const currVal_13 = 'f';
+        ck(v, 46, 0, currVal_13);
+        const currVal_14 = 'm';
+        ck(v, 50, 0, currVal_14);
+        const currVal_23 = 'Dismiss';
+        const currVal_24 = 'Okay';
+        ck(v, 67, 0, currVal_23, currVal_24);
+        const currVal_25 = co.gaming;
+        ck(v, 70, 0, currVal_25);
+        const currVal_26 = 'nes';
+        ck(v, 75, 0, currVal_26);
+        const currVal_27 = 'n64';
+        ck(v, 79, 0, currVal_27);
+        const currVal_28 = 'ps';
+        ck(v, 83, 0, currVal_28);
+        const currVal_29 = 'genesis';
+        ck(v, 87, 0, currVal_29);
+        const currVal_30 = 'saturn';
+        ck(v, 91, 0, currVal_30);
+        const currVal_31 = 'snes';
+        ck(v, 95, 0, currVal_31);
+        const currVal_33 = '01';
+        ck(v, 117, 0, currVal_33);
+        const currVal_34 = '02';
+        ck(v, 121, 0, currVal_34);
+        const currVal_35 = 'true';
+        const currVal_36 = '03';
+        ck(v, 125, 0, currVal_35, currVal_36);
+        const currVal_37 = '04';
+        ck(v, 129, 0, currVal_37);
+        const currVal_38 = '05';
+        ck(v, 133, 0, currVal_38);
+        const currVal_39 = '06';
+        ck(v, 137, 0, currVal_39);
+        const currVal_40 = '07';
+        ck(v, 141, 0, currVal_40);
+        const currVal_41 = '08';
+        ck(v, 145, 0, currVal_41);
+        const currVal_42 = '09';
+        ck(v, 149, 0, currVal_42);
+        const currVal_43 = '10';
+        ck(v, 153, 0, currVal_43);
+        const currVal_44 = '11';
+        ck(v, 157, 0, currVal_44);
+        const currVal_45 = '12';
+        ck(v, 161, 0, currVal_45);
+        const currVal_47 = 'true';
+        ck(v, 191, 0, currVal_47);
+        const currVal_56 = 'popover';
+        ck(v, 240, 0, currVal_56);
+        const currVal_57 = co.gender;
+        ck(v, 243, 0, currVal_57);
+        const currVal_58 = 'f';
+        ck(v, 248, 0, currVal_58);
+        const currVal_59 = 'm';
+        ck(v, 252, 0, currVal_59);
+        const currVal_68 = 'Dismiss';
+        const currVal_69 = 'Okay';
+        const currVal_70 = 'popover';
+        ck(v, 269, 0, currVal_68, currVal_69, currVal_70);
+        const currVal_71 = co.gaming;
+        ck(v, 272, 0, currVal_71);
+        const currVal_72 = 'nes';
+        ck(v, 277, 0, currVal_72);
+        const currVal_73 = 'n64';
+        ck(v, 281, 0, currVal_73);
+        const currVal_74 = 'ps';
+        ck(v, 285, 0, currVal_74);
+        const currVal_75 = 'genesis';
+        ck(v, 289, 0, currVal_75);
+        const currVal_76 = 'saturn';
+        ck(v, 293, 0, currVal_76);
+        const currVal_77 = 'snes';
+        ck(v, 297, 0, currVal_77);
+        const currVal_79 = 'popover';
+        ck(v, 314, 0, currVal_79);
+        const currVal_80 = '01';
+        ck(v, 319, 0, currVal_80);
+        const currVal_81 = '02';
+        ck(v, 323, 0, currVal_81);
+        const currVal_82 = 'true';
+        const currVal_83 = '03';
+        ck(v, 327, 0, currVal_82, currVal_83);
+        const currVal_84 = '04';
+        ck(v, 331, 0, currVal_84);
+        const currVal_85 = '05';
+        ck(v, 335, 0, currVal_85);
+        const currVal_86 = '06';
+        ck(v, 339, 0, currVal_86);
+        const currVal_87 = '07';
+        ck(v, 343, 0, currVal_87);
+        const currVal_88 = '08';
+        ck(v, 347, 0, currVal_88);
+        const currVal_89 = '09';
+        ck(v, 351, 0, currVal_89);
+        const currVal_90 = '10';
+        ck(v, 355, 0, currVal_90);
+        const currVal_91 = '11';
+        ck(v, 359, 0, currVal_91);
+        const currVal_92 = '12';
+        ck(v, 363, 0, currVal_92);
+        const currVal_94 = 'popover';
+        ck(v, 368, 0, currVal_94);
+        const currVal_95 = 'true';
+        ck(v, 393, 0, currVal_95);
+        const currVal_104 = 'Nah';
+        const currVal_105 = 'Okay!';
+        const currVal_106 = 'true';
+        ck(v, 442, 0, currVal_104, currVal_105, currVal_106);
+        const currVal_107 = co.toppings;
+        ck(v, 445, 0, currVal_107);
+        const currVal_108 = 'bacon';
+        ck(v, 450, 0, currVal_108);
+        const currVal_109 = 'olives';
+        ck(v, 454, 0, currVal_109);
+        const currVal_110 = 'xcheese';
+        ck(v, 458, 0, currVal_110);
+        const currVal_111 = 'peppers';
+        ck(v, 462, 0, currVal_111);
+        const currVal_112 = 'mushrooms';
+        ck(v, 466, 0, currVal_112);
+        const currVal_113 = 'onions';
+        ck(v, 470, 0, currVal_113);
+        const currVal_114 = 'pepperoni';
+        ck(v, 474, 0, currVal_114);
+        const currVal_115 = 'pineapple';
+        ck(v, 478, 0, currVal_115);
+        const currVal_116 = 'sausage';
+        ck(v, 482, 0, currVal_116);
+        const currVal_117 = 'Spinach';
+        ck(v, 486, 0, currVal_117);
+        const currVal_126 = co.petAlertOpts;
+        const currVal_127 = 'true';
+        ck(v, 503, 0, currVal_126, currVal_127);
+        const currVal_128 = co.pets;
+        ck(v, 506, 0, currVal_128);
+        const currVal_129 = co.petData;
+        ck(v, 511, 0, currVal_129);
+        const currVal_131 = 'true';
+        const currVal_132 = '';
+        ck(v, 527, 0, currVal_131, currVal_132);
+        const currVal_141 = 'action-sheet';
+        ck(v, 561, 0, currVal_141);
+        const currVal_142 = co.notifications;
+        ck(v, 564, 0, currVal_142);
+        const currVal_143 = 'mute_15';
+        ck(v, 569, 0, currVal_143);
+        const currVal_144 = 'mute_1';
+        ck(v, 573, 0, currVal_144);
+        const currVal_145 = 'mute_23';
+        ck(v, 577, 0, currVal_145);
+        const currVal_146 = 'mute_inf';
+        ck(v, 581, 0, currVal_146);
+        const currVal_155 = 'action-sheet';
+        ck(v, 598, 0, currVal_155);
+        const currVal_156 = co.rating;
+        ck(v, 601, 0, currVal_156);
+        const currVal_157 = '1';
+        ck(v, 606, 0, currVal_157);
+        const currVal_158 = '2';
+        ck(v, 610, 0, currVal_158);
+        const currVal_159 = '3';
+        ck(v, 614, 0, currVal_159);
+        const currVal_160 = '4';
+        ck(v, 618, 0, currVal_160);
+        const currVal_161 = '5';
+        ck(v, 622, 0, currVal_161);
     }, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._hidden;
         const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._sbPadding;
         ck(v, 3, 0, currVal_0, currVal_1);
         const currVal_2 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13).statusbarPadding;
-        ck(v, 12, 0, currVal_2);
-        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 38)._disabled;
-        const currVal_4 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassUntouched;
-        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassTouched;
-        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassPristine;
-        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassDirty;
-        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassValid;
-        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassInvalid;
-        const currVal_10 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassPending;
-        ck(v, 37, 0, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8, currVal_9, currVal_10);
-        const currVal_14 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67)._disabled;
-        const currVal_15 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassUntouched;
-        const currVal_16 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassTouched;
-        const currVal_17 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassPristine;
-        const currVal_18 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassDirty;
-        const currVal_19 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassValid;
-        const currVal_20 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassInvalid;
-        const currVal_21 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassPending;
-        ck(v, 66, 0, currVal_14, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19, currVal_20, currVal_21);
-        const currVal_31 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 112)._disabled;
-        ck(v, 111, 0, currVal_31);
-        const currVal_45 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 166)._disabled;
-        ck(v, 165, 0, currVal_45);
-        const currVal_47 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 240)._disabled;
-        const currVal_48 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassUntouched;
-        const currVal_49 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassTouched;
-        const currVal_50 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassPristine;
-        const currVal_51 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassDirty;
-        const currVal_52 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassValid;
-        const currVal_53 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassInvalid;
-        const currVal_54 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassPending;
-        ck(v, 239, 0, currVal_47, currVal_48, currVal_49, currVal_50, currVal_51, currVal_52, currVal_53, currVal_54);
-        const currVal_59 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 269)._disabled;
-        const currVal_60 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassUntouched;
-        const currVal_61 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassTouched;
-        const currVal_62 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassPristine;
-        const currVal_63 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassDirty;
-        const currVal_64 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassValid;
-        const currVal_65 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassInvalid;
-        const currVal_66 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassPending;
-        ck(v, 268, 0, currVal_59, currVal_60, currVal_61, currVal_62, currVal_63, currVal_64, currVal_65, currVal_66);
-        const currVal_77 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 314)._disabled;
-        ck(v, 313, 0, currVal_77);
-        const currVal_92 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 368)._disabled;
-        ck(v, 367, 0, currVal_92);
-        const currVal_95 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 442)._disabled;
-        const currVal_96 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassUntouched;
-        const currVal_97 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassTouched;
-        const currVal_98 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassPristine;
-        const currVal_99 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassDirty;
-        const currVal_100 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassValid;
-        const currVal_101 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassInvalid;
-        const currVal_102 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassPending;
-        ck(v, 441, 0, currVal_95, currVal_96, currVal_97, currVal_98, currVal_99, currVal_100, currVal_101, currVal_102);
-        const currVal_117 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 503)._disabled;
-        const currVal_118 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassUntouched;
-        const currVal_119 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassTouched;
-        const currVal_120 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassPristine;
-        const currVal_121 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassDirty;
-        const currVal_122 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassValid;
-        const currVal_123 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassInvalid;
-        const currVal_124 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassPending;
-        ck(v, 502, 0, currVal_117, currVal_118, currVal_119, currVal_120, currVal_121, currVal_122, currVal_123, currVal_124);
-        const currVal_129 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 527)._disabled;
-        ck(v, 526, 0, currVal_129);
-        const currVal_132 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 561)._disabled;
-        const currVal_133 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassUntouched;
-        const currVal_134 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassTouched;
-        const currVal_135 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassPristine;
-        const currVal_136 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassDirty;
-        const currVal_137 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassValid;
-        const currVal_138 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassInvalid;
-        const currVal_139 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassPending;
-        ck(v, 560, 0, currVal_132, currVal_133, currVal_134, currVal_135, currVal_136, currVal_137, currVal_138, currVal_139);
-        const currVal_146 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 598)._disabled;
-        const currVal_147 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassUntouched;
-        const currVal_148 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassTouched;
-        const currVal_149 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassPristine;
-        const currVal_150 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassDirty;
-        const currVal_151 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassValid;
-        const currVal_152 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassInvalid;
-        const currVal_153 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassPending;
-        ck(v, 597, 0, currVal_146, currVal_147, currVal_148, currVal_149, currVal_150, currVal_151, currVal_152, currVal_153);
+        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13)._hasRefresher;
+        ck(v, 12, 0, currVal_2, currVal_3);
+        const currVal_4 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 38)._disabled;
+        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassUntouched;
+        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassTouched;
+        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassPristine;
+        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassDirty;
+        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassValid;
+        const currVal_10 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassInvalid;
+        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 43).ngClassPending;
+        ck(v, 37, 0, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8, currVal_9, currVal_10, currVal_11);
+        const currVal_15 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 67)._disabled;
+        const currVal_16 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassUntouched;
+        const currVal_17 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassTouched;
+        const currVal_18 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassPristine;
+        const currVal_19 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassDirty;
+        const currVal_20 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassValid;
+        const currVal_21 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassInvalid;
+        const currVal_22 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 72).ngClassPending;
+        ck(v, 66, 0, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19, currVal_20, currVal_21, currVal_22);
+        const currVal_32 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 112)._disabled;
+        ck(v, 111, 0, currVal_32);
+        const currVal_46 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 166)._disabled;
+        ck(v, 165, 0, currVal_46);
+        const currVal_48 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 240)._disabled;
+        const currVal_49 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassUntouched;
+        const currVal_50 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassTouched;
+        const currVal_51 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassPristine;
+        const currVal_52 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassDirty;
+        const currVal_53 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassValid;
+        const currVal_54 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassInvalid;
+        const currVal_55 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 245).ngClassPending;
+        ck(v, 239, 0, currVal_48, currVal_49, currVal_50, currVal_51, currVal_52, currVal_53, currVal_54, currVal_55);
+        const currVal_60 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 269)._disabled;
+        const currVal_61 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassUntouched;
+        const currVal_62 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassTouched;
+        const currVal_63 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassPristine;
+        const currVal_64 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassDirty;
+        const currVal_65 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassValid;
+        const currVal_66 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassInvalid;
+        const currVal_67 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 274).ngClassPending;
+        ck(v, 268, 0, currVal_60, currVal_61, currVal_62, currVal_63, currVal_64, currVal_65, currVal_66, currVal_67);
+        const currVal_78 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 314)._disabled;
+        ck(v, 313, 0, currVal_78);
+        const currVal_93 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 368)._disabled;
+        ck(v, 367, 0, currVal_93);
+        const currVal_96 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 442)._disabled;
+        const currVal_97 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassUntouched;
+        const currVal_98 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassTouched;
+        const currVal_99 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassPristine;
+        const currVal_100 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassDirty;
+        const currVal_101 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassValid;
+        const currVal_102 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassInvalid;
+        const currVal_103 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 447).ngClassPending;
+        ck(v, 441, 0, currVal_96, currVal_97, currVal_98, currVal_99, currVal_100, currVal_101, currVal_102, currVal_103);
+        const currVal_118 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 503)._disabled;
+        const currVal_119 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassUntouched;
+        const currVal_120 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassTouched;
+        const currVal_121 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassPristine;
+        const currVal_122 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassDirty;
+        const currVal_123 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassValid;
+        const currVal_124 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassInvalid;
+        const currVal_125 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 508).ngClassPending;
+        ck(v, 502, 0, currVal_118, currVal_119, currVal_120, currVal_121, currVal_122, currVal_123, currVal_124, currVal_125);
+        const currVal_130 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 527)._disabled;
+        ck(v, 526, 0, currVal_130);
+        const currVal_133 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 561)._disabled;
+        const currVal_134 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassUntouched;
+        const currVal_135 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassTouched;
+        const currVal_136 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassPristine;
+        const currVal_137 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassDirty;
+        const currVal_138 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassValid;
+        const currVal_139 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassInvalid;
+        const currVal_140 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 566).ngClassPending;
+        ck(v, 560, 0, currVal_133, currVal_134, currVal_135, currVal_136, currVal_137, currVal_138, currVal_139, currVal_140);
+        const currVal_147 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 598)._disabled;
+        const currVal_148 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassUntouched;
+        const currVal_149 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassTouched;
+        const currVal_150 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassPristine;
+        const currVal_151 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassDirty;
+        const currVal_152 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassValid;
+        const currVal_153 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassInvalid;
+        const currVal_154 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 603).ngClassPending;
+        ck(v, 597, 0, currVal_147, currVal_148, currVal_149, currVal_150, currVal_151, currVal_152, currVal_153, currVal_154);
     });
 }
 function View_PageOne_Host_0(l) {
@@ -59726,9 +59738,15 @@ function View_Content_0(l) {
 }
 function View_Content_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [
-        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
@@ -59752,7 +59770,8 @@ function View_Content_Host_0(l) {
         ], null, null)
     ], null, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1).statusbarPadding;
-        ck(v, 0, 0, currVal_0);
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1)._hasRefresher;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
 const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0, {

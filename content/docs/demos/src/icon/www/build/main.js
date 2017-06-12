@@ -28376,6 +28376,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._zone = _zone;
         this._scrollPadding = 0;
         this._inputPolling = false;
+        this._hasRefresher = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
         this.ionScrollStart = new EventEmitterProxy();
@@ -28647,6 +28648,9 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         else if (this._tabsPlacement === 'bottom') {
             this._cBottom += this._tabbarHeight;
         }
+        if (this._hasRefresher) {
+            this._cTop -= 1;
+        }
         this._fTop = this._cTop;
         this._fBottom = this._cBottom;
         if (this._fullscreen) {
@@ -28781,7 +28785,8 @@ Content = __decorate([
             '</div>' +
             '<ng-content select="ion-refresher"></ng-content>',
         host: {
-            '[class.statusbar-padding]': 'statusbarPadding'
+            '[class.statusbar-padding]': 'statusbarPadding',
+            '[class.has-refresher]': '_hasRefresher'
         },
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None
@@ -41678,7 +41683,7 @@ let Refresher = class Refresher {
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
-        _content.setElementClass('has-refresher', true);
+        _content._hasRefresher = true;
         this._gesture = gestureCtrl.createGesture({
             name: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["g" /* GESTURE_REFRESHER */],
             priority: __WEBPACK_IMPORTED_MODULE_2__gestures_gesture_controller__["h" /* GESTURE_PRIORITY_REFRESHER */]
@@ -54204,9 +54209,15 @@ function View_PageOne_0(l) {
                 'text-center',
                 ''
             ]
-        ], [[
+        ], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
@@ -55482,170 +55493,171 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](null, ['\n\n'])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵted */](null, ['\n']))
     ], (ck, v) => {
-        const currVal_4 = 'primary';
-        const currVal_5 = 'ionic';
-        ck(v, 21, 0, currVal_4, currVal_5);
-        const currVal_7 = 'logo-angular';
-        ck(v, 26, 0, currVal_7);
-        const currVal_9 = 'danger';
-        const currVal_10 = 'heart';
-        ck(v, 31, 0, currVal_9, currVal_10);
-        const currVal_12 = 'primary';
-        const currVal_13 = 'ionitron';
-        ck(v, 36, 0, currVal_12, currVal_13);
-        const currVal_15 = 'vibrant';
-        const currVal_16 = 'happy';
-        ck(v, 41, 0, currVal_15, currVal_16);
-        const currVal_18 = 'people';
-        ck(v, 46, 0, currVal_18);
-        const currVal_20 = 'person';
-        ck(v, 51, 0, currVal_20);
-        const currVal_22 = 'contact';
-        ck(v, 56, 0, currVal_22);
-        const currVal_24 = 'apps';
-        ck(v, 61, 0, currVal_24);
-        const currVal_26 = 'lock';
-        ck(v, 66, 0, currVal_26);
-        const currVal_28 = 'bright';
-        const currVal_29 = 'key';
-        ck(v, 71, 0, currVal_28, currVal_29);
-        const currVal_31 = 'unlock';
-        ck(v, 76, 0, currVal_31);
-        const currVal_33 = 'secondary';
-        const currVal_34 = 'map';
-        ck(v, 81, 0, currVal_33, currVal_34);
-        const currVal_36 = 'navigate';
-        ck(v, 86, 0, currVal_36);
-        const currVal_38 = 'pin';
-        ck(v, 91, 0, currVal_38);
-        const currVal_40 = 'locate';
-        ck(v, 96, 0, currVal_40);
-        const currVal_42 = 'mic';
-        ck(v, 101, 0, currVal_42);
-        const currVal_44 = 'vibrant';
-        const currVal_45 = 'musical-notes';
-        ck(v, 106, 0, currVal_44, currVal_45);
-        const currVal_47 = 'volume-up';
-        ck(v, 111, 0, currVal_47);
-        const currVal_49 = 'microphone';
-        ck(v, 116, 0, currVal_49);
-        const currVal_51 = 'bright';
-        const currVal_52 = 'cafe';
-        ck(v, 121, 0, currVal_51, currVal_52);
-        const currVal_54 = 'calculator';
-        ck(v, 126, 0, currVal_54);
-        const currVal_56 = 'bus';
-        ck(v, 131, 0, currVal_56);
-        const currVal_58 = 'danger';
-        const currVal_59 = 'wine';
-        ck(v, 136, 0, currVal_58, currVal_59);
-        const currVal_61 = 'camera';
-        ck(v, 141, 0, currVal_61);
-        const currVal_63 = 'secondary';
-        const currVal_64 = 'image';
-        ck(v, 146, 0, currVal_63, currVal_64);
-        const currVal_66 = 'bright';
-        const currVal_67 = 'star';
-        ck(v, 151, 0, currVal_66, currVal_67);
-        const currVal_69 = 'pin';
-        ck(v, 156, 0, currVal_69);
-        const currVal_71 = 'vibrant';
-        const currVal_72 = 'arrow-dropup-circle';
-        ck(v, 161, 0, currVal_71, currVal_72);
-        const currVal_74 = 'arrow-back';
-        ck(v, 166, 0, currVal_74);
-        const currVal_76 = 'arrow-dropdown';
-        ck(v, 171, 0, currVal_76);
-        const currVal_78 = 'arrow-forward';
-        ck(v, 176, 0, currVal_78);
-        const currVal_80 = 'cloud';
-        ck(v, 181, 0, currVal_80);
-        const currVal_82 = 'bright';
-        const currVal_83 = 'sunny';
-        ck(v, 186, 0, currVal_82, currVal_83);
-        const currVal_85 = 'umbrella';
-        ck(v, 191, 0, currVal_85);
-        const currVal_87 = 'primary';
-        const currVal_88 = 'rainy';
-        ck(v, 196, 0, currVal_87, currVal_88);
+        const currVal_5 = 'primary';
+        const currVal_6 = 'ionic';
+        ck(v, 21, 0, currVal_5, currVal_6);
+        const currVal_8 = 'logo-angular';
+        ck(v, 26, 0, currVal_8);
+        const currVal_10 = 'danger';
+        const currVal_11 = 'heart';
+        ck(v, 31, 0, currVal_10, currVal_11);
+        const currVal_13 = 'primary';
+        const currVal_14 = 'ionitron';
+        ck(v, 36, 0, currVal_13, currVal_14);
+        const currVal_16 = 'vibrant';
+        const currVal_17 = 'happy';
+        ck(v, 41, 0, currVal_16, currVal_17);
+        const currVal_19 = 'people';
+        ck(v, 46, 0, currVal_19);
+        const currVal_21 = 'person';
+        ck(v, 51, 0, currVal_21);
+        const currVal_23 = 'contact';
+        ck(v, 56, 0, currVal_23);
+        const currVal_25 = 'apps';
+        ck(v, 61, 0, currVal_25);
+        const currVal_27 = 'lock';
+        ck(v, 66, 0, currVal_27);
+        const currVal_29 = 'bright';
+        const currVal_30 = 'key';
+        ck(v, 71, 0, currVal_29, currVal_30);
+        const currVal_32 = 'unlock';
+        ck(v, 76, 0, currVal_32);
+        const currVal_34 = 'secondary';
+        const currVal_35 = 'map';
+        ck(v, 81, 0, currVal_34, currVal_35);
+        const currVal_37 = 'navigate';
+        ck(v, 86, 0, currVal_37);
+        const currVal_39 = 'pin';
+        ck(v, 91, 0, currVal_39);
+        const currVal_41 = 'locate';
+        ck(v, 96, 0, currVal_41);
+        const currVal_43 = 'mic';
+        ck(v, 101, 0, currVal_43);
+        const currVal_45 = 'vibrant';
+        const currVal_46 = 'musical-notes';
+        ck(v, 106, 0, currVal_45, currVal_46);
+        const currVal_48 = 'volume-up';
+        ck(v, 111, 0, currVal_48);
+        const currVal_50 = 'microphone';
+        ck(v, 116, 0, currVal_50);
+        const currVal_52 = 'bright';
+        const currVal_53 = 'cafe';
+        ck(v, 121, 0, currVal_52, currVal_53);
+        const currVal_55 = 'calculator';
+        ck(v, 126, 0, currVal_55);
+        const currVal_57 = 'bus';
+        ck(v, 131, 0, currVal_57);
+        const currVal_59 = 'danger';
+        const currVal_60 = 'wine';
+        ck(v, 136, 0, currVal_59, currVal_60);
+        const currVal_62 = 'camera';
+        ck(v, 141, 0, currVal_62);
+        const currVal_64 = 'secondary';
+        const currVal_65 = 'image';
+        ck(v, 146, 0, currVal_64, currVal_65);
+        const currVal_67 = 'bright';
+        const currVal_68 = 'star';
+        ck(v, 151, 0, currVal_67, currVal_68);
+        const currVal_70 = 'pin';
+        ck(v, 156, 0, currVal_70);
+        const currVal_72 = 'vibrant';
+        const currVal_73 = 'arrow-dropup-circle';
+        ck(v, 161, 0, currVal_72, currVal_73);
+        const currVal_75 = 'arrow-back';
+        ck(v, 166, 0, currVal_75);
+        const currVal_77 = 'arrow-dropdown';
+        ck(v, 171, 0, currVal_77);
+        const currVal_79 = 'arrow-forward';
+        ck(v, 176, 0, currVal_79);
+        const currVal_81 = 'cloud';
+        ck(v, 181, 0, currVal_81);
+        const currVal_83 = 'bright';
+        const currVal_84 = 'sunny';
+        ck(v, 186, 0, currVal_83, currVal_84);
+        const currVal_86 = 'umbrella';
+        ck(v, 191, 0, currVal_86);
+        const currVal_88 = 'primary';
+        const currVal_89 = 'rainy';
+        ck(v, 196, 0, currVal_88, currVal_89);
     }, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._hidden;
         const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 4)._sbPadding;
         ck(v, 3, 0, currVal_0, currVal_1);
         const currVal_2 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13).statusbarPadding;
-        ck(v, 12, 0, currVal_2);
-        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 21)._hidden;
-        ck(v, 20, 0, currVal_3);
-        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 26)._hidden;
-        ck(v, 25, 0, currVal_6);
-        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 31)._hidden;
-        ck(v, 30, 0, currVal_8);
-        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 36)._hidden;
-        ck(v, 35, 0, currVal_11);
-        const currVal_14 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 41)._hidden;
-        ck(v, 40, 0, currVal_14);
-        const currVal_17 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 46)._hidden;
-        ck(v, 45, 0, currVal_17);
-        const currVal_19 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 51)._hidden;
-        ck(v, 50, 0, currVal_19);
-        const currVal_21 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 56)._hidden;
-        ck(v, 55, 0, currVal_21);
-        const currVal_23 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 61)._hidden;
-        ck(v, 60, 0, currVal_23);
-        const currVal_25 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 66)._hidden;
-        ck(v, 65, 0, currVal_25);
-        const currVal_27 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 71)._hidden;
-        ck(v, 70, 0, currVal_27);
-        const currVal_30 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 76)._hidden;
-        ck(v, 75, 0, currVal_30);
-        const currVal_32 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 81)._hidden;
-        ck(v, 80, 0, currVal_32);
-        const currVal_35 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86)._hidden;
-        ck(v, 85, 0, currVal_35);
-        const currVal_37 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 91)._hidden;
-        ck(v, 90, 0, currVal_37);
-        const currVal_39 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 96)._hidden;
-        ck(v, 95, 0, currVal_39);
-        const currVal_41 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 101)._hidden;
-        ck(v, 100, 0, currVal_41);
-        const currVal_43 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 106)._hidden;
-        ck(v, 105, 0, currVal_43);
-        const currVal_46 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 111)._hidden;
-        ck(v, 110, 0, currVal_46);
-        const currVal_48 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 116)._hidden;
-        ck(v, 115, 0, currVal_48);
-        const currVal_50 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 121)._hidden;
-        ck(v, 120, 0, currVal_50);
-        const currVal_53 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 126)._hidden;
-        ck(v, 125, 0, currVal_53);
-        const currVal_55 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 131)._hidden;
-        ck(v, 130, 0, currVal_55);
-        const currVal_57 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 136)._hidden;
-        ck(v, 135, 0, currVal_57);
-        const currVal_60 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 141)._hidden;
-        ck(v, 140, 0, currVal_60);
-        const currVal_62 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 146)._hidden;
-        ck(v, 145, 0, currVal_62);
-        const currVal_65 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 151)._hidden;
-        ck(v, 150, 0, currVal_65);
-        const currVal_68 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 156)._hidden;
-        ck(v, 155, 0, currVal_68);
-        const currVal_70 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 161)._hidden;
-        ck(v, 160, 0, currVal_70);
-        const currVal_73 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 166)._hidden;
-        ck(v, 165, 0, currVal_73);
-        const currVal_75 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 171)._hidden;
-        ck(v, 170, 0, currVal_75);
-        const currVal_77 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 176)._hidden;
-        ck(v, 175, 0, currVal_77);
-        const currVal_79 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 181)._hidden;
-        ck(v, 180, 0, currVal_79);
-        const currVal_81 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 186)._hidden;
-        ck(v, 185, 0, currVal_81);
-        const currVal_84 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 191)._hidden;
-        ck(v, 190, 0, currVal_84);
-        const currVal_86 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 196)._hidden;
-        ck(v, 195, 0, currVal_86);
+        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 13)._hasRefresher;
+        ck(v, 12, 0, currVal_2, currVal_3);
+        const currVal_4 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 21)._hidden;
+        ck(v, 20, 0, currVal_4);
+        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 26)._hidden;
+        ck(v, 25, 0, currVal_7);
+        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 31)._hidden;
+        ck(v, 30, 0, currVal_9);
+        const currVal_12 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 36)._hidden;
+        ck(v, 35, 0, currVal_12);
+        const currVal_15 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 41)._hidden;
+        ck(v, 40, 0, currVal_15);
+        const currVal_18 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 46)._hidden;
+        ck(v, 45, 0, currVal_18);
+        const currVal_20 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 51)._hidden;
+        ck(v, 50, 0, currVal_20);
+        const currVal_22 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 56)._hidden;
+        ck(v, 55, 0, currVal_22);
+        const currVal_24 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 61)._hidden;
+        ck(v, 60, 0, currVal_24);
+        const currVal_26 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 66)._hidden;
+        ck(v, 65, 0, currVal_26);
+        const currVal_28 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 71)._hidden;
+        ck(v, 70, 0, currVal_28);
+        const currVal_31 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 76)._hidden;
+        ck(v, 75, 0, currVal_31);
+        const currVal_33 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 81)._hidden;
+        ck(v, 80, 0, currVal_33);
+        const currVal_36 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 86)._hidden;
+        ck(v, 85, 0, currVal_36);
+        const currVal_38 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 91)._hidden;
+        ck(v, 90, 0, currVal_38);
+        const currVal_40 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 96)._hidden;
+        ck(v, 95, 0, currVal_40);
+        const currVal_42 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 101)._hidden;
+        ck(v, 100, 0, currVal_42);
+        const currVal_44 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 106)._hidden;
+        ck(v, 105, 0, currVal_44);
+        const currVal_47 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 111)._hidden;
+        ck(v, 110, 0, currVal_47);
+        const currVal_49 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 116)._hidden;
+        ck(v, 115, 0, currVal_49);
+        const currVal_51 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 121)._hidden;
+        ck(v, 120, 0, currVal_51);
+        const currVal_54 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 126)._hidden;
+        ck(v, 125, 0, currVal_54);
+        const currVal_56 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 131)._hidden;
+        ck(v, 130, 0, currVal_56);
+        const currVal_58 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 136)._hidden;
+        ck(v, 135, 0, currVal_58);
+        const currVal_61 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 141)._hidden;
+        ck(v, 140, 0, currVal_61);
+        const currVal_63 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 146)._hidden;
+        ck(v, 145, 0, currVal_63);
+        const currVal_66 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 151)._hidden;
+        ck(v, 150, 0, currVal_66);
+        const currVal_69 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 156)._hidden;
+        ck(v, 155, 0, currVal_69);
+        const currVal_71 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 161)._hidden;
+        ck(v, 160, 0, currVal_71);
+        const currVal_74 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 166)._hidden;
+        ck(v, 165, 0, currVal_74);
+        const currVal_76 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 171)._hidden;
+        ck(v, 170, 0, currVal_76);
+        const currVal_78 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 176)._hidden;
+        ck(v, 175, 0, currVal_78);
+        const currVal_80 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 181)._hidden;
+        ck(v, 180, 0, currVal_80);
+        const currVal_82 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 186)._hidden;
+        ck(v, 185, 0, currVal_82);
+        const currVal_85 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 191)._hidden;
+        ck(v, 190, 0, currVal_85);
+        const currVal_87 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 196)._hidden;
+        ck(v, 195, 0, currVal_87);
     });
 }
 function View_PageOne_Host_0(l) {
@@ -57469,9 +57481,15 @@ function View_Content_0(l) {
 }
 function View_Content_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [
-        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'ion-content', [], [
+            [
                 2,
                 'statusbar-padding',
+                null
+            ],
+            [
+                2,
+                'has-refresher',
                 null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
@@ -57495,7 +57513,8 @@ function View_Content_Host_0(l) {
         ], null, null)
     ], null, (ck, v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1).statusbarPadding;
-        ck(v, 0, 0, currVal_0);
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](v, 1)._hasRefresher;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
 const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0, {

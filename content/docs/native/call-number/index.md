@@ -62,7 +62,7 @@ constructor(private callNumber: CallNumber) { }
 ...
 
 
-this.callNumber.callNumber(18001010101, true)
+this.callNumber.callNumber(&quot;18001010101&quot;, true)
   .then(() =&gt; console.log(&#39;Launched dialer!&#39;))
   .catch(() =&gt; console.log(&#39;Error launching dialer&#39;));
 </code></pre>

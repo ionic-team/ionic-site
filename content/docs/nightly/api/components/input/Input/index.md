@@ -165,13 +165,6 @@ can be attached and will function as expected.</p>
   <tbody>
     
     <tr>
-      <td>autocapitalize</td>
-      <td><code>string</code></td>
-      <td><p> controls whether and how the text value for textual form control descendants should be automatically capitalized as it is entered/edited by the user.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>autocomplete</td>
       <td><code>string</code></td>
       <td><p> Instructional text that shows before the input has a value.</p>
@@ -208,24 +201,9 @@ Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quo
     </tr>
     
     <tr>
-      <td>maxlength</td>
-      <td><code>any</code></td>
-      <td><p> Specifies the maximum number of characters allowed in the <input> element.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>min</td>
       <td><code>any</code></td>
       <td><p> The minimum value, which must not be greater than its maximum (max attribute) value.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>name</td>
-      <td><code>string</code></td>
-      <td><p> The name attribute is used to reference elements in a JavaScript,
-or to reference form data after a form is submitted.</p>
 </td>
     </tr>
     
@@ -240,14 +218,6 @@ or to reference form data after a form is submitted.</p>
       <td>readonly</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot modify the value.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>spellcheck</td>
-      <td><code>string</code></td>
-      <td><p> Specifies whether the element is to have its spelling
-and grammar checked or not.</p>
 </td>
     </tr>
     

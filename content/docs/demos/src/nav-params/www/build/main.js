@@ -16697,9 +16697,9 @@ function normalizeUrl(browserUrl) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["b"] = getCss;
 /* harmony export (immutable) */ __webpack_exports__["a"] = pointerCoord;
-/* harmony export (immutable) */ __webpack_exports__["e"] = hasPointerMoved;
+/* harmony export (immutable) */ __webpack_exports__["f"] = hasPointerMoved;
 /* harmony export (immutable) */ __webpack_exports__["c"] = isTextInput;
-/* unused harmony export copyInputAttributes */
+/* harmony export (immutable) */ __webpack_exports__["e"] = copyInputAttributes;
 function getCss(docEle) {
     const css = {};
     var i;
@@ -16758,12 +16758,12 @@ function isTextInput(ele) {
 const NON_TEXT_INPUT_REGEX = /^(radio|checkbox|range|file|submit|reset|color|image|button)$/i;
 /* harmony export (immutable) */ __webpack_exports__["d"] = NON_TEXT_INPUT_REGEX;
 
-const skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id|autofocus|autocomplete|autocorrect)$/i;
+const SKIP_INPUT_ATTR = ['value', 'checked', 'disabled', 'readonly', 'placeholder', 'type', 'class', 'style', 'id', 'autofocus', 'autocomplete', 'autocorrect'];
 function copyInputAttributes(srcElement, destElement) {
-    var attrs = srcElement.attributes;
+    const attrs = srcElement.attributes;
     for (var i = 0; i < attrs.length; i++) {
         var attr = attrs[i];
-        if (!skipInputAttrsReg.test(attr.name)) {
+        if (SKIP_INPUT_ATTR.indexOf(attr.name) === -1) {
             destElement.setAttribute(attr.name, attr.value);
         }
     }
@@ -20911,6 +20911,7 @@ let Item = class Item extends __WEBPACK_IMPORTED_MODULE_5__ion__["a" /* Ion */] 
         this._setName(elementRef);
         this._hasReorder = !!reorder;
         this.id = form.nextId().toString();
+        this.labelId = 'lbl-' + this.id;
         if (!renderer.orgListen) {
             renderer.orgListen = renderer.listen;
             renderer.listen = function (renderElement, name, callback) {
@@ -20950,7 +20951,7 @@ let Item = class Item extends __WEBPACK_IMPORTED_MODULE_5__ion__["a" /* Ion */] 
     set contentLabel(label) {
         if (label) {
             this._label = label;
-            this.labelId = label.id = ('lbl-' + this.id);
+            label.id = this.labelId;
             if (label.type) {
                 this.setElementClass('item-label-' + label.type, true);
             }
@@ -29825,8 +29826,9 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         _form && _form.register(this);
         this._value = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* deepCopy */])(this._defaultValue);
         if (_item) {
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])('lbl-' + _item.id === _item.labelId, 'labelId was not calculated correctly');
             this.id = name + '-' + _item.registerInput(name);
-            this._labelId = 'lbl-' + _item.id;
+            this._labelId = _item.labelId;
             this._item.setElementClass('item-' + name, true);
         }
         if (_ngControl) {
@@ -45534,7 +45536,7 @@ let TapClick = class TapClick {
     shouldCancelEvent(ev) {
         return (this.app.isScrolling() ||
             this.gestureCtrl.isCaptured() ||
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["e" /* hasPointerMoved */])(POINTER_TOLERANCE, this.startCoord, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["a" /* pointerCoord */])(ev)));
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["f" /* hasPointerMoved */])(POINTER_TOLERANCE, this.startCoord, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["a" /* pointerCoord */])(ev)));
     }
     click(ev) {
         if (this.shouldCancelClick(ev)) {
@@ -45589,7 +45591,7 @@ let TapClick = class TapClick {
     handleTapPolyfill(ev) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["c" /* assert */])(this.usePolyfill, 'this code should not be used if tapPolyfill is disabled');
         let endCoord = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["a" /* pointerCoord */])(ev);
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["e" /* hasPointerMoved */])(POINTER_TOLERANCE, this.startCoord, endCoord)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_dom__["f" /* hasPointerMoved */])(POINTER_TOLERANCE, this.startCoord, endCoord)) {
             console.debug(`click from touch prevented by pointer moved`);
             return;
         }
@@ -47925,14 +47927,10 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
         this._relocated = false;
         this.autocomplete = '';
         this.autocorrect = '';
-        this.spellcheck = null;
-        this.autocapitalize = null;
         this.placeholder = '';
-        this.name = null;
         this.min = null;
         this.max = null;
         this.step = null;
-        this.maxlength = null;
         this.input = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.blur = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.focus = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
@@ -47994,8 +47992,9 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
             this.clearOnEdit = true;
         }
         const ionInputEle = this._elementRef.nativeElement;
+        const nativeInputEle = this._native.nativeElement;
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_dom__["e" /* copyInputAttributes */])(ionInputEle, nativeInputEle);
         if (ionInputEle.hasAttribute('autofocus')) {
-            const nativeInputEle = this._native.nativeElement;
             ionInputEle.removeAttribute('autofocus');
             switch (this._autoFocusAssist) {
                 case 'immediate':
@@ -48160,7 +48159,7 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
         }
         else if (this._coord) {
             var endCoord = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_dom__["a" /* pointerCoord */])(ev);
-            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_dom__["e" /* hasPointerMoved */])(8, this._coord, endCoord) && !this.isFocus()) {
+            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_dom__["f" /* hasPointerMoved */])(8, this._coord, endCoord) && !this.isFocus()) {
                 ev.preventDefault();
                 ev.stopPropagation();
                 this._jsSetFocus();
@@ -48223,19 +48222,7 @@ __decorate([
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", String)
-], TextInput.prototype, "spellcheck", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String)
-], TextInput.prototype, "autocapitalize", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String)
 ], TextInput.prototype, "placeholder", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String)
-], TextInput.prototype, "name", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Object)
@@ -48248,10 +48235,6 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Object)
 ], TextInput.prototype, "step", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", Object)
-], TextInput.prototype, "maxlength", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
     __metadata("design:type", Object)
@@ -48274,15 +48257,12 @@ TextInput = __decorate([
             '(focus)="onFocus($event)" ' +
             '(keydown)="onKeydown($event)" ' +
             '[type]="_type" ' +
-            '[attr.name]="name" ' +
+            '[attr.aria-labelledby]="_labelId" ' +
             '[attr.min]="min" ' +
             '[attr.max]="max" ' +
             '[attr.step]="step" ' +
-            '[attr.maxlength]="maxlength" ' +
             '[attr.autocomplete]="autocomplete" ' +
             '[attr.autocorrect]="autocorrect" ' +
-            '[attr.spellcheck]="spellcheck" ' +
-            '[attr.autocapitalize]="autocapitalize" ' +
             '[placeholder]="placeholder" ' +
             '[disabled]="_disabled" ' +
             '[readonly]="_readonly">' +
@@ -48291,12 +48271,9 @@ TextInput = __decorate([
             '(blur)="onBlur($event)" ' +
             '(focus)="onFocus($event)" ' +
             '(keydown)="onKeydown($event)" ' +
-            '[attr.name]="name" ' +
-            '[attr.maxlength]="maxlength" ' +
+            '[attr.aria-labelledby]="_labelId" ' +
             '[attr.autocomplete]="autocomplete" ' +
             '[attr.autocorrect]="autocorrect" ' +
-            '[attr.spellcheck]="spellcheck" ' +
-            '[attr.autocapitalize]="autocapitalize" ' +
             '[placeholder]="placeholder" ' +
             '[disabled]="_disabled" ' +
             '[readonly]="_readonly"></textarea>' +
@@ -48311,7 +48288,8 @@ TextInput = __decorate([
             '(mousedown)="_pointerStart($event)" ' +
             '(mouseup)="_pointerEnd($event)"></div>',
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewEncapsulation */].None,
-        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush
+        changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ChangeDetectionStrategy */].OnPush,
+        inputs: ['value']
     }),
     __param(6, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(7, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
@@ -63739,7 +63717,7 @@ class RippleActivator {
         }
     }
     _upAction(ev, activatableEle, startCoord) {
-        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_dom__["e" /* hasPointerMoved */])(6, startCoord, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_dom__["a" /* pointerCoord */])(ev))) {
+        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_dom__["f" /* hasPointerMoved */])(6, startCoord, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_dom__["a" /* pointerCoord */])(ev))) {
             let i = activatableEle.childElementCount;
             while (i--) {
                 var rippleEle = activatableEle.children[i];

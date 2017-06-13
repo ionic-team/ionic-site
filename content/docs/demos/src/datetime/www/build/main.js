@@ -46951,7 +46951,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_input__["a" /* BaseInput */] {
     constructor(config, _plt, form, _app, elementRef, renderer, _content, item, ngControl, _dom) {
-        super(config, elementRef, renderer, elementRef.nativeElement.tagName === 'ION-TEXTAREA' ? 'textarea' : 'input', '', form, item, ngControl);
+        super(config, elementRef, renderer, 'input', '', form, item, ngControl);
         this._plt = _plt;
         this.form = form;
         this._app = _app;
@@ -46980,6 +46980,9 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
         this._autoFocusAssist = config.get('autoFocusAssist', 'delay');
         this._keyboardHeight = config.getNumber('keyboardHeight');
         this._isTextarea = !!(elementRef.nativeElement.tagName === 'ION-TEXTAREA');
+        if (this._isTextarea && item) {
+            item.setElementClass('item-textarea', true);
+        }
         if (!_content) {
             return;
         }
@@ -47308,6 +47311,7 @@ TextInput = __decorate([
             '[disabled]="_disabled" ' +
             '[readonly]="_readonly">' +
             '<textarea #textInput *ngIf="_isTextarea" class="text-input" ' +
+            '[ngClass]="\'text-input-\' + _mode"' +
             '(input)="onInput($event)" ' +
             '(blur)="onBlur($event)" ' +
             '(focus)="onFocus($event)" ' +

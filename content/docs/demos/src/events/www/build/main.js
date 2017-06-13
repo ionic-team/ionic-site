@@ -38159,7 +38159,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_input__["a" /* BaseInput */] {
     constructor(config, _plt, form, _app, elementRef, renderer, _content, item, ngControl, _dom) {
-        super(config, elementRef, renderer, elementRef.nativeElement.tagName === 'ION-TEXTAREA' ? 'textarea' : 'input', '', form, item, ngControl);
+        super(config, elementRef, renderer, 'input', '', form, item, ngControl);
         this._plt = _plt;
         this.form = form;
         this._app = _app;
@@ -38188,6 +38188,9 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
         this._autoFocusAssist = config.get('autoFocusAssist', 'delay');
         this._keyboardHeight = config.getNumber('keyboardHeight');
         this._isTextarea = !!(elementRef.nativeElement.tagName === 'ION-TEXTAREA');
+        if (this._isTextarea && item) {
+            item.setElementClass('item-textarea', true);
+        }
         if (!_content) {
             return;
         }
@@ -38516,6 +38519,7 @@ TextInput = __decorate([
             '[disabled]="_disabled" ' +
             '[readonly]="_readonly">' +
             '<textarea #textInput *ngIf="_isTextarea" class="text-input" ' +
+            '[ngClass]="\'text-input-\' + _mode"' +
             '(input)="onInput($event)" ' +
             '(blur)="onBlur($event)" ' +
             '(focus)="onFocus($event)" ' +
@@ -58663,7 +58667,8 @@ function View_TextInput_1(l) {
     });
 }
 function View_TextInput_2(l) {
-    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [(l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, [
+    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵvid */](0, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵeld */](0, [
             [
                 1,
                 0
@@ -58672,7 +58677,7 @@ function View_TextInput_2(l) {
                 'textInput',
                 1
             ]
-        ], null, 0, 'textarea', [[
+        ], null, 1, 'textarea', [[
                 'class',
                 'text-input'
             ]
@@ -58744,7 +58749,28 @@ function View_TextInput_2(l) {
                 ad = (pd_3 && ad);
             }
             return ad;
-        }, null, null))], null, (ck, v) => {
+        }, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](278528, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["m" /* NgClass */], [
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
+        ], {
+            klass: [
+                0,
+                'klass'
+            ],
+            ngClass: [
+                1,
+                'ngClass'
+            ]
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_6 = 'text-input';
+        const currVal_7 = ('text-input-' + co._mode);
+        ck(v, 1, 0, currVal_6, currVal_7);
+    }, (ck, v) => {
         var co = v.component;
         const currVal_0 = co._labelId;
         const currVal_1 = co.autocomplete;

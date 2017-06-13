@@ -38528,6 +38528,8 @@ TextInput = __decorate([
             '[attr.max]="max" ' +
             '[attr.step]="step" ' +
             '[attr.maxlength]="maxlength" ' +
+            '[attr.autocomplete]="autocomplete" ' +
+            '[attr.autocorrect]="autocorrect" ' +
             '[attr.spellcheck]="spellcheck" ' +
             '[attr.autocapitalize]="autocapitalize" ' +
             '[placeholder]="placeholder" ' +
@@ -38539,6 +38541,11 @@ TextInput = __decorate([
             '(focus)="onFocus($event)" ' +
             '(keydown)="onKeydown($event)" ' +
             '[attr.name]="name" ' +
+            '[attr.maxlength]="maxlength" ' +
+            '[attr.autocomplete]="autocomplete" ' +
+            '[attr.autocorrect]="autocorrect" ' +
+            '[attr.spellcheck]="spellcheck" ' +
+            '[attr.autocapitalize]="autocapitalize" ' +
             '[placeholder]="placeholder" ' +
             '[disabled]="_disabled" ' +
             '[readonly]="_readonly"></textarea>' +
@@ -58586,6 +58593,16 @@ function View_TextInput_1(l) {
             ],
             [
                 1,
+                'autocomplete',
+                0
+            ],
+            [
+                1,
+                'autocorrect',
+                0
+            ],
+            [
+                1,
                 'spellcheck',
                 0
             ],
@@ -58664,9 +58681,9 @@ function View_TextInput_1(l) {
         }, null)
     ], (ck, v) => {
         var co = v.component;
-        const currVal_11 = 'text-input';
-        const currVal_12 = ('text-input-' + co._mode);
-        ck(v, 1, 0, currVal_11, currVal_12);
+        const currVal_13 = 'text-input';
+        const currVal_14 = ('text-input-' + co._mode);
+        ck(v, 1, 0, currVal_13, currVal_14);
     }, (ck, v) => {
         var co = v.component;
         const currVal_0 = co._type;
@@ -58675,11 +58692,13 @@ function View_TextInput_1(l) {
         const currVal_3 = co.max;
         const currVal_4 = co.step;
         const currVal_5 = co.maxlength;
-        const currVal_6 = co.spellcheck;
-        const currVal_7 = co.autocapitalize;
-        const currVal_8 = co.placeholder;
-        const currVal_9 = co._disabled;
-        const currVal_10 = co._readonly;
+        const currVal_6 = co.autocomplete;
+        const currVal_7 = co.autocorrect;
+        const currVal_8 = co.spellcheck;
+        const currVal_9 = co.autocapitalize;
+        const currVal_10 = co.placeholder;
+        const currVal_11 = co._disabled;
+        const currVal_12 = co._readonly;
         ck(v, 0, 1, [
             currVal_0,
             currVal_1,
@@ -58691,7 +58710,9 @@ function View_TextInput_1(l) {
             currVal_7,
             currVal_8,
             currVal_9,
-            currVal_10
+            currVal_10,
+            currVal_11,
+            currVal_12
         ]);
     });
 }
@@ -58713,6 +58734,31 @@ function View_TextInput_2(l) {
             [
                 1,
                 'name',
+                0
+            ],
+            [
+                1,
+                'maxlength',
+                0
+            ],
+            [
+                1,
+                'autocomplete',
+                0
+            ],
+            [
+                1,
+                'autocorrect',
+                0
+            ],
+            [
+                1,
+                'spellcheck',
+                0
+            ],
+            [
+                1,
+                'autocapitalize',
                 0
             ],
             [
@@ -58770,10 +58816,15 @@ function View_TextInput_2(l) {
         }, null, null))], null, (ck, v) => {
         var co = v.component;
         const currVal_0 = co.name;
-        const currVal_1 = co.placeholder;
-        const currVal_2 = co._disabled;
-        const currVal_3 = co._readonly;
-        ck(v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3);
+        const currVal_1 = co.maxlength;
+        const currVal_2 = co.autocomplete;
+        const currVal_3 = co.autocorrect;
+        const currVal_4 = co.spellcheck;
+        const currVal_5 = co.autocapitalize;
+        const currVal_6 = co.placeholder;
+        const currVal_7 = co._disabled;
+        const currVal_8 = co._readonly;
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8);
     });
 }
 function View_TextInput_3(l) {

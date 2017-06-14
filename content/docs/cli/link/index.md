@@ -20,7 +20,7 @@ $ ionic link [<app_id>]
 
 If you have an app on **[https://apps.ionic.io](https://apps.ionic.io)**, you can link it to your local Ionic project with this command.
 
-Excluding the `app_id` argument looks up your apps on **https://apps.ionic.io** and prompts you to select one.
+Excluding the `app_id` argument looks up your apps on **[https://apps.ionic.io](https://apps.ionic.io)** and prompts you to select one.
 
 This command simply sets the **app_id** property in **ionic.config.json** for other commands to read.
 

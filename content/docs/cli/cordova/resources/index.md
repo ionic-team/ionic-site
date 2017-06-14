@@ -28,7 +28,7 @@ You can also generate platform-specific icons and splash screens by placing them
 
 Cordova reference documentation:
 - Icons: **[https://cordova.apache.org/docs/en/latest/config_ref/images.html](https://cordova.apache.org/docs/en/latest/config_ref/images.html)**
-- Splash Screens: **https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/**
+- Splash Screens: **[https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/)**
 
 This command uses Ionic servers, so we require you to be logged into your free Ionic account. Use `ionic login` to login.
 

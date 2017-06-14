@@ -25,7 +25,7 @@ Full documentation can be found here: **https://docs.ionic.io/services/package/*
 
 Input | Description
 ----- | ----------
-`platform` | The platform to target: ios, android
+`platform` | The platform to target: `ios`, `android`
 
 
 Option | Description

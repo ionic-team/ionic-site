@@ -25,7 +25,7 @@ The given `name` is normalized into an appropriate naming convention. For exampl
 
 Input | Description
 ----- | ----------
-`type` | The type of generator (e.g. component, directive, page, pipe, provider, tabs)
+`type` | The type of generator (e.g. `component`, `directive`, `page`, `pipe`, `provider`, `tabs`)
 `name` | The name of the component being generated
 
 

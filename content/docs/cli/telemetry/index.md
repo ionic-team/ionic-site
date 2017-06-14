@@ -21,7 +21,7 @@ $ ionic telemetry [status]
 
 Input | Description
 ----- | ----------
-`status` | on or off
+`status` | `on` or `off`
 
 
 

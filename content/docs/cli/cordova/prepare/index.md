@@ -23,7 +23,7 @@ Like running `cordova prepare` directly, but provides friendly checks.
 
 Input | Description
 ----- | ----------
-`platform` | The platform you would like to prepare (e.g. ios, android)
+`platform` | The platform you would like to prepare (e.g. `ios`, `android`)
 
 
 

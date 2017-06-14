@@ -25,7 +25,7 @@ For Android and iOS, you can setup Remote Debugging on your emulator with browse
 
 Input | Description
 ----- | ----------
-`platform` | The platform to emulate: ios, android
+`platform` | The platform to emulate: `ios`, `android`
 
 
 Option | Description
@@ -46,7 +46,7 @@ Option | Description
 `--release` | Mark as a release build
 `--device` | Deploy Cordova build to a device
 `--emulator` | Deploy Cordova build to an emulator
-`--target` | Deploy Cordova build to a device (use --list to see all)
+`--target` | Deploy Cordova build to a device (use `--list` to see all)
 `--buildConfig` | Use the specified Cordova build configuration
 
 ## Examples

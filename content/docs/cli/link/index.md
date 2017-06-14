@@ -27,7 +27,7 @@ This command simply sets the **app_id** property in **ionic.config.json** for ot
 
 Input | Description
 ----- | ----------
-`app_id` | The ID of the app to link (e.g. a1b2c3d4)
+`app_id` | The ID of the app to link (e.g. `a1b2c3d4`)
 
 
 

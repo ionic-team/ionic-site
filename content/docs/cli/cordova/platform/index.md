@@ -23,13 +23,13 @@ Like running `cordova platform` directly, but adds default Ionic icons and splas
 
 Input | Description
 ----- | ----------
-`action` | add, remove, or update a platform; ls, check, or save all project platforms
-`platform` | The platform that you would like to add (e.g. ios, android)
+`action` | `add`, `remove`, or `update` a platform; `ls`, `check`, or `save` all project platforms
+`platform` | The platform that you would like to add (e.g. `ios`, `android`)
 
 
 Option | Description
 ------ | ----------
-`--noresources`, `-r` | Do not add default Ionic icons and splash screen resources (corresponds to add)
+`--noresources`, `-r` | Do not add default Ionic icons and splash screen resources (corresponds to `add`)
 
 ## Examples
 

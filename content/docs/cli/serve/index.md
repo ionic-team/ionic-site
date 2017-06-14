@@ -36,7 +36,7 @@ Option | Description
 `--nolivereload`, `-d` | Do not start live reload
 `--noproxy`, `-x` | Do not add proxies
 `--address` | Network address for server
-`--browser`, `-w` | Specifies the browser to use (safari, firefox, chrome)
+`--browser`, `-w` | Specifies the browser to use (`safari`, `firefox`, `chrome`)
 `--browseroption`, `-o` | Specifies a path to open to (/#/tab/dash)
 `--lab`, `-l` | Test your apps on multiple platform types in the browser
 `--platform`, `-t` | Start serve with a specific platform (ios/android)

@@ -23,7 +23,7 @@ Like running `cordova build` directly, but also builds web assets and provides f
 
 Input | Description
 ----- | ----------
-`platform` | The platform to build: ios, android
+`platform` | The platform to build: `ios`, `android`
 
 
 Option | Description

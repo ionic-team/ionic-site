@@ -28,12 +28,12 @@ If you want to create an Ionic/Cordova app, use the `--cordova` option.
 Input | Description
 ----- | ----------
 `name` | The name of your project directory
-`template` | The starter template to use (e.g. blank, tabs; use --list to see all)
+`template` | The starter template to use (e.g. `blank`, `tabs`; use `--list` to see all)
 
 
 Option | Description
 ------ | ----------
-`--type` | Type of project to start (e.g. ionic-angular, ionic1)
+`--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
 `--app-name`, `-n` | Human-readable name (use quotes around the name)
 `--list`, `-l` | List starter templates available
 `--skip-deps` | Skip npm/yarn package installation of dependencies

@@ -35,7 +35,7 @@ This command uses Ionic servers, so we require you to be logged into your free I
 
 Input | Description
 ----- | ----------
-`platform` | The platform for which you would like to generate resources (e.g. ios, android)
+`platform` | The platform for which you would like to generate resources (e.g. `ios`, `android`)
 
 
 Option | Description

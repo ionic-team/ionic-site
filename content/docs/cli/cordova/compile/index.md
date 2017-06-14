@@ -23,7 +23,7 @@ Like running `cordova compile` directly, but provides friendly checks.
 
 Input | Description
 ----- | ----------
-`platform` | The platform to compile: ios, android
+`platform` | The platform to compile: `ios`, `android`
 
 
 

@@ -23,13 +23,13 @@ Like running `cordova plugin` directly, but provides friendly checks.
 
 Input | Description
 ----- | ----------
-`action` | add or remove a plugin; ls or save all project plugins
-`plugin` | The name of the plugin (corresponds to add and remove)
+`action` | `add` or `remove` a plugin; `ls` or `save` all project plugins
+`plugin` | The name of the plugin (corresponds to `add` and `remove`)
 
 
 Option | Description
 ------ | ----------
-`--force` | Forve overwrite the plugin if it exists (corresponds to add)
+`--force` | Forve overwrite the plugin if it exists (corresponds to `add`)
 `--variable` | Specify plugin variables
 
 ## Examples

@@ -25,6 +25,7 @@ $ ionic upload
 Option | Description
 ------ | ----------
 `--note` | Give this snapshot a nice description
+`--metadata` | Set metadata properties for this snapshot
 `--deploy` | Deploys this snapshot to the given channel
 `--nobuild` | Do not invoke a build for this upload
 

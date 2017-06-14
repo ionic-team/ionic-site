@@ -20,7 +20,7 @@ $ ionic package list
 
 Ionic Package makes it easy to build a native binary of your app in the cloud.
 
-Full documentation can be found here: **https://docs.ionic.io/services/package/**
+Full documentation can be found here: **[https://docs.ionic.io/services/package/](https://docs.ionic.io/services/package/)**
 
 
 

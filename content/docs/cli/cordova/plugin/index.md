@@ -13,7 +13,7 @@ Manage Cordova plugins
 ## Synopsis
 
 ```bash
-$ ionic cordova plugin [action] [plugin]
+$ ionic cordova plugin [<action>] [<plugin>]
 ```
   
 ## Details

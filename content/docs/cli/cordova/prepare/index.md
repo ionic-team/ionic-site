@@ -13,7 +13,7 @@ Transform metadata to platform manifests and copies assets to Cordova platforms
 ## Synopsis
 
 ```bash
-$ ionic cordova prepare [platform]
+$ ionic cordova prepare [<platform>]
 ```
   
 ## Details

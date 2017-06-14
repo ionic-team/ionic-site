@@ -18,7 +18,7 @@ $ ionic upload
   
 ## Details
 
-Zips up your local app files and uploads a snapshot to **https://apps.ionic.io**.
+Zips up your local app files and uploads a snapshot to **[https://apps.ionic.io](https://apps.ionic.io)**.
 
 From there, you can use Ionic View (**https://view.ionic.io**) to easily share your app with your organization and testers around the world.
 

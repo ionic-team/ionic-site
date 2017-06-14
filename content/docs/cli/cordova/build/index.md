@@ -13,7 +13,7 @@ Build (prepare + compile) an Ionic project for a given platform
 ## Synopsis
 
 ```bash
-$ ionic cordova build [platform]
+$ ionic cordova build [<platform>]
 ```
   
 ## Details

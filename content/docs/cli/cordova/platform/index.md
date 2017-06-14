@@ -13,7 +13,7 @@ Manage Cordova platform targets
 ## Synopsis
 
 ```bash
-$ ionic cordova platform [action] [platform]
+$ ionic cordova platform [<action>] [<platform>]
 ```
   
 ## Details

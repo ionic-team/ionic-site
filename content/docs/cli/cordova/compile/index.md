@@ -13,7 +13,7 @@ Compile native platform code
 ## Synopsis
 
 ```bash
-$ ionic cordova compile [platform]
+$ ionic cordova compile [<platform>]
 ```
   
 ## Details

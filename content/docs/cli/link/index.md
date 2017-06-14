@@ -13,12 +13,12 @@ Connect your local app to Ionic
 ## Synopsis
 
 ```bash
-$ ionic link [app_id]
+$ ionic link [<app_id>]
 ```
   
 ## Details
 
-If you have an app on **https://apps.ionic.io**, you can link it to your local Ionic project with this command.
+If you have an app on **[https://apps.ionic.io](https://apps.ionic.io)**, you can link it to your local Ionic project with this command.
 
 Excluding the `app_id` argument looks up your apps on **https://apps.ionic.io** and prompts you to select one.
 

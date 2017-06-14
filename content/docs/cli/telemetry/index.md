@@ -13,7 +13,7 @@ Opt in and out of telemetry
 ## Synopsis
 
 ```bash
-$ ionic telemetry [status]
+$ ionic telemetry [<status>]
 ```
   
 ## Details

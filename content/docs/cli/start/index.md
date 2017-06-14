@@ -13,7 +13,7 @@ Create a new project
 ## Synopsis
 
 ```bash
-$ ionic start [name] [template]
+$ ionic start [<name>] [<template>]
 ```
   
 ## Details

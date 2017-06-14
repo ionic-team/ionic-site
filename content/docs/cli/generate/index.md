@@ -13,7 +13,7 @@ Generate pipes, components, pages, directives, providers, and tabs (ionic-angula
 ## Synopsis
 
 ```bash
-$ ionic generate [type] [name]
+$ ionic generate [<type>] [<name>]
 ```
   
 ## Details

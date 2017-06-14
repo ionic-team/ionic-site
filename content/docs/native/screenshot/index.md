@@ -76,7 +76,7 @@ this.screenshot.URI(80).then(onSuccess, onError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="save" href="#save"></a><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code></h3>
+<h3><a class="anchor" name="save" href="#save"></a><code>save(format,&nbsp;quality,&nbsp;filename)</code></h3>
 
 Takes screenshot and saves the image
 
@@ -91,7 +91,7 @@ Takes screenshot and saves the image
   <tbody>
   <tr>
     <td>
-      format.</td>
+      format</td>
     <td>
       <code>string</code>
     </td>
@@ -103,7 +103,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
   
   <tr>
     <td>
-      quality.</td>
+      quality</td>
     <td>
       <code>number</code>
     </td>
@@ -115,7 +115,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
   
   <tr>
     <td>
-      filename.</td>
+      filename</td>
     <td>
       <code>string</code>
     </td>
@@ -129,7 +129,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="URI" href="#URI"></a><code>URI(quality.)</code></h3>
+</div><h3><a class="anchor" name="URI" href="#URI"></a><code>URI(quality)</code></h3>
 
 Takes screenshot and returns the image as an URI
 
@@ -144,7 +144,7 @@ Takes screenshot and returns the image as an URI
   <tbody>
   <tr>
     <td>
-      quality.</td>
+      quality</td>
     <td>
       <code>number</code>
     </td>

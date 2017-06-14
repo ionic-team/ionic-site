@@ -25,3 +25,11 @@ Input | Description
 
 
 
+
+## Examples
+
+```bash
+$ ionic cordova prepare 
+$ ionic cordova prepare ios
+$ ionic cordova prepare android
+```

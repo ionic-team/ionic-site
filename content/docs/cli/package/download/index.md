@@ -33,5 +33,5 @@ Option | Description
 ```bash
 $ ionic package download 
 $ ionic package download 15
-$ ionic package download -d my_builds
+$ ionic package download --destination=my-builds
 ```

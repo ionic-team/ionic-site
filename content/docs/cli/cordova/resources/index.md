@@ -33,4 +33,6 @@ Option | Description
 
 ```bash
 $ ionic cordova resources 
+$ ionic cordova resources ios
+$ ionic cordova resources android
 ```

@@ -13,10 +13,9 @@ development on [Github](https://github.com/ionic-team/ionic-cli).
 
 ## Installation
 
-Please make sure
-[Node](https://ionicframework.com/docs/resources/what-is/#node) 6+ and
-[NPM](https://ionicframework.com/docs/resources/what-is/#npm) 3+ are
-installed.
+Please make sure latest
+[Node](https://ionicframework.com/docs/resources/what-is/#node) 6 LTS and
+[NPM](https://ionicframework.com/docs/resources/what-is/#npm) 3+ are installed.
 
 Then, install the CLI globally (you may need sudo):
 
@@ -53,7 +52,7 @@ Command | Description
 [info](info) | Print system/environment info
 [link](link) | Connect your local app to Ionic
 [login](login) | Login with your Ionic ID
-[serve](serve) | Start a local development server for app dev/testing
+[serve](serve) | Start a local dev server for app dev/testing
 [signup](signup) | Create an Ionic account
 [start](start) | Create a new project
 [telemetry](telemetry) | Opt in and out of telemetry
@@ -61,7 +60,7 @@ Command | Description
 [cordova build](cordova/build) | Build (prepare + compile) an Ionic project for a given platform
 [cordova compile](cordova/compile) | Compile native platform code
 [cordova emulate](cordova/emulate) | Emulate an Ionic project on a simulator or emulator
-[cordova platform](cordova/platform) | Add or remove a platform target for building an Ionic app
+[cordova platform](cordova/platform) | Manage Cordova platform targets
 [cordova plugin](cordova/plugin) | Manage Cordova plugins
 [cordova prepare](cordova/prepare) | Transform metadata to platform manifests and copies assets to Cordova platforms
 [cordova resources](cordova/resources) | Automatically create icon and splash screen resources

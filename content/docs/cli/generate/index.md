@@ -21,7 +21,7 @@ $ ionic generate [type] [name]
 
 Input | Description
 ----- | ----------
-`type` | The type of generator (e.g. page, component, tabs)
+`type` | The type of generator (e.g. component, directive, page, pipe, provider, tabs)
 `name` | The name of the component being generated
 
 

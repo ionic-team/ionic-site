@@ -9,7 +9,7 @@ header_sub_title: Ionic CLI
 
 # `$ ionic cordova platform`
 
-Add or remove a platform target for building an Ionic app
+Manage Cordova platform targets
 ## Synopsis
 
 ```bash
@@ -21,7 +21,7 @@ $ ionic cordova platform [action] [platform]
 
 Input | Description
 ----- | ----------
-`action` | add, remove, or update a platform; list, check, or save all project platforms
+`action` | add, remove, or update a platform; ls, check, or save all project platforms
 `platform` | The platform that you would like to add (e.g. ios, android)
 
 
@@ -32,5 +32,8 @@ Option | Description
 ## Examples
 
 ```bash
+$ ionic cordova platform 
+$ ionic cordova platform add ios
 $ ionic cordova platform add android
+$ ionic cordova platform rm ios
 ```

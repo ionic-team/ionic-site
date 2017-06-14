@@ -13,7 +13,7 @@ Run an Ionic project on a connected device
 ## Synopsis
 
 ```bash
-$ ionic cordova run <platform>
+$ ionic cordova run [platform]
 ```
   
 ## Details
@@ -26,16 +26,20 @@ Input | Description
 
 Option | Description
 ------ | ----------
-`--livereload`, `-l` | Live reload app dev files from the device
-`--address` | Use specific address (livereload req.)
-`--consolelogs`, `-c` | Print app console logs to Ionic CLI
-`--serverlogs`, `-s` | Print dev server logs to Ionic CLI
-`--port`, `-p` | Dev server HTTP port
-`--livereload-port`, `-r` | Live Reload port
-`--prod` | Create a prod build with app-scripts
-`--list` | List all available Cordova run targets
-`--debug` | Create a Cordova debug build
-`--release` | Create a Cordova release build
+`--list` | List all available Cordova targets
+`--livereload`, `-l` | Spin up server to live-reload www files
+`--consolelogs`, `-c` | Print out console logs to terminal
+`--serverlogs`, `-s` | Print out dev server logs to terminal
+`--address` | Use specific address for dev/live-reload server
+`--port`, `-p` | Use specific port for the dev server
+`--livereload-port`, `-r` | Use specific port for live-reload server
+`--prod` | Mark as a production build
+`--aot` | Perform ahead-of-time compilation for this build
+`--minifyjs` | Minify JS for this build
+`--minifycss` | Minify CSS for this build
+`--optimizejs` | Perform JS optimizations for this build
+`--debug` | Mark as a debug build
+`--release` | Mark as a release build
 `--device` | Deploy Cordova build to a device
 `--emulator` | Deploy Cordova build to an emulator
 `--target` | Deploy Cordova build to a device (use --list to see all)
@@ -44,5 +48,8 @@ Option | Description
 ## Examples
 
 ```bash
-$ ionic cordova run ios --livereload -c -s
+$ ionic cordova run 
+$ ionic cordova run ios
+$ ionic cordova run ios -lcs
+$ ionic cordova run android --livereload -cs
 ```

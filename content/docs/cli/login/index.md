@@ -13,7 +13,7 @@ Login with your Ionic ID
 ## Synopsis
 
 ```bash
-$ ionic login <email> <password>
+$ ionic login [email] [password]
 ```
   
 ## Details

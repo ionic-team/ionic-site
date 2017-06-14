@@ -13,7 +13,7 @@ Create a new project
 ## Synopsis
 
 ```bash
-$ ionic start <name> [template]
+$ ionic start [name] [template]
 ```
   
 ## Details
@@ -31,14 +31,16 @@ Option | Description
 `--app-name`, `-n` | Human-readable name (use quotes around the name)
 `--list`, `-l` | List starter templates available
 `--skip-deps` | Skip npm/yarn package installation of dependencies
-`--yarn` | Opt-in to using yarn (instead of npm)
+`--cordova` | Include Cordova integration
+`--git` | Do not initialize a git repo
 `--skip-link` | Do not link app to an Ionic Account
 
 ## Examples
 
 ```bash
 $ ionic start 
-$ ionic start mynewapp blank
-$ ionic start mynewapp tabs --type ionic-angular
-$ ionic start mynewapp blank --type ionic1
+$ ionic start --list
+$ ionic start myApp blank
+$ ionic start myApp tabs --cordova
+$ ionic start myApp blank --type=ionic1
 ```

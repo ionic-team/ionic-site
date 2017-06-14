@@ -9,7 +9,7 @@ header_sub_title: Ionic CLI
 
 # `$ ionic serve`
 
-Start a local development server for app dev/testing
+Start a local dev server for app dev/testing
 ## Synopsis
 
 ```bash
@@ -35,12 +35,11 @@ Option | Description
 `--browser`, `-w` | Specifies the browser to use (safari, firefox, chrome)
 `--browseroption`, `-o` | Specifies a path to open to (/#/tab/dash)
 `--lab`, `-l` | Test your apps on multiple platform types in the browser
-`--nogulp` | Disable gulp
-`--nosass` | Disable sass
 `--platform`, `-t` | Start serve with a specific platform (ios/android)
 
 ## Examples
 
 ```bash
-$ ionic serve --lab --consolelogs -s
+$ ionic serve -lcs
+$ ionic serve --lab -lcs
 ```

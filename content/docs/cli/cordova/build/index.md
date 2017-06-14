@@ -18,6 +18,8 @@ $ ionic cordova build [platform]
   
 ## Details
 
+Like running `cordova build` directly, but also builds web assets and provides friendly checks.
+
 
 Input | Description
 ----- | ----------

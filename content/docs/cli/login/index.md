@@ -18,6 +18,12 @@ $ ionic login [email] [password]
   
 ## Details
 
+Authenticate with Ionic servers and retrieve a user token, which is stored in the CLI config.
+
+Alternatively, set the `IONIC_EMAIL` and `IONIC_PASSWORD` environment variables, and the CLI will automatically authenticate you.
+
+If you need to create an Ionic account, use `ionic signup`.
+
 
 Input | Description
 ----- | ----------

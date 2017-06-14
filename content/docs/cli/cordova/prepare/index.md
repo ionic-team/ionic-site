@@ -18,6 +18,8 @@ $ ionic cordova prepare [platform]
   
 ## Details
 
+Like running `cordova prepare` directly, but provides friendly checks.
+
 
 Input | Description
 ----- | ----------

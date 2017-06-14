@@ -18,6 +18,10 @@ $ ionic cordova emulate [platform]
   
 ## Details
 
+Like running `cordova emulate` directly, but also watches for changes in web assets and provides live-reload functionality with the `--livereload` option.
+
+For Android and iOS, you can setup Remote Debugging on your emulator with browser development tools: **https://docs.ionic.io/tools/developer/#remote-debugging**
+
 
 Input | Description
 ----- | ----------

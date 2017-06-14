@@ -18,6 +18,10 @@ $ ionic generate [type] [name]
   
 ## Details
 
+Automatically create components for your Ionic app.
+
+The given `name` is normalized into an appropriate naming convention. For example, `ionic generate page neat` creates a page by the name of `NeatPage` in `src/pages/neat/`.
+
 
 Input | Description
 ----- | ----------

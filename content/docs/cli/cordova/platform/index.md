@@ -18,6 +18,8 @@ $ ionic cordova platform [action] [platform]
   
 ## Details
 
+Like running `cordova platform` directly, but adds default Ionic icons and splash screen resources (during `add`) and provides friendly checks.
+
 
 Input | Description
 ----- | ----------

@@ -18,6 +18,10 @@ $ ionic cordova run [platform]
   
 ## Details
 
+Like running `cordova run` directly, but also watches for changes in web assets and provides live-reload functionality with the `--livereload` option.
+
+For Android and iOS, you can setup Remote Debugging on your device with browser development tools: **https://docs.ionic.io/tools/developer/#remote-debugging**
+
 
 Input | Description
 ----- | ----------

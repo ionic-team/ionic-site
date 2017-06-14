@@ -18,6 +18,8 @@ $ ionic cordova plugin [action] [plugin]
   
 ## Details
 
+Like running `cordova plugin` directly, but provides friendly checks.
+
 
 Input | Description
 ----- | ----------

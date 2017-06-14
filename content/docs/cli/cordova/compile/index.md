@@ -18,6 +18,8 @@ $ ionic cordova compile [platform]
   
 ## Details
 
+Like running `cordova compile` directly, but provides friendly checks.
+
 
 Input | Description
 ----- | ----------

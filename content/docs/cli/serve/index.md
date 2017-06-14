@@ -18,6 +18,10 @@ $ ionic serve
   
 ## Details
 
+Easily spin up a development server which launches in your browser. It watches for changes in your source files and automatically reloads with the updated build.
+
+Try the `--lab` option to see multiple platforms at once.
+
 
 
 

@@ -18,6 +18,12 @@ $ ionic start [name] [template]
   
 ## Details
 
+This command creates a working Ionic app. It installs dependencies for you and sets up your project.
+
+`ionic start` will create an app from a template. You can list all templates with the `--list` option.
+
+If you want to create an Ionic/Cordova app, use the `--cordova` option.
+
 
 Input | Description
 ----- | ----------

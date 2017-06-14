@@ -233,7 +233,7 @@ Downloads a file from server.
     <td>
       target</td>
     <td>
-      <code>stirng</code>
+      <code>string</code>
     </td>
     <td>
       <p>Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device.</p>

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L104">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L108">
   Improve this doc
 </a>
 
@@ -365,6 +365,20 @@ ensure it resolved and successfully opened the database.
     </td>
     <td>
       <p>iOS Database Location. Example: &#39;Library&#39;</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      createFromLocation
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>support opening pre-filled databases with <a href="https://github.com/litehelpers/cordova-sqlite-ext">https://github.com/litehelpers/cordova-sqlite-ext</a></p>
 
       <em>(optional)</em>
     </td>

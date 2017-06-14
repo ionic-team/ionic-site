@@ -19,7 +19,7 @@ next_page_link: /docs//intro/tutorial/project-structure/
 
 Now that you have [Ionic and its dependencies installed](../installation), you can build your first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
->Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, take a look at [this page](http://ionicframework.com/docs//resources/what-is/#typescript).
+>Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, take a look at [this page](http://ionicframework.com/docs/resources/what-is/#typescript).
 
 ### Starting a New Ionic App
 

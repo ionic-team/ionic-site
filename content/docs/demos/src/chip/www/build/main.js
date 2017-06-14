@@ -47006,7 +47006,7 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
                     nativeInputEle.focus();
                     break;
                 case 'delay':
-                    this._plt.timeout(() => nativeInputEle.focus(), 650);
+                    this._plt.timeout(() => nativeInputEle.focus(), 800);
                     break;
             }
         }

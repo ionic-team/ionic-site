@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-docs
 command_name: docs
-title: docs
+title: Ionic CLI Documentation - docs
 header_sub_title: Ionic CLI
 ---
 

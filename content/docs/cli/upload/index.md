@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-upload
 command_name: upload
-title: upload
+title: Ionic CLI Documentation - upload
 header_sub_title: Ionic CLI
 ---
 

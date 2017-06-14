@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-cordova-build
 command_name: cordova build
-title: cordova build
+title: Ionic CLI Documentation - cordova build
 header_sub_title: Ionic CLI
 ---
 

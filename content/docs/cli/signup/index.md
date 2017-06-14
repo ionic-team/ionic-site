@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-signup
 command_name: signup
-title: signup
+title: Ionic CLI Documentation - signup
 header_sub_title: Ionic CLI
 ---
 

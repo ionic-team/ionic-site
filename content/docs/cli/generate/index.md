@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-generate
 command_name: generate
-title: generate
+title: Ionic CLI Documentation - generate
 header_sub_title: Ionic CLI
 ---
 

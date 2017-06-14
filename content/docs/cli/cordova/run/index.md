@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-cordova-run
 command_name: cordova run
-title: cordova run
+title: Ionic CLI Documentation - cordova run
 header_sub_title: Ionic CLI
 ---
 

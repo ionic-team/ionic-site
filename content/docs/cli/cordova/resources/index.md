@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-cordova-resources
 command_name: cordova resources
-title: cordova resources
+title: Ionic CLI Documentation - cordova resources
 header_sub_title: Ionic CLI
 ---
 

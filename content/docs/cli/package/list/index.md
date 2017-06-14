@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-package-list
 command_name: package list
-title: package list
+title: Ionic CLI Documentation - package list
 header_sub_title: Ionic CLI
 ---
 

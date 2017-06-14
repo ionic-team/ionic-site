@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-cordova-prepare
 command_name: cordova prepare
-title: cordova prepare
+title: Ionic CLI Documentation - cordova prepare
 header_sub_title: Ionic CLI
 ---
 

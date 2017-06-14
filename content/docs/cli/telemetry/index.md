@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-telemetry
 command_name: telemetry
-title: telemetry
+title: Ionic CLI Documentation - telemetry
 header_sub_title: Ionic CLI
 ---
 

@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: cli
 id: cli-cordova-emulate
 command_name: cordova emulate
-title: cordova emulate
+title: Ionic CLI Documentation - cordova emulate
 header_sub_title: Ionic CLI
 ---
 

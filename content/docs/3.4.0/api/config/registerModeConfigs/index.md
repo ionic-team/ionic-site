@@ -1,13 +1,13 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
-versionHref: "/docs"
+version: "3.4.0"
+versionHref: "/docs/3.4.0"
 path: ""
 category: api
-id: "normalizeurl"
-title: "normalizeURL"
+id: "registermodeconfigs"
+title: "registerModeConfigs"
 header_sub_title: "Ionic API Documentation"
-doc: "normalizeURL"
+doc: "registerModeConfigs"
 docType: "function"
 
 ---
@@ -21,9 +21,9 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a class="anchor" name="normalize-url" href="#normalize-url"></a>
+<a class="anchor" name="register-mode-configs" href="#register-mode-configs"></a>
 
-normalizeURL
+registerModeConfigs
 
 
 
@@ -31,7 +31,7 @@ normalizeURL
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/util/util.ts#L49">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/config/mode-registry.ts#L129">
 Improve this doc
 </a>
 
@@ -40,7 +40,6 @@ Improve this doc
 
 
 
-<p>Rewrites an absolute URL so it works across file and http based engines.</p>
 
 
 

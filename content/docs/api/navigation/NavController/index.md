@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -106,7 +106,7 @@ import { NavController } from &#39;ionic-angular&#39;;
 })
 export class MyApp {
    @ViewChild(&#39;myNav&#39;) nav: NavController
-   public rootPage = TabsPage;
+   public rootPage: any = TabsPage;
 
    // Wait for the components in MyApp&#39;s template to be initialized
    // In this case, we are waiting for the Nav with reference variable of &quot;#myNav&quot;
@@ -304,7 +304,7 @@ class HelloWorld {
 </table>
 <h2 id="nav-guards">Nav Guards</h2>
 <p>In some cases, a developer should be able to control views leaving and entering. To allow for this, NavController has the <code>ionViewCanEnter</code> and <code>ionViewCanLeave</code> methods.
-Similar to Angular 2 route guards, but are more integrated with NavController. For example, if you wanted to prevent a user from leaving a view:</p>
+Similar to Angular route guards, but are more integrated with NavController. For example, if you wanted to prevent a user from leaving a view:</p>
 <pre><code class="lang-ts">export class MyClass{
  constructor(
    public navCtrl: NavController

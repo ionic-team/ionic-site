@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -124,7 +124,7 @@ Improve this doc
     <tr>
       <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> If true, enable searchbar animation.</p>
+      <td><p> If true, enable searchbar animation. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -166,7 +166,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> If true, show the cancel button.</p>
+      <td><p> If true, show the cancel button. Default <code>false</code>.</p>
 </td>
     </tr>
     

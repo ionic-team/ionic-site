@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L19">
 Improve this doc
 </a>
 
@@ -242,25 +242,6 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <div id="previousTab"></div>
 
 <h3>
@@ -413,7 +394,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tr>
       <td>tabsLayout</td>
       <td><code>string</code></td>
-      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
+      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-start</code>, <code>icon-end</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
@@ -808,11 +789,20 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-transform-origin</code></td>
+        <td><code>$tabs-md-tab-text-transform-origin-x</code></td>
         
-          <td><code>50% 80%</code></td>
+          <td><code>50%</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform-origin-y</code></td>
+        
+          <td><code>80%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       
@@ -835,47 +825,128 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-x-active</code></td>
         
-          <td><code>translate3d(0, -2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-y-active</code></td>
         
-          <td><code>translate3d(2px, 0, 0)</code></td>
+          <td><code>-2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-bottom-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-z-active</code></td>
         
-          <td><code>translate3d(0, 2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-bottom</p>
+        <td><p>Transform z for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-x-active</code></td>
         
-          <td><code>translate3d(-2px, 0, 0)</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-right</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-origin</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-y-active</code></td>
         
-          <td><code>50% 150%</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-right-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-x-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-y-active</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-x-active</code></td>
+        
+          <td><code>-2px</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-y-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-x</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-y</code></td>
+        
+          <td><code>150%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       

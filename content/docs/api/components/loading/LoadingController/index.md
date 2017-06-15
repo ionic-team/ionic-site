@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -252,6 +252,11 @@ Create a loading indicator. See below for options.
 <td>Whether to show the backdrop. Default true.</td>
 </tr>
 <tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>Whether the loading indicator should be dismissed by tapping the backdrop. Default false.</td>
+</tr>
+<tr>
 <td>dismissOnPageChange</td>
 <td><code>boolean</code></td>
 <td>Whether to dismiss the indicator when navigating to a new page. Default false.</td>
@@ -385,6 +390,15 @@ Create a loading indicator. See below for options.
           <td><code>bold</code></td>
         
         <td><p>Font weight of the loading content</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-ios-content-margin-start</code></td>
+        
+          <td><code>$content-ios-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
       
@@ -555,6 +569,15 @@ Create a loading indicator. See below for options.
       </tr>
       
       <tr>
+        <td><code>$loading-md-content-margin-start</code></td>
+        
+          <td><code>$content-md-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$loading-md-spinner-color</code></td>
         
           <td><code>color($colors-md, primary)</code></td>
@@ -699,6 +722,15 @@ Create a loading indicator. See below for options.
           <td><code>#000</code></td>
         
         <td><p>Background of the loading wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$loading-wp-content-margin-start</code></td>
+        
+          <td><code>$content-wp-margin</code></td>
+        
+        <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
       

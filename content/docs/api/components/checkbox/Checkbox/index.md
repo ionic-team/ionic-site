@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -46,7 +46,7 @@ Improve this doc
 
 <p>The Checkbox is a simple component styled based on the mode. It can be
 placed in an <code>ion-item</code> or used as a stand-alone checkbox.</p>
-<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular Docs</a>
 for more info on forms and inputs.</p>
 
 
@@ -122,7 +122,7 @@ class SaladPage {
   cucumber: boolean;
 
   updateCucumber() {
-    console.log(&quot;Cucumbers new state:&quot; + this.cucumber);
+    console.log(&#39;Cucumbers new state:&#39; + this.cucumber);
   }
 }
 </code></pre>

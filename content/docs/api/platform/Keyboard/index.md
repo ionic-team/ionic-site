@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -78,6 +78,63 @@ by the Ionic keyboard plugin.</p>
 </h3>
 
 Programmatically close the keyboard.
+
+
+
+
+
+
+
+
+
+
+<div id="didHide"></div>
+
+<h3>
+<a class="anchor" name="didHide" href="#didHide"></a>
+<code>didHide</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="didShow"></div>
+
+<h3>
+<a class="anchor" name="didShow" href="#didShow"></a>
+<code>didShow</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="eventsAvailable"></div>
+
+<h3>
+<a class="anchor" name="eventsAvailable" href="#eventsAvailable"></a>
+<code>eventsAvailable</code>
+  
+
+</h3>
+
 
 
 
@@ -213,6 +270,44 @@ export class MyClass {
 
 
 </div>
+
+
+
+
+<div id="willHide"></div>
+
+<h3>
+<a class="anchor" name="willHide" href="#willHide"></a>
+<code>willHide</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="willShow"></div>
+
+<h3>
+<a class="anchor" name="willShow" href="#willShow"></a>
+<code>willShow</code>
+  
+
+</h3>
+
+
+
+
+
+
+
 
 
 

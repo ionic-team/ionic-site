@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -226,6 +226,11 @@ Create a modal to display. See below for options.
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
 <td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 </tbody>
 </table>

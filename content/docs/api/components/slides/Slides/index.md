@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -109,7 +109,7 @@ index and prints it:</p>
 
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();
-    console.log(&quot;Current index is&quot;, currentIndex);
+    console.log(&#39;Current index is&#39;, currentIndex);
   }
 }
 </code></pre>
@@ -385,7 +385,7 @@ Lock or unlock the ability to slide to the next slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true the user will not be able to swipe to the next slide. 
+        <p>If set to true the user will not be able to swipe to the next slide.
 Set to false to unlock this behaviour.</p>
 
         
@@ -485,7 +485,7 @@ Lock or unlock the ability to slide to change slides.
   <code>boolean</code>
       </td>
       <td>
-        <p>If set to true user can not swipe in either direction on slide. 
+        <p>If set to true user can not swipe in either direction on slide.
 False allows swiping in both directions.</p>
 
         
@@ -818,6 +818,13 @@ child slides.
 parameter is not passed, autoplay is disabled. Default does
 not have a value and does not autoplay.
 Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>centeredSlides</td>
+      <td><code>boolean</code></td>
+      <td><p> Center a slide in the middle of the screen.</p>
 </td>
     </tr>
     

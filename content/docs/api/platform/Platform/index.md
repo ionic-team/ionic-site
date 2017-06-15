@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.4.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform.ts#L6">
 Improve this doc
 </a>
 
@@ -100,7 +100,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>string</code> 
+  <code>DocumentDirection</code> 
 
 </div>
 
@@ -174,7 +174,7 @@ export MyPage {
   constructor(public plt: Platform) {
     if (this.plt.is('ios')) {
       // This will only print when on iOS
-      console.log("I'm an iOS device!");
+      console.log('I am an iOS device!');
     }
   }
 }
@@ -619,7 +619,7 @@ direction needs to be dynamically changed per user/session.
       </td>
       <td>
         
-  <code>string</code>
+  <code>DocumentDirection</code>
       </td>
       <td>
         <p>Examples: <code>rtl</code>, <code>ltr</code></p>

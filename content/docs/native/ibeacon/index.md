@@ -841,7 +841,7 @@ is expected to be equivalent to the one provided in the original call.
       <code>number</code>
     </td>
     <td>
-      <p>The beacon&#39;s major identifier number.</p>
+      <p>The beacon&#39;s minor identifier number.</p>
 
       
     </td>

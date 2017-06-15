@@ -59035,7 +59035,7 @@ class ItemReorderGesture {
             return false;
         }
         this.reorderList._reorderPrepare();
-        let item = reorderMark.getReorderNode();
+        const item = reorderMark.getReorderNode();
         if (!item) {
             console.error('reorder node not found');
             return false;
@@ -59054,20 +59054,20 @@ class ItemReorderGesture {
         return true;
     }
     onDragMove(ev) {
-        let selectedItem = this.selectedItemEle;
+        const selectedItem = this.selectedItemEle;
         if (!selectedItem) {
             return;
         }
         ev.preventDefault();
-        let coord = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_dom__["a" /* pointerCoord */])(ev);
-        let posY = coord.y;
-        let scrollPosition = this.scroll(posY);
+        const coord = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_dom__["a" /* pointerCoord */])(ev);
+        const posY = coord.y;
+        const scrollPosition = this.scroll(posY);
         if (Math.abs(posY - this.lastYcoord) > 30) {
-            let overItem = this.itemForCoord(coord);
+            var overItem = this.itemForCoord(coord);
             if (overItem) {
-                let toIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(overItem);
+                var toIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(overItem);
                 if (toIndex !== undefined && (toIndex !== this.lastToIndex || this.emptyZone)) {
-                    let fromIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(selectedItem);
+                    var fromIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(selectedItem);
                     this.lastToIndex = toIndex;
                     this.lastYcoord = posY;
                     this.emptyZone = false;
@@ -59078,11 +59078,11 @@ class ItemReorderGesture {
                 this.emptyZone = true;
             }
         }
-        let ydiff = Math.round(posY - this.offset.y + scrollPosition);
+        const ydiff = Math.round(posY - this.offset.y + scrollPosition);
         selectedItem.style[this.plt.Css.transform] = `translateY(${ydiff}px)`;
     }
     onDragEnd(ev) {
-        let selectedItem = this.selectedItemEle;
+        const selectedItem = this.selectedItemEle;
         if (!selectedItem) {
             return;
         }
@@ -59090,9 +59090,9 @@ class ItemReorderGesture {
             ev.preventDefault();
             ev.stopPropagation();
         }
-        let toIndex = this.lastToIndex;
-        let fromIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(selectedItem);
-        let reorderInactive = () => {
+        const toIndex = this.lastToIndex;
+        const fromIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__item_reorder_util__["a" /* indexForItem */])(selectedItem);
+        const reorderInactive = () => {
             this.selectedItemEle.style.transition = '';
             this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
             this.selectedItemEle = null;

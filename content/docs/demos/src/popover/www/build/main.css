@@ -6686,7 +6686,7 @@ button[disabled],
   left: 0;
 }
 
-.md .button-effect {
+.md button .button-effect {
   display: block;
 }
 
@@ -24388,7 +24388,7 @@ ion-spinner.spinner-paused svg {
   transition-duration: 300ms;
 }
 
-.tabs-md[tabsHighlight=true][tabsPlacement=bottom] .tab-highlight {
+.tabs-md[tabsHighlight=true][tabsPlacement=bottom] > .tabbar > .tab-highlight {
   top: 0;
 }
 

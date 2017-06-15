@@ -6686,7 +6686,7 @@ button[disabled],
   left: 0;
 }
 
-.md .button-effect {
+.md button .button-effect {
   display: block;
 }
 

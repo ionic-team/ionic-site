@@ -14613,7 +14613,7 @@ const ConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Opaqu
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["j"] = clamp;
 /* harmony export (immutable) */ __webpack_exports__["p"] = deepCopy;
-/* harmony export (immutable) */ __webpack_exports__["s"] = deepEqual;
+/* harmony export (immutable) */ __webpack_exports__["t"] = deepEqual;
 /* unused harmony export debounce */
 /* unused harmony export normalizeURL */
 /* harmony export (immutable) */ __webpack_exports__["i"] = defaults;
@@ -14629,7 +14629,7 @@ const ConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Opaqu
 /* harmony export (immutable) */ __webpack_exports__["b"] = isArray;
 /* unused harmony export isPrimitive */
 /* harmony export (immutable) */ __webpack_exports__["e"] = isTrueProperty;
-/* harmony export (immutable) */ __webpack_exports__["t"] = isCheckedProperty;
+/* harmony export (immutable) */ __webpack_exports__["s"] = isCheckedProperty;
 /* harmony export (immutable) */ __webpack_exports__["u"] = isRightSide;
 /* harmony export (immutable) */ __webpack_exports__["o"] = reorderArray;
 /* harmony export (immutable) */ __webpack_exports__["g"] = removeArrayItem;
@@ -36367,7 +36367,7 @@ let RadioGroup = RadioGroup_1 = class RadioGroup {
     _update() {
         let hasChecked = false;
         this._btns.forEach(radioButton => {
-            radioButton.checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["t" /* isCheckedProperty */])(this.value, radioButton.value) && !hasChecked;
+            radioButton.checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["s" /* isCheckedProperty */])(this.value, radioButton.value) && !hasChecked;
             if (radioButton.checked) {
                 this._setActive(radioButton);
                 hasChecked = true;
@@ -38022,7 +38022,7 @@ let RadioButton = class RadioButton extends __WEBPACK_IMPORTED_MODULE_3__ion__["
     }
     ngOnInit() {
         if (this._group && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["a" /* isPresent */])(this._group.value)) {
-            this.checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["t" /* isCheckedProperty */])(this._group.value, this.value);
+            this.checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["s" /* isCheckedProperty */])(this._group.value, this.value);
         }
         if (this._group && this._group.disabled) {
             this.disabled = this._group.disabled;
@@ -43236,9 +43236,12 @@ let TabHighlight = class TabHighlight {
         this._dom = _dom;
     }
     select(tab) {
+        if (!tab) {
+            return;
+        }
         const dom = this._dom;
         dom.read(() => {
-            const btnEle = tab.btn.getElementRef().nativeElement;
+            const btnEle = tab.btn.getNativeElement();
             const transform = `translate3d(${btnEle.offsetLeft}px,0,0) scaleX(${btnEle.offsetWidth})`;
             dom.write(() => {
                 const ele = this._elementRef.nativeElement;
@@ -50260,12 +50263,19 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         this._multi = false;
         this._texts = [];
         this._text = '';
+        this._compareWith = __WEBPACK_IMPORTED_MODULE_10__util_util__["s" /* isCheckedProperty */];
         this.cancelText = 'Cancel';
         this.okText = 'OK';
         this.selectOptions = {};
         this.interface = '';
         this.selectedText = '';
         this.ionCancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
+    }
+    set compareWith(fn) {
+        if (typeof fn !== 'function') {
+            throw new Error(`compareWith must be a function, but received ${JSON.stringify(fn)}`);
+        }
+        this._compareWith = fn;
     }
     _click(ev) {
         ev.preventDefault();
@@ -50412,7 +50422,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         }
     }
     _inputShouldChange(val) {
-        return !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["s" /* deepEqual */])(this._value, val);
+        return !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["t" /* deepEqual */])(this._value, val);
     }
     _inputChangeEvent() {
         return this.value;
@@ -50422,7 +50432,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
         if (this._options) {
             this._options.forEach(option => {
                 option.selected = this.getValues().some(selectValue => {
-                    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_util__["t" /* isCheckedProperty */])(selectValue, option.value);
+                    return this._compareWith(selectValue, option.value);
                 });
                 if (option.selected) {
                     this._texts.push(option.text);
@@ -50456,6 +50466,11 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", String)
 ], Select.prototype, "selectedText", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Function])
+], Select.prototype, "compareWith", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _a || Object)

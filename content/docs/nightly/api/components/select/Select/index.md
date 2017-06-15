@@ -125,6 +125,24 @@ for the properties that each interface accepts.</p>
   mode: &#39;md&#39;
 };
 </code></pre>
+<h3 id="object-value-references">Object Value References</h3>
+<p>When using objects for select values, it is possible for the identities of these objects to
+change if they are coming from a server or database, while the selected value&#39;s identity
+remains the same. For example, this can occur when an existing record with the desired object value
+is loaded into the select, but the newly retrieved select options now have different identities. This will
+result in the select appearing to have no value at all, even though the original selection in still intact.</p>
+<p>Using the <code>compareWith</code> <code>Input</code> is the solution to this problem</p>
+<pre><code class="lang-html">&lt;ion-item&gt;
+  &lt;ion-label&gt;Employee&lt;/ion-label&gt;
+  &lt;ion-select [(ngModel)]=&quot;employee&quot; [compareWith]=&quot;compareFn&quot;&gt;
+    &lt;ion-option *ngFor=&quot;let employee of employees&quot; [value]=&quot;employee&quot;&gt;{{employee.name}}&lt;/ion-option&gt;
+  &lt;/ion-select&gt;
+&lt;/ion-item&gt;
+</code></pre>
+<pre><code class="lang-ts">compareFn(e1: Employee, e2: Employee): boolean {
+  return e1 &amp;&amp; e2 ? e1.id === e2.id : e1 === e2;
+}
+</code></pre>
 
 
 
@@ -252,6 +270,13 @@ Open the select interface.
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>compareWith</td>
+      <td><code>Function</code></td>
+      <td><p> The function that will be called to compare object values</p>
 </td>
     </tr>
     

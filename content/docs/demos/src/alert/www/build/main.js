@@ -43327,9 +43327,12 @@ let TabHighlight = class TabHighlight {
         this._dom = _dom;
     }
     select(tab) {
+        if (!tab) {
+            return;
+        }
         const dom = this._dom;
         dom.read(() => {
-            const btnEle = tab.btn.getElementRef().nativeElement;
+            const btnEle = tab.btn.getNativeElement();
             const transform = `translate3d(${btnEle.offsetLeft}px,0,0) scaleX(${btnEle.offsetWidth})`;
             dom.write(() => {
                 const ele = this._elementRef.nativeElement;

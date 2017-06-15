@@ -47329,6 +47329,9 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_10__util_base_
         const ionInputEle = this._elementRef.nativeElement;
         const nativeInputEle = this._native.nativeElement;
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_dom__["e" /* copyInputAttributes */])(ionInputEle, nativeInputEle);
+        if (ionInputEle.hasAttribute('tabIndex')) {
+            ionInputEle.removeAttribute('tabIndex');
+        }
         if (ionInputEle.hasAttribute('autofocus')) {
             ionInputEle.removeAttribute('autofocus');
             switch (this._autoFocusAssist) {

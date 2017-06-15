@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706151956, Default Theme
+ * vE2E-201706152037, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -7964,6 +7964,17 @@ ion-reorder {
   [dir="rtl"] ion-reorder {
     -webkit-transform: translate3d(calc(-1 * 160%),  0,  0);
     transform: translate3d(calc(-1 * 160%),  0,  0); }
+
+.reorder-side-start ion-reorder {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
+  [dir="ltr"] .reorder-side-start ion-reorder {
+    -webkit-transform: translate3d(-160%,  0,  0);
+    transform: translate3d(-160%,  0,  0); }
+  [dir="rtl"] .reorder-side-start ion-reorder {
+    -webkit-transform: translate3d(calc(-1 * -160%),  0,  0);
+    transform: translate3d(calc(-1 * -160%),  0,  0); }
 
 ion-reorder ion-icon {
   pointer-events: none; }

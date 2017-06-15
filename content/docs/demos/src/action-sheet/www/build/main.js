@@ -35627,9 +35627,13 @@ let ItemReorder = class ItemReorder {
         this._content = _content;
         this._enableReorder = false;
         this._visibleReorder = false;
+        this._isStart = false;
         this._lastToIndex = -1;
         this.ionItemReorder = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._element = elementRef.nativeElement;
+    }
+    set side(side) {
+        this._isStart = side === 'start';
     }
     ngOnDestroy() {
         this._element = null;
@@ -35732,6 +35736,11 @@ __decorate([
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _a || Object)
 ], ItemReorder.prototype, "ionItemReorder", void 0);
 __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])('side'),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], ItemReorder.prototype, "side", null);
+__decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
@@ -35742,6 +35751,7 @@ ItemReorder = __decorate([
         host: {
             '[class.reorder-enabled]': '_enableReorder',
             '[class.reorder-visible]': '_visibleReorder',
+            '[class.reorder-side-start]': '_isStart'
         }
     }),
     __param(5, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
@@ -56183,7 +56193,7 @@ class ItemReorderGesture {
         this.reorderList._reorderEmit(fromIndex, toIndex);
     }
     itemForCoord(coord) {
-        const sideOffset = this.plt.isRTL ? 100 : -100;
+        const sideOffset = this.reorderList._isStart === this.plt.isRTL ? -100 : 100;
         const x = this.offset.x + sideOffset;
         const y = coord.y;
         const element = this.plt.getElementFromPoint(x, y);

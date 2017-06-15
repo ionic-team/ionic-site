@@ -6686,7 +6686,7 @@ button[disabled],
   left: 0;
 }
 
-.md .button-effect {
+.md button .button-effect {
   display: block;
 }
 
@@ -15739,6 +15739,22 @@ ion-reorder {
 [dir="rtl"] ion-reorder {
   -webkit-transform: translate3d(calc(-1 * 160%),  0,  0);
   transform: translate3d(calc(-1 * 160%),  0,  0);
+}
+
+.reorder-side-start ion-reorder {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+[dir="ltr"] .reorder-side-start ion-reorder {
+  -webkit-transform: translate3d(-160%,  0,  0);
+  transform: translate3d(-160%,  0,  0);
+}
+
+[dir="rtl"] .reorder-side-start ion-reorder {
+  -webkit-transform: translate3d(calc(-1 * -160%),  0,  0);
+  transform: translate3d(calc(-1 * -160%),  0,  0);
 }
 
 ion-reorder ion-icon {

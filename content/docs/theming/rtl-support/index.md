@@ -8,9 +8,26 @@ prev_page_title: Overriding Ionic Sass Variables
 prev_page_link: /docs/theming/overriding-ionic-variables/
 ---
 
-Ionic offers full LTR and RTL support for apps of all languages. If you have any custom styles that are applied to your app, you might want to use some built in mixins that will address the multidirectional needs.
+Ionic offers full LTR and RTL support for apps of all languages. If you have any custom styles that are applied to your app, you might want to use some built in mixins that will address the multi-directional needs.
 
->Note: If your app is always using a specific direction, use `$app-direction: ltr`,  or `$app-direction: rtl` and your css bundle will be smaller.
+### Enabling support
+
+By default, apps are set to LTR only. To enable support for multi-directional apps, change the `$app-direction` variable to null
+
+```scss
+$app-direction: null // Both RTL and LTR
+```
+
+If you know your app will only ever be in either RTL or LTR, you can lock the direction.
+
+```scss
+$app-direction: rlt // RTL only apps
+// or
+$app-direction: ltr // LTR only apps
+```
+
+This has the added benefit of also keeping the generated CSS a bit smaller as well.
+
 
 ### Directional mixins
 To remove all directional properties, there are mixins added that handle directions in LTR and RTL automaically.

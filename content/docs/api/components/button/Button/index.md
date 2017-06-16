@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.0"
+version: "3.4.2"
 versionHref: "/docs"
 path: ""
 category: api

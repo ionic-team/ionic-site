@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.0"
+version: "3.4.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L15">
 Improve this doc
 </a>
 

@@ -12,16 +12,16 @@ Ionic offers full LTR and RTL support for apps of all languages. If you have any
 
 ### Enabling support
 
-By default, apps are set to LTR only. To enable support for multi-directional apps, change the `$app-direction` variable to null
+By default, apps are set to LTR only. To enable support for multi-directional apps, change the `$app-direction` variable to `multi`
 
 ```scss
-$app-direction: null // Both RTL and LTR
+$app-direction: multi // Both RTL and LTR
 ```
 
 If you know your app will only ever be in either RTL or LTR, you can lock the direction.
 
 ```scss
-$app-direction: rlt // RTL only apps
+$app-direction: rtl // RTL only apps
 // or
 $app-direction: ltr // LTR only apps
 ```

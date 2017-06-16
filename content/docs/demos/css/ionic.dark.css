@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201706152138, Dark Theme
+ * vE2E-201706160255, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -13941,7 +13941,7 @@ ion-spinner.spinner-paused svg {
 .tabs-md[tabsHighlight=true] .tab-highlight.animate {
   transition-duration: 300ms; }
 
-.tabs-md[tabsHighlight=true][tabsPlacement=bottom] .tab-highlight {
+.tabs-md[tabsHighlight=true][tabsPlacement=bottom] > .tabbar > .tab-highlight {
   top: 0; }
 
 .tabs-md-primary .tabbar {

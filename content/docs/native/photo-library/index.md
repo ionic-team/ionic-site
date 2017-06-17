@@ -81,7 +81,7 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
     complete: () =&gt; { console.log(&#39;could not get photos&#39;); }
   });
 })
-.catch(err =&gt; console.log(&#39;permissions weren&#39;t granted&#39;));
+.catch(err =&gt; console.log(&#39;permissions weren\&#39;t granted&#39;));
 </code></pre>
 
 

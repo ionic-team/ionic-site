@@ -334,7 +334,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
     <td>
       textZoom</td>
     <td>
-      <code>nuber</code>
+      <code>number</code>
     </td>
     <td>
       <p>A percentage value by which text in the WebView should be scaled.</p>

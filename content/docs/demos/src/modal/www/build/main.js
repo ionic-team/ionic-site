@@ -39096,6 +39096,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
             });
         }
         this._text = this._texts.join(', ');
+        super._inputUpdated();
     }
 };
 __decorate([

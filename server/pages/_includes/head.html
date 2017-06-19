@@ -26,7 +26,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@ionicframework">
 <meta name="twitter:creator" content="ionicframework">
-<meta name="twitter:title" content="Ionic Framework">
+{% if title %}
+  <meta name="twitter:title" content="{{title}}">
+{% elif name %}
+  <meta name="twitter:title" content="Ionic Framework - {{name}}">
+{% elif id %}
+  <meta name="twitter:title" content="Ionic Framework - {{id | title}}">
+{% else %}
+  <meta name="twitter:title" content="Ionic Framework">
+{% endif %}
 <meta name="twitter:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
 <meta name="twitter:image:src" content="https://ionicframework.com/img/ionic-meta.jpg">
 
@@ -34,7 +42,15 @@
 <meta property="fb:app_id" content="1321836767955949">
 <meta property="og:url" content="https://ionicframework.com{{url}}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ionic Framework">
+{% if title %}
+  <meta property="og:title" content="{{title}}">
+{% elif name %}
+  <meta property="og:title" content="Ionic Framework - {{name}}">
+{% elif id %}
+  <meta property="og:title" content="Ionic Framework - {{id | title}}">
+{% else %}
+  <meta property="og:title" content="Ionic Framework">
+{% endif %}
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
 <meta property="og:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
 <meta property="og:site_name" content="Ionic Framework">

@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L16">
 Improve this doc
 </a>
 
@@ -83,11 +83,30 @@ Improve this doc
 
 
 
-<div id="getRootNav"></div>
+<div id="getActiveNavContainers"></div>
 
 <h3>
-<a class="anchor" name="getRootNav" href="#getRootNav"></a>
-<code>getRootNav()</code>
+<a class="anchor" name="getActiveNavContainers" href="#getActiveNavContainers"></a>
+<code>getActiveNavContainers()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getRootNavById"></div>
+
+<h3>
+<a class="anchor" name="getRootNavById" href="#getRootNavById"></a>
+<code>getRootNavById()</code>
   
 
 </h3>

@@ -82,6 +82,44 @@ class MyApp {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="getSecondaryIdentifier"></div>
+
+<h3>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier"></a>
+<code>getSecondaryIdentifier()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getType"></div>
+
+<h3>
+<a class="anchor" name="getType" href="#getType"></a>
+<code>getType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="goToRoot"></div>
 
 <h3>

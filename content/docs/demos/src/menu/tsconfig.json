@@ -33,6 +33,7 @@
   },
   "angularCompilerOptions": {
     "annotationsAs": "static fields",
-    "annotateForClosureCompiler": true
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true
   }
 }

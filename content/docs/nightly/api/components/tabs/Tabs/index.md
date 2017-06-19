@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L21">
 Improve this doc
 </a>
 
@@ -215,6 +215,25 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 
+<div id="getSecondaryIdentifier"></div>
+
+<h3>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier"></a>
+<code>getSecondaryIdentifier()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="getSelected"></div>
 
 <h3>
@@ -238,6 +257,44 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 </div>
+
+
+
+
+<div id="getType"></div>
+
+<h3>
+<a class="anchor" name="getType" href="#getType"></a>
+<code>getType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="goToRoot"></div>
+
+<h3>
+<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<code>goToRoot()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
 
 
 

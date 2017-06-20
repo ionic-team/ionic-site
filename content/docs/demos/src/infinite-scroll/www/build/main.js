@@ -20629,9 +20629,12 @@ class DeepLinker {
                 segments.push(this.getSegmentFromNav(nav));
                 nav = nav.parent;
             }
-            else {
+            else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTab */])(nav)) {
                 segments.push(this.getSegmentFromTab(nav));
                 nav = nav.parent && nav.parent.parent;
+            }
+            else {
+                nav = nav.parent;
             }
         }
         return segments.reverse();

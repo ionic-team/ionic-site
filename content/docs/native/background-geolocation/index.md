@@ -190,7 +190,7 @@ Turn OFF background-tracking
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows Phone</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Inform the native plugin that you're finished, the background-task may be completed
@@ -204,7 +204,7 @@ Inform the native plugin that you're finished, the background-task may be comple
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows Phone</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Force the plugin to enter "moving" or "stationary" state
@@ -267,7 +267,7 @@ Setup configuration
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows Phone</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Returns current stationaryLocation if available. null if not
@@ -281,7 +281,7 @@ Returns current stationaryLocation if available. null if not
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows Phone</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Add a stationary-region listener. Whenever the devices enters "stationary-mode",
@@ -817,7 +817,7 @@ If false location service will not be started in foreground and no notification 
       <code>number</code>
     </td>
     <td>
-      <p>ANDROID, WP8 ONLY
+      <p>ANDROID ONLY
 When using BackgroundGeolocation.LocationProvider.ANDROID_DISTANCE_FILTER_PROVIDER:
 The minimum time interval between location updates in milliseconds.</p>
 

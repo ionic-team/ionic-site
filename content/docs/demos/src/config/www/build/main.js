@@ -15750,10 +15750,29 @@ let App = class App {
         if (portal.length() > 0) {
             return findTopNav(portal);
         }
-        if (!this._rootNavs || !this._rootNavs.size || !this._rootNavs.has(navId)) {
+        if (!this._rootNavs || !this._rootNavs.size) {
             return null;
         }
+        if (this._rootNavs.size === 1) {
+            return findTopNav(this._rootNavs.values().next().value);
+        }
         return findTopNav(this.getRootNavById(navId));
+    }
+    getRootNav() {
+        console.warn('(getRootNav) is deprecated and will be removed in the next major release. Use getRootNavById instead.');
+        const rootNavs = this.getRootNavs();
+        if (rootNavs.length === 0) {
+            return null;
+        }
+        else if (rootNavs.length > 1) {
+            console.warn('(getRootNav) there are multiple root navs, use getRootNavs instead');
+        }
+        return rootNavs[0];
+    }
+    getRootNavs() {
+        const navs = [];
+        this._rootNavs.forEach(nav => navs.push(nav));
+        return navs;
     }
     getRootNavById(navId) {
         return this._rootNavs.get(navId);

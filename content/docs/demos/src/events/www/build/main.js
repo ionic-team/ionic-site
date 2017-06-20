@@ -21283,7 +21283,7 @@ function _loadViewForSegment(navContainer, segment, done) {
             }
         }
     }
-    return navController.push(segment.component, segment.data, {
+    return navController.push(segment.component || segment.name, segment.data, {
         id: segment.id, animate: false, updateUrl: false
     }, done);
 }

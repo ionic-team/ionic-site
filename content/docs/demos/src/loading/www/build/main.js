@@ -15357,7 +15357,7 @@ class ViewController {
     constructor(component, data, rootCssClass = DEFAULT_CSS_CLASS) {
         this.component = component;
         this._isHidden = false;
-        this._state = __WEBPACK_IMPORTED_MODULE_2__nav_util__["e" /* STATE_NEW */];
+        this._state = __WEBPACK_IMPORTED_MODULE_2__nav_util__["f" /* STATE_NEW */];
         this.willEnter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* EventEmitter */]();
         this.didEnter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* EventEmitter */]();
         this.willLeave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* EventEmitter */]();
@@ -15398,7 +15398,7 @@ class ViewController {
     }
     dismiss(data, role, navOptions = {}) {
         if (!this._nav) {
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["f" /* STATE_DESTROYED */], 'ViewController does not have a valid _nav');
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["g" /* STATE_DESTROYED */], 'ViewController does not have a valid _nav');
             return Promise.resolve(false);
         }
         if (this.isOverlay && !navOptions.minClickBlockDuration) {
@@ -15518,19 +15518,19 @@ class ViewController {
         }
     }
     _preLoad() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["g" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["h" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
         this._lifecycle('PreLoad');
     }
     _willLoad() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["g" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["h" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
         this._lifecycle('WillLoad');
     }
     _didLoad() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["h" /* STATE_ATTACHED */], 'view state must be ATTACHED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["i" /* STATE_ATTACHED */], 'view state must be ATTACHED');
         this._lifecycle('DidLoad');
     }
     _willEnter() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["h" /* STATE_ATTACHED */], 'view state must be ATTACHED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["i" /* STATE_ATTACHED */], 'view state must be ATTACHED');
         if (this._detached && this._cmp) {
             this._cmp.changeDetectorRef.reattach();
             this._detached = false;
@@ -15539,7 +15539,7 @@ class ViewController {
         this._lifecycle('WillEnter');
     }
     _didEnter() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["h" /* STATE_ATTACHED */], 'view state must be ATTACHED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state === __WEBPACK_IMPORTED_MODULE_2__nav_util__["i" /* STATE_ATTACHED */], 'view state must be ATTACHED');
         this._nb && this._nb.didEnter();
         this.didEnter.emit(null);
         this._lifecycle('DidEnter');
@@ -15569,7 +15569,7 @@ class ViewController {
         this._dismissRole = null;
     }
     _destroy(renderer) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state !== __WEBPACK_IMPORTED_MODULE_2__nav_util__["f" /* STATE_DESTROYED */], 'view state must be ATTACHED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["d" /* assert */])(this._state !== __WEBPACK_IMPORTED_MODULE_2__nav_util__["g" /* STATE_DESTROYED */], 'view state must be ATTACHED');
         if (this._cmp) {
             if (renderer) {
                 var cmpEle = this._cmp.location.nativeElement;
@@ -15579,7 +15579,7 @@ class ViewController {
             this._cmp.destroy();
         }
         this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._leavingOpts = this._hdrDir = this._ftrDir = this._nb = this._onDidDismiss = this._onWillDismiss = null;
-        this._state = __WEBPACK_IMPORTED_MODULE_2__nav_util__["f" /* STATE_DESTROYED */];
+        this._state = __WEBPACK_IMPORTED_MODULE_2__nav_util__["g" /* STATE_DESTROYED */];
     }
     _lifecycleTest(lifecycle) {
         const instance = this.instance;
@@ -16158,14 +16158,14 @@ let App = class App {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["d" /* assert */])(enteringView.isOverlay, 'presented view controller needs to be an overlay');
         const portal = this._appRoot._getPortal(appPortal);
         enteringView._setNav(portal);
-        opts.direction = __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["i" /* DIRECTION_FORWARD */];
+        opts.direction = __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["j" /* DIRECTION_FORWARD */];
         if (!opts.animation) {
-            opts.animation = enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["i" /* DIRECTION_FORWARD */]);
+            opts.animation = enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["j" /* DIRECTION_FORWARD */]);
         }
         enteringView.setLeavingOpts({
             keyboardClose: opts.keyboardClose,
-            direction: __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["c" /* DIRECTION_BACK */],
-            animation: enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["c" /* DIRECTION_BACK */]),
+            direction: __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["d" /* DIRECTION_BACK */],
+            animation: enteringView.getTransitionName(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["d" /* DIRECTION_BACK */]),
             ev: opts.ev
         });
         return portal.insertPages(-1, [enteringView], opts);
@@ -16259,7 +16259,7 @@ function getPoppableNav(nav) {
     if (!nav) {
         return null;
     }
-    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["l" /* isTabs */])(nav)) {
+    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["a" /* isTabs */])(nav)) {
         return getPoppableNav(nav.parent);
     }
     const len = nav.length();
@@ -20556,6 +20556,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]
 /* harmony export (immutable) */ __webpack_exports__["a"] = setupDeepLinker;
 /* unused harmony export normalizeUrl */
 /* unused harmony export _loadViewForSegment */
+/* unused harmony export getNavFromTree */
 
 
 
@@ -20579,22 +20580,24 @@ class DeepLinker {
     }
     _urlChange(browserUrl) {
         if (!this._isCurrentUrl(browserUrl)) {
+            let isGoingBack = true;
             if (this._isBackUrl(browserUrl)) {
                 console.debug(`DeepLinker, browser urlChange, back to: ${browserUrl}`);
                 this._historyPop();
             }
             else {
+                isGoingBack = false;
                 console.debug(`DeepLinker, browser urlChange, forward to: ${browserUrl}`);
                 this._historyPush(browserUrl);
             }
-            const rootNavContainers = this._app.getActiveNavContainers();
-            if (rootNavContainers && rootNavContainers.length) {
+            const activeNavContainers = this._app.getActiveNavContainers();
+            if (activeNavContainers && activeNavContainers.length) {
                 if (browserUrl === '/') {
                     if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(this._indexAliasUrl)) {
                         browserUrl = this._indexAliasUrl;
                     }
                     else {
-                        rootNavContainers.forEach((navContainer) => {
+                        activeNavContainers.forEach((navContainer) => {
                             navContainer.goToRoot({
                                 updateUrl: false,
                                 isNavRoot: true
@@ -20606,11 +20609,12 @@ class DeepLinker {
                 const segments = this.getCurrentSegments(browserUrl);
                 segments
                     .map(segment => {
-                    for (const navContainer of rootNavContainers) {
-                        if (navContainer.id === segment.navId || (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTab */])(navContainer) && navContainer.parent && navContainer.parent.id === segment.navId)) {
+                    for (const navContainer of activeNavContainers) {
+                        const nav = getNavFromTree(navContainer, segment.navId);
+                        if (nav) {
                             return {
                                 segment: segment,
-                                navContainer: navContainer
+                                navContainer: nav
                             };
                         }
                     }
@@ -20633,22 +20637,27 @@ class DeepLinker {
             const rootNavContainers = this._app.getActiveNavContainers();
             let segments = [];
             for (const rootNavContainer of rootNavContainers) {
-                const segmentsForNav = this.getSegmentsFromNav(rootNavContainer, null, null);
+                if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(rootNavContainer) || rootNavContainer.isTransitioning()) {
+                    return;
+                }
+                const segmentsForNav = this.getSegmentsFromNav(rootNavContainer);
                 segments = segments.concat(segmentsForNav);
             }
             segments = segments.filter(segment => !!segment);
-            const browserUrl = this._serializer.serialize(segments);
-            this._updateLocation(browserUrl, direction);
+            if (segments.length) {
+                const browserUrl = this._serializer.serialize(segments);
+                this._updateLocation(browserUrl, direction);
+            }
         }
     }
-    getSegmentsFromNav(nav, component, data) {
+    getSegmentsFromNav(nav) {
         const segments = [];
         while (nav) {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["b" /* isNav */])(nav)) {
                 segments.push(this.getSegmentFromNav(nav));
                 nav = nav.parent;
             }
-            else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTab */])(nav)) {
+            else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(nav)) {
                 segments.push(this.getSegmentFromTab(nav));
                 nav = nav.parent && nav.parent.parent;
             }
@@ -20684,7 +20693,7 @@ class DeepLinker {
         if (this._indexAliasUrl === browserUrl) {
             browserUrl = '/';
         }
-        if (direction === __WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* DIRECTION_BACK */] && this._isBackUrl(browserUrl)) {
+        if (direction === __WEBPACK_IMPORTED_MODULE_0__nav_util__["d" /* DIRECTION_BACK */] && this._isBackUrl(browserUrl)) {
             console.debug(`DeepLinker, location.back(), url: '${browserUrl}'`);
             this._historyPop();
             this._location.back();
@@ -20752,7 +20761,7 @@ class DeepLinker {
             const view = new __WEBPACK_IMPORTED_MODULE_3__view_controller__["a" /* ViewController */](component, segment.data);
             view.id = segment.id;
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["b" /* isArray */])(segment.defaultHistory)) {
-                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["d" /* convertToViews */])(this, segment.defaultHistory).then(views => {
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["e" /* convertToViews */])(this, segment.defaultHistory).then(views => {
                     views.push(view);
                     return views;
                 });
@@ -20811,20 +20820,23 @@ function _loadViewForSegment(navContainer, segment, done) {
     if (!segment) {
         return done();
     }
-    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTab */])(navContainer) && navContainer.parent) {
-        const tabs = navContainer.parent;
-        const selectedIndex = tabs._getSelectedTabIndex(segment.name);
-        tabs.select(selectedIndex, {
+    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) || (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(navContainer) && navContainer.parent)) {
+        const tabs = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) ? navContainer : navContainer.parent);
+        const selectedIndex = tabs._getSelectedTabIndex(segment.secondaryId);
+        const tab = tabs.getByIndex(selectedIndex);
+        tab._lazyRootFromUrl = segment.name;
+        tab._lazyRootFromUrlData = segment.data;
+        tabs.select(tab, {
             updateUrl: false,
             animate: false
-        });
+        }, true);
         return done();
     }
     const navController = navContainer;
     const numViews = navController.length() - 1;
     for (let i = numViews; i >= 0; i--) {
         const viewController = navController.getByIndex(i);
-        if (viewController && viewController.id === segment.id) {
+        if (viewController && (viewController.id === segment.id || viewController.id === segment.name)) {
             if (i === numViews) {
                 return done();
             }
@@ -20836,9 +20848,18 @@ function _loadViewForSegment(navContainer, segment, done) {
             }
         }
     }
-    return navController.push(segment.component || segment.name, segment.data, {
+    return navController.setRoot(segment.component || segment.name, segment.data, {
         id: segment.id, animate: false, updateUrl: false
     }, done);
+}
+function getNavFromTree(nav, id) {
+    while (nav) {
+        if (nav.id === id) {
+            return nav;
+        }
+        nav = nav.parent;
+    }
+    return null;
 }
 //# sourceMappingURL=deep-linker.js.map
 
@@ -28158,7 +28179,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._imgVelMax = config.getNumber('imgVelocityMax', 3);
         this._scroll = new __WEBPACK_IMPORTED_MODULE_10__util_scroll_view__["a" /* ScrollView */](_app, _plt, _dom);
         while (navCtrl) {
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["l" /* isTabs */])(navCtrl)) {
+            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["a" /* isTabs */])(navCtrl)) {
                 this._tabs = navCtrl;
                 break;
             }
@@ -29571,10 +29592,10 @@ class UIEventManager {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__view_controller__ = __webpack_require__(4);
 /* harmony export (immutable) */ __webpack_exports__["n"] = getComponent;
 /* unused harmony export convertToView */
-/* harmony export (immutable) */ __webpack_exports__["d"] = convertToViews;
-/* harmony export (immutable) */ __webpack_exports__["j"] = setZIndex;
-/* harmony export (immutable) */ __webpack_exports__["l"] = isTabs;
-/* harmony export (immutable) */ __webpack_exports__["a"] = isTab;
+/* harmony export (immutable) */ __webpack_exports__["e"] = convertToViews;
+/* harmony export (immutable) */ __webpack_exports__["k"] = setZIndex;
+/* harmony export (immutable) */ __webpack_exports__["a"] = isTabs;
+/* harmony export (immutable) */ __webpack_exports__["c"] = isTab;
 /* harmony export (immutable) */ __webpack_exports__["b"] = isNav;
 /* unused harmony export linkToSegment */
 /* unused harmony export DeepLinkMetadataFactory */
@@ -29586,7 +29607,9 @@ function getComponent(linker, nameOrPageOrView, params) {
     }
     if (typeof nameOrPageOrView === 'string') {
         return linker.getComponentFromName(nameOrPageOrView).then((component) => {
-            return new __WEBPACK_IMPORTED_MODULE_1__view_controller__["a" /* ViewController */](component, params);
+            const vc = new __WEBPACK_IMPORTED_MODULE_1__view_controller__["a" /* ViewController */](component, params);
+            vc.id = nameOrPageOrView;
+            return vc;
         });
     }
     return Promise.resolve(null);
@@ -29666,25 +29689,25 @@ class DeepLinkMetadata {
 
 var DeepLinkMetadataFactory;
 const STATE_NEW = 1;
-/* harmony export (immutable) */ __webpack_exports__["e"] = STATE_NEW;
+/* harmony export (immutable) */ __webpack_exports__["f"] = STATE_NEW;
 
 const STATE_INITIALIZED = 2;
-/* harmony export (immutable) */ __webpack_exports__["g"] = STATE_INITIALIZED;
+/* harmony export (immutable) */ __webpack_exports__["h"] = STATE_INITIALIZED;
 
 const STATE_ATTACHED = 3;
-/* harmony export (immutable) */ __webpack_exports__["h"] = STATE_ATTACHED;
+/* harmony export (immutable) */ __webpack_exports__["i"] = STATE_ATTACHED;
 
 const STATE_DESTROYED = 4;
-/* harmony export (immutable) */ __webpack_exports__["f"] = STATE_DESTROYED;
+/* harmony export (immutable) */ __webpack_exports__["g"] = STATE_DESTROYED;
 
 const INIT_ZINDEX = 100;
-/* harmony export (immutable) */ __webpack_exports__["k"] = INIT_ZINDEX;
+/* harmony export (immutable) */ __webpack_exports__["l"] = INIT_ZINDEX;
 
 const DIRECTION_BACK = 'back';
-/* harmony export (immutable) */ __webpack_exports__["c"] = DIRECTION_BACK;
+/* harmony export (immutable) */ __webpack_exports__["d"] = DIRECTION_BACK;
 
 const DIRECTION_FORWARD = 'forward';
-/* harmony export (immutable) */ __webpack_exports__["i"] = DIRECTION_FORWARD;
+/* harmony export (immutable) */ __webpack_exports__["j"] = DIRECTION_FORWARD;
 
 const DIRECTION_SWITCH = 'switch';
 /* harmony export (immutable) */ __webpack_exports__["m"] = DIRECTION_SWITCH;
@@ -40714,7 +40737,6 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         }
         this._init = true;
         this._trnsId = null;
-        this.setTransitioning(false);
         this._swipeBackCheck();
         this._nextTrns();
         if (ti.done) {
@@ -40763,7 +40785,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             if (!leavingView && !enteringView) {
                 throw 'no views in the stack to be removed';
             }
-            if (enteringView && enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["e" /* STATE_NEW */]) {
+            if (enteringView && enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_NEW */]) {
                 this._viewInit(enteringView);
             }
             ti.requiresTransition = (ti.enteringRequiresTransition || ti.leavingRequiresTransition) && enteringView !== leavingView;
@@ -40808,7 +40830,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         const insertViews = ti.insertViews;
         if (insertViews) {
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(insertViews.length > 0, 'length can not be zero');
-            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* convertToViews */])(this._linker, insertViews).then((viewControllers) => {
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["e" /* convertToViews */])(this._linker, insertViews).then((viewControllers) => {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(insertViews.length === viewControllers.length, 'lengths does not match');
                 viewControllers = viewControllers.filter(v => v !== null);
                 if (viewControllers.length === 0) {
@@ -40820,7 +40842,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                     if (nav && nav !== this) {
                         throw 'inserted view was already inserted';
                     }
-                    if (view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_DESTROYED */]) {
+                    if (view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */]) {
                         throw 'inserted view was already destroyed';
                     }
                 }
@@ -40870,7 +40892,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                     destroyQueue.push(view);
                 }
             }
-            opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["c" /* DIRECTION_BACK */];
+            opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* DIRECTION_BACK */];
         }
         const finalBalance = this._views.length + (insertViews ? insertViews.length : 0) - (removeCount ? removeCount : 0);
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(finalBalance >= 0, 'final balance can not be negative');
@@ -40887,7 +40909,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
                 this._insertViewAt(view, ti.insertStart + i);
             }
             if (ti.enteringRequiresTransition) {
-                opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["i" /* DIRECTION_FORWARD */];
+                opts.direction = opts.direction || __WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* DIRECTION_FORWARD */];
             }
         }
         if (destroyQueue && destroyQueue.length > 0) {
@@ -40915,7 +40937,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     }
     _viewInit(enteringView) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(enteringView, 'enteringView must be non null');
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["e" /* STATE_NEW */], 'enteringView state must be NEW');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_NEW */], 'enteringView state must be NEW');
         const componentProviders = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* ReflectiveInjector */].resolve([
             { provide: __WEBPACK_IMPORTED_MODULE_5__nav_controller__["a" /* NavController */], useValue: this },
             { provide: __WEBPACK_IMPORTED_MODULE_3__view_controller__["a" /* ViewController */], useValue: enteringView },
@@ -40924,15 +40946,15 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         const componentFactory = this._linker.resolveComponent(enteringView.component);
         const childInjector = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* ReflectiveInjector */].fromResolvedProviders(componentProviders, this._viewport.parentInjector);
         enteringView.init(componentFactory.create(childInjector, []));
-        enteringView._state = __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_INITIALIZED */];
+        enteringView._state = __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_INITIALIZED */];
         this._preLoad(enteringView);
     }
     _viewAttachToDOM(view, componentRef, viewport) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_INITIALIZED */], 'view state must be INITIALIZED');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(componentRef, 'componentRef can not be null');
         this._willLoad(view);
         viewport.insert(componentRef.hostView, viewport.length);
-        view._state = __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_ATTACHED */];
+        view._state = __WEBPACK_IMPORTED_MODULE_1__nav_util__["i" /* STATE_ATTACHED */];
         if (view._cssClass) {
             var pageElement = componentRef.location.nativeElement;
             this._renderer.setElementClass(pageElement, view._cssClass, true);
@@ -40992,7 +41014,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         const promise = new Promise(resolve => transition.registerStart(resolve)).then(() => {
             return this._transitionStart(transition, enteringView, leavingView, opts);
         });
-        if (enteringView && (enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_INITIALIZED */])) {
+        if (enteringView && (enteringView._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_INITIALIZED */])) {
             this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
         }
         if (!transition.hasChildren) {
@@ -41003,7 +41025,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     _transitionStart(transition, enteringView, leavingView, opts) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(this.isTransitioning(), 'isTransitioning() has to be true');
         this._trnsId = null;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* setZIndex */])(this, enteringView, leavingView, opts.direction, this._renderer);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["k" /* setZIndex */])(this, enteringView, leavingView, opts.direction, this._renderer);
         enteringView && enteringView._domShow(true, this._renderer);
         leavingView && leavingView._domShow(true, this._renderer);
         transition.init();
@@ -41062,6 +41084,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (transition.isRoot()) {
             this._trnsCtrl.destroy(transition.trnsId);
             this._app.setEnabled(true);
+            this.setTransitioning(false);
             if (!this.hasChild() && opts.updateUrl !== false) {
                 this._linker.navChange(this.id, opts.direction);
             }
@@ -41102,7 +41125,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         }
     }
     _removeView(view) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["h" /* STATE_ATTACHED */] || view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["f" /* STATE_DESTROYED */], 'view state should be loaded or destroyed');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["i" /* STATE_ATTACHED */] || view._state === __WEBPACK_IMPORTED_MODULE_1__nav_util__["g" /* STATE_DESTROYED */], 'view state should be loaded or destroyed');
         const views = this._views;
         const index = views.indexOf(view);
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["d" /* assert */])(index > -1, 'view must be part of the stack');
@@ -41136,7 +41159,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (!this._isPortal && reorderZIndexes) {
             for (i = 0; i < views.length; i++) {
                 view = views[i];
-                view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["k" /* INIT_ZINDEX */] + 1, this._renderer);
+                view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["l" /* INIT_ZINDEX */] + 1, this._renderer);
             }
         }
     }
@@ -41257,7 +41280,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             return;
         }
         const opts = {
-            direction: __WEBPACK_IMPORTED_MODULE_1__nav_util__["c" /* DIRECTION_BACK */],
+            direction: __WEBPACK_IMPORTED_MODULE_1__nav_util__["d" /* DIRECTION_BACK */],
             progressAnimation: true
         };
         this._queueTrns({
@@ -41338,6 +41361,14 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     }
     getViews() {
         return this._views;
+    }
+    getViewById(id) {
+        for (const vc of this._views) {
+            if (vc && vc.id === id) {
+                return vc;
+            }
+        }
+        return null;
     }
     isSwipeBackEnabled() {
         return this._sbEnabled;
@@ -44296,7 +44327,7 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controll
         this.tabBadgeStyle = this.tabBadgeStyle ? this.tabBadgeStyle : 'default';
     }
     load(opts, done) {
-        if (!this._loaded && this.root) {
+        if (this._lazyRootFromUrl || (!this._loaded && this.root)) {
             this.setElementClass('show-tab', true);
             if (this._lazyRootFromUrl) {
                 this.push(this._lazyRootFromUrl, this._lazyRootFromUrlData, opts, done);
@@ -44361,6 +44392,9 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controll
     }
     getType() {
         return 'tab';
+    }
+    goToRoot(opts) {
+        return this.setRoot(this.root, this.rootParams, opts, null);
     }
 };
 __decorate([
@@ -44578,14 +44612,14 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         this._tabs.push(tab);
         return this.id + '-' + (++this._ids);
     }
-    select(tabOrIndex, opts = {}) {
+    select(tabOrIndex, opts = {}, fromUrl = false) {
         const selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* isBlank */])(selectedTab)) {
             return;
         }
         const currentTab = this.getSelected();
         if (selectedTab === currentTab && currentTab.getActive()) {
-            return this._touchActive(selectedTab);
+            return this._updateCurrentTab(selectedTab, fromUrl);
         }
         if (selectedTab.root) {
             var currentPage;
@@ -44665,10 +44699,26 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
     length() {
         return this._tabs.length;
     }
-    _touchActive(tab) {
+    _updateCurrentTab(tab, fromUrl) {
         const active = tab.getActive();
         if (active) {
-            if (active._cmp && active._cmp.instance.ionSelected) {
+            if (fromUrl && tab._lazyRootFromUrl) {
+                const vc = tab.getViewById(tab._lazyRootFromUrl);
+                if (vc) {
+                    tab.popTo(vc, {
+                        animate: false,
+                        updateUrl: false,
+                    });
+                }
+                else {
+                    tab.setRoot(tab._lazyRootFromUrl, tab._lazyRootFromUrlData, {
+                        animate: false, updateUrl: false
+                    });
+                    tab._lazyRootFromUrl = null;
+                    tab._lazyRootFromUrlData = null;
+                }
+            }
+            else if (active._cmp && active._cmp.instance.ionSelected) {
                 active._cmp.instance.ionSelected();
             }
             else if (tab.length() > 1) {

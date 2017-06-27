@@ -19,11 +19,11 @@ next_page_link: /docs//intro/tutorial/project-structure/
 
 Now that you have [Ionic and its dependencies installed](../installation), you can build your first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
->Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, take a look at [this page](http://ionicframework.com/docs//resources/what-is/#typescript).
+>Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, take a look at [this page](http://ionicframework.com/docs//developer-resources/what-is/#typescript).
 
 ### Starting a New Ionic App
 
-Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
+Starting a new app is easy! From your [command line](/docs//developer-resources/what-is/#cli), run this command:
 
 ```bash
 $ ionic start MyIonicProject tutorial
@@ -33,7 +33,7 @@ $ ionic start MyIonicProject tutorial
 - `MyIonicProject` will be the directory name and the app name from your project.
 - `tutorial` will be the starter template for your project.
 
-Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
+Along with creating your project, this will also install [npm modules](../../developer-resources/what-is/#npm) for the application, and get [Cordova](../../developer-resources/what-is/#cordova) set up and ready to go.
 
 If the tutorial template isn't something you want to use, Ionic has a few templates available:
 

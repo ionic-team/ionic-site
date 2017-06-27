@@ -44204,7 +44204,7 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
     initTabs() {
         let selectedIndex = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* isBlank */])(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
         const tabsSegment = this._linker.getSegmentByNavId(this.id);
-        if (tabsSegment && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* isBlank */])(tabsSegment.component)) {
+        if (tabsSegment) {
             selectedIndex = this._getSelectedTabIndex(tabsSegment.secondaryId, selectedIndex);
         }
         let selectedTab = this._tabs.find((t, i) => i === selectedIndex && t.enabled && t.show);

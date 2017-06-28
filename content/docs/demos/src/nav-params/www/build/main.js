@@ -39413,7 +39413,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
             this.writeValue(val.filter(o => o.selected).map(o => o.value));
         }
         else {
-            this._inputUpdated();
+            this._updateText();
         }
     }
     _inputShouldChange(val) {
@@ -39422,7 +39422,7 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
     _inputChangeEvent() {
         return this.value;
     }
-    _inputUpdated() {
+    _updateText() {
         this._texts.length = 0;
         if (this._options) {
             this._options.forEach(option => {
@@ -39435,6 +39435,9 @@ let Select = Select_1 = class Select extends __WEBPACK_IMPORTED_MODULE_9__util_b
             });
         }
         this._text = this._texts.join(', ');
+    }
+    _inputUpdated() {
+        this._updateText();
         super._inputUpdated();
     }
 };

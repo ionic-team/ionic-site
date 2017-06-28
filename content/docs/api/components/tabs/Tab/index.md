@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.5.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -133,6 +133,27 @@ the tabs.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="goToRoot"></div>
+
+<h3>
+<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<code>goToRoot()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

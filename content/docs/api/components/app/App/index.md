@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.5.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L16">
 Improve this doc
 </a>
 
@@ -83,11 +83,49 @@ Improve this doc
 
 
 
+<div id="getActiveNavContainers"></div>
+
+<h3>
+<a class="anchor" name="getActiveNavContainers" href="#getActiveNavContainers"></a>
+<code>getActiveNavContainers()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="getRootNav"></div>
 
 <h3>
 <a class="anchor" name="getRootNav" href="#getRootNav"></a>
 <code>getRootNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getRootNavById"></div>
+
+<h3>
+<a class="anchor" name="getRootNavById" href="#getRootNavById"></a>
+<code>getRootNavById()</code>
   
 
 </h3>
@@ -106,6 +144,25 @@ Improve this doc
 
 
 </div>
+
+
+
+
+<div id="getRootNavs"></div>
+
+<h3>
+<a class="anchor" name="getRootNavs" href="#getRootNavs"></a>
+<code>getRootNavs()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
 
 
 

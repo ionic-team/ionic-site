@@ -344,6 +344,12 @@ create options for each interface.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>ionChange</td>
+      <td><p> Emitted every time the value of the select changes.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 

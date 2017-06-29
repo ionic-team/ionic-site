@@ -20551,7 +20551,6 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = setupDeepLinker;
 /* unused harmony export normalizeUrl */
-/* unused harmony export _loadViewForSegment */
 /* unused harmony export getNavFromTree */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nav_util__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
@@ -20621,7 +20620,7 @@ class DeepLinker {
                 })
                     .filter(pair => !!pair)
                     .forEach(pair => {
-                    _loadViewForSegment(pair.navContainer, pair.segment, () => { });
+                    this._loadViewForSegment(pair.navContainer, pair.segment, () => { });
                 });
             }
         }
@@ -20675,7 +20674,7 @@ class DeepLinker {
                 data = viewController.data;
             }
         }
-        return this._serializer.serializeComponent({ navId: nav.id, secondaryId: null, type: 'nav' }, component, data);
+        return this._serializer.serializeComponent({ navId: nav.name && nav.name.length ? nav.name : nav.id, secondaryId: null, type: 'nav' }, component, data);
     }
     getSegmentFromTab(navContainer, component, data) {
         if (navContainer && navContainer.parent) {
@@ -20686,7 +20685,7 @@ class DeepLinker {
                 component = viewController.component;
                 data = viewController.data;
             }
-            return this._serializer.serializeComponent({ navId: tabsNavContainer.id, secondaryId: tabsNavContainer.getSecondaryIdentifier(), type: 'tabs' }, component, data);
+            return this._serializer.serializeComponent({ navId: tabsNavContainer.name || tabsNavContainer.id, secondaryId: tabsNavContainer.getSecondaryIdentifier(), type: 'tabs' }, component, data);
         }
     }
     _updateLocation(browserUrl, direction) {
@@ -20735,7 +20734,7 @@ class DeepLinker {
         const allSegments = this.getCurrentSegments();
         if (segment) {
             for (let i = 0; i < allSegments.length; i++) {
-                if (allSegments[i].navId === navContainer.id) {
+                if (allSegments[i].navId === navContainer.name || allSegments[i].navId === navContainer.id) {
                     allSegments[i] = segment;
                     const url = this._serializer.serialize(allSegments);
                     return prepareExternalUrl ? this._location.prepareExternalUrl(url) : url;
@@ -20744,11 +20743,11 @@ class DeepLinker {
         }
         return '';
     }
-    getSegmentByNavId(navId) {
+    getSegmentByNavIdOrName(navId, name) {
         const browserUrl = normalizeUrl(this._location.path());
         const segments = this._serializer.parse(browserUrl);
         for (const segment of segments) {
-            if (segment.navId === navId) {
+            if (segment.navId === navId || segment.navId === name) {
                 return segment;
             }
         }
@@ -20798,6 +20797,42 @@ class DeepLinker {
         }
         return `tab-${tab.index}`;
     }
+    _loadViewForSegment(navContainer, segment, done) {
+        if (!segment) {
+            return done();
+        }
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) || (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(navContainer) && navContainer.parent)) {
+            const tabs = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) ? navContainer : navContainer.parent);
+            const selectedIndex = tabs._getSelectedTabIndex(segment.secondaryId);
+            const tab = tabs.getByIndex(selectedIndex);
+            tab._lazyRootFromUrl = segment.name;
+            tab._lazyRootFromUrlData = segment.data;
+            tabs.select(tab, {
+                updateUrl: false,
+                animate: false
+            }, true);
+            return done();
+        }
+        const navController = navContainer;
+        const numViews = navController.length() - 1;
+        for (let i = numViews; i >= 0; i--) {
+            const viewController = navController.getByIndex(i);
+            if (viewController && (viewController.id === segment.id || viewController.id === segment.name)) {
+                if (i === numViews) {
+                    return done();
+                }
+                else {
+                    return navController.popTo(viewController, {
+                        animate: false,
+                        updateUrl: false,
+                    }, done);
+                }
+            }
+        }
+        return navController.setRoot(segment.component || segment.name, segment.data, {
+            id: segment.id, animate: false, updateUrl: false
+        }, done);
+    }
 }
 /* harmony export (immutable) */ __webpack_exports__["b"] = DeepLinker;
 
@@ -20816,45 +20851,9 @@ function normalizeUrl(browserUrl) {
     }
     return browserUrl;
 }
-function _loadViewForSegment(navContainer, segment, done) {
-    if (!segment) {
-        return done();
-    }
-    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) || (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(navContainer) && navContainer.parent)) {
-        const tabs = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) ? navContainer : navContainer.parent);
-        const selectedIndex = tabs._getSelectedTabIndex(segment.secondaryId);
-        const tab = tabs.getByIndex(selectedIndex);
-        tab._lazyRootFromUrl = segment.name;
-        tab._lazyRootFromUrlData = segment.data;
-        tabs.select(tab, {
-            updateUrl: false,
-            animate: false
-        }, true);
-        return done();
-    }
-    const navController = navContainer;
-    const numViews = navController.length() - 1;
-    for (let i = numViews; i >= 0; i--) {
-        const viewController = navController.getByIndex(i);
-        if (viewController && (viewController.id === segment.id || viewController.id === segment.name)) {
-            if (i === numViews) {
-                return done();
-            }
-            else {
-                return navController.popTo(viewController, {
-                    animate: false,
-                    updateUrl: false,
-                }, done);
-            }
-        }
-    }
-    return navController.setRoot(segment.component || segment.name, segment.data, {
-        id: segment.id, animate: false, updateUrl: false
-    }, done);
-}
 function getNavFromTree(nav, id) {
     while (nav) {
-        if (nav.id === id) {
+        if (nav.id === id || nav.name === id) {
             return nav;
         }
         nav = nav.parent;
@@ -36060,7 +36059,7 @@ let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_
     }
     ngAfterViewInit() {
         this._hasInit = true;
-        const segment = this._linker.getSegmentByNavId(this.id);
+        const segment = this._linker.getSegmentByNavIdOrName(this.id, this.name);
         if (segment && (segment.component || segment.loadChildren)) {
             return this._linker.initViews(segment).then(views => {
                 this.setPages(views, null, null);
@@ -36119,6 +36118,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Object)
 ], Nav.prototype, "rootParams", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", String)
+], Nav.prototype, "name", void 0);
 Nav = Nav_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'ion-nav',
@@ -37178,6 +37181,7 @@ function navGroupStringtoObjects(navGroupStrings) {
             return {
                 type: 'nav',
                 navId: sections[1],
+                niceId: sections[1],
                 secondaryId: null,
                 segmentPieces: sections.splice(2)
             };
@@ -37185,6 +37189,7 @@ function navGroupStringtoObjects(navGroupStrings) {
         return {
             type: 'tabs',
             navId: sections[1],
+            niceId: sections[1],
             secondaryId: sections[2],
             segmentPieces: sections.splice(3)
         };
@@ -44582,7 +44587,7 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
     }
     initTabs() {
         let selectedIndex = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* isBlank */])(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
-        const tabsSegment = this._linker.getSegmentByNavId(this.id);
+        const tabsSegment = this._linker.getSegmentByNavIdOrName(this.id, this.name);
         if (tabsSegment) {
             selectedIndex = this._getSelectedTabIndex(tabsSegment.secondaryId, selectedIndex);
         }
@@ -44785,6 +44790,10 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(tab) ? tab.index : fallbackIndex;
     }
 };
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", String)
+], Tabs.prototype, "name", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Number)
@@ -59115,7 +59124,8 @@ const NavNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵccf 
     mode: 'mode',
     swipeBackEnabled: 'swipeBackEnabled',
     root: 'root',
-    rootParams: 'rootParams'
+    rootParams: 'rootParams',
+    name: 'name'
 }, {}, []);
 /* unused harmony export NavNgFactory */
 

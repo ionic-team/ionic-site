@@ -435,6 +435,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
   <tbody>
     
     <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> A unique name for the tabs</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>selectedIndex</td>
       <td><code>number</code></td>
       <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>

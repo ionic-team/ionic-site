@@ -208,6 +208,13 @@ class MyApp {
   <tbody>
     
     <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> a unique name for the nav element</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> The Page component to load as the root page within this nav.</p>

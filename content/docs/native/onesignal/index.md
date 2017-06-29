@@ -551,36 +551,17 @@ You can pass true later to opt users back into notifications.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="getPermissionSubscriptionState" href="#getPermissionSubscriptionState"></a><code>getPermissionSubscriptionState(enable)</code></h3>
-
-
+<h3><a class="anchor" name="getPermissionSubscriptionState" href="#getPermissionSubscriptionState"></a><code>getPermissionSubscriptionState()</code></h3>
 
 
 Get the current notification and permission state. Returns a OSPermissionSubscriptionState type described below.
-You can pass true later to opt users back into notifications.
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      enable</td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
 
-<h3><a class="anchor" name="postNotification" href="#postNotification"></a><code>postNotification(Parameters)</code></h3>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;OSPermissionSubscriptionState&gt;</code> 
+</div><h3><a class="anchor" name="postNotification" href="#postNotification"></a><code>postNotification(Parameters)</code></h3>
 
 
 

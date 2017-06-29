@@ -73,7 +73,7 @@ this.intelSecurity.data.createFromData({ data: &#39;Sample Data&#39; })
   .catch((error: any) =&gt; console.log(error));
 
 this.intelSecurity.storage.read({id: storageID })
-  .then((instanceID: number) =&gt; this.intelSec.data.getData(instanceID))
+  .then((instanceID: number) =&gt; this.intelSecurity.data.getData(instanceID))
   .then((data: string) =&gt; console.log(data)) // Resolves to &#39;Sample Data&#39;
   .catch((error: any) =&gt; console.log(error));
 

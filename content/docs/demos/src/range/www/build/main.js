@@ -40674,6 +40674,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         }
         this._init = true;
         this._trnsId = null;
+        this.setTransitioning(false);
         this._swipeBackCheck();
         this._nextTrns();
         if (ti.done) {

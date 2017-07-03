@@ -22,8 +22,7 @@ docType: "class"
 
 
 
-<p>Cordova plugin to set/lock the screen orientation in a common way for iOS, Android, WP8 and Blackberry 10.
-This plugin is based on an early version of Screen Orientation API so the api does not currently match the current spec.</p>
+<p>Cordova plugin to set/lock the screen orientation in a common way.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-screen-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-screen-orientation">Screen Orientation plugin docs</a>.</p>
 
 

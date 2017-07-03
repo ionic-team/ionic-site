@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "3.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -89,38 +89,53 @@ this.musicControls.create({
 
  this.musicControls.subscribe().subscribe(action =&gt; {
 
-   switch(action) {
-       case &#39;music-controls-next&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-previous&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-pause&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-play&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-destroy&#39;:
+   function events(action) {
+     const message = JSON.parse(action).message;
+         switch(message) {
+             case &#39;music-controls-next&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-previous&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-pause&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-play&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-destroy&#39;:
+                 // Do something
+                 break;
+
+         // External controls (iOS only)
+         case &#39;music-controls-toggle-play-pause&#39; :
+                 // Do something
+                 break;
+         case &#39;music-controls-seek-to&#39;:
+           const seekToInSeconds = JSON.parse(action).position;
+           MusicControls.updateElapsed({
+             elapsed: seekToInSeconds,
+             isPlaying: true
+           });
            // Do something
            break;
 
-       // Headset events (Android only)
-       case &#39;music-controls-media-button&#39; :
-           // Do something
-           break;
-       case &#39;music-controls-headset-unplugged&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-headset-plugged&#39;:
-           // Do something
-           break;
-       default:
-           break;
-   }
-
- });
+             // Headset events (Android only)
+             // All media button events are listed below
+             case &#39;music-controls-media-button&#39; :
+                 // Do something
+                 break;
+             case &#39;music-controls-headset-unplugged&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-headset-plugged&#39;:
+                 // Do something
+                 break;
+             default:
+                 break;
+         }
+     }
 
  this.musicControls.listen(); // activates the observable above
 
@@ -210,6 +225,36 @@ Toggle play/pause:
       isPlaying</td>
     <td>
       <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="updateElapsed" href="#updateElapsed"></a><code>updateElapsed(args)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Update elapsed time, optionally toggle play/pause:
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      args</td>
+    <td>
+      <code>Object</code>
     </td>
     <td>
       </td>

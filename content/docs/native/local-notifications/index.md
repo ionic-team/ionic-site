@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "3.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L91">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L96">
   Improve this doc
 </a>
 
@@ -751,6 +751,20 @@ Default: false</li>
       <p>ANDROID ONLY
 ARGB value that you would like the LED on the device to blink
 Default: FFFFFF</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      priority
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Notification priority.</p>
 
       <em>(optional)</em>
     </td>

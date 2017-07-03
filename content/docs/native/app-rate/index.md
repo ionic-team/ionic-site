@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">App Rate</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L93">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L97">
   Improve this doc
 </a>
 
@@ -394,6 +394,20 @@ Prompts the user for rating
     </td>
     <td>
       <p>call back function. called when rate-dialog showing</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      handleNegativeFeedback
+    </td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>call back function. called when user clicked on negative feedback</p>
 
       <em>(optional)</em>
     </td>

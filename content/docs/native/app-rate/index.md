@@ -125,6 +125,13 @@ Prompts the user for rating
   </tbody>
 </table>
 
+<h3><a class="anchor" name="navigateToAppStore" href="#navigateToAppStore"></a><code>navigateToAppStore()</code></h3>
+
+
+Immediately send the user to the app store rating page
+
+
+
 
 
 

@@ -71,6 +71,13 @@ this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
 // allow user rotate
 this.screenOrientation.unlock();
+
+// detect orientation changes
+this.screenOrientation.onChange().subscribe(
+   () =&gt; {
+       console.log(&quot;Orientation Changed&quot;);
+   }
+);
 </code></pre>
 
 

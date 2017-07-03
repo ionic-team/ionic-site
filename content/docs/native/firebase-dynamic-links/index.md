@@ -80,15 +80,21 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 constructor(private firebaseDynamicLinks: FirebaseDynamicLinks) { }
 
 ...
-
+// The deepLink and callToActionText properties are optional
 const options: DynamicLinksOptions = {
   title: &#39;My Title&#39;;
   message: &#39;My message&#39;;
+  deepLink: &#39;http://example.com/&#39;;
+  callToActionText: &#39;Message on button&#39;;
 }
 
 this.firebaseDynamicLinks.sendInvitation(options)
   .then((res: any) =&gt; console.log(res))
   .catch((error: any) =&gt; console.error(error));
+
+this.firebaseDynamicLinks.onDynamicLink()
+  .then((res: any) =&gt; console.log(res)) //Handle the logic here after opening the app with the Dynamic link
+  .catch((error:any) =&gt; console.log(error));
 </code></pre>
 
 

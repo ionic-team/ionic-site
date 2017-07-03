@@ -15994,6 +15994,7 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return App; });
+/* unused harmony export findTopNavs */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_constants__ = __webpack_require__(42);
@@ -16112,18 +16113,18 @@ let App = class App {
         }
         return true;
     }
-    getActiveNav(navId) {
+    getActiveNavs(navId) {
         const portal = this._appRoot._getPortal(__WEBPACK_IMPORTED_MODULE_2__app_constants__["c" /* PORTAL_MODAL */]);
         if (portal.length() > 0) {
-            return findTopNav(portal);
+            return findTopNavs(portal);
         }
         if (!this._rootNavs || !this._rootNavs.size) {
-            return null;
+            return [];
         }
         if (this._rootNavs.size === 1) {
-            return findTopNav(this._rootNavs.values().next().value);
+            return findTopNavs(this._rootNavs.values().next().value);
         }
-        return findTopNav(this.getRootNavById(navId));
+        return findTopNavs(this.getRootNavById(navId));
     }
     getRootNav() {
         console.warn('(getRootNav) is deprecated and will be removed in the next major release. Use getRootNavById instead.');
@@ -16148,9 +16149,9 @@ let App = class App {
         this._rootNavs.set(nav.id, nav);
     }
     getActiveNavContainers() {
-        const list = [];
+        let list = [];
         this._rootNavs.forEach((container) => {
-            list.push(findTopNav(container));
+            list = list.concat(findTopNavs(container));
         });
         return list;
     }
@@ -16194,15 +16195,15 @@ let App = class App {
         let navToPop = null;
         let mostRecentVC = null;
         this._rootNavs.forEach((navContainer) => {
-            const activeNav = this.getActiveNav(navContainer.id);
-            const poppable = getPoppableNav(activeNav);
-            if (poppable) {
+            const activeNavs = this.getActiveNavs(navContainer.id);
+            const poppableNavs = activeNavs.map(activeNav => getPoppableNav(activeNav)).filter(nav => !!nav);
+            poppableNavs.forEach(poppable => {
                 const topViewController = poppable.last();
                 if (poppable._isPortal || (topViewController && poppable.length() > 1 && (!mostRecentVC || topViewController._ts >= mostRecentVC._ts))) {
                     mostRecentVC = topViewController;
                     navToPop = poppable;
                 }
-            }
+            });
         });
         if (navToPop) {
             return navToPop.pop();
@@ -16268,15 +16269,19 @@ function getPoppableNav(nav) {
     }
     return getPoppableNav(nav.parent);
 }
-function findTopNav(nav) {
-    while (nav) {
-        const childNav = nav.getActiveChildNav();
-        if (!childNav) {
-            break;
-        }
-        nav = childNav;
+function findTopNavs(nav) {
+    let containers = [];
+    const childNavs = nav.getActiveChildNavs();
+    if (!childNavs || !childNavs.length) {
+        containers.push(nav);
     }
-    return nav;
+    else {
+        childNavs.forEach(childNav => {
+            const topNavs = findTopNavs(childNav);
+            containers = containers.concat(topNavs);
+        });
+    }
+    return containers;
 }
 const SKIP_BLURRING = ['INPUT', 'TEXTAREA', 'ION-INPUT', 'ION-TEXTAREA'];
 const ACTIVE_SCROLLING_TIME = 100;
@@ -16657,13 +16662,16 @@ class DeepLinker {
     getSegmentFromTab(navContainer, component, data) {
         if (navContainer && navContainer.parent) {
             const tabsNavContainer = navContainer.parent;
-            const activeChildNav = tabsNavContainer.getActiveChildNav();
-            const viewController = activeChildNav.getActive(true);
-            if (viewController) {
-                component = viewController.component;
-                data = viewController.data;
+            const activeChildNavs = tabsNavContainer.getActiveChildNavs();
+            if (activeChildNavs && activeChildNavs.length) {
+                const activeChildNav = activeChildNavs[0];
+                const viewController = activeChildNav.getActive(true);
+                if (viewController) {
+                    component = viewController.component;
+                    data = viewController.data;
+                }
+                return this._serializer.serializeComponent({ navId: tabsNavContainer.name || tabsNavContainer.id, secondaryId: tabsNavContainer.getSecondaryIdentifier(), type: 'tabs' }, component, data);
             }
-            return this._serializer.serializeComponent({ navId: tabsNavContainer.name || tabsNavContainer.id, secondaryId: tabsNavContainer.getSecondaryIdentifier(), type: 'tabs' }, component, data);
         }
     }
     _updateLocation(browserUrl, direction) {
@@ -40079,6 +40087,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this.viewDidLeave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* EventEmitter */]();
         this.viewWillUnload = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* EventEmitter */]();
         this._sbEnabled = config.getBoolean('swipeBackEnabled');
+        this._children = [];
         this.id = 'n' + (++ctrlIds);
     }
     get swipeBackEnabled() {
@@ -40547,7 +40556,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             this._trnsCtrl.destroy(transition.trnsId);
             this._app.setEnabled(true);
             this.setTransitioning(false);
-            if (!this.hasChild() && opts.updateUrl !== false) {
+            if (!this.hasChildren() && opts.updateUrl !== false) {
                 this._linker.navChange(this.id, opts.direction);
             }
             if (opts.keyboardClose !== false) {
@@ -40710,17 +40719,17 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             this._errHandler && this._errHandler.handleError(e);
         }
     }
-    hasChild() {
-        return !!this._child;
+    hasChildren() {
+        return this._children && this._children.length > 0;
     }
-    getActiveChildNav() {
-        return this._child;
+    getActiveChildNavs() {
+        return this._children;
     }
     registerChildNav(container) {
-        this._child = container;
+        this._children.push(container);
     }
     unregisterChildNav(nav) {
-        this._child = null;
+        this._children = this._children.filter(child => child !== nav);
     }
     destroy() {
         const views = this._views;
@@ -40778,7 +40787,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     canSwipeBack() {
         return (this._sbEnabled &&
             !this._isPortal &&
-            this._child &&
+            !this._children.length &&
             !this.isTransitioning() &&
             this._app.isEnabled() &&
             this.canGoBack());
@@ -43790,21 +43799,33 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controll
     load(opts, done) {
         if (this._lazyRootFromUrl || (!this._loaded && this.root)) {
             this.setElementClass('show-tab', true);
-            if (this._lazyRootFromUrl) {
-                this.push(this._lazyRootFromUrl, this._lazyRootFromUrlData, opts, done);
-                this._lazyRootFromUrl = null;
-                this._lazyRootFromUrlData = null;
+            const nameToUse = this._lazyRootFromUrl ? this._lazyRootFromUrl : this.root;
+            const dataToUse = this._lazyRootFromUrlData ? this._lazyRootFromUrlData : this.rootParams;
+            const numViews = this.length() - 1;
+            for (let i = numViews; i >= 0; i--) {
+                const viewController = this.getByIndex(i);
+                if (viewController && (viewController.id === nameToUse || viewController.component === nameToUse)) {
+                    if (i === numViews) {
+                        return done();
+                    }
+                    else {
+                        return this.popTo(viewController, {
+                            animate: false,
+                            updateUrl: false,
+                        }, done);
+                    }
+                }
             }
-            else {
-                this.push(this.root, this.rootParams, opts, done);
-            }
+            this.push(nameToUse, dataToUse, opts, done);
+            this._lazyRootFromUrl = null;
+            this._lazyRootFromUrlData = null;
             this._loaded = true;
         }
         else {
             this._dom.read(() => {
                 this.resize();
             });
-            done();
+            return done();
         }
     }
     resize() {
@@ -44151,8 +44172,9 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         }
         return null;
     }
-    getActiveChildNav() {
-        return this.getSelected();
+    getActiveChildNavs() {
+        const selected = this.getSelected();
+        return selected ? [selected] : [];
     }
     getIndex(tab) {
         return this._tabs.indexOf(tab);
@@ -44228,9 +44250,9 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         return 'tabs';
     }
     getSecondaryIdentifier() {
-        const tab = this.getActiveChildNav();
-        if (tab) {
-            return this._linker._getTabSelector(tab);
+        const tabs = this.getActiveChildNavs();
+        if (tabs && tabs.length) {
+            return this._linker._getTabSelector(tabs[0]);
         }
         return '';
     }

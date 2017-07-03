@@ -519,11 +519,11 @@ Returns the first view controller in this nav controller's stack.
 
 
 
-<div id="getActiveChildNav"></div>
+<div id="getActiveChildNavs"></div>
 
 <h3>
-<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
-<code>getActiveChildNav()</code>
+<a class="anchor" name="getActiveChildNavs" href="#getActiveChildNavs"></a>
+<code>getActiveChildNavs()</code>
   
 
 </h3>

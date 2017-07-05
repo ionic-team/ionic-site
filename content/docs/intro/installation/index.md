@@ -30,7 +30,7 @@ Once that's done, create your first Ionic app:
 $ ionic start cutePuppyPics
 ```
 
-Add --type ionic1 if you'd like to use Ionic 1. To run your app, `cd` into the directory that was created and then run the `ionic serve` command to test your app right in the browser!
+Add --type=ionic1 if you'd like to use Ionic 1. To run your app, `cd` into the directory that was created and then run the `ionic serve` command to test your app right in the browser!
 
 ```bash
 $ cd cutePuppyPics

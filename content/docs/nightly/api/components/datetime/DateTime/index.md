@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L26">
 Improve this doc
 </a>
 

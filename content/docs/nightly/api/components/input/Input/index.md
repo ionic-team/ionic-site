@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/input/input.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/input/input.ts#L26">
 Improve this doc
 </a>
 

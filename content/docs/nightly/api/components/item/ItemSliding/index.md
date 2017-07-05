@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item-sliding.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item-sliding.ts#L38">
 Improve this doc
 </a>
 

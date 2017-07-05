@@ -33,7 +33,7 @@ and Universal App Links.</p>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/deeplinks
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li>
 </ul>
@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/deeplinks
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Deeplinks } from &#39;@ionic-native/deeplinks&#39;;
 
 constructor(private deeplinks: Deeplinks) { }
@@ -99,7 +99,7 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="route" href="#route"></a><code>route(paths)</code></h3>
 
 

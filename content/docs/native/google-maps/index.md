@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/google-maps
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/google-maps
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import {
  GoogleMaps,
  GoogleMap,
@@ -129,7 +129,7 @@ loadMap() {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
@@ -186,7 +186,7 @@ Creates a new GoogleMap instance
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
 
 
@@ -627,7 +627,7 @@ Get the visible region.
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
 
 Adds an event listener.
@@ -1222,7 +1222,7 @@ Specify the animation either `DROP` or `BOUNCE`
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="lat" href="#lat"></a><code>lat()</code></h3>
 
 
@@ -1253,7 +1253,7 @@ Specify the animation either `DROP` or `BOUNCE`
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
 
 

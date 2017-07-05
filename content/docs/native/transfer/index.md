@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file-transfer
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/transfer
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/transfer
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Transfer, FileUploadOptions, TransferObject } from &#39;@ionic-native/transfer&#39;;
 import { File } from &#39;@ionic-native/file&#39;;
 
@@ -109,7 +109,7 @@ download() {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="FileTransferErrorCode" href="#FileTransferErrorCode"></a><code>FileTransferErrorCode</code></h3>
 
 Error code rejected from upload with FileTransferError
@@ -136,7 +136,7 @@ Creates a new FileTransfer object
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="upload" href="#upload"></a><code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code></h3>
 
 

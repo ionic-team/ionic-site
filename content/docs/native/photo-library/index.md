@@ -34,7 +34,7 @@ cdvphotolibrary urls should be trusted by Angular. See plugin homepage to learn 
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/photo-library
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li>
 </ul>
@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/photo-library
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { PhotoLibrary } from &#39;@ionic-native/photo-library&#39;;
 
 constructor(private photoLibrary: PhotoLibrary) { }
@@ -91,7 +91,7 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getLibrary" href="#getLibrary"></a><code>getLibrary(options)</code></h3>
 
 

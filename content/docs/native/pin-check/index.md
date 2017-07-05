@@ -33,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-pincheck
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/pin-check
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/pin-check
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { PinCheck } from &#39;@ionic-native/pin-check&#39;;
 import { Platform } from &#39;ionic-angular&#39;;
 
@@ -77,7 +77,7 @@ this.pinCheck.isPinSetup()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isPinSetup" href="#isPinSetup"></a><code>isPinSetup()</code></h3>
 
 

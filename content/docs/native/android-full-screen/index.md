@@ -34,7 +34,7 @@ In Android 4.4+, however, you can now enter true full screen, fully interactive 
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fullscreen
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/android-full-screen
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/android-full-screen
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AndroidFullScreen } from &#39;@ionic-native/android-full-screen&#39;;
 
 constructor(private androidFullScreen: AndroidFullScreen) { }
@@ -75,7 +75,7 @@ this.androidFullScreen.isImmersiveModeSupported()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isSupported" href="#isSupported"></a><code>isSupported()</code></h3>
 
 

@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-streaming-media
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/streaming-media
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/streaming-media
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { StreamingMedia, StreamingVideoOptions } from &#39;@ionic-native/streaming-media&#39;;
 
 constructor(private streamingMedia: StreamingMedia) { }
@@ -75,7 +75,7 @@ this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="playVideo" href="#playVideo"></a><code>playVideo(videoUrl,&nbsp;options)</code></h3>
 
 

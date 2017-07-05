@@ -37,7 +37,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
@@ -49,7 +49,7 @@ $ npm install --save @ionic-native/web-intent
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -59,7 +59,7 @@ $ npm install --save @ionic-native/web-intent
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>For usage information please refer to the plugin&#39;s Github repo.</p>
 <pre><code class="lang-typescript">import { WebIntent } from &#39;@ionic-native/web-intent&#39;;
 
@@ -83,7 +83,7 @@ this.webIntent.startActivity(options).then(onSuccess, onError);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ACTION_SEND" href="#ACTION_SEND"></a><code>ACTION_SEND</code></h3>
 
 

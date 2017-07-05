@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inappbrowser
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>AmazonFire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { InAppBrowser } from &#39;@ionic-native/in-app-browser&#39;;
 
 constructor(private iab: InAppBrowser) { }
@@ -77,7 +77,7 @@ browser.close();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code></h3>
 
 Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
@@ -137,7 +137,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 

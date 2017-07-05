@@ -43,7 +43,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-video-capture-plus
@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/video-capture-plus
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -65,7 +65,7 @@ $ npm install --save @ionic-native/video-capture-plus
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { VideoCapturePlus, VideoCapturePlusOptions, MediaFile } from &#39;@ionic-native/video-capture-plus&#39;;
 
 
@@ -90,7 +90,7 @@ this.videoCapturePlus.captureVideo(options).then(mediafile: MediaFile[] =&gt; co
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="captureVideo" href="#captureVideo"></a><code>captureVideo(options)</code></h3>
 
 

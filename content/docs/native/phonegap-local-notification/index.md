@@ -33,7 +33,7 @@ The API for the local notification plugin follows the W3C Web Notifications spec
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-local-notifications
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code>import { PhonegapLocalNotification } from &#39;@ionic-native/phonegap-local-notification&#39;;
 
 
@@ -86,7 +86,7 @@ this.localNotification.requestPermission().then(
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(title,&nbsp;Options)</code></h3>
 
 A global object that lets you interact with the Notification API.

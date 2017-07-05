@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/launch-navigator
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/launch-navigator
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>Please refer to the plugin&#39;s repo for detailed usage. This docs page only explains the Native wrapper.</p>
 <pre><code class="lang-typescript">import { LaunchNavigator, LaunchNavigatorOptions } from &#39;@ionic-native/launch-navigator&#39;;
 
@@ -81,7 +81,7 @@ this.launchNavigator.navigate(&#39;Toronto, ON&#39;, options)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="navigate" href="#navigate"></a><code>navigate(destination,&nbsp;options)</code></h3>
 
 

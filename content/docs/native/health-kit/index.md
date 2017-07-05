@@ -33,7 +33,7 @@ Any data saved shows up in the iOS Health app and is available for other iOS app
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
@@ -45,7 +45,7 @@ $ npm install --save @ionic-native/health-kit
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>iOS</li>
 </ul>
@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/health-kit
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { HealthKit } from &#39;@ionic-native/health-kit&#39;;
 
 
@@ -71,7 +71,7 @@ constructor(private healthKit: HealthKit) { }
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="available" href="#available"></a><code>available()</code></h3>
 
 

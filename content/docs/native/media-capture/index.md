@@ -31,7 +31,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media-capture
@@ -43,7 +43,7 @@ $ npm install --save @ionic-native/media-capture
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -53,7 +53,7 @@ $ npm install --save @ionic-native/media-capture
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from &#39;@ionic-native/media-capture&#39;;
 
 
@@ -77,7 +77,7 @@ this.mediaCapture.captureImage(options)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="supportedImageModes" href="#supportedImageModes"></a><code>supportedImageModes</code></h3>
 
 

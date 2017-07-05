@@ -32,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-crop
@@ -44,7 +44,7 @@ $ npm install --save @ionic-native/crop
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +54,7 @@ $ npm install --save @ionic-native/crop
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Crop } from &#39;@ionic-native/crop&#39;;
 
 constructor(private crop: Crop) { }
@@ -75,7 +75,7 @@ this.crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="crop" href="#crop"></a><code>crop(pathToImage,&nbsp;options)</code></h3>
 
 

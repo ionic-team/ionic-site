@@ -519,6 +519,26 @@ Returns the first view controller in this nav controller's stack.
 
 
 
+<div id="getActiveChildNav"></div>
+
+<h3>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<code>getActiveChildNav()</code>
+  
+
+</h3>
+
+Returns the active child navigation.
+
+
+
+
+
+
+
+
+
+
 <div id="getActiveChildNavs"></div>
 
 <h3>
@@ -528,7 +548,7 @@ Returns the first view controller in this nav controller's stack.
 
 </h3>
 
-Returns the active child navigation.
+Returns a list of the active child navigation.
 
 
 

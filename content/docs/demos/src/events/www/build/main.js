@@ -42561,6 +42561,10 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
     getSecondaryIdentifier() {
         return null;
     }
+    getActiveChildNav() {
+        console.warn('(getActiveChildNav) is deprecated and will be removed in the next major release. Use getActiveChildNavs instead.');
+        return this._children[this._children.length - 1];
+    }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = NavControllerBase;
 

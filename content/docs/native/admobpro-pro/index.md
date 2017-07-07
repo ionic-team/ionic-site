@@ -4,16 +4,16 @@ version: "3.14.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "admob"
-title: "AdMob"
+id: "admobpro-pro"
+title: "AdMobPro Pro"
 header_sub_title: "Class in module "
-doc: "AdMob"
+doc: "AdMobPro Pro"
 docType: "class"
 ---
 
-<h1 class="api-title">AdMob</h1>
+<h1 class="api-title">AdMobPro Pro</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L89">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-pro/index.ts#L89">
   Improve this doc
 </a>
 
@@ -22,8 +22,8 @@ docType: "class"
 
 
 
-<p>Plugin for Google Ads, including AdMob / DFP (doubleclick for publisher) and mediations to other Ad networks.</p>
-<p>IMPORTANT NOTICE: this plugin takes a percentage out of your earnings if you profit more than $1,000. Read more about this on the plugin&#39;s repo. For a completely free alternative, see <a href="../admob-free">AdMob Free</a>.</p>
+<p>Plugin for Google Ads, including AdMob / DFP (DoubleClick for publisher) and mediations to other Ad networks.</p>
+<p>IMPORTANT NOTICE: this plugin takes a percentage out of your earnings if you profit more than $1,000. Read more about this on the plugin&#39;s repo. For a completely free alternative, see <a href="../admob-free">AdMobPro Free</a>.</p>
 
 
 <p>Repo:
@@ -37,7 +37,7 @@ docType: "class"
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admobpro
-$ npm install --save @ionic-native/admob
+$ npm install --save @ionic-native/admob-pro
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -56,10 +56,10 @@ $ npm install --save @ionic-native/admob
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { AdMob } from &#39;@ionic-native/admob&#39;;
+<pre><code class="lang-typescript">import { AdMobPro } from &#39;@ionic-native/admob-pro&#39;;
 import { Platform } from &#39;ionic-angular&#39;;
 
-constructor(private admob: AdMob, private platform: Platform ) { }
+constructor(private admob: AdMobPro, private platform: Platform ) { }
 
 ionViewDidLoad() {
   this.admob.onAdDismiss()
@@ -151,7 +151,7 @@ Show banner at position
       <code>number</code>
     </td>
     <td>
-      <p>Position. Use <code>AdMob.AD_POSITION</code> to set values.</p>
+      <p>Position. Use <code>AdMobPro.AD_POSITION</code> to set values.</p>
 </td>
   </tr>
   </tbody>
@@ -470,7 +470,7 @@ Triggered when dismiss the Ad and back to your App
       <code>number</code>
     </td>
     <td>
-      <p>Position of banner ad. Defaults to <code>TOP_CENTER</code>. You can use the <code>AdMob.AD_POSITION</code> property to select other values.</p>
+      <p>Position of banner ad. Defaults to <code>TOP_CENTER</code>. You can use the <code>AdMobPro.AD_POSITION</code> property to select other values.</p>
 
       <em>(optional)</em>
     </td>

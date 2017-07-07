@@ -4,16 +4,16 @@ version: "3.14.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "transfer"
-title: "Transfer"
+id: "file-transfer"
+title: "File Transfer"
 header_sub_title: "Class in module "
-doc: "Transfer"
+doc: "File Transfer"
 docType: "class"
 ---
 
-<h1 class="api-title">Transfer</h1>
+<h1 class="api-title">File Transfer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/transfer/index.ts#L108">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file-transfer/index.ts#L106">
   Improve this doc
 </a>
 
@@ -36,7 +36,7 @@ docType: "class"
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file-transfer
-$ npm install --save @ionic-native/transfer
+$ npm install --save @ionic-native/file-transfer
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -55,14 +55,14 @@ $ npm install --save @ionic-native/transfer
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { Transfer, FileUploadOptions, TransferObject } from &#39;@ionic-native/transfer&#39;;
+<pre><code class="lang-typescript">import { FileTransfer, FileUploadOptions, FileTransferObject } from &#39;@ionic-native/transfer&#39;;
 import { File } from &#39;@ionic-native/file&#39;;
 
-constructor(private transfer: Transfer, private file: File) { }
+constructor(private transfer: FileTransfer, private file: File) { }
 
 ...
 
-const fileTransfer: TransferObject = this.transfer.create();
+const fileTransfer: FileTransferObject = this.transfer.create();
 
 // Upload a file:
 fileTransfer.upload(..).then(..).catch(..);
@@ -128,10 +128,10 @@ Creates a new FileTransfer object
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>TransferObject</code> 
+  <b>Returns:</b> <code>FileTransferObject</code> 
 </div>
 
-<h2><a class="anchor" name="TransferObject" href="#TransferObject"></a>TransferObject</h2>
+<h2><a class="anchor" name="FileTransferObject" href="#FileTransferObject"></a>FileTransferObject</h2>
 
 
 

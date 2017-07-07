@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L366">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L275">
   Improve this doc
 </a>
 
@@ -26,8 +26,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps">
-    https://github.com/mapsplugin/cordova-plugin-googlemaps
+  <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps">
+    https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps
   </a>
 </p>
 
@@ -35,7 +35,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
 $ npm install --save @ionic-native/google-maps
 </code></pre>
   </li>
@@ -179,6 +179,14 @@ Creates a new GoogleMap instance
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="environment" href="#environment"></a><code>environment()</code></h3>
+
+Convenience method that returns an instance of Environment class
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Object</code> 
 </div>
 
 <h2><a class="anchor" name="GoogleMap" href="#GoogleMap"></a>GoogleMap</h2>
@@ -187,32 +195,12 @@ Creates a new GoogleMap instance
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
-
-
-Adds an event listener.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
-
-
-Adds an event listener that works once.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code></h3>
+<h3><a class="anchor" name="setDiv" href="#setDiv"></a><code>setDiv(domNode)</code></h3>
 
 
 
 
-Gets a value
+Changes the map div
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -224,7 +212,7 @@ Gets a value
   <tbody>
   <tr>
     <td>
-      key</td>
+      domNode</td>
     <td>
       
     </td>
@@ -234,12 +222,23 @@ Gets a value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code></h3>
+<h3><a class="anchor" name="getDiv" href="#getDiv"></a><code>getDiv()</code></h3>
 
 
 
 
-Sets a value
+Returns the map HTML element
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>HTMLElement</code> 
+</div><h3><a class="anchor" name="setMapTypeId" href="#setMapTypeId"></a><code>setMapTypeId(mapTypeId)</code></h3>
+
+
+
+
+Changes the map type id
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -251,19 +250,9 @@ Sets a value
   <tbody>
   <tr>
     <td>
-      key</td>
+      mapTypeId</td>
     <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      value</td>
-    <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -271,50 +260,49 @@ Sets a value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
+<h3><a class="anchor" name="animateCamera" href="#animateCamera"></a><code>animateCamera()</code></h3>
 
 
-
-
-Listen to a map event.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
-
-
-Listen to a map event only once.
-
+Moves the camera with animation
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty()</code></h3>
+</div><h3><a class="anchor" name="animateCameraZoomIn" href="#animateCameraZoomIn"></a><code>animateCameraZoomIn()</code></h3>
+
+
+Zooming in the camera with animation
 
 
 
-
-Clears all stored values
-
+<h3><a class="anchor" name="animateCameraZoomOut" href="#animateCameraZoomOut"></a><code>animateCameraZoomOut()</code></h3>
 
 
-<h3><a class="anchor" name="setDebuggable" href="#setDebuggable"></a><code>setDebuggable()</code></h3>
+Zooming out the camera with animation
 
 
 
+<h3><a class="anchor" name="moveCamera" href="#moveCamera"></a><code>moveCamera()</code></h3>
+
+
+Moves the camera without animation
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="moveCameraZoomIn" href="#moveCameraZoomIn"></a><code>moveCameraZoomIn()</code></h3>
+
+
+Zooming in the camera without animation
 
 
 
-
-<h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable()</code></h3>
-
+<h3><a class="anchor" name="moveCameraZoomOut" href="#moveCameraZoomOut"></a><code>moveCameraZoomOut()</code></h3>
 
 
-
+Zooming out the camera without animation
 
 
 
@@ -324,146 +312,538 @@ Clears all stored values
 Get the position of the camera.
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;CameraPosition&gt;</code> 
+</div><h3><a class="anchor" name="getCameraTarget" href="#getCameraTarget"></a><code>getCameraTarget()</code></h3>
+
+
+Get the current camera target position
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;CameraPosition&gt;</code> 
-</div><h3><a class="anchor" name="getMyLocation" href="#getMyLocation"></a><code>getMyLocation()</code></h3>
+</div><h3><a class="anchor" name="getCameraZoom" href="#getCameraZoom"></a><code>getCameraZoom()</code></h3>
 
 
-Get the location of the user.
 
+
+Get the current camera zoom level
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;MyLocation&gt;</code> 
-</div><h3><a class="anchor" name="getVisibleRegion" href="#getVisibleRegion"></a><code>getVisibleRegion()</code></h3>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="getCameraBearing" href="#getCameraBearing"></a><code>getCameraBearing()</code></h3>
 
 
-Get the visible region.
 
+
+Get the current camera bearing
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="getCameraTilt" href="#getCameraTilt"></a><code>getCameraTilt()</code></h3>
+
+
+
+
+Get the current camera tilt (view angle)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setCameraTarget" href="#setCameraTarget"></a><code>setCameraTarget(latLng)</code></h3>
+
+
+
+
+Set the center position of the camera view
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      latLng</td>
+    <td>
+      <code>LatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setCameraZoom" href="#setCameraZoom"></a><code>setCameraZoom(zoomLevel)</code></h3>
+
+
+
+
+Set zoom level of the camera
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      zoomLevel</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Zoom level</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setCameraTilt" href="#setCameraTilt"></a><code>setCameraTilt(tiltLevel)</code></h3>
+
+
+
+
+Set the camera view angle
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      tiltLevel</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Tilt level</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setCameraBearing" href="#setCameraBearing"></a><code>setCameraBearing(bearing)</code></h3>
+
+
+
+
+Set camera bearing
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      bearing</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="panBy" href="#panBy"></a><code>panBy(x,&nbsp;y)</code></h3>
+
+
+
+
+Change the center of the map by the given distance in pixels
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      x</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      y</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisibleRegion" href="#getVisibleRegion"></a><code>getVisibleRegion()</code></h3>
+
+
+Get the current visible region (sw and ne)
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;VisibleRegion&gt;</code> 
-</div><h3><a class="anchor" name="showDialog" href="#showDialog"></a><code>showDialog()</code></h3>
+</div><h3><a class="anchor" name="getMyLocation" href="#getMyLocation"></a><code>getMyLocation()</code></h3>
+
+
+Get the current device location
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;MyLocation&gt;</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(isClickable)</code></h3>
 
 
 
 
+Set false to ignore all clicks on the map
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      isClickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
-
-
-<h3><a class="anchor" name="closeDialog" href="#closeDialog"></a><code>closeDialog()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="getLicenseInfo" href="#getLicenseInfo"></a><code>getLicenseInfo()</code></h3>
-
-
-
-
-
-<h3><a class="anchor" name="setCenter" href="#setCenter"></a><code>setCenter()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setZoom" href="#setZoom"></a><code>setZoom()</code></h3>
-
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
 
 
-
-
-<h3><a class="anchor" name="setMapTypeId" href="#setMapTypeId"></a><code>setMapTypeId()</code></h3>
-
+Destroy a map completely
 
 
 
-
-
-
-<h3><a class="anchor" name="setTilt" href="#setTilt"></a><code>setTilt()</code></h3>
+<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 
 
 
+Remove all overlays, such as marker
 
 
 
-<h3><a class="anchor" name="animateCamera" href="#animateCamera"></a><code>animateCamera()</code></h3>
+<h3><a class="anchor" name="fromLatLngToPoint" href="#fromLatLngToPoint"></a><code>fromLatLngToPoint()</code></h3>
 
 
-
+Convert the unit from LatLng to the pixels from the left/top of the map div
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="moveCamera" href="#moveCamera"></a><code>moveCamera()</code></h3>
+</div><h3><a class="anchor" name="fromPointToLatLng" href="#fromPointToLatLng"></a><code>fromPointToLatLng()</code></h3>
+
+
+Convert the unit from the pixels from the left/top to the LatLng
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
+</div><h3><a class="anchor" name="setMyLocationEnabled" href="#setMyLocationEnabled"></a><code>setMyLocationEnabled(enabled)</code></h3>
 
 
 
+
+Set true if you want to show the MyLocation button
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getFocusedBuilding" href="#getFocusedBuilding"></a><code>getFocusedBuilding()</code></h3>
+
+
+Get the currently focused building
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setMyLocationEnabled" href="#setMyLocationEnabled"></a><code>setMyLocationEnabled()</code></h3>
+</div><h3><a class="anchor" name="setIndoorEnabled" href="#setIndoorEnabled"></a><code>setIndoorEnabled(enabled)</code></h3>
 
 
 
 
+Set true if you want to show the indoor map
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
-
-
-<h3><a class="anchor" name="setIndoorEnabled" href="#setIndoorEnabled"></a><code>setIndoorEnabled()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setTrafficEnabled" href="#setTrafficEnabled"></a><code>setTrafficEnabled()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setCompassEnabled" href="#setCompassEnabled"></a><code>setCompassEnabled()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setAllGesturesEnabled" href="#setAllGesturesEnabled"></a><code>setAllGesturesEnabled()</code></h3>
+<h3><a class="anchor" name="setTrafficEnabled" href="#setTrafficEnabled"></a><code>setTrafficEnabled(enabled)</code></h3>
 
 
 
 
+Set true if you want to show the traffic layer
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setCompassEnabled" href="#setCompassEnabled"></a><code>setCompassEnabled(enabled)</code></h3>
 
 
+
+
+Set true if you want to show the compass button
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setAllGesturesEnabled" href="#setAllGesturesEnabled"></a><code>setAllGesturesEnabled(enabled)</code></h3>
+
+
+
+
+Sets the preference for whether all gestures should be enabled or disabled
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Set visiblity of the map
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setPadding" href="#setPadding"></a><code>setPadding(top,&nbsp;right,&nbsp;left,&nbsp;bottom)</code></h3>
+
+
+
+
+Adjust the map padding
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      top</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      right</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      left</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bottom</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setOptions" href="#setOptions"></a><code>setOptions(options)</code></h3>
+
+
+
+
+Set options
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
 
 
-
+Adds a marker
 
 
 <div class="return-value" markdown="1">
@@ -472,7 +852,7 @@ Get the visible region.
 </div><h3><a class="anchor" name="addCircle" href="#addCircle"></a><code>addCircle()</code></h3>
 
 
-
+Adds a circle
 
 
 <div class="return-value" markdown="1">
@@ -481,7 +861,7 @@ Get the visible region.
 </div><h3><a class="anchor" name="addPolygon" href="#addPolygon"></a><code>addPolygon()</code></h3>
 
 
-
+Adds a polygon
 
 
 <div class="return-value" markdown="1">
@@ -514,72 +894,17 @@ Get the visible region.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;GroundOverlay | any&gt;</code> 
-</div><h3><a class="anchor" name="addKmlOverlay" href="#addKmlOverlay"></a><code>addKmlOverlay()</code></h3>
+</div><h3><a class="anchor" name="refreshLayout" href="#refreshLayout"></a><code>refreshLayout()</code></h3>
 
 
 
 
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;KmlOverlay | any&gt;</code> 
-</div><h3><a class="anchor" name="setDiv" href="#setDiv"></a><code>setDiv()</code></h3>
+Refreshes layout.
+You can execute it, but you don't need to do that. The plugin does this automatically.
 
 
 
-
-
-
-
-<h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setOptions" href="#setOptions"></a><code>setOptions()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="setPadding" href="#setPadding"></a><code>setPadding()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="refreshLayout" href="#refreshLayout"></a><code>refreshLayout()</code></h3>
-
-
-
-
-
-
-
-<h3><a class="anchor" name="fromLatLngToPoint" href="#fromLatLngToPoint"></a><code>fromLatLngToPoint()</code></h3>
+<h3><a class="anchor" name="toDataURL" href="#toDataURL"></a><code>toDataURL()</code></h3>
 
 
 
@@ -588,39 +913,377 @@ Get the visible region.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="fromPointToLatLng" href="#fromPointToLatLng"></a><code>fromPointToLatLng()</code></h3>
+</div><h2><a class="anchor" name="Circle" href="#Circle"></a>Circle</h2>
 
 
 
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="setCenter" href="#setCenter"></a><code>setCenter(latLng)</code></h3>
+
+
+
+
+Change the center position.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      latLng</td>
+    <td>
+      <code>LatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getCenter" href="#getCenter"></a><code>getCenter()</code></h3>
+
+
+
+
+Return the current center position
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
-</div><h3><a class="anchor" name="toDataURL" href="#toDataURL"></a><code>toDataURL()</code></h3>
+  <b>Returns:</b> <code>LatLng</code> 
+</div><h3><a class="anchor" name="getRadius" href="#getRadius"></a><code>getRadius()</code></h3>
 
 
 
+
+Return the current circle radius.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setRadius" href="#setRadius"></a><code>setRadius(radius)</code></h3>
+
+
+
+
+Change the circle radius.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      radius</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setFillColor" href="#setFillColor"></a><code>setFillColor(color)</code></h3>
+
+
+
+
+Change the filling color (inner color).
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      color</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getFillColor" href="#getFillColor"></a><code>getFillColor()</code></h3>
+
+
+
+
+Return the current circle filling color (inner color).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setStrokeWidth" href="#setStrokeWidth"></a><code>setStrokeWidth(strokeWidth)</code></h3>
+
+
+
+
+Change the stroke width.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      strokeWidth</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getStrokeWidth" href="#getStrokeWidth"></a><code>getStrokeWidth()</code></h3>
+
+
+
+
+Return the current circle stroke width (unit: pixel).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setStrokeColor" href="#setStrokeColor"></a><code>setStrokeColor(strokeColor)</code></h3>
+
+
+
+
+Change the stroke color (outter color).
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      strokeColor</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getStrokeColor" href="#getStrokeColor"></a><code>getStrokeColor()</code></h3>
+
+
+
+
+Return the current circle stroke color (outer color).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(clickable)</code></h3>
+
+
+
+
+Change clickablity of the circle.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      clickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getClickable" href="#getClickable"></a><code>getClickable()</code></h3>
+
+
+
+
+Return true if the circle is clickable.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(zIndex)</code></h3>
+
+
+
+
+Change the circle zIndex order.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      zIndex</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Return the current circle zIndex.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
 
 
+Remove the circle.
 
 
 
-<h3><a class="anchor" name="panBy" href="#panBy"></a><code>panBy()</code></h3>
+<h3><a class="anchor" name="getBounds" href="#getBounds"></a><code>getBounds()</code></h3>
 
 
 
 
+Return the latLngBounds (rectangle) that contains the circle.
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>LatLngBounds</code> 
+</div><h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Set circle visibility
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Returns a boolean that indicates whether the circle is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h2><a class="anchor" name="Environment" href="#Environment"></a>Environment</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="getLicenseInfo" href="#getLicenseInfo"></a><code>getLicenseInfo()</code></h3>
+
+
+Get the open source software license information for Google Maps Android API v2 and Google Maps SDK for iOS.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor(color)</code></h3>
+
+
+
+
+Specifies the background color of the app.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      color</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <h2><a class="anchor" name="Marker" href="#Marker"></a>Marker</h2>
 
@@ -628,30 +1291,12 @@ Get the visible region.
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
-
-Adds an event listener.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
-
-Adds an event listener that works once.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code></h3>
+<h3><a class="anchor" name="setPosition" href="#setPosition"></a><code>setPosition(latLng)</code></h3>
 
 
 
 
-Gets a value
+Set the marker position.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -663,9 +1308,9 @@ Gets a value
   <tbody>
   <tr>
     <td>
-      key</td>
+      latLng</td>
     <td>
-      
+      <code>LatLng</code>
     </td>
     <td>
       </td>
@@ -673,12 +1318,43 @@ Gets a value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code></h3>
+<h3><a class="anchor" name="getPosition" href="#getPosition"></a><code>getPosition()</code></h3>
+
+
+Return the marker position.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
+</div><h3><a class="anchor" name="showInfoWindow" href="#showInfoWindow"></a><code>showInfoWindow()</code></h3>
 
 
 
 
-Sets a value
+Show the infoWindow of the marker.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="hideInfoWindow" href="#hideInfoWindow"></a><code>hideInfoWindow()</code></h3>
+
+
+
+
+Hide the infoWindow of the marker.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setAnimation" href="#setAnimation"></a><code>setAnimation(animation)</code></h3>
+
+
+
+
+Specify the animation either `DROP` or `BOUNCE`
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -690,19 +1366,9 @@ Sets a value
   <tbody>
   <tr>
     <td>
-      key</td>
+      animation</td>
     <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      value</td>
-    <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -710,41 +1376,32 @@ Sets a value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
-
-Listen to a map event.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
-
-Listen to a map event only once.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty()</code></h3>
+<h3><a class="anchor" name="setDisableAutoPan" href="#setDisableAutoPan"></a><code>setDisableAutoPan(disableAutoPan)</code></h3>
 
 
 
 
-Clears all stored values
-
-
-
-<h3><a class="anchor" name="isVisible" href="#isVisible"></a><code>isVisible()</code></h3>
-
-
-
-
-Return true if the marker is visible
-
-
+Set true if you **do not want** to move the map when you click on the marker.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      disableAutoPan</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
 
@@ -771,27 +1428,92 @@ Set false if you want to hide the marker.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="getHashCode" href="#getHashCode"></a><code>getHashCode()</code></h3>
+<h3><a class="anchor" name="isVisible" href="#isVisible"></a><code>isVisible()</code></h3>
 
 
 
 
-Return the marker hash code.
+Return true if the marker is visible
+
+
+
+<h3><a class="anchor" name="setTitle" href="#setTitle"></a><code>setTitle(title)</code></h3>
+
+
+
+
+Change title of the infoWindow.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      title</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getTitle" href="#getTitle"></a><code>getTitle()</code></h3>
+
+
+
+
+Return the title strings.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string</code> Marker hash code
-</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setSnippet" href="#setSnippet"></a><code>setSnippet(snippet)</code></h3>
 
 
 
 
-Remove the marker completely.
+Change snippet of the infoWindow.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      snippet</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getSnippet" href="#getSnippet"></a><code>getSnippet()</code></h3>
 
 
 
-<h3><a class="anchor" name="setOpacity" href="#setOpacity"></a><code>setOpacity(alpha)</code></h3>
+
+Return the snippet strings.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setOpacity" href="#setOpacity"></a><code>setOpacity(alpha)</code></h3>
 
 
 
@@ -830,18 +1552,16 @@ Return the marker opacity.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> Opacity
-</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex()</code></h3>
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
 
 
-iOS only, Plugin Version >= 1.3.3 Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays. (You're able to run this on Android, but it will have no effect)
+Remove the marker completely.
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="setIconAnchor" href="#setIconAnchor"></a><code>setIconAnchor(x,&nbsp;y)</code></h3>
+
+<h3><a class="anchor" name="setIconAnchor" href="#setIconAnchor"></a><code>setIconAnchor(x,&nbsp;y)</code></h3>
 
 
 
@@ -915,7 +1635,49 @@ Change the info window anchor. This defaults to 50% from the left of the image a
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setDraggable" href="#setDraggable"></a><code>setDraggable(draggable)</code></h3>
+<h3><a class="anchor" name="isInfoWindowShown" href="#isInfoWindowShown"></a><code>isInfoWindowShown()</code></h3>
+
+
+
+
+Retrurn true if the infoWindow is shown on the marker
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="getHashCode" href="#getHashCode"></a><code>getHashCode()</code></h3>
+
+
+
+
+Return the marker hash code.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> Marker hash code
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex()</code></h3>
+
+
+
+
+iOS only, Plugin Version >= 1.3.3 Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays. (You're able to run this on Android, but it will have no effect)
+
+
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Get z-index
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setDraggable" href="#setDraggable"></a><code>setDraggable(draggable)</code></h3>
 
 
 
@@ -1007,83 +1769,7 @@ Change icon url and/or size
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setTitle" href="#setTitle"></a><code>setTitle(title)</code></h3>
-
-
-
-
-Change title of the infoWindow.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      title</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="getTitle" href="#getTitle"></a><code>getTitle()</code></h3>
-
-
-
-
-Return the title strings.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="setSnippet" href="#setSnippet"></a><code>setSnippet(snippet)</code></h3>
-
-
-
-
-Change snippet of the infoWindow.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      snippet</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="getSnippet" href="#getSnippet"></a><code>getSnippet()</code></h3>
-
-
-
-
-Return the snippet strings.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="setRotation" href="#setRotation"></a><code>setRotation(rotation)</code></h3>
+<h3><a class="anchor" name="setRotation" href="#setRotation"></a><code>setRotation(rotation)</code></h3>
 
 
 
@@ -1121,103 +1807,19 @@ Return the marker rotation angle.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="showInfoWindow" href="#showInfoWindow"></a><code>showInfoWindow()</code></h3>
-
-
-
-
-Show the infoWindow of the marker.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="hideInfoWindow" href="#hideInfoWindow"></a><code>hideInfoWindow()</code></h3>
-
-
-
-
-Hide the infoWindow of the marker.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="setPosition" href="#setPosition"></a><code>setPosition(latLng)</code></h3>
-
-
-
-
-Set the marker position.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      latLng</td>
-    <td>
-      <code>LatLng</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="getPosition" href="#getPosition"></a><code>getPosition()</code></h3>
-
-
-Return the marker position.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
 </div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 
 
 
 Return the map instance.
+Note that this method returns the original Google Map object, and not the Ionic Native wrapper.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>GoogleMap</code> 
-</div><h3><a class="anchor" name="setAnimation" href="#setAnimation"></a><code>setAnimation(animation)</code></h3>
-
-
-
-
-Specify the animation either `DROP` or `BOUNCE`
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      animation</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
+  <b>Returns:</b> <code>Object</code> 
+</div><h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
 
 
 
@@ -1282,7 +1884,7 @@ Converts position to address and vice versa
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;GeocoderResult[]&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
 </div>
 
 
@@ -1562,34 +2164,6 @@ Converts position to address and vice versa
     </td>
   </tr>
   
-  <tr>
-    <td>
-      markerClick
-    </td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>Function to be invoked when the user clicks on the marker</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      infoClick
-    </td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>Function to be invoked when the user clicks on the info box</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
   </tbody>
 </table>
 
@@ -1621,10 +2195,10 @@ Converts position to address and vice versa
   
   <tr>
     <td>
-      speed
+      elapsedRealtimeNanos
     </td>
     <td>
-      <code>number</code>
+      <code>any</code>
     </td>
     <td>
       
@@ -1647,10 +2221,75 @@ Converts position to address and vice versa
   
   <tr>
     <td>
+      accuracy
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       bearing
     </td>
     <td>
       <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      altitude
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      speed
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      provider
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hashCode
+    </td>
+    <td>
+      <code>any</code>
     </td>
     <td>
       

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L114">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L116">
   Improve this doc
 </a>
 
@@ -23,28 +23,6 @@ docType: "class"
 
 
 <p>This plugin provides the ability to record and play back audio files on a device.</p>
-<p>Some hints if you are using iOS and recording doesn&#39;t work:
-1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
-Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
-Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
-2.) If that&#39;s not working, too, create the file before using.
-Example:</p>
-<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
-import { File } from &#39;@ionic-native/file&#39;;
-
-...
-
-constructor(private media: Media, private file: File) { }
-
-...
-
-this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(() =&gt; {
-  let file = this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;);
-  file.startRecord();
-  window.setTimeout(() =&gt; file.stopRecord(), 10000);
-});
-</code></pre>
-<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
 
 
 <p>Repo:
@@ -89,11 +67,15 @@ constructor(private media: Media) { }
 // Create a Media instance.  Expects path to file or url as argument
 // We can optionally pass a second argument to track the status of the media
 
-const onStatusUpdate = (status) =&gt; console.log(status);
-const onSuccess = () =&gt; console.log(&#39;Action is successful.&#39;);
-const onError = (error) =&gt; console.error(error.message);
+const file: MediaObject = this.media.create(&#39;file.mp3&#39;);
 
-const file: MediaObject = this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate, onSuccess, onError);
+// to listen to plugin events:
+
+file.onStatusUpdate.subscribe(status =&gt; console.log(status)); // fires when file status changes
+
+file.onSuccess.subscribe(() =&gt; console.log(&#39;Action is successful&#39;));
+
+file.onError.subscribe(error =&gt; console.log(&#39;Error!&#39;, error));
 
 // play the file
 file.play();
@@ -131,6 +113,28 @@ file.startRecord();
 
 file.stopRecord();
 </code></pre>
+<p>Some hints if you are using iOS and recording doesn&#39;t work:
+1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
+Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
+Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
+2.) If that&#39;s not working, too, create the file before using.
+Example:</p>
+<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
+import { File } from &#39;@ionic-native/file&#39;;
+
+...
+
+constructor(private media: Media, private file: File) { }
+
+...
+
+this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(() =&gt; {
+  let file = this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;);
+  file.startRecord();
+  window.setTimeout(() =&gt; file.stopRecord(), 10000);
+});
+</code></pre>
+<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
 
 
 
@@ -209,6 +213,21 @@ Open a media file
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="onSuccess" href="#onSuccess"></a><code>onSuccess()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="onError" href="#onError"></a><code>onError()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="onStatusUpdate" href="#onStatusUpdate"></a><code>onStatusUpdate()</code></h3>
+
+
+
+
 <h3><a class="anchor" name="getCurrentAmplitude" href="#getCurrentAmplitude"></a><code>getCurrentAmplitude()</code></h3>
 
 

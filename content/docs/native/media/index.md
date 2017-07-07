@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L114">
   Improve this doc
 </a>
 
@@ -29,12 +29,12 @@ Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-
 Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
 2.) If that&#39;s not working, too, create the file before using.
 Example:</p>
-<pre><code class="lang-typescript">import { MediaPlugin, MediaObject } from &#39;@ionic-native/media&#39;;
+<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
 import { File } from &#39;@ionic-native/file&#39;;
 
 ...
 
-constructor(private media: MediaPlugin, private file: File) { }
+constructor(private media: Media, private file: File) { }
 
 ...
 
@@ -77,16 +77,16 @@ $ npm install --save @ionic-native/media
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { MediaPlugin, MediaObject } from &#39;@ionic-native/media&#39;;
+<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
 
 
-constructor(private media: MediaPlugin) { }
+constructor(private media: Media) { }
 
 
 ...
 
 
-// Create a MediaPlugin instance.  Expects path to file or url as argument
+// Create a Media instance.  Expects path to file or url as argument
 // We can optionally pass a second argument to track the status of the media
 
 const onStatusUpdate = (status) =&gt; console.log(status);

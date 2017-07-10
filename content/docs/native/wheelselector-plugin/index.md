@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">WheelSelector Plugin<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L62">
   Improve this doc
 </a>
 
@@ -124,8 +124,8 @@ let jsonData = {
      positiveButtonText: &quot;Ok&quot;,
      negativeButtonText: &quot;Nope&quot;,
      defaultItems: [
-       this.jsonData.numbers[2], // &#39;3&#39;
-       this.jsonData.fruits[3] // &#39;Banana&#39;
+       {index:0, value: this.jsonData.numbers[2].description},
+       {index: 1, value: this.jsonData.fruits[3].description}
      ]
    }).then(
      result =&gt; {
@@ -147,8 +147,8 @@ let jsonData = {
      ],
      displayKey: &#39;name&#39;,
      defaultItems: [
-       this.jsonData.firstNames[2],
-       this.jsonData.lastNames[3]
+       {index:0, value: this.jsonData.firstNames[2].name}, 
+       {index: 0, value: this.jsonData.lastNames[3].name}
      ]
    }).then(
      result =&gt; {
@@ -262,10 +262,10 @@ Hide the selector
       defaultItems
     </td>
     <td>
-      <code>Array&lt;WheelSelectorItem&gt;</code>
+      <code>Array&lt;DefaultItem&gt;</code>
     </td>
     <td>
-      <p>Which items to display by default, example [&quot;2&quot;,&quot;Apple&quot;] (if items.length is 2 for instance)</p>
+      <p>Which items to display by default.</p>
 
       <em>(optional)</em>
     </td>

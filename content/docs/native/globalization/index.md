@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-globalization">
     https://github.com/apache/cordova-plugin-globalization

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin is for use with Apache Cordova and allows your application to check whether pin/keyguard or passcode is setup on iOS and Android phones.</p>
 <p>Requires Cordova plugin: cordova-plugin-pincheck. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">PinCheck plugin docs</a>.</p>
 

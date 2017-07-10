@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Get and set data in the iOS Keychain</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-ios-keychain</code>. For more info, please see the <a href="https://github.com/ionic-team/cordova-plugin-ios-keychain">Keychain plugin docs</a>.</p>
 <p>See also <a href="https://ionicframework.com/docs/native/secure-storage/">Secure Storage</a> for more supported platforms.</p>

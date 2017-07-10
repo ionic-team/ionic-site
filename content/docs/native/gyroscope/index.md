@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Read Gyroscope sensor data</p>
 
 

@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/bitpay/cordova-plugin-qrscanner">
     https://github.com/bitpay/cordova-plugin-qrscanner

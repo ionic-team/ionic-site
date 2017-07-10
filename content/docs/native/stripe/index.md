@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>A plugin that allows you to use Stripe&#39;s Native SDKs for Android and iOS.</p>
 
 

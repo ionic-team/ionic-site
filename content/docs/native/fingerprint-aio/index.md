@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Use simple fingerprint authentication on Android and iOS.
 Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plugin, vist: <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio</a></p>
 

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin gets, sets and removes key,value pairs from a device&#39;s secure storage.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-secure-storage</code>. For more info, please see the <a href="https://github.com/Crypho/cordova-plugin-secure-storage">Cordova Secure Storage docs</a>.</p>
 <p>The browser platform is supported as a mock only. Key/values are stored unencrypted in localStorage.</p>

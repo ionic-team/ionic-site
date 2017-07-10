@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>This plugin offers some useful extras on top of the default Media Capture Plugin capabilities:</p>
 <ul>
 <li>HD recording.</li>

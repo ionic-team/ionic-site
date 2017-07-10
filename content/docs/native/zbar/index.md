@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
 

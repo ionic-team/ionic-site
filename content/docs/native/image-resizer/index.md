@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova Plugin For Image Resize</p>
 
 

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Access information about the underlying device and platform.</p>
 
 

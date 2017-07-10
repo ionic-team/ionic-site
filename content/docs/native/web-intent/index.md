@@ -30,6 +30,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent">
     https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent

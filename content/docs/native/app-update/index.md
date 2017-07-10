@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin does self-update for android</p>
 
 

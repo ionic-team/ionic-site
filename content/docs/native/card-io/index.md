@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/card-io/card.io-Cordova-Plugin">
     https://github.com/card-io/card.io-Cordova-Plugin

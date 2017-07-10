@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Native storage of variables in Android and iOS</p>
 
 

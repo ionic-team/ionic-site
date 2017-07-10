@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Requires Cordova plugin: cordova-plugin-network-information. For more info, please see the <a href="https://github.com/apache/cordova-plugin-network-information">Network plugin docs</a>.</p>
 
 

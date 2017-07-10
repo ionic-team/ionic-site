@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin will start automatically your Android app after the every boot or the auto-update of your application.
 You can enable or disable the autostart function in your app.</p>
 

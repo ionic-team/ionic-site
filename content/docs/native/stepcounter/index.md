@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for using device&#39;s stepcounter on Android (API &gt; 19)</p>
 <p>Use to</p>
 <ul>

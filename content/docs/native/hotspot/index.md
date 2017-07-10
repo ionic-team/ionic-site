@@ -30,6 +30,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-hotspot-plugin">
     https://github.com/hypery2k/cordova-hotspot-plugin

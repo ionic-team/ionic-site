@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/ratson/cordova-plugin-admob-free">
     https://github.com/ratson/cordova-plugin-admob-free

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This Plugin is a wrapper around the Tencent QQ SDK for Android and iOS. Provides access to QQ ssoLogin, QQ Sharing, QQZone Sharing etc.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-qqsdk</code>. For more info, please see the <a href="https://github.com/iVanPan/Cordova_QQ">QQSDK plugin docs</a>.</p>
 

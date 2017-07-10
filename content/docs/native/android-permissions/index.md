@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin is designed to support Android new permissions checking mechanism.</p>
 <p>You can find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
 

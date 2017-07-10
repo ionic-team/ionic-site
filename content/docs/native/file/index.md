@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin implements a File API allowing read/write access to files residing on the device.</p>
 <p>The File class implements static convenience functions to access files and directories.</p>
 <p>Example:</p>

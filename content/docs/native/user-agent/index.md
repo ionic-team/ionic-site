@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The UserAgent plugin provides functions to set the HTTP  user-agent header. For more info about User-Agents, please <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">see the HTTP User-Agent docs</a>.</p>
 <p>Requires Cordova plugin: <code>cordova-useragent</code>. For more info, please see the <a href="https://github.com/LouisT/cordova-useragent">User-Agent plugin docs</a>.</p>
 

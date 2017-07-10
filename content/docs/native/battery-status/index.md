@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Requires Cordova plugin: cordova-plugin-batterystatus. For more info, please see the <a href="https://github.com/apache/cordova-plugin-battery-status">BatteryStatus plugin docs</a>.</p>
 
 

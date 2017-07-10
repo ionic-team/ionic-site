@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin can display your image in full screen with the ability to pan, zoom, and share the image.</p>
 
 

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
 <p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
 

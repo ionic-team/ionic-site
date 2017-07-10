@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin provides functions for working with iBeacons.</p>
 <p> The plugin&#39;s API closely mimics the one exposed through the <a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html">CLLocationManager</a> introduced in iOS 7.</p>
 

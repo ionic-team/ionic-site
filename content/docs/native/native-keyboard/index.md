@@ -11,7 +11,7 @@ doc: "Native Keyboard"
 docType: "class"
 ---
 
-<h1 class="api-title">Native Keyboard</h1>
+<h1 class="api-title">Native Keyboard<span class="paid" title="paid">Paid</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/native-keyboard/index.ts#L171">
   Improve this doc
@@ -21,9 +21,14 @@ docType: "class"
 
 
 
+<p class="paid-notice">
+  This plugin might require a paid license, or might take a share of your app's earnings.
+  Check the <a target="_blank" rel="nofollow" href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard">plugin's repo</a> for more information.
+</p>
+
+
 
 <p>A cross platform WhatsApp / Messenger / Slack -style keyboard even. For your Cordova app.</p>
-<p>IMPORTANT NOTICE: this plugin is paid, please read more about this at the <a href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard#i-like-it-hook-me-up">plugin&#39;s repo</a>.</p>
 
 
 <p>Repo:

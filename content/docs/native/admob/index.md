@@ -4,14 +4,14 @@ version: "3.14.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "admobpro-pro"
-title: "AdMobPro Pro"
+id: "admob"
+title: "AdMob"
 header_sub_title: "Class in module "
-doc: "AdMobPro Pro"
+doc: "AdMob"
 docType: "class"
 ---
 
-<h1 class="api-title">AdMobPro Pro</h1>
+<h1 class="api-title">AdMob<span class="paid" title="paid">Paid</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-pro/index.ts#L89">
   Improve this doc
@@ -19,6 +19,12 @@ docType: "class"
 
 
 
+
+
+<p class="paid-notice">
+  This plugin might require a paid license, or might take a share of your app's earnings.
+  Check the <a target="_blank" rel="nofollow" href="https://github.com/floatinghotpot/cordova-admob-pro">plugin's repo</a> for more information.
+</p>
 
 
 

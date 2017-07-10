@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/greybax/cordova-plugin-native-spinner">
     https://github.com/greybax/cordova-plugin-native-spinner

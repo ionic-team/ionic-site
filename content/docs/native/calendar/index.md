@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin allows you to add events to the Calendar of the mobile device.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-calendar</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">Calendar plugin docs</a>.</p>
 

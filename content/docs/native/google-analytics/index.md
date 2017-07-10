@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin connects to Google&#39;s native Universal Analytics SDK
 Prerequisites:</p>
 <ul>

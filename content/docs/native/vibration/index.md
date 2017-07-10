@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Vibrates the device</p>
 
 

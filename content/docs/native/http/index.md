@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova / Phonegap plugin for communicating with HTTP servers. Supports iOS and Android.</p>
 <p>Advantages over Javascript requests:</p>
 <ul>

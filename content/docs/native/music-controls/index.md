@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Music controls for Cordova applications.
 Display a &#39;media&#39; notification with play/pause, previous, next buttons, allowing the user to control the play.
 Handle also headset event (plug, unplug, headset button).</p>

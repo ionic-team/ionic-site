@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">
     https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller

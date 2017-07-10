@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/j3k0/cordova-plugin-purchase">
     https://github.com/j3k0/cordova-plugin-purchase

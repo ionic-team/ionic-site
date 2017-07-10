@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin does speech recognition using cloud services</p>
 
 

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
 
 

@@ -11,9 +11,10 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
 ## Local Build
 
-1. Install jekyll (may require sudo): `gem install jekyll`
+1. Install jekyll: `bundle install`
 2. Run `npm install`
-3. Run `gulp watch`
+3. Run `gulp watch` (after the first run, this is the only step needed)
+
 
 ## CI Explanation
 
@@ -25,49 +26,20 @@ Ionic v1 and v2 now automatically deploy their changes to an Ionic staging serve
 4. Sit back. The [Ionic v1 CI tasks](https://circleci.com/gh/ionic-team/ionic) and the [Ionic v2 CI tasks](https://circleci.com/gh/ionic-team/ionic2) will generate the new docs and push them to the `ionic-site` repo. The `ionic-site` CI tasks will then build them and automatically deploy them to the staging server.
 5. Preview changes on the [staging server](https://ionic-site-staging.herokuapp.com/) and promote the changes to production if all looks well. Be sure to give the site a quick look over to make sure things look good.
 
+
 ## Third Party Libraries
 
 3rd part libraries should be concatonated in to the site bundle by adding them via package.json and specifying what files to include in the `assets/3rd-party-libs.json` file. 
 
+
 ## Deploy
 
-Install [heroku-toolbelt](https://toolbelt.heroku.com/) or with homebrew
-
-```bash
-brew install heroku-toolbelt
-```
-
-Install [heroku-pipelines](https://devcenter.heroku.com/articles/pipelines)
-
-```bash
-heroku plugins:install heroku-pipelines
-```
-
-Then log into heroku
-
-```bash
-heroku login
-# enter your email and password when promted
-```
-
-Then add the heroku remotes
-
-```bash
-git remote add production https://git.heroku.com/ionic-site.git
-```
-
-```bash
-git remote add staging git@heroku.com:ionic-site-staging.git
-```
+Changes to master are automatically deployed to  [ionic-site-staging.herokuapp.com/](https://ionic-site-staging.herokuapp.com/). Periodically, the core framework will inspect staging and promote it to [ionicframework.com](https://ionicframework.com).
 
 
-- Make your changes
-- Run `gulp`
-- `git push origin master`
-- View the staging server at [https://ionic-site-staging.herokuapp.com/](https://ionic-site-staging.herokuapp.com/)
-- Promote the staging server to production
-- `heroku pipelines:promote -r staging`
-- Watch the build server at [https://circleci.com/gh/ionic-team/ionic-site](https://circleci.com/gh/ionic-team/ionic-site)
+## Troubleshooting
+
+Occasionally, people get a Jekyll error the first time they run `gulp watch`. Try deleting `Gemfile.lock` and re-running `bundle install` and then try again. Be sure to set your local git to exclude the changed `Gemfile.lock` file. 
 
 
 ## Community

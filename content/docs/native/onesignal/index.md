@@ -216,6 +216,9 @@ inFocusDisplaying).
 
 
 
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
 
 **iOS** - Settings for iOS apps
 
@@ -259,6 +262,20 @@ Must be called after `startInit` to complete initialization of OneSignal.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="promptForPushNotificationsWithUserResponse" href="#promptForPushNotificationsWithUserResponse"></a><code>promptForPushNotificationsWithUserResponse()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Prompt the user for notification permissions. Callback fires as soon as the user accepts or declines notifications.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
 </div><h3><a class="anchor" name="getTags" href="#getTags"></a><code>getTags()</code></h3>
 
 
@@ -590,7 +607,34 @@ Get the current notification and permission state. Returns a OSPermissionSubscri
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the notification was send successfully.
-</div><h3><a class="anchor" name="promptLocation" href="#promptLocation"></a><code>promptLocation()</code></h3>
+</div><h3><a class="anchor" name="cancelNotification" href="#cancelNotification"></a><code>cancelNotification(notificationId)</code></h3>
+
+
+
+
+Cancels a single OneSignal notification based on its Android notification integer id. Use instead of NotificationManager.cancel(id); otherwise the notification will be restored when your app is restarted.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      notificationId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="promptLocation" href="#promptLocation"></a><code>promptLocation()</code></h3>
 
 
 
@@ -658,7 +702,38 @@ The higher the value the more information is shown.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="addPermissionObserver" href="#addPermissionObserver"></a><code>addPermissionObserver()</code></h3>
 
+
+
+
+The passed in function will be fired when a notification permission setting changes.
+This includes the following events:
+- Notification permission prompt shown
+- The user accepting or declining the permission prompt
+- Enabling/disabling notifications for your app in the device Settings after returning to your app.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="addSubscriptionObserver" href="#addSubscriptionObserver"></a><code>addSubscriptionObserver()</code></h3>
+
+
+
+
+The passed in function will be fired when a notification subscription property changes.
+This includes the following events:
+- Getting a push token from Apple / Google.
+- Getting a player / user id from OneSignal
+- OneSignal.setSubscription is called
+- User disables or enables notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div>
 
 
 

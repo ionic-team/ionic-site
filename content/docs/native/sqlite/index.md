@@ -293,7 +293,7 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlStatements</td>
     <td>
-      <code>Array&lt;string | string[]&gt;</code>
+      <code>Array&lt;string | string[] | any&gt;</code>
     </td>
     <td>
       </td>

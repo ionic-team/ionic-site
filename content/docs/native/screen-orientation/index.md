@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin to set/lock the screen orientation in a common way.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-screen-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-screen-orientation">Screen Orientation plugin docs</a>.</p>
 

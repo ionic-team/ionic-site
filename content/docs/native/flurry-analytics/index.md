@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin connects to Flurry Analytics SDK</p>
 
 

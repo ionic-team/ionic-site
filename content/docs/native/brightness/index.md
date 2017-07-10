@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The Brightness plugin let you control the display brightness of your device.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-brightness</code>. For more info, please see the <a href="https://github.com/mgcrea/cordova-plugin-brightness">Brightness plugin docs</a>.</p>
 

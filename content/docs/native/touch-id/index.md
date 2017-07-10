@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Scan the fingerprint of a user with the TouchID sensor.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-touch-id</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">TouchID plugin docs</a>.</p>
 

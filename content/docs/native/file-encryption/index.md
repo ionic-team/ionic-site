@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Simple file encryption for Cordova.</p>
 
 

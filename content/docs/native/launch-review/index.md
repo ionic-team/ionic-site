@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This launches the native store app in order for the user to leave a review.
 On Android, the plugin opens the the app&#39;s storepage in the Play Store where the user can leave a review by pressing the stars to give a rating.
 On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses the Review tab, where the user can leave a review by pressing &quot;Write a review&quot;.</p>

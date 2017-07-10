@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Call a number directly from your Cordova/Ionic application.
 <strong>NOTE</strong>: The iOS Simulator (and maybe Android Simulators) do not provide access to the phone subsystem.</p>
 

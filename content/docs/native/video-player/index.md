@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>A Cordova plugin that simply allows you to immediately play a video in fullscreen mode.</p>
 <p>Requires Cordova plugin: <code>com.moust.cordova.videoplayer</code>. For more info, please see the <a href="https://github.com/moust/cordova-plugin-videoplayer">VideoPlayer plugin docs</a>.</p>
 

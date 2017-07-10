@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Plugin to use Twitter Single Sign On
 Uses Twitter&#39;s Fabric SDK</p>
 <pre><code class="lang-typescript">import { TwitterConnect } from &#39;@ionic-native/twitter-connect&#39;;

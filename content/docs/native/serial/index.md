@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin provides functions for working with Serial connections</p>
 
 

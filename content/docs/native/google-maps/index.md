@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin uses the native Google Maps SDK</p>
 
 

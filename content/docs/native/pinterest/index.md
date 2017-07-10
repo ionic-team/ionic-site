@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for Pinterest</p>
 
 

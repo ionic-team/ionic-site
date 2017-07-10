@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Requires Cordova plugin: <code>cordova-plugin-device-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-orientation">Device Orientation docs</a>.</p>
 
 

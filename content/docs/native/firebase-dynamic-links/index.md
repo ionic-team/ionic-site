@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for Firebase Invites and Firebase Dynamic Links</p>
 <p>Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.</p>
 <p>Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>

@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Gets the Google accounts associated with the Android device</p>
 
 

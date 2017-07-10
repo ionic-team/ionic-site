@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-facebook4</code>. For more info, please see the <a href="https://github.com/jeduan/cordova-plugin-facebook4">Facebook Connect</a>.</p>
 <h4 id="installation">Installation</h4>

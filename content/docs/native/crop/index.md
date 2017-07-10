@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Crops images</p>
 
 

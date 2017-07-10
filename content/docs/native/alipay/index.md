@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin is used for Alipay APP support. Integrated with the latest SDK.</p>
 <p>Requires Cordova plugin: <code>cordova-alipay-base</code>. For more info, please see the <a href="https://github.com/xueron/cordova-alipay-base">Alipay plugin docs</a>.</p>
 

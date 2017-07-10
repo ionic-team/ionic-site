@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>PayPal plugin for Cordova/Ionic Applications</p>
 
 

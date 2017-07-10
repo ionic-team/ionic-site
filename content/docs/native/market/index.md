@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Opens an app&#39;s page in the market place (Google Play, App Store)</p>
 
 

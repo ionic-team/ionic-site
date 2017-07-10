@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/ionic-team/ionic-plugin-keyboard">
     https://github.com/ionic-team/ionic-plugin-keyboard

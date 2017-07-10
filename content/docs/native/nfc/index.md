@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The NFC plugin allows you to read and write NFC tags. You can also beam to, and receive from, other NFC enabled devices.</p>
 <p>Use to</p>
 <ul>

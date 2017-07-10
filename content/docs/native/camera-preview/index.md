@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>Showing camera preview in HTML</p>
 <p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
 

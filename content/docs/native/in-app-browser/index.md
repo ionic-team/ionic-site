@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Launches in app Browser</p>
 
 

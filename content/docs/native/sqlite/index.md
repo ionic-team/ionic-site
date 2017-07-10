@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Access SQLite databases on the device.</p>
 
 

@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-googleplus">
     https://github.com/EddyVerbruggen/cordova-plugin-googleplus

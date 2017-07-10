@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Captures a screen shot</p>
 
 

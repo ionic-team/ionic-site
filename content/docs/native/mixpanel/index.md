@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova Plugin that wraps Mixpanel SDK for Android and iOS</p>
 
 

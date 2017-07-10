@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Access and manage Contacts on the device.</p>
 
 

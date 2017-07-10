@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>The NavigationBar plugin can you to hide and auto hide the android navigation bar.</p>
 
 

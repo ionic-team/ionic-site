@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for native forward and reverse geocoding</p>
 
 

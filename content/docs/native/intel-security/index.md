@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The App Security API enables the use of security properties and capabilities on the platform, using a new set of API defined for application developers. You are not required to be a security expert to make good use of the API. Key elements, such as encryption of data and establishments of capabilities, is abstracted and done by the API implementation, for you.</p>
 <p>For example:</p>
 <ul>

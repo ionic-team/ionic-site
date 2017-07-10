@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin allows you to save base64 data as a png image into the device</p>
 
 

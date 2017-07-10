@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-3dtouch">
     https://github.com/EddyVerbruggen/cordova-plugin-3dtouch

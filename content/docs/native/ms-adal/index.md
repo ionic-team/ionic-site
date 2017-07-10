@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Active Directory Authentication Library (ADAL) plugin.
 Active Directory Authentication Library (<a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet">ADAL</a>)
 plugin provides easy to use authentication functionality for your Apache Cordova apps by taking advantage of

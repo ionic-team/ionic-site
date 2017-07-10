@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin to prevent the app from going to sleep while in background.
 Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
 

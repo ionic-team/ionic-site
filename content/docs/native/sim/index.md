@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Gets info from the Sim card like the carrier name, mcc, mnc and country code and other system dependent info.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-sim</code>. For more info, please see the <a href="https://github.com/pbakondy/cordova-plugin-sim">Cordova Sim docs</a>.</p>
 

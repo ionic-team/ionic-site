@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
 
 

@@ -84,7 +84,7 @@ this.printer.print(content, options).then(onSuccess, onError);
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
-Checks whether to device is capable of printing.
+Checks whether the device is capable of printing (uses `check()` internally)
 
 
 <div class="return-value" markdown="1">

@@ -164,15 +164,55 @@
       font-style: italic;
       font-size: 13px;
       position: relative;
+      padding-left: 30px;
 
       &::before {
+        position: absolute;
+        left: 0px;
+        top: 0px;
         font-family: 'Ionicons';
         content: '\f276';
         color: $blue;
         font-size: 24px;
-        position: relative;
         font-style: normal;
         margin-right: 3px;
+      }
+    }
+
+    .paid {
+      background: $blue;
+      color: white;
+      font-weight: 700;
+      font-size: 10px;
+      padding: 0 2px;
+      border-radius: 3px;
+      position: relative;
+      top: -9px;
+      cursor: pointer;
+    }
+
+    .paid-notice {
+      font-style: italic;
+      font-size: 13px;
+      position: relative;
+      padding-left: 30px;
+
+      &::before {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        font-family: 'Ionicons';
+        content: '\f48d';
+        color: $blue;
+        font-size: 24px;
+        font-style: normal;
+        margin-right: 3px;
+      }
+    }
+
+    .api-title {
+      .beta, .paid {
+        margin-left: 6px;
       }
     }
   }

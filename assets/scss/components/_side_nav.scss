@@ -249,3 +249,10 @@
     top: -2px;
   }
 }
+
+
+body:not(.ng-scope) {
+  .side-nav ul a {
+    transition: none;
+  }
+}

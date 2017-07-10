@@ -48695,8 +48695,8 @@ let ItemSliding = class ItemSliding {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["g" /* swipeShouldReset */])(isResetDirection, isMovingFast, isOnCloseZone)) {
             restingPoint = 0;
         }
-        this._setOpenAmount(restingPoint, true);
         this.fireSwipeEvent();
+        this._setOpenAmount(restingPoint, true);
         return restingPoint;
     }
     fireSwipeEvent() {

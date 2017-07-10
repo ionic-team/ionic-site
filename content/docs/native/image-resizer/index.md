@@ -23,14 +23,11 @@ docType: "class"
 
 
 <p>Cordova Plugin For Image Resize</p>
-<p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
-<code>ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
-<p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
 
 
 <p>Repo:
-  <a href="https://github.com/protonet/cordova-plugin-image-resizer">
-    https://github.com/protonet/cordova-plugin-image-resizer
+  <a href="https://github.com/JoschkaSchulz/cordova-plugin-image-resizer">
+    https://github.com/JoschkaSchulz/cordova-plugin-image-resizer
   </a>
 </p>
 
@@ -38,7 +35,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add info.protonet.imageresizer
 $ npm install --save @ionic-native/image-resizer
 </code></pre>
   </li>

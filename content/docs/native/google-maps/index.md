@@ -1285,7 +1285,596 @@ Specifies the background color of the app.
   </tbody>
 </table>
 
-<h2><a class="anchor" name="Marker" href="#Marker"></a>Marker</h2>
+<h2><a class="anchor" name="Geocoder" href="#Geocoder"></a>Geocoder</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
+
+
+Converts position to address and vice versa
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      request</td>
+    <td>
+      <code>GeocoderRequest</code>
+    </td>
+    <td>
+      <p>Request object with either an address or a position</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
+</div><h2><a class="anchor" name="GroundOverlay" href="#GroundOverlay"></a>GroundOverlay</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="setBounds" href="#setBounds"></a><code>setBounds(bounds)</code></h3>
+
+
+
+
+Change the bounds of the GroundOverlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      bounds</td>
+    <td>
+      <code>ILatLng[]</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getBounds" href="#getBounds"></a><code>getBounds()</code></h3>
+
+
+
+
+Return the current center position
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>ILatLng[]</code> 
+</div><h3><a class="anchor" name="setBearing" href="#setBearing"></a><code>setBearing(bearing)</code></h3>
+
+
+
+
+Change the bearing of the ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      bearing</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getBearing" href="#getBearing"></a><code>getBearing()</code></h3>
+
+
+
+
+Return the current bearing value
+
+
+
+<h3><a class="anchor" name="setImage" href="#setImage"></a><code>setImage(image)</code></h3>
+
+
+
+
+Change the image of the ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      image</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL of image</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setOpacity" href="#setOpacity"></a><code>setOpacity(opacity)</code></h3>
+
+
+
+
+Change the opacity of the ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      opacity</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getOpacity" href="#getOpacity"></a><code>getOpacity()</code></h3>
+
+
+
+
+Return the current opacity
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(clickable)</code></h3>
+
+
+
+
+Change clickablity of the ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      clickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getClickable" href="#getClickable"></a><code>getClickable()</code></h3>
+
+
+
+
+Return true if the ground overlay is clickable
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Change visibility of the ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Return true if the ground overlay is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(index)</code></h3>
+
+
+
+
+Change the ground overlay zIndex order
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Return the current ground overlay zIndex
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+Remove the ground overlay
+
+
+
+<h2><a class="anchor" name="HtmlInfoWindow" href="#HtmlInfoWindow"></a>HtmlInfoWindow</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor(color)</code></h3>
+
+
+Change the backgroundColor
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      color</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setContent" href="#setContent"></a><code>setContent(content)</code></h3>
+
+
+Set your HTML contents.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      content</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>String containing text or HTML element</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="open" href="#open"></a><code>open(marker)</code></h3>
+
+
+Open the htmlInfoWindow
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      marker</td>
+    <td>
+      <code>Marker</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
+
+
+Close the htmlInfoWindow
+
+
+
+<h2><a class="anchor" name="Geocoder" href="#Geocoder"></a>Geocoder</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
+
+
+Converts position to address and vice versa
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      request</td>
+    <td>
+      <code>GeocoderRequest</code>
+    </td>
+    <td>
+      <p>Request object with either an address or a position</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
+</div><h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="lat" href="#lat"></a><code>lat()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="lng" href="#lng"></a><code>lng()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="equals" href="#equals"></a><code>equals()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="toString" href="#toString"></a><code>toString()</code></h3>
+
+
+
+
+<h3><a class="anchor" name="toUrlValue" href="#toUrlValue"></a><code>toUrlValue()</code></h3>
+
+
+
+
+<h2><a class="anchor" name="LatLngBounds" href="#LatLngBounds"></a>LatLngBounds</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="northeast" href="#northeast"></a><code>northeast()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="southwest" href="#southwest"></a><code>southwest()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="type" href="#type"></a><code>type()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="toString" href="#toString"></a><code>toString()</code></h3>
+
+
+
+
+Converts to string
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="toUrlValue" href="#toUrlValue"></a><code>toUrlValue(precision)</code></h3>
+
+
+
+
+Returns a string of the form "lat_lo,lng_lo,lat_hi,lng_hi" for this bounds, where "lo" corresponds to the southwest corner of the bounding box, while "hi" corresponds to the northeast corner of that box.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      precision</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="extend" href="#extend"></a><code>extend(LatLng)</code></h3>
+
+
+
+
+Extends this bounds to contain the given point.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      LatLng</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="contains" href="#contains"></a><code>contains(LatLng)</code></h3>
+
+
+
+
+Returns true if the given lat/lng is in this bounds.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      LatLng</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getCenter" href="#getCenter"></a><code>getCenter()</code></h3>
+
+
+
+
+Computes the center of this LatLngBounds
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>ILatLng</code> 
+</div><h2><a class="anchor" name="Marker" href="#Marker"></a>Marker</h2>
 
 
 
@@ -1819,47 +2408,18 @@ Note that this method returns the original Google Map object, and not the Ionic 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Object</code> 
-</div><h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
+</div><h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
 
 
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="lat" href="#lat"></a><code>lat()</code></h3>
+<h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
 
 
 
 
-<h3><a class="anchor" name="lng" href="#lng"></a><code>lng()</code></h3>
-
-
-
-
-<h3><a class="anchor" name="equals" href="#equals"></a><code>equals()</code></h3>
-
-
-
-
-<h3><a class="anchor" name="toString" href="#toString"></a><code>toString()</code></h3>
-
-
-
-
-<h3><a class="anchor" name="toUrlValue" href="#toUrlValue"></a><code>toUrlValue()</code></h3>
-
-
-
-
-<h2><a class="anchor" name="Geocoder" href="#Geocoder"></a>Geocoder</h2>
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
-
-
-Converts position to address and vice versa
+Change the polygon points.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1871,12 +2431,937 @@ Converts position to address and vice versa
   <tbody>
   <tr>
     <td>
-      request</td>
+      points</td>
     <td>
-      <code>GeocoderRequest</code>
+      <code>ILatLng[]</code>
     </td>
     <td>
-      <p>Request object with either an address or a position</p>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getPoints" href="#getPoints"></a><code>getPoints()</code></h3>
+
+
+
+
+Return an instance of the BaseArrayClass.
+You can modify the points.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>BaseArrayClass&lt;ILatLng&gt;</code> 
+</div><h3><a class="anchor" name="setHoles" href="#setHoles"></a><code>setHoles(holes)</code></h3>
+
+
+
+
+Change the polygon holes.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      holes</td>
+    <td>
+      <code>ILatLng[][]</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getHoles" href="#getHoles"></a><code>getHoles()</code></h3>
+
+
+
+
+Return an instance of the BaseArrayClass.
+You can modify the holes.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>BaseArrayClass&lt;ILatLng[]&gt;</code> 
+</div><h3><a class="anchor" name="setFillColor" href="#setFillColor"></a><code>setFillColor(fillColor)</code></h3>
+
+
+
+
+Change the filling color (inner color)
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fillColor</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getFillColor" href="#getFillColor"></a><code>getFillColor()</code></h3>
+
+
+
+
+Return the current polygon filling color (inner color).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setStrokeColor" href="#setStrokeColor"></a><code>setStrokeColor(strokeColor)</code></h3>
+
+
+
+
+Change the stroke color (outter color)
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      strokeColor</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getStrokeColor" href="#getStrokeColor"></a><code>getStrokeColor()</code></h3>
+
+
+
+
+Return the current polygon stroke color (outer color)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(clickable)</code></h3>
+
+
+
+
+Change clickablity of the polygon
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      clickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getClickable" href="#getClickable"></a><code>getClickable()</code></h3>
+
+
+
+
+Return true if the polygon is clickable
+
+
+
+<h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Change visibility of the polygon
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Return true if the polygon is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(zIndex)</code></h3>
+
+
+
+
+Change the polygon zIndex order.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      zIndex</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Return the current polygon zIndex
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="setStrokeWidth" href="#setStrokeWidth"></a><code>setStrokeWidth()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="getStrokeWidth" href="#getStrokeWidth"></a><code>getStrokeWidth()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="setGeodesic" href="#setGeodesic"></a><code>setGeodesic(geodesic)</code></h3>
+
+
+
+
+When true, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      geodesic</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getGeodesic" href="#getGeodesic"></a><code>getGeodesic()</code></h3>
+
+
+
+
+Return true if the polylgon is geodesic.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h2><a class="anchor" name="Polyline" href="#Polyline"></a>Polyline</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
+
+
+
+
+Change the polyline points.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      points</td>
+    <td>
+      <code>ILatLng[]</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getPoints" href="#getPoints"></a><code>getPoints()</code></h3>
+
+
+
+
+Return an instance of the BaseArrayClass
+You can modify the points.
+
+
+
+<h3><a class="anchor" name="setGeoDesic" href="#setGeoDesic"></a><code>setGeoDesic(geoDesic)</code></h3>
+
+
+
+
+When true, edges of the polyline are interpreted as geodesic and will follow the curvature of the Earth.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      geoDesic</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getGeodesic" href="#getGeodesic"></a><code>getGeodesic()</code></h3>
+
+
+
+
+Return true if the polyline is geodesic
+
+
+
+<h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Change visibility of the polyline
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Return true if the polyline is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(clickable)</code></h3>
+
+
+
+
+Change clickablity of the polyline
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      clickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getClickable" href="#getClickable"></a><code>getClickable()</code></h3>
+
+
+
+
+Return true if the polyline is clickable
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setStrokeColor" href="#setStrokeColor"></a><code>setStrokeColor(strokeColor)</code></h3>
+
+
+
+
+Change the polyline color
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      strokeColor</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getStrokeColor" href="#getStrokeColor"></a><code>getStrokeColor()</code></h3>
+
+
+
+
+Return the current polyline color
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="setStrokeWidth" href="#setStrokeWidth"></a><code>setStrokeWidth(strokeWidth)</code></h3>
+
+
+
+
+Change the polyline stroke width
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      strokeWidth</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getStrokeWidth" href="#getStrokeWidth"></a><code>getStrokeWidth()</code></h3>
+
+
+
+
+Return the current stroke width (unit: pixel).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(index)</code></h3>
+
+
+
+
+Change the polyline zIndex order.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Return the current polyline zIndex
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+Remove the polyline
+
+
+
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+
+
+
+
+
+
+<h2><a class="anchor" name="TileOverlay" href="#TileOverlay"></a>TileOverlay</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="setFadeIn" href="#setFadeIn"></a><code>setFadeIn(fadeIn)</code></h3>
+
+
+
+
+Set whether the tiles should fade in.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fadeIn</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getFadeIn" href="#getFadeIn"></a><code>getFadeIn()</code></h3>
+
+
+
+
+Get whether the tiles should fade in
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(zIndex)</code></h3>
+
+
+
+
+Set the zIndex of the tile overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      zIndex</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
+
+
+
+
+Return the zIndex of the tile overlay
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setOpacity" href="#setOpacity"></a><code>setOpacity(opacity)</code></h3>
+
+
+
+
+Set the opacity of the tile overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      opacity</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getOpacity" href="#getOpacity"></a><code>getOpacity()</code></h3>
+
+
+
+
+Return the opacity of the tile overlay
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Set false if you want to hide
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Return true if the tile overlay is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="getTileSize" href="#getTileSize"></a><code>getTileSize()</code></h3>
+
+
+
+
+Get tile size
+
+
+
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+Remove the tile overlay
+
+
+
+<h2><a class="anchor" name="BaseClass" href="#BaseClass"></a>BaseClass</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
+
+
+Adds an event listener.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
+
+
+Adds an event listener that works once.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code></h3>
+
+
+
+
+Gets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code></h3>
+
+
+
+
+Sets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
+
+
+
+
+Listen to a map event.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
+
+
+Listen to a map event only once.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty()</code></h3>
+
+
+
+
+Clears all stored values
+
+
+
+<h3><a class="anchor" name="trigger" href="#trigger"></a><code>trigger()</code></h3>
+
+
+
+
+
+
+
+<h2><a class="anchor" name="BaseArrayClass" href="#BaseArrayClass"></a>BaseArrayClass</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
+
+
+
+
+Add an event listener
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      event</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>name of the event. Can be <code>insert_at</code>, <code>remove_at</code>, <code>set_at</code>, or <code>finish</code>.</p>
 </td>
   </tr>
   </tbody>
@@ -1884,9 +3369,389 @@ Converts position to address and vice versa
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
-</div>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an Observable
+</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty()</code></h3>
 
+
+
+
+Removes all elements from the array.
+
+
+
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(fn,&nbsp;callback)</code></h3>
+
+
+
+
+Iterate over each element, calling the provided callback.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback)</code></h3>
+
+
+
+
+Iterate over each element, calling the provided callback.
+Then you can get the results of each callback.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
+</div><h3><a class="anchor" name="getArray" href="#getArray"></a><code>getArray()</code></h3>
+
+
+
+
+Returns a reference to the underlying Array.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Array&lt;Object&gt;</code> 
+</div><h3><a class="anchor" name="getAt" href="#getAt"></a><code>getAt(index)</code></h3>
+
+
+
+
+Returns the element at the specified index.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Object</code> 
+</div><h3><a class="anchor" name="insertAt" href="#insertAt"></a><code>insertAt(index,&nbsp;element)</code></h3>
+
+
+
+
+Inserts an element at the specified index.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      element</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Object</code> 
+</div><h3><a class="anchor" name="pop" href="#pop"></a><code>pop()</code></h3>
+
+
+
+
+Removes the last element of the array and returns that element.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Object</code> 
+</div><h3><a class="anchor" name="push" href="#push"></a><code>push(element)</code></h3>
+
+
+
+
+Adds one element to the end of the array and returns the new length of the array.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      element</td>
+    <td>
+      <code>object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="removeAt" href="#removeAt"></a><code>removeAt(index)</code></h3>
+
+
+
+
+Removes an element from the specified index.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setAt" href="#setAt"></a><code>setAt(index,&nbsp;element)</code></h3>
+
+
+
+
+Sets an element at the specified index.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      index</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      element</td>
+    <td>
+      <code>object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<h2><a class="anchor" name="GoogleMapOptions" href="#GoogleMapOptions"></a>GoogleMapOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      mapType
+    </td>
+    <td>
+      <code>MapType</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      controls
+    </td>
+    <td>
+      <code>{
+    compass: boolean;
+    myLocationButton: boolean;
+    indoorPicker: boolean;
+    zoom: boolean;
+  }</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      gestures
+    </td>
+    <td>
+      <code>{
+    scroll: boolean;
+    tilt: boolean;
+    zoom: boolean;
+    rotate: boolean;
+  }</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      styles
+    </td>
+    <td>
+      <code>any[]</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      camera
+    </td>
+    <td>
+      <code>CameraPosition</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      preferences
+    </td>
+    <td>
+      <code>{
+    zoom: {
+      minZoom: number;
+      maxZoom: number;
+    },
+    building: boolean;
+  }</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 <h2><a class="anchor" name="AnimateCameraOptions" href="#AnimateCameraOptions"></a>AnimateCameraOptions</h2>
@@ -1959,6 +3824,606 @@ Converts position to address and vice versa
     </td>
     <td>
       <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="CameraPosition" href="#CameraPosition"></a>CameraPosition</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      target
+    </td>
+    <td>
+      <code>LatLng | LatLngBounds | LatLng[]</code>
+    </td>
+    <td>
+      <p>The center location of the camera view.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tilt
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>View angle</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zoom
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Zoom level</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bearing
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Map orientation</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      duration
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The duration of animation in milliseconds</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="CircleOptions" href="#CircleOptions"></a>CircleOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      center
+    </td>
+    <td>
+      <code>LatLng</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      radius
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      strokeColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      strokeWidth
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fillColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      visible
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zIndex
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="GeocoderRequest" href="#GeocoderRequest"></a>GeocoderRequest</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      address
+    </td>
+    <td>
+      <code>string | string[]</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      position
+    </td>
+    <td>
+      <code>ILatLng | ILatLng[]</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="GeocoderResult" href="#GeocoderResult"></a>GeocoderResult</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      adminArea
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      country
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      countryCode
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      extra
+    </td>
+    <td>
+      <code>{
+    featureName?: string;
+    lines?: Array&lt;string&gt;;
+    permises?: string;
+    phone?: string;
+    url?: string
+  }</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locale
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locality
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      position
+    </td>
+    <td>
+      <code>{ lat: number; lng: number }</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      postalCode
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subAdminArea
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subLocality
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subThoroughfare
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      thoroughfare
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="GroundOverlayOptions" href="#GroundOverlayOptions"></a>GroundOverlayOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL of overlay</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bounds
+    </td>
+    <td>
+      <code>Array&lt;LatLng&gt;</code>
+    </td>
+    <td>
+      <p>Bounds, array of LatLng</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      visible
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to false to hide</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      opacity
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Opacity. From 0 to 1.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bearing
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Bearing</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zIndex
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Z-index</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="ILatLng" href="#ILatLng"></a>ILatLng</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      lat
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      lng
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="MarkerIcon" href="#MarkerIcon"></a>MarkerIcon</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      size
+    </td>
+    <td>
+      <code>{
+    width?: number;
+    height?: number;
+  }</code>
     </td>
     <td>
       
@@ -2319,6 +4784,301 @@ Converts position to address and vice versa
     </td>
     <td>
       <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="PolygonOptions" href="#PolygonOptions"></a>PolygonOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      points
+    </td>
+    <td>
+      <code>Array&lt;LatLng&gt;</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      geodesic
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      strokeColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      strokeWidth
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fillColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      visible
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zIndex
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      addHole
+    </td>
+    <td>
+      <code>Array&lt;LatLng&gt;</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="PolylineOptions" href="#PolylineOptions"></a>PolylineOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      points
+    </td>
+    <td>
+      <code>Array&lt;LatLng&gt;</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      visible
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      geodesic
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      color
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      width
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zIndex
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="TileOverlayOptions" href="#TileOverlayOptions"></a>TileOverlayOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      getTile
+    </td>
+    <td>
+      <code>(x: number, y: number, zoom: number) =&gt; string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      visible
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      zIndex
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tileSize
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      opacity
+    </td>
+    <td>
+      <code>number</code>
     </td>
     <td>
       

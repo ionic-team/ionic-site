@@ -917,7 +917,7 @@ to transparent.</p>
     
   </tbody>
 </table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<h3 id="sroll-events">Sroll Events</h3>
+<h3 id="scroll-events">Scroll Events</h3>
 <p>Scroll events happen outside of Angular&#39;s Zones. This is for performance reasons. So
 if you&#39;re trying to bind a value to any scroll event, it will need to be wrapped in
 a <code>zone.run()</code></p>

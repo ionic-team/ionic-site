@@ -50447,6 +50447,7 @@ Select = Select_1 = __decorate([
             '<div class="select-icon-inner"></div>' +
             '</div>' +
             '<button aria-haspopup="true" ' +
+            'type="button" ' +
             '[id]="id" ' +
             'ion-button="item-cover" ' +
             '[attr.aria-labelledby]="_labelId" ' +

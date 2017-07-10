@@ -300,7 +300,7 @@ Track custom metric
     <td>
       key</td>
     <td>
-      <code>string</code>
+      <code>number</code>
     </td>
     <td>
       </td>

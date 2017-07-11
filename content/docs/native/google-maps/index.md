@@ -23,7 +23,8 @@ docType: "class"
 
 
 
-<p>This plugin uses the native Google Maps SDK</p>
+<p>This plugin uses the native Google Maps SDK
+Note: As of Ionic native 4.0, this using the 2.0 version of the google maps plugin. Please make sure your plugin is updated</p>
 
 
 <p>Repo:

@@ -91,7 +91,7 @@ this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ANDROID_THEMES" href="#ANDROID_THEMES"></a><code>ANDROID_THEMES</code></h3>
 
-
+Convenience property to select an Android theme value
 
 
 

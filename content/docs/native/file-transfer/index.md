@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/file-transfer
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { FileTransfer, FileUploadOptions, FileTransferObject } from &#39;@ionic-native/transfer&#39;;
+<pre><code class="lang-typescript">import { FileTransfer, FileUploadOptions, FileTransferObject } from &#39;@ionic-native/file-transfer&#39;;
 import { File } from &#39;@ionic-native/file&#39;;
 
 constructor(private transfer: FileTransfer, private file: File) { }

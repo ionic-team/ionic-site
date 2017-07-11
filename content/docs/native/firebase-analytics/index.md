@@ -146,7 +146,7 @@ This feature must be used in accordance with Google's Privacy Policy.
       <code>string</code>
     </td>
     <td>
-      <p>THe user ID</p>
+      <p>The user ID</p>
 </td>
   </tr>
   </tbody>

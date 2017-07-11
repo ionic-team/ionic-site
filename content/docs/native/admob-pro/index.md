@@ -1,17 +1,17 @@
 ---
 layout: "fluid/docs_base"
-version: "3.14.0"
+version: "4.0.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "admob"
-title: "AdMob"
+id: "admob-pro"
+title: "AdMob Pro"
 header_sub_title: "Class in module "
-doc: "AdMob"
+doc: "AdMob Pro"
 docType: "class"
 ---
 
-<h1 class="api-title">AdMob<span class="paid" title="paid">Paid</span></h1>
+<h1 class="api-title">AdMob Pro<span class="paid" title="paid">Paid</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-pro/index.ts#L89">
   Improve this doc

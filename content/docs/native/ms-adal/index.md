@@ -97,19 +97,19 @@ authContext.acquireTokenAsync(&#39;https://graph.windows.net&#39;, &#39;a5d92493
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="authority" href="#authority"></a><code>authority</code></h3>
+<h3><a class="anchor" name="authority" href="#authority"></a><code>authority()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="validateAuthority" href="#validateAuthority"></a><code>validateAuthority</code></h3>
+<h3><a class="anchor" name="validateAuthority" href="#validateAuthority"></a><code>validateAuthority()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="tokenCache" href="#tokenCache"></a><code>tokenCache</code></h3>
+<h3><a class="anchor" name="tokenCache" href="#tokenCache"></a><code>tokenCache()</code></h3>
 
 
 

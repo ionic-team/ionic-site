@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Purchase 2</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-purchase-2/index.ts#L173">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-purchase-2/index.ts#L176">
   Improve this doc
 </a>
 

@@ -37,6 +37,26 @@ body {
   display: block;
   float: right;
   margin-top: -3.1em;
+  line-height: 25px;
+
+
+  .component-doc-demo-mobile {
+    margin-right: 6px;
+  }
+}
+
+.component-doc-demo-mobile {
+  cursor: pointer;
+  padding: 2px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white !important;
+  background-color: $blue;
+}
+
+.component-doc-demo-mobile {
+  display: none;
 }
 
 .docs-container {
@@ -65,6 +85,10 @@ body {
       & + main {
         margin-right: 0;
       }
+    }
+    
+    .component-doc-demo-mobile {
+      display: inline-block;
     }
   }
 

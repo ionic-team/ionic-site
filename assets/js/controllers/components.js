@@ -158,10 +158,11 @@ IonicSiteModule
   };
 
   $(document).ready(function() {
+    $previousOffset = -1;
     $header = $('#components-header');
 
-    $sectionLabel = $header.find('h2');
-    $subSectionLabel = $header.find('h3');
+    $sectionLabel = $header.find('h3');
+    $subSectionLabel = $header.find('h4');
 
     $componentsIndex = $('#components-index').on('activate.bs.scrollspy', function(event) {
       const target = $(event.target);
@@ -175,11 +176,43 @@ IonicSiteModule
       if (!target.hasClass('nav-item-hidden')) {
         // A new section was entered, so clear the sub-section label
         $sectionLabel.text(target.text());
-        $subSectionLabel.text('').addClass('hidden');
+        
+        const children = $subSectionLabel.addClass('not-shown').children();
+
+        setTimeout(function() {
+          children.remove();
+        }, 300);
+
+        $previousOffset = -1;
       } else {
+        const offset = target.index();
+        const direction = offset > $previousOffset ? -1 : 1; // -1 for down, 1 for up
+
         // It navigated to a sub-section, so determine the parent section as well
         $sectionLabel.text(target.parent().prev().text());
-        $subSectionLabel.text(target.text()).removeClass('hidden');
+        $subSectionLabel.removeClass('not-shown');
+
+        // Transition out any current sub-section and transition the new one in
+        const current = $subSectionLabel.children().addClass('fade-transition');
+        const next = $("<nobr class='fade-transition " + (direction < 0 ? 'bottom' : 'top') + "'></nobr>").text(target.text()).appendTo($subSectionLabel);
+
+        setTimeout(function() {
+          if (direction < 0) {
+            // Scrolling down
+            current.removeClass('middle').addClass('top');
+            next.removeClass('bottom').addClass('middle');
+          } else {
+            // Scrolling up
+            current.removeClass('middle').addClass('bottom');
+            next.removeClass('top').addClass('middle');
+          }
+
+          setTimeout(function() {
+            current.remove();
+          }, 300);
+        }, 0);
+
+        $previousOffset = offset;
       }
     });
   });

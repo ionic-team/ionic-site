@@ -1,6 +1,50 @@
 .docs-container {
   min-height: 100%;
 
+  .platform-preview {
+    z-index: 1;
+    background-color: white;
+  }
+
+  .fixed-header {
+    position: fixed;
+    left: 230px;
+    top: 0px;
+    width: 100%;
+    border-bottom: 1px solid $light-grey;
+    background-color: white;
+    padding: 0px 30px;
+
+    > hgroup {
+      height: 74px;
+      line-height: 74px;
+
+      > * {
+        display: inline-block;
+        margin: 0px;
+        line-height: inherit;
+      }
+
+      h2 + h3 {
+        position: relative;
+        margin-left: 32px;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: -24px;
+          top: calc(50% - 5px);
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          border-right: 2px solid;
+          border-top: 2px solid;
+          border-color: #333333;
+        }
+      }
+    }
+  }
+
   main {
     padding: 50px 40px 100px;
 

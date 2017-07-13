@@ -76,4 +76,12 @@ layout: fluid/default
   <main>
     {{ content }}
   </main>
+  {% if page.category == 'components' %}
+    <div class="fixed-header">
+      <hgroup>
+        <h2>Buttons</h2>
+        <h3>Full Buttons</h3>
+      </hgroup>
+    </div>
+  {% endif %}
 </div>

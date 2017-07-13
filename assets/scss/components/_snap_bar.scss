@@ -50,9 +50,11 @@ body.docs #snap-bar {
     }
   }
 
-  ~ .docs-container .side-nav {
-    padding-top: 38px;
-    top: 0;
+  ~ .docs-container {
+    .side-nav, .fixed-header {
+      padding-top: 38px;
+      top: 0;
+    }
   }
 }
 body.has-snap {

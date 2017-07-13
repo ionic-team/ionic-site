@@ -58,7 +58,7 @@ events across your app.</p>
 constructor(public events: Events) {}
 createUser(user) {
   console.log(&#39;User created!&#39;)
-  events.publish(&#39;user:created&#39;, user, Date.now());
+  this.events.publish(&#39;user:created&#39;, user, Date.now());
 }
 
 

@@ -181,6 +181,8 @@ a.footer-link {
   right: 0;
   text-align: center;
   right: -20px;
+  z-index: 1;
+  background-color: white;
 
   &.fixey {
     position: fixed;

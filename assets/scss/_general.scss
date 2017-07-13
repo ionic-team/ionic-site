@@ -77,8 +77,6 @@ body {
     }
 
     #side-nav {
-      padding-top: 0;
-      top: 50px;
       z-index: 1;
       transform: translateX(-$sidenav-width);
       transition: transform .3s ease;

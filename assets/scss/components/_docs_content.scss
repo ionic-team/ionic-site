@@ -45,6 +45,13 @@
     }
   }
 
+
+  @media (max-width: $screen-xs-max) {
+    .fixed-header {
+      left: 0px;
+    }
+  }
+
   main {
     padding: 50px 40px 100px;
 

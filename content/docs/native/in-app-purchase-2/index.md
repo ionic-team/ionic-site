@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Purchase 2</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-purchase-2/index.ts#L176">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-purchase-2/index.ts#L177">
   Improve this doc
 </a>
 
@@ -35,7 +35,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cc.fovea.cordova.purchase --variable BILLING_KEY="<ANDROID_BILLING_KEY>"
+    <pre><code class="nohighlight">$ ionic cordova plugin add cc.fovea.cordova.purchase --variable BILLING_KEY="<ANDROID_BILLING_KEY&gt;"
 $ npm install --save @ionic-native/in-app-purchase-2
 </code></pre>
   </li>

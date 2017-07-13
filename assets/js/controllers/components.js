@@ -157,6 +157,33 @@ IonicSiteModule
     }), '*');
   };
 
+  $(document).ready(function() {
+    $header = $('#components-header');
+
+    $sectionLabel = $header.find('h2');
+    $subSectionLabel = $header.find('h3');
+
+    $componentsIndex = $('#components-index').on('activate.bs.scrollspy', function(event) {
+      const target = $(event.target);
+
+      if (target.get(0) === $componentsIndex.get(0)) {
+        // If the target is the entire components index, ignore it.
+
+        return;
+      }
+
+      if (!target.hasClass('nav-item-hidden')) {
+        // A new section was entered, so clear the sub-section label
+        $sectionLabel.text(target.text());
+        $subSectionLabel.text('').addClass('hidden');
+      } else {
+        // It navigated to a sub-section, so determine the parent section as well
+        $sectionLabel.text(target.parent().prev().text());
+        $subSectionLabel.text(target.text()).removeClass('hidden');
+      }
+    });
+  });
+
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);

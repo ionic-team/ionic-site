@@ -188,6 +188,16 @@ a.footer-link {
     position: fixed;
     top: 0;
   }
+
+  > a {
+    position: relative;
+    top: -25px;
+    font-size: 15px;
+
+    &, &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
 }
 
 .platform-preview .platform-toggle, .docs-container .sass-platform-toggle {

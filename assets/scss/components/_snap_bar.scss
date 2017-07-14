@@ -49,14 +49,14 @@ body.docs #snap-bar {
       padding-top: 0;
     }
   }
-
-  ~ .docs-container .side-nav {
-    padding-top: 38px;
-    top: 0;
-  }
 }
 body.has-snap {
   margin-top: 0;
+
+  .side-nav.affix-top {
+    position: absolute;
+    top: 38px;
+  }
 
   @media (max-width: $screen-xs-max) {
     margin-top: 0;

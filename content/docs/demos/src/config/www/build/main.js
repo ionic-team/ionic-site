@@ -15742,7 +15742,15 @@ let App = class App {
         }
         return true;
     }
-    getActiveNavs(navId) {
+    getActiveNav() {
+        console.warn('(getActiveNav) is deprecated and will be removed in the next major release. Use getActiveNavs instead.');
+        const navs = this.getActiveNavs();
+        if (navs && navs.length) {
+            return navs[0];
+        }
+        return null;
+    }
+    getActiveNavs(rootNavId) {
         const portal = this._appRoot._getPortal(__WEBPACK_IMPORTED_MODULE_2__app_constants__["c" /* PORTAL_MODAL */]);
         if (portal.length() > 0) {
             return findTopNavs(portal);
@@ -15753,7 +15761,15 @@ let App = class App {
         if (this._rootNavs.size === 1) {
             return findTopNavs(this._rootNavs.values().next().value);
         }
-        return findTopNavs(this.getRootNavById(navId));
+        if (rootNavId) {
+            return findTopNavs(this._rootNavs.get(rootNavId));
+        }
+        let activeNavs = [];
+        this._rootNavs.forEach(nav => {
+            const topNavs = findTopNavs(nav);
+            activeNavs = activeNavs.concat(topNavs);
+        });
+        return activeNavs;
     }
     getRootNav() {
         console.warn('(getRootNav) is deprecated and will be removed in the next major release. Use getRootNavById instead.');

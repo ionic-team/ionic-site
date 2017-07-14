@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.0"
+version: "3.5.3"
 versionHref: "/docs"
 path: ""
 category: api
@@ -529,6 +529,26 @@ Returns the first view controller in this nav controller's stack.
 </h3>
 
 Returns the active child navigation.
+
+
+
+
+
+
+
+
+
+
+<div id="getActiveChildNavs"></div>
+
+<h3>
+<a class="anchor" name="getActiveChildNavs" href="#getActiveChildNavs"></a>
+<code>getActiveChildNavs()</code>
+  
+
+</h3>
+
+Returns a list of the active child navigation.
 
 
 

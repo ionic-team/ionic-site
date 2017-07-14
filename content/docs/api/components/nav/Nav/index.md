@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.0"
+version: "3.5.3"
 versionHref: "/docs"
 path: ""
 category: api
@@ -206,6 +206,13 @@ class MyApp {
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> a unique name for the nav element</p>
+</td>
+    </tr>
     
     <tr>
       <td>root</td>

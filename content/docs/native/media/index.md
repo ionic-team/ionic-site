@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L116">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L179">
   Improve this doc
 </a>
 
@@ -145,7 +145,7 @@ this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate,&nbsp;onSuccess,&nbsp;onError)</code></h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(src)</code></h3>
 
 Open a media file
 <table class="table param-table" style="margin:0;">
@@ -167,39 +167,6 @@ Open a media file
       <p>A URI containing the audio content.</p>
 </td>
   </tr>
-  
-  <tr>
-    <td>
-      onStatusUpdate</td>
-    <td>
-      <code>MediaStatusUpdateCallback</code>
-    </td>
-    <td>
-      <p>A callback function to be invoked when the status of the file changes<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      onSuccess</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>A callback function to be invoked after the current play, record, or stop action is completed<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      onError</td>
-    <td>
-      <code>MediaErrorCallback</code>
-    </td>
-    <td>
-      <p>A callback function is be invoked if an error occurs.<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
   </tbody>
 </table>
 
@@ -216,16 +183,19 @@ Open a media file
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="onSuccess" href="#onSuccess"></a><code>onSuccess()</code></h3>
 
+An observable that notifies you on actions success
 
 
 
 <h3><a class="anchor" name="onError" href="#onError"></a><code>onError()</code></h3>
 
+An observable that notifies you when an error occurs
 
 
 
 <h3><a class="anchor" name="onStatusUpdate" href="#onStatusUpdate"></a><code>onStatusUpdate()</code></h3>
 
+An observable that notifies you when the file status changes
 
 
 

@@ -89,6 +89,8 @@ this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, [&#39;recipi
 <h3><a class="anchor" name="share" href="#share"></a><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code></h3>
 
 
+
+
 Shares using the share sheet
 <table class="table param-table" style="margin:0;">
   <thead>

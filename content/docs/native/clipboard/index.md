@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/danielsogl/cordova-plugin-clipboard">
-    https://github.com/danielsogl/cordova-plugin-clipboard
+  <a href="https://github.com/ihadeed/cordova-clipboard">
+    https://github.com/ihadeed/cordova-clipboard
   </a>
 </p>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add danielsogl-cordova-plugin-clipboard
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-clipboard
 $ npm install --save @ionic-native/clipboard
 </code></pre>
   </li>

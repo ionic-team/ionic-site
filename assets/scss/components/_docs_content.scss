@@ -46,25 +46,29 @@
           border-top: 2px solid;
           border-color: #333333;
         }
-      }
 
-      .fade-transition {
-        position: absolute;
-        transition: transform 0.3s, opacity 0.3s;
+        > nobr {
+          position: absolute;
+          transition: transform 0.3s, opacity 0.3s;
 
-        &.top {
-          transform: translateY(32px);
-          opacity: 0;
-        }
+          &.top {
+            transform: translateY(-28px);
+            opacity: 0;
+          }
 
-        &.middle {
-          transform: translateY(2px);
-          opacity: 1;
-        }
+          &.middle, &.top.middle, &.bottom.middle {
+            transform: translateY(2px);
+            opacity: 1;
+          }
 
-        &.bottom {
-          transform: translateY(-28px);
-          opacity: 0;
+          &.bottom {
+            transform: translateY(32px);
+            opacity: 0;
+          }
+
+          &.no-transition {
+            transition-duration: 0s, 0s;
+          }
         }
       }
     }

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.0"
+version: "3.5.3"
 versionHref: "/docs"
 path: ""
 category: api
@@ -433,6 +433,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> A unique name for the tabs</p>
+</td>
+    </tr>
     
     <tr>
       <td>selectedIndex</td>

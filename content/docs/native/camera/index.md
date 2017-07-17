@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.0.0"
+version: "4.0.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L85">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L121">
   Improve this doc
 </a>
 

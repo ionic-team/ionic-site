@@ -101,8 +101,6 @@ body {
     }
 
     #side-nav {
-      padding-top: 0;
-      top: 50px;
       z-index: 1;
       transform: translateX(-$sidenav-width);
       transition: transform .3s ease;
@@ -207,10 +205,22 @@ a.footer-link {
   right: 0;
   text-align: center;
   right: -20px;
+  z-index: 1;
+  background-color: white;
 
   &.fixey {
     position: fixed;
     top: 0;
+  }
+
+  > a {
+    position: relative;
+    top: -25px;
+    font-size: 15px;
+
+    &, &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
   }
 }
 

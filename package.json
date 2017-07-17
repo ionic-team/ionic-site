@@ -7,7 +7,7 @@
     "heroku-postbuild": "gulp build.clean && gulp slug.prep"
   },
   "engines": {
-    "node": "6.9.2"
+    "node": "6.11.1"
   },
   "cacheDirectories": [
     "node_modules",
@@ -30,6 +30,7 @@
     "body-parser": "^1.17.1",
     "bootstrap": "3.3.5",
     "browser-sync": "^1.3.7",
+    "c3": "^0.4.14",
     "compression": "^1.4.6",
     "cookie-parser": "^1.4.3",
     "del": "^2.2.2",

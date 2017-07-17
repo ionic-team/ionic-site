@@ -14446,7 +14446,7 @@ function transition$$1(stateChangeExpr, steps) {
 
 //# sourceMappingURL=core.es5.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(182)))
 
 /***/ }),
 /* 1 */
@@ -16109,7 +16109,15 @@ let App = class App {
         }
         return true;
     }
-    getActiveNavs(navId) {
+    getActiveNav() {
+        console.warn('(getActiveNav) is deprecated and will be removed in the next major release. Use getActiveNavs instead.');
+        const navs = this.getActiveNavs();
+        if (navs && navs.length) {
+            return navs[0];
+        }
+        return null;
+    }
+    getActiveNavs(rootNavId) {
         const portal = this._appRoot._getPortal(__WEBPACK_IMPORTED_MODULE_2__app_constants__["c" /* PORTAL_MODAL */]);
         if (portal.length() > 0) {
             return findTopNavs(portal);
@@ -16120,7 +16128,15 @@ let App = class App {
         if (this._rootNavs.size === 1) {
             return findTopNavs(this._rootNavs.values().next().value);
         }
-        return findTopNavs(this.getRootNavById(navId));
+        if (rootNavId) {
+            return findTopNavs(this._rootNavs.get(rootNavId));
+        }
+        let activeNavs = [];
+        this._rootNavs.forEach(nav => {
+            const topNavs = findTopNavs(nav);
+            activeNavs = activeNavs.concat(topNavs);
+        });
+        return activeNavs;
     }
     getRootNav() {
         console.warn('(getRootNav) is deprecated and will be removed in the next major release. Use getRootNavById instead.');
@@ -28856,7 +28872,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 
 var root_1 = __webpack_require__(43);
 var toSubscriber_1 = __webpack_require__(274);
-var observable_1 = __webpack_require__(185);
+var observable_1 = __webpack_require__(186);
 /**
  * A representation of any set of values over any amount of time. This the most basic building block
  * of RxJS.
@@ -35435,9 +35451,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isFunction_1 = __webpack_require__(188);
+var isFunction_1 = __webpack_require__(189);
 var Subscription_1 = __webpack_require__(74);
-var Observer_1 = __webpack_require__(182);
+var Observer_1 = __webpack_require__(183);
 var rxSubscriber_1 = __webpack_require__(117);
 /**
  * Implements the {@link Observer} interface and extends the
@@ -35718,7 +35734,7 @@ exports.root = _root;
     }
 })();
 //# sourceMappingURL=root.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(182)))
 
 /***/ }),
 /* 44 */
@@ -40906,11 +40922,11 @@ const ACTIVE_TRANSITION_OFFSET = 2000;
 
 "use strict";
 
-var isArray_1 = __webpack_require__(187);
-var isObject_1 = __webpack_require__(189);
-var isFunction_1 = __webpack_require__(188);
+var isArray_1 = __webpack_require__(188);
+var isObject_1 = __webpack_require__(190);
+var isFunction_1 = __webpack_require__(189);
 var tryCatch_1 = __webpack_require__(275);
-var errorObject_1 = __webpack_require__(186);
+var errorObject_1 = __webpack_require__(187);
 var UnsubscriptionError_1 = __webpack_require__(271);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
@@ -43946,7 +43962,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__(1);
@@ -45721,11 +45737,11 @@ exports.$$rxSubscriber = exports.rxSubscriber;
 var root_1 = __webpack_require__(43);
 var isArrayLike_1 = __webpack_require__(272);
 var isPromise_1 = __webpack_require__(273);
-var isObject_1 = __webpack_require__(189);
+var isObject_1 = __webpack_require__(190);
 var Observable_1 = __webpack_require__(21);
 var iterator_1 = __webpack_require__(269);
 var InnerSubscriber_1 = __webpack_require__(253);
-var observable_1 = __webpack_require__(185);
+var observable_1 = __webpack_require__(186);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
     if (destination.closed) {
@@ -47084,7 +47100,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config_config__ = __webpack_require__(1);
@@ -53383,6 +53399,33 @@ class TimeoutDebouncer {
 
 /***/ }),
 /* 182 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53396,7 +53439,7 @@ exports.empty = {
 //# sourceMappingURL=Observer.js.map
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53407,7 +53450,7 @@ Observable_1.Observable.prototype.takeUntil = takeUntil_1.takeUntil;
 //# sourceMappingURL=takeUntil.js.map
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53494,7 +53537,7 @@ exports.EmptyObservable = EmptyObservable;
 //# sourceMappingURL=EmptyObservable.js.map
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53526,7 +53569,7 @@ exports.$$observable = exports.observable;
 //# sourceMappingURL=observable.js.map
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53536,7 +53579,7 @@ exports.errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53545,7 +53588,7 @@ exports.isArray = Array.isArray || (function (x) { return x && typeof x.length =
 //# sourceMappingURL=isArray.js.map
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53557,7 +53600,7 @@ exports.isFunction = isFunction;
 //# sourceMappingURL=isFunction.js.map
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53569,7 +53612,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53579,33 +53622,6 @@ function isScheduler(value) {
 }
 exports.isScheduler = isScheduler;
 //# sourceMappingURL=isScheduler.js.map
-
-/***/ }),
-/* 191 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 192 */
@@ -66123,8 +66139,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(21);
 var ScalarObservable_1 = __webpack_require__(259);
-var EmptyObservable_1 = __webpack_require__(184);
-var isScheduler_1 = __webpack_require__(190);
+var EmptyObservable_1 = __webpack_require__(185);
+var isScheduler_1 = __webpack_require__(191);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -66425,8 +66441,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(21);
-var EmptyObservable_1 = __webpack_require__(184);
-var isArray_1 = __webpack_require__(187);
+var EmptyObservable_1 = __webpack_require__(185);
+var isArray_1 = __webpack_require__(188);
 var subscribeToResult_1 = __webpack_require__(118);
 var OuterSubscriber_1 = __webpack_require__(116);
 /**
@@ -66854,7 +66870,7 @@ var MapSubscriber = (function (_super) {
 var Observable_1 = __webpack_require__(21);
 var ArrayObservable_1 = __webpack_require__(255);
 var mergeAll_1 = __webpack_require__(265);
-var isScheduler_1 = __webpack_require__(190);
+var isScheduler_1 = __webpack_require__(191);
 /* tslint:enable:max-line-length */
 /**
  * Creates an output Observable which concurrently emits all values from every
@@ -67424,7 +67440,7 @@ exports.isPromise = isPromise;
 
 var Subscriber_1 = __webpack_require__(42);
 var rxSubscriber_1 = __webpack_require__(117);
-var Observer_1 = __webpack_require__(182);
+var Observer_1 = __webpack_require__(183);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -67448,7 +67464,7 @@ exports.toSubscriber = toSubscriber;
 
 "use strict";
 
-var errorObject_1 = __webpack_require__(186);
+var errorObject_1 = __webpack_require__(187);
 var tryCatchTarget;
 function tryCatcher() {
     try {

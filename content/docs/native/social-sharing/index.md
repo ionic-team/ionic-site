@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.0.0"
+version: "4.0.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -87,6 +87,8 @@ this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, [&#39;recipi
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="share" href="#share"></a><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code></h3>
+
+
 
 
 Shares using the share sheet

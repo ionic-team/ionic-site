@@ -17,7 +17,7 @@
   <title>Ionic Framework</title>
 {% endif %}
 
-<meta name="author" content="Drifty">
+<meta name="author" content="Ionic">
 <meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
 <link rel="canonical" href="https://ionicframework.com{{url}}">
@@ -35,8 +35,8 @@
 {% else %}
   <meta name="twitter:title" content="Ionic Framework">
 {% endif %}
-<meta name="twitter:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
-<meta name="twitter:image:src" content="https://ionicframework.com/img/ionic-meta.jpg">
+<meta name="twitter:description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
+<meta name="twitter:image" content="{% if meta_image %}{{meta_image}}{% else %}https://ionicframework.com/img/ionic-meta.jpg{% endif %}">
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
@@ -51,10 +51,12 @@
 {% else %}
   <meta property="og:title" content="Ionic Framework">
 {% endif %}
-<meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
-<meta property="og:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
+<meta property="og:image" content="{% if meta_image %}{{meta_image}}{% else %}https://ionicframework.com/img/ionic-meta.jpg{% endif %}"/>
+<meta property="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
 <meta property="og:site_name" content="Ionic Framework">
 <meta property="article:publisher" content="https://www.facebook.com/ionicframework">
+<meta property="og:locale" content="en_US" />
+<link href="https://plus.google.com/+Ionicframework" rel="publisher" />
 
 <link rel="apple-touch-icon" sizes="57x57" href="/img/meta/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/meta/apple-touch-icon-60x60.png">

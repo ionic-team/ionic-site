@@ -73,7 +73,9 @@ is dismissed.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private toastCtrl: ToastController) {
+<pre><code class="lang-ts">import { ToastController } from &#39;ionic-angular&#39;;
+
+constructor(private toastCtrl: ToastController) {
 
 }
 

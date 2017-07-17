@@ -56,6 +56,33 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="getActiveNav"></div>
+
+<h3>
+<a class="anchor" name="getActiveNav" href="#getActiveNav"></a>
+<code>getActiveNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController</code> <p>Returns the first Active Nav Controller from the list. This method is deprecated</p>
+
+
+</div>
+
+
+
+
 <div id="getActiveNavContainers"></div>
 
 <h3>
@@ -94,7 +121,7 @@ Improve this doc
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> <p>Returns the active NavController. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
+  <code>NavController[]</code> <p>Returns the active NavControllers. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
 
 
 </div>

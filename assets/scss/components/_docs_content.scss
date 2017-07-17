@@ -1,6 +1,81 @@
 .docs-container {
   min-height: 100%;
 
+  .fixed-header {
+    position: fixed;
+    left: 230px;
+    top: 0px;
+    width: 100%;
+    border-bottom: 1px solid $light-grey;
+    background-color: white;
+    padding: 0px 38px;
+    overflow: hidden;
+
+    > hgroup {
+      height: 74px;
+      line-height: 74px;
+
+      > * {
+        display: inline-block;
+        margin: 0px;
+        line-height: inherit;
+        vertical-align: top;
+      }
+
+      h3 + h4 {
+        position: relative;
+        height: 100%;
+        margin-left: 31px;
+        opacity: 1;
+        transition: opacity 0.4s;
+
+        &.not-shown {
+          opacity: 0;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: -24px;
+          top: calc(50% - 5px);
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          border-right: 2px solid;
+          border-top: 2px solid;
+          border-color: #333333;
+        }
+      }
+
+      .fade-transition {
+        position: absolute;
+        transition: top 0.3s, opacity 0.3s;
+
+        &.top {
+          top: -35%;
+          opacity: 0;
+        }
+
+        &.middle {
+          top: 2px;
+          opacity: 1;
+        }
+
+        &.bottom {
+          top: 35%;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: $screen-xs-max) {
+    .fixed-header {
+      left: 0px;
+    }
+  }
+
   main {
     padding: 50px 40px 100px;
 

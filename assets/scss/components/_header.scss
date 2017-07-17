@@ -579,21 +579,24 @@
               font-weight: 500;
               margin: 0 15px -1px;
               color: $dark-grey;
-              border-bottom: 1px solid transparent;
+              border-bottom: 2px solid transparent;
               transition: color .2s, border-color .2s;
-
-              &.active,
-              &:hover,
-              &:active {
-                border-color: $blue;
-                color: $blue;
-                background: transparent;
-              }
 
               &:focus {
                 background: transparent;
               }
             }
+
+              &.active a {
+                border-color: $blue;
+              }
+
+              &.active a,
+              a:hover,
+              a:active {
+                color: $blue;
+                background: transparent;
+              }
           }
 
           @media (max-width: $screen-xs-max)  {

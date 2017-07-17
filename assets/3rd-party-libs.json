@@ -1,5 +1,6 @@
 {
   "css": [
+    "node_modules/c3/c3.css",
     "node_modules/ionicate/ionicate.css"
   ],
   "js": [
@@ -8,6 +9,9 @@
     "node_modules/angular/angular.min.js",
     "node_modules/angular-animate/angular-animate.min.js",
     "node_modules/angular-sanitize/angular-sanitize.min.js",
-    "node_modules/ionicate/ionicate.js"
+    "node_modules/d3/d3.js",
+    "node_modules/c3/c3.js",
+    "node_modules/ionicate/ionicate.js",
+    "node_mdules/scrollreveal/dist/scrollreveal.js"
   ]
 }

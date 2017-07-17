@@ -10,6 +10,7 @@
     background-color: white;
     padding: 0px 38px;
     overflow: hidden;
+    transform: translate3d(0, 0, 0);
 
     > hgroup {
       height: 74px;
@@ -49,20 +50,20 @@
 
       .fade-transition {
         position: absolute;
-        transition: top 0.3s, opacity 0.3s;
+        transition: transform 0.3s, opacity 0.3s;
 
         &.top {
-          top: -35%;
+          transform: translateY(32px);
           opacity: 0;
         }
 
         &.middle {
-          top: 2px;
+          transform: translateY(2px);
           opacity: 1;
         }
 
         &.bottom {
-          top: 35%;
+          transform: translateY(-28px);
           opacity: 0;
         }
       }

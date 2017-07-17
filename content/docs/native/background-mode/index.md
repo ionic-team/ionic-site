@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Cordova plugin to prevent the app from going to sleep while in background.
-Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
+Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, visit: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
 
 
 <p>Repo:
@@ -265,7 +265,7 @@ Override the back button on Android to go to background instead of closing the a
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Exclude the app from the recent task list works on Android 5.0+.
+Exclude the app from the recent task list. Works on Android 5.0+.
 
 
 
@@ -359,7 +359,7 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      <p>This will look for <icon name>.png in platforms/android/res/drawable|mipmap</p>
+      <p>This will look for <code>&lt;icon name&gt;.png</code> in platforms/android/res/drawable|mipmap</p>
 
       <em>(optional)</em>
     </td>
@@ -386,7 +386,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>By default the app will come to foreground when taping on the notification. If false, plugin wont come to foreground when tapped.</p>
+      <p>By default the app will come to foreground when taping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
 
       <em>(optional)</em>
     </td>

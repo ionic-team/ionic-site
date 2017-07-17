@@ -37,7 +37,7 @@ The API for the local notification plugin follows the W3C Web Notifications spec
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-local-notifications
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-local-notification
 $ npm install --save @ionic-native/phonegap-local-notification
 </code></pre>
   </li>

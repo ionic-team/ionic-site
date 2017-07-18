@@ -47,13 +47,14 @@ body {
 
 .component-doc-demo-mobile {
   cursor: pointer;
-  padding: 2px 12px;
+  padding: 3px 12px;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
-  color: white !important;
+  color: white;
   background-color: $blue;
   display: none;
+  line-height: inherit;
 }
 
 .docs-container {

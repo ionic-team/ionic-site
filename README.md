@@ -11,8 +11,11 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
 ## Local Build
 
-1. Install jekyll: `bundle install`
-2. Run `npm install`
+1. Run `npm install`
+2. Install gems (Jekyll and kramdown): `npm run bundle-install`
+
+    > This will re-construct your `Gemfile.lock` for the specific platform you are developing on and exclude it from Git.  If you need to make a change to the `Gemfile`, or are updating gems, you will need to remove the `Gemfile.lock` from `.git/info/exclude`.
+
 3. Run `gulp watch` (after the first run, this is the only step needed)
 
 

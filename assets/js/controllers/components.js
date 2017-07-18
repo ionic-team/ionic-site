@@ -206,8 +206,8 @@ IonicSiteModule
       if (transitioning || subSectionChangeQueue.length === 0) return;
 
       // Optimize by removing any lengthy intermediate transitions
-      if (subSectionChangeQueue.length >= 3) {
-        subSectionChangeQueue.splice(1, subSectionChangeQueue.length - 2);
+      if (subSectionChangeQueue.length >= 2) {
+        subSectionChangeQueue.splice(1, subSectionChangeQueue.length - 1);
       }
 
       var change = subSectionChangeQueue.shift();

@@ -4,6 +4,7 @@
   "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
   "scripts": {
+    "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
     "heroku-postbuild": "gulp build.clean && gulp slug.prep"
   },
   "engines": {

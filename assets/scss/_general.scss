@@ -411,11 +411,15 @@ ul.docs-example {
   }
 }
 
-.docs-container h3 a:not([role='button']) {
-  color: #26292e !important;
+.docs-container {
+  h2, h3 {
+    a:not([role='button']) {
+      color: #26292e !important;
 
-  &:hover {
-    color: #26292e !important;
+      &:hover {
+        color: #26292e !important;
+      }
+    }
   }
 }
 

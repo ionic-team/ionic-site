@@ -53,7 +53,7 @@ take a look at the <a href="../../../navigation/NavController/">NavController AP
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>You must set a root page to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
@@ -80,15 +80,16 @@ class MyApp {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="getSecondaryIdentifier"></div>
 
 <h3>
-<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier"></a>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier">
 <code>getSecondaryIdentifier()</code>
   
 
+</a>
 </h3>
 
 
@@ -104,10 +105,11 @@ class MyApp {
 <div id="getType"></div>
 
 <h3>
-<a class="anchor" name="getType" href="#getType"></a>
+<a class="anchor" name="getType" href="#getType">
 <code>getType()</code>
   
 
+</a>
 </h3>
 
 
@@ -123,10 +125,11 @@ class MyApp {
 <div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<a class="anchor" name="goToRoot" href="#goToRoot">
 <code>goToRoot()</code>
   
 
+</a>
 </h3>
 
 
@@ -142,10 +145,11 @@ class MyApp {
 <div id="initPane"></div>
 
 <h3>
-<a class="anchor" name="initPane" href="#initPane"></a>
+<a class="anchor" name="initPane" href="#initPane">
 <code>initPane()</code>
   
 
+</a>
 </h3>
 
 
@@ -161,10 +165,11 @@ class MyApp {
 <div id="ngAfterViewInit"></div>
 
 <h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit">
 <code>ngAfterViewInit()</code>
   
 
+</a>
 </h3>
 
 
@@ -180,10 +185,11 @@ class MyApp {
 <div id="paneChanged"></div>
 
 <h3>
-<a class="anchor" name="paneChanged" href="#paneChanged"></a>
+<a class="anchor" name="paneChanged" href="#paneChanged">
 <code>paneChanged()</code>
   
 
+</a>
 </h3>
 
 
@@ -196,7 +202,7 @@ class MyApp {
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -236,7 +242,7 @@ class MyApp {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#navigation">Navigation Component Docs</a><!-- end content block -->
 

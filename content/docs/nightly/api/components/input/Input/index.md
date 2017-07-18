@@ -62,7 +62,7 @@ can be attached and will function as expected.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
@@ -113,15 +113,16 @@ can be attached and will function as expected.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="ngAfterContentInit"></div>
 
 <h3>
-<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit">
 <code>ngAfterContentInit()</code>
   
 
+</a>
 </h3>
 
 
@@ -137,10 +138,11 @@ can be attached and will function as expected.</p>
 <div id="ngControl"></div>
 
 <h3>
-<a class="anchor" name="ngControl" href="#ngControl"></a>
+<a class="anchor" name="ngControl" href="#ngControl">
 <code>ngControl</code>
   
 
+</a>
 </h3>
 
 
@@ -153,7 +155,7 @@ can be attached and will function as expected.</p>
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -240,7 +242,7 @@ Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

@@ -50,7 +50,9 @@ they can resume interaction with the app. It can also optionally have a
 <p>You can pass all of the alert&#39;s options in the first argument of
 the create method: <code>create(opts)</code>. Otherwise the alert&#39;s instance
 has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
-<h3 id="alert-buttons">Alert Buttons</h3>
+<h3><a class="anchor" name="alert-buttons" href="#alert-buttons">Alert Buttons</a></h3>
+
+
 <p>In the array of <code>buttons</code>, each button includes properties for its <code>text</code>,
 and optionally a <code>handler</code>. If a handler returns <code>false</code> then the alert
 will not automatically be dismissed when the button is clicked. All
@@ -61,7 +63,9 @@ the array) is the main button.</p>
 If a <code>cancel</code> role is on one of the buttons, then if the alert is
 dismissed by tapping the backdrop, then it will fire the handler from
 the button with a cancel role.</p>
-<h3 id="alert-inputs">Alert Inputs</h3>
+<h3><a class="anchor" name="alert-inputs" href="#alert-inputs">Alert Inputs</a></h3>
+
+
 <p>Alerts can also include several different inputs whose data can be passed
 back to the app. Inputs can be used as a simple way to prompt users for
 information. Radios, checkboxes and text inputs are all accepted, but they
@@ -77,7 +81,7 @@ building the form within a modal instead.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
 
@@ -165,15 +169,16 @@ presentPrompt() {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -189,10 +194,11 @@ presentPrompt() {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
   
 
+</a>
 </h3>
 
 Display an alert with a title, inputs, and buttons
@@ -233,7 +239,7 @@ Display an alert with a title, inputs, and buttons
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>Alert options</p>
 <table>
 <thead>
@@ -411,7 +417,7 @@ out before starting a new transition.</p>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

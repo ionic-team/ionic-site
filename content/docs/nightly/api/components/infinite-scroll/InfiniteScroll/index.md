@@ -56,7 +56,7 @@ on the infinite scroll instance.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -170,15 +170,16 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="complete"></div>
 
 <h3>
-<a class="anchor" name="complete" href="#complete"></a>
+<a class="anchor" name="complete" href="#complete">
 <code>complete()</code>
   
 
+</a>
 </h3>
 
 Call `complete()` within the `infinite` output event handler when
@@ -202,10 +203,11 @@ to `enabled`.
 <div id="enable"></div>
 
 <h3>
-<a class="anchor" name="enable" href="#enable"></a>
+<a class="anchor" name="enable" href="#enable">
 <code>enable(shouldEnable)</code>
   
 
+</a>
 </h3>
 
 Call `enable(false)` to disable the infinite scroll from actively
@@ -256,10 +258,11 @@ and hide the display.</p>
 <div id="waitFor"></div>
 
 <h3>
-<a class="anchor" name="waitFor" href="#waitFor"></a>
+<a class="anchor" name="waitFor" href="#waitFor">
 <code>waitFor()</code>
   
 
+</a>
 </h3>
 
 Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
@@ -274,7 +277,7 @@ change state of infiniteScroll to "complete"
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -320,7 +323,7 @@ Default is <code>15%</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -343,7 +346,7 @@ your async operation has completed.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

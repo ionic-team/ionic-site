@@ -53,7 +53,7 @@ ie. a FAB buttons displays a small lists of related actions when clicked.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;!-- this fab is placed at top right --&gt;
 &lt;ion-content&gt;
@@ -109,7 +109,7 @@ on the top of the main button, you should use <code>side=&quot;top&quot;</code> 
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes">Attributes</a></h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -230,15 +230,16 @@ Used to place the container between the content and the header/footer
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
   
 
+</a>
 </h3>
 
 Close an active FAB list container
@@ -253,7 +254,7 @@ Close an active FAB list container
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -643,7 +644,7 @@ Close an active FAB list container
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#fabs">FAB Component Docs</a><!-- end content block -->
 

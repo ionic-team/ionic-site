@@ -269,8 +269,10 @@ IonicSiteModule
   var $platformPreview = $('#platform-preview');
   var $window = $(window);
   $window.scroll(fixyCheck);
+  var snapBarOffset = $(document.body).hasClass("has-snap") ? 38 : 0;
+
   function fixyCheck(a, b, c) {
-    if ($window.scrollTop() > 78) {
+    if ($window.scrollTop() > 78 + snapBarOffset) {
       $platformPreview.addClass('fixey');
     } else {
       $platformPreview.removeClass('fixey');

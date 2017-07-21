@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L179">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L182">
   Improve this doc
 </a>
 
@@ -310,6 +310,14 @@ Set the volume for an audio file.
   </tr>
   </tbody>
 </table>
+
+<h3><a class="anchor" name="setRate" href="#setRate"></a><code>setRate()</code></h3>
+
+
+
+
+
+
 
 <h3><a class="anchor" name="startRecord" href="#startRecord"></a><code>startRecord()</code></h3>
 

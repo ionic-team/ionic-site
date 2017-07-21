@@ -15947,7 +15947,7 @@ ion-list[inset] {
 }
 
 .list-md ion-item-options .button {
-  margin: 1px 0;
+  margin: 0;
   border-radius: 0;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -15957,7 +15957,7 @@ ion-list[inset] {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  height: calc(100% - 2px);
+  height: 100%;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;

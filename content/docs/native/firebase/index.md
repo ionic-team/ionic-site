@@ -231,7 +231,15 @@ Unsubscribe from a topic
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(type,&nbsp;data)</code></h3>
+</div><h3><a class="anchor" name="unregister" href="#unregister"></a><code>unregister()</code></h3>
+
+
+Unregister from firebase, used to stop receiving push notifications.
+Call this when you logout user from your app.
+
+
+
+<h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(type,&nbsp;data)</code></h3>
 
 
 Log an event using Analytics

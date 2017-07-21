@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L303">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L357">
   Improve this doc
 </a>
 
@@ -96,12 +96,12 @@ loadMap() {
    }
  );
 
- // create LatLng object
- let ionic: LatLng = new LatLng(43.0741904,-89.3809802);
-
  // create CameraPosition
  let position: CameraPosition = {
-   target: ionic,
+   target: {
+     lat: 43.0741904,
+     lng: -89.3809802
+   },
    zoom: 18,
    tilt: 30
  };
@@ -132,17 +132,7 @@ loadMap() {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
-
-
-Checks if a map object has been created and is available.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="create" href="#create"></a><code>create(element,&nbsp;options)</code></h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(element,&nbsp;options)</code></h3>
 
 Creates a new GoogleMap instance
 <table class="table param-table" style="margin:0;">
@@ -183,12 +173,28 @@ Creates a new GoogleMap instance
   <b>Returns:</b> <code>GoogleMap</code> 
 </div><h3><a class="anchor" name="environment" href="#environment"></a><code>environment()</code></h3>
 
-Convenience method that returns an instance of Environment class
+Method that returns an instance of Environment class
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Object</code> 
+  <b>Returns:</b> <code>Environment</code> 
+</div><h3><a class="anchor" name="spherical" href="#spherical"></a><code>spherical()</code></h3>
+
+Method that returns an instance of Spherical class
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Spherical</code> 
+</div><h3><a class="anchor" name="encoding" href="#encoding"></a><code>encoding()</code></h3>
+
+Method that returns an instance of Encoding class
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Encoding</code> 
 </div>
 
 <h2><a class="anchor" name="GoogleMap" href="#GoogleMap"></a>GoogleMap</h2>
@@ -277,15 +283,19 @@ Moves the camera with animation
 Zooming in the camera with animation
 
 
-
-<h3><a class="anchor" name="animateCameraZoomOut" href="#animateCameraZoomOut"></a><code>animateCameraZoomOut()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="animateCameraZoomOut" href="#animateCameraZoomOut"></a><code>animateCameraZoomOut()</code></h3>
 
 
 Zooming out the camera with animation
 
 
-
-<h3><a class="anchor" name="moveCamera" href="#moveCamera"></a><code>moveCamera()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="moveCamera" href="#moveCamera"></a><code>moveCamera()</code></h3>
 
 
 Moves the camera without animation
@@ -300,15 +310,21 @@ Moves the camera without animation
 Zooming in the camera without animation
 
 
-
-<h3><a class="anchor" name="moveCameraZoomOut" href="#moveCameraZoomOut"></a><code>moveCameraZoomOut()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="moveCameraZoomOut" href="#moveCameraZoomOut"></a><code>moveCameraZoomOut()</code></h3>
 
 
 Zooming out the camera without animation
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getCameraPosition" href="#getCameraPosition"></a><code>getCameraPosition()</code></h3>
 
-<h3><a class="anchor" name="getCameraPosition" href="#getCameraPosition"></a><code>getCameraPosition()</code></h3>
+
 
 
 Get the position of the camera.
@@ -316,7 +332,7 @@ Get the position of the camera.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;CameraPosition&gt;</code> 
+  <b>Returns:</b> <code>CameraPosition</code> 
 </div><h3><a class="anchor" name="getCameraTarget" href="#getCameraTarget"></a><code>getCameraTarget()</code></h3>
 
 
@@ -378,7 +394,7 @@ Set the center position of the camera view
     <td>
       latLng</td>
     <td>
-      <code>LatLng</code>
+      <code>ILatLng</code>|<code>Array.&lt;ILatLng&gt;</code>
     </td>
     <td>
       </td>
@@ -509,12 +525,14 @@ Change the center of the map by the given distance in pixels
 <h3><a class="anchor" name="getVisibleRegion" href="#getVisibleRegion"></a><code>getVisibleRegion()</code></h3>
 
 
-Get the current visible region (sw and ne)
+
+
+Get the current visible region (southWest and northEast)
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;VisibleRegion&gt;</code> 
+  <b>Returns:</b> <code>VisibleRegion</code> 
 </div><h3><a class="anchor" name="getMyLocation" href="#getMyLocation"></a><code>getMyLocation()</code></h3>
 
 
@@ -568,8 +586,10 @@ Destroy a map completely
 Remove all overlays, such as marker
 
 
-
-<h3><a class="anchor" name="fromLatLngToPoint" href="#fromLatLngToPoint"></a><code>fromLatLngToPoint()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="fromLatLngToPoint" href="#fromLatLngToPoint"></a><code>fromLatLngToPoint()</code></h3>
 
 
 Convert the unit from LatLng to the pixels from the left/top of the map div
@@ -736,7 +756,7 @@ Sets the preference for whether all gestures should be enabled or disabled
 
 
 
-Set visiblity of the map
+Set visibility of the map
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -763,7 +783,7 @@ Set visiblity of the map
 
 
 
-Adjust the map padding
+Adjust the map padding (same as CSS padding rule)
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -921,7 +941,15 @@ You can execute it, but you don't need to do that. The plugin does this automati
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setCenter" href="#setCenter"></a><code>setCenter(latLng)</code></h3>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setCenter" href="#setCenter"></a><code>setCenter(latLng)</code></h3>
 
 
 
@@ -940,7 +968,7 @@ Change the center position.
     <td>
       latLng</td>
     <td>
-      <code>LatLng</code>
+      <code>ILatLng</code>
     </td>
     <td>
       </td>
@@ -958,7 +986,7 @@ Return the current center position
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>LatLng</code> 
+  <b>Returns:</b> <code>ILatLng</code> 
 </div><h3><a class="anchor" name="getRadius" href="#getRadius"></a><code>getRadius()</code></h3>
 
 
@@ -1245,6 +1273,85 @@ Returns a boolean that indicates whether the circle is visible
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
+</div><h2><a class="anchor" name="Encoding" href="#Encoding"></a>Encoding</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="decodePath" href="#decodePath"></a><code>decodePath(encoded,&nbsp;precision?)</code></h3>
+
+
+
+
+Decodes an encoded path string into a sequence of LatLngs.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      encoded</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>an encoded path string</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      precision?</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>default: 5</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>LatLng</code> 
+</div><h3><a class="anchor" name="encodePath" href="#encodePath"></a><code>encodePath(path)</code></h3>
+
+
+
+
+Encodes a sequence of LatLngs into an encoded path string.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>Array.&lt;ILatLng&gt;</code>|<code>BaseArrayClass.&lt;ILatLng&gt;</code>
+    </td>
+    <td>
+      <p>a sequence of LatLngs</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
 </div><h2><a class="anchor" name="Environment" href="#Environment"></a>Environment</h2>
 
 
@@ -1328,7 +1435,15 @@ Converts position to address and vice versa
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setBounds" href="#setBounds"></a><code>setBounds(bounds)</code></h3>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setBounds" href="#setBounds"></a><code>setBounds(bounds)</code></h3>
 
 
 
@@ -1355,18 +1470,7 @@ Change the bounds of the GroundOverlay
   </tbody>
 </table>
 
-<h3><a class="anchor" name="getBounds" href="#getBounds"></a><code>getBounds()</code></h3>
-
-
-
-
-Return the current center position
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>ILatLng[]</code> 
-</div><h3><a class="anchor" name="setBearing" href="#setBearing"></a><code>setBearing(bearing)</code></h3>
+<h3><a class="anchor" name="setBearing" href="#setBearing"></a><code>setBearing(bearing)</code></h3>
 
 
 
@@ -1435,7 +1539,7 @@ Change the image of the ground overlay
 
 
 
-Change the opacity of the ground overlay
+Change the opacity of the ground overlay from 0.0 to 1.0
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1786,7 +1890,7 @@ Converts to string
 
 
 
-Returns a string of the form "lat_lo,lng_lo,lat_hi,lng_hi" for this bounds, where "lo" corresponds to the southwest corner of the bounding box, while "hi" corresponds to the northeast corner of that box.
+Returns a string of the form "lat_sw,lng_sw,lat_ne,lng_ne" for this bounds, where "sw" corresponds to the southwest corner of the bounding box, while "ne" corresponds to the northeast corner of that box.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1875,14 +1979,22 @@ Computes the center of this LatLngBounds
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>ILatLng</code> 
+  <b>Returns:</b> <code>LatLng</code> 
 </div><h2><a class="anchor" name="Marker" href="#Marker"></a>Marker</h2>
 
 
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setPosition" href="#setPosition"></a><code>setPosition(latLng)</code></h3>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setPosition" href="#setPosition"></a><code>setPosition(latLng)</code></h3>
 
 
 
@@ -1901,7 +2013,7 @@ Set the marker position.
     <td>
       latLng</td>
     <td>
-      <code>LatLng</code>
+      <code>ILatLng</code>
     </td>
     <td>
       </td>
@@ -1912,35 +2024,33 @@ Set the marker position.
 <h3><a class="anchor" name="getPosition" href="#getPosition"></a><code>getPosition()</code></h3>
 
 
+
+
 Return the marker position.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;LatLng&gt;</code> 
+  <b>Returns:</b> <code>ILatLng</code> 
 </div><h3><a class="anchor" name="showInfoWindow" href="#showInfoWindow"></a><code>showInfoWindow()</code></h3>
 
 
 
 
-Show the infoWindow of the marker.
+Show the normal infoWindow of the marker.
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="hideInfoWindow" href="#hideInfoWindow"></a><code>hideInfoWindow()</code></h3>
+
+<h3><a class="anchor" name="hideInfoWindow" href="#hideInfoWindow"></a><code>hideInfoWindow()</code></h3>
 
 
 
 
-Hide the infoWindow of the marker.
+Hide the normal infoWindow of the marker.
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="setAnimation" href="#setAnimation"></a><code>setAnimation(animation)</code></h3>
+
+<h3><a class="anchor" name="setAnimation" href="#setAnimation"></a><code>setAnimation(animation)</code></h3>
 
 
 
@@ -1997,6 +2107,8 @@ Set true if you **do not want** to move the map when you click on the marker.
 <h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
 
 
+
+
 Set false if you want to hide the marker.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2033,7 +2145,7 @@ Return true if the marker is visible
 
 
 
-Change title of the infoWindow.
+Change title of the normal infoWindow.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2071,7 +2183,7 @@ Return the title strings.
 
 
 
-Change snippet of the infoWindow.
+Change snippet of the normal infoWindow.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2109,7 +2221,7 @@ Return the snippet strings.
 
 
 
-Change the marker opacity.
+Change the marker opacity from 0.0 to 1.0.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2148,7 +2260,7 @@ Return the marker opacity.
 
 
 
-Remove the marker completely.
+Remove the marker.
 
 
 
@@ -2174,7 +2286,8 @@ Change the info window anchor. This defaults to 50% from the left of the image a
       <code>number</code>
     </td>
     <td>
-      </td>
+      <p>Distance from left of the icon image in pixels.</p>
+</td>
   </tr>
   
   <tr>
@@ -2184,7 +2297,8 @@ Change the info window anchor. This defaults to 50% from the left of the image a
       <code>number</code>
     </td>
     <td>
-      </td>
+      <p>Distance from top of the icon image in pixels.</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -2211,7 +2325,8 @@ Change the info window anchor. This defaults to 50% from the left of the image a
       <code>number</code>
     </td>
     <td>
-      </td>
+      <p>Distance from left of the icon image in pixels.</p>
+</td>
   </tr>
   
   <tr>
@@ -2221,7 +2336,8 @@ Change the info window anchor. This defaults to 50% from the left of the image a
       <code>number</code>
     </td>
     <td>
-      </td>
+      <p>Distance from top of the icon image in pixels.</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -2231,7 +2347,7 @@ Change the info window anchor. This defaults to 50% from the left of the image a
 
 
 
-Retrurn true if the infoWindow is shown on the marker
+Return true if the infoWindow is shown on the marker
 
 
 <div class="return-value" markdown="1">
@@ -2248,14 +2364,33 @@ Return the marker hash code.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> Marker hash code
-</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex()</code></h3>
+</div><h3><a class="anchor" name="setZIndex" href="#setZIndex"></a><code>setZIndex(y)</code></h3>
 
 
 
 
-iOS only, Plugin Version >= 1.3.3 Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays. (You're able to run this on Android, but it will have no effect)
-
-
+Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      y</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>z-index</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="getZIndex" href="#getZIndex"></a><code>getZIndex()</code></h3>
 
@@ -2273,7 +2408,7 @@ Get z-index
 
 
 
-Set true if you allows all users to drag the marker.
+Set true if you allow all users to drag the marker.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2398,25 +2533,21 @@ Return the marker rotation angle.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
-
-
-
-
-Return the map instance.
-Note that this method returns the original Google Map object, and not the Ionic Native wrapper.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Object</code> 
 </div><h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
 
 
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
 
 
 
@@ -2537,7 +2668,7 @@ Return the current polygon filling color (inner color).
 
 
 
-Change the stroke color (outter color)
+Change the stroke color (outer color)
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2687,6 +2818,7 @@ Return the current polygon zIndex
 
 
 
+Remove the polygon.
 
 
 
@@ -2695,6 +2827,7 @@ Return the current polygon zIndex
 
 
 
+Change the polygon stroke width
 
 
 
@@ -2703,6 +2836,7 @@ Return the current polygon zIndex
 
 
 
+Return the polygon stroke width
 
 
 
@@ -2750,7 +2884,15 @@ Return true if the polylgon is geodesic.
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setPoints" href="#setPoints"></a><code>setPoints(points)</code></h3>
 
 
 
@@ -3022,21 +3164,355 @@ Remove the polyline
 
 
 
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
-
-
-
-
-
-
-
-<h2><a class="anchor" name="TileOverlay" href="#TileOverlay"></a>TileOverlay</h2>
+<h2><a class="anchor" name="Spherical" href="#Spherical"></a>Spherical</h2>
 
 
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setFadeIn" href="#setFadeIn"></a><code>setFadeIn(fadeIn)</code></h3>
+<h3><a class="anchor" name="computeDistanceBetween" href="#computeDistanceBetween"></a><code>computeDistanceBetween(locationA,&nbsp;locationB)</code></h3>
+
+
+
+
+Returns the distance, in meters, between two LatLngs.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      locationA</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locationB</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="computeOffset" href="#computeOffset"></a><code>computeOffset(from,&nbsp;distance,&nbsp;heading)</code></h3>
+
+
+
+
+Returns the LatLng resulting from moving a distance from an origin in the specified heading (expressed in degrees clockwise from north)
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      from</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      distance</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      heading</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>LatLng</code> 
+</div><h3><a class="anchor" name="computeOffsetOrigin" href="#computeOffsetOrigin"></a><code>computeOffsetOrigin(to,&nbsp;distance,&nbsp;heading)</code></h3>
+
+
+
+
+Returns the location of origin when provided with a LatLng destination, meters travelled and original heading. Headings are expressed in degrees clockwise from North. This function returns null when no solution is available.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      to</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      <p>The destination LatLng.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      distance</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The distance travelled, in meters.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      heading</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The heading in degrees clockwise from north.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>LatLng</code> 
+</div><h3><a class="anchor" name="computeLength" href="#computeLength"></a><code>computeLength(path)</code></h3>
+
+
+
+
+Returns the length of the given path.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>Array.&lt;ILatLng&gt;</code>|<code>BaseArrayClass.&lt;ILatLng&gt;</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="computeArea" href="#computeArea"></a><code>computeArea(path)</code></h3>
+
+
+
+
+Returns the area of a closed path. The computed area uses the same units as the radius.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>Array.&lt;ILatLng&gt;</code>|<code>BaseArrayClass.&lt;ILatLng&gt;</code>
+    </td>
+    <td>
+      <p>.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="computeSignedArea" href="#computeSignedArea"></a><code>computeSignedArea(path)</code></h3>
+
+
+
+
+Returns the signed area of a closed path. The signed area may be used to determine the orientation of the path.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>Array.&lt;ILatLng&gt;</code>|<code>BaseArrayClass.&lt;ILatLng&gt;</code>
+    </td>
+    <td>
+      <p>.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="computeHeading" href="#computeHeading"></a><code>computeHeading(from,&nbsp;to)</code></h3>
+
+
+
+
+Returns the heading from one LatLng to another LatLng. Headings are expressed in degrees clockwise from North within the range (-180,180).
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      from</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      to</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="interpolate" href="#interpolate"></a><code>interpolate(from,&nbsp;to,&nbsp;fraction)</code></h3>
+
+
+
+
+Returns the LatLng which lies the given fraction of the way between the origin LatLng and the destination LatLng.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      from</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      <p>The LatLng from which to start.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      to</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      <p>The LatLng toward which to travel.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      fraction</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>A fraction of the distance to travel from 0.0 to 1.0 .</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>LatLng</code> 
+</div><h2><a class="anchor" name="TileOverlay" href="#TileOverlay"></a>TileOverlay</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setFadeIn" href="#setFadeIn"></a><code>setFadeIn(fadeIn)</code></h3>
 
 
 
@@ -3296,6 +3772,63 @@ Sets a value
   </tbody>
 </table>
 
+<h3><a class="anchor" name="bindTo" href="#bindTo"></a><code>bindTo(key,&nbsp;target,&nbsp;targetKey?,&nbsp;noNotify?)</code></h3>
+
+
+
+
+Bind a key to another object
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      target</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      targetKey?</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
 
 
@@ -3332,6 +3865,7 @@ Clears all stored values
 
 
 
+Dispatch event.
 
 
 
@@ -3372,16 +3906,35 @@ Add an event listener
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an Observable
-</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty()</code></h3>
+</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty(noNotify?)</code></h3>
 
 
 
 
 Removes all elements from the array.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent remove_at events.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
-
-
-<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(fn,&nbsp;callback)</code></h3>
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(fn,&nbsp;callback?)</code></h3>
 
 
 
@@ -3408,7 +3961,7 @@ Iterate over each element, calling the provided callback.
   
   <tr>
     <td>
-      callback</td>
+      callback?</td>
     <td>
       <code>Function</code>
     </td>
@@ -3418,7 +3971,7 @@ Iterate over each element, calling the provided callback.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback)</code></h3>
+<h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback?)</code></h3>
 
 
 
@@ -3446,7 +3999,47 @@ Then you can get the results of each callback.
   
   <tr>
     <td>
-      callback</td>
+      callback?</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
+</div><h3><a class="anchor" name="filter" href="#filter"></a><code>filter(fn,&nbsp;callback?)</code></h3>
+
+
+
+
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback?</td>
     <td>
       <code>Function</code>
     </td>
@@ -3500,7 +4093,66 @@ Returns the element at the specified index.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Object</code> 
-</div><h3><a class="anchor" name="insertAt" href="#insertAt"></a><code>insertAt(index,&nbsp;element)</code></h3>
+</div><h3><a class="anchor" name="getLength" href="#getLength"></a><code>getLength()</code></h3>
+
+
+
+
+Returns the number of the elements.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="indexOf" href="#indexOf"></a><code>indexOf(element)</code></h3>
+
+
+
+
+The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      element</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> 
+</div><h3><a class="anchor" name="reverse" href="#reverse"></a><code>reverse()</code></h3>
+
+
+
+
+The reverse() method reverses an array in place.
+
+
+
+<h3><a class="anchor" name="sort" href="#sort"></a><code>sort()</code></h3>
+
+
+
+
+The sort() method sorts the elements of an array in place and returns the array.
+
+
+
+<h3><a class="anchor" name="insertAt" href="#insertAt"></a><code>insertAt(index,&nbsp;element,&nbsp;noNotify?)</code></h3>
 
 
 
@@ -3534,24 +4186,55 @@ Inserts an element at the specified index.
     <td>
       </td>
   </tr>
+  
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent insert_at events.</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Object</code> 
-</div><h3><a class="anchor" name="pop" href="#pop"></a><code>pop()</code></h3>
+</div><h3><a class="anchor" name="pop" href="#pop"></a><code>pop(noNotify?)</code></h3>
 
 
 
 
 Removes the last element of the array and returns that element.
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent remove_at events.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Object</code> 
-</div><h3><a class="anchor" name="push" href="#push"></a><code>push(element)</code></h3>
+</div><h3><a class="anchor" name="push" href="#push"></a><code>push(element,&nbsp;noNotify?)</code></h3>
 
 
 
@@ -3575,10 +4258,21 @@ Adds one element to the end of the array and returns the new length of the array
     <td>
       </td>
   </tr>
+  
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent insert_at events.</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="removeAt" href="#removeAt"></a><code>removeAt(index)</code></h3>
+<h3><a class="anchor" name="removeAt" href="#removeAt"></a><code>removeAt(index,&nbsp;noNotify?)</code></h3>
 
 
 
@@ -3602,10 +4296,21 @@ Removes an element from the specified index.
     <td>
       </td>
   </tr>
+  
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent insert_at events.</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setAt" href="#setAt"></a><code>setAt(index,&nbsp;element)</code></h3>
+<h3><a class="anchor" name="setAt" href="#setAt"></a><code>setAt(index,&nbsp;element,&nbsp;noNotify?)</code></h3>
 
 
 
@@ -3639,6 +4344,17 @@ Sets an element at the specified index.
     <td>
       </td>
   </tr>
+  
+  <tr>
+    <td>
+      noNotify?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set true to prevent set_at events.</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
@@ -3667,7 +4383,7 @@ Sets an element at the specified index.
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3676,16 +4392,13 @@ Sets an element at the specified index.
       controls
     </td>
     <td>
-      <code>{
-    compass: boolean;
-    myLocationButton: boolean;
-    indoorPicker: boolean;
-    zoom: boolean;
+      <code>*/
+    mapToolbar?: boolean
   }</code>
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3695,15 +4408,15 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>{
-    scroll: boolean;
-    tilt: boolean;
-    zoom: boolean;
-    rotate: boolean;
+    scroll?: boolean;
+    tilt?: boolean;
+    zoom?: boolean;
+    rotate?: boolean;
   }</code>
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3715,8 +4428,9 @@ Sets an element at the specified index.
       <code>any[]</code>
     </td>
     <td>
-      
-      
+      <p>Map styles</p>
+
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3728,8 +4442,9 @@ Sets an element at the specified index.
       <code>CameraPosition</code>
     </td>
     <td>
-      
-      
+      <p>Initial camera position</p>
+
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3738,17 +4453,13 @@ Sets an element at the specified index.
       preferences
     </td>
     <td>
-      <code>{
-    zoom: {
-      minZoom: number;
-      maxZoom: number;
-    },
-    building: boolean;
+      <code>*/
+    building?: boolean
   }</code>
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -3773,10 +4484,11 @@ Sets an element at the specified index.
       target
     </td>
     <td>
-      <code>LatLng | Array&lt;Marker&gt; | LatLngBounds</code>
+      <code>ILatLng | Array&lt;ILatLng&gt; | LatLngBounds</code>
     </td>
     <td>
-      
+      <p>Center position of the camera target.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -3789,7 +4501,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>View angle of camera from 0 to 90</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -3802,7 +4515,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Zoom level from 0 to 20</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -3815,7 +4529,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Heading from 0 to 359</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -3828,7 +4543,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Duration of camera animation in milli seconds</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -3854,7 +4570,7 @@ Sets an element at the specified index.
       target
     </td>
     <td>
-      <code>LatLng | LatLngBounds | LatLng[]</code>
+      <code>ILatLng | LatLngBounds | ILatLng[]</code>
     </td>
     <td>
       <p>The center location of the camera view.</p>
@@ -3940,7 +4656,7 @@ Sets an element at the specified index.
       center
     </td>
     <td>
-      <code>LatLng</code>
+      <code>ILatLng</code>
     </td>
     <td>
       
@@ -3993,6 +4709,19 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      clickable
+    </td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
       
@@ -4281,10 +5010,24 @@ Sets an element at the specified index.
       bounds
     </td>
     <td>
-      <code>Array&lt;LatLng&gt;</code>
+      <code>Array&lt;ILatLng&gt;</code>
     </td>
     <td>
-      <p>Bounds, array of LatLng</p>
+      <p>Bounds, array of ILatLng</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      clickable
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to false to ignore click event</p>
 
       <em>(optional)</em>
     </td>
@@ -4312,7 +5055,7 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      <p>Opacity. From 0 to 1.</p>
+      <p>Opacity. From 0.0 to 1.0 .</p>
 
       <em>(optional)</em>
     </td>
@@ -4496,7 +5239,7 @@ Sets an element at the specified index.
       position
     </td>
     <td>
-      <code>LatLng</code>
+      <code>ILatLng</code>
     </td>
     <td>
       <p>The position of the marker.</p>
@@ -4583,7 +5326,7 @@ Sets an element at the specified index.
       <code>any</code>
     </td>
     <td>
-      <p>Specify the options for title.</p>
+      <p>Specify the options for title. This property work for normal InfoWindow.</p>
 
       <em>(optional)</em>
     </td>
@@ -4611,7 +5354,7 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      <p>iOS only, Plugin Version &gt;= 1.3.3 Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays. (You&#39;re able to run this on Android, but it will have no effect)</p>
+      <p>Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays.</p>
 
       <em>(optional)</em>
     </td>
@@ -4814,7 +5557,7 @@ Sets an element at the specified index.
       points
     </td>
     <td>
-      <code>Array&lt;LatLng&gt;</code>
+      <code>Array&lt;ILatLng&gt;</code>
     </td>
     <td>
       
@@ -4934,7 +5677,7 @@ Sets an element at the specified index.
       points
     </td>
     <td>
-      <code>Array&lt;LatLng&gt;</code>
+      <code>Array&lt;ILatLng&gt;</code>
     </td>
     <td>
       

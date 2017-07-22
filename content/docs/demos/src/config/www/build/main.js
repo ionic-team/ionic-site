@@ -15623,6 +15623,7 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return App; });
+/* unused harmony export getNavByIdOrName */
 /* unused harmony export findTopNavs */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(34);
@@ -15894,6 +15895,16 @@ let App = class App {
             }, 50);
         }
     }
+    getNavByIdOrName(id) {
+        const navs = Array.from(this._rootNavs.values());
+        for (const navContainer of navs) {
+            const match = getNavByIdOrName(navContainer, id);
+            if (match) {
+                return match;
+            }
+        }
+        return null;
+    }
 };
 App = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Injectable */])(),
@@ -15901,6 +15912,18 @@ App = __decorate([
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__config_config__["c" /* Config */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_platform__["b" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__menu_controller__["a" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__menu_controller__["a" /* MenuController */]) === "function" && _c || Object])
 ], App);
 
+function getNavByIdOrName(nav, id) {
+    if (nav.id === id || nav.name === id) {
+        return nav;
+    }
+    for (const child of nav.getAllChildNavs()) {
+        const tmp = getNavByIdOrName(child, id);
+        if (tmp) {
+            return tmp;
+        }
+    }
+    return null;
+}
 function getPoppableNav(nav) {
     if (!nav) {
         return null;
@@ -16531,13 +16554,16 @@ class DeepLinker {
     }
     navChange(direction) {
         if (direction) {
-            const rootNavContainers = this._app.getActiveNavContainers();
-            let segments = [];
-            for (const rootNavContainer of rootNavContainers) {
-                if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(rootNavContainer) || rootNavContainer.isTransitioning()) {
+            const activeNavContainers = this._app.getActiveNavContainers();
+            for (const activeNavContainer of activeNavContainers) {
+                if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(activeNavContainer) || activeNavContainer.isTransitioning()) {
                     return;
                 }
-                const segmentsForNav = this.getSegmentsFromNav(rootNavContainer);
+            }
+            let segments = [];
+            const navContainers = this._app.getRootNavs();
+            for (const navContainer of navContainers) {
+                const segmentsForNav = this.getSegmentsFromNav(navContainer);
                 segments = segments.concat(segmentsForNav);
             }
             segments = segments.filter(segment => !!segment);
@@ -16548,21 +16574,17 @@ class DeepLinker {
         }
     }
     getSegmentsFromNav(nav) {
-        const segments = [];
-        while (nav) {
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["b" /* isNav */])(nav)) {
-                segments.push(this.getSegmentFromNav(nav));
-                nav = nav.parent;
-            }
-            else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(nav)) {
-                segments.push(this.getSegmentFromTab(nav));
-                nav = nav.parent && nav.parent.parent;
-            }
-            else {
-                nav = nav.parent;
-            }
+        let segments = [];
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["b" /* isNav */])(nav)) {
+            segments.push(this.getSegmentFromNav(nav));
         }
-        return segments.reverse();
+        else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(nav)) {
+            segments.push(this.getSegmentFromTab(nav));
+        }
+        nav.getActiveChildNavs().forEach(child => {
+            segments = segments.concat(this.getSegmentsFromNav(child));
+        });
+        return segments;
     }
     getSegmentFromNav(nav, component, data) {
         if (!component) {
@@ -16572,7 +16594,7 @@ class DeepLinker {
                 data = viewController.data;
             }
         }
-        return this._serializer.serializeComponent({ navId: nav.name && nav.name.length ? nav.name : nav.id, secondaryId: null, type: 'nav' }, component, data);
+        return this._serializer.serializeComponent(nav, component, data);
     }
     getSegmentFromTab(navContainer, component, data) {
         if (navContainer && navContainer.parent) {
@@ -16585,7 +16607,7 @@ class DeepLinker {
                     component = viewController.component;
                     data = viewController.data;
                 }
-                return this._serializer.serializeComponent({ navId: tabsNavContainer.name || tabsNavContainer.id, secondaryId: tabsNavContainer.getSecondaryIdentifier(), type: 'tabs' }, component, data);
+                return this._serializer.serializeComponent(tabsNavContainer, component, data);
             }
         }
     }
@@ -16726,7 +16748,7 @@ class DeepLinker {
                     return navController.popTo(viewController, {
                         animate: false,
                         updateUrl: false,
-                    }, done);
+                    }, {}, done);
                 }
             }
         }
@@ -36025,6 +36047,9 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         const selected = this.getSelected();
         return selected ? [selected] : [];
     }
+    getAllChildNavs() {
+        return this._tabs;
+    }
     getIndex(tab) {
         return this._tabs.indexOf(tab);
     }
@@ -37812,12 +37837,22 @@ var _a, _b, _c, _d, _e;
 /* harmony export (immutable) */ __webpack_exports__["a"] = setupUrlSerializer;
 /* unused harmony export urlToNavGroupStrings */
 /* unused harmony export navGroupStringtoObjects */
+/* unused harmony export urlToNavGroupStringsTwo */
+/* unused harmony export convertUrlToSegments */
+/* unused harmony export convertUrlToDehydratedSegments */
+/* unused harmony export hydrateSegmentsWithNav */
+/* unused harmony export getNavFromNavGroup */
+/* unused harmony export getSegmentsFromNavGroups */
+/* unused harmony export getSegmentsFromUrlPieces */
+/* unused harmony export hydrateSegment */
+/* unused harmony export getNonHydratedSegmentIfLinkAndUrlMatch */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
 
 
 class UrlSerializer {
-    constructor(config) {
+    constructor(_app, config) {
+        this._app = _app;
         if (config && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["b" /* isArray */])(config.links)) {
             this.links = normalizeLinks(config.links);
         }
@@ -37830,14 +37865,12 @@ class UrlSerializer {
             browserUrl = browserUrl.substr(1);
         }
         browserUrl = browserUrl.split('?')[0].split('#')[0];
-        const navGroupStrings = urlToNavGroupStrings(browserUrl);
-        const navGroups = navGroupStringtoObjects(navGroupStrings);
-        return parseUrlParts(navGroups, this.links);
+        return convertUrlToSegments(this._app, browserUrl, this.links);
     }
     createSegmentFromName(navContainer, nameOrComponent) {
         const configLink = this.getLinkFromName(nameOrComponent);
         if (configLink) {
-            return this._createSegment({ navId: navContainer.id, secondaryId: navContainer.getSecondaryIdentifier(), type: 'tabs' }, configLink, null);
+            return this._createSegment(this._app, navContainer, configLink, null);
         }
         return null;
     }
@@ -37853,22 +37886,28 @@ class UrlSerializer {
         }
         const sections = segments.map(segment => {
             if (segment.type === 'tabs') {
-                return `/${segment.type}/${segment.navId}/${segment.secondaryId}/${segment.id}`;
+                if (segment.requiresExplicitNavPrefix) {
+                    return `/${segment.type}/${segment.navId}/${segment.secondaryId}/${segment.id}`;
+                }
+                return `/${segment.secondaryId}/${segment.id}`;
             }
-            return `/${segment.type}/${segment.navId}/${segment.id}`;
+            if (segment.requiresExplicitNavPrefix) {
+                return `/${segment.type}/${segment.navId}/${segment.id}`;
+            }
+            return `/${segment.id}`;
         });
         return sections.join('');
     }
-    serializeComponent(navGroup, component, data) {
+    serializeComponent(navContainer, component, data) {
         if (component) {
             const link = findLinkByComponentData(this.links, component, data);
             if (link) {
-                return this._createSegment(navGroup, link, data);
+                return this._createSegment(this._app, navContainer, link, data);
             }
         }
         return null;
     }
-    _createSegment(navGroup, configLink, data) {
+    _createSegment(app, navContainer, configLink, data) {
         let urlParts = configLink.segmentParts;
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(data)) {
             urlParts = urlParts.slice();
@@ -37887,6 +37926,13 @@ class UrlSerializer {
                 }
             }
         }
+        let requiresExplicitPrefix = true;
+        if (navContainer.parent) {
+            requiresExplicitPrefix = navContainer.parent && navContainer.parent.getAllChildNavs().length > 1;
+        }
+        else {
+            requiresExplicitPrefix = app.getRootNavById(navContainer.id) && app.getRootNavs().length > 1;
+        }
         return {
             id: urlParts.join('/'),
             name: configLink.name,
@@ -37894,9 +37940,10 @@ class UrlSerializer {
             loadChildren: configLink.loadChildren,
             data: data,
             defaultHistory: configLink.defaultHistory,
-            navId: navGroup.navId,
-            type: navGroup.type,
-            secondaryId: navGroup.secondaryId
+            navId: navContainer.name || navContainer.id,
+            type: navContainer.getType(),
+            secondaryId: navContainer.getSecondaryIdentifier(),
+            requiresExplicitNavPrefix: requiresExplicitPrefix
         };
     }
 }
@@ -37918,38 +37965,6 @@ function formatUrlPart(name) {
     }
     return encodeURIComponent(name);
 }
-const parseUrlParts = (navGroups, configLinks) => {
-    const segments = [];
-    for (const link of configLinks) {
-        for (const navGroup of navGroups) {
-            if (link.segmentPartsLen === navGroup.segmentPieces.length) {
-                let allSegmentsMatch = true;
-                for (let i = 0; i < navGroup.segmentPieces.length; i++) {
-                    if (!isPartMatch(navGroup.segmentPieces[i], link.segmentParts[i])) {
-                        allSegmentsMatch = false;
-                        break;
-                    }
-                }
-                if (allSegmentsMatch) {
-                    segments.push({
-                        id: link.segmentParts.join('/'),
-                        name: link.name,
-                        component: link.component,
-                        loadChildren: link.loadChildren,
-                        data: createMatchedData(navGroup.segmentPieces, link),
-                        defaultHistory: link.defaultHistory,
-                        navId: navGroup.navId,
-                        type: navGroup.type,
-                        secondaryId: navGroup.secondaryId
-                    });
-                }
-            }
-        }
-    }
-    return segments;
-};
-/* unused harmony export parseUrlParts */
-
 const isPartMatch = (urlPart, configLinkPart) => {
     if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(urlPart) && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(configLinkPart)) {
         if (configLinkPart.charAt(0) === ':') {
@@ -38052,8 +38067,8 @@ const URL_REPLACE_REG = /\s+|\?|\!|\$|\,|\.|\+|\"|\'|\*|\^|\||\/|\\|\[|\]|#|%|`|
 const DeepLinkConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* OpaqueToken */]('USERLINKS');
 /* harmony export (immutable) */ __webpack_exports__["b"] = DeepLinkConfigToken;
 
-function setupUrlSerializer(userDeepLinkConfig) {
-    return new UrlSerializer(userDeepLinkConfig);
+function setupUrlSerializer(app, userDeepLinkConfig) {
+    return new UrlSerializer(app, userDeepLinkConfig);
 }
 function urlToNavGroupStrings(url) {
     const tokens = url.split('/');
@@ -38084,14 +38099,177 @@ function navGroupStringtoObjects(navGroupStrings) {
                 segmentPieces: sections.splice(2)
             };
         }
+        else if (sections[0] === 'tabs') {
+            return {
+                type: 'tabs',
+                navId: sections[1],
+                niceId: sections[1],
+                secondaryId: sections[2],
+                segmentPieces: sections.splice(3)
+            };
+        }
         return {
-            type: 'tabs',
-            navId: sections[1],
-            niceId: sections[1],
-            secondaryId: sections[2],
-            segmentPieces: sections.splice(3)
+            type: null,
+            navId: null,
+            niceId: null,
+            secondaryId: null,
+            segmentPieces: sections
         };
     });
+}
+function urlToNavGroupStringsTwo(url) {
+    const tokens = url.split('/');
+    const keywordIndexes = [];
+    for (let i = 0; i < tokens.length; i++) {
+        if (i !== 0 && (tokens[i] === 'nav' || tokens[i] === 'tabs')) {
+            keywordIndexes.push(i);
+        }
+    }
+    keywordIndexes.push(tokens.length);
+    const groupings = [];
+    let activeKeywordIndex = 0;
+    let tmpArray = [];
+    for (let i = 0; i < tokens.length; i++) {
+        if (i >= keywordIndexes[activeKeywordIndex]) {
+            groupings.push(tmpArray.join('/'));
+            tmpArray = [];
+            activeKeywordIndex++;
+        }
+        tmpArray.push(tokens[i]);
+    }
+    groupings.push(tmpArray.join('/'));
+    return groupings;
+}
+function convertUrlToSegments(app, url, navLinks) {
+    const pairs = convertUrlToDehydratedSegments(url, navLinks);
+    return hydrateSegmentsWithNav(app, pairs);
+}
+function convertUrlToDehydratedSegments(url, navLinks) {
+    const navGroupStrings = urlToNavGroupStringsTwo(url);
+    const navGroups = navGroupStringtoObjects(navGroupStrings);
+    return getSegmentsFromNavGroups(navGroups, navLinks);
+}
+function hydrateSegmentsWithNav(app, dehydratedSegmentPairs) {
+    const segments = [];
+    for (let i = 0; i < dehydratedSegmentPairs.length; i++) {
+        let navs = getNavFromNavGroup(dehydratedSegmentPairs[i].navGroup, app);
+        for (const dehydratedSegment of dehydratedSegmentPairs[i].segments) {
+            if (navs.length === 1) {
+                segments.push(hydrateSegment(dehydratedSegment, navs[0]));
+            }
+            else if (navs.length > 1 || navs.length <= 0) {
+                break;
+            }
+            navs = navs[0].getActiveChildNavs();
+        }
+    }
+    return segments;
+}
+function getNavFromNavGroup(navGroup, app) {
+    if (navGroup.navId) {
+        const rootNav = app.getNavByIdOrName(navGroup.navId);
+        if (rootNav) {
+            return [rootNav];
+        }
+        return [];
+    }
+    return app.getRootNavs();
+}
+function getSegmentsFromNavGroups(navGroups, navLinks) {
+    const pairs = [];
+    for (const navGroup of navGroups) {
+        const segments = [];
+        for (let i = 0; i < navGroup.segmentPieces.length; i++) {
+            let created = false;
+            for (let j = 0; j < navGroup.segmentPieces.length - i; j++) {
+                const endIndex = 1 + i + j;
+                const subsetOfUrl = navGroup.segmentPieces.slice(i, endIndex);
+                for (const navLink of navLinks) {
+                    const segment = getSegmentsFromUrlPieces(subsetOfUrl, navLink);
+                    if (segment) {
+                        created = true;
+                        segments.push(segment);
+                        for (let k = i; k < endIndex; k++) {
+                            navGroup.segmentPieces[k] = null;
+                        }
+                        break;
+                    }
+                }
+            }
+            if (!created && navGroup.segmentPieces[i]) {
+                segments.push({
+                    id: null,
+                    name: null,
+                    secondaryId: navGroup.segmentPieces[i],
+                    component: null,
+                    loadChildren: null,
+                    data: null,
+                    defaultHistory: null
+                });
+            }
+        }
+        segments.forEach(segment => console.log('segment: ', segment));
+        for (let i = 0; i < segments.length; i++) {
+            if (segments[i].secondaryId && !segments[i].id && ((i + 1) <= segments.length - 1)) {
+                segments[i + 1].secondaryId = segments[i].secondaryId;
+                segments[i] = null;
+            }
+        }
+        const cleanedSegments = segments.filter(segment => !!segment);
+        if (navGroup.secondaryId && segments.length) {
+            cleanedSegments[0].secondaryId = navGroup.secondaryId;
+        }
+        pairs.push({
+            navGroup: navGroup,
+            segments: cleanedSegments
+        });
+    }
+    return pairs;
+}
+function getSegmentsFromUrlPieces(urlSections, navLink) {
+    if (navLink.segmentPartsLen !== urlSections.length) {
+        return null;
+    }
+    for (let i = 0; i < urlSections.length; i++) {
+        if (!isPartMatch(urlSections[i], navLink.segmentParts[i])) {
+            return null;
+        }
+    }
+    return {
+        id: urlSections.join('/'),
+        name: navLink.name,
+        component: navLink.component,
+        loadChildren: navLink.loadChildren,
+        data: createMatchedData(urlSections, navLink),
+        defaultHistory: navLink.defaultHistory
+    };
+}
+function hydrateSegment(segment, nav) {
+    const hydratedSegment = Object.assign({}, segment);
+    hydratedSegment.type = nav.getType();
+    hydratedSegment.navId = nav.id;
+    hydratedSegment.secondaryId = segment.secondaryId;
+    return hydratedSegment;
+}
+function getNonHydratedSegmentIfLinkAndUrlMatch(urlChunks, navLink) {
+    let allSegmentsMatch = true;
+    for (let i = 0; i < urlChunks.length; i++) {
+        if (!isPartMatch(urlChunks[i], navLink.segmentParts[i])) {
+            allSegmentsMatch = false;
+            break;
+        }
+    }
+    if (allSegmentsMatch) {
+        return {
+            id: navLink.segmentParts.join('/'),
+            name: navLink.name,
+            component: navLink.component,
+            loadChildren: navLink.loadChildren,
+            data: createMatchedData(urlChunks, navLink),
+            defaultHistory: navLink.defaultHistory
+        };
+    }
+    return null;
 }
 //# sourceMappingURL=url-serializer.js.map
 
@@ -42334,6 +42512,9 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         return this._children && this._children.length > 0;
     }
     getActiveChildNavs() {
+        return this._children;
+    }
+    getAllChildNavs() {
         return this._children;
     }
     registerChildNav(container) {
@@ -53559,7 +53740,7 @@ let IonicModule = IonicModule_1 = class IonicModule {
                 __WEBPACK_IMPORTED_MODULE_21__transitions_transition_controller__["a" /* TransitionController */],
                 { provide: __WEBPACK_IMPORTED_MODULE_15__util_module_loader__["c" /* ModuleLoader */], useFactory: __WEBPACK_IMPORTED_MODULE_15__util_module_loader__["a" /* provideModuleLoader */], deps: [__WEBPACK_IMPORTED_MODULE_16__util_ng_module_loader__["a" /* NgModuleLoader */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Injector */]] },
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_common__["g" /* LocationStrategy */], useFactory: provideLocationStrategy, deps: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* PlatformLocation */], [new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Inject */](__WEBPACK_IMPORTED_MODULE_1__angular_common__["f" /* APP_BASE_HREF */]), new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */]()], __WEBPACK_IMPORTED_MODULE_6__config_config__["c" /* Config */]] },
-                { provide: __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["c" /* UrlSerializer */], useFactory: __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["a" /* setupUrlSerializer */], deps: [__WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["b" /* DeepLinkConfigToken */]] },
+                { provide: __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["c" /* UrlSerializer */], useFactory: __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["a" /* setupUrlSerializer */], deps: [__WEBPACK_IMPORTED_MODULE_4__components_app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["b" /* DeepLinkConfigToken */]] },
                 { provide: __WEBPACK_IMPORTED_MODULE_7__navigation_deep_linker__["b" /* DeepLinker */], useFactory: __WEBPACK_IMPORTED_MODULE_7__navigation_deep_linker__["a" /* setupDeepLinker */], deps: [__WEBPACK_IMPORTED_MODULE_4__components_app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_22__navigation_url_serializer__["c" /* UrlSerializer */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["c" /* Location */], __WEBPACK_IMPORTED_MODULE_15__util_module_loader__["c" /* ModuleLoader */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]] },
             ]
         };
@@ -54595,7 +54776,7 @@ class AppModuleInjector extends __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" 
     }
     get _UrlSerializer_60() {
         if ((this.__UrlSerializer_60 == null)) {
-            (this.__UrlSerializer_60 = __WEBPACK_IMPORTED_MODULE_41__src_navigation_url_serializer__["a" /* setupUrlSerializer */](this._DeepLinkConfigToken_10));
+            (this.__UrlSerializer_60 = __WEBPACK_IMPORTED_MODULE_41__src_navigation_url_serializer__["a" /* setupUrlSerializer */](this._App_8, this._DeepLinkConfigToken_10));
         }
         return this.__UrlSerializer_60;
     }

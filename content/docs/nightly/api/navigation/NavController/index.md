@@ -568,6 +568,27 @@ Returns a list of the active child navigation.
 
 
 
+<div id="getAllChildNavs"></div>
+
+<h3>
+<a class="anchor" name="getAllChildNavs" href="#getAllChildNavs">
+<code>getAllChildNavs()</code>
+  
+
+</a>
+</h3>
+
+Returns a list of all child navigation containers
+
+
+
+
+
+
+
+
+
+
 <div id="getByIndex"></div>
 
 <h3>

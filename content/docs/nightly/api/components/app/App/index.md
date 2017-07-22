@@ -132,6 +132,26 @@ Improve this doc
 
 
 
+<div id="getNavByIdOrName"></div>
+
+<h3>
+<a class="anchor" name="getNavByIdOrName" href="#getNavByIdOrName">
+<code>getNavByIdOrName()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="getRootNav"></div>
 
 <h3>

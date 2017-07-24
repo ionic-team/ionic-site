@@ -52,7 +52,7 @@
     "gulp-footer": "^1.0.5",
     "gulp-header": "^1.7.1",
     "gulp-if": "^1.2.1",
-    "gulp-imagemin": "^2.0.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-livereload": "^1.2.0",
     "gulp-load-plugins": "^0.8.0",
     "gulp-minify-css": "^0.3.0",

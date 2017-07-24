@@ -34,6 +34,7 @@ module.exports = function router(app) {
   .get('/products/view', (req, res) => { res.render('products/view'); })
   .get('/resource-center', (req, res) => { res.render('resource-center'); })
   .get('/support', (req, res) => { res.render('support'); })
+  .get('/survey/2017', (req, res) => { res.render('survey/2017'); })
   .get('/team', (req, res) => { res.render('team'); })
   .get('/tos', (req, res) => { markdown(res, 'tos'); })
   .get('/values', (req, res) => { res.render('values'); })

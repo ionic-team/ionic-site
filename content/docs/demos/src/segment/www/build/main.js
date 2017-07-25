@@ -36766,9 +36766,8 @@ var _a;
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["d"] = formatUrlPart;
 /* harmony export (immutable) */ __webpack_exports__["a"] = setupUrlSerializer;
-/* unused harmony export urlToNavGroupStrings */
 /* unused harmony export navGroupStringtoObjects */
-/* unused harmony export urlToNavGroupStringsTwo */
+/* unused harmony export urlToNavGroupStrings */
 /* unused harmony export convertUrlToSegments */
 /* unused harmony export convertUrlToDehydratedSegments */
 /* unused harmony export hydrateSegmentsWithNav */
@@ -37001,23 +37000,6 @@ const DeepLinkConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" 
 function setupUrlSerializer(app, userDeepLinkConfig) {
     return new UrlSerializer(app, userDeepLinkConfig);
 }
-function urlToNavGroupStrings(url) {
-    const tokens = url.split('/');
-    const keywordIndexes = [];
-    for (let i = 0; i < tokens.length; i++) {
-        if (tokens[i] === 'nav' || tokens[i] === 'tabs') {
-            keywordIndexes.push(i);
-        }
-    }
-    const groupings = [];
-    for (let i = 0; i < keywordIndexes.length; i++) {
-        const startIndex = keywordIndexes[i];
-        const endIndex = keywordIndexes[i + 1 < keywordIndexes.length ? i + 1 : keywordIndexes.length];
-        const group = tokens.slice(startIndex, endIndex);
-        groupings.push(group.join('/'));
-    }
-    return groupings;
-}
 function navGroupStringtoObjects(navGroupStrings) {
     return navGroupStrings.map(navGroupString => {
         const sections = navGroupString.split('/');
@@ -37048,7 +37030,7 @@ function navGroupStringtoObjects(navGroupStrings) {
         };
     });
 }
-function urlToNavGroupStringsTwo(url) {
+function urlToNavGroupStrings(url) {
     const tokens = url.split('/');
     const keywordIndexes = [];
     for (let i = 0; i < tokens.length; i++) {
@@ -37076,7 +37058,7 @@ function convertUrlToSegments(app, url, navLinks) {
     return hydrateSegmentsWithNav(app, pairs);
 }
 function convertUrlToDehydratedSegments(url, navLinks) {
-    const navGroupStrings = urlToNavGroupStringsTwo(url);
+    const navGroupStrings = urlToNavGroupStrings(url);
     const navGroups = navGroupStringtoObjects(navGroupStrings);
     return getSegmentsFromNavGroups(navGroups, navLinks);
 }
@@ -37108,30 +37090,40 @@ function getNavFromNavGroup(navGroup, app) {
 }
 function getSegmentsFromNavGroups(navGroups, navLinks) {
     const pairs = [];
+    const usedNavLinks = new Set();
     for (const navGroup of navGroups) {
         const segments = [];
-        for (let i = 0; i < navGroup.segmentPieces.length; i++) {
+        const segmentPieces = navGroup.segmentPieces.concat([]);
+        for (let i = segmentPieces.length; i >= 0; i--) {
             let created = false;
-            for (let j = 0; j < navGroup.segmentPieces.length - i; j++) {
-                const endIndex = 1 + i + j;
-                const subsetOfUrl = navGroup.segmentPieces.slice(i, endIndex);
+            for (let j = 0; j < i; j++) {
+                const startIndex = i - j - 1;
+                const endIndex = i;
+                const subsetOfUrl = segmentPieces.slice(startIndex, endIndex);
                 for (const navLink of navLinks) {
-                    const segment = getSegmentsFromUrlPieces(subsetOfUrl, navLink);
-                    if (segment) {
-                        created = true;
-                        segments.push(segment);
-                        for (let k = i; k < endIndex; k++) {
-                            navGroup.segmentPieces[k] = null;
+                    if (!usedNavLinks.has(navLink.name)) {
+                        const segment = getSegmentsFromUrlPieces(subsetOfUrl, navLink);
+                        if (segment) {
+                            i = startIndex + 1;
+                            usedNavLinks.add(navLink.name);
+                            created = true;
+                            segments.push(segment);
+                            for (let k = startIndex; k < endIndex; k++) {
+                                segmentPieces[k] = null;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
+                if (created) {
+                    break;
+                }
             }
-            if (!created && navGroup.segmentPieces[i]) {
+            if (!created && segmentPieces[i - 1]) {
                 segments.push({
                     id: null,
                     name: null,
-                    secondaryId: navGroup.segmentPieces[i],
+                    secondaryId: segmentPieces[i - 1],
                     component: null,
                     loadChildren: null,
                     data: null,
@@ -37139,11 +37131,11 @@ function getSegmentsFromNavGroups(navGroups, navLinks) {
                 });
             }
         }
-        segments.forEach(segment => console.log('segment: ', segment));
-        for (let i = 0; i < segments.length; i++) {
-            if (segments[i].secondaryId && !segments[i].id && ((i + 1) <= segments.length - 1)) {
-                segments[i + 1].secondaryId = segments[i].secondaryId;
-                segments[i] = null;
+        const orderedSegments = segments.reverse();
+        for (let i = 0; i < orderedSegments.length; i++) {
+            if (orderedSegments[i].secondaryId && !orderedSegments[i].id && ((i + 1) <= orderedSegments.length - 1)) {
+                orderedSegments[i + 1].secondaryId = orderedSegments[i].secondaryId;
+                orderedSegments[i] = null;
             }
         }
         const cleanedSegments = segments.filter(segment => !!segment);

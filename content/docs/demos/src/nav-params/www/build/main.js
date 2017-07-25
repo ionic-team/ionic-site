@@ -37528,11 +37528,15 @@ function hydrateSegmentsWithNav(app, dehydratedSegmentPairs) {
         for (const dehydratedSegment of dehydratedSegmentPairs[i].segments) {
             if (navs.length === 1) {
                 segments.push(hydrateSegment(dehydratedSegment, navs[0]));
+                navs = navs[0].getActiveChildNavs();
             }
-            else if (navs.length > 1 || navs.length <= 0) {
+            else if (navs.length > 1) {
+                segments.push(hydrateSegment(dehydratedSegment, navs[navs.length - 1]));
+                navs = navs[navs.length - 1].getActiveChildNavs();
+            }
+            else {
                 break;
             }
-            navs = navs[0].getActiveChildNavs();
         }
     }
     return segments;
@@ -37629,7 +37633,7 @@ function getSegmentsFromUrlPieces(urlSections, navLink) {
 function hydrateSegment(segment, nav) {
     const hydratedSegment = Object.assign({}, segment);
     hydratedSegment.type = nav.getType();
-    hydratedSegment.navId = nav.id;
+    hydratedSegment.navId = nav.name || nav.id;
     hydratedSegment.secondaryId = segment.secondaryId;
     return hydratedSegment;
 }

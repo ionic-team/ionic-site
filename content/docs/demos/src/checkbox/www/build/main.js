@@ -36103,7 +36103,7 @@ let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_
         const segment = this._linker.getSegmentByNavIdOrName(this.id, this.name);
         if (segment && (segment.component || segment.loadChildren)) {
             return this._linker.initViews(segment).then(views => {
-                this.setPages(views, null, null);
+                return this.setPages(views, null, null);
             });
         }
         else if (this._root) {
@@ -40287,6 +40287,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._sbEnabled = config.getBoolean('swipeBackEnabled');
         this._children = [];
         this.id = 'n' + (++ctrlIds);
+        this._destroyed = false;
     }
     get swipeBackEnabled() {
         return this._sbEnabled;
@@ -40429,7 +40430,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (ti.done) {
             ti.done(false, false, rejectReason);
         }
-        if (ti.reject) {
+        if (ti.reject && !this._destroyed) {
             ti.reject(rejectReason);
         }
         else {
@@ -40807,28 +40808,30 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._removeView(view);
     }
     _cleanup(activeView) {
-        const activeViewIndex = this._views.indexOf(activeView);
-        const views = this._views;
-        let reorderZIndexes = false;
-        let view;
-        let i;
-        for (i = views.length - 1; i >= 0; i--) {
-            view = views[i];
-            if (i > activeViewIndex) {
-                this._willUnload(view);
-                this._destroyView(view);
-            }
-            else if (i < activeViewIndex && !this._isPortal) {
-                view._domShow(false, this._renderer);
-            }
-            if (view._zIndex <= 0) {
-                reorderZIndexes = true;
-            }
-        }
-        if (!this._isPortal && reorderZIndexes) {
-            for (i = 0; i < views.length; i++) {
+        if (!this._destroyed) {
+            const activeViewIndex = this._views.indexOf(activeView);
+            const views = this._views;
+            let reorderZIndexes = false;
+            let view;
+            let i;
+            for (i = views.length - 1; i >= 0; i--) {
                 view = views[i];
-                view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["l" /* INIT_ZINDEX */] + 1, this._renderer);
+                if (i > activeViewIndex) {
+                    this._willUnload(view);
+                    this._destroyView(view);
+                }
+                else if (i < activeViewIndex && !this._isPortal) {
+                    view._domShow(false, this._renderer);
+                }
+                if (view._zIndex <= 0) {
+                    reorderZIndexes = true;
+                }
+            }
+            if (!this._isPortal && reorderZIndexes) {
+                for (i = 0; i < views.length; i++) {
+                    view = views[i];
+                    view._setZIndex(view._zIndex + __WEBPACK_IMPORTED_MODULE_1__nav_util__["l" /* INIT_ZINDEX */] + 1, this._renderer);
+                }
             }
         }
     }
@@ -40946,6 +40949,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (this.parent && this.parent.unregisterChildNav) {
             this.parent.unregisterChildNav(this);
         }
+        this._destroyed = true;
     }
     swipeBackStart() {
         if (this.isTransitioning() || this._queue.length > 0) {

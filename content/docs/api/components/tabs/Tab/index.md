@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -56,7 +56,7 @@ navigation controllers take a look at the <a href="../../../navigation/NavContro
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>To add a basic tab, you can use the following markup where the <code>root</code> property
 is the page you want to load for that tab, <code>tabTitle</code> is the optional text to
@@ -134,15 +134,16 @@ the tabs.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<a class="anchor" name="goToRoot" href="#goToRoot">
 <code>goToRoot()</code>
   
 
+</a>
 </h3>
 
 
@@ -155,7 +156,7 @@ the tabs.</p>
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -242,7 +243,7 @@ tabbar. Default: <code>true</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -262,7 +263,7 @@ tabbar. Default: <code>true</code>.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -968,7 +969,7 @@ tabbar. Default: <code>true</code>.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#tabs">Tabs Component Docs</a>,
 <a href="../../tabs/Tabs">Tabs API Docs</a>,

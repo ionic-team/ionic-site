@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -102,7 +102,7 @@ You could use Angular&#39;s <code>ngModel</code> or <code>FormBuilder</code> API
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -673,7 +673,7 @@ You could use Angular&#39;s <code>ngModel</code> or <code>FormBuilder</code> API
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#segment">Segment Component Docs</a>,
 [Angular Forms](http://learnangular2.com/forms/)<!-- end content block -->

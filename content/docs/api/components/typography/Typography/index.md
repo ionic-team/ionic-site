@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -51,7 +51,7 @@ map and change the text color of that element.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;h1 ion-text color=&quot;secondary&quot;&gt;H1: The quick brown fox jumps over the lazy dog&lt;/h1&gt;
 

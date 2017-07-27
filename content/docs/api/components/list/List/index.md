@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -65,15 +65,16 @@ removing items.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="closeSlidingItems"></div>
 
 <h3>
-<a class="anchor" name="closeSlidingItems" href="#closeSlidingItems"></a>
+<a class="anchor" name="closeSlidingItems" href="#closeSlidingItems">
 <code>closeSlidingItems()</code>
   
 
+</a>
 </h3>
 
 Close any sliding items that are open.
@@ -87,7 +88,7 @@ Close any sliding items that are open.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -106,7 +107,7 @@ Close any sliding items that are open.
     </tr>
     
   </tbody>
-</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+</table><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>Enable the sliding items.</p>
 <pre><code class="lang-ts">import { Component, ViewChild } from &#39;@angular/core&#39;;
 import { List } from &#39;ionic-angular&#39;;
@@ -125,7 +126,7 @@ export class MyClass {
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -597,7 +598,7 @@ export class MyClass {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#lists">List Component Docs</a><!-- end content block -->
 

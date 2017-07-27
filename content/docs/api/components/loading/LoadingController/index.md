@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -47,7 +47,8 @@ interaction. The loading indicator appears on top of the app&#39;s content,
 and can be dismissed by the app to resume user interaction with
 the app. It includes an optional backdrop, which can be disabled
 by setting <code>showBackdrop: false</code> upon creation.</p>
-<h3 id="creating">Creating</h3>
+<h3><a class="anchor" name="creating" href="#creating">Creating</a></h3>
+
 <p>You can pass all of the loading options in the first argument of
 the create method: <code>create(opts)</code>. The spinner name should be
 passed in the <code>spinner</code> property, and any optional HTML can be passed
@@ -57,7 +58,8 @@ set the spinner name across the app, set the value of <code>loadingSpinner</code
 in your app&#39;s config. To hide the spinner, set <code>loadingSpinner: &#39;hide&#39;</code>
 in the app&#39;s config or pass <code>spinner: &#39;hide&#39;</code> in the loading
 options. See the <a href="#create">create</a> method below for all available options.</p>
-<h3 id="dismissing">Dismissing</h3>
+<h3><a class="anchor" name="dismissing" href="#dismissing">Dismissing</a></h3>
+
 <p>The loading indicator can be dismissed automatically after a specific
 amount of time by passing the number of milliseconds to display it in
 the <code>duration</code> of the loading options. By default the loading indicator
@@ -72,7 +74,8 @@ and another one must be created. This can be avoided by wrapping the
 creation and presentation of the component in a reusable function as shown
 in the <code>usage</code> section below.</p>
 </blockquote>
-<h3 id="limitations">Limitations</h3>
+<h3><a class="anchor" name="limitations" href="#limitations">Limitations</a></h3>
+
 <p>The element is styled to appear on top of other content by setting its
 <code>z-index</code> property. You must ensure no element has a stacking context with
 a higher <code>z-index</code> than this element.</p>
@@ -82,7 +85,7 @@ a higher <code>z-index</code> than this element.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">constructor(public loadingCtrl: LoadingController) {
 
@@ -144,15 +147,16 @@ presentLoadingText() {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -168,10 +172,11 @@ presentLoadingText() {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
   
 
+</a>
 </h3>
 
 Create a loading indicator. See below for options.
@@ -220,7 +225,7 @@ Create a loading indicator. See below for options.
 </div>
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>Loading options</p>
 <table>
 <thead>
@@ -271,7 +276,7 @@ Create a loading indicator. See below for options.
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -797,7 +802,7 @@ Create a loading indicator. See below for options.
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/api/components/spinner/Spinner">Spinner API Docs</a><!-- end content block -->
 

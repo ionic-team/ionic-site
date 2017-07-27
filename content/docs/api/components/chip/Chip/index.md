@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -51,7 +51,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-chip&gt;
   &lt;ion-label&gt;Default&lt;/ion-label&gt;
@@ -94,7 +94,7 @@ Improve this doc
 
 
 
-<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <pre><code class="lang-html">&lt;ion-chip #chip1&gt;
   &lt;ion-label&gt;Default&lt;/ion-label&gt;
   &lt;button ion-button clear color=&quot;light&quot; (click)=&quot;delete(chip1)&quot;&gt;
@@ -132,7 +132,7 @@ class E2EPage {
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

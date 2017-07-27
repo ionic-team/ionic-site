@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -50,7 +50,9 @@ a container of individual <a href="../Tab/">Tab</a> components. Each individual 
 is a declarative component for a <a href="../../../navigation/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
 take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
-<h3 id="placement">Placement</h3>
+<h3><a class="anchor" name="placement" href="#placement">Placement</a></h3>
+
+
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
 for iOS and Android, and at the top for Windows by default. The position can
@@ -58,7 +60,9 @@ be configured using the <code>tabsPlacement</code> attribute on the <code>&lt;io
 or in an app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
 values of <code>tabsPlacement</code>.</p>
-<h3 id="layout">Layout</h3>
+<h3><a class="anchor" name="layout" href="#layout">Layout</a></h3>
+
+
 <p>The layout for all of the tabs can be defined using the <code>tabsLayout</code>
 property. If the individual tab has a title and icon, the icons will
 show on top of the title by default. All tabs can be changed by setting
@@ -67,7 +71,9 @@ app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful
 you want to show tabs with a title only on Android, but show icons
 and a title for iOS. See the <a href="#input-properties">Input Properties</a>
 below for the available values of <code>tabsLayout</code>.</p>
-<h3 id="selecting-a-tab">Selecting a Tab</h3>
+<h3><a class="anchor" name="selecting-a-tab" href="#selecting-a-tab">Selecting a Tab</a></h3>
+
+
 <p>There are different ways you can select a specific tab from the tabs
 component. You can use the <code>selectedIndex</code> property to set the index
 on the <code>&lt;ion-tabs&gt;</code> element, or you can call <code>select()</code> from the <code>Tabs</code>
@@ -78,7 +84,7 @@ instance after creation. See <a href="#usage">usage</a> below for more informati
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>You can add a basic tabs template to a <code>@Component</code> using the following
 template:</p>
@@ -156,15 +162,16 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="getByIndex"></div>
 
 <h3>
-<a class="anchor" name="getByIndex" href="#getByIndex"></a>
+<a class="anchor" name="getByIndex" href="#getByIndex">
 <code>getByIndex(index)</code>
   
 
+</a>
 </h3>
 
 
@@ -218,10 +225,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="getSecondaryIdentifier"></div>
 
 <h3>
-<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier"></a>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier">
 <code>getSecondaryIdentifier()</code>
   
 
+</a>
 </h3>
 
 
@@ -237,10 +245,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="getSelected"></div>
 
 <h3>
-<a class="anchor" name="getSelected" href="#getSelected"></a>
+<a class="anchor" name="getSelected" href="#getSelected">
 <code>getSelected()</code>
   
 
+</a>
 </h3>
 
 
@@ -264,10 +273,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="getType"></div>
 
 <h3>
-<a class="anchor" name="getType" href="#getType"></a>
+<a class="anchor" name="getType" href="#getType">
 <code>getType()</code>
   
 
+</a>
 </h3>
 
 
@@ -283,10 +293,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<a class="anchor" name="goToRoot" href="#goToRoot">
 <code>goToRoot()</code>
   
 
+</a>
 </h3>
 
 
@@ -302,10 +313,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="previousTab"></div>
 
 <h3>
-<a class="anchor" name="previousTab" href="#previousTab"></a>
+<a class="anchor" name="previousTab" href="#previousTab">
 <code>previousTab(trimHistory)</code>
   
 
+</a>
 </h3>
 
 Get the previously selected Tab which is currently not disabled or hidden.
@@ -358,10 +370,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
 <div id="select"></div>
 
 <h3>
-<a class="anchor" name="select" href="#select"></a>
+<a class="anchor" name="select" href="#select">
 <code>select(tabOrIndex)</code>
   
 
+</a>
 </h3>
 
 
@@ -407,10 +420,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
 <div id="viewCtrl"></div>
 
 <h3>
-<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<a class="anchor" name="viewCtrl" href="#viewCtrl">
 <code>viewCtrl</code>
   
 
+</a>
 </h3>
 
 
@@ -423,7 +437,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -472,7 +486,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -492,7 +506,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -1198,7 +1212,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#tabs">Tabs Component Docs</a>,
 <a href="../Tab">Tab API Docs</a>,

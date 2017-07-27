@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -179,7 +179,9 @@ The following chart lists all of the formats that can be used.</p>
 </table>
 <p><strong>Important</strong>: See the <a href="#month-names-and-day-of-the-week-names">Month Names and Day of the Week Names</a>
 section below on how to use different names for the month and day.</p>
-<h3 id="display-format">Display Format</h3>
+<h3><a class="anchor" name="display-format" href="#display-format">Display Format</a></h3>
+
+
 <p>The <code>displayFormat</code> input property specifies how a datetime&#39;s value should be
 printed, as formatted text, within the <code>ion-datetime</code> component.</p>
 <p>In the following example, the display in the <code>&lt;ion-datetime&gt;</code> will use the
@@ -192,7 +194,9 @@ An example display using this format is: <code>Jun 17, 2005 11:06</code>.</p>
   &lt;ion-datetime displayFormat=&quot;MMM DD, YYYY HH:mm&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="picker-format">Picker Format</h3>
+<h3><a class="anchor" name="picker-format" href="#picker-format">Picker Format</a></h3>
+
+
 <p>The <code>pickerFormat</code> input property determines which columns should be shown in the
 interface, the order of the columns, and which format to use within each column.
 If the <code>pickerFormat</code> input is not provided then it will default to the <code>displayFormat</code>.</p>
@@ -204,7 +208,9 @@ will display two columns with the month&#39;s long name, and the four-digit year
   &lt;ion-datetime displayFormat=&quot;MM/YYYY&quot; pickerFormat=&quot;MMMM YYYY&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="datetime-data">Datetime Data</h3>
+<h3><a class="anchor" name="datetime-data" href="#datetime-data">Datetime Data</a></h3>
+
+
 <p>Historically, handling datetime values within JavaScript, or even within HTML
 inputs, has always been a challenge. Specifically, JavaScript&#39;s <code>Date</code> object is
 notoriously difficult to correctly parse apart datetime strings or to format
@@ -214,7 +220,9 @@ parse various datetime strings differently, especially per locale.</p>
 developers can avoid the common pitfalls, allowing developers to easily format
 datetime values within the input, and give the user a simple datetime picker for a
 great user experience.</p>
-<h5 id="iso-8601-datetime-format-yyyy-mm-ddthh-mmz">ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ</h5>
+<h3><a class="anchor" name="iso-8601-datetime-format-yyyy-mm-ddthh-mmz" href="#iso-8601-datetime-format-yyyy-mm-ddthh-mmz">ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ</a></h3>
+
+
 <p>Ionic uses the <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>
 for its value. The value is simply a string, rather than using JavaScript&#39;s <code>Date</code>
 object. Additionally, when using the ISO datetime format, it makes it easier
@@ -315,7 +323,9 @@ is still under heavy development so Ionic does not depend on it at this time.</p
 if the app needs to use names other than the default English version of month and day
 names. The month names and day names can be either configured at the app level, or
 individual <code>ion-datetime</code> level.</p>
-<h3 id="app-config-level">App Config Level</h3>
+<h3><a class="anchor" name="app-config-level" href="#app-config-level">App Config Level</a></h3>
+
+
 <pre><code class="lang-ts">//app.module.ts
 @NgModule({
 ...,
@@ -330,7 +340,9 @@ imports: [
 ...
 })
 </code></pre>
-<h3 id="component-input-level">Component Input Level</h3>
+<h3><a class="anchor" name="component-input-level" href="#component-input-level">Component Input Level</a></h3>
+
+
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Período&lt;/ion-label&gt;
   &lt;ion-datetime displayFormat=&quot;DDDD MMM D, YYYY&quot; [(ngModel)]=&quot;myDate&quot;
@@ -340,7 +352,9 @@ imports: [
     dayShortNames=&quot;dom, seg, ter, ...&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="advanced-datetime-validation-and-manipulation">Advanced Datetime Validation and Manipulation</h3>
+<h3><a class="anchor" name="advanced-datetime-validation-and-manipulation" href="#advanced-datetime-validation-and-manipulation">Advanced Datetime Validation and Manipulation</a></h3>
+
+
 <p>The datetime picker provides the simplicity of selecting an exact format, and persists
 the datetime values as a string using the standardized
 <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>.
@@ -359,7 +373,7 @@ configuration should be decided by the end-developer.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Date&lt;/ion-label&gt;
@@ -377,15 +391,16 @@ configuration should be decided by the end-developer.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="validate"></div>
 
 <h3>
-<a class="anchor" name="validate" href="#validate"></a>
+<a class="anchor" name="validate" href="#validate">
 <code>validate()</code>
   
 
+</a>
 </h3>
 
 
@@ -398,7 +413,7 @@ configuration should be decided by the end-developer.</p>
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -577,7 +592,7 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -597,7 +612,7 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

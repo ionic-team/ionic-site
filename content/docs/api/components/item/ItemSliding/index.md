@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -53,7 +53,7 @@ a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding #item&gt;
@@ -135,15 +135,16 @@ on the class.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
   
 
+</a>
 </h3>
 
 Close the sliding item. Items can also be closed from the [List](../../list/List).
@@ -188,7 +189,7 @@ export class MyClass {
 
 
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -223,7 +224,7 @@ It reports the relative position.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -722,7 +723,7 @@ It reports the relative position.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#lists">List Component Docs</a>,
 <a href="../Item">Item API Docs</a>,

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.6.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -49,7 +49,8 @@ Unlike a <a href="../Navbar/">Navbar</a>, a toolbar can be used as a subheader.
 When toolbars are placed within an <code>&lt;ion-header&gt;</code> or <code>&lt;ion-footer&gt;</code>,
 the toolbars stay fixed in their respective location. When placed within
 <code>&lt;ion-content&gt;</code>, toolbars will scroll with the content.</p>
-<h3 id="buttons-in-a-toolbar">Buttons in a Toolbar</h3>
+<h3><a class="anchor" name="buttons-in-a-toolbar" href="#buttons-in-a-toolbar">Buttons in a Toolbar</a></h3>
+
 <p>Buttons placed in a toolbar should be placed inside of the <code>&lt;ion-buttons&gt;</code>
 element. An exception to this is a <a href="../../menu/MenuToggle">menuToggle</a> button.
 It should not be placed inside of the <code>&lt;ion-buttons&gt;</code> element. Both the
@@ -82,7 +83,8 @@ property.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="header-footer-box-shadow-and-border">Header / Footer Box Shadow and Border</h3>
+<h3><a class="anchor" name="header-footer-box-shadow-and-border" href="#header-footer-box-shadow-and-border">Header / Footer Box Shadow and Border</a></h3>
+
 <p>In <code>md</code> mode, the <code>&lt;ion-header&gt;</code> will receive a box-shadow on the bottom, and the
 <code>&lt;ion-footer&gt;</code> will receive a box-shadow on the top.  In <code>ios</code> mode, the <code>&lt;ion-header&gt;</code>
 will receive a border on the bottom, and the <code>&lt;ion-footer&gt;</code> will receive a border on the
@@ -109,7 +111,7 @@ attribute to the element.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-header no-border&gt;
 
@@ -152,7 +154,7 @@ attribute to the element.</p>
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -507,7 +509,7 @@ attribute to the element.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="../Navbar/">Navbar API Docs</a><!-- end content block -->
 

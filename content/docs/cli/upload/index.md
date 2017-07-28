@@ -38,5 +38,5 @@ Option | Description
 ```bash
 $ ionic upload 
 $ ionic upload --deploy=dev
-$ ionic upload --deploy=production --note="add menu entry" --metadata="{"custom_data":true}"
+$ ionic upload --deploy=production --note="add menu entry" --metadata="{\"custom_data\":true}"
 ```

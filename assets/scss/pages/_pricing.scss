@@ -1,7 +1,7 @@
 #page-pricing {
   .navbar {
     + .cta {
-      background: #629ecf linear-gradient(to right, #3e61bb 0%, #8ae1e4 100%);
+      background: #061833 linear-gradient(45deg,#081834 0,#051b33 50%,#041629 50%,#031f33 100%);;
       padding-top: 97px;
 
       hgroup {
@@ -27,18 +27,18 @@
   .cards {
     margin: -182px auto 50px;
     text-align: center;
+    display: flex;
 
     .card {
       background: white;
-      display: inline-block;
-      height: 395px;
       position: relative;
       vertical-align: top;
-      width: 465px;
+      width: 286px;
+      padding: 41px 35px 16px;
       cursor: pointer;
 
       &::before {
-        background: linear-gradient(to bottom, white 0%, white 80%, rgba(235, 239, 246, 1) 80%, rgba(235, 239, 246, 1) 100%);
+        background: white;
         bottom: 0;
         border-radius: 2px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .1);
@@ -162,7 +162,7 @@
       }
 
       ul {
-        padding: 20px 0 0 115px;
+        padding: 20px 0 0 13px;
         text-align: left;
       }
 
@@ -170,7 +170,7 @@
         color: #404349;
         font-size: 14px;
         list-style: none;
-        padding: 15px 0 0 24px;
+        padding: 15px 0 0 23px;
         position: relative;
 
         &::before {

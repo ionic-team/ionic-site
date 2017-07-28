@@ -57,12 +57,14 @@ Command | Description
 [start](start) | Create a new project
 [telemetry](telemetry) | Opt in and out of telemetry
 [upload](upload) | Upload a new snapshot of your app
+[config get](config/get) | Print config values
+[config set](config/set) | Set config values
 [cordova build](cordova/build) | Build (prepare + compile) an Ionic project for a given platform
 [cordova compile](cordova/compile) | Compile native platform code
 [cordova emulate](cordova/emulate) | Emulate an Ionic project on a simulator or emulator
 [cordova platform](cordova/platform) | Manage Cordova platform targets
 [cordova plugin](cordova/plugin) | Manage Cordova plugins
-[cordova prepare](cordova/prepare) | Transform metadata to platform manifests and copies assets to Cordova platforms
+[cordova prepare](cordova/prepare) | Copies assets to Cordova platforms, preparing them for native builds
 [cordova resources](cordova/resources) | Automatically create icon and splash screen resources
 [cordova run](cordova/run) | Run an Ionic project on a connected device
 [package build](package/build) | Start a package build

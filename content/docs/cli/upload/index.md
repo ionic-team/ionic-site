@@ -18,7 +18,7 @@ $ ionic upload
   
 ## Details
 
-Zips up your local app files and uploads a snapshot to **[https://apps.ionic.io](https://apps.ionic.io)**.
+Zips up your local app files and uploads a snapshot to Ionic.
 
 From there, you can use Ionic View (**[https://view.ionic.io](https://view.ionic.io)**) to easily share your app with your organization and testers around the world.
 
@@ -38,5 +38,5 @@ Option | Description
 ```bash
 $ ionic upload 
 $ ionic upload --deploy=dev
-$ ionic upload --deploy=production --note="add menu entry" --metadata='{"custom_data":true}'
+$ ionic upload --deploy=production --note="add menu entry" --metadata="{"custom_data":true}"
 ```

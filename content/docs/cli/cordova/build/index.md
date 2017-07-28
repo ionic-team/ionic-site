@@ -28,6 +28,7 @@ Input | Description
 
 Option | Description
 ------ | ----------
+`--no-build` | Do not invoke an Ionic build
 `--prod` | Build the application for production
 `--aot` | Perform ahead-of-time compilation for this build
 `--minifyjs` | Minify JS for this build
@@ -46,6 +47,7 @@ $ ionic cordova build ios
 $ ionic cordova build ios --prod --release
 $ ionic cordova build ios --device --prod --release -- --developmentTeam="ABCD" --codeSignIdentity="iPhone Developer" --provisioningProfile="UUID"
 $ ionic cordova build android
+$ ionic cordova build android --prod --release -- -- --keystore=filename.keystore --alias=myalias
 $ ionic cordova build android --prod --release -- -- --minSdkVersion=21
 $ ionic cordova build android --prod --release -- -- --gradleArg=-PcdvBuildMultipleApks=true
 ```

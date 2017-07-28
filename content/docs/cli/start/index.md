@@ -36,10 +36,10 @@ Option | Description
 `--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
 `--app-name`, `-n` | Human-readable name (use quotes around the name)
 `--list`, `-l` | List starter templates available
-`--skip-deps` | Skip npm/yarn package installation of dependencies
 `--cordova` | Include Cordova integration
-`--git` | Do not initialize a git repo
-`--skip-link` | Do not link app to an Ionic Account
+`--no-deps` | Do not install npm/yarn dependencies
+`--no-git` | Do not initialize a git repo
+`--no-link` | Do not ask to connect the app with the Ionic Dashboard
 
 ## Examples
 

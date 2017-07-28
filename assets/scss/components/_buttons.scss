@@ -80,6 +80,18 @@
     &:active {
       // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
     }
+
+    &.outline {
+      color: $blue;
+      background: white;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: darken($blue, 10);
+        background: white;
+      }
+    }
   }
 
   &.grey {
@@ -101,6 +113,19 @@
         color: darken($grey, 10);
         background: transparent;
       }
+    }
+  }
+
+  &.dark-pink {
+    background: #212f45;
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    color: #ff567b;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #ff567b;
+      background: lighten(#212f45, 5)
     }
   }
 

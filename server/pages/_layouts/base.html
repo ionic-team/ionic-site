@@ -10,11 +10,9 @@
         class="page-{{id}}
                {% if id != 'enterprise' %}has-snap{% endif %}
                {% if header_style %}{{header_style}}{% endif %}"
-        data-spy="scroll"
-        data-offset="100"
         ng-app="IonicSite"
         {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
-        {% block body_attributes %}{% endblock %}>
+        {% block body_attributes %}data-spy="scroll" data-offset="100"{% endblock %}>
 
     {% if id != 'enterprise' %} 
       <div id="snap-bar">

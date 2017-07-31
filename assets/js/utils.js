@@ -86,10 +86,13 @@ $('a.anchor[href*="#"]')
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       // Does a scroll target exist?
       if (target.length) {
+        var offset = event.target.dataset && event.target.dataset.offset 
+          ? event.target.dataset.offset : 100
         $('html, body').animate({
-          scrollTop: target.offset().top - 100 // give 100px of headroom
+          scrollTop: target.offset().top - offset // give 100px of headroom
         }, 1000);
       }
+      return false;
     }
   });
 

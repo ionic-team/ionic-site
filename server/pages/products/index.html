@@ -8,7 +8,7 @@
 {% block body_attributes %}
   data-spy="scroll"
   data-target="#platform-nav"
-  data-offset="200"
+  data-offset="64"
 {% endblock %}
 
 {% block main %}
@@ -23,18 +23,29 @@
       lifecycle, all in one integrated experience.
     </p>
   </hgroup>
-  <div class="bar" data-spy="affix" data-offset-top="379">
+  <div class="bar" data-spy="affix" data-offset-top="409">
     <div class="container" id="platform-nav">
-      <!--<a ng-click="gotoPricing('top')"
-         class="btn ionic">View Pricing</a>-->
+      <a class="pro-logo" href="/products">
+        <img src="/img/products/pro-logo.png"/>
+      </a>
       <ul class="categories nav">
-        <li><a class="anchor prototyping" href="#prototyping"></a></li>
-        <li><a class="anchor testing" href="#testing"></a></li>
-        <li><a class="anchor updates" href="#updates"></a></li>
-        <li><a class="anchor build" href="#build"></a></li>
-        <li><a class="anchor reporting" href="#reporting"></a></li>
-        <li><a class="anchor push" href="#push"></a></li>
+        <li><a class="anchor prototyping"
+               href="#prototyping" 
+               data-offset="64"></a></li>
+        <li><a class="anchor testing"
+               href="#testing"
+               data-offset="64"></a></li>
+        <li><a class="anchor updates"
+               href="#updates"
+               data-offset="64"></a></li>
+        <li><a class="anchor build"
+               href="#build"
+               data-offset="64"></a></li>
+        <li><a class="anchor reporting"
+               href="#reporting"
+               data-offset="64"></a></li>
       </ul>
+      <a href="/pricing" class="btn">See Pricing</a>
     </div>
   </div>
 
@@ -69,12 +80,6 @@
           <a class="anchor reporting" href="#reporting">
             <span class="lg">Runtime error & crash reporting</span>
             <span class="sm">Reporting</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor push" href="#push">
-            <span class="lg">App push notifications</span>
-            <span class="sm">Push</span>
           </a>
         </li>
       </ul>
@@ -191,20 +196,6 @@
     </div>
   </section>
 
-  <section class="push right hero" id="push">
-    <div class="container">
-      <div class="content dark">
-        <h4>Ionic Push</h4>
-        <h2>Push notifications.</h2>
-        <p>
-          Send dynamic, targeted push notifications to all, or a select few of 
-          your users. Ionic’s dead simple push notifications allow you to grow
-          and retain your mobile app user base.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <section class="bar get-started">
     <div class="container">
       <hgroup>
@@ -223,5 +214,27 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+// Drift support Q/A chat
+!function() {
+  var t;
+  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+  t.factory = function(e) {
+    return function() {
+      var n;
+      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+    };
+  }, t.methods.forEach(function(e) {
+    t[e] = t.factory(e);
+  }), t.load = function(t) {
+    var e, n, o, i;
+    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
+    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
+    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+  });
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('yyr33dt5npxy');
+</script>
 {% endblock %}

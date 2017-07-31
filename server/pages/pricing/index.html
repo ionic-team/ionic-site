@@ -47,7 +47,7 @@
       <h3>Powerful tools &amp; features for serious Creators shipping apps.</h3>
       <div class="infinite">Unlimited apps</div>
       <ul>
-        <li class="plus">Everything in Kickstarter plus:</li>
+        <li class="plus">Everything in Kickstarter +</li>
         <li>View App private sharing</li>
         <li>Single-channel live updating</li>
         <li>1,000 live deploys / month</li>
@@ -71,7 +71,7 @@
       <h3>complete app building Platform for teams &amp; organizations.</h3>
       <div class="infinite">Unlimited apps</div>
       <ul>
-        <li class="plus">Everything in Developer plus:</li>
+        <li class="plus">Everything in Developer +</li>
         <li>Teams &amp; Organizations</li>
         <li>Rapid prototyping with Creator</li>
         <li>View App split testing &amp; groups</li>
@@ -97,7 +97,7 @@
       <h3>Advanced features & controls for companies operating at scale.</h3>
       <div class="infinite">Unlimited apps</div>
       <ul>
-        <li class="plus">Everything in Business plus:</li>
+        <li class="plus">Everything in Business +</li>
         <li>Unlimited platform usage</li>
         <li>Granular permissions control</li>
         <li>On-prem availability </li>
@@ -362,4 +362,30 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Drift support Q/A chat
+!function() {
+  var t;
+  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+  t.factory = function(e) {
+    return function() {
+      var n;
+      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+    };
+  }, t.methods.forEach(function(e) {
+    t[e] = t.factory(e);
+  }), t.load = function(t) {
+    var e, n, o, i;
+    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
+    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
+    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+  });
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('yyr33dt5npxy');
+</script>
 {% endblock %}

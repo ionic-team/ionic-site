@@ -36,6 +36,7 @@
     margin: -335px auto 50px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     background: white;
     border-radius: 6px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .1);
@@ -43,7 +44,8 @@
     .card {
       position: relative;
       vertical-align: top;
-      width: 290px;
+      width: 289px;
+      flex: 1 0 289px;
       padding: 40px 34px 122px 35px;
       cursor: pointer;
 
@@ -166,6 +168,8 @@
       ul {
         padding: 18px 0 0 7px;
         text-align: left;
+        margin: 0 auto;
+        max-width: 220px;
       }
 
       li {
@@ -222,12 +226,28 @@
         }
       }
 
+      @media (max-width: $screen-md-max)  {
+        &:nth-child(4) {
+          border-top: 1px solid #eee;
+        }
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        &:nth-child(3) {
+          border-top: 1px solid #eee;
+        }
+      }
+
       @media (max-width: $screen-xs-max)  {
         display: block;
         width: 80%;
         margin: 0 auto;
         padding-right: 5px;
         padding-left: 5px;
+
+        &:nth-child(2) {
+          border-top: 1px solid #eee;
+        }
 
         ul {
           padding-left: 0;
@@ -245,266 +265,6 @@
       }
     }
   }
-
-  .builder {
-    padding-top: 50px;
-
-    .head-wrapper {
-      min-height: 45px;
-      @media (min-width: $screen-sm-max)  {
-        &.affix {
-          padding-top: 25px;
-          border-bottom: 1px solid #e8ebf1;
-          top: 0;
-          left:0;
-          right: 0;
-          background: white;
-          z-index: 5;
-          width: 100%;
-
-          .head {
-            padding-bottom: 0;
-
-          }
-
-          + .container {
-            padding-top: 45px;
-          }
-        }
-      }
-    }
-
-    .head {
-      padding-bottom: 23px;
-
-      .emc {
-        color: #727a87;
-        float: right;
-        font-size: 14px;
-        position: relative;
-        top: -11px;
-        vertical-align: top;
-
-        .cost {
-          color: #272a2f;
-          font-size: 24px;
-          font-weight: 700;
-          margin-left: 10px;
-
-          sup {
-            font-size: .6em;
-            top: -.2em;
-            font-weight: 600;
-          }
-        }
-
-        a {
-          letter-spacing: 0;
-          font-size: 18px;
-          transition: none;
-          top: -2px;
-          position: relative;
-
-          &.btn {
-            padding: 11px 14px 10px;
-            font-size: 13px;
-            vertical-align: text-bottom;
-            margin-left: 16px;
-          }
-        }
-      }
-
-      .title {
-        color: #272a2f;
-        font-size: 16px;
-        font-weight: 500;
-      }
-    }
-
-    .service {
-      border-top: 1px solid #e8ebf1;
-      padding: 30px 0 20px;
-      position: relative;
-
-      &::before {
-        background: no-repeat 0 0 url('/img/pricing/services-overview-icons.png');
-        background-size: 32px;
-        height: 32px;
-        width: 32px;
-        content: '';
-        display: block;
-        position: absolute;
-        top: 30px;
-        left: 0;
-      }
-
-      &.push::before { background-position: 0 -32px; }
-      &.package::before { background-position: 0 -64px; }
-      &.users::before { background-position: 0 -96px; }
-      &.analytics::before { background-position: 0 -128px; }
-    }
-
-    h3,
-    p {
-      padding-right: 640px;
-      padding-left: 50px;
-    }
-
-    h3 {
-      font-size: 20px;
-      line-height: 1em;
-      margin-top: 0;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 1.8em;
-
-      a::after {
-        content: ' \f3d1';
-        font-family: 'Ionicons';
-        font-size: 13px;
-        position: relative;
-        top: 1px;
-      }
-    }
-
-    .widget {
-      float: right;
-      position: relative;
-      width: 50%;
-
-      h4 {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-      }
-
-      .qty {
-        font-size: 24px;
-        font-weight: 500;
-
-        span {
-          color: #a8b0be;
-          font-size: 14px;
-          font-weight: 500;
-        }
-      }
-
-      .cost {
-        font-size: 20px;
-        font-weight: 700;
-        position: absolute;
-        right: 0;
-        top: -3px;
-
-        em {
-          font-style: normal;
-          font-weight: 400;
-          font-size: 15px;
-          position: relative;
-          top: -2px;
-        }
-
-        span {
-          color: #a8b0be;
-          font-size: 14px;
-          font-weight: 500;
-        }
-      }
-
-      .rate {
-        position: absolute;
-        right: 0;
-        top: 35px;
-        color: #a8b0be;
-        font-size: 13px;
-        font-weight: 500;
-      }
-    }
-
-    &.indie,
-    .service.free {
-      h4,
-      .qty {
-        text-align: right;
-      }
-
-      .widget {
-        width: 200px;
-      }
-
-      h3,
-      p {
-        padding-right: 200px;
-      }
-    }
-
-    @media (max-width: $screen-md-max)  {
-      h3,
-      p {
-        padding-right: 40%;
-        padding-left: 50px;
-      }
-    }
-
-    @media (max-width: $screen-sm-max)  {
-      .head-wrapper.affix {
-        position: relative;
-      }
-    }
-
-    @media (max-width: $screen-xs-max)  {
-      h3,
-      p {
-        padding-right: 0;
-        padding-left: 50px;
-      }
-
-      .service.free,
-      .service.indie {
-        padding-bottom: 10px;
-
-        h3,
-        p {
-          padding-right: 0;
-        }
-
-        .widget {
-          display: none;
-        }
-      }
-
-      .service {
-        padding-bottom: 130px;
-      }
-
-      .widget {
-        float: none;
-        position: absolute;
-        bottom: 20px;
-        width: 80%;
-        left: 10%;
-
-        .rate {
-          display: none;
-        }
-      }
-    }
-
-    @media (max-width: 530px)  {
-      .head {
-        .emc {
-          .btn {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
 
   .also {
     background: #f9fafc;
@@ -526,9 +286,10 @@
     }
 
     .item {
-      flex: 0 1 325px;
+      flex: 1 0 325px;
       list-style: none;
       margin-bottom: 80px;
+      margin-right: 16px;
       padding-left: 48px;
       position: relative;
 
@@ -560,16 +321,20 @@
         font-size: 14px;
         line-height: 28px;
       }
+      
+      // @media (max-width: $screen-xs-max)  {
+      //   flex-grow: 1;
+      // }
     }
   }
 
   .faq {
     padding-top: 96px;
+    padding-bottom: 64px;
 
     ul {
       float: left;
       margin: 0 auto;
-      max-width: 501px;
       width: 50%;
 
       @media (max-width: $screen-xs-max)  {

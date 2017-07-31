@@ -68,6 +68,41 @@
       top: 408px;
       background: transparent;
 
+      .container {
+        position: relative;
+      }
+
+      .pro-logo,
+      .btn {
+        top:14px;
+        opacity: 0;
+        transform: translate3d(0, 15px, 0);
+        transition: .5s opacity, .5s transform;
+        transition-delay: 0;
+        pointer-events: none;
+
+        @media (max-width: 660px)  {
+          display: none;
+        }
+      }
+
+      .pro-logo {
+        position: absolute;
+        left: 15px;
+
+        img {
+        width: 64px;
+        }
+      }
+
+      .btn {
+        position: absolute;
+        right: 15px;
+        padding:8px 16px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
       &.affix {
         position: fixed;
         top: 0;
@@ -75,6 +110,14 @@
         background-image: linear-gradient(to right, #11182a 0%, #060c17 100%);
         background-size: 100%;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 1px 0 rgba(0, 0, 0, 0.05);
+
+        .pro-logo,
+        .btn {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          transition-delay: .2s;
+          pointer-events: auto;
+        }
       }
 
       .categories {
@@ -85,7 +128,7 @@
 
         li {
           float: left;
-          flex: 0 0 118px;
+          flex: 0 0 90px;
 
           a {
             color: rgba(white, .7);
@@ -95,9 +138,9 @@
             font-size: 11px;
             line-height: 1.9em;
             text-align: center;
-            padding: 0 14px;
+            padding: 0 4px;
             font-weight: 500;
-            width: 118px;
+            width: 90px;
             transition: color .2s, padding-bottom .2s;
 
             &::before,
@@ -156,11 +199,23 @@
       + .bar {
         top: 468px;
 
-        .categories li a{
+        .categories li a {
           &::before,
           &::after {
             display: none;
           }
+        }
+      }
+
+      @media (max-width: $screen-md-max)  {
+        .categories {
+          max-width: 500px;
+        }
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        .categories {
+          max-width: 450px;
         }
       }
 

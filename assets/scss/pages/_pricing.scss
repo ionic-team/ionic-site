@@ -111,6 +111,7 @@
           display: block;
           font-size: 11px;
           font-weight: 700;
+          color: #333;
 
           sup {
             font-size: 12px;
@@ -217,9 +218,15 @@
         font-size: 12px;
         letter-spacing: .18em;
 
+        &.outline {
+          padding: 21px 33px 19px;
+          border: 2px solid $blue;
+        }
+
         + small {
           position: absolute;
-          bottom: 12px;
+          bottom: 100px;
+          letter-spacing: .2em;
           font-size: 10px;
           left: 32px;
           right: 32px;
@@ -270,12 +277,9 @@
   }
 
   .also {
-    background: #f9fafc;
-    border: 1px solid $whiteish;
     border-left: 0;
     border-right: 0;
-    margin-top: 81px;
-    padding-top: 88px;
+    margin-top: 48px;
 
     h3 {
       font-size: 23.5px;

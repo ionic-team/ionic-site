@@ -64,7 +64,7 @@ Thumbnails can be place on the left or right side of an item with the <code>item
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components/#thumbnail-list'>Thumbnail Component Docs</a><!-- end content block -->
+<a href='/docs/components/#thumbnail-list'>Thumbnail Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

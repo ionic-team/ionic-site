@@ -48,8 +48,8 @@ export declare const RADIO_VALUE_ACCESSOR: any;
  * </ion-list>
  * ```
  *
- * @demo /docs//demos/src/radio/
- * @see {@link /docs//components#radio Radio Component Docs}
+ * @demo /docs/demos/src/radio/
+ * @see {@link /docs/components#radio Radio Component Docs}
  * @see {@link ../RadioButton RadioButton API Docs}
 */
 export declare class RadioGroup {

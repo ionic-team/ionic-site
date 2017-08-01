@@ -91,7 +91,7 @@ import { Ion } from '../ion';
   * }
   * ```
   *
-  * @demo /docs//demos/src/chip/
+  * @demo /docs/demos/src/chip/
  **/
 export var Chip = (function (_super) {
     __extends(Chip, _super);

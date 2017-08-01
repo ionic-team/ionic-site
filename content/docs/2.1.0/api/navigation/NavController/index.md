@@ -1814,7 +1814,7 @@ Observable to be subscribed to when a component is about to be unloaded and dest
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href='/docs/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

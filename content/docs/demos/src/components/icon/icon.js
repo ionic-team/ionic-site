@@ -34,8 +34,8 @@ import { Ion } from '../ion';
  * <ion-icon name="logo-twitter"></ion-icon>
  * ```
  *
- * @demo /docs//demos/src/icon/
- * @see {@link /docs//components#icons Icon Component Docs}
+ * @demo /docs/demos/src/icon/
+ * @see {@link /docs/components#icons Icon Component Docs}
  *
  */
 export var Icon = (function (_super) {

@@ -20,8 +20,8 @@ import { MenuController } from './menu-controller';
  * <button ion-button menuClose="left">Close Left Menu</button>
  * ```
  *
- * @demo /docs//demos/src/menu/
- * @see {@link /docs//components#menus Menu Component Docs}
+ * @demo /docs/demos/src/menu/
+ * @see {@link /docs/components#menus Menu Component Docs}
  * @see {@link ../../menu/Menu Menu API Docs}
  */
 export var MenuClose = (function () {

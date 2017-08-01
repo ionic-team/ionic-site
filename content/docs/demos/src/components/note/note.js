@@ -28,7 +28,7 @@ import { Ion } from '../ion';
   *   </ion-list>
   * </ion-content>
   *```
- * {@link /docs//api/components/api/components/item/item ion-item}
+ * {@link /docs/api/components/api/components/item/item ion-item}
   */
 export var Note = (function (_super) {
     __extends(Note, _super);

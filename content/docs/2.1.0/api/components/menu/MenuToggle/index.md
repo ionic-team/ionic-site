@@ -307,7 +307,7 @@ on the different positions.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#menus'>Menu Component Docs</a>,
+<a href='/docs/components#menus'>Menu Component Docs</a>,
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 

@@ -124,8 +124,8 @@ export declare class ReorderIndexes {
  * </ion-list>
  * ```
  *
- * @demo /docs//demos/src/item-reorder/
- * @see {@link /docs//components#lists List Component Docs}
+ * @demo /docs/demos/src/item-reorder/
+ * @see {@link /docs/components#lists List Component Docs}
  * @see {@link ../../list/List List API Docs}
  * @see {@link ../Item Item API Docs}
  */

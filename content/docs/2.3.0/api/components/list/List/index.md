@@ -104,7 +104,7 @@ Close any sliding items that are open.
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
+For more information, see <a href="/docs/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -609,7 +609,7 @@ export class MyClass {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#lists'>List Component Docs</a><!-- end content block -->
+<a href='/docs/components#lists'>List Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -268,8 +268,8 @@ import { ItemReorder } from './item-reorder';
  * ```
  *
  *
- * @demo /docs//demos/src/item/
- * @see {@link /docs//components#lists List Component Docs}
+ * @demo /docs/demos/src/item/
+ * @see {@link /docs/components#lists List Component Docs}
  * @see {@link ../../list/List List API Docs}
  * @see {@link ../ItemSliding ItemSliding API Docs}
  */

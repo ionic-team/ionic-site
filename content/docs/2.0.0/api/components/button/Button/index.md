@@ -1383,8 +1383,8 @@ class E2EPage {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#buttons'>Button Component Docs</a>,
-<a href='/docs//components#fabs'>FabButton Docs</a>,
+<a href='/docs/components#buttons'>Button Component Docs</a>,
+<a href='/docs/components#fabs'>FabButton Docs</a>,
 <a href='../../fab/FabButton'>FabButton API Docs</a>,
 <a href='../../fab/FabContainer'>FabContainer API Docs</a><!-- end content block -->
 

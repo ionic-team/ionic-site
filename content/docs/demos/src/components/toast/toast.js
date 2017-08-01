@@ -123,7 +123,7 @@ export var Toast = (function (_super) {
  * | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
  * | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
  *
- * @demo /docs//demos/src/toast/
+ * @demo /docs/demos/src/toast/
  */
 export var ToastController = (function () {
     function ToastController(_app) {

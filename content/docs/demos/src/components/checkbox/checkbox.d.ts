@@ -40,8 +40,8 @@ export declare const CHECKBOX_VALUE_ACCESSOR: any;
  *  </ion-list>
  * ```
  *
- * @demo /docs//demos/src/checkbox/
- * @see {@link /docs//components#checkbox Checkbox Component Docs}
+ * @demo /docs/demos/src/checkbox/
+ * @see {@link /docs/components#checkbox Checkbox Component Docs}
  */
 export declare class Checkbox extends Ion implements IonicTapInput, AfterContentInit, ControlValueAccessor, OnDestroy {
     private _form;

@@ -140,7 +140,7 @@ export var Popover = (function (_super) {
  *
  *
  *
- * @demo /docs//demos/src/popover/
+ * @demo /docs/demos/src/popover/
  */
 export var PopoverController = (function () {
     function PopoverController(_app) {

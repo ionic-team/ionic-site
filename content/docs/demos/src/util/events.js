@@ -25,7 +25,7 @@ import { ScrollView } from '../util/scroll-view';
  * });
  *
  * ```
- * @demo /docs//demos/src/events/
+ * @demo /docs/demos/src/events/
  */
 export var Events = (function () {
     function Events() {

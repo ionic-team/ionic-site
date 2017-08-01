@@ -17,9 +17,9 @@ import { ViewController } from '../../navigation/view-controller';
  * </ion-content>
  * ```
  *
- * Similar to {@link /docs//api/components/nav/NavPush/ `NavPush` }
- * @demo /docs//demos/src/navigation/
- * @see {@link /docs//components#navigation Navigation Component Docs}
+ * Similar to {@link /docs/api/components/nav/NavPush/ `NavPush` }
+ * @demo /docs/demos/src/navigation/
+ * @see {@link /docs/components#navigation Navigation Component Docs}
  * @see {@link ../NavPush NavPush API Docs}
  */
 export declare class NavPop {

@@ -178,8 +178,8 @@ export declare class ActionSheet extends ViewController {
  * out before starting a new transition.
  *
  *
- * @demo /docs//demos/src/action-sheet/
- * @see {@link /docs//components#action-sheets ActionSheet Component Docs}
+ * @demo /docs/demos/src/action-sheet/
+ * @see {@link /docs/components#action-sheets ActionSheet Component Docs}
  */
 export declare class ActionSheetController {
     private _app;

@@ -95,7 +95,7 @@ export declare class RangeKnob implements OnInit {
  * ```
  *
  *
- * @demo /docs//demos/src/range/
+ * @demo /docs/demos/src/range/
  */
 export declare class Range extends Ion implements AfterViewInit, ControlValueAccessor, OnDestroy {
     private _form;

@@ -116,9 +116,9 @@ import { isTrueProperty } from '../../util/util';
   *
   * ```
   *
-  * @demo /docs//demos/src/button/
-  * @see {@link /docs//components#buttons Button Component Docs}
-  * @see {@link /docs//components#fabs FabButton Docs}
+  * @demo /docs/demos/src/button/
+  * @see {@link /docs/components#buttons Button Component Docs}
+  * @see {@link /docs/components#fabs FabButton Docs}
   * @see {@link ../../fab/FabButton FabButton API Docs}
   * @see {@link ../../fab/FabContainer FabContainer API Docs}
  */

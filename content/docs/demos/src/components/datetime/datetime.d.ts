@@ -237,7 +237,7 @@ export declare const DATETIME_VALUE_ACCESSOR: any;
  * ```
  *
  *
- * @demo /docs//demos/src/datetime/
+ * @demo /docs/demos/src/datetime/
  */
 export declare class DateTime extends Ion implements AfterContentInit, ControlValueAccessor, OnDestroy {
     private _form;

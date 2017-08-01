@@ -6,9 +6,9 @@ subid: tutorial
 title: Adding Pages - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Project Structure
-prev_page_link: /docs//intro/tutorial/project-structure
+prev_page_link: /docs/intro/tutorial/project-structure
 next_page_title: Navigating to Pages
-next_page_link: /docs//intro/tutorial/navigation
+next_page_link: /docs/intro/tutorial/navigation
 ---
 
 <h1 class="title">Adding Pages</h1>
@@ -107,7 +107,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar>` is a template for the [navigation bar](/docs//api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 

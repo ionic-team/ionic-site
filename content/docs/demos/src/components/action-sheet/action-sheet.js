@@ -203,8 +203,8 @@ export var ActionSheet = (function (_super) {
  * out before starting a new transition.
  *
  *
- * @demo /docs//demos/src/action-sheet/
- * @see {@link /docs//components#action-sheets ActionSheet Component Docs}
+ * @demo /docs/demos/src/action-sheet/
+ * @see {@link /docs/components#action-sheets ActionSheet Component Docs}
  */
 export var ActionSheetController = (function () {
     function ActionSheetController(_app) {

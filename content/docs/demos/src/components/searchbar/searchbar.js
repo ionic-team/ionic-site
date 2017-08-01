@@ -25,8 +25,8 @@ import { TimeoutDebouncer } from '../../util/debouncer';
  * </ion-searchbar>
  * ```
  *
- * @demo /docs//demos/src/searchbar/
- * @see {@link /docs//components#searchbar Searchbar Component Docs}
+ * @demo /docs/demos/src/searchbar/
+ * @see {@link /docs/components#searchbar Searchbar Component Docs}
  */
 export var Searchbar = (function (_super) {
     __extends(Searchbar, _super);

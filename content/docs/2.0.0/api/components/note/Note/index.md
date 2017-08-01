@@ -65,7 +65,7 @@ Improve this doc
   &lt;/ion-list&gt;
 &lt;/ion-content&gt;
 </code></pre>
-<p><a href='/docs//api/components/api/components/item/item'>ion-item</a></p>
+<p><a href='/docs/api/components/api/components/item/item'>ion-item</a></p>
 
 
 

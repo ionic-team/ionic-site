@@ -6,9 +6,9 @@ subid: tutorial
 title: Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Installing Ionic
-prev_page_link: /docs//intro/installation/
+prev_page_link: /docs/intro/installation/
 next_page_title: Project Structure
-next_page_link: /docs//intro/tutorial/project-structure/
+next_page_link: /docs/intro/tutorial/project-structure/
 ---
 
 # Ionic Tutorial
@@ -23,7 +23,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 ### Starting a New Ionic App
 
-Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
+Starting a new app is easy! From your [command line](/docs/resources/what-is/#cli), run this command:
 
 ```bash
 $ ionic start MyIonicProject tutorial

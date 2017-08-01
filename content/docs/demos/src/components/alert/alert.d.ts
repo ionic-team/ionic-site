@@ -254,7 +254,7 @@ export declare class Alert extends ViewController {
  * out before starting a new transition.
  *
  *
- * @demo /docs//demos/src/alert/
+ * @demo /docs/demos/src/alert/
  */
 export declare class AlertController {
     private _app;

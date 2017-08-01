@@ -109,7 +109,7 @@ more information on forms and input.</p>
       <td><code>string</code></td>
       <td><p> The color to use from your Sass <code>$colors</code> map.
 Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
+For more information, see <a href="/docs/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
@@ -125,7 +125,7 @@ For more information, see <a href="/docs//theming/theming-your-app">Theming your
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
+For more information, see <a href="/docs/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -507,7 +507,7 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#radio'>Radio Component Docs</a>,
+<a href='/docs/components#radio'>Radio Component Docs</a>,
 <a href='../RadioGroup'>RadioGroup API Docs</a><!-- end content block -->
 
 

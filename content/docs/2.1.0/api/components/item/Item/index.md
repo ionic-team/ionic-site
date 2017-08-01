@@ -103,7 +103,7 @@ to the item. To show the right arrow icon on an element that doesn&#39;t display
 <p>This feature is not enabled by default for <code>md</code> and <code>wp</code> modes, but it can be enabled by setting the
 Sass variables <code>$item-md-detail-push-show</code> and <code>$item-wp-detail-push-show</code>, respectively, to <code>true</code>.
 It can also be disabled for ios by setting <code>$item-ios-detail-push-show</code> to <code>false</code>. See the
-<a href="http://ionicframework.com/docs//theming/overriding-ionic-variables/">theming documentation</a> for
+<a href="http://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
 more information on overriding Sass variables.</p>
 <h2 id="item-placement">Item Placement</h2>
 <p>Items rely heavily on content projection to position content. The item grabs content based on the
@@ -225,7 +225,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <td><code>string</code></td>
       <td><p> The color to use from your Sass <code>$colors</code> map.
 Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
+For more information, see <a href="/docs/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
@@ -234,7 +234,7 @@ For more information, see <a href="/docs//theming/theming-your-app">Theming your
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
+For more information, see <a href="/docs/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -803,7 +803,7 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#lists'>List Component Docs</a>,
+<a href='/docs/components#lists'>List Component Docs</a>,
 <a href='../../list/List'>List API Docs</a>,
 <a href='../ItemSliding'>ItemSliding API Docs</a><!-- end content block -->
 

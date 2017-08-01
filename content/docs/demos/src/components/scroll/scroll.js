@@ -15,7 +15,7 @@ import { isTrueProperty } from '../../util/util';
  * <ion-scroll scrollX="true" scrollY="true">
  * </ion-scroll>
  * ```
- * @demo /docs//demos/src/scroll/
+ * @demo /docs/demos/src/scroll/
  */
 export var Scroll = (function () {
     function Scroll(_elementRef) {

@@ -287,7 +287,7 @@ export var Alert = (function (_super) {
  * out before starting a new transition.
  *
  *
- * @demo /docs//demos/src/alert/
+ * @demo /docs/demos/src/alert/
  */
 export var AlertController = (function () {
     function AlertController(_app) {

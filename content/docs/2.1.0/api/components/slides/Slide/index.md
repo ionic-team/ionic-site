@@ -68,7 +68,7 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//api/components/slides/Slides/'>Slides API Docs</a><!-- end content block -->
+<a href='/docs/api/components/slides/Slides/'>Slides API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

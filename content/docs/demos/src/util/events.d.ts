@@ -25,7 +25,7 @@ import { Platform } from '../platform/platform';
  * });
  *
  * ```
- * @demo /docs//demos/src/events/
+ * @demo /docs/demos/src/events/
  */
 export declare class Events {
     private _channels;

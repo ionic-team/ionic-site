@@ -4,7 +4,7 @@ import { ElementRef, EventEmitter } from '@angular/core';
  * @description
  * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a selected property.
  *
- * @demo /docs//demos/src/select/
+ * @demo /docs/demos/src/select/
  */
 export declare class Option {
     private _elementRef;

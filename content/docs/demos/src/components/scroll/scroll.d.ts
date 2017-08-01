@@ -14,7 +14,7 @@ import { ElementRef } from '@angular/core';
  * <ion-scroll scrollX="true" scrollY="true">
  * </ion-scroll>
  * ```
- * @demo /docs//demos/src/scroll/
+ * @demo /docs/demos/src/scroll/
  */
 export declare class Scroll {
     private _elementRef;

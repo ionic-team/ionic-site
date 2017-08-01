@@ -41,8 +41,8 @@ import { RadioGroup } from './radio-group';
  *   </ion-item>
  * </ion-list>
  * ```
- * @demo /docs//demos/src/radio/
- * @see {@link /docs//components#radio Radio Component Docs}
+ * @demo /docs/demos/src/radio/
+ * @see {@link /docs/components#radio Radio Component Docs}
  * @see {@link ../RadioGroup RadioGroup API Docs}
  */
 export var RadioButton = (function (_super) {

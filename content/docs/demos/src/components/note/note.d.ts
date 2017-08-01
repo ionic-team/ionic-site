@@ -23,7 +23,7 @@ import { Ion } from '../ion';
   *   </ion-list>
   * </ion-content>
   *```
- * {@link /docs//api/components/api/components/item/item ion-item}
+ * {@link /docs/api/components/api/components/item/item ion-item}
   */
 export declare class Note extends Ion {
     /**

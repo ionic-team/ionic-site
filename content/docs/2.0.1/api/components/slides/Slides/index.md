@@ -908,7 +908,7 @@ should be used, where <code>freeMode</code> is the option to change:</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#slides'>Slides Component Docs</a>
+<a href='/docs/components#slides'>Slides Component Docs</a>
 
 Adopted from Swiper.js:
 The most modern mobile touch slider and framework with

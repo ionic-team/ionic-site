@@ -86,5 +86,6 @@
   "/products/pricing": "/pricing",
   "/pricing/index3.html": "/pricing",
   "/pricing/index2.html": "/pricing",
-  "/pricing/index.html": "/pricing"
+  "/pricing/index.html": "/pricing",
+  "/resource-center": "/resources"
 }

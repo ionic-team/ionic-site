@@ -1,6 +1,6 @@
 #snap-bar {
   background: #2e64c3;
-  color: white;
+  color: #dce9ff;
   text-align: center;
   padding: 7px 10px;
   font-weight: 500;
@@ -8,7 +8,7 @@
   position: relative;
   z-index: 10;
 
-  strong{
+  strong {
     text-transform: uppercase;
     margin-right: 0px;
     font-size: 16px;
@@ -17,11 +17,11 @@
   }
 
   a {
-    color: rgba(255, 255, 255, .8);
+    color: white;
     transition: .2s color;
 
     &:hover {
-      color: white;
+      color: #eee;
       text-decoration: none;
     }
   }

@@ -24,6 +24,8 @@ The source image for icons should ideally be at least **1024×1024px** and locat
 
 You can also generate platform-specific icons and splash screens by placing them in the respective **resources/<platform>/** directory. For example, to generate an icon for Android, place your image at **resources/android/icon.png**.
 
+By default, this command will not regenerate resources whose source image has not changed. To disable this functionality and always overwrite generated images, use `--force`.
+
 For best results, the splash screen's artwork should roughly fit within a square (**1200×1200px**) at the center of the image. You can use **[https://code.ionicframework.com/resources/splash.psd](https://code.ionicframework.com/resources/splash.psd)** as a template for your splash screen.
 
 `ionic cordova resources` will automatically update your **config.xml** to reflect the changes in the generated images, which Cordova then configures.
@@ -42,6 +44,7 @@ Input | Description
 
 Option | Description
 ------ | ----------
+`--force`, `-f` | Force regeneration of all resources
 `--icon`, `-i` | Generate icon resources
 `--splash`, `-s` | Generate splash screen resources
 

@@ -28,7 +28,9 @@ Input | Description
 `id` | The build ID. Defaults to the latest build
 
 
-
+Option | Description
+------ | ----------
+`--json` | Output build info in JSON
 
 ## Examples
 

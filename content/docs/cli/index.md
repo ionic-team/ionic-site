@@ -47,6 +47,7 @@ line with `ionic --help`.
 
 Command | Description
 ------- | -----------
+[build](build) | Build web assets and prepare your app for any platform targets
 [docs](docs) | Open the Ionic documentation website
 [generate](generate) | Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
 [info](info) | Print system/environment info

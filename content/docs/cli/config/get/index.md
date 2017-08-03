@@ -26,6 +26,10 @@ For nested properties, separate nest levels with dots. For example, the property
 
 Without a `property` argument, this command prints out the entire file contents.
 
+If you are using this command programmatically, you can use the `--json` option.
+
+This command attempts to sanitize config output for known sensitive fields, such as fields within the **tokens** object in the global CLI config file. This functionality is disabled when using `--json`.
+
 
 Input | Description
 ----- | ----------
@@ -35,6 +39,7 @@ Input | Description
 Option | Description
 ------ | ----------
 `--global`, `-g` | Use global CLI config
+`--json` | Output config values in JSON
 
 ## Examples
 

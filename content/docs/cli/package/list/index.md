@@ -26,7 +26,9 @@ Full documentation can be found here: **[https://docs.ionic.io/services/package/
 
 
 
-
+Option | Description
+------ | ----------
+`--json` | Output cloud builds in JSON
 
 ## Examples
 

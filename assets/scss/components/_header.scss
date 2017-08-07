@@ -489,6 +489,11 @@
       margin-left: 5px;
     }
 
+    #ionic-pro-docs-text {
+      width: 42px;
+      margin-left: 7px;
+    }
+
     .navbar-brand {
       padding-top: 8px;
 
@@ -622,4 +627,9 @@ body.page-header {
   padding-bottom: 0;
   margin: 0;
   border-bottom: 0;
+}
+
+
+.navbar-dark {
+  background: #11192a;
 }

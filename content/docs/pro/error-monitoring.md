@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro
 id: pro-error-monitoring
-title: Progressive Web App Hosting - Ionic Pro Documentation
+title: Runtime Error Monitoring - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
@@ -10,7 +10,7 @@ dark_header: true
 
 # Error Monitoring
 
-Ionic Pro makes it easy to automatically track runtime errors in your Ionic app, and map it back to your original non-transpiled source code (TypeScript, ES6, etc.).
+Ionic Pro makes it easy to automatically track runtime errors in your Ionic app, and map it back to your original, non-transpiled source code (TypeScript, ES6, etc.).
 
 ## Summary
 

@@ -8,6 +8,10 @@
       margin-bottom: 0.7em;
     }
   }
+
+  .side-nav > ul.nested-menu > li > ul > li > a {
+    margin-top: 15px;
+  }
 }
 .docs-container {
   min-height: 100%;

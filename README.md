@@ -52,21 +52,3 @@ Occasionally, people get a Jekyll error the first time they run `gulp watch`. Tr
 * Have a question that's not a feature request or bug report? [Discuss on the Ionic Forum](https://forum.ionicframework.com/).
 * Read our [Blog](https://ionicframework.com/blog/).
 * Have a feature request or find a bug? [Submit an issue](https://github.com/ionic-team/ionic/issues).
-
-
-## Authors
-
-**Max Lynch**
-
-+ <https://twitter.com/maxlynch>
-+ <https://github.com/mlynch>
-
-**Ben Sperry**
-
-+ <https://twitter.com/benjsperry>
-+ <https://github.com/bensperry>
-
-**Adam Bradley**
-
-+ <https://twitter.com/adamdbradley>
-+ <https://github.com/adamdbradley>

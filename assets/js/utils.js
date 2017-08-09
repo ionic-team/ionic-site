@@ -36,6 +36,16 @@ if (!window.mixpanel) {
 // optional shorthand
 window.t = mixpanel.track;
 
+window.guid = function() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
 
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();

@@ -383,7 +383,86 @@
     }
   }
 
-  .promo {
+  .banner-cta {
+    background: #f6f7fa;
+    padding-top: 80px;
+    margin-bottom: -32px;
+
+    .box {
+      background: #272a2f linear-gradient(66deg, 
+      rgba(39,42,47,1) 0%, 
+      rgba(39,42,47,1) 70%, 
+      rgba(50,54,60,1) 70%, 
+      rgba(39,42,47,1) 100%);
+      background-size: 100%;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+      padding: 33px 49px 28px 152px;
+      position: relative;
+      min-height: 160px;
+
+      &::before {
+        background: url('/img/survey/survey-banner-icon.png') left 50% no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: '';
+      }
+
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        padding-left: 32px;
+        padding-right: 32px;
+        text-align: center;
+
+        &::before {
+          display: none;
+        }
+
+        .btn {
+          margin-left: 0;
+          margin-top: 24px;
+        }
+      }
+    }
+
+    hgroup {
+      flex-grow: 1;
+      color: white;
+    }
+
+    .orange {
+      color: $orange;
+      font-size: 18px;
+      letter-spacing: .015em;
+      margin-bottom: 12px;
+      line-height: 1em;
+    }
+
+    h2 {
+      font-weight: 700;
+      margin-top: 0;
+      font-size: 29px;
+      letter-spacing: -.05em;
+      margin-bottom: 6px;
+    }
+
+    .lg {
+      font-size: 23px;
+      letter-spacing: -.009em;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      margin-left: 8px;
+      font-size: 16px;
+      padding: 13px 18px 14px;
+    }
   }
 
   .built-with {

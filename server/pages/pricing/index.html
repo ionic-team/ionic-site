@@ -36,7 +36,7 @@
       <a class="cta btn white outline" 
           data-toggle="modal" 
           data-target="#contactForm"
-          ng-click="planOfInterest = 'community'">Sign Up</a>
+          ng-click="opening('community')">Sign Up</a>
     </div>
 
     <div class="card developer">
@@ -60,7 +60,7 @@
       <a class="cta btn"
          data-toggle="modal" 
          data-target="#contactForm"
-         ng-click="planOfInterest = 'developer'">
+         ng-click="opening('developer')">
         Sign Up
       </a>
     </div>
@@ -84,7 +84,7 @@
       <a class="cta btn" 
          data-toggle="modal" 
          data-target="#contactForm"
-         ng-click="planOfInterest = 'business'">
+         ng-click="opening('business')">
         Sign up your team
       </a>
       <small>* Billed Annually</small>
@@ -111,7 +111,7 @@
       <a class="cta btn dark-pink"
          data-toggle="modal" 
          data-target="#contactForm"
-         ng-click="planOfInterest = 'enterprise'">
+         ng-click="opening('enterprise')">
         Contact Us
       </a>
     </div>
@@ -324,8 +324,7 @@
         <button type="button"
                 class="close"
                 data-dismiss="modal"
-                aria-label="Close"
-                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
+                aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="text-center">
@@ -335,7 +334,8 @@
             it’s released.  
           </p>
         </hgroup>
-        <form action="https://codiqa.createsend.com/t/t/s/quudik/"
+        <form ng-submit="submit($event)"
+               action="https://codiqa.createsend.com/t/t/s/quudik/" 
               class="form-inline container"
               method="post"
               name="contact">
@@ -368,7 +368,7 @@
 {% block scripts %}
 <script>
 // Drift support Q/A chat
-!function() {
+{# !function() {
   var t;
   if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
   t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
@@ -387,6 +387,6 @@
   });
 }();
 drift.SNIPPET_VERSION = '0.3.1';
-drift.load('yyr33dt5npxy');
+drift.load('yyr33dt5npxy'); #}
 </script>
 {% endblock %}

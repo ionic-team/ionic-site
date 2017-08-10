@@ -434,6 +434,8 @@
     hgroup {
       flex-grow: 1;
       color: white;
+      position: relative;
+      z-index: 1;
     }
 
     .orange {
@@ -462,6 +464,8 @@
       margin-left: 8px;
       font-size: 16px;
       padding: 13px 18px 14px;
+      position: relative;
+      z-index: 1;
     }
   }
 

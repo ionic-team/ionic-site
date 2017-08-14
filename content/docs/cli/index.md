@@ -47,28 +47,28 @@ line with `ionic --help`.
 
 Command | Description
 ------- | -----------
-[build](build) | Build web assets and prepare your app for any platform targets
-[docs](docs) | Open the Ionic documentation website
-[generate](generate) | Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
-[info](info) | Print system/environment info
-[link](link) | Connect your local app to Ionic
-[login](login) | Login with your Ionic ID
-[serve](serve) | Start a local dev server for app dev/testing
-[signup](signup) | Create an Ionic account
-[start](start) | Create a new project
-[telemetry](telemetry) | Opt in and out of telemetry
-[upload](upload) | Upload a new snapshot of your app
-[config get](config/get) | Print config values
-[config set](config/set) | Set config values
-[cordova build](cordova/build) | Build (prepare + compile) an Ionic project for a given platform
-[cordova compile](cordova/compile) | Compile native platform code
-[cordova emulate](cordova/emulate) | Emulate an Ionic project on a simulator or emulator
-[cordova platform](cordova/platform) | Manage Cordova platform targets
-[cordova plugin](cordova/plugin) | Manage Cordova plugins
-[cordova prepare](cordova/prepare) | Copies assets to Cordova platforms, preparing them for native builds
-[cordova resources](cordova/resources) | Automatically create icon and splash screen resources
-[cordova run](cordova/run) | Run an Ionic project on a connected device
-[package build](package/build) | Start a package build
-[package download](package/download) | Download your packaged app
-[package info](package/info) | Get info about a build
-[package list](package/list) | List your cloud builds
+[build](build/) | Build web assets and prepare your app for any platform targets
+[docs](docs/) | Open the Ionic documentation website
+[generate](generate/) | Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
+[info](info/) | Print system/environment info
+[link](link/) | Connect your local app to Ionic
+[login](login/) | Login with your Ionic ID
+[serve](serve/) | Start a local dev server for app dev/testing
+[signup](signup/) | Create an Ionic account
+[start](start/) | Create a new project
+[telemetry](telemetry/) | Opt in and out of telemetry
+[upload](upload/) | Upload a new snapshot of your app
+[config get](config/get/) | Print config values
+[config set](config/set/) | Set config values
+[cordova build](cordova/build/) | Build (prepare + compile) an Ionic project for a given platform
+[cordova compile](cordova/compile/) | Compile native platform code
+[cordova emulate](cordova/emulate/) | Emulate an Ionic project on a simulator or emulator
+[cordova platform](cordova/platform/) | Manage Cordova platform targets
+[cordova plugin](cordova/plugin/) | Manage Cordova plugins
+[cordova prepare](cordova/prepare/) | Copies assets to Cordova platforms, preparing them for native builds
+[cordova resources](cordova/resources/) | Automatically create icon and splash screen resources
+[cordova run](cordova/run/) | Run an Ionic project on a connected device
+[package build](package/build/) | Start a package build
+[package download](package/download/) | Download your packaged app
+[package info](package/info/) | Get info about a build
+[package list](package/list/) | List your cloud builds

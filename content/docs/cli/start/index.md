@@ -22,8 +22,6 @@ This command creates a working Ionic app. It installs dependencies for you and s
 
 `ionic start` will create an app from a template. You can list all templates with the `--list` option.
 
-If you want to create an Ionic/Cordova app, use the `--cordova` option.
-
 
 Input | Description
 ----- | ----------
@@ -36,7 +34,6 @@ Option | Description
 `--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
 `--app-name`, `-n` | Human-readable name (use quotes around the name)
 `--list`, `-l` | List starter templates available
-`--cordova` | Include Cordova integration
 `--no-deps` | Do not install npm/yarn dependencies
 `--no-git` | Do not initialize a git repo
 `--no-link` | Do not ask to connect the app with the Ionic Dashboard
@@ -47,6 +44,5 @@ Option | Description
 $ ionic start 
 $ ionic start --list
 $ ionic start myApp blank
-$ ionic start myApp tabs --cordova
 $ ionic start myApp blank --type=ionic1
 ```

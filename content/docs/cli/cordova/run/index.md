@@ -22,6 +22,8 @@ Like running `cordova run` directly, but also watches for changes in web assets 
 
 For Android and iOS, you can setup Remote Debugging on your device with browser development tools: **[https://docs.ionic.io/tools/developer/#remote-debugging](https://docs.ionic.io/tools/developer/#remote-debugging)**
 
+Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the **--** separator.
+
 
 Input | Description
 ----- | ----------
@@ -55,5 +57,6 @@ Option | Description
 $ ionic cordova run 
 $ ionic cordova run ios
 $ ionic cordova run ios -lcs
-$ ionic cordova run android --livereload -cs
+$ ionic cordova run android -lcs --address localhost
+$ ionic cordova run android -lcs -- -d
 ```

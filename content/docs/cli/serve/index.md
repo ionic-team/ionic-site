@@ -22,8 +22,6 @@ Easily spin up a development server which launches in your browser. It watches f
 
 Try the `--lab` option to see multiple platforms at once.
 
-By default, `ionic serve` will only bind to your local address. You can share your app with an external IP by using the `--address=0.0.0.0` option.
-
 
 
 

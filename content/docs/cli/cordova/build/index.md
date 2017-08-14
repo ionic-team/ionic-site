@@ -20,6 +20,8 @@ $ ionic cordova build [<platform>]
 
 Like running `cordova build` directly, but also builds web assets and provides friendly checks.
 
+To pass additional options to the Cordova CLI, use the `--` separator after the Ionic CLI arguments. For example, for verbose log output from Cordova during an iOS build, one would use `ionic cordova build ios -- -d`. See additional examples below.
+
 
 Input | Description
 ----- | ----------

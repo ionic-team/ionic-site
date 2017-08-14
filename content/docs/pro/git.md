@@ -13,7 +13,7 @@ dark_header: true
 
 Ionic Pro uses a git-based workflow to manage updates and to push new builds through Ionic View, Live Deploy, and more. If you're familiar with how Heroku works, then you'll find Ionic Pro's git workflow similar to use.
 
-Note: Ionic Pro is *not a replacement* for your current source code repository service (GitHub, GitLab, etc.)! The `ionic` remote is used only for interacting with the Ionic Pro suite of services.
+<div class="alert alert-warning" role="alert"><h3 style="color:white;">Ionic Pro is *not a replacement* for your current source code repository service</h3>It is recommended you use a separate service to manage your primary repositories and collaborate with members of your team (GitHub, GitLab, etc.)!<br />The `ionic` remote is used only for interacting with the Ionic Pro suite of services.</div>
 
 ## Installing Git
 
@@ -25,49 +25,47 @@ That should be it, git will be installed and ready to use!
 
 ## Getting Started
 
-If you haven't followed the quick setup guide in the Ionic Pro Dashboard after creating an app, follow the instructions below.
+Follow the steps at [Getting Started](/docs/pro/getting-started.html) to start a new App or link an existing App to Ionic Pro.
 
-First, install the latest version of the Ionic CLI:
+## Adding your Existing Repository
+
+If you used `ionic start` to begin your project, we've already ran `git init` for you. In order to add your existing repository (GitLab, GitHub, etc) you should run the following commands:
 
 ```bash
-npm install -g ionic@latest
+git remote add origin [YOUR_REPOSITORY_URL]
+git push --set-upstream origin master
 ```
 
-Next, find your App ID from the Ionic Pro Dashboard. Then run:
+This will add your remote origin, as well as set the default behavior for a plain 'ol `git push` to send commits to your repository.
+
+## Pushing New Builds
+
+Once you have changes locally that you'd like to build and manage on Ionic Pro, first commit your code changes, and then push to the `ionic` remote:
 
 ```bash
-ionic start myApp --pro-id APP_ID
-```
-
-Where `APP_ID` is the ID for your app from the Ionic Pro Dashboard.
-
-Finally, `cd` into the app directory and use git to push your changes to Ionic Pro:
-
-```bash
-cd myApp
+git add -p
+git commit -m "Million dollar commit"
 git push ionic master
 ```
 
-## Pushing new builds
+Don't forget to also periodically push to your existing `origin` (you can use `git push` if you added your existing repository as the default like above), as Ionic Pro is not a replacement for GitHub, GitLab, or a self-hosted git repository.
 
-Once you have changes you'd like to build and manage on Ionic Pro, first commit your code changes, and then push to the `ionic` remote:
+## Working with Branches
 
-```bash
-git add -u
-git commit -m "Million dollar commit"
+Throughout our documentation and tutorials you'll see referencess to `git push ionic master`. Because we specified `master` this will always push your master branch up to us. However, working with other branches is easy!
 
-```
-
-Don't forget to also periodically push to your existing `origin`, as Ionic Pro is not a replacement for GitHub, GitLab, or a self-hosted git repository.
-
-## Linking an existing app
-
-If you already have an Ionic app that you'd like to start using git with, use the `ionic link` command. If the app hasn't been created in Ionic Pro yet, leave out `--pro-id` below and instead choose to create a new app:
+Here's an example of how you'd push code to a branch.
 
 ```bash
-ionic link --pro-id APP_ID
+git checkout -b my-new-branch
+<make a change>
+git add -p
+git commit -m 'in our new branch'
+git push ionic my-new-branch
 ```
+
+It's also common to set up automatic deployments (for Deploy and Ionic View to use) to channels using specific branches. For more information on that, please check out our [Ionic Deploy]() documentation.
 
 ## Adding SSH Keys
 
-The Ionic CLI automatically detects and adds your public key to your Ionic Pro account as part of the `link` and `start` commands. If you have additional public keys you'd like to link to Ionic Pro, create them manually using `ssh-keygen`, log into your Ionic Pro account, and add the keys manually under "SSH Keys"
+The Ionic CLI automatically detects and adds your public key (or creates new ones) to your Ionic Pro account as part of the `link` and `start` commands. If you have additional public keys you'd like to link to Ionic Pro, create them manually using `ssh-keygen`, log into your Ionic Pro account, and add the keys manually under "SSH Keys"

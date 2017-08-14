@@ -7,6 +7,13 @@
     <ul>
       <li class="{% if page.id == 'pro-installation' %}active{% endif %}">
         <a href="/docs/pro/getting-started.html">Getting Started</a>
+        <ul>
+          <li>
+            <a href="/docs/pro/getting-started.html#signing-up-for-pro">Signing up for Pro</a>
+            <a href="/docs/pro/getting-started.html#starting-a-new-app">Starting a New App</a>
+            <a href="/docs/pro/getting-started.html#linking-an-existing-app">Linking an Existing App</a>
+          </li>
+        </ul>
       </li>
       <!--
       <li class="{% if page.category == 'pro-concepts' %}active{% endif %}">
@@ -28,20 +35,14 @@
             <a href="/docs/pro/git.html#installation">Installing Git</a>
           </li>
           <li>
-            <a href="/docs/pro/git.html#getting-started">Getting Started</a>
-          </li>
-          <li>
             <a href="/docs/pro/git.html#pushing">Pushing Builds</a>
-          </li>
-          <li>
-            <a href="/docs/pro/git.html#linking">Linking Existing Apps</a>
           </li>
           <li>
             <a href="/docs/pro/git.html#ssh-keys">Adding SSH Keys</a>
           </li>
         </ul>
       </li>
-      <li class="{% if page.id == 'pro-device-testing' %}active{% endif %}">
+      <!--<li class="{% if page.id == 'pro-device-testing' %}active{% endif %}">
         <a href="/docs/pro/dev-app.html">Local Device Testing</a>
         <ul>
           <li>
@@ -49,6 +50,37 @@
           </li>
           <li>
             <a href="/docs/pro/dev-app.html#connecting">Connecting to Ionic App</a>
+          </li>
+        </ul>
+      </li>-->
+      <li class="{% if page.id == 'pro-beta-testing' %}active{% endif %}">
+        <a href="/docs/pro/beta-testing.html">Ionic View Beta Testing</a>
+        <ul>
+          <li>
+            <a href="/docs/pro/beta-testing.html#install">Install Ionic View</a>
+          </li>
+          <li>
+            <a href="/docs/pro/beta-testing.html#channel">Setting up a channel</a>
+          </li>
+          <li>
+            <a href="/docs/pro/beta-testing.html#sharing">Inviting Private Testers</a>
+          </li>
+          <li>
+            <a href="/docs/pro/beta-testing.html#sharing">Sharing Publicly</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.id == 'pro-live-deploy' %}active{% endif %}">
+        <a href="/docs/pro/live-deploy.html">Live Deployments</a>
+        <ul>
+          <li>
+            <a href="/docs/pro/live-deploy.html#install">Installation</a>
+          </li>
+          <li>
+            <a href="/docs/pro/live-deploy.html#usage">Pushing Deploys</a>
+          </li>
+          <li>
+            <a href="/docs/pro/live-deploy.html#api">Plugin API</a>
           </li>
         </ul>
       </li>
@@ -66,20 +98,6 @@
           </li>
         </ul>
       </li>
-      <li class="{% if page.id == 'pro-beta-testing' %}active{% endif %}">
-        <a href="/docs/pro/beta-testing.html">Beta Testing</a>
-        <ul>
-          <li>
-            <a href="/docs/pro/beta-testing.html#install">Install Ionic View</a>
-          </li>
-          <li>
-            <a href="/docs/pro/beta-testing.html#channel">Setting up a channel</a>
-          </li>
-          <li>
-            <a href="/docs/pro/beta-testing.html#sharing">Inviting Testers</a>
-          </li>
-        </ul>
-      </li>
       <li class="{% if page.id == 'pro-error-monitoring' %}active{% endif %}">
         <a href="/docs/pro/error-monitoring.html">Error Monitoring</a>
         <ul>
@@ -94,19 +112,8 @@
           </li>
         </ul>
       </li>
-      <li class="{% if page.id == 'pro-live-deploy' %}active{% endif %}">
-        <a href="/docs/pro/live-deploy.html">Live Deployments</a>
-        <ul>
-          <li>
-            <a href="/docs/pro/live-deploy.html#install">Installation</a>
-          </li>
-          <li>
-            <a href="/docs/pro/live-deploy.html#usage">Pushing Deploys</a>
-          </li>
-          <li>
-            <a href="/docs/pro/live-deploy.html#api">Plugin API</a>
-          </li>
-        </ul>
+      <li>
+        <a href="">Additional CLI Commands</a>
       </li>
       <!--
       <li class="{% if page.id == 'pro-pwa' %}active{% endif %}">

@@ -66,6 +66,20 @@ git push ionic my-new-branch
 
 It's also common to set up automatic deployments (for Deploy and Ionic View to use) to channels using specific branches. For more information on that, please check out our [Ionic Deploy]() documentation.
 
+## Working with other Team Members
+
+Git makes it easy to collaborate with other team members using it's built in features. We highly recommend you use a separate git service (such as GitLab, GitHub, etc) in order to accomplish collaborating.
+
+When adding a new member to your project, they should clone the repository from your external git hosting service, then use `ionic link` on the project like so:
+
+```bash
+git clone YOUR_PROJECT_URL/your-project.git
+cd your-project
+ionic link
+```
+
+The `ionic link` command will prompt you to choose an existing project that the member has access to (through your Organization & Teams) and walk them through the required setup. After they are linked, they can use `git push ionic master` and other related commands like normal.
+
 ## Adding SSH Keys
 
 The Ionic CLI automatically detects and adds your public key (or creates new ones) to your Ionic Pro account as part of the `link` and `start` commands. If you have additional public keys you'd like to link to Ionic Pro, create them manually using `ssh-keygen`, log into your Ionic Pro account, and add the keys manually under "SSH Keys"

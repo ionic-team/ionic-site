@@ -28,6 +28,16 @@ For instance, you could set up a **Staging** Channel that you can share with you
 
 You have complete control over these Channels and what Build is set to active for them. If you push a new build to **Staging**, anyone who has been given access to that Channel will be able to see the update right in Ionic View.
 
+For more information on setting up and deploying to Channels, please see our [Channels Documentation](/docs/pro/channels.html).
 
+## Inviting Private Testers
 
+Once you have a Channel set up to share, click on the **Share App** button in the top right of your Apps dashboard. Here you'll be able to choose which Channel to share, and manage the email addresses you've shared with.
 
+These users will receive an email with a link that will automatically download Ionic View for them, and then grant them access to your App.
+
+## Sharing Publicly
+
+If you'd like to share your App publicly in Ionic View (for instance, on our Marketplace), all you have to do is set up 1 or more Public Channels (See [Using Public Channels](/docs/pro/channels.html#using-public-channels)).
+
+Once your Public channels have been set up, click on the **Share App** button in the top right of your Apps dashboard and click the "Public Ionic View" tab. Copy your AppId and share it with whomever you'd like.

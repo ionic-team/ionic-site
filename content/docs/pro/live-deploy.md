@@ -23,25 +23,23 @@ This enables you to
 
 ## Installation
 
-The Ionic Deploy Plugin manages fetching and applying remote app updates. To use Ionic Pro's Deploy feature, install the plugin for your app:
+The Ionic Deploy Plugin manages fetching and applying remote app updates. To use Ionic Pro's Deploy feature, you must first [Set up a Channel](/docs/pro/channels.html) to poll for updates from.
 
-```bash
-cordova plugin add ionic-plugin-deploy@alpha --save --variable APP_ID="APP_ID" --variable CHANNEL_NAME="CHANNEL" --variable AUTO_UPDATE="true"
-```
+Common use cases are using a **Production** Channel for your App Store binaries, and the **Master** channel to run a native binary on your phone during development that gets automatically updated.
 
-Where `APP_ID` is the id of your app from the Ionic Pro dashboard. `CHANNEL` is the specific [Channel](concepts.html#channels) to use for updates, and `AUTO_UPDATE` indicates whether the plugin should automatically fetch and apply new app updates (default is true).
+Once you've set up a Channel, just click **Set Up Deploy** next to that Channel and it will walk you through the options available and generate the Command Line command that you should run.
 
 ## Usage
 
-To push new updates to your app, first push a new build using the [Git Workflow](git.html). This will create a new build viewable in the Ionic Pro dashboard.
+To push new updates to your app, first push a new build using the [Git Workflow](/docs/pro/git.html). This will create a new build viewable in the Ionic Pro dashboard.
 
-To get that new build live in your app using Deploy, there are two options. Either manually deploy the build to the channel defined in the plugin above (the "Production" channel, by default), or, if you have specified a specific git branch channel to auto-deploy, the Deploy plugin will auto update once the build has completed.
+To get that new build live in your app using Deploy, there are two options. Either [manually deploy the build to the channel](/docs/pro/channels.html#deploying-to-a-channel) defined in the plugin above (the "Production" channel, by default), or, if you have specified a [specific git branch channel to auto-deploy](/docs/pro/channels.html#automating-deployment-from-a-git-branch), the Deploy plugin will auto update once the build has completed.
 
 ## Deploy Plugin API
 
-When using `AUTO_UPDATE="true"`, the plugin manages updates for you. If you'd like to manually control updates, the Deploy plugin has a number of functions available to manage the update lifecycle.
+When using `UPDATE_METHOD="auto"` or `UPDATE_METHOD="background"`, the plugin manages updates for you. If you'd like to manually control updates, the Deploy plugin has a number of functions available to manage the update lifecycle.
 
-See the [Deploy manual example]() for an example of using the plugin directly:
+See the Deploy manual example for an example of using the plugin directly:
 
 `IonicDeploy.init(app_id, server_host, success, failure)`
 

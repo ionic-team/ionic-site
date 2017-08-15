@@ -70,9 +70,8 @@ In this module, we're setting the root component to MyApp, in `src/app/app.compo
 Here's the main template for the app in `src/app/app.html`:
 
 ```html
-<ion-nav id="nav" [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>
 
-<ion-menu [content]="nav">
+<ion-menu [content]="content">
 
   <ion-header>
     <ion-toolbar>
@@ -89,6 +88,9 @@ Here's the main template for the app in `src/app/app.html`:
   </ion-content>
 
 </ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
 ```
 
 In this template, we set up an [`ion-menu`](/docs//components/#menus) to function as a side menu, and then an [`ion-nav`](/docs//api/components/nav/Nav/) component to act as the main content area. The [`ion-menu`](/docs//components/#menus)'s `[content]` property is bound to the local variable `nav` from our [`ion-nav`](/docs//api/components/nav/Nav/), so it knows where it should animate around.

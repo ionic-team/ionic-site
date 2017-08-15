@@ -10,7 +10,7 @@ dark_header: true
 
 # Deploy Plugin API
 
-When using `UPDATE_METHOD="auto"` or `UPDATE_METHOD="background"`, the plugin manages updates for you. If you'd like to manually control updates, the Deploy plugin has a number of functions available to manage the update lifecycle.
+When using `UPDATE_METHOD="auto"` or `UPDATE_METHOD="background"`, the plugin manages updates for you. If you'd like to manually control updates, the Ionic plugin has a number of functions available to manage the update lifecycle.
 
 See the Deploy manual example for an example of using the plugin directly:
 

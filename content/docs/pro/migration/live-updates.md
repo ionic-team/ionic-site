@@ -1,7 +1,7 @@
 ---
 layout: fluid/pro_docs_base
 category: pro
-id: pro-live-deploy-migrate
+id: pro-migration 
 title: Cloud Deploy Migration - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true

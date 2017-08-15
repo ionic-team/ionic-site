@@ -26,12 +26,13 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
 
 ```bash
-$ ionic start MyIonicProject tutorial
+$ ionic start MyIonicProject tutorial --v2
 ```
 
 - `start` will tell the CLI create a new app.
 - `MyIonicProject` will be the directory name and the app name from your project.
 - `tutorial` will be the starter template for your project.
+- `--v2` is optional but recommended to create an ionic 2.x version.
 
 Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 

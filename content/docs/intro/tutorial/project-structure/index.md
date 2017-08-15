@@ -71,7 +71,7 @@ Here's the main template for the app in `src/app/app.html`:
 
 ```html
 
-<ion-menu [content]="nav">
+<ion-menu [content]="content">
 
   <ion-header>
     <ion-toolbar>

@@ -96,17 +96,20 @@
           </li>
         </ul>
       </li>
-      <li class="{% if page.id == 'pro-live-deploy' %}active{% endif %}">
-        <a href="/docs/pro/live-deploy.html">Live Deployments</a>
+      <li class="{% if page.id == 'pro-live-deploy' %}active{% endif %}{% if page.id == 'pro-live-deploy-setup' %}active{% endif %}{% if page.id == 'pro-live-deploy-migrate' %}active{% endif %}{% if page.id == 'pro-live-deploy-api' %}active{% endif %}">
+        <a href="/docs/pro/live-deploy/index.html">Live Deployments</a>
         <ul>
           <li>
-            <a href="/docs/pro/live-deploy.html#installation">Installation</a>
+            <a href="/docs/pro/live-deploy/setup.html#installation">Installation</a>
           </li>
           <li>
-            <a href="/docs/pro/live-deploy.html#usage">Pushing Deploys</a>
+            <a href="/docs/pro/live-deploy/setup.html#usage">Pushing Deploys</a>
           </li>
           <li>
-            <a href="/docs/pro/live-deploy.html#deploy-plugin-api">Plugin API</a>
+            <a href="/docs/pro/live-deploy/plugin-api.html">Plugin API</a>
+          </li>
+          <li>
+            <a href="/docs/pro/live-deploy/migrate.html">Migrate from Cloud</a>
           </li>
         </ul>
       </li>

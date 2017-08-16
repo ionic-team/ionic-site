@@ -24,4 +24,4 @@ This enables you to
 
 * [Setup and use the plugin](/docs/pro/live-deploy/setup.html)
 * [Learn the plugin API](/docs/pro/live-deploy/plugin-api.html)
-* [Migrate from the legacy Cloud Dashboard](/docs/pro/live-deploy/migrate.html)
+* [Migrate from the legacy Cloud Dashboard](/docs/pro/migration/live-updates.html)

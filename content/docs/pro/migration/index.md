@@ -22,6 +22,10 @@ To start using your new account, just head over to [dashboard.ionicjs.com](https
   Ionic Pro is a new service, so once you start using the new dashboard, any changes you make to your account may not be reflected on the legacy dashboard.
 </p>
 
+## Moving Apps to the new service
+
+To move your apps over to the new dashboard, just link them by following the steps [here](/docs/pro/getting-started.html#linking-an-existing-app).
+
 ## Services to Migrate
 
 Many of the features of Ionic Cloud (along with a whole host of new ones) are integrated into the Pro experience.  Check out these guides to see how they may have changed, and what needs to be done to get set up.

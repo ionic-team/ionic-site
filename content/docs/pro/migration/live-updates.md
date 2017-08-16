@@ -26,7 +26,9 @@ Your app is probably has code to check for and download updates using the `ionic
 
 ## Set up the new plugin
 
-The Ionic Pro services which take advantage of native device features are now centralized in the `cordova-plugin-ionic` plugin.  You'll install it as part of the setup pricess **[here](/docs/pro/live-deploy/setup.html)**.  
+The Ionic Pro services which take advantage of native device features are now centralized in the `cordova-plugin-ionic` plugin.  
+
+You'll install it as part of the setup pricess **[here](/docs/pro/live-deploy/setup.html)**.  
 
 ## All set!
 

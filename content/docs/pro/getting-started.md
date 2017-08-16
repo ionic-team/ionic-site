@@ -25,6 +25,8 @@ Note: you may need to add `sudo` to this command on Mac/Linux.
 
 ## Starting a New App
 
+<script src="https://fast.wistia.com/embed/medias/5mpnif6345.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_5mpnif6345" style="height:400px;width:640px">&nbsp;</div>
+
 If you are looking to create a brand new App to use with Ionic Pro, you can either start the process in [your dashboard](https://dashboard.ionicjs.com) or use the CLI locally. If you already have an App you'd like to link, skip this step.
 
 To create a new app, run the `ionic start` command, or follow the official [Ionic Framework Getting Started](/getting-started) guide.
@@ -34,6 +36,8 @@ If this is your first time create an App on Pro, you may have to perform some ad
 Once the command finishes, you'll be prompted to create a new Ionic Pro app or link to an existing one. Go ahead and choose the option you'd like to do.
 
 ## Linking an Existing app
+
+<script src="https://fast.wistia.com/embed/medias/fnfuwtyenb.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_fnfuwtyenb" style="height:400px;width:640px">&nbsp;</div>
 
 Already have an existing Ionic app you'd like to link? No problem. Run `ionic link` in the directory of that app to connect it to Ionic Pro:
 

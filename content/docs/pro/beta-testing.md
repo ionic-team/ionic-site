@@ -20,6 +20,8 @@ As a Developer with an Ionic Pro account, you can log into your own account in V
 
 If you are working with testers, the email they receive inviting them to look at your App will include these links and help get them set up.
 
+<script src="https://fast.wistia.com/embed/medias/za0joonedd.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_za0joonedd" style="height:400px;width:640px">&nbsp;</div>
+
 ## Using Channels with Ionic View
 
 In order to test anything in Ionic View, you will have to assign your Builds to a Channel. These Channels are what you will use to share a version of your app with someone.
@@ -35,6 +37,8 @@ For more information on setting up and deploying to Channels, please see our [Ch
 Once you have a Channel set up to share, click on the **Share App** button in the top right of your Apps dashboard. Here you'll be able to choose which Channel to share, and manage the email addresses you've shared with.
 
 These users will receive an email with a link that will automatically download Ionic View for them, and then grant them access to your App.
+
+<script src="https://fast.wistia.com/embed/medias/6uubjvj0q6.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_6uubjvj0q6" style="height:400px;width:640px">&nbsp;</div>
 
 ## Sharing Publicly
 

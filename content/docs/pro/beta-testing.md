@@ -16,7 +16,7 @@ In order to share & test with Ionic View, you'll have to push any code up to Ion
 
 ## Install Ionic View
 
-As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for [iOS]() and [Android]().
+As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for [iOS](https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931) and Android (Coming Soon).
 
 If you are working with testers, the email they receive inviting them to look at your App will include these links and help get them set up.
 

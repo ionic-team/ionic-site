@@ -14,7 +14,7 @@ Below you'll find guides and resources to help you get your app moved over from 
 
 ## Legacy Paid Plans
 
-If you were paying for Ionic Cloud, then your account has been migrated over to the new Ionic Pro dashboard!  You've also been upgraded to the **Developer Tier** at no additional charge.
+If you were paying for Ionic Cloud, then your login has been migrated over to the new Ionic Pro dashboard! Reach out to us using the Intercom chat bubble in the bottom right of the tool for information on how to get the Ionic Pro Developer tier at no additional cost.
 
 To start using your new account, just head over to [dashboard.ionicjs.com](https://dashboard.ionicjs.com/apps) and log in with your existing Cloud credentials.
 

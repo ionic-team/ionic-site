@@ -45,6 +45,9 @@
         margin-top: 60px;
         padding-left:24px;
         padding-right:24px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: -.02em;
 
         @media (max-width: $screen-xs-max)  {
           display: none;

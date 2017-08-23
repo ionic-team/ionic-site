@@ -84,7 +84,6 @@ this.keychainTouchId.isAvailable()
 Check if Touch ID / Fingerprint is supported by the device
 
 
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when there is hardware support
@@ -93,7 +92,6 @@ Check if Touch ID / Fingerprint is supported by the device
 
 Encrypts and Saves a password under the key in the device keychain, which can be retrieved after
 successful authentication using fingerprint
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -135,7 +133,6 @@ successful authentication using fingerprint
 
 Opens the fingerprint dialog, for the given key, showing an additional message. Promise will resolve
 with the password stored in keychain or will resolve an error code, where -1 indicated not available.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -176,7 +173,6 @@ with the password stored in keychain or will resolve an error code, where -1 ind
 
 
 Checks if there is a password stored within the keychain for the given key.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -201,13 +197,11 @@ Checks if there is a password stored within the keychain for the given key.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves with success if the key
-is available or failure if key is not
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves with success if the key is available or failure if key is not.
 </div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete(key)</code></h3>
 
 
 Deletes the password stored under given key from the keychain.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -232,13 +226,11 @@ Deletes the password stored under given key from the keychain.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves with success if the key
-is deleted or failure if key is not
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves with success if the key is deleted or failure if key is not
 </div><h3><a class="anchor" name="setLocale" href="#setLocale"></a><code>setLocale(locale)</code></h3>
 
 
 Sets the language of the fingerprint dialog
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -255,8 +247,7 @@ Sets the language of the fingerprint dialog
       <code>string</code>
     </td>
     <td>
-      <p>locale subtag from this list
-<a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry</a></p>
+      <p>locale subtag from <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">this list</a>.</p>
 </td>
   </tr>
   </tbody>

@@ -63,7 +63,7 @@ constructor(private nativeGeocoder: NativeGeocoder) { }
 ...
 
 this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&#39;The address is &#39; + result.street + &#39; in &#39; + result.countryCode))
+  .then((result: NativeGeocoderReverseResult) =&gt; console.log(JSON.stringify(result)))
   .catch((error: any) =&gt; console.log(error));
 
 this.nativeGeocoder.forwardGeocode(&#39;Berlin&#39;)
@@ -120,7 +120,7 @@ Reverse geocode a given latitude and longitude to find location address
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;NativeGeocoderReverseResult&gt;</code> 
 </div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString)</code></h3>
 
 
@@ -151,7 +151,7 @@ Forward geocode a given address to find coordinates
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;NativeGeocoderForwardResult&gt;</code> 
 </div>
 
 
@@ -172,69 +172,13 @@ Forward geocode a given address to find coordinates
   
   <tr>
     <td>
-      street
+      countryCode
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
-      <p>The street.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      houseNumber
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The house number.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      postalCode
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The postal code.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      city
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The city.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      district
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The district.</p>
+      <p>The country code.</p>
 
       
     </td>
@@ -256,13 +200,97 @@ Forward geocode a given address to find coordinates
   
   <tr>
     <td>
-      countryCode
+      postalCode
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
-      <p>The country code.</p>
+      <p>The postal code.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      administrativeArea
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The administrativeArea.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subAdministrativeArea
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The subAdministrativeArea.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locality
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The locality.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subLocality
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The subLocality.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      thoroughfare
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The thoroughfare.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subThoroughfare
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The subThoroughfare.</p>
 
       
     </td>

@@ -70,17 +70,8 @@ constructor(private nfc: NFC, private ndef: Ndef) { }
 
 ...
 
-this.nfc.addNdefListener(() =&gt; {
-  console.log(&#39;successfully attached ndef listener&#39;);
-}, (err) =&gt; {
-  console.log(&#39;error attaching ndef listener&#39;, err);
-}).subscribe((event) =&gt; {
-  console.log(&#39;received ndef message. the tag contains: &#39;, event.tag);
-  console.log(&#39;decoded tag id&#39;, this.nfc.bytesToHexString(event.tag.id));
-
-  let message = this.ndef.textRecord(&#39;Hello world&#39;);
-  this.nfc.share([message]).then(onSuccess).catch(onError);
-});
+let message = this.ndef.textRecord(&#39;Hello world&#39;);
+this.nfc.share([message]).then(onSuccess).catch(onError);
 </code></pre>
 
 

@@ -2,7 +2,7 @@
   .navbar.transparent + .banner {
     background: #3a75f3 no-repeat center bottom url('/img/enterprise/cta-bg.jpg');
     background-size: cover;
-    padding-bottom: 208px;
+    padding-bottom: 168px;
     padding-top: 225px;
     margin-top: -72px;
     color: rgba(white, .9);
@@ -26,6 +26,10 @@
         position: absolute;
         top: -90px;
         left: calc(50% - 32px);
+      }
+
+      .btn {
+        margin-top: 32px;
       }
     }
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Serial</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/serial/index.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/serial/index.ts#L14">
   Improve this doc
 </a>
 
@@ -64,13 +64,7 @@ constructor(private serial: Serial) { }
 
 this.serial.requestPermission().then(() =&gt; {
   this.serial.open({
-    baudRate: 9800,
-    dataBits: 4,
-    stopBits: 1,
-    parity: 0,
-    dtr: true,
-    rts: true,
-    sleepOnPause: false
+    baudRate: 9800
   }).then(() =&gt; {
     console.log(&#39;Serial connection opened&#39;);
   });

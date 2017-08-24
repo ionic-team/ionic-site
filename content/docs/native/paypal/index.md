@@ -347,13 +347,6 @@ Optional array of PayPalItem objects.
 
 
 
-<h3><a class="anchor" name="payeeEmail" href="#payeeEmail"></a><code>payeeEmail()</code></h3>
-
-Optional payee email, if your app is paying a third-party merchant.
-The payee's email. It must be a valid PayPal email address.
-
-
-
 <h3><a class="anchor" name="shippingAddress" href="#shippingAddress"></a><code>shippingAddress()</code></h3>
 
 Optional customer shipping address, if your app wishes to provide this to the SDK.

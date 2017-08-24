@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L211">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
   Improve this doc
 </a>
 
@@ -88,10 +88,7 @@ const options: PushOptions = {
        badge: true,
        sound: &#39;false&#39;
    },
-   windows: {},
-   browser: {
-       pushServiceURL: &#39;http://push.api.phonegap.com/v1/push&#39;
-   }
+   windows: {}
 };
 
 const pushObject: PushObject = this.push.init(options);
@@ -657,51 +654,6 @@ subscribe to a GcmPubSub topic.</p>
 </table>
 
 
-<h2><a class="anchor" name="BrowserPushOptions" href="#BrowserPushOptions"></a>BrowserPushOptions</h2>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      applicationServerKey
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Optional. Your GCM API key if you are using VAPID keys.</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      pushServiceURL
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>URL for the push server you want to use.
-Default: <a href="http://push.api.phonegap.com/v1/push">http://push.api.phonegap.com/v1/push</a>    Optional.</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
 <h2><a class="anchor" name="PushOptions" href="#PushOptions"></a>PushOptions</h2>
 
 <table class="table param-table" style="margin:0;">
@@ -746,19 +698,6 @@ Default: <a href="http://push.api.phonegap.com/v1/push">http://push.api.phonegap
     </td>
     <td>
       <code>any</code>
-    </td>
-    <td>
-      
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      browser
-    </td>
-    <td>
-      <code>BrowserPushOptions</code>
     </td>
     <td>
       

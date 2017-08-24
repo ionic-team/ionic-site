@@ -522,45 +522,6 @@ Sets a callback for a specific event
   </tbody>
 </table>
 
-<h3><a class="anchor" name="un" href="#un"></a><code>un(eventName,&nbsp;callback)</code></h3>
-
-
-
-
-Removes a callback of a specific event
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      eventName</td>
-    <td>
-      
-    </td>
-    <td>
-      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      callback</td>
-    <td>
-      
-    </td>
-    <td>
-      <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
 
 
 

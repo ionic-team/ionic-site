@@ -55,6 +55,10 @@ $ npm install --save @ionic-native/card-io
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<p>Note: For use with iOS 10 + When building your app with the iOS 10 SDK +, you have to add some info to the info.plist file. This is due to increased security in iOS 10. Go to your app directory and search for the <your app name>Info.plist file. Add the following lines in the main <dict> element.</p>
+<pre><code class="lang-xml">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
+&lt;string&gt;To scan credit cards.&lt;/string&gt;
+</code></pre>
 <pre><code class="lang-typescript">import { CardIO } from &#39;@ionic-native/card-io&#39;;
 
 constructor(private cardIO: CardIO) { }
@@ -68,7 +72,7 @@ this.cardIO.canScan()
       if(res){
         let options = {
           requireExpiry: true,
-          requireCCV: false,
+          requireCVV: false,
           requirePostalCode: false
         };
         CardIO.scan(options);

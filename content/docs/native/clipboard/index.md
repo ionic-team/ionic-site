@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/clipboard
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
 

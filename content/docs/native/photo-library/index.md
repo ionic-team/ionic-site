@@ -78,8 +78,8 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
         console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
       });
     },
-    error: err =&gt; {},
-    complete: () =&gt; { console.log(&#39;could not get photos&#39;); }
+    error: err =&gt; { console.log(&#39;could not get photos&#39;); },
+    complete: () =&gt; { console.log(&#39;done getting photos&#39;); }
   });
 })
 .catch(err =&gt; console.log(&#39;permissions weren\&#39;t granted&#39;));

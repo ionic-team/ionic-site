@@ -66,7 +66,7 @@ constructor(private androidPermissions: AndroidPermissions) { }
 
 this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
   success =&gt; console.log(&#39;Permission granted&#39;),
-  err =&gt; this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+  err =&gt; this.androidPermissions.requestPermissions(this.androidPermissions.PERMISSION.CAMERA)
 );
 
 this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);

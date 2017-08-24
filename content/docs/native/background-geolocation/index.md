@@ -58,7 +58,7 @@ $ npm install --save @ionic-native/background-geolocation
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>BackgroundGeolocation must be called within app.ts and or before Geolocation. Otherwise the platform will not ask you for background tracking permission.</p>
-<pre><code class="lang-typescript">import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from &#39;@ionic-native/background-geolocation&#39;;
+<pre><code class="lang-typescript">import { BackgroundGeolocation, BackgroundGeolocationConfig } from &#39;@ionic-native/background-geolocation&#39;;
 
 constructor(private backgroundGeolocation: BackgroundGeolocation) { }
 

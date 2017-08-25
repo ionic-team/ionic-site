@@ -38,3 +38,83 @@
   </div>
 </li>
 {% endmacro %}
+
+{% macro contactForm(page) %}
+
+<form class="form-inline container"
+      name="contact"
+      ng-controller="ContactCtrl"
+      ng-submit="submit($event)"
+      ng-init="form.page = '{{page}}'">
+  <h3 class="text-center"
+      ng-if="!!status" 
+      ng-class="{'text-danger':!status.ok}" 
+      ng-bind="status.message"></h3>
+  <input class="form-control"
+         type="text"
+         name="first_name"
+         ng-model="form.first_name"
+         placeholder="Your first name *"
+         ng-focus="track('Form Progress', 'first name')"
+         required>
+  <input class="form-control"
+        type="text"
+        name="last_name"
+        ng-model="form.last_name"
+        placeholder="Your last name *"
+        ng-focus="track('Form Progress', 'last name')"
+        required>
+  <input class="form-control"
+         type="email"
+         name="email"
+         ng-modal="form.email"
+         placeholder="Email *"
+         ng-model="form.email"
+         ng-class="{ 'invalid': contact.email.$error.email }"
+         ng-focus="track('Form Progress', 'email')"
+         required>
+  <input class="form-control"
+         type="text"
+         name="company"
+         ng-model="form.company"
+         placeholder="Company name *"
+         ng-focus="track('Form Progress', 'company name')"
+         required>
+  <input class="form-control"
+         type="text"
+         name="title"
+         ng-model="form.title"
+         placeholder="Job title *"
+         ng-focus="track('Form Progress', 'job title')"
+         required>
+  <input class="form-control"
+         type="tel"
+         name="phone"
+         ng-model="form.phone"
+         placeholder="Phone *"
+         ng-focus="track('Form Progress', 'phone')"
+         required>
+  <div class="select-wrapper full-width"><select 
+         required 
+         class="form-control select-helper"
+         name="employees"
+         ng-model="form.employees"
+         ng-focus="selectFocus()"
+         ng-options="employee.label disable when employee.disabled for employee in employees">
+  </select><div class="up"></div><div class="dn"></div></div>
+  <textarea name="message"
+            ng-model="form.message"
+            cols="30"
+            rows="10"
+            placeholder="Send us a message"
+            ng-focus="track('Form Progress', 'message')"
+            required
+            ></textarea>
+  <button type="submit" 
+          class="btn ionic" 
+          value="Send message" 
+          ng-disabled="formDisabled">
+    Send message
+  </button>
+</form>
+{% endmacro %}

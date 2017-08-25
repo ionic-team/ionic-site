@@ -1,0 +1,19 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'sales' %}
+
+{% block main %}
+
+<div class="cta banner">
+  <hgroup class="container">
+    <h1>Contact Sales</h1>
+    <p>
+      Send us a message and an Ionic Sales Representative will get back to you.
+    </p>
+  </hgroup>
+</div>
+{% if notification %}
+  <h2 class="{{notificationClass}}">{{ notification }}</h2>
+{% endif %}
+{{ macros.contactForm("sales") }}
+
+{% endblock %}

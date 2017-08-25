@@ -329,31 +329,7 @@
             it’s released.  
           </p>
         </hgroup>
-        <form ng-submit="submit($event)"
-               action="https://codiqa.createsend.com/t/t/s/quudik/" 
-              class="form-inline container"
-              method="post"
-              name="contact">
-          <input class="form-control"
-                 type="text"
-                 name="cm-name"
-                 placeholder="Your name"
-                 required>
-          <input class="form-control"
-                 type="email"
-                 name="cm-quudik-quudik"
-                 placeholder="and your email"
-                 required>
-          <textarea name="cm-f-fddiij"
-                    cols="30"
-                    rows="10"
-                    placeholder="Message"
-                    ></textarea>
-          <input type="hidden" name="cm-f-fhysu" ng-value="planOfInterest" />
-          <button type="submit" class="btn ionic" value="Send message">
-            Get Early Access
-          </button>
-        </form>
+        {{ macros.contactForm("pricing") }}
       </div>
     </div>
   </div>

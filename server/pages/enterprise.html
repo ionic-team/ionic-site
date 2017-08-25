@@ -2,6 +2,7 @@
 {% set id = 'enterprise' %}
 {% set mixpanelEnabled = true %}
 {% set bodyController = 'EnterpriseCtrl' %}
+{% import "./_includes/macros.html" as macros %}
 
 {% block main %}
 
@@ -216,78 +217,12 @@
             get back to you soon.
           </p>
         </hgroup>
-        <form action="/enterprise"
-              class="form-inline container"
-              method="post"
-              name="contact"
-              ng-submit="submit($event)">
-          <input class="form-control"
-                 type="text"
-                 name="first_name"
-                 placeholder="Your first name *"
-                 ng-focus="track('Form Progress', 'first name')"
-                 required>
-          <input class="form-control"
-                type="text"
-                name="last_name"
-                placeholder="Your last name *"
-                ng-focus="track('Form Progress', 'last name')"
-                required>
-          <input class="form-control"
-                 type="email"
-                 name="email"
-                 placeholder="Email *"
-                 ng-model="email"
-                 ng-class="{ 'invalid': contact.email.$error.email }"
-                 ng-focus="track('Form Progress', 'email')"
-                 required>
-          <input class="form-control"
-                 type="text"
-                 name="company"
-                 placeholder="Company name *"
-                 ng-focus="track('Form Progress', 'company name')"
-                 required>
-          <input class="form-control"
-                 type="text"
-                 name="title"
-                 placeholder="Job title *"
-                 ng-focus="track('Form Progress', 'job title')"
-                 required>
-          <input class="form-control"
-                 type="tel"
-                 name="phone"
-                 placeholder="Phone *"
-                 ng-focus="track('Form Progress', 'phone')"
-                 required>
-          <div class="select-wrapper full-width"><select class="form-control select-helper"
-                 name="employees"
-                 required>
-             <option value="null" disabled selected>Employees *</option>
-             <option value="1-19">1-19</option>
-             <option value="20-99">20-99</option>
-             <option value="100-249">100-249</option>
-             <option value="250-499">250-499</option>
-             <option value="500+">500+</option>
-          </select><div class="up"></div><div class="dn"></div></div>
-          <textarea name="message"
-                    cols="30"
-                    rows="10"
-                    placeholder="Send us a message"
-                    ng-focus="track('Form Progress', 'message')"
-                    required
-                    ></textarea>
-
-          <input type="hidden" name="form_name" value="enterprise_contact" />
-          <button type="submit" class="btn ionic" value="Send message">
-            Send message
-          </button>
-        </form>
+        {{ macros.contactForm("enterprise") }}
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
-
 
 {% block scripts %}
 <script>
@@ -311,5 +246,4 @@
         async 
         defer 
         src="//js.hs-scripts.com/3776657.js"></script>
-
 {% endblock %}

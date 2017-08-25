@@ -1,5 +1,5 @@
-var config    = require('../../config');
-var tools     = require('../../tools');
+var config    = require('./config');
+var tools     = require('./tools');
 var Pipedrive = require('pipedrive');
 
 var pipedrive = config.PIPEDRIVE_TOKEN ?
@@ -11,12 +11,12 @@ module.exports = function(req, res) {
 
   var m = {
     to: [
-      'brody@ionic.io', 'joe@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
-      // 'perry@ionic.io'
+      // 'brody@ionic.io', 'joe@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
+      'perry@ionic.io'
     ],
     from: 'sales@ionic.io',
-    name: 'Ionic Enterprise',
-    subject: 'Ionic Enterprise Sub. Entry',
+    name: 'Ionic Sales',
+    subject: 'Ionic Website Submission - ' + req.body.page,
     body: objToString(req.body)
   };
 
@@ -32,8 +32,6 @@ module.exports = function(req, res) {
       reject();
     });
   }));
-
-  
 
   if (pipedrive) {
     var asigneeId = 2392390; // brody
@@ -151,12 +149,14 @@ module.exports = function(req, res) {
         user: response.body.persisted_recipients[0]
       })
     }));
-
-    // relfect because we want to show the page even if one of the tasks error
-    Promise.all(promises.map(reflect)).then(values => {
-      res.render('enterprise/index');
-    });
   }
+
+  // relfect because we want to show the page even if one of the tasks error
+  Promise.all(promises.map(reflect)).then(values => {
+    // send the user back to where they came from based on form_name
+    res.json({ ok: true, message: 'Message Sent' });
+    // res.render('enterprise/index');
+  });
 }
 
 function reflect(promise) {
@@ -168,7 +168,7 @@ function objToString(obj) {
   var str = '';
   for (var p in obj) {
     if (obj.hasOwnProperty(p)) {
-      str += cap(p) + ' :: ' + obj[p] + '\n\r';
+      str += cap(p) + ' :: ' + (obj[p].value ? obj[p].value : obj[p]) + '\n\r';
     }
   }
   return str;

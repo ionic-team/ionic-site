@@ -31,7 +31,7 @@ You might have noticed we are referencing `ItemDetailsPage`. This is a page incl
 
 ```typescript
 ...
-import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { ItemDetailsPage } from '../item-details/item-details';
 ```
 
 After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page! Notice that the menu-toggle is replaced with a back button instead. This is a native style that Ionic follows, but can be configured.

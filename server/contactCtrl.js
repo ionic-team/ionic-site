@@ -15,8 +15,8 @@ module.exports = function(req, res) {
 
   var m = {
     to: [
-      // 'brody@ionic.io', 'joe@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
-      'perry@ionic.io'
+      'brody@ionic.io', 'joe@ionic.io', 'matt@ionic.io', 'swami@ionic.io', 'andrew@ionic.io'
+      // 'perry@ionic.io'
     ],
     from: 'sales@ionic.io',
     name: 'Ionic Sales',
@@ -55,11 +55,16 @@ module.exports = function(req, res) {
         reject(err)
         return console.error(err, ret);
       }
-    
-      return sfConn.sobject("campaignMember").create({
+      sfConn.sobject("campaignMember").create({
         LeadId: ret.id, 
         Status: 'Responded',
         CampaignId: '701f40000008UYD'
+      }).then((ret, err) => {
+        if (err || !ret.success) {
+          reject(err)
+          return console.error(err, ret);
+        }
+        resolve(ret)
       })
     })
   }));
@@ -100,6 +105,7 @@ The Ionic Team`
   // relfect because we want to show the page even if one of the tasks error
   Promise.all(promises.map(reflect)).then(values => {
     // send the user back to where they came from based on form_name
+    // console.log('gets here')
     res.json({ ok: true, message: 'Message Sent' });
     // res.render('enterprise/index');
   });

@@ -14,6 +14,10 @@ module.exports = {
 
   // Pipedrive CRM
   PIPEDRIVE_TOKEN: process.env.PIPEDRIVE_TOKEN || null,
+
+  // SALESFORCE
+  SALESFORCE_INSTANCE_URL: process.env.SALESFORCE_INSTANCE_URL || NULL,
+  SALESFORCE_ACCESS_TOKEN: process.env.SALESFORCE_ACCESS_TOKEN || NULL,
 };
 
 function bool(str) {

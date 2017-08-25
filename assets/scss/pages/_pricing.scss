@@ -402,5 +402,12 @@
 
   .modal .modal-body {
     padding: 48px;
+
+    .hero {
+      padding-top: 0;
+      padding-bottom: 0;
+      max-width: 400px;
+      margin:0 auto 32px;
+    }
   }
 }

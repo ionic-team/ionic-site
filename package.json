@@ -70,6 +70,7 @@
     "jquery": "3.1.1",
     "js-yaml": "^3.4.2",
     "jsforce": "^1.8.0",
+    "lodash": "^4.17.4",
     "lunr": "^0.5.12",
     "marked": "^0.3.6",
     "merge-stream": "^1.0.1",

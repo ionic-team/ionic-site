@@ -73,7 +73,7 @@ this.safariViewController.isAvailable()
           enterReaderModeIfAvailable: true,
           tintColor: &#39;#ff0000&#39;
         })
-        .then((result: any) =&gt; {
+        .subscribe((result: any) =&gt; {
             if(result.event === &#39;opened&#39;) console.log(&#39;Opened&#39;);
             else if(result.event === &#39;loaded&#39;) console.log(&#39;Loaded&#39;);
             else if(result.event === &#39;closed&#39;) console.log(&#39;Closed&#39;);

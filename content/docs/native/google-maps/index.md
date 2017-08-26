@@ -76,6 +76,10 @@ export class HomePage {
   map: GoogleMap;
   mapElement: HTMLElement;
   constructor(private googleMaps: GoogleMaps) { }
+   // Load the map when the platform is ready
+   this.platform.ready().then(() =&gt; {
+     this.loadMap();
+   });
 
   ionViewDidLoad() {
    this.loadMap();

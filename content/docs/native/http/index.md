@@ -32,8 +32,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/wymsee/cordova-HTTP">
-    https://github.com/wymsee/cordova-HTTP
+  <a href="https://github.com/silkimen/cordova-plugin-advanced-http">
+    https://github.com/silkimen/cordova-plugin-advanced-http
   </a>
 </p>
 
@@ -41,7 +41,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-http
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-advanced-http
 $ npm install --save @ionic-native/http
 </code></pre>
   </li>
@@ -212,6 +212,108 @@ Set a header for all future requests. Takes a header and a value.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="setDataSerializer" href="#setDataSerializer"></a><code>setDataSerializer(serializer)</code></h3>
+
+
+
+
+Set the data serializer which will be used for all future POST and PUT requests. Takes a string representing the name of the serializer.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      serializer</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the serializer. Can be urlencoded or json</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="clearCookies" href="#clearCookies"></a><code>clearCookies()</code></h3>
+
+
+
+
+Clear all cookies
+
+
+
+<h3><a class="anchor" name="removeCookies" href="#removeCookies"></a><code>removeCookies(url,&nbsp;cb)</code></h3>
+
+
+
+
+Remove cookies
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      cb</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setRequestTimeout" href="#setRequestTimeout"></a><code>setRequestTimeout(timeout)</code></h3>
+
+
+
+
+Set request timeout
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      timeout</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The timeout in seconds. Default 60</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="enableSSLPinning" href="#enableSSLPinning"></a><code>enableSSLPinning(enable)</code></h3>
 
 
@@ -357,7 +459,160 @@ Make a POST request
 </div><h3><a class="anchor" name="get" href="#get"></a><code>get(url,&nbsp;parameters,&nbsp;headers)</code></h3>
 
 
+Make a GET request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="put" href="#put"></a><code>put(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PUT request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a DELETE request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="head" href="#head"></a><code>head(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a HEAD request
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

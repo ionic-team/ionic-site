@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L357">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L497">
   Improve this doc
 </a>
 
@@ -61,66 +61,66 @@ $ npm install --save @ionic-native/google-maps
  GoogleMaps,
  GoogleMap,
  GoogleMapsEvent,
- LatLng,
+ GoogleMapOptions,
  CameraPosition,
  MarkerOptions,
  Marker
 } from &#39;@ionic-native/google-maps&#39;;
+import { Component } from &quot;@angular/core/&quot;;
 
-export class MapPage {
- constructor(private googleMaps: GoogleMaps) {}
+@Component({
+  selector: &#39;page-home&#39;,
+  templateUrl: &#39;home.html&#39;
+})
+export class HomePage {
+  map: GoogleMap;
+  mapElement: HTMLElement;
+  constructor(private googleMaps: GoogleMaps) { }
 
-// Load map only after view is initialized
-ngAfterViewInit() {
- this.loadMap();
-}
+  ionViewDidLoad() {
+   this.loadMap();
+  }
 
-loadMap() {
- // make sure to create following structure in your view.html file
- // and add a height (for example 100%) to it, else the map won&#39;t be visible
- // &lt;ion-content&gt;
- //  &lt;div #map id=&quot;map&quot; style=&quot;height:100%;&quot;&gt;&lt;/div&gt;
- // &lt;/ion-content&gt;
+ loadMap() {
+    this.mapElement = document.getElementById(&#39;map&#39;);
 
- // create a new map by passing HTMLElement
- let element: HTMLElement = document.getElementById(&#39;map&#39;);
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: 43.0741904,
+          lng: -89.3809802
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    };
 
- let map: GoogleMap = this.googleMaps.create(element);
+    this.map = this.googleMaps.create(this.mapElement, mapOptions);
 
- // listen to MAP_READY event
- // You must wait for this event to fire before adding something to the map or modifying it in anyway
- map.one(GoogleMapsEvent.MAP_READY).then(
-   () =&gt; {
-     console.log(&#39;Map is ready!&#39;);
-     // Now you can add elements to the map like the marker
-   }
- );
+    // Wait the MAP_READY before using any methods.
+    this.map.one(GoogleMapsEvent.MAP_READY)
+      .then(() =&gt; {
+        console.log(&#39;Map is ready!&#39;);
 
- // create CameraPosition
- let position: CameraPosition = {
-   target: {
-     lat: 43.0741904,
-     lng: -89.3809802
-   },
-   zoom: 18,
-   tilt: 30
- };
+        // Now you can use all methods safely.
+        this.map.addMarker({
+            title: &#39;Ionic&#39;,
+            icon: &#39;blue&#39;,
+            animation: &#39;DROP&#39;,
+            position: {
+              lat: 43.0741904,
+              lng: -89.3809802
+            }
+          })
+          .then(marker =&gt; {
+            marker.on(GoogleMapsEvent.MARKER_CLICK)
+              .subscribe(() =&gt; {
+                alert(&#39;clicked&#39;);
+              });
+          });
 
- // move the map&#39;s camera to position
- map.moveCamera(position);
-
- // create new marker
- let markerOptions: MarkerOptions = {
-   position: ionic,
-   title: &#39;Ionic&#39;
- };
-
- const marker: Marker = map.addMarker(markerOptions)
-   .then((marker: Marker) =&gt; {
-      marker.showInfoWindow();
-    });
- }
-
+      });
+  }
 }
 </code></pre>
 
@@ -334,6 +334,8 @@ Get the position of the camera.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>CameraPosition</code> 
 </div><h3><a class="anchor" name="getCameraTarget" href="#getCameraTarget"></a><code>getCameraTarget()</code></h3>
+
+
 
 
 Get the current camera target position
@@ -579,8 +581,6 @@ Destroy a map completely
 
 
 <h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
-
-
 
 
 Remove all overlays, such as marker
@@ -871,7 +871,13 @@ Adds a marker
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Marker | any&gt;</code> 
-</div><h3><a class="anchor" name="addCircle" href="#addCircle"></a><code>addCircle()</code></h3>
+</div><h3><a class="anchor" name="addMarkerCluster" href="#addMarkerCluster"></a><code>addMarkerCluster()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="addCircle" href="#addCircle"></a><code>addCircle()</code></h3>
 
 
 Adds a circle
@@ -1402,7 +1408,6 @@ Specifies the background color of the app.
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
 
-
 Converts position to address and vice versa
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1428,7 +1433,7 @@ Converts position to address and vice versa
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;GeocoderResult[] | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
 </div><h2><a class="anchor" name="GroundOverlay" href="#GroundOverlay"></a>GroundOverlay</h2>
 
 
@@ -1792,7 +1797,6 @@ Close the htmlInfoWindow
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
 
-
 Converts position to address and vice versa
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1818,7 +1822,7 @@ Converts position to address and vice versa
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;GeocoderResult | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;GeocoderResult[] | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
 </div><h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
 
 
@@ -1986,7 +1990,18 @@ Computes the center of this LatLngBounds
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -2533,7 +2548,37 @@ Return the marker rotation angle.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
+</div><h2><a class="anchor" name="MarkerCluster" href="#MarkerCluster"></a>MarkerCluster</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="addMarkers" href="#addMarkers"></a><code>addMarkers()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+
+
+
+<h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
 
 
 
@@ -3691,6 +3736,8 @@ Remove the tile overlay
 <h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
 
 
+
+
 Adds an event listener.
 
 
@@ -3699,6 +3746,8 @@ Adds an event listener.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
+
+
 
 
 Adds an event listener that works once.
@@ -3844,6 +3893,8 @@ Listen to a map event.
 </div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
 
 
+
+
 Listen to a map event only once.
 
 
@@ -3875,38 +3926,7 @@ Dispatch event.
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
-
-
-
-
-Add an event listener
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      event</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>name of the event. Can be <code>insert_at</code>, <code>remove_at</code>, <code>set_at</code>, or <code>finish</code>.</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an Observable
-</div><h3><a class="anchor" name="empty" href="#empty"></a><code>empty(noNotify?)</code></h3>
+<h3><a class="anchor" name="empty" href="#empty"></a><code>empty(noNotify?)</code></h3>
 
 
 
@@ -4393,7 +4413,7 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>*/
-    mapToolbar?: boolean
+    mapToolbar?: boolean;
   }</code>
     </td>
     <td>
@@ -4439,7 +4459,7 @@ Sets an element at the specified index.
       camera
     </td>
     <td>
-      <code>CameraPosition</code>
+      <code>CameraPosition&lt;any&gt;</code>
     </td>
     <td>
       <p>Initial camera position</p>
@@ -4467,92 +4487,6 @@ Sets an element at the specified index.
 </table>
 
 
-<h2><a class="anchor" name="AnimateCameraOptions" href="#AnimateCameraOptions"></a>AnimateCameraOptions</h2>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      target
-    </td>
-    <td>
-      <code>ILatLng | Array&lt;ILatLng&gt; | LatLngBounds</code>
-    </td>
-    <td>
-      <p>Center position of the camera target.</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      tilt
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>View angle of camera from 0 to 90</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      zoom
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Zoom level from 0 to 20</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      bearing
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Heading from 0 to 359</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      duration
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Duration of camera animation in milli seconds</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
 <h2><a class="anchor" name="CameraPosition" href="#CameraPosition"></a>CameraPosition</h2>
 
 <table class="table param-table" style="margin:0;">
@@ -4570,7 +4504,7 @@ Sets an element at the specified index.
       target
     </td>
     <td>
-      <code>ILatLng | LatLngBounds | ILatLng[]</code>
+      <code>T</code>
     </td>
     <td>
       <p>The center location of the camera view.</p>
@@ -4630,6 +4564,20 @@ Sets an element at the specified index.
     </td>
     <td>
       <p>The duration of animation in milliseconds</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      padding
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Camera padding in pixel</p>
 
       <em>(optional)</em>
     </td>
@@ -5378,6 +5326,145 @@ Sets an element at the specified index.
 </table>
 
 
+<h2><a class="anchor" name="MarkerClusterIcon" href="#MarkerClusterIcon"></a>MarkerClusterIcon</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      min
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      max
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      anchor
+    </td>
+    <td>
+      <code>{
+    x: number;
+    y: number;
+  }</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="MarkerClusterOptions" href="#MarkerClusterOptions"></a>MarkerClusterOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      maxZoomLevel
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      boundsDraw
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      markers
+    </td>
+    <td>
+      <code>MarkerOptions[]</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      icons
+    </td>
+    <td>
+      <code>MarkerClusterIcon[]</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
 <h2><a class="anchor" name="MyLocation" href="#MyLocation"></a>MyLocation</h2>
 
 <table class="table param-table" style="margin:0;">
@@ -5648,7 +5735,7 @@ Sets an element at the specified index.
       addHole
     </td>
     <td>
-      <code>Array&lt;LatLng&gt;</code>
+      <code>Array&lt;Array&lt;LatLng&gt;&gt;</code>
     </td>
     <td>
       
@@ -5852,11 +5939,11 @@ Sets an element at the specified index.
       northeast
     </td>
     <td>
-      <code>any</code>
+      <code>ILatLng</code>
     </td>
     <td>
       
-      <em>(optional)</em>
+      
     </td>
   </tr>
   
@@ -5865,11 +5952,118 @@ Sets an element at the specified index.
       southwest
     </td>
     <td>
-      <code>any</code>
+      <code>ILatLng</code>
     </td>
     <td>
       
-      <em>(optional)</em>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      farLeft
+    </td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      farRight
+    </td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      nearLeft
+    </td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      nearRight
+    </td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      toString
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Converts to string</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      toUrlValue
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Returns a string of the form &quot;lat_sw,lng_sw,lat_ne,lng_ne&quot; for this bounds, where &quot;sw&quot; corresponds to the southwest corner of the bounding box, while &quot;ne&quot; corresponds to the northeast corner of that box.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      contains
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Returns true if the given lat/lng is in this bounds.</p>
+
+      
     </td>
   </tr>
   

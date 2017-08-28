@@ -27,18 +27,18 @@ module.exports = function(req, res) {
   // send email to sales team
   promises.push(new Promise((resolve, reject) => {
     tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
-      res.locals.notification = 'Message Sent';
-      res.locals.notificationClass = 'success';
       resolve();
     }, function(err) {
-      res.locals.notification = 'Unable to send message at this time';
-      res.locals.notificationClass = 'error';
       reject();
     });
   }));
 
   // add user to campaign monitor
   promises.push(new Promise((resolve, reject) => {
+    if(!config.SALESFORCE_INSTANCE_URL || !config.SALESFORCE_ACCESS_TOKEN) {
+      console.warn('Salesforce API credentials not found. Ignoring CRM request.');
+      return resolve(null);
+    }
     sfConn.sobject("Lead").create({
       email: form.email,
       firstname: form.first_name,
@@ -71,6 +71,11 @@ module.exports = function(req, res) {
 
   // thank the user for contacting us
   promises.push(new Promise((resolve, reject) => {
+    // server doesn't have API keys in local env, ignore
+    if(!config.SENDGRID_APIKEY) {
+      console.warn('Sendgrid API key not found. Ignoring email request.');
+      return resolve(null);
+    }
     var thankYouEmail = {
       method: 'POST',
       path: '/v3/mail/send',

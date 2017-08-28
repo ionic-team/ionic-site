@@ -36,6 +36,10 @@ module.exports = {
   },
 
   email: (toEmails, from, fromName, subject, text) => {
+    if (!config.SENDGRID_APIKEY) {
+      console.warn('Sendgrid API keys not found, ignoring email request');
+      return Promise.resolve()
+    }
     var emailData = {
       method: 'POST',
       path: '/v3/mail/send',
@@ -54,11 +58,14 @@ module.exports = {
         }]
       }
     }
-
     return sg.API(emailData)
   },
 
   addContactList: (name) => {
+    if (!config.SENDGRID_APIKEY) {
+      console.warn('Sendgrid API keys not found, ignoring add contact request');
+      return Promise.resolve()
+    }
     var requestParams = {
       method: 'POST',
       path: '/v3/contactdb/lists',
@@ -71,6 +78,10 @@ module.exports = {
   },
 
   saveEmail: (opts) => {
+    if (!config.SENDGRID_APIKEY) {
+      console.warn('Sendgrid API keys not found, ignoring add contact request');
+      return Promise.resolve()
+    }
     var requestParams = {
       method: 'POST',
       path: '/v3/contactdb/recipients',
@@ -80,7 +91,6 @@ module.exports = {
         last_name: opts.last_name
       }]
     }
-
     return sg.API(requestParams)
   },
 

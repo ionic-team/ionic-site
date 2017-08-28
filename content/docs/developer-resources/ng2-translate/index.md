@@ -12,6 +12,8 @@ header_sub_title: Ionic Resources
 
 To install ngx-translate run `npm install @ngx-translate/core @ngx-translate/http-loader --save`.
 
+NB: if you're still on Angular <4.3, please use Http from @angular/http with http-loader@0.1.0.
+
 ### Bootstrapping
 
 To use ngx-translate, it must first be imported and added to the imports array in the NgModule of the application. Here’s an example of how to do this:
@@ -28,6 +30,18 @@ import { TranslateModule } from '@ngx-translate/core';
 
 By default this will look for your translation json files in `i18n/`, but for Ionic you must change this to look in the `src/assets` directory. We can do this by creating a function that returns a new TranslateLoader:
 
+Angular >= 4.3
+```typescript
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+...
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+```
+Angular < 4.3
 ```typescript
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -40,6 +54,23 @@ export function createTranslateLoader(http: Http) {
 ```
 and then adding the following to your NgModules imports array:
 
+Angular >= 4.3
+```typescript
+@NgModule({
+  imports: [
+    HttpClientModule,
+    TranslateModule.forRoot({
+     loader: {
+       provide: TranslateLoader,
+       useFactory: HttpLoaderFactory,
+       deps: [HttpClient]
+     }
+    })
+  ]
+})
+```
+
+Angular < 4.3
 ```typescript
 @NgModule({
   imports: [

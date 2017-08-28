@@ -3,6 +3,7 @@ const ab       = require('express-ab');
 const bp       = require('body-parser');
 const markdown = require('./markdown');
 
+const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
 const contactCtrl = require('./contactCtrl');
 
 module.exports = function router(app) {
@@ -37,8 +38,15 @@ module.exports = function router(app) {
   .get('/survey/2017', (req, res) => { res.render('survey/2017'); })
   .get('/team', (req, res) => { res.render('team'); })
   .get('/tos', (req, res) => { markdown(res, 'tos'); })
-  .get('/trusted-partners', (req, res) => { res.render('trusted-partners'); })
   .get('/values', (req, res) => { res.render('values'); })
 
+  // pages w/ POST handlers
+  .get('/trusted-partners', (req, res) => {
+    res.render('trusted-partners/index');
+  })
+  .post('/trusted-partners', bp.urlencoded({extended: true}),
+    trustedPartnersCtrl)
+
+  // JSON endpoints
   .post('/contact', bp.json(), contactCtrl)
 };

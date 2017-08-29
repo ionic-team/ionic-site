@@ -10,7 +10,7 @@ header_sub_title: Ionic Resources
 
 ### Installing
 
-To install ngx-translate run `npm install @ngx-translate/core @ngx-translate/http-loader --save`.
+To install ngx-translate run `npm install @ngx-translate/core @ngx-translate/http-loader@0.1.0 --save`.
 
 ### Bootstrapping
 

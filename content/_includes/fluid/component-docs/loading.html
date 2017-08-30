@@ -29,7 +29,7 @@ export class MyPage {
   }
 
   presentLoading() {
-    let loader = this.loadingCtrl.create({
+    const loader = this.loadingCtrl.create({
       content: "Please wait...",
       duration: 3000
     });

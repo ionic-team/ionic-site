@@ -219,6 +219,11 @@ chart displays each property with a description of what it controls.</p>
 <td>The default spinner to use when a name is not defined.</td>
 </tr>
 <tr>
+<td><code>statusbarPadding</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide extra padding for statusbar.</td>
+</tr>
+<tr>
 <td><code>swipeBackEnabled</code></td>
 <td><code>boolean</code></td>
 <td>Whether native iOS swipe to go back functionality is enabled.</td>

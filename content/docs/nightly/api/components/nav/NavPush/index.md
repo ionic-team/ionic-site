@@ -69,8 +69,8 @@ component you would like to push:</p>
   template: `&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
-  params: Object;
   pushPage: any;
+  params: Object;
   constructor(){
     this.pushPage = LoginPage;
     this.params = { id: 42 };

@@ -51,7 +51,7 @@ itself in the root nav stack. It is added to the stack similar to how
 works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
-After the modal has been presented, from within the component instance The
+After the modal has been presented, from within the component instance, the
 modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
 on the root nav controller. Modals are not reusable. When a modal is dismissed

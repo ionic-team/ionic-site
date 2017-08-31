@@ -23,8 +23,8 @@ module.exports = function(req, res, next) {
     return res.redirect(301, 'http://ionicframework.com/getting-started');
   } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
     return res.redirect(301, '/docs/cli/');
-  } else if (parts.path.indexOf('/docs/pro') == 0) {
-    return res.redirect(301, 'http://support.ionicjs.com');
+  // } else if (parts.path.indexOf('/docs/pro') == 0) {
+  //   return res.redirect(301, 'http://support.ionicjs.com');
   } else if (req.headers.host.indexOf('learn.') == 0) {
     return res.redirect(301, 'http://ionicframework.com/docs/');
   }

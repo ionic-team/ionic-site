@@ -16,8 +16,10 @@ to help lean development teams and individual professionals build better apps fa
 Explore some of these features and services below, but make sure to follow the [Getting Started](/docs/pro/getting-started.html) guide first!
 
  * [Pushing new builds and working with git](git.html)
- * [Deploying real-time app updates remotely](live-deploy/index.html)
- * [Packaging native builds for iOS and Android](package/index.html)
+ * [Deploying real-time app updates remotely](live-deploy/)
+ * [Packaging native builds for iOS and Android](package/)
  * [Testing your app with beta testers, clients, and co-workers](beta-testing.html)
  * [Tracking runtime errors and mapping to original source code](error-monitoring.html)
  * [Developing on-device without Native SDK installs](dev-app.html)
+
+#### For support and troubleshooting, visit our [support portal](http://support.ionicjs.com).

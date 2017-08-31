@@ -295,7 +295,7 @@ interface, but the datetime&#39;s value is always persisted as a valid ISO 8601 
 string.</p>
 <h2 id="min-and-max-datetimes">Min and Max Datetimes</h2>
 <p>Dates are infinite in either direction, so for a user&#39;s selection there should be at
-least some form of restricting the dates that can be selected. Be default, the maximum
+least some form of restricting the dates that can be selected. By default, the maximum
 date is to the end of the current year, and the minimum date is from the beginning
 of the year that was 100 years ago.</p>
 <p>To customize the minimum and maximum datetime values, the <code>min</code> and <code>max</code> component

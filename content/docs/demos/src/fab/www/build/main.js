@@ -44441,7 +44441,7 @@ let Tabs = Tabs_1 = class Tabs extends __WEBPACK_IMPORTED_MODULE_6__ion__["a" /*
         }
         return '';
     }
-    _getSelectedTabIndex(secondaryId, fallbackIndex = 0) {
+    _getSelectedTabIndex(secondaryId = '', fallbackIndex = 0) {
         const indexMatch = secondaryId.match(/tab-(\d+)/);
         if (indexMatch) {
             return parseInt(indexMatch[1], 10);

@@ -17052,7 +17052,7 @@ class DeepLinker {
     }
     _loadViewForSegment(navContainer, segment, done) {
         if (!segment) {
-            return done();
+            return done(false, false);
         }
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) || (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["c" /* isTab */])(navContainer) && navContainer.parent)) {
             const tabs = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__nav_util__["a" /* isTabs */])(navContainer) ? navContainer : navContainer.parent);
@@ -17064,7 +17064,7 @@ class DeepLinker {
                 updateUrl: false,
                 animate: false
             }, true);
-            return done();
+            return done(false, false);
         }
         const navController = navContainer;
         const numViews = navController.length() - 1;
@@ -17072,7 +17072,7 @@ class DeepLinker {
             const viewController = navController.getByIndex(i);
             if (viewController && (viewController.id === segment.id || viewController.id === segment.name)) {
                 if (i === numViews) {
-                    return done();
+                    return done(false, false);
                 }
                 else {
                     return navController.popTo(viewController, {
@@ -43988,7 +43988,10 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controll
                 const viewController = this.getByIndex(i);
                 if (viewController && (viewController.id === nameToUse || viewController.component === nameToUse)) {
                     if (i === numViews) {
-                        return done();
+                        if (done) {
+                            done(false, false);
+                        }
+                        return;
                     }
                     else {
                         return this.popTo(viewController, {
@@ -44007,7 +44010,10 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controll
             this._dom.read(() => {
                 this.resize();
             });
-            return done();
+            if (done) {
+                done(false, false);
+            }
+            return;
         }
     }
     resize() {

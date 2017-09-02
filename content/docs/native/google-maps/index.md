@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L498">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L488">
   Improve this doc
 </a>
 
@@ -5328,74 +5328,6 @@ Sets an element at the specified index.
 
 <h2><a class="anchor" name="MarkerClusterIcon" href="#MarkerClusterIcon"></a>MarkerClusterIcon</h2>
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      min
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      max
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      url
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      anchor
-    </td>
-    <td>
-      <code>{
-    x: number;
-    y: number;
-  }</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
 
 <h2><a class="anchor" name="MarkerClusterOptions" href="#MarkerClusterOptions"></a>MarkerClusterOptions</h2>
 
@@ -5453,7 +5385,7 @@ Sets an element at the specified index.
       icons
     </td>
     <td>
-      <code>MarkerClusterIcon[]</code>
+      <code>any[]</code>
     </td>
     <td>
       

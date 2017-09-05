@@ -3,10 +3,7 @@ const tools     = require('./tools');
 const sg = require('sendgrid')(config.SENDGRID_APIKEY);
 
 const jsforce = require('jsforce');
-var sfConn = new jsforce.Connection({
-  instanceUrl : config.SALESFORCE_INSTANCE_URL,
-  accessToken : config.SALESFORCE_ACCESS_TOKEN
-})
+var sfConn = new jsforce.Connection()
 
 module.exports = function(req, res) {
 
@@ -35,36 +32,45 @@ module.exports = function(req, res) {
 
   // add user to campaign monitor
   promises.push(new Promise((resolve, reject) => {
-    if(!config.SALESFORCE_INSTANCE_URL || !config.SALESFORCE_ACCESS_TOKEN) {
+    if(!config.SALESFORCE_USER || !config.SALESFORCE_PASSWORD_TOKEN) {
       console.warn('Salesforce API credentials not found. Ignoring CRM request.');
-      return resolve(null);
+      return reject(null);
     }
-    sfConn.sobject("Lead").create({
-      email: form.email,
-      firstname: form.first_name,
-      lastname: form.last_name,
-      title: form.title,
-      company: form.company,
-      leadsource: 'Ionicframework.com',
-      Webpage__c: form.page,
-      Lead_Capture_Message__c: form.message,
-      NumberOfEmployees: form.Employees,
-      Phone: form.phone
-    }).then((ret, err) => {
-      if (err || !ret.success) {
-        reject(err)
-        return console.error(err, ret);
-      }
-      sfConn.sobject("campaignMember").create({
-        LeadId: ret.id, 
-        Status: 'Responded',
-        CampaignId: '701f40000008UYD'
+
+    sfConn.login(config.SALESFORCE_USER, config.SALESFORCE_PASSWORD_TOKEN, function(err, userInfo) {
+      console.log(err)
+      if (err) { return reject(err); }
+      sfConn.sobject("Lead").create({
+        email: form.email,
+        firstname: form.first_name,
+        lastname: form.last_name,
+        title: form.title,
+        company: form.company,
+        leadsource: 'Ionicframework.com',
+        Webpage__c: form.page,
+        Lead_Capture_Message__c: form.message,
+        NumberOfEmployees: form.Employees,
+        Phone: form.phone
       }).then((ret, err) => {
         if (err || !ret.success) {
           reject(err)
           return console.error(err, ret);
         }
-        resolve(ret)
+        sfConn.sobject("campaignMember").create({
+          LeadId: ret.id, 
+          Status: 'Responded',
+          CampaignId: '701f40000008UYD'
+        }).then((ret, err) => {
+          if (err || !ret.success) {
+            reject(err)
+            return console.error(err, ret);
+          }
+
+          resolve(ret)
+        })
+      }).catch((err,ret)=> {
+        reject(err)
+        return console.error(err, ret);
       })
     })
   }));

@@ -16,8 +16,8 @@ module.exports = {
   PIPEDRIVE_TOKEN: process.env.PIPEDRIVE_TOKEN || null,
 
   // SALESFORCE
-  SALESFORCE_INSTANCE_URL: process.env.SALESFORCE_INSTANCE_URL || null,
-  SALESFORCE_ACCESS_TOKEN: process.env.SALESFORCE_ACCESS_TOKEN || null,
+  SALESFORCE_USER: process.env.SALESFORCE_USER || null,
+  SALESFORCE_PASSWORD_TOKEN: process.env.SALESFORCE_PASSWORD_TOKEN || null,
 };
 
 function bool(str) {

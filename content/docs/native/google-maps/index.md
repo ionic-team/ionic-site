@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L488">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L493">
   Improve this doc
 </a>
 
@@ -4413,7 +4413,7 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>*/
-    mapToolbar?: boolean;
+    zoom?: boolean;
   }</code>
     </td>
     <td>

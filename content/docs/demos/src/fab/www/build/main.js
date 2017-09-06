@@ -39563,8 +39563,10 @@ function destroyLoop(s) {
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["h" /* eachChild */])(s._wrapper, '.' + __WEBPACK_IMPORTED_MODULE_0__swiper_utils__["a" /* CLS */].slide + '.' + __WEBPACK_IMPORTED_MODULE_0__swiper_utils__["a" /* CLS */].slideDuplicate, ele => {
         ele.parentElement.removeChild(ele);
     });
-    for (var i = 0; i < s._slides.length; i++) {
-        s._slides[i].removeAttribute('data-swiper-slide-index');
+    if (s._slides) {
+        for (var i = 0; i < s._slides.length; i++) {
+            s._slides[i].removeAttribute('data-swiper-slide-index');
+        }
     }
 }
 function fixLoop(s, plt) {

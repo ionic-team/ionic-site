@@ -16748,7 +16748,7 @@ class DeepLinker {
                     return navController.popTo(viewController, {
                         animate: false,
                         updateUrl: false,
-                    }, {}, done);
+                    }, done);
                 }
             }
         }

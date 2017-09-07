@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.6.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -228,6 +228,7 @@ for its value. The value is simply a string, rather than using JavaScript&#39;s 
 object. Additionally, when using the ISO datetime format, it makes it easier
 to serialize and pass within JSON objects, and sending databases a standardized
 format which it can be easily parsed if need be.</p>
+<p>To create an ISO datetime string for the current date and time, e.g. use <code>const currentDate = (new Date()).toISOString();</code>.</p>
 <p>An ISO format can be used as a simple year, or just the hour and minute, or get more
 detailed down to the millisecond and timezone. Any of the ISO formats below can be used,
 and after a user selects a new value, Ionic will continue to use the same ISO format
@@ -295,7 +296,7 @@ interface, but the datetime&#39;s value is always persisted as a valid ISO 8601 
 string.</p>
 <h2 id="min-and-max-datetimes">Min and Max Datetimes</h2>
 <p>Dates are infinite in either direction, so for a user&#39;s selection there should be at
-least some form of restricting the dates that can be selected. Be default, the maximum
+least some form of restricting the dates that can be selected. By default, the maximum
 date is to the end of the current year, and the minimum date is from the beginning
 of the year that was 100 years ago.</p>
 <p>To customize the minimum and maximum datetime values, the <code>min</code> and <code>max</code> component

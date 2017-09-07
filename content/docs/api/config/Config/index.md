@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.6.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -217,6 +217,11 @@ chart displays each property with a description of what it controls.</p>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>
+</tr>
+<tr>
+<td><code>statusbarPadding</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide extra padding for statusbar.</td>
 </tr>
 <tr>
 <td><code>swipeBackEnabled</code></td>

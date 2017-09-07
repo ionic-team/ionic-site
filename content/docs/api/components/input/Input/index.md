@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.6.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -169,14 +169,14 @@ can be attached and will function as expected.</p>
     <tr>
       <td>autocomplete</td>
       <td><code>string</code></td>
-      <td><p> Instructional text that shows before the input has a value.</p>
+      <td><p> Set the input&#39;s autocomplete property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>autocorrect</td>
       <td><code>string</code></td>
-      <td><p> Instructional text that shows before the input has a value.</p>
+      <td><p> Set the input&#39;s autocorrect property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
 </td>
     </tr>
     

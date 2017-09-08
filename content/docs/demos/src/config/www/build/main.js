@@ -52030,7 +52030,7 @@ function resetZoomEvents(s, plt) {
     const slides = s._slides;
     let slide;
     if (s._supportGestures) {
-        for (var i = 0; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++) {
             slide = slides[i];
             plt.registerListener(slide, 'gesturestart', (ev) => {
                 onGestureStart(s, plt, ev);

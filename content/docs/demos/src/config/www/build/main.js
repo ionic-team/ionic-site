@@ -30249,7 +30249,11 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         console.debug('BaseInput: blurred:', this);
         this._form && this._form.unsetAsFocused(this);
         this._setFocus(false);
+        this._fireTouched();
         this.ionBlur.emit(this);
+    }
+    _fireTouched() {
+        this._onTouched && this._onTouched();
     }
     _setFocus(isFocused) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["d" /* assert */])(this._init, 'component was not initialized');
@@ -30265,7 +30269,6 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     }
     onChange() {
         this._onChanged && this._onChanged(this._inputNgModelEvent());
-        this._onTouched && this._onTouched();
     }
     isFocus() {
         return this._isFocus;
@@ -47363,6 +47366,7 @@ let Checkbox = Checkbox_1 = class Checkbox extends __WEBPACK_IMPORTED_MODULE_5__
         ev.preventDefault();
         ev.stopPropagation();
         this.value = !this.value;
+        this._fireTouched();
     }
     _inputNormalize(val) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
@@ -51436,7 +51440,10 @@ let Segment = class Segment extends __WEBPACK_IMPORTED_MODULE_3__util_base_input
     ngAfterContentInit() {
         this._initialize();
         this._buttons.forEach(button => {
-            button.ionSelect.subscribe((selectedButton) => this.value = selectedButton.value);
+            button.ionSelect.subscribe((selectedButton) => {
+                this.value = selectedButton.value;
+                this._fireTouched();
+            });
         });
     }
     _inputUpdated() {

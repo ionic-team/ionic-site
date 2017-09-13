@@ -29,8 +29,9 @@
   </ul>
 </li> #}
 
-<li><a href="/">Framework</a></li>
-<li><a href="/products">Products</a></li>
+<li{% if id == 'home' %} class="active"{% endif %}><a href="/">Framework</a></li>
+<li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
+  <a href="/products">Products</a></li>
 
 {# <li class="dropdown products">
   <a href="#"
@@ -81,7 +82,8 @@
   </ul>
 </li> #}
 
-<li class="sm-hide"><a href="/pricing">Pricing</a></li>
+<li class="sm-hide{% if id.indexOf('products') == 0%} active{% endif %}">
+  <a href="/pricing">Pricing</a></li>
 
 <li class="dropdown developers">
   <a href="#"
@@ -93,7 +95,8 @@
   <ul class="dropdown-menu">
     <li class="split">
       <ul>
-        <li class="title">Framework</li>
+        <li class="title"><a href="/docs">
+          <i class="ion-md-arrow-forward"></i>Framework Docs</a></li>
         <li><a href="/getting-started">Setup &amp; Installation</a></li>
         <li><a href="/docs/components/">UI Components</a></li>
         <li><a href="/docs/api/">API Reference</a></li>
@@ -101,7 +104,8 @@
         <li><a href="/docs/developer-resources/">Dev Resources</a></li>
       </ul>
       <ul>
-        <li class="title">Pro Docs</li>
+        <li class="title"><a href="/docs/pro">
+          <i class="ion-md-arrow-forward"></i>Pro Docs</a></li>
         <li><a href="/docs/pro/beta-testing.html">View app</a></li>
         <li><a href="/docs/pro/package/">Package</a></li>
         <li><a href="/docs/pro/live-deploy/">Live Deploy</a></li>

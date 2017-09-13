@@ -9,7 +9,9 @@ dark_header: true
 ---
 
 # Migrating from Legacy Ionic View to Ionic View
-Ionic View now has a partner app, the Ionic DevApp, optimized specifically for local testing.
+Ionic View now has a partner app, the Ionic DevApp, optimized specifically for local testing. This document is here to help you transition to the app that best suits your needs.
+
+For an overview of features in Ionic View, take a look at the [Ionic View app documentation](/docs/pro/view.html).
 
 <h3 id="are-you-testing-an-app-that-is-not-your-own">Are you testing an app that is not your own?</h3>
 See the instructions for [installing the latest version of Ionic View](#install-ionic-view).

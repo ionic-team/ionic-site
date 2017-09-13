@@ -32,12 +32,13 @@
   }
 
   + .navbar {
-    margin-top: 22px;
+    margin-top: 20px;
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 20px;
+      // padding-top: 20px;
       margin-top:0;
       position: relative;
+      min-height: 48px;
     }
   }
 }

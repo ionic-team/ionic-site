@@ -28,7 +28,7 @@ body.docs #snap-bar + #pro-header.navbar {
   h1, h2, h3, h4, h5 {
     font-weight: 600;
   }
-  
+
   .container {
     padding-left: 0;
     padding-right: 0;
@@ -70,6 +70,10 @@ body.docs #snap-bar + #pro-header.navbar {
         color: #3b3f44 !important;
         font-weight: 600 !important;
       }
+    }
+
+    & > ul.nested-menu > li > ul > li {
+      margin-bottom: 15px;
     }
 
     & > ul.nested-menu > li > ul > li > ul {

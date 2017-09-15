@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-pwa
 id: pro-pwa
 title: Progressive Web App Hosting - Ionic Pro Documentation
 body_class: 'pro-docs'

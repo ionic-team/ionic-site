@@ -1,7 +1,7 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
-id: pro-migration 
+category: pro-advanced
+id: pro-migration
 title: Ionic View Migration - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
@@ -9,6 +9,7 @@ dark_header: true
 ---
 
 # Migrating from Legacy Ionic View to Ionic View
+
 Ionic View now has a partner app, the Ionic DevApp, optimized specifically for local testing. This document is here to help you transition to the app that best suits your needs.
 
 For an overview of features in Ionic View, take a look at the [Ionic View app documentation](/docs/pro/view.html).
@@ -25,6 +26,7 @@ Next, install [the latest version of Ionic View](#install-ionic-view). Once you'
 If you are a developer looking to rapidly test out functionality of an app you are developing locally, [check out the Ionic DevApp](#install-ionic-devapp).
 
 ## Install Ionic View
+
 Download and install the latest version of Ionic View from the iOS or Android app store:
 
 <div id="badges" style="text-align:center">
@@ -43,5 +45,5 @@ Rather than only loading the latest version of your app, View now has the power 
 If you are a developer, head over to the [Beta Testing docs](/docs/pro/beta-testing.html) for more on how you can use View to streamline your testing process.
 
 ## Install Ionic DevApp
-Coming Soon for both iOS and Android!
 
+Coming Soon for both iOS and Android!

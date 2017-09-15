@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-deploy
 id: pro-live-deploy
 title: Live Deploy - Ionic Pro Documentation
 body_class: 'pro-docs'
@@ -8,7 +8,9 @@ hide_header_search: true
 dark_header: true
 ---
 
-# Live Deployment
+# Deploy: push app updates in real-time
+
+<br>
 
 <script src="https://fast.wistia.com/embed/medias/2702mkf530.jsonp" async></script>
 <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
@@ -20,12 +22,12 @@ app store to quickly fix bugs and ship new features.
 This enables you to
 
 * Update your application on demand
-* Skip app store approvals
+* Avoid app store publishing for many fixes
 * Get new features and bug fixes to your users quickly
 * A/B test changes with certain users before rolling them out to everyone
 
 ## Get started
 
-* [Setup and use the plugin](/docs/pro/live-deploy/setup.html)
-* [Learn the plugin API](/docs/pro/live-deploy/plugin-api.html)
+* [Setup and use the plugin](/docs/pro/deploy/setup/)
+* [Learn the plugin API](/docs/pro/deploy/plugin-api.html)
 * [Migrate from the legacy Cloud Dashboard](/docs/pro/migration/live-updates.html)

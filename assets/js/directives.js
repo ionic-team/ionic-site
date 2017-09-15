@@ -70,14 +70,14 @@ IonicSiteModule
               if(a.value > b.value) return -1;
               return 0;
             });
-  
+
             var bars = ['data1'].concat(data.map(function(bar) {
               return bar.value;
             }));
             var labels = data.map(function(bar) {
               return bar.label;
             });
-  
+
             var chart = c3.generate({
               bindto: el[0],
               data: {

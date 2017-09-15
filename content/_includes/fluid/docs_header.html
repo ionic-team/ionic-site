@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default{% if page.dark_header %} navbar-dark{% endif %}">
-  <div class="container-fluid">
+<nav class="navbar navbar-default{% if page.dark_header %} navbar-dark{% endif %}" id="{{layout.navbar_id}}">
+  <div class="{% if layout.is_responsive %}container{% else %}container-fluid{% endif %}">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button"
@@ -16,6 +16,11 @@
         <i class="ion-md-menu"></i>
         <i class="ion-md-close"></i>
       </button>
+      {% if layout.plain_header %}
+      <a class="navbar-brand" href="/">
+        <div id="ionic-io-logo" class="light"></div>
+      </a>
+      {% else %}
       <a class="navbar-brand logo" href="/">
         <img src="/img/docs/ionic-docs-icon.png" id="ionic-docs-logo" />
         <img src="/img/docs/ionic-docs-icon-back.png" id="ionic-docs-back" />
@@ -27,6 +32,7 @@
         <img src="/img/docs/ionic-docs-type.png" id="ionic-docs-text" />
         {% endif %}
       </a>
+      {% endif %}
       {% if layout.hide_version_dropdown %}
       {% else %}
       <ul class="version">

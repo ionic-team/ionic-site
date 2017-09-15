@@ -1,7 +1,7 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
-id: pro-migration 
+category: pro-advanced
+id: pro-migration
 title: Cloud Migration - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
@@ -33,8 +33,3 @@ Many of the features of Ionic Cloud (along with a whole host of new ones) are in
 * [Migrating Live Deploy](/docs/pro/migration/live-deploy.html)
 * [The New Package Build Service](/docs/pro/migration/package.html)
 * [Changes to Ionic View](/docs/pro/migration/view.html)
-
-
-
-
-

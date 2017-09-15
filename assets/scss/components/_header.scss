@@ -61,6 +61,10 @@
     height: 32px;
     width: 90px;
     display: block;
+
+    &.light {
+      background-position: 0 0px;
+    }
   }
 
   .navbar-collapse {

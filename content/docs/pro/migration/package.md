@@ -1,7 +1,7 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
-id: pro-migration 
+category: pro-advanced
+id: pro-migration
 title: Cloud Package Migration - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
@@ -23,8 +23,3 @@ You can find instructions for this step [here](/docs/pro/native-builds.html#uplo
 Performing package builds is even simpler than before.
 
 [Here](/docs/pro/native-builds.html#performing-a-build) are the docs!
-
-
-
-
-

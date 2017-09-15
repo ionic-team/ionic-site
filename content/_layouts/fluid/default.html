@@ -11,6 +11,7 @@
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
         class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}} has-snap
                {% if page.body_class %} page-{{page.body_class}}{% endif %}
+               {% if layout.body_class %} {{layout.body_class}}{% endif %}
                {% if page.header_style %}{{page.header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"

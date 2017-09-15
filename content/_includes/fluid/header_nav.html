@@ -1,52 +1,173 @@
-<li {% if id == 'home' %}class="active"{% endif %}><a
-  href="/">Framework</a></li>
-<li{% if id.indexOf('products') == 0%} class="active"{% endif %}><a href="/products/">
-  Products</a></li>
-<li class="sm-hide"><a target="_blank"
-  href="http://showcase.ionicframework.com/">Showcase</a></li>
-<li class="sm-hide"><a href="http://blog.ionic.io/">Blog</a></li>
-<li class="active"><a href="/developers/">Docs</a></li>
-
-<li class="dropdown">
+<!-- <li class="dropdown">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
      aria-expanded="false">
-    Support <span class="caret"></span>
+    Open source
   </a>
   <ul class="dropdown-menu">
-    <li><a href="/getting-started/">Getting Started</a></li>
-    <li class="hide-sm"><a href="https://forum.ionicframework.com/">
-      Community Forum</a></li>
-    <li class="divider"></li>
-    <li><a href="/support">Customer Support</a></li>
-    <li><a href="/trusted-partners">Trusted Partners</a></li>
-    <li><a href="/resources">Resources</a></li>
+    <li>
+      <a href="/" class="framework">
+        <strong>Ionic Framework</strong>
+        The popular open source SKD, built for developers.
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicons.com/" class="ionicons">
+        <strong>Ionicons</strong>
+        Our 900+ open source system icon pack.
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://stenciljs.com" class="stencil">
+        <strong>Stencil <span class="tag">New</span></strong>
+        Resuable, web standards component generator.
+      </a>
+    </li>
+  </ul>
+</li> -->
+
+<li{% if id == 'home' %} class="active"{% endif %}><a href="/">Framework</a></li>
+<li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
+  <a href="/products">Products</a></li>
+
+<!-- <li class="dropdown products">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">
+    Products
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/products" class="pro">
+        <strong>Ionic Pro</strong>
+        The premier product suite for serious app creators.
+      </a>
+    </li>
+    <li>
+      <a href="/products#prototyping" class="creator">
+        <strong>Creator</strong>
+        Visually drag &amp; drop Ionic app prototyping tool.
+      </a>
+    </li>
+    <li>
+      <a href="/products#view" class="view">
+        <strong>View App</strong>
+        The live preview app for device testing &amp; sharing.
+      </a>
+    </li>
+    <li>
+      <a href="/products#updates" class="deploy">
+        <strong>Deploy</strong>
+        Push hot code updates live to production apps.
+      </a>
+    </li>
+    <li>
+      <a href="/products#build" class="package">
+        <strong>Package</strong>
+        Compile and publish native binaries in the cloud.
+      </a>
+    </li>
+    <li>
+      <a href="/products#reporting" class="monitor">
+        <strong>Monitor</strong>
+        Ionic app error monitoring and log tracking.
+      </a>
+    </li>
+  </ul>
+</li> -->
+
+<li class="sm-hide{% if id.indexOf('products') == 0%} active{% endif %}">
+  <a href="/pricing">Pricing</a></li>
+
+<li class="dropdown developers">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu">
+    <li class="split">
+      <ul>
+        <li class="title"><a href="/docs">
+          <i class="ion-md-arrow-forward"></i>Framework Docs</a></li>
+        <li><a href="/getting-started">Setup &amp; Installation</a></li>
+        <li><a href="/docs/components/">UI Components</a></li>
+        <li><a href="/docs/api/">API Reference</a></li>
+        <li><a href="/docs/native/">Native Plugins</a></li>
+        <li><a href="/docs/developer-resources/">Dev Resources</a></li>
+      </ul>
+      <ul>
+        <li class="title"><a href="/docs/pro">
+          <i class="ion-md-arrow-forward"></i>Pro Docs</a></li>
+        <li><a href="/docs/pro/beta-testing.html">View app</a></li>
+        <li><a href="/docs/pro/package/">Package</a></li>
+        <li><a href="/docs/pro/live-deploy/">Live Deploy</a></li>
+        <li><a href="/docs/pro/error-monitoring.html">Monitoring</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/developers/" class="forward">
+        <i class="ion-md-arrow-forward"></i>Developer Center
+      </a>
+    </li>
   </ul>
 </li>
 
-<li class="dropdown">
+<li class="dropdown businesses">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">
-    Ecosystem <span class="caret"></span>
-  </a>
+     aria-expanded="false">Businesses</a>
   <ul class="dropdown-menu">
-    <li><a target="_blank" href="https://market.ionic.io/">Market</a></li>
-    <li><a target="_blank" href="https://jobs.ionic.io/">Jobs</a></li>
-    <li><a target="_blank" href="https://shop.ionic.io/">Shop</a></li>
-    <li><a target="_blank" href="https://ionic.io/products/creator">Creator</a></li>
+    <!-- <li><a href="/customers" class=""></a></li> -->
+    <li><a href="/resources" class="resources">Resource Center</a></li>
+    <li><a href="/enterprise" class="enterprise">Enterprise</a></li>
+    <!-- <li><a href="/demo" class="demo">Request a demo</a></li> -->
+    <li><a href="/sales" class="sales">Contact Sales</a></li>
+    <li><a href="/about" class="about">About Ionic</a></li>
+  </ul>
+</li>
+
+<li class="dropdown support">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Support</a>
+  <ul class="dropdown-menu">
+    <li><a href="https://forum.ionicframework.com" class="forum">Community Forum</a></li>
+    <li><a href="https://ionic.zendesk.com" class="support">Business Support</a></li>
+    <li><a href="/trusted-partners" class="trusted-partners">Trusted Partners</a></li>
+    <li><a href="/contact" class="contact">Contact Us</a></li>
+  </ul>
+</li>
+
+<li class="dropdown ecosystem">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Ecosystem</a>
+  <ul class="dropdown-menu">
+    <li><a href="https://blog.ionic.io" class="blog">Ionic Blog</a></li>
+    <!--<li><a href="" class="community">Community Hub</a></li> -->
+    <li><a href="https://market.ionic.io" class="market">Ionic Market</a></li>
+    <li><a href="https://jobs.ionic.io" class="jobs">Job Board</a></li>
+    <li><a href="https://shop.ionic.io/" class="shop">Swag Shop</a></li>
     <li class="divider"></li>
-    <li><a target="_blank" href="https://twitter.com/IonicFramework">
-      Twitter</a></li>
-    <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
-      Slack</a></li>
-    <li><a target="_blank" href="https://github.com/ionic-team/ionic">
-      GitHub</a></li>
+    <li><a href="https://twitter.com/IonicFramework" class="twitter">Twitter</a></li>
+    <li><a href="http://ionicworldwide.herokuapp.com" class="slack">Slack</a></li>
+    <li><a href="https://github.com/ionic-team/" class="github">GitHub</a></li>
   </ul>
 </li>

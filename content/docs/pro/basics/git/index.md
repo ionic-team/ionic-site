@@ -10,7 +10,7 @@ body_class: 'pro-docs'
 
 Ionic Pro uses a git-based workflow to manage updates and to push new builds through Ionic View, Live Deploy, and more. If you're familiar with how Heroku works, then you'll find Ionic Pro's git workflow similar to use.
 
-<div class="alert alert-warning" role="alert"><h3 style="color:white;">Ionic Pro is *not a replacement* for your current source code repository service</h3>It is recommended you use a separate service to manage your primary repositories and collaborate with members of your team (GitHub, GitLab, etc.)!<br />The `ionic` remote is used only for interacting with the Ionic Pro suite of services.</div>
+<div class="alert alert-warning" role="alert"><h3>Ionic Pro is *not a replacement* for your current source code repository service</h3>It is recommended you use a separate service to manage your primary repositories and collaborate with members of your team (GitHub, GitLab, etc.)!<br />The `ionic` remote is used only for interacting with the Ionic Pro suite of services.</div>
 
 ## Installing Git
 

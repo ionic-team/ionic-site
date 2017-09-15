@@ -5,13 +5,11 @@ body.docs #snap-bar + #pro-header.navbar {
 #pro-header {
   background: white;
 
-  .navbar-brand {
-    margin-left: -13px;
-  }
-
   .container {
     border-bottom: 1px solid #EEF0F3;
     padding-bottom: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   a {
@@ -19,12 +17,27 @@ body.docs #snap-bar + #pro-header.navbar {
   }
 }
 
+#pro-sub-header {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 #pro-docs {
+  h1, h2, h3, h4, h5 {
+    font-weight: 600;
+  }
+  
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .responsive-side-nav.affix + main,
   .responsive-side-nav.affix-bottom + main {
     // The nav bar's width minus it's negative left margin
-    margin-left: 274px;
+    margin-left: 300px;
 
     @media (max-width: $screen-xs-max) {
       margin-left: 0;
@@ -33,7 +46,7 @@ body.docs #snap-bar + #pro-header.navbar {
 
   .responsive-side-nav {
     background: transparent;
-    margin-left: -26px;
+    //margin-left: -26px;
 
     &.side-nav ul ul a, &.side-nav ul .capitalize a {
       height: 28px;

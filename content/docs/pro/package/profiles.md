@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-package
 id: pro-native-builds
 title: Keystores and Profiles - Ionic Pro Documentation
 body_class: 'pro-docs'
@@ -32,4 +32,3 @@ After yo uhave generated your Security Profile, you must upload it to Ionic Pro.
 Click the **Add Profile** button to create a new Profile. Both iOS and Android certifications can be used with one Profile, so we recommend making things like "Real App Store Profile", etc.
 
 Once that Profile has been created, click the **Edit** button for it and upload your iOS and Android certs.
-

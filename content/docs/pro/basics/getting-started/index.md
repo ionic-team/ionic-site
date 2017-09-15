@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-basics
 id: pro-getting-started
 title: Getting Started with Ionic Pro - Ionic Pro Documentation
 body_class: 'pro-docs'
@@ -8,12 +8,11 @@ hide_header_search: true
 dark_header: true
 ---
 
-# Signing Up for Pro
+# Getting Started with Ionic Pro
 
-Ionic Pro is a set of tool and services meant to speed up your development teams and add additional functionality to your apps.
+If you're new to Ionic Pro, please read the [Welcome](/docs/pro/basics/welcome/) introduction for a quick overview of Ionic pro and instructions on creating an account.
 
-To get started with Ionic Pro, first [create an account](https://dashboard.ionicjs.com/signup). Ionic Pro has a free plan for development and kicking the tires, and paid plans for production app usage. Larger teams can also create Organizations to administer team members and make it easy to manage projects.
-
+## Install Ionic CLI
 
 Ionic Pro uses the latest version of the Ionic CLI to interface between your local code and our tools and services. To make sure you're using the latest CLI, upgrade using the following command:
 

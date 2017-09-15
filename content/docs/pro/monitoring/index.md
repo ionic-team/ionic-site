@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-monitoring
 id: pro-error-monitoring
 title: Runtime Error Monitoring - Ionic Pro Documentation
 body_class: 'pro-docs'
@@ -32,7 +32,7 @@ First, in your app's `index.html` file, add the following script include *immedi
 the id of your app on https://app.ionicjs.com/, along with the version of your app as found in your `config.xml`.
 
 ```html
-<script src="https://code.ionicframework.com/services/ionic-pro.min.js" data-app-id="APP_ID" data-app-version="APP_VERSION"></script>
+<script src="https://code.ionicframework.com/services/ionic-error-tracking.min.js" data-app-id="APP_ID" data-app-version="APP_VERSION"></script>
 ```
 
 <div class="callout danger" markdown="1">

@@ -1,25 +1,36 @@
 ---
 layout: fluid/default
 back_button_text_image: "/img/docs/docs-pro-text.png"
+body_class: 'responsive-docs'
 hide_version_dropdown: true
+navbar_id: 'pro-header'
+plain_header: true
+is_responsive: true
 ---
 
 
-<div class="docs-container"
-     {% if page.angular_controller %}
-       ng-controller="{{ page.angular_controller }}"
-     {% endif %}>
-  <nav class="side-nav" id="side-nav">
-    <form class="form-group search" role="search">
-      <input type="text"
-             class="form-control search-input"
-             placeholder="Search"
-             data-searchpos="sidebar"
-             ng-model="searchTerm">
-    </form>
-    {% include fluid/pro_docs_side_nav_main.html %}
-  </nav>
-  <main>
-    {{ content }}
-  </main>
+<div id="pro-sub-header" class="sub-header">
+  <div class="container">
+    <h2 class="sub-header-title"><a href="/developers/">Documentation</a> <span class="sep">/</span> Pro docs</h2>
+    <div class="sub-header-widget">
+    </div>
+    <div class="sub-header-links">
+      <a href="/docs/pro/" class="active">Documentation</a>
+      <a href="http://support.ionicjs.com/">Support</a>
+      <a href="https://dashboard.ionicjs.com/">Dashboard</a>
+    </div>
+  </div>
+</div>
+
+<div id="pro-docs" class="responsive-docs-container docs-container" ng-controller="ProDocsCtrl as vm">
+  <div class="container">
+    <div class="row">
+      <nav class="side-nav responsive-side-nav col-md-4" data-spy="affix" data-offset="128">
+        {% include fluid/pro_docs_side_nav_main.html %}
+      </nav>
+      <main class="col-md-8">
+        {{ content }}
+      </main>
+    </div>
+  </div>
 </div>

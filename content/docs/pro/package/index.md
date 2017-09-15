@@ -1,6 +1,6 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
+category: pro-package
 id: pro-native-builds
 title: Native Binary Builds - Ionic Pro Documentation
 body_class: 'pro-docs'
@@ -8,13 +8,13 @@ hide_header_search: true
 dark_header: true
 ---
 
-# Building Native Binaries
+# Packaging Native Binaries
 
-Ionic Pro makes it easy to build native app binaries for iOS and Android in the cloud. Perfect for automating binary builds and for developers using Windows that want to build iOS apps.
+Ionic Pro's Package feature makes it easy to build native app binaries for iOS and Android in the cloud. Perfect for automating binary builds and for developers using Windows that want to build iOS apps.
 
 ## Getting Started
 
-You're going to need to upload some credentials so that we can build your app in the cloud.  
+To start, you'll need to upload iOS and/or Android certificate profiles to enable Package to build your app in the cloud.
 
 Get started with security profiles [here](/docs/pro/package/profiles.html).
 

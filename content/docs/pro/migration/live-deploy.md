@@ -1,7 +1,7 @@
 ---
 layout: fluid/pro_docs_base
-category: pro
-id: pro-migration 
+category: pro-advanced
+id: pro-migration
 title: Cloud Deploy Migration - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
@@ -37,6 +37,3 @@ Because some native plugins were changed, you will have to resubmit a new native
 ## All set!
 
 Congrats, you're done!
-
-
-

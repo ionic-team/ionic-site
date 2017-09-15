@@ -30,4 +30,4 @@ Ionic Pro has a free plan for development and kicking the tires, and paid plans 
 
 ## Getting Started
 
-Once your account has been created, continue to the [Getting Started](/docs/pro/basics/getting-started/) guide to install Pro and link your app to the service.
+Once your account has been created, continue to the [Installation](/docs/pro/basics/getting-started/) guide to install Pro and link your app to the service.

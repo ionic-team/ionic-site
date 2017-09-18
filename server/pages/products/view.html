@@ -1,5 +1,6 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'view' %}
+{% set header_style = 'transparent light' %}
 
 {% block body_attributes %}
 
@@ -7,47 +8,155 @@
 
 {% block main %}
 
-<div class="cta gradient">
-  <hgroup class="container center">
-    <h1 class="hero-heading">Share your apps with the world</h1>
-    <p>
-      Ionic View makes it easy to share your <a href="http://ionicframework.com/">
-      Ionic</a> and Cordova apps with clients and testers around the world, all 
-      without ever going through the App Store.
-    </p>
+<div id="pro-sub-header" class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/products">Pro</a></li>
+      <li>View App</li>
+    </ul>
+    <ul class="right">
+      <li>Features</li>
+      <li><a href="/docs/pro/view/">Docs</a></li>
+      <li><a href="" class="btn white">Download</a></li>
+    </ul>
+  </div>
 </div>
 
-<main class="container">
-  <div class="left">
-    <img id="logo" src="/img/products/view/ionicview-logo.png">
-    <h3>Ionic Pro: Get it on iOS and Android (Coming Soon)</h3>
-    <div id="stores">
+<div class="cta gradient">
+  <hgroup class="container left">
+    <h1>Mobile testing, the easy way.</h1>
+    <p>
+      Share, test, and collect feedback on your apps with clients and testers 
+      from anywhere in the world, all without ever going through the App Stores.
+    </p>
+    <h4 class="stores">
+      Get the app on 
       <a href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931">
-        <img src="/img/products/view/appstore.png" id="appstore-image">
-      </a>
-      <!--<a href="https://play.google.com/store/apps/details?id=com.ionic.viewapp">
-        <img alt="Get it on Google Play" 
-             src="/img/products/view/playstore.png" 
-             id="playstore-image">
-      </a>-->
-    </div>
-  </div>
-  <div class="left">
-    <img id="logo" src="/img/products/view/ionicview-logo.png">
-    <h3>Looking for the Legacy Ionic Cloud version?</h3>
-    <div id="stores">
-      <a href="https://itunes.apple.com/us/app/ionic-view/id849930087">
-        <img src="/img/products/view/appstore.png" id="appstore-image">
+        App Store
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.ionic.viewapp">
-        <img alt="Get it on Google Play" 
-             src="/img/products/view/playstore.png" 
-             id="playstore-image">
+        Google Play
       </a>
+    </h4>
+  </hgroup>
+  <div class="graphics">
+    <div class="iphone"></div>
+    <div class="android"></div>
+  </div>
+</div>
+
+<main>
+  <section class="center container">
+    <hgroup>
+      <h2>Simply choose an app, and share.</h2>
+      <p>
+        <strong>View</strong> enables you and others to easily preview and test 
+        your Ionic apps as though they were deployed natively. Just choose the
+        app and version you want to share, and start testing.
+      </p>
+    </hgroup>
+    <ul>
+      <li class="groups">
+        <strong>External testers &amp; groups</strong>
+        <p>
+          Invite anyone to provide feedback on your app. Segment audiences by 
+          group or department.
+        </p>
+      </li>
+      <li class="sharing">
+        <strong>Easy sharing</strong>
+        <p>
+          Share multiple versions of your app directly with users and testers. 
+          All it takes is a simple email invite.
+        </p>
+      </li>
+      <li class="feedback">
+        <strong>In-app feedback</strong>
+        <p>
+          Users submit feedback right from the View App, with results collected
+          in a central dashboard.
+        </p>
+      </li>
+      <li class="native">
+        <strong>Native app behavior</strong>
+        <p>
+          Easily preview and test your Ionic apps as though they were actually 
+          deployed natively.
+        </p>
+      </li>
+    </ul>
+    <div id="phone-tilt"></div>
+  </section>
+  <section class="left testers">
+    <div class="container">
+      <hgroup>
+        <h2>Invite testers by email.</h2>
+        <p>
+          <strong>View</strong> makes it easy to share versions of your app with
+          anyone in world, with a simple email invite. Choose a test group or
+          invite new testers to preview your app and provide feedback. Add as
+          many testers as you like, without the complicated beta provisioning or
+          ever going through the App Stores.
+        </p>
+      </hgroup>
+      <div class="graphics"></div>
     </div>
-  </div>
-  <div class="right phones">
-    <img src="/img/products/view/phones.png" alt="phones"/>
-  </div>
+  </section>
+  <section class="right choose">
+    <div class="container">
+      <hgroup>
+        <h2>Choose who sees what.</h2>
+        <p>
+          Segment your audiences by team, client, or department, and then choose 
+          which version of your app you want them to see. Get feedback on new 
+          features from the Marketing team, while testing bug fixes with QA.
+        </p>
+      </hgroup>
+      <div class="graphics"></div>
+    </div>
+  </section>
+  <section class="left feedback">
+    <div class="container">
+      <hgroup>
+        <h2>Gather and analyze feedback.</h2>
+        <p>
+          Testers can capture screenshots and provide feedback directly within 
+          the the View App. The Ionic dashboard allows you to centrally manage 
+          and analyze incoming comments to look for trends and insights, and 
+          help prioritize changes.
+        </p>
+      </hgroup>
+      <div class="graphics"></div>
+    </div>
+  </section>
+  <section class="">
+    <div class="container">
+      <hgroup>
+        <h2>Share the full app experience.</h2>
+        <p>
+          Unlike browser-based testing, <strong>View</strong> gives testers a 
+          complete app experience, with full support for native plugins and 
+          functionality. View works on all supported iOS and Android devices, 
+          allowing you to test new features and functionality across platforms.
+        </p>
+      </hgroup>
+      <div class="graphics"></div>
+    </div>
+  </section>
+  <section class="bar get-started">
+    <div class="container">
+      <hgroup>
+        <h2>Start testing your apps the easy way.</h2>
+        <p class="lg">
+          Get in touch to learn more, or create an account.
+        </p>
+      </hgroup>
+      <div class="btn-group">
+        <a href="https://dashboard.ionicjs.com/" class="btn white">
+          Create an account</a>
+        <a href="/pricing" class="btn btn-default">See pricing</a>
+      </div>
+    </div>
+  </section>
 </main>
 {% endblock %}

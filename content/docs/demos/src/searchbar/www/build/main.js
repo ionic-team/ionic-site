@@ -11591,7 +11591,7 @@ let PageOne = class PageOne {
     }
     filterItems(ev) {
         this.setItems();
-        let val = ev.value;
+        let val = ev.target.value;
         if (val && val.trim() !== '') {
             this.items = this.items.filter(function (item) {
                 return item.toLowerCase().includes(val.toLowerCase());

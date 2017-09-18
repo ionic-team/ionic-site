@@ -290,7 +290,7 @@
 
     .developers {
       .dropdown-menu {
-        left: -117px;
+        left: -145px;
         transition-delay: .1s !important;
       }
 
@@ -503,7 +503,7 @@
     }
   
     .ecosystem ul {
-      left: -54px;
+      left: -41px !important;
     }
   }
 
@@ -917,6 +917,17 @@
             }
           }
         }
+      }
+    }
+  }
+  @media (min-width: $screen-sm-min)  {
+    &.light {
+      #ionic-io-logo {
+        background-position: 0 0;
+      }
+
+      .navbar-nav > li:not(.header-btn-white) > a {
+        color: #697384;
       }
     }
   }

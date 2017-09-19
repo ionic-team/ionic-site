@@ -8,17 +8,27 @@ hide_header_search: true
 dark_header: true
 ---
 
-# Ionic Pro
+# Welcome to Ionic Pro
 
-Ionic Pro is a suite of mobile app lifecycle tools helping teams and individuals develop, testing, and distribute apps running on Ionic Framework
-faster than ever before.
+Ionic Pro is a powerful set of services and features built on top of the flagship Ionic Framework that brings a totally new level of app development agility to mobile dev teams.
 
-Explore some of these features and services below, but make sure to follow the [Getting Started](/docs/pro/basics/getting-started) guide first!
+Ionic Pro has several core services that help you through the full app lifecycle, including
 
- * [Pushing new builds and working with git](/docs/pro/basics/git/)
- * [Deploying real-time app updates remotely](/docs/pro/deploy/)
- * [Packaging native builds for iOS and Android](/docs/pro/package/)
- * [Testing your app with beta testers, clients, and co-workers](/docs/pro/view/)
- * [Tracking runtime errors and mapping to original source code](/docs/pro/monitoring/)
+ * [Deploy](/docs/pro/deploy/): Update your app remotely in real-time without app store delays.
+ * [View](/docs/pro/view/): Test your app with testers and get feedback immediately without complicated device and provisioning profile management.
+ * [Package](/docs/pro/package/): Build app binaries in the cloud for iOS and Android.
+ * [Monitoring](/docs/pro/monitoring/): Track runtime errors in production back to your original TypeScript.
 
-#### For support and troubleshooting, visit our [Support Portal](http://support.ionicjs.com).
+Each one of these services is based around a simple git-based workflow that should be familiar to any app developer.
+
+
+## Create an Account
+
+To get started with Ionic Pro, first [create an account](https://dashboard.ionicjs.com/signup).
+
+Ionic Pro has a free plan for development and kicking the tires, and paid plans for production app usage. Larger teams can also create Organizations to administer team members and make it easy to manage projects.
+
+## Getting Started
+
+Once your account has been created, continue to the [Installation](/docs/pro/basics/getting-started/) guide to install Pro and link your app to the service.
+

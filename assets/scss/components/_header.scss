@@ -5,7 +5,7 @@
   margin-bottom: 0;
   position: relative;
   min-height: 32px;
-  margin-top: 20px;
+  padding-top: 20px;
   margin-bottom: 20px;
   z-index: 10;
 
@@ -13,6 +13,8 @@
     position: fixed;
     top: 0;
     width: 100%;
+    padding-top: 1px;
+    min-height: 50px;
   }
 
   .navbar-header {
@@ -85,7 +87,8 @@
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-left: 22px;
+      padding-right: 6px;
+      padding-left: 6px;
     }
 
     > li {
@@ -142,11 +145,12 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 6px 12px;
+          padding: 6px 10px;
           border-radius: 4px;
           color: $blue;
           box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-          margin-right: 0px;
+          margin-right: 1px;
+          margin-left: -1px;
           transition: .3s box-shadow, .3s background;
 
           &:hover {
@@ -154,6 +158,19 @@
             color: $blue;
             box-shadow: 0 3px 5px rgba(black, .15);
             background-color: rgba(white, 1);
+          }
+        }
+
+        &.blue {
+          @media (min-width: $screen-sm-min) {
+            a {
+              color: white;
+              background: $blue;
+
+              &:hover {
+                background-color: rgba($blue, .9);
+              }
+            }
           }
         }
       }
@@ -712,14 +729,15 @@
   }
 
   .container-fluid {
-    min-height: 74px;
+    min-height: 62px;
     padding-top: 13px;
+    margin-top: -27px;
 
     .navbar-nav {
       padding-top: 5px;
 
       @media (max-width: $screen-md-max) {
-        padding-left: 0;
+        padding-left: 5px;
       }
 
       > li > a {
@@ -730,6 +748,10 @@
 
     .header-btn-white {
       margin-top: 0;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 28px;
     }
 
     @media (max-width: 1514px) {
@@ -928,6 +950,14 @@
 
       .navbar-nav > li:not(.header-btn-white) > a {
         color: #697384;
+
+        &.active {
+          color: #272a2f;
+        }
+
+        &:hover {
+          color: $blue;
+        }
       }
     }
   }

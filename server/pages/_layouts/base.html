@@ -14,7 +14,7 @@
         {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
         {% block body_attributes %}data-spy="scroll" data-offset="100"{% endblock %}>
 
-    {% if id != 'enterprise' %} 
+    {% if id == 'home' %} 
       <div id="snap-bar">
         Building apps at a large company? Check out
         <a href="/enterprise">

@@ -4,51 +4,81 @@
  * September 2017
  */
 .sub-header {
-  padding: 0px 0;
 
   .container {
     display: flex;
     flex-direction: row;
-  }
-
-  .sub-header-title {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    width: 275px;
-    font-size: 16px;
-    font-weight: 600;
+    justify-content: space-between;
     color: #272a2f;
+    font-size: 13px;
+    font-weight: 500;
 
-    .sep {
-      color: #ced5e1;
-      font-weight: 400;
+    &::before,
+    &::after { display: none; }
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .breadcrumbs {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+
+    li {
+      font-weight: 600;
+      color: #272a2f;
+
+      &::after {
+        content: '/';
+        color: #ced5e1;
+        margin-left: 5px;
+        margin-right: 1px;
+        font-size: 16px;
+        vertical-align: 0px;
+      }
+  
+      &:last-child::after {
+        display: none;
+      }
+
+      a,
+      &::after {
+        font-weight: 300;
+      }
     }
 
     a {
-      font-weight: 400;
       color: #697384;
-
+      transition: .2s color;
+      padding: 18px 0;
+      display: inline-block;
+      font-size: 15px;
+      margin-left: -1px;
+  
       &:hover {
-        color: #488aff;
+        color: $blue;
       }
     }
   }
-  .sub-header-widget {
-    flex: 1;
-  }
-  .sub-header-links {
-    a {
-      color: #5E6779;
-      margin-left: 24px;
-      font-weight: 500;
-      font-size: 13px;
 
-      &:hover {
-        color: #488aff;
-      }
-      &.active {
-        opacity: 0.7;
-      }
+  a {
+    color: #272a2f;
+    padding: 19px 25px;
+    display: inline-block;
+    transition: .2s color;
+
+    &.current {
+      color: #697384;
+    }
+
+    &:hover {
+      color: $blue;
     }
   }
 }

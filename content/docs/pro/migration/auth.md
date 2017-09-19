@@ -20,7 +20,7 @@ The Ionic community is already using a number of leading push and auth providers
 
 **Auth0** is also popular and has put together a [blog post](https://auth0.com/blog/ionic-framework-how-to-get-started/) about using Auth0 with Ionic.
 
-**Firebase** by Google is also widely used as a auth notification service by Ionic users. Check out their docs [here](https://firebase.google.com/docs/auth/web/start).
+**Firebase** by Google is also widely used as a auth notification service by Ionic users. Check out their docs [here](https://firebase.google.com/docs/auth/web/start). They also have an [Auth tutorial](https://www.youtube.com/watch?v=-OKrloDzGpU&list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX&index=19) in their Firecasts series.
 
 ## Migration Questions
 

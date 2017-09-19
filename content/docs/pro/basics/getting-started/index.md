@@ -54,4 +54,4 @@ If this is your first time running `ionic link` you may be prompted to perform a
 Now that you are logged into your Ionic Pro account from the CLI and have an app you'd like to use, the next
 step is to push commits to your Ionic Pro account.
 
-Follow the [Git Workflow](git.html) to learn more about the workflow you should use while developing your App with Ionic Pro.
+Follow the [Git Workflow](/docs/pro/basics/git/) to learn more about the workflow you should use while developing your App with Ionic Pro.

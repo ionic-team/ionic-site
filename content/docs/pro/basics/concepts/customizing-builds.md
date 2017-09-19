@@ -1,0 +1,61 @@
+---
+layout: fluid/pro_docs_base
+category: pro-basics
+id: pro-customizing-builds
+title: Customizing Builds - Ionic Pro Documentation
+body_class: 'pro-docs'
+hide_header_search: true
+dark_header: true
+---
+
+## The Build Process
+
+The [Git Workflow](/docs/pro/basics/git/) at the core of Ionic Pro takes commits of your app code, builds them in the cloud, and then makes it possible to distribute and manage those builds through a simple Dashboard interface and CLI tools.
+
+A `Build` in Ionic Pro is triggered when running `git push ionic master` (or any other non-master branch) with new changes to your app. Each build goes through a CI system that triggers a full build of your app (we run `npm run build`), and the completed build is stored for later use through one of the core Ionic Pro services.
+
+## Customizing your Builds
+
+When you push code up to Ionic, we run `npm run build` in the root directory of your repository. This means you have full control over the build process. By default, we recommend commiting the Ionic Project directory at the root level, which comes default with a `package.json` file with the following:
+
+```bash
+{
+...
+    "scripts": {
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve"
+    },
+...
+}
+```
+
+`npm run build` is controlled by the `scripts: build` line which defaults to `"build": "ionic-app-scripts build"`.
+
+A common change people like to make is making sure that Ionic Pro builds with production output. To make this change, simply change the `package.json` file to include the `--prod` flag like so:
+
+```bash
+{
+...
+    "scripts": {
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build --prod",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve"
+    },
+...
+}
+```
+
+You could commit different `package.json` files to different branches if you'd like different build setups run.
+
+## Using different Repository structures
+
+If your repository includes the Ionic app as a sub-folder or a different special structure, you just need to make sure you set up `npm run build` to perform the right actions. The requirements are:
+
+1. `npm run build` needs to execute a build of your code when run from the root of your repository
+2. A `www` built directory must exist at the root folder after performing `npm run build`
+

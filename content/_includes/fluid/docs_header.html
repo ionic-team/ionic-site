@@ -16,11 +16,6 @@
         <i class="ion-md-menu"></i>
         <i class="ion-md-close"></i>
       </button>
-      {% if layout.plain_header %}
-      <a class="navbar-brand" href="/">
-        <div id="ionic-io-logo" class="light"></div>
-      </a>
-      {% else %}
       <a class="navbar-brand logo" href="/">
         <img src="/img/docs/ionic-docs-icon.png" id="ionic-docs-logo" />
         <img src="/img/docs/ionic-docs-icon-back.png" id="ionic-docs-back" />
@@ -32,7 +27,6 @@
         <img src="/img/docs/ionic-docs-type.png" id="ionic-docs-text" />
         {% endif %}
       </a>
-      {% endif %}
       {% if layout.hide_version_dropdown %}
       {% else %}
       <ul class="version">
@@ -72,7 +66,7 @@
         </div>
       </form>
       {% endif %}
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-center">
         {% include fluid/header_nav.html isDocs='true' %}
       </ul>
       <ul class="nav navbar-nav navbar-right">

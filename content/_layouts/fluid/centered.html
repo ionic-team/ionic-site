@@ -9,18 +9,24 @@
     {% include fluid/head.prod.html %}
   </head>
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
-        class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}}
+        class="page-{{page.id}} transparent
                {% if page.header_style %}{{page.header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
         {% if isDocs %}data-target="#components-index"{% endif %}
         ng-app="IonicSite">
+    
+    <div id="snap-bar">
+      Building apps at a large company? Check out
+      <a href="/enterprise">
+        <b>Ionic Enterprise</b>
+        <i class="ion-md-arrow-forward"></i>
+      </a>
+    </div>
 
-    {% if page.centered != true %}
-      {% include fluid/docs_header.html %}
-    {% else %}
-      {% include fluid/header.html %}
-    {% endif %}
+
+    {% include fluid/header.html %}
+
     
     <main class="container">
       {{ content }}

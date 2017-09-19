@@ -15,22 +15,10 @@
         data-offset="100"
         {% if isDocs %}data-target="#components-index"{% endif %}
         ng-app="IonicSite">
-    
-    <div id="snap-bar">
-      Building apps at a large company? Check out
-      <a href="/enterprise">
-        <b>Ionic Enterprise</b>
-        <i class="ion-md-arrow-forward"></i>
-      </a>
-    </div>
-
 
     {% include fluid/header.html %}
 
-    
-    <main class="container">
-      {{ content }}
-    </main>
+    {{ content }}
 
     {% if page.prev_page_title  or page.next_page_title %}
       <div class="footer-links">

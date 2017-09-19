@@ -1,5 +1,5 @@
 {% extends '_layouts/base.html' %}
-{% set id = 'view' %}
+{% set id = 'products-view' %}
 {% set header_style = 'transparent light' %}
 
 {% block body_attributes %}
@@ -15,33 +15,29 @@
       <li>View app</li>
     </ul>
     <ul class="right">
-      <li>Features</li>
+      <li><a href="/products/view" class="active">Features</a></li>
       <li><a href="/docs/pro/view/">Docs</a></li>
       <li><a href="" class="btn white">Download</a></li>
     </ul>
   </div>
 </div>
 
-<div class="top">
-  <hgroup class="container left">
+<div class="top container">
+  <hgroup class=" left">
     <h1>Mobile testing, the easy way.</h1>
     <p>
       Share, test, and collect feedback on your apps with clients and testers 
       from anywhere in the world, all without ever going through the App Stores.
     </p>
     <h4 class="stores">
-      Get the app on 
-      <a href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931">
-        App Store
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.ionic.viewapp">
-        Google Play
-      </a>
+      Get the app on:
+      <a href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.ionic.viewapp"></a>
     </h4>
   </hgroup>
   <div class="graphics">
-    <div class="iphone"></div>
     <div class="android"></div>
+    <div class="iphone"></div>
   </div>
 </div>
 

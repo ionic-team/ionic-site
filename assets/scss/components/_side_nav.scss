@@ -59,7 +59,7 @@
     min-height: 54px;
 
     &.search {
-      padding: 20px 20px 20px;
+      padding: 10px 20px 10px;
       margin-bottom: 0;
 
       &:hover::before {
@@ -73,7 +73,7 @@
         font-weight: 800;
         color: #bdc3cc;
         position: absolute;
-        top: 28px;
+        top: 16px;
         left: 34px;
         transition: .2s color;
       }

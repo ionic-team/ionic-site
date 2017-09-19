@@ -1,57 +1,62 @@
-#page-view {
-  main {
-    display: flex;
-    padding-top: 50px;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+#page-products-view {
+  .top {
+    position: relative;
+    overflow: hidden;
+    margin-top: 42px;
 
-    .left,
-    .right {
-      margin: 0 auto;
+    hgroup {
+      padding-top: 112px;
+      margin-right: 668px;
+      background: url(/img/products/view/ionic-view-logo.png) 0 0 no-repeat;
+      background-size: 184px;
+      margin-top: 87px;
+      margin-left: -1px;
     }
 
-    .left {
-      flex: 0 1 360px;
-      padding-bottom: 50px;
+    h1 {
+      letter-spacing: -.04em;
+      font-weight: 600;
     }
 
-    h3 {
-      margin-bottom: 20px;
-      margin-top: 20px;
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 17px;
+      display: inline-block;
+      letter-spacing: .021em;
+      line-height: 32px;
     }
 
-    #logo {
-      width: 264px;
-      margin-bottom: 20px;
+    .stores {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 30px;
     }
 
-    #stores {
-      display: flex;
-      flex-wrap: wrap;
-    }
+    .graphics {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
 
-    #appstore-image,
-    #playstore-image {
-      img {
-        width: 100%;
+      .iphone {
+        background: url('/img/products/view/view-iphone.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 346px;
+        height: 680px;
+        position: absolute;
+        right: 226px;
+        top: 22px;
       }
-    }
 
-    #appstore-image {
-      width: 148px;
-      margin-right: 15px;
-    }
-
-    #playstore-image { 
-      width: 177px;
-    }
-
-    .right {
-      flex: 0 1 548px;
-
-      img {
-        max-width: 548px;
+      .android {
+        background: url('/img/products/view/view-pixel.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 360px;
+        height: 700px;
+        position: absolute;
+        right: 12px;
       }
     }
   }

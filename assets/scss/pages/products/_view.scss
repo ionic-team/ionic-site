@@ -12,6 +12,14 @@
       background-size: 184px;
       margin-top: 87px;
       margin-left: -1px;
+
+      @media (max-width: $screen-md-max)  {
+        margin-right: 600px;
+      }
+      
+      @media (max-width: $screen-md-max)  {
+        margin-right: 390px;
+      }
     }
 
     h1 {
@@ -78,6 +86,12 @@
         position: absolute;
         right: 226px;
         top: 22px;
+        
+        @media (max-width: $screen-md-max)  {
+          width: 231px;
+          height: 453px;
+          right: 150px;
+        }
       }
 
       .android {
@@ -89,6 +103,12 @@
         right: 12px;
         animation-delay: .2s;
         animation-duration: 1.5s;
+
+        
+        @media (max-width: $screen-sm-max)  {
+          width: 240px;
+          height: 467px;
+        }
       }
     }
   }
@@ -166,6 +186,11 @@
         letter-spacing: -0.01em;
         font-weight: 500;
       }
+
+      @media (max-width: $screen-sm-max)  {
+        flex-basis: 330px;
+        margin-bottom: 48px;
+      }
     }
 
     #phone-tilt {
@@ -178,9 +203,11 @@
       left: calc(50% - 402px);
       bottom: -73px;
       transform: rotateX(-30deg);
-      animation: 2s tiltIn;
-      animation-fill-mode: forwards;
-      animation-delay: 1s;
+
+      &.active {
+        animation: 2s tiltIn;
+        animation-fill-mode: forwards;
+      }
     }
   }
 
@@ -193,6 +220,10 @@
       padding-bottom: 151px;
       width: calc(50% - 147px);
       position: relative;
+
+      @media (max-width: $screen-sm-max)  {
+        width: calc(50% - 48px);
+      }
 
       &::before {
         background: url('/img/products/view/feature-icons-lg.png') 0 0 no-repeat;
@@ -239,6 +270,18 @@
       right: 0;
       bottom: 0;
       top: 0;
+      opacity: 0;
+      filter: blur(10px);
+      transition: .4s opacity, .4s filter;
+
+      &.active {
+        opacity: 1;
+        filter: blur(0);
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        right: -20%;
+      }
     }
 
     &.testers { 
@@ -291,6 +334,10 @@
     .graphics {
       right: auto;
       left: 0;
+
+      @media (max-width: $screen-sm-max)  {
+        left: -20%;
+      }
     }
   }
 
@@ -308,6 +355,10 @@
       &::before,
       &::after {
         display: none;
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        text-align: center;
       }
     }
 
@@ -334,13 +385,18 @@
       margin-bottom: 5px;
     }
 
-    .btns .btn {
-      padding: 12px 16px;
-      font-size: 16px;
-      font-weight: 600;
-
-      &:last-child {
-        margin-right: -5px;
+    .btns {
+        .btn {
+        padding: 12px 16px;
+        font-size: 16px;
+        font-weight: 600;
+  
+        &:last-child {
+          margin-right: -5px;
+        }
+      }
+      @media (max-width: $screen-sm-max)  {
+        width: 100%;
       }
     }
   }

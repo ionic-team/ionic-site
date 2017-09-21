@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-prepare
-command_name: cordova prepare
-title: Ionic CLI Documentation - cordova prepare
+page_name: ionic cordova prepare
+command_name: ionic cordova prepare
+title: Ionic CLI Documentation - ionic cordova prepare
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova prepare`
 
@@ -29,7 +38,7 @@ You may wish to use `ionic cordova prepare` if you run your project with Android
 
 Input | Description
 ----- | ----------
-`platform` | The platform you would like to prepare (e.g. `ios`, `android`)
+`platform` | The platform you would like to prepare (`android`, `ios`)
 
 
 

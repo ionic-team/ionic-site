@@ -130,28 +130,28 @@ $ ionic cordova build ios
 
 Most of the this kind of problems come from an incorrect installation by cordova.
 
-0. Ensure Xcode is closed
+- Ensure Xcode is closed
 
-1. Clean install:
+- Clean install:
 
  ```bash
 rm -rf platforms
 rm -rf plugins
 ```
 
-2. Add the platform back
+- Add the platform back
 
  ```bash
 ionic cordova platform add ios
 ```
 
-3. Make sure localhost is allowed:
+- Make sure localhost is allowed:
 
  ```xml
 <allow-navigation href="http://localhost:8080/*"/>
 ```
 
-4. Make sure WKWebView is the default engine:
+- Make sure WKWebView is the default engine:
 
  ```xml
 <feature name="CDVWKWebViewEngine">
@@ -160,13 +160,13 @@ ionic cordova platform add ios
 <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 ```
 
-5. Build ionic ios
+- Build ionic ios
 
  ```
 ionic cordova build ios
 ```
 
-6. Open Xcode and try to build again.
+- Open Xcode and try to build again.
 
 
 #### Malloc: *** error for object 0x1700af180: pointer being freed was not allocated

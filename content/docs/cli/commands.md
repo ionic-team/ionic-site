@@ -1,52 +1,25 @@
 ---
-layout: fluid/pro_docs_base
-category: pro
-id: cli-intro
-title: Ionic CLI Documentation
-body_class: 'pro-docs'
+layout: fluid/cli_docs_base
+category: cli
+id: cli-command-list
+page_name: Commands
+title: Ionic CLI Documentation - Commands
 hide_header_search: true
 dark_header: true
 ---
 
-# ionic
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
 
 
-The Ionic CLI is your go-to tool for developing Ionic apps. You can follow CLI
-development on [Github](https://github.com/ionic-team/ionic-cli).
+# Commands
 
-## Installation
 
-Please make sure latest
-[Node](https://ionicframework.com/docs/resources/what-is/#node) 6 LTS and
-[NPM](https://ionicframework.com/docs/resources/what-is/#npm) 3+ are installed.
-
-Then, install the CLI globally (you may need sudo):
-
-```bash
-$ npm install -g ionic@latest
-```
-
-## Getting Started
-
-Start a new Ionic project using `ionic start`:
-
-```bash
-ionic start myNewProject tabs
-cd ./myNewProject
-```
-
-This will create a new app named `myNewProject`. Once you `cd` into your
-project's directory, a few new commands become available to you, such as
-`serve`:
-
-```bash
-ionic serve
-```
-
-## Commands
-
-Here is a full list of Ionic commands. You can also see the list on the command
-line with `ionic --help`.
+This is a comprehensive list of CLI commands. The `ionic --help` command will show a more organized and accurate list of commands.
 
 Command | Description
 ------- | -----------
@@ -57,8 +30,10 @@ Command | Description
 [link](link/) | Connect your local app to Ionic
 [login](login/) | Login with your Ionic ID
 [serve](serve/) | Start a local dev server for app dev/testing
+[signup](signup/) | Create an Ionic account
 [start](start/) | Create a new project
 [telemetry](telemetry/) | Opt in and out of telemetry
+[upload](upload/) | (deprecated) Upload a new snapshot of your app
 [config get](config/get/) | Print config values
 [config set](config/set/) | Set config values
 [cordova build](cordova/build/) | Build (prepare + compile) an Ionic project for a given platform
@@ -67,9 +42,15 @@ Command | Description
 [cordova platform](cordova/platform/) | Manage Cordova platform targets
 [cordova plugin](cordova/plugin/) | Manage Cordova plugins
 [cordova prepare](cordova/prepare/) | Copies assets to Cordova platforms, preparing them for native builds
+[cordova requirements](cordova/requirements/) | Checks and print out all the requirements for platforms
 [cordova resources](cordova/resources/) | Automatically create icon and splash screen resources
 [cordova run](cordova/run/) | Run an Ionic project on a connected device
 [git remote](git/remote/) | Adds/updates the Ionic git remote to your local Ionic app repository
+[monitoring syncmaps](monitoring/syncmaps/) | Sync Source Maps to Ionic Pro Error Monitoring service
+[package build](package/build/) | (deprecated) Start a package build
+[package download](package/download/) | (deprecated) Download your packaged app
+[package info](package/info/) | (deprecated) Get info about a build
+[package list](package/list/) | (deprecated) List your cloud builds
 [ssh add](ssh/add/) | Add an SSH public key to Ionic
 [ssh delete](ssh/delete/) | Delete an SSH public key from Ionic
 [ssh generate](ssh/generate/) | Generates a private and public SSH key pair

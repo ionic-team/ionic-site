@@ -1,0 +1,42 @@
+---
+layout: fluid/centered
+back_button_text_image: "/img/docs/docs-pro-text.png"
+body_class: 'responsive-docs'
+hide_version_dropdown: true
+navbar_id: 'pro-header'
+plain_header: true
+is_responsive: true
+header_style: transparent
+---
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/developers/">Documentation</a></li>
+      {% if page.page_name %}
+      <li><a href="/docs/cli">CLI docs</a></li>
+      {% if page.command_name %}
+      <li><a href="/docs/cli/commands.html">Commands</a></li>
+      <li><code>{{ page.command_name }}</code></li>
+      {% else %}
+      <li>{{ page.page_name }}</li>
+      {% endif %}
+      {% else %}
+      <li>CLI docs</li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+
+<div id="pro-docs" class="responsive-docs-container docs-container">
+  <div class="container">
+    <div class="row">
+      <nav class="side-nav responsive-side-nav col-md-4" data-spy="affix" data-offset="193">
+        {% include fluid/cli_docs_side_nav_main.html %}
+      </nav>
+      <main class="col-md-8">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-upload
-command_name: upload
-title: Ionic CLI Documentation - upload
+page_name: ionic upload
+command_name: ionic upload
+title: Ionic CLI Documentation - ionic upload
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic upload`
 
@@ -31,7 +40,12 @@ Option | Description
 `--note` | Give this snapshot a nice description
 `--deploy` | Deploys this snapshot to the given channel
 `--metadata` | Set custom metadata JSON for the deploy
-`--nobuild` | Do not invoke a build for this snapshot
+`--prod` | Build the application for production
+`--aot` | Perform ahead-of-time compilation for the upload's build
+`--minifyjs` | Minify JS for the upload's build
+`--minifycss` | Minify CSS for the upload's build
+`--optimizejs` | Perform JS optimizations for the upload's build
+`--no-build` | Do not invoke an Ionic build
 
 ## Examples
 

@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-build
-command_name: cordova build
-title: Ionic CLI Documentation - cordova build
+page_name: ionic cordova build
+command_name: ionic cordova build
+title: Ionic CLI Documentation - ionic cordova build
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova build`
 
@@ -25,7 +34,7 @@ To pass additional options to the Cordova CLI, use the `--` separator after the 
 
 Input | Description
 ----- | ----------
-`platform` | The platform to build: `ios`, `android`
+`platform` | The platform to build (`android`, `ios`)
 
 
 Option | Description

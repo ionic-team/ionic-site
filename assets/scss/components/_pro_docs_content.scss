@@ -22,6 +22,10 @@ body.docs #snap-bar + #pro-header.navbar {
     font-weight: 600;
   }
 
+  td:not(:first-child), th:not(:first-child) {
+    white-space: inherit;
+  }
+
   .responsive-side-nav.affix + main,
   .responsive-side-nav.affix-bottom + main {
     // The nav bar's width minus it's negative left margin
@@ -80,11 +84,16 @@ body.docs #snap-bar + #pro-header.navbar {
       margin-left: 15px;
     }
 
-    & > ul.nested-menu > li > ul > li > a {
+    & > ul#pro-nav.nested-menu > li > ul > li > a {
       &::before {
         background-image: url('/img/pro/sidebar-icon-sprite.png');
         background-repeat: no-repeat;
         background-color: transparent;
+      }
+    }
+
+    & > ul.nested-menu > li > ul > li > a {
+      &::before {
         width: 16px;
         height: 16px;
         background-size: 100%;

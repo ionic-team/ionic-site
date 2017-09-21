@@ -1,10 +1,10 @@
 ---
 layout: fluid/cli_docs_base
 category: cli
-id: cli-signup
-page_name: ionic signup
-command_name: ionic signup
-title: Ionic CLI Documentation - ionic signup
+id: cli-monitoring-syncmaps
+page_name: ionic monitoring syncmaps
+command_name: ionic monitoring syncmaps
+title: Ionic CLI Documentation - ionic monitoring syncmaps
 header_sub_title: Ionic CLI
 ---
 
@@ -16,13 +16,13 @@ DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
 {% endcomment %}
 
 
-# `$ ionic signup`
+# `$ ionic monitoring syncmaps`
 
-Create an Ionic account
+Sync Source Maps to Ionic Pro Error Monitoring service
 ## Synopsis
 
 ```bash
-$ ionic signup 
+$ ionic monitoring syncmaps 
 ```
   
 ## Details

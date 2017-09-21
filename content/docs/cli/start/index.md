@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-start
-command_name: start
-title: Ionic CLI Documentation - start
+page_name: ionic start
+command_name: ionic start
+title: Ionic CLI Documentation - ionic start
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic start`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic start`
 
 Create a new project
 ## Synopsis

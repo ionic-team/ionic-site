@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-setup
-command_name: ssh setup
-title: Ionic CLI Documentation - ssh setup
+page_name: ionic ssh setup
+command_name: ionic ssh setup
+title: Ionic CLI Documentation - ionic ssh setup
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic ssh setup`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic ssh setup`
 
 Setup your Ionic SSH keys automatically
 ## Synopsis

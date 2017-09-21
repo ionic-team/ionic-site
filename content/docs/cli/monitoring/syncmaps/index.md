@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-monitoring-syncmaps
-command_name: monitoring syncmaps
-title: Ionic CLI Documentation - monitoring syncmaps
+page_name: ionic monitoring syncmaps
+command_name: ionic monitoring syncmaps
+title: Ionic CLI Documentation - ionic monitoring syncmaps
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic monitoring syncmaps`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic monitoring syncmaps`
 
 Sync Source Maps to Ionic Pro Error Monitoring service
 ## Synopsis

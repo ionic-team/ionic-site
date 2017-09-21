@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-emulate
-command_name: cordova emulate
-title: Ionic CLI Documentation - cordova emulate
+page_name: ionic cordova emulate
+command_name: ionic cordova emulate
+title: Ionic CLI Documentation - ionic cordova emulate
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova emulate`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova emulate`
 
 Emulate an Ionic project on a simulator or emulator
 ## Synopsis
@@ -24,7 +31,7 @@ Like running `cordova emulate` directly, but also watches for changes in web ass
 
 For Android and iOS, you can setup Remote Debugging on your emulator with browser development tools: **[https://docs.ionic.io/tools/developer/#remote-debugging](https://docs.ionic.io/tools/developer/#remote-debugging)**
 
-Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the **--** separator.
+Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the `--` separator.
 
 
 Input | Description

@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-build
-command_name: cordova build
-title: Ionic CLI Documentation - cordova build
+page_name: ionic cordova build
+command_name: ionic cordova build
+title: Ionic CLI Documentation - ionic cordova build
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova build`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova build`
 
 Build (prepare + compile) an Ionic project for a given platform
 ## Synopsis

@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-git-remote
-command_name: git remote
-title: Ionic CLI Documentation - git remote
+page_name: ionic git remote
+command_name: ionic git remote
+title: Ionic CLI Documentation - ionic git remote
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic git remote`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic git remote`
 
 Adds/updates the Ionic git remote to your local Ionic app repository
 ## Synopsis

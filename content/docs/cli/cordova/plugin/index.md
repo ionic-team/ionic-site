@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-plugin
-command_name: cordova plugin
-title: Ionic CLI Documentation - cordova plugin
+page_name: ionic cordova plugin
+command_name: ionic cordova plugin
+title: Ionic CLI Documentation - ionic cordova plugin
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova plugin`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova plugin`
 
 Manage Cordova plugins
 ## Synopsis

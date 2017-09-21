@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-config-set
-command_name: config set
-title: Ionic CLI Documentation - config set
+page_name: ionic config set
+command_name: ionic config set
+title: Ionic CLI Documentation - ionic config set
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic config set`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic config set`
 
 Set config values
 ## Synopsis

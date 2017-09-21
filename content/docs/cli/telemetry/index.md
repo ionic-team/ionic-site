@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-telemetry
-command_name: telemetry
-title: Ionic CLI Documentation - telemetry
+page_name: ionic telemetry
+command_name: ionic telemetry
+title: Ionic CLI Documentation - ionic telemetry
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic telemetry`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic telemetry`
 
 Opt in and out of telemetry
 ## Synopsis

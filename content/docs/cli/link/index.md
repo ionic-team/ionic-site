@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-link
-command_name: link
-title: Ionic CLI Documentation - link
+page_name: ionic link
+command_name: ionic link
+title: Ionic CLI Documentation - ionic link
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic link`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic link`
 
 Connect your local app to Ionic
 ## Synopsis

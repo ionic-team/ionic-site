@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-platform
-command_name: cordova platform
-title: Ionic CLI Documentation - cordova platform
+page_name: ionic cordova platform
+command_name: ionic cordova platform
+title: Ionic CLI Documentation - ionic cordova platform
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova platform`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova platform`
 
 Manage Cordova platform targets
 ## Synopsis

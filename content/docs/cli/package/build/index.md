@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-package-build
-command_name: package build
-title: Ionic CLI Documentation - package build
+page_name: ionic package build
+command_name: ionic package build
+title: Ionic CLI Documentation - ionic package build
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic package build`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic package build`
 
 Start a package build
 ## Synopsis

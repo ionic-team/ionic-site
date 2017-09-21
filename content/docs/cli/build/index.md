@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-build
-command_name: build
-title: Ionic CLI Documentation - build
+page_name: ionic build
+command_name: ionic build
+title: Ionic CLI Documentation - ionic build
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic build`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic build`
 
 Build web assets and prepare your app for any platform targets
 ## Synopsis

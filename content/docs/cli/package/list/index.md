@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-package-list
-command_name: package list
-title: Ionic CLI Documentation - package list
+page_name: ionic package list
+command_name: ionic package list
+title: Ionic CLI Documentation - ionic package list
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic package list`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic package list`
 
 List your cloud builds
 ## Synopsis

@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-login
-command_name: login
-title: Ionic CLI Documentation - login
+page_name: ionic login
+command_name: ionic login
+title: Ionic CLI Documentation - ionic login
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic login`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic login`
 
 Login with your Ionic ID
 ## Synopsis

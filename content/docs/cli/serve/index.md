@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-serve
-command_name: serve
-title: Ionic CLI Documentation - serve
+page_name: ionic serve
+command_name: ionic serve
+title: Ionic CLI Documentation - ionic serve
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic serve`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic serve`
 
 Start a local dev server for app dev/testing
 ## Synopsis

@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-run
-command_name: cordova run
-title: Ionic CLI Documentation - cordova run
+page_name: ionic cordova run
+command_name: ionic cordova run
+title: Ionic CLI Documentation - ionic cordova run
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova run`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova run`
 
 Run an Ionic project on a connected device
 ## Synopsis
@@ -24,7 +31,7 @@ Like running `cordova run` directly, but also watches for changes in web assets 
 
 For Android and iOS, you can setup Remote Debugging on your device with browser development tools: **[https://docs.ionic.io/tools/developer/#remote-debugging](https://docs.ionic.io/tools/developer/#remote-debugging)**
 
-Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the **--** separator.
+Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the `--` separator.
 
 
 Input | Description

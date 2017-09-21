@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-upload
-command_name: upload
-title: Ionic CLI Documentation - upload
+page_name: ionic upload
+command_name: ionic upload
+title: Ionic CLI Documentation - ionic upload
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic upload`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic upload`
 
 Upload a new snapshot of your app
 ## Synopsis

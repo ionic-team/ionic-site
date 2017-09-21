@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-prepare
-command_name: cordova prepare
-title: Ionic CLI Documentation - cordova prepare
+page_name: ionic cordova prepare
+command_name: ionic cordova prepare
+title: Ionic CLI Documentation - ionic cordova prepare
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova prepare`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova prepare`
 
 Copies assets to Cordova platforms, preparing them for native builds
 ## Synopsis

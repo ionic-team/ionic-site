@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-package-download
-command_name: package download
-title: Ionic CLI Documentation - package download
+page_name: ionic package download
+command_name: ionic package download
+title: Ionic CLI Documentation - ionic package download
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic package download`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic package download`
 
 Download your packaged app
 ## Synopsis

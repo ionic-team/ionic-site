@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-generate
-command_name: ssh generate
-title: Ionic CLI Documentation - ssh generate
+page_name: ionic ssh generate
+command_name: ionic ssh generate
+title: Ionic CLI Documentation - ionic ssh generate
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic ssh generate`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic ssh generate`
 
 Generates a private and public SSH key pair
 ## Synopsis

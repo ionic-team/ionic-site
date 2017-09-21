@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-list
-command_name: ssh list
-title: Ionic CLI Documentation - ssh list
+page_name: ionic ssh list
+command_name: ionic ssh list
+title: Ionic CLI Documentation - ionic ssh list
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic ssh list`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic ssh list`
 
 List your SSH public keys on Ionic
 ## Synopsis

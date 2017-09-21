@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-compile
-command_name: cordova compile
-title: Ionic CLI Documentation - cordova compile
+page_name: ionic cordova compile
+command_name: ionic cordova compile
+title: Ionic CLI Documentation - ionic cordova compile
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova compile`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova compile`
 
 Compile native platform code
 ## Synopsis

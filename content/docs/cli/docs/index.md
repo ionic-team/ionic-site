@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-docs
-command_name: docs
-title: Ionic CLI Documentation - docs
+page_name: ionic docs
+command_name: ionic docs
+title: Ionic CLI Documentation - ionic docs
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic docs`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic docs`
 
 Open the Ionic documentation website
 ## Synopsis

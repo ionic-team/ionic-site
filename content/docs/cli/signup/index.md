@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-signup
-command_name: signup
-title: Ionic CLI Documentation - signup
+page_name: ionic signup
+command_name: ionic signup
+title: Ionic CLI Documentation - ionic signup
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic signup`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic signup`
 
 Create an Ionic account
 ## Synopsis

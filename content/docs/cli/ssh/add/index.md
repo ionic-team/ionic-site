@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-add
-command_name: ssh add
-title: Ionic CLI Documentation - ssh add
+page_name: ionic ssh add
+command_name: ionic ssh add
+title: Ionic CLI Documentation - ionic ssh add
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic ssh add`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic ssh add`
 
 Add an SSH public key to Ionic
 ## Synopsis

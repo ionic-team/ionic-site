@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-resources
-command_name: cordova resources
-title: Ionic CLI Documentation - cordova resources
+page_name: ionic cordova resources
+command_name: ionic cordova resources
+title: Ionic CLI Documentation - ionic cordova resources
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic cordova resources`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic cordova resources`
 
 Automatically create icon and splash screen resources
 ## Synopsis

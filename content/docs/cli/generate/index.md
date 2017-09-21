@@ -2,14 +2,21 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-generate
-command_name: generate
-title: Ionic CLI Documentation - generate
+page_name: ionic generate
+command_name: ionic generate
+title: Ionic CLI Documentation - ionic generate
 header_sub_title: Ionic CLI
 ---
 
-# `$ ionic generate`
 
-{% include fluid/toc.html %}
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
+
+# `$ ionic generate`
 
 Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
 ## Synopsis

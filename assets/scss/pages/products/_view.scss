@@ -2,7 +2,8 @@
   .top {
     position: relative;
     overflow: hidden;
-    margin-top: 42px;
+    padding-top: 42px;
+    min-height: 650px;
 
     hgroup {
       padding-top: 112px;
@@ -14,31 +15,59 @@
     }
 
     h1 {
-      letter-spacing: -.04em;
+      letter-spacing: -.042em;
       font-weight: 600;
     }
 
     p {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 500;
       margin-top: 17px;
       display: inline-block;
-      letter-spacing: .021em;
+      letter-spacing: -.03em;
       line-height: 32px;
     }
 
     .stores {
       font-size: 12px;
       font-weight: 600;
-      margin-top: 30px;
+      margin-top: 25px;
+
+      .apple,
+      .google {
+        background: url('/img/products/view/app-store-btns.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 90px;
+        height: 20px;
+        margin-left: 12px;
+        display: inline-block;
+        vertical-align: -5px;
+        transition: .2s opacity;
+
+        &:hover {
+          opacity: .6;
+        }
+      }
+
+      .google {
+        background-position: 0 bottom;
+      }
     }
 
     .graphics {
       position: absolute;
-      top: 0;
+      top: 42px;
       right: 0;
       bottom: 0;
-      left: 0;
+      width: 560px;
+      
+      .iphone,
+      .android {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: 1s fadeInDown;
+        animation-fill-mode: forwards;
+      }
 
       .iphone {
         background: url('/img/products/view/view-iphone.png') 0 0 no-repeat;
@@ -57,6 +86,259 @@
         height: 700px;
         position: absolute;
         right: 12px;
+        animation-delay: .2s;
+        animation-duration: 1.5s;
+      }
+    }
+  }
+
+  .simple {
+    background: #f6f8fc;
+
+    .container {
+      position: relative;
+      padding-bottom: 211px;
+    }
+
+    hgroup {
+      padding-top: 77px;
+      text-align: center;
+      max-width: 748px;
+      margin: 0 auto 22px;
+
+      h2 {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -.04em;
+      }
+
+      p {
+        font-size: 18px;
+        color: #51555d;
+        margin-top: 30px;
+        letter-spacing: -0.03em;
+        line-height: 32px;
+        font-weight: 500;
+      }
+    }
+
+    ul {
+      padding: 48px 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    li {
+      list-style: none;
+      flex: 0 1 224px;
+      padding-top: 67px;
+      position: relative;
+
+      &::before {
+        background: url('/img/products/view/feature-icons-sm.png') 0 0 no-repeat;
+        background-size: 100%;
+        height: 48px;
+        width: 48px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+      }
+
+      &.sharing::before { background-position: 0 -48px; }
+      &.feedback::before { background-position: 0 -96px; }
+      &.native::before { background-position: 0 -144px; }
+
+      strong {
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: -.02em;
+        margin-bottom: 8px;
+        display: inline-block;
+      }
+
+      p {
+        color: #727a87;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+      }
+    }
+
+    #phone-tilt {
+      background: url('/img/products/view/tilt-iphone.png') 0 0 no-repeat;
+      background-size: 100%;
+      width: 840px;
+      height: 280px;
+      margin: 0 auto;
+      position: absolute;
+      left: calc(50% - 402px);
+      bottom: -73px;
+      transform: rotateX(-30deg);
+      animation: 2s tiltIn;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+    }
+  }
+
+  section.left,
+  section.right {
+    .container { position: relative; }
+
+    hgroup {
+      padding-top: 208px;
+      padding-bottom: 151px;
+      width: calc(50% - 147px);
+      position: relative;
+
+      &::before {
+        background: url('/img/products/view/feature-icons-lg.png') 0 0 no-repeat;
+        background-size: 100%;
+        height: 64px;
+        width: 64px;
+        content: '';
+        position: absolute;
+        top: 126px;
+        display: block;
+      }
+
+      &::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+
+      h2 {
+        font-weight: 600;
+        font-size: 26px;
+        letter-spacing: -.01em;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #51555d;
+        letter-spacing: -.015em;
+        line-height: 32px;
+        font-weight: 500;
+
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+
+    .graphics {
+      background: url('/img/products/view/feature-img-share.png') 0 50% no-repeat;
+      background-size: 100%;
+      width: 470px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+
+    &.testers { 
+      background: linear-gradient(to right, 
+        #fff 0%,#fff 50%,#20a0ff 50%,#20a0ff 100%);
+    }
+
+    &.choose {
+      background: linear-gradient(to left, 
+        #fff 0%,#fff 50%,#e6ecf4 50%,#e6ecf4 100%);
+      
+      hgroup::before { background-position: 0 -64px; }
+
+      .graphics {
+        background-image: url('/img/products/view/feature-img-testers.png');
+        width: 480px;
+      }
+    }
+
+    &.feedback {
+      background: linear-gradient(to right, 
+        #fff 0%,#fff 50%,#3f84ff 50%,#3f84ff 100%);
+      
+      hgroup::before { background-position: 0 -128; }
+      
+      .graphics {
+        background-image: url('/img/products/view/feature-img-feedback.png');
+        background-position: 0 100%;
+      }
+    }
+
+    &.experience { 
+      background: linear-gradient(to left, 
+        #fff 0%,#fff 50%,#0b1526 50%,#0b1526 100%);
+      
+      hgroup::before { background-position: 0 -192px; }
+      
+      .graphics {
+        background-image: url('/img/products/view/feature-img-experience.png');
+        background-position: 0 100%;
+      }
+    }
+  }
+
+  section.right {
+    hgroup {
+      float: right;
+    }
+
+    .graphics {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .get-started {
+    background: url('/img/products/view/pre-footer-bg.jpg') 0 0 no-repeat;
+    background-size: cover;
+
+    .container {
+      display: flex;
+      padding-top: 106px;
+      padding-bottom: 108px;
+      flex-wrap: wrap;
+      align-items: center;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    hgroup,
+    .btns {
+      display: inline-block;
+    }
+
+    hgroup {
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: white;
+      font-size: 29px;
+      letter-spacing: -.032em;
+      margin-top: 8px;
+    }
+
+    p {
+      color: #003e82;
+      font-size: 23px;
+      letter-spacing: -.01em;
+    }
+
+    .btns .btn {
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 600;
+
+      &:last-child {
+        margin-right: -5px;
       }
     }
   }

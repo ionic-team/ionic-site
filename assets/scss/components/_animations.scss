@@ -75,3 +75,13 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+@keyframes tiltIn {
+  0% {
+    transform: rotateX(-30deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}

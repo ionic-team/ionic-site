@@ -69,7 +69,8 @@
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:active:focus {
       background: lighten($green, 10);
     }
   }
@@ -87,7 +88,9 @@
       color: lighten($blue, 5);
     }
 
-    &:active {
+    &:active,
+    &:active:focus {
+      background: white;
       // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
     }
 
@@ -119,7 +122,8 @@
 
       &:hover,
       &:focus,
-      &:active {
+      &:active,
+      &:active:focus {
         color: darken($grey, 10);
         background: transparent;
       }
@@ -133,7 +137,8 @@
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:active:focus {
       color: #ff567b;
       background: lighten(#212f45, 5)
     }

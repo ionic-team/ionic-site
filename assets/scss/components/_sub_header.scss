@@ -67,7 +67,7 @@
     a {
       color: #697384;
       transition: .2s color;
-      padding: 18px 0;
+      padding: 17px 0;
       display: inline-block;
       margin-left: -1px;
   
@@ -79,7 +79,7 @@
 
   a {
     color: #697384;
-    padding: 19px 15px;
+    padding: 18px 15px;
     display: inline-block;
     transition: .2s color;
 
@@ -100,6 +100,11 @@
       letter-spacing: -.01em;
       margin-right: 3px;
       margin-left: 9px;
+      transition: .3s box-shadow, .3s background;
+
+      &:hover {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+      }
     }
   }
 }

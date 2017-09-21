@@ -17,7 +17,11 @@
     <ul class="right">
       <li><a href="/products/view" class="active">Features</a></li>
       <li><a href="/docs/pro/view/">Docs</a></li>
-      <li><a href="" class="btn white">Download</a></li>
+      <li>
+        <a class="btn white" onclick="openDownloadModal()">
+          Download
+        </a>
+      </li>
     </ul>
   </div>
 </div>
@@ -157,11 +161,72 @@
       <div class="btns">
         <a href="https://dashboard.ionicjs.com/" class="btn white">
           Create an account</a>
-        <a href="/pricing" class="btn btn-default">
+        <a class="btn btn-default" onclick="openDownloadModal()">
           Download <strong>View</strong>
         </a>
       </div>
     </div>
   </section>
 </main>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade fullscreen" 
+     id="downloadForm" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel">
+  <button class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <hgroup>
+          <h3>Download <strong>View</strong></h3>
+          <p>
+            With an Ionic account, you can access and share you apps on <strong>
+            View</strong> from anywhere in the world.
+          </p>
+          <form action="">
+            <input class="form-control" 
+                   type="text" 
+                   placeholder="Your email address">
+            <button class="btn btn-primary" type="submit">
+              Email me the link
+            </button>
+          </form>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+</div>
+<svg version="1.1" 
+     xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     class="blur-svg">
+  <defs>
+    <filter id="blur-filter">
+      <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function openDownloadModal() {
+  if (document.body.scrollTop === 0 && 
+    document.getElementsByTagName('html')[0].scrollTop == 0) {
+
+    return $('#downloadForm').modal()
+  }
+  // not at the top of the page. scroll first
+  $('body, html').animate({
+    scrollTop: 0
+  }, 200, 'linear', function() { 
+    $('#downloadForm').modal() 
+  });
+}
+</script>
 {% endblock %}

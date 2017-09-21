@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-build
 command_name: cordova build
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic cordova build`
+
+{% include fluid/toc.html %}
 
 Build (prepare + compile) an Ionic project for a given platform
 ## Synopsis
@@ -25,7 +27,7 @@ To pass additional options to the Cordova CLI, use the `--` separator after the 
 
 Input | Description
 ----- | ----------
-`platform` | The platform to build: `ios`, `android`
+`platform` | The platform to build (`android`, `ios`)
 
 
 Option | Description

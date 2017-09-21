@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-link
 command_name: link
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic link`
+
+{% include fluid/toc.html %}
 
 Connect your local app to Ionic
 ## Synopsis

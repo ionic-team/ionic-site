@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-config-set
 command_name: config set
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic config set`
+
+{% include fluid/toc.html %}
 
 Set config values
 ## Synopsis

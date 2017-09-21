@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-start
 command_name: start
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic start`
+
+{% include fluid/toc.html %}
 
 Create a new project
 ## Synopsis
@@ -31,12 +33,13 @@ Input | Description
 
 Option | Description
 ------ | ----------
+`--list`, `-l` | List starter templates available
 `--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
 `--app-name`, `-n` | Human-readable name (use quotes around the name)
-`--list`, `-l` | List starter templates available
 `--no-deps` | Do not install npm/yarn dependencies
 `--no-git` | Do not initialize a git repo
 `--no-link` | Do not ask to connect the app with the Ionic Dashboard
+`--pro-id` | Specify an app ID from the Ionic Dashboard to link
 
 ## Examples
 

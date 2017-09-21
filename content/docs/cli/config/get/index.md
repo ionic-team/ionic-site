@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-config-get
 command_name: config get
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic config get`
+
+{% include fluid/toc.html %}
 
 Print config values
 ## Synopsis

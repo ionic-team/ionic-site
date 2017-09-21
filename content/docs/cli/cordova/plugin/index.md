@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-plugin
 command_name: cordova plugin
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic cordova plugin`
+
+{% include fluid/toc.html %}
 
 Manage Cordova plugins
 ## Synopsis

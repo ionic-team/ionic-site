@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-generate
 command_name: generate
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic generate`
+
+{% include fluid/toc.html %}
 
 Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
 ## Synopsis

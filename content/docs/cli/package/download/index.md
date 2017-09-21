@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-package-download
 command_name: package download
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic package download`
+
+{% include fluid/toc.html %}
 
 Download your packaged app
 ## Synopsis

@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-serve
 command_name: serve
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic serve`
+
+{% include fluid/toc.html %}
 
 Start a local dev server for app dev/testing
 ## Synopsis
@@ -20,6 +22,8 @@ $ ionic serve
 
 Easily spin up a development server which launches in your browser. It watches for changes in your source files and automatically reloads with the updated build.
 
+By default, `ionic serve` boots up a development server on all network interfaces and prints the external address(es) on which your app is being served. To disable this, use `--address=localhost`.
+
 Try the `--lab` option to see multiple platforms at once.
 
 
@@ -29,21 +33,20 @@ Try the `--lab` option to see multiple platforms at once.
 Option | Description
 ------ | ----------
 `--consolelogs`, `-c` | Print app console logs to Ionic CLI
-`--serverlogs`, `-s` | Print dev server logs to Ionic CLI
-`--port`, `-p` | Dev server HTTP port
-`--livereload-port`, `-r` | Live Reload port
+`--address` | Use specific address for the dev server
+`--port`, `-p` | Use specific port for HTTP
+`--livereload-port`, `-r` | Use specific port for live-reload
+`--dev-logger-port` | Use specific port for dev server communication
 `--nobrowser`, `-b` | Disable launching a browser
-`--nolivereload`, `-d` | Do not start live reload
 `--noproxy`, `-x` | Do not add proxies
-`--address` | Network address for server
-`--browser`, `-w` | Specifies the browser to use (`safari`, `firefox`, `chrome`)
-`--browseroption`, `-o` | Specifies a path to open to (/#/tab/dash)
+`--browser`, `-w` | Specifies the browser to use (`safari`, `firefox`, `google chrome`)
+`--browseroption`, `-o` | Specifies a path to open to (`/#/tab/dash`)
 `--lab`, `-l` | Test your apps on multiple platform types in the browser
-`--platform`, `-t` | Start serve with a specific platform (ios/android)
+`--platform`, `-t` | Start serve with a specific platform (`android`, `ios`)
 
 ## Examples
 
 ```bash
-$ ionic serve -lcs
-$ ionic serve --lab -lcs
+$ ionic serve -c
+$ ionic serve --lab -c
 ```

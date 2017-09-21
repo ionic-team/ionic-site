@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-login
 command_name: login
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic login`
+
+{% include fluid/toc.html %}
 
 Login with your Ionic ID
 ## Synopsis

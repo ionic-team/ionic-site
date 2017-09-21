@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-package-build
 command_name: package build
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic package build`
+
+{% include fluid/toc.html %}
 
 Start a package build
 ## Synopsis

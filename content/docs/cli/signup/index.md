@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-signup
 command_name: signup
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic signup`
+
+{% include fluid/toc.html %}
 
 Create an Ionic account
 ## Synopsis

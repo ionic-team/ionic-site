@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-telemetry
 command_name: telemetry
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic telemetry`
+
+{% include fluid/toc.html %}
 
 Opt in and out of telemetry
 ## Synopsis

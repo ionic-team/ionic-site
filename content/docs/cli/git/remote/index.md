@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-git-remote
 command_name: git remote
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic git remote`
+
+{% include fluid/toc.html %}
 
 Adds/updates the Ionic git remote to your local Ionic app repository
 ## Synopsis

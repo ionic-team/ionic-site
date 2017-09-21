@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-package-info
 command_name: package info
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic package info`
+
+{% include fluid/toc.html %}
 
 Get info about a build
 ## Synopsis

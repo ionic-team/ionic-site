@@ -1,0 +1,29 @@
+---
+layout: fluid/centered
+back_button_text_image: "/img/docs/docs-pro-text.png"
+body_class: 'responsive-docs'
+hide_version_dropdown: true
+navbar_id: 'pro-header'
+plain_header: true
+is_responsive: true
+header_style: transparent
+---
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/developers/">Documentation</a></li>
+      <li>CLI docs</li>
+    </ul>
+  </div>
+</div>
+
+<div id="pro-docs" class="responsive-docs-container docs-container">
+  <div class="container">
+    <div class="row">
+      <main class="col-md-12">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-prepare
 command_name: cordova prepare
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic cordova prepare`
+
+{% include fluid/toc.html %}
 
 Copies assets to Cordova platforms, preparing them for native builds
 ## Synopsis
@@ -29,7 +31,7 @@ You may wish to use `ionic cordova prepare` if you run your project with Android
 
 Input | Description
 ----- | ----------
-`platform` | The platform you would like to prepare (e.g. `ios`, `android`)
+`platform` | The platform you would like to prepare (`android`, `ios`)
 
 
 

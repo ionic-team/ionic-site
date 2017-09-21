@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-delete
 command_name: ssh delete
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic ssh delete`
+
+{% include fluid/toc.html %}
 
 Delete an SSH public key from Ionic
 ## Synopsis

@@ -217,24 +217,9 @@
   </li>
 
   {% comment %} ### CLI ### {% endcomment %}
-  <li class="{% if page.category == 'cli' %}active{% endif %}">
-    <a ng-click="showCli = !showCli">CLI</a>
-    <ul ng-show="showCli"
-        ng-cloak
-        {% if page.category == 'cli' %}
-          ng-init="showCli = true"
-        {% endif %}>
-      <li class="{% if page.id == 'cli-intro' %}active{% endif %}">
-        <a href="/docs/cli/">Intro</a>
-      </li>
-      {% for p in site.data.cliData %}
-        <li class="{% if page.id == p.id %}active{% endif %}">
-          <a href="/docs/cli/{{p.url}}/">{{p.name}}</a>
-        </li>
-      {% endfor %}
-    </ul>
+  <li>
+    <a href="/docs/cli">CLI</a>
   </li>
-
 
   {% comment %} ### WkWebview ### {% endcomment %}
   <li class="{% if page.category == 'wkwebview' %}active{% endif %}">

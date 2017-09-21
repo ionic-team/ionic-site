@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-setup
 command_name: ssh setup
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic ssh setup`
+
+{% include fluid/toc.html %}
 
 Setup your Ionic SSH keys automatically
 ## Synopsis

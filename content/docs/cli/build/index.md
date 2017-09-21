@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-build
 command_name: build
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic build`
+
+{% include fluid/toc.html %}
 
 Build web assets and prepare your app for any platform targets
 ## Synopsis

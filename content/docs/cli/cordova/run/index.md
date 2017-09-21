@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-run
 command_name: cordova run
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic cordova run`
+
+{% include fluid/toc.html %}
 
 Run an Ionic project on a connected device
 ## Synopsis
@@ -27,7 +29,7 @@ Just like with `ionic cordova build`, you can pass additional options to the Cor
 
 Input | Description
 ----- | ----------
-`platform` | The platform to run: `ios`, `android`
+`platform` | The platform to run (`android`, `ios`)
 
 
 Option | Description
@@ -35,10 +37,10 @@ Option | Description
 `--list` | List all available Cordova targets
 `--livereload`, `-l` | Spin up server to live-reload www files
 `--consolelogs`, `-c` | Print out console logs to terminal
-`--serverlogs`, `-s` | Print out dev server logs to terminal
-`--address` | Use specific address for dev/live-reload server
-`--port`, `-p` | Use specific port for the dev server
-`--livereload-port`, `-r` | Use specific port for live-reload server
+`--address` | Use specific address for the dev server
+`--port`, `-p` | Use specific port for HTTP
+`--livereload-port`, `-r` | Use specific port for live-reload
+`--dev-logger-port` | Use specific port for dev server communication
 `--prod` | Mark as a production build
 `--aot` | Perform ahead-of-time compilation for this build
 `--minifyjs` | Minify JS for this build
@@ -56,7 +58,7 @@ Option | Description
 ```bash
 $ ionic cordova run 
 $ ionic cordova run ios
-$ ionic cordova run ios -lcs
-$ ionic cordova run android -lcs --address localhost
-$ ionic cordova run android -lcs -- -d
+$ ionic cordova run ios -lc
+$ ionic cordova run android -lc --address=localhost
+$ ionic cordova run android -lc -- -d
 ```

@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-package-list
 command_name: package list
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic package list`
+
+{% include fluid/toc.html %}
 
 List your cloud builds
 ## Synopsis

@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-use
 command_name: ssh use
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic ssh use`
+
+{% include fluid/toc.html %}
 
 Set your active Ionic SSH key
 ## Synopsis

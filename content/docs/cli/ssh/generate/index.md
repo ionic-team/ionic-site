@@ -1,5 +1,5 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-ssh-generate
 command_name: ssh generate
@@ -8,6 +8,8 @@ header_sub_title: Ionic CLI
 ---
 
 # `$ ionic ssh generate`
+
+{% include fluid/toc.html %}
 
 Generates a private and public SSH key pair
 ## Synopsis

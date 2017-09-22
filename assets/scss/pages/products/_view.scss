@@ -5,10 +5,14 @@
     padding-top: 42px;
     min-height: 650px;
 
+    @media (max-width: $screen-sm-max)  {
+      min-height: 500px;
+    }
+
     hgroup {
       padding-top: 112px;
       margin-right: 668px;
-      background: url(/img/products/view/ionic-view-logo.png) 0 0 no-repeat;
+      background: url('/img/products/view/ionic-view-logo.png') 0 0 no-repeat;
       background-size: 184px;
       margin-top: 87px;
       margin-left: -1px;
@@ -17,8 +21,14 @@
         margin-right: 600px;
       }
       
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-sm-max)  {
         margin-right: 390px;
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        margin-right: 0;
+        position: relative;
+        z-index: 1;
       }
     }
 
@@ -40,6 +50,10 @@
       font-size: 12px;
       font-weight: 600;
       margin-top: 25px;
+
+      @media (max-width: $screen-xs-max)  {
+        text-align: center;
+      }
 
       .apple,
       .google {
@@ -69,6 +83,10 @@
       right: 0;
       bottom: 0;
       width: 560px;
+
+      @media (max-width: $screen-xs-max)  {
+        
+      }
       
       .iphone,
       .android {
@@ -92,6 +110,12 @@
           height: 453px;
           right: 150px;
         }
+
+        @media (max-width: $screen-xs-max)  {
+          width: 115px;
+          height: 227px;
+          right: 75px;
+        }
       }
 
       .android {
@@ -109,6 +133,11 @@
           width: 240px;
           height: 467px;
         }
+        
+        @media (max-width: $screen-xs-max)  {
+          width: 120px;
+          height: 233px;
+        }
       }
     }
   }
@@ -119,6 +148,10 @@
     .container {
       position: relative;
       padding-bottom: 211px;
+      
+      @media (max-width: $screen-xs-max)  {
+        padding-bottom: 48px;
+      }
     }
 
     hgroup {
@@ -191,6 +224,16 @@
         flex-basis: 330px;
         margin-bottom: 48px;
       }
+
+      @media (max-width: $screen-xs-max)  {
+        display: block;
+        flex-basis: 100%;
+        text-align: center;
+
+        &::before {
+          left: calc(50% - 24px);
+        }
+      }
     }
 
     #phone-tilt {
@@ -207,6 +250,13 @@
       &.active {
         animation: 2s tiltIn;
         animation-fill-mode: forwards;
+      }
+
+      @media (max-width: $screen-xs-max)  {
+        width: 420px;
+        height:140px;
+        left: calc(50% - 200px);
+        bottom: -32px;
       }
     }
   }
@@ -324,6 +374,35 @@
         background-position: 0 100%;
       }
     }
+
+    @media (max-width: $screen-xs-max)  {
+      &.testers,
+      &.choose,
+      &.feedback,
+      &.experience {
+        background: transparent;
+      }
+
+      hgroup {
+        width: 100%;
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 50px;
+
+        &::before {
+          top: 0;
+          left: calc(50% - 32px);
+        }
+      }
+
+      &.testers hgroup {
+        margin-top: 64px;
+      }
+
+      .graphics {
+        display: none;
+      }
+    }
   }
 
   section.right {
@@ -386,13 +465,20 @@
     }
 
     .btns {
-        .btn {
+      .btn {
         padding: 12px 16px;
         font-size: 16px;
         font-weight: 600;
   
         &:last-child {
           margin-right: -5px;
+        }
+
+
+        @media (max-width: $screen-xs-max)  {
+          text-align: center;
+          display: block;
+          margin: 16px auto;
         }
       }
       @media (max-width: $screen-sm-max)  {

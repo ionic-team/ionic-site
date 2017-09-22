@@ -71,3 +71,5 @@ For example, if we commited a repository where the Ionic app was actually locate
 }
 ```
 
+If you also require `npm install` to run at the root directory, you can change the `"install"` script to instead be `"postInstall"` which will run both.
+

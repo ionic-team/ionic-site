@@ -27,7 +27,7 @@ $ ionic upload
   
 ## Details
 
-**WARNING`**: Ionic Cloud is deprecated and will reach end-of-life on January 31st, 2018. This command will not be supported afterwards. Ionic Pro takes a different approach to uploading. See the Getting Started documentation for details: **[https://ionicframework.com/docs/pro/basics/getting-started/](https://ionicframework.com/docs/pro/basics/getting-started/)**
+**WARNING**: Ionic Cloud is deprecated and will reach end-of-life on January 31st, 2018. This command will not be supported afterwards. Ionic Pro takes a different approach to uploading. See the Getting Started documentation for details: **[https://ionicframework.com/docs/pro/basics/getting-started/](https://ionicframework.com/docs/pro/basics/getting-started/)**
 
 Zips up your local app files and uploads a snapshot to Ionic.
 

@@ -41,7 +41,7 @@ Start a new Ionic project using `ionic start`:
 $ ionic start myNewProject
 ```
 
-`ionic start` will prompt you to select a "starter". We recommend using the `tutorial` starter for your first app.
+`ionic start` will prompt you to select a "starter". We recommend using the `tutorial` starter for your first app. See [Starter Templates](/docs/cli/starters.html) for a full list.
 
 After selecting a starter, the CLI will create a new app named `myNewProject`. Once you `cd` into your project's directory, a few new commands become available to you, such as `ionic serve`:
 

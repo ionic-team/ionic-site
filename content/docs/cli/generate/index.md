@@ -4,7 +4,7 @@ category: cli
 id: cli-generate
 page_name: ionic generate
 command_name: ionic generate
-title: Ionic CLI Documentation - ionic generate
+title: ionic generate - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

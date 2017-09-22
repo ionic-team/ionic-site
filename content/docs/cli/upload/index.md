@@ -4,7 +4,7 @@ category: cli
 id: cli-upload
 page_name: ionic upload
 command_name: ionic upload
-title: Ionic CLI Documentation - ionic upload
+title: ionic upload - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 
@@ -26,6 +26,8 @@ $ ionic upload
 ```
   
 ## Details
+
+**WARNING`**: Ionic Cloud is deprecated and will reach end-of-life on January 31st, 2018. This command will not be supported afterwards. Ionic Pro takes a different approach to uploading. See the Getting Started documentation for details: **[https://ionicframework.com/docs/pro/basics/getting-started/](https://ionicframework.com/docs/pro/basics/getting-started/)**
 
 Zips up your local app files and uploads a snapshot to Ionic.
 

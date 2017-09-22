@@ -4,7 +4,7 @@ category: cli
 id: cli-ssh-delete
 page_name: ionic ssh delete
 command_name: ionic ssh delete
-title: Ionic CLI Documentation - ionic ssh delete
+title: ionic ssh delete - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

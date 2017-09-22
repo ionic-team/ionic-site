@@ -3,7 +3,7 @@ layout: fluid/cli_docs_base
 category: cli
 id: cli-configuration
 page_name: Configuring
-title: Ionic CLI Documentation - Configuring
+title: Configuring - Ionic CLI Documentation
 hide_header_search: true
 dark_header: true
 ---
@@ -17,8 +17,6 @@ DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
 
 
 # Configuring
-
-
 
 
 {% include fluid/toc.html %}

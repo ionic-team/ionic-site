@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-run
 page_name: ionic cordova run
 command_name: ionic cordova run
-title: Ionic CLI Documentation - ionic cordova run
+title: ionic cordova run - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

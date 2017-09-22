@@ -4,7 +4,7 @@ category: cli
 id: cli-signup
 page_name: ionic signup
 command_name: ionic signup
-title: Ionic CLI Documentation - ionic signup
+title: ionic signup - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

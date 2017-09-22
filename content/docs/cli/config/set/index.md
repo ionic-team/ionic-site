@@ -4,7 +4,7 @@ category: cli
 id: cli-config-set
 page_name: ionic config set
 command_name: ionic config set
-title: Ionic CLI Documentation - ionic config set
+title: ionic config set - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

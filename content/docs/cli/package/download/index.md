@@ -4,7 +4,7 @@ category: cli
 id: cli-package-download
 page_name: ionic package download
 command_name: ionic package download
-title: Ionic CLI Documentation - ionic package download
+title: ionic package download - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 
@@ -26,6 +26,8 @@ $ ionic package download [<id>]
 ```
   
 ## Details
+
+**WARNING`**: Ionic Cloud is deprecated and will reach end-of-life on January 31st, 2018. These commands will not be supported afterwards. Ionic Pro takes a different approach to the Ionic Package service. See the Package documentation for details: **[https://ionicframework.com/docs/pro/package/](https://ionicframework.com/docs/pro/package/)**
 
 Ionic Package makes it easy to build a native binary of your app in the cloud.
 

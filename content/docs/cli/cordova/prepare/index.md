@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-prepare
 page_name: ionic cordova prepare
 command_name: ionic cordova prepare
-title: Ionic CLI Documentation - ionic cordova prepare
+title: ionic cordova prepare - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

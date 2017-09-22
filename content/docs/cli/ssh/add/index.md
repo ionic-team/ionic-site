@@ -4,7 +4,7 @@ category: cli
 id: cli-ssh-add
 page_name: ionic ssh add
 command_name: ionic ssh add
-title: Ionic CLI Documentation - ionic ssh add
+title: ionic ssh add - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

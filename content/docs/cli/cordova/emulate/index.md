@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-emulate
 page_name: ionic cordova emulate
 command_name: ionic cordova emulate
-title: Ionic CLI Documentation - ionic cordova emulate
+title: ionic cordova emulate - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

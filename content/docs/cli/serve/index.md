@@ -4,7 +4,7 @@ category: cli
 id: cli-serve
 page_name: ionic serve
 command_name: ionic serve
-title: Ionic CLI Documentation - ionic serve
+title: ionic serve - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

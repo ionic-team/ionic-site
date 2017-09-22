@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-requirements
 page_name: ionic cordova requirements
 command_name: ionic cordova requirements
-title: Ionic CLI Documentation - ionic cordova requirements
+title: ionic cordova requirements - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

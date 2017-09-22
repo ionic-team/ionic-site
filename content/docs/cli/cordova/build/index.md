@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-build
 page_name: ionic cordova build
 command_name: ionic cordova build
-title: Ionic CLI Documentation - ionic cordova build
+title: ionic cordova build - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

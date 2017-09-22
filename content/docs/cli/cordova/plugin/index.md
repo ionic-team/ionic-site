@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-plugin
 page_name: ionic cordova plugin
 command_name: ionic cordova plugin
-title: Ionic CLI Documentation - ionic cordova plugin
+title: ionic cordova plugin - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 
@@ -38,7 +38,7 @@ Input | Description
 
 Option | Description
 ------ | ----------
-`--force` | Forve overwrite the plugin if it exists (corresponds to `add`)
+`--force` | Force overwrite the plugin if it exists (corresponds to `add`)
 `--variable` | Specify plugin variables
 
 ## Examples

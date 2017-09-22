@@ -4,7 +4,7 @@ category: cli
 id: cli-ssh-use
 page_name: ionic ssh use
 command_name: ionic ssh use
-title: Ionic CLI Documentation - ionic ssh use
+title: ionic ssh use - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

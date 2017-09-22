@@ -4,7 +4,7 @@ category: cli
 id: cli-docs
 page_name: ionic docs
 command_name: ionic docs
-title: Ionic CLI Documentation - ionic docs
+title: ionic docs - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

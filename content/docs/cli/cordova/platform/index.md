@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-platform
 page_name: ionic cordova platform
 command_name: ionic cordova platform
-title: Ionic CLI Documentation - ionic cordova platform
+title: ionic cordova platform - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

@@ -27,11 +27,11 @@ _For more information, Check out the [API docs](../api/components/action-sheet/A
 import { ActionSheetController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public actionSheetCtrl: ActionSheetController) {
-  }
+
+  constructor(public actionSheetCtrl: ActionSheetController) { }
 
   presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
+    const actionSheet = this.actionSheetCtrl.create({
       title: 'Modify your album',
       buttons: [
         {

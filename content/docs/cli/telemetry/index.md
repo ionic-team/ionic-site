@@ -4,7 +4,7 @@ category: cli
 id: cli-telemetry
 page_name: ionic telemetry
 command_name: ionic telemetry
-title: Ionic CLI Documentation - ionic telemetry
+title: ionic telemetry - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

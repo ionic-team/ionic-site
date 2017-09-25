@@ -4,7 +4,7 @@ category: cli
 id: cli-ssh-list
 page_name: ionic ssh list
 command_name: ionic ssh list
-title: Ionic CLI Documentation - ionic ssh list
+title: ionic ssh list - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

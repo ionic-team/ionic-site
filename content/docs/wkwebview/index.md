@@ -7,6 +7,7 @@ hide_header_search: true
 pre_footer: true
 ---
 
+# WKWebView
 
 In iOS-land, there have been two webviews for a few years now, UIWebView and WKWebView. Historically, Ionic apps have used UIWebView, but no longer. Ionic now uses WKWebview by default when building for iOS.
 
@@ -18,12 +19,12 @@ We strongly believe WKWebview is the best option for any app, as it features man
 - Better adherence to web standards
 - Reliable scroll events (important for virutal-list)
 
-### Caveats
+## Caveats
 
 We wanted to make sure that people could easily switch to WKWebView without many issues, but there are still some things that you'll need to consider.
 
 
-#### CLI
+## CLI
 
 Please make sure that your global CLI is using the latest 3.x release. If not, please upgrade.
 
@@ -32,7 +33,7 @@ npm uninstall -g ionic
 npm install -g ionic
 ```
 
-#### CORS
+## CORS
 
 UIWebView never enforced CORS, but WKWebView does.
 Unfortunately there's no API to disable this, so you'll need to ensure any API that your app use, implement CORS correctly and accept requests with origin:
@@ -46,7 +47,7 @@ Origin: http://localhost:8080
 
 [CORS MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 
-#### Rewriting file://
+### Rewriting file://
 
 WKWebView still has some issues when referencing local files, `file://`. We tried [many solutions](https://docs.google.com/document/d/19VQ-n7hGr9IDPPstQqU8_8WgqUh7R6sgQfL2neoT-Xw/edit?usp=sharing) but went with a local server, as it was the only solution that worked for every case.
 
@@ -105,12 +106,12 @@ takePhoto() {
 
 
 
-### Downgrading to UIWebView
+## Downgrading to UIWebView
 
 As we said previously, we strongly recommend developers upgrade to WKWebView, but if you still need to use UIWebView, here’s the step to downgrade:
 
 ```bash
-$ ionic cordova plugin remove cordova cordova-plugin-wkwebview-engine --save
+$ ionic cordova plugin remove cordova cordova-plugin-ionic-webview --save
 $ rm -rf platforms/
 $ rm -rf plugins/
 $ ionic cordova platform add ios
@@ -118,15 +119,18 @@ $ ionic cordova build ios
 ```
 
 
-### Upgrading to WKWebView I users only)
+## Upgrading to WKWebView (UIWebView users only)
 
-[https://github.com/driftyco/cordova-plugin-wkwebview-engine#installation-instructions](https://github.com/driftyco/cordova-plugin-wkwebview-engine#installation-instructions)
+```
+ionic cordova plugin add cordova-plugin-ionic-webview --save
+```
+More info: [https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions](https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions)
 
 
 
-### FAQs
+# FAQs
 
-#### My app does not load, white screen
+## My app does not load, white screen
 
 Most of the this kind of problems come from an incorrect installation by cordova.
 
@@ -169,14 +173,14 @@ ionic cordova build ios
 - Open Xcode and try to build again.
 
 
-#### Malloc: *** error for object 0x1700af180: pointer being freed was not allocated
+## Malloc: *** error for object 0x1700af180: pointer being freed was not allocated
 
 It looks like its a Safari bug and therefore only appears when you are debugging your webview with Safari. In Safari under:
 Develop -> Your_Device_Name uncheck "Automatically Show Web Inspector for JSContexts".
 
 This should resolve your issue.
 
-#### My `<img>`/`<video>`/`<audio>`/etc does not load
+## My `<img>`/`<video>`/`<audio>`/etc does not load
 
 Ensure, that the source of the resource does not start with `file://`.
 In case it does, use `normalizeURL()` to rewrite the path:
@@ -188,7 +192,7 @@ imageSRC = normalizeURL(url);
 ```
 
 
-#### XHR requests to a remote service does not longer work
+## XHR requests to a remote service does not longer work
 
 UIWebView didn't enforce CORS at all, but WKWebView does and does not provide a way to disable it. There are two ways to handle this:
 

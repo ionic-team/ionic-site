@@ -4,7 +4,7 @@ category: cli
 id: cli-monitoring-syncmaps
 page_name: ionic monitoring syncmaps
 command_name: ionic monitoring syncmaps
-title: Ionic CLI Documentation - ionic monitoring syncmaps
+title: ionic monitoring syncmaps - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

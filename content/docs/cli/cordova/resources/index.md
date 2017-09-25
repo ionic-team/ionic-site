@@ -4,7 +4,7 @@ category: cli
 id: cli-cordova-resources
 page_name: ionic cordova resources
 command_name: ionic cordova resources
-title: Ionic CLI Documentation - ionic cordova resources
+title: ionic cordova resources - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

@@ -56,6 +56,20 @@ You could commit different `package.json` files to different branches if you'd l
 
 If your repository includes the Ionic app as a sub-folder or a different special structure, you just need to make sure you set up `npm run build` to perform the right actions. The requirements are:
 
-1. `npm run build` needs to execute a build of your code when run from the root of your repository
-2. A `www` built directory must exist at the root folder after performing `npm run build`
+1. `npm install` needs to install the dependencies inside of your app directory
+2. `npm run build` needs to execute a build of your code when run from the root of your repository
+3. A `www` built directory must exist at the root folder after performing `npm run build`
+
+For example, if we commited a repository where the Ionic app was actually located in `path-to/your-app`, you could add a `package.json` file at the root level of our repository with the following contents in order to achieve the 3 requirements from above:
+
+```json
+{
+    "scripts": {
+        "install": "cd path-to/your-app && npm install",
+        "build": "cd path-to/your-app && ./node_modules/.bin/ionic-app-scripts build --prod --wwwDir ./../../www"
+    }
+}
+```
+
+If you also require `npm install` to run at the root directory, you can change the `"install"` script to instead be `"postInstall"` which will run both.
 

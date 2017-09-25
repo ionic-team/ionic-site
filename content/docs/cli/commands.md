@@ -3,7 +3,7 @@ layout: fluid/cli_docs_base
 category: cli
 id: cli-command-list
 page_name: Commands
-title: Ionic CLI Documentation - Commands
+title: Commands - Ionic CLI Documentation
 hide_header_search: true
 dark_header: true
 ---

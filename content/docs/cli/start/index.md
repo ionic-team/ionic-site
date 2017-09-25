@@ -4,7 +4,7 @@ category: cli
 id: cli-start
 page_name: ionic start
 command_name: ionic start
-title: Ionic CLI Documentation - ionic start
+title: ionic start - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 
@@ -30,6 +30,8 @@ $ ionic start [<name>] [<template>]
 This command creates a working Ionic app. It installs dependencies for you and sets up your project.
 
 `ionic start` will create an app from a template. You can list all templates with the `--list` option.
+
+See the CLI documentation on starters: **[https://ionicframework.com/docs/cli/starters.html](https://ionicframework.com/docs/cli/starters.html)**
 
 
 Input | Description

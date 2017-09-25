@@ -54,7 +54,8 @@ module.exports = function(req, res) {
         leadsource: 'Ionicframework.com',
         Lead_Capture_Message__c: form.message,
         NumberOfEmployees: form.Employees,
-        Phone: form.phone
+        Phone: form.phone,
+        Lead_Life_Stage__c: 'Marketing Qualified Lead'
       }).then((ret, err) => {
         if (err || !ret.success) {
           reject(err)

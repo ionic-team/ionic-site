@@ -4,7 +4,7 @@ category: cli
 id: cli-git-remote
 page_name: ionic git remote
 command_name: ionic git remote
-title: Ionic CLI Documentation - ionic git remote
+title: ionic git remote - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

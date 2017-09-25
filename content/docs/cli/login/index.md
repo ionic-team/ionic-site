@@ -4,7 +4,7 @@ category: cli
 id: cli-login
 page_name: ionic login
 command_name: ionic login
-title: Ionic CLI Documentation - ionic login
+title: ionic login - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

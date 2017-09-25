@@ -4,7 +4,7 @@ category: cli
 id: cli-ssh-setup
 page_name: ionic ssh setup
 command_name: ionic ssh setup
-title: Ionic CLI Documentation - ionic ssh setup
+title: ionic ssh setup - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
 

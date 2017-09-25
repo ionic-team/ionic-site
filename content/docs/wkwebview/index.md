@@ -111,7 +111,7 @@ takePhoto() {
 As we said previously, we strongly recommend developers upgrade to WKWebView, but if you still need to use UIWebView, here’s the step to downgrade:
 
 ```bash
-$ ionic cordova plugin remove cordova cordova-plugin-wkwebview-engine --save
+$ ionic cordova plugin remove cordova cordova-plugin-ionic-webview --save
 $ rm -rf platforms/
 $ rm -rf plugins/
 $ ionic cordova platform add ios

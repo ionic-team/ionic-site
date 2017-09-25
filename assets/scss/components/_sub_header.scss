@@ -4,7 +4,6 @@
  * September 2017
  */
 .sub-header {
-
   .container {
     display: flex;
     flex-direction: row;
@@ -14,9 +13,10 @@
     font-weight: 600;
     flex-wrap: wrap;
     position: relative;
+    z-index: 1;
 
     &::before {
-      border-top: 1px solid rgba(black, .06);
+      border-top: 1px solid rgba(white, .06);
       display: block;
       content: '';
       position: absolute;
@@ -43,11 +43,11 @@
 
     li {
       font-weight: 600;
-      color: #272a2f;
+      color: white;
 
       &::after {
         content: '/';
-        color: #ced5e1;
+        color: rgba(white, .1);
         margin-left: 5px;
         margin-right: 1px;
         font-size: 16px;
@@ -65,7 +65,7 @@
     }
 
     a {
-      color: #697384;
+      color: rgba(white, .5);
       transition: .2s color;
       padding: 17px 0;
       display: inline-block;
@@ -78,14 +78,15 @@
   }
 
   a {
-    color: #697384;
+    color: white;
     padding: 18px 15px;
     display: inline-block;
+    text-decoration: none;
     transition: .2s color;
 
     &.current,
     &.active {
-      color: #b1bbca;
+      color: rgba(white, .4)
     }
 
     &:hover {
@@ -105,6 +106,34 @@
       &:hover {
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
       }
+    }
+  }
+}
+body.light .sub-header {
+  .container::before {
+    border-top: 1px solid rgba(black, .06);
+  }
+
+  .breadcrumbs {
+    li {
+      color: #272a2f;
+
+      &::after {
+        color:rgba(black, .1)
+      }
+    }
+
+    a {
+      color: #697384;
+    }
+  }
+
+  a {
+    color: #697384;
+
+    &.current,
+    &.active {
+      color: #b1bbca;
     }
   }
 }

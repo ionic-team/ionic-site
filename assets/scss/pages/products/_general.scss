@@ -3,6 +3,8 @@
   position: relative;
 
   .top {
+    position: relative;
+
     h1 {
       letter-spacing: -.042em;
       font-weight: 600;
@@ -97,7 +99,8 @@
   }
 
   section.left,
-  section.right {
+  section.right,
+  section.both  {
     .container { position: relative; }
 
     hgroup {
@@ -187,6 +190,19 @@
       }
     }
   }
+
+  section.both {
+    .container {
+      display: flex;
+      clear: both;
+      justify-content: space-between;
+  
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  } 
 
   .get-started {
     background: 0 0 no-repeat;

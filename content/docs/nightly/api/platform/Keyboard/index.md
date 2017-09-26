@@ -51,9 +51,9 @@ by the Ionic keyboard plugin.</p>
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">export class MyClass {
-  constructor(public keyboard: Keyboard) {
 
-  }
+  constructor(public keyboard: Keyboard) { }
+
 }
 </code></pre>
 

@@ -38,11 +38,13 @@ npm install -g ionic
 
 > UIWebView never enforced CORS, but WKWebView does.
 
-Unfortunately there's no API to disable this, so you'll need to ensure any remote API that your app use, implement CORS correctly. [CORS MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+Unfortunately there's no API to disable this, so you'll need to ensure any remote API that your app use, implement CORS correctly: [CORS MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 
 ```bash
 Origin: http://localhost:8080
 ```
+
+#### CORS checklist: 
 
 1. [Whitelist Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): `http://localhost:8080`
 2. [Whitelist Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
@@ -169,7 +171,7 @@ Most of the time, this kind of problems come from an incorrect installation of c
   <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
   ```
 
- - Build ionic ios
+- Build ionic ios
 
   ```
   ionic cordova build ios

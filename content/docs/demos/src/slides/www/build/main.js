@@ -4321,6 +4321,12 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
 ], Content.prototype, "scrollDownOnLoad", null);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* HostListener */])('window:resize'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Content.prototype, "resize", null);
 Content = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Component */])({
         selector: 'ion-content',

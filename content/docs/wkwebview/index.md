@@ -19,14 +19,15 @@ We strongly believe WKWebview is the best option for any app, as it features man
 - Better adherence to web standards
 - Reliable scroll events (important for virutal-list)
 
-## Caveats
 
 We wanted to make sure that people could easily switch to WKWebView without many issues, but there are still some things that you'll need to consider.
 
 
-## CLI
+## Update Ionic CLI
 
-Please make sure that your global CLI is using the latest 3.x release. If not, please upgrade.
+> WKWebView plugin needs latest Ionic CLI in order to work properly.
+
+Please make sure that your global CLI is using the latest 3.x release. If not, please upgrade:
 
 ```bash
 npm uninstall -g ionic
@@ -35,17 +36,23 @@ npm install -g ionic
 
 ## CORS
 
-UIWebView never enforced CORS, but WKWebView does.
-Unfortunately there's no API to disable this, so you'll need to ensure any API that your app use, implement CORS correctly and accept requests with origin:
+> UIWebView never enforced CORS, but WKWebView does.
 
+Unfortunately there's no API to disable this, so you'll need to ensure any remote API that your app use, implement CORS correctly: [CORS MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 
 ```bash
-
 Origin: http://localhost:8080
-
 ```
 
-[CORS MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+#### CORS checklist: 
+
+1. [Whitelist Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): `http://localhost:8080`
+2. [Whitelist Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
+3. [Whitelist Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
+4. [CORS preflight request (OPTION)](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request)
+
+
+
 
 ### Rewriting file://
 
@@ -89,7 +96,7 @@ Fixed: /Users/manuelmartinez-almeida/Library/Developer/CoreSimulator/Devices/946
 Or from within a template:
 
 ```html
-<img [src]="imagePath"/>
+<img [src]="imagePath" />
 ```
 
 ```ts
@@ -104,6 +111,13 @@ takePhoto() {
 
 
 
+## Upgrading to WKWebView (UIWebView users only)
+
+```
+ionic cordova plugin add cordova-plugin-ionic-webview --save
+```
+
+More info: [https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions](https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions)
 
 
 ## Downgrading to UIWebView
@@ -119,56 +133,49 @@ $ ionic cordova build ios
 ```
 
 
-## Upgrading to WKWebView (UIWebView users only)
-
-```
-ionic cordova plugin add cordova-plugin-ionic-webview --save
-```
-More info: [https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions](https://github.com/ionic-team/cordova-plugin-ionic-webview#installation-instructions)
-
-
-
 # FAQs
 
 ## My app does not load, white screen
 
-Most of the this kind of problems come from an incorrect installation by cordova.
+> I don't have any error in my code, but still I get a blank screen
+
+Most of the time, this kind of problems come from an incorrect installation of cordova.
 
 - Ensure Xcode is closed
 
 - Clean install:
 
- ```bash
-rm -rf platforms
-rm -rf plugins
-```
+  ```bash
+  rm -rf platforms
+  rm -rf plugins
+  ```
 
 - Add the platform back
 
- ```bash
-ionic cordova platform add ios
-```
+  ```bash
+  ionic cordova platform add ios
+  ```
 
 - Make sure localhost is allowed:
 
- ```xml
-<allow-navigation href="http://localhost:8080/*"/>
-```
+  ```xml
+  <allow-navigation href="http://localhost:8080/*"/>
+  ```
 
 - Make sure WKWebView is the default engine:
 
- ```xml
-<feature name="CDVWKWebViewEngine">
-  <param name="ios-package" value="CDVWKWebViewEngine" />
-</feature>
-<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-```
+  ```xml
+  <feature name="CDVWKWebViewEngine">
+    <param name="ios-package" value="CDVWKWebViewEngine" />
+  </feature>
+  <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+  ```
 
 - Build ionic ios
 
- ```
-ionic cordova build ios
-```
+  ```
+  ionic cordova build ios
+  ```
 
 - Open Xcode and try to build again.
 
@@ -176,14 +183,17 @@ ionic cordova build ios
 ## Malloc: *** error for object 0x1700af180: pointer being freed was not allocated
 
 It looks like its a Safari bug and therefore only appears when you are debugging your webview with Safari. In Safari under:
-Develop -> Your_Device_Name uncheck "Automatically Show Web Inspector for JSContexts".
+Develop -> *Your_Device_Name* uncheck **"Automatically Show Web Inspector for JSContexts"**.
 
 This should resolve your issue.
 
-## My `<img>`/`<video>`/`<audio>`/etc does not load
 
-Ensure, that the source of the resource does not start with `file://`.
-In case it does, use `normalizeURL()` to rewrite the path:
+## My local resources does not load
+
+> Some of the `<img>`/`<video>`/`<audio>` does not load.
+
+Ensure, that the URL of the resource does not start with `file://`.
+If it is the case, use `normalizeURL()` to rewrite the path:
 
 ```ts
 import { normalizeURL} from 'ionic-angular';
@@ -192,9 +202,18 @@ imageSRC = normalizeURL(url);
 ```
 
 
-## XHR requests to a remote service does not longer work
+## XHR requests does not work
 
-UIWebView didn't enforce CORS at all, but WKWebView does and does not provide a way to disable it. There are two ways to handle this:
+> I am trying to call some remote service using XHR (or fetch), but it is not working.
 
-- Implement CORS correctly and allow `Origin: http://localhost:8080` in your all your services.
-- Use `cordova-plugin-http` plugin: [http://ionicframework.com/docs/native/http/](http://ionicframework.com/docs/native/http/)
+As we said previously, WKWebView enforces CORS. You will need to whitelist `http://localhost:8080` as "Origin" and/or implement CORS properly.
+
+
+## I can't implement CORS
+
+> I don't control the backend, so I can't add CORS to it, how can I make it work with WKWebView?
+
+If it is not an possibility to implement or configure CORS in the server, Ionic has an native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypasses:
+
+Read more here: [cordova-plugin-http](http://ionicframework.com/docs/native/http/).
+

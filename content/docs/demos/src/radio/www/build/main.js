@@ -4246,6 +4246,12 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
 ], Content.prototype, "scrollDownOnLoad", null);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* HostListener */])('window:resize'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Content.prototype, "resize", null);
 Content = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Component */])({
         selector: 'ion-content',
@@ -30418,10 +30424,16 @@ function View_PageOne_0(_l) {
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](49152, null, 0, __WEBPACK_IMPORTED_MODULE_9__src_components_toolbar_toolbar_title__["a" /* ToolbarTitle */], [__WEBPACK_IMPORTED_MODULE_2__src_config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */],
             [2, __WEBPACK_IMPORTED_MODULE_10__src_components_toolbar_toolbar__["a" /* Toolbar */]], [2, __WEBPACK_IMPORTED_MODULE_5__src_components_toolbar_navbar__["a" /* Navbar */]]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](0, ['Radio'])), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](3, ['\n  '])), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](null, ['\n\n'])),
         (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](null, ['\n\n\n'])), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* ɵeld */](0, null, null, 213, 'ion-content', [['class', 'outer-content']], [[2, 'statusbar-padding', null],
-            [2, 'has-refresher', null]], null, null, __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["b" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["a" /* RenderType_Content */])), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_12__src_components_content_content__["a" /* Content */], [__WEBPACK_IMPORTED_MODULE_2__src_config_config__["a" /* Config */],
-            __WEBPACK_IMPORTED_MODULE_13__src_platform_platform__["a" /* Platform */], __WEBPACK_IMPORTED_MODULE_14__src_platform_dom_controller__["a" /* DomController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */], __WEBPACK_IMPORTED_MODULE_6__src_components_app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_15__src_platform_keyboard__["a" /* Keyboard */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* NgZone */], [2, __WEBPACK_IMPORTED_MODULE_3__src_navigation_view_controller__["a" /* ViewController */]], [2, __WEBPACK_IMPORTED_MODULE_7__src_navigation_nav_controller__["a" /* NavController */]]], null, null),
-        (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](1, ['\n\n  '])), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* ɵeld */](0, null, 1, 73, 'ion-list', [['radio-group', ''], ['role', 'radiogroup']], null, null, null, null, null)), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵprd */](5120, null, __WEBPACK_IMPORTED_MODULE_16__angular_forms__["e" /* NG_VALUE_ACCESSOR */], (p0_0) => {
+            [2, 'has-refresher', null]], [['window', 'resize']], (_v, en, $event) => {
+            var ad = true;
+            if (('window:resize' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](_v, 13).resize() !== false);
+                ad = (pd_0 && ad);
+            }
+            return ad;
+        }, __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["b" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_11__src_components_content_content_ngfactory__["a" /* RenderType_Content */])), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_12__src_components_content_content__["a" /* Content */], [__WEBPACK_IMPORTED_MODULE_2__src_config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_13__src_platform_platform__["a" /* Platform */], __WEBPACK_IMPORTED_MODULE_14__src_platform_dom_controller__["a" /* DomController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */],
+            __WEBPACK_IMPORTED_MODULE_6__src_components_app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_15__src_platform_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* NgZone */], [2, __WEBPACK_IMPORTED_MODULE_3__src_navigation_view_controller__["a" /* ViewController */]], [2, __WEBPACK_IMPORTED_MODULE_7__src_navigation_nav_controller__["a" /* NavController */]]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵted */](1, ['\n\n  '])), (_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* ɵeld */](0, null, 1, 73, 'ion-list', [['radio-group', ''], ['role', 'radiogroup']], null, null, null, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵprd */](5120, null, __WEBPACK_IMPORTED_MODULE_16__angular_forms__["e" /* NG_VALUE_ACCESSOR */], (p0_0) => {
             return [p0_0];
         }, [__WEBPACK_IMPORTED_MODULE_17__src_components_radio_radio_group__["a" /* RadioGroup */]]), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](16384, null, 0, __WEBPACK_IMPORTED_MODULE_18__src_components_list_list__["a" /* List */], [__WEBPACK_IMPORTED_MODULE_2__src_config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */], __WEBPACK_IMPORTED_MODULE_13__src_platform_platform__["a" /* Platform */], __WEBPACK_IMPORTED_MODULE_19__src_gestures_gesture_controller__["l" /* GestureController */], __WEBPACK_IMPORTED_MODULE_14__src_platform_dom_controller__["a" /* DomController */]], null, null), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](1064960, null, 1, __WEBPACK_IMPORTED_MODULE_17__src_components_radio_radio_group__["a" /* RadioGroup */], [__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */],
@@ -30866,8 +30878,15 @@ function View_Content_0(_l) {
                 1]], null, 1, 'div', [['class', 'scroll-content']], null, null, null, null, null)), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵncd */](null, 1), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵncd */](null, 2)], null, null);
 }
 function View_Content_Host_0(_l) {
-    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_41" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[2, 'statusbar-padding', null], [2, 'has-refresher', null]], null, null, View_Content_0, RenderType_Content)), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [__WEBPACK_IMPORTED_MODULE_2__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_3__platform_platform__["a" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */], __WEBPACK_IMPORTED_MODULE_5__app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* NgZone */], [2, __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */]], [2, __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]]], null, null)], null, (_ck, _v) => {
+    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_41" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_21" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[2, 'statusbar-padding', null], [2, 'has-refresher', null]], [['window', 'resize']], (_v, en, $event) => {
+            var ad = true;
+            if (('window:resize' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](_v, 1).resize() !== false);
+                ad = (pd_0 && ad);
+            }
+            return ad;
+        }, View_Content_0, RenderType_Content)), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ɵdid */](4374528, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [__WEBPACK_IMPORTED_MODULE_2__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_3__platform_platform__["a" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Renderer */], __WEBPACK_IMPORTED_MODULE_5__app_app__["a" /* App */], __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* NgZone */], [2, __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */]], [2, __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]]], null, null)], null, (_ck, _v) => {
         const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](_v, 1).statusbarPadding;
         const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵnov */](_v, 1)._hasRefresher;
         _ck(_v, 0, 0, currVal_0, currVal_1);

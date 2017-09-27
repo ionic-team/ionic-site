@@ -75,10 +75,10 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 export class MyClass{
 
- constructor(public actionSheetCtrl: ActionSheetController) {}
+ constructor(public actionSheetCtrl: ActionSheetController) { }
 
  presentActionSheet() {
-   let actionSheet = this.actionSheetCtrl.create({
+   const actionSheet = this.actionSheetCtrl.create({
      title: &#39;Modify your album&#39;,
      buttons: [
        {
@@ -278,7 +278,7 @@ back a page in the same stack. The potential problem is that the async operation
 may have been completed before the action sheet has even finished its transition
 out. In this case, it&#39;s best to ensure the action sheet has finished its transition
 out first, <em>then</em> start the next transition.</p>
-<pre><code class="lang-ts">let actionSheet = this.actionSheetCtrl.create({
+<pre><code class="lang-ts">const actionSheet = this.actionSheetCtrl.create({
   title: &#39;Hello&#39;,
   buttons: [{
     text: &#39;Ok&#39;,

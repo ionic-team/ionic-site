@@ -11,7 +11,6 @@
     "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "noStrictGenericChecks": true,
     "removeComments": true,
     "sourceMap": true,
     "target": "es2015",

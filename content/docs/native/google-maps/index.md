@@ -28,8 +28,8 @@ Note: As of Ionic native 4.0, this using the 2.0 version of the google maps plug
 
 
 <p>Repo:
-  <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps">
-    https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps
+  <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps">
+    https://github.com/mapsplugin/cordova-plugin-googlemaps
   </a>
 </p>
 
@@ -37,7 +37,7 @@ Note: As of Ionic native 4.0, this using the 2.0 version of the google maps plug
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
 $ npm install --save @ionic-native/google-maps
 </code></pre>
   </li>
@@ -171,30 +171,6 @@ Creates a new GoogleMap instance
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>GoogleMap</code> 
-</div><h3><a class="anchor" name="environment" href="#environment"></a><code>environment()</code></h3>
-
-Method that returns an instance of Environment class
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Environment</code> 
-</div><h3><a class="anchor" name="spherical" href="#spherical"></a><code>spherical()</code></h3>
-
-Method that returns an instance of Spherical class
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Spherical</code> 
-</div><h3><a class="anchor" name="encoding" href="#encoding"></a><code>encoding()</code></h3>
-
-Method that returns an instance of Encoding class
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Encoding</code> 
 </div>
 
 <h2><a class="anchor" name="GoogleMap" href="#GoogleMap"></a>GoogleMap</h2>
@@ -574,13 +550,13 @@ Set false to ignore all clicks on the map
 <h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
-
-
 Destroy a map completely
 
 
-
-<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 
 Remove all overlays, such as marker
@@ -947,7 +923,18 @@ You can execute it, but you don't need to do that. The plugin does this automati
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -1366,17 +1353,13 @@ Encodes a sequence of LatLngs into an encoded path string.
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getLicenseInfo" href="#getLicenseInfo"></a><code>getLicenseInfo()</code></h3>
 
-
-Get the open source software license information for Google Maps Android API v2 and Google Maps SDK for iOS.
+Get the open source software license information for Google Maps SDK for iOS.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor(color)</code></h3>
-
-
-
 
 Specifies the background color of the app.
 <table class="table param-table" style="margin:0;">
@@ -1440,7 +1423,18 @@ Converts position to address and vice versa
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -1692,8 +1686,6 @@ Return the current ground overlay zIndex
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
-
-
 
 
 Remove the ground overlay
@@ -2273,8 +2265,6 @@ Return the marker opacity.
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
-
-
 Remove the marker.
 
 
@@ -2554,7 +2544,18 @@ Return the marker rotation angle.
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
 
 
 
@@ -2576,15 +2577,32 @@ Return the marker rotation angle.
 
 
 
+<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
 
 
-<h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h2><a class="anchor" name="Polygon" href="#Polygon"></a>Polygon</h2>
 
 
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -2861,8 +2879,6 @@ Return the current polygon zIndex
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
-
-
 Remove the polygon.
 
 
@@ -2917,7 +2933,7 @@ When true, edges of the polygon are interpreted as geodesic and will follow the 
 
 
 
-Return true if the polylgon is geodesic.
+Return true if the polygon is geodesic.
 
 
 <div class="return-value" markdown="1">
@@ -2929,7 +2945,18 @@ Return true if the polylgon is geodesic.
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -3203,8 +3230,6 @@ Return the current polyline zIndex
 </div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
-
-
 Remove the polyline
 
 
@@ -3216,9 +3241,6 @@ Remove the polyline
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="computeDistanceBetween" href="#computeDistanceBetween"></a><code>computeDistanceBetween(locationA,&nbsp;locationB)</code></h3>
-
-
-
 
 Returns the distance, in meters, between two LatLngs.
 <table class="table param-table" style="margin:0;">
@@ -3256,9 +3278,6 @@ Returns the distance, in meters, between two LatLngs.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="computeOffset" href="#computeOffset"></a><code>computeOffset(from,&nbsp;distance,&nbsp;heading)</code></h3>
-
-
-
 
 Returns the LatLng resulting from moving a distance from an origin in the specified heading (expressed in degrees clockwise from north)
 <table class="table param-table" style="margin:0;">
@@ -3306,9 +3325,6 @@ Returns the LatLng resulting from moving a distance from an origin in the specif
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>LatLng</code> 
 </div><h3><a class="anchor" name="computeOffsetOrigin" href="#computeOffsetOrigin"></a><code>computeOffsetOrigin(to,&nbsp;distance,&nbsp;heading)</code></h3>
-
-
-
 
 Returns the location of origin when provided with a LatLng destination, meters travelled and original heading. Headings are expressed in degrees clockwise from North. This function returns null when no solution is available.
 <table class="table param-table" style="margin:0;">
@@ -3360,9 +3376,6 @@ Returns the location of origin when provided with a LatLng destination, meters t
   <b>Returns:</b> <code>LatLng</code> 
 </div><h3><a class="anchor" name="computeLength" href="#computeLength"></a><code>computeLength(path)</code></h3>
 
-
-
-
 Returns the length of the given path.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -3389,9 +3402,6 @@ Returns the length of the given path.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="computeArea" href="#computeArea"></a><code>computeArea(path)</code></h3>
-
-
-
 
 Returns the area of a closed path. The computed area uses the same units as the radius.
 <table class="table param-table" style="margin:0;">
@@ -3421,9 +3431,6 @@ Returns the area of a closed path. The computed area uses the same units as the 
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="computeSignedArea" href="#computeSignedArea"></a><code>computeSignedArea(path)</code></h3>
 
-
-
-
 Returns the signed area of a closed path. The signed area may be used to determine the orientation of the path.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -3451,9 +3458,6 @@ Returns the signed area of a closed path. The signed area may be used to determi
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="computeHeading" href="#computeHeading"></a><code>computeHeading(from,&nbsp;to)</code></h3>
-
-
-
 
 Returns the heading from one LatLng to another LatLng. Headings are expressed in degrees clockwise from North within the range (-180,180).
 <table class="table param-table" style="margin:0;">
@@ -3491,9 +3495,6 @@ Returns the heading from one LatLng to another LatLng. Headings are expressed in
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
 </div><h3><a class="anchor" name="interpolate" href="#interpolate"></a><code>interpolate(from,&nbsp;to,&nbsp;fraction)</code></h3>
-
-
-
 
 Returns the LatLng which lies the given fraction of the way between the origin LatLng and the destination LatLng.
 <table class="table param-table" style="margin:0;">
@@ -3549,7 +3550,18 @@ Returns the LatLng which lies the given fraction of the way between the origin L
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
 
 Return the map instance.
 
@@ -3721,8 +3733,6 @@ Get tile size
 <h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
-
-
 Remove the tile overlay
 
 
@@ -3746,8 +3756,6 @@ Adds an event listener.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
-
-
 
 
 Adds an event listener that works once.
@@ -3893,8 +3901,6 @@ Listen to a map event.
 </div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
 
 
-
-
 Listen to a map event only once.
 
 
@@ -3917,6 +3923,15 @@ Clears all stored values
 
 
 Dispatch event.
+
+
+
+<h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
+
+
+
+
+Executes off() and empty()
 
 
 
@@ -4850,7 +4865,7 @@ Sets an element at the specified index.
       position
     </td>
     <td>
-      <code>{ lat: number; lng: number }</code>
+      <code>ILatLng</code>
     </td>
     <td>
       
@@ -5667,7 +5682,7 @@ Sets an element at the specified index.
       addHole
     </td>
     <td>
-      <code>Array&lt;Array&lt;LatLng&gt;&gt;</code>
+      <code>Array&lt;Array&lt;ILatLng&gt;&gt;</code>
     </td>
     <td>
       

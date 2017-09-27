@@ -43,6 +43,10 @@
   }
 
   &.fullscreen {
+    .container {
+      position: relative;
+    }
+
     .close {
       right: 36px;
       top: 27px;

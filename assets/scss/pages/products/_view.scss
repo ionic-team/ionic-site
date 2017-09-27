@@ -1,4 +1,8 @@
 #page-products-view {
+  .sub-header a {
+    color: $blue;
+  }
+
   .top {
     overflow: hidden;
     padding-top: 42px;
@@ -268,6 +272,10 @@
   .get-started {
     background-image: url('/img/products/view/pre-footer-bg.jpg');
     background-size: cover;
+
+    .btn-default {
+      background: #0066af;
+    }
   }
 
   #downloadForm,
@@ -288,6 +296,7 @@
         position: absolute;
         bottom: 0;
         right: 17px;
+        animation: 30s hoverY ease infinite;
       }
     }
 
@@ -353,8 +362,7 @@
 
     > .top,
     section {
-      -ms-filter: blur(5px);
-      filter: blur(5px);
+      filter: blur(15px) saturate(150%);
     }
   }
 

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L21">
   Improve this doc
 </a>
 
@@ -82,6 +82,10 @@ this.musicControls.create({
   album       : &#39;Absolution&#39;     // optional, default: &#39;&#39;
   duration : 60, // optional, default: 0
   elapsed : 10, // optional, default: 0
+  hasSkipForward : true,  // show skip forward button, optional, default: false
+  hasSkipBackward : true, // show skip backward button, optional, default: false
+  skipForwardInterval: 15, // display number for skip forward, optional, default: 0
+  skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
 
   // Android only, optional
   // text displayed in the status bar when the notification (and the ticker) are updated
@@ -119,6 +123,12 @@ this.musicControls.create({
              elapsed: seekToInSeconds,
              isPlaying: true
            });
+           // Do something
+           break;
+         case &#39;music-controls-skip-forward&#39;:
+           // Do something
+           break;
+         case &#39;music-controls-skip-backward&#39;:
            // Do something
            break;
 
@@ -390,6 +400,58 @@ Toggle dismissable:
     </td>
     <td>
       <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipForward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipBackward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipForwardInterval
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipBackwardInterval
+    </td>
+    <td>
+      <code>number</code>
     </td>
     <td>
       

@@ -23,7 +23,7 @@ footer_includes: |
     width: 30%;
     max-width: 200px;" />
 
-In iOS-land, there have been two webviews for a few years now, UIWebView and WKWebView. Historically, Ionic apps have used UIWebView, but no longer. Ionic now uses WKWebview by default when building for iOS.
+In iOS, there have been two webviews for a few years now, UIWebView and WKWebView. Historically, Ionic apps have used UIWebView, but no longer. Ionic now uses WKWebview by default when building for iOS.
 
 We strongly believe WKWebview is the best option for any app, as it features many improvements over the older, legacy webview (UIWebView). These features include:
 
@@ -123,6 +123,9 @@ takePhoto() {
 
 **Note**: Core cordova plugins also allow you to reference a file via the `cdvfile://` protocol. Unfortunately, we cannot rewrite this path as it is something that gets resolved in native code. We suggest that when ever you reference a file, use the full path for rewrites, not `cdvfile://`.
 
+### App data is not copied over
+
+Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
 
 
 ## Upgrading to WKWebView (UIWebView users only)
@@ -227,7 +230,7 @@ As we said previously, WKWebView enforces CORS. You will need to whitelist `http
 
 > I don't control the backend, so I can't add CORS to it, how can I make it work with WKWebView?
 
-If it is not an possibility to implement or configure CORS in the server, Ionic has an native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypasses:
+If it is not an possibility to implement or configure CORS in the server, there is a native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypasses:
 
 Read more here: [cordova-plugin-http](http://ionicframework.com/docs/native/http/).
 

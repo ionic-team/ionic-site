@@ -10,39 +10,23 @@ module.exports = function(req, res) {
   var promises = [];
   var form = req.body;
 
-  var m = {
-    to: [
-      'perry@ionic.io'
-    ],
-    from: 'no-reply@ionic.io',
-    name: 'Ionic View',
-    subject: 'Download Ionic View',
-    body: objToString(form)
-  };
-
-  // send email to sales team
-  promises.push(new Promise((resolve, reject) => {
-    tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
-      resolve();
-    }, function(err) {
-      reject();
-    });
-  }));
-
-  // thank the user for contacting us
   promises.push(new Promise((resolve, reject) => {
     // server doesn't have API keys in local env, ignore
     if(!config.SENDGRID_APIKEY) {
       console.warn('Sendgrid API key not found. Ignoring email request.');
       return resolve(null);
     }
-    var thankYouEmail = {
+    var viewEmail = {
       method: 'POST',
       path: '/v3/mail/send',
       body: {
         personalizations: [{
-          to: [{email:form.email}],
-          subject: 'Download Ionic View!'
+          to: [{
+            email:form.email,
+          }],
+          name: '',
+          subject: 'Download Ionic View!',
+          email: form.email
         }],
         from: {
           email: 'no-reply@ionicframework.com', 
@@ -55,10 +39,10 @@ https://ionicview.app.link/mORHDUyIMG
 Cheers,
 The Ionic Team`
         }],
-        template_id: '32348fe7-9cce-425f-be4f-5691c0ca7df6',
+        template_id: '0d829c99-54dd-4b68-8ea4-439cbe8785d4',
       }
     }
-    sg.API(thankYouEmail, (error, response) => {
+    sg.API(viewEmail, (error, response) => {
       if (error) {
         reject(error)
         return console.error(error, response.body);

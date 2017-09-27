@@ -77,15 +77,16 @@
       
       .iphone,
       .android {
-        opacity: 0;
+        opacity: .01;
         transform: translateY(20px);
-        animation: 1s fadeInDown;
-        animation-fill-mode: forwards;
+
+        &.loaded {
+          animation: 1s fadeInDown;
+          animation-fill-mode: forwards;
+        }
       }
 
       .iphone {
-        background: url('/img/products/view/view-iphone.png') 0 0 no-repeat;
-        background-size: 100%;
         width: 346px;
         height: 680px;
         position: absolute;
@@ -106,15 +107,15 @@
       }
 
       .android {
-        background: url('/img/products/view/view-pixel.png') 0 0 no-repeat;
-        background-size: 100%;
         width: 360px;
         height: 700px;
         position: absolute;
         right: 12px;
-        animation-delay: .2s;
-        animation-duration: 1.5s;
 
+        &.loaded {
+          animation-delay: .2s;
+          animation-duration: 1.5s;
+        }
         
         @media (max-width: $screen-sm-max)  {
           width: 240px;
@@ -294,9 +295,9 @@
         width: 200px;
         content: '';
         position: absolute;
-        bottom: 0;
+        top: 150px;
         right: 17px;
-        animation: 30s hoverY ease infinite;
+        animation: 16s hoverY ease infinite;
       }
     }
 
@@ -351,8 +352,8 @@
 
   &.modal-open {
     .modal-backdrop {
-      background: rgba(255,255,255,0.95);
-      transition-duration: .3s;
+      background: rgba(255,255,255,0.9);
+      transition-duration: .2s;
       
       &.in {
         opacity: 1;
@@ -361,13 +362,15 @@
     }
 
     > .top,
-    section {
+    section.simple {
       filter: blur(15px) saturate(150%);
+      transition-delay: .25s;
     }
   }
 
   > .top,
   section {
-    transition: .4s filter;
+    transition: .2s filter;
+    // transition-delay: 0;
   }
 }

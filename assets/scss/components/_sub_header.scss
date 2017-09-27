@@ -129,6 +129,10 @@ body.light .sub-header {
 
     a {
       color: #697384;
+
+      &:hover {
+        color: $blue;
+      }
     }
   }
 
@@ -138,6 +142,10 @@ body.light .sub-header {
     &.current,
     &.active {
       color: #b1bbca;
+    }
+
+    &:hover {
+      color: $blue;
     }
   }
 }

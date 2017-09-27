@@ -53,5 +53,5 @@ module.exports = function router(app) {
 
   // JSON endpoints
   .post('/contact', bp.json(), contactCtrl)
-  .post('/api/v1/view/link', bp.json(), contactCtrl)
+  .post('/api/v1/view/link', bp.json(), viewCtrl)
 };

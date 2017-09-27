@@ -60,6 +60,12 @@
 
     .modal-dialog {
       width: 651px;
+      transform: translate(0, -10%);
+      transition: transform .5s cubic-bezier(0,0,0,1);
+    }
+
+    &.in .modal-dialog {
+      transform: translate(0, 0);
     }
 
     .modal-content {

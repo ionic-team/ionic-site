@@ -40,12 +40,12 @@
          href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931"></a>
       <a class="google"
          target="_blank"
-         href="https://play.google.com/store/apps/details?id=com.ionic.viewapp"></a>
+         href="https://play.google.com/store/apps/details?id=com.ionicframework.view"></a>
     </h4>
   </hgroup>
   <div class="graphics">
-    <div class="android"></div>
-    <div class="iphone"></div>
+    <img class="android" />
+    <img class="iphone" />
   </div>
 </div>
 
@@ -191,17 +191,25 @@
            ng-controller="ViewCtrl">
         <hgroup>
           <h3>Download <strong>View</strong></h3>
+          <h2 ng-if="erro">Error Sending email</h2>
           <p>
             With an Ionic account, you can access and share you apps on <strong>
             View</strong> from anywhere in the world.
           </p>
           <form ng-submit="submit($event)">
             <input class="form-control" 
-                   type="email" 
+                   type="email"
+                   ng-model="email"
                    placeholder="Your email address">
-            <button class="btn btn-primary" type="submit">
+            <button ng-if="!sent" 
+                    class="btn btn-primary" 
+                    type="submit" 
+                    ng-disabled="formDisabled">
               Email me the link
             </button>
+            <h3 ng-if="sent">
+              Message sent, check your email on your mobile device
+            </h3>
           </form>
         </hgroup>
       </div>
@@ -235,5 +243,23 @@ function openDownloadModal() {
     $('#downloadForm').modal() 
   });
 }
+
+// preload phone images images
+var iphone = document.querySelector('.iphone');
+var android = document.querySelector('.android');
+var imgsLoaded = 0;
+iphone.addEventListener('load', imgLoaded);
+android.addEventListener('load', imgLoaded);
+iphone.src = '/img/products/view/view-iphone.png';
+android.src = '/img/products/view/view-pixel.png';
+
+function imgLoaded(){ 
+  imgsLoaded++ 
+  if (imgsLoaded > 1) {
+    iphone.classList.add('loaded')
+    android.classList.add('loaded')
+  }
+}
+
 </script>
 {% endblock %}

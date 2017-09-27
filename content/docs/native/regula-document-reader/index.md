@@ -4,22 +4,33 @@ version: "4.2.1"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "documentreader"
-title: "DocumentReader"
+id: "regula-document-reader"
+title: "Regula Document Reader"
 header_sub_title: "Class in module "
-doc: "DocumentReader"
+doc: "Regula Document Reader"
 docType: "class"
 ---
 
-<h1 class="api-title">DocumentReader</h1>
+<h1 class="api-title">Regula Document Reader<span class="beta" title="beta">&beta;</span><span class="paid" title="paid">Paid</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/document-reader/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/regula-document-reader/index.ts#L1">
   Improve this doc
 </a>
 
 
 
 
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit any issues to the <a target="_blank"
+  href="https://github.com/regulaforensics/cordova-plugin-documentreader.git/issues">plugin repo</a>.
+</p>
+
+
+<p class="paid-notice">
+  This plugin might require a paid license, or might take a share of your app's earnings.
+  Check the <a target="_blank" rel="nofollow" href="https://github.com/regulaforensics/cordova-plugin-documentreader.git">plugin's repo</a> for more information.
+</p>
 
 
 
@@ -37,7 +48,7 @@ docType: "class"
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-documentreader --variable CAMERA_USAGE_DESCRIPTION="To take photo"
-$ npm install --save @ionic-native/document-reader
+$ npm install --save @ionic-native/regula-document-reader
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -56,9 +67,10 @@ $ npm install --save @ionic-native/document-reader
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { DocumentReader } from &#39;ionic-native&#39;;
-var license; // read regula.license file
-DocumentReader.scanDocument(license).then((result) =&gt; {
+<pre><code class="lang-typescript">import { RegulaDocumentReader } from &#39;@ionic-native/regula-document-reader&#39;;
+
+let license; // read regula.license file
+RegulaDocumentReader.scanDocument(license).then((result) =&gt; {
         // read result
 })
 </code></pre>

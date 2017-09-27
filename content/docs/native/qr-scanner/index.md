@@ -152,6 +152,15 @@ Enable the device's light (for scanning in low-light environments).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;QRScannerStatus&gt;</code> 
+</div><h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
+
+
+Destroy the scanner instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;QRScannerStatus&gt;</code> 
 </div><h3><a class="anchor" name="disableLight" href="#disableLight"></a><code>disableLight()</code></h3>
 
 

@@ -1,6 +1,6 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products-view' %}
-{% set header_style = 'transparent light' %}
+{% set header_style = 'transparent light products-page' %}
 
 {% block body_attributes %}
 
@@ -17,7 +17,11 @@
     <ul class="right">
       <li><a href="/products/view" class="active">Features</a></li>
       <li><a href="/docs/pro/view/">Docs</a></li>
-      <li><a href="" class="btn white">Download</a></li>
+      <li>
+        <a class="btn white" onclick="openDownloadModal()">
+          Download
+        </a>
+      </li>
     </ul>
   </div>
 </div>
@@ -31,8 +35,12 @@
     </p>
     <h4 class="stores">
       Get the app on:
-      <a href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.ionic.viewapp"></a>
+      <a class="apple"
+         target="_blank"
+         href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931"></a>
+      <a class="google"
+         target="_blank"
+         href="https://play.google.com/store/apps/details?id=com.ionic.viewapp"></a>
     </h4>
   </hgroup>
   <div class="graphics">
@@ -42,47 +50,50 @@
 </div>
 
 <main>
-  <section class="center container">
-    <hgroup>
-      <h2>Simply choose an app, and share.</h2>
-      <p>
-        <strong>View</strong> enables you and others to easily preview and test 
-        your Ionic apps as though they were deployed natively. Just choose the
-        app and version you want to share, and start testing.
-      </p>
-    </hgroup>
-    <ul>
-      <li class="groups">
-        <strong>External testers &amp; groups</strong>
+  <section class="center simple">
+    <div class="container">
+      <hgroup>
+        <h2>Simply choose an app, and share.</h2>
         <p>
-          Invite anyone to provide feedback on your app. Segment audiences by 
-          group or department.
+          <strong>View</strong> enables you and others to easily preview and 
+          test your Ionic apps as though they were deployed natively. Just 
+          choose the app and version you want to share, and start testing.
         </p>
-      </li>
-      <li class="sharing">
-        <strong>Easy sharing</strong>
-        <p>
-          Share multiple versions of your app directly with users and testers. 
-          All it takes is a simple email invite.
-        </p>
-      </li>
-      <li class="feedback">
-        <strong>In-app feedback</strong>
-        <p>
-          Users submit feedback right from the View App, with results collected
-          in a central dashboard.
-        </p>
-      </li>
-      <li class="native">
-        <strong>Native app behavior</strong>
-        <p>
-          Easily preview and test your Ionic apps as though they were actually 
-          deployed natively.
-        </p>
-      </li>
-    </ul>
-    <div id="phone-tilt"></div>
+      </hgroup>
+      <ul class="items">
+        <li class="groups">
+          <strong>External testers &amp; groups</strong>
+          <p>
+            Invite anyone to provide feedback on your app. Segment audiences by 
+            group or department.
+          </p>
+        </li>
+        <li class="sharing">
+          <strong>Easy sharing</strong>
+          <p>
+            Share multiple versions of your app directly with users and testers. 
+            All it takes is a simple email invite.
+          </p>
+        </li>
+        <li class="feedback">
+          <strong>In-app feedback</strong>
+          <p>
+            Users submit feedback right from the View App, with results 
+            collected in a central dashboard.
+          </p>
+        </li>
+        <li class="native">
+          <strong>Native app behavior</strong>
+          <p>
+            Easily preview and test your Ionic apps as though they were actually 
+            deployed natively.
+          </p>
+        </li>
+      </ul>
+      <div id="phone-tilt" class="activateOnScroll"></div>
+    </div>
   </section>
+
   <section class="left testers">
     <div class="container">
       <hgroup>
@@ -95,9 +106,10 @@
           ever going through the App Stores.
         </p>
       </hgroup>
-      <div class="graphics"></div>
+      <div class="graphics activateOnScroll"></div>
     </div>
   </section>
+
   <section class="right choose">
     <div class="container">
       <hgroup>
@@ -108,9 +120,10 @@
           features from the Marketing team, while testing bug fixes with QA.
         </p>
       </hgroup>
-      <div class="graphics"></div>
+      <div class="graphics activateOnScroll"></div>
     </div>
   </section>
+
   <section class="left feedback">
     <div class="container">
       <hgroup>
@@ -122,10 +135,11 @@
           help prioritize changes.
         </p>
       </hgroup>
-      <div class="graphics"></div>
+      <div class="graphics activateOnScroll"></div>
     </div>
   </section>
-  <section class="">
+
+  <section class="right experience">
     <div class="container">
       <hgroup>
         <h2>Share the full app experience.</h2>
@@ -136,9 +150,10 @@
           allowing you to test new features and functionality across platforms.
         </p>
       </hgroup>
-      <div class="graphics"></div>
+      <div class="graphics activateOnScroll"></div>
     </div>
   </section>
+
   <section class="bar get-started">
     <div class="container">
       <hgroup>
@@ -147,12 +162,78 @@
           Get in touch to learn more, or create an account.
         </p>
       </hgroup>
-      <div class="btn-group">
+      <div class="btns">
         <a href="https://dashboard.ionicjs.com/" class="btn white">
           Create an account</a>
-        <a href="/pricing" class="btn btn-default">See pricing</a>
+        <a class="btn btn-default" onclick="openDownloadModal()">
+          Download <strong>View</strong>
+        </a>
       </div>
     </div>
   </section>
 </main>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade fullscreen" 
+     id="downloadForm" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel">
+  <div class="container">
+    <button class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"
+           ng-controller="ViewCtrl">
+        <hgroup>
+          <h3>Download <strong>View</strong></h3>
+          <p>
+            With an Ionic account, you can access and share you apps on <strong>
+            View</strong> from anywhere in the world.
+          </p>
+          <form ng-submit="submit($event)">
+            <input class="form-control" 
+                   type="email" 
+                   placeholder="Your email address">
+            <button class="btn btn-primary" type="submit">
+              Email me the link
+            </button>
+          </form>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+</div>
+<svg version="1.1" 
+     xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     class="blur-svg">
+  <defs>
+    <filter id="blur-filter">
+      <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function openDownloadModal() {
+  if (document.body.scrollTop === 0 && 
+    document.getElementsByTagName('html')[0].scrollTop == 0) {
+
+    return $('#downloadForm').modal()
+  }
+  // not at the top of the page. scroll first
+  $('body, html').animate({
+    scrollTop: 0
+  }, 200, 'linear', function() { 
+    $('#downloadForm').modal() 
+  });
+}
+</script>
 {% endblock %}

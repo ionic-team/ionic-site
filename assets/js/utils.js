@@ -50,6 +50,34 @@ window.guid = function() {
     s4() + '-' + s4() + s4() + s4();
 }
 
+// add an .active class to elements w/ .activateOnScroll class on when they
+// scroll in to view
+window.activateOnScroll = Array.from(
+  document.getElementsByClassName('activateOnScroll')
+);
+if (activateOnScroll.length) {
+  $(window).on('scroll', checkForActivateOnScroll);
+  checkForActivateOnScroll();
+}
+
+function checkForActivateOnScroll() {
+  if (!activateOnScroll.length) return;
+  var viewportHeight = window.innerHeight || 
+                       document.documentElement.clientHeight || 
+                       document.body.clientHeight;
+  for (var i = 0; i < activateOnScroll.length; i++) {
+    var elPos = activateOnScroll[i].getBoundingClientRect();
+    if (
+      (elPos.y < 0 && elPos.y + (elPos.height / 2) > 0) ||
+      (elPos.y > 0 && elPos.y + (elPos.height / 2) < viewportHeight)
+    ) {
+      activateOnScroll[i].classList.add('active');
+      delete activateOnScroll[i];
+    }
+  }
+  // reset indexes
+  activateOnScroll = activateOnScroll.filter(function(e){ return !!e; });
+}
 
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();

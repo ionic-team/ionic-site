@@ -26,7 +26,8 @@
   }
 
   &:active,
-  &:active:focus {
+  &:active:focus,
+  &:active:hover {
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
     background: lighten($blue, 3);
     outline: none;
@@ -69,7 +70,9 @@
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:active:focus,
+    &:active:hover  {
       background: lighten($green, 10);
     }
   }
@@ -87,7 +90,10 @@
       color: lighten($blue, 5);
     }
 
-    &:active {
+    &:active,
+    &:active:focus,
+    &:active:hover  {
+      background: white;
       // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
     }
 
@@ -119,7 +125,9 @@
 
       &:hover,
       &:focus,
-      &:active {
+      &:active,
+      &:active:focus,
+      &:active:hover  {
         color: darken($grey, 10);
         background: transparent;
       }
@@ -133,7 +141,9 @@
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:active:focus,
+    &:active:hover  {
       color: #ff567b;
       background: lighten(#212f45, 5)
     }

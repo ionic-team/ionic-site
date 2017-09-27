@@ -4,7 +4,8 @@ const bp       = require('body-parser');
 const markdown = require('./markdown');
 
 const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
-const contactCtrl = require('./contactCtrl');
+const contactCtrl = require('./controllers/contactCtrl');
+const viewCtrl    = require('./controllers/viewCtrl');
 
 module.exports = function router(app) {
 
@@ -31,6 +32,9 @@ module.exports = function router(app) {
   .get('/privacy', (req, res) => { markdown(res, 'privacy-policy'); })
   .get('/products', (req, res) => { res.render('products/index'); })
   .get('/products/contact', (req, res) => { res.render('products/contact'); })
+  .get('/products/deploy', (req, res) => { res.render('products/deploy'); })
+  .get('/products/monitoring', (req, res) => { res.render('products/monitoring'); })
+  .get('/products/package', (req, res) => { res.render('products/package'); })
   .get('/products/view', (req, res) => { res.render('products/view'); })
   .get('/resources', (req, res) => { res.render('resources'); })
   .get('/sales', (req, res) => { res.render('sales'); })
@@ -49,4 +53,5 @@ module.exports = function router(app) {
 
   // JSON endpoints
   .post('/contact', bp.json(), contactCtrl)
+  .post('/api/v1/view/link', bp.json(), contactCtrl)
 };

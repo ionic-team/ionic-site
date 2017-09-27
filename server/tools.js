@@ -87,8 +87,8 @@ module.exports = {
       path: '/v3/contactdb/recipients',
       body: [{
         email: opts.email,
-        first_name: opts.first_name,
-        last_name: opts.last_name
+        first_name: opts.first_name || null,
+        last_name: opts.last_name || null
       }]
     }
     return sg.API(requestParams)

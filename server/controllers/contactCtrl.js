@@ -1,5 +1,5 @@
-const config    = require('./config');
-const tools     = require('./tools');
+const config    = require('../config');
+const tools     = require('../tools');
 const sg = require('sendgrid')(config.SENDGRID_APIKEY);
 
 const jsforce = require('jsforce');

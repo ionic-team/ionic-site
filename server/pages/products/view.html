@@ -187,16 +187,17 @@
   </div>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body"
+           ng-controller="ViewCtrl">
         <hgroup>
           <h3>Download <strong>View</strong></h3>
           <p>
             With an Ionic account, you can access and share you apps on <strong>
             View</strong> from anywhere in the world.
           </p>
-          <form action="">
+          <form ng-submit="submit($event)">
             <input class="form-control" 
-                   type="text" 
+                   type="email" 
                    placeholder="Your email address">
             <button class="btn btn-primary" type="submit">
               Email me the link

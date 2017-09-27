@@ -123,7 +123,7 @@ takePhoto() {
 
 **Note**: Core cordova plugins also allow you to reference a file via the `cdvfile://` protocol. Unfortunately, we cannot rewrite this path as it is something that gets resolved in native code. We suggest that when ever you reference a file, use the full path for rewrites, not `cdvfile://`.
 
-### App data is not copied over
+## App data is not copied over
 
 Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
 

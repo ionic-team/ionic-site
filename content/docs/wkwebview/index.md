@@ -5,6 +5,12 @@ id: docs-wkwebview
 title: WKWebview
 hide_header_search: true
 pre_footer: true
+footer_includes: |
+  <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+  <script>
+    anchors.options.placement = 'left';
+    anchors.add('main h2, main h3');
+  </script>
 ---
 
 # WKWebView

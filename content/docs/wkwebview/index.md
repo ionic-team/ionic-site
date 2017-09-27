@@ -9,6 +9,14 @@ pre_footer: true
 
 # WKWebView
 
+<img src="/img/docs/webkit-icon.png" style="
+    display: inline-block;
+    float: right;
+    margin-top: 25px;
+    margin-left: 5px;
+    width: 30%;
+    max-width: 200px;" />
+
 In iOS-land, there have been two webviews for a few years now, UIWebView and WKWebView. Historically, Ionic apps have used UIWebView, but no longer. Ionic now uses WKWebview by default when building for iOS.
 
 We strongly believe WKWebview is the best option for any app, as it features many improvements over the older, legacy webview (UIWebView). These features include:
@@ -44,7 +52,7 @@ Unfortunately there's no API to disable this, so you'll need to ensure any remot
 Origin: http://localhost:8080
 ```
 
-#### CORS checklist: 
+#### CORS checklist:
 
 1. [Whitelist Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin): `http://localhost:8080`
 2. [Whitelist Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)

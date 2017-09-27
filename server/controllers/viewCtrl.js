@@ -12,17 +12,11 @@ module.exports = function(req, res) {
 
   var m = {
     to: [
-      'brody@ionic.io', 
-      'joe@ionic.io', 
-      'matt@ionic.io', 
-      'swami@ionic.io', 
-      'andrew@ionic.io',
-      'ryan@ionic.io',
       'perry@ionic.io'
     ],
-    from: 'sales@ionic.io',
-    name: 'Ionic Sales',
-    subject: 'Ionic Website Submission - ' + form.page,
+    from: 'no-reply@ionic.io',
+    name: 'Ionic View',
+    subject: 'Download Ionic View',
     body: objToString(form)
   };
 
@@ -33,51 +27,6 @@ module.exports = function(req, res) {
     }, function(err) {
       reject();
     });
-  }));
-
-  // add user to campaign monitor
-  promises.push(new Promise((resolve, reject) => {
-    if(!config.SALESFORCE_USER || !config.SALESFORCE_PASSWORD_TOKEN) {
-      console.warn('Salesforce API credentials not found. Ignoring CRM request.');
-      return reject(null);
-    }
-
-    sfConn.login(config.SALESFORCE_USER, config.SALESFORCE_PASSWORD_TOKEN, function(err, userInfo) {
-      console.log(err)
-      if (err) { return reject(err); }
-      sfConn.sobject("Lead").create({
-        email: form.email,
-        firstname: form.first_name,
-        lastname: form.last_name,
-        title: form.title,
-        company: form.company,
-        leadsource: 'Ionicframework.com',
-        Lead_Capture_Message__c: form.message,
-        NumberOfEmployees: form.Employees,
-        Phone: form.phone,
-        Lead_Life_Stage__c: 'Marketing Qualified Lead'
-      }).then((ret, err) => {
-        if (err || !ret.success) {
-          reject(err)
-          return console.error(err, ret);
-        }
-        sfConn.sobject("campaignMember").create({
-          LeadId: ret.id, 
-          Status: 'Responded',
-          CampaignId: '701f40000008UYD'
-        }).then((ret, err) => {
-          if (err || !ret.success) {
-            reject(err)
-            return console.error(err, ret);
-          }
-
-          resolve(ret)
-        })
-      }).catch((err,ret)=> {
-        reject(err)
-        return console.error(err, ret);
-      })
-    })
   }));
 
   // thank the user for contacting us
@@ -93,7 +42,7 @@ module.exports = function(req, res) {
       body: {
         personalizations: [{
           to: [{email:form.email}],
-          subject: 'Thanks for reaching out!'
+          subject: 'Download Ionic View!'
         }],
         from: {
           email: 'no-reply@ionicframework.com', 
@@ -101,12 +50,12 @@ module.exports = function(req, res) {
         },
         content: [{
           type: 'text/html',
-          value: `We’ve received your info and a member of our sales team will get in touch soon.
-Until then, feel free to visit our Resource Center for additional information on our business and enterprise offerings, including customer stories and product info.
+          value: `Click the link below on your mobile device to open Ionic View or direct you to the app store appropriate for your device.          
+https://ionicview.app.link/mORHDUyIMG
 Cheers,
 The Ionic Team`
         }],
-        template_id: 'd8f22fb4-d88b-4e82-8ffa-025cb8039447',
+        template_id: '32348fe7-9cce-425f-be4f-5691c0ca7df6',
       }
     }
     sg.API(thankYouEmail, (error, response) => {

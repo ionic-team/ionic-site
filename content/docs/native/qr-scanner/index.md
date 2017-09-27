@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.2.1"
+version: "4.3.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -147,6 +147,15 @@ Configures the native webview to be opaque with a white background, covering the
 
 
 Enable the device's light (for scanning in low-light environments).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;QRScannerStatus&gt;</code> 
+</div><h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
+
+
+Destroy the scanner instance.
 
 
 <div class="return-value" markdown="1">

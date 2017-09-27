@@ -57,13 +57,51 @@ $ npm install --save @ionic-native/couchbase-lite
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { CouchbaseLite } from &#39;@ionic-native/couchbase-lite&#39;;
+import { Http } from &#39;@angular/http&#39;;
+import { Observable } from &#39;rxjs/Observable&#39;
+constructor(private couchbase: CouchbaseLite, private platform:Platform,private _http:Http) {
+   this.initMethod();
+}
+url:string;
+initMethod() {
+   this.couchbase.getURL().then((url)=&gt; {
+       this.url = url;
+   })
+}
+getUrl() {
+     return this.url;
+}
+createDatabase(database_name:string) {
+     let url = this.getUrl();
+     url = url+database_name;
+     return this._http
+       .put(url)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+        })
+ }
 
-constructor(private couchbase: CouchbaseLite) {
+deleteDatabase(database_name:string) {
+     let url = this.getUrl();
+     url = url+database_name;
+     return this._http
+       .delete(url)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })
+}
 
-  couchbase.getURL()
-    .then(url =&gt; console.log(url))
-    .catch(error =&gt; console.error(error));
-
+getAllDbs() {
+     let url = this.getUrl();
+     url = url+&#39;_all_dbs&#39;;
+     return this._http
+       .get(url)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })
 }
 </code></pre>
 

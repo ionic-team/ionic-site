@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.2.1"
+version: "4.3.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Index App Content</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L23">
   Improve this doc
 </a>
 

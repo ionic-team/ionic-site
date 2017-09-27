@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.2.1"
+version: "4.3.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,7 @@ docType: "class"
 
 
 
+<p>Retrieves additional device information that is not provided by other plugins</p>
 
 
 <p>Repo:
@@ -76,21 +77,21 @@ console.log(&#39;The Memory is: &#39; + this.extendedDeviceInformation.memory);
 <h3><a class="anchor" name="memory" href="#memory"></a><code>memory</code></h3>
 
 
-Get the device's memory size.
+Get the device's memory size
 
 
 
 <h3><a class="anchor" name="cpumhz" href="#cpumhz"></a><code>cpumhz</code></h3>
 
 
-Get the device's CPU mhz.
+Get the device's CPU mhz
 
 
 
 <h3><a class="anchor" name="totalstorage" href="#totalstorage"></a><code>totalstorage</code></h3>
 
 
-Get the device's CPU mhz.
+Get the total storage
 
 
 

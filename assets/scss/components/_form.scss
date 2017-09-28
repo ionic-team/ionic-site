@@ -20,6 +20,10 @@
     &:-ms-input-placeholder {
       color: $lightish-grey;
     }
+    
+    &:valid {
+      border-color: #B4BBC5;
+    }
 
     &:hover,
     &:focus,
@@ -28,13 +32,10 @@
       border-color: $blue;
       box-shadow: none;
     }
-
-    &:valid {
-      border-color: #B4BBC5;
-    }
   }
 
-  input.invalid {
+  input.invalid,
+  input.ng-touched:not(:focus):not(:valid) {
     border-color: $red;
   }
 

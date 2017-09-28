@@ -18,7 +18,12 @@
       <li><a href="/products/view" class="active">Features</a></li>
       <li><a href="/docs/pro/view/">Docs</a></li>
       <li>
-        <a class="btn white" onclick="openDownloadModal()">
+        <a class="btn white show-desktop" onclick="openDownloadModal()">
+          Download
+        </a>
+        <a class="btn white show-mobile" 
+           href="https://ionicview.app.link/mORHDUyIMG"
+           target="_blank">
           Download
         </a>
       </li>
@@ -191,25 +196,27 @@
            ng-controller="ViewCtrl">
         <hgroup>
           <h3>Download <strong>View</strong></h3>
-          <h2 ng-if="erro">Error Sending email</h2>
           <p>
             With an Ionic account, you can access and share you apps on <strong>
             View</strong> from anywhere in the world.
           </p>
+          <h4 ng-if="error" ng-bind="error" class="text-danger"></h4>
           <form ng-submit="submit($event)">
             <input class="form-control" 
-                   type="email"
-                   ng-model="email"
-                   placeholder="Your email address">
+                   type="tel"
+                   required
+                   ng-model="phone"
+                   placeholder="Your phone number">
             <button ng-if="!sent" 
                     class="btn btn-primary" 
                     type="submit" 
                     ng-disabled="formDisabled">
-              Email me the link
+              Text me the link
             </button>
-            <h3 ng-if="sent">
-              Message sent, check your email on your mobile device
-            </h3>
+            <h3 ng-if="sent">Text sent, check your mobile device.</h3>
+            <small>
+              We will not save or share numbers entered here.
+            </small>
           </form>
         </hgroup>
       </div>
@@ -260,6 +267,9 @@ function imgLoaded(){
     android.classList.add('loaded')
   }
 }
+
+// apply a class to body based on if mobile or not
+document.body.classList.add(window.mobileAndTabletCheck() ? 'is-mobile':'is-desktop');
 
 </script>
 {% endblock %}

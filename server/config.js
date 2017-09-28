@@ -18,6 +18,11 @@ module.exports = {
   // SALESFORCE
   SALESFORCE_USER: process.env.SALESFORCE_USER || null,
   SALESFORCE_PASSWORD_TOKEN: process.env.SALESFORCE_PASSWORD_TOKEN || null,
+
+  
+  TWILIO_SID: process.env.TWILIO_SID || null,
+  TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN || null,
+  TWILIO_NUMBER: process.env.TWILIO_NUMBER || '(415) 214-8179'
 };
 
 function bool(str) {

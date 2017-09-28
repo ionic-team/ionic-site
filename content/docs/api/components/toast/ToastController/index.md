@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.7.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -78,12 +78,10 @@ is dismissed.</p>
 
 <pre><code class="lang-ts">import { ToastController } from &#39;ionic-angular&#39;;
 
-constructor(private toastCtrl: ToastController) {
-
-}
+constructor(public toastCtrl: ToastController) { }
 
 presentToast() {
-  let toast = this.toastCtrl.create({
+  const toast = this.toastCtrl.create({
     message: &#39;User was added successfully&#39;,
     duration: 3000,
     position: &#39;top&#39;

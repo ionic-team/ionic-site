@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.7.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -74,12 +74,10 @@ standard page.</p>
 @Component(...)
 class HomePage {
 
- constructor(public modalCtrl: ModalController) {
-
- }
+ constructor(public modalCtrl: ModalController) { }
 
  presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+   const profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
    profileModal.present();
  }
 

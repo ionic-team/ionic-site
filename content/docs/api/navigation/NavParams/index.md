@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.1"
+version: "3.7.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -56,10 +56,12 @@ option with a simple <code>get</code> method.</p>
 <pre><code class="lang-ts">import { NavParams } from &#39;ionic-angular&#39;;
 
 export class MyClass{
- constructor(public navParams: NavParams){
+
+ constructor(navParams: NavParams){
    // userParams is an object we have in our nav-parameters
-   this.navParams.get(&#39;userParams&#39;);
+   navParams.get(&#39;userParams&#39;);
  }
+
 }
 </code></pre>
 

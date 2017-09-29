@@ -394,27 +394,6 @@ configuration should be decided by the end-developer.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
-<div id="getDefaultValue"></div>
-
-<h3>
-<a class="anchor" name="getDefaultValue" href="#getDefaultValue">
-<code>getDefaultValue()</code>
-  
-
-</a>
-</h3>
-
-Get the default value to show when none is provided,
-and within the bounds of the max value
-
-
-
-
-
-
-
-
-
 <div id="validate"></div>
 
 <h3>
@@ -506,6 +485,16 @@ more info. Defaults to <code>MMM D, YYYY</code>.</p>
 the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
 to control exactly which hours to display, the <code>hourValues</code> input can take either an
 array of numbers, or string of comma separated numbers.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>initialValue</td>
+      <td><code>string</code></td>
+      <td><p> The default datetime selected in picker modal if field value is empty.
+Value must be a date string following the
+<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
+<code>1996-12-19</code>.</p>
 </td>
     </tr>
     

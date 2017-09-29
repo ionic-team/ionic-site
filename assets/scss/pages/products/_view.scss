@@ -168,6 +168,10 @@
         flex-basis: 330px;
         margin-bottom: 48px;
       }
+
+      @media (max-width: $screen-xs-max)  {
+        flex-basis: 100%;
+      }
     }
 
     #phone-tilt {

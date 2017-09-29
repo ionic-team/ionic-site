@@ -29,7 +29,7 @@ For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In t
 <ion-app></ion-app>
 ```
 
-And the following scripts near the bottom:
+And the following scripts at the bottom of head section:
 
 ```html
 <script src="cordova.js"></script>

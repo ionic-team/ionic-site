@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.0"
+version: "3.7.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L26">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L27">
 Improve this doc
 </a>
 
@@ -485,6 +485,16 @@ more info. Defaults to <code>MMM D, YYYY</code>.</p>
 the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
 to control exactly which hours to display, the <code>hourValues</code> input can take either an
 array of numbers, or string of comma separated numbers.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>initialValue</td>
+      <td><code>string</code></td>
+      <td><p> The default datetime selected in picker modal if field value is empty.
+Value must be a date string following the
+<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
+<code>1996-12-19</code>.</p>
 </td>
     </tr>
     

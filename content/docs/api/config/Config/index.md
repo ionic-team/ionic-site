@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.0"
+version: "3.7.1"
 versionHref: "/docs"
 path: ""
 category: api
@@ -212,6 +212,16 @@ chart displays each property with a description of what it controls.</p>
 <td><code>popoverLeave</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while a popover is dismissed.</td>
+</tr>
+<tr>
+<td><code>scrollAssist</code></td>
+<td><code>boolean</code></td>
+<td>Used to avoid the input to be hidden by the keyboard if it&#39;s near the bottom of the page.</td>
+</tr>
+<tr>
+<td><code>scrollPadding</code></td>
+<td><code>boolean</code></td>
+<td>Used to remove the extra padding on ion-content when keyboard is displayed.</td>
 </tr>
 <tr>
 <td><code>spinner</code></td>

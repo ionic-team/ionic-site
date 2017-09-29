@@ -12,7 +12,7 @@ dark_header: true
 
 Ionic View makes it easy to distribute versions of your app to beta testers, clients, co-workers, and more, without dealing with the complicated device provisioning and configuration required with traditional beta testing services.
 
-Looking for a reference of Ionic View the app? Take a look at the [Ionic View app docs](/docs/pro/view/) for an overview of features in the app itself.
+Looking for a reference of Ionic View the app? Take a look at the [Ionic View app docs](/docs/pro/view.html) for an overview of features in the app itself.
 
 In order to share & test with Ionic View, you'll have to push any code up to Ionic Pro that you'd like to share with [git push ionic master](/docs/pro/git.html#pushing-new-builds).
 
@@ -69,4 +69,4 @@ You can view feedback submitted by testers for any app from the Feedback tab in 
   <img style="width: 950px" src="/img/pro/beta-testing-feedback.png">
 </div>
 
-See the [Submitting Feedback](/docs/pro/view/#submitting-feedback) for more details.
+See the [Submitting Feedback](/docs/pro/view.html#submitting-feedback) for more details.

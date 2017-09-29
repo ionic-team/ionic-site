@@ -9,6 +9,18 @@
     hgroup {
       padding-top: 97px;
       padding-bottom: 355px;
+      position: relative;
+
+      &::before {
+        background: url('/img/products/monitor/monitor-cta-icon.png') 0 0 no-repeat;
+        background-size: 80px;
+        width: 80px;
+        height: 80px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: calc(50% - 40px);
+      }
     }
 
     h1 {
@@ -65,6 +77,20 @@
         @media (max-width: $screen-xs-max)  {
           flex-basis: 100%;
         }
+
+        &::before {
+          background: url('/img/products/monitor/feature-icons-sm.png') 0 0 no-repeat;
+          background-size: 48px;
+          width: 48px;
+          height: 48px;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        &.built::before { background-position: 0 -48px; }
+        &.typescript::before { background-position: 0 -96px; }
       }
 
       strong {
@@ -130,6 +156,15 @@
   section.left,
   section.right,
   section.both {
+    hgroup::before {
+      background-image: url('/img/products/monitor/feature-icons-lg.png');
+      background-size: 64px;
+
+      @media (max-width: $screen-sm-max)  {
+        left: calc(50% - 32px);
+      }
+    }
+
     h2 {
       font-size: 26px;
       letter-spacing: -.01em;
@@ -152,14 +187,60 @@
 
   .confidence {
     background: #f4f9f7;
+    position: relative;
+
+    .container {
+      position: static;
+    }
+
+    hgroup {
+      position: relative;
+      z-index: 1;
+    }
+
+    .graphics {
+      background-image: url('/img/products/monitor/feature-img-confidence.png');
+      background-size: 1145px;
+      width: 1145px;
+
+      @media (max-width: $screen-md-max)  {
+        right: -20%;
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        display: none;
+      }
+    }
   }
 
   .ahead {
     background: #e1ebe9;
+
+    hgroup::before { background-position: 0 -64px; }
+
+    .graphics {
+      background-image: url('/img/products/monitor/feature-img-ahead.png');
+      background-size: 621px;
+      width: 621px;
+
+      @media (max-width: $screen-md-max)  {
+        // right: -20%;
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        display: none;
+      }
+    }
   }
 
   .both {
     background: linear-gradient(to right, #7c9c91 50%, #4e7366 50%);
+
+    hgroup {
+      &::before { background-position: 0 -128px; }
+
+      + hgroup::before { background-position: 0 -192px; }
+    }
     
     h2 {
       color: white;
@@ -174,9 +255,10 @@
     }
     
     @media (max-width: $screen-sm-max)  {
+      background: linear-gradient(to bottom, #7c9c91 50%, #4e7366 50%);
+
       .container {
         display: block;
-        background: linear-gradient(to bottom, #7c9c91 50%, #4e7366 50%);
       }
     }
   }

@@ -28,7 +28,32 @@ This lets you:
 
 ## Getting Started
 
-First, in your app's `index.html` file, add the following script include *immediately following cordova.js*. Replace `APP_ID` and `APP_VERSION` with
+### NPM Install
+
+We recommend installing the Ionic Pro client from NPM. 
+
+```bash
+npm install @ionic/pro
+```
+
+And then make sure to import and initialize the Pro client (for example, in `app.module.ts`):
+
+```typescript
+import { Pro } from '@ionic/pro';
+
+const IonicPro = Pro.init('APP_ID', {
+  appVersion: "APP_VERSION"
+});
+```
+
+Where `APP_ID` is the Ionic Pro App ID Found on the dashboard for your app. `APP_VERSION` is the version of the code
+running for the purposes of tracking code changes. For example, this could mirror the version in `package.json` or `config.xml`.
+
+### CDN Install
+
+The CDN install is for apps that aren't using a build step (for example, Ionic/Angular 1).
+
+First, in your app's `index.html` file, add the following script include *immediately following your app code. Replace `APP_ID` and `APP_VERSION` with
 the id of your app on https://app.ionicjs.com/, along with the version of your app as found in your `config.xml`.
 
 ```html
@@ -41,18 +66,28 @@ service will know when regressions have happened, as well as mapping your code t
 Source Maps you've provided.
 </div>
 
+<div class="callout info" markdown="1">
+For Ionic 1/AngularJS apps, including the script tag is all you need to do. For Angular 2, follow instructions below to add the custom error handler.
+</div>
+
 ## Angular 2.x+ Integration
 
 For Ionic-Angular apps (Ionic 2.x and Angular 2.x and above), to capture errors automatically from Angular, add this snippet in `app.module.ts`:
 
 ```typescript
+import { Pro } from '@ionic/pro';
+
+const IonicPro = Pro.init('APP_ID', {
+  appVersion: "APP_VERSION"
+});
+
 import { ErrorHandler } from '@angular/core';
 
 declare var window;
 
 export class MyErrorHandler implements ErrorHandler {
   handleError(err: any): void {
-    window.Ionic.handleNewError(err);
+    IonicPro.monitoring.handleNewError(err);
   }
 }
 ```
@@ -66,6 +101,49 @@ Then add this entry to the `providers` in `NgModule`:
   ]
 ```
 
+## Manual capture
+
+Ionic Pro Monitoring supports manually capturing errors and also sending log messages. Additionally, an `extra` field
+takes key/value pairs for adding additional metadata for a call.
+
+#### `Pro.getApp().monitoring.exception(errorObject, extra)`
+
+Manually capture an error. For example
+
+```typescript
+Pro.getApp().monitoring.exception(new Error('error'))
+```
+
+`Pro.getApp().monitoring.log(msg, options, extra)`
+
+Capture and send a log message. Options takes a `level` (such as 'error' or 'info').
+
+Example:
+
+```typescript
+Pro.getApp().monitoring.log('This happens sometimes', { level: 'error' })
+```
+
+#### `Pro.getApp().monitoring.call(fn, extra)`
+
+Call a function and automatically capture any resulting errors. Example:
+
+```typescript
+Pro.getApp().monitoring.call(() => {
+  throw new Error('error');
+})
+```
+
+#### `Pro.getApp().monitoring.wrap(fn, extra)`
+
+Return a function that will automatically track any errors. Example:
+
+```typescript
+const newFn = Pro.getApp().monitoring.wrap(() => {
+  throw new Error('error');
+})
+newFn();
+```
 
 ## Source Maps
 

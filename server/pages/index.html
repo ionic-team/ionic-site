@@ -74,7 +74,10 @@
       <li>
         <a href="https://twitter.com/IonicFramework" target="_blank">
           <i class="ion-logo-twitter"></i>
-          <span id="tw-followers">Twitter</span>
+          <span id="tw-followers">
+            {%if followerCount %}{{followerCount.toLocaleString()}} followers
+            {% else %} twitter {% endif %}
+          </span>
         </a>
       </li>
     </ul>
@@ -416,17 +419,6 @@ $.ajax({
       if(data.data.forks){
         $("#gh-forks").html(digits(data.data.forks));
       }
-    }
-  }
-});
-
-$.ajax({
-  dataType: "jsonp",
-  url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=ionicframework",
-  success: function(data){
-    if(data && data.length && data[0].formatted_followers_count){
-      $("#tw-followers").html(digits(data[0].formatted_followers_count));
-      console.log(digits(data[0].formatted_followers_count))
     }
   }
 });

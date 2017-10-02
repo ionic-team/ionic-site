@@ -82,6 +82,7 @@
     "run-sequence": "^1.2.2",
     "sendgrid": "^5.1.0",
     "tiny-lr": "0.0.5",
-    "twilio": "^3.6.7"
+    "twilio": "^3.6.7",
+    "twitter": "^1.7.1"
   }
 }

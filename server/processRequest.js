@@ -3,6 +3,10 @@ var frameworkInfo   = require('./data/framework-info');
 var redirects       = require('./data/redirects');
 var trustedPartners = require('./data/trusted-partners');
 var url             = require('url');
+var followerCount   = null;
+var tools           = require('./tools').getTwitterProfile().then(user => {
+  followerCount = user ? user.followers_count : null
+});
 
 module.exports = function(req, res, next) {
 
@@ -65,6 +69,7 @@ module.exports = function(req, res, next) {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
     employees: shuffle(employees),
+    followerCount: followerCount,
     pre_footer: true,
     protocol: protocol,
     domain: req.get('host'),

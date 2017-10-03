@@ -83,8 +83,6 @@ const IonicPro = Pro.init('APP_ID', {
 
 import { ErrorHandler } from '@angular/core';
 
-declare var window;
-
 export class MyErrorHandler implements ErrorHandler {
   handleError(err: any): void {
     IonicPro.monitoring.handleNewError(err);

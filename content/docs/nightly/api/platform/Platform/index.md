@@ -562,7 +562,7 @@ the back button action.</p>
 </a>
 </h3>
 
-The resize event emits when the browser window has changed dimentions. This
+The resize event emits when the browser window has changed dimensions. This
 could be from a browser window being physically resized, or from a device
 changing orientation.
 

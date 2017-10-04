@@ -139,7 +139,8 @@ As we said previously, we strongly recommend developers upgrade to WKWebView, bu
 ### Option 1: Force UIWebView usage
 
 You can force cordova to use the default engine (UIWebView) by explicitally telling so:
-```
+
+```xml
 <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
 ```
 
@@ -164,7 +165,7 @@ Since WKWebView is essentially a new browser, any data that you could have in Lo
 We strongly recommend to use the [ionic-storage](https://ionicframework.com/docs/storage/) package which abstracts aways most of the problems with persistent storage. 
 
 
- ## My app does not load, white screen
+## My app does not load, white screen
 
 > I don't have any error in my code, but still I get a blank screen
 

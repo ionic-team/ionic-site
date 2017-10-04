@@ -12,6 +12,24 @@ if (window.experiment) {
   ga('set', 'expVar', window.experiment.variant);
 }
 
+ga('require', 'Clearbit', {"mapping":{
+  "companyName":"dimension1",
+  "companyDomain":"dimension2",
+  "companyTags":"dimension3",
+  "companySector":"dimension4",
+  "companyIndustryGroup":"dimension5",
+  "companyIndustry":"dimension6",
+  "companySubIndustry":"dimension7",
+  "companyType":"dimension8",
+  "companyEmployeesRange":"dimension9",
+  "companyAlexaRank":"dimension10",
+  "companyCity":"dimension11",
+  "companyState":"dimension12",
+  "companyCountry":"dimension13",
+  "companyFunding":"dimension14",
+  "companyTech":"dimension15"
+}});
+
 // Universal ID
 ga('create', 'UA-44023830-23', 'auto', {'allowLinker': true}, 'universalID');
 ga('require', 'linker');

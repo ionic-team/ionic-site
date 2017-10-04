@@ -123,10 +123,6 @@ takePhoto() {
 
 **Note**: Core cordova plugins also allow you to reference a file via the `cdvfile://` protocol. Unfortunately, we cannot rewrite this path as it is something that gets resolved in native code. We suggest that when ever you reference a file, use the full path for rewrites, not `cdvfile://`.
 
-## App data is not copied over
-
-Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
-
 
 ## Upgrading to WKWebView (UIWebView users only)
 
@@ -151,6 +147,13 @@ $ ionic cordova build ios
 
 
 # FAQs
+
+## App data is not copied over
+
+> I just migrated from UIWebView to WKWebView and the storage data looks lost.
+
+Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
+
 
 ## My app does not load, white screen
 
@@ -216,6 +219,22 @@ If it is the case, use `normalizeURL()` to rewrite the path:
 import { normalizeURL} from 'ionic-angular';
 
 imageSRC = normalizeURL(url);
+```
+
+## Configuring AVAudioSession doesn't affect WKWebView
+
+WKWebView runs in a separate process from your app. It is likely that it has its own AudioSession separate from your app's AudioSession. One possible workaround is to allow your app's AudioSession to mix with others:
+
+```obj-c
+[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord 
+                                 withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                                       error:&error];
+```
+
+Fortunatelly, Ionic's WebView can do this for you by setting the `AudioCanMix` cordova preference to `true`.
+
+```xml
+<preference name="AudioCanMix" value="true" />
 ```
 
 

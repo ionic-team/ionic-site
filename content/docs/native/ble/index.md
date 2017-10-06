@@ -189,38 +189,6 @@ function bytesToString(buffer) {
 
 
 
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
-
-
-Read the RSSI value on the device connection.
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      deviceId</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>UUID or MAC address of the peripheral</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
 
 
 
@@ -758,6 +726,36 @@ Open System Bluetooth settings (Android only).
 Enable Bluetooth on the device (Android only).
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
+
+
+Read the RSSI value on the device connection.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

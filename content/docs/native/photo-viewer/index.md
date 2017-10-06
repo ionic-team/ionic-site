@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Photo Viewer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L8">
   Improve this doc
 </a>
 
@@ -115,7 +115,7 @@ Shows an image in full screen
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>PhotoViewerOptions</code>
     </td>
     <td>
       </td>

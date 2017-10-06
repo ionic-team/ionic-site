@@ -427,6 +427,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$action-sheet-ios-group-margin-top</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Top margin of the action sheet button group</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$action-sheet-ios-group-margin-bottom</code></td>
         
           <td><code>10px</code></td>
@@ -647,11 +656,20 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-group-margin-bottom</code></td>
+        <td><code>$action-sheet-md-padding-top</code></td>
         
-          <td><code>8px</code></td>
+          <td><code>.8rem</code></td>
         
-        <td><p>Bottom margin of the action sheet button group</p>
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       
@@ -890,6 +908,24 @@ out before starting a new transition.</p>
           <td><code>#fff</code></td>
         
         <td><p>Background color of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-top</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       

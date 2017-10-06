@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201710060507, Dark Theme
+ * vE2E-201710060948, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -19,6 +19,7 @@ ion-action-sheet {
 .action-sheet-wrapper {
   left: 0;
   right: 0;
+  top: 0;
   bottom: 0;
   margin: auto;
   -webkit-transform: translate3d(0,  100%,  0);
@@ -27,16 +28,43 @@ ion-action-sheet {
   z-index: 10;
   display: block;
   width: 100%;
-  max-width: 500px; }
+  max-width: 500px;
+  pointer-events: none; }
 
 .action-sheet-button {
   width: 100%; }
+
+.action-sheet-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  height: 100%;
+  max-height: 100%; }
+
+.action-sheet-group {
+  overflow: scroll;
+  -webkit-flex-shrink: 2;
+  -ms-flex-negative: 2;
+  flex-shrink: 2;
+  pointer-events: all; }
+
+.action-sheet-group-cancel {
+  overflow: hidden;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0; }
 
 .action-sheet-ios {
   text-align: center; }
 
 .action-sheet-ios .action-sheet-wrapper {
-  margin: auto auto constant(safe-area-inset-bottom); }
+  margin: constant(safe-area-inset-top) auto constant(safe-area-inset-bottom); }
 
 .action-sheet-ios .action-sheet-container {
   padding: 0 10px; }
@@ -44,8 +72,12 @@ ion-action-sheet {
 .action-sheet-ios .action-sheet-group {
   border-radius: 13px;
   margin-bottom: 8px;
-  overflow: hidden;
-  background: #f9f9f9; }
+  background: #f9f9f9;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000); }
+
+.action-sheet-ios .action-sheet-group:first-child {
+  margin-top: 10px; }
 
 .action-sheet-ios .action-sheet-group:last-child {
   margin-bottom: 10px; }
@@ -88,10 +120,6 @@ ion-action-sheet {
   font-weight: 600;
   background: #fff; }
 
-.action-sheet-md .action-sheet-container {
-  padding: 0.8rem 0;
-  background: #fafafa; }
-
 .action-sheet-md .action-sheet-title {
   text-align: left;
   text-align: start;
@@ -122,7 +150,13 @@ ion-action-sheet {
   margin: 0 32px 0 0; }
 
 .action-sheet-md .action-sheet-group {
-  overflow: hidden; }
+  background: #fafafa; }
+
+.action-sheet-md .action-sheet-group:first-child {
+  padding-top: 0.8rem; }
+
+.action-sheet-md .action-sheet-group:last-child {
+  padding-bottom: 0.8rem; }
 
 .action-sheet-md .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;
@@ -162,9 +196,14 @@ ion-action-sheet {
   vertical-align: middle;
   margin: 0 20px 0 0; }
 
-.action-sheet-wp .action-sheet-container {
-  padding: 0.8rem 0;
+.action-sheet-wp .action-sheet-group {
   background: #fff; }
+
+.action-sheet-wp .action-sheet-group:first-child {
+  padding-top: 0.8rem; }
+
+.action-sheet-wp .action-sheet-group:last-child {
+  padding-bottom: 0.8rem; }
 
 .action-sheet-wp .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;

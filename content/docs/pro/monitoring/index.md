@@ -47,7 +47,7 @@ const IonicPro = Pro.init('APP_ID', {
 ```
 
 Where `APP_ID` is the Ionic Pro App ID Found on the dashboard for your app. `APP_VERSION` is the version of the code
-running for the purposes of tracking code changes. For example, this could mirror the version in `package.json` or `config.xml`.
+running for the purposes of tracking code changes. We strongly recommend that this mirrors the version in `package.json` or `config.xml`.
 
 ### CDN Install
 
@@ -168,8 +168,7 @@ See the note about versions below, as keeping your Source Maps in sync with your
 To add a Source Map manually, navigate to your app on the [https://dashboard.ionicjs.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
 then click "Source Maps" in the upper right.
 
-You can find your Source Maps after doing a dev or prod build in `YOUR_APP/.tmp/build/`. Upload all `js.map` files
-under the same version string (for example, `main.js.map`).
+You can find your Source Maps after doing a dev or prod build in `YOUR_APP/.sourcemaps/`. Upload the `main.js.map` sourcemap for Angular/Ionic 2+, and any other sourcemaps that correspond to your code for other Ionic/Angular versions.
 
 See the note about versions below, as keeping your Source Maps in sync with your app version is crucial for accurate stack trace context.
 

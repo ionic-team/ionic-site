@@ -1863,7 +1863,7 @@ or with the &#39;data&#39; field on the REST API.</p>
   
   <tr>
     <td>
-      launchUrl
+      launchURL
     </td>
     <td>
       <code>string</code>

@@ -71,6 +71,7 @@ initMethod() {
 getUrl() {
      return this.url;
 }
+// DATABASES //
 createDatabase(database_name:string) {
      let url = this.getUrl();
      url = url+database_name;
@@ -81,7 +82,6 @@ createDatabase(database_name:string) {
           return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
         })
  }
-
 deleteDatabase(database_name:string) {
      let url = this.getUrl();
      url = url+database_name;

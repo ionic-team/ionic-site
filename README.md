@@ -32,7 +32,7 @@ Ionic v1 and v2 now automatically deploy their changes to an Ionic staging serve
 
 ## Third Party Libraries
 
-3rd part libraries should be concatonated in to the site bundle by adding them via package.json and specifying what files to include in the `assets/3rd-party-libs.json` file. 
+3rd part libraries should be concatenated into the site bundle by adding them via package.json and specifying what files to include in the `assets/3rd-party-libs.json` file. 
 
 
 ## Deploy

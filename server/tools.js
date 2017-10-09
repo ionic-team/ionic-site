@@ -8,7 +8,11 @@ const twitter = require('twitter')({
   access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET
 });
 
+const jsforce = require('jsforce');
+var sfConn = new jsforce.Connection()
+
 module.exports = {
+  // CloudFlare
   bustCloudflareCache: () => {
     if (!config.CF_EMAIL || !config.CF_TOKEN || !config.CF_ZONE) {
       // return console.log('Insufficient credentials to bust CloudFlare cache');
@@ -41,6 +45,7 @@ module.exports = {
     });
   },
 
+  // Twitter
   getTwitterProfile: () => {
     if (!config.TWITTER_CONSUMER_KEY ||
       !config.TWITTER_CONSUMER_SECRET ||
@@ -58,6 +63,7 @@ module.exports = {
     });
   },
 
+  // Sendgrid
   email: (toEmails, from, fromName, subject, text) => {
     if (!config.SENDGRID_APIKEY) {
       console.warn('Sendgrid API keys not found, ignoring email request');
@@ -125,5 +131,92 @@ module.exports = {
       body: {}
     }
     return sg.API(requestParams)
+  },
+
+  sendThankYouForContacting: (email) => {
+    return new Promise((resolve, reject) => {
+      // server doesn't have API keys in local env, ignore
+      if(!config.SENDGRID_APIKEY) {
+        console.warn('Sendgrid API key not found. Ignoring email request.');
+        return resolve(null);
+      }
+      var thankYouEmail = {
+        method: 'POST',
+        path: '/v3/mail/send',
+        body: {
+          personalizations: [{
+            to: [{email:email}],
+            subject: 'Thanks for reaching out!'
+          }],
+          from: {
+            email: 'no-reply@ionicframework.com', 
+            name: 'Ionic'
+          },
+          content: [{
+            type: 'text/html',
+            value: `We’ve received your info and a member of our sales team will get in touch soon.
+  Until then, feel free to visit our Resource Center for additional information on our business and enterprise offerings, including customer stories and product info.
+  Cheers,
+  The Ionic Team`
+          }],
+          template_id: 'd8f22fb4-d88b-4e82-8ffa-025cb8039447',
+        }
+      }
+      sg.API(thankYouEmail, (error, response) => {
+        if (error) {
+          reject(error)
+          return console.error(error, response.body);
+        }
+        resolve(response)
+      })
+    })
+  },
+
+  // SalesForce
+  addSalesForceLead: (form) => {
+    return new Promise((resolve, reject) => {
+      if(!config.SALESFORCE_USER || !config.SALESFORCE_PASSWORD_TOKEN) {
+        console.warn('Salesforce API credentials not found. Ignoring CRM request.');
+        return reject(null);
+      }
+  
+      sfConn.login(config.SALESFORCE_USER, config.SALESFORCE_PASSWORD_TOKEN, function(err, userInfo) {
+        console.log(err)
+        if (err) { return reject(err); }
+        sfConn.sobject("Lead").create({
+          email: form.email,
+          firstname: form.first_name,
+          lastname: form.last_name,
+          title: form.title,
+          company: form.company,
+          leadsource: 'Ionicframework.com',
+          Webpage__c: form.page,
+          Lead_Capture_Message__c: form.message,
+          NumberOfEmployees: form.Employees,
+          Phone: form.phone,
+          Lead_Life_Stage__c: 'Marketing Qualified Lead'
+        }).then((ret, err) => {
+          if (err || !ret.success) {
+            reject(err)
+            return console.error(err, ret);
+          }
+          sfConn.sobject("campaignMember").create({
+            LeadId: ret.id, 
+            Status: 'Responded',
+            CampaignId: '701f40000008UYD'
+          }).then((ret, err) => {
+            if (err || !ret.success) {
+              reject(err)
+              return console.error(err, ret);
+            }
+  
+            resolve(ret)
+          })
+        }).catch((err,ret)=> {
+          reject(err)
+          return console.error(err, ret);
+        })
+      })
+    })
   }
 };

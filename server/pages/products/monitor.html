@@ -31,6 +31,76 @@
       down to the Typescript level.
     </p>
   </hgroup>
+
+  <div id="heart-monitor-stage">
+    <div id="grid"></div>
+    {# <div id="edges"></div>
+    <div id="spotlight"></div> #}
+    
+    <svg id="heartline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 470 150">
+    <defs>
+      
+      <filter id="myblurfilter" width="100%" height="100%">
+      	<feGaussianBlur stdDeviation="4" result="blur" />
+      </filter>
+    
+      <linearGradient id="gradient" gradientUnits="userSpaceOnUse" gradientTransform="translate(470)" x2="470" y2="0">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0"/>
+        <stop offset="99%" stop-color="#FFFFFF" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="mask" maskUnits="userSpaceOnUse">
+          <rect width="800" height="300" fill="url(#gradient)"/>
+      </mask>
+      
+        <linearGradient id="gradient-2" 
+                        gradientUnits="userSpaceOnUse" 
+                        gradientTransform="translate(470)" 
+                        x2="470" 
+                        y2="0">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+        <stop offset="5%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+        <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1"/>
+        <stop offset="99%" stop-color="#FFFFFF" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="mask-3" maskUnits="userSpaceOnUse">
+          <rect width="800" height="300" fill="url(#gradient-2)"/>
+      </mask>
+      
+      <linearGradient id="dot" 
+                      gradientUnits="userSpaceOnUse" 
+                      gradientTransform="translate(470)" 
+                      x2="470" 
+                      y2="0">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+        <stop offset="96%" stop-color="#FFFFFF" stop-opacity="0"/>
+        <stop offset="99%" stop-color="#FFFFFF" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      </linearGradient>
+    
+      <mask id="mask-2" maskUnits="userSpaceOnUse">
+          <rect width="800" height="300" fill="url(#dot)"/>
+      </mask>
+    </defs>
+    
+    <path class="path-3" 
+          d="M470.5,106s-23-1-30-1-9-21-18-20-28,20-31,20h-32l-9,33-8-138-8,106h-20s-5-10-9-10-10,10-11,10H235s-23-1-30-1-9-21-18-20-28,20-31,20H124l-9,33L107,0,99,106H79s-5-10-9-10-10,10-11,10H0"
+          mask="url(#mask-3)"
+          filter="url(#myblurfilter)"
+          />
+    <path class="path"
+          stroke-width="2"
+          d="M470.5,106s-23-1-30-1-9-21-18-20-28,20-31,20h-32l-9,33-8-138-8,106h-20s-5-10-9-10-10,10-11,10H235s-23-1-30-1-9-21-18-20-28,20-31,20H124l-9,33L107,0,99,106H79s-5-10-9-10-10,10-11,10H0" 
+          mask="url(#mask)"
+          />
+    <path class="path-2"
+          stroke-width="4"
+          d="M470.5,106s-23-1-30-1-9-21-18-20-28,20-31,20h-32l-9,33-8-138-8,106h-20s-5-10-9-10-10,10-11,10H235s-23-1-30-1-9-21-18-20-28,20-31,20H124l-9,33L107,0,99,106H79s-5-10-9-10-10,10-11,10H0"
+          mask="url(#mask-2)"/>
+    </svg>
+  </div>
 </div>
 
 <main>
@@ -163,5 +233,40 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+var gradient = document.getElementById('gradient');
+var gradient2 = document.getElementById('gradient-2');
+var dot = document.getElementById('dot');
+var spotlight = document.getElementById('grid');
+var svgWidth = document.getElementById('heartline').getBoundingClientRect().width;
+var speed = 3;
+var position = -470;
 
+// Animation loop
+rafLoop(function( deltaT ) {
+  var newPos = position > 470 ? position - (470*2) : position;
+  newPos = parseInt((newPos + speed), 10);
+  // console.log(deltaT)
+  
+  // DOM writes at the end
+  gradient.setAttribute('gradientTransform','translate('+newPos+')')
+  gradient2.setAttribute('gradientTransform','translate('+newPos+')')
+  dot.setAttribute('gradientTransform','translate('+newPos+')')
+  spotlight.style['-webkit-mask-position'] = 
+    parseInt((((newPos+470)/940) * svgWidth) - (svgWidth/2),10)+'px, 50%';
+  // console.log(newPos, svgWidth)
+  
+  position = newPos;
+});
+
+function rafLoop( render, element ) {
+  var running, lastFrame = +new Date;
+  function loop( now ) {
+    requestAnimationFrame( loop, element );
+    running = render( now - lastFrame );
+    lastFrame = now;
+  }
+  loop( lastFrame );
+}
+</script>
 {% endblock %}

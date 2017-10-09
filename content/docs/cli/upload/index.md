@@ -42,12 +42,12 @@ Option | Description
 `--note` | Give this snapshot a nice description
 `--deploy` | Deploys this snapshot to the given channel
 `--metadata` | Set custom metadata JSON for the deploy
-`--prod` | Build the application for production
-`--aot` | Perform ahead-of-time compilation for the upload's build
-`--minifyjs` | Minify JS for the upload's build
-`--minifycss` | Minify CSS for the upload's build
-`--optimizejs` | Perform JS optimizations for the upload's build
 `--no-build` | Do not invoke an Ionic build
+`--prod` | Build the application for production
+`--aot` | Perform ahead-of-time compilation for this build
+`--minifyjs` | Minify JS for this build
+`--minifycss` | Minify CSS for this build
+`--optimizejs` | Perform JS optimizations for this build
 
 ## Examples
 

@@ -25,6 +25,10 @@
           line-height: 1.8em;
         }
       }
+
+      @media (max-width: $screen-xs-max)  {
+        margin-top: 0;
+      }
     }
   }
 
@@ -38,53 +42,95 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .1);
     padding: 64px 48px;
     max-width: 960px;
-
-    @media (max-width: 520px)  {
-      padding: 64px 4px;
-    }
-    
-    p {
-      font-weight: 500;
-      max-width: 420px;
-      margin-top: 32px;
-      text-align: left;
-      margin-left: 16px;
-      
-      @media (max-width: $screen-xs-max)  {
-        text-align: center;
-        margin-left: 0;
-        max-width: 100%;
-      }
-    }
-  }
-
-  .content {
     display: flex;
     flex-wrap: wrap;
-    
-    ul {
-      padding: 0 0 32px 48px;
-      list-style: none;
-      text-align: left;
-      flex: 1 1 380px;
+    font-weight: 500;
+    text-align: left;
 
-      @media (max-width: $screen-sm-max)  {
-        flex: 1 1 234px;
+    @media (max-width: 520px)  {
+      padding: 64px 16px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    form {
+      .btn {
+        float: left;
       }
+    }
+    
+    .content {
+      flex: 0 0 420px;
+
+      @media (max-width: $screen-xs-max)  {
+        margin: 0 auto;
+      }
+
+      @media (max-width: 520px)  {
+        flex-shrink: 1;
+  
+        form {
+          max-width: 100%;
+        }
+  
+        input {
+          width: 100%;
+        }
+      }
+      
+      p {
+        max-width: 420px;
+        margin-top: 32px;
+        margin-left: 16px;
+        
+        @media (max-width: $screen-xs-max)  {
+          text-align: center;
+          margin-left: 0;
+          max-width: 100%;
+        }
+      }
+    }
+
+    aside {
+      flex: 1 1 380px;
+      padding-left: 48px;
 
       @media (max-width: $screen-xs-max)  {
         order: -1;
-        padding: 0 0 32px;
+        padding-bottom: 32px;
+        padding-left: 0;
+      }
+
+      h3 {
+        font-size: 21px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 28px;
       }
     }
-
+  
+    ul {
+      padding: 16px 0 16px;
+      list-style: none;
+      text-align: left;
+  
+      @media (max-width: $screen-sm-max)  {
+        flex: 1 1 234px;
+      }
+    }
+  
     li {
       color: #404349;
       font-size: 14px;
       list-style: none;
       padding: 14px 0 0 22px;
       position: relative;
-
+  
       &::before {
         font-family: 'Ionicons';
         content: '\f2ba';
@@ -94,18 +140,9 @@
         top: 14px;
         color: #5f57ff;
       }
-
+  
       b {
         font-weight: 600;
-        // color: #5f57ff;
-      }
-    }
-
-    form {
-      flex: 0 0 420px;
-
-      .btn {
-        float: left;
       }
     }
   }

@@ -309,10 +309,77 @@
       }
     }
 
+    .products {
+      .dropdown-menu {
+        left: -143px;
+        padding-top: 9px;
+        // transition-delay: .1s !important;
+
+        a {
+          padding: 12px 47px 12px 71px;
+          font-size: 12px;
+          position: relative;
+          line-height: 19px;
+          letter-spacing: -.01em;
+          transition: .2s color;
+  
+          &::before {
+            background: url('/img/dropdown-icons.png') no-repeat 0 0;
+            background-size: 32px;
+            height: 32px;
+            width: 32px;
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 15px;
+          }
+  
+          strong {
+            display: block;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            color: #272a2f;
+            letter-spacing: .1em;
+            transition: .2s color;
+          }
+
+          &:hover strong {
+            color: $blue;
+          }
+
+          &.creator::before { background-position: 0 -96px; }
+          &.view::before { background-position: 0 -128px; }
+          &.deploy::before { background-position: 0 -160px; }
+          &.package::before { background-position: 0 -192px; }
+          &.monitor::before { background-position: 0 -224px; }
+          &.hosting::before { background-position: 0 -256px; }
+          &.pro {
+            margin-bottom: 1px;
+            border-bottom: 1px solid #e8ebf1;
+            padding: 15px 24px 21px 83px;
+
+            &::before { 
+              background-image: url('/img/dropdown-pro-icon.png');
+              background-size: 100%;
+              width: 40px;
+              height: 40px;
+              left: 22px;
+              top: 13px;
+            }
+
+            strong {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
     .developers {
       .dropdown-menu {
         left: -145px;
-        transition-delay: .1s !important;
+        // transition-delay: .1s !important;
       }
 
       a {
@@ -405,7 +472,7 @@
     .support, 
     .ecosystem {
       ul {
-        transition-delay: .1s !important;
+        // transition-delay: .1s !important;
       }
       ul a {
          position: relative;

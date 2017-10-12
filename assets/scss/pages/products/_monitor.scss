@@ -1,7 +1,7 @@
 #page-products-monitor {
   .top {
-    margin-top: -138px;
-    padding-top: 162px;
+    margin-top: -150px;
+    padding-top: 174px;
     background: #0c1c1c;
     background: linear-gradient(to right, #051312 0%, #112624 100%);
     text-align: center;
@@ -39,11 +39,14 @@
   }
 
   #heart-monitor-stage {
-    height: calc(100vw * .35);
-    width: 100%;
+    // height: calc(100vw * .35);
+    // width: 100%;
+    height: 250px;
+    width: 400px;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 64px;
+    // left: 0;
+    left: calc(50% - 200px);
     overflow: hidden;
     // background-color: #434343;
     // background-image:linear-gradient(to right, #051413, #102624);
@@ -163,12 +166,6 @@
         &::before {
           background: url('/img/products/monitor/feature-icons-sm.png') 0 0 no-repeat;
           background-size: 48px;
-          width: 48px;
-          height: 48px;
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
         }
 
         &.built::before { background-position: 0 -48px; }

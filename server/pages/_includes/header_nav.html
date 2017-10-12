@@ -30,10 +30,10 @@
 </li> #}
 
 <li{% if id == 'home' %} class="active"{% endif %}><a href="/">Framework</a></li>
-<li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
-  <a href="/products">Products</a></li>
+{# <li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
+  <a href="/products">Products</a></li> #}
 
-{# <li class="dropdown products">
+<li class="dropdown products">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
@@ -52,7 +52,7 @@
     <li>
       <a href="/products#prototyping" class="creator">
         <strong>Creator</strong>
-        Visually drag &amp; drop Ionic app prototyping tool.
+        Visual drag &amp; drop Ionic app prototyping tool.
       </a>
     </li>
     <li>
@@ -80,7 +80,7 @@
       </a>
     </li>
   </ul>
-</li> #}
+</li>
 
 <li class="sm-hide{% if id.indexOf('pricing') == 0%} active{% endif %}">
   <a href="/pricing">Pricing</a></li>

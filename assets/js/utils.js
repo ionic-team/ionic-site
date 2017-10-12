@@ -121,28 +121,32 @@ hljs.initHighlightingOnLoad();
 }());
 
 // Smooth Scroll To anchor links with the .anchor class
-$('a.anchor[href*="#"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        var offset = event.target.dataset && event.target.dataset.offset 
-          ? event.target.dataset.offset : 100
-        $('html, body').animate({
-          scrollTop: target.offset().top - offset // give 100px of headroom
-        }, 1000);
-      }
-      return false;
+$('a.anchor[href*="#"]').click(function(event) {
+  // On-page links
+  if (
+    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+    && 
+    location.hostname == this.hostname
+  ) {
+    // Figure out element to scroll to
+    var target = $(this.hash);
+    // Does a scroll target exist?
+    if (target.length) {
+      var offset = event.target.dataset && event.target.dataset.offset 
+        ? event.target.dataset.offset : 100
+      $('html, body').animate({
+        scrollTop: target.offset().top - offset // give 100px of headroom
+      }, 600);
+    } else {
+      // otherwise scroll to the top of the page
+      $('html, body').animate({
+        scrollTop: 0 // give 100px of headroom
+      }, 600);
     }
-  });
+    history.pushState && history.pushState(null, null, this.hash)
+    return false;
+  }
+});
 
 
 window.scrollToEl = function(selector) {

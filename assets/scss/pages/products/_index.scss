@@ -342,7 +342,13 @@
         content: '';
         display: block;
         position: absolute;
+        opacity: 0;
+        transition: .2s opacity;
       }
+    }
+
+    &.active .container::before {
+      opacity: 1;
     }
 
     h4 {
@@ -386,6 +392,32 @@
         &:hover {
           color: $blue;
         }
+      }
+    }
+
+    .btn {
+      padding: 13px 15px;
+      font-size: 14px;
+      font-weight: 600;
+
+      strong {
+        font-weight: 700;
+      }
+      
+      &::after {
+        font-family: 'Ionicons';
+        content: '\f287';
+        font-size: 15px;
+        line-height: 10px;
+        vertical-align: -1px;
+        margin-left: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: .2s transform;
+      }
+
+      &:hover::after {
+        transform: translate3d(2px, 0, 0);
       }
     }
   }
@@ -474,7 +506,8 @@
     background: #f6f8fc;
     overflow: visible;
 
-    h4 {
+    h4,
+    .btn {
       color: #2bb7ff;
     }
 
@@ -526,7 +559,8 @@
   #testing {
     background: #dee4ee;
 
-    h4 {
+    h4,
+    .btn {
       color: #488aff;
 
       &::before { background-position: 0 -64px; }
@@ -579,7 +613,8 @@
     background-image: linear-gradient(to right, #2a226d 0%, #5e41ba 100%);
     background-size: 100%;
 
-    h4 {
+    h4,
+    .btn {
       color: #9f9fff;
 
       &::before { background-position: 0 -128px; }
@@ -622,7 +657,8 @@
     background-position: left 0;
     background-size: 100%;
 
-    h4 {
+    h4,
+    .btn {
       color: #d2478c;
 
       &::before { background-position: 0 -192px; }
@@ -676,7 +712,8 @@
     background-image: linear-gradient(to right, #0e211f 0%, #142f2d 100%);
     background-size: 100%;
 
-    h4 {
+    h4,
+    .btn {
       color: #00cd5f;
 
       &::before { background-position: 0 -256px; }

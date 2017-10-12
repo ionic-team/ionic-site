@@ -18,16 +18,48 @@ Here's an example of stringing together the API functions to perform an update:
 declare var IonicCordova
 
 export function update(appId: string, channelName: string, callback: (err: any, success: boolean) => void) {
-  IonicCordova.deploy.check(appId, channelName, (res: any) => {
+  // Set our app data (OPTIONAL)
+  let config = {
+    appId: "abcd1234",
+    channel: "Master"
+  }
+
+  // Initialize the deploy plugin (OPTIONAL)
+  IonicCordova.deploy.init(config, (res: any) => {
+    console.log(res)
+  }, (err: any) => {
+    handleError(err, callback)
+  })
+
+  // Check for available updates
+  IonicCordova.deploy.check((res: any) => {
     console.log("Check result:", res)
 
-    if (res && res === 'true') {
-      IonicCordova.deploy.download(appId, () => {
-        IonicCordova.deploy.extract(appId, () => {
-          IonicCordova.deploy.redirect(appId, () => {
-            callback(null, true)
+    if (res === 'true') {
+
+      // A new version is ready to download
+      IonicCordova.deploy.download((res: any) => {
+        if  (res === 'true' || res == 'false') {
+
+          // We can unzip the latest version
+          IonicCordova.deploy.extract(appId, (res: any) => {
+            if (res === 'true' || res == 'false') {
+
+              // we're ready to load the new version
+              IonicCordova.deploy.redirect(() => {
+                callback(null, true)
+              }, (e: any) => {handleError(e, callback)})
+            } else {
+
+              // It's a progress update
+              console.log('Extract progress:', res)
+            }
           }, (e: any) => {handleError(e, callback)})
-        }, (e: any) => {handleError(e, callback)})
+        } else {
+
+          // It's a progress update
+          console.log('Download progress:', res)
+        }
       }, (e: any) => {handleError(e, callback)})
     }
   }, (e: any) => {handleError(e, callback)})
@@ -41,34 +73,50 @@ export function handleError(error: any, callback: (err: any, success: boolean) =
 
 If you'd like to customize your Deploy setup, you can merely only perform the calls you want. For instance, you could perform `check`, `download`, and `extract` on Login and `redirect` on Logout for apps that are continuously running.
 
-`IonicCordova.deploy.init(app_id, server_host, success, failure)`
+```js
+IonicCordova.deploy.init(config, success, failure)
+```
 
 Initializes the plugin with an app ID and API host specified in js-land.  Can be used to change these variables at runtime
 
-`IonicCordova.deploy.check(app_id, channel_tag, success, failure)`
+```js
+IonicCordova.deploy.check(success, failure)
+```
 
 Check for updates from a specified channel, will change the saved channel from the install step
 
-`IonicCordova.deploy.download(app_id, success, failure)`
+```js
+IonicCordova.deploy.download(success, failure)
+```
 
 If an update is present, download it
 
-`IonicCordova.deploy.extract(app_id, success, failure)`
+```js
+IonicCordova.deploy.extract(success, failure)
+```
 
 If an update has been downloaded, extract it and set the default redirect location for next app start.
 
-`IonicCordova.deploy.redirect(app_id, success, failure)`
+```js
+IonicCordova.deploy.redirect(success, failure)
+```
 
 Redirect to the latest version of the app on this device.
 
-`IonicCordova.deploy.info(app_id, success, failure)`
+```js
+IonicCordova.deploy.info(success, failure)
+```
 
 Get info on current version for this device.
 
-`IonicCordova.deploy.getVersions(app_id, success, failure)`
+```js
+IonicCordova.deploy.getVersions(success, failure)
+```
 
 List downloaded versions on this device.
 
-`IonicCordova.deploy.deleteVersion(app_id, uuid, success, failure)`
+```js
+IonicCordova.deploy.deleteVersion(uuid, success, failure)
+```
 
 Delete a downloaded version by UUID from this device.

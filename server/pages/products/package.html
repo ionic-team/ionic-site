@@ -30,9 +30,26 @@
       store with no platform dependencies or complicated build steps.
     </p>
   </hgroup>
-</div>
-
-<main>
+  <div class="graphics">
+    <div class="cloud">
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+    </div>
+    <div class="cloud">
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+    </div>
+     <div class="cloud">
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+      <div class="build"></div>
+    </div>
+  </div>
   <section class="features">
     <div class="container">
       <ul class="items">
@@ -60,8 +77,10 @@
       </ul>
     </div>
   </section>
+</div>
 
-  <section class="turn center">
+<main>
+  <section class="turn center" ng-controller="productsPackageCtrl">
     <div class="container">
       <hgroup>
         <h2>Turn web assets into native SDKs.</h2>
@@ -72,6 +91,23 @@
           the app stores.
         </p>
       </hgroup>
+      <div class="graphics">
+        <div class="html"></div>
+        <div class="circles">
+          <div class="circle" ng-class="circles[0]"></div>
+          <div class="circle" ng-class="circles[1]"></div>
+          <div class="circle" ng-class="circles[2]"></div>
+          <div class="circle" ng-class="circles[3]"></div>
+          <div class="circle" ng-class="circles[4]"></div>
+          <div class="circle" ng-class="circles[5]"></div>
+          <div class="circle" ng-class="circles[6]"></div>
+          <div class="circle" ng-class="circles[7]"></div>
+          <div class="circle" ng-class="circles[8]"></div>
+          <div class="circle" ng-class="circles[9]"></div>
+          <div class="box" ng-class="packageBoxStyle"></div>
+        </div>
+        <div class="app"></div>
+      </div>
     </div>
   </section>
 

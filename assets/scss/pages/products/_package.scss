@@ -51,7 +51,8 @@
       left: -200px;
       width: 346px;
       height: 312px;
-      animation: 15s floatingCloud linear infinite;
+      animation: 20s floatingCloud linear infinite;
+      z-index: 5;
 
       &::before {
         background: url('/img/products/package/package-hero-cloud.png') no-repeat 0 0;
@@ -62,7 +63,6 @@
         left: 0;
         content: '';
         position: absolute;
-        z-index: 2;
       }
 
       .build {
@@ -74,28 +74,28 @@
         position: absolute;
         top: 30px;
         left: 20px;
-        animation: 3s rainDrop linear infinite;
-        z-index: 1;
+        animation: 5s rainDrop linear infinite;
+        z-index: 6;
 
         &:nth-child(2) {
           top: 166px;
           left: 220px;
           animation-delay: .8s;
-          animation-duration: 3.3s;
+          animation-duration: 6s;
         }
 
         &:nth-child(3) {
           top: 33px;
           left: 130px;
           animation-delay: 1.8s;
-          animation-duration: 3.1s;
+          animation-duration: 4s;
         }
         
         &:nth-child(4) {
           top: 50px;
           left: 60px;
           animation-delay: 2.8s;
-          animation-duration: 3.2s;
+          animation-duration: 8s;
         }
       }
 
@@ -104,12 +104,12 @@
         left: 0;
         transform: scale3d(.5,.5,1);
         animation-name: floatingCloud-2;
-        animation-duration: 20s;
-        animation-delay: 4s;
-        z-index: 4;
+        animation-duration: 40s;
+        animation-delay: 10s;
+        z-index: 1;
 
         .build { 
-          z-index: 3;
+          z-index: 2;
           animation-delay: 1s; 
 
           &:nth-child(2) {animation-delay: 2s;}
@@ -122,12 +122,12 @@
         top: 80px;
         left: -150px;
         animation-name: floatingCloud-3;
-        animation-duration: 17s;
-        animation-delay: 10s;
-        z-index: 6;
+        animation-duration: 50s;
+        animation-delay: 2s;
+        z-index: 3;
 
         .build { 
-          z-index: 5;
+          z-index: 4;
           animation-delay: .1s; 
 
           &:nth-child(2) {animation-delay: .2s;}
@@ -141,8 +141,13 @@
   .features {
     position: relative;
     z-index: 10;
-    background: rgba(white,.6);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(to right, #efddff 0,#ffe3e4 100%);
+
+    // cool blur effect in webkit
+    @supports (backdrop-filter: blur(10px)) {
+      backdrop-filter: blur(10px);
+      background: rgba(white,.6);
+    }
 
     ul {
       padding: 71px 0px 45px;

@@ -30,10 +30,10 @@
 </li> #}
 
 <li{% if id == 'home' %} class="active"{% endif %}><a href="/">Framework</a></li>
-{# <li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
-  <a href="/products">Products</a></li> #}
+<li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
+  <a href="/products">Products</a></li>
 
-<li class="dropdown products">
+{# <li class="dropdown products">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
@@ -79,7 +79,7 @@
         Ionic app error monitoring and log tracking.
       </a>
     </li>
-  </ul>
+  </ul> #}
 </li>
 
 <li class="sm-hide{% if id.indexOf('pricing') == 0%} active{% endif %}">

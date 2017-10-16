@@ -118,7 +118,7 @@ index and prints it:</p>
 <h3 id="zooming">Zooming</h3>
 <p>If your slides contain images, you can enable zooming on them by setting <code>zoom=&quot;true&quot; and
 wrapping each image in a</code>div<code>with the class</code>swiper-zoom-container<code>. Zoom supports</code>img<code>,</code>svg<code>,</code>canvas<code>, and</code>ion-img`.</p>
-<pre><code class="lang-html">&lt;ion-slidesj zoom=&quot;true&quot;&gt;
+<pre><code class="lang-html">&lt;ion-slides zoom=&quot;true&quot;&gt;
   &lt;ion-slide&gt;
     &lt;div class=&quot;swiper-zoom-container&quot;&gt;
       &lt;img src=&quot;assets/img/dog.jpg&quot;&gt;

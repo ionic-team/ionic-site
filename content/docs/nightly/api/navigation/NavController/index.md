@@ -347,7 +347,7 @@ export class DetailPage(){
   ){}
   ionViewCanEnter(): boolean{
    // here we can either return true or false
-   // depending on if we want to leave this view
+   // depending on if we want to enter this view
    if(isValid(randomValue)){
       return true;
     } else {

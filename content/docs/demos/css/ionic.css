@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201710161028, Default Theme
+ * vE2E-201710171415, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -16417,8 +16417,6 @@ ion-navbar.toolbar {
 .ios ion-footer .toolbar:last-child {
   padding-bottom: calc(constant(safe-area-inset-bottom) + 4px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
-  height: calc(44px + constant(safe-area-inset-bottom));
-  height: calc(44px + env(safe-area-inset-bottom));
   min-height: calc(44px + constant(safe-area-inset-bottom));
   min-height: calc(44px + env(safe-area-inset-bottom)); }
 
@@ -16490,8 +16488,6 @@ ion-navbar.toolbar {
 .md ion-footer .toolbar:last-child {
   padding-bottom: calc(constant(safe-area-inset-bottom) + 4px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
-  height: calc(56px + constant(safe-area-inset-bottom));
-  height: calc(56px + env(safe-area-inset-bottom));
   min-height: calc(56px + constant(safe-area-inset-bottom));
   min-height: calc(56px + env(safe-area-inset-bottom)); }
 
@@ -16563,8 +16559,6 @@ ion-navbar.toolbar {
 .wp ion-footer .toolbar:last-child {
   padding-bottom: calc(constant(safe-area-inset-bottom) + 4px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
-  height: calc(46px + constant(safe-area-inset-bottom));
-  height: calc(46px + env(safe-area-inset-bottom));
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom)); }
 

@@ -51,7 +51,7 @@
       left: -200px;
       width: 346px;
       height: 312px;
-      animation: 20s floatingCloud linear infinite;
+      animation: 40s floatingCloud linear infinite;
       z-index: 5;
 
       &::before {
@@ -74,28 +74,28 @@
         position: absolute;
         top: 30px;
         left: 20px;
-        animation: 5s rainDrop linear infinite;
+        animation: 10s rainDrop linear infinite;
         z-index: 6;
 
         &:nth-child(2) {
           top: 166px;
           left: 220px;
           animation-delay: .8s;
-          animation-duration: 6s;
+          animation-duration: 8s;
         }
 
         &:nth-child(3) {
           top: 33px;
           left: 130px;
           animation-delay: 1.8s;
-          animation-duration: 4s;
+          animation-duration: 9s;
         }
         
         &:nth-child(4) {
           top: 50px;
           left: 60px;
           animation-delay: 2.8s;
-          animation-duration: 8s;
+          animation-duration: 12s;
         }
       }
 
@@ -104,7 +104,7 @@
         left: 0;
         transform: scale3d(.5,.5,1);
         animation-name: floatingCloud-2;
-        animation-duration: 40s;
+        animation-duration: 60s;
         animation-delay: 10s;
         z-index: 1;
 
@@ -119,10 +119,28 @@
       }
 
       &:nth-child(3) {
-        top: 80px;
+        top: 10px;
         left: -150px;
         animation-name: floatingCloud-3;
         animation-duration: 50s;
+        animation-delay: 2s;
+        z-index: 3;
+
+        .build { 
+          z-index: 4;
+          animation-delay: .1s; 
+
+          &:nth-child(2) {animation-delay: .2s;}
+          &:nth-child(3) {animation-delay: .3s;}
+          &:nth-child(4) {animation-delay: .4s;}
+        }
+      }
+
+      &:nth-child(4) {
+        top: 300px;
+        left: -250px;
+        animation-name: floatingCloud-4;
+        animation-duration: 30s;
         animation-delay: 2s;
         z-index: 3;
 

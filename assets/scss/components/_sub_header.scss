@@ -72,7 +72,7 @@
       margin-left: -1px;
   
       &:hover {
-        color: $blue;
+        color: rgba(white, .3);
       }
     }
   }
@@ -90,7 +90,7 @@
     }
 
     &:hover {
-      color: $blue;
+      color: rgba(white, .4);
     }
 
     &.btn {

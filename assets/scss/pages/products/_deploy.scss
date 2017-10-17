@@ -5,7 +5,8 @@
     background: white;
     text-align: center;
     padding-bottom: 522px;
-    background: white url('/img/deploy/deploy-hero-flat-img.png')
+    background: white url('/img/products/deploy/deploy-hero-flat-img.png') 50% 100% no-repeat;
+    background-size: 1108px;
 
     hgroup {
       padding-top: 98px;
@@ -15,7 +16,11 @@
 
   section.skip {
     background: #f6f8fc;
-    padding-bottom: 38px;
+
+    .container {
+      position: relative;
+      padding-bottom: 38px;
+    }
     
     hgroup {
       padding-top: 72px;
@@ -64,7 +69,56 @@
       flex: 0 1 221px;
       padding-right: 6px;
 
-      
+      &::before {
+        background-image: url('/img/products/deploy/feature-icons-sm.png');
+        background-size: 48px;
+      }
+
+      &.live::before { background-position: 0 0; }
+      &.automatic::before { background-position: 0 -48px; }
+      &.split::before { background-position: 0 -96px; }
+      &.compliant::before { background-position: 0 -144px; }
+    }
+
+    .graphics {
+      background: url('/img/products/deploy/feature-img-skip.png') 0 0 no-repeat;
+      background-size: 724px;
+      width: 724px;
+      height: 739px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      top: auto;
+      opacity: 0;
+      transition: .2s opacity;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  section {
+    &.live,
+    &.latest,
+    &.run {
+      h2 {
+        position: relative;
+
+        &::before {
+          background: url('/img/products/deploy/feature-icons-lg.png') 0 0 no-repeat;
+          background-size: 64px;
+          height: 64px;
+          width: 64px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+  
+          @media (max-width: $screen-xs-max)  {
+            left: calc(50% - 32px);
+          }
+        }
+      }
     }
   }
 
@@ -117,10 +171,31 @@
       padding-top: 87px;
       font-size: 27px;
       letter-spacing: -.024em;
+      
+      &::before {
+        background-position: 0 -64px;
+      }
     }
 
     p {
       letter-spacing: -.03em;
+    }
+    
+    .graphics {
+      background: url('/img/products/deploy/feature-img-latest.png') 0 50% no-repeat;
+      background-size: 589px;
+      width: 589px;
+      // height: 378px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: .2s opacity;
+  
+      &.active {
+        opacity: 1;
+      }
     }
   }
 
@@ -143,11 +218,32 @@
       letter-spacing: -.025em;
       line-height: 40px;
       margin-bottom: 23px;
+      
+      &::before {
+        background-position: 0 -128px;
+      }
     }
 
     p {
       font-size: 17px;
       letter-spacing: 0em;
+    }
+    
+    .graphics {
+      background: url('/img/products/deploy/feature-img-abtest.png') 0 0 no-repeat;
+      background-size: 526px;
+      width: 526px;
+      height: 513px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      top: auto;
+      opacity: 0;
+      transition: .2s opacity;
+  
+      &.active {
+        opacity: 1;
+      }
     }
   }
 

@@ -10,12 +10,12 @@ module.exports = function(req, res) {
   // automatically send to brody, but also send to the TP directly, if provided
   let toEmail = ['brody@ionic.io'];
   toEmail.push('perry@ionic.io');
-  // let partnerEmail = getTrustedPartnerBySlug(req.body['selected-partner']);
-  // if (typeof partnerEmail ==='string') {
-  //   toEmail.push(partnerEmail)
-  // } else if (typeof partnerEmail ==='array') {
-  //   toEmail = toEmail.concat(partnerEmail);
-  // }
+  let partnerEmail = getTrustedPartnerEmailByName(req.body['selected-partner']);
+  if (typeof partnerEmail ==='string') {
+    toEmail.push(partnerEmail)
+  } else if (Array.isArray(partnerEmail)) {
+    toEmail = toEmail.concat(partnerEmail);
+  }
   console.log('Sending TP lead to ' + toEmail);
 
   var m = {
@@ -42,10 +42,10 @@ module.exports = function(req, res) {
   });
 };
 
-function getTrustedPartnerBySlug(slug) {
+function getTrustedPartnerEmailByName(name) {
   for (var i = 0; i < trustedPartners.length; i++) {
-    if (trustedPartners[i].slug === slug) {
-      return trustedPartners[i];
+    if (trustedPartners[i].name === name) {
+      return trustedPartners[i].email;
     }
   }
 

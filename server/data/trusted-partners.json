@@ -7,7 +7,6 @@
     "address":"75 Albert St #207<br>Ottawa, ON, K1P 5E7",
     "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
     "coordinates":[27,34],
-    "email":["info@arcticempire.ca"],
     "company-size": "11-50"
   },
   {
@@ -28,7 +27,6 @@
     "address":"Castlewood,77-91 New Oxford Street<br>London, WC1A 1DG, UK",
     "features":null,
     "coordinates":[47.7,31.6],
-    "email":["info@inviqa.com"],
     "company-size": "50-200"
   },
   {
@@ -39,7 +37,6 @@
     "address":"21 S Main St<br>Alpharetta, GA 30009",
     "features": ["Ionic 1 & 2", "App design", "App development", "Product development", "Solution architecture"],
     "coordinates":[24.9,40.3],
-    "email": ["hello@digitalscientists.com"],
     "company-size": "10-30"
   },
   {
@@ -50,7 +47,6 @@
     "address":"153 Armada Way<br>Plymouth, PL1 1HY, UK",
     "features":null,
     "coordinates":[46.8,32.2],
-    "email": ["contact@elixel.co.uk"],
     "company-size": "10-20"
   },
   {
@@ -61,7 +57,6 @@
     "address":"Tanta Qism 2<br>Tanta, Gharbia Governorate, Egypt",
     "features":["Angular","Ionic","Node.js","MEAN","App design","App development","Development consulting"],
     "coordinates":[56.5,42],
-    "email":["sales@hybapps.com"],
     "company-size": "11-50"
   },
   {
@@ -72,7 +67,6 @@
     "address":"Urbanstraße 116<br>10967 Berlin, Germany",
     "features":null,
     "coordinates":[51.9,31.7],
-    "email": ["hello@hybridheroes.de"],
     "company-size": "1-10"
   },
   {
@@ -103,7 +97,6 @@
     "address":"Nueva Providencia 1860 Of. 182, Providencia<br>Santiago de Chile",
     "features":null,
     "coordinates":[28.7,73],
-    "email":["contacto@kunder.cl"],
     "company-size": "11-50"
   },
   {
@@ -134,7 +127,6 @@
     "address":"Avenida 18 Julio 1077<br>Montevideo, Uruguay, 11100",
     "features":null,
     "coordinates":[32.8,73],
-    "email":["carlosa@onetree.com"],
     "company-size": "50-200"
   },
   {
@@ -176,7 +168,6 @@
     "address":"575 Bourke St<br>Melbourne Australia",
     "features":null,
     "coordinates":[88,74.3],
-    "email":["info@spatialvision.com.au"],
     "company-size": "11-50"
   },
   {
@@ -187,7 +178,6 @@
     "address":"Moira Road<br>Lisburn BT28 2RF, UK",
     "features":null,
     "coordinates":[46,30.8],
-    "email":["hello@tepee.digital"],
     "company-size": null
   },
   {
@@ -198,7 +188,6 @@
     "address":"8, B, Cotillion Place Techno Park, 22 Techno Ave<br>Stellenbosch, 7600, South Africa",
     "features":null,
     "coordinates":[55.7,69.7],
-    "email":["sales@warpdevelopment.co.za"],
     "company-size": "50-200"
   },
   {

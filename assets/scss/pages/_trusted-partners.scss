@@ -513,6 +513,10 @@
       }
     }
 
+    hgroup {
+      padding-bottom: 64px;
+    }
+
     @media (max-width: $screen-xs-max)  {
       .modal-dialog {
         position: fixed;

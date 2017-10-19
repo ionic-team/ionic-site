@@ -12,7 +12,6 @@
 
     @media (max-width: $screen-xs-max) {
       flex-direction: column;
-      padding-bottom: 74px;
       padding-top: 23px;
       text-align: center;
     }
@@ -56,5 +55,61 @@
       margin-bottom: 2em;
     }
   }
+}
 
+#page-demo .demo-form {
+
+  display: flex;
+
+  &__box {
+    @include box;
+    margin-bottom: 50px;
+    margin-top: -40px;
+    max-width: 67%;
+    padding: 2em;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 100%;
+      padding: 0;
+
+      &:before {
+        display: none; // Bootstrap clearfix messes up flex alignment
+      }
+    }
+
+    button {
+      float: none;
+      margin-top: 0;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      max-width: 100%;
+    }
+  }
+
+  &__logos {
+    max-width: 33%;
+  }
+
+  textarea,
+  .form-control,
+  .select-wrapper {
+    margin-bottom: 2%;
+    margin-right: 0;
+
+    @media (max-width: 520px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .form-control {
+    width: 49%;
+
+    @media (max-width: 520px) {
+      width: 100%;
+    }
+  }
 }

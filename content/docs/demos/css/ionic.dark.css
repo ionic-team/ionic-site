@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201710171415, Dark Theme
+ * vE2E-201710191921, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -7155,15 +7155,16 @@ ion-item-options[side=left] {
 ion-item-options .button {
   margin: 0;
   padding: 0 0.7em;
-  padding-right: 0.7em;
   border-radius: 0;
   height: 100%;
   box-shadow: none;
   box-sizing: content-box; }
-  @media screen and (orientation: landscape) {
-    ion-item-options .button {
-      padding-right: calc(constant(safe-area-inset-right) + 0.7em);
-      padding-right: calc(env(safe-area-inset-right) + 0.7em); } }
+  ion-item-options .button:last-child {
+    padding-right: 0.7em; }
+    @media screen and (orientation: landscape) {
+      ion-item-options .button:last-child {
+        padding-right: calc(constant(safe-area-inset-right) + 0.7em);
+        padding-right: calc(env(safe-area-inset-right) + 0.7em); } }
 
 ion-item-options:not([icon-left]) .button:not([icon-only]) .button-inner,
 ion-item-options:not([icon-start]) .button:not([icon-only]) .button-inner {

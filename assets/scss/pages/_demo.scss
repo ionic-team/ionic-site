@@ -1,0 +1,60 @@
+#page-demo .demo-cta {
+
+  @media (max-width: $screen-xs-max) {
+    margin-top: 0;
+  }
+
+  > .container {
+    align-items: center;
+    display: flex;
+    padding-bottom: 104px;
+    padding-top: 53px;
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+      padding-bottom: 74px;
+      padding-top: 23px;
+      text-align: center;
+    }
+  }
+
+  hgroup {
+    max-width: none;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    @media (max-width: $screen-xs-max) {
+      max-width: 480px;
+    }
+  }
+
+  hgroup p {
+    margin-bottom: 0;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 15px;
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 0;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 32px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin-right: 20px;
+    width: 64px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-right: 0;
+      margin-bottom: 2em;
+    }
+  }
+
+}

@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Bold'),
        url('/fonts/avenir-next/bold.woff2') format('woff2'),
        url('/fonts/avenir-next/bold.woff') format('woff'),
        url('/fonts/avenir-next/bold.ttf') format('ttf'),
@@ -25,7 +25,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Demi Bold'),
        url('/fonts/avenir-next/demi.woff2') format('woff2'),
        url('/fonts/avenir-next/demi.woff') format('woff'),
        url('/fonts/avenir-next/demi.ttf') format('ttf'),
@@ -35,7 +35,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Medium'),
        url('/fonts/avenir-next/medium.woff2') format('woff2'),
        url('/fonts/avenir-next/medium.woff') format('woff'),
        url('/fonts/avenir-next/medium.ttf') format('truetype'),
@@ -45,7 +45,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Regular'),
        url('/fonts/avenir-next/regular.woff2') format('woff2'),
        url('/fonts/avenir-next/regular.woff') format('woff'),
        url('/fonts/avenir-next/regular.ttf') format('ttf'),
@@ -54,7 +54,7 @@
   unicode-range: U+000-5FF;
 }
 @font-face {
-  font-family: 'Avenir Next';
+  font-family: 'Avenir Next Thin';
   src: local('Avenir Next'),
        url('/fonts/avenir-next/thin.woff2') format('woff2'),
        url('/fonts/avenir-next/thin.woff') format('woff'),
@@ -64,7 +64,7 @@
   unicode-range: U+000-5FF;
 }
 @font-face {
-  font-family: 'Avenir Next';
+  font-family: 'Avenir Next Ultra Light';
   src: local('Avenir Next'),
        url('/fonts/avenir-next/ultralight.woff2') format('woff2'),
        url('/fonts/avenir-next/ultralight.woff') format('woff'),

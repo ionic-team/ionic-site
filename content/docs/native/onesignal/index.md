@@ -25,7 +25,8 @@ docType: "class"
 
 <p>The OneSignal plugin is an client implementation for using the <a href="https://onesignal.com/">OneSignal</a> Service.
 OneSignal is a simple implementation for delivering push notifications.</p>
-<p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
+<p>Please view the official <a href="https://documentation.onesignal.com/docs/ionic-sdk-setup">OneSignal Ionic SDK Installation</a> guide
+for more information.</p>
 <h4 id="icons">Icons</h4>
 <p>If you want to use generated icons with command <code>ionic cordova resources</code>:</p>
 <ol>

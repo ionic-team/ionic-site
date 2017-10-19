@@ -8,9 +8,26 @@
     background: white url('/img/products/deploy/deploy-hero-flat-img.png') 50% 100% no-repeat;
     background-size: 1108px;
 
+    @media (max-width: $screen-xs-max)  {
+      background-size: 780px;
+      padding-bottom: 360px
+    }
+
     hgroup {
       padding-top: 98px;
       max-width: 546px;
+      position: relative;
+      
+      &::before {
+        background: url('/img/products/deploy/deploy-hero-icon.png') 0 0 no-repeat;
+        background-size: 80px;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 0;
+        left: calc( 50% - 40px );
+        content: '';
+      }
     }
   }
 
@@ -27,7 +44,7 @@
       width: calc(50% - 77px);
       padding-bottom: 50px;
 
-      @media (max-width: $screen-xs-max)  {
+      @media (max-width: $screen-md-max)  {
         width: 100%;
         text-align: center;
       }
@@ -69,6 +86,11 @@
       flex: 0 1 221px;
       padding-right: 6px;
 
+      @media (max-width: $screen-md-max)  {
+        flex-basis: 321px;
+        z-index: 1
+      }
+
       &::before {
         background-image: url('/img/products/deploy/feature-icons-sm.png');
         background-size: 48px;
@@ -91,6 +113,10 @@
       top: auto;
       opacity: 0;
       transition: .2s opacity;
+
+      @media (max-width: $screen-xs-max)  {
+        display: none;
+      }
 
       &.active {
         opacity: 1;
@@ -119,11 +145,18 @@
           }
         }
       }
+
+      @media (max-width: $screen-xs-max)  {
+        .graphics {
+          display: none;
+        }
+      }
     }
   }
 
   section.live {
     background: linear-gradient(to right, #5b4cfc 0%, #8e83ff 100%);
+    overflow: hidden;
 
     hgroup {
       padding-top: 127px;
@@ -151,6 +184,108 @@
       letter-spacing: -.03em;
       color: white;
     }
+
+    .graphics {
+      position: absolute;
+      right: 0;
+      width: 50%;
+
+      .iphone,
+      .android {
+        position: absolute;
+        width: 330px;
+        height: 518px;
+        bottom: 0;
+        right: 0;
+
+        &::after {
+          background: no-repeat 0 0;
+          z-index: 1;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 330px;
+          height: 518px;
+          content: '';
+        }
+
+        .screen {
+          background: no-repeat 0 0;
+          position: absolute;
+          bottom: 0;
+          animation: 10s screenPop-1 infinite;
+
+          &:nth-child(2) {
+            animation-name: screenPop-2;
+          }
+
+          &:nth-child(3) {
+            animation-name: screenPop-3;
+          }
+        }
+      }
+
+      .iphone {
+        right: 250px;
+        z-index: 1;
+
+        @media (max-width: $screen-sm-max)  {
+          right: 100px;
+        }
+
+        &::after {
+          background-image: url('/img/products/deploy/feature-iphone-device.png');
+          background-size: 330px;
+        }
+
+        .screen {
+          background-image: url('/img/products/deploy/feature-iphone-screen-1.png');
+          background-size: 266px;
+          width: 266px;
+          height: 396px;
+          right: 32px;
+
+          &:nth-child(2) {
+            background-image: url('/img/products/deploy/feature-iphone-screen-2.png');
+            background-size: 266px;
+          }
+          
+          &:nth-child(3) {
+            background-image: url('/img/products/deploy/feature-iphone-screen-3.png');
+            background-size: 266px;
+          }
+        }
+      }
+
+      .android {
+        &::after {
+          right: 0;
+          background-image: url('/img/products/deploy/feature-android-device.png');
+          background-size: 330px;
+        }
+
+        .screen {
+          background-image: url('/img/products/deploy/feature-android-screen-1.png');
+          background-size: 280px;
+          width: 280px;
+          height: 462px;
+          right: 26px;
+          animation-delay: .25s;
+          
+          &:nth-child(2) {
+            background-image: url('/img/products/deploy/feature-android-screen-2.png');
+            background-size: 280px;
+            animation-delay: .25s;
+          }
+          
+          &:nth-child(3) {
+            background-image: url('/img/products/deploy/feature-android-screen-3.png');
+            background-size: 280px;
+            animation-delay: .25s;
+          }
+        }
+      }
+    }
   }
 
   section.latest {
@@ -159,6 +294,10 @@
       padding-top: 132px;
       padding-right: 25px;
       padding-bottom: 121px;
+
+      @media (max-width: $screen-sm-max)  {
+        width: 45%;
+      }
 
       @media (max-width: $screen-xs-max)  {
         width: 100%;
@@ -192,6 +331,11 @@
       top: 0;
       opacity: 0;
       transition: .2s opacity;
+
+      @media (max-width: $screen-sm-max)  {
+        background-size: 100%;
+        width: 50%;
+      }
   
       &.active {
         opacity: 1;
@@ -205,6 +349,10 @@
     hgroup {
       padding-top: 126px;
       padding-bottom: 108px;
+
+      @media (max-width: $screen-sm-max)  {
+        width: 45%;
+      }
 
       @media (max-width: $screen-xs-max)  {
         width: 100%;
@@ -230,7 +378,7 @@
     }
     
     .graphics {
-      background: url('/img/products/deploy/feature-img-abtest.png') 0 0 no-repeat;
+      background: url('/img/products/deploy/feature-img-abtest.png') 50% 100% no-repeat;
       background-size: 526px;
       width: 526px;
       height: 513px;
@@ -240,6 +388,12 @@
       top: auto;
       opacity: 0;
       transition: .2s opacity;
+
+      @media (max-width: $screen-sm-max)  {
+        background-size: 100%;
+        background-position: 100% 100%;
+        width: 50%;
+      }
   
       &.active {
         opacity: 1;

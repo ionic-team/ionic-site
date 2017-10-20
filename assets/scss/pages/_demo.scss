@@ -85,13 +85,37 @@
       margin-top: 0;
     }
 
-    @media (max-width: $screen-xs-max) {
+    @media (max-width: $screen-sm-max) {
       max-width: 100%;
     }
   }
 
   &__logos {
     max-width: 33%;
+    padding: 4em;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    > p {
+      color: #707c88;
+      font-size: 0.875em;
+      font-weight: 700;
+      letter-spacing: 0.075em;
+      line-height: 2;
+      margin-bottom: 3em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: $screen-md-max) {
+      padding-right: 0;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
   }
 
   textarea,

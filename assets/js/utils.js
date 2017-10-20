@@ -9,11 +9,12 @@ if (sidebarToggleEl) {
 
 $(document).ready(function() {
   // activate dropdowns
-  $('.dropdown-toggle').dropdown();
+  // $('.dropdown-toggle').dropdown();
   // $(".navbar.transparent .dropdown").hover(
   //   function(){ $(this).addClass('open') },
   //   function(){ $(this).removeClass('open') }
   // );
+	$(".navbar.transparent .dropdown").click()
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');
   // activate collapseable ToCs
@@ -68,8 +69,8 @@ if (activateOnScroll.length) {
 
 function checkForActivateOnScroll() {
   if (!activateOnScroll.length) return;
-  var viewportHeight = window.innerHeight || 
-                       document.documentElement.clientHeight || 
+  var viewportHeight = window.innerHeight ||
+                       document.documentElement.clientHeight ||
                        document.body.clientHeight;
   for (var i = 0; i < activateOnScroll.length; i++) {
     var elPos = activateOnScroll[i].getBoundingClientRect();
@@ -124,15 +125,15 @@ hljs.initHighlightingOnLoad();
 $('a.anchor[href*="#"]').click(function(event) {
   // On-page links
   if (
-    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-    && 
+    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+    &&
     location.hostname == this.hostname
   ) {
     // Figure out element to scroll to
     var target = $(this.hash);
     // Does a scroll target exist?
     if (target.length) {
-      var offset = event.target.dataset && event.target.dataset.offset 
+      var offset = event.target.dataset && event.target.dataset.offset
         ? event.target.dataset.offset : 100
       $('html, body').animate({
         scrollTop: target.offset().top - offset // give 100px of headroom

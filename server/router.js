@@ -23,6 +23,7 @@ module.exports = function router(app) {
   .get('/', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
   .get('/contact', (req, res) => { res.render('contact'); })
+  .get('/demo', (req, res) => { res.render('demo'); })
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/enterprise', (req, res) => { res.render('enterprise'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })

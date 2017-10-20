@@ -39,16 +39,16 @@
 </li>
 {% endmacro %}
 
-{% macro contactForm(page) %}
+{% macro contactForm(
+  page,
+  messagePlaceholder="Send us a message"
+)%}
 <form class="form-inline container"
       name="contact"
+      ng-class="{'is-submitted':status.ok}"
       ng-controller="ContactCtrl"
       ng-submit="submit($event)"
       ng-init="form.page = '{{page}}'">
-  <h3 class="text-center"
-      ng-if="!!status" 
-      ng-class="{'text-danger':!status.ok}" 
-      ng-bind="status.message"></h3>
   <input class="form-control"
          type="text"
          name="first_name"
@@ -105,12 +105,16 @@
             ng-model="form.message"
             cols="30"
             rows="10"
-            placeholder="Send us a message"
+            placeholder="{{messagePlaceholder}}"
             ng-focus="track('Form Progress', 'message')"
             required
             ></textarea>
-  <button type="submit" 
-          class="btn ionic" 
+  <div class="alert alert-success"
+      ng-if="!!status"
+      ng-class="{'text-danger':!status.ok}"
+      ng-bind="status.message"></div>
+  <button type="submit"
+          class="btn ionic"
           value="Send message"
           ng-disabled="formDisabled">
     Send message

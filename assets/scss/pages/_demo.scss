@@ -1,0 +1,139 @@
+#page-demo .demo-cta {
+
+  @media (max-width: $screen-xs-max) {
+    margin-top: 0;
+  }
+
+  > .container {
+    align-items: center;
+    display: flex;
+    padding-bottom: 104px;
+    padding-top: 53px;
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+      padding-top: 23px;
+      text-align: center;
+    }
+  }
+
+  hgroup {
+    max-width: none;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    @media (max-width: $screen-xs-max) {
+      max-width: 480px;
+    }
+  }
+
+  hgroup p {
+    margin-bottom: 0;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 15px;
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 0;
+
+    @media (min-width: $screen-md-min) {
+      font-size: 32px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin-right: 20px;
+    width: 64px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-right: 0;
+      margin-bottom: 2em;
+    }
+  }
+}
+
+#page-demo .demo-form {
+
+  display: flex;
+
+  &__box {
+    @include box;
+    margin-bottom: 50px;
+    margin-top: -40px;
+    max-width: 67%;
+    padding: 2em;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 100%;
+      padding: 0;
+
+      h3 {
+        width: 100%;
+      }
+
+      &:before {
+        display: none; // Bootstrap clearfix messes up flex alignment
+      }
+    }
+
+    button {
+      float: none;
+      margin-top: 0;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      max-width: 100%;
+    }
+  }
+
+  &__logos {
+    max-width: 33%;
+    padding: 4em;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    > p {
+      color: #707c88;
+      font-size: 0.875em;
+      font-weight: 700;
+      letter-spacing: 0.075em;
+      line-height: 2;
+      margin-bottom: 3em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: $screen-md-max) {
+      padding-right: 0;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+
+  textarea,
+  .form-control,
+  .select-wrapper {
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+
+  .form-control {
+    width: 49%;
+
+    @media (max-width: 520px) {
+      width: 100%;
+    }
+  }
+}

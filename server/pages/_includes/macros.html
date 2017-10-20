@@ -45,13 +45,10 @@
 )%}
 <form class="form-inline container"
       name="contact"
+      ng-class="{'is-submitted':status.ok}"
       ng-controller="ContactCtrl"
       ng-submit="submit($event)"
       ng-init="form.page = '{{page}}'">
-  <h3 class="text-center"
-      ng-if="!!status"
-      ng-class="{'text-danger':!status.ok}"
-      ng-bind="status.message"></h3>
   <input class="form-control"
          type="text"
          name="first_name"
@@ -112,8 +109,12 @@
             ng-focus="track('Form Progress', 'message')"
             required
             ></textarea>
-  <button type="submit" 
-          class="btn ionic" 
+  <div class="alert alert-success"
+      ng-if="!!status"
+      ng-class="{'text-danger':!status.ok}"
+      ng-bind="status.message"></div>
+  <button type="submit"
+          class="btn ionic"
           value="Send message"
           ng-disabled="formDisabled">
     Send message

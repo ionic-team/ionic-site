@@ -121,12 +121,8 @@
   textarea,
   .form-control,
   .select-wrapper {
-    margin-bottom: 2%;
+    margin-bottom: 12px;
     margin-right: 0;
-
-    @media (max-width: 520px) {
-      margin-bottom: 10px;
-    }
   }
 
   .form-control {

@@ -1,48 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block header %}
-      {% include '../_includes/head.prod.html' %}
-      {% block header_includes %}{% endblock %}
-    {% endblock %}
-  </head>
-  <body id="page-{{id}}"
-        class="page-{{id}}
-               {% if id != 'enterprise' %}has-snap{% endif %}
-               {% if header_style %}{{header_style}}{% endif %}"
-        ng-app="IonicSite"
-        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
-        {% block body_attributes %}data-spy="scroll" data-offset="100"{% endblock %}>
+{% extends '_layouts/blank.html' %}
 
-    {% if id == 'home' %} 
-      <div id="snap-bar">
-        Building apps at a large company? Check out
-        <a href="/enterprise">
-          <b>Ionic Enterprise</b>
-          <i class="ion-md-arrow-forward"></i>
-        </a>
-      </div>
-    {% endif %}
-    {% include '../_includes/header.html' %}
+{% block page %}
+  {% if id == 'home' %}
+    <div id="snap-bar">
+      Building apps at a large company? Check out
+      <a href="/enterprise">
+        <b>Ionic Enterprise</b>
+        <i class="ion-md-arrow-forward"></i>
+      </a>
+    </div>
+  {% endif %}
+  {% include '../_includes/header.html' %}
 
-    {% block main %}
-      <div class="cta banner"></div>
-      <main class="container">
-        {{ markdown }}
-      </main>
-    {% endblock %}
+  {% block main %}
+    <div class="cta banner"></div>
+    <main class="container">
+      {{ markdown }}
+    </main>
+  {% endblock %}
 
-    {% if pre_footer == true %}
-      {% include '../_includes/pre_footer.html' %}
-    {% endif %}
+  {% if pre_footer == true %}
+    {% include '../_includes/pre_footer.html' %}
+  {% endif %}
 
-    {% include '../_includes/footer.html' %}
-
-    {% block modals %}{% endblock %}
-
-    {% block footer %}
-      {% include '../_includes/scripts.prod.html' %}
-      {% block scripts %}{% endblock %}
-    {% endblock %}
-  </body>
-</html>
+  {% include '../_includes/footer.html' %}
+{% endblock %}

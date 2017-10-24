@@ -64,6 +64,12 @@ If you don't see your app in the list, try these things to resolve it:
 
 If those things still didn't resolve the issue, make sure you don't have any custom network settings that could cause the app to fail to discover the serve instance. 
 
+## Reporting issues and feedback
+
+If the above steps don't work, or you want to share feedback, please post in the [DevApp Feedback Megathread](https://forum.ionicframework.com/t/ionic-devapp-feedback-mega-thread/109842) on the Ionic forum. Please avoid contacting support for this first release of the DevApp as we'd like direct feedback and would like to aggregate it to help others.
+
+We cannot guarantee support on this post but we will monitor it and use it to make DevApp better.
+
 ## What about Ionic View?
 
 Ionic Developers may remember that Ionic View helped test apps on device without dealing with the SDK toolchain.

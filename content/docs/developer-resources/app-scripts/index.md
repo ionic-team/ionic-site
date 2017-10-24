@@ -25,7 +25,7 @@ Note: Developers are free to still use gulp if they choose to do so. We think NP
 
 `@ionic/app-scripts` provides the following scripts:
 
-- [build](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/build.ts) : `build` calls a set of `@ionic/app-scripts` to compile the `Typescript` source, compile `sass`, create a bundle `javascript` file, etc.
+- [build](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/build.ts) : `build` calls a set of `@ionic/app-scripts` to compile the `TypeScript` source, compile `sass`, create a bundle `javascript` file, etc.
 
 - [bundle](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/bundle.ts) : `bundle` uses [Rollup.js](http://rollupjs.org/?version=0.36.1) to produce a single, high performance `javascript` file from the many smaller `javascript` files.
 
@@ -37,7 +37,7 @@ Note: Developers are free to still use gulp if they choose to do so. We think NP
 
 - [copy](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/copy.ts) : `copy` copies files where they need to go to end up in the built `www` directory.
 
-- [lint](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/lint.ts) : `lint` runs [TSLint](https://palantir.github.io/tslint/) against the `Typescript` source code. Requires a `tslint.json` file at the project root.
+- [lint](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/lint.ts) : `lint` runs [TSLint](https://palantir.github.io/tslint/) against the `TypeScript` source code. Requires a `tslint.json` file at the project root.
 
 - [minify](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/minify.ts) : `minify` calls the minification tasks for `javascript` (uglify, or closure if available) and `css` (cleancss).
 
@@ -47,9 +47,9 @@ Note: Developers are free to still use gulp if they choose to do so. We think NP
 
 - [template](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/template.ts) : `template` is used to convert Angular templates into `inline-templates` for faster loading and faster applications during the development process.
 
-- [transpile](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/transpile.ts) : `transpile` converts `Typescript` code into `javascript` code.
+- [transpile](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/transpile.ts) : `transpile` converts `TypeScript` code into `javascript` code.
 
-- [tsc](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/tsc.ts) : `tsc` calls the `Typescript` compiler.
+- [tsc](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/tsc.ts) : `tsc` calls the `TypeScript` compiler.
 
 - [uglifyjs](https://github.com/ionic-team/ionic-app-scripts/blob/master/src/uglifyjs.ts) : `uglifyjs` is used to minify `javascript` to it’s smallest and fastest form.
 
@@ -204,5 +204,5 @@ To access the library from an Ionic `Page` or `Component`, make a `declare` stat
 declare const jQuery:any;
 ```
 
-When `jQuery` is included in a web browser, it can be accessed from `window.jQuery`. In the above example, we’re mapping `jQuery` to the `window.jQuery` object. From here, `jQuery` can be used through the `Typescript` code without issue.
+When `jQuery` is included in a web browser, it can be accessed from `window.jQuery`. In the above example, we’re mapping `jQuery` to the `window.jQuery` object. From here, `jQuery` can be used through the `TypeScript` code without issue.
 

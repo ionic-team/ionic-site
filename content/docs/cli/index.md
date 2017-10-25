@@ -77,7 +77,7 @@ Ionic Cloud (legacy) will be supported until its end-of-life on January 31st, 20
 
 ## Troubleshooting
 
-If you're having trouble with the CLI, you can try the following:
+If you're having trouble with the Ionic CLI, you can try the following:
 
 * Make sure you're on the latest version of the CLI. Update with `npm update -g ionic`.
 * Try running commands with the `--verbose` flag, which will print `DEBUG` messages.

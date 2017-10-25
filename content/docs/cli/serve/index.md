@@ -44,7 +44,7 @@ Option | Description
 `--port`, `-p` | Use specific port for HTTP
 `--livereload-port`, `-r` | Use specific port for live-reload
 `--dev-logger-port` | Use specific port for dev server communication
-`--nobrowser`, `-b` | Disable launching a browser
+`--no-open` | Do not open a browser window
 `--noproxy`, `-x` | Do not add proxies
 `--browser`, `-w` | Specifies the browser to use (`safari`, `firefox`, `google chrome`)
 `--browseroption`, `-o` | Specifies a path to open to (`/#/tab/dash`)

@@ -33,7 +33,7 @@ This lets you:
 We recommend installing the Ionic Pro client from NPM. 
 
 ```bash
-npm install @ionic/pro
+npm install --save @ionic/pro
 ```
 
 And then make sure to import and initialize the Pro client (for example, in `app.module.ts`):

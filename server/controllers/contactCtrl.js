@@ -45,7 +45,7 @@ module.exports = function(req, res) {
   Promise.all(promises.map(reflect)).then(values => {
     // send the user back to where they came from based on form_name
     // console.log('gets here')
-    res.json({ ok: true, message: 'Message Sent' });
+    res.json({ ok: true, message: 'Thanks! We’ve received your info and a member of our team will get in touch soon.' });
     // res.render('enterprise/index');
   });
 }

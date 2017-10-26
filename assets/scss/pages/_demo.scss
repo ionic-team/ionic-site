@@ -129,7 +129,7 @@
     margin-right: 0;
   }
 
-  .form-control {
+  form > .form-control {
     width: 49%;
 
     @media (max-width: 520px) {

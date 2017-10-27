@@ -31,7 +31,7 @@ PlatformConfigToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform-registry.ts#L253">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/platform-registry.ts#L252">
 Improve this doc
 </a>
 

@@ -208,8 +208,8 @@
       transition: transform .3s ease, opacity .3s;
     }
 
-    &.open .dropdown-menu,
-		&:hover .dropdown-menu {
+    &.open .dropdown-menu {
+		// &:hover .dropdown-menu {
       visibility: 1;
       opacity: 1;
       transform: scaleY(1);
@@ -261,6 +261,11 @@
             margin-top: 16px;
           }
         }
+      }
+
+      &.products ul a {
+        white-space: normal;
+        text-align: left;
       }
     }
   }

@@ -1,9 +1,9 @@
 #page-products-deploy {
   .top {
     margin-top: -138px;
-    padding-top: 162px;
+    padding-top: 170px;
     background: white;
-    text-align: center;
+    text-align: left;
     padding-bottom: 522px;
     background: white url('/img/products/deploy/deploy-hero-flat-img.png') 50% 100% no-repeat;
     background-size: 1108px;
@@ -14,9 +14,10 @@
     }
 
     hgroup {
-      padding-top: 98px;
-      max-width: 546px;
+      padding-top: 99px;
+      max-width: 100%;
       position: relative;
+      max-width: 555px;
       
       &::before {
         background: url('/img/products/deploy/deploy-hero-icon.png') 0 0 no-repeat;
@@ -25,8 +26,48 @@
         width: 80px;
         position: absolute;
         top: 0;
-        left: calc( 50% - 40px );
+        left: 0;
         content: '';
+      }
+
+      h1 {
+        font-family: $font-family-eina;
+        letter-spacing: -.017em;
+        font-size: 40px;
+        margin-left: -2px;
+      }
+
+      p {
+        font-size: 20px;
+        display: inline-block;
+        margin-top: 12px;
+      }
+    }
+
+    .btns {
+      float: right;
+      margin-top: 150px;
+
+      .btn {
+        font-size: 16px;
+
+        &.purple {
+          background: #5657fb;
+          padding: 14px 17px 12px;
+          margin-right: 9px;
+        }
+
+        &.white  {
+          color: #5657fb;
+          padding: 14px 14px 12px;
+          margin-right: 3px;
+        }
+      }
+
+      @media (max-width: $screen-xs-max)  {
+        float: none;
+        margin-top: 0;
+        margin-bottom: 32px;
       }
     }
   }

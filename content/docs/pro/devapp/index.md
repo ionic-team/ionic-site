@@ -33,18 +33,14 @@ Enter your phone number below to text yourself an install link, or find the app 
 </div>
 
 <div id="badges">
-  <!--
-  <a href="https://itunes.apple.com/us/app/ionic-dev-app/id1271789931?ls=1&mt=8" style="opacity: 0.4">
+  <a href="https://itunes.apple.com/us/app/ionic-devapp/id1233447133?ls=1&mt=8">
     <img style="width: 148px" src="/img/pro/appstore.png" id="appstore-image">
   </a>
-  -->
 
   <a href="https://play.google.com/store/apps/details?id=io.ionic.devapp&hl=en">
     <img style="width: 180px" alt="Get it on Google Play" src="/img/pro/playstore.png" id="playstore-image">
   </a>
 </div>  
-
-iOS Version Coming Soon! (Late October, 2017)
 
 ## Using DevApp
 

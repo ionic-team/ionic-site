@@ -32,7 +32,11 @@ IonicSiteModule
       var phoneNumber = $('#branch-phone-no').val();
       console.log('Texting to', phoneNumber);
       branch.sendSMS(phoneNumber, linkData, linkOptions, function(err, data) {
-        console.log(err);
+        if(err) {
+          console.log(err);
+        } else {
+          $('#branch-phone-no').val('');
+        }
       });
       return false;
     });

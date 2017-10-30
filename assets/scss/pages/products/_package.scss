@@ -32,7 +32,39 @@
       h1,
       p {
         color: white;
-        max-width: 405px;
+        max-width: 425px;
+      }
+
+      h1 {
+        font-family: $font-family-eina;
+      }
+
+      p {
+        font-size: 16px;
+        color: rgba(white, .9);
+
+        strong {
+          color: rgba(white, 1);
+        }
+      }
+
+      .btns {
+        margin-top: 32px;
+  
+        .btn {
+          font-size: 16px;
+  
+          &.pink {
+            background: #e33766;
+            padding: 14px 17px 12px;
+            margin-right: 9px;
+          }
+  
+          &.white  {
+            color: #e33766;
+            padding: 14px 14px 12px;
+          }
+        }
       }
     }
 

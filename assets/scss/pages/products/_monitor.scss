@@ -25,15 +25,39 @@
 
     h1 {
       color: white;
-      letter-spacing: -.03em;
+      font-family: $font-family-eina;
+      letter-spacing: -.017em;
+      font-size: 40px;
     }
 
     p {
       color: #abb3b2;
+      max-width: 600px;
+      margin-bottom: 32px;
 
       strong {
         color: white;
         font-weight: 500;
+      }
+    }
+
+    .btns {
+      margin-top: 16px;
+
+      .btn {
+        font-size: 16px;
+
+        &.green {
+          background: #31ca74;
+          padding: 14px 17px 12px;
+          margin-right: 9px;
+        }
+
+        &.dark  {
+          color: #31ca74;
+          background: #313f3f;
+          padding: 14px 14px 12px;
+        }
       }
     }
   }

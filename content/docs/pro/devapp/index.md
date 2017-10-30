@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-devapp
 id: pro-getting-started
-title: Ionic Dev App - Ionic Pro Documentation
+title: Ionic DevApp - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
@@ -12,14 +12,14 @@ dark_header: true
 
 The Ionic DevApp is a free app that makes it easy to run your Ionic app directly on your iOS or Android device.
 
-Skip dealing with frustrating Native SDK installation issues, just run `ionic serve`, open the Dev App, connect to the same network, and the app will automatically load
+Skip dealing with frustrating Native SDK installation issues, just run `ionic serve`, open the DevApp, connect to the same network, and the app will automatically load
 and run your app.
 
 The DevApp comes with many native plugins built right in, so you don't need to worry about installing plugins.
 
 ## Download the DevApp
 
-The Dev App is available on iOS and Android.
+The DevApp is available on iOS and Android.
 
 Enter your phone number below to text yourself an install link, or find the app on your app store of choice:
 

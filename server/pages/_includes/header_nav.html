@@ -34,8 +34,12 @@
   <a href="/products">Products</a></li> #}
 
 <li class="dropdown products">
-  <a href="/products"
-     class="dropdown-toggle">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">
     Products
   </a>
   <ul class="dropdown-menu">
@@ -140,6 +144,8 @@
   </ul>
 </li>
 
+<li class="hide-lt-lg"><a href="https://blog.ionic.io" class="blog">Blog</a></li>
+
 <li class="dropdown ecosystem">
   <a href="#"
      class="dropdown-toggle"
@@ -148,7 +154,7 @@
      aria-haspopup="true"
      aria-expanded="false">Ecosystem</a>
   <ul class="dropdown-menu">
-    <li><a href="https://blog.ionic.io" class="blog">Ionic Blog</a></li>
+    <li class="hide-gt-md"><a href="https://blog.ionic.io" class="blog">Ionic Blog</a></li>
     {# <li><a href="" class="community">Community Hub</a></li> #}
     <li><a href="https://market.ionic.io" class="market">Ionic Market</a></li>
     <li><a href="https://jobs.ionic.io" class="jobs">Job Board</a></li>

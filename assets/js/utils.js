@@ -9,11 +9,11 @@ if (sidebarToggleEl) {
 
 $(document).ready(function() {
   // activate dropdowns
-  // $('.dropdown-toggle').dropdown();
-  // $(".navbar.transparent .dropdown").hover(
-  //   function(){ $(this).addClass('open') },
-  //   function(){ $(this).removeClass('open') }
-  // );
+  $('.dropdown-toggle').dropdown();
+  $(".navbar.transparent .dropdown").hover(
+    function(){ $(this).addClass('open') },
+    function(){ $(this).removeClass('open') }
+  );
 	$(".navbar.transparent .dropdown").click()
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');

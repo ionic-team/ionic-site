@@ -66,6 +66,10 @@ If the above steps don't work, or you want to share feedback, please post in the
 
 We cannot guarantee support on this post but we will monitor it and use it to make DevApp better.
 
+## Native Cordova Plugin Support
+
+The Ionic DevApp supports the same set of common native plugins as Ionic View. Please check [this list](/docs/pro/view.html#plugin-support) to see which plugins are supported out of the box. If an Ionic Native plugin you need isn't functioning correctly or isn't available, let us know!
+
 ## What about Ionic View?
 
 Ionic Developers may remember that Ionic View helped test apps on device without dealing with the SDK toolchain.

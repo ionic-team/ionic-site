@@ -1,6 +1,8 @@
 {% extends '_layouts/blank.html' %}
 {% set id = 'books-native-v-hybrid' %}
 
+{% import "../_includes/macros.html" as macros %}
+
 
 {% block body_attributes %}
 
@@ -18,11 +20,47 @@
 			essential elements of hybrid develoment, and what it could mean for your
 			next project.
 		</p>
-		<a href="" class="btn yernge">Send me the free eBook</a>
+		<a class="btn yernge" 
+       data-toggle="modal" 
+       data-target="#contactForm">Send me the free eBook</a>
 	</hgroup>
 </main>
 {% endblock %}
 
-{% block scripts %}
+{% block modals %}
+<div class="modal collapse fade" 
+     id="contactForm" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="text-center">
+          <h3>Thank you for downloading our ebook.</h3>
+          <p class="lg">
+            If you would like to chat with us after reading please feel free to 
+						schedule a time with us!
+          </p>
+        </hgroup>
+        {{ macros.contactForm("ebook-hybrid-v-native","Message", "Download Book", "http://google.com") }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
+{% block scripts %}
+<script>
+window.download = function() {
+	alert('gets here');
+}
+</script>
 {% endblock %}

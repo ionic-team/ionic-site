@@ -33,6 +33,10 @@ IonicSiteModule
       $scope.status = response.data;
     })
 
+    if($scope.successLink.length) {
+      window.open($scope.successLink)
+    }
+
     $event.preventDefault();
   }
 }]);

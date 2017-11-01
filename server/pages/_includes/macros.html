@@ -41,7 +41,9 @@
 
 {% macro contactForm(
   page,
-  messagePlaceholder="Send us a message"
+  messagePlaceholder="Send us a message",
+  buttonText="Send message",
+  successLink=""
 )%}
 <form class="form-inline container"
       name="contact"
@@ -115,8 +117,9 @@
   <button type="submit"
           class="btn ionic"
           value="Send message"
-          ng-disabled="formDisabled">
-    Send message
+          ng-disabled="formDisabled"
+          ng-init="successLink = '{{successLink}}'">
+    {{buttonText}}
   </button>
 </form>
 {% endmacro %}

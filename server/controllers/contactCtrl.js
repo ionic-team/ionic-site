@@ -45,7 +45,11 @@ module.exports = function(req, res) {
   Promise.all(promises.map(reflect)).then(values => {
     // send the user back to where they came from based on form_name
     // console.log('gets here')
-    res.json({ ok: true, message: 'Thanks! We’ve received your info and a member of our team will get in touch soon.' });
+    let message = 'Thanks! We’ve received your info and a member of our team will get in touch soon.';
+    if (req.body.page === 'ebook-hybrid-v-native') {
+      message = 'Enjoy reading your copy of the eBook. It is on its way to your inbox!';
+    }
+    res.json({ ok: true, message: message });
     // res.render('enterprise/index');
   });
 }

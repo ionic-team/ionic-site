@@ -77,6 +77,10 @@
             color: rgba(white, .8);
           }
         }
+
+        @media (max-width: $screen-xs-max)  {
+          margin-top: 40px;
+        }
       }
 
       @media (max-width: $screen-xs-max)  {
@@ -93,7 +97,7 @@
         padding-bottom: 230px;
 
         &::after {
-          bottom: -480px;
+          bottom: -560px;
           width: 320px;
           left: calc(50% - 160px);
         }

@@ -35,10 +35,10 @@
         position: absolute;
         background: url('/img/products/pro-dash-screenshot.png') 0 0 no-repeat;
         background-size: 100%;
-        width: 942px;
-        height: 582px;
+        width: 850px;
+        height: 632px;
         bottom: -300px;
-        left: calc(50% - 471px);
+        left: calc(50% - 425px);
       }
 
       .cta-buttons {
@@ -48,12 +48,34 @@
         color: white;
         letter-spacing: -.02em;
 
-        > .btn {
-          font-weight: 600;
+        > .orange {
+          font-weight: 700;
+          display: inline-block;
+          background: #ffb016;
+          padding: 14px 20px;
+
+          &::after {
+            font-family: 'Ionicons';
+            content: '\f287';
+            font-size: 18px;
+            position: relative;
+            vertical-align: -2px;
+            line-height: 18px;
+            margin-left: 11px;
+            font-weight: 600;
+          }
         }
 
-        @media (max-width: $screen-xs-max)  {
-          display: none;
+        .sales {
+          color: rgba(white, .5);
+          margin-top: 6px;
+          display: inline-block;
+          text-decoration: underline;
+          transition: .2s color;
+
+          &:hover {
+            color: rgba(white, .8);
+          }
         }
       }
 
@@ -82,7 +104,7 @@
       min-height: 64px;
       position: absolute;
       width: 100%;
-      top: 508px;
+      top: 458px;
       background: transparent;
 
       .container {
@@ -141,11 +163,11 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        max-width: 804px;
+        max-width: 740px;
 
         li {
           float: left;
-          flex: 0 0 90px;
+          flex: 0 0 124px;
 
           a {
             color: rgba(white, .7);
@@ -157,44 +179,46 @@
             text-align: center;
             padding: 0 4px;
             font-weight: 500;
-            width: 90px;
+            width: 100%;
+            height: 64px;
+            cursor: pointer;
             transition: color .2s, padding-bottom .2s;
 
-            &::before,
-            &::after {
-              background: url('/img/products/product-icons-sprite.png') 0 0 no-repeat;
+            &::before {
+              background: url('/img/products/product-icons.png') 0 0 no-repeat;
               background-size: 32px;
               width: 32px;
               height: 32px;
               content: '';
+              cursor: pointer;
               position: absolute;
               top: 12px;
+              opacity: .8;
               left: calc(50% - 16px);
+              transition: .2s opacity;
+            }
+            
+            &.testing::before { background-position: 0 -32px; }
+            &.updates::before { background-position: 0 -64px; }
+            &.build::before { background-position: 0 -96px; }
+            &.reporting::before { background-position: 0 -128px; }
+            &.hosting::before { background-position: 0 -160px; }
+
+
+            span {
+              transition: .2s color;
             }
 
-            &::after {
-              opacity: 0;
-              transition: .2s opacity;
+            strong {
+              text-transform: uppercase;
+              display: block;
+              letter-spacing: .05em;
+              color: rgba(white, .9);
+              transition: .2 color;
             }
 
             .sm {
               display: none;
-            }
-            
-            &.prototyping::after { background-position: 0 -32px; }
-            &.testing::before { background-position: 0 -64px; }
-            &.testing::after { background-position: 0 -96px; }
-            &.updates::before { background-position: 0 -128px; }
-            &.updates::after { background-position: 0 -160px; }
-            &.build::before { background-position: 0 -192px; }
-            &.build::after { background-position: 0 -224px; }
-            &.reporting::before { background-position: 0 -256px; }
-            &.reporting::after { background-position: 0 -288px; }
-            &.push::before { background-position: 0 -320px; }
-            &.push::after { background-position: 0 -352px; }
-
-            span {
-              transition: .2s opacity;
             }
             
           }
@@ -202,21 +226,28 @@
           a:active,
           a:hover,
           a:focus,
+          a.hover,
           &.active a {
-            color: white;
+            color: rgba(white, .9);
             background: transparent;
 
-            &::after {
+            &::before {
               opacity: 1;
+            }
+            
+            strong {
+              color: rgba(white, 1);
             }
           }
         }
       }
 
       + .bar {
-        top: 568px;
+        top: 518px;
 
         .categories li a {
+          height: auto;
+
           &::before,
           &::after {
             display: none;
@@ -226,13 +257,17 @@
 
       @media (max-width: $screen-md-max)  {
         .categories {
-          max-width: 500px;
+          // max-width: 500px;
         }
       }
 
       @media (max-width: $screen-sm-max)  {
         .categories {
           max-width: 450px;
+
+          li {
+            flex: 0 0 90px;
+          }
         }
       }
 

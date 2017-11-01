@@ -15,18 +15,17 @@
 
 <div class="cta gradient">
   <hgroup class="container">
-    <h1>A new way to build, test, deploy, and monitor apps.</h1>
+    <h1>Your mobile development toolkit.</h1>
     <p>
-      <strong>Ionic Pro</strong> is the best software development platform for
-      delivering incredible apps. Boost your Ionic app development with our
-      powerful suite of tools and services designed for the entire app
-      lifecycle, all in one integrated experience.
+      The power platform built for delivering incredible Ionic apps. Build 
+      better apps with Pro's integrated suite of tools and services designed for 
+      the entire app lifecycle.
     </p>
     <div class="cta-buttons">
-      <a class="btn green"
+      <a class="btn orange"
       href="https://dashboard.ionicjs.com/signup"
-      alt="Sign up for Ionic Pro">Sign up for Ionic Pro</a>
-      <a class="btn" href="/demo" alt="Get a demo">Get a demo</a>
+      alt="Sign up for Ionic Pro">Create a Pro account</a><br>
+      {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
     </div>
   </hgroup>
   <div class="bar" data-spy="affix" data-offset-top="509">
@@ -37,19 +36,34 @@
       <ul class="categories nav">
         <li><a class="anchor prototyping"
                href="#prototyping"
-               data-offset="64"></a></li>
+               data-offset="64"
+               ng-class="{hover: prototypingHover}"
+               ng-mouseenter="prototypingHover = true"
+               ng-mouseleave="prototypingHover = false"></a></li>
         <li><a class="anchor testing"
                href="#testing"
-               data-offset="64"></a></li>
+               data-offset="64"
+               ng-class="{hover: testingHover}"
+               ng-mouseenter="testingHover = true"
+               ng-mouseleave="testingHover = false"></a></li>
         <li><a class="anchor updates"
                href="#updates"
-               data-offset="64"></a></li>
+               data-offset="64"
+               ng-class="{hover: updatesHover}"
+               ng-mouseenter="updatesHover = true"
+               ng-mouseleave="updatesHover = false"></a></li>
         <li><a class="anchor build"
                href="#build"
-               data-offset="64"></a></li>
+               data-offset="64"
+               ng-class="{hover: buildHover}"
+               ng-mouseenter="buildHover = true"
+               ng-mouseleave="buildHover = false"></a></li>
         <li><a class="anchor reporting"
                href="#reporting"
-               data-offset="64"></a></li>
+               data-offset="64"
+               ng-class="{hover: reportingHover}"
+               ng-mouseenter="reportingHover = true"
+               ng-mouseleave="reportingHover = false"></a></li>
       </ul>
       <a href="/pricing" class="btn">See Pricing</a>
     </div>
@@ -59,32 +73,57 @@
     <div class="container">
       <ul class="categories nav">
         <li>
-          <a class="anchor prototyping" href="#prototyping">
+          <a class="anchor prototyping" 
+             href="#prototyping"
+             ng-class="{hover: prototypingHover}"
+             ng-mouseenter="prototypingHover = true"
+             ng-mouseleave="prototypingHover = false">
+            <strong>Creator</strong>
             <span class="lg">Rapid app prototyping</span>
             <span class="sm">Prototyping</span>
           </a>
         </li>
         <li>
-          <a class="anchor testing" href="#testing">
-            <span class="lg">Remote mobile app testing</span>
+          <a class="anchor testing" 
+             href="#testing"
+             ng-class="{hover: testingHover}"
+             ng-mouseenter="testingHover = true"
+             ng-mouseleave="testingHover = false">
+            <strong>View App</strong>
+            <span class="lg">Remote app testing</span>
             <span class="sm">Testing</span>
           </a>
         </li>
         <li>
-          <a class="anchor updates" href="#updates">
-            <span class="lg">Live hot code app updates</span>
+          <a class="anchor updates" 
+             href="#updates"
+             ng-class="{hover: updatesHover}"
+             ng-mouseenter="updatesHover = true"
+             ng-mouseleave="updatesHover = false">
+            <strong>Deploy</strong>
+            <span class="lg">Live app updating</span>
             <span class="sm">Updates</span>
           </a>
         </li>
         <li>
-          <a class="anchor build" href="#build">
-            <span class="lg">Native builds in the cloud</span>
+          <a class="anchor build" 
+             href="#build"
+             ng-class="{hover: buildHover}"
+             ng-mouseenter="buildHover = true"
+             ng-mouseleave="buildHover = false">
+            <strong>Package</strong>
+            <span class="lg">Native cloud builds</span>
             <span class="sm">Builds</span>
           </a>
         </li>
         <li>
-          <a class="anchor reporting" href="#reporting">
-            <span class="lg">Real-time error reporting</span>
+          <a class="anchor reporting" 
+             href="#reporting"
+             ng-class="{hover: reportingHover}"
+             ng-mouseenter="reportingHover = true"
+             ng-mouseleave="reportingHover = false">
+            <strong>Monitor</strong>
+            <span class="lg">Error / crash reporting</span>
             <span class="sm">Reporting</span>
           </a>
         </li>

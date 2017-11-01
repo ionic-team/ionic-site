@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L493">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L495">
   Improve this doc
 </a>
 
@@ -74,7 +74,6 @@ import { Component } from &quot;@angular/core/&quot;;
 })
 export class HomePage {
   map: GoogleMap;
-  mapElement: HTMLElement;
   constructor(private googleMaps: GoogleMaps) { }
 
   ionViewDidLoad() {
@@ -82,7 +81,6 @@ export class HomePage {
   }
 
  loadMap() {
-    this.mapElement = document.getElementById(&#39;map&#39;);
 
     let mapOptions: GoogleMapOptions = {
       camera: {
@@ -95,7 +93,7 @@ export class HomePage {
       }
     };
 
-    this.map = this.googleMaps.create(this.mapElement, mapOptions);
+    this.map = this.googleMaps.create(&#39;map_canvas&#39;, mapOptions);
 
     // Wait the MAP_READY before using any methods.
     this.map.one(GoogleMapsEvent.MAP_READY)
@@ -180,8 +178,6 @@ Creates a new GoogleMap instance
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="setDiv" href="#setDiv"></a><code>setDiv(domNode)</code></h3>
-
-
 
 
 Changes the map div
@@ -1723,7 +1719,7 @@ Change the backgroundColor
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setContent" href="#setContent"></a><code>setContent(content)</code></h3>
+<h3><a class="anchor" name="setContent" href="#setContent"></a><code>setContent(content,&nbsp;cssOptions?)</code></h3>
 
 
 Set your HTML contents.
@@ -1744,6 +1740,17 @@ Set your HTML contents.
     </td>
     <td>
       <p>String containing text or HTML element</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      cssOptions?</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>CSS styles for the container element of HTMLInfoWindow</p>
 </td>
   </tr>
   </tbody>
@@ -2640,8 +2647,6 @@ Change the polygon points.
 <h3><a class="anchor" name="getPoints" href="#getPoints"></a><code>getPoints()</code></h3>
 
 
-
-
 Return an instance of the BaseArrayClass.
 You can modify the points.
 
@@ -2677,8 +2682,6 @@ Change the polygon holes.
 </table>
 
 <h3><a class="anchor" name="getHoles" href="#getHoles"></a><code>getHoles()</code></h3>
-
-
 
 
 Return an instance of the BaseArrayClass.
@@ -2994,14 +2997,14 @@ Change the polyline points.
 <h3><a class="anchor" name="getPoints" href="#getPoints"></a><code>getPoints()</code></h3>
 
 
-
-
 Return an instance of the BaseArrayClass
 You can modify the points.
 
 
-
-<h3><a class="anchor" name="setGeoDesic" href="#setGeoDesic"></a><code>setGeoDesic(geoDesic)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>BaseArrayClass&lt;ILatLng&gt;</code> 
+</div><h3><a class="anchor" name="setGeoDesic" href="#setGeoDesic"></a><code>setGeoDesic(geoDesic)</code></h3>
 
 
 
@@ -4006,9 +4009,76 @@ Iterate over each element, calling the provided callback.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback?)</code></h3>
+<h3><a class="anchor" name="forEachAsync" href="#forEachAsync"></a><code>forEachAsync(fn)</code></h3>
 
 
+Iterate over each element, calling the provided callback.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback?)</code></h3>
+
+
+
+
+Iterate over each element, then return a new value.
+Then you can get the results of each callback.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback?</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
+</div><h3><a class="anchor" name="mapAsync" href="#mapAsync"></a><code>mapAsync(fn,&nbsp;callback?)</code></h3>
 
 
 Iterate over each element, calling the provided callback.
@@ -4046,7 +4116,7 @@ Then you can get the results of each callback.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a new array with the results
 </div><h3><a class="anchor" name="filter" href="#filter"></a><code>filter(fn,&nbsp;callback?)</code></h3>
 
 
@@ -4086,7 +4156,45 @@ The filter() method creates a new array with all elements that pass the test imp
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
+  <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new filtered array
+</div><h3><a class="anchor" name="filterAsync" href="#filterAsync"></a><code>filterAsync(fn,&nbsp;callback?)</code></h3>
+
+
+The filterAsync() method creates a new array with all elements that pass the test implemented by the provided function.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback?</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a new filtered array
 </div><h3><a class="anchor" name="getArray" href="#getArray"></a><code>getArray()</code></h3>
 
 
@@ -5690,6 +5798,19 @@ Sets an element at the specified index.
     </td>
   </tr>
   
+  <tr>
+    <td>
+      clickable
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -5777,6 +5898,19 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      clickable
+    </td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
       

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.8.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -69,8 +69,8 @@ component you would like to push:</p>
   template: `&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
-  pushPage: any;
   params: Object;
+  pushPage: any;
   constructor(){
     this.pushPage = LoginPage;
     this.params = { id: 42 };

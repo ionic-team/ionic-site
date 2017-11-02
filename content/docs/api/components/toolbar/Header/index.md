@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.8.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>Header is a parent component that holds the navbar and toolbar component.
-It&#39;s important to note that <code>ion-header</code> needs to be one of the three root elements of a page</p>
+It&#39;s important to note that <code>ion-header</code> needs to be the one of the three root elements of a page</p>
 
 
 

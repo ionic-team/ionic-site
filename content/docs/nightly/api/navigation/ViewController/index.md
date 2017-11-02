@@ -323,26 +323,6 @@ Check to see if you can go back in the navigation stack.
 
 
 
-<div id="handleOrientationChange"></div>
-
-<h3>
-<a class="anchor" name="handleOrientationChange" href="#handleOrientationChange">
-<code>handleOrientationChange()</code>
-  
-
-</a>
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <div id="hasNavbar"></div>
 
 <h3>

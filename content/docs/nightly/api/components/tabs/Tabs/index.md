@@ -647,15 +647,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-font-weight</code></td>
-        
-          <td><code>500</code></td>
-        
-        <td><p>Font weight of the tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-ios-tab-icon-size</code></td>
         
           <td><code>30px</code></td>

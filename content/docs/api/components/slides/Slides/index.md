@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.8.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -114,30 +114,6 @@ index and prints it:</p>
     console.log(&#39;Current index is&#39;, currentIndex);
   }
 }
-</code></pre>
-<h3 id="zooming">Zooming</h3>
-<p>If your slides contain images, you can enable zooming on them by setting <code>zoom=&quot;true&quot; and
-wrapping each image in a</code>div<code>with the class</code>swiper-zoom-container<code>. Zoom supports</code>img<code>,</code>svg<code>,</code>canvas<code>, and</code>ion-img`.</p>
-<pre><code class="lang-html">&lt;ion-slidesj zoom=&quot;true&quot;&gt;
-  &lt;ion-slide&gt;
-    &lt;div class=&quot;swiper-zoom-container&quot;&gt;
-      &lt;img src=&quot;assets/img/dog.jpg&quot;&gt;
-    &lt;/div&gt;
-    &lt;ion-label&gt;Woof&lt;/ion-label&gt;
-  &lt;/ion-slide&gt;
-  &lt;ion-slide&gt;
-    &lt;div class=&quot;swiper-zoom-container&quot;&gt;
-      &lt;img src=&quot;assets/img/cat.jpg&quot;&gt;
-    &lt;/div&gt;
-    &lt;ion-label&gt;Meow&lt;/ion-label&gt;
-  &lt;/ion-slide&gt;
-  &lt;ion-slide&gt;
-    &lt;div class=&quot;swiper-zoom-container&quot;&gt;
-      &lt;img src=&quot;assets/img/fish.jpg&quot;&gt;
-    &lt;/div&gt;
-    &lt;ion-label&gt;Just keep swimming&lt;/ion-label&gt;
-  &lt;/ion-slide&gt;
-&lt;/ion-slides&gt;
 </code></pre>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.8.0"
 versionHref: "/docs"
 path: ""
 category: api
@@ -643,15 +643,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
           <td><code>10px</code></td>
         
         <td><p>Font size of the tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$tabs-ios-tab-font-weight</code></td>
-        
-          <td><code>500</code></td>
-        
-        <td><p>Font weight of the tab button text</p>
 </td>
       </tr>
       

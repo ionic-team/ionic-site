@@ -18,7 +18,7 @@ module.exports = function(req, res) {
       'swami@ionic.io', 
       'andrew@ionic.io',
       'ryan@ionic.io',
-      // 'perry@ionic.io'
+      'perry@ionic.io'
     ],
     from: 'sales@ionic.io',
     name: 'Ionic Sales',
@@ -27,13 +27,15 @@ module.exports = function(req, res) {
   };
 
   // send email to sales team
-  promises.push(new Promise((resolve, reject) => {
-    tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
-      resolve();
-    }, function(err) {
-      reject();
-    });
-  }));
+  if ( form.page != 'ebook-hybrid-v-native' && form.page != 'demo' ) {
+    promises.push(new Promise((resolve, reject) => {
+      tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
+        resolve();
+      }, function(err) {
+        reject();
+      });
+    }));
+  }
 
   // add user to SalesForce
   promises.push(tools.addSalesForceLead(form));

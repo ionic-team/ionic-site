@@ -1,5 +1,5 @@
 {% extends "_layouts/base.html" %}
-{% set id = 'enterprise' %}
+{% set id = 'enterprise-support' %}
 {% set mixpanelEnabled = true %}
 {% set bodyController = 'EnterpriseCtrl' %}
 {% import "../_includes/macros.html" as macros %}
@@ -8,188 +8,187 @@
 
 <div class="banner" >
   <hgroup class="container">
-    <h1>Ionic Enterprise</h1>
+    <h1>Enterprise Support</h1>
     <p>
-      Simplify app creation. Ionic makes it easy to build high performance apps 
-      that look & feel beautiful on any platform or device, with superpowered 
-      tools your teams will love.
+      Expert help and guidance, when you need it most.
     </p>
-    <a onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})"
-       data-toggle="modal" 
-       data-target="#contactForm"
-       class="btn white">Get in touch</a>
   </hgroup>
 </div>
 
-{% if notification %}
-<h2 class="container text-center {{notificationClass}}" 
-    ng-init="success = true">
-  {{ notification }}
-</h2>
-{% endif %}
-<section class="container ready">
+<section class="container help">
   <hgroup class="hero text-center">
-    <h2>Developer friendly, enterprise ready</h2>
+    <h2>Our experts can help.</h2>
     <p class="lg">
-      Enable your developers to build apps with the technology they know & love 
-      across the entire app development process, with the tools, collaboration, 
-      and control you need to power your apps—company-wide.
+      Protect your investment with enterprise-grade support, tailored to fit 
+      your needs.
     </p>
     <img src="/img/enterprise/macbook-dash-preview.jpg" />
   </hgroup>
   <ul class="features icons">
-    <li class="accelerated">
-      <h4>Accelerated time to market</h4>
+    <li class="fixes">
+      <h4>Hot-fixes</h4>
       <p>
-        Go from idea to app store in half the time, with Ionic there to guide 
-        you at every step.
+        Get rapid remediation of issues, so you can focus on building  your app 
+        and shipping sooner.
       </p>
     </li>
-    <li class="noticed">
-      <h4>Apps that get noticed</h4>
+    <li class="reviews">
+      <h4>Code reviews</h4>
       <p>
-        Create beautiful, high-performant mobile apps that captivate your 
-        customers and elevate employees.
+        Go line-by-line with our experts as they share coding best practices and 
+        advice.
       </p>
     </li>
-    <li class="teams">
-      <h4>Empowering your teams</h4>
+    <li class="sla">
+      <h4>Response SLAs</h4>
       <p>
-        Turn in-house web dev teams and even citizen developers into powerful 
-        mobile app builders.
+        Rest easy knowing you’ll get the attention and responsive you need to 
+        meet your goals.
       </p>
     </li>
-    <li class="workflow">
-      <h4>Streamlined app workflow</h4>
+    <li class="training">
+      <h4>Live training</h4>
       <p>
-        Git integration and a centralized dashboard,enable efficient, agile 
-        development flow for teams.
+        Give your team the skills and tools they need to be successful building 
+        apps on day one.
+      </p>
+    </li>
+    <li class="contact">
+      <h4>Single point of contact</h4>
+      <p>
+        Work with a dedicated engineer who knows your history, your team, and 
+        your priorities.
+      </p>
+    </li>
+    <li class="slack">
+      <h4>Dedicated Slack channel</h4>
+      <p>
+        Need answers now? Get instant access to support with a dedicated Slack 
+        channel.
       </p>
     </li>
   </ul>
 </section>
 
-<section class="companies">
-  <div class="container">
-    <h2>Powering apps at some of the world’s smartest companies</h2>
-    <img src="/img/enterprise/logos.png" alt="enterprise company logos" />
-  </div>
-</section>
-
-<section class="solution container">
-  <h2>Our approach. Your solution.</h2>
-  <ul class="items icons">
-    <li class="platforms">
-      <h4>
-        Fully cross-platform apps
-      </h4>
-      <p>
-        Ionic apps work and look beautiful wherever they run. With Ionic, a 
-        single team can build desktop, progressive web, and native mobile apps 
-        across every major app store, all from a single shared codebase.
-      </p>
-    </li>
-    <li class="optimized">
-      <h4>Native and web optimized</h4>
-      <p> 
-        Ionic offers the best components for building highly interactive native 
-        and progressive web apps. By unlocking native APIs and plugins, Ionic 
-        brings the UI standards and device features of native apps together with 
-        the full power and flexibility of the open web.
-      </p>
-    </li>
-    <li class="design">
-      <h4>Beautifully designed</h4>
-      <p>
-        Clean, simple, and functional. Ionic is designed to work and display 
-        beautifully on all current mobile devices and platforms, with ready-made 
-        components and gorgeous (yet highly customizable) base themes.
-      </p>
-    </li>
-    <li class="performant">
-      <h4>Highly performant</h4>
-      <p> 
-        Performance is paramount. Ionic is built to perform and behave great on 
-        the latest mobile devices with best practices like efficient hardware 
-        accelerated transitions, and touch-optimized gestures.
-      </p>
-    </li>
-    <li class="developers">
-      <h4>The stack developers love</h4>
-      <p>
-        Happy developers build better apps. Ionic is the world's most popular 
-        cross-platform mobile development technology stack, backed by a massive 
-        international community.  Ionic also powers some of the best teams and 
-        companies on earth.
-      </p>
-    </li>
-    <li class="future">
-      <h4>Extensible, future-proof technology</h4>
-      <p>
-        With Ionic, you’re taking advantage of the single most adopted, 
-        tested, and dominate technology stack in the world: The Web. Rest 
-        assured, the Web has been around the longest, and it’s not going away 
-        anytime soon.
-      </p>
-    </li>
-  </ul>
-</section>
-
-<section class="powerful">
-  <div class="container">
-    <img src="/img/enterprise/enterprise-graphic.png" />
-    <hgroup>
-      <h2>
-        Powerful extensions, support, and peace of mind for Enterprise teams
-      </h2>
-      <p class="lg">
-        <strong>Ionic Enterprise</strong> enables your team to be as efficient 
-        and nimble as a startup, while also addressing the complex requirements 
-        of the modern enterprise. It’s everything you need to build, test, 
-        monitor, and deploy incredible apps.
-      </p>
-    </hgroup>
-    <ul class="why icons">
-      <li class="solution">
-        <h4>A complete enterprise solution</h4>
-        <p>
-          Ionic’s suite of products and services give you and your team all the 
-          tools needed to quickly move from app ideation to app store, allowing 
-          you to transition easily between the critical phases of your mobile or 
-          desktop development lifecycle.
-        </p>
-      </li>
-      <li class="support">
-        <h4>Support when you need it</h4>
-        <p>
-          Get priority access to hotfixes, with the option for premium code 
-          reviews and training from the core Ionic team.  Every Ionic Enterprise 
-          subscription comes with a dedicated Account Manager and a one hour 
-          Kickoff Session. Additional code review  available at extra cost.
-        </p>
-      </li>
-      <li class="tools">
-        <h4>Ionic best practices</h4>
-        <p>
-          Ensure your team moves forward in the best possible direction. From 
-          security and authentication, to plugin advice and integration, our 
-          Ionic experts help guide your development stages so you can save time 
-          and ship quality enterprise applications faster.
-        </p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="bar get-in-touch">
+<section>
   <hgroup class="container">
-    <h2>Ready to start building better apps, faster?</h2>
-    <a class="btn white sm" 
-       data-toggle="modal" 
-       data-target="#contactForm" 
-       onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})">
-      Get in touch</a>
+    <h2>Pick the plan that’s right for you.</h2>
+    <p class="lg">
+      Choose from one of our existing support plans, or customize one that’s 
+      perfect for you.
+    </p>
   </hgroup>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        <th>Silver</th>
+        <th>Gold</th>
+        <th>Platinum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Seats</td>
+        <th>10</th>
+        <th>50</th>
+        <th>Unlimited</th>
+      </tr>
+      <tr>
+        <th>On-boarding + Pro training</th>
+        <td>2x 90 minute web</td>
+        <td>1 on-site + 2x 90 min web</td>
+        <td>1 on-site + 2x 90 min web</td>
+      </tr>
+      <tr>
+        <th>Framework Training</th>
+        <td>half-day web overview</td>
+        <td>1 day on-site *</td>
+        <td>1 day on-site *</td>
+      </tr>
+      <tr>
+        <th>Private Insiders Updates + Q&amp;A</th>
+        <td>Quarterly 90 min web</td>
+        <td>Quarterly 90 min web (x2)</td>
+        <td>Quarterly 90 min web (x2)</td>
+      </tr>
+      <tr>
+        <th></th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Dedicated Account Manager</th>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Response SLA</th>
+        <td>&lt; 24 Hours</td>
+        <td>&lt; 24 Hours</td>
+        <td>&lt; 12 Hours</td>
+      </tr>
+      <tr>
+        <th>Zendesk ticketing</th>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Private Slack Access</th>
+        <td></td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th></th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Live Code Review</th>
+        <td>4x 1 hr web session</td>
+        <td>10x 1 hr web session</td>
+        <td>20x 1 hr web session</td>
+      </tr>
+      <tr>
+        <th>Add'l Code Reviews</th>
+        <td>$1000 / hr</td>
+        <td>$500 / hr</td>
+        <td>$500 / hr</td>
+      </tr>
+      <tr>
+        <th>Long-term FW support</th>
+        <td></td>
+        <td></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><a class="btn sm btn-default">Contact us</a></td>
+        <td><a class="btn sm btn-default">Contact us</a></td>
+        <td><a class="btn sm btn-default">Contact us</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="bar cta get-in-touch">
+  <hgroup class="container">
+    <h2>Start building apps the better way. </h2>
+    <p>Free accounts and free advice. Everything you need to get started.</p>
+    
+  </hgroup>
+  <div class="btn-group">
+    <a class="btn white sm" href="https://dashboard.ionicjs.com/register">
+    <a class="btn btn-default sm" 
+       data-toggle="modal" 
+       data-target="#contactForm">
+      Talk to sales</a>
+  </div>
 </section>
 
 {% endblock %}

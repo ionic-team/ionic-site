@@ -41,7 +41,9 @@ module.exports = function(req, res) {
   promises.push(tools.addSalesForceLead(form));
 
   // thank the user for contacting us
-  promises.push(tools.sendThankYouForContacting(form.email));
+  if ( form.page != 'ebook-hybrid-v-native') {
+    promises.push(tools.sendThankYouForContacting(form.email));
+  }
 
   // relfect because we want to show the page even if one of the tasks error
   Promise.all(promises.map(reflect)).then(values => {

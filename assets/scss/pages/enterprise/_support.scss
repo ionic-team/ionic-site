@@ -89,11 +89,19 @@
     text-align: center;
     padding-bottom: 64px;
 
-    hgroup p {
-      margin-top: 16px;
-      color: #626a77;
-      font-weight: 500;
-      margin-bottom: 64px;
+    hgroup {
+      h2 {
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: -.04em;
+      }
+
+      p {
+        margin-top: 16px;
+        color: #626a77;
+        font-weight: 500;
+        margin-bottom: 64px;
+      }
     }
 
     .x-scroll {
@@ -206,6 +214,14 @@
       color: #003e82;
       font-size: 23px;
       display: inline-block;
+    }
+
+    .btn-group {
+      text-align: right;
+    }
+
+    .btn {
+      margin-bottom: 8px;
     }
   }
 }

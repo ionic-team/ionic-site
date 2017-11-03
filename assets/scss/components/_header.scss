@@ -572,7 +572,7 @@
         }
 
         &.sales,
-        &.contact {
+        &.enterprise-support {
           &::before {background-position: 0 -160px;}
           &::after {background-position: 0 -176px;}
         }
@@ -620,6 +620,11 @@
         &.shop {
           &::before {background-position: 0 -448px;}
           &::after {background-position: 0 -464px;}
+        }
+
+        &.contact {
+          &::before {background-position: 0 -480px;}
+          &::after {background-position: 0 -496px;}
         }
 
         &.twitter {

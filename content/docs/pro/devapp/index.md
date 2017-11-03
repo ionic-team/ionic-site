@@ -48,7 +48,15 @@ The DevApp finds `ionic serve` instances running on the local network and requir
 
 First, ensure you are running the latest release of the Ionic CLI. Run `npm install -g ionic`. If that doesn't work, try uninstalling and re-installing using `npm uninstall -g ionic` then running the install command again.
 
-Once the latest CLI is installed, run `ionic serve` in the app of your choice on your computer and let it finish building. Next, open your iOS or Android device and connect to _the same network_ as your computer (through wifi). Open the DevApp, and you should see your local app show up in the list.
+Once the latest CLI is installed, run `ionic serve -c` in the app of your choice on your computer and let it finish building. Next, open your iOS or Android device and connect to _the same network_ as your computer (through wifi). Open the DevApp, and you should see your local app show up in the list.
+
+## Capturing console logs
+
+To make sure you receive console logs generated from the app, which will be displayed in the terminal window where `ionic serve` was run, add the `-c` flag to `ionic serve`:
+
+```bash
+ionic serve -c
+```
 
 ## Troubleshooting
 

@@ -169,9 +169,15 @@
           </tr>
           <tr>
             <th></th>
-            <td><a class="btn sm btn-default">Contact us</a></td>
-            <td><a class="btn sm btn-default">Contact us</a></td>
-            <td><a class="btn sm btn-default">Contact us</a></td>
+            <td><a class="btn sm btn-default"
+                   data-toggle="modal" 
+                   data-target="#contactForm">Contact us</a></td>
+            <td><a class="btn sm btn-default"
+                   data-toggle="modal" 
+                   data-target="#contactForm">Contact us</a></td>
+            <td><a class="btn sm btn-default"
+                   data-toggle="modal" 
+                   data-target="#contactForm">Contact us</a></td>
           </tr>
         </tbody>
       </table>
@@ -211,11 +217,10 @@
         <button type="button"
                 class="close"
                 data-dismiss="modal"
-                aria-label="Close"
-                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
+                aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <hgroup class="hero text-center">
+        <hgroup class="text-center">
           <h3>Contact us</h3>
           <p class="lg">
             Send us a detailed message and an Ionic Sales Representative will

@@ -1,0 +1,40 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'strategy-session' %}
+{% import "_includes/macros.html" as macros %}
+
+{% block main %}
+<div class="cta demo-cta gradient" ng-init="period = 'monthly'">
+  <div class="container">
+    <img class="demo-cta__icon" src="/img/demo/demo-icon.png">
+    <hgroup>
+      <h1>Let's Talk Strategy</h1>
+      <p>Connect with one of our app strategists to talk hybrid vs. native and figure out how Ionic can jumpstart your app dev strategy.</p>
+    </hgroup>
+  </div>
+</div>
+
+<main class="container demo-form">
+  <div class="demo-form__box">
+    {{ macros.contactForm(
+      "strategy session",
+      "Please let us know any strategic initiatives you would like to discuss so we can maximize the value of the conversation and your time.",
+      "Let's Talk"
+    )}}
+  </div>
+  <aside class="demo-form__aside">
+    <p>See how Ionic has helped the world's smartest companies</p>
+    <ul>
+      <li>It has never been easier: one codebase, one user experience, running everywhere</li>
+      <li>Empower teams with web tech they already know and love</li>
+      <li>Build for the future, where the web is the platform</li>
+    </ul>
+  </aside>
+</main>
+{% endblock %}
+
+{% block modals %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

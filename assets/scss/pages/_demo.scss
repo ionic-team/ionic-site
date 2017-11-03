@@ -1,4 +1,5 @@
-#page-demo .demo-cta {
+#page-demo .demo-cta,
+#page-strategy-session .demo-cta {
 
   @media (max-width: $screen-xs-max) {
     margin-top: 0;
@@ -57,7 +58,8 @@
   }
 }
 
-#page-demo .demo-form {
+#page-demo .demo-form,
+#page-strategy-session .demo-form {
 
   display: flex;
 
@@ -94,13 +96,36 @@
     }
   }
 
-  &__logos {
+  &__aside {
     max-width: 33%;
     padding: 4em;
 
     img {
       display: block;
       width: 100%;
+    }
+
+    ul {
+      color: #727a87;
+      font-size: 1.125em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        margin-bottom: 1.5em;
+        padding-left: 1.5em;
+        position: relative;
+
+        &:before {
+          color: $blue;
+          content: '\f2ba';
+          font-family: 'Ionicons';
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+      }
     }
 
     > p {

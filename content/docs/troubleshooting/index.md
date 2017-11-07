@@ -42,7 +42,7 @@ For windows, run this from an admin command prompt.
 
 ## Adding third party libs
 
-See our resources page on [Adding Third Party Libs](/docs//resources/third-party-libs).
+See our resources page on [Adding Third Party Libs](/docs/resources/third-party-libs).
 
 
 ## Blank App

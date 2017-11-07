@@ -42,7 +42,7 @@ And the following scripts near the bottom:
 
 <h3 class="file-title">./src/</h3>
 
-Inside of the `src` directory we find our raw, uncompiled code. This is where most of the work for an Ionic app will take place. When we run `ionic serve`, our code inside of `src/` is [transpiled](/docs//resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs//resources/what-is/#es5)). That means we can work at a higher level using TypeScript, but compile down to the older form of Javascript the browser needs.
+Inside of the `src` directory we find our raw, uncompiled code. This is where most of the work for an Ionic app will take place. When we run `ionic serve`, our code inside of `src/` is [transpiled](/docs/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/resources/what-is/#es5)). That means we can work at a higher level using TypeScript, but compile down to the older form of Javascript the browser needs.
 
 `src/app/app.module.ts` is the entry point for our app.
 

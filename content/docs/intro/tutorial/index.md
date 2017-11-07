@@ -23,7 +23,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 ### Starting a New Ionic App
 
-Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
+Starting a new app is easy! From your [command line](/docs/resources/what-is/#cli), run this command:
 
 ```bash
 $ ionic start MyIonicProject tutorial

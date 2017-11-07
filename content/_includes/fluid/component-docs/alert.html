@@ -77,7 +77,7 @@ export class MyPage {
   }
 
   showPrompt() {
-    let prompt = this.alertCtrl.create({
+    const prompt = this.alertCtrl.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -129,7 +129,7 @@ export class MyPage {
   }
 
   showConfirm() {
-    let confirm = this.alertCtrl.create({
+    const confirm = this.alertCtrl.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -176,7 +176,7 @@ export class MyPage {
   }
 
   showRadio() {
-    let alert = this.alertCtrl.create();
+    const alert = this.alertCtrl.create();
     alert.setTitle('Lightsaber color');
 
     alert.addInput({
@@ -223,7 +223,7 @@ export class MyPage {
   }
 
   showCheckbox() {
-    let alert = this.alertCtrl.create();
+    const alert = this.alertCtrl.create();
     alert.setTitle('Which planets have you visited?');
 
     alert.addInput({

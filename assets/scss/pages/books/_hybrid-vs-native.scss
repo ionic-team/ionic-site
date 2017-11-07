@@ -76,34 +76,34 @@
 
 		main {
 			flex-direction: column;
-		}
-
-		aside {
-			height: 400px;
 			width: 100%;
-			background-position: calc(50% + 33px) 50%;
-			margin-top: 64px;
-		}
 
-		hgroup {
-			padding: 0;
-			position: relative;
-			text-align: center;
-
-			&::before {
-				background: linear-gradient(45deg, #111c2c, #122541);
-				content: '';
-				position: absolute;
-				top: 0;
-				right: -15px;
-				left: -15px;
-				bottom: 0;
+			aside {
+				height: 400px;
+				width: 100%;
+				background-position: calc(50% + 33px) 50%;
+				margin-top: 64px;
 			}
-
-			> * {
+	
+			hgroup {
+				padding: 20px 20px 48px;
 				position: relative;
+				text-align: center;
+	
+				&::before {
+					background: linear-gradient(45deg, #111c2c, #122541);
+					content: '';
+					position: absolute;
+					top: 0;
+					right: -15px;
+					left: -15px;
+					bottom: 0;
+				}
+	
+				> * {
+					position: relative;
+				}
 			}
 		}
 	}
-
 }

@@ -87,12 +87,12 @@ a higher <code>z-index</code> than this element.</p>
 
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">constructor(public loadingCtrl: LoadingController) {
+<pre><code class="lang-ts">import { LoadingController } from &#39;ionic-angular&#39;;
 
-}
+constructor(public loadingCtrl: LoadingController) { }
 
 presentLoadingDefault() {
-  let loading = this.loadingCtrl.create({
+  const loading = this.loadingCtrl.create({
     content: &#39;Please wait...&#39;
   });
 
@@ -104,7 +104,7 @@ presentLoadingDefault() {
 }
 
 presentLoadingCustom() {
-  let loading = this.loadingCtrl.create({
+  const loading = this.loadingCtrl.create({
     spinner: &#39;hide&#39;,
     content: `
       &lt;div class=&quot;custom-spinner-container&quot;&gt;
@@ -121,7 +121,7 @@ presentLoadingCustom() {
 }
 
 presentLoadingText() {
-  let loading = this.loadingCtrl.create({
+  const loading = this.loadingCtrl.create({
     spinner: &#39;hide&#39;,
     content: &#39;Loading Please Wait...&#39;
   });

@@ -104,7 +104,7 @@ returned data.</p>
 
 
 <p>If the height of items in the virtual scroll are not close to the
-default size of 40px, it is extremely important to provide an value for
+default size of 40px, it is extremely important to provide a value for
 approxItemHeight height. An exact pixel-perfect size is not necessary,
 but without an estimate the virtual scroll will not render correctly.</p>
 <p>The approximate width and height of each template is used to help

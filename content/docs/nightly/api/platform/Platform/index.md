@@ -61,7 +61,7 @@ customize your app to fit any device.</p>
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
 
   }
 }
@@ -175,8 +175,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
-    if (this.plt.is('ios')) {
+  constructor(public platform: Platform) {
+    if (this.platform.is('ios')) {
       // This will only print when on iOS
       console.log('I am an iOS device!');
     }
@@ -388,9 +388,9 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
     // This will print an array of the current platforms
-    console.log(this.plt.platforms());
+    console.log(this.platform.platforms());
   }
 }
 ```
@@ -440,8 +440,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyApp {
-  constructor(public plt: Platform) {
-    this.plt.ready().then((readySource) => {
+  constructor(public platform: Platform) {
+    this.platform.ready().then((readySource) => {
       console.log('Platform ready from', readySource);
       // Platform now ready, execute any required native code
     });
@@ -562,9 +562,9 @@ the back button action.</p>
 </a>
 </h3>
 
-The resize event emits when the native platform pulls the application
-out from the background. This event would emit when a Cordova app comes
-out from the background, however, it would not fire on a standard web browser.
+The resize event emits when the browser window has changed dimensions. This
+could be from a browser window being physically resized, or from a device
+changing orientation.
 
 
 
@@ -799,10 +799,10 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
     // This will print an object containing
     // all of the platforms and their versions
-    console.log(plt.versions());
+    console.log(platform.versions());
   }
 }
 ```

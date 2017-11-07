@@ -131,6 +131,9 @@ $('a.anchor[href*="#"]').click(function(event) {
   ) {
     // Figure out element to scroll to
     var target = $(this.hash);
+    if (!target.length) {
+      target = $('[name="' + this.hash.substring(1) + '"]');
+    }
     // Does a scroll target exist?
     if (target.length) {
       var offset = event.target.dataset && event.target.dataset.offset
@@ -141,7 +144,7 @@ $('a.anchor[href*="#"]').click(function(event) {
     } else {
       // otherwise scroll to the top of the page
       $('html, body').animate({
-        scrollTop: 0 // give 100px of headroom
+        scrollTop: 0
       }, 600);
     }
     history.pushState && history.pushState(null, null, this.hash)

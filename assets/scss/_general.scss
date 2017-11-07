@@ -288,6 +288,17 @@ a.footer-link {
 @media (max-width: 1300px) and (min-width: $screen-xs) {
   #sass-variables {
     bottom: -10px;
+
+    .table.param-table {
+      td,
+      th {
+        white-space: normal;
+
+        &:nth-last-child(2) {
+          width: auto;
+        }
+      }
+    }
   }
 }
 

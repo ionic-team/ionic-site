@@ -47,8 +47,8 @@ Ionic provides a set of utility attributes that can be used on any element in or
 | `text-end`        | `text-align: end`      | The same as `text-right` if direction is left-to-right and `text-left` if direction is right-to-left.                                                                         |
 | `text-center`     | `text-align: center`   | The inline contents are centered within the line box.                                                                                                               |
 | `text-justify`    | `text-align: justify`  | The inline contents are justified. Text should be spaced to line up its left and right edges to the left and right edges of the line box, except for the last line. |
-| `text-wrap`       | `white-space: nowrap`  | Sequences of whitespace are collapsed. Newline characters in the source are handled as other whitespace. Breaks lines as necessary to fill line boxes.              |
-| `text-nowrap`     | `white-space: normal`  | Collapses whitespace as for `normal`, but suppresses line breaks (text wrapping) within text.                                                                       |
+| `text-wrap`       | `white-space: normal`  | Sequences of whitespace are collapsed. Newline characters in the source are handled as other whitespace. Breaks lines as necessary to fill line boxes.              |
+| `text-nowrap`     | `white-space: nowrap`  | Collapses whitespace as for `normal`, but suppresses line breaks (text wrapping) within text.                                                                       |
 
 <ion-grid>
   <ion-row>

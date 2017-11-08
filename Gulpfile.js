@@ -218,6 +218,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
+  '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',
   '!content/_includes/head_includes.*', '!content/_includes/fluid/head.*',
   '!content/_includes/fluid/footer_tags.*'], ['jekyll-rebuild']);
 });

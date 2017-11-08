@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L495">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L777">
   Improve this doc
 </a>
 
@@ -125,11 +125,7 @@ export class HomePage {
 
 
 
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(element,&nbsp;options)</code></h3>
 
 Creates a new GoogleMap instance
@@ -170,6 +166,9 @@ Creates a new GoogleMap instance
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>GoogleMap</code> 
 </div>
+
+
+
 
 <h2><a class="anchor" name="GoogleMap" href="#GoogleMap"></a>GoogleMap</h2>
 
@@ -1263,15 +1262,8 @@ Returns a boolean that indicates whether the circle is visible
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
 </div><h2><a class="anchor" name="Encoding" href="#Encoding"></a>Encoding</h2>
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="decodePath" href="#decodePath"></a><code>decodePath(encoded,&nbsp;precision?)</code></h3>
-
-
-
 
 Decodes an encoded path string into a sequence of LatLngs.
 <table class="table param-table" style="margin:0;">
@@ -1310,10 +1302,8 @@ Decodes an encoded path string into a sequence of LatLngs.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>LatLng</code> 
-</div><h3><a class="anchor" name="encodePath" href="#encodePath"></a><code>encodePath(path)</code></h3>
-
-
-
+</div>
+<h3><a class="anchor" name="encodePath" href="#encodePath"></a><code>encodePath(path)</code></h3>
 
 Encodes a sequence of LatLngs into an encoded path string.
 <table class="table param-table" style="margin:0;">
@@ -1341,12 +1331,11 @@ Encodes a sequence of LatLngs into an encoded path string.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div><h2><a class="anchor" name="Environment" href="#Environment"></a>Environment</h2>
+</div>
 
 
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="Environment" href="#Environment"></a>Environment</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="getLicenseInfo" href="#getLicenseInfo"></a><code>getLicenseInfo()</code></h3>
 
 Get the open source software license information for Google Maps SDK for iOS.
@@ -1355,7 +1344,8 @@ Get the open source software license information for Google Maps SDK for iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor(color)</code></h3>
+</div>
+<h3><a class="anchor" name="setBackgroundColor" href="#setBackgroundColor"></a><code>setBackgroundColor(color)</code></h3>
 
 Specifies the background color of the app.
 <table class="table param-table" style="margin:0;">
@@ -1379,12 +1369,11 @@ Specifies the background color of the app.
   </tbody>
 </table>
 
+
+
+
 <h2><a class="anchor" name="Geocoder" href="#Geocoder"></a>Geocoder</h2>
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
 
 Converts position to address and vice versa
@@ -1413,7 +1402,10 @@ Converts position to address and vice versa
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;GeocoderResult[] | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
-</div><h2><a class="anchor" name="GroundOverlay" href="#GroundOverlay"></a>GroundOverlay</h2>
+</div>
+
+
+<h2><a class="anchor" name="GroundOverlay" href="#GroundOverlay"></a>GroundOverlay</h2>
 
 
 
@@ -1789,11 +1781,7 @@ Close the htmlInfoWindow
 
 
 <h2><a class="anchor" name="Geocoder" href="#Geocoder"></a>Geocoder</h2>
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="geocode" href="#geocode"></a><code>geocode(request)</code></h3>
 
 Converts position to address and vice versa
@@ -1822,7 +1810,10 @@ Converts position to address and vice versa
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;GeocoderResult[] | BaseArrayClass&lt;GeocoderResult&gt;&gt;</code> 
-</div><h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
+</div>
+
+
+<h2><a class="anchor" name="LatLng" href="#LatLng"></a>LatLng</h2>
 
 
 
@@ -3238,11 +3229,7 @@ Remove the polyline
 
 
 <h2><a class="anchor" name="Spherical" href="#Spherical"></a>Spherical</h2>
-
-
-
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="computeDistanceBetween" href="#computeDistanceBetween"></a><code>computeDistanceBetween(locationA,&nbsp;locationB)</code></h3>
 
 Returns the distance, in meters, between two LatLngs.
@@ -3280,7 +3267,8 @@ Returns the distance, in meters, between two LatLngs.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="computeOffset" href="#computeOffset"></a><code>computeOffset(from,&nbsp;distance,&nbsp;heading)</code></h3>
+</div>
+<h3><a class="anchor" name="computeOffset" href="#computeOffset"></a><code>computeOffset(from,&nbsp;distance,&nbsp;heading)</code></h3>
 
 Returns the LatLng resulting from moving a distance from an origin in the specified heading (expressed in degrees clockwise from north)
 <table class="table param-table" style="margin:0;">
@@ -3327,7 +3315,8 @@ Returns the LatLng resulting from moving a distance from an origin in the specif
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>LatLng</code> 
-</div><h3><a class="anchor" name="computeOffsetOrigin" href="#computeOffsetOrigin"></a><code>computeOffsetOrigin(to,&nbsp;distance,&nbsp;heading)</code></h3>
+</div>
+<h3><a class="anchor" name="computeOffsetOrigin" href="#computeOffsetOrigin"></a><code>computeOffsetOrigin(to,&nbsp;distance,&nbsp;heading)</code></h3>
 
 Returns the location of origin when provided with a LatLng destination, meters travelled and original heading. Headings are expressed in degrees clockwise from North. This function returns null when no solution is available.
 <table class="table param-table" style="margin:0;">
@@ -3377,7 +3366,8 @@ Returns the location of origin when provided with a LatLng destination, meters t
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>LatLng</code> 
-</div><h3><a class="anchor" name="computeLength" href="#computeLength"></a><code>computeLength(path)</code></h3>
+</div>
+<h3><a class="anchor" name="computeLength" href="#computeLength"></a><code>computeLength(path)</code></h3>
 
 Returns the length of the given path.
 <table class="table param-table" style="margin:0;">
@@ -3404,7 +3394,8 @@ Returns the length of the given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="computeArea" href="#computeArea"></a><code>computeArea(path)</code></h3>
+</div>
+<h3><a class="anchor" name="computeArea" href="#computeArea"></a><code>computeArea(path)</code></h3>
 
 Returns the area of a closed path. The computed area uses the same units as the radius.
 <table class="table param-table" style="margin:0;">
@@ -3432,7 +3423,8 @@ Returns the area of a closed path. The computed area uses the same units as the 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="computeSignedArea" href="#computeSignedArea"></a><code>computeSignedArea(path)</code></h3>
+</div>
+<h3><a class="anchor" name="computeSignedArea" href="#computeSignedArea"></a><code>computeSignedArea(path)</code></h3>
 
 Returns the signed area of a closed path. The signed area may be used to determine the orientation of the path.
 <table class="table param-table" style="margin:0;">
@@ -3460,7 +3452,8 @@ Returns the signed area of a closed path. The signed area may be used to determi
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="computeHeading" href="#computeHeading"></a><code>computeHeading(from,&nbsp;to)</code></h3>
+</div>
+<h3><a class="anchor" name="computeHeading" href="#computeHeading"></a><code>computeHeading(from,&nbsp;to)</code></h3>
 
 Returns the heading from one LatLng to another LatLng. Headings are expressed in degrees clockwise from North within the range (-180,180).
 <table class="table param-table" style="margin:0;">
@@ -3497,7 +3490,8 @@ Returns the heading from one LatLng to another LatLng. Headings are expressed in
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> 
-</div><h3><a class="anchor" name="interpolate" href="#interpolate"></a><code>interpolate(from,&nbsp;to,&nbsp;fraction)</code></h3>
+</div>
+<h3><a class="anchor" name="interpolate" href="#interpolate"></a><code>interpolate(from,&nbsp;to,&nbsp;fraction)</code></h3>
 
 Returns the LatLng which lies the given fraction of the way between the origin LatLng and the destination LatLng.
 <table class="table param-table" style="margin:0;">
@@ -3547,7 +3541,90 @@ Returns the LatLng which lies the given fraction of the way between the origin L
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>LatLng</code> 
-</div><h2><a class="anchor" name="TileOverlay" href="#TileOverlay"></a>TileOverlay</h2>
+</div>
+
+
+<h2><a class="anchor" name="Poly" href="#Poly"></a>Poly</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
+<h3><a class="anchor" name="containsLocation" href="#containsLocation"></a><code>containsLocation(location,&nbsp;path)</code></h3>
+
+Returns true if the speicified location is in the polygon path
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      location</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>ILatLng[]</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div>
+<h3><a class="anchor" name="isLocationOnEdge" href="#isLocationOnEdge"></a><code>isLocationOnEdge(location,&nbsp;path)</code></h3>
+
+Returns true if the speicified location is on the polyline path
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      location</td>
+    <td>
+      <code>ILatLng</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      path</td>
+    <td>
+      <code>ILatLng[]</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div>
+
+
+<h2><a class="anchor" name="TileOverlay" href="#TileOverlay"></a>TileOverlay</h2>
 
 
 
@@ -4525,7 +4602,8 @@ Sets an element at the specified index.
       <code>MapType</code>
     </td>
     <td>
-      
+      <p>MapType</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4551,9 +4629,25 @@ Sets an element at the specified index.
     </td>
     <td>
       <code>{
+
+    /**
+     * Set false to disable the scroll gesture (default: true)
+     */
     scroll?: boolean;
+
+    /**
+     * Set false to disable the tilt gesture (default: true)
+     */
     tilt?: boolean;
+
+    /**
+     * Set false to disable the zoom gesture (default: true)
+     */
     zoom?: boolean;
+
+    /**
+     * Set false to disable the rotate gesture (default: true)
+     */
     rotate?: boolean;
   }</code>
     </td>
@@ -4631,6 +4725,19 @@ Sets an element at the specified index.
     </td>
     <td>
       <p>The center location of the camera view.</p>
+<p>[usage 1]</p>
+<p>let cameraPos: CameraPosition<ILatLng> = {
+  target: {lat: ..., lng: ...},
+  zoom: 10
+}</p>
+<p>[usage 2] The zoom property is ignored when you specify multiple position</p>
+<p>let cameraPos: CameraPosition<ILatLng[]> = {
+  target: [
+     {lat: ..., lng: ...},
+     {lat: ..., lng: ...},
+     {lat: ..., lng: ...}
+  ]
+}</p>
 
       <em>(optional)</em>
     </td>
@@ -4730,8 +4837,9 @@ Sets an element at the specified index.
       <code>ILatLng</code>
     </td>
     <td>
+      <p>Center position of circle</p>
+
       
-      <em>(optional)</em>
     </td>
   </tr>
   
@@ -4743,8 +4851,9 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
+      <p>Radius of circle in meter</p>
+
       
-      <em>(optional)</em>
     </td>
   </tr>
   
@@ -4756,7 +4865,9 @@ Sets an element at the specified index.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the stroke color
+(rgb, rgba, #RRGGBB, &quot;colorname&quot;, ...etc)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4769,7 +4880,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Set the stroke width in pixel</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4782,7 +4894,9 @@ Sets an element at the specified index.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the inside color of polygon
+(rgb, rgba, #RRGGBB, &quot;colorname&quot;, ...etc)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4795,7 +4909,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set to true to receive the CIRCLE_CLICK event
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4808,7 +4924,8 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set to false to hide</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4821,7 +4938,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Z-index</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4850,7 +4968,20 @@ Sets an element at the specified index.
       <code>string | string[]</code>
     </td>
     <td>
-      
+      <p>The address property or position property is required.
+You can not specify both property at the same time.</p>
+<p>[geocoding usage1]
+let request: GeocoderRequest = {
+  address: &quot;Los Angeles, California, USA&quot;
+};</p>
+<p>[geocoding usage2]
+let request: GeocoderRequest = {
+  address: [
+   &quot;Los Angeles, California, USA&quot;,
+   &quot;San Francisco, California, USA&quot;,
+  ]
+};</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4863,7 +4994,18 @@ Sets an element at the specified index.
       <code>ILatLng | ILatLng[]</code>
     </td>
     <td>
-      
+      <p>[reverse-geocoding usage1]
+let request: GeocoderRequest = {
+  position: {&quot;lat&quot;: 37.421655, &quot;lng&quot;: -122.085637}
+};</p>
+<p>[reverse-geocoding usage2]
+let request: GeocoderRequest = {
+  address: [
+   {&quot;lat&quot;: 37.421655, &quot;lng&quot;: -122.085637},
+   {&quot;lat&quot;: 37.332, &quot;lng&quot;: -122.030781}
+  ]
+};</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5072,7 +5214,7 @@ Sets an element at the specified index.
     <td>
       <p>URL of overlay</p>
 
-      <em>(optional)</em>
+      
     </td>
   </tr>
   
@@ -5086,7 +5228,7 @@ Sets an element at the specified index.
     <td>
       <p>Bounds, array of ILatLng</p>
 
-      <em>(optional)</em>
+      
     </td>
   </tr>
   
@@ -5098,7 +5240,8 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set to false to ignore click event</p>
+      <p>Set to true to receive the GROUND_OVERLAY_CLICK event
+(default: false)</p>
 
       <em>(optional)</em>
     </td>
@@ -5472,7 +5615,9 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Maximum zoom level of clustering
+(default: 15, max: 18)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5485,7 +5630,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Draw a rectangle that contains all locations of clustered when you tap on a clister marker.
+(default: true)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5498,7 +5645,13 @@ Sets an element at the specified index.
       <code>MarkerOptions[]</code>
     </td>
     <td>
-      
+      <p>Position list
+[
+  {title: &quot;store A&quot;, position: {lat: ..., lng: ...}},
+  {title: &quot;store B&quot;, position: {lat: ..., lng: ...}},
+  {title: &quot;store C&quot;, position: {lat: ..., lng: ...}}
+]</p>
+
       
     </td>
   </tr>
@@ -5511,7 +5664,13 @@ Sets an element at the specified index.
       <code>any[]</code>
     </td>
     <td>
-      
+      <p>Conditions of clustering
+[
+  {icon: &quot;assets/small.png&quot;, min: 2, max: 10},
+  {icon: &quot;assets/middle.png&quot;, min: 11, max: 30},
+  {icon: &quot;assets/large.png&quot;, min: 31},
+]</p>
+
       
     </td>
   </tr>
@@ -5673,7 +5832,10 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to try to use GPS mandatory.
+(In false, the plugin try to use GPS and network)
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5702,8 +5864,10 @@ Sets an element at the specified index.
       <code>Array&lt;ILatLng&gt;</code>
     </td>
     <td>
+      <p>Pass ILatLng[] to specify the vertixes.
+You need to contain two points at least.</p>
+
       
-      <em>(optional)</em>
     </td>
   </tr>
   
@@ -5715,7 +5879,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to draw the curve polygon based on the earth
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5728,7 +5894,9 @@ Sets an element at the specified index.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the stroke color
+(rgb, rgba, #RRGGBB, &quot;colorname&quot;, ...etc)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5741,7 +5909,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Set the stroke width in pixel</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5754,7 +5923,9 @@ Sets an element at the specified index.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the inside color of polygon
+(rgb, rgba, #RRGGBB, &quot;colorname&quot;, ...etc)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5767,7 +5938,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set false if you want to create invisible polygon
+(Invisible polygon is not clickable, default true)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5780,7 +5953,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Hierarchy z-index</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5793,7 +5967,8 @@ Sets an element at the specified index.
       <code>Array&lt;Array&lt;ILatLng&gt;&gt;</code>
     </td>
     <td>
-      
+      <p>Pass ILatLng[][] to create holes in polygon</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5806,7 +5981,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to receive the POLYGON_CLICK event
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5835,8 +6012,10 @@ Sets an element at the specified index.
       <code>Array&lt;ILatLng&gt;</code>
     </td>
     <td>
+      <p>Pass ILatLng[] to specify the vertixes.
+You need to contain two points at least.</p>
+
       
-      <em>(optional)</em>
     </td>
   </tr>
   
@@ -5848,7 +6027,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set false if you want to create invisible polyline
+(Invisible polyline is not clickable, default true)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5861,7 +6042,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to draw the curve polyline based on the earth
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5874,7 +6057,9 @@ Sets an element at the specified index.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the stroke color
+(rgb, rgba, #RRGGBB, &quot;colorname&quot;, ...etc)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5887,7 +6072,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Set the stroke width in pixel</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5900,7 +6086,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Hierarchy z-index</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5913,7 +6100,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to receive the POLYLINE_CLICK event
+(default: false)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5942,7 +6131,9 @@ Sets an element at the specified index.
       <code>(x: number, y: number, zoom: number) =&gt; string</code>
     </td>
     <td>
-      
+      <p>This callback must return string of image URL.
+If no tile, you need to return null.</p>
+
       
     </td>
   </tr>
@@ -5955,7 +6146,9 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set false if you want to create invisible tilelayer
+(default true)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5968,7 +6161,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Hierarchy z-index of tilelayer</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5981,7 +6175,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Default: 512px</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -5994,7 +6189,8 @@ Sets an element at the specified index.
       <code>number</code>
     </td>
     <td>
-      
+      <p>Default: 1.0</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -6007,7 +6203,8 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Set true if you want to display the tile information over the tile images.</p>
+
       <em>(optional)</em>
     </td>
   </tr>

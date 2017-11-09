@@ -79,7 +79,9 @@ For Ionic-Angular apps (Ionic 2.x and Angular 2.x and above), to capture errors 
 ```typescript
 import { Pro } from '@ionic/pro';
 
+// These are the imports required for the code below, feel free to merge into existing imports
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { IonicErrorHandler } from 'ionic-angular';
 
 const IonicPro = Pro.init('APP_ID', {
   appVersion: "APP_VERSION"

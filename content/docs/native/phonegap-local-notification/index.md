@@ -60,7 +60,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 <pre><code>import { PhonegapLocalNotification } from &#39;@ionic-native/phonegap-local-notification&#39;;
 
 
-constructor(private localNotification: PhonegapLocalNotifications) { }
+constructor(private localNotification: PhonegapLocalNotification) { }
 
 ...
 

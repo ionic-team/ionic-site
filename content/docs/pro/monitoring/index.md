@@ -22,7 +22,7 @@ This lets you:
 
 <div class="condensed" markdown="1">
 * See exactly where errors happen in your original source code even through layers of transpiled code and minification
-* Detect runtime errors and crashes in real-time with alerts and notifications
+* Detect runtime errors in real-time with alerts and notifications
 * Fix errors immediately even in live app store apps
 </div>
 
@@ -48,6 +48,8 @@ const IonicPro = Pro.init('APP_ID', {
 
 Where `APP_ID` is the Ionic Pro App ID Found on the dashboard for your app. `APP_VERSION` is the version of the code
 running for the purposes of tracking code changes. We strongly recommend that this mirrors the version in `package.json` or `config.xml`.
+
+Finally, make sure you are running `@ionic/app-scripts` version `3.1.0` or later, and `@ionic/pro` version `1.0.12` or later.
 
 ### CDN Install
 
@@ -152,7 +154,7 @@ in your code, even through highly minified, production code.
 
 #### Automatically adding Source Maps
 
-New releases of Ionic CLI (3.9.0 and greater) come with a built-in command for syncing Source Maps with Ionic Pro. This feature requires Ionic 2 or above using `@ionic/app-scripts` 2.1.4 or greater.
+New releases of Ionic CLI (3.9.0 and greater) come with a built-in command for syncing Source Maps with Ionic Pro. This feature requires Ionic 2 or above using `@ionic/app-scripts` 3.1.0 or greater.
 
 To sync Source Maps, run
 

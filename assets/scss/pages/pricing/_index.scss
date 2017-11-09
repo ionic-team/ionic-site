@@ -1,13 +1,13 @@
 #page-pricing {
   .navbar {
     + .cta {
-      background: #061833 linear-gradient(45deg,#081834 0,#051b33 50%,#041629 50%,#031f33 100%);;
       padding-top: 97px;
+      background: white;
 
       hgroup {
         padding-bottom: 402px;
         padding-top: 28px;
-        color: white;
+        color: #272a2f;
         text-align: center;
         max-width: 665px;
 
@@ -20,9 +20,15 @@
         }
 
         p {
+          color: #4c576c;
           letter-spacing: .001em;
           font-size: 15px;
           line-height: 1.8em;
+
+          a {
+            color: $blue;
+            text-decoration: underline;
+          }
         }
 
         .success {
@@ -32,112 +38,179 @@
     }
   }
 
-  .cards {
+  .plans {
     margin: -335px auto 50px;
-    text-align: center;
     display: flex;
     flex-wrap: wrap;
-    background: white;
     border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, .1), 0 2px 8px rgba(0, 0, 0, .1);
+    justify-content: space-between;
+    font-family: $font-family-eina;
 
-    .card {
+    @media (max-width: $screen-md-max)  {
+      justify-content: center;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    .group {
+      width: 558px;
+      margin-bottom: 40px;
+
+      > h3 {
+        color: #97a4ba;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 48px;
+
+        strong {
+          color: #272a2f;
+        }
+      }
+    }
+    
+    .plan-container {
+      display: flex;
+      border-radius: 4px;
+      background: white;
+      box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
+    }
+
+    .plan {
       position: relative;
       vertical-align: top;
-      width: 285px;
-      flex: 1 0 285px;
-      padding: 40px 33px 122px;
+      flex: 1 0 278px;
+      padding: 40px 33px 112px;
 
-      + .card {
+      + .plan {
         border-left: 1px solid #eee;
       }
 
-      .title {
-        color: $blue;
-        font-size: 12px;
+      &.team::before {
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: 0;
+        bottom: -10px;
+        left: 0;
+      }
+
+      .popular {
+        background: #5f57ff;
+        position: absolute;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: white;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 500;
+        top: -10px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        display: inline-block;
+        padding: 3px;
+        letter-spacing: .05em;
+      }
+
+      h3 {
         font-weight: 700;
-        letter-spacing: 2px;
-        padding-top: 0px;
+        letter-spacing: .06em;
+        line-height: 1.6em;
         margin-top: 0;
         position: relative;
         text-transform: uppercase;
         z-index: 1;
+        font-size: 20px;
+        text-transform: none;
+        margin-bottom: 0;
+      }
+
+      &.starter {
+        h3,
+        .plus {
+          color: #37adff;
+        }
       }
 
       &.developer {
-        .title,
+        h3,
         .plus {
           color: $green;
         }
       }
 
-      &.business {
-        .title,
+      &.team {
+        h3,
         .plus {
           color: #5f57ff;
         }
+        
+        .cta {
+          bottom: 10px;
+        }
       }
 
-      &.enterprise {
-        .title,
+      &.business {
+        h3,
         .plus {
           color: #f73a66;
         }
       }
 
-      h2 {
-        font-size: 35px;
-        font-weight: 700;
-        margin-bottom: 19px;
-        margin-top: 20px;
-        position: relative;
-        text-transform: uppercase;
-        z-index: 1;
+      &.enterprise {
+        border-radius: 4px;
+        box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
+        padding: 30px calc(50% + 60px) 30px 30px;
 
-        sup {
-          font-size: 20px;
-          top: -9px;
+        &::before {
+          content: '';
+          background: url('/img/pricing/enterprise-logos.png') no-repeat 100% 50%;
+          background-size: 100%;
+          position: absolute;
+          left: calc(50% + 60px);
+          top: 20px;
+          right: 40px;
+          bottom: 20px;
         }
 
-        sub {
-          font-size: 10px;
-          top: -1px;
-          left: 1px;
-          margin-left: -10px;
+        h3,
+        .plus {
+          color: #ffb400;
         }
 
-        small {
-          display: block;
-          font-size: 11px;
-          font-weight: 700;
-          color: #333;
-
-          sup {
-            font-size: 12px;
-            top: 0px;
-          }
+        .cta {
+          position: unset;
+          left: auto;
+          right: auto;
+          margin-top: 0;
+          width: auto;
+          display: inline-block;
+          padding: 16px 19px 15px;
         }
 
-        &.free,
-        &.contact {
-          font-size: 28px;
-          letter-spacing: 2px;
-          margin-top: 34px;
-          margin-bottom: 23px;
+        p {
+          font-weight: 600;
+          line-height: 1.8em;
         }
       }
 
-      h3 {
-        color: #aab7cc;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: .06em;
-        line-height: 1.6em;
-        margin-top: 0;
-        margin-bottom: 26px;
+      .price {
+        font-weight: 600;
+        font-size: 20px;
         position: relative;
-        text-transform: uppercase;
-        z-index: 1;
+      }
+
+      .type {
+        color: #4f535b;
+        font-style: italic;
+        font-size: 14px;
+        position: relative;
       }
 
       .infinite {
@@ -176,62 +249,28 @@
         color: #404349;
         font-size: 13px;
         list-style: none;
-        padding: 14px 0 0 22px;
+        font-weight: 600;
+        padding: 14px 0 0 0;
         position: relative;
 
+        b,
+        strong,
         &.plus {
-          font-weight: 600;
-          letter-spacing: -.012em;
-        }
-
-        &::before {
-          font-family: 'Ionicons';
-          content: '\f2ba';
-          position: absolute;
-          display: block;
-          left: 0;
-          top: 14px;
-        }
-
-        b {
-          font-weight: 500;
-        }
-
-        a {
-          font-weight: 500;
+          font-weight: 700;
         }
       }
 
       .cta {
-        font-weight: 700;
+        font-weight: 600;
         position: absolute;
-        text-transform: uppercase;
         text-decoration: none;
-        padding:23px 8px 21px;
-        bottom: 34px;
+        padding: 16px 8px 15px;
+        bottom: 20px;
         display: block;
         z-index: 1;
         left: 32px;
         right: 32px;
-        font-size: 12px;
-        letter-spacing: .18em;
-
-        &.outline {
-          padding: 21px 33px 19px;
-          border: 2px solid $blue;
-        }
-
-        + small {
-          position: absolute;
-          bottom: 100px;
-          letter-spacing: .2em;
-          font-size: 10px;
-          left: 32px;
-          right: 32px;
-          color: #bbb;
-          font-weight: 500;
-          text-transform: uppercase;
-        }
+        font-size: 15px;
       }
 
       @media (max-width: $screen-md-max)  {
@@ -274,6 +313,16 @@
     }
   }
 
+  .conditions {
+    color: rgba(#8b94a2, .7);
+    text-align: center;
+    font-size: 12px;    
+    font-size: 11px;
+    line-height: 2em;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(#8b94a2, .2);
+  }
+
   .also {
     border-left: 0;
     border-right: 0;
@@ -281,6 +330,7 @@
 
     h3 {
       font-size: 23.5px;
+      font-weight: 600;
     }
 
     .items {

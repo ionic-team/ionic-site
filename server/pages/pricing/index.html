@@ -1,117 +1,105 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'pricing' %}
+{% set header_style = 'transparent light' %}
 {% set bodyController = 'pricingCtrl' %}
 {% import "../_includes/macros.html" as macros %}
 
 {% block main %}
 <div class="cta" ng-init="period = 'monthly'">
   <hgroup class="container">
-    <h1>Ionic Pro pricing</h1>
+    <h1>Ionic plans & pricing</h1>
     <p>
-      Build, test, deploy, and monitor native &amp; web apps with one code base, 
-      on any platform. Choose from any of our pricing plans that work to fit you 
-      as you grow.
+      Choose a plan that’s right for you or your team. Need help? <a href="">
+      Drop us a line</a>
     </p>
   </hgroup>
 </div>
-
 <div class="container">
-  <div class="cards">
-    <div class="card community">
-      <h4 class="title">Kickstarter</h4>
-      <h2 class="free">Free</h2>
-      <h3>For beginners &amp; Hobbyists who want to get started with Pro.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li><b>Ionic</b> framework</li>
-        <li><b>Git-based</b> workflow</li>
-        <li><b>View App</b> public sharing</li>
-        <li><b>20 live deploys</b> / month</li>
-        <li><b>Limited</b> error monitoring</li>
-        <li><b>Community</b> support</li>
-      </ul>
-      <a class="cta btn white outline" 
-          href="https://dashboard.ionicjs.com/signup">
-          Sign Up
-      </a>
+  <div class="plans">
+    <div class="group">
+      <h3>Powerful tools & services for <strong>developers.</strong></h3>
+      <div class="plan-container">
+        <div class="plan starter">
+          <h3>Starter</h3>
+          <div class="price"><strong>Free</strong></div>
+          <div class="type">Solo license</div>
+          <ul class="features">
+            <li><strong>Dev app</strong> local device testing</li>
+            <li><strong>View app</strong> public sharing</li>
+            <li><strong>Deploy</strong>for 20 active users</li>
+            <li><strong>Basic</strong>error monitoring</li>
+            <li>Git-based workflow</li>
+          </ul>
+          <div class="btn cta">Try it now</div>
+        </div>
+        <div class="plan developer">
+          <h3>Developer</h3>
+          <div class="price"><strong>$29</strong> per month</div>
+          <div class="type">Solo license</div>
+          <ul class="features">
+            <li class="plus">Everything in Kickstarter +</li>
+            <li><strong>View app</strong> private sharing</li>
+            <li><strong>Deploy to 25K</strong> active users</li>
+            <li><strong>Package</strong> dev & prod apps</li>
+            <li><strong>Advanced</strong> A error monitoring</li>
+            <li>Product support</li>
+          </ul>
+          <div class="btn cta">Buy now</div>
+        </div>
+      </div>
     </div>
-
-    <div class="card developer">
-      <h4 class="title">Developer</h4>
-      <h2>
-        <sup>$</sup>29<small>per month</small>
-      </h2>
-      <h3>Powerful tools &amp; features for serious Creators shipping apps.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Kickstarter +</li>
-        <li><b>View App</b> private sharing</li>
-        <li><b>Rapid prototyping with </b><a href="http://usecreator.com" 
-          target="_blank">Creator</a></li>
-        <li><b>Multi-channel</b> live updating</li>
-        <li><b>100,000 live deploys</b> / month</li>
-        <li><b>5,000 native builds</b> / month</li>
-        <li><b>Advanced</b> error monitoring</li>
-        <li><b>Product</b> support</li>
-      </ul>
-      <a class="cta btn"
-         href="https://dashboard.ionicjs.com/signup">
-        Sign Up
-      </a>
+    <div class="group">
+      <h3>Complete app building platform for <strong>teams & orgs.</strong></h3>
+      <div class="plan-container">
+        <div class="plan team">
+          <div class="popular">Most Popular</div>
+          <h3>Team</h3>
+          <div class="price"><strong>$49</strong> per month</div>
+          <div class="type">Per team member, max 5</div>
+          <ul class="features">
+            <li class="plus">Everything in Developer +</li>
+            <li><strong>Organization</strong> account</li>
+            <li><strong>Deploy to 100K</strong> active users</li>
+            <li><strong>Team</strong> collaboration</li>
+            <li><strong>Activity</strong> feed</li>
+          </ul>
+          <div class="btn cta">Buy now</div>
+        </div>
+        <div class="plan business">
+          <h3>Business</h3>
+          <div class="price"><strong>$169</strong> per month *</div>
+          <div class="type">Per team member</div>
+          <ul class="features">
+            <li class="plus">Everything in Team +</li>
+            <li><strong>Multiple</strong> teams</li>
+            <li><strong>Deploy to 1M</strong> active users</li>
+            <li><strong>App-level</strong> permissions</li>
+            <li><strong>Live</strong> onboarding</li>
+            <li><strong>Business</strong> support SLA</li>
+          </ul>
+          <div class="btn cta">Buy now</div>
+        </div>
+      </div>
     </div>
-
-    <div class="card business">
-      <h4 class="title">Business</h4>
-      <h2>
-        <sup>$</sup>169<small>per team member / mo<sup>*</sup></small>
-      </h2>
-      <h3>complete app building Platform for teams &amp; organizations.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Developer +</li>
-        <li><b>Teams &amp; Organizations</b></li>
-        <li><b>View App</b> split testing &amp; groups</li>
-        <li><b>1M live deploys</b> / month</li>
-        <li><b>50,000 native builds</b> / month</li>
-        <li><b>Business</b> email support</li>
-      </ul>
-      <a class="cta btn" 
-         href="/pricing/trial">
-        Start A Free Trial
-      </a>
-      <small>* Billed Annually</small>
-    </div>
-
-    <div class="card enterprise">
-      <h4 class="title">Enterprise</h4>
-      <h2 class="contact">
-        Contact Us
-      </h2>
-      <h3>Advanced features & controls for companies operating at scale.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Business +</li>
-        <li><b>Unlimited</b> platform usage</li>
-        <li><b>Granular</b> permissions control</li>
-        <li><b>On-prem</b> availability </li>
-        <li><b>Single sign-on</b> support</li>
-        <li><b>Training</b> and consultation</li>
-        <li><b>Premium Support</b> SLA</li>
-        <li><b>Customer success</b> manager</li>
-        <li><b>Customized</b> billing</li>
-      </ul>
-      <a class="cta btn dark-pink"
-         data-toggle="modal" 
-         data-target="#contactForm">
-        Contact Us
-      </a>
+    <div class="plan enterprise">
+      <h3>Ionic for Enterprise</h3>
+      <p>
+        Some of the smartest companies on earth power their apps with Ionic. Get
+        in touch to customize a plan that fits the needs of your organization.
+      </p>
+      <div class="btn cta">Get in touch</div>
     </div>
   </div>
 </div>
 
+<p class="conditions">
+  All plans include unlimited apps, Ionic DevApp, and public sharing with View.
+  <br/>* Ionic Pro Business edition is billed annually.
+</p>
+
 <div class="also">
   <div class="container">
-    <h3 class="text-center">Every plan comes with...</h3>
+    <h3 class="text-center">Every plan comes with</h3>
     <ul class="items">
       <li class="item framework">
         <h4>Ionic Framework</h4>

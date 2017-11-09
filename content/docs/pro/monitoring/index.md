@@ -79,15 +79,30 @@ For Ionic-Angular apps (Ionic 2.x and Angular 2.x and above), to capture errors 
 ```typescript
 import { Pro } from '@ionic/pro';
 
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
+
 const IonicPro = Pro.init('APP_ID', {
   appVersion: "APP_VERSION"
 });
 
-import { ErrorHandler } from '@angular/core';
-
+@Injectable()
 export class MyErrorHandler implements ErrorHandler {
+  ionicErrorHandler: IonicErrorHandler;
+
+  constructor(injector: Injector) {
+    try {
+      this.ionicErrorHandler = injector.get(IonicErrorHandler);
+    } catch(e) {
+      // Unable to get the IonicErrorHandler provider, ensure 
+      // IonicErrorHandler has been added to the providers list below
+    }
+  }
+
   handleError(err: any): void {
     IonicPro.monitoring.handleNewError(err);
+    // Remove this if you want to disable Ionic's auto exception handling
+    // in development mode.
+    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
   }
 }
 ```
@@ -97,6 +112,7 @@ Then add this entry to the `providers` in `NgModule`:
 ```
   providers: [
     // ...,
+    IonicErrorHandler,
     [{ provide: ErrorHandler, useClass: MyErrorHandler }] // This line
   ]
 ```

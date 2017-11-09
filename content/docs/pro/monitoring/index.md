@@ -88,7 +88,6 @@ import { ErrorHandler } from '@angular/core';
 export class MyErrorHandler implements ErrorHandler {
   handleError(err: any): void {
     IonicPro.monitoring.handleNewError(err);
-    throw err; // re-throw the error to continue logging
   }
 }
 ```

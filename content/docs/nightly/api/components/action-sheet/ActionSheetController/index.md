@@ -75,10 +75,10 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 export class MyClass{
 
- constructor(public actionSheetCtrl: ActionSheetController) {}
+ constructor(public actionSheetCtrl: ActionSheetController) { }
 
  presentActionSheet() {
-   let actionSheet = this.actionSheetCtrl.create({
+   const actionSheet = this.actionSheetCtrl.create({
      title: &#39;Modify your album&#39;,
      buttons: [
        {
@@ -278,7 +278,7 @@ back a page in the same stack. The potential problem is that the async operation
 may have been completed before the action sheet has even finished its transition
 out. In this case, it&#39;s best to ensure the action sheet has finished its transition
 out first, <em>then</em> start the next transition.</p>
-<pre><code class="lang-ts">let actionSheet = this.actionSheetCtrl.create({
+<pre><code class="lang-ts">const actionSheet = this.actionSheetCtrl.create({
   title: &#39;Hello&#39;,
   buttons: [{
     text: &#39;Ok&#39;,
@@ -423,6 +423,15 @@ out before starting a new transition.</p>
           <td><code>$action-sheet-ios-padding-end</code></td>
         
         <td><p>Padding start of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-ios-group-margin-top</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Top margin of the action sheet button group</p>
 </td>
       </tr>
       
@@ -647,11 +656,20 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-group-margin-bottom</code></td>
+        <td><code>$action-sheet-md-padding-top</code></td>
         
-          <td><code>8px</code></td>
+          <td><code>.8rem</code></td>
         
-        <td><p>Bottom margin of the action sheet button group</p>
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       
@@ -890,6 +908,24 @@ out before starting a new transition.</p>
           <td><code>#fff</code></td>
         
         <td><p>Background color of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-top</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       

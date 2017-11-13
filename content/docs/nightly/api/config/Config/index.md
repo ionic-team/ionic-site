@@ -214,9 +214,24 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while a popover is dismissed.</td>
 </tr>
 <tr>
+<td><code>scrollAssist</code></td>
+<td><code>boolean</code></td>
+<td>Used to avoid the input to be hidden by the keyboard if it&#39;s near the bottom of the page.</td>
+</tr>
+<tr>
+<td><code>scrollPadding</code></td>
+<td><code>boolean</code></td>
+<td>Used to remove the extra padding on ion-content when keyboard is displayed.</td>
+</tr>
+<tr>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>
+</tr>
+<tr>
+<td><code>statusbarPadding</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide extra padding for statusbar.</td>
 </tr>
 <tr>
 <td><code>swipeBackEnabled</code></td>

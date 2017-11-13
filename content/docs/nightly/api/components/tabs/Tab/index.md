@@ -111,7 +111,7 @@ the tab is selected. Below is an example of presenting a modal from one of
 the tabs.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab (ionSelect)=&quot;chat()&quot; tabTitle=&quot;Show Modal&quot;&gt;&lt;/ion-tab&gt;
-&lt;/ion-tabs&gt;
+&lt;/ion-tabs&gt;pop
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
   constructor(public modalCtrl: ModalController) {
@@ -400,6 +400,15 @@ tabbar. Default: <code>true</code>.</p>
           <td><code>10px</code></td>
         
         <td><p>Font size of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-font-weight</code></td>
+        
+          <td><code>500</code></td>
+        
+        <td><p>Font weight of the tab button text</p>
 </td>
       </tr>
       

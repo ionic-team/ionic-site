@@ -144,3 +144,9 @@ phonegap-plugin-barcodescanner 6.0.7 "BarcodeScanner"
 phonegap-plugin-mobile-accessibility 1.0.5-dev "Mobile Accessibility"
 uk.co.workingedge.phonegap.plugin.launchnavigator 4.0.4 "Launch Navigator"
 </pre>
+
+## Plugin Issues
+
+If you are using a plugin from our supported list, and you are still encountering issues using that plugin, please make sure that you are utilizing the `platform.ready()` call before calling any native functionality. You can learn more about `platform.ready()` in our <a href="https://ionicframework.com/docs/api/platform/Platform/#ready" target="_blank">Framework documentation</a>.
+
+If a plugin isn't supported yet, or you are still encountering issues after `platform.ready()` then please <a href="http://ionicframework.com/support">reach out to Support</a>.

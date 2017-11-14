@@ -274,7 +274,7 @@ input[type=text].input {
   margin-top: 90px;
 
   &.ghost {
-    background: #263d4c center center no-repeat url('/img/bg-creator-ghost.png');
+    background: #263d4c center center no-repeat url('/img/products/creator/bg-creator-ghost.png');
     background-size: auto 100%;
   }
 
@@ -620,7 +620,7 @@ footer {
   }
 
   .how-creator-works {
-    background: $blue;
+    background: white;
     background: linear-gradient(to right, #4a8efa 0%,#34b3fe 100%);
     text-align: center;
 
@@ -645,7 +645,7 @@ footer {
     }
 
     p {
-      color: $light-blue;
+      color: white;
       font-weight: 400;
       line-height: 22px;
       font-size: 14px;

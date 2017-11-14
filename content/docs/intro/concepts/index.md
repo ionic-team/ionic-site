@@ -20,7 +20,7 @@ If you’re completely new to Ionic and/or hybrid mobile app development, it can
 
 Ionic Framework is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript).
 
-Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out [“Where does the Ionic Framework fit in?”](http://blog.ionic.io/where-does-the-ionic-framework-fit-in/) to get a good understanding of Ionic's core philosophy and goals.
+Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out [“Where does the Ionic Framework fit in?”](http://blog.ionicframework.com/where-does-the-ionic-framework-fit-in/) to get a good understanding of Ionic's core philosophy and goals.
 
 **Ionic currently requires Angular in order to work at its full potential.** While you can still use the CSS portion of the framework, you'll miss out on powerful UI interactions, gestures, animations, and other things. In the future, Ionic plans to become more agnostic in order to support a broader variety of JavaScript frameworks.
 
@@ -32,7 +32,7 @@ This website and documentation content (found in the [ionic-site](https://github
 
 ### What is the Ionic CLI?
 
-The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Cloud](http://ionic.io/), the CLI can be used to export code and even interact with your account programmatically.
+The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Cloud](/products), the CLI can be used to export code and even interact with your account programmatically.
 
 ### What are components?
 

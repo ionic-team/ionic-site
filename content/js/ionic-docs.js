@@ -15,8 +15,8 @@ ga('create', 'UA-77242104-1', 'auto');
 // Universal ID
 ga('create', 'UA-44023830-23', 'auto', {'allowLinker': true}, 'universalID');
 ga('require', 'linker');
-ga('linker:autoLink', ['ionic.io','blog.ionic.io','apps.ionic.io',
-   'creator.ionic.io','ideas.ionic.io','showcase.ionic.io','market.ionic.io']);
+ga('linker:autoLink', ['ionic.io','blog.ionicframework.com','apps.ionic.io',
+   'creator.ionic.io','ideas.ionic.io','showcase.ionicframework.com','market.ionicframework.com']);
 ga('send', 'pageview');
 
 var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])

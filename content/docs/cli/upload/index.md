@@ -31,7 +31,7 @@ $ ionic upload
 
 Zips up your local app files and uploads a snapshot to Ionic.
 
-From there, you can use Ionic View (**[https://view.ionic.io](https://view.ionic.io)**) to easily share your app with your organization and testers around the world.
+From there, you can use Ionic View (**[/products/view](/products/view)**) to easily share your app with your organization and testers around the world.
 
 
 

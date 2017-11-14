@@ -20,7 +20,7 @@ module.exports = function(req, res, next) {
   var parts = url.parse(req.url);
 
   if (parts.path.indexOf('/blog/') == 0) {
-    return res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
+    return res.redirect(301, 'http://blog.ionicframework.com/' + req.url.replace(/^\/blog\//, ''));
   } else if (parts.path.indexOf('/creator/') == 0) {
     return res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/tutorials') == 0) {

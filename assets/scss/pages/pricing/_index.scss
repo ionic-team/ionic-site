@@ -71,7 +71,7 @@
         }
       }
     }
-    
+
     .plan-container {
       display: flex;
       border-radius: 4px;
@@ -155,7 +155,7 @@
         .plus {
           color: #5f57ff;
         }
-        
+
         .cta {
           bottom: 10px;
         }
@@ -166,6 +166,8 @@
         .plus {
           color: #f73a66;
         }
+
+        tippy .tip::after { right: 27px; }
       }
 
       &.enterprise {
@@ -244,7 +246,7 @@
       }
 
       ul {
-        padding: 18px 0 0 7px;
+        padding: 18px 7px 0 7px;
         text-align: left;
         margin: 0 auto;
         max-width: 220px;
@@ -321,7 +323,7 @@
   .conditions {
     color: rgba(#8b94a2, .7);
     text-align: center;
-    font-size: 12px;    
+    font-size: 12px;
     font-size: 11px;
     line-height: 2em;
     padding-bottom: 60px;
@@ -381,7 +383,7 @@
         font-size: 14px;
         line-height: 28px;
       }
-      
+
       // @media (max-width: $screen-xs-max)  {
       //   flex-grow: 1;
       // }

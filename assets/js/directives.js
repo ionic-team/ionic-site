@@ -40,6 +40,14 @@ IonicSiteModule
     }
   };
 })
+.directive('tippy', function() {
+  return {
+    restrict: 'E',
+    transclude: true,
+    template: '<i class="ion-md-help"></i>' +
+              '<div class="tip"><ng-transclude></ng-transclude></div>',
+  };
+})
 .directive('ngEnter', function() {
   return function(scope, element, attrs) {
     element.bind("keydown keypress", function(event) {

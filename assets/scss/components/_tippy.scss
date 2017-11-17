@@ -18,7 +18,7 @@ tippy {
       top: -5px;
       height: 5px;
       width: 100%;
-			left: 0;
+      left: 0;
       content: '';
     }
 
@@ -38,9 +38,9 @@ tippy {
     a {
       cursor: pointer;
 
-			&:hover {
-				color: white;
-			}
+  &:hover {
+    color: white;
+  }
     }
   }
 

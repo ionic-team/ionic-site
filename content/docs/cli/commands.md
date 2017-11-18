@@ -49,6 +49,8 @@ Command | Description
 [doctor ignore](doctor/ignore/) | Ignore a particular issue
 [doctor list](doctor/list/) | List all issue identifiers
 [git remote](git/remote/) | Adds/updates the Ionic git remote to your local Ionic app repository
+[integrations disable](integrations/disable/) | Disable an integration
+[integrations enable](integrations/enable/) | Add various integrations to your app
 [monitoring syncmaps](monitoring/syncmaps/) | Sync Source Maps to Ionic Pro Error Monitoring service
 [package build](package/build/) | (deprecated) Start a package build
 [package download](package/download/) | (deprecated) Download your packaged app

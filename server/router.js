@@ -5,6 +5,7 @@ const markdown = require('./markdown');
 
 const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
+const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
 
 module.exports = function router(app) {
@@ -61,5 +62,6 @@ module.exports = function router(app) {
 
   // JSON endpoints
   .post('/contact', bp.json(), contactCtrl)
+  .post('/api/v1/newsletter', bp.json(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), viewCtrl)
 };

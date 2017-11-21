@@ -58,7 +58,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       twitter.get('users/show.json',{screen_name: 'ionicframework'}, (error, ionicframework) => {
         if(error) return reject( error );
-        resolve(ionicframework); 
+        resolve(ionicframework);
       });
     });
   },
@@ -78,7 +78,7 @@ module.exports = {
           subject: subject
         }],
         from: {
-          email: from, 
+          email: from,
           name: fromName
         },
         content: [{
@@ -112,19 +112,19 @@ module.exports = {
       return Promise.resolve()
     }
     var requestParams = {
-      method: 'POST',
+      method: 'PATCH',
       path: '/v3/contactdb/recipients',
       body: [{
         email: opts.email,
         first_name: opts.first_name || null,
-        last_name: opts.last_name || null
+        last_name: opts.last_name || null,
+        newsletter_subscriber: opts.newsletter_subscriber || null
       }]
     }
     return sg.API(requestParams)
   },
 
   addEmailToList: (opts) => {
-   
     var requestParams = {
       method: 'POST',
       path: `/v3/contactdb/lists/${opts.list_id}/recipients/${opts.user}`,
@@ -149,7 +149,7 @@ module.exports = {
             subject: 'Thanks for reaching out!'
           }],
           from: {
-            email: 'no-reply@ionicframework.com', 
+            email: 'no-reply@ionicframework.com',
             name: 'Ionic'
           },
           content: [{
@@ -179,7 +179,7 @@ module.exports = {
         console.warn('Salesforce API credentials not found. Ignoring CRM request.');
         return reject(null);
       }
-  
+
       sfConn.login(config.SALESFORCE_USER, config.SALESFORCE_PASSWORD_TOKEN, function(err, userInfo) {
         console.log(err)
         if (err) { return reject(err); }
@@ -201,7 +201,7 @@ module.exports = {
             return console.error(err, ret);
           }
           sfConn.sobject("campaignMember").create({
-            LeadId: ret.id, 
+            LeadId: ret.id,
             Status: 'Responded',
             CampaignId: '701f40000008UYD'
           }).then((ret, err) => {
@@ -209,7 +209,7 @@ module.exports = {
               reject(err)
               return console.error(err, ret);
             }
-  
+
             resolve(ret)
           })
         }).catch((err,ret)=> {

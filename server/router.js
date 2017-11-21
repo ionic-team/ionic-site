@@ -22,6 +22,7 @@ module.exports = function router(app) {
   // normal pages
   .get('/', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
+  .get('/blog', (req, res) => { res.redirect(301, 'http://blog.ionicframework.com'); })
   .get('/books/hybrid-vs-native', (req, res) => { res.render('books/hybrid-vs-native'); })
   .get('/contact', (req, res) => { res.render('contact'); })
   .get('/demo', (req, res) => { res.render('demo'); })

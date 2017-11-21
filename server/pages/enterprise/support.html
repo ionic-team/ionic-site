@@ -19,7 +19,7 @@
   <hgroup class="hero text-center">
     <h2>Our experts can help.</h2>
     <p class="lg">
-      Protect your investment with enterprise-grade support, tailored to fit 
+      Protect your investment with enterprise-grade support, tailored to fit
       your needs.
     </p>
   </hgroup>
@@ -27,42 +27,42 @@
     <li class="fixes">
       <h4>Hot-fixes</h4>
       <p>
-        Get rapid remediation of issues, so you can focus on building  your app 
+        Get rapid remediation of issues, so you can focus on building  your app
         and shipping sooner.
       </p>
     </li>
     <li class="reviews">
       <h4>Code reviews</h4>
       <p>
-        Go line-by-line with our experts as they share coding best practices and 
+        Go line-by-line with our experts as they share coding best practices and
         advice.
       </p>
     </li>
     <li class="sla">
       <h4>Response SLAs</h4>
       <p>
-        Rest easy knowing you’ll get the attention and responsive you need to 
+        Rest easy knowing you’ll get the attention and responsive you need to
         meet your goals.
       </p>
     </li>
     <li class="training">
       <h4>Live training</h4>
       <p>
-        Give your team the skills and tools they need to be successful building 
+        Give your team the skills and tools they need to be successful building
         apps on day one.
       </p>
     </li>
     <li class="contact">
       <h4>Single point of contact</h4>
       <p>
-        Work with a dedicated engineer who knows your history, your team, and 
+        Work with a dedicated engineer who knows your history, your team, and
         your priorities.
       </p>
     </li>
     <li class="slack">
       <h4>Dedicated Slack channel</h4>
       <p>
-        Need answers now? Get instant access to support with a dedicated Slack 
+        Need answers now? Get instant access to support with a dedicated Slack
         channel.
       </p>
     </li>
@@ -74,7 +74,7 @@
     <hgroup>
       <h2>Pick the plan that’s right for you.</h2>
       <p class="lg">
-        Choose from one of our existing support plans, or customize one that’s 
+        Choose from one of our existing support plans, or customize one that’s
         perfect for you.
       </p>
     </hgroup>
@@ -170,13 +170,13 @@
           <tr>
             <th></th>
             <td><a class="btn sm btn-default"
-                   data-toggle="modal" 
+                   data-toggle="modal"
                    data-target="#contactForm">Contact us</a></td>
             <td><a class="btn sm btn-default"
-                   data-toggle="modal" 
+                   data-toggle="modal"
                    data-target="#contactForm">Contact us</a></td>
             <td><a class="btn sm btn-default"
-                   data-toggle="modal" 
+                   data-toggle="modal"
                    data-target="#contactForm">Contact us</a></td>
           </tr>
         </tbody>
@@ -195,8 +195,8 @@
     <div class="btn-group">
       <a class="btn white sm" href="https://dashboard.ionicjs.com/register">
         Create an account</a>
-      <a class="btn btn-default sm" 
-         data-toggle="modal" 
+      <a class="btn btn-default sm"
+         data-toggle="modal"
          data-target="#contactForm">
         Talk to sales</a>
     </div>
@@ -206,10 +206,10 @@
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade" 
-     id="contactForm" 
-     tabindex="-1" 
-     role="dialog" 
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
      aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -227,7 +227,16 @@
             get back to you soon.
           </p>
         </hgroup>
-        {{ macros.contactForm("enterprise-support") }}
+
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: 'c81f2203-1ed3-4afd-91a9-9136235b2b11'
+          });
+        </script>
       </div>
     </div>
   </div>
@@ -242,18 +251,18 @@
 };
    /* Replace 'APP_ID' with your app ID */
    (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
-     ic('reattach_activator');ic('update',intercomSettings);}else{var    
-     d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)   
+     ic('reattach_activator');ic('update',intercomSettings);}else{var
+     d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
      {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
      s.type='text/javascript';s.async=true;
      s.src='https://widget.intercom.io/widget/APP_ID';
      var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
      }if(w.attachEvent){w.attachEvent('onload',l);}else{
        w.addEventListener('load',l,false);}}})()
-</script> 
-<script type="text/javascript" 
-        id="hs-script-loader" 
-        async 
-        defer 
+</script>
+<script type="text/javascript"
+        id="hs-script-loader"
+        async
+        defer
         src="//js.hs-scripts.com/3776657.js"></script>
 {% endblock %}

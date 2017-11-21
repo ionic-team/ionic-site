@@ -20,18 +20,18 @@
 			essential elements of hybrid develoment, and what it could mean for your
 			next project.
 		</p>
-		<a class="btn yernge" 
-       data-toggle="modal" 
+		<a class="btn yernge"
+       data-toggle="modal"
        data-target="#contactForm">Send me the free eBook</a>
 	</hgroup>
 </main>
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade" 
-     id="contactForm" 
-     tabindex="-1" 
-     role="dialog" 
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
      aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -46,15 +46,19 @@
         <hgroup class="text-center">
           <h3>Thank you for your interest in our eBook!</h3>
           <p class="lg">
-            We just need some basic information so we can send the eBook your 
+            We just need some basic information so we can send the eBook your
             way.
           </p>
         </hgroup>
-        {{ macros.contactForm(
-          "ebook-hybrid-v-native",
-          "Message", 
-          "Download Book", 
-          "https://ionicframework.com/files/Hybrid_vs_Native_eBook-Ionic.pdf") }}
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
+          });
+        </script>
       </div>
     </div>
   </div>

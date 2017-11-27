@@ -326,6 +326,11 @@ Display an alert with a title, inputs, and buttons
 <td>Whether or not the input is checked.</td>
 </tr>
 <tr>
+<td>disabled</td>
+<td><code>boolean</code></td>
+<td>Whether or not the input is disabled.</td>
+</tr>
+<tr>
 <td>id</td>
 <td><code>string</code></td>
 <td>The input&#39;s id.</td>

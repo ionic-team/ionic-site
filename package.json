@@ -62,7 +62,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-shell": "0.5.1",
     "gulp-size": "^1.0.0",
-    "gulp-sourcemaps": "^2.4.1",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.6",
     "htmlparser2": "^3.8.3",

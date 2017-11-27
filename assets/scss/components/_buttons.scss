@@ -65,6 +65,16 @@
     }
   }
 
+  &.navy {
+    background: #0039a2;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: darken(#0039a2, 10);
+    }
+  }
+
   &.green {
     background: $green;
 

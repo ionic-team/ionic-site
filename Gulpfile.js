@@ -74,8 +74,8 @@ function bustCache() {
 
 function bustCacheAndReload(done) {
   bustCache().on('end', function() {
-    browserSync.reload();
     done();
+    browserSync.reload();
     // apply the template change in the background
     // gulp.start('jekyll-build.incremental');
   });
@@ -83,7 +83,7 @@ function bustCacheAndReload(done) {
 
 gulp.task('styles:creator', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src('assets/scss/creator.scss') 
+  var sassStream =  gulp.src('assets/scss/creator.scss')
     .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
@@ -436,16 +436,16 @@ gulp.task('slug.prep', function () {
 });
 
 gulp.task(
-  'build-prep', 
+  'build-prep',
   [
-    'ionicons', 
-    'styles:v1', 
-    'styles:v2', 
-    'styles:creator', 
-    'images', 
-    'js', 
+    'ionicons',
+    'styles:v1',
+    'styles:v2',
+    'styles:creator',
+    'images',
+    'js',
     'docs.index'
-  ], 
+  ],
   bustCache
 );
 

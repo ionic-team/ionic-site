@@ -21,7 +21,8 @@ module.exports = function router(app) {
   // });
 
   // normal pages
-  .get('/', (req, res) => { res.render('index'); })
+  .get('/', (req, res) => { res.render('framework'); })
+  .get('/home', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
   .get('/books/hybrid-vs-native', (req, res) => { res.render('books/hybrid-vs-native'); })
   .get('/contact', (req, res) => { res.render('contact'); })
@@ -29,6 +30,7 @@ module.exports = function router(app) {
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/enterprise', (req, res) => { res.render('enterprise/index'); })
   .get('/enterprise/support', (req, res) => { res.render('enterprise/support'); })
+  .get('/framework', (req, res) => { res.render('framework'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
   .get('/jobs', (req, res) => { res.render('jobs'); })
   .get('/press', (req, res) => { res.render('press'); })

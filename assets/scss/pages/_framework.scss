@@ -239,50 +239,8 @@
       }
     }
 
-    input {
-      border: 1px solid rgba(255, 255, 255, 0);
-      background: rgba(255, 255, 255, .2);
-      font-size: 13px;
-      color: white;
-      box-shadow: none;
-      font-weight: normal;
-      height: 40px;
-      padding: 1px 16px 0px;
-      transition: .2s background, .2s box-shadow;
-
-      &:hover {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
-      }
-
-      &:focus {
-        box-shadow: none;
-        border: 1px solid rgba(255,255,255,0);
-        background: rgba(255,255,255,.25);
-      }
-
-      &::-webkit-input-placeholder {
-        padding-left: 0;
-        color: #bbceef;
-      }
-      &::-moz-placeholder {
-        color: #bbceef;
-      }
-    }
-
     button {
-      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
-      font-weight: 500;
-      font-size: 14px;
-      padding: 11px 13px 10px;
-
-      &:hover {
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-      }
-
-      &:active {
-        box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
-        background: white;
-      }
+      padding: 10px 13px;
     }
   }
 
@@ -389,10 +347,10 @@
     margin-bottom: -32px;
 
     .box {
-      background: #272a2f linear-gradient(66deg, 
-      rgba(39,42,47,1) 0%, 
-      rgba(39,42,47,1) 70%, 
-      rgba(50,54,60,1) 70%, 
+      background: #272a2f linear-gradient(66deg,
+      rgba(39,42,47,1) 0%,
+      rgba(39,42,47,1) 70%,
+      rgba(50,54,60,1) 70%,
       rgba(39,42,47,1) 100%);
       background-size: 100%;
       display: flex;
@@ -1523,6 +1481,12 @@ $ieEightAndNine: '\0/';
   margin: 12px 0 0 0;
   font-weight: 500;
   padding-left: 0;
+  display: inline-block;
+  float: left;
+
+  @media (max-width: $screen-xs-max) {
+    float: none;
+  }
 
   li {
     display: inline-block;

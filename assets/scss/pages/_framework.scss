@@ -108,7 +108,7 @@
     }
 
     .app-icon {
-      background-image: url('/img/homepage/ionicview-icon_2x.png');
+      background-image: url('/img/frameworkpage/ionicview-icon_2x.png');
       background-size: 84px 84px;
       background-repeat: no-repeat;
       display: none;
@@ -498,7 +498,7 @@
       }
 
       li {
-        background: url('/img/home/web-icons.png') no-repeat 0 0;
+        background: url('/img/framework/web-icons.png') no-repeat 0 0;
         background-size: 200px;
         height: 200px;
         width: 200px;
@@ -548,7 +548,7 @@
         padding-left: 37px;
         padding-right: 20px;
         vertical-align: top;
-        background: url('/img/home/checkmark-icon.png') no-repeat 0 0;
+        background: url('/img/framework/checkmark-icon.png') no-repeat 0 0;
         background-size: 24px;
 
         @media (max-width: $screen-sm-max) {
@@ -647,7 +647,7 @@
           top: 37px;
 
           li {
-            background: url('/img/home/icons-sm.png') no-repeat 0 0;
+            background: url('/img/framework/icons-sm.png') no-repeat 0 0;
             background-size: 24px;
             height: 24px;
             width: 24px;
@@ -735,7 +735,7 @@
         }
 
         &::before {
-          background: url('/img/home/icons-lg.png') no-repeat 0 0;
+          background: url('/img/framework/icons-lg.png') no-repeat 0 0;
           background-size: 93px;
           height: 93px;
           width: 93px;
@@ -860,7 +860,7 @@
         }
 
         &::before {
-          background: url('/img/home/icons-md.png') no-repeat 0 0;
+          background: url('/img/framework/icons-md.png') no-repeat 0 0;
           background-size: 80px;
           height: 80px;
           width: 80px;
@@ -908,7 +908,7 @@
 
   .about-community {
     background: #09172e;
-    background: url('/img/home/map.png') no-repeat center center,
+    background: url('/img/framework/map.png') no-repeat center center,
                 linear-gradient(to right, #050f23 0%, #13233f 100%);
 
     background-size: cover, 100%;
@@ -1004,7 +1004,7 @@
         font-size: 13px;
 
         &::before {
-          background: url('/img/home/icons-sm.png') no-repeat 0 0;
+          background: url('/img/framework/icons-sm.png') no-repeat 0 0;
           background-size: 24px;
           height: 24px;
           width: 24px;
@@ -1086,7 +1086,7 @@
         }
 
         &::before {
-          background: url('/img/home/icons-md.png') no-repeat 0 0;
+          background: url('/img/framework/icons-md.png') no-repeat 0 0;
           background-size: 80px;
           height: 80px;
           width: 80px;
@@ -1136,7 +1136,7 @@
       letter-spacing: -.03em;
 
       &::before {
-        background: url('/img/home/heart-icon.png') no-repeat center top;
+        background: url('/img/framework/heart-icon.png') no-repeat center top;
         background-size: 48px;
         height: 43px;
         width: 48px;

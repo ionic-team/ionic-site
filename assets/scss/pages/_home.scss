@@ -7,9 +7,9 @@
       #4a68ef 50%,
       #5b5ef4 100%
     );
-    padding-top: 150px;
+    padding-top: 183px;
     margin-top: -80px;
-    padding-bottom: 120px;
+    padding-bottom: 166px;
     font-family: $font-family-eina;
 
     hgroup {
@@ -17,18 +17,22 @@
     }
 
     h1 {
-      max-width: calc(50% - 124px);
+      max-width: calc(50% - 71px);
       color: white;
       font-weight: 600;
-      line-height: 1.4em;
+      line-height: 1.35em;
+      font-size: 48px;
+      letter-spacing: -.039em;
     }
 
     p {
-      font-size: 15px;
+      font-size: 19px;
       font-weight: 500;
-      line-height: 1.8em;
-      margin-bottom: 24px;
-      max-width: calc(50% - 130px);
+      line-height: 1.7em;
+      margin-top: 20px;
+      margin-bottom: 35px;
+      letter-spacing: -.017em;
+      max-width: calc(50% - 78px);
       color: rgba(255, 255, 255, 0.7);
 
       a {
@@ -38,44 +42,194 @@
     }
 
     .btn {
-			padding: 13px 20px 10px;
-			font-size: 14px;
-			font-weight: 600;
+      padding: 15px 15px 11px;
+      font-size: 16px;
+      letter-spacing: 0;
+      font-weight: 600;
     }
   }
 
+  main {
+    font-family: $font-family-eina;
+  }
+
 	.paths {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+    margin-top: 51px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 0;
 
 		&::before {
 			display: none;
 		}
 
 		li {
-			flex: 0 0 368px;
+			flex: 0 0 370px;
 			background: linear-gradient(
 	      60deg,
 	      #73c5ff 0%,
 	      #3880ff 100%
 	    );
-			border-radius: 8px;
-			list-style: none;
-		}
+      padding: 122px 40px 31px 30px;
+			border-radius: 18px;
+      margin-bottom: 16px;
+      list-style: none;
+      box-shadow: 0 8px 16px rgba(black, .1);
+      
+      &.pro {
+        background: linear-gradient(
+          60deg,
+          #050a14 0%,
+          #062456 100%
+        );
+
+        .btn { color: #000f2a; }
+      }
+  
+      &.enterprise {
+        background: linear-gradient(
+          60deg,
+          #fcc14e 0%,
+          #fed4d1 100%
+        );
+
+        .btn { color: #faa218; }
+      }
+    }
 
 		h4 {
-			text-transform: uppercase;
-			letter-spacing: .05em;
-			color: rgba(white, .5);
-			font-weight: 700;
-			font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 700;
+      font-size: 11px;
 		}
 
 		h2 {
 			color: white;
 			text-shadow: 0 2px 4px rgba(white, .1);
-			font-weight: 16px;
-		}
-	}
+			font-weight: 700;
+      font-size: 23px;
+      margin-top: 13px;
+      line-height: 1.24em;
+    }
+
+    .btn {
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+      padding: 13px 15px 10px;
+      font-size: 14px;
+      margin-top: 24px;
+      border-radius: 4px;
+      color: #418bff;
+
+      &::after {
+        font-family: Ionicons;
+        content: '\f287';
+        font-size: 1.2em;
+        margin-left: 5px;
+        font-weight: 400;
+        line-height: 1em;
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        transition: .3s transform;
+      }
+
+      &:hover::after {
+        transform: translate3d(3px,0,0);
+      }
+    }
+  }
+
+  .company {
+    margin: 77px auto 68px;
+
+    h2 {
+      color: #7f8fab;
+      margin: 0 auto;
+      font-size: 28px;
+      max-width: 760px;
+      text-align: center;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      font-weight: 600;
+
+      strong {
+        color: #131924;
+        font-weight: 600;
+      }
+    }
+    
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 51px;
+      justify-content: space-evenly;
+
+      &::before,
+      &::after {
+        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background-size: 494px;
+        width: 494px;
+        height: 42px;
+        content: '';
+        max-width: 100%;
+        margin-bottom: 32px;
+        display: inline-block;
+      }
+  
+      &::after {
+        background-position: 0 bottom;
+      }
+    }
+  }
+
+  .newsletter {
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 55px 0 63px;
+
+    hgroup {
+      flex: 1 1 50%;
+
+      h3 {
+        color: $blue;
+        font-weight: 600;
+        font-size: 23px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: .006em;
+        color: #7f8fab;
+      }
+
+      a {
+        color: #131924;
+      }
+    }
+
+    ionic-newsletter-signup {
+      flex: 0 1 517px;
+      min-width: 400px;
+      align-items: center;
+      display: flex;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(black, .1);
+
+      form {
+        max-width: 100%;
+      }
+    }
+  }
 }

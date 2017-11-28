@@ -35,6 +35,7 @@ module.exports = function router(app) {
   .get('/jobs', (req, res) => { res.render('jobs'); })
   .get('/press', (req, res) => { res.render('press'); })
   .get('/pricing', (req, res) => { res.render('pricing/index'); })
+  .get('/pricing/table', (req, res) => { res.render('pricing/table'); })
   // .get('/pricing/trial', (req, res) => { res.render('pricing/trial'); })
   .get('/privacy', (req, res) => { markdown(res, 'privacy-policy'); })
   .get('/products', (req, res) => { res.render('products/index'); })

@@ -46,6 +46,10 @@
       max-width: 850px;
       margin: 16px auto 16px;
 
+      @media (max-width: $screen-xs-max)  {
+        justify-content: center;
+      }
+
       li {
         flex: 0 0 240px;
         padding-top: 80px;
@@ -60,6 +64,15 @@
           content: '';
           position: absolute;
           top: 0;
+        }
+
+        @media (max-width: $screen-xs-max)  {
+          flex: 0 0 100%;
+          text-align: center;
+
+          &::before {
+            left: calc(50% - 24px);
+          }
         }
 
         &.reviews::before { background-position: 0 -48px; }
@@ -104,13 +117,18 @@
       }
     }
 
-    .x-scroll {
-      overflow: auto;
+    @media (max-width: $screen-xs-max)  {
+      .x-scroll {
+        overflow: auto;
+      }
     }
 
     .table-wrap {
       position: relative;
-      min-width: 720px;
+      min-width: 620px;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
 
       &::before {
         background: white;

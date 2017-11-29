@@ -59,6 +59,8 @@
       position: absolute;
       bottom: 0;
       right: 0;
+      width: 550px;
+      animation: 1s cubic-bezier(0, 0, 0.25, 1) 2s backwards fadeInUp;
       transition: .3s bottom, .3s transform, .3s left;
 
       @media (max-width: $screen-md-max) {
@@ -83,6 +85,7 @@
         height: 571px;
         bottom: -147px;
         right: 52px;
+        animation: 1s cubic-bezier(0, 0, 0.25, 1) 3.2s backwards home-app-android;
       }
       
       .layer-3 {
@@ -103,10 +106,9 @@
         height: 612px;
         bottom: -157px;
         right: 247px;
+        animation: 1s cubic-bezier(0, 0, 0.25, 1) 3s backwards home-app-iphone;
       }
     }
-
-
 
     @media (max-width: $screen-sm-max) {
 
@@ -126,7 +128,7 @@
       .graphics {
         bottom: 0;
         transform: scale(.5, .5);
-        left: calc(50% - 480px);
+        left: calc(50% - 275px);
       }
     }
   }

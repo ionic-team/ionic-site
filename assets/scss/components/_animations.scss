@@ -294,3 +294,13 @@
   96% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+@keyframes home-app-iphone {
+  0% { transform: translate3d(30px, -10px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes home-app-android {
+  0% { transform: translate3d(10px, -4px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}

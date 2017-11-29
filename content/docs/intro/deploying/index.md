@@ -9,7 +9,7 @@ header_sub_title: Getting Started with Ionic
 
 # Deploying to a Device
 
-<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/deploying/index.md'>Improve this doc</a>
 
 Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](http://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
 
@@ -44,38 +44,68 @@ ionic cordova build android --prod --release
 This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play Store.
 
 ### Sign Android APK
-If you want to release your app in the Google Play Store, you have to sign your APK file.
-To do this, you have to create a new certificate/keystore.
+By default, android platform __debug__ builds (those created __without__ the ```--release``` build flag) generated debuggable APK files that are automatically signed with your developer/workstation key from your debug keystore (usually found in your user ```./.android/debug.keystore```).  Those keys last 365 days, by default.  A developer team may want to share a common key among themselves to ensure their app shares a common key.
+
+To publish or distribute your app to end-users, via the Google Play Store or otherwise, you must sign your APK file with a long-lived key.  This also allows your end-users to __update__ their apps with continuity.
+
+To do this, you have to create a new certificate/keystore, once.
 
 Let’s generate your private key using the keytool command that comes with the JDK:
 ```bash
 keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 ```
-You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jks created in the current directory.
+You’ll first be prompted to create a password for the keystore. Then, answer the rest of the tool’s questions and when it’s all done, you should have a file called ```my-release-key.jks``` created in the current directory.
 
 __Note__: Make sure to save this file somewhere safe, if you lose it you won’t be able to submit updates to your app!
 
-To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
+There are two methods to sign and zipalign (optimize) your app.
 
+NOTE: The apksigner and zipalign tools can be found in `/path/to/Android/sdk/build-tools/VERSION/`, where ```VERSION``` is your SDK version number. For example, on OS X with Android Studio 25.0.3 installed, zipalign is found at `~/Library/Android/sdk/build-tools/25.0.3/zipalign`.  You may want to add the path to these tools to your shell profile.
+
+#### Using Jarsigner ####
+This is the legacy method, before SDK Build Tools 24.0.3.
+
+NOTE: When using ```jarsigner```, you must sign first, *then* use ```zipalign```.
+
+Sign the unsigned APK in place, using ```jarsigner``` (which is included in the JDK):
 ```bash
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk my-alias
 ```
 
-This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
-
+Optimize the (signed) APK, using ```zipalign```:
 ```bash
 zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
 ```
 
-To verify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:
-
+(Optional) Verify that your APK is signed using ```apksigner```:
 ```bash
 apksigner verify HelloWorld.apk
 ```
 
-Now we have our final release binary called HelloWorld.apk and we can release this on the Google Play Store for all the world to enjoy!
+#### Using Apksigner ####
+This is the current method, using Android SDK Build Tools 24.0.3 or later.
+
+NOTE: When using ```apksigner```, you must use ```zipalign``` first, *then* sign.
+
+Optimize the (unsigned) APK, using ```zipalign```:
+```bash
+zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
+```
+
+Sign the unsigned APK in place, using ```apksigner```:
+```bash
+apksigner sign -v --ks my-release-key.jks --ks-key-alias my-alias HelloWorld.apk
+```
+
+(Optional) Verify that your APK is signed using ```apksigner```:
+```bash
+apksigner verify HelloWorld.apk
+```
+
+Now we have our final release binary called ```HelloWorld.apk``` and we can release this on the Google Play Store (or otherwise) for all the world to enjoy!
 
 All steps can also be found here: [Android SDK docs](https://developer.android.com/studio/publish/app-signing.html#signing-manually)
+
 
 ## iOS Devices
 

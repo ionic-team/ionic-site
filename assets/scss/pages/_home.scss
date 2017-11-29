@@ -7,13 +7,15 @@
       #4a68ef 50%,
       #5b5ef4 100%
     );
-    padding-top: 183px;
     margin-top: -80px;
-    padding-bottom: 166px;
     font-family: $font-family-eina;
 
-    hgroup {
-      text-align: left;
+    .container {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 166px;
+      padding-top: 124px;
+      clear: left;
     }
 
     h1 {
@@ -40,12 +42,92 @@
         text-decoration: underline;
       }
     }
+    
+    hgroup {
+      text-align: left;
+    }
 
     .btn {
       padding: 15px 15px 11px;
       font-size: 16px;
       letter-spacing: 0;
       font-weight: 600;
+      margin-right: 7px;
+    }
+
+    .graphics {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: .3s bottom, .3s transform, .3s left;
+
+      @media (max-width: $screen-md-max) {
+        bottom: 160px;
+      }
+
+      .layer-1 {
+        position: absolute;
+        background: url('/img/homepage/hero-img-android.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 410px;
+        height: 870px;
+        bottom: -216px;
+        right: -21px;
+      }
+      
+      .layer-2 {
+        position: absolute;
+        background: url('/img/homepage/hero-img-components-android.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 316px;
+        height: 571px;
+        bottom: -147px;
+        right: 52px;
+      }
+      
+      .layer-3 {
+        position: absolute;
+        background: url('/img/homepage/hero-img-iphone.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 420px;
+        height: 830px;
+        bottom: -214px;
+        right: 110px;
+      }
+      
+      .layer-4 {
+        position: absolute;
+        background: url('/img/homepage/hero-img-components.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 286px;
+        height: 612px;
+        bottom: -157px;
+        right: 247px;
+      }
+    }
+
+
+
+    @media (max-width: $screen-sm-max) {
+
+      .container {
+        padding-bottom: 360px;
+      }
+
+      hgroup {
+        text-align: center;
+      }
+
+      h1,
+      p {
+        max-width: 100%;
+      }
+
+      .graphics {
+        bottom: 0;
+        transform: scale(.5, .5);
+        left: calc(50% - 480px);
+      }
     }
   }
 
@@ -60,40 +142,53 @@
     justify-content: space-between;
     padding-left: 0;
 
+    @media (max-width: $screen-md-max) {
+      justify-content: space-around;
+    }
+
 		&::before {
 			display: none;
 		}
 
 		li {
 			flex: 0 0 370px;
-			background: linear-gradient(
-	      60deg,
-	      #73c5ff 0%,
-	      #3880ff 100%
-	    );
+      background-image: 
+        url('/img/homepage/feature-card-bg-framework.png'),
+        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
       padding: 122px 40px 31px 30px;
 			border-radius: 18px;
       margin-bottom: 16px;
       list-style: none;
       box-shadow: 0 8px 16px rgba(black, .1);
+      position: relative;
+      
+      &::before {
+        background: url('/img/homepage/feature-card-icons.png') 0 0 no-repeat;
+        background-size: 80px;
+        width: 80px;
+        height: 80px;
+        content: '';
+        position: absolute;
+        top: 30px;
+      }
       
       &.pro {
-        background: linear-gradient(
-          60deg,
-          #050a14 0%,
-          #062456 100%
-        );
+        background-image: 
+          url('/img/homepage/feature-card-bg-pro.png'),
+          linear-gradient(60deg, #050a14 0%, #062456 100%);
 
+        &::before { background-position: 0 -80px; }
         .btn { color: #000f2a; }
       }
   
       &.enterprise {
-        background: linear-gradient(
-          60deg,
-          #fcc14e 0%,
-          #fed4d1 100%
-        );
+        background-image: 
+          url('/img/homepage/feature-card-bg-entrps-support.png'),
+          linear-gradient(60deg, #fcc14e 0%, #fed4d1 100%);
 
+        &::before { background-position: 0 -160px; }
         .btn { color: #faa218; }
       }
     }
@@ -101,7 +196,7 @@
 		h4 {
       text-transform: uppercase;
       letter-spacing: .13em;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.7);
       font-weight: 700;
       font-size: 11px;
 		}

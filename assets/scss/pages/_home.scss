@@ -315,17 +315,52 @@
       }
     }
 
-    ionic-newsletter-signup {
+    form {
       flex: 0 1 517px;
       min-width: 400px;
       align-items: center;
       display: flex;
+      align-content: stretch;
       margin-top: 24px;
       margin-bottom: 24px;
-      box-shadow: 0 1px 4px rgba(black, .1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14);
+      
+      input {
+        flex-grow: 1;
+        border: none;
+        background: rgba(white, .2);
+        border-radius: 4px 0 0 4px;
+        font-size: 13px;
+        color: $blacker;
+        box-shadow: none;
+        font-weight: 500;
+        height: 100%;
+        outline: 0;
+        flex-grow: 1;
+        padding: 1px 16px 0px;
+        transition: .2s background, .2s box-shadow;
+      
+        &:hover {
+          box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+        }
+      
+        &:focus {
+          box-shadow: inset 0 0 2px rgba(0, 0, 0, .1);
+        }
+      
+        &::placeholder {
+          padding-left: 0;
+          color: #a1a9b6;
+        }
+      }
 
-      form {
-        max-width: 100%;
+      button {
+        flex-grow: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 48px;
+        font-weight: 500;
+        min-width: 148px;
       }
     }
   }

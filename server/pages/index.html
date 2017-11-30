@@ -1,6 +1,7 @@
 {% extends '_layouts/base.html' %}
 {% set title = "Build Amazing Native Apps and Progressive Web Apps with Ionic Framework and Angular" %}
 {% set id = "home" %}
+{% set pre_footer = false %}
 
 {% block main %}
 <div class="banner">
@@ -63,7 +64,10 @@
         Ionic experience.
       </p>
     </hgroup>
-    <ionic-newsletter-signup/>
+    <form action="https://dashboard.ionicjs.com/signup" method="get">
+      <input type="text" name="email" placeholder="Your email address">
+      <ionic-button>Get started now</ionic-button>
+    </form>
   </div>
 </main>
 {% endblock %}

@@ -12,7 +12,7 @@ dark_header: true
 
 The Ionic DevApp is a free app that makes it easy to run your Ionic app directly on your iOS or Android device.
 
-Skip dealing with frustrating Native SDK installation issues, just run `ionic serve`, open the DevApp, connect to the same network, and the app will automatically load
+Skip dealing with frustrating Native SDK installation issues, just run `ionic serve -c`, open the DevApp, connect to the same network, and the app will automatically load
 and run your app.
 
 The DevApp comes with many native plugins built right in, so you don't need to worry about installing plugins.
@@ -91,7 +91,7 @@ If you don't see your app in the list, try these things to resolve it:
 
 1. First, make sure your are on the same network as the app. Double check your wifi connection settings.
 2. Try force-quitting the DevApp and restarting it
-3. Try restarting `ionic serve` on your computer.
+3. Try restarting `ionic serve -c` on your computer.
 
 If those things still didn't resolve the issue, make sure you don't have any custom network settings that could cause the app to fail to discover the serve instance. 
 

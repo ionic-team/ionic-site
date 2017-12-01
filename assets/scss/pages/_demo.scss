@@ -63,17 +63,14 @@
 
   display: flex;
 
-  &__box {
+  .hbspt-form {
     @include box;
     margin-bottom: 50px;
     margin-top: -40px;
     max-width: 67%;
-    padding: 2em;
+    padding: 2em 2em 0;
 
     form {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
       max-width: 100%;
       padding: 0;
 

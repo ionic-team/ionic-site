@@ -60,11 +60,19 @@
       bottom: 0;
       right: 0;
       width: 550px;
-      animation: 1s cubic-bezier(0, 0, 0.25, 1) 2s backwards fadeInUp;
+      animation: 1s cubic-bezier(0, 0, 0.25, 1) 1s backwards fadeInUp;
       transition: .3s bottom, .3s transform, .3s left;
 
       @media (max-width: $screen-md-max) {
         bottom: 160px;
+      }
+
+      .iphone {
+        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-android;
+      }
+
+      .android {
+        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-iphone;
       }
 
       .layer-1 {
@@ -85,7 +93,7 @@
         height: 571px;
         bottom: -147px;
         right: 52px;
-        animation: 1s cubic-bezier(0, 0, 0.25, 1) 3.2s backwards home-app-android;
+        animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-android;
       }
       
       .layer-3 {
@@ -106,7 +114,7 @@
         height: 612px;
         bottom: -157px;
         right: 247px;
-        animation: 1s cubic-bezier(0, 0, 0.25, 1) 3s backwards home-app-iphone;
+        animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-iphone;
       }
     }
 

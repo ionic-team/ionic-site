@@ -30,6 +30,7 @@ module.exports = function router(app) {
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/enterprise', (req, res) => { res.render('enterprise/index'); })
   .get('/enterprise/support', (req, res) => { res.render('enterprise/support'); })
+  .get('/enterprise/training', (req, res) => { res.render('enterprise/training'); })
   .get('/framework', (req, res) => { res.render('framework'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
   .get('/jobs', (req, res) => { res.render('jobs'); })

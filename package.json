@@ -66,7 +66,6 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.6",
     "htmlparser2": "^3.8.3",
-    "ionicate": "driftyco/ionicate#cae5a00",
     "ionicons": "^3.0.0-alpha.3",
     "jquery": "3.1.1",
     "js-yaml": "^3.4.2",

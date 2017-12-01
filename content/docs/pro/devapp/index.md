@@ -58,6 +58,33 @@ To make sure you receive console logs generated from the app, which will be disp
 ionic serve -c
 ```
 
+## CORS
+
+If your web requests are failing, you may be running into issues with
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).  Unfortunately, CORS errors only show in the console of
+your browser, so they won't appear as a runtime error modal or in the logs printed to your `ionic serve` instance.
+
+There are a few things you can do to resolve the issue.
+
+### Set the appropriate headers
+
+If you control the server responding to the failing requests, you can set the appropriate `Access-Control-Allow-Origin`
+header on the server.  The Origin of your request is the IP that your app is served from, for example `192.168.1.1:8100`.
+You can also set the Origin as `*` (wildcard), but be aware that requests from any origin will be able to see responses from your server.
+Wildcard is a common setting for any API, or any other endpoint that is expected to be accessed from various origins.
+
+### Use a proxy
+
+The [Ionic CLI can proxy requests](/docs/pro/cli/configuring.html#service-proxies) you make to it. Since CORS is enforced by the
+browser (in this case the Android or iOS web view), by having the Ionic CLI make the request for you, it won't care
+whether there is an `Access-Control-Allow-Origin` header in the server response and will simply pass the response back
+to your app.
+
+### Use a plugin
+
+Similarly to using the Ionic CLI proxy, you can use the [Advanced HTTP plugin](https://ionicframework.com/docs/native/http/) to make
+requests. The plugin receives responses natively and passes the response back to JavaScript.
+
 ## Troubleshooting
 
 If you don't see your app in the list, try these things to resolve it:

@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova">
-    https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova
+  <a href="https://github.com/BlyncSync/cordova-plugin-jins-meme-es">
+    https://github.com/BlyncSync/cordova-plugin-jins-meme-es
   </a>
 </p>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add JinsMemeSDK-Plugin-Cordova
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-jins-meme-es
 $ npm install --save @ionic-native/jins-meme
 </code></pre>
   </li>

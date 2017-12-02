@@ -23,7 +23,7 @@ docType: "class"
 
 
 
-<p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
+<p>Requires Cordova plugin: cordova-sms-plugin. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
 
 
 <p>Repo:

@@ -690,6 +690,84 @@ Sends an SMS to the user with the SMS verification code and returns the Verifica
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getVerificationID" href="#getVerificationID"></a><code>getVerificationID(phoneNumber)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Sends an SMS to the user with the SMS verification code and returns the Verification ID required to sign in using phone authentication
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      phoneNumber</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="verifyPhoneNumber" href="#verifyPhoneNumber"></a><code>verifyPhoneNumber(phoneNumber,&nbsp;timeoutDuration)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Sends an SMS to the user with the SMS verification code and returns the Verification ID required to sign in using phone authentication
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      phoneNumber</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>the phone number, including &#39;+&#39; and country code</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeoutDuration</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>the timeout in sec - no more SMS will be sent to this number until this timeout expires</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

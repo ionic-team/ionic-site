@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">App Rate</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L97">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L102">
   Improve this doc
 </a>
 
@@ -202,6 +202,20 @@ Immediately send the user to the app store rating page
     </td>
     <td>
       <p>count of runs of application before dialog will be displayed. Defaults to <code>3</code></p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      simpleMode
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Simple Mode to display the rate dialog directly and bypass negative feedback filtering flow</p>
 
       <em>(optional)</em>
     </td>

@@ -223,7 +223,7 @@ Immediately send the user to the app store rating page
   
   <tr>
     <td>
-      openStoreInApp
+      inAppReview
     </td>
     <td>
       <code>boolean</code>

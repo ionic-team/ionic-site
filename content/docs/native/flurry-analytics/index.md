@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/flurry-analytics
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { FlurryAnalytics, FlurryAnalyticsObject, FlurryAnalyticsOptions } from &#39;ionic-native/flurry-analytics&#39;;
+<pre><code class="lang-typescript">import { FlurryAnalytics, FlurryAnalyticsObject, FlurryAnalyticsOptions } from &#39;@ionic-native/flurry-analytics&#39;;
 
 constructor(private flurryAnalytics: FlurryAnalytics) { }
 

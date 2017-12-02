@@ -333,15 +333,6 @@ Re-initializes the plugin to clean service & browser state.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="reInit" href="#reInit"></a><code>reInit()</code></h3>
-
-
-Re-initializes the plugin to clean service & browser state.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
 </div>
 
 

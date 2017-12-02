@@ -79,7 +79,7 @@ this.musicControls.create({
   hasClose  : true,       // show close button, optional, default: false
 
 // iOS only, optional
-  album       : &#39;Absolution&#39;     // optional, default: &#39;&#39;
+  album       : &#39;Absolution&#39;,     // optional, default: &#39;&#39;
   duration : 60, // optional, default: 0
   elapsed : 10, // optional, default: 0
   hasSkipForward : true,  // show skip forward button, optional, default: false

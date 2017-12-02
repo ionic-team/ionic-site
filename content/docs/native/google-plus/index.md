@@ -150,6 +150,15 @@ This will clear the OAuth2 token, forget which account was used to login, and di
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSigningCertificateFingerprint" href="#getSigningCertificateFingerprint"></a><code>getSigningCertificateFingerprint()</code></h3>
+
+
+This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

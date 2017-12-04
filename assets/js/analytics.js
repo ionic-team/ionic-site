@@ -5,6 +5,9 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-44023830-1', 'ionicframework.com');
 
+// Google Optimize
+ga('require', 'GTM-WKQJ324');
+
 ga('create', 'UA-77242104-1', 'auto');
 
 if (window.experiment) {

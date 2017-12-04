@@ -321,6 +321,10 @@
       a {
         color: #131924;
       }
+
+      @media (max-width: $screen-md-max) {
+        text-align: center;
+      }
     }
 
     form {

@@ -24,7 +24,7 @@
 <meta name="twitter:site" content="@ionicframework">
 <meta name="twitter:creator" content="ionicframework">
 <meta name="twitter:title" content="Ionic Framework">
-<meta name="twitter:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
+<meta name="twitter:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}The easiest way to build amazing mobile and progressive web apps. 100% free and open source.{% endif %}">
 <meta name="twitter:image:src" content="{{site.url}}/img/ionic-meta.jpg">
 
 <!-- Social: Facebook / Open Graph -->
@@ -33,7 +33,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="{{site.url}}/img/ionic-meta.jpg"/>
-<meta property="og:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
+<meta property="og:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}The easiest way to build amazing mobile and progressive web apps. 100% free and open source.{% endif %}">
 <meta property="og:site_name" content="Ionic Framework">
 <meta property="article:publisher" content="https://www.facebook.com/ionicframework">
 

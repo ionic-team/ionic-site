@@ -54,7 +54,7 @@ module.exports = function(req, res, next) {
     protocol = 'http';
   } else if (req.protocol === 'http') {
     // force https in prod
-    return res.redirect(301, `https://ionicframework.com${req.url}`);
+    // return res.redirect(301, `https://ionicframework.com${req.url}`);
   }
 
   // cache static files

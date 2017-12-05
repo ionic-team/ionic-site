@@ -3,6 +3,18 @@
   100% { opacity: 1; }
 }
 
+@keyframes fadeInUpSmall {
+  0% {
+    opacity: 0;
+    transform: scale(.667, .667) translateY(20px);
+  }
+
+  100% {
+    opacity: .5;
+    transform: scale(.667, .667) translateY(0);
+  }
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -296,13 +308,13 @@
 }
 
 @keyframes home-app-group-iphone {
-  0% { transform: translate3d(80px, 0, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% { transform: rotateY(15deg) translate3d(80px, 0, 0); }
+  100% { transform: rotateY(15deg) translate3d(0, 0, 0); }
 }
 
 @keyframes home-app-group-android {
-  0% { transform: translate3d(-74px, 40px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% { transform: rotateY(15deg) translate3d(-74px, 40px, 0); }
+  100% { transform: rotateY(15deg) translate3d(0, 0, 0); }
 }
 
 @keyframes home-app-iphone {

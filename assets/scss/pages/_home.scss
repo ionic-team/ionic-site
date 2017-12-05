@@ -67,11 +67,36 @@
         bottom: 160px;
       }
 
-      .iphone {
-        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-android;
+      .iphone,
+      .android {
+        transform: rotateY(15deg);
+        transition: 1.9s transform;
+      }
+
+      &:hover {
+        .android {
+          transform: translateX(-3px) rotateY(0deg);
+
+          .layer-2 {
+            transform: translateX(5px);
+          }
+        }
+
+        .iphone {
+          transform: translateX(3px) rotateY(0deg);
+
+          .layer-4 {
+            transform: translateX(5px);
+          }
+        }
+        
       }
 
       .android {
+        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-android;
+      }
+
+      .iphone {
         animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-iphone;
       }
 
@@ -93,6 +118,7 @@
         height: 571px;
         bottom: -147px;
         right: 52px;
+        transition: 2s transform;
         animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-android;
       }
       
@@ -114,6 +140,7 @@
         height: 612px;
         bottom: -157px;
         right: 247px;
+        transition: 2s transform;
         animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-iphone;
       }
     }
@@ -121,11 +148,13 @@
     @media (max-width: $screen-sm-max) {
 
       .container {
-        padding-bottom: 360px;
+        padding-bottom: 64px;
       }
 
       hgroup {
         text-align: center;
+        position: relative;
+        z-index: 1;
       }
 
       h1,
@@ -135,8 +164,10 @@
 
       .graphics {
         bottom: 0;
-        transform: scale(.5, .5);
-        left: calc(50% - 275px);
+        transform: scale(.667, .667);
+        animation-name: fadeInUpSmall;
+        left: calc(50% - 270px);
+        opacity: .5;
       }
     }
   }

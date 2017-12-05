@@ -1,27 +1,26 @@
 {% extends "_layouts/base.html" %}
-{% set id = 'pricing' %}
-{% set header_style = 'transparent light' %}
-{% set bodyController = 'pricingCtrl' %}
-{% import "../_includes/macros.html" as macros %}
+{% set id = 'pricing-table' %}
 
 {% block main %}
-<div class="cta" ng-init="period = 'monthly'">
+<div class="cta banner">
   <hgroup class="container">
-    <h1>Ionic plans &amp; pricing</h1>
-    <p>
-      Choose a plan that’s right for you or your team. Need help? <a
-      data-toggle="modal" data-target="#contactForm">Drop us a line</a>
-    </p>
-  </hgroup>
-</div>
-<div class="container">
-  <div class="x-scroll">
+    <h1>Ionic Pro plans &amp; pricing</h1>
     <p>
       Ionic pro is here to be used along with the forever-free, open source 
-      Ionic Framework and UI Kit for building beautiful cross-platform apps for 
-      mobile, web, and desktop alike. You don’t need ionic pro to have access to 
-      the ionic framework.
+      Ionic Framework and UI Kit for building beautiful cross-platform apps
+      for mobile, web, and desktop alike. 
     </p>
+    <h4>You don’t need ionic pro to have access to the ionic framework.</h4>
+  </hgroup>
+</div>
+<main>
+  <div class="container box">
+    {# <hgroup>
+      <h3>
+        Choose a plan that’s right for you or your team. Need help? <a
+        data-toggle="modal" data-target="#contactForm">Drop us a line</a>
+      </h3> 
+    </hgroup> #}
     <div class="table-wrap">
       <table>
         <thead>
@@ -34,25 +33,25 @@
             </th>
             <th>
               <h3>Developer</h3>
-              <div class="price"><strong>$29</strong> per month</div>
+              <div class="price"><strong><sup>$</sup>29</strong>/mo</div>
               <div class="type">Solo license</div>
             </th>
             <th>
               <h3>Team</h3>
-              <div class="price"><strong>$49</strong> per month</div>
+              <div class="price"><strong><sup>$</sup>49</strong>/mo</div>
               <div class="type">Per team member</div>
             </th>
             <th>
               <h3>Business</h3>
-              <div class="price"><strong>$169</strong> per month *</div>
+              <div class="price"><strong><sup>$</sup>169</strong>/mo*</div>
               <div class="type">Per team member</div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <th>
-            <th collspan="5">Ionic Pro Suite Products</th>
-          </th>
+          <tr>
+            <th colspan="5">Ionic Pro Suite Products</th>
+          </tr>
           <tr>
             <th>
               <strong>Ionic DevApp</strong>
@@ -116,7 +115,7 @@
             <td><span class="check"></span></td>
           </tr>
           <th>
-            <th collspan="5">Features</th>
+            <th colspan="5">Features</th>
           </th>
           <tr>
             <th>Git Based Workflow</th>
@@ -186,7 +185,7 @@
       </table>
     </div>
   </div>
-</div>
+</main>
 
 <p class="conditions">
   All plans include unlimited apps, Ionic DevApp, and public sharing with View.

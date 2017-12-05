@@ -71,7 +71,10 @@
 @import 'hljs';
 @import 'typography';
 
-@import 'components/animations';
+// ionic-site utilities
+@import 'animations';
+@import 'mixins';
+
 @import 'components/banner';
 @import 'components/bar';
 @import 'components/bar-chart';
@@ -123,6 +126,7 @@
 @import 'pages/jobs';
 @import 'pages/press';
 @import 'pages/pricing/index';
+@import 'pages/pricing/table';
 @import 'pages/pricing/trial';
 @import 'pages/products/contact';
 @import 'pages/products/deploy';

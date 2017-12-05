@@ -38,8 +38,8 @@ keyboard
 On both Android and iOS, Ionic will attempt to prevent the keyboard from
 obscuring inputs and focusable elements when it appears by scrolling them
 into view.  In order for this to work, any focusable elements must be within
-a [Scroll View](http://ionicframework.com/docs/v1/api/directive/ionScroll/)
-or a directive such as [Content](http://ionicframework.com/docs/v1/api/directive/ionContent/)
+a [Scroll View](https://ionicframework.com/docs/v1/api/directive/ionScroll/)
+or a directive such as [Content](https://ionicframework.com/docs/v1/api/directive/ionContent/)
 that has a Scroll View.
 
 It will also attempt to prevent the native overflow scrolling on focus,

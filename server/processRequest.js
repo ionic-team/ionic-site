@@ -24,13 +24,13 @@ module.exports = function(req, res, next) {
   } else if (parts.path.indexOf('/creator/') == 0) {
     return res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/tutorials') == 0) {
-    return res.redirect(301, 'http://ionicframework.com/getting-started');
+    return res.redirect(301, 'https://ionicframework.com/getting-started');
   } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
     return res.redirect(301, '/docs/cli/');
   // } else if (parts.path.indexOf('/docs/pro') == 0) {
   //   return res.redirect(301, 'http://support.ionicjs.com');
   } else if (req.headers.host.indexOf('learn.') == 0) {
-    return res.redirect(301, 'http://ionicframework.com/docs/');
+    return res.redirect(301, 'https://ionicframework.com/docs/');
   }
 
   // handle redirects

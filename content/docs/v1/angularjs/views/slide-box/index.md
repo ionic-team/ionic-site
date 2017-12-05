@@ -15,7 +15,7 @@ Slide Box
 
 The Slide Box is a multi-page container where each page can be swiped or dragged between:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif">
+<img src="https://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif">
 
 ## \<ion-slide-box\>
 

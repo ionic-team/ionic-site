@@ -261,5 +261,5 @@ As we said previously, WKWebView enforces CORS. You will need to whitelist `http
 
 If it is not an possibility to implement or configure CORS in the server, there is a native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypassed:
 
-Read more here: [cordova-plugin-http](http://ionicframework.com/docs/native/http/).
+Read more here: [cordova-plugin-http](https://ionicframework.com/docs/native/http/).
 

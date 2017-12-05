@@ -105,7 +105,7 @@ to the item. To show the right arrow icon on an element that doesn&#39;t display
 <p>This feature is not enabled by default for <code>md</code> and <code>wp</code> modes, but it can be enabled by setting the
 Sass variables <code>$item-md-detail-push-show</code> and <code>$item-wp-detail-push-show</code>, respectively, to <code>true</code>.
 It can also be disabled for ios by setting <code>$item-ios-detail-push-show</code> to <code>false</code>. See the
-<a href="http://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
+<a href="https://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
 more information on overriding Sass variables.</p>
 <h2 id="item-placement">Item Placement</h2>
 <p>Items rely heavily on content projection to position content. The item grabs content based on the

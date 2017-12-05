@@ -9,7 +9,7 @@ header_sub_title: Ionic Developer Preview
 
 ## Windows
 
-There are two paths you can take to set up a Windows machine. One is installing all the dependencies one by one, and the other is installing the Tools for Cordova plugin for Visual Studio 2015. We go over the process of using the Visual Studio installer in [our blog](http://blog.ionicframework.com/visual-studio-tools-for-apache-cordova/).
+There are two paths you can take to set up a Windows machine. One is installing all the dependencies one by one, and the other is installing the Tools for Cordova plugin for Visual Studio 2015. We go over the process of using the Visual Studio installer in [our blog](https://blog.ionicframework.com/visual-studio-tools-for-apache-cordova/).
 
 
 ### Common Tools

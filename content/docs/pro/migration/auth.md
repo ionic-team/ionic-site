@@ -10,7 +10,7 @@ dark_header: true
 
 # Ionic Auth is being Shut Down Jan 31st, 2018
 
-Ionic Auth will be shut down and no longer function on January 31st, 2018. To learn more about this shutdown, please read our [blog post](http://blog.ionicframework.com/sunsetting-ionic-cloud-push-and-auth/).
+Ionic Auth will be shut down and no longer function on January 31st, 2018. To learn more about this shutdown, please read our [blog post](https://blog.ionicframework.com/sunsetting-ionic-cloud-push-and-auth/).
 
 ## Migrating off of Ionic Auth
 

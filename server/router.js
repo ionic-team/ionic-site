@@ -21,7 +21,7 @@ module.exports = function router(app) {
   // });
 
   // normal pages
-  .get('/', (req, res) => { res.render('framework'); })
+  .get('/', (req, res) => { res.render('index'); })
   .get('/home', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
   .get('/books/hybrid-vs-native', (req, res) => { res.render('books/hybrid-vs-native'); })

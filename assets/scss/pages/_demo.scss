@@ -67,8 +67,8 @@
     @include box;
     margin-bottom: 50px;
     margin-top: -40px;
-    max-width: 67%;
-    padding: 2em 2em 0;
+    min-width: 630px;
+    padding: 64px 64px 24px;
 
     form {
       max-width: 100%;

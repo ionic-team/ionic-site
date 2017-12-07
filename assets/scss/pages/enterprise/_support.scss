@@ -4,8 +4,12 @@
     background-size: cover;
     padding-bottom: 118px;
     padding-top: 135px;
-    margin-top: -72px;
     color: rgba(white, 1);
+
+    hgroup {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     h1 {
       font-weight: 700;

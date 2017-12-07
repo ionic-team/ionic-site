@@ -4,7 +4,7 @@
     background-size: cover;
     padding-bottom: 168px;
     padding-top: 225px;
-    margin-top: -72px;
+    margin-top: -78px;
     color: rgba(white, .9);
 
     @media (max-width: $screen-sm-max) {
@@ -15,6 +15,8 @@
     hgroup {
       max-width: 710px;
       position: relative;
+      padding-top: 0;
+      padding-bottom: 0;
 
       &::before {
         background: no-repeat 50% 0 url('/img/enterprise/ionic-enterprise-icon.png');

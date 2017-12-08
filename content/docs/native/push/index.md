@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L218">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L223">
   Improve this doc
 </a>
 
@@ -578,6 +578,20 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
   </tr>
   </thead>
   <tbody>
+  
+  <tr>
+    <td>
+      senderID
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Maps to the project number in the Google Developer Console.</p>
+
+      
+    </td>
+  </tr>
   
   <tr>
     <td>

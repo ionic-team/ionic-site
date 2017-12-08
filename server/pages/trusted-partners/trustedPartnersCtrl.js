@@ -23,7 +23,9 @@ module.exports = function(req, res) {
     from: 'sales@ionic.io',
     name: 'Ionic.io',
     subject: 'Trusted Partners Inquiry',
-    body: objToString(req.body)
+    body: objToString(req.body),
+    country: req.header('Cf-Ipcountry'),
+    ip: req.header('CF-Connecting-IP')
   };
 
   if (req.body.form === 'application') {

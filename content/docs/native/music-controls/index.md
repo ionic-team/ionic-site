@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L21">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L22">
   Improve this doc
 </a>
 
@@ -86,9 +86,10 @@ this.musicControls.create({
   hasSkipBackward : true, // show skip backward button, optional, default: false
   skipForwardInterval: 15, // display number for skip forward, optional, default: 0
   skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
+  hasScrubbing: false, // enable scrubbing from control center and lockscreen progress bar, optional
 
   // Android only, optional
-  // text displayed in the status bar when the notification (and the ticker) are updated
+  // text displayed in the status bar when the notification (and the ticker) are updated, optional
   ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;
  });
 
@@ -119,7 +120,7 @@ this.musicControls.create({
                  break;
          case &#39;music-controls-seek-to&#39;:
            const seekToInSeconds = JSON.parse(action).position;
-           MusicControls.updateElapsed({
+           this.musicControls.updateElapsed({
              elapsed: seekToInSeconds,
              isPlaying: true
            });
@@ -325,7 +326,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -338,7 +339,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -351,7 +352,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -364,7 +365,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -377,7 +378,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -390,7 +391,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -403,7 +404,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -416,7 +417,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -429,7 +430,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -442,7 +443,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -455,7 +456,20 @@ Toggle dismissable:
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasScrubbing
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
       
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -468,7 +482,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -481,7 +495,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -494,7 +508,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -507,7 +521,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -520,7 +534,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

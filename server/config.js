@@ -9,6 +9,9 @@ module.exports = {
   CF_TOKEN: process.env.CF_TOKEN || null,
   CF_ZONE: process.env.CF_ZONE || null,
 
+  // Redis
+  REDIS_URL: process.env.REDIS_URL || null,
+
   // Sendgrid Email
   SENDGRID_APIKEY: process.env.SENDGRID_APIKEY || '',
 

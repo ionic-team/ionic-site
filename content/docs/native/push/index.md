@@ -86,7 +86,7 @@ this.push.createChannel({
 }).then(() =&gt; console.log(&#39;Channel created&#39;));
 
 // Delete a channel (Android O and above)
-this.push.deleteChannel(&#39;testchannel1&#39;).then(() =&gt; console.log(&#39;Channel deleted));
+this.push.deleteChannel(&#39;testchannel1&#39;).then(() =&gt; console.log(&#39;Channel deleted&#39;));
 
 // Return a list of currently configured channels
 this.push.listChannels().then((channels) =&gt; console.log(&#39;List of channels&#39;, channels))

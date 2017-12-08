@@ -73,12 +73,12 @@ let delegate = this.ibeacon.Delegate();
 delegate.didRangeBeaconsInRegion()
   .subscribe(
     data =&gt; console.log(&#39;didRangeBeaconsInRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didStartMonitoringForRegion()
   .subscribe(
     data =&gt; console.log(&#39;didStartMonitoringForRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didEnterRegion()
   .subscribe(

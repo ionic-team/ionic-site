@@ -8,8 +8,10 @@ module.exports = function(req, res) {
   req.body.timestamp = moment().utc().format();
 
   // automatically send to brody, but also send to the TP directly, if provided
-  let toEmail = ['brody@ionic.io'];
-  toEmail.push('perry@ionic.io');
+  let toEmail = [
+    'brody@ionic.io',
+    'perry@ionic.io',
+  ];
   let partnerEmail = getTrustedPartnerEmailByName(req.body['selected-partner']);
   if (typeof partnerEmail ==='string') {
     toEmail.push(partnerEmail)
@@ -18,14 +20,15 @@ module.exports = function(req, res) {
   }
   console.log('Sending TP lead to ' + toEmail);
 
+  req.body.country = req.header('Cf-Ipcountry');
+  req.body.ip = req.header('CF-Connecting-IP');
+
   var m = {
     to: toEmail,
     from: 'sales@ionic.io',
     name: 'Ionic.io',
     subject: 'Trusted Partners Inquiry',
     body: objToString(req.body),
-    country: req.header('Cf-Ipcountry'),
-    ip: req.header('CF-Connecting-IP')
   };
 
   if (req.body.form === 'application') {

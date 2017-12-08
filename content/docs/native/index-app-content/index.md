@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Index App Content</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L24">
   Improve this doc
 </a>
 
@@ -134,36 +134,16 @@ Add or change items to spotlight index
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns if index set was successfull
-</div><h3><a class="anchor" name="onItemPressed" href="#onItemPressed"></a><code>onItemPressed(Clicked)</code></h3>
+</div><h3><a class="anchor" name="onItemPressed" href="#onItemPressed"></a><code>onItemPressed()</code></h3>
 
 
 If user taps on a search result in spotlight then the app will be launched.
 You can register a Javascript handler to get informed when this happens.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      Clicked</td>
-    <td>
-      <code>IndexItem</code>
-    </td>
-    <td>
-      <p>Item</p>
-</td>
-  </tr>
-  </tbody>
-</table>
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns promise
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an observable that notifies you when he user presses on the home screen icon
 </div><h3><a class="anchor" name="clearItemsForDomains" href="#clearItemsForDomains"></a><code>clearItemsForDomains(Array)</code></h3>
 
 

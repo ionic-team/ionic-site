@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Apple Pay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/apple-pay/index.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/apple-pay/index.ts#L77">
   Improve this doc
 </a>
 
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/trueflywood/cordova-plugin-applepay">
-    https://github.com/trueflywood/cordova-plugin-applepay
+  <a href="https://github.com/samkelleher/cordova-plugin-applepay">
+    https://github.com/samkelleher/cordova-plugin-applepay
   </a>
 </p>
 
@@ -62,74 +62,44 @@ $ npm install --save @ionic-native/apple-pay
 constructor(private applePay: ApplePay) { }
 
 ...
+async applePay() {
+  // This block is optional -- only if you need to update order items/shipping
+  // methods in response to shipping method selections
+  this.applePay.startListeningForShippingContactSelection()
+    .subscribe(async selection =&gt; {
+      try {
+        await this.applePay.updateItemsAndShippingMethods({
+          items: getFromSelection(selection),
+          shippingMethods: getFromSelection(selection),
+        });
+      }
+      catch {
+        // handle update items error
+      }
+    });
 
+  try {
+    const applePayTransaction = await this.applePay.makePaymentRequest({
+      items,
+      shippingMethods,
+      merchantIdentifier,
+      currencyCode,
+      countryCode,
+      billingAddressRequirement: [&#39;name&#39;, &#39;email&#39;, &#39;phone&#39;],
+      shippingAddressRequirement: &#39;none&#39;,
+      shippingType: &#39;shipping&#39;
+    });
 
-ApplePay.makePaymentRequest(
- {
-       items: [
-           {
-               label: &#39;3 x Basket Items&#39;,
-               amount: 49.99
-           },
-           {
-               label: &#39;Next Day Delivery&#39;,
-               amount: 3.99
-           },
-                   {
-               label: &#39;My Fashion Company&#39;,
-               amount: 53.98
-           }
-       ],
-       shippingMethods: [
-           {
-               identifier: &#39;NextDay&#39;,
-               label: &#39;NextDay&#39;,
-               detail: &#39;Arrives tomorrow by 5pm.&#39;,
-               amount: 3.99
-           },
-           {
-               identifier: &#39;Standard&#39;,
-               label: &#39;Standard&#39;,
-               detail: &#39;Arrive by Friday.&#39;,
-               amount: 4.99
-           },
-           {
-               identifier: &#39;SaturdayDelivery&#39;,
-               label: &#39;Saturday&#39;,
-               detail: &#39;Arrive by 5pm this Saturday.&#39;,
-               amount: 6.99
-           }
-       ],
-       merchantIdentifier: &#39;merchant.apple.test&#39;,
-       currencyCode: &#39;GBP&#39;,
-       countryCode: &#39;GB&#39;,
-       billingAddressRequirement: &#39;none&#39;,
-       shippingAddressRequirement: &#39;none&#39;,
-       shippingType: &#39;shipping&#39;
- })
- .then((paymentResponse) =&gt; {
-        // The user has authorized the payment.
+    const transactionStatus = await completeTransactionWithMerchant(applePayTransaction);
+    await this.applePay.completeLastTransaction(transactionStatus);
+  } catch {
+    // handle payment request error
+    // Can also handle stop complete transaction but these should normally not occur
+  }
 
-        // Handle the token, asynchronously, i.e. pass to your merchant bank to
-        // action the payment, then once finished, depending on the outcome:
-
-        // Here is an example implementation:
-
-        // MyPaymentProvider.authorizeApplePayToken(token.paymentData)
-        //    .then((captureStatus) =&gt; {
-        //        // Displays the &#39;done&#39; green tick and closes the sheet.
-        //        ApplePay.completeLastTransaction(&#39;success&#39;);
-        //    })
-        //    .catch((err) =&gt; {
-        //        // Displays the &#39;failed&#39; red cross.
-        //        ApplePay.completeLastTransaction(&#39;failure&#39;);
-        //    });
-
-
-    })
- .catch((e) =&gt; {
-        // Failed to open the Apple Pay sheet, or the user cancelled the payment.
-    })
+  // only if you started listening before
+  await this.applePay.stopListeningForShippingContactSelection();
+}
 </code></pre>
 
 
@@ -151,6 +121,68 @@ Detects if the current device supports Apple Pay and has any capable cards regis
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;IMakePayments&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="startListeningForShippingContactSelection" href="#startListeningForShippingContactSelection"></a><code>startListeningForShippingContactSelection()</code></h3>
+
+
+
+
+Starts listening for shipping contact selection changes
+Any time the user selects shipping contact, this callback will fire.
+You *must* call `updateItemsAndShippingMethods` in response or else the
+user will not be able to process payment.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;ISelectedShippingContact&gt;</code> emits with shipping contact information on
+  shipping contact selection changes
+</div><h3><a class="anchor" name="stopListeningForShippingContactSelection" href="#stopListeningForShippingContactSelection"></a><code>stopListeningForShippingContactSelection()</code></h3>
+
+
+
+
+Stops listening for shipping contact selection changes
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise</code> whether stop listening was successful. This should
+  really only fail if this is called without starting listening
+</div><h3><a class="anchor" name="updateItemsAndShippingMethods" href="#updateItemsAndShippingMethods"></a><code>updateItemsAndShippingMethods(including)</code></h3>
+
+
+
+
+Update the list of pay sheet items and shipping methods in response to
+a shipping contact selection event. This *must* be called in response to
+any shipping contact selection event or else the user will not be able
+to complete a transaction on the pay sheet. Do not call without
+subscribing to shipping contact selection events first
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      including</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p><code>items</code> and <code>shippingMethods</code> properties.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise</code> 
 </div><h3><a class="anchor" name="makePaymentRequest" href="#makePaymentRequest"></a><code>makePaymentRequest(order)</code></h3>
 
 
@@ -184,10 +216,11 @@ Request a payment with Apple Pay
 </div><h3><a class="anchor" name="completeLastTransaction" href="#completeLastTransaction"></a><code>completeLastTransaction(complete)</code></h3>
 
 
+
+
 Once the makePaymentRequest has been resolved successfully, the device will be waiting for a completion event.
 This means, that the application must proceed with the token authorisation and return a success, failure,
 or other validation error. Once this has been passed back, the Apple Pay sheet will be dismissed via an animation.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -209,7 +242,10 @@ or other validation error. Once this has been passed back, the Apple Pay sheet w
   </tbody>
 </table>
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;ICompleteTransaction&gt;</code> Returns a promise that resolves after confirmation of payment authorization completion
+</div>
 
 
 

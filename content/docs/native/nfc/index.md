@@ -91,7 +91,47 @@ this.nfc.addNdefListener(() =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addNdefListener" href="#addNdefListener"></a><code>addNdefListener(onSuccess,&nbsp;onFailure)</code></h3>
+<h3><a class="anchor" name="beginSession" href="#beginSession"></a><code>beginSession(onSuccess,&nbsp;onFailure)</code></h3>
+
+
+
+
+Starts the NFCNDEFReaderSession allowing iOS to scan NFC tags.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      onSuccess</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      onFailure</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="addNdefListener" href="#addNdefListener"></a><code>addNdefListener(onSuccess,&nbsp;onFailure)</code></h3>
 
 
 

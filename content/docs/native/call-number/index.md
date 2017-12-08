@@ -119,6 +119,17 @@ Calls a phone number
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isCallSupported" href="#isCallSupported"></a><code>isCallSupported()</code></h3>
+
+
+
+
+Check if call feature is available
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

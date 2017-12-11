@@ -10,6 +10,11 @@
       padding-bottom: 256px;
     }
 
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
     h4 {
       text-transform: uppercase;
       font-weight: 700;
@@ -25,6 +30,8 @@
 
       font-family: $font-family-eina;
       margin-top: -254px;
+      max-width: 1000px;
+      min-width: 740px;
       padding: 16px 32px;
     }
 
@@ -53,11 +60,16 @@
       th {
         text-align: center;
         border-bottom: 0;
+
+        &.starter h3 { color: $blue; }
+        &.developer h3 { color: $green; }
+        &.team h3 { color: $purple; }
+        &.business h3 { color: $red; }
       }
 
       h3 {
         text-transform: uppercase;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: 800;
         margin-top: 16px;
         margin-bottom: 8px;
@@ -70,20 +82,88 @@
         line-height: 1em;
 
         strong {
-          font-size: 32px;
+          font-size: 22px;
           font-weight: 700;
         }
 
         sup {
-          font-size: 20px;
+          font-size: 16px;
           vertical-align: -3px;
         }
       }
 
       .type {
         font-size: 12px;
-        color: rgba(#333, .8);
+        color: rgba(#333, .5);
         font-weight: 600;
+      }
+    }
+
+    tbody {
+      th {
+        color: #333;
+        font-weight: 600;
+        vertical-align: middle;
+
+        &[colspan="5"] {
+          font-size: 22px;
+          font-weight: 500;
+          color: #333;
+          border-top: none;
+          padding-top: 32px;
+        }
+
+        strong {
+          font-size: 16px;
+          font-weight: 600;
+          display: block;
+          color: #333;
+        }
+
+        a {
+          display: block;
+          font-weight: 600;
+        }
+
+        span {
+          font-size: 12px;
+          font-weight: 500;
+          color: #999;
+        }
+      }
+
+      .stripe {
+        td,
+        th {
+          background: rgba($blue, .02);
+        }
+      }
+
+      tr:last-child {
+        th,
+        td {
+          // border-top: 0;
+        }
+
+        td {
+          text-align: center;
+        }
+      }
+
+      td {
+        vertical-align: middle;
+        text-align: center;
+        font-weight: 600;
+        // padding-left: 16px;
+      }
+
+      .check::before {
+        font-family: 'Ionicons';
+        content: "\f2bc";
+        color: $green;
+        font-size: 2em;
+        line-height: 1em;
+        // margin-left: 16px;
       }
     }
   }

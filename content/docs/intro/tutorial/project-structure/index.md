@@ -17,7 +17,7 @@ next_page_link: /docs//intro/tutorial/adding-pages
   Improve this doc
 </a>
 
-Let's walk through the anatomy of an Ionic app. Inside of the folder that was created, we have a typical [Cordova](/docs/v1/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files.
+Let's walk through the anatomy of an Ionic app. Inside of the folder that was created, we have a typical [Cordova](/docs/resources/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files.
 
 <h3 class="file-title">./src/index.html</h3>
 
@@ -91,6 +91,6 @@ Here's the main template for the app in `src/app/app.html`:
 </ion-menu>
 ```
 
-In this template, we set up an [`ion-menu`](/docs//components/#menus) to function as a side menu, and then an [`ion-nav`](/docs//api/components/nav/Nav/) component to act as the main content area. The [`ion-menu`](/docs//components/#menus)'s `[content]` property is bound to the local variable `nav` from our [`ion-nav`](/docs//api/components/nav/Nav/), so it knows where it should animate around.
+In this template, we set up an [`ion-menu`](/docs//components/#menus) to function as a side menu, and then an [`ion-nav`](/docs//api/components/nav/Nav/) component to act as the main content area. The [`ion-menu`](/docs/components/#menus)'s `[content]` property is bound to the local variable `nav` from our [`ion-nav`](/docs//api/components/nav/Nav/), so it knows where it should animate around.
 
 Next let's see how to create more pages and perform basic navigation.

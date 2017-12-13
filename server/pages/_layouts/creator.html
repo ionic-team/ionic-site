@@ -21,7 +21,12 @@
 <body id="{% block body_id %}body-creator-{{ page }}{% endblock %}"
       {% block body_attributes %}class="creator"{% endblock %}
       ng-app="IonicSite">
-
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+            style="display:none;visibility:hidden"
+            height="0" 
+            width="0" ></iframe>
+  </noscript>
   {% block ionicbar %}
   {# ##hide for now
     <nav class="navbar navbar-ionic">

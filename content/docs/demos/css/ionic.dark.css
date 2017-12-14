@@ -1,9 +1,9 @@
 /*!
  * Ionic Framework
  * A powerful framework for building mobile and progressive web apps.
- * https://ionicframework.com/
+ * http://ionicframework.com/
  *
- * vE2E-201711301840, Dark Theme
+ * vE2E-201712142038, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -16417,6 +16417,10 @@ ion-navbar.toolbar {
   min-height: calc(44px + constant(safe-area-inset-bottom));
   min-height: calc(44px + env(safe-area-inset-bottom)); }
 
+.ios .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 44px; }
+
 .md ion-nav > .ion-page > .toolbar.statusbar-padding:first-child,
 .md ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
 .md ion-tab > .ion-page > .toolbar.statusbar-padding:first-child,
@@ -16488,6 +16492,10 @@ ion-navbar.toolbar {
   min-height: calc(56px + constant(safe-area-inset-bottom));
   min-height: calc(56px + env(safe-area-inset-bottom)); }
 
+.md .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 56px; }
+
 .wp ion-nav > .ion-page > .toolbar.statusbar-padding:first-child,
 .wp ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
 .wp ion-tab > .ion-page > .toolbar.statusbar-padding:first-child,
@@ -16558,6 +16566,10 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom)); }
+
+.wp .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 46px; }
 
 .ion-ios-add:before {
   content: "\f102"; }

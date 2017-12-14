@@ -23,6 +23,10 @@
         left: 14px;
         top: 36px;
       }
+
+      @media (max-width: $screen-xs-max) {
+        margin-top: 100px;
+      }
     }
 
     h1 {
@@ -52,12 +56,16 @@
     padding-right: 0;
     padding-left: 0;
 
+    @media (max-width: $screen-xs-max) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     li {
       @include box();
 
       padding: 82px 24px 38px;
       flex: 0 1 370px;
-      min-width: 280px;
       text-align: center;
       position: relative;
       margin-bottom: 32px;
@@ -76,6 +84,18 @@
       &.primary-logo::before { background-position: 0 0; }
       &.light-logo::before { background-position: 0 -114px; }
       &.all::before { background-position: 0 -224px; }
+
+      @media (max-width: $screen-md-max) {
+        flex-basis: 300px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        flex-basis: 230px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        flex-basis: 90%;
+      }
     }
 
     h3 {
@@ -212,6 +232,34 @@
             transition: .3s color;
           }
         }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+
+      .tab-menu {
+        flex-basis: 32px;
+
+          .nav-stacked {
+          display: flex;
+          justify-content: space-around;
+  
+          h4 {
+            margin-top: 25px;
+          }
+  
+          li.active a,
+          li a:hover,
+          li a:active {
+            border-right-color: transparent;
+            border-bottom: 2px solid $blue;
+          }
+        }
+      }
+
+      .tab-content {
+        padding-left: 32px;
       }
     }
   }

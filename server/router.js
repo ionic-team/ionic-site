@@ -48,6 +48,7 @@ module.exports = function router(app) {
   .get('/products/monitor', (req, res) => { res.render('products/monitor'); })
   .get('/products/package', (req, res) => { res.render('products/package'); })
   .get('/products/view', (req, res) => { res.render('products/view'); })
+  .get('/pwa', (req, res) => { res.render('pwa'); })
   .get('/resources', (req, res) => { res.render('resources'); })
   .get('/sales', (req, res) => { res.render('sales'); })
   .get('/strategysession', (req, res) => { res.render('strategysession'); })

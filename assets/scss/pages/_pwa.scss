@@ -9,10 +9,11 @@
 
   .lede {
     color: #748196;
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 600;
+    line-height: 1.6;
     margin: 1em auto;
-    max-width: 80rem;
+    max-width: 72rem;
 
     @media screen and (max-width: $screen-xs-max) {
       font-size: 1.2em;

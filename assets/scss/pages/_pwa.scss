@@ -9,7 +9,7 @@
 
   .lede {
     color: #748196;
-    font-size: 1.45em;
+    font-size: 1.4em;
     font-weight: 600;
     margin: 1em auto;
     max-width: 80rem;
@@ -205,7 +205,7 @@
     width: calc(1110px / 3 - 2rem);
 
     &:hover {
-      box-shadow: 0 8px 16px rgba(black, 0.08), 0 3px 6px rgba(black, 0.08);
+      box-shadow: 0 8px 16px rgba(black, 0.1), 0 3px 6px rgba(black, 0.1);
     }
 
     @media screen and (max-width: $screen-xs-max) {
@@ -264,6 +264,10 @@
 
   .library__list a {
     color: inherit;
+
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   .library__list {

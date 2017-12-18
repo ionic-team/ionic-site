@@ -123,7 +123,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
           // This notifies Ionitron that comments/labels can be removed
           $http({
             method: 'POST',
-            url: 'http://ionitron-issues.herokuapp.com/webhook?callback=JSON_CALLBACK',
+            url: 'https://ionitron-issues.herokuapp.com/webhook?callback=JSON_CALLBACK',
             headers: {
              'Content-Type': 'application/javascript',
              'X-Github-Event': 'issues'

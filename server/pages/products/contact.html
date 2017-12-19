@@ -34,9 +34,9 @@
           <!-- <p>Hey there,</p> -->
 
           <p>
-            Thanks for showing interest in what we have to offer. We're 
-            currently evaluating this package, and would love to <i>reach 
-            out to you to talk about your exact needs after learning a 
+            Thanks for showing interest in what we have to offer. We're
+            currently evaluating this package, and would love to <i>reach
+            out to you to talk about your exact needs after learning a
             little more about you</i>.
           </p>
 
@@ -51,8 +51,8 @@
           <label for="name" class="control-label">
             Name
           </label>
-          <input type="text" 
-                 class="form-control" 
+          <input type="text"
+                 class="form-control"
                  id="name"
                  name="name"
                  ng-model="form.name">
@@ -62,8 +62,8 @@
           <label for="email" class="control-label">
             Email
           </label>
-          <input type="email" 
-                 class="form-control" 
+          <input type="email"
+                 class="form-control"
                  id="email"
                  name="email"
                  ng-model="form.email"
@@ -84,16 +84,16 @@
             Would this offering solve any problems you currently have?
           </label><br>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="solve_problems" 
-                   id="solve_problems_yes" 
+            <input type="radio"
+                   name="solve_problems"
+                   id="solve_problems_yes"
                    ng-value="true"
                    ng-model="form.solve_problems"> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="solve_problems" 
-                   id="solve_problems_no" 
+            <input type="radio"
+                   name="solve_problems"
+                   id="solve_problems_no"
                    ng-value="false"
                    ng-model="form.solve_problems"> No
           </label>
@@ -103,51 +103,51 @@
           Is there anything in this offering you wouldn't use?
         </label><br>
         <label class="checkbox-inline">
-          <input type="checkbox" 
-                 value="unused_features_creator" 
+          <input type="checkbox"
+                 value="unused_features_creator"
                  name="unused_features_creator"
-                 ng-model="form.unused_features.creator"> 
+                 ng-model="form.unused_features.creator">
           Prototyping
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" 
+          <input type="checkbox"
                  value="unused_features_view"
-                 ng-model="form.unused_features.view"> 
+                 ng-model="form.unused_features.view">
           Device Preview/Testing
         </label>
         <br>
         <label class="checkbox-inline">
-          <input type="checkbox" 
+          <input type="checkbox"
                  value="unused_features_deploy"
                  name="unused_features_deploy"
-                 ng-model="form.unused_features.deploy"> 
+                 ng-model="form.unused_features.deploy">
           Live Updates
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" 
+          <input type="checkbox"
                  value="unused_features_package"
                  name="unused_features_package"
-                 ng-model="form.unused_features.package"> 
+                 ng-model="form.unused_features.package">
           Cloud Builds
         </label>
       </div>
 
       <!--<div class="form-group">
         <label class="control-label">
-          Is there anything missing from this offering that would prevent 
+          Is there anything missing from this offering that would prevent
           you from buying it?
         </label><br>
         <label class="radio-inline">
-          <input type="radio" 
-                 name="missing_purchase" 
-                 id="missing_purchase_yes" 
+          <input type="radio"
+                 name="missing_purchase"
+                 id="missing_purchase_yes"
                  ng-value="true"
                  ng-model="form.missing_purchase"> Yes
         </label>
         <label class="radio-inline">
-          <input type="radio" 
-                 name="missing_purchase" 
-                 id="missing_purchase_no" 
+          <input type="radio"
+                 name="missing_purchase"
+                 id="missing_purchase_no"
                  ng-value="false"
                  ng-model="form.missing_purchase"> No
         </label>
@@ -155,20 +155,20 @@
 
       <div class="form-group">
         <label class="control-label">
-          Is there anything missing in this offering that is critical to 
+          Is there anything missing in this offering that is critical to
           your workflow?
         </label><br>
         <label class="radio-inline">
-          <input type="radio" 
-                 name="missing_workflow" 
-                 id="missing_workflow_yes" 
+          <input type="radio"
+                 name="missing_workflow"
+                 id="missing_workflow_yes"
                  ng-value="true"
                  ng-model="form.missing_workflow"> Yes
         </label>
         <label class="radio-inline">
-          <input type="radio" 
-                 name="missing_workflow" 
-                 id="missing_workflow_no" 
+          <input type="radio"
+                 name="missing_workflow"
+                 id="missing_workflow_no"
                  ng-value="false"
                  ng-model="form.missing_workflow"> No
         </label>
@@ -185,29 +185,29 @@
 
         <div class="form-group">
           <label for="if-this-package" class="control-label">
-            If this package was Ionic’s only offering, and existed today for 
+            If this package was Ionic’s only offering, and existed today for
             $1999/user/year, would you buy it?
           </label><br>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="would_buy" 
-                   id="would_buy_yes" 
+            <input type="radio"
+                   name="would_buy"
+                   id="would_buy_yes"
                    ng-value="true"
                    ng-model="form.would_buy"> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="would_buy" 
-                   id="would_buy_no" 
+            <input type="radio"
+                   name="would_buy"
+                   id="would_buy_no"
                    ng-value="false"
                    ng-model="form.would_buy"> No
           </label>
         </div>
         <div class="form-group">
           <label for="price" class="control-label">Is the offering presented</label>
-          <select id="price" 
-                  name="price" 
-                  class="form-control" 
+          <select id="price"
+                  name="price"
+                  class="form-control"
                   ng-model="form.price">
             <option value="null" disabled selected></option>
             <option value="inexpensive">Inexpensive</option>
@@ -219,13 +219,13 @@
 
         <div class="form-group">
           <label for="expensive_point" class="control-label">
-            At what price point does this offering become prohibitively 
+            At what price point does this offering become prohibitively
             expensive?
           </label>
-          <input type="number" 
-                 class="form-control" 
+          <input type="number"
+                 class="form-control"
                  id="expensive_point"
-                 name="expensive_point" 
+                 name="expensive_point"
                  ng-model="form.expensive_point">
         </div>
       </div>
@@ -239,9 +239,9 @@
 
         <div class="form-group">
           <label for="company_size" class="control-label">Company Size</label>
-          <select id="company_size" 
-                  name="company_size" 
-                  class="form-control" 
+          <select id="company_size"
+                  name="company_size"
+                  class="form-control"
                   ng-model="form.company_size">
             <option ng-value="null" disabled selected></option>
             <option ng-value="1">Self Employed</option>
@@ -257,16 +257,16 @@
             Have you ever used Ionic Creator or Ionic Cloud?
           </label><br>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="used_services" 
-                   id="used_services_yes" 
+            <input type="radio"
+                   name="used_services"
+                   id="used_services_yes"
                    ng-value="true"
                    ng-model="form.used_services"> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" 
-                   name="used_services" 
-                   id="used_services_no" 
+            <input type="radio"
+                   name="used_services"
+                   id="used_services_no"
                    ng-value="false"
                    ng-model="form.used_services"> No
           </label>
@@ -280,9 +280,9 @@
       </div>
 
       <div class="button-container">
-        <button type="button" 
-                class="btn btn-primary" 
-                ng-show="section!==5" 
+        <button type="button"
+                class="btn btn-primary"
+                ng-show="section!==5"
                 ng-click="nextSection(form)">
           <span ng-show="section==4">Submit</span>
           <span ng-show="section!=4">Next</span>
@@ -296,44 +296,44 @@
 {% endblock %}
 
 {% block scripts %}
-<div class="modal fade pricing-survey" 
-     id="myModal" 
-     tabindex="-1" 
-     role="dialog" 
+<div class="modal fade pricing-survey"
+     id="myModal"
+     tabindex="-1"
+     role="dialog"
      aria-labelledby="myModalLabel"
      ng-controller="PricingFormCtrl">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" 
-                class="close" 
-                data-dismiss="modal" 
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
                 aria-label="Close"
                 id="modal-close"
                 onclick="c('Pricing','FormClose')"></button>
-        <h2 ng-show="section==1" class="modal-title">Let's talk</h2> 
-        <h2 ng-show="section!=1 && section!=5" class="modal-title">Got it, thanks!</h2> 
-        <h2 ng-show="section==5" class="modal-title">That's it!</h2> 
+        <h2 ng-show="section==1" class="modal-title">Let's talk</h2>
+        <h2 ng-show="section!=1 && section!=5" class="modal-title">Got it, thanks!</h2>
+        <h2 ng-show="section==5" class="modal-title">That's it!</h2>
         <!--<p>
           We're currently evaluating this product and would love your feedback
         </p>-->
-        
+
       </div>
       <div class="modal-body">
-        
+
       </div>
       <div class="modal-footer">
-        <button type="button" 
-                class="btn btn-primary" 
-                ng-show="section!==5" 
+        <button type="button"
+                class="btn btn-primary"
+                ng-show="section!==5"
                 ng-click="nextSection(form)">
           <span ng-show="section==4">Submit</span>
           <span ng-show="section!=4">Next</span>
         </button>
-        <button type="button" 
-                class="btn white" 
+        <button type="button"
+                class="btn white"
                 ng-show="section==5"
-                data-dismiss="modal" 
+                data-dismiss="modal"
                 aria-label="Close"
                 onclick="c('Pricing','FormClose: Complete')">Close
         </button>
@@ -347,8 +347,8 @@ var $form = document.querySelector('#pricingInterestedForm');
 $form.addEventListener('change', function(e) {
   var $t = e['target'];
   window.c('Pricing',
-           'FormFieldChange: ' + $t.getAttribute('name'), 
-           null, 
+           'FormFieldChange: ' + $t.getAttribute('name'),
+           null,
            $t.getAttribute('value'));
 });
 </script>

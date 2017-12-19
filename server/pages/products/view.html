@@ -21,7 +21,7 @@
         <a class="btn white show-desktop" onclick="openDownloadModal()">
           Download
         </a>
-        <a class="btn white show-mobile" 
+        <a class="btn white show-mobile"
            href="https://ionicview.app.link/mORHDUyIMG"
            target="_blank">
           Download
@@ -35,7 +35,7 @@
   <hgroup class=" left">
     <h1>Mobile testing, the easy way.</h1>
     <p>
-      Share, test, and collect feedback on your apps with clients and testers 
+      Share, test, and collect feedback on your apps with clients and testers
       from anywhere in the world, all without ever going through the App Stores.
     </p>
     <h4 class="stores">
@@ -60,8 +60,8 @@
       <hgroup>
         <h2>Simply choose an app, and share.</h2>
         <p>
-          <strong>View</strong> enables you and others to easily preview and 
-          test your Ionic apps as though they were deployed natively. Just 
+          <strong>View</strong> enables you and others to easily preview and
+          test your Ionic apps as though they were deployed natively. Just
           choose the app and version you want to share, and start testing.
         </p>
       </hgroup>
@@ -69,28 +69,28 @@
         <li class="groups">
           <strong>External testers &amp; groups</strong>
           <p>
-            Invite anyone to provide feedback on your app. Segment audiences by 
+            Invite anyone to provide feedback on your app. Segment audiences by
             group or department.
           </p>
         </li>
         <li class="sharing">
           <strong>Easy sharing</strong>
           <p>
-            Share multiple versions of your app directly with users and testers. 
+            Share multiple versions of your app directly with users and testers.
             All it takes is a simple email invite.
           </p>
         </li>
         <li class="feedback">
           <strong>In-app feedback</strong>
           <p>
-            Users submit feedback right from the View App, with results 
+            Users submit feedback right from the View App, with results
             collected in a central dashboard.
           </p>
         </li>
         <li class="native">
           <strong>Native app behavior</strong>
           <p>
-            Easily preview and test your Ionic apps as though they were actually 
+            Easily preview and test your Ionic apps as though they were actually
             deployed natively.
           </p>
         </li>
@@ -120,8 +120,8 @@
       <hgroup>
         <h2>Choose who sees what.</h2>
         <p>
-          Segment your audiences by team, client, or department, and then choose 
-          which version of your app you want them to see. Get feedback on new 
+          Segment your audiences by team, client, or department, and then choose
+          which version of your app you want them to see. Get feedback on new
           features from the Marketing team, while testing bug fixes with QA.
         </p>
       </hgroup>
@@ -134,9 +134,9 @@
       <hgroup>
         <h2>Gather and analyze feedback.</h2>
         <p>
-          Testers can capture screenshots and provide feedback directly within 
-          the the View App. The Ionic dashboard allows you to centrally manage 
-          and analyze incoming comments to look for trends and insights, and 
+          Testers can capture screenshots and provide feedback directly within
+          the the View App. The Ionic dashboard allows you to centrally manage
+          and analyze incoming comments to look for trends and insights, and
           help prioritize changes.
         </p>
       </hgroup>
@@ -149,9 +149,9 @@
       <hgroup>
         <h2>Share the full app experience.</h2>
         <p>
-          Unlike browser-based testing, <strong>View</strong> gives testers a 
-          complete app experience, with full support for native plugins and 
-          functionality. View works on all supported iOS and Android devices, 
+          Unlike browser-based testing, <strong>View</strong> gives testers a
+          complete app experience, with full support for native plugins and
+          functionality. View works on all supported iOS and Android devices,
           allowing you to test new features and functionality across platforms.
         </p>
       </hgroup>
@@ -173,7 +173,7 @@
         <a class="btn btn-default show-desktop" onclick="openDownloadModal()">
           Download <strong>View</strong>
         </a>
-        <a class="btn btn-default show-mobile" 
+        <a class="btn btn-default show-mobile"
            href="https://ionicview.app.link/mORHDUyIMG"
            target="_blank">
           Download
@@ -185,10 +185,10 @@
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade fullscreen" 
-     id="downloadForm" 
-     tabindex="-1" 
-     role="dialog" 
+<div class="modal collapse fade fullscreen"
+     id="downloadForm"
+     tabindex="-1"
+     role="dialog"
      aria-labelledby="myModalLabel">
   <div class="container">
     <button class="close" data-dismiss="modal" aria-label="Close">
@@ -207,14 +207,14 @@
           </p>
           <h4 ng-if="error" ng-bind="error" class="text-danger"></h4>
           <form ng-submit="submit($event)">
-            <input class="form-control" 
+            <input class="form-control"
                    type="tel"
                    required
                    ng-model="phone"
                    placeholder="Your phone number">
-            <button ng-if="!sent" 
-                    class="btn btn-primary" 
-                    type="submit" 
+            <button ng-if="!sent"
+                    class="btn btn-primary"
+                    type="submit"
                     ng-disabled="formDisabled">
               Text me the link
             </button>
@@ -228,9 +228,9 @@
     </div>
   </div>
 </div>
-<svg version="1.1" 
-     xmlns="http://www.w3.org/2000/svg" 
-     xmlns:xlink="http://www.w3.org/1999/xlink" 
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
      class="blur-svg">
   <defs>
     <filter id="blur-filter">
@@ -243,7 +243,7 @@
 {% block scripts %}
 <script>
 function openDownloadModal() {
-  if (document.body.scrollTop === 0 && 
+  if (document.body.scrollTop === 0 &&
     document.getElementsByTagName('html')[0].scrollTop == 0) {
 
     return $('#downloadForm').modal()
@@ -251,8 +251,8 @@ function openDownloadModal() {
   // not at the top of the page. scroll first
   $('body, html').animate({
     scrollTop: 0
-  }, 200, 'linear', function() { 
-    $('#downloadForm').modal() 
+  }, 200, 'linear', function() {
+    $('#downloadForm').modal()
   });
 }
 
@@ -265,8 +265,8 @@ android.addEventListener('load', imgLoaded);
 iphone.src = '/img/products/view/view-iphone.png';
 android.src = '/img/products/view/view-pixel.png';
 
-function imgLoaded(){ 
-  imgsLoaded++ 
+function imgLoaded(){
+  imgsLoaded++
   if (imgsLoaded > 1) {
     iphone.classList.add('loaded')
     android.classList.add('loaded')

@@ -11,13 +11,14 @@
     <h1>Ionic Enterprise</h1>
     <p>
       Simplify app creation. Ionic makes it easy to build high performance apps
-      that look &amp; feel beautiful on any platform or device, with 
+      that look &amp; feel beautiful on any platform or device, with
       superpowered tools your teams will love.
     </p>
     <a onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})"
        data-toggle="modal"
        data-target="#contactForm"
-       class="btn white">Get in touch</a>
+       class="btn white"
+       id="btn-enterprise-get-in-touch">Get in touch</a>
   </hgroup>
 </div>
 
@@ -187,7 +188,8 @@
     <a class="btn white sm"
        data-toggle="modal"
        data-target="#contactForm"
-       onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})">
+       onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})"
+       id="btn-enterprise-get-in-touch-bottom">
       Get in touch</a>
   </hgroup>
 </section>

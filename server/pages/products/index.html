@@ -18,18 +18,19 @@
   <hgroup class="container">
     <h1>Your mobile development toolkit.</h1>
     <p>
-      The power platform built for delivering incredible Ionic apps. Build 
-      better apps with Pro's integrated suite of tools and services designed for 
+      The power platform built for delivering incredible Ionic apps. Build
+      better apps with Pro's integrated suite of tools and services designed for
       the entire app lifecycle.
     </p>
     <div class="cta-buttons">
       <a class="btn orange"
       href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
-      alt="Sign up for Ionic Pro">Create a Pro account</a><br>
+      alt="Sign up for Ionic Pro"
+      id="btn-products-create-pro-account">Create a Pro account</a><br>
       {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
     </div>
   </hgroup>
-  <div class="bar" data-spy="affix" data-offset-top="509">
+  <div class="bar" data-spy="affix" data-offset-top="460">
     <div class="container" id="platform-nav">
       <a class="pro-logo anchor" href="#">
         <img src="/img/products/pro-logo.png"/>
@@ -40,31 +41,36 @@
                data-offset="64"
                ng-class="{hover: prototypingHover}"
                ng-mouseenter="prototypingHover = true"
-               ng-mouseleave="prototypingHover = false"></a></li>
+               ng-mouseleave="prototypingHover = false"
+               id="btn-products-icons-creator"></a></li>
         <li><a class="anchor testing"
                href="#testing"
                data-offset="64"
                ng-class="{hover: testingHover}"
                ng-mouseenter="testingHover = true"
-               ng-mouseleave="testingHover = false"></a></li>
+               ng-mouseleave="testingHover = false"
+               id="btn-products-icons-view"></a></li>
         <li><a class="anchor updates"
                href="#updates"
                data-offset="64"
                ng-class="{hover: updatesHover}"
                ng-mouseenter="updatesHover = true"
-               ng-mouseleave="updatesHover = false"></a></li>
+               ng-mouseleave="updatesHover = false"
+               id="btn-products-icons-deploy"></a></li>
         <li><a class="anchor build"
                href="#build"
                data-offset="64"
                ng-class="{hover: buildHover}"
                ng-mouseenter="buildHover = true"
-               ng-mouseleave="buildHover = false"></a></li>
+               ng-mouseleave="buildHover = false"
+               id="btn-products-icons-package"></a></li>
         <li><a class="anchor reporting"
                href="#reporting"
                data-offset="64"
                ng-class="{hover: reportingHover}"
                ng-mouseenter="reportingHover = true"
-               ng-mouseleave="reportingHover = false"></a></li>
+               ng-mouseleave="reportingHover = false"
+               id="btn-products-icons-monitor"></a></li>
       </ul>
       <a href="/pricing" class="btn">See Pricing</a>
     </div>
@@ -74,51 +80,56 @@
     <div class="container">
       <ul class="categories nav">
         <li>
-          <a class="anchor prototyping" 
+          <a class="anchor prototyping"
              href="#prototyping"
              ng-class="{hover: prototypingHover}"
              ng-mouseenter="prototypingHover = true"
-             ng-mouseleave="prototypingHover = false">
+             ng-mouseleave="prototypingHover = false"
+             id="btn-products-icons-creator-2">
             <strong>Creator</strong>
             <span class="lg">Rapid app prototyping</span>
           </a>
         </li>
         <li>
-          <a class="anchor testing" 
+          <a class="anchor testing"
              href="#testing"
              ng-class="{hover: testingHover}"
              ng-mouseenter="testingHover = true"
-             ng-mouseleave="testingHover = false">
+             ng-mouseleave="testingHover = false"
+             id="btn-products-icons-view-2">
             <strong>View App</strong>
             <span class="lg">Remote app testing</span>
           </a>
         </li>
         <li>
-          <a class="anchor updates" 
+          <a class="anchor updates"
              href="#updates"
              ng-class="{hover: updatesHover}"
              ng-mouseenter="updatesHover = true"
-             ng-mouseleave="updatesHover = false">
+             ng-mouseleave="updatesHover = false"
+             id="btn-products-icons-deploy-2">
             <strong>Deploy</strong>
             <span class="lg">Live app updating</span>
           </a>
         </li>
         <li>
-          <a class="anchor build" 
+          <a class="anchor build"
              href="#build"
              ng-class="{hover: buildHover}"
              ng-mouseenter="buildHover = true"
-             ng-mouseleave="buildHover = false">
+             ng-mouseleave="buildHover = false"
+             id="btn-products-icons-package-2">
             <strong>Package</strong>
             <span class="lg">Native cloud builds</span>
           </a>
         </li>
         <li>
-          <a class="anchor reporting" 
+          <a class="anchor reporting"
              href="#reporting"
              ng-class="{hover: reportingHover}"
              ng-mouseenter="reportingHover = true"
-             ng-mouseleave="reportingHover = false">
+             ng-mouseleave="reportingHover = false"
+             id="btn-products-icons-monitor-2">
             <strong>Monitor</strong>
             <span class="lg">Error / crash reporting</span>
           </a>
@@ -175,8 +186,9 @@
           UI components, add themes, animations, design files, and even custom
           code to create real, interactive Ionic mobile apps.
         </p>
-        <a class="btn white" target="_blank" href="/products/creator">
-          Learn more about <strong>Creator</strong></a>
+        <a class="btn white" target="_blank" href="/products/creator"
+          id="btn-products-learn-more-creator">Learn more about <strong>Creator
+          </strong></a>
       </div>
     </div>
   </section>

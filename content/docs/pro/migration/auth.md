@@ -22,6 +22,6 @@ The Ionic community is already using a number of leading push and auth providers
 
 **Firebase** by Google is also widely used as a auth notification service by Ionic users. Check out their docs [here](https://firebase.google.com/docs/auth/web/start). They also have an [Auth tutorial](https://www.youtube.com/watch?v=-OKrloDzGpU&list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX&index=19) in their Firecasts series.
 
-## Migration Questions
+## Migration Questions & Auth Export
 
-If you have questions about how this shutdown will affect your apps or about migrating off of Ionic Push, please send an email to <a href="mailto:help@ionic.io">help@ionic.io</a>.
+If you have questions about how this shutdown will affect your apps or about migrating off of Ionic Push, please send an email to <a href="mailto:help@ionic.io">help@ionic.io</a>. You may also email <a href="mailto:help@ionic.io">help@ionic.io</a> if you'd like an export of your Auth database to use with another service.

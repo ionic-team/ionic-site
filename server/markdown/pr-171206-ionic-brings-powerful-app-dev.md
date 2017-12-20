@@ -13,11 +13,11 @@ Launched in 2013, the [Ionic Framework](https://ionicframework.com) has acquired
 ## Introducing Ionic Pro
 Ionic Pro is a powerful set of cloud-based services and features that bring a new level of app development agility to dev teams. Pro allows multiple developers to collaborate on projects using a single, shared dashboard and stay up-to-date on build activity and code changes, while using Pro’s core services to:
 
-* [Rapidly develop](https://ionicframework.com/products/creator) apps using visual drag-and-drop design that exports working code
-* [Easily share](https://ionicframework.com/products/view) test versions with users, and view all tester feedback in a central dashboard
-* [Deliver different versions](https://ionicframework.com/products/deploy) and releases to specific segments of users
-* [Track and analyze errors](https://ionicframework.com/products/monitor) in your code to improve app quality
-* [Ship hotfixes and live app updates](https://ionicframework.com/products/deploy) in real time, without going through the app stores
+* [Rapidly develop](https://ionicframework.com/pro/creator) apps using visual drag-and-drop design that exports working code
+* [Easily share](https://ionicframework.com/pro/view) test versions with users, and view all tester feedback in a central dashboard
+* [Deliver different versions](https://ionicframework.com/pro/deploy) and releases to specific segments of users
+* [Track and analyze errors](https://ionicframework.com/pro/monitor) in your code to improve app quality
+* [Ship hotfixes and live app updates](https://ionicframework.com/pro/deploy) in real time, without going through the app stores
 
 “How we build mobile apps at MarketWatch is a carefully thought out process. Mobile experience is critical to our business and brand – hundreds of thousands of active users rely on our mobile apps for timely financial news,” said Brian Aguilar, director at MarketWatch. “With the Ionic Framework, we develop one code base that supports multiple platforms with a consistent user experience. We’ve doubled the output of our lean developer team – and more importantly, our user satisfaction has increased significantly based on app store star ratings. Ionic Pro is a powerful extension to the platform and our team plans to take advantage of the collaboration and testing features.”
 

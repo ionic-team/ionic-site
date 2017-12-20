@@ -22,16 +22,16 @@ Upload a new snapshot of your app
 ## Synopsis
 
 ```bash
-$ ionic upload 
+$ ionic upload
 ```
-  
+
 ## Details
 
 **WARNING**: Ionic Cloud is deprecated and will reach end-of-life on January 31st, 2018. This command will not be supported afterwards. Ionic Pro takes a different approach to uploading. See the Getting Started documentation for details: **[https://ionicframework.com/docs/pro/basics/getting-started/](https://ionicframework.com/docs/pro/basics/getting-started/)**
 
 Zips up your local app files and uploads a snapshot to Ionic.
 
-From there, you can use Ionic View (**[https://ionicframework.com/products/view](https://ionicframework.com/products/view)**) to easily share your app with your organization and testers around the world.
+From there, you can use Ionic View (**[https://ionicframework.com/pro/view](https://ionicframework.com/pro/view)**) to easily share your app with your organization and testers around the world.
 
 
 
@@ -52,7 +52,7 @@ Option | Description
 ## Examples
 
 ```bash
-$ ionic upload 
+$ ionic upload
 $ ionic upload --deploy=dev
 $ ionic upload --deploy=production --note="add menu entry" --metadata="{\"custom_data\":true}"
 ```

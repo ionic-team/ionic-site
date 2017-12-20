@@ -229,7 +229,7 @@ hgroup {
 
   &.preserver {
     padding-top: 180px;
-    background: #f3f5f7 center 55px no-repeat url('/img/products/creator/support-buoy.png');
+    background: #f3f5f7 center 55px no-repeat url('/img/pro/creator/support-buoy.png');
     background-size: 80px;
     border-bottom: 2px #e2e7ef solid;
   }
@@ -274,7 +274,7 @@ input[type=text].input {
   margin-top: 90px;
 
   &.ghost {
-    background: #263d4c center center no-repeat url('/img/products/creator/bg-creator-ghost.png');
+    background: #263d4c center center no-repeat url('/img/pro/creator/bg-creator-ghost.png');
     background-size: auto 100%;
   }
 
@@ -336,7 +336,7 @@ input[type=text].input {
     }
 
     &:before {
-      background: no-repeat center center url('/img/products/creator/signup-arrow.png');
+      background: no-repeat center center url('/img/pro/creator/signup-arrow.png');
       background-size: 61px;
       width: 61px;
       height: 56px;
@@ -527,7 +527,7 @@ footer {
   -webkit-font-smoothing: antialiased;
 
   .hero {
-    background: center bottom no-repeat url('/img/products/creator/bg-hero-creator.jpg');
+    background: center bottom no-repeat url('/img/pro/creator/bg-hero-creator.jpg');
     background-size: cover;
     min-height: 875px;
 
@@ -680,19 +680,19 @@ footer {
       }
 
       &.drag-n-drop {
-        background-image: url('/img/products/creator/works-dnd.png?1');
+        background-image: url('/img/pro/creator/works-dnd.png?1');
       }
 
       &.preview {
-        background-image: url('/img/products/creator/works-preview.png');
+        background-image: url('/img/pro/creator/works-preview.png');
       }
 
       &.export {
-        background-image: url('/img/products/creator/works-export.png?1');
+        background-image: url('/img/pro/creator/works-export.png?1');
       }
 
       &:before {
-        background: no-repeat center center url('/img/products/creator/ico-arrow-works.png');
+        background: no-repeat center center url('/img/pro/creator/ico-arrow-works.png');
         background-size: 19px;
         width: 19px;
         height: 43px;
@@ -774,7 +774,7 @@ footer {
     }
 
     &.tool .container {
-      background-image: url('/img/products/creator/features-tool.jpg');
+      background-image: url('/img/pro/creator/features-tool.jpg');
       @media (max-width: $screen-sm-max) {
         background-image: none;
         padding-bottom: 100px;
@@ -782,20 +782,20 @@ footer {
     }
 
     &.dnd .container {
-      background-image: url('/img/products/creator/features-dnd.png?1');
+      background-image: url('/img/pro/creator/features-dnd.png?1');
     }
 
     &.xplatform .container {
-      background-image: url('/img/products/creator/features-xplatform.jpg');
+      background-image: url('/img/pro/creator/features-xplatform.jpg');
     }
 
     &.teams .container {
-      background-image: url('/img/products/creator/features-teams.png?1');
+      background-image: url('/img/pro/creator/features-teams.png?1');
     }
 
     &.inline-code-editing {
       background: no-repeat left bottom;
-      background-image: url('/img/products/creator/features-code.jpg');
+      background-image: url('/img/pro/creator/features-code.jpg');
       background-size: 45%;
 
       @media screen and (min-width: 2000px) {
@@ -835,7 +835,7 @@ footer {
 
   .hero-center {
     .top {
-      background: #121b2e no-repeat center bottom url('/img/products/creator/features-preview-photo.jpg');
+      background: #121b2e no-repeat center bottom url('/img/pro/creator/features-preview-photo.jpg');
       background-size: 1800px;
 
       .container {
@@ -856,7 +856,7 @@ footer {
     }
 
     .bottom {
-      background: #222f49 no-repeat center bottom url('/img/products/creator/features-preview-blur.jpg?1');
+      background: #222f49 no-repeat center bottom url('/img/pro/creator/features-preview-blur.jpg?1');
       background-size: 1800px;
 
       .container {
@@ -874,7 +874,7 @@ footer {
           height: 53px;
 
           &.app-store {
-            background: no-repeat center center url('/img/products/creator/app-store-creator-btn.png');
+            background: no-repeat center center url('/img/pro/creator/app-store-creator-btn.png');
             background-size: 153px;
             width: 153px;
             @media (max-width: $screen-xs-max) {
@@ -884,7 +884,7 @@ footer {
           }
 
           &.google-play {
-            background: no-repeat center center url('/img/products/creator/google-play-creator-btn.png?1');
+            background: no-repeat center center url('/img/pro/creator/google-play-creator-btn.png?1');
             background-size: 184px;
             width: 184px;
             @media (max-width: $screen-xs-max) {
@@ -966,7 +966,7 @@ footer {
 
       &:before,
       &:after {
-        background: no-repeat center center url('/img/products/creator/entrprs-str.png');
+        background: no-repeat center center url('/img/pro/creator/entrprs-str.png');
         background-size: 26px;
         width: 26px;
         height: 24px;
@@ -1135,7 +1135,7 @@ footer {
     margin-bottom: 80px;
 
     &::before {
-      background: top center no-repeat url('/img/products/creator/included-icons.png');
+      background: top center no-repeat url('/img/pro/creator/included-icons.png');
       background-size: 20px;
       position: absolute;
       content: '';
@@ -1206,7 +1206,7 @@ footer {
 }
 
 .brody {
-  background: right bottom no-repeat url('/img/products/creator/support-brody.jpg');
+  background: right bottom no-repeat url('/img/pro/creator/support-brody.jpg');
   background-size: 60%;
   min-height: 550px;
   padding-bottom: 100px;

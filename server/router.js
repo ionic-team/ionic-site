@@ -39,15 +39,15 @@ module.exports = function router(app) {
   .get('/pricing/table', (req, res) => { res.render('pricing/table'); })
   // .get('/pricing/trial', (req, res) => { res.render('pricing/trial'); })
   .get('/privacy', (req, res) => { markdown(res, 'privacy-policy'); })
-  .get('/products', (req, res) => { res.render('products/index'); })
-  .get('/products/contact', (req, res) => { res.render('products/contact'); })
-  .get('/products/creator', (req, res) => { res.render('products/creator/index'); })
-  .get('/products/creator/pricing', (req, res) => { res.render('products/creator/pricing.html'); })
-  .get('/products/creator/support', (req, res) => { res.render('products/creator/support.html'); })
-  .get('/products/deploy', (req, res) => { res.render('products/deploy'); })
-  .get('/products/monitor', (req, res) => { res.render('products/monitor'); })
-  .get('/products/package', (req, res) => { res.render('products/package'); })
-  .get('/products/view', (req, res) => { res.render('products/view'); })
+  .get('/pro', (req, res) => { res.render('pro/index'); })
+  .get('/pro/contact', (req, res) => { res.render('pro/contact'); })
+  .get('/pro/creator', (req, res) => { res.render('pro/creator/index'); })
+  .get('/pro/creator/pricing', (req, res) => { res.render('pro/creator/pricing'); })
+  .get('/pro/creator/support', (req, res) => { res.render('pro/creator/support'); })
+  .get('/pro/deploy', (req, res) => { res.render('pro/deploy'); })
+  .get('/pro/monitor', (req, res) => { res.render('pro/monitor'); })
+  .get('/pro/package', (req, res) => { res.render('pro/package'); })
+  .get('/pro/view', (req, res) => { res.render('pro/view'); })
   .get('/pwa', (req, res) => { res.render('pwa'); })
   .get('/resources', (req, res) => { res.render('resources'); })
   .get('/sales', (req, res) => { res.render('sales'); })
@@ -64,7 +64,7 @@ module.exports = function router(app) {
   .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
     (req, res) => { markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'); })
 
-    
+
   // pages w/ POST handlers
   .get('/trusted-partners', (req, res) => {
     res.render('trusted-partners/index');

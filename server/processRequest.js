@@ -22,7 +22,11 @@ module.exports = function(req, res, next) {
   if (parts.path.indexOf('/blog') == 0) {
     return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
   } else if (parts.path.indexOf('/creator/') == 0) {
-    return res.redirect(301, '/products/creator' + req.url.replace(/^\/creator\//, ''));
+    return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));
+  } else if (parts.path.indexOf('/products') == 0) {
+    return res.redirect(301, '/pro' + req.url.replace(/^\/products/, ''));
+  } else if (parts.path.indexOf('/img/products') == 0) {
+    return res.redirect(301, '/img/pro' + req.url.replace(/^\/img\/pro/, ''));
   } else if (parts.path.indexOf('/tutorials') == 0) {
     return res.redirect(301, '/getting-started');
   } else if (parts.path.indexOf('/docs/v1/cli') == 0) {

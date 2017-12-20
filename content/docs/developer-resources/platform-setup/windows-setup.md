@@ -20,7 +20,7 @@ Once installed, you should have access to both `node` and `npm` from your comman
 
 
 ### iOS
-The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](/products#packaging), part of the Ionic Cloud.
+The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](/pro#packaging), part of the Ionic Cloud.
 
 ### Java JDK
 We'll need to download and install the Java JDK from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

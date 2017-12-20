@@ -46,15 +46,15 @@ tippy {
 
   > i {
     font-size: 67%;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1em;
-    border: 1px solid #444;
-    color: white;
+    color: #fff;
     border-radius: 1em;
-    padding: .15em .35em .07em;
-    background: #444;
+    padding: 3px 5px 2px;
+    background: #c2c8d2;
     position: relative;
-    top: -.5em;
+    top: -0.2em;
+    display: inline-block;
     cursor: pointer;
   }
 

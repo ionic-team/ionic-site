@@ -2,16 +2,16 @@
 {% set id = 'pricing' %}
 {% set header_style = 'transparent light' %}
 {% set bodyController = 'pricingCtrl' %}
-{% import "../_includes/macros.html" as macros %}
+{% import "../../_includes/macros.html" as macros %}
 
 {% block main %}
 <div class="cta" ng-init="period = 'monthly'">
   <hgroup class="container">
-    <h1>Ionic plans &amp; pricing</h1>
+    <h1>Ionic Pro Pricing</h1>
     <p>
-      Choose a plan that’s right for you or your team. Need help? <a
-      data-toggle="modal" data-target="#contactForm"
-      id="link-pricing-drop-us-a-line">Drop us a line</a>
+      Ionic Pro is a companion platform to be used alongside the forever-free
+      open source Ionic Framework, for building cross-platform mobile, web, and
+      desktop apps like.
     </p>
   </hgroup>
 </div>
@@ -27,7 +27,7 @@
           <ul class="features">
             <li><strong>DevApp</strong> local device testing</li>
             <li><strong>View app</strong> public sharing</li>
-            <li><strong>Deploy</strong> for 20 active users</li>
+            <li><strong>Live Deploy</strong> 20 active users</li>
             <li><strong>Error</strong> monitoring</li>
             <li><strong>15 day</strong> error history</li>
             <li>Git-based workflow</li>
@@ -43,7 +43,7 @@
             <li class="plus">Everything in Starter +</li>
             <li><strong>Creator</strong> rapid prototyping</li>
             <li><strong>View app</strong> private sharing</li>
-            <li><strong>Deploy to 25K</strong> active users</li>
+            <li><strong>Live Deploy</strong> 25K active users</li>
             <li><strong>Package</strong> dev &amp; prod apps</li>
             <li><strong>60 day</strong> error history</li>
             <li>Product support</li>
@@ -65,7 +65,7 @@
             <li class="plus">Everything in Developer +</li>
             <li><strong>Organization</strong> account</li>
             <li ng-mouseover="teamHover = true" ng-mouseout="teamHover = false">
-              <strong>Deploy to 100K</strong> active users
+              <strong>Live Deploy</strong> 100K active users
               <tippy ng-class="{active: teamHover}">
                 Need more? We can design a plan to meet your needs. <a
                 data-toggle="modal" data-target="#contactForm">Get in touch</a>
@@ -87,7 +87,7 @@
             <li class="plus">Everything in Team +</li>
             <li><strong>Multiple</strong> teams</li>
             <li ng-mouseover="bizHover = true" ng-mouseout="bizHover = false">
-              <strong>Deploy to 1M</strong> active users
+              <strong>Live Deploy</strong> 1M active users
               <tippy ng-class="{active: bizHover}">
                 Need more? We can design a plan to meet your needs. <a
                 data-toggle="modal" data-target="#contactForm">Get in touch</a>
@@ -120,6 +120,7 @@
 
 <p class="conditions">
   All plans include unlimited apps, Ionic DevApp, and public sharing with View.
+  <br/>You do not need Ionic Pro to access the Framework.
   <br/>* Ionic Pro Business edition is billed annually.
 </p>
 

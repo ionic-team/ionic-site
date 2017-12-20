@@ -6,24 +6,27 @@
 
       hgroup {
         padding-bottom: 402px;
-        padding-top: 28px;
+        padding-top: 40px;
         color: #272a2f;
         text-align: center;
-        max-width: 665px;
+        max-width: 780px;
 
         h1 {
           padding-bottom: 10px;
           margin: 0 0 8px;
-          font-size: 32px;
+          font-size: 40px;
           font-weight: 700;
           letter-spacing: -.015em;
+          font-family: $font-family-eina;
         }
 
         p {
           color: #4c576c;
-          letter-spacing: .001em;
-          font-size: 15px;
+          letter-spacing: -.001em;
+          font-size: 18px;
+          font-weight: 600;
           line-height: 1.8em;
+          font-family: $font-family-eina;
 
           a {
             color: $blue;
@@ -61,10 +64,11 @@
 
       > h3 {
         color: #97a4ba;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 48px;
+        margin-bottom: 32px;
+        margin-top: 0;
 
         strong {
           color: #272a2f;
@@ -132,6 +136,7 @@
       }
 
       &.starter {
+
         h3,
         .plus {
           color: #37adff;
@@ -140,6 +145,19 @@
         .cta {
           background: #e1ecff;
           color: #3880ff;
+          box-shadow: none;
+
+          &:hover {
+            box-shadow:
+              0 1px 3px rgba(0, 0, 0, 0.02),
+              0 2px 4px rgba(0, 0, 0, 0.04);
+          }
+
+          &:active {
+            box-shadow:
+              0 1px 3px rgba(0, 0, 0, 0.02) inset,
+              0 2px 4px rgba(0, 0, 0, 0.04) inset;
+          }
         }
       }
 
@@ -157,7 +175,7 @@
         }
 
         .cta {
-          bottom: 10px;
+          bottom: 20px;
         }
       }
 
@@ -198,7 +216,7 @@
           margin-top: 0;
           width: auto;
           display: inline-block;
-          padding: 16px 19px 15px;
+          padding: 14px 18px 13px;
         }
 
         p {
@@ -214,8 +232,8 @@
       }
 
       .type {
-        color: #4f535b;
-        font-style: italic;
+        color: #97a4ba;
+        font-weight: 600;
         font-size: 14px;
         position: relative;
       }
@@ -246,7 +264,7 @@
       }
 
       ul {
-        padding: 18px 7px 0 7px;
+        padding: 18px 0 0 7px;
         text-align: left;
         margin: 0 auto;
         max-width: 220px;
@@ -271,8 +289,8 @@
         font-weight: 600;
         position: absolute;
         text-decoration: none;
-        padding: 16px 8px 15px;
-        bottom: 20px;
+        padding: 14px 8px 13px;
+        bottom: 28px;
         display: block;
         z-index: 1;
         left: 32px;

@@ -93,10 +93,11 @@
   "/examples": "/docs/components",
   "/html5-input-types": "/docs/components",
   "/products/index.html": "/pro",
-  "/products/pricing": "/pricing",
-  "/pricing/index3.html": "/pricing",
-  "/pricing/index2.html": "/pricing",
-  "/pricing/index.html": "/pricing",
-  "/pricing/trial": "/pricing",
+  "/products/pricing": "/pro/pricing",
+  "/pricing": "/pro/pricing",
+  "/pricing/index3.html": "/pro/pricing",
+  "/pricing/index2.html": "/pro/pricing",
+  "/pricing/index.html": "/pro/pricing",
+  "/pricing/trial": "/pro/pricing",
   "/resource-center": "/resources"
 }

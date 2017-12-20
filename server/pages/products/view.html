@@ -41,9 +41,11 @@
     <h4 class="stores">
       Get the app on:
       <a class="apple"
+         id="btn-products-view-download-ios"
          target="_blank"
          href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931"></a>
       <a class="google"
+         id="btn-products-view-download-android"
          target="_blank"
          href="https://play.google.com/store/apps/details?id=com.ionicframework.view"></a>
     </h4>
@@ -168,16 +170,16 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}" class="btn white">
-          Create an account</a>
-        <a class="btn btn-default show-desktop" onclick="openDownloadModal()">
-          Download <strong>View</strong>
-        </a>
+        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+          class="btn white" id="btn-products-view-create-account">Create an
+          account</a>
+        <a class="btn btn-default show-desktop"
+           id="btn-products-view-download-desktop"
+           onclick="openDownloadModal()">Download <strong>View</strong></a>
         <a class="btn btn-default show-mobile"
            href="https://ionicview.app.link/mORHDUyIMG"
-           target="_blank">
-          Download
-        </a>
+           id="btn-products-view-download-mobile"
+           target="_blank">Download</a>
       </div>
     </div>
   </section>

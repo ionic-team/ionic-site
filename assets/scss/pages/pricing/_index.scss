@@ -185,7 +185,7 @@
           color: #f73a66;
         }
 
-        tippy .tip::after { right: 27px; }
+        tippy .tip::after { right: 17px; }
       }
 
       &.enterprise {
@@ -352,6 +352,7 @@
     border-left: 0;
     border-right: 0;
     margin-top: 48px;
+    border-bottom: 1px solid rgba(#8b94a2, .2);
 
     h3 {
       font-size: 23.5px;

@@ -38,59 +38,184 @@
     </div>
   </div>
 </div>
-<main class="container">
-  <ul class="paths">
-    <li class="framework">
-      <h4>Ionic Framework</h4>
-      <h2>Get up and running with the open source UI kit.</h2>
-      <a href="/getting-started"
-         class="btn white sm"
-         id="btn-home-framework-module">Get started</a>
-    </li>
-    <li class="pro">
-      <h4>Ionic Pro</h4>
-      <h2>Boost your app workflow with powerful services.</h2>
-      <a href="/pro"
-         class="btn white sm"
-         id="btn-home-pro-module">Learn about Pro</a>
-    </li>
-    <li class="enterprise">
-      <h4>Enterprise Support</h4>
-      <h2>An easier way to build secure apps, together.</h2>
-      <a href="/enterprise/support"
-        class="btn white sm"
-        id="btn-home-enterprise-module">Enterprise Support</a>
-    </li>
-  </ul>
+<main>
+  <div class="container">
+    <ul class="paths">
+      <li class="framework">
+        <div class="card">
+          <div class="layer-1">
+            <h4>Ionic Framework</h4>
+            <h2>Get up and running with the open source UI kit.</h2>
+          </div>
+          <div class="layer-2">
+            <a href="/getting-started"
+               class="btn white sm"
+               id="btn-home-framework-module">Get started</a>
+          </div>
+        </div>
+      </li>
+      <li class="pro">
+        <div class="card">
+          <div class="layer-1">
+            <h4>Ionic Pro</h4>
+            <h2>Boost your app workflow with powerful services.</h2>
+          </div>
+          <div class="layer-2">
+            <a href="/pro"
+               class="btn white sm"
+               id="btn-home-pro-module">Learn about Pro</a>
+          </div>
+        </div>
+      </li>
+      <li class="enterprise">
+        <div class="card">
+          <div class="layer-1">
+            <h4>Enterprise Support</h4>
+            <h2>An easier way to build secure apps, together.</h2>
+          </div>
+          <div class="layer-2">
+            <a href="/enterprise/support"
+              class="btn white sm"
+              id="btn-home-enterprise-module">Enterprise Support</a>
+          </div>
+        </div>
+      </li>
+    </ul>
 
-  <div class="company">
-    <h2>
-      <strong>You’re in good company.</strong> Ionic powers millions of apps at
-      some of the smartest companies around the world.
-    </h2>
-    <div class="logos"></div>
-  </div>
+    <div class="company">
+      <h2>
+        <strong>You’re in good company.</strong> Ionic powers millions of apps at
+        some of the smartest companies around the world.
+      </h2>
+      <div class="logos"></div>
+    </div>
 
-  <div class="newsletter">
-    <hgroup>
-      <h3>Start building better apps today.</h3>
-      <p>
-        Sign up for <a href="/pro">Ionic Pro</a> to get an access to the
-        full Ionic experience.
-      </p>
-    </hgroup>
-    <form action="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
-          method="get"
-          id="form-home-get-started-now">
-      <input type="text" name="email" placeholder="Your email address">
-      <ionic-button type="submit">Get started now</ionic-button>
-    </form>
+    <div class="newsletter">
+      <hgroup>
+        <h3>Start building better apps today.</h3>
+        <p>
+          Sign up for <a href="/pro">Ionic Pro</a> to get an access to the
+          full Ionic experience.
+        </p>
+      </hgroup>
+      <form action="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+            method="get"
+            id="form-home-get-started-now">
+        <input type="text" name="email" placeholder="Your email address">
+        <ionic-button type="submit">Get started now</ionic-button>
+      </form>
+    </div>
   </div>
 </main>
 {% endblock %}
 
 {% block scripts %}
 <script>
+// paralax effect
+var $banner = document.querySelector('.banner')
+window.addEventListener('scroll', function(e) {
+  $banner.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/5)+')';
+})
+
+// apple tv style card tilt
+var tilt = {
+  init: function() {
+    var $card = document.querySelector('.paths li:first-child')
+    this.halfW = $card.clientWidth / 2;
+    this.halfH = $card.clientHeight / 2;
+    this.$cards = document.querySelectorAll('.paths li');
+    this.$container = document.querySelector('.paths');
+    this.$banner = document.querySelector('.banner');
+    this.$cards.forEach(function(el) {
+      // set listeners for each card
+      el.addEventListener('mouseenter',this.activateElement.bind(this))
+      el.addEventListener('mousemove',this.markPositions.bind(this))
+      el.addEventListener('mouseleave',this.letGo.bind(this))
+    }, this)
+
+    this.$container.addEventListener('mouseleave',this.letGo.bind(this))
+
+    return this;
+  },
+
+  activateElement: function(event) {
+    if (this.$el) {
+      var alreadySet = true;
+      this.letGo();
+    }
+    this.$el = event.target;
+    this.$layer1 = event.target.querySelector('.layer-1');
+    this.$layer2 = event.target.querySelector('.layer-2');
+    this.coorX = this.coorY = 0;
+
+    this.$el.style['transition-duration'] = '.2s'
+    this.$layer1.style['transition-duration'] = '0'
+    this.$layer2.style['transition-duration'] = '0';
+    setTimeout(function(el){
+      el.style['transition-duration'] = ''
+    },210,this.$el)
+
+
+    if (alreadySet) {
+      this.$el.style['transition-duration'] = '';
+      this.$layer1.style['transition-duration'] = '';
+      this.$layer2.style['transition-duration'] = '';
+    }
+  },
+
+  markPositions: function(event) {
+    if (! event ) return;
+    this.coorX = (this.coorX, this.halfW - ( event.pageX - this.$el.offsetLeft) );
+    this.coorY = (this.coorY, this.halfH - ( event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
+    requestAnimationFrame(this.draw.bind(this))
+    // this.draw()
+  },
+
+  letGo: function() {
+    this.$el.style['transition-duration'] =
+    this.$layer1.style['transition-duration'] =
+    this.$layer2.style['transition-duration'] = '.3s';
+
+    this.$el.style['transform'] =
+    this.$layer1.style['transform'] =
+    this.$layer2.style['transform'] = '';
+
+    setTimeout(function(el, layer1, layer2) {
+      el.style['transition-duration'] =
+      layer1.style['transition-duration'] =
+      layer2.style['transition-duration'] = '';
+    },320, this.$el, this.$layer1, this.$layer2)
+  },
+
+  draw: function() {
+    this.degX  = degX = (this.degX, Math.round( this.coorY / this.halfH * 500 ) / 1000);
+    this.degY  = degY = (this.degY, Math.round( this.coorX / this.halfW * -500) / 1000);
+    // console.log(this);
+    this.$el.style['transition-duration'] = '.1s'
+    this.$layer1.style['transition-duration'] = '0'
+    this.$layer2.style['transition-duration'] = '0';
+
+    this.$el.style['transform'] = function() {
+      let transform = 'perspective( 200px ) scale(1)';
+      transform += 'translate3d(' + degY*2+ 'px, ' + degX*-2+ 'px, 0 )';
+      transform += 'rotateX('+ degX*-.5 +'deg) rotateY('+ degY*-.5 +'deg)';
+      return transform;
+    }()
+    this.$layer1.style['transform'] = function() {
+       let transform = 'perspective( 200px )';
+       transform += 'translate3d(' + degY*-2.5+ 'px, ' + degX*2.5+ 'px, 0 )';
+       return transform;
+    }();
+    this.$layer2.style['transform'] = function() {
+       let transform = 'perspective( 200px )';
+       transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 0 )';
+       return transform;
+    }();
+  }
+}
+
+tilt.init();
+
 
 </script>
 {% endblock %}

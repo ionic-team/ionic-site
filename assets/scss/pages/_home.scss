@@ -21,28 +21,28 @@
     h1 {
       max-width: calc(50% - 71px);
       color: white;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.35em;
       font-size: 48px;
       letter-spacing: -.039em;
     }
 
     p {
-      font-size: 19px;
-      font-weight: 500;
-      line-height: 1.7em;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.6em;
       margin-top: 20px;
       margin-bottom: 35px;
-      letter-spacing: -.017em;
-      max-width: calc(50% - 78px);
-      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: -.03em;
+      max-width: calc(50% - 72px);
+      color: rgba(white, 0.75);
 
       a {
         color: white;
         text-decoration: underline;
       }
     }
-    
+
     hgroup {
       text-align: left;
     }
@@ -89,7 +89,7 @@
             transform: translateX(5px);
           }
         }
-        
+
       }
 
       .android {
@@ -109,7 +109,7 @@
         bottom: -216px;
         right: -21px;
       }
-      
+
       .layer-2 {
         position: absolute;
         background: url('/img/homepage/hero-img-components-android.png') 0 0 no-repeat;
@@ -121,7 +121,7 @@
         transition: 2s transform;
         animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-android;
       }
-      
+
       .layer-3 {
         position: absolute;
         background: url('/img/homepage/hero-img-iphone.png') 0 0 no-repeat;
@@ -131,7 +131,7 @@
         bottom: -214px;
         right: 110px;
       }
-      
+
       .layer-4 {
         position: absolute;
         background: url('/img/homepage/hero-img-components.png') 0 0 no-repeat;
@@ -174,10 +174,13 @@
 
   main {
     font-family: $font-family-eina;
+    position: relative;
+    z-index: 1;
+    background: white;
   }
 
 	.paths {
-    margin-top: 51px;
+    margin-top: 64px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -189,22 +192,41 @@
 
 		&::before {
 			display: none;
-		}
+    }
+
+    .card {
+      transition: 0s transform, .3s box-shadow
+    }
 
 		li {
 			flex: 0 0 370px;
-      background-image: 
-        url('/img/homepage/feature-card-bg-framework.png'),
-        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 122px 40px 31px 30px;
-			border-radius: 18px;
+      height: 308px;
       margin-bottom: 16px;
       list-style: none;
-      box-shadow: 0 8px 16px rgba(black, .1);
       position: relative;
-      
+      transform: scale(.98);
+
+      .card {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image:
+        url('https://ionicframework.com/img/homepage/feature-card-bg-framework.png'),
+        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+  	    border-radius: 18px;
+        box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
+
+        &:hover {
+          box-shadow:
+            0 16px 32px rgba(black, .08),
+            0 6px 12px rgba(black, .08);
+        }
+      }
+
       &::before {
         background: url('/img/homepage/feature-card-icons.png') 0 0 no-repeat;
         background-size: 80px;
@@ -214,22 +236,45 @@
         position: absolute;
         top: 30px;
       }
-      
-      &.pro {
-        background-image: 
-          url('/img/homepage/feature-card-bg-pro.png'),
+
+      .layer-1 {
+        padding: 122px 40px 31px 30px;
+      }
+
+      .layer-2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 232px 40px 31px 30px;
+
+        &::before {
+          background: url('https://ionicframework.com/img/homepage/feature-card-icons.png') 0 0 no-repeat;
+          background-size: 80px;
+          width: 80px;
+          height: 80px;
+          content: '';
+          position: absolute;
+          top: 30px;
+        }
+      }
+
+      &.pro .card {
+        background-image:
+          url('https://ionicframework.com/img/homepage/feature-card-bg-pro.png'),
           linear-gradient(60deg, #050a14 0%, #062456 100%);
 
-        &::before { background-position: 0 -80px; }
+        .layer-2::before { background-position: 0 -80px; }
         .btn { color: #000f2a; }
       }
-  
-      &.enterprise {
-        background-image: 
-          url('/img/homepage/feature-card-bg-entrps-support.png'),
+
+      &.enterprise .card {
+        background-image:
+          url('https://ionicframework.com/img/homepage/feature-card-bg-entrps-support.png'),
           linear-gradient(60deg, #fcc14e 0%, #fed4d1 100%);
 
-        &::before { background-position: 0 -160px; }
+        .layer-2::before { background-position: 0 -160px; }
         .btn { color: #faa218; }
       }
     }
@@ -257,7 +302,7 @@
       text-transform: none;
       padding: 13px 15px 10px;
       font-size: 14px;
-      margin-top: 24px;
+      margin-top: 0;
       border-radius: 4px;
       color: #418bff;
 
@@ -298,7 +343,7 @@
         font-weight: 600;
       }
     }
-    
+
     .logos {
       display: flex;
       flex-wrap: wrap;
@@ -316,7 +361,7 @@
         margin-bottom: 32px;
         display: inline-block;
       }
-  
+
       &::after {
         background-position: 0 bottom;
       }
@@ -338,14 +383,15 @@
       h3 {
         color: $blue;
         font-weight: 600;
-        font-size: 23px;
+        font-size: 24px;
         margin-bottom: 5px;
+        letter-spacing: -0.02em;
       }
 
       p {
-        font-size: 17px;
+        font-size: 18px;
         font-weight: 600;
-        letter-spacing: .006em;
+        letter-spacing: -0.02em;
         color: #7f8fab;
       }
 
@@ -367,7 +413,7 @@
       margin-top: 24px;
       margin-bottom: 24px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14);
-      
+
       input {
         flex-grow: 1;
         border: none;
@@ -382,15 +428,15 @@
         flex-grow: 1;
         padding: 1px 16px 0px;
         transition: .2s background, .2s box-shadow;
-      
+
         &:hover {
           box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
         }
-      
+
         &:focus {
           box-shadow: inset 0 0 2px rgba(0, 0, 0, .1);
         }
-      
+
         &::placeholder {
           padding-left: 0;
           color: #a1a9b6;

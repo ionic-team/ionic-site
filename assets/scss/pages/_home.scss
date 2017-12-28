@@ -205,6 +205,7 @@
       list-style: none;
       position: relative;
       transform: scale(.98);
+      will-change: transform;
 
       .card {
         position: absolute;
@@ -219,6 +220,7 @@
         background-size: cover;
   	    border-radius: 18px;
         box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
+        will-change: transform;
 
         &:hover {
           box-shadow:
@@ -239,6 +241,7 @@
 
       .layer-1 {
         padding: 122px 40px 31px 30px;
+        will-change: transform;
       }
 
       .layer-2 {
@@ -248,6 +251,7 @@
         bottom: 0;
         left: 0;
         padding: 232px 40px 31px 30px;
+        will-change: transform;
 
         &::before {
           background: url('https://ionicframework.com/img/homepage/feature-card-icons.png') 0 0 no-repeat;

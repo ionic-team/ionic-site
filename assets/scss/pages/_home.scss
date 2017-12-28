@@ -198,6 +198,11 @@
       transition: 0s transform, .3s box-shadow
     }
 
+    .layer-1,
+    .layer-2 {
+      transition: .1s;
+    }
+
 		li {
 			flex: 0 0 370px;
       height: 308px;
@@ -205,6 +210,8 @@
       list-style: none;
       position: relative;
       transform: scale(.98);
+      will-change: transform;        
+      transform: .1s;
       will-change: transform;
 
       .card {
@@ -220,7 +227,7 @@
         background-size: cover;
   	    border-radius: 18px;
         box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
-        will-change: transform;
+
 
         &:hover {
           box-shadow:
@@ -416,6 +423,7 @@
       align-content: stretch;
       margin-top: 24px;
       margin-bottom: 24px;
+      border-radius: 4px 0 0 4px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14);
 
       input {

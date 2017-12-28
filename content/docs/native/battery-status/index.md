@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/battery-status
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li>
+  <li>iOS</li><li>Android</li><li>Windows</li><li>Browser</li>
 </ul>
 
 

@@ -204,7 +204,8 @@
     }
 
 		li {
-			flex: 0 0 370px;
+      flex: 0 0 370px;
+      max-width: 100%;
       height: 308px;
       margin-bottom: 16px;
       list-style: none;
@@ -259,6 +260,12 @@
         left: 0;
         padding: 232px 40px 31px 30px;
         will-change: transform;
+
+
+
+      @media (max-width: 380px) {
+        padding-top: 246px;
+      }
 
         &::before {
           background: url('https://ionicframework.com/img/homepage/feature-card-icons.png') 0 0 no-repeat;
@@ -417,7 +424,7 @@
 
     form {
       flex: 0 1 517px;
-      min-width: 400px;
+      min-width: 140px;
       align-items: center;
       display: flex;
       align-content: stretch;
@@ -435,6 +442,7 @@
         color: $blacker;
         box-shadow: none;
         font-weight: 500;
+        width:140px;
         height: 100%;
         outline: 0;
         flex-grow: 1;

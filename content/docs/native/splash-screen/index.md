@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/splash-screen
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>iOS</li><li>Windows</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
 
 

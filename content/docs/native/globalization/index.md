@@ -23,6 +23,7 @@ docType: "class"
 
 
 
+<p>This plugin obtains information and performs operations specific to the user&#39;s locale, language, and timezone.</p>
 
 
 <p>Repo:

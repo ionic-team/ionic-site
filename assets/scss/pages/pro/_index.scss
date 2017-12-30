@@ -63,6 +63,11 @@
             line-height: 18px;
             margin-left: 11px;
             font-weight: 600;
+            transition: .3s transform;
+          }
+
+          &:hover::after {
+            transform: translate3d(3px, 0, 0);
           }
         }
 

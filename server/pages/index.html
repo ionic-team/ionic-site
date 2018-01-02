@@ -150,7 +150,7 @@ var tilt = {
     this.coorX = (this.coorX, this.halfW - ( event.pageX - this.$el.offsetLeft) );
     this.coorY = (this.coorY, this.halfH - ( event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
 
-    requestAnimationFrame(this.draw.bind(this))
+    // requestAnimationFrame(this.draw.bind(this))
     this.draw();
 
   },

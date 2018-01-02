@@ -195,12 +195,22 @@
     }
 
     .card {
-      transition: 0s transform, .3s box-shadow
+      transition: 0s transform ease, .3s box-shadow
     }
 
     .layer-1,
     .layer-2 {
-      transition: .1s;
+      transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+      -webkit-font-smoothing: antialiased;
+      transform: perspective(600px) translate3d(0, 100%, 0);
+    }
+
+    .layer-1 {
+      transform: translate3d(0, 0, 50px);
+    }
+
+    .layer-2 {
+      transform: translate3d(0, 0, 40px);
     }
 
 		li {
@@ -210,10 +220,12 @@
       margin-bottom: 16px;
       list-style: none;
       position: relative;
-      transform: scale(.98);
-      will-change: transform;        
-      transform: .1s;
-      will-change: transform;
+      transform: perspective(600px);
+      will-change: transform; 
+      transform-style: preserve-3d;
+      backface-visibility: hidden;  
+      transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+      
 
       .card {
         position: absolute;
@@ -226,7 +238,8 @@
         linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
         background-repeat: no-repeat;
         background-size: cover;
-  	    border-radius: 18px;
+        border-radius: 18px;
+        transition: box-shadow 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
         box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
 
 

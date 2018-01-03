@@ -42,7 +42,7 @@
   <div class="container">
     <ul class="paths">
       <li class="framework">
-        <div class="card">
+        <div class="card-wrapper"><div class="card">
           <div class="layer-1">
             <h4>Ionic Framework</h4>
             <h2>Get up and running with the open source UI kit.</h2>
@@ -52,10 +52,10 @@
                class="btn white sm"
                id="btn-home-framework-module">Get started</a>
           </div>
-        </div>
+        </div></div>
       </li>
       <li class="pro">
-        <div class="card">
+        <div class="card-wrapper"><div class="card">
           <div class="layer-1">
             <h4>Ionic Pro</h4>
             <h2>Boost your app workflow with powerful services.</h2>
@@ -65,10 +65,10 @@
                class="btn white sm"
                id="btn-home-pro-module">Learn about Pro</a>
           </div>
-        </div>
+        </div></div>
       </li>
       <li class="enterprise">
-        <div class="card">
+        <div class="card-wrapper"><div class="card">
           <div class="layer-1">
             <h4>Ionic Enterprise</h4>
             <h2>An easier way to build secure apps, better.</h2>
@@ -78,7 +78,7 @@
               class="btn white sm"
               id="btn-home-enterprise-module">Ionic for Enterprise</a>
           </div>
-        </div>
+        </div></div>
       </li>
     </ul>
 
@@ -120,38 +120,43 @@ window.addEventListener('scroll', function(e) {
 // apple tv style card tilt
 var tilt = {
   init: function() {
-    var $card = document.querySelector('.paths li:first-child')
+    this.draw = this.draw.bind(this);
+    this.activateElement = this.activateElement.bind(this);
+    this.queueDraw = this.queueDraw.bind(this);
+    this.letGo = this.letGo.bind(this);
+
+    const $card = document.querySelector('.paths li:first-child .card');
     this.halfW = $card.clientWidth / 2;
     this.halfH = $card.clientHeight / 2;
-    this.$cards = document.querySelectorAll('.paths li');
+    this.$cards = document.querySelectorAll('.paths .card');
     this.$container = document.querySelector('.paths');
-    this.$banner = document.querySelector('.banner');
-    this.$cards.forEach(function(el) {
-      // set listeners for each card
-      el.addEventListener('mouseenter',this.activateElement.bind(this))
-      el.addEventListener('mousemove',this.markPositions.bind(this))
-      el.addEventListener('mouseleave',this.letGo.bind(this))
-    }, this)
-
-    this.draw = this.draw.bind(this);
+    this.bannerHeight = document.querySelector('.banner').offsetHeight;
     this.event = {};
 
+    this.$cards.forEach(function(el) {
+      // set listeners for each card
+      el.addEventListener('mouseenter', this.activateElement)
+      el.addEventListener('mousemove', this.queueDraw)
+      el.addEventListener('mouseleave', this.letGo.bind(this))
+    }, this)
     this.$container.addEventListener('mouseleave',this.letGo.bind(this))
 
     return this;
   },
 
-
   activateElement: function(event) {
     this.$el = event.target;
     this.$layer1 = event.target.querySelector('.layer-1');
     this.$layer2 = event.target.querySelector('.layer-2');
+    this.$li = this.$el.parentElement.parentElement;
+    this.offsetLeft = this.$li.offsetLeft;
+    this.offsetTop = this.$li.offsetTop + this.bannerHeight;
     this.coorX = this.coorY = 0;
     this.queued = false;
-
+    console.log(this.offsetTop,this.$li.offsetTop, this.bannerHeight);
   },
 
-  markPositions: function(event) {
+  queueDraw: function(event) {
     if(event.pageX === this.event.pageX && event.pageX === this.event.pageX) {
       return;
     }
@@ -162,8 +167,6 @@ var tilt = {
       requestAnimationFrame(this.draw)
       //this.draw()
     }
-    // this.draw();
-    // console.log('firing');
   },
 
   letGo: function() {
@@ -174,28 +177,21 @@ var tilt = {
   },
 
   draw: function() {
+    this.coorX = (this.coorX, this.halfW - (this.event.pageX - this.offsetLeft) );
+    this.coorY = (this.coorY, this.halfH - (this.event.pageY - this.offsetTop) );
 
-    this.coorX = (this.coorX, this.halfW - ( this.event.pageX - this.$el.offsetLeft) );
-    this.coorY = (this.coorY, this.halfH - ( this.event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
+    this.degX  = degX = (this.degX, Math.round(this.coorY / this.halfH * 50 ) / 100);
+    this.degY  = degY = (this.degY, Math.round(this.coorX / this.halfW * -50) / 100);
 
-    this.degX  = degX = (this.degX, Math.round( this.coorY / this.halfH * 50 ) / 100);
-    this.degY  = degY = (this.degY, Math.round( this.coorX / this.halfW * -50) / 100);
-
-    this.$el.style['transform'] = function() {
-      let transform = 'perspective( 600px ) scale(1.02) ';
-      {# transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 0 ) '; #}
-      transform += 'rotateX('+ degX*-2 +'deg) rotateY('+ degY*-2 +'deg)';
-      return transform;
-    }();
+    this.$el.style['transform'] =
+      'rotateX('+ degX*-1 +'deg) rotateY('+ degY*-1 +'deg)';
     this.$layer1.style['transform'] = function() {
-       let transform = 'perspective( 600px ) ';
-       transform += 'translate3d(' + degY*-2.5+ 'px, ' + degX*2.5+ 'px, 30px) ';
+       let transform = 'translate3d(' + degY*-1+ 'px, ' + degX*1+ 'px, 12px) ';
        transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
        return transform;
     }();
     this.$layer2.style['transform'] = function() {
-       let transform = 'perspective( 600px ) ';
-       transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 24px ) ';
+       let transform = 'translate3d(' + degY*-.5+ 'px, ' + degX*.5+ 'px, 25px) ';
        transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
        return transform;
     }();
@@ -203,7 +199,7 @@ var tilt = {
   }
 }
 
-{# tilt.init(); #}
+tilt.init();
 
 
 </script>

@@ -185,7 +185,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding-left: 0;
-    perspective: 600px;
 
     @media (max-width: $screen-md-max) {
       justify-content: space-around;
@@ -197,18 +196,16 @@
 
     .layer-1,
     .layer-2 {
-      transition: transform .5s ease;
       -webkit-font-smoothing: antialiased;
       will-change: transform;
-      // display: none;
     }
 
     .layer-1 {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 10px);
     }
 
     .layer-2 {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 20px);
     }
 
 		li {
@@ -218,69 +215,48 @@
       margin-bottom: 16px;
       list-style: none;
       position: relative;
-      will-change: transform, box-shadow;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      // perspective: 600px;
-      transition:
-        transform  0.5s ease;
-        // box-shadow 0.5s ease;
-      // transition: transform 0s;
-      background-image:
-        url('https://ionicframework.com/img/homepage/feature-card-bg-framework.png'),
-        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 18px;
+      perspective: 600px;
 
-      &:hover {
-        // box-shadow:
-        //   0 16px 32px rgba(black, .08),
-        //   0 6px 12px rgba(black, .08);
-        transform:  translateZ(10px);
+      .card-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .5s transform cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: transform;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transform: translateZ(0);
 
-        .layer-1 {
-          transform: translateZ(15px);
-        }
-
-        .layer-2 {
+        &:hover {
           transform: translateZ(10px);
         }
       }
 
+      .card {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        will-change: transform, box-shadow;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: box-shadow 0.3s ease;
+        background-image:
+          url('/img/homepage/feature-card-bg-framework.png'),
+          linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 18px;
 
-      // .card {
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   bottom: 0;
-      //   left: 0;
-      //   background-image:
-      //   url('https://ionicframework.com/img/homepage/feature-card-bg-framework.png'),
-      //   linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
-      //   background-repeat: no-repeat;
-      //   background-size: cover;
-      //   border-radius: 18px;
-      //   // transition: box-shadow 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-      //   // box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
-
-
-      //   &:hover {
-      //     // box-shadow:
-      //     //   0 16px 32px rgba(black, .08),
-      //     //   0 6px 12px rgba(black, .08);
-      //   }
-      // }
-
-      // &::before {
-      //   background: url('/img/homepage/feature-card-icons.png') 0 0 no-repeat;
-      //   background-size: 80px;
-      //   width: 80px;
-      //   height: 80px;
-      //   content: '';
-      //   position: absolute;
-      //   top: 30px;
-      // }
+        &:hover {
+          box-shadow:
+            0 16px 32px rgba(black, .08),
+            0 6px 12px rgba(black, .08);
+        }
+      }
 
       .layer-1 {
         padding: 122px 40px 31px 30px;
@@ -296,14 +272,12 @@
         padding: 232px 40px 31px 30px;
         will-change: transform;
 
-
-
-      @media (max-width: 380px) {
-        padding-top: 246px;
-      }
+        @media (max-width: 380px) {
+          padding-top: 246px;
+        }
 
         &::before {
-          background: url('https://ionicframework.com/img/homepage/feature-card-icons.png') 0 0 no-repeat;
+          background: url('/img/homepage/feature-card-icons.png') 0 0 no-repeat;
           background-size: 80px;
           width: 80px;
           height: 80px;
@@ -313,18 +287,18 @@
         }
       }
 
-      &.pro {
+      &.pro .card {
         background-image:
-          url('https://ionicframework.com/img/homepage/feature-card-bg-pro.png'),
+          url('/img/homepage/feature-card-bg-pro.png'),
           linear-gradient(60deg, #050a14 0%, #062456 100%);
 
         .layer-2::before { background-position: 0 -80px; }
         .btn { color: #000f2a; }
       }
 
-      &.enterprise {
+      &.enterprise .card {
         background-image:
-          url('https://ionicframework.com/img/homepage/feature-card-bg-entrps-support.png'),
+          url('/img/homepage/feature-card-bg-entrps-support.png'),
           linear-gradient(60deg, #fcc14e 0%, #fed4d1 100%);
 
         .layer-2::before { background-position: 0 -160px; }

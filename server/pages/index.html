@@ -133,6 +133,9 @@ var tilt = {
       el.addEventListener('mouseleave',this.letGo.bind(this))
     }, this)
 
+    this.draw = this.draw.bind(this);
+    this.event = {};
+
     this.$container.addEventListener('mouseleave',this.letGo.bind(this))
 
     return this;
@@ -144,52 +147,63 @@ var tilt = {
     this.$layer1 = event.target.querySelector('.layer-1');
     this.$layer2 = event.target.querySelector('.layer-2');
     this.coorX = this.coorY = 0;
+    this.queued = false;
+
   },
 
   markPositions: function(event) {
-    this.coorX = (this.coorX, this.halfW - ( event.pageX - this.$el.offsetLeft) );
-    this.coorY = (this.coorY, this.halfH - ( event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
+    if(event.pageX === this.event.pageX && event.pageX === this.event.pageX) {
+      return;
+    }
 
-    // requestAnimationFrame(this.draw.bind(this))
-    this.draw();
-
+    if (!this.queued) {
+      this.event = event;
+      this.queued = true;
+      requestAnimationFrame(this.draw)
+      //this.draw()
+    }
+    // this.draw();
+    // console.log('firing');
   },
 
   letGo: function() {
+    this.queued = true;
     this.$el.style['transform'] =
     this.$layer1.style['transform'] =
     this.$layer2.style['transform'] = '';
   },
 
   draw: function() {
-    this.degX  = degX = (this.degX, Math.round( this.coorY / this.halfH * 500 ) / 1000);
-    this.degY  = degY = (this.degY, Math.round( this.coorX / this.halfW * -500) / 1000);
-    // console.log(this);
+
+    this.coorX = (this.coorX, this.halfW - ( this.event.pageX - this.$el.offsetLeft) );
+    this.coorY = (this.coorY, this.halfH - ( this.event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
+
+    this.degX  = degX = (this.degX, Math.round( this.coorY / this.halfH * 50 ) / 100);
+    this.degY  = degY = (this.degY, Math.round( this.coorX / this.halfW * -50) / 100);
 
     this.$el.style['transform'] = function() {
-      let transform = 'perspective( 600px ) scale(1.02)';
-      //transform += 'translate3d(0,0,0 )';
+      let transform = 'perspective( 600px ) scale(1.02) ';
+      {# transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 0 ) '; #}
       transform += 'rotateX('+ degX*-2 +'deg) rotateY('+ degY*-2 +'deg)';
       return transform;
-    }()
+    }();
     this.$layer1.style['transform'] = function() {
        let transform = 'perspective( 600px ) ';
-       //transform += 'translate3d(0, 0, 0)';
        transform += 'translate3d(' + degY*-2.5+ 'px, ' + degX*2.5+ 'px, 30px) ';
-       transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';;
+       transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
        return transform;
     }();
     this.$layer2.style['transform'] = function() {
        let transform = 'perspective( 600px ) ';
-       //transform += 'translate3d(0, 0, 0)';
        transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 24px ) ';
        transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
        return transform;
     }();
+    this.queued = false;
   }
 }
 
-tilt.init();
+{# tilt.init(); #}
 
 
 </script>

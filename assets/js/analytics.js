@@ -6,6 +6,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TKMGCBC');
 
 
+$(function() {
+  var KMCheckCount = 0;
+
+  function linker() {
+    // Append Kissmetrics IDs to dashboard links
+    if (KMCheckCount < 10 && !window.KM) {
+      KMCheckCount++;
+      //console.log('no KM yet')
+      setTimeout(linker, 300);
+      return;
+    }
+
+    var els = document.querySelectorAll('a[href*="dashboard.ionicjs.com"]');
+    if(!els) {
+      //console.log('no dash links')
+      return;
+    }
+    // console.log(els)
+    els.forEach(function(el) {
+      var href = el.getAttribute('href');
+      if (href.indexOf('?') !== -1) {
+        href += '&'
+      } else {
+        href += '?'
+      }
+      el.setAttribute('href', href + 'kmid=' + encodeURIComponent(window.KM.i()));
+    })
+  }
+  linker();
+});
+
 // shorthand global analytics click event helper
 window.c = function(cat, lbl, el, val) {
   if (typeof val === 'undefined') {

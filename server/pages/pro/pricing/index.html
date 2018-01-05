@@ -4,14 +4,14 @@
 {% set bodyController = 'pricingCtrl' %}
 {% import "../../_includes/macros.html" as macros %}
 
-{% macro tippyMUD(activeVar, pos) %}
+{% macro tippyMDU(activeVar, pos) %}
 <tippy ng-class="{active: {{activeVar}}}" {% if pos %} pos={{pos}} {% endif %}>
   <p>
     <strong>LiveDeploy</strong> lets you instantly update your
     app, bypassing the App Stores.
   </p>
   <p>
-    <strong>Monthly Updated Devices (MUD)</strong> are any users
+    <strong>Monthly Devices Updated (MDU)</strong> are any users
     that receive live updates/month.
   </p>
   <p>
@@ -49,8 +49,8 @@
             <li><strong>DevApp</strong> local device testing</li>
             <li><strong>View App</strong> public sharing</li>
             <li ng-mouseover="freeHover = true" ng-mouseout="freeHover = false">
-              <strong>LiveDeploy</strong> to <strong>20 MUD</strong>
-              {{ tippyMUD('freeHover', 'right') }}
+              <strong>Live Deploy</strong> to <strong>20 MDU</strong>
+              {{ tippyMDU('freeHover', 'right') }}
             </li>
             <li><strong>Error</strong> monitoring</li>
             <li><strong>7 day</strong> error history</li>
@@ -68,8 +68,8 @@
             <li><strong>Creator</strong> rapid prototyping</li>
             <li><strong>View App</strong> private sharing</li>
             <li ng-mouseover="devHover = true" ng-mouseout="devHover = false">
-              <strong>LiveDeploy</strong> to <strong>5k MUD</strong>
-              {{ tippyMUD('devHover', 'right') }}
+              <strong>Live Deploy</strong> to <strong>10k MDU</strong>
+              {{ tippyMDU('devHover', 'right') }}
             </li>
             <li><strong>Package</strong> dev &amp; prod apps</li>
             <li><strong>60 day</strong> error history</li>
@@ -92,8 +92,8 @@
             <li class="plus">Everything in Developer +</li>
             <li><strong>Organization</strong> account</li>
             <li ng-mouseover="teamHover = true" ng-mouseout="teamHover = false">
-              <strong>LiveDeploy</strong> to <strong>10K MUD</strong>
-              {{ tippyMUD('teamHover', 'left') }}
+              <strong>Live Deploy</strong> to <strong>25K MDU</strong>
+              {{ tippyMDU('teamHover', 'left') }}
             </li>
             <li><strong>Team</strong> collaboration</li>
             <li><strong>Activity</strong> feed</li>
@@ -110,8 +110,8 @@
             <li class="plus">Everything in Team +</li>
             <li><strong>Multiple</strong> teams</li>
             <li ng-mouseover="bizHover = true" ng-mouseout="bizHover = false">
-              <strong>Live Deploy</strong> to <strong>50k MUD</strong>
-              {{ tippyMUD('bizHover', 'left') }}
+              <strong>Live Deploy</strong> to <strong>100k MDU</strong>
+              {{ tippyMDU('bizHover', 'left') }}
             </li>
             <li><strong>App-level</strong> permissions</li>
             <li><strong>Live</strong> onboarding</li>

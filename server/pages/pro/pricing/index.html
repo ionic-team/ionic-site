@@ -4,6 +4,24 @@
 {% set bodyController = 'pricingCtrl' %}
 {% import "../../_includes/macros.html" as macros %}
 
+{% macro tippyMUD(activeVar, pos) %}
+<tippy ng-class="{active: {{activeVar}}}" {% if pos %} pos={{pos}} {% endif %}>
+  <p>
+    <strong>LiveDeploy</strong> lets you instantly update your
+    app, bypassing the App Stores.
+  </p>
+  <p>
+    <strong>Monthly Updated Devices (MUD)</strong> are any users
+    that receive live updates/month.
+  </p>
+  <p>
+    <strong>Need more?</strong> We can design a plan to meet your
+    needs. <a data-toggle="modal" data-target="#contactForm">Get
+    in touch</a>
+  </p>
+</tippy>
+{% endmacro %}
+
 {% block main %}
 <div class="cta" ng-init="period = 'monthly'">
   <hgroup class="container">
@@ -18,7 +36,10 @@
 <div class="container">
   <div class="plans">
     <div class="group">
-      <h3>Powerful tools &amp; services for <strong>developers.</strong></h3>
+      <h3>
+        Powerful tools &amp; services for individual <strong>developers.
+        </strong>
+      </h3>
       <div class="plan-container">
         <div class="plan starter">
           <h3>Starter</h3>
@@ -26,10 +47,13 @@
           <div class="type">Solo license</div>
           <ul class="features">
             <li><strong>DevApp</strong> local device testing</li>
-            <li><strong>View app</strong> public sharing</li>
-            <li><strong>Live Deploy</strong> 20 active users</li>
+            <li><strong>View App</strong> public sharing</li>
+            <li ng-mouseover="freeHover = true" ng-mouseout="freeHover = false">
+              <strong>LiveDeploy</strong> to <strong>20 MUD</strong>
+              {{ tippyMUD('freeHover', 'right') }}
+            </li>
             <li><strong>Error</strong> monitoring</li>
-            <li><strong>15 day</strong> error history</li>
+            <li><strong>7 day</strong> error history</li>
             <li>Git-based workflow</li>
           </ul>
           <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
@@ -42,8 +66,11 @@
           <ul class="features">
             <li class="plus">Everything in Starter +</li>
             <li><strong>Creator</strong> rapid prototyping</li>
-            <li><strong>View app</strong> private sharing</li>
-            <li><strong>Live Deploy</strong> 25K active users</li>
+            <li><strong>View App</strong> private sharing</li>
+            <li ng-mouseover="devHover = true" ng-mouseout="devHover = false">
+              <strong>LiveDeploy</strong> to <strong>5k MUD</strong>
+              {{ tippyMUD('devHover', 'right') }}
+            </li>
             <li><strong>Package</strong> dev &amp; prod apps</li>
             <li><strong>60 day</strong> error history</li>
             <li>Product support</li>
@@ -59,18 +86,14 @@
         <div class="plan team">
           <div class="popular">Most Popular</div>
           <h3>Team</h3>
-          <div class="price"><strong>$49</strong> per month</div>
+          <div class="price"><strong>$69</strong> per month</div>
           <div class="type">Per team member</div>
           <ul class="features">
             <li class="plus">Everything in Developer +</li>
             <li><strong>Organization</strong> account</li>
             <li ng-mouseover="teamHover = true" ng-mouseout="teamHover = false">
-              <strong>Live Deploy</strong> 100K active users
-              <tippy ng-class="{active: teamHover}">
-                Need more? We can design a plan to meet your needs. <a
-                data-toggle="modal" data-target="#contactForm">Get in touch</a>
-                to learn more.
-              </tippy>
+              <strong>LiveDeploy</strong> to <strong>10K MUD</strong>
+              {{ tippyMUD('teamHover', 'left') }}
             </li>
             <li><strong>Team</strong> collaboration</li>
             <li><strong>Activity</strong> feed</li>
@@ -81,18 +104,14 @@
         </div>
         <div class="plan business">
           <h3>Business</h3>
-          <div class="price"><strong>$169</strong> per month *</div>
+          <div class="price"><strong>$189</strong> per month *</div>
           <div class="type">Per team member</div>
           <ul class="features">
             <li class="plus">Everything in Team +</li>
             <li><strong>Multiple</strong> teams</li>
             <li ng-mouseover="bizHover = true" ng-mouseout="bizHover = false">
-              <strong>Live Deploy</strong> 1M active users
-              <tippy ng-class="{active: bizHover}">
-                Need more? We can design a plan to meet your needs. <a
-                data-toggle="modal" data-target="#contactForm">Get in touch</a>
-                to learn more.
-              </tippy>
+              <strong>Live Deploy</strong> to <strong>50k MUD</strong>
+              {{ tippyMUD('bizHover', 'left') }}
             </li>
             <li><strong>App-level</strong> permissions</li>
             <li><strong>Live</strong> onboarding</li>
@@ -119,9 +138,10 @@
 </div>
 
 <p class="conditions">
-  All plans include unlimited apps, Ionic DevApp, and public sharing with View.
-  <br/>You do not need Ionic Pro to access the Framework.
-  <br/>* Ionic Pro Business edition is billed annually.
+  All plans include <strong>unlimited apps</strong>, <strong>Ionic DevApp
+  </strong>, and <strong>public sharing with View app</strong>. You do not need
+  Ionic Pro to access the Framework. *Ionic Pro Business edition is billed
+  annually.
 </p>
 
 <div class="also">

@@ -5,24 +5,24 @@
       background: white;
 
       hgroup {
-        padding-bottom: 402px;
-        padding-top: 40px;
+        padding-bottom: 417px;
+        padding-top: 48px;
         color: #272a2f;
         text-align: center;
-        max-width: 780px;
+        max-width: 720px;
 
         h1 {
           padding-bottom: 10px;
           margin: 0 0 8px;
-          font-size: 40px;
+          font-size: 36px;
           font-weight: 700;
-          letter-spacing: -.015em;
+          letter-spacing: -.03em;
           font-family: $font-family-eina;
         }
 
         p {
           color: #4c576c;
-          letter-spacing: -.001em;
+          letter-spacing: -.03em;
           font-size: 18px;
           font-weight: 600;
           line-height: 1.8em;
@@ -64,11 +64,12 @@
 
       > h3 {
         color: #97a4ba;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 32px;
+        margin-bottom: 36px;
         margin-top: 0;
+        letter-spacing: .01em;
 
         strong {
           color: #272a2f;
@@ -87,7 +88,7 @@
       position: relative;
       vertical-align: top;
       flex: 1 0 278px;
-      padding: 40px 33px 112px;
+      padding: 33px 33px 112px;
 
       + .plan {
         border-left: 1px solid #eee;
@@ -130,7 +131,7 @@
         position: relative;
         text-transform: uppercase;
         z-index: 1;
-        font-size: 20px;
+        font-size: 22px;
         text-transform: none;
         margin-bottom: 0;
       }
@@ -339,13 +340,14 @@
   }
 
   .conditions {
-    color: rgba(#8b94a2, .7);
+    // color: rgba(#8b94a2, .7);
     text-align: center;
-    font-size: 12px;
-    font-size: 11px;
     line-height: 2em;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(#8b94a2, .2);
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
   }
 
   .also {

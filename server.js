@@ -6,6 +6,7 @@ const compress        = require('compression');
 const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
 const expressNunjucks = require('express-nunjucks');
+const helmet          = require('helmet');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
@@ -35,6 +36,7 @@ console.log('PWD', process.env.PWD);
 app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
+app.use(helmet());
 app.use(processRequest);
 
 app.set('views', __dirname + '/server/pages');

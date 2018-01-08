@@ -9,10 +9,12 @@ module.exports = function(req, res) {
 
   // automatically send to brody, but also send to the TP directly, if provided
   let toEmail = [
-    'brody@ionic.io',
+    // 'brody@ionic.io',
     'perry@ionic.io',
   ];
-  let partnerEmail = getTrustedPartnerEmailByName(req.body['selected-partner']);
+  let partnerEmail = getTrustedPartnerEmailByName(
+    req.sanitize(req.body['selected-partner'])
+  );
   if (typeof partnerEmail ==='string') {
     toEmail.push(partnerEmail)
   } else if (Array.isArray(partnerEmail)) {
@@ -28,10 +30,10 @@ module.exports = function(req, res) {
     from: 'sales@ionic.io',
     name: 'Ionic.io',
     subject: 'Trusted Partners Inquiry',
-    body: objToString(req.body),
+    body: objToString(req.body, req.sanitize),
   };
 
-  if (req.body.form === 'application') {
+  if (req.sanitize(req.body.form) === 'application') {
     m.name = 'Trusted Partners Application';
   }
 
@@ -57,11 +59,11 @@ function getTrustedPartnerEmailByName(name) {
   return null;
 }
 
-function objToString(obj) {
+function objToString(obj, sanitize) {
   var str = '';
   for (var p in obj) {
     if (obj.hasOwnProperty(p)) {
-      str += cap(p) + ' :: ' + obj[p] + '\n\r';
+      str += cap(p) + ' :: ' + sanitize(obj[p]) + '\n\r';
     }
   }
   return str;

@@ -4,7 +4,7 @@ const bp       = require('body-parser');
 const markdown = require('./markdown');
 const es       = require('express-sanitizer');
 
-const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
+const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
@@ -67,9 +67,7 @@ module.exports = function router(app) {
 
 
   // pages w/ POST handlers
-  .get('/trusted-partners', (req, res) => {
-    res.render('trusted-partners/index');
-  })
+  .get('/trusted-partners', (req, res) => { res.render('trusted-partners'); })
   .post('/trusted-partners', bp.urlencoded({extended: true}), es(),
     trustedPartnersCtrl)
 

@@ -1,6 +1,6 @@
-var tools               = require('../../tools');
+var tools               = require('../tools');
 var moment              = require('moment');
-var trustedPartners     = require('../../data/trusted-partners');
+var trustedPartners     = require('../data/trusted-partners');
 
 module.exports = function(req, res) {
 
@@ -40,12 +40,12 @@ module.exports = function(req, res) {
   tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
     res.locals.notification = 'Message Sent';
     res.locals.notificationClass = 'white';
-    res.render('trusted-partners/index');
+    res.render('trusted-partners');
   }, function(err) {
     console.error(err);
     res.locals.notification = 'Unable to send message at this time';
     res.locals.notificationClass = 'error';
-    res.render('trusted-partners/index');
+    res.render('trusted-partners');
   });
 };
 

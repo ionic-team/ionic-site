@@ -57,6 +57,7 @@ module.exports = function(req, res, next) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     protocol = 'http';
   } else if (req.protocol === 'http') {
+    res.setHeader('Content-Security-Policy', 'default-src https:');
     // force https in prod
     // return res.redirect(301, `https://ionicframework.com${req.url}`);
   }

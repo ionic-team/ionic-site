@@ -35,15 +35,19 @@ $ ionic start MyIonicProject tutorial
 
 Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
+Just accept next steps in CLI. You will be asked to link it with your account, but you don't need to  at this moment if you don't want to (select nevermind).
+
 If the tutorial template isn't something you want to use, Ionic has a few templates available:
 
 - `tabs` : a simple 3 tab layout
 - `sidemenu`: a layout with a swipable menu on the side
 - `blank`: a bare starter with a single page
 - `super`: starter project with over 14 ready to use page designs
+- `conference`: a project that demonstrates a realworld application
 - `tutorial`: a guided starter project
+- `aws`: AWS Mobile Hub Starter
 
-If you don't specify a template by running `ionic start MyIonicProject`, the [tabs template](https://github.com/ionic-team/ionic2-starter-tabs) will be used.
+If you don't specify a template by running `ionic start MyIonicProject`, a selection list will appear for you to choose, with the [tabs template](https://github.com/ionic-team/ionic2-starter-tabs) as the first option.
 
 
 

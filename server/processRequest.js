@@ -57,9 +57,10 @@ module.exports = function(req, res, next) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     protocol = 'http';
   } else {
-    res.setHeader('Content-Security-Policy','default-src *');
-    res.setHeader('X-Content-Security-Policy','default-src *');
-    res.setHeader('X-WebKit-CSP','default-src *');
+    const csp = 'default-src https: \'unsafe-eval\' \'unsafe-inline\'';
+    res.setHeader('Content-Security-Policy', csp);
+    res.setHeader('X-Content-Security-Policy', csp);
+    res.setHeader('X-WebKit-CSP', csp);
   }
 
   // cache static files

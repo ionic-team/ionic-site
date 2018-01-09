@@ -130,7 +130,7 @@ var tilt = {
     this.halfH = $card.clientHeight / 2;
     this.$cards = document.querySelectorAll('.paths .card');
     this.$container = document.querySelector('.paths');
-    this.bannerHeight = document.querySelector('.banner').offsetHeight;
+    this.bannerHeight = $banner.offsetHeight;
     this.event = {};
 
     this.$cards.forEach(function(el) {

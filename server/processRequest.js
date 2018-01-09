@@ -56,8 +56,9 @@ module.exports = function(req, res, next) {
   if (req.hostname.indexOf('ionicframework.com') == -1) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     protocol = 'http';
-  } else {
-    const csp = 'default-src https: \'unsafe-eval\' \'unsafe-inline\'';
+ } else {
+   // require https in prod
+    const csp = 'default-src https: data: blob: \'unsafe-eval\' \'unsafe-inline\'';
     res.setHeader('Content-Security-Policy', csp);
     res.setHeader('X-Content-Security-Policy', csp);
     res.setHeader('X-WebKit-CSP', csp);

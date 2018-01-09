@@ -122,10 +122,9 @@ Then add this entry to the `providers` in `NgModule`:
 
 ## Manual capture
 
-Ionic Pro Monitoring supports manually capturing errors and also sending log messages. Additionally, an `extra` field
-takes key/value pairs for adding additional metadata for a call.
+Ionic Pro Monitoring supports manually capturing errors and also sending log messages.
 
-#### `Pro.getApp().monitoring.exception(errorObject, extra)`
+#### `Pro.getApp().monitoring.exception(errorObject)`
 
 Manually capture an error. For example
 
@@ -133,7 +132,7 @@ Manually capture an error. For example
 Pro.getApp().monitoring.exception(new Error('error'))
 ```
 
-`Pro.getApp().monitoring.log(msg, options, extra)`
+`Pro.getApp().monitoring.log(msg, options)`
 
 Capture and send a log message. Options takes a `level` (such as 'error' or 'info').
 
@@ -143,7 +142,7 @@ Example:
 Pro.getApp().monitoring.log('This happens sometimes', { level: 'error' })
 ```
 
-#### `Pro.getApp().monitoring.call(fn, extra)`
+#### `Pro.getApp().monitoring.call(fn)`
 
 Call a function and automatically capture any resulting errors. Example:
 
@@ -153,7 +152,7 @@ Pro.getApp().monitoring.call(() => {
 })
 ```
 
-#### `Pro.getApp().monitoring.wrap(fn, extra)`
+#### `Pro.getApp().monitoring.wrap(fn)`
 
 Return a function that will automatically track any errors. Example:
 

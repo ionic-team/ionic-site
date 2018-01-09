@@ -70,7 +70,17 @@
               <strong>Live Deploy</strong> to <strong>10k MDU</strong>
               {{ tippyMDU('devHover', 'right') }}
             </li>
-            <li><strong>Package</strong> dev &amp; prod apps</li>
+            <li ng-mouseover="dph = true" ng-mouseout="dph = false">
+              <strong>Package</strong> dev &amp; prod apps
+              <tippy ng-class="{active: dph}" pos="right">
+                <p>
+                  <strong>Dev builds</strong> are native binaries created  using
+                  a development code signing certificate, and cannot be
+                  submitted to App Stores. <strong>Production builds</strong>
+                  can be submitted to App Stores.
+                </p>
+              </tippy>
+            </li>
             <li><strong>60 day</strong> error history</li>
             <li>Product support</li>
           </ul>
@@ -136,16 +146,18 @@
   </div>
 </div>
 
-<p class="conditions">
-  All plans include <strong>unlimited apps</strong>, <strong>Ionic DevApp
-  </strong>, and <strong>public sharing with View app</strong>. You do not need
-  Ionic Pro to access the Framework. *Ionic Pro Business edition is billed
-  annually.
-</p>
+<div class="conditions">
+  <p class="container">
+    All plans include <strong>unlimited apps</strong>, <strong>Ionic DevApp
+    </strong>, and <strong>public sharing with View app</strong>. You do not
+    need an Ionic Pro account to access the Framework. *Ionic Pro Business
+    edition is billed annually.
+  </p>
+</div>
 
 <div class="also">
   <div class="container">
-    <h3 class="text-center">Every plan comes with</h3>
+    <h3 class="text-center">Every Pro plan comes with</h3>
     <ul class="items">
       <li class="item framework">
         <h4>Ionic Framework</h4>

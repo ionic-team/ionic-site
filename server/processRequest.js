@@ -56,13 +56,10 @@ module.exports = function(req, res, next) {
   if (req.hostname.indexOf('ionicframework.com') == -1) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     protocol = 'http';
-  } else if (req.protocol === 'http') {
-    res.setHeader(
-      'Content-Security-Policy',
-      'default-src https: \'unsafe-eval\' \'unsafe-inline\''
-    );
-    // force https in prod
-    // return res.redirect(301, `https://ionicframework.com${req.url}`);
+  } else {
+    res.setHeader('Content-Security-Policy','default-src *');
+    res.setHeader('X-Content-Security-Policy','default-src *');
+    res.setHeader('X-WebKit-CSP','default-src *');
   }
 
   // cache static files

@@ -29,7 +29,7 @@ For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In t
 <ion-app></ion-app>
 ```
 
-And the following scripts near the bottom:
+And the following scripts in the code (don't worry about others at this moment):
 
 ```html
 <script src="cordova.js"></script>
@@ -55,7 +55,7 @@ Near the top of the file, we should see this:
   imports: [ BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp,HelloIonicPage,ItemDetailsPage,ListPage],
-  providers: []
+  providers: [StatusBar,SplashScreen,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
 ```

@@ -153,7 +153,7 @@ var tilt = {
     this.offsetTop = this.$li.offsetTop + this.bannerHeight;
     this.coorX = this.coorY = 0;
     this.queued = false;
-    console.log(this.offsetTop,this.$li.offsetTop, this.bannerHeight);
+    // console.log(this.offsetTop,this.$li.offsetTop, this.bannerHeight);
   },
 
   queueDraw: function(event) {
@@ -165,7 +165,7 @@ var tilt = {
       this.event = event;
       this.queued = true;
       requestAnimationFrame(this.draw)
-      //this.draw()
+      // this.draw()
     }
   },
 
@@ -177,23 +177,23 @@ var tilt = {
   },
 
   draw: function() {
-    this.coorX = (this.coorX, this.halfW - (this.event.pageX - this.offsetLeft) );
-    this.coorY = (this.coorY, this.halfH - (this.event.pageY - this.offsetTop) );
 
-    this.degX  = degX = (this.degX, Math.round(this.coorY / this.halfH * 50 ) / 100);
-    this.degY  = degY = (this.degY, Math.round(this.coorX / this.halfW * -50) / 100);
+    var Y = ( Math.round(( this.halfH - (this.event.pageY - this.offsetTop))
+      / this.halfH * 50 ) / 100);
+    var X = ( Math.round((this.halfW - (this.event.pageX - this.offsetLeft))
+      / this.halfW * -50) / 100);
 
     this.$el.style['transform'] =
-      'rotateX('+ degX*-1 +'deg) rotateY('+ degY*-1 +'deg)';
+      'rotateX(' + (Y * -1) + 'deg) rotateY(' + (X * -1) + 'deg)';
     this.$layer1.style['transform'] = function() {
-       let transform = 'translate3d(' + degY*-1+ 'px, ' + degX*1+ 'px, 12px) ';
-       transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
-       return transform;
+      let transform = 'translate3d(' + (X * -1) + 'px, ' + (Y * 1) + 'px, 12px)';
+      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+      return transform;
     }();
     this.$layer2.style['transform'] = function() {
-       let transform = 'translate3d(' + degY*-.5+ 'px, ' + degX*.5+ 'px, 25px) ';
-       transform += 'rotateX('+ degX*-.25 +'deg) rotateY('+ degY*-.25 +'deg)';
-       return transform;
+      let transform = 'translate3d(' + (X * -.5) + 'px, ' + (Y * .5) + 'px, 25px)';
+      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+      return transform;
     }();
     this.queued = false;
   }

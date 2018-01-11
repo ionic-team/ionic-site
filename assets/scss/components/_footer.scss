@@ -131,6 +131,11 @@ footer {
       margin-left: auto;
       margin-right: -3px;
       padding-left: 15px;
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        padding-left: 0;
+      }
     }
 
     .copyright {

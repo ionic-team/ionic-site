@@ -65,6 +65,10 @@
       @media (min-width: $screen-lg-min) {
         height: 48px;
       }
+
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 16px;
+      }
     }
 
     .graphics {

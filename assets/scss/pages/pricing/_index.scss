@@ -79,6 +79,7 @@
 
     .plan-container {
       display: flex;
+      flex-wrap: wrap;
       border-radius: 4px;
       background: white;
       box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
@@ -322,6 +323,12 @@
         padding-right: 5px;
         padding-left: 5px;
 
+        h3,
+        .price,
+        .type {
+          text-align: center;
+        }
+
         &:nth-child(2) {
           border-top: 1px solid #eee;
         }
@@ -337,6 +344,35 @@
             &::before {
               display: none;
             }
+          }
+        }
+
+        &.team {
+          &::before {
+            top: 0;
+            bottom: 0;
+          }
+
+          .cta {
+            bottom: 26px;
+          }
+        }
+
+        &.enterprise {
+          padding: 22px 30px 160px 30px;
+          text-align: center;
+
+          &::before {
+            width: 300px;
+            left: calc(50% - 150px);
+            bottom: -30px;
+          }
+
+          .btn {
+            margin: 0 auto;
+            position: absolute;
+            left: 25px;
+            right: 25px;
           }
         }
       }
@@ -421,9 +457,9 @@
         line-height: 24px;
       }
 
-      // @media (max-width: $screen-xs-max)  {
-      //   flex-grow: 1;
-      // }
+      @media (max-width: $screen-xs-max)  {
+        flex: 1 1 100%;
+      }
     }
   }
 
@@ -439,6 +475,7 @@
       @media (max-width: $screen-xs-max)  {
         float: none;
         width: 100%;
+        padding-left: 0;
       }
     }
 

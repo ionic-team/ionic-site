@@ -10,13 +10,13 @@ dark_header: true
 
 # Deploy Plugin API
 
-When using `UPDATE_METHOD="auto"` or `UPDATE_METHOD="background"`, the plugin manages updates for you. If you'd like to manually control updates, the Ionic plugin has a number of functions available to manage the update lifecycle.
+When the plugin is installed, `IonicCordova` will be defined on `window` like many Cordova plugins.
+
+While using `UPDATE_METHOD="auto"` or `UPDATE_METHOD="background"`, the plugin manages updates for you. If you'd like to manually control updates, the Ionic plugin has a number of functions available to manage the update lifecycle.
 
 Here's an example of stringing together the API functions to perform an update:
 
 ```js
-declare var IonicCordova
-
 export function update(appId: string, channelName: string, callback: (err: any, success: boolean) => void) {
   // Set our app data (OPTIONAL)
   let config = {
@@ -33,32 +33,25 @@ export function update(appId: string, channelName: string, callback: (err: any, 
 
   // Check for available updates
   IonicCordova.deploy.check((res: any) => {
-    console.log("Check result:", res)
-
     if (res === 'true') {
-
       // A new version is ready to download
       IonicCordova.deploy.download((res: any) => {
-        if  (res === 'true' || res == 'false') {
-
+        if  (res === 'true') {
           // We can unzip the latest version
           IonicCordova.deploy.extract(appId, (res: any) => {
-            if (res === 'true' || res == 'false') {
-
+            if (res === 'true') {
               // we're ready to load the new version
               IonicCordova.deploy.redirect(() => {
                 callback(null, true)
               }, (e: any) => {handleError(e, callback)})
             } else {
-
               // It's a progress update
-              console.log('Extract progress:', res)
+              console.log(res)
             }
           }, (e: any) => {handleError(e, callback)})
         } else {
-
           // It's a progress update
-          console.log('Download progress:', res)
+          console.log(res)
         }
       }, (e: any) => {handleError(e, callback)})
     }
@@ -77,25 +70,29 @@ If you'd like to customize your Deploy setup, you can merely only perform the ca
 IonicCordova.deploy.init(config, success, failure)
 ```
 
-Initializes the plugin with an app ID and API host specified in js-land.  Can be used to change these variables at runtime
+Initializes the plugin with an app ID and API host specified in js-land.  Can be used to change these variables at runtime and overwrite the channel which is checked on startup.
 
 ```js
 IonicCordova.deploy.check(success, failure)
 ```
 
-Check for updates from a specified channel, will change the saved channel from the install step
+Check for updates from a specified channel, will change the saved channel from the install step.
 
 ```js
 IonicCordova.deploy.download(success, failure)
 ```
 
-If an update is present, download it
+If an update is present, download it.
+
+The `success` callback is fired with both `true` for completion and a number for percentage progress updates.
 
 ```js
 IonicCordova.deploy.extract(success, failure)
 ```
 
 If an update has been downloaded, extract it and set the default redirect location for next app start.
+
+The `success` callback is fired with both `true` for completion and a number for percentage progress updates.
 
 ```js
 IonicCordova.deploy.redirect(success, failure)

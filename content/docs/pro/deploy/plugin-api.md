@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-deploy
 id: pro-live-deploy-plugin-api
-title: Deploy PLugin API - Ionic Pro Documentation
+title: Deploy Plugin API - Ionic Pro Documentation
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

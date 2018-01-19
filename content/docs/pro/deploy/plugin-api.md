@@ -38,7 +38,7 @@ export function update(appId: string, channelName: string, callback: (err: any, 
       IonicCordova.deploy.download((res: any) => {
         if  (res === 'true') {
           // We can unzip the latest version
-          IonicCordova.deploy.extract(appId, (res: any) => {
+          IonicCordova.deploy.extract((res: any) => {
             if (res === 'true') {
               // we're ready to load the new version
               IonicCordova.deploy.redirect(() => {

@@ -63,6 +63,11 @@
 
   display: flex;
 
+  &::before,
+  &::after {
+    display: none;
+  }
+
   .hbspt-form {
     @include box;
     margin-bottom: 50px;

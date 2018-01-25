@@ -80,7 +80,10 @@ this.pro.deploy.info().then((res: DeployInfo) =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="deploy" href="#deploy"></a><code>deploy</code></h3>
+<h3><a class="anchor" name="deploy" href="#deploy"></a><code>deploy()</code></h3>
+
+
+
 
 Ionic Pro Deploy .js API.
 

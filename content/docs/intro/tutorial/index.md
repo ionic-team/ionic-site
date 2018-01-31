@@ -35,7 +35,7 @@ $ ionic start MyIonicProject tutorial
 
 Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
-Just accept next steps in CLI. You will be asked to link it with your account, but you don't need to  at this moment if you don't want to (select nevermind).
+During setup the CLI may ask if you want to integrate your new app with Cordova or install the free Ionic Pro SDK. For this tutorial you can choose "no."
 
 If the tutorial template isn't something you want to use, Ionic has a few templates available:
 
@@ -48,6 +48,7 @@ If the tutorial template isn't something you want to use, Ionic has a few templa
 - `aws`: AWS Mobile Hub Starter
 
 If you don't specify a template by running `ionic start MyIonicProject`, a selection list will appear for you to choose, with the [tabs template](https://github.com/ionic-team/ionic2-starter-tabs) as the first option.
+
 
 
 

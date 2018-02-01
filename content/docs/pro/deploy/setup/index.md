@@ -53,3 +53,11 @@ To push new updates to your app, first push a new build using the [Git Workflow]
 To get that new build live in your app using Deploy, there are two options. Either [manually deploy the build to the channel](/docs/pro/channels.html#deploying-to-a-channel) defined in the plugin above (the "Production" channel, by default), or, if you have specified a [specific git branch channel to auto-deploy](/docs/pro/channels.html#automating-deployment-from-a-git-branch), the Deploy plugin will auto update once the build has completed.
 
 <script src="https://fast.wistia.com/embed/medias/00mgfso2ak.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_00mgfso2ak" style="height:400px;width:640px">&nbsp;</div>
+
+## Developing With the Plugin
+
+When running the plugin in a development build of your app, you will see popup messages asking if you want to apply updates as they are downloaded.  This is to allow for active development using the code on your computer.  If you wish to disable this, simply run a release build of your app.
+
+On iOS you can toggle the build type In Xcode via **Product -> Scheme -> Edit Scheme**.
+
+On Android, you can create a release build with `ionic build android --release`

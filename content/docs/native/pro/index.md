@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -80,7 +80,10 @@ this.pro.deploy.info().then((res: DeployInfo) =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="deploy" href="#deploy"></a><code>deploy</code></h3>
+<h3><a class="anchor" name="deploy" href="#deploy"></a><code>deploy()</code></h3>
+
+
+
 
 Ionic Pro Deploy .js API.
 

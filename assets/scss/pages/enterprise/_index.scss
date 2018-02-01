@@ -170,6 +170,10 @@
       color: rgba(white, .8);
     }
 
+    .btn {
+      margin-top: 24px;
+    }
+
     hgroup,
     img {
       width: 46%;
@@ -178,7 +182,7 @@
         width: 100%;
       }
     }
-    
+
     img {
       float: right;
 
@@ -197,7 +201,7 @@
 
       p {
         line-height: 1.85em;
-        
+
         strong {
           font-weight: 500;
         }
@@ -237,7 +241,7 @@
 
   .modal-body {
     padding-bottom: 20px;
-    
+
     .hero {
       max-width: 400px;
       margin: 25px auto 0;

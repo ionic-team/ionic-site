@@ -63,6 +63,11 @@
 
   display: flex;
 
+  &::before,
+  &::after {
+    display: none;
+  }
+
   .hbspt-form {
     @include box;
     margin-bottom: 50px;
@@ -96,6 +101,7 @@
   &__aside {
     max-width: 33%;
     padding: 4em;
+    margin-left: auto;
 
     img {
       display: block;

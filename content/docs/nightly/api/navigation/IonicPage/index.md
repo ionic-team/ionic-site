@@ -204,7 +204,7 @@ export class ContactMoreInfoPage {
 </code></pre>
 <p>In this example, if the app is launched at <code>http://localhost:8101/#/contact/contact-more-info</code> the displayed page
 will be the <code>&#39;ContactMoreInfoPage&#39;</code>. It will show a back button that will go to the <code>&#39;ContactDetailPage&#39;</code> which
-will also show a back button which will go to the <code>&#39;Constact&#39;</code> page.</p>
+will also show a back button which will go to the <code>&#39;Contact&#39;</code> page.</p>
 <p>An example of an application with a set history stack is the Instagram application. Opening a link
 to an image on Instagram will show the details for that image with a back button to the user&#39;s profile
 page. There is no &quot;right&quot; way of setting the history for a page, it is up to the application.</p>

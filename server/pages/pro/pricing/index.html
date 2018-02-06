@@ -47,10 +47,7 @@
           <ul class="features">
             <li><strong>DevApp</strong> local device testing</li>
             <li><strong>View App</strong> public sharing</li>
-            <li ng-mouseover="freeHover = true" ng-mouseout="freeHover = false">
-              <strong>Live Deploy</strong> to <strong>20 MDU</strong>
-              {{ tippyMDU('freeHover', 'right') }}
-            </li>
+            <li><strong>100</strong> Live Deploys</li>
             <li><strong>Error</strong> monitoring</li>
             <li><strong>7 day</strong> error history</li>
             <li>Git-based workflow</li>
@@ -65,10 +62,7 @@
           <ul class="features">
             <li class="plus">Everything in Starter +</li>
             <li><strong>Creator</strong> rapid prototyping</li>
-            <li ng-mouseover="devHover = true" ng-mouseout="devHover = false">
-              <strong>Live Deploy</strong> to <strong>10,000 MDU</strong>
-              {{ tippyMDU('devHover', 'right') }}
-            </li>
+            <li><strong>10,000</strong> Live Deploys</li>
             <li><strong>View App</strong> private sharing</li>
             <li ng-mouseover="dph = true" ng-mouseout="dph = false">
               <strong>Package</strong> dev &amp; prod apps
@@ -81,6 +75,7 @@
                 </p>
               </tippy>
             </li>
+            <li><strong>Private</strong> View Feedback</li>
             <li><strong>60 day</strong> error history</li>
           </ul>
           <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}&plan=developer"
@@ -99,13 +94,11 @@
           <ul class="features">
             <li class="plus">Everything in Developer +</li>
             <li><strong>Organization</strong> account</li>
-            <li ng-mouseover="teamHover = true" ng-mouseout="teamHover = false">
-              <strong>Live Deploy</strong> to <strong>25,000 MDU</strong>
-              {{ tippyMDU('teamHover', 'left') }}
-            </li>
+            <li><strong>25,000</strong> Live Deploys</li>
             <li><strong>Team</strong> collaboration</li>
             <li><strong>Activity</strong> feed</li>
             <li><strong>90 day</strong> error history</li>
+            {# <li><strong>Ad Hoc App</strong> Package</li> #}
           </ul>
           <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}&plan=team"
              class="btn cta" id="btn-pricing-team">Buy now</a>
@@ -117,14 +110,12 @@
           <ul class="features">
             <li class="plus">Everything in Team +</li>
             <li><strong>Multiple</strong> teams</li>
-            <li ng-mouseover="bizHover = true" ng-mouseout="bizHover = false">
-              <strong>Live Deploy</strong> to <strong>100,000 MDU</strong>
-              {{ tippyMDU('bizHover', 'left') }}
-            </li>
+            <li><strong>50,000</strong> Live Deploys</li>
             <li><strong>App-level</strong> permissions</li>
             <li><strong>Live</strong> onboarding</li>
             <li><strong>Long-term</strong> error history</li>
             <li>&nbsp;</li>
+            {# <li><strong>Enterprise App</strong> Package</li> #}
           </ul>
           <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}&plan=business"
              class="btn cta" id="btn-pricing-business">Buy now</a>

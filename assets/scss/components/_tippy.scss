@@ -62,10 +62,24 @@ tippy {
         transform: rotate(135deg);
         border: none;
 	      background: linear-gradient(-45deg, #3b434f 50%, transparent 50%);
-        top: calc(50% - 7px);
+        top: calc(50% + 7px);
         left: -6px;
         right: auto;
       }
+    }
+
+    &.left {
+      left: auto;
+      right: 28px;
+
+      &::after {
+        left: auto;
+        right: -6px
+      }
+    }
+
+    &.bottom {
+      left: -170px;
     }
 
     p {

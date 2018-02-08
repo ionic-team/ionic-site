@@ -68,7 +68,7 @@ These can be controlled from the templates, or programmatically using the <a hre
 
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
-<p>To add a menu to an app, the <code>&lt;ion-menu&gt;</code> element should be added as a sibling to the <code>ion-nav</code> it will belongs
+<p>To add a menu to an app, the <code>&lt;ion-menu&gt;</code> element should be added as a sibling to the <code>ion-nav</code> it will belong
 to. A <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">local variable</a>
 should be added to the <code>ion-nav</code> and passed to the <code>ion-menu</code>s <code>content</code> property.</p>
 <p>This tells the menu what it is bound to and what element to watch for gestures.

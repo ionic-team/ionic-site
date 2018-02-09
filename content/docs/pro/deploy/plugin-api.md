@@ -14,7 +14,7 @@ Using the Pro Client you can interact with Deploy, change which Channel your app
 
 ## Setup the Pro Client
 
-Before you can use the Deploy API, you must set up the Pro Client inside of your app. Follow along with our [Pro Client Setup Guide](/docs/pro/basics/getting-started/#pro-client-setup).
+Before you can use the Deploy API, you must set up the Pro Client inside of your app. Follow along with our [Pro Client Setup Guide](/docs/pro/basics/getting-started/#pro-client-setup). You should be on at least `1.0.19` of `@ionic/pro`.
 
 ## Install the Ionic Cordova Plugin
 

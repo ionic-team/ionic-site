@@ -28,7 +28,7 @@ This lets you:
 
 ## Getting Started
 
-In order to use Ionic Monitoring you must set up the Pro Client inside of your app. Follow along with our [Pro Client Setup Guide](/docs/pro/basics/getting-started/#pro-client-setup).
+In order to use Ionic Monitoring you must set up the Pro Client inside of your app. Follow along with our [Pro Client Setup Guide](/docs/pro/basics/getting-started/#pro-client-setup). You should be on at least `1.0.19` of `@ionic/pro`.
 
 After the Pro Client is installed, you'll want to [Add a Source Map](#source-maps) You can also use the API below to manually capture errors and more.
 

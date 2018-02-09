@@ -36,9 +36,9 @@ Enabling USB debugging and Developer Mode can vary between devices, but is easy 
 To run or build your app for production, run
 
 ```bash
-ionic cordova run android --prod --release
+ionic cordova run android --prod
 # or
-ionic cordova build android --prod --release
+ionic cordova build android --prod
 ```
 
 This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play Store.

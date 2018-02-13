@@ -42,7 +42,7 @@ Improve this doc
 
 
 
-<p>The MenuController is a provider which makes it easy to control a <a href="../../Menu/Menu/">Menu</a>.
+<p>The MenuController is a provider which makes it easy to control a <a href="../../menu/Menu/">Menu</a>.
 Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
 The controller will grab a reference to the menu by the <code>side</code>, <code>id</code>, or, if neither
 of these are passed to it, it will grab the first menu it finds.</p>
@@ -54,7 +54,7 @@ of these are passed to it, it will grab the first menu it finds.</p>
 
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<p>Add a basic menu component to start with. See the <a href="../../Menu/Menu/">Menu</a> API docs
+<p>Add a basic menu component to start with. See the <a href="../../menu/Menu/">Menu</a> API docs
 for more information on adding menu components.</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
@@ -846,7 +846,7 @@ adapting to different screen sizes, for use in media queries</p>
 <h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#menus">Menu Component Docs</a>,
-<a href="../Menu">Menu API Docs</a><!-- end content block -->
+<a href="/docs/api/components/menu/Menu/">Menu API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

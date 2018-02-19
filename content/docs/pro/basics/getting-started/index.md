@@ -129,7 +129,7 @@ export class MyErrorHandler implements ErrorHandler {
     providers: [
         // ...
         IonicErrorHandler,
-        [{ provider: ErrorHandler, useClass: MyErrorHandler }]
+        [{ provide: ErrorHandler, useClass: MyErrorHandler }]
     ]
 })
 export class AppModule {}

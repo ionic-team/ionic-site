@@ -347,7 +347,7 @@
       text-align: left;
       padding-top: 100px;
       padding-bottom: 120px;
-      color: #272a2f;
+      color: #070f1a;
       min-height: 700px;
       position: relative;
 
@@ -414,14 +414,15 @@
 
 
     h3 {
-      font-size: 27px;
+      font-size: 36px;
+      font-weight: 700;
       letter-spacing: -.02em;
       margin-bottom: 30px;
     }
 
     h2 {
       color: #272a2f;
-      font-size: 25px;
+      font-size: 36px;
       margin-bottom: 23px;
       margin-top: 14px;
       font-weight: 700;
@@ -429,15 +430,16 @@
     }
 
     p {
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 16px;
+      font-weight: 600;
       letter-spacing: -.026em;
       line-height: 1.8em;
       margin-bottom: 30px;
-      color: rgba(black, .7);
+      color: #5e6777;
 
       strong {
-        font-weight: 600;
+        color: #272a2f;
+        font-weight: 700;
       }
 
       a {
@@ -475,12 +477,21 @@
   }
 
   #overview {
+    color: #272a2f;
     padding-top: 282px;
     padding-bottom: 67px;
 
     hgroup {
-      max-width: 650px;
+      max-width: 660px;
       margin: 0 auto 68px;
+
+      h3 {
+        color: #070f1a;
+      }
+
+      p {
+        font-size: 18px;
+      }
     }
 
     .features {
@@ -494,14 +505,12 @@
       h4 {
         font-size: 17px;
         text-transform: none;
-        font-weight: 600;
         letter-spacing: .001em;
         margin-top: 5px;
         margin-bottom: 13px;
       }
 
       p {
-        font-size: 16px;
         letter-spacing: -.015em;
       }
     }

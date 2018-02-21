@@ -1,8 +1,14 @@
 #page-products {
-  .navbar.transparent + .cta {
+  .sub-header > .container {
+    align-items: center;
+  }
+
+  > .cta {
     background: #0d1321 no-repeat center bottom;
     background-image: linear-gradient(to right, #11182a 0%, #060c17 100%);
     background-size: 100%;
+    margin-top: -138px;
+    padding-top: 138px;
 
     hgroup {
       text-align: center;

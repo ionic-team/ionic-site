@@ -1,4 +1,10 @@
 #page-products {
+
+  .cta,
+  main {
+    font-family: $font-family-eina;
+  }
+
   .sub-header > .container {
     align-items: center;
   }
@@ -12,13 +18,14 @@
 
     hgroup {
       text-align: center;
-      padding-bottom: 530px;
+      padding-bottom: 505px;
       position: relative;
       max-width: 830px;
 
       h1 {
         margin-top: 30px;
-        font-size: 37px;
+        font-size: 48px;
+        font-weight: 700;
         letter-spacing: -.038em;
         margin-bottom: 26px;
       }
@@ -29,11 +36,8 @@
         line-height: 1.8em;
         margin: 0 auto;
         font-size: 18px;
-        color: rgba(white, .8);
-
-        strong {
-          font-weight: 600;
-        }
+        font-weight: 600;
+        color: #a0abbf;
       }
 
       &::after {
@@ -48,27 +52,26 @@
       }
 
       .cta-buttons {
-        margin-top: 60px;
+        margin-top: 30px;
         padding-left:24px;
         padding-right:24px;
         color: white;
         letter-spacing: -.02em;
 
-        > .orange {
+        > .btn {
+          align-items: center;
+          background-color: #ffb016;
+          border-radius: 2em;
+          display: inline-flex;
+          font-size: 16px;
           font-weight: 700;
-          display: inline-block;
-          background: #ffb016;
           padding: 14px 20px;
 
-          &::after {
-            font-family: 'Ionicons';
+          &:after {
             content: '\f287';
-            font-size: 18px;
-            position: relative;
-            vertical-align: -2px;
-            line-height: 18px;
-            margin-left: 11px;
-            font-weight: 600;
+            font-family: 'Ionicons';
+            font-size: 14px;
+            margin-left: 0.25em;
           }
         }
 
@@ -114,7 +117,7 @@
       min-height: 64px;
       position: absolute;
       width: 100%;
-      top: 458px;
+      top: 490px;
       background: transparent;
 
       .container {
@@ -177,7 +180,7 @@
 
         li {
           float: left;
-          flex: 0 0 124px;
+          flex: 0 0 130px;
 
           a {
             color: rgba(white, .7);
@@ -253,7 +256,7 @@
       }
 
       + .bar {
-        top: 518px;
+        top: 545px;
 
         .categories li a {
           height: auto;

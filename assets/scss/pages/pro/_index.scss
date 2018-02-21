@@ -152,7 +152,7 @@
         right: 15px;
         padding:8px 16px;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
       }
 
       &.affix {
@@ -162,6 +162,7 @@
         background-image: linear-gradient(to right, #11182a 0%, #060c17 100%);
         background-size: 100%;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 1px 0 rgba(0, 0, 0, 0.05);
+        z-index: 1;
 
         .pro-logo,
         .btn {

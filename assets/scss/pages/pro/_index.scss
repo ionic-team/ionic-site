@@ -693,13 +693,11 @@
   }
 
   #updates {
-    background: #3d2e8d no-repeat center bottom;
-    background-image: linear-gradient(to right, #2a226d 0%, #5e41ba 100%);
+    background-color: #0d0f1c;
     background-size: 100%;
 
-    h4,
-    .btn {
-      color: #9f9fff;
+    h4 {
+      color: #657284;
 
       &::before { background-position: 0 -128px; }
     }

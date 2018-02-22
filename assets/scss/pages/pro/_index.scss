@@ -641,18 +641,18 @@
   }
 
   #testing {
-    background: #dee4ee;
+    background: #192434;
 
-    h4,
-    .btn {
-      color: #488aff;
+    h4 {
+      color: #707e92;
 
       &::before { background-position: 0 -64px; }
     }
 
     .container::before {
-        background-image: url('/img/pro/product-view-img.png');
-        background-position: left 0;
+        background-image: url('/img/pro/landing-hero-view.png');
+        background-position: top left;
+        background-size: 540px;
         top: 72px;
     }
 

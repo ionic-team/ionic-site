@@ -31,6 +31,12 @@ This will produce a debug build of your app, both in terms of Android and Ionic'
 
 Enabling USB debugging and Developer Mode can vary between devices, but is easy to look up with a Google search. You can also check out [Enabling On-device Developer Options](https://developer.android.com/studio/run/device.html#developer-device-options) in the Android docs.
 
+
+### Change you config file
+
+Before you build the release apk, go to your config.xml file and change the package id from "io.starter.ionic" to "io.----yourprojectname--.ionic" because playstore won't let you upload the APK because of same package name which is already present in it.
+
+
 ### Production Builds
 
 To run or build your app for production, run

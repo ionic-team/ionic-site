@@ -381,6 +381,22 @@
       }
     }
 
+    &__cta {
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 700;
+      padding-bottom: 4px;
+
+      &:after {
+        content: '\f287';
+        font-family: 'Ionicons';
+        font-size: 16px;
+        margin-left: 5px;
+      }
+    }
+
     .container {
       position: relative;
 

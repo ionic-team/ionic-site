@@ -734,14 +734,11 @@
   }
 
   #build {
-    background: #dd98ec no-repeat center bottom;
-    background-image: linear-gradient(to right, #b37df7 0%, #ffafe5 100%);
-    background-position: left 0;
-    background-size: 100%;
+    background-color: #f75982;
+    background-image: linear-gradient(90deg, #fff0f6 50%, #f75982 50%);
 
-    h4,
-    .btn {
-      color: #d2478c;
+    h4 {
+      color: #ffc2d2;
 
       &::before { background-position: 0 -192px; }
     }
@@ -754,7 +751,7 @@
     }
 
     .content {
-      padding-top: 193px;
+      padding-top: 140px;
     }
 
     @media (max-width: $screen-sm-max)  {

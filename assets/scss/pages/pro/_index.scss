@@ -343,7 +343,7 @@
     padding-bottom: 0;
 
     .content {
-      width: 37%;
+      width: 39%;
       text-align: left;
       padding-top: 100px;
       padding-bottom: 120px;
@@ -388,12 +388,17 @@
       font-size: 18px;
       font-weight: 700;
       padding-bottom: 4px;
+      transition: border-bottom-color 100ms ease-in-out;
 
       &:after {
         content: '\f287';
         font-family: 'Ionicons';
         font-size: 16px;
         margin-left: 5px;
+      }
+
+      &:hover {
+        border-bottom-color: transparent;
       }
     }
 
@@ -423,7 +428,7 @@
     h4 {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .18em;
+      letter-spacing: 0.2em;
       color: #272a2f;
       text-transform: uppercase;
       margin-bottom: 30px;
@@ -443,7 +448,7 @@
       margin-bottom: 23px;
       margin-top: 14px;
       font-weight: 700;
-      letter-spacing: -.002em;
+      letter-spacing: -.015em;
     }
 
     p {
@@ -581,21 +586,20 @@
   }
 
   #prototyping {
-    background: #f6f8fc;
+    background-color: #f6f8fc;
     overflow: visible;
 
     h4,
     .btn {
-      color: #2bb7ff;
+      color: #a1afcb;
     }
 
     .container::before {
-      background-image: url('/img/pro/product-creator-img.png');
-      top: -34px;
-
-      @media (max-width: $screen-md-max)  {
-        top: 24px;
-      }
+      background-image: url('/img/pro/landing-hero-creator.png');
+      background-position: center bottom -50px;
+      background-size: 100%;
+      left: 50%;
+      width: 950px;
     }
 
     .content {
@@ -792,7 +796,7 @@
 
     h4,
     .btn {
-      color: #00cd5f;
+      color: #607d79;
 
       &::before { background-position: 0 -256px; }
     }

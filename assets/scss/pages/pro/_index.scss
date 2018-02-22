@@ -365,7 +365,8 @@
       }
 
       h4 {
-        padding-top: 110px;
+        font-family: $font-family-monospace;
+        padding-top: 100px;
         position: relative;
 
         &::before {
@@ -409,7 +410,7 @@
       letter-spacing: .18em;
       color: #272a2f;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
 
 

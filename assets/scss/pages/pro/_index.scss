@@ -49,6 +49,7 @@
         height: 632px;
         bottom: -320px;
         left: calc(50% - 425px);
+        z-index: 1;
       }
 
       .cta-buttons {
@@ -499,6 +500,7 @@
   }
 
   #overview {
+    background-color: #f9fafc;
     color: #272a2f;
     padding-top: 282px;
     padding-bottom: 67px;
@@ -586,7 +588,7 @@
   }
 
   #prototyping {
-    background-color: #f6f8fc;
+    background-color: #ffffff;
     overflow: visible;
 
     h4,

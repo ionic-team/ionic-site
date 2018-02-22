@@ -790,9 +790,7 @@
   }
 
   #reporting {
-    background: #142f2d no-repeat center bottom;
-    background-image: linear-gradient(to right, #0e211f 0%, #142f2d 100%);
-    background-size: 100%;
+    background: #081b17;
 
     h4,
     .btn {
@@ -802,7 +800,7 @@
     }
 
     .container::before {
-        background-image: url('/img/pro/product-monitor-img.jpg');
+        background-image: url('/img/pro/product-monitor-img.png');
     }
 
     .content {

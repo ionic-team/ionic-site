@@ -663,8 +663,9 @@
 
     @media (max-width: $screen-sm-max)  {
       .container::before {
-        background-position: 0 bottom;
-        background-size: 240px;
+        background-position: center left;
+        background-size: contain;
+        left: -140px;
       }
 
       .content {

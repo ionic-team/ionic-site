@@ -885,26 +885,39 @@
   }
 
   .get-started {
-    background: #ecf0f7;
+    background: #eef2f8;
+    overflow: auto;
 
     .container {
-      display: flex;
       align-items: center;
+      display: flex;
+      margin-bottom: 110px;
+      margin-top: 110px;
     }
 
     hgroup {
-      padding-top: 92px;
-      padding-bottom: 80px;
+      letter-spacing: -.025em;
       flex-grow: 1;
     }
 
     h2 {
-      letter-spacing: -.05em;
+      color: $blue;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: inherit;
+      margin: 0 0 5px;
     }
 
     p {
-      font-size: 23px;
-      letter-spacing: -0.01em;
+      color: #24282e;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .btn {
+      font-size: 16px;
+      font-weight: 700;
     }
 
     @media (max-width: $screen-sm-max)  {

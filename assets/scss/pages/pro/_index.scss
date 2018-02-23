@@ -356,7 +356,8 @@
         color: rgba(white, .8);
 
         h2,
-        h4 {
+        h4,
+        .hero__cta {
           color: white;
         }
 
@@ -756,6 +757,7 @@
 
     @media (max-width: $screen-sm-max)  {
       .container::before {
+        background-size: 40%;
         top: 128px;
         bottom: 128px;
       }
@@ -763,11 +765,13 @@
       .content {
         padding-top: 64px;
         min-height: 0;
-        width: 60%;
+        width: 40%;
       }
     }
 
     @media (max-width: $screen-xs-max)  {
+      background-image: none;
+
       .container::before {
         display: none;
       }

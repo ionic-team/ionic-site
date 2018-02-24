@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/refresher/refresher.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/refresher/refresher.ts#L8">
 Improve this doc
 </a>
 
@@ -59,7 +59,7 @@ display or hide the refresher.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -120,15 +120,16 @@ custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="cancel"></div>
 
 <h3>
-<a class="anchor" name="cancel" href="#cancel"></a>
+<a class="anchor" name="cancel" href="#cancel">
 <code>cancel()</code>
   
 
+</a>
 </h3>
 
 Changes the refresher's state from `refreshing` to `cancelling`.
@@ -145,10 +146,11 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 <div id="complete"></div>
 
 <h3>
-<a class="anchor" name="complete" href="#complete"></a>
+<a class="anchor" name="complete" href="#complete">
 <code>complete()</code>
   
 
+</a>
 </h3>
 
 Call `complete()` when your async operation has completed.
@@ -171,10 +173,11 @@ the refresher. This method also changes the refresher's state from
 <div id="currentY"></div>
 
 <h3>
-<a class="anchor" name="currentY" href="#currentY"></a>
+<a class="anchor" name="currentY" href="#currentY">
 <code>currentY</code>
   
 
+</a>
 </h3>
 
 The current touch or mouse event's Y coordinate.
@@ -191,10 +194,11 @@ The current touch or mouse event's Y coordinate.
 <div id="deltaY"></div>
 
 <h3>
-<a class="anchor" name="deltaY" href="#deltaY"></a>
+<a class="anchor" name="deltaY" href="#deltaY">
 <code>deltaY</code>
   
 
+</a>
 </h3>
 
 The distance between the start of the pull and the current touch or
@@ -212,10 +216,11 @@ mouse event's Y coordinate.
 <div id="progress"></div>
 
 <h3>
-<a class="anchor" name="progress" href="#progress"></a>
+<a class="anchor" name="progress" href="#progress">
 <code>progress</code>
   
 
+</a>
 </h3>
 
 A number representing how far down the user has pulled.
@@ -238,10 +243,11 @@ position.
 <div id="startY"></div>
 
 <h3>
-<a class="anchor" name="startY" href="#startY"></a>
+<a class="anchor" name="startY" href="#startY">
 <code>startY</code>
   
 
+</a>
 </h3>
 
 The Y coordinate of where the user started to the pull down the content.
@@ -258,10 +264,11 @@ The Y coordinate of where the user started to the pull down the content.
 <div id="state"></div>
 
 <h3>
-<a class="anchor" name="state" href="#state"></a>
+<a class="anchor" name="state" href="#state">
 <code>state</code>
   
 
+</a>
 </h3>
 
 The current state which the refresher is in. The refresher's states include:
@@ -282,7 +289,7 @@ The current state which the refresher is in. The refresher's states include:
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -334,7 +341,7 @@ refresher can go into the <code>refreshing</code> state. Default is <code>60</co
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -369,7 +376,7 @@ you must call the <code>complete()</code> method when your async operation has c
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

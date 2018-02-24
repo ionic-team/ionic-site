@@ -11,11 +11,11 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/utils/platform.js#L17'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/utils/platform.js#L17'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/utils/platform.js#L17'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/utils/platform.js#L17'>
 Improve this doc
 </a>
 </div>
@@ -425,7 +425,7 @@ Exit the app.
 
 </h2>
 
-Shows or hides the device status bar (in Cordova). Requires `ionic plugin add cordova-plugin-statusbar`
+Shows or hides the device status bar (in Cordova). Requires `ionic cordova plugin add cordova-plugin-statusbar`
 
 
 
@@ -498,7 +498,7 @@ Sets whether the app is fullscreen or not (in Cordova).
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to set the app to fullscreen. Defaults to true. Requires <code>ionic plugin add cordova-plugin-statusbar</code></p>
+        <p>Whether or not to set the app to fullscreen. Defaults to true. Requires <code>ionic cordova plugin add cordova-plugin-statusbar</code></p>
 
         
       </td>

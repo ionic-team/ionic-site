@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-sliding.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item-sliding.ts#L38">
 Improve this doc
 </a>
 
@@ -53,7 +53,7 @@ a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding #item&gt;
@@ -104,15 +104,27 @@ to the (ionDrag)` event.</p>
 <h3 id="button-layout">Button Layout</h3>
 <p>If an icon is placed with text in the option button, by default it will
 display the icon on top of the text. This can be changed to display the icon
-to the left of the text by setting <code>icon-left</code> as an attribute on the
+to the left of the text by setting <code>icon-start</code> as an attribute on the
 <code>&lt;ion-item-options&gt;</code> element.</p>
-<pre><code class="lang-html">&lt;ion-item-options icon-left&gt;
+<pre><code class="lang-html">&lt;ion-item-options icon-start&gt;
   &lt;button ion-button (click)=&quot;archive(item)&quot;&gt;
     &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
     Archive
   &lt;/button&gt;
 &lt;/ion-item-options&gt;
 </code></pre>
+<h3 id="expandable-options">Expandable Options</h3>
+<p>Options can be expanded to take up the full width of the item if you swipe past
+a certain point. This can be combined with the <code>ionSwipe</code> event to call methods
+on the class.</p>
+<pre><code class="lang-html">&lt;ion-item-sliding (ionSwipe)=&quot;delete(item)&quot;&gt;
+  &lt;ion-item&gt;Item&lt;/ion-item&gt;
+  &lt;ion-item-options&gt;
+    &lt;button ion-button expandable (click)=&quot;delete(item)&quot;&gt;Delete&lt;/button&gt;
+  &lt;/ion-item-options&gt;
+&lt;/ion-item-sliding&gt;
+</code></pre>
+<p>We can call <code>delete</code> by either clicking the button, or by doing a full swipe on the item.</p>
 
 
 
@@ -123,15 +135,16 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
   
 
+</a>
 </h3>
 
 Close the sliding item. Items can also be closed from the [List](../../list/List).
@@ -176,7 +189,7 @@ export class MyClass {
 
 
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -211,7 +224,7 @@ It reports the relative position.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -710,7 +723,7 @@ It reports the relative position.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#lists">List Component Docs</a>,
 <a href="../Item">Item API Docs</a>,

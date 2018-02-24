@@ -33,8 +33,8 @@ search_sections: true
     To remedy this, remove your existing plugins and reinstall them. For each plugin, run:
   </p>
   {% highlight bash %}
-  cordova plugin rm cordova-plugin-statusbar
-  cordova plugin add cordova-plugin-statusbar
+  ionic cordova plugin rm cordova-plugin-statusbar
+  ionic cordova plugin add cordova-plugin-statusbar
   {% endhighlight %}
   <p>
     If this does not resolve the issue, please let us know if you might be using a cordova plugin that is faulty: <a href="https://docs.google.com/forms/d/163L7WP7Q8q6cSgJyfFn2RKUu0iyy3jlYqf94VvyKvNI/viewform?usp=send_form">Report Bad Cordova Plugin</a>
@@ -133,11 +133,11 @@ export PATH=/usr/local/bin:$PATH
         <p>
           If that doesn't work, <a href="http://www.genymotion.com/">Genymotion</a> is a great replacement. It uses a virtual machine to emulate android devices and does it nearly perfectly. One thing to remember, if you want to deploy to a genymotion device, your computer will treat it as an actual connect machine. So instead of running</p>
         {% highlight bash %}
-        $ ionic emulate android
+        $ ionic cordova emulate android
         {% endhighlight %}
         <p>Use <code>run</code> instead.</p>
         {% highlight bash %}
-        $ ionic run android
+        $ ionic cordova run android
       {% endhighlight %}
         <hr>
 </section>
@@ -164,7 +164,7 @@ export PATH=/usr/local/bin:$PATH
 
   <h3 class="title"><a href="#ios-emulate">Starting the iOS Simulator</a></h3>
 
-  <p>Starting an iOS emulator from the command line is a really powerful feature. It gets rid of the need to open up Xcode and keeps a nice terminal-only workflow. But when you try to use <code>ionic emulate ios</code> it throws an awful error.</p>
+  <p>Starting an iOS emulator from the command line is a really powerful feature. It gets rid of the need to open up Xcode and keeps a nice terminal-only workflow. But when you try to use <code>ionic cordova emulate ios</code> it throws an awful error.</p>
       {% highlight bash %}Error: ios-sim was not found. Please download, build and install version 1.7 or greater from https://github.com/phonegap/ios-sim into your path. Or 'npm install -g ios-sim'; using node.js: http://nodejs.org/
 {% endhighlight %}
         <p>Well this is because you need to install a utility package called ios-sim. This package allows you to access the iOS simulator from the command line. This can be installed with a simple <code>npm install</code>.</p>
@@ -214,7 +214,7 @@ export PATH=/usr/local/bin:$PATH
         {% highlight bash %}
           Current Working Directory is not Cordova-based project
 {% endhighlight %}
-        <p>At this point you’re unable to do anything further with your project. So why does this happen? Various reason, but mostly something gets corrupted with your environment configuration. You can see a <a href="https://github.com/driftyco/ionic/issues/2213#issuecomment-55912785">thread</a> where this happened for one particular user.</p>
+        <p>At this point you’re unable to do anything further with your project. So why does this happen? Various reason, but mostly something gets corrupted with your environment configuration. You can see a <a href="https://github.com/ionic-team/ionic/issues/2213#issuecomment-55912785">thread</a> where this happened for one particular user.</p>
         <p>For his case, the solution was to run</p>
         {% highlight bash %}
           $ cordova create .
@@ -235,8 +235,8 @@ export PATH=/usr/local/bin:$PATH
 {% endhighlight %}
         <p>Great, but when you try to do anything in a project, you’ll get an error. Well this is because there are actually different versions of Cordova for each platform. So from inside your project you need to run Cordova’s update command.</p>
         {% highlight bash %}
-        $ cordova platform update ios
-$ cordova platform update android
+        $ ionic cordova platform update ios
+        $ ionic cordova platform update android
 {% endhighlight %}
         <p>Now all your platform specific versions of Cordova are updated.</p>
         <hr>
@@ -252,7 +252,7 @@ $ cordova platform update android
   <h3 class="title"><a href="#windows">Windows and Git</a></h3>
   <p>So you found this awesome plugin on github that you want to use for your app. So lets try to install it.</p>
         {% highlight bash %}
-          ionic plugin add http://github.com/user/awesome-plugin
+          ionic cordova plugin add http://github.com/user/awesome-plugin
 {% endhighlight %}
         <p>But then another error comes up. Whats going on? So something that Cordova doesn’t mention is that you need to have git setup for installing plugins from Github. Something like this can easily be overlooked, but thankfully it’s as easy to fix. Just visit <a href="http://git-scm.com/">the git website</a>, install and set up git, and you’re good to go.</p>
         <hr>
@@ -273,7 +273,7 @@ $ cordova platform update android
   <h3 class="title"><a href="#hool=ks">Incorrect Hook Permissions</a></h3>
   <p>If, instead, you see an error like this (as described in this <a href="https://forum.ionicframework.com/t/how-to-fix-this-error-spawn-eacces/20490">Ionic Forum</a> post):</p>
   {% highlight bash %}
-  cordova emulate ios
+  ionic cordova emulate ios
   running cordova emulate ios
   Running command: /Users/username/myApp/hooks/after_prepare/010_add_platform_class.js /Users/username/myApp
   Error: spawn EACCES

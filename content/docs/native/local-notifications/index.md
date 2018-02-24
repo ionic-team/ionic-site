@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L91">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L96">
   Improve this doc
 </a>
+
 
 
 
@@ -32,10 +33,10 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.local-notification
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-local-notification
 $ npm install --save @ionic-native/local-notifications
 </code></pre>
   </li>
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/local-notifications
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/local-notifications
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { LocalNotifications } from &#39;@ionic-native/local-notifications&#39;;
 
 
@@ -102,7 +103,7 @@ this.localNotifications.schedule({
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
 
 
@@ -521,6 +522,45 @@ Sets a callback for a specific event
   </tbody>
 </table>
 
+<h3><a class="anchor" name="un" href="#un"></a><code>un(eventName,&nbsp;callback)</code></h3>
+
+
+
+
+Removes a callback of a specific event
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
 
 
 
@@ -751,6 +791,20 @@ Default: false</li>
       <p>ANDROID ONLY
 ARGB value that you would like the LED on the device to blink
 Default: FFFFFF</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      priority
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Notification priority.</p>
 
       <em>(optional)</em>
     </td>

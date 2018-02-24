@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/menu/menu.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/menu/menu.ts#L17">
 Improve this doc
 </a>
 
@@ -49,14 +49,14 @@ view. By default, it slides in from the left, but the side can be overridden. Th
 will be displayed differently based on the mode, however the display type can be changed
 to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
 to the app&#39;s content element. There can be any number of menus attached to the content.
-These can be controlled from the templates, or programmatically using the <a href="../app/MenuController">MenuController</a>.</p>
+These can be controlled from the templates, or programmatically using the <a href="../../app/MenuController">MenuController</a>.</p>
 
 
 
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
@@ -171,7 +171,7 @@ and usage information.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -236,7 +236,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -268,7 +268,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -433,7 +433,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#menus">Menu Component Docs</a>,
 <a href="../../app/MenuController">MenuController API Docs</a>,

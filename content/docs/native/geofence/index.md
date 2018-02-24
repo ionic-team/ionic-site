@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Geofence</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
   Improve this doc
 </a>
+
 
 
 
@@ -27,13 +28,13 @@ Geofences persist after device reboot. Geofences will be monitored even when the
 
 
 <p>Repo:
-  <a href="https://github.com/cowbell/cordova-plugin-geofence/">
-    https://github.com/cowbell/cordova-plugin-geofence/
+  <a href="https://github.com/cowbell/cordova-plugin-geofence">
+    https://github.com/cowbell/cordova-plugin-geofence
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
@@ -45,9 +46,9 @@ $ npm install --save @ionic-native/geofence
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows Phone</li>
+  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/geofence
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Geofence } from &#39;@ionic-native/geofence&#39;;
 
 ...
@@ -120,7 +121,7 @@ private addGeofence() {
 <h3 id="troubleshooting">Troubleshooting</h3>
 <h4 id="i-get-compile-errors-when-i-run-ionic-build-ios-or-ionic-run-ios-">I get compile errors when I run <code>ionic build ios</code> or <code>ionic run ios</code>.</h4>
 <p>This could be caused by the Cordova project directory in <code>/platforms/ios</code> not being named correctly.
-Try running <code>ionic platform rm &lt;platform&gt;</code> then run <code>ionic platform add &lt;platform&gt;</code> to recreate the
+Try running <code>ionic cordova platform rm &lt;platform&gt;</code> then run <code>ionic cordova platform add &lt;platform&gt;</code> to recreate the
 platform directories.</p>
 
 
@@ -130,13 +131,13 @@ platform directories.</p>
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="TransitionType" href="#TransitionType"></a><code>TransitionType</code></h3>
 
 
 
 
-<h3><a class="anchor" name="onTrasitionReceived" href="#onTrasitionReceived"></a><code>onTrasitionReceived()</code></h3>
+<h3><a class="anchor" name="onTransitionReceived" href="#onTransitionReceived"></a><code>onTransitionReceived()</code></h3>
 
 
 Subscribe to get notified when a transition is received
@@ -196,15 +197,6 @@ Returns an array of geofences currently being monitored.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;string&gt;&gt;</code> 
-</div><h3><a class="anchor" name="onTransitionReceived" href="#onTransitionReceived"></a><code>onTransitionReceived()</code></h3>
-
-Called when a geofence is crossed in the direction specified by `TransitType`.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="onNotificationClicked" href="#onNotificationClicked"></a><code>onNotificationClicked()</code></h3>
 
 Called when the user clicks a geofence notification. iOS and Android only.

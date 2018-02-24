@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toolbar/navbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/toolbar/navbar.ts#L7">
 Improve this doc
 </a>
 
@@ -56,7 +56,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-header&gt;
 
@@ -88,15 +88,16 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="backButtonClick"></div>
 
 <h3>
-<a class="anchor" name="backButtonClick" href="#backButtonClick"></a>
+<a class="anchor" name="backButtonClick" href="#backButtonClick">
 <code>backButtonClick()</code>
   
 
+</a>
 </h3>
 
 
@@ -112,10 +113,11 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <div id="setBackButtonText"></div>
 
 <h3>
-<a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
+<a class="anchor" name="setBackButtonText" href="#setBackButtonText">
 <code>setBackButtonText()</code>
   
 
+</a>
 </h3>
 
 Set the text of the Back Button in the Nav Bar. Defaults to "Back".
@@ -129,7 +131,7 @@ Set the text of the Back Button in the Nav Bar. Defaults to "Back".
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -151,7 +153,7 @@ Set the text of the Back Button in the Nav Bar. Defaults to "Back".
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -506,7 +508,7 @@ Set the text of the Back Button in the Nav Bar. Defaults to "Back".
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="../../toolbar/Toolbar/">Toolbar API Docs</a><!-- end content block -->
 

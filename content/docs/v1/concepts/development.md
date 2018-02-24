@@ -18,9 +18,9 @@ npm install -g ionic
 After that, you can start an app using one of our starter templates, or start from scratch, using the command 
 
 ```bash
-ionic start myApp blank
-ionic start myApp tabs 
-ionic start myApp sidemenu
+ionic start myApp blank --type ionic1
+ionic start myApp tabs --type ionic1
+ionic start myApp sidemenu --type ionic1
 ```
 
 You can also use a github or codepen URL to start a project from a cool example you may find. 
@@ -30,9 +30,9 @@ During the development process, be sure to test on devices often. While Ionic ma
 To test on a device, first add the platform:
 
 ```bash
-ionic platform add ios 
+ionic cordova platform add ios 
 # or 
-ionic platform add android
+ionic cordova platform add android
 ```
 
-Then run the command `ionic run android` or `ionic run ios`. If you have the device plugged in, it will run on the device. Otherwise, it will start the respective device’s emulator. Note that the npm package `ios-sim` must be installed for the iOS simulator to be started from the command line.
+Then run the command `ionic cordova run android` or `ionic cordova run ios`. If you have the device plugged in, it will run on the device. Otherwise, it will start the respective device’s emulator. Note that the npm package `ios-sim` must be installed for the iOS simulator to be started from the command line.

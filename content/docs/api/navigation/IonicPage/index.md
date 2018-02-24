@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -31,7 +31,7 @@ IonicPage
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/ionic-page.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/navigation/ionic-page.ts#L9">
 Improve this doc
 </a>
 
@@ -58,7 +58,7 @@ over the world.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>The first step to setting up deep links is to add the page that should be
 a deep link in the <code>IonicPageModule.forChild</code> import of the page&#39;s module.

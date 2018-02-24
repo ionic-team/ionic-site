@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L50">
   Improve this doc
 </a>
 
@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>Showing camera preview in HTML</p>
 <p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
 
@@ -39,7 +40,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera-preview
@@ -51,7 +52,7 @@ $ npm install --save @ionic-native/camera-preview
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -61,7 +62,7 @@ $ npm install --save @ionic-native/camera-preview
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
 
 constructor(private cameraPreview: CameraPreview) { }
@@ -130,7 +131,7 @@ this.cameraPreview.stopCamera();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="FOCUS_MODE" href="#FOCUS_MODE"></a><code>FOCUS_MODE</code></h3>
 
 
@@ -746,6 +747,20 @@ Set specific focus point. Note, this assumes the camera is full-screen.
     </td>
     <td>
       <p>Alpha channel of the preview box, float, [0,1], default 1</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tapToFocus
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Tap to set specific focus point. Note, this assumes the camera is full-screen. default false</p>
 
       <em>(optional)</em>
     </td>

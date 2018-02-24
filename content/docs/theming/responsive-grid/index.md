@@ -14,7 +14,7 @@ next_page_link: /docs/theming/theming-your-app/
 ---
 
 <h1 class="title">Responsive Grid</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/responsive-grid/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/theming/responsive-grid/index.md'>
   Improve this doc
 </a>
 
@@ -692,7 +692,7 @@ attributes to the row. For a list of available attributes, see
 
 Columns can also align themselves differently than other columns by
 adding the alignment attribute directly to the column. For a list of available
-attributes, see [column attributes](../Col#column-attributes).
+attributes, see [column attributes](#column-attributes).
 
 <ion-grid>
   <ion-row>
@@ -750,7 +750,7 @@ attributes, see [column attributes](../Col#column-attributes).
 
 All columns can be horizontally aligned inside of a row by adding different
 attributes to the row. For a list of available attributes, see
-[row attributes](../Row#row-attributes).
+[row attributes](#row-attributes).
 
 <ion-grid>
   <ion-row justify-content-start>

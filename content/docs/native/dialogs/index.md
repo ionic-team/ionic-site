@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Dialogs</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L16">
   Improve this doc
 </a>
+
 
 
 
@@ -27,13 +28,13 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-dialogs.git">
-    https://github.com/apache/cordova-plugin-dialogs.git
+  <a href="https://github.com/apache/cordova-plugin-dialogs">
+    https://github.com/apache/cordova-plugin-dialogs
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-dialogs
@@ -45,9 +46,9 @@ $ npm install --save @ionic-native/dialogs
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/dialogs
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Dialogs } from &#39;@ionic-native/dialogs&#39;;
 
 constructor(private dialogs: Dialogs) { }
@@ -74,7 +75,7 @@ this.dialogs.alert(&#39;Hello world&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="alert" href="#alert"></a><code>alert(message,&nbsp;title,&nbsp;buttonName)</code></h3>
 
 
@@ -180,7 +181,7 @@ Displays a customizable confirmation dialog box.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked. Note that the index use one-based indexing.
+  <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked, or 0 if the user has dismissed the dialog by clicking outside the dialog box. Note that the index use one-based indexing.
 </div><h3><a class="anchor" name="prompt" href="#prompt"></a><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code></h3>
 
 

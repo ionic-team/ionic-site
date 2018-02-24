@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/input/input.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/input/input.ts#L26">
 Improve this doc
 </a>
 
@@ -62,7 +62,7 @@ can be attached and will function as expected.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
@@ -113,15 +113,36 @@ can be attached and will function as expected.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
+
+<div id="ngAfterContentInit"></div>
+
+<h3>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit">
+<code>ngAfterContentInit()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="ngControl"></div>
 
 <h3>
-<a class="anchor" name="ngControl" href="#ngControl"></a>
+<a class="anchor" name="ngControl" href="#ngControl">
 <code>ngControl</code>
   
 
+</a>
 </h3>
 
 
@@ -134,7 +155,7 @@ can be attached and will function as expected.</p>
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -146,6 +167,20 @@ can be attached and will function as expected.</p>
   <tbody>
     
     <tr>
+      <td>autocomplete</td>
+      <td><code>string</code></td>
+      <td><p> Set the input&#39;s autocomplete property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>autocorrect</td>
+      <td><code>string</code></td>
+      <td><p> Set the input&#39;s autocorrect property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>clearInput</td>
       <td><code>boolean</code></td>
       <td><p> If true, a clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
@@ -155,14 +190,8 @@ can be attached and will function as expected.</p>
     <tr>
       <td>clearOnEdit</td>
       <td><code>boolean</code></td>
-      <td><p> If true, the value will be cleared after focus upon edit. Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quot;</code>, <code>false</code> for all other types.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
+      <td><p> If true, the value will be cleared after focus upon edit.
+Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quot;</code>, <code>false</code> for all other types.</p>
 </td>
     </tr>
     
@@ -204,39 +233,8 @@ can be attached and will function as expected.</p>
     <tr>
       <td>type</td>
       <td><code>string</code></td>
-      <td><p> The type of control to display. The default type is text. Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, or <code>&quot;url&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>value</td>
-      <td><code>string</code></td>
-      <td><p> The text value of the input.</p>
-</td>
-    </tr>
-    
-  </tbody>
-</table>
-<!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>blur</td>
-      <td><p> Emitted when the input no longer has focus.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>focus</td>
-      <td><p> Emitted when the input has focus.</p>
+      <td><p> The type of control to display. The default type is text.
+Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, or <code>&quot;url&quot;</code>.</p>
 </td>
     </tr>
     
@@ -244,7 +242,7 @@ can be attached and will function as expected.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

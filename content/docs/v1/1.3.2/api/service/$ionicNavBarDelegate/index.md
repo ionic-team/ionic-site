@@ -11,11 +11,11 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/navBarDelegate.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/service/navBarDelegate.js#L2'>
 View Source
 </a>
 &nbsp;
-<a href='https://github.com/driftyco/ionic-v1/edit/master/js/angular/service/navBarDelegate.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/edit/master/js/angular/service/navBarDelegate.js#L2'>
 Improve this doc
 </a>
 </div>

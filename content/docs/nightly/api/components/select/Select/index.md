@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/select/select.ts#L15">
 Improve this doc
 </a>
 
@@ -54,14 +54,18 @@ given a <code>value</code> attribute then it will use its text as the value.</p>
 <p>If <code>ngModel</code> is bound to <code>ion-select</code>, the selected value will be based on the
 bound value of the model. Otherwise, the <code>selected</code> attribute can be used on
 <code>ion-option</code> components.</p>
-<h3 id="interfaces">Interfaces</h3>
+<h3><a class="anchor" name="interfaces" href="#interfaces">Interfaces</a></h3>
+
+
 <p>By default, the <code>ion-select</code> uses the <a href="../../alert/AlertController">AlertController API</a>
 to open up the overlay of options in an alert. The interface can be changed to use the
 <a href="../../action-sheet/ActionSheetController">ActionSheetController API</a> or
 <a href="../../popover/PopoverController">PopoverController API</a> by passing <code>action-sheet</code> or <code>popover</code>,
 respectively, to the <code>interface</code> property. Read on to the other sections for the limitations
 of the different interfaces.</p>
-<h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
+<h3><a class="anchor" name="single-value-radio-buttons" href="#single-value-radio-buttons">Single Value: Radio Buttons</a></h3>
+
+
 <p>The standard <code>ion-select</code> component allows the user to select only one
 option. When selecting only one option the alert interface presents users with
 a radio button styled list of options. The action sheet interface can only be
@@ -76,7 +80,9 @@ component&#39;s value receives the value of the selected option&#39;s value.</p>
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="multiple-value-checkboxes">Multiple Value: Checkboxes</h3>
+<h3><a class="anchor" name="multiple-value-checkboxes" href="#multiple-value-checkboxes">Multiple Value: Checkboxes</a></h3>
+
+
 <p>By adding the <code>multiple=&quot;true&quot;</code> attribute to <code>ion-select</code>, users are able
 to select multiple options. When multiple options can be selected, the alert
 overlay presents users with a checkbox styled list of options. The
@@ -96,7 +102,8 @@ a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="select-buttons">Select Buttons</h3>
+<h3><a class="anchor" name="select-buttons" href="#select-buttons">Select Buttons</a></h3>
+
 <p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. Each button&#39;s text
 can be customized using the <code>cancelText</code> and <code>okText</code> attributes:</p>
 <pre><code class="lang-html">&lt;ion-select okText=&quot;Okay&quot; cancelText=&quot;Dismiss&quot;&gt;
@@ -106,7 +113,9 @@ can be customized using the <code>cancelText</code> and <code>okText</code> attr
 <p>The <code>action-sheet</code> and <code>popover</code> interfaces do not have an <code>OK</code> button, clicking
 on any of the options will automatically close the overlay and select
 that value.</p>
-<h3 id="select-options">Select Options</h3>
+<h3><a class="anchor" name="select-options" href="#select-options">Select Options</a></h3>
+
+
 <p>Since <code>ion-select</code> uses the <code>Alert</code>, <code>Action Sheet</code> and <code>Popover</code> interfaces, options can be
 passed to these components through the <code>selectOptions</code> property. This can be used
 to pass a custom title, subtitle, css class, and more. See the
@@ -125,6 +134,26 @@ for the properties that each interface accepts.</p>
   mode: &#39;md&#39;
 };
 </code></pre>
+<h3><a class="anchor" name="object-value-references" href="#object-value-references">Object Value References</a></h3>
+
+
+<p>When using objects for select values, it is possible for the identities of these objects to
+change if they are coming from a server or database, while the selected value&#39;s identity
+remains the same. For example, this can occur when an existing record with the desired object value
+is loaded into the select, but the newly retrieved select options now have different identities. This will
+result in the select appearing to have no value at all, even though the original selection in still intact.</p>
+<p>Using the <code>compareWith</code> <code>Input</code> is the solution to this problem</p>
+<pre><code class="lang-html">&lt;ion-item&gt;
+  &lt;ion-label&gt;Employee&lt;/ion-label&gt;
+  &lt;ion-select [(ngModel)]=&quot;employee&quot; [compareWith]=&quot;compareFn&quot;&gt;
+    &lt;ion-option *ngFor=&quot;let employee of employees&quot; [value]=&quot;employee&quot;&gt;{{employee.name}}&lt;/ion-option&gt;
+  &lt;/ion-select&gt;
+&lt;/ion-item&gt;
+</code></pre>
+<pre><code class="lang-ts">compareFn(e1: Employee, e2: Employee): boolean {
+  return e1 &amp;&amp; e2 ? e1.id === e2.id : e1 === e2;
+}
+</code></pre>
 
 
 
@@ -138,15 +167,16 @@ for the properties that each interface accepts.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
   
 
+</a>
 </h3>
 
 Close the select interface.
@@ -163,10 +193,11 @@ Close the select interface.
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -182,10 +213,11 @@ Close the select interface.
 <div id="deepLinker"></div>
 
 <h3>
-<a class="anchor" name="deepLinker" href="#deepLinker"></a>
+<a class="anchor" name="deepLinker" href="#deepLinker">
 <code>deepLinker</code>
   
 
+</a>
 </h3>
 
 
@@ -201,10 +233,11 @@ Close the select interface.
 <div id="open"></div>
 
 <h3>
-<a class="anchor" name="open" href="#open"></a>
+<a class="anchor" name="open" href="#open">
 <code>open()</code>
   
 
+</a>
 </h3>
 
 Open the select interface.
@@ -221,10 +254,11 @@ Open the select interface.
 <div id="options"></div>
 
 <h3>
-<a class="anchor" name="options" href="#options"></a>
+<a class="anchor" name="options" href="#options">
 <code>options</code>
   
 
+</a>
 </h3>
 
 
@@ -237,7 +271,7 @@ Open the select interface.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -252,6 +286,13 @@ Open the select interface.
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>compareWith</td>
+      <td><code>Function</code></td>
+      <td><p> The function that will be called to compare object values</p>
 </td>
     </tr>
     
@@ -303,7 +344,7 @@ create options for each interface.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -323,7 +364,7 @@ create options for each interface.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

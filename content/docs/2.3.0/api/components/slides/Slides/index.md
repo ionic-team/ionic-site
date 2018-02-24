@@ -35,7 +35,7 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master//src/components/slides/slides.ts#L12">
 Improve this doc
 </a>
 
@@ -929,7 +929,7 @@ class MyPage {
 }
 </code></pre>
 <p>To see all of the available options, take a look at the
-<a href="https://github.com/driftyco/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
+<a href="https://github.com/ionic-team/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
 
 
 

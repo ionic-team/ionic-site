@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Diagnostic</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L1">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova.plugins.diagnostic
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/diagnostic
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/diagnostic
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Diagnostic } from &#39;@ionic-native/diagnostic&#39;;
 
 constructor(private diagnostic: Diagnostic) { }
@@ -86,7 +87,7 @@ this.diagnostic.getBluetoothState()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="permission" href="#permission"></a><code>permission</code></h3>
 
 
@@ -119,6 +120,12 @@ this.diagnostic.getBluetoothState()
 
 
 <h3><a class="anchor" name="NFCState" href="#NFCState"></a><code>NFCState</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="motionStatus" href="#motionStatus"></a><code>motionStatus</code></h3>
 
 
 
@@ -191,7 +198,7 @@ On Android this requires permission <uses-permission android:name="android.permi
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Displays the device location settings to allow user to enable location services/change location mode.
@@ -1226,6 +1233,48 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isDataRoamingEnabled" href="#isDataRoamingEnabled"></a><code>isDataRoamingEnabled()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device data roaming setting is enabled.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="isADBModeEnabled" href="#isADBModeEnabled"></a><code>isADBModeEnabled()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device setting for ADB(debug) is switched on.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="isDeviceRooted" href="#isDeviceRooted"></a><code>isDeviceRooted()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device is rooted.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
 </div><h3><a class="anchor" name="isCameraRollAuthorized" href="#isCameraRollAuthorized"></a><code>isCameraRollAuthorized()</code></h3>
 
 
@@ -1275,7 +1324,7 @@ Calling it when in any other state will have no effect.
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;</p>
 
 
 Checks if remote (push) notifications are enabled.
@@ -1298,6 +1347,21 @@ Indicates if the app is registered for remote (push) notifications on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="getRemoteNotificationsAuthorizationStatus" href="#getRemoteNotificationsAuthorizationStatus"></a><code>getRemoteNotificationsAuthorizationStatus()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Returns the authorization status for the application to use Remote Notifications.
+Note: Works on iOS 10+ only (iOS 9 and below will invoke the error callback).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="getRemoteNotificationTypes" href="#getRemoteNotificationTypes"></a><code>getRemoteNotificationTypes()</code></h3>
 
 
@@ -1430,7 +1494,7 @@ therefore, if the device supports motion tracking but not Pedometer Event Tracki
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestAndCheckMotionAuthorization" href="#requestAndCheckMotionAuthorization"></a><code>requestAndCheckMotionAuthorization()</code></h3>
+</div><h3><a class="anchor" name="requestMotionAuthorization" href="#requestMotionAuthorization"></a><code>requestMotionAuthorization()</code></h3>
 
 
 
@@ -1438,15 +1502,32 @@ therefore, if the device supports motion tracking but not Pedometer Event Tracki
   <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
-Requests and checks motion authorization for the application: there is no way to independently request only or check only, so both must be done in one operation.
+Requests motion tracking authorization for the application.
 
-Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestandcheckmotionauthorization)
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestmotionauthorization)
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+</div><h3><a class="anchor" name="getMotionAuthorizationStatus" href="#getMotionAuthorizationStatus"></a><code>getMotionAuthorizationStatus()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Checks motion authorization status for the application.
+
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#getmotionauthorizationstatus)
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
 
 

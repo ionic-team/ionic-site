@@ -9,9 +9,9 @@ header_sub_title: Getting Started with Ionic
 
 # Deploying to a Device
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
-Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](http://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
+Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](https://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
 
 ## Android Devices
 
@@ -25,7 +25,7 @@ Deploying to an Android device is a fairly straightforward process. If you have 
 
 ### Running Your App
 
-To run your app, all you have to do is enable USB debugging and Developer Mode on your Android device, then run `ionic run android --device` from the command line.
+To run your app, all you have to do is enable USB debugging and Developer Mode on your Android device, then run `ionic cordova run android --device` from the command line.
 
 This will produce a debug build of your app, both in terms of Android and Ionic's code
 
@@ -36,9 +36,9 @@ Enabling USB debugging and Developer Mode can vary between devices, but is easy 
 To run or build your app for production, run
 
 ```bash
-ionic run android --prod --release
+ionic cordova run android --prod --release
 # or
-ionic build android --prod --release
+ionic cordova build android --prod --release
 ```
 
 This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play Store.
@@ -51,14 +51,14 @@ Let’s generate your private key using the keytool command that comes with the 
 ```bash
 keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 ```
-You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jsk created in the current directory.
+You’ll first be prompted to create a password for the keystore. Then, answer the rest of the nice tools’s questions and when it’s all done, you should have a file called my-release-key.jks created in the current directory.
 
 __Note__: Make sure to save this file somewhere safe, if you lose it you won’t be able to submit updates to your app!
 
 To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
 
 ```bash
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jsk android-release-unsigned.apk alias_name
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk my-alias
 ```
 
 This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
@@ -93,7 +93,7 @@ To start, you'll need to set up a provisioning profile to code sign your apps.
 
 #### Using an Apple ID
 
-1. Open Xode preferences (Xcode > Preferences...)
+1. Open Xcode preferences (Xcode > Preferences...)
 2. Click the 'Accounts' tab
 3. Login with your Apple ID (+ > Add Apple ID...)
 
@@ -107,7 +107,7 @@ Creating a provisioning profile with a paid Apple Developer account is a little 
 
 ### Running Your App
 
-1. Run a production build of your app with `ionic build ios --prod`
+1. Run a production build of your app with `ionic cordova build ios --prod`
 2. Open the `.xcodeproj` file in `platforms/ios/` in Xcode
 3. Connect your phone via USB and select it as the run target
 4. Click the play button in Xcode to try to run your app
@@ -157,4 +157,4 @@ To get past this, we have to tell our iOS device to trust the certificate we cod
 
 <img src="/img/docs/deploying/verify.jpg">
 
-Now, go back to Xcode and hit that play button or run `ionic run ios --device` from the command line to install and launch your app on your iOS device.
+Now, go back to Xcode and hit that play button or run `ionic cordova run ios --device` from the command line to install and launch your app on your iOS device.

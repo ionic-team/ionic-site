@@ -8462,7 +8462,7 @@ System.register("ionic/components/app/id", ["angular2/core", "./app"], function 
      * no matter where in the UI heirarchy you are. For example, this makes toggling
      * a global side menu feasible from any place in the application.
      *
-     * See the [Menu section](http://ionicframework.com/docs/components/#menus) of
+     * See the [Menu section](https://ionicframework.com/docs/components/#menus) of
      * the Component docs for an example of how Menus rely on ID's.
      *
      * @usage
@@ -14854,7 +14854,7 @@ System.register("ionic/components/overlay/overlay", ["angular2/core"], function 
 
                 // deprecated warning
                 console.warn('<ion-overlay> is no longer needed and can be safely removed.');
-                console.warn('https://github.com/driftyco/ionic2/blob/master/CHANGELOG.md#overlay-refactor');
+                console.warn('https://github.com/ionic-team/ionic2/blob/master/CHANGELOG.md#overlay-refactor');
                 console.warn('See the v2 docs for an update on how overlays work.');
             };
 

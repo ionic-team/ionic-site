@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Clipboard</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/clipboard/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/clipboard/index.ts#L1">
   Improve this doc
 </a>
 
@@ -22,22 +22,21 @@ docType: "class"
 
 
 
+
 <p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
-<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
-For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/VersoSolutions/CordovaClipboard">
-    https://github.com/VersoSolutions/CordovaClipboard
+  <a href="https://github.com/ihadeed/cordova-clipboard">
+    https://github.com/ihadeed/cordova-clipboard
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-clipboard
 $ npm install --save @ionic-native/clipboard
 </code></pre>
   </li>
@@ -46,9 +45,9 @@ $ npm install --save @ionic-native/clipboard
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -56,7 +55,7 @@ $ npm install --save @ionic-native/clipboard
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Clipboard } from &#39;@ionic-native/clipboard&#39;;
 
 constructor(private clipboard: Clipboard) { }
@@ -83,7 +82,7 @@ this.clipboard.paste().then(
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="copy" href="#copy"></a><code>copy(text)</code></h3>
 
 

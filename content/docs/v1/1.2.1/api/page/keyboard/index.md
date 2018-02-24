@@ -11,11 +11,11 @@ docType: "page"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/utils/keyboard.js#L1'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/utils/keyboard.js#L1'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/utils/keyboard.js#L1'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/utils/keyboard.js#L1'>
 Improve this doc
 </a>
 </div>
@@ -38,15 +38,15 @@ keyboard
 On both Android and iOS, Ionic will attempt to prevent the keyboard from
 obscuring inputs and focusable elements when it appears by scrolling them
 into view.  In order for this to work, any focusable elements must be within
-a [Scroll View](http://ionicframework.com/docs/v1/api/directive/ionScroll/)
-or a directive such as [Content](http://ionicframework.com/docs/v1/api/directive/ionContent/)
+a [Scroll View](https://ionicframework.com/docs/v1/api/directive/ionScroll/)
+or a directive such as [Content](https://ionicframework.com/docs/v1/api/directive/ionContent/)
 that has a Scroll View.
 
 It will also attempt to prevent the native overflow scrolling on focus,
 which can cause layout issues such as pushing headers up and out of view.
 
 The keyboard fixes work best in conjunction with the
-[Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard),
+[Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard),
 although it will perform reasonably well without.  However, if you are using
 Cordova there is no reason not to use the plugin.
 
@@ -77,7 +77,7 @@ animations on Android that occur when the keyboard opens (for example, scrolling
 
 ### Plugin Usage
 Information on using the plugin can be found at
-[https://github.com/driftyco/ionic-plugins-keyboard](https://github.com/driftyco/ionic-plugins-keyboard).
+[https://github.com/ionic-team/ionic-plugins-keyboard](https://github.com/ionic-team/ionic-plugins-keyboard).
 
 ----------
 

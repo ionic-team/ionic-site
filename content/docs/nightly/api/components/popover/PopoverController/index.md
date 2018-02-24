@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/popover/popover-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/popover/popover-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -45,20 +45,23 @@ Improve this doc
 <p>A Popover is a dialog that appears on top of the current page.
 It can be used for anything, but generally it is used for overflow
 actions that don&#39;t fit in the navigation bar.</p>
-<h3 id="creating">Creating</h3>
+<h3><a class="anchor" name="creating" href="#creating">Creating</a></h3>
+
 <p>A popover can be created by calling the <code>create</code> method. The view
 to display in the popover should be passed as the first argument.
 Any data to pass to the popover view can optionally be passed in
 the second argument. Options for the popover can optionally be
 passed in the third argument. See the <a href="#create">create</a> method
 below for all available options.</p>
-<h3 id="presenting">Presenting</h3>
+<h3><a class="anchor" name="presenting" href="#presenting">Presenting</a></h3>
+
 <p>To present a popover, call the <code>present</code> method on a PopoverController instance.
 In order to position the popover relative to the element clicked, a click event
 needs to be passed into the options of the the `present method. If the event
 is not passed, the popover will be positioned in the center of the current
 view. See the <a href="#usage">usage</a> section for an example of passing this event.</p>
-<h3 id="dismissing">Dismissing</h3>
+<h3><a class="anchor" name="dismissing" href="#dismissing">Dismissing</a></h3>
+
 <p>To dismiss the popover after creation, call the <code>dismiss()</code> method on the
 <code>Popover</code> instance. The popover can also be dismissed from within the popover&#39;s
 view by calling the <code>dismiss()</code> method on the <a href="../../navigation/ViewController">ViewController</a>.
@@ -79,7 +82,7 @@ section below.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>To open a popover on the click of a button, pass <code>$event</code> to the method
 which creates and presents the popover:</p>
@@ -133,15 +136,16 @@ class PopoverPage {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -157,10 +161,11 @@ class PopoverPage {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Present a popover. See below for options
@@ -235,7 +240,7 @@ Present a popover. See below for options
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>Popover Options</p>
 <table>
 <thead>
@@ -266,7 +271,7 @@ Present a popover. See below for options
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

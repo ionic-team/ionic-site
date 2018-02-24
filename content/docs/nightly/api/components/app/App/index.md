@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/app/app.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L16">
 Improve this doc
 </a>
 
@@ -54,15 +54,16 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="getActiveNav"></div>
 
 <h3>
-<a class="anchor" name="getActiveNav" href="#getActiveNav"></a>
+<a class="anchor" name="getActiveNav" href="#getActiveNav">
 <code>getActiveNav()</code>
   
 
+</a>
 </h3>
 
 
@@ -75,7 +76,7 @@ Improve this doc
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> <p>Returns the active NavController. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
+  <code>NavController</code> <p>Returns the first Active Nav Controller from the list. This method is deprecated</p>
 
 
 </div>
@@ -83,13 +84,102 @@ Improve this doc
 
 
 
+<div id="getActiveNavContainers"></div>
+
+<h3>
+<a class="anchor" name="getActiveNavContainers" href="#getActiveNavContainers">
+<code>getActiveNavContainers()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getActiveNavs"></div>
+
+<h3>
+<a class="anchor" name="getActiveNavs" href="#getActiveNavs">
+<code>getActiveNavs()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController[]</code> <p>Returns the active NavControllers. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
+
+
+</div>
+
+
+
+
+<div id="getNavByIdOrName"></div>
+
+<h3>
+<a class="anchor" name="getNavByIdOrName" href="#getNavByIdOrName">
+<code>getNavByIdOrName()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="getRootNav"></div>
 
 <h3>
-<a class="anchor" name="getRootNav" href="#getRootNav"></a>
+<a class="anchor" name="getRootNav" href="#getRootNav">
 <code>getRootNav()</code>
   
 
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getRootNavById"></div>
+
+<h3>
+<a class="anchor" name="getRootNavById" href="#getRootNavById">
+<code>getRootNavById()</code>
+  
+
+</a>
 </h3>
 
 
@@ -110,13 +200,34 @@ Improve this doc
 
 
 
+<div id="getRootNavs"></div>
+
+<h3>
+<a class="anchor" name="getRootNavs" href="#getRootNavs">
+<code>getRootNavs()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="isScrolling"></div>
 
 <h3>
-<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<a class="anchor" name="isScrolling" href="#isScrolling">
 <code>isScrolling()</code>
   
 
+</a>
 </h3>
 
 Boolean if the app is actively scrolling or not.
@@ -140,10 +251,11 @@ Boolean if the app is actively scrolling or not.
 <div id="setTitle"></div>
 
 <h3>
-<a class="anchor" name="setTitle" href="#setTitle"></a>
+<a class="anchor" name="setTitle" href="#setTitle">
 <code>setTitle(val)</code>
   
 
+</a>
 </h3>
 
 Sets the document title.
@@ -189,10 +301,11 @@ Sets the document title.
 <div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter">
 <code>viewDidEnter</code>
   
 
+</a>
 </h3>
 
 Observable that emits after any view is entered in the app.
@@ -216,10 +329,11 @@ Observable that emits after any view is entered in the app.
 <div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave">
 <code>viewDidLeave</code>
   
 
+</a>
 </h3>
 
 Observable that emits after any view is exited in the app.
@@ -243,10 +357,11 @@ Observable that emits after any view is exited in the app.
 <div id="viewDidLoad"></div>
 
 <h3>
-<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad">
 <code>viewDidLoad</code>
   
 
+</a>
 </h3>
 
 Observable that emits whenever a view loads in the app.
@@ -270,10 +385,11 @@ Observable that emits whenever a view loads in the app.
 <div id="viewWillEnter"></div>
 
 <h3>
-<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter">
 <code>viewWillEnter</code>
   
 
+</a>
 </h3>
 
 Observable that emits before any view is entered in the app.
@@ -297,10 +413,11 @@ Observable that emits before any view is entered in the app.
 <div id="viewWillLeave"></div>
 
 <h3>
-<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave">
 <code>viewWillLeave</code>
   
 
+</a>
 </h3>
 
 Observable that emits before any view is exited in the app.
@@ -324,10 +441,11 @@ Observable that emits before any view is exited in the app.
 <div id="viewWillUnload"></div>
 
 <h3>
-<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload">
 <code>viewWillUnload</code>
   
 
+</a>
 </h3>
 
 Observable that emits before any view unloads in the app.
@@ -349,7 +467,7 @@ Observable that emits before any view unloads in the app.
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

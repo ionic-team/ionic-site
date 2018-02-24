@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Twitter Connect</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/twitter-connect/index.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/twitter-connect/index.ts#L20">
   Improve this doc
 </a>
+
 
 
 
@@ -49,16 +50,16 @@ this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 
 
 <p>Repo:
-  <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
-    https://github.com/ManifestWebDesign/twitter-connect-plugin
+  <a href="https://github.com/chroa/twitter-connect-plugin">
+    https://github.com/chroa/twitter-connect-plugin
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=<Fabric API Key&gt; --variable TWITTER_KEY=<Twitter Consumer Key&gt; --variable TWITTER_SECRET=<Twitter Consumer Secret&gt;
 $ npm install --save @ionic-native/twitter-connect
 </code></pre>
   </li>
@@ -67,6 +68,10 @@ $ npm install --save @ionic-native/twitter-connect
 
 
 
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 
 
@@ -78,7 +83,8 @@ $ npm install --save @ionic-native/twitter-connect
 
 
 
-<h2>Instance Members</h2>
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="login" href="#login"></a><code>login()</code></h3>
 
 

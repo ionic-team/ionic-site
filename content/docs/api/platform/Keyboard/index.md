@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -31,7 +31,7 @@ Keyboard
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/platform/keyboard.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/platform/keyboard.ts#L6">
 Improve this doc
 </a>
 
@@ -48,7 +48,7 @@ by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">export class MyClass {
   constructor(public keyboard: Keyboard) {
@@ -66,15 +66,16 @@ by the Ionic keyboard plugin.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
   
 
+</a>
 </h3>
 
 Programmatically close the keyboard.
@@ -88,13 +89,74 @@ Programmatically close the keyboard.
 
 
 
+<div id="didHide"></div>
+
+<h3>
+<a class="anchor" name="didHide" href="#didHide">
+<code>didHide</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="didShow"></div>
+
+<h3>
+<a class="anchor" name="didShow" href="#didShow">
+<code>didShow</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="eventsAvailable"></div>
+
+<h3>
+<a class="anchor" name="eventsAvailable" href="#eventsAvailable">
+<code>eventsAvailable</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="hasFocusedTextInput"></div>
 
 <h3>
-<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput"></a>
+<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput">
 <code>hasFocusedTextInput()</code>
   
 
+</a>
 </h3>
 
 
@@ -110,10 +172,11 @@ Programmatically close the keyboard.
 <div id="isOpen"></div>
 
 <h3>
-<a class="anchor" name="isOpen" href="#isOpen"></a>
+<a class="anchor" name="isOpen" href="#isOpen">
 <code>isOpen()</code>
   
 
+</a>
 </h3>
 
 Check to see if the keyboard is open or not.
@@ -150,10 +213,11 @@ export class MyClass {
 <div id="onClose"></div>
 
 <h3>
-<a class="anchor" name="onClose" href="#onClose"></a>
+<a class="anchor" name="onClose" href="#onClose">
 <code>onClose(callback)</code>
   
 
+</a>
 </h3>
 
 When the keyboard is closed, call any methods you want.
@@ -217,8 +281,48 @@ export class MyClass {
 
 
 
+<div id="willHide"></div>
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+<h3>
+<a class="anchor" name="willHide" href="#willHide">
+<code>willHide</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="willShow"></div>
+
+<h3>
+<a class="anchor" name="willShow" href="#willShow">
+<code>willShow</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

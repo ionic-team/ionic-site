@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/slideBox.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/directive/slideBox.js#L2'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/angular/directive/slideBox.js#L2'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/angular/directive/slideBox.js#L2'>
 Improve this doc
 </a>
 </div>
@@ -42,7 +42,7 @@ Delegate: <a href="/docs/v1/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
 
 The Slide Box is a multi-page container where each page can be swiped or dragged between:
 
-![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
+![SlideBox](https://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
 
 

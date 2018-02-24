@@ -18,7 +18,7 @@ this topic.
 Plugins are where Cordova stores the plugins that you add to your project. Plugins are added by the command:
 
 ```bash
-ionic plugin add {plugin}
+ionic cordova plugin add {plugin}
 ```
 
 Where {plugin} is the plugin’s ID or github URL. 

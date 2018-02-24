@@ -33,7 +33,7 @@ Col
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/grid/col.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/grid/col.ts#L0">
 Improve this doc
 </a>
 
@@ -91,7 +91,7 @@ There are several attributes that can be added to a column to customize this beh
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

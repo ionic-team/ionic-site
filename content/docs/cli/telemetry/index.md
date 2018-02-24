@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-telemetry
-command_name: telemetry
-title: telemetry
+page_name: ionic telemetry
+command_name: ionic telemetry
+title: ionic telemetry - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic telemetry`
 
@@ -13,7 +22,7 @@ Opt in and out of telemetry
 ## Synopsis
 
 ```bash
-$ ionic telemetry [status]
+$ ionic telemetry [<status>]
 ```
   
 ## Details
@@ -21,7 +30,7 @@ $ ionic telemetry [status]
 
 Input | Description
 ----- | ----------
-`status` | on or off
+`status` | `on` or `off`
 
 
 

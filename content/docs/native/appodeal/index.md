@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Appodeal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/appodeal/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/appodeal/index.ts#L2">
   Improve this doc
 </a>
+
 
 
 
@@ -26,16 +27,16 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/appodeal/appodeal-cordova-plugin.git">
-    https://github.com/appodeal/appodeal-cordova-plugin.git
+  <a href="https://github.com/appodeal/appodeal-cordova-plugin">
+    https://github.com/appodeal/appodeal-cordova-plugin
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/appodeal/appodeal-cordova-plugin
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/appodeal/appodeal-cordova-plugin.git
 $ npm install --save @ionic-native/appodeal
 </code></pre>
   </li>
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/appodeal
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/appodeal
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Appodeal } from &#39;@ionic-native/appodeal&#39;;
 
 constructor(private appodeal: Appodeal) {
@@ -73,7 +74,7 @@ constructor(private appodeal: Appodeal) {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="readonly" href="#readonly"></a><code>readonly</code></h3>
 
 

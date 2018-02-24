@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ itself in the root nav stack. It is added to the stack similar to how
 works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
-After the modal has been presented, from within the component instance The
+After the modal has been presented, from within the component instance, the
 modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
 on the root nav controller. Modals are not reusable. When a modal is dismissed
@@ -67,19 +67,17 @@ standard page.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { ModalController, NavParams } from &#39;ionic-angular&#39;;
 
 @Component(...)
 class HomePage {
 
- constructor(public modalCtrl: ModalController) {
-
- }
+ constructor(public modalCtrl: ModalController) { }
 
  presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+   const profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
    profileModal.present();
  }
 
@@ -104,15 +102,16 @@ class Profile {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -128,10 +127,11 @@ class Profile {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Create a modal to display. See below for options.
@@ -207,7 +207,7 @@ Create a modal to display. See below for options.
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <table>
 <thead>
 <tr>
@@ -226,6 +226,11 @@ Create a modal to display. See below for options.
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
 <td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 </tbody>
 </table>
@@ -272,10 +277,26 @@ class Profile {
 
 }
 </code></pre>
+<p>A common issue is that a developer may try to implement navigation in a modal, but when you try NavController.push(),
+you will notice that the status bar on iOS gets cut off. The proper way to implement navigation in a modal is to
+make the modal component a navigation container, and set the root page to the page you want to show in your modal.</p>
+<pre><code class="lang-ts">@Component({
+  template: &#39;&lt;ion-nav [root]=&quot;rootPage&quot; [rootParams]=&quot;rootParams&quot;&gt;&lt;/ion-nav&gt;&#39;
+})
+export class MyModalWrapper {
+  rootPage = &#39;MyModalContentPage&#39;; // This is the page you want your modal to display
+  rootParams;
+
+  constructor(navParams: NavParams, private viewCtrl: ViewController) {
+      this.rootParams = Object.assign({}, navParams.data, {viewCtrl: viewCtrl});
+      // This line will send the view controller into your child views, so you can dismiss the modals from there.
+  }
+}
+</code></pre>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -467,7 +488,7 @@ class Profile {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#modals">Modal Component Docs</a><!-- end content block -->
 

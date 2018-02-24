@@ -33,7 +33,7 @@ pre_footer: true
       <div class="desc">
         <h3>Install Ionic</h3>
         <p>
-        First, install <a href="http://nodejs.org/">Node.js 6.x LTS</a>. Then, install the latest Cordova and Ionic command-line tools in your terminal (read our <a href="http://blog.ionic.io/new-to-the-command-line/">Terminal tutorial</a> if you're new to the command line!). Follow the <a href="http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html">Android</a> and <a href="http://cordova.apache.org/docs/en/5.1.1/guide/platforms/ios/index.html">iOS</a> platform guides to install required tools for iOS and Android development.
+        First, install <a href="http://nodejs.org/">Node.js 6.x LTS</a>. Then, install the latest Cordova and Ionic command-line tools in your terminal (read our <a href="https://blog.ionicframework.com/new-to-the-command-line/">Terminal tutorial</a> if you're new to the command line!). Follow the <a href="http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html">Android</a> and <a href="http://cordova.apache.org/docs/en/5.1.1/guide/platforms/ios/index.html">iOS</a> platform guides to install required tools for iOS and Android development.
         </p>
       </div>
     </div>
@@ -62,29 +62,24 @@ npm install -g cordova ionic
           Create an Ionic project using one of our ready-made app templates, or a blank one to start
           fresh.
         </p>
-        <i>
-          Ionic 2 is coming soon! Try the <a
-          href="/docs//setup/installation/">Release Candidate</a> today, the
-          next generation of Ionic
-        </i>
       </div>
     </div>
     <div class="col-md-6 code">
-  {% highlight bash %}ionic start myApp tabs{% endhighlight %}
+  {% highlight bash %}ionic start myApp tabs{% endhighlight %} --type ionic1
     </div>
   </div>
   <div class="row" id="template-images">
     <div class="template">
       <div class="template-image" id="start-template-blank-image"></div>
-      <code>ionic start myApp blank</code>
+      <code>ionic start myApp blank --type ionic1</code>
     </div>
     <div class="template">
       <div class="template-image" id="start-template-tabs-image"></div>
-      <code>ionic start myApp tabs</code>
+      <code>ionic start myApp tabs --type ionic1</code>
     </div>
     <div class="template">
       <div class="template-image" id="start-template-sidemenu-image"></div>
-      <code>ionic start myApp sidemenu</code>
+      <code>ionic start myApp sidemenu --type ionic1</code>
     </div>
   </div>
   <div class="row">
@@ -99,7 +94,7 @@ npm install -g cordova ionic
           directly). Make sure to substitute iOS with Android to build for Android.
         </p>
         <p>
-          Then, try <a href="http://view.ionic.io/">Ionic View</a> to share your
+          Then, try <a href="/pro/view">Ionic View</a> to share your
           apps with testers and clients or to easily test on new devices.
         </p>
       </div>
@@ -108,9 +103,9 @@ npm install -g cordova ionic
 {% highlight bash %}
 
 cd myApp
-ionic platform add ios
-ionic build ios
-ionic emulate ios
+ionic cordova platform add ios
+ionic cordova build ios
+ionic cordova emulate ios
 
 {% endhighlight %}
     </div>
@@ -136,7 +131,7 @@ ionic emulate ios
         Jumpstart your all Ionic apps with our rapid drag-and-drop visual
         prototyping tool. Export clean, ready-to-use ionic code!
       </p>
-      <a href="http://ionic.io/products/creator?utm_source=framework&utm_medium=whatsNext&utm_campaign=Creator%20CTA" class="more">Learn more</a>
+      <a href="/pro/creator?utm_source=framework&utm_medium=whatsNext&utm_campaign=Creator%20CTA" class="more">Learn more</a>
     </div>
     <div class="item platform">
       <h3>Ionic Cloud</h3>
@@ -144,7 +139,7 @@ ionic emulate ios
         Scale your app with features like native app building, user
         authentication, push notifications, and real-time deploy services.
       </p>
-      <a href="http://ionic.io/?utm_source=framework&utm_medium=whatsNext&utm_campaign=Platform%20CTA" class="more">Learn more</a>
+      <a href="products/?utm_source=framework&utm_medium=whatsNext&utm_campaign=Platform%20CTA" class="more">Learn more</a>
     </div>
     <div class="item enterprise">
       <h3>Enterprise Framework</h3>
@@ -152,7 +147,7 @@ ionic emulate ios
         Looking for expert support from the Ionic Framework team on your next
         enterprise app? Get in touch.
       </p>
-      <a href="http://ionic.io/enterprise?utm_source=framework&utm_medium=whatsNext&utm_campaign=Enterprise%20CTA" class="more">Learn more</a>
+      <a href="/enterprise?utm_source=framework&utm_medium=whatsNext&utm_campaign=Enterprise%20CTA" class="more">Learn more</a>
     </div>
   </div>
 </section>

@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L87">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master//src/components/alert/alert.ts#L87">
 Improve this doc
 </a>
 

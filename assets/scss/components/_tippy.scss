@@ -1,0 +1,112 @@
+tippy {
+  position: relative;
+
+  .tip {
+    position: absolute;
+    transform: scale3d(0, 0, 1);
+    transition: .15s transform linear;
+    background: rgba(black,.8);
+    border-radius: 4px;
+    padding: 15px 20px;
+    color: white;
+    z-index: 1;
+    width: 100%;
+    min-width: 200px;
+
+    &::before {
+      position: absolute;
+      top: -5px;
+      height: 5px;
+      width: 100%;
+      left: 0;
+      content: '';
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent rgba(black, .8);
+      position: absolute;
+      top: -5px;
+      right: 6px;
+    }
+
+    a {
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    &.right,
+    &.left {
+      left: 28px;
+      right: auto;
+      width: 257px;
+      top: -76px;
+      background: #3b434f;
+      padding: 14px 20px 6px;
+      font-size: 11px;
+      line-height: 20px;
+      letter-spacing: .07px;
+
+      &::after {
+        width: 12px;
+        height: 12px;
+        border-radius: 0 0 4px 0;
+        transform: rotate(135deg);
+        border: none;
+	      background: linear-gradient(-45deg, #3b434f 50%, transparent 50%);
+        top: calc(50% + 7px);
+        left: -6px;
+        right: auto;
+      }
+    }
+
+    &.left {
+      left: auto;
+      right: 28px;
+
+      &::after {
+        left: auto;
+        right: -6px
+      }
+    }
+
+    &.bottom {
+      left: -170px;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+  }
+
+  > i {
+    font-size: 67%;
+    font-weight: 700;
+    line-height: 1em;
+    color: #fff;
+    border-radius: 1em;
+    padding: 3px 5px 2px;
+    background: #c2c8d2;
+    position: relative;
+    top: -0.2em;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &:hover,
+  &.active {
+    .tip {
+      transition-timing-function: cubic-bezier(0,1.5,.5,1);
+      transition-duration: .3s;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}

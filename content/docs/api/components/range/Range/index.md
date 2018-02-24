@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/range/range.ts#L12">
 Improve this doc
 </a>
 
@@ -47,23 +47,27 @@ Improve this doc
 <p>The Range slider lets users select from a range of values by moving
 the slider knob. It can accept dual knobs, but by default one knob
 controls the value of the range.</p>
-<h3 id="range-labels">Range Labels</h3>
+<h3><a class="anchor" name="range-labels" href="#range-labels">Range Labels</a></h3>
+
 <p>Labels can be placed on either side of the range by adding the
 <code>range-left</code> or <code>range-right</code> property to the element. The element
 doesn&#39;t have to be an <code>ion-label</code>, it can be added to any element
 to place it to the left or right of the range. See <a href="#usage">usage</a>
 below for examples.</p>
-<h3 id="minimum-and-maximum-values">Minimum and Maximum Values</h3>
+<h3><a class="anchor" name="minimum-and-maximum-values" href="#minimum-and-maximum-values">Minimum and Maximum Values</a></h3>
+
 <p>Minimum and maximum values can be passed to the range through the <code>min</code>
 and <code>max</code> properties, respectively. By default, the range sets the <code>min</code>
 to <code>0</code> and the <code>max</code> to <code>100</code>.</p>
-<h3 id="steps-and-snaps">Steps and Snaps</h3>
+<h3><a class="anchor" name="steps-and-snaps" href="#steps-and-snaps">Steps and Snaps</a></h3>
+
 <p>The <code>step</code> property specifies the value granularity of the range&#39;s value.
 It can be useful to set the <code>step</code> when the value isn&#39;t in increments of <code>1</code>.
 Setting the <code>step</code> property will show tick marks on the range for each step.
 The <code>snaps</code> property can be set to automatically move the knob to the nearest
 tick mark based on the step property value.</p>
-<h3 id="dual-knobs">Dual Knobs</h3>
+<h3><a class="anchor" name="dual-knobs" href="#dual-knobs">Dual Knobs</a></h3>
+
 <p>Setting the <code>dualKnobs</code> property to <code>true</code> on the range component will
 enable two knobs on the range. If the range has two knobs, the value will
 be an object containing two properties: <code>lower</code> and <code>upper</code>.</p>
@@ -73,7 +77,7 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
@@ -115,15 +119,16 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="ratio"></div>
 
 <h3>
-<a class="anchor" name="ratio" href="#ratio"></a>
+<a class="anchor" name="ratio" href="#ratio">
 <code>ratio</code>
   
 
+</a>
 </h3>
 
 Returns the ratio of the knob's is current location, which is a number
@@ -142,10 +147,11 @@ the lower value.
 <div id="ratioUpper"></div>
 
 <h3>
-<a class="anchor" name="ratioUpper" href="#ratioUpper"></a>
+<a class="anchor" name="ratioUpper" href="#ratioUpper">
 <code>ratioUpper</code>
   
 
+</a>
 </h3>
 
 Returns the ratio of the upper value's is current location, which is
@@ -161,7 +167,7 @@ will return `null`.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -228,7 +234,7 @@ on the step property value. Defaults to <code>false</code>.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

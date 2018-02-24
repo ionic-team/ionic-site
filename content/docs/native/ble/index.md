@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">BLE</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L2">
   Improve this doc
 </a>
+
 
 
 
@@ -42,7 +43,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ble-central
@@ -54,9 +55,9 @@ $ npm install --save @ionic-native/ble
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 
@@ -64,7 +65,7 @@ $ npm install --save @ionic-native/ble
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { BLE } from &#39;@ionic-native/ble&#39;;
 
 constructor(private ble: BLE) { }
@@ -188,43 +189,11 @@ function bytesToString(buffer) {
 
 
 
-<h2>Static Members</h2>
-<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
-
-
-Read the RSSI value on the device connection.
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      deviceId</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>UUID or MAC address of the peripheral</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
 
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="scan" href="#scan"></a><code>scan(services,&nbsp;seconds)</code></h3>
 
 
@@ -741,6 +710,29 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
+</div><h3><a class="anchor" name="startStateNotifications" href="#startStateNotifications"></a><code>startStateNotifications()</code></h3>
+
+
+
+
+Register to be notified when Bluetooth state changes on the device.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b>  Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
+
+</div><h3><a class="anchor" name="stopStateNotifications" href="#stopStateNotifications"></a><code>stopStateNotifications()</code></h3>
+
+
+Stop state notifications.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 
@@ -757,6 +749,36 @@ Open System Bluetooth settings (Android only).
 Enable Bluetooth on the device (Android only).
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
+
+
+Read the RSSI value on the device connection.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

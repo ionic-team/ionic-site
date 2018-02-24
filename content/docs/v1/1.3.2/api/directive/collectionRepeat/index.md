@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/collectionRepeat.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/directive/collectionRepeat.js#L2'>
 View Source
 </a>
 &nbsp;
-<a href='https://github.com/driftyco/ionic-v1/edit/master/js/angular/directive/collectionRepeat.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/edit/master/js/angular/directive/collectionRepeat.js#L2'>
 Improve this doc
 </a>
 </div>
@@ -58,7 +58,7 @@ the current scroll position will be rendered.
 
 - The iOS webview has a performance bottleneck when switching out `<img src>` attributes.
   To increase performance of images on iOS, cache your images in advance and,
-  if possible, lower the number of unique images. We're working on [a solution](https://github.com/driftyco/ionic/issues/3194).
+  if possible, lower the number of unique images. We're working on [a solution](https://github.com/ionic-team/ionic/issues/3194).
 
 
 

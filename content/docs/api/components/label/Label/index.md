@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Label
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/label/label.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/label/label.ts#L3">
 Improve this doc
 </a>
 
@@ -52,7 +52,7 @@ to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkb
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
@@ -90,7 +90,7 @@ to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkb
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes">Attributes</a></h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -157,7 +157,7 @@ A stacked label will always appear on top of the input.
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -350,7 +350,7 @@ A stacked label will always appear on top of the input.
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="../../../../components#inputs">Input Component Docs</a>,
 <a href="../../input/Input">Input API Docs</a><!-- end content block -->

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Safari View Controller</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L15">
   Improve this doc
 </a>
+
 
 
 
@@ -31,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-safariviewcontroller
@@ -43,9 +44,9 @@ $ npm install --save @ionic-native/safari-view-controller
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 
@@ -53,7 +54,7 @@ $ npm install --save @ionic-native/safari-view-controller
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SafariViewController } from &#39;@ionic-native/safari-view-controller&#39;;
 
 constructor(private safariViewController: SafariViewController) { }
@@ -72,7 +73,7 @@ this.safariViewController.isAvailable()
           enterReaderModeIfAvailable: true,
           tintColor: &#39;#ff0000&#39;
         })
-        .then((result: any) =&gt; {
+        .subscribe((result: any) =&gt; {
             if(result.event === &#39;opened&#39;) console.log(&#39;Opened&#39;);
             else if(result.event === &#39;loaded&#39;) console.log(&#39;Loaded&#39;);
             else if(result.event === &#39;closed&#39;) console.log(&#39;Closed&#39;);
@@ -94,7 +95,7 @@ this.safariViewController.isAvailable()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
@@ -134,7 +135,7 @@ Shows Safari View Controller
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 

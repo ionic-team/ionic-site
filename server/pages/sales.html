@@ -1,0 +1,28 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'sales' %}
+{% import "./_includes/macros.html" as macros %}
+
+{% block main %}
+
+<div class="cta banner">
+  <hgroup class="container">
+    <h1>Contact Sales</h1>
+    <p>
+      Send us a message and an Ionic Sales Representative will get back to you.
+    </p>
+  </hgroup>
+</div>
+
+<script charset="utf-8"
+        type="text/javascript"
+        src="https://js.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    portalId: '3776657',
+    formId: '08234d58-2d5e-43e5-8714-bd969595c802'
+  });
+</script>
+
+
+
+{% endblock %}

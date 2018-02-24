@@ -13,7 +13,7 @@ Now that we have a working app, we are ready to push it live to the world! Since
 So first, we need to generate a release build of our app, targeted at each platform we wish to deploy on. Before we deploy, we should take care to adjust plugins needed during development that should not be in production mode. For example, we probably don't want the debug console plugin enabled, so we should remove it before generating the release builds:
 
 ```bash
-$ cordova plugin rm cordova-plugin-console
+$ ionic cordova plugin rm cordova-plugin-console
 ```
 
 # Android Publishing
@@ -21,7 +21,7 @@ $ cordova plugin rm cordova-plugin-console
 To generate a release build for Android, we can use the following cordova cli command:
 
 ```bash
-$ cordova build --release android
+$ ionic cordova build --release android
 ```
 
 This will generate a release build based on the settings in your `config.xml`. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out [the config.xml file](http://cordova.apache.org/docs/en/latest/guide/platforms/android/config.html) documentation for more information.
@@ -62,11 +62,11 @@ To start, you'll need to visit the [Google Play Store Developer Console](https:/
 
 Once you have a developer account, you can go ahead and click "Publish an Android App on Google Play" as in the screenshot below:
 
-![New google play app](http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play.png)
+![New google play app](https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play.png)
 
 Then, you can go ahead and click the button to edit the store listing (We will upload an APK later). You'll want to fill out the description for the app. Here is a little preview from when we filled out the application with the Ionic Todo app:
 
-![Ionic Todo](http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play2.png)
+![Ionic Todo](https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play2.png)
 
 When you are ready, upload the APK for the release build and publish the listing. Be patient and your hard work should be live in the wild!
 
@@ -145,7 +145,7 @@ You can learn more about managing your app in iTunes Connect from the [official 
 ## Building the app for production
 
 In the root directory of your application execute the following command:
-`ionic build ios --release`
+`ionic cordova build ios --release`
 
 If everything went well you'll see the **BUILD SUCCEEDED** output in the console.
 

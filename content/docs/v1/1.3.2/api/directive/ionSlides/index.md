@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/slides.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/directive/slides.js#L2'>
 View Source
 </a>
 &nbsp;
-<a href='https://github.com/driftyco/ionic-v1/edit/master/js/angular/directive/slides.js#L2'>
+<a href='https://github.com/ionic-team/ionic-v1/edit/master/js/angular/directive/slides.js#L2'>
 Improve this doc
 </a>
 </div>
@@ -45,7 +45,7 @@ The Slides component is a powerful multi-page container where each page can be s
 Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://www.idangero.us/swiper/#.Vmc1J-ODFBc) widget from
 [idangerous](http://www.idangero.us/).
 
-![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
+![SlideBox](https://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
 
 

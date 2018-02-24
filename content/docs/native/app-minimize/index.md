@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">App Minimize</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-minimize/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-minimize/index.ts#L1">
   Improve this doc
 </a>
+
 
 
 
@@ -32,10 +33,10 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/tomloprod/cordova-plugin-appminimize.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-appminimize
 $ npm install --save @ionic-native/app-minimize
 </code></pre>
   </li>
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/app-minimize
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -54,18 +55,18 @@ $ npm install --save @ionic-native/app-minimize
 
 
 
-<h2>Usage</h2>
-<pre><code class="lang-typescript">import { AppMinimize } from &#39;@ionic-native/app-minimize&#39;;
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<pre><code class="lang-typescript">import { Platfrom } from &#39;ionic-angular&#39;;
+import { AppMinimize } from &#39;@ionic-native/app-minimize&#39;;
 
 
-constructor(private appMinimize: AppMinimize) { }
+constructor(private platform: Platform, private appMinimize: AppMinimize) { }
 
 ...
 
-this.plugin.minimize().then(
-  success =&gt; console.log(&#39;Closed&#39;),
-  err =&gt; console.log(&#39;Something went wrong&#39;)
-);
+this.platform.registerBackButtonAction(() =&gt; {
+   this.appMinimize.minimize();
+});
 </code></pre>
 
 
@@ -75,7 +76,7 @@ this.plugin.minimize().then(
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="minimize" href="#minimize"></a><code>minimize()</code></h3>
 
 

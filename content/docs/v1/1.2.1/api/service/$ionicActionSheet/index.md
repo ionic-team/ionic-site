@@ -11,11 +11,11 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/actionSheet.js#L1'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/service/actionSheet.js#L1'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/angular/service/actionSheet.js#L1'>
+<a href='http://github.com/ionic-team/ionic/edit/1.x/js/angular/service/actionSheet.js#L1'>
 Improve this doc
 </a>
 </div>
@@ -41,7 +41,7 @@ Dangerous options are highlighted in red and made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
 hitting escape on the keyboard for desktop testing.
 
-![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif)
+![Action Sheet](https://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif)
 
 
 

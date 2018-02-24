@@ -11,7 +11,7 @@
  *
  * Ionic, v1.0.0-beta.11
  * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
+ * https://ionicframework.com/
  *
  * By @maxlynch, @benjsperry, @adamdbradley <3
  *
@@ -2384,7 +2384,7 @@ window.ionic = {
  * - Works with labels surrounding inputs
  * - Does not fire off a click if the user moves the pointer too far
  * - Adds and removes an 'activated' css class
- * - Multiple [unit tests](https://github.com/driftyco/ionic/blob/master/test/unit/utils/tap.unit.js) for each scenario
+ * - Multiple [unit tests](https://github.com/ionic-team/ionic/blob/master/test/unit/utils/tap.unit.js) for each scenario
  *
  */
 /*
@@ -3206,15 +3206,15 @@ ionic.DomUtil.ready(function(){
  * On both Android and iOS, Ionic will attempt to prevent the keyboard from
  * obscuring inputs and focusable elements when it appears by scrolling them
  * into view.  In order for this to work, any focusable elements must be within
- * a [Scroll View](http://ionicframework.com/docs/v1/api/directive/ionScroll/)
- * or a directive such as [Content](http://ionicframework.com/docs/v1/api/directive/ionContent/)
+ * a [Scroll View](https://ionicframework.com/docs/v1/api/directive/ionScroll/)
+ * or a directive such as [Content](https://ionicframework.com/docs/v1/api/directive/ionContent/)
  * that has a Scroll View.
  *
  * It will also attempt to prevent the native overflow scrolling on focus,
  * which can cause layout issues such as pushing headers up and out of view.
  *
  * The keyboard fixes work best in conjunction with the 
- * [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard),
+ * [Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard),
  * although it will perform reasonably well without.  However, if you are using
  * Cordova there is no reason not to use the plugin.
  *
@@ -3231,7 +3231,7 @@ ionic.DomUtil.ready(function(){
  *
  * ### Plugin Usage
  * Information on using the plugin can be found at 
- * [https://github.com/driftyco/ionic-plugins-keyboard](https://github.com/driftyco/ionic-plugins-keyboard).
+ * [https://github.com/ionic-team/ionic-plugins-keyboard](https://github.com/ionic-team/ionic-plugins-keyboard).
  *
  * ---------- 
  *
@@ -35058,7 +35058,7 @@ angular.module('ui.router.compat')
  *
  * Ionic, v1.0.0-beta.11
  * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
+ * https://ionicframework.com/
  *
  * By @maxlynch, @benjsperry, @adamdbradley <3
  *
@@ -35132,7 +35132,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
  * hitting escape on the keyboard for desktop testing.
  *
- * ![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
+ * ![Action Sheet](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
  *
  * @usage
  * To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:
@@ -41091,7 +41091,7 @@ IonicModule
  *
  * ### Notes
  * - This directive requires the
- * [Ionic Keyboard Plugin](https://github.com/driftyco/ionic-plugins-keyboard).
+ * [Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard).
  * - On Android not in fullscreen mode, i.e. you have
  *   `<preference name="Fullscreen" value="false" />` or no preference in your `config.xml` file,
  *   this directive is unnecessary since it is the default behavior.
@@ -42636,7 +42636,7 @@ IonicModule
  * links and buttons within `ion-side-menu` content, so that when the element is
  * clicked then the opened side menu will automatically close.
  *
- * ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
+ * ![Side Menu](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
  *
  * For more information on side menus, check out:
  *
@@ -42703,7 +42703,7 @@ IonicModule
  * @description
  * The Slide Box is a multi-page container where each page can be swiped or dragged between:
  *
- * ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
+ * ![SlideBox](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
  *
  * @usage
  * ```html

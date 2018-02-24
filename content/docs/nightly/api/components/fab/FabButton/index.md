@@ -35,7 +35,7 @@ FabButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/fab/fab.ts#L3">
 Improve this doc
 </a>
 
@@ -64,7 +64,7 @@ FABs as its name suggests are floating over the content in a fixed position. Thi
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;!-- Colors --&gt;
 &lt;ion-fab&gt;
@@ -82,7 +82,7 @@ FABs as its name suggests are floating over the content in a fixed position. Thi
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes">Attributes</a></h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -120,7 +120,7 @@ Makes a fab button with a reduced size.
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -510,7 +510,7 @@ Makes a fab button with a reduced size.
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#fabs">FAB Component Docs</a><!-- end content block -->
 

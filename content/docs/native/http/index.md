@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">HTTP</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/http/index.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/http/index.ts#L20">
   Improve this doc
 </a>
+
 
 
 
@@ -31,16 +32,16 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/wymsee/cordova-HTTP">
-    https://github.com/wymsee/cordova-HTTP
+  <a href="https://github.com/silkimen/cordova-plugin-advanced-http">
+    https://github.com/silkimen/cordova-plugin-advanced-http
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-http
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-advanced-http
 $ npm install --save @ionic-native/http
 </code></pre>
   </li>
@@ -49,7 +50,7 @@ $ npm install --save @ionic-native/http
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -59,7 +60,7 @@ $ npm install --save @ionic-native/http
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { HTTP } from &#39;@ionic-native/http&#39;;
 
 constructor(private http: HTTP) { }
@@ -90,7 +91,7 @@ this.http.get(&#39;http://ionic.io&#39;, {}, {})
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getBasicAuthHeader" href="#getBasicAuthHeader"></a><code>getBasicAuthHeader(username,&nbsp;password)</code></h3>
 
 
@@ -211,6 +212,136 @@ Set a header for all future requests. Takes a header and a value.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="setDataSerializer" href="#setDataSerializer"></a><code>setDataSerializer(serializer)</code></h3>
+
+
+
+
+Set the data serializer which will be used for all future POST and PUT requests. Takes a string representing the name of the serializer.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      serializer</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the serializer. Can be urlencoded or json</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="clearCookies" href="#clearCookies"></a><code>clearCookies()</code></h3>
+
+
+
+
+Clear all cookies
+
+
+
+<h3><a class="anchor" name="removeCookies" href="#removeCookies"></a><code>removeCookies(url,&nbsp;cb)</code></h3>
+
+
+
+
+Remove cookies
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      cb</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="disableRedirect" href="#disableRedirect"></a><code>disableRedirect(disable)</code></h3>
+
+
+
+
+Disable following redirects automatically
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      disable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to disable following redirects automatically</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setRequestTimeout" href="#setRequestTimeout"></a><code>setRequestTimeout(timeout)</code></h3>
+
+
+
+
+Set request timeout
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      timeout</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The timeout in seconds. Default 60</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="enableSSLPinning" href="#enableSSLPinning"></a><code>enableSSLPinning(enable)</code></h3>
 
 
@@ -273,35 +404,6 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="validateDomainName" href="#validateDomainName"></a><code>validateDomainName(validate)</code></h3>
-
-
-Whether or not to validate the domain name in the certificate. This defaults to true.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      validate</td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Set to true to validate</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
 </div><h3><a class="anchor" name="post" href="#post"></a><code>post(url,&nbsp;body,&nbsp;headers)</code></h3>
 
 
@@ -356,7 +458,211 @@ Make a POST request
 </div><h3><a class="anchor" name="get" href="#get"></a><code>get(url,&nbsp;parameters,&nbsp;headers)</code></h3>
 
 
+Make a GET request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="put" href="#put"></a><code>put(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PUT request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="patch" href="#patch"></a><code>patch(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PATCH request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a DELETE request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="head" href="#head"></a><code>head(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a HEAD request
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inappbrowser
@@ -44,9 +45,9 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>OS X</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>AmazonFire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>macOS</li><li>Windows</li>
 </ul>
 
 
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { InAppBrowser } from &#39;@ionic-native/in-app-browser&#39;;
 
 constructor(private iab: InAppBrowser) { }
@@ -77,7 +78,7 @@ browser.close();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code></h3>
 
 Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
@@ -137,7 +138,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 

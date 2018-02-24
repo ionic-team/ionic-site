@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Bluetooth Serial</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/bluetooth-serial/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/bluetooth-serial/index.ts#L2">
   Improve this doc
 </a>
 
@@ -22,7 +22,8 @@ docType: "class"
 
 
 
-<p>This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino.</p>
+
+<p>This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino (not Android to Android or iOS to iOS).</p>
 
 
 <p>Repo:
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-bluetooth-serial
@@ -44,9 +45,9 @@ $ npm install --save @ionic-native/bluetooth-serial
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone</li><li>Browser</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/bluetooth-serial
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { BluetoothSerial } from &#39;@ionic-native/bluetooth-serial&#39;;
 
 constructor(private bluetoothSerial: BluetoothSerial) { }
@@ -85,7 +86,7 @@ this.bluetoothSerial.write(data.buffer).then(success, failure);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="connect" href="#connect"></a><code>connect(macAddress_or_uuid)</code></h3>
 
 

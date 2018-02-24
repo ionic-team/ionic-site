@@ -1,0 +1,174 @@
+<ul id="pro-nav" class="nested-menu">
+  <li class="active">
+    <ul>
+      <li class="{% if page.category == 'pro-basics' %}active{% endif %}" >
+        <a ng-click="toggle('intro')" class="pro-intro-link">Introduction</a>
+        <ul ng-show="sections.intro" ng-cloak {% if page.category == 'pro-basics' %}ng-init="sections.intro = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/basics/welcome/" class="{% if page.id == 'pro-welcome' %}active{% endif %}">Welcome</a>
+          </li>
+          <li>
+            <a href="/docs/pro/basics/getting-started/" class="{% if page.id == 'pro-getting-started' %}active{% endif %}">Installation</a>
+          </li>
+          <li>
+            <a href="/docs/pro/basics/git/" class="{% if page.id == 'pro-git' %}active{% endif %}">Git Workflow</a>
+            <ul>
+              <li>
+                <a href="/docs/pro/basics/git/#installing-git">Installing Git</a>
+              </li>
+              <li>
+                <a href="/docs/pro/basics/git/#adding-your-existing-repository">Adding Existing Repositories</a>
+              </li>
+              <li>
+                <a href="/docs/pro/basics/git/#pushing-new-builds">Pushing Builds</a>
+              </li>
+              <li>
+                <a href="/docs/pro/basics/git/#working-with-branches">Using Branches</a>
+              </li>
+              <li>
+                <a href="/docs/pro/basics/git/#working-with-other-team-members">Working w/ Team Members</a>
+              </li>
+              <li>
+                <a href="/docs/pro/basics/git/#ssh-keys">Adding SSH Keys</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/docs/pro/basics/concepts/" class="{% if page.id == 'pro-concepts' %}active{% endif %}">Concepts</a>
+            <ul>
+              <li><a href="/docs/pro/basics/concepts/#channels">Channels</a></li>
+              <li><a href="/docs/pro/basics/concepts/#builds">Builds</a></li>
+              <li><a href="/docs/pro/basics/concepts/customizing-builds.html">Customizing Builds</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/docs/pro/basics/help/" class="{% if page.id == 'pro-help' %}active{% endif %}">Help and Support</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-devapp' %}active{% endif %}" >
+        <a ng-click="toggle('devapp')" class="pro-devapp-link">DevApp: Local Development</a>
+        <ul ng-show="sections.devapp" ng-cloak {% if page.category == 'pro-devapp' %}ng-init="sections.devapp = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/devapp/">Introduction</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-view' %}active{% endif %}" >
+        <a ng-click="toggle('view')" class="pro-view-link">View: Beta Testing</a>
+        <ul ng-show="sections.view" ng-cloak {% if page.category == 'pro-view' %}ng-init="sections.view = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/view/">Introduction</a>
+          </li>
+          <li>
+            <a href="/docs/pro/view/#using-channels-with-ionic-view">Using Channels</a>
+          </li>
+          <li>
+            <a href="/docs/pro/view/#inviting-private-testers">Inviting Testers</a>
+          </li>
+          <li>
+            <a href="/docs/pro/view/#sharing-publicly">Sharing Publicly</a>
+          </li>
+          <li class="{% if page.id == 'pro-view-app' %}active{% endif %}">
+            <a href="/docs/pro/view.html">Using the App</a>
+            <ul>
+              <li>
+                <a href="/docs/pro/view.html#testing-apps">Testing Apps</a>
+              </li>
+              <li>
+                <a href="/docs/pro/view.html#submitting-feedback">Submitting Feedback</a>
+              </li>
+              <li>
+                <a href="/docs/pro/view.html#plugin-support">Plugin Support</a>
+              </li>
+              <li>
+                <a href="/docs/pro/view.html#plugin-issues">Plugin Issues</a>
+              </li>
+              </ul>
+            </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-deploy' %}active{% endif %}">
+        <a ng-click="toggle('deploy')" class="pro-deploy-link">Deploy</a>
+        <ul ng-show="sections.deploy" ng-cloak {% if page.category == 'pro-deploy' %}ng-init="sections.deploy = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/deploy/">Introduction</a>
+          </li>
+          <li>
+            <a href="/docs/pro/deploy/setup/#installation">Installation</a>
+          </li>
+          <li>
+            <a href="/docs/pro/deploy/setup/#usage">Deploying</a>
+          </li>
+          <li>
+            <a href="/docs/pro/deploy/plugin-api.html">Deploy API</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-package' %}active{% endif %}" >
+        <a ng-click="toggle('package')" class="pro-package-link">Package</a>
+        <ul ng-show="sections.package" ng-cloak {% if page.category == 'pro-package' %}ng-init="sections.package = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/package/">Introduction</a>
+          </li>
+          <li>
+            <a href="/docs/pro/package/profiles.html">Generating Credentials</a>
+          </li>
+          <li>
+            <a href="/docs/pro/package/profiles.html#creating-security-profiles">Adding Credentials</a>
+          </li>
+          <li>
+            <a href="/docs/pro/package/index.html#performing-a-build">Performing Builds</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-monitoring' %}active{% endif %}" >
+        <a ng-click="toggle('monitoring')" class="pro-monitoring-link">Monitoring</a>
+        <ul ng-show="sections.monitoring" ng-cloak {% if page.category == 'pro-monitoring' %}ng-init="sections.monitoring = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/monitoring/">Introduction</a>
+          </li>
+          <li>
+            <a href="/docs/pro/monitoring/#getting-started">Installation</a>
+          </li>
+          <li>
+            <a href="/docs/pro/monitoring/#source-maps">Adding SourceMaps</a>
+          </li>
+          <li>
+            <a href="/docs/pro/monitoring/#manual-capture-using-the-monitoring-api">Manual Capture API</a>
+          </li>
+        </ul>
+      </li>
+      <li class="{% if page.category == 'pro-advanced' %}active{% endif %}" >
+        <a ng-click="toggle('advanced')" class="pro-advanced-link">Advanced</a>
+        <ul ng-show="sections.advanced" ng-cloak {% if page.category == 'pro-advanced' %}ng-init="sections.advanced = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/migration/">Cloud Migration</a>
+            <ul>
+              <li>
+                <a href="/docs/pro/migration/live-deploy.html">Live updates</a>
+              </li>
+              <li>
+                <a href="/docs/pro/migration/package.html">Package</a>
+              </li>
+              <li>
+                <a href="/docs/pro/migration/view.html">Ionic View Legacy</a>
+              </li>
+              <li>
+                <a href="/docs/pro/migration/push.html">Ionic Push</a>
+              </li>
+              <li>
+                <a href="/docs/pro/migration/auth.html">Ionic Auth</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <!--
+      <li class="{% if page.id == 'pro-pwa' %}active{% endif %}">
+        <a href="/docs/pro/pwa-hosting.html">Progressive Web App Hosting</a>
+      </li>
+    -->
+    </ul>
+  </li>
+</ul>

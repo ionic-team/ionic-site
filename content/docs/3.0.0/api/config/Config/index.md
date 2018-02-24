@@ -33,7 +33,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/config/config.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/config/config.ts#L10">
 Improve this doc
 </a>
 

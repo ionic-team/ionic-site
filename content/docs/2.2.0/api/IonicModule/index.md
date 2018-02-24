@@ -31,7 +31,7 @@ IonicModule
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L266">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/index.ts#L266">
 Improve this doc
 </a>
 

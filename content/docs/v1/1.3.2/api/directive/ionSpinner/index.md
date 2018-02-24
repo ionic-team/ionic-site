@@ -11,11 +11,11 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/spinner.js#L1'>
+<a href='https://github.com/ionic-team/ionic-v1/blob/master/js/angular/directive/spinner.js#L1'>
 View Source
 </a>
 &nbsp;
-<a href='https://github.com/driftyco/ionic-v1/edit/master/js/angular/directive/spinner.js#L1'>
+<a href='https://github.com/ionic-team/ionic-v1/edit/master/js/angular/directive/spinner.js#L1'>
 Improve this doc
 </a>
 </div>
@@ -82,7 +82,7 @@ within 3KB.
   stop-color: #fff; }
 </style>
 
-<script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+<script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
 <table class="table spinner-table" ng-app="ionic">
  <tr>
    <th>

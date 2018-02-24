@@ -329,7 +329,7 @@ export var Searchbar = (function (_super) {
     Searchbar.prototype.clearInput = function (ev) {
         var _this = this;
         this.ionClear.emit(ev);
-        // setTimeout() fixes https://github.com/driftyco/ionic/issues/7527
+        // setTimeout() fixes https://github.com/ionic-team/ionic/issues/7527
         // wait for 4 frames
         setTimeout(function () {
             var value = _this._value;

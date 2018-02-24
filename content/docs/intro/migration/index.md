@@ -9,7 +9,7 @@ header_sub_title: Getting Started with Ionic
 
 # Migration Concepts
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
 Ionic is built on top of Angular, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular, take a look at [Learn Angular](http://learnangular2.com/).
 

@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-searchbar
   [(ngModel)]=&quot;myInput&quot;
@@ -70,15 +70,16 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="positionPlaceholder"></div>
 
 <h3>
-<a class="anchor" name="positionPlaceholder" href="#positionPlaceholder"></a>
+<a class="anchor" name="positionPlaceholder" href="#positionPlaceholder">
 <code>positionPlaceholder()</code>
   
 
+</a>
 </h3>
 
 
@@ -94,10 +95,11 @@ Improve this doc
 <div id="setFocus"></div>
 
 <h3>
-<a class="anchor" name="setFocus" href="#setFocus"></a>
+<a class="anchor" name="setFocus" href="#setFocus">
 <code>setFocus()</code>
   
 
+</a>
 </h3>
 
 
@@ -110,7 +112,7 @@ Improve this doc
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -124,7 +126,7 @@ Improve this doc
     <tr>
       <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> If true, enable searchbar animation.</p>
+      <td><p> If true, enable searchbar animation. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -166,7 +168,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> If true, show the cancel button.</p>
+      <td><p> If true, show the cancel button. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -187,7 +189,7 @@ Improve this doc
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -219,7 +221,7 @@ Improve this doc
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -826,7 +828,7 @@ Improve this doc
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#searchbar">Searchbar Component Docs</a><!-- end content block -->
 

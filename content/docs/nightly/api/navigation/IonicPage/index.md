@@ -31,7 +31,7 @@ IonicPage
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/ionic-page.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/navigation/ionic-page.ts#L9">
 Improve this doc
 </a>
 
@@ -58,7 +58,7 @@ over the world.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>The first step to setting up deep links is to add the page that should be
 a deep link in the <code>IonicPageModule.forChild</code> import of the page&#39;s module.
@@ -179,8 +179,10 @@ load the details of the application with no back button, as if it were the first
 <p>The default history of any page can be set in the <code>defaultHistory</code> property. This history will only
 be used if the history doesn&#39;t already exist, meaning if you navigate to the page the history will
 be the pages that were navigated from.</p>
-<p>The <code>defaultHistory</code> property takes an array of strings. For example, setting the history of the
-detail page to the list page where the <code>name</code> is <code>list</code>:</p>
+<p>The <code>defaultHistory</code> property takes an array of page names. The page names are specified as statically
+analyzable strings (which means you must use strings and not variables or delared constants). If the
+parent page does not have a <code>name</code> specified in its <code>IonicPage</code> decorator its name is its class name.</p>
+<p>For example, setting the history of the detail page to the list page where the <code>name</code> is <code>list</code>:</p>
 <pre><code class="lang-ts">@IonicPage({
   name: &#39;detail-page&#39;,
   segment: &#39;detail/:id&#39;,
@@ -190,6 +192,19 @@ detail page to the list page where the <code>name</code> is <code>list</code>:</
 <p>In this example, if the app is launched at <code>http://localhost:8101/#/detail/my-detail</code> the displayed page
 will be the <code>&#39;detail-page&#39;</code> with an id of <code>my-detail</code> and it will show a back button that goes back to
 the <code>&#39;list&#39;</code> page.</p>
+<p>For a deeper example:</p>
+<pre><code class="lang-ts">@IonicPage({
+  segment: &#39;contact-more-info&#39;,
+  defaultHistory: [&#39;ContactDetailPage&#39;, &#39;Contact&#39;]
+})
+...
+export class ContactMoreInfoPage {
+  ...
+}
+</code></pre>
+<p>In this example, if the app is launched at <code>http://localhost:8101/#/contact/contact-more-info</code> the displayed page
+will be the <code>&#39;ContactMoreInfoPage&#39;</code>. It will show a back button that will go to the <code>&#39;ContactDetailPage&#39;</code> which
+will also show a back button which will go to the <code>&#39;Contact&#39;</code> page.</p>
 <p>An example of an application with a set history stack is the Instagram application. Opening a link
 to an image on Instagram will show the details for that image with a back button to the user&#39;s profile
 page. There is no &quot;right&quot; way of setting the history for a page, it is up to the application.</p>

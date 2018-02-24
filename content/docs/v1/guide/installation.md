@@ -12,7 +12,7 @@ In this chapter, we are going to walk through the process of downloading Ionic a
 
 ## Platform notes
 
-First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 7+, and Android 4.1+. However, since there are a lot of different Android devices, it's possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our [GitHub](https://github.com/driftyco/ionic) project.
+First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 7+, and Android 4.1+. However, since there are a lot of different Android devices, it's possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our [GitHub](https://github.com/ionic-team/ionic) project.
 
 You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you'll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.
 
@@ -58,7 +58,7 @@ Windows users developing for Android: You'll want to make sure you have the foll
 <strong>Java JDK</strong>
 </p>
 <p>
-Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java JDK</a> (NOT just the JRE).
+Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java 8 JDK</a> (NOT just the JRE), JDK 9 is NOT currently (2017.12) supported by Cordova.
 </p>
 <p>
 Next, create an environment variable for <code>JAVA_HOME</code> pointing to the root folder where the Java JDK was installed. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set <code>JAVA_HOME</code> to be this path. After that, add the JDK's <code>bin</code> directory to the PATH variable as well. Following the previous assumption, this should be either <code>%JAVA_HOME%\bin</code> or the full path <code>C:\Program Files\Java\jdk7\bin</code>
@@ -96,7 +96,7 @@ $ sudo npm install -g ionic
 
 Now, we need to create a new Cordova project somewhere on the computer for the code for our app:
 
-    $ ionic start todo blank
+    $ ionic start todo blank --type ionic1
 
 That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:
 
@@ -120,8 +120,8 @@ If you are planning on using any version control system, you can go ahead and se
 Now, we need to tell ionic that we want to enable the iOS and Android platforms. Note: unless you are on MacOS, leave out the iOS platform:
 
 ```bash
-$ ionic platform add ios
-$ ionic platform add android
+$ ionic cordova platform add ios
+$ ionic cordova platform add android
 ```
 
 If you see errors here, make sure to follow the platform guides above to install necessary platform tools.
@@ -144,8 +144,8 @@ If you see errors here, make sure to follow the platform guides above to install
 Just to make sure the default project worked, try building and running the project (substitute ios for android to build for Android instead):
 
 ```bash
-$ ionic build ios
-$ ionic emulate ios
+$ ionic cordova build ios
+$ ionic cordova emulate ios
 ```
 
 <button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#android-emulator-note">
@@ -158,7 +158,7 @@ $ ionic emulate ios
 a real device. Using the emulator isn't even recommended for native Android development.
 </p>
 <p>
-  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic run</code> instead of <code>ionic emulate</code> as a Genymotion image appears as a physical device to the operating system.
+  Fortunately, there are some great alternatives out there. Our favorite is a tool called <a href="http://genymotion.com/">Genymotion</a> which can run an Android device as a virtual machine on your computer. It's much faster! If you use Genymotion, you'll use <code>ionic cordova run</code> instead of <code>ionic cordova emulate</code> as a Genymotion image appears as a physical device to the operating system.
 </p>
 <p>
 If you chose to emulate on Android, be patient as this takes several minutes as the Android emulator is booted up. If you don't see anything happen for a few minutes, make sure you've created an Android Virtual Device (AVD), and that it is using the Android SDK version 17 or above. You might have to <a href="http://stackoverflow.com/questions/7222906/failed-to-allocate-memory-8">reduce the amount of memory</a> the AVD is using if you don't see the emulator boot up in a minute. The platform guide above has more information. You may also want to double check that you have the sdk and platform tools in your PATH as noted in the platform guide.
@@ -167,7 +167,7 @@ If you chose to emulate on Android, be patient as this takes several minutes as 
 
 The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+<img src="https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
 </p>
 <p>
 Of course, you can always test directly on the device, and that is the recommended way to develop on Android due to the slow emulator. To do that,

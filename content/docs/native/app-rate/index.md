@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.10.2"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">App Rate</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L93">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L102">
   Improve this doc
 </a>
+
 
 
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-apprate
@@ -45,9 +46,9 @@ $ npm install --save @ionic-native/app-rate
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows (experimental)</li>
+  <li>Android</li><li>BlackBerry 10</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/app-rate
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AppRate } from &#39;@ionic-native/app-rate&#39;;
 
 constructor(private appRate: AppRate) { }
@@ -90,7 +91,7 @@ this.appRate.promptForRating(false);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="preferences" href="#preferences"></a><code>preferences</code></h3>
 
 
@@ -124,6 +125,13 @@ Prompts the user for rating
   </tr>
   </tbody>
 </table>
+
+<h3><a class="anchor" name="navigateToAppStore" href="#navigateToAppStore"></a><code>navigateToAppStore()</code></h3>
+
+
+Immediately send the user to the app store rating page
+
+
 
 
 
@@ -201,7 +209,21 @@ Prompts the user for rating
   
   <tr>
     <td>
-      openStoreInApp
+      simpleMode
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Simple Mode to display the rate dialog directly and bypass negative feedback filtering flow</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      inAppReview
     </td>
     <td>
       <code>boolean</code>
@@ -394,6 +416,20 @@ Prompts the user for rating
     </td>
     <td>
       <p>call back function. called when rate-dialog showing</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      handleNegativeFeedback
+    </td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>call back function. called when user clicked on negative feedback</p>
 
       <em>(optional)</em>
     </td>

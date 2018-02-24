@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tabs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tabs.ts#L21">
 Improve this doc
 </a>
 
@@ -50,7 +50,9 @@ a container of individual <a href="../Tab/">Tab</a> components. Each individual 
 is a declarative component for a <a href="../../../navigation/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
 take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
-<h3 id="placement">Placement</h3>
+<h3><a class="anchor" name="placement" href="#placement">Placement</a></h3>
+
+
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
 for iOS and Android, and at the top for Windows by default. The position can
@@ -58,7 +60,9 @@ be configured using the <code>tabsPlacement</code> attribute on the <code>&lt;io
 or in an app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
 values of <code>tabsPlacement</code>.</p>
-<h3 id="layout">Layout</h3>
+<h3><a class="anchor" name="layout" href="#layout">Layout</a></h3>
+
+
 <p>The layout for all of the tabs can be defined using the <code>tabsLayout</code>
 property. If the individual tab has a title and icon, the icons will
 show on top of the title by default. All tabs can be changed by setting
@@ -67,7 +71,9 @@ app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful
 you want to show tabs with a title only on Android, but show icons
 and a title for iOS. See the <a href="#input-properties">Input Properties</a>
 below for the available values of <code>tabsLayout</code>.</p>
-<h3 id="selecting-a-tab">Selecting a Tab</h3>
+<h3><a class="anchor" name="selecting-a-tab" href="#selecting-a-tab">Selecting a Tab</a></h3>
+
+
 <p>There are different ways you can select a specific tab from the tabs
 component. You can use the <code>selectedIndex</code> property to set the index
 on the <code>&lt;ion-tabs&gt;</code> element, or you can call <code>select()</code> from the <code>Tabs</code>
@@ -78,7 +84,7 @@ instance after creation. See <a href="#usage">usage</a> below for more informati
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>You can add a basic tabs template to a <code>@Component</code> using the following
 template:</p>
@@ -156,15 +162,16 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="getByIndex"></div>
 
 <h3>
-<a class="anchor" name="getByIndex" href="#getByIndex"></a>
+<a class="anchor" name="getByIndex" href="#getByIndex">
 <code>getByIndex(index)</code>
   
 
+</a>
 </h3>
 
 
@@ -215,13 +222,34 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 
+<div id="getSecondaryIdentifier"></div>
+
+<h3>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier">
+<code>getSecondaryIdentifier()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="getSelected"></div>
 
 <h3>
-<a class="anchor" name="getSelected" href="#getSelected"></a>
+<a class="anchor" name="getSelected" href="#getSelected">
 <code>getSelected()</code>
   
 
+</a>
 </h3>
 
 
@@ -242,13 +270,34 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 
-<div id="ngOnDestroy"></div>
+<div id="getType"></div>
 
 <h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
+<a class="anchor" name="getType" href="#getType">
+<code>getType()</code>
   
 
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="goToRoot"></div>
+
+<h3>
+<a class="anchor" name="goToRoot" href="#goToRoot">
+<code>goToRoot()</code>
+  
+
+</a>
 </h3>
 
 
@@ -264,10 +313,11 @@ components to switch to <code>TabsRoot3</code>:</p>
 <div id="previousTab"></div>
 
 <h3>
-<a class="anchor" name="previousTab" href="#previousTab"></a>
+<a class="anchor" name="previousTab" href="#previousTab">
 <code>previousTab(trimHistory)</code>
   
 
+</a>
 </h3>
 
 Get the previously selected Tab which is currently not disabled or hidden.
@@ -320,10 +370,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
 <div id="select"></div>
 
 <h3>
-<a class="anchor" name="select" href="#select"></a>
+<a class="anchor" name="select" href="#select">
 <code>select(tabOrIndex)</code>
   
 
+</a>
 </h3>
 
 
@@ -369,10 +420,11 @@ Get the previously selected Tab which is currently not disabled or hidden.
 <div id="viewCtrl"></div>
 
 <h3>
-<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<a class="anchor" name="viewCtrl" href="#viewCtrl">
 <code>viewCtrl</code>
   
 
+</a>
 </h3>
 
 
@@ -385,7 +437,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -395,6 +447,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> A unique name for the tabs</p>
+</td>
+    </tr>
     
     <tr>
       <td>selectedIndex</td>
@@ -413,7 +472,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tr>
       <td>tabsLayout</td>
       <td><code>string</code></td>
-      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
+      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-start</code>, <code>icon-end</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
@@ -427,7 +486,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -447,7 +506,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -808,11 +867,20 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-transform-origin</code></td>
+        <td><code>$tabs-md-tab-text-transform-origin-x</code></td>
         
-          <td><code>50% 80%</code></td>
+          <td><code>50%</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform-origin-y</code></td>
+        
+          <td><code>80%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       
@@ -835,47 +903,128 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-x-active</code></td>
         
-          <td><code>translate3d(0, -2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-y-active</code></td>
         
-          <td><code>translate3d(2px, 0, 0)</code></td>
+          <td><code>-2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-bottom-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-transform-z-active</code></td>
         
-          <td><code>translate3d(0, 2px, 0)</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-bottom</p>
+        <td><p>Transform z for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-x-active</code></td>
         
-          <td><code>translate3d(-2px, 0, 0)</code></td>
+          <td><code>2px</code></td>
         
-        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+        <td><p>Transform x for the active tab button icon when the layout is icon-right</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-icon-transform-origin</code></td>
+        <td><code>$tabs-md-tab-icon-right-transform-y-active</code></td>
         
-          <td><code>50% 150%</code></td>
+          <td><code>0</code></td>
         
-        <td><p>Transform origin for the tab button text</p>
+        <td><p>Transform y for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-right-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-x-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-y-active</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-x-active</code></td>
+        
+          <td><code>-2px</code></td>
+        
+        <td><p>Transform x for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-y-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform y for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-z-active</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Transform z for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-x</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Transform origin x for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin-y</code></td>
+        
+          <td><code>150%</code></td>
+        
+        <td><p>Transform origin y for the tab button text</p>
 </td>
       </tr>
       
@@ -1063,7 +1212,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#tabs">Tabs Component Docs</a>,
 <a href="../Tab">Tab API Docs</a>,

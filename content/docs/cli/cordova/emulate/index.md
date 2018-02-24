@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-emulate
-command_name: cordova emulate
-title: cordova emulate
+page_name: ionic cordova emulate
+command_name: ionic cordova emulate
+title: ionic cordova emulate - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova emulate`
 
@@ -13,34 +22,50 @@ Emulate an Ionic project on a simulator or emulator
 ## Synopsis
 
 ```bash
-$ ionic cordova emulate <platform>
+$ ionic cordova emulate [<platform>]
 ```
   
 ## Details
 
+Like running `cordova emulate` directly, but also watches for changes in web assets and provides live-reload functionality with the `--livereload` option.
+
+For Android and iOS, you can setup Remote Debugging on your emulator with browser development tools: **[https://docs.ionic.io/tools/developer/#remote-debugging](https://docs.ionic.io/tools/developer/#remote-debugging)**
+
+Just like with `ionic cordova build`, you can pass additional options to the Cordova CLI using the `--` separator.
+
 
 Input | Description
 ----- | ----------
-`platform` | The platform to emulate: ios, android
+`platform` | The platform to emulate (`android`, `ios`)
 
 
 Option | Description
 ------ | ----------
-`--livereload`, `-l` | Live reload app dev files from the device
-`--address` | Use specific address (livereload req.)
-`--consolelogs`, `-c` | Print app console logs to Ionic CLI
-`--serverlogs`, `-s` | Print dev server logs to Ionic CLI
-`--port`, `-p` | Dev server HTTP port
-`--livereload-port`, `-r` | Live Reload port
-`--prod` | Create a prod build with app-scripts
-`--list` | List all available Cordova run targets
-`--debug` | Create a Cordova debug build
-`--release` | Create a Cordova release build
+`--list` | List all available Cordova targets
+`--livereload`, `-l` | Spin up server to live-reload www files
+`--consolelogs`, `-c` | Print out console logs to terminal
+`--address` | Use specific address for the dev server
+`--port`, `-p` | Use specific port for HTTP
+`--livereload-port`, `-r` | Use specific port for live-reload
+`--dev-logger-port` | Use specific port for dev server communication
+`--prod` | Build the application for production
+`--aot` | Perform ahead-of-time compilation for this build
+`--minifyjs` | Minify JS for this build
+`--minifycss` | Minify CSS for this build
+`--optimizejs` | Perform JS optimizations for this build
+`--debug` | Mark as a debug build
+`--release` | Mark as a release build
 `--device` | Deploy Cordova build to a device
-`--target` | Deploy Cordova build to a device (use --list to see all)
+`--emulator` | Deploy Cordova build to an emulator
+`--target` | Deploy Cordova build to a device (use `--list` to see all)
+`--buildConfig` | Use the specified Cordova build configuration
 
 ## Examples
 
 ```bash
-$ ionic cordova emulate ios --livereload -c -s
+$ ionic cordova emulate 
+$ ionic cordova emulate ios
+$ ionic cordova emulate ios -lc
+$ ionic cordova emulate android -lc --address=localhost
+$ ionic cordova emulate android -lc -- -d
 ```

@@ -1,6 +1,6 @@
 ---
 layout: fluid/docs_base
-version: "2.0.1"
+version: "2.1.3"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -20,7 +20,7 @@ Storage
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L4">
+<a class="improve-docs" href="http://github.com/ionic-team/ionic/edit/master/src/storage.ts#L4">
 Improve this doc
 </a>
 
@@ -43,7 +43,7 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>First, if you&#39;d like to use SQLite, install the cordova-sqlite-storage plugin:</p>
-<pre><code class="lang-bash">cordova plugin add cordova-sqlite-storage --save
+<pre><code class="lang-bash">ionic cordova plugin add cordova-sqlite-storage
 </code></pre>
 <p>Next, install the package (comes by default for Ionic apps &gt; Ionic V1):</p>
 <pre><code class="lang-bash">npm install --save @ionic/storage
@@ -55,7 +55,7 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
   declarations: [
     // ...
   ],
-  imports: [      
+  imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()

@@ -214,9 +214,24 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while a popover is dismissed.</td>
 </tr>
 <tr>
+<td><code>scrollAssist</code></td>
+<td><code>boolean</code></td>
+<td>Used to avoid the input to be hidden by the keyboard if it&#39;s near the bottom of the page.</td>
+</tr>
+<tr>
+<td><code>scrollPadding</code></td>
+<td><code>boolean</code></td>
+<td>Used to remove the extra padding on ion-content when keyboard is displayed.</td>
+</tr>
+<tr>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>
+</tr>
+<tr>
+<td><code>statusbarPadding</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide extra padding for statusbar.</td>
 </tr>
 <tr>
 <td><code>swipeBackEnabled</code></td>
@@ -268,15 +283,16 @@ chart displays each property with a description of what it controls.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="get"></div>
 
 <h3>
-<a class="anchor" name="get" href="#get"></a>
+<a class="anchor" name="get" href="#get">
 <code>get(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Returns a single config value, given a key.
@@ -341,10 +357,11 @@ value was not found, or is config value is <code>null</code>. Fallback value
 <div id="getBoolean"></div>
 
 <h3>
-<a class="anchor" name="getBoolean" href="#getBoolean"></a>
+<a class="anchor" name="getBoolean" href="#getBoolean">
 <code>getBoolean(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Same as `get()`, however always returns a boolean value. If the
@@ -412,10 +429,11 @@ value was <code>null</code>. Fallback value defaults to <code>false</code>.<stro
 <div id="getNumber"></div>
 
 <h3>
-<a class="anchor" name="getNumber" href="#getNumber"></a>
+<a class="anchor" name="getNumber" href="#getNumber">
 <code>getNumber(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Same as `get()`, however always returns a number value. Uses `parseFloat()`
@@ -483,10 +501,11 @@ value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</c
 <div id="set"></div>
 
 <h3>
-<a class="anchor" name="set" href="#set"></a>
+<a class="anchor" name="set" href="#set">
 <code>set(platform,&nbsp;key,&nbsp;value)</code>
   
 
+</a>
 </h3>
 
 Sets a single config value.

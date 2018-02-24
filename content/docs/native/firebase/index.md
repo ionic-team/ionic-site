@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project! Android and iOS supported (including iOS 10).</p>
 
 
@@ -38,7 +39,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase
@@ -50,7 +51,7 @@ $ npm install --save @ionic-native/firebase
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -60,7 +61,7 @@ $ npm install --save @ionic-native/firebase
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Firebase } from &#39;@ionic-native/firebase&#39;;
 
 constructor(private firebase: Firebase) { }
@@ -82,7 +83,7 @@ this.firebase.onTokenRefresh()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getToken" href="#getToken"></a><code>getToken()</code></h3>
 
 
@@ -136,7 +137,7 @@ Check permission to receive push notifications
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;{isEnabled: boolean}&gt;</code> 
 </div><h3><a class="anchor" name="setBadgeNumber" href="#setBadgeNumber"></a><code>setBadgeNumber(badgeNumber)</code></h3>
 
 
@@ -230,7 +231,15 @@ Unsubscribe from a topic
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(type,&nbsp;data)</code></h3>
+</div><h3><a class="anchor" name="unregister" href="#unregister"></a><code>unregister()</code></h3>
+
+
+Unregister from firebase, used to stop receiving push notifications.
+Call this when you logout user from your app.
+
+
+
+<h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(type,&nbsp;data)</code></h3>
 
 
 Log an event using Analytics
@@ -596,6 +605,84 @@ Set defaults in the Remote Config
     </td>
     <td>
       </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getVerificationID" href="#getVerificationID"></a><code>getVerificationID(phoneNumber)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Sends an SMS to the user with the SMS verification code and returns the Verification ID required to sign in using phone authentication
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      phoneNumber</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="verifyPhoneNumber" href="#verifyPhoneNumber"></a><code>verifyPhoneNumber(phoneNumber,&nbsp;timeoutDuration)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Sends an SMS to the user with the SMS verification code and returns the Verification ID required to sign in using phone authentication
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      phoneNumber</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>the phone number, including &#39;+&#39; and country code</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeoutDuration</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>the timeout in sec - no more SMS will be sent to this number until this timeout expires</p>
+</td>
   </tr>
   </tbody>
 </table>

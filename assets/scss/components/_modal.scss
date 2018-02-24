@@ -41,4 +41,37 @@
       content: '\f27d';
     }
   }
+
+  &.fullscreen {
+    .container {
+      position: relative;
+    }
+
+    .close {
+      right: 36px;
+      top: 27px;
+      box-shadow: none;
+      background: #ebeff5;
+
+      &::before {
+        color: #838fa5;
+      }
+    }
+
+    .modal-dialog {
+      width: 651px;
+      transform: translate(0, -10%);
+      transition: transform .5s cubic-bezier(0,0,0,1);
+    }
+
+    &.in .modal-dialog {
+      transform: translate(0, 0);
+    }
+
+    .modal-content {
+      box-shadow: none;
+      border: 0;
+      background: transparent;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -42,7 +42,7 @@ Improve this doc
 
 
 
-<p>The MenuController is a provider which makes it easy to control a <a href="../Menu">Menu</a>.
+<p>The MenuController is a provider which makes it easy to control a <a href="../../Menu/Menu/">Menu</a>.
 Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
 The controller will grab a reference to the menu by the <code>side</code>, <code>id</code>, or, if neither
 of these are passed to it, it will grab the first menu it finds.</p>
@@ -52,9 +52,9 @@ of these are passed to it, it will grab the first menu it finds.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<p>Add a basic menu component to start with. See the <a href="../Menu">Menu</a> API docs
+<p>Add a basic menu component to start with. See the <a href="../../Menu/Menu/">Menu</a> API docs
 for more information on adding menu components.</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
@@ -136,15 +136,16 @@ id will be disabled.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close(menuId)</code>
   
 
+</a>
 </h3>
 
 Programatically close the Menu. If no `menuId` is given as the first
@@ -200,10 +201,11 @@ is given then it'll close that exact menu.
 <div id="enable"></div>
 
 <h3>
-<a class="anchor" name="enable" href="#enable"></a>
+<a class="anchor" name="enable" href="#enable">
 <code>enable(menuId)</code>
   
 
+</a>
 </h3>
 
 Used to enable or disable a menu. For example, there could be multiple
@@ -260,10 +262,11 @@ will also automatically disable all the others that are on the same side.
 <div id="get"></div>
 
 <h3>
-<a class="anchor" name="get" href="#get"></a>
+<a class="anchor" name="get" href="#get">
 <code>get(menuId)</code>
   
 
+</a>
 </h3>
 
 Used to get a menu instance. If a `menuId` is not provided then it'll
@@ -321,10 +324,11 @@ property. If a menu is not found then it'll return `null`.
 <div id="getMenus"></div>
 
 <h3>
-<a class="anchor" name="getMenus" href="#getMenus"></a>
+<a class="anchor" name="getMenus" href="#getMenus">
 <code>getMenus()</code>
   
 
+</a>
 </h3>
 
 
@@ -348,10 +352,11 @@ property. If a menu is not found then it'll return `null`.
 <div id="getOpen"></div>
 
 <h3>
-<a class="anchor" name="getOpen" href="#getOpen"></a>
+<a class="anchor" name="getOpen" href="#getOpen">
 <code>getOpen()</code>
   
 
+</a>
 </h3>
 
 
@@ -375,10 +380,11 @@ property. If a menu is not found then it'll return `null`.
 <div id="isEnabled"></div>
 
 <h3>
-<a class="anchor" name="isEnabled" href="#isEnabled"></a>
+<a class="anchor" name="isEnabled" href="#isEnabled">
 <code>isEnabled(menuId)</code>
   
 
+</a>
 </h3>
 
 
@@ -432,10 +438,11 @@ property. If a menu is not found then it'll return `null`.
 <div id="isOpen"></div>
 
 <h3>
-<a class="anchor" name="isOpen" href="#isOpen"></a>
+<a class="anchor" name="isOpen" href="#isOpen">
 <code>isOpen(menuId)</code>
   
 
+</a>
 </h3>
 
 
@@ -490,10 +497,11 @@ If the menuId is not specified, it returns true if ANY menu is currenly open.</p
 <div id="open"></div>
 
 <h3>
-<a class="anchor" name="open" href="#open"></a>
+<a class="anchor" name="open" href="#open">
 <code>open(menuId)</code>
   
 
+</a>
 </h3>
 
 Programatically open the Menu.
@@ -547,10 +555,11 @@ Programatically open the Menu.
 <div id="swipeEnable"></div>
 
 <h3>
-<a class="anchor" name="swipeEnable" href="#swipeEnable"></a>
+<a class="anchor" name="swipeEnable" href="#swipeEnable">
 <code>swipeEnable(shouldEnable,&nbsp;menuId)</code>
   
 
+</a>
 </h3>
 
 Used to enable or disable the ability to swipe open the menu.
@@ -621,10 +630,11 @@ Used to enable or disable the ability to swipe open the menu.
 <div id="toggle"></div>
 
 <h3>
-<a class="anchor" name="toggle" href="#toggle"></a>
+<a class="anchor" name="toggle" href="#toggle">
 <code>toggle(menuId)</code>
   
 
+</a>
 </h3>
 
 Toggle the menu. If it's closed, it will open, and if opened, it
@@ -677,7 +687,7 @@ will close.
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -833,7 +843,7 @@ adapting to different screen sizes, for use in media queries</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#menus">Menu Component Docs</a>,
 <a href="../Menu">Menu API Docs</a><!-- end content block -->

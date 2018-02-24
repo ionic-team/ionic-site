@@ -9,22 +9,29 @@
     {% include fluid/head.prod.html %}
   </head>
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
-        class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}}
+        class="page-{{page.id}} transparent light
                {% if page.header_style %}{{page.header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
         {% if isDocs %}data-target="#components-index"{% endif %}
         ng-app="IonicSite">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0" 
+              width="0" ></iframe>
+    </noscript>
+    <!-- <div id="snap-bar">
+      <img src="/img/net-neutrality-loading.png" width="16" class="loading"/>
+      Speak up for a free and open internet. 
+      <a href="https://www.battleforthenet.com" target="_blank">
+        <b>Act now to save Net Neutrality</b>
+        <i class="ion-md-arrow-forward"></i>
+      </a>
+    </div> -->
+    {% include fluid/header.html %}
 
-    {% if page.centered != true %}
-      {% include fluid/docs_header.html %}
-    {% else %}
-      {% include fluid/header.html %}
-    {% endif %}
-    
-    <main class="container">
-      {{ content }}
-    </main>
+    {{ content }}
 
     {% if page.prev_page_title  or page.next_page_title %}
       <div class="footer-links">

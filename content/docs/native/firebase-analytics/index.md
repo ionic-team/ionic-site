@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,8 +28,9 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for Firebase Analytics</p>
-<p>Go yo firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
+<p>Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
 <p>NOTE: on iOS in order to collect demographic, age, gender data etc. you should additionally include AdSupport.framework into your project.</p>
 
 
@@ -40,7 +41,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase-analytics
@@ -52,7 +53,7 @@ $ npm install --save @ionic-native/firebase-analytics
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -62,7 +63,7 @@ $ npm install --save @ionic-native/firebase-analytics
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { FirebaseAnalytics } from &#39;@ionic-native/firebase-analytics&#39;;
 
 
@@ -82,7 +83,7 @@ this.firebaseAnalytics.logEvent(&#39;page_view&#39;, {page: &quot;dashboard&quot
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(name,&nbsp;params)</code></h3>
 
 
@@ -145,7 +146,7 @@ This feature must be used in accordance with Google's Privacy Policy.
       <code>string</code>
     </td>
     <td>
-      <p>THe user ID</p>
+      <p>The user ID</p>
 </td>
   </tr>
   </tbody>

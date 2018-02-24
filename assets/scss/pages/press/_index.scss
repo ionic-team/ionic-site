@@ -1,0 +1,266 @@
+#page-press {
+  .navbar + .banner {
+    background: #182949 no-repeat center top;
+    background-image: url('/img/press/press-cta-bg.jpg'),
+                      linear-gradient(to right, #1f3253 0%, #39485d 100%);
+    background-size: cover, 100%;
+
+    hgroup {
+      text-align: left;
+      max-width: 100%;
+      padding-top: 16px;
+      padding-left: 99px;
+      padding-bottom: 98px;
+      position: relative;
+
+      &::before {
+        background: url('/img/press/press-hero-icon.png') 0 0 no-repeat;
+        background-size: 64px;
+        width: 64px;
+        height: 64px;
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 36px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        margin-top: 100px;
+      }
+    }
+
+    h1 {
+      font-family: $font-family-eina;
+      font-weight: 700;
+      font-size: 33px;
+      margin-bottom: 4px;
+      letter-spacing: -.037em;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 17px;
+      letter-spacing: -.005em;
+    }
+  }
+
+  .cards {
+    margin-top: -41px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+    padding-left: 0;
+
+    @media (max-width: $screen-xs-max) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      @include box();
+
+      padding: 82px 24px 38px;
+      flex: 0 1 370px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 32px;
+
+      &::before {
+        background: url('/img/press/brand-asset-icons.png') 0 0 no-repeat;
+        background-size: 114px;
+        width: 114px;
+        height: 114px;
+        position: absolute;
+        content: '';
+        top: -31px;
+        left: calc(50% - 57px);
+      }
+
+      &.primary-logo::before { background-position: 0 0; }
+      &.light-logo::before { background-position: 0 -114px; }
+      &.all::before { background-position: 0 -224px; }
+
+      @media (max-width: $screen-md-max) {
+        flex-basis: 300px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        flex-basis: 230px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        flex-basis: 90%;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: .1em;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 12px 16px 9px;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+  }
+
+  .tabs {
+    margin-top: 47px;
+    padding-top: 8px;
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+
+    .tab-menu {
+      flex: 0 1 237px;
+      min-width: 140px;
+    }
+
+    .nav-stacked {
+      h4 {
+        font-size: 17px;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        font-weight: 700;
+        margin-top: 13px;
+      }
+
+      a {
+        font-weight: 500;
+        color: $blackish;
+        font-size: 15px;
+        padding: 0;
+        margin: 19px 0 19px -1px;
+        border-right: 2px solid transparent;
+        background: transparent !important;
+        transition: color .2s, border-color .2s;
+      }
+
+      li.active a,
+      li a:hover,
+      li a:active {
+        color: $blue;
+        border-color: $blue;
+      }
+    }
+
+    .tab-content {
+      flex: 1 0 300px;
+      padding-left: 87px;
+
+      ul {
+        padding-left: 0;
+      }
+
+      li {
+        list-style: none;
+
+        a {
+          position: relative;
+          display: block;
+          padding-left: 102px;
+          margin-top: 12px;
+          margin-bottom: 43px;
+  
+          &::before,
+          &::after {
+            background: url('/img/press/press-thumbnail.png') 0 0 no-repeat;
+            background-size: 72px;
+            width: 72px;
+            height: 72px;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: .3s opacity;
+          }
+  
+          &::after {
+            opacity: 0;
+            background-position: 0 -72px;
+          }
+  
+          &:hover {
+            &::before {
+              // opacity: 0;
+            }
+  
+            &::after {
+              opacity: 1;
+            }
+  
+            strong {
+              color: $blue;
+            }
+          }
+  
+          strong {
+            color: #272a2f;
+            font-size: 16px;
+            transition: .3s color;
+          }
+  
+          time {
+            color: #727a87;
+            display: block;
+            line-height: 24px;
+            letter-spacing: -.03em;
+            font-weight: 500;
+            transition: .3s color;
+          }
+  
+          span {
+            color: #727a87;
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 28px;
+            letter-spacing: -.004em;
+            transition: .3s color;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+
+      .tab-menu {
+        flex-basis: 32px;
+
+          .nav-stacked {
+          display: flex;
+          justify-content: space-around;
+  
+          h4 {
+            margin-top: 25px;
+          }
+  
+          li.active a,
+          li a:hover,
+          li a:active {
+            border-right-color: transparent;
+            border-bottom: 2px solid $blue;
+          }
+        }
+      }
+
+      .tab-content {
+        padding-left: 32px;
+      }
+    }
+  }
+}

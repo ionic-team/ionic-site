@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -50,7 +50,7 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-header&gt;
   &lt;ion-navbar&gt;
@@ -75,7 +75,7 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

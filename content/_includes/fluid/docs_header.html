@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default{% if page.dark_header %} navbar-dark{% endif %}" id="{{layout.navbar_id}}">
+  <div class="{% if layout.is_responsive %}container{% else %}container-fluid{% endif %}">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button"
@@ -20,9 +20,15 @@
         <img src="/img/docs/ionic-docs-icon.png" id="ionic-docs-logo" />
         <img src="/img/docs/ionic-docs-icon-back.png" id="ionic-docs-back" />
       </a>
-      <a class="navbar-brand" href="/docs/">
+      <a class="navbar-brand" href="/docs/v2">
+        {% if layout.back_button_text_image %}
+        <img src="{{layout.back_button_text_image}}" id="ionic-pro-docs-text" />
+        {% else %}
         <img src="/img/docs/ionic-docs-type.png" id="ionic-docs-text" />
+        {% endif %}
       </a>
+      {% if layout.hide_version_dropdown %}
+      {% else %}
       <ul class="version">
         <li class="dropdown">
           <a href="#"
@@ -41,12 +47,14 @@
           </ul>
         </li>
       </ul>
+      {% endif %}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
       {% if page.hide_header_search != true %}
       <form class="navbar-form navbar-left"
+            id="header-search"
             role="search"
             data-searchpos="header">
         <div class="form-group">
@@ -58,7 +66,7 @@
         </div>
       </form>
       {% endif %}
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-center">
         {% include fluid/header_nav.html isDocs='true' %}
       </ul>
       <ul class="nav navbar-nav navbar-right">

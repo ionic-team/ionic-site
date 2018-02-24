@@ -157,12 +157,122 @@ IonicSiteModule
     }), '*');
   };
 
+  $(document).ready(function() {
+    $previousOffset = -1;
+    $header = $('#components-header');
+
+    var $sectionLabel = $header.find('h3');
+    var $subSectionLabel = $header.find('h4');
+
+    var $subSectionTop = $subSectionLabel.find('.top');
+    var $subSectionMiddle = $subSectionLabel.find('.middle');
+    var $subSectionBottom = $subSectionLabel.find('.bottom');
+
+    var subSectionChangeQueue = [];
+    var transitioning = false;
+    var currentSubSection = null;
+
+    function enqueueSubSectionChange(subSection, direction) {
+      subSectionChangeQueue.push({
+        subSection: subSection,
+        direction: direction
+      });
+
+      resumeSubSectionTransition();
+    }
+
+    function transitionSubSection(subSection, previousContainer, nextContainer, callback) {
+      previousContainer.text($subSectionMiddle.text()).addClass('middle').addClass('no-transition');
+      $subSectionMiddle.text('');
+      nextContainer.text(subSection);
+
+      setTimeout(function() {
+        previousContainer.removeClass('middle').removeClass('no-transition');
+        nextContainer.addClass('middle');
+
+        setTimeout(function() {
+          previousContainer.text('');
+          $subSectionMiddle.text(subSection);
+          nextContainer.text('').removeClass('middle');
+
+          setTimeout(function() {
+            callback();
+          }, 300);
+        }, 300);
+      }, 0);
+    }
+
+    function resumeSubSectionTransition() {
+      if (transitioning || subSectionChangeQueue.length === 0) return;
+
+      // Optimize by removing any lengthy intermediate transitions
+      if (subSectionChangeQueue.length >= 2) {
+        subSectionChangeQueue.splice(1, subSectionChangeQueue.length - 1);
+      }
+
+      var change = subSectionChangeQueue.shift();
+      var subSection = change.subSection;
+
+      if (subSection === currentSubSection) {
+        resumeSubSectionTransition();
+
+        return;
+      }
+
+      transitioning = true;
+      currentSubSection = subSection;
+
+      (function(callback) {
+        if (change.direction < 0) {
+          transitionSubSection(subSection, $subSectionTop, $subSectionBottom, callback);
+        } else {
+          transitionSubSection(subSection, $subSectionBottom, $subSectionTop, callback);
+        }
+      })(function() {
+        transitioning = false;
+
+        resumeSubSectionTransition();
+      });
+    }
+
+    $componentsIndex = $('#components-index').on('activate.bs.scrollspy', function(event) {
+      var target = $(event.target);
+
+      if (target.get(0) === $componentsIndex.get(0)) {
+        // If the target is the entire components index, ignore it.
+
+        return;
+      }
+
+      if (!target.hasClass('nav-item-hidden')) {
+        // A new section was entered, so clear the sub-section label
+        $sectionLabel.text(target.text());
+        $subSectionLabel.addClass('not-shown');
+
+        $previousOffset = -1;
+      } else {
+        var offset = target.index();
+        var direction = offset > $previousOffset ? -1 : 1; // -1 for down, 1 for up
+
+        // It navigated to a sub-section, so determine the parent section as well
+        $sectionLabel.text(target.parent().prev().text());
+        $subSectionLabel.removeClass('not-shown');
+
+        enqueueSubSectionChange(target.text(), direction);
+
+        $previousOffset = offset;
+      }
+    });
+  });
+
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);
   $window.scroll(fixyCheck);
+  var snapBarOffset = $(document.body).hasClass("has-snap") ? 38 : 0;
+
   function fixyCheck(a, b, c) {
-    if ($window.scrollTop() > 78) {
+    if ($window.scrollTop() > 78 + snapBarOffset) {
       $platformPreview.addClass('fixey');
     } else {
       $platformPreview.removeClass('fixey');

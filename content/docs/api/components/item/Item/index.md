@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -53,7 +53,8 @@ be in a <a href="../../list/List">List</a> if manipulating the item via gestures
 The basic item can be written as an <code>&lt;ion-item&gt;</code> element or it can be added to any element by adding
 <code>ion-item</code> as an attribute. List headers and item dividers, although styled differently, are also items
 and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-item-divider&gt;</code>, respectively.</p>
-<h3 id="as-an-element">As an Element</h3>
+<h3><a class="anchor" name="as-an-element" href="#as-an-element">As an Element</a></h3>
+
 <p>A basic item should be written as a <code>&lt;ion-item&gt;</code> element when it is not clickable.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   Item
@@ -69,7 +70,8 @@ and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-ite
   Item Divider
 &lt;/ion-item-divider&gt;
 </code></pre>
-<h3 id="as-an-attribute">As an Attribute</h3>
+<h3><a class="anchor" name="as-an-attribute" href="#as-an-attribute">As an Attribute</a></h3>
+
 <p>The attribute <code>ion-item</code> should be added to a <code>&lt;button&gt;</code> when the item can be clicked or tapped. It
 should be added to an <code>&lt;a&gt;</code> element when the item needs to contain a <code>href</code>. It can be added as an
 attribute to any element to take on the item styling.</p>
@@ -103,7 +105,7 @@ to the item. To show the right arrow icon on an element that doesn&#39;t display
 <p>This feature is not enabled by default for <code>md</code> and <code>wp</code> modes, but it can be enabled by setting the
 Sass variables <code>$item-md-detail-push-show</code> and <code>$item-wp-detail-push-show</code>, respectively, to <code>true</code>.
 It can also be disabled for ios by setting <code>$item-ios-detail-push-show</code> to <code>false</code>. See the
-<a href="http://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
+<a href="https://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
 more information on overriding Sass variables.</p>
 <h2 id="item-placement">Item Placement</h2>
 <p>Items rely heavily on content projection to position content. The item grabs content based on the
@@ -134,19 +136,22 @@ that attribute inside of the item:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</h3>
+<h3><a class="anchor" name="checkboxes-radios-and-toggles" href="#checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</a></h3>
+
 <p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-start</code> attribute.
 <a href="../../radio/RadioButton">Radios</a> and <a href="../../toggle/Toggle">Toggles</a> are positioned in the same place
 as the <code>item-end</code> attribute. All of these components can be positioned differently by adding the
 <code>item-start</code> or <code>item-end</code> attribute.</p>
-<h3 id="content-and-inputs">Content and Inputs</h3>
+<h3><a class="anchor" name="content-and-inputs" href="#content-and-inputs">Content and Inputs</a></h3>
+
 <p>A <a href="../../label/Label">Label</a> is placed inside of the item to the left of all content and inputs. The
 following components are all placed in the same position as the <code>item-content</code> attribute: <a href="../../select/Select">Select</a>,
 <a href="../../input/Input">Input</a>, <a href="../../input/TextArea">TextArea</a>, <a href="../../datetime/DateTime">DateTime</a>, and
 <a href="../../range/Range">Range</a>.</p>
 <p>Any element directly placed inside of an <code>&lt;ion-item&gt;</code> that does not have one of the previously mentioned
 attributes and isn&#39;t one of the above elements will be placed inside of a <a href="../../label/Label">Label</a>.</p>
-<h3 id="text-alignment">Text Alignment</h3>
+<h3><a class="anchor" name="text-alignment" href="#text-alignment">Text Alignment</a></h3>
+
 <p>By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
 See the <a href="../../../../theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
 be added to <code>ion-item</code> to transform the text.</p>
@@ -156,7 +161,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -207,7 +212,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <pre><code class="lang-html">&lt;ion-list&gt;
 
   &lt;!-- List header with buttons on each side --&gt;
@@ -297,7 +302,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -796,7 +801,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#lists">List Component Docs</a>,
 <a href="../../list/List">List API Docs</a>,

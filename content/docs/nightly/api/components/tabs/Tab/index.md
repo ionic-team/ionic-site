@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/tabs/tab.ts#L15">
 Improve this doc
 </a>
 
@@ -56,7 +56,7 @@ navigation controllers take a look at the <a href="../../../navigation/NavContro
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>To add a basic tab, you can use the following markup where the <code>root</code> property
 is the page you want to load for that tab, <code>tabTitle</code> is the optional text to
@@ -111,7 +111,7 @@ the tab is selected. Below is an example of presenting a modal from one of
 the tabs.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab (ionSelect)=&quot;chat()&quot; tabTitle=&quot;Show Modal&quot;&gt;&lt;/ion-tab&gt;
-&lt;/ion-tabs&gt;
+&lt;/ion-tabs&gt;pop
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
   constructor(public modalCtrl: ModalController) {
@@ -133,8 +133,30 @@ the tabs.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
+
+<div id="goToRoot"></div>
+
+<h3>
+<a class="anchor" name="goToRoot" href="#goToRoot">
+<code>goToRoot()</code>
+  
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -221,7 +243,7 @@ tabbar. Default: <code>true</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -241,7 +263,7 @@ tabbar. Default: <code>true</code>.</p>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -378,6 +400,15 @@ tabbar. Default: <code>true</code>.</p>
           <td><code>10px</code></td>
         
         <td><p>Font size of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-font-weight</code></td>
+        
+          <td><code>500</code></td>
+        
+        <td><p>Font weight of the tab button text</p>
 </td>
       </tr>
       
@@ -947,7 +978,7 @@ tabbar. Default: <code>true</code>.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#tabs">Tabs Component Docs</a>,
 <a href="../../tabs/Tabs">Tabs API Docs</a>,

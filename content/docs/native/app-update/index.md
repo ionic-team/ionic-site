@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin does self-update for android</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-app-update
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/app-update
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/app-update
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>You should first host an XML file on your server with the following data in it:</p>
 <pre><code class="lang-xml">&lt;update&gt;
     &lt;version&gt;302048&lt;/version&gt;
@@ -81,7 +82,7 @@ constructor(private appUpdate: AppUpdate) {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code></h3>
 
 

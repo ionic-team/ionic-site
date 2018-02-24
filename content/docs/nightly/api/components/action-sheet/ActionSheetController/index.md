@@ -69,16 +69,16 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { ActionSheetController } from &#39;ionic-angular&#39;
 
 export class MyClass{
 
- constructor(public actionSheetCtrl: ActionSheetController) {}
+ constructor(public actionSheetCtrl: ActionSheetController) { }
 
  presentActionSheet() {
-   let actionSheet = this.actionSheetCtrl.create({
+   const actionSheet = this.actionSheetCtrl.create({
      title: &#39;Modify your album&#39;,
      buttons: [
        {
@@ -118,15 +118,16 @@ export class MyClass{
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -142,10 +143,11 @@ export class MyClass{
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
   
 
+</a>
 </h3>
 
 Open an action sheet with a title, subTitle, and an array of buttons
@@ -186,7 +188,7 @@ Open an action sheet with a title, subTitle, and an array of buttons
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>ActionSheet create options</p>
 <table>
 <thead>
@@ -257,7 +259,7 @@ Open an action sheet with a title, subTitle, and an array of buttons
 <tr>
 <td>role</td>
 <td><code>string</code></td>
-<td>How the button should be displayed, <code>destructive</code> or <code>cancel</code>. If not role is provided, it will display the button without any additional styles.</td>
+<td>How the button should be displayed, <code>destructive</code> or <code>cancel</code>. If no role is provided, it will display the button without any additional styles.</td>
 </tr>
 </tbody>
 </table>
@@ -276,7 +278,7 @@ back a page in the same stack. The potential problem is that the async operation
 may have been completed before the action sheet has even finished its transition
 out. In this case, it&#39;s best to ensure the action sheet has finished its transition
 out first, <em>then</em> start the next transition.</p>
-<pre><code class="lang-ts">let actionSheet = this.actionSheetCtrl.create({
+<pre><code class="lang-ts">const actionSheet = this.actionSheetCtrl.create({
   title: &#39;Hello&#39;,
   buttons: [{
     text: &#39;Ok&#39;,
@@ -312,7 +314,7 @@ out before starting a new transition.</p>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -421,6 +423,15 @@ out before starting a new transition.</p>
           <td><code>$action-sheet-ios-padding-end</code></td>
         
         <td><p>Padding start of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-ios-group-margin-top</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Top margin of the action sheet button group</p>
 </td>
       </tr>
       
@@ -645,11 +656,20 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
-        <td><code>$action-sheet-md-group-margin-bottom</code></td>
+        <td><code>$action-sheet-md-padding-top</code></td>
         
-          <td><code>8px</code></td>
+          <td><code>.8rem</code></td>
         
-        <td><p>Bottom margin of the action sheet button group</p>
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-md-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       
@@ -888,6 +908,24 @@ out before starting a new transition.</p>
           <td><code>#fff</code></td>
         
         <td><p>Background color of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-top</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding top of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-wp-padding-bottom</code></td>
+        
+          <td><code>.8rem</code></td>
+        
+        <td><p>Padding bottom of the action sheet</p>
 </td>
       </tr>
       
@@ -1143,7 +1181,7 @@ out before starting a new transition.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#action-sheets">ActionSheet Component Docs</a><!-- end content block -->
 

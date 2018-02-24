@@ -47,18 +47,21 @@ It can be used to provide feedback about an operation or to
 display a system message. The toast appears on top of the app&#39;s content,
 and can be dismissed by the app to resume user interaction with
 the app.</p>
-<h3 id="creating">Creating</h3>
+<h3><a class="anchor" name="creating" href="#creating">Creating</a></h3>
+
 <p>All of the toast options should be passed in the first argument of
 the create method: <code>create(opts)</code>. The message to display should be
 passed in the <code>message</code> property. The <code>showCloseButton</code> option can be set to
 true in order to display a close button on the toast. See the <a href="#create">create</a>
 method below for all available options.</p>
-<h3 id="positioning">Positioning</h3>
+<h3><a class="anchor" name="positioning" href="#positioning">Positioning</a></h3>
+
 <p>Toasts can be positioned at the top, bottom or middle of the
 view port. The position can be passed to the <code>Toast.create(opts)</code> method.
 The position option is a string, and the values accepted are <code>top</code>, <code>bottom</code> and <code>middle</code>.
 If the position is not specified, the toast will be displayed at the bottom of the view port.</p>
-<h3 id="dismissing">Dismissing</h3>
+<h3><a class="anchor" name="dismissing" href="#dismissing">Dismissing</a></h3>
+
 <p>The toast can be dismissed automatically after a specific amount of time
 by passing the number of milliseconds to display it in the <code>duration</code> of
 the toast options. If <code>showCloseButton</code> is set to true, then the close button
@@ -71,14 +74,14 @@ is dismissed.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">constructor(private toastCtrl: ToastController) {
+<pre><code class="lang-ts">import { ToastController } from &#39;ionic-angular&#39;;
 
-}
+constructor(public toastCtrl: ToastController) { }
 
 presentToast() {
-  let toast = this.toastCtrl.create({
+  const toast = this.toastCtrl.create({
     message: &#39;User was added successfully&#39;,
     duration: 3000,
     position: &#39;top&#39;
@@ -101,15 +104,16 @@ presentToast() {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -125,10 +129,11 @@ presentToast() {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
   
 
+</a>
 </h3>
 
 Create a new toast component. See options below
@@ -169,7 +174,7 @@ Create a new toast component. See options below
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <table>
 <thead>
 <tr>
@@ -227,7 +232,7 @@ Create a new toast component. See options below
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

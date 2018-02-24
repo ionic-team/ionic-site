@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L260">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L295">
   Improve this doc
 </a>
 
@@ -22,9 +22,11 @@ docType: "class"
 
 
 
+
 <p>The OneSignal plugin is an client implementation for using the <a href="https://onesignal.com/">OneSignal</a> Service.
 OneSignal is a simple implementation for delivering push notifications.</p>
-<p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
+<p>Please view the official <a href="https://documentation.onesignal.com/docs/ionic-sdk-setup">OneSignal Ionic SDK Installation</a> guide
+for more information.</p>
 <h4 id="icons">Icons</h4>
 <p>If you want to use generated icons with command <code>ionic cordova resources</code>:</p>
 <ol>
@@ -85,7 +87,7 @@ filestocopy.forEach(function(obj) {
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add onesignal-cordova-plugin
@@ -97,7 +99,7 @@ $ npm install --save @ionic-native/onesignal
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -107,7 +109,7 @@ $ npm install --save @ionic-native/onesignal
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { OneSignal } from &#39;@ionic-native/onesignal&#39;;
 
 constructor(private oneSignal: OneSignal) { }
@@ -136,7 +138,7 @@ this.oneSignal.endInit();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="OSInFocusDisplayOption" href="#OSInFocusDisplayOption"></a><code>OSInFocusDisplayOption</code></h3>
 
 constants to use in inFocusDisplaying()
@@ -216,6 +218,9 @@ inFocusDisplaying).
 
 
 
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
 
 **iOS** - Settings for iOS apps
 
@@ -259,6 +264,20 @@ Must be called after `startInit` to complete initialization of OneSignal.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="promptForPushNotificationsWithUserResponse" href="#promptForPushNotificationsWithUserResponse"></a><code>promptForPushNotificationsWithUserResponse()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Prompt the user for notification permissions. Callback fires as soon as the user accepts or declines notifications.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
 </div><h3><a class="anchor" name="getTags" href="#getTags"></a><code>getTags()</code></h3>
 
 
@@ -551,7 +570,17 @@ You can pass true later to opt users back into notifications.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="postNotification" href="#postNotification"></a><code>postNotification(Parameters)</code></h3>
+<h3><a class="anchor" name="getPermissionSubscriptionState" href="#getPermissionSubscriptionState"></a><code>getPermissionSubscriptionState()</code></h3>
+
+
+Get the current notification and permission state. Returns a OSPermissionSubscriptionState type described below.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;OSPermissionSubscriptionState&gt;</code> 
+</div><h3><a class="anchor" name="postNotification" href="#postNotification"></a><code>postNotification(Parameters)</code></h3>
 
 
 
@@ -580,7 +609,34 @@ You can pass true later to opt users back into notifications.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the notification was send successfully.
-</div><h3><a class="anchor" name="promptLocation" href="#promptLocation"></a><code>promptLocation()</code></h3>
+</div><h3><a class="anchor" name="cancelNotification" href="#cancelNotification"></a><code>cancelNotification(notificationId)</code></h3>
+
+
+
+
+Cancels a single OneSignal notification based on its Android notification integer id. Use instead of NotificationManager.cancel(id); otherwise the notification will be restored when your app is restarted.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      notificationId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="promptLocation" href="#promptLocation"></a><code>promptLocation()</code></h3>
 
 
 
@@ -648,7 +704,38 @@ The higher the value the more information is shown.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="addPermissionObserver" href="#addPermissionObserver"></a><code>addPermissionObserver()</code></h3>
 
+
+
+
+The passed in function will be fired when a notification permission setting changes.
+This includes the following events:
+- Notification permission prompt shown
+- The user accepting or declining the permission prompt
+- Enabling/disabling notifications for your app in the device Settings after returning to your app.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="addSubscriptionObserver" href="#addSubscriptionObserver"></a><code>addSubscriptionObserver()</code></h3>
+
+
+
+
+The passed in function will be fired when a notification subscription property changes.
+This includes the following events:
+- Getting a push token from Apple / Google.
+- Getting a player / user id from OneSignal
+- OneSignal.setSubscription is called
+- User disables or enables notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div>
 
 
 
@@ -1777,7 +1864,7 @@ or with the &#39;data&#39; field on the REST API.</p>
   
   <tr>
     <td>
-      launchUrl
+      launchURL
     </td>
     <td>
       <code>string</code>

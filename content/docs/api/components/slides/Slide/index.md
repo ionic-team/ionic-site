@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -66,7 +66,7 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/api/components/slides/Slides/">Slides API Docs</a><!-- end content block -->
 

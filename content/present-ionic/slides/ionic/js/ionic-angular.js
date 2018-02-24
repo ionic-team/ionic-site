@@ -4,7 +4,7 @@
  *
  * Ionic, v1.0.0-beta.11
  * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
+ * https://ionicframework.com/
  *
  * By @maxlynch, @benjsperry, @adamdbradley <3
  *
@@ -78,7 +78,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
  * hitting escape on the keyboard for desktop testing.
  *
- * ![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
+ * ![Action Sheet](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
  *
  * @usage
  * To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:
@@ -7582,7 +7582,7 @@ IonicModule
  * links and buttons within `ion-side-menu` content, so that when the element is
  * clicked then the opened side menu will automatically close.
  *
- * ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
+ * ![Side Menu](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
  *
  * For more information on side menus, check out:
  *
@@ -7649,7 +7649,7 @@ IonicModule
  * @description
  * The Slide Box is a multi-page container where each page can be swiped or dragged between:
  *
- * ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
+ * ![SlideBox](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
  *
  * @usage
  * ```html

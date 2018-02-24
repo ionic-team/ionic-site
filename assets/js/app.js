@@ -1,5 +1,5 @@
 var IonicSiteModule = angular.module('IonicSite',
-  ['ngAnimate', 'ngSanitize', 'ionicate', 'rzModule'])
+  ['ngAnimate', 'ngSanitize', 'ngCookies', 'rzModule'])
 
 .run(['$rootScope', function($rootScope) {
   $rootScope.surveyQuestions = {

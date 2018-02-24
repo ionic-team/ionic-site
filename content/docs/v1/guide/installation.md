@@ -58,7 +58,7 @@ Windows users developing for Android: You'll want to make sure you have the foll
 <strong>Java JDK</strong>
 </p>
 <p>
-Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java JDK</a> (NOT just the JRE).
+Install the most recent <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java 8 JDK</a> (NOT just the JRE), JDK 9 is NOT currently (2017.12) supported by Cordova.
 </p>
 <p>
 Next, create an environment variable for <code>JAVA_HOME</code> pointing to the root folder where the Java JDK was installed. So, if you installed the JDK into <code>C:\Program Files\Java\jdk7</code>, set <code>JAVA_HOME</code> to be this path. After that, add the JDK's <code>bin</code> directory to the PATH variable as well. Following the previous assumption, this should be either <code>%JAVA_HOME%\bin</code> or the full path <code>C:\Program Files\Java\jdk7\bin</code>
@@ -167,7 +167,7 @@ If you chose to emulate on Android, be patient as this takes several minutes as 
 
 The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+<img src="https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
 </p>
 <p>
 Of course, you can always test directly on the device, and that is the recommended way to develop on Android due to the slow emulator. To do that,

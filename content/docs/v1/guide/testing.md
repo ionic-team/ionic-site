@@ -20,7 +20,7 @@ $ ionic serve
 
 This will start a live-reload server for your project. When changes are made to any HTML, CSS, or JavaScript files, the browser will automatically reload when the files are saved.
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
+<img src="https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
 Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!
 

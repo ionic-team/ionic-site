@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -67,7 +67,7 @@ standard page.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { ModalController, NavParams } from &#39;ionic-angular&#39;;
 
@@ -104,15 +104,16 @@ class Profile {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -128,10 +129,11 @@ class Profile {
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Create a modal to display. See below for options.
@@ -207,7 +209,7 @@ Create a modal to display. See below for options.
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <table>
 <thead>
 <tr>
@@ -226,6 +228,11 @@ Create a modal to display. See below for options.
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
 <td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 </tbody>
 </table>
@@ -275,7 +282,7 @@ class Profile {
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -467,7 +474,7 @@ class Profile {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#modals">Modal Component Docs</a><!-- end content block -->
 

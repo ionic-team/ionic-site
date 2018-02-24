@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -52,7 +52,7 @@ and be enhanced by a wide range of attributes.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;!-- Colors --&gt;
 &lt;button ion-button&gt;Default&lt;/button&gt;
@@ -80,12 +80,12 @@ and be enhanced by a wide range of attributes.</p>
 &lt;button ion-button round outline&gt;Outline + Round&lt;/button&gt;
 
 &lt;!-- Icons --&gt;
-&lt;button ion-button icon-left&gt;
+&lt;button ion-button icon-start&gt;
   &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
   Left Icon
 &lt;/button&gt;
 
-&lt;button ion-button icon-right&gt;
+&lt;button ion-button icon-end&gt;
   Right Icon
   &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;
@@ -111,7 +111,7 @@ and be enhanced by a wide range of attributes.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -212,7 +212,7 @@ For more information, see <a href="/docs/theming/platform-specific-styles">Platf
     </tr>
     
   </tbody>
-</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+</table><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <pre><code class="lang-html">&lt;!-- Bind the color and outline inputs to an expression --&gt;
 &lt;button ion-button [color]=&quot;isDanger ? &#39;danger&#39; : &#39;primary&#39;&quot; [outline]=&quot;isOutline&quot;&gt;
   Danger (Solid)
@@ -258,7 +258,7 @@ class E2EPage {
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -1818,7 +1818,7 @@ class E2EPage {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#buttons">Button Component Docs</a>,
 <a href="/docs/components#fabs">FabButton Docs</a>,

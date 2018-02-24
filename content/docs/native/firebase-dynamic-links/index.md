@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,9 +28,12 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for Firebase Invites and Firebase Dynamic Links</p>
-<p>Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.</p>
-<p>Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
+<p>Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.
+Variable REVERSED_CLIENT_ID can be found in your GoogleService-Info.plist under the same key name.
+Variable PHOTO_LIBRARY_USAGE_DESCRIPTION specifies required value for NSPhotoLibraryUsageDescription on iOS.
+Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
 <p>Preferences:</p>
 <p>Preferences GoogleIOSClientId and GoogleAndroidClientId are used to setup dynamic links when you have an app for several platforms.
 You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and google-services.json (key client[0].oauth_client[0].client_id).</p>
@@ -51,7 +54,7 @@ You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase-dynamiclinks --save --variable APP_DOMAIN="example.com" --variable APP_PATH="/"
@@ -63,7 +66,7 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -73,22 +76,28 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { FirebaseDynamicLinks } from &#39;@ionic-native/firebase-dynamic-links&#39;;
 
 
 constructor(private firebaseDynamicLinks: FirebaseDynamicLinks) { }
 
 ...
-
+// The deepLink and callToActionText properties are optional
 const options: DynamicLinksOptions = {
   title: &#39;My Title&#39;;
   message: &#39;My message&#39;;
+  deepLink: &#39;http://example.com/&#39;;
+  callToActionText: &#39;Message on button&#39;;
 }
 
 this.firebaseDynamicLinks.sendInvitation(options)
   .then((res: any) =&gt; console.log(res))
   .catch((error: any) =&gt; console.error(error));
+
+this.firebaseDynamicLinks.onDynamicLink()
+  .then((res: any) =&gt; console.log(res)) //Handle the logic here after opening the app with the Dynamic link
+  .catch((error:any) =&gt; console.log(error));
 </code></pre>
 
 
@@ -98,7 +107,7 @@ this.firebaseDynamicLinks.sendInvitation(options)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="onDynamicLink" href="#onDynamicLink"></a><code>onDynamicLink()</code></h3>
 
 

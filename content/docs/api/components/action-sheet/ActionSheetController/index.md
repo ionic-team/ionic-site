@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.3.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -69,7 +69,7 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { ActionSheetController } from &#39;ionic-angular&#39;
 
@@ -118,15 +118,16 @@ export class MyClass{
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
   
 
+</a>
 </h3>
 
 
@@ -142,10 +143,11 @@ export class MyClass{
 <div id="create"></div>
 
 <h3>
-<a class="anchor" name="create" href="#create"></a>
+<a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
   
 
+</a>
 </h3>
 
 Open an action sheet with a title, subTitle, and an array of buttons
@@ -186,7 +188,7 @@ Open an action sheet with a title, subTitle, and an array of buttons
 
 
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <p>ActionSheet create options</p>
 <table>
 <thead>
@@ -312,7 +314,7 @@ out before starting a new transition.</p>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
@@ -1143,7 +1145,7 @@ out before starting a new transition.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#action-sheets">ActionSheet Component Docs</a><!-- end content block -->
 

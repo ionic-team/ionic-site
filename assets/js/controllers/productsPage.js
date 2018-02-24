@@ -1,14 +1,15 @@
 IonicSiteModule
-.controller('ProductsPageCtrl', ['$scope', '$timeout',
-  function($scope, $timeout) {
+.controller('ProductsPageCtrl', ['$scope', '$timeout', 'ionicMetrics',
+  function($scope, $timeout, ionicMetrics) {
 
   mixpanel.track('Products Page Load', {'test': 'ProductsTest - 5'});
+  ionicMetrics.track('Products Page Load');
 
   $scope.gotoPricing = function(location) {
     mixpanel.track('Pricing Button Click',
       {'test': 'ProductsTest - 5', 'location': location});
     $timeout(function() {
-      window.location = '/products/pricing';
+      window.location = '/pro/pricing';
     }, 5);
   };
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.0"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L104">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L112">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-sqlite-storage
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/sqlite
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>macOS</li><li>Windows</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/sqlite
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SQLite, SQLiteObject } from &#39;@ionic-native/sqlite&#39;;
 
 constructor(private sqlite: SQLite) { }
@@ -84,7 +85,7 @@ this.sqlite.create({
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(config)</code></h3>
 
 
@@ -163,7 +164,7 @@ Deletes a database
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="databaseFeatures" href="#databaseFeatures"></a><code>databaseFeatures()</code></h3>
 
 
@@ -293,7 +294,7 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlStatements</td>
     <td>
-      <code>Array&lt;string | string[]&gt;</code>
+      <code>Array&lt;string | string[] | any&gt;</code>
     </td>
     <td>
       </td>
@@ -365,6 +366,34 @@ ensure it resolved and successfully opened the database.
     </td>
     <td>
       <p>iOS Database Location. Example: &#39;Library&#39;</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      createFromLocation
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>support opening pre-filled databases with <a href="https://github.com/litehelpers/cordova-sqlite-ext">https://github.com/litehelpers/cordova-sqlite-ext</a></p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      key
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>support encrypted databases with <a href="https://github.com/litehelpers/Cordova-sqlcipher-adapter">https://github.com/litehelpers/Cordova-sqlcipher-adapter</a></p>
 
       <em>(optional)</em>
     </td>

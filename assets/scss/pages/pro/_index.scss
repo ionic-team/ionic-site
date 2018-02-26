@@ -3,7 +3,7 @@
   .cta,
   .pro-nav,
   .pro-nav-text,
-  .video-player,
+  .pro-video,
   main {
     font-family: $font-family-eina;
   }
@@ -102,13 +102,13 @@
   }
 
   .pro-nav--upper {
-    padding: 1em;
     position: sticky;
     top: 0;
     z-index: 1;
 
     .container {
-      overflow-y: visible;
+      padding-bottom: 1em;
+      padding-top: 1em;
     }
 
     .pro-logo {
@@ -138,16 +138,16 @@
     transform: translateY(5px);
     transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
     width: 120px;
+
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
   }
 
   .pro-nav--upper.is-stuck .pro-pricing-btn,
   .pro-nav--upper.is-stuck .pro-logo {
     opacity: 1;
     transform: translateY(0);
-
-    @media (max-width: $screen-sm-max) {
-      display: none;
-    }
   }
 
   .pro-nav-icons a {
@@ -183,7 +183,7 @@
   }
 
   .pro-nav--lower {
-    padding: 0 1em 2em;
+    padding: 0 0 3em;
   }
 
   .pro-nav-text {
@@ -214,7 +214,7 @@
     }
   }
 
-  .video-player {
+  .pro-video {
     align-items: center;
     background-color: #f9fafc;
     display: flex;

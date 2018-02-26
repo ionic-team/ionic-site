@@ -590,42 +590,42 @@
 
   #prototyping {
     background-color: #ffffff;
+    background-image: url('/img/pro/landing-hero-creator.png');
+    background-position: right -85px bottom;
+    background-size: 950px;
     overflow: visible;
+    padding: 50px 0;
 
     h4,
     .btn {
       color: #a1afcb;
     }
 
-    .container::before {
-      background-image: url('/img/pro/landing-hero-creator.png');
-      background-position: center bottom -50px;
-      background-size: 100%;
-      left: 50%;
-      width: 950px;
-    }
-
     .content {
       padding-top: 148px;
     }
 
+    @media (max-width: 1440px) {
+      background-position: right -200px bottom;
+    }
+
+    @media (max-width: $screen-md-max) {
+      background-position: right -400px bottom;
+    }
+
     @media (max-width: $screen-sm-max)  {
+      background-position: right -720px bottom -100px;
+
       .content {
         padding-top: 64px;
         width: 70%;
         min-height: 0;
       }
-
-      .container::before {
-        background-position: right bottom;
-        background-size: 240px;
-      }
     }
 
     @media (max-width: $screen-xs-max)  {
-      .container::before {
-        display: none;
-      }
+      background-image: none;
+      padding: 0;
 
       .content {
         min-height: 0;

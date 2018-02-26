@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Google Maps</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L777">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-maps/index.ts#L886">
   Improve this doc
 </a>
 
@@ -74,7 +74,7 @@ import { Component } from &quot;@angular/core/&quot;;
 })
 export class HomePage {
   map: GoogleMap;
-  constructor(private googleMaps: GoogleMaps) { }
+  constructor() { }
 
   ionViewDidLoad() {
    this.loadMap();
@@ -93,7 +93,7 @@ export class HomePage {
       }
     };
 
-    this.map = this.googleMaps.create(&#39;map_canvas&#39;, mapOptions);
+    this.map = GoogleMaps.create(&#39;map_canvas&#39;, mapOptions);
 
     // Wait the MAP_READY before using any methods.
     this.map.one(GoogleMapsEvent.MAP_READY)
@@ -153,10 +153,10 @@ Creates a new GoogleMap instance
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>GoogleMapOptions</code>
     </td>
     <td>
-      <p>Options</p>
+      <p>[options] Options</p>
 </td>
   </tr>
   </tbody>
@@ -193,10 +193,11 @@ Changes the map div
     <td>
       domNode</td>
     <td>
-      
+      <code>HTMLElement</code>|<code>string</code>
     </td>
     <td>
-      </td>
+      <p>[options] If you want to display the map in an html element, you need to specify an element or id. If omit this argument, the map is detached from webview.</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -583,6 +584,33 @@ Convert the unit from the pixels from the left/top to the LatLng
 
 
 
+Set true if you want to show the MyLocation control (blue dot)
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setMyLocationButtonEnabled" href="#setMyLocationButtonEnabled"></a><code>setMyLocationButtonEnabled(enabled)</code></h3>
+
+
+
+
 Set true if you want to show the MyLocation button
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -833,85 +861,267 @@ Set options
   </tbody>
 </table>
 
-<h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
+<h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker(options)</code></h3>
 
 
 Adds a marker
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>MarkerOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Marker | any&gt;</code> 
-</div><h3><a class="anchor" name="addMarkerCluster" href="#addMarkerCluster"></a><code>addMarkerCluster()</code></h3>
+</div><h3><a class="anchor" name="addMarkerCluster" href="#addMarkerCluster"></a><code>addMarkerCluster(options)</code></h3>
 
 
+Adds a marker cluster
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>MarkerClusterOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
-
-
-<h3><a class="anchor" name="addCircle" href="#addCircle"></a><code>addCircle()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;MarkerCluster | any&gt;</code> 
+</div><h3><a class="anchor" name="addCircle" href="#addCircle"></a><code>addCircle(options)</code></h3>
 
 
 Adds a circle
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>CircleOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Circle | any&gt;</code> 
-</div><h3><a class="anchor" name="addPolygon" href="#addPolygon"></a><code>addPolygon()</code></h3>
+</div><h3><a class="anchor" name="addPolygon" href="#addPolygon"></a><code>addPolygon(options)</code></h3>
 
 
 Adds a polygon
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>PolygonOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Polygon | any&gt;</code> 
-</div><h3><a class="anchor" name="addPolyline" href="#addPolyline"></a><code>addPolyline()</code></h3>
+</div><h3><a class="anchor" name="addPolyline" href="#addPolyline"></a><code>addPolyline(options)</code></h3>
 
 
-
-
+Adds a polyline
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>PolylineOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Polyline | any&gt;</code> 
-</div><h3><a class="anchor" name="addTileOverlay" href="#addTileOverlay"></a><code>addTileOverlay()</code></h3>
+</div><h3><a class="anchor" name="addTileOverlay" href="#addTileOverlay"></a><code>addTileOverlay(options)</code></h3>
 
 
-
-
+Adds a tile overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>TileOverlayOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;TileOverlay | any&gt;</code> 
-</div><h3><a class="anchor" name="addGroundOverlay" href="#addGroundOverlay"></a><code>addGroundOverlay()</code></h3>
+</div><h3><a class="anchor" name="addGroundOverlay" href="#addGroundOverlay"></a><code>addGroundOverlay(options)</code></h3>
 
 
-
-
+Adds a ground overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>GroundOverlayOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;GroundOverlay | any&gt;</code> 
-</div><h3><a class="anchor" name="refreshLayout" href="#refreshLayout"></a><code>refreshLayout()</code></h3>
+</div><h3><a class="anchor" name="addKmlOverlay" href="#addKmlOverlay"></a><code>addKmlOverlay(options)</code></h3>
 
 
-
-
-Refreshes layout.
-You can execute it, but you don't need to do that. The plugin does this automatically.
-
-
-
-<h3><a class="anchor" name="toDataURL" href="#toDataURL"></a><code>toDataURL()</code></h3>
-
-
-
-
+Adds a kml overlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>KmlOverlayOptions</code>
+    </td>
+    <td>
+      <p>options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;KmlOverlay | any&gt;</code> 
+</div><h3><a class="anchor" name="toDataURL" href="#toDataURL"></a><code>toDataURL(options)</code></h3>
+
+
+Returns the base64 encoded screen capture of the map.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>ToDataUrlOptions</code>
+    </td>
+    <td>
+      <p>[options] options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h2><a class="anchor" name="Circle" href="#Circle"></a>Circle</h2>
 
 
@@ -1301,7 +1511,7 @@ Decodes an encoded path string into a sequence of LatLngs.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>LatLng</code> 
+  <b>Returns:</b> <code>ILatLng[]</code> 
 </div>
 <h3><a class="anchor" name="encodePath" href="#encodePath"></a><code>encodePath(path)</code></h3>
 
@@ -2553,25 +2763,77 @@ Return the ID of instance.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker()</code></h3>
+</div><h3><a class="anchor" name="addMarker" href="#addMarker"></a><code>addMarker(marker,&nbsp;skipRedraw?)</code></h3>
 
 
 
 
+Add one marker location
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      marker</td>
+    <td>
+      <code>MarkerOptions</code>
+    </td>
+    <td>
+      <p>one location</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipRedraw?</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>marker cluster does not redraw the marker cluster if true.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="addMarkers" href="#addMarkers"></a><code>addMarkers(markers)</code></h3>
 
 
 
-<h3><a class="anchor" name="addMarkers" href="#addMarkers"></a><code>addMarkers()</code></h3>
 
-
-
-
-
-
+Add marker locations
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      markers</td>
+    <td>
+      <code>MarkerOptions[]</code>
+    </td>
+    <td>
+      <p>multiple locations</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
+Remove the marker cluster
 
 
 
@@ -3544,6 +3806,123 @@ Returns the LatLng which lies the given fraction of the way between the origin L
 </div>
 
 
+<h2><a class="anchor" name="KmlOverlay" href="#KmlOverlay"></a>KmlOverlay</h2>
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="getDefaultViewport" href="#getDefaultViewport"></a><code>getDefaultViewport()</code></h3>
+
+
+
+
+Returns the viewport to contains all overlays
+
+
+
+<h3><a class="anchor" name="getId" href="#getId"></a><code>getId()</code></h3>
+
+
+
+
+Return the ID of instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> 
+</div><h3><a class="anchor" name="getMap" href="#getMap"></a><code>getMap()</code></h3>
+
+Return the map instance.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>GoogleMap</code> 
+</div><h3><a class="anchor" name="setVisible" href="#setVisible"></a><code>setVisible(visible)</code></h3>
+
+
+
+
+Change visibility of the polyline
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visible</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getVisible" href="#getVisible"></a><code>getVisible()</code></h3>
+
+
+
+
+Return true if the polyline is visible
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="setClickable" href="#setClickable"></a><code>setClickable(clickable)</code></h3>
+
+
+
+
+Change clickablity of the KmlOverlay
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      clickable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getClickable" href="#getClickable"></a><code>getClickable()</code></h3>
+
+
+
+
+Return true if the KmlOverlay is clickable
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+Remove the KmlOverlay
+
+
+
 <h2><a class="anchor" name="Poly" href="#Poly"></a>Poly</h2>
 <h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <h3><a class="anchor" name="containsLocation" href="#containsLocation"></a><code>containsLocation(location,&nbsp;path)</code></h3>
@@ -3823,24 +4202,62 @@ Remove the tile overlay
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener()</code></h3>
+<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener(eventName)</code></h3>
 
 
 
 
 Adds an event listener.
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>event name you want to observe.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce()</code></h3>
+</div><h3><a class="anchor" name="addListenerOnce" href="#addListenerOnce"></a><code>addListenerOnce(eventName)</code></h3>
 
 
 Adds an event listener that works once.
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>event name you want to observe.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -3864,7 +4281,7 @@ Gets a value
     <td>
       key</td>
     <td>
-      
+      <code>any</code>
     </td>
     <td>
       </td>
@@ -3872,7 +4289,7 @@ Gets a value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code></h3>
+<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value,&nbsp;noNotify)</code></h3>
 
 
 
@@ -3891,7 +4308,18 @@ Sets a value
     <td>
       key</td>
     <td>
-      
+      <code>string</code>
+    </td>
+    <td>
+      <p>The key name for the value. <code>(key)_changed</code> will be fired when you set value through this method.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      value</td>
+    <td>
+      <code>any</code>
     </td>
     <td>
       </td>
@@ -3899,12 +4327,13 @@ Sets a value
   
   <tr>
     <td>
-      value</td>
+      noNotify</td>
     <td>
-      
+      <code>boolean</code>
     </td>
     <td>
-      </td>
+      <p>[options] True if you want to prevent firing the <code>(key)_changed</code> event.</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -3931,7 +4360,8 @@ Bind a key to another object
       <code>string</code>
     </td>
     <td>
-      </td>
+      <p>The property name you want to observe.</p>
+</td>
   </tr>
   
   <tr>
@@ -3941,7 +4371,8 @@ Bind a key to another object
       <code>any</code>
     </td>
     <td>
-      </td>
+      <p>The target object you want to observe.</p>
+</td>
   </tr>
   
   <tr>
@@ -3951,7 +4382,8 @@ Bind a key to another object
       <code>string</code>
     </td>
     <td>
-      </td>
+      <p>[options]  The property name you want to observe. If you omit this, the <code>key</code> argument is used.</p>
+</td>
   </tr>
   
   <tr>
@@ -3961,29 +4393,68 @@ Bind a key to another object
       <code>boolean</code>
     </td>
     <td>
-      </td>
+      <p>[options] True if you want to prevent <code>(key)_changed</code> event when you bind first time, because the internal status is changed from <code>undefined</code> to something.</p>
+</td>
   </tr>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
+<h3><a class="anchor" name="on" href="#on"></a><code>on(key)</code></h3>
 
 
 
 
-Listen to a map event.
-
-
+Alias of `addEventListener`
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The property name you want to observe.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="one" href="#one"></a><code>one()</code></h3>
+</div><h3><a class="anchor" name="one" href="#one"></a><code>one(key)</code></h3>
 
 
-Listen to a map event only once.
-
-
+Alias of `addEventListenerOnce`
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The property name you want to observe.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -3997,14 +4468,44 @@ Clears all stored values
 
 
 
-<h3><a class="anchor" name="trigger" href="#trigger"></a><code>trigger()</code></h3>
+<h3><a class="anchor" name="trigger" href="#trigger"></a><code>trigger(eventName,&nbsp;parameters)</code></h3>
 
 
 
 
 Dispatch event.
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Event name</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>[options] The data you want to pass to event listerners.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
 
@@ -4014,6 +4515,93 @@ Dispatch event.
 Executes off() and empty()
 
 
+
+<h3><a class="anchor" name="removeEventListener" href="#removeEventListener"></a><code>removeEventListener(eventName,&nbsp;listener)</code></h3>
+
+
+
+
+Remove event listener(s)
+The `removeEventListener()` has three usages:
+ - removeEventListener("eventName", listenerFunction);
+    This removes one particular event listener
+ - removeEventListener("eventName");
+    This removes the event listeners that added for the event name.
+ - removeEventListener();
+    This removes all listeners.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>[options] Event name</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      listener</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>[options] Event listener</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="off" href="#off"></a><code>off(eventName,&nbsp;listener)</code></h3>
+
+
+
+
+Alias of `removeEventListener`
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>[options] Event name</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      listener</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>[options] Event listener</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <h2><a class="anchor" name="BaseArrayClass" href="#BaseArrayClass"></a>BaseArrayClass</h2>
 
@@ -4043,13 +4631,13 @@ Removes all elements from the array.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set true to prevent remove_at events.</p>
+      <p>[options] Set true to prevent remove_at events.</p>
 </td>
   </tr>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(fn,&nbsp;callback?)</code></h3>
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(fn)</code></h3>
 
 
 
@@ -4067,16 +4655,6 @@ Iterate over each element, calling the provided callback.
   <tr>
     <td>
       fn</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      callback?</td>
     <td>
       <code>Function</code>
     </td>
@@ -4114,7 +4692,7 @@ Iterate over each element, calling the provided callback.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="map" href="#map"></a><code>map(fn,&nbsp;callback?)</code></h3>
+</div><h3><a class="anchor" name="map" href="#map"></a><code>map(fn)</code></h3>
 
 
 
@@ -4139,23 +4717,13 @@ Then you can get the results of each callback.
     <td>
       </td>
   </tr>
-  
-  <tr>
-    <td>
-      callback?</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      </td>
-  </tr>
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new array with the results
-</div><h3><a class="anchor" name="mapAsync" href="#mapAsync"></a><code>mapAsync(fn,&nbsp;callback?)</code></h3>
+</div><h3><a class="anchor" name="mapAsync" href="#mapAsync"></a><code>mapAsync(fn,&nbsp;callback)</code></h3>
 
 
 Iterate over each element, calling the provided callback.
@@ -4181,7 +4749,7 @@ Then you can get the results of each callback.
   
   <tr>
     <td>
-      callback?</td>
+      callback</td>
     <td>
       <code>Function</code>
     </td>
@@ -4194,7 +4762,45 @@ Then you can get the results of each callback.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a new array with the results
-</div><h3><a class="anchor" name="filter" href="#filter"></a><code>filter(fn,&nbsp;callback?)</code></h3>
+</div><h3><a class="anchor" name="mapSeries" href="#mapSeries"></a><code>mapSeries(fn,&nbsp;callback)</code></h3>
+
+
+Same as `mapAsync`, but keep the execution order
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fn</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a new array with the results
+</div><h3><a class="anchor" name="filter" href="#filter"></a><code>filter(fn)</code></h3>
 
 
 
@@ -4218,23 +4824,13 @@ The filter() method creates a new array with all elements that pass the test imp
     <td>
       </td>
   </tr>
-  
-  <tr>
-    <td>
-      callback?</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      </td>
-  </tr>
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Array&lt;Object&gt;</code> returns a new filtered array
-</div><h3><a class="anchor" name="filterAsync" href="#filterAsync"></a><code>filterAsync(fn,&nbsp;callback?)</code></h3>
+</div><h3><a class="anchor" name="filterAsync" href="#filterAsync"></a><code>filterAsync(fn,&nbsp;callback)</code></h3>
 
 
 The filterAsync() method creates a new array with all elements that pass the test implemented by the provided function.
@@ -4259,7 +4855,7 @@ The filterAsync() method creates a new array with all elements that pass the tes
   
   <tr>
     <td>
-      callback?</td>
+      callback</td>
     <td>
       <code>Function</code>
     </td>
@@ -4414,7 +5010,7 @@ Inserts an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set true to prevent insert_at events.</p>
+      <p>[options] Set true to prevent insert_at events.</p>
 </td>
   </tr>
   </tbody>
@@ -4445,7 +5041,7 @@ Removes the last element of the array and returns that element.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set true to prevent remove_at events.</p>
+      <p>[options] Set true to prevent remove_at events.</p>
 </td>
   </tr>
   </tbody>
@@ -4524,7 +5120,7 @@ Removes an element from the specified index.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set true to prevent insert_at events.</p>
+      <p>[options] Set true to prevent remove_at events.</p>
 </td>
   </tr>
   </tbody>
@@ -4572,7 +5168,7 @@ Sets an element at the specified index.
       <code>boolean</code>
     </td>
     <td>
-      <p>Set true to prevent set_at events.</p>
+      <p>[options] Set true to prevent set_at events.</p>
 </td>
   </tr>
   </tbody>
@@ -4602,7 +5198,7 @@ Sets an element at the specified index.
       <code>MapType</code>
     </td>
     <td>
-      <p>MapType</p>
+      <p>mapType [options]</p>
 
       <em>(optional)</em>
     </td>
@@ -4613,12 +5209,11 @@ Sets an element at the specified index.
       controls
     </td>
     <td>
-      <code>*/
-    zoom?: boolean;
-  }</code>
+      <code>GoogleMapControlOptions</code>
     </td>
     <td>
-      
+      <p>controls [options]</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4628,31 +5223,11 @@ Sets an element at the specified index.
       gestures
     </td>
     <td>
-      <code>{
-
-    /**
-     * Set false to disable the scroll gesture (default: true)
-     */
-    scroll?: boolean;
-
-    /**
-     * Set false to disable the tilt gesture (default: true)
-     */
-    tilt?: boolean;
-
-    /**
-     * Set false to disable the zoom gesture (default: true)
-     */
-    zoom?: boolean;
-
-    /**
-     * Set false to disable the rotate gesture (default: true)
-     */
-    rotate?: boolean;
-  }</code>
+      <code>GoogleMapGestureOptions</code>
     </td>
     <td>
-      
+      <p>gestures [options]</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -4665,7 +5240,7 @@ Sets an element at the specified index.
       <code>any[]</code>
     </td>
     <td>
-      <p>Map styles</p>
+      <p>Map styles [options]</p>
 
       <em>(optional)</em>
     </td>
@@ -4679,7 +5254,7 @@ Sets an element at the specified index.
       <code>CameraPosition&lt;any&gt;</code>
     </td>
     <td>
-      <p>Initial camera position</p>
+      <p>Initial camera position [options]</p>
 
       <em>(optional)</em>
     </td>
@@ -4690,12 +5265,11 @@ Sets an element at the specified index.
       preferences
     </td>
     <td>
-      <code>*/
-    building?: boolean
-  }</code>
+      <code>GoogleMapPreferenceOptions</code>
     </td>
     <td>
-      
+      <p>preferences [options]</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -6213,6 +6787,61 @@ If no tile, you need to return null.</p>
 </table>
 
 
+<h2><a class="anchor" name="KmlOverlayOptions" href="#KmlOverlayOptions"></a>KmlOverlayOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      clickable
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      suppressInfoWindows
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
 <h2><a class="anchor" name="VisibleRegion" href="#VisibleRegion"></a>VisibleRegion</h2>
 
 <table class="table param-table" style="margin:0;">
@@ -6233,7 +6862,9 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The northeast of the bounds that contains the farLeft, farRight, nearLeft and nearRight.
+Since the map view is able to rotate, the farRight is not the same as the northeast.</p>
+
       
     </td>
   </tr>
@@ -6246,7 +6877,9 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The southwest of the bounds that contains the farLeft, farRight, nearLeft and nearRight.
+Since the map view is able to rotate, the nearLeft is not the same as the southwest.</p>
+
       
     </td>
   </tr>
@@ -6259,7 +6892,8 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The nearRight indicates the lat/lng of the top-left of the map view.</p>
+
       
     </td>
   </tr>
@@ -6272,7 +6906,8 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The nearRight indicates the lat/lng of the top-right of the map view.</p>
+
       
     </td>
   </tr>
@@ -6285,7 +6920,8 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The nearRight indicates the lat/lng of the bottom-left of the map view.</p>
+
       
     </td>
   </tr>
@@ -6298,7 +6934,8 @@ If no tile, you need to return null.</p>
       <code>ILatLng</code>
     </td>
     <td>
-      
+      <p>The nearRight indicates the lat/lng of the bottom-right of the map view.</p>
+
       
     </td>
   </tr>
@@ -6311,7 +6948,8 @@ If no tile, you need to return null.</p>
       <code>string</code>
     </td>
     <td>
-      
+      <p>constant value : <code>VisibleRegion</code></p>
+
       
     </td>
   </tr>

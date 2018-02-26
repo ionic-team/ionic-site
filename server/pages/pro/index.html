@@ -41,114 +41,39 @@
       {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
     </div>
   </hgroup>
-  <div class="bar" data-spy="affix" data-offset-top="490">
-    <div class="container" id="platform-nav">
-      <a class="pro-logo anchor" href="#">
-        <img src="/img/pro/pro-logo.png"/>
-      </a>
-      <ul class="categories nav">
-        <li><a class="anchor prototyping"
-               href="#prototyping"
-               data-offset="64"
-               ng-class="{hover: prototypingHover}"
-               ng-mouseenter="prototypingHover = true"
-               ng-mouseleave="prototypingHover = false"
-               id="btn-products-icons-creator"></a></li>
-        <li><a class="anchor testing"
-               href="#testing"
-               data-offset="64"
-               ng-class="{hover: testingHover}"
-               ng-mouseenter="testingHover = true"
-               ng-mouseleave="testingHover = false"
-               id="btn-products-icons-view"></a></li>
-        <li><a class="anchor updates"
-               href="#updates"
-               data-offset="64"
-               ng-class="{hover: updatesHover}"
-               ng-mouseenter="updatesHover = true"
-               ng-mouseleave="updatesHover = false"
-               id="btn-products-icons-deploy"></a></li>
-        <li><a class="anchor build"
-               href="#build"
-               data-offset="64"
-               ng-class="{hover: buildHover}"
-               ng-mouseenter="buildHover = true"
-               ng-mouseleave="buildHover = false"
-               id="btn-products-icons-package"></a></li>
-        <li><a class="anchor reporting"
-               href="#reporting"
-               data-offset="64"
-               ng-class="{hover: reportingHover}"
-               ng-mouseenter="reportingHover = true"
-               ng-mouseleave="reportingHover = false"
-               id="btn-products-icons-monitor"></a></li>
-      </ul>
+</div>
+
+<nav class="pro-nav pro-nav--upper">
+  <div class="container">
+    <div class="pro-logo">
+      <a href="#"><img src="/img/pro/pro-logo.png"/></a>
+    </div>
+    <ul class="pro-nav-icons">
+      <li><a class="prototyping" href="#prototyping" title="Creator"></a></li>
+      <li><a class="testing" href="#testing" title="View App"></a></li>
+      <li><a class="updates" href="#updates" title="Deploy"></a></li>
+      <li><a class="build" href="#build" title="Package"></a></li>
+      <li><a class="reporting" href="#reporting" title="Monitor"></a></li>
+    </ul>
+    <div class="pro-pricing-btn">
       <a href="/pro/pricing" class="btn">See Pricing</a>
     </div>
   </div>
+</nav>
 
-  <div class="bar">
-    <div class="container">
-      <ul class="categories nav">
-        <li>
-          <a class="anchor prototyping"
-             href="#prototyping"
-             ng-class="{hover: prototypingHover}"
-             ng-mouseenter="prototypingHover = true"
-             ng-mouseleave="prototypingHover = false"
-             id="btn-products-icons-creator-2">
-            <strong>Creator</strong>
-            <span class="lg">Rapid app prototyping</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor testing"
-             href="#testing"
-             ng-class="{hover: testingHover}"
-             ng-mouseenter="testingHover = true"
-             ng-mouseleave="testingHover = false"
-             id="btn-products-icons-view-2">
-            <strong>View App</strong>
-            <span class="lg">Remote app testing</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor updates"
-             href="#updates"
-             ng-class="{hover: updatesHover}"
-             ng-mouseenter="updatesHover = true"
-             ng-mouseleave="updatesHover = false"
-             id="btn-products-icons-deploy-2">
-            <strong>Deploy</strong>
-            <span class="lg">Live app updating</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor build"
-             href="#build"
-             ng-class="{hover: buildHover}"
-             ng-mouseenter="buildHover = true"
-             ng-mouseleave="buildHover = false"
-             id="btn-products-icons-package-2">
-            <strong>Package</strong>
-            <span class="lg">Native cloud builds</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor reporting"
-             href="#reporting"
-             ng-class="{hover: reportingHover}"
-             ng-mouseenter="reportingHover = true"
-             ng-mouseleave="reportingHover = false"
-             id="btn-products-icons-monitor-2">
-            <strong>Monitor</strong>
-            <span class="lg">Error / crash reporting</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+<div class="pro-nav pro-nav--lower">
+  <div class="container">
+    <ul class="pro-nav-text">
+      <li><a href="#prototyping"><strong>Creator</strong>Rapid app prototyping</a></li>
+      <li><a href="#testing"><strong>View App</strong>Remote app testing</a></li>
+      <li><a href="#updates"><strong>Deploy</strong>Live app updating</a></li>
+      <li><a href="#build"><strong>Package</strong>Native cloud builds</a></li>
+      <li><a href="#reporting"><strong>Monitor</strong>Error / crash reporting</a></li>
+    </ul>
   </div>
 </div>
+
+<div class="video-player"></div>
 
 <main>
   <section class="overview hero" id="overview">

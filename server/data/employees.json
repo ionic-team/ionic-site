@@ -105,13 +105,6 @@
     "spritePosition": 3750
   },
   {
-    "name":"Dan Bucholtz",
-    "title":"Framework Developer",
-    "description":"Family, code, and the Wisconsin Badgers. That's what Dan is all about. When not hacking on Ionic or other open source projects, Dan enjoys watching sports and hanging out with his wife, son, and dog.",
-    "twitter":"danbucholtz",
-    "spritePosition": 4000
-  },
-  {
     "name":"Swami Kumaresan",
     "title":"COO",
     "description":"",
@@ -131,12 +124,5 @@
     "description":"Musician turned programmer, when not responding to the awesome Ionic community on Github, talking all things Ionic on Twitter or generally helping with Ionic development, you can probably find Justin spending time with his girlfriend, playing Assassins Creed, drinking unhealthy amounts of Mountain Dew, sharing food with his dog and developing Ionic apps!",
     "twitter":"justinwillis96",
     "spritePosition": 5000
-  },
-  {
-    "name":"Zach Hanes",
-    "title":"Support Lead",
-    "description":"A Wisconsinite by birth but a citizen of the universe, Zach specializes in supporting you and finding new ways to support you without you even realizing you’re being supported. Outside of Ionic, Zach reads a lot of sci-fi and ancient history, dabbles in writing comic books, and every now on then stands up on a stage to do some comedy. He doesn’t like humidity.",
-    "twitter":"zacharyhanes",
-    "spritePosition": 5500
   }
 ]

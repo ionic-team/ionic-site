@@ -159,7 +159,7 @@
     display: block;
     height: 32px;
     margin: 0 auto;
-    opacity: 0.85;
+    opacity: 0.8;
     transition: opacity 200ms ease-in-out;
     width: 32px;
 
@@ -168,7 +168,8 @@
     &.build { background-position-y: -96px; }
     &.reporting { background-position-y: -128px; }
 
-    &:hover {
+    &:hover,
+    &.is-active {
       opacity: 1;
     }
   }

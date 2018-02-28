@@ -237,6 +237,31 @@
       };
     }
 
+    if (IntersectionObserver) {
+      const anchorMap = new Map();
+      document.querySelectorAll('.pro-nav-icons a').forEach(anchor => {
+        anchorMap.set(document.querySelector(anchor.getAttribute('href')), anchor);
+      });
+
+      const observer = new IntersectionObserver(handleIntersectionChange, { threshold: 0.5 });
+
+      for (section of anchorMap.keys()) {
+        observer.observe(section);
+      }
+
+      function getActiveSection(entries) {
+        return entries
+          .filter(entry => entry.intersectionRatio > 0.5)
+          .sort((a,b) => a.intersectionRatio > b.intersectionRatio ? -1 : 1)[0];
+      }
+
+      function handleIntersectionChange(entries) {
+        for (anchor of anchorMap.values()) anchor.classList.remove('is-active');
+        const activeSection = getActiveSection(entries);
+        if (activeSection) anchorMap.get(activeSection.target).classList.add('is-active');
+      }
+    }
+
     window.onYouTubeIframeAPIReady = onYouTubeReady;
     window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
   })();

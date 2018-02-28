@@ -46,7 +46,7 @@ $('[data-toggle="tooltip"]').tooltip({container: 'body'});
 // since we don't use mixpanel on every page
 if (!window.mixpanel) {
   window.mixpanel = {
-    track: function() { console.error('Mixpanel not enabled on this page'); }
+    track: function() { console.log('Mixpanel not enabled on this page'); }
   }
 }
 // optional shorthand

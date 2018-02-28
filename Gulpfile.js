@@ -251,7 +251,7 @@ gulp.task('watch.min', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
-              'content/docs/**/*.{md,html}'], ['server:jekyll']);
+              'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 
 });
 

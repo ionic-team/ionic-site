@@ -191,28 +191,40 @@
 
 <script async src="https://www.youtube.com/iframe_api"></script>
 <script>
-    window.onYouTubeIframeAPIReady = function() {
-      const videoPlayer = document.querySelector('.video-player');
+  (function() {
+    const videoPlayer = document.querySelector('.video-player');
+    const iframeTarget = document.querySelector('.js-video-target');
+
+    function onYouTubeReady() {
       videoPlayer.classList.add('is-ready');
-      videoPlayer.addEventListener('click', () => {
-          videoPlayer.classList.add('is-playing');
-          new YT.Player(document.querySelector('.js-video-target'), {
-            height: '1164',
-            width: '1800',
-            videoId: 'ZB5lQTP987s',
-            events: {
-              'onReady': function(e) { e.target.playVideo(); }
-            },
-            playerParams: {
-              color: 'white',
-              enablejsapi: 1,
-              modestbranding: 1,
-              rel: 0,
-              showinfo: 0
-            }
-          });
-        });
-    };
+      videoPlayer.addEventListener('click', onPlayerClick);
+    }
+
+    function onPlayerClick() {
+      videoPlayer.classList.add('is-playing');
+      new YT.Player(iframeTarget, {
+        height: '1164',
+        width: '1800',
+        videoId: 'ZB5lQTP987s',
+        events: {
+          'onReady': onPlayerReady
+        },
+        playerParams: {
+          color: 'white',
+          enablejsapi: 1,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
+
+    function onPlayerReady(e) {
+      e.target.playVideo();
+    }
+
+    window.onYouTubeIframeAPIReady = onYouTubeReady;
+  })();
 </script>
 
 {% endblock %}

@@ -23,6 +23,9 @@ $(function() {
       //console.log('no dash links')
       return;
     }
+
+    var hsutk = window.getCookie('hubspotutk');
+
     // console.log(els)
     els.forEach(function(el) {
       var href = el.getAttribute('href');
@@ -31,11 +34,19 @@ $(function() {
       } else {
         href += '?'
       }
-      el.setAttribute('href', href + 'kmid=' + encodeURIComponent(window.KM.i()));
+      href += 'kmid=' + encodeURIComponent(window.KM.i());
+
+      // Add Hubspot UTK ID as HSID if present
+      if (hsutk) {
+        href += '&hsid=' + encodeURIComponent(hsutk);
+      }
+      el.setAttribute('href', href );
     })
   }
   linker();
 });
+
+
 
 // shorthand global analytics click event helper
 window.c = function(cat, lbl, el, val) {

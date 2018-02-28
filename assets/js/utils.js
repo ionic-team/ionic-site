@@ -32,6 +32,11 @@ window.mobileAndTabletCheck = function() {
   return check;
 };
 
+window.getCookie = function(name) {
+  var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
+}
+
 window.tocToggle = function(btnEl) {
   btnEl.parentElement.classList.toggle('collapsed');
 };

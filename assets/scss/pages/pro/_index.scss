@@ -217,6 +217,7 @@
     background-color: #f9fafc;
     display: flex;
     justify-content: center;
+    padding: 1em;
     position: relative;
     z-index: 1;
 
@@ -232,13 +233,64 @@
     }
 
     .video-player {
-      max-width: calc(900px + 1em);
-      padding: 1em;
+      max-width: 900px;
+      width: 100%;
+      position: relative;
       z-index: 2;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:not(.is-playing):hover .video-player-frame {
+        transform: scale(0.99);
+      }
+
+      &:not(.is-playing):hover .video-player-button {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      &.is-ready .video-player-button {
+        display: block;
+      }
+
+      &.is-playing .video-player-button {
+        display: none;
+      }
     }
 
-    .video-player img {
-      width: 100%;
+    .video-player-button {
+      display: none;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      width: 120px;
+      z-index: 1;
+    }
+
+    .video-player-frame {
+      background-image: url("/img/pro/pro-dash-video-screenshot.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 2% / 3%;
+      box-shadow: 0 8px 16px rgba(0,14,41,0.08), 0 30px 60px rgba(0,11,34,0.15);
+      height: 0;
+      overflow: hidden;
+      padding-bottom: 64.67%;
+      position: relative;
+      transform: scale(1);
+      transition: transform 400ms cubic-bezier(0.19, 1, 0.22, 1);
+
+      > iframe {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
     }
   }
 
@@ -410,7 +462,7 @@
     background-color: #f9fafc;
     color: #272a2f;
     padding-bottom: 67px;
-    padding-top: 30px;
+    padding-top: 67px;
 
     hgroup {
       max-width: 660px;

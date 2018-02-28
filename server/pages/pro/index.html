@@ -74,8 +74,17 @@
 </div>
 
 <div class="pro-video">
-  <div class="video-player" data-youtube-id="">
-    <img src="/img/pro/pro-dash-video-screenshot.png" alt="Ionic Pro Dashboard">
+  <div class="video-player">
+    <svg class="video-player-button" viewBox="0 0 278 278">
+      <title>Play Video</title>
+      <g fill="none" fill-rule="evenodd">
+        <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
+        <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
+      </g>
+    </svg>
+    <div class="video-player-frame">
+      <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
+    </div>
   </div>
 </div>
 
@@ -179,5 +188,31 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script async src="https://www.youtube.com/iframe_api"></script>
+<script>
+    window.onYouTubeIframeAPIReady = function() {
+      const videoPlayer = document.querySelector('.video-player');
+      videoPlayer.classList.add('is-ready');
+      videoPlayer.addEventListener('click', () => {
+          videoPlayer.classList.add('is-playing');
+          new YT.Player(document.querySelector('.js-video-target'), {
+            height: '1164',
+            width: '1800',
+            videoId: 'ZB5lQTP987s',
+            events: {
+              'onReady': function(e) { e.target.playVideo(); }
+            },
+            playerParams: {
+              color: 'white',
+              enablejsapi: 1,
+              modestbranding: 1,
+              rel: 0,
+              showinfo: 0
+            }
+          });
+        });
+    };
+</script>
 
 {% endblock %}

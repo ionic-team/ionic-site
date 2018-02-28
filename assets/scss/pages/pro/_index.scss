@@ -145,6 +145,7 @@
   .pro-nav--upper.is-stuck .pro-pricing-btn,
   .pro-nav--upper.is-stuck .pro-logo {
     opacity: 1;
+    pointer-events: initial;
     transform: translateY(0);
   }
 

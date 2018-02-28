@@ -46,7 +46,7 @@
 <nav class="pro-nav pro-nav--upper">
   <div class="container">
     <div class="pro-logo">
-      <a href="#"><img src="/img/pro/pro-logo.png"/></a>
+      <a href="/pro"><img src="/img/pro/pro-logo.png"/></a>
     </div>
     <ul class="pro-nav-icons">
       <li><a class="prototyping anchor" href="#prototyping" title="Creator"></a></li>
@@ -223,7 +223,22 @@
       e.target.playVideo();
     }
 
+    function initStickyNav(nav) {
+      function check() {
+        if (nav.getBoundingClientRect().top < 1) {
+          nav.classList.add('is-stuck');
+        } else {
+          nav.classList.remove('is-stuck');
+        }
+      }
+
+      return function() {
+        requestAnimationFrame(check);
+      };
+    }
+
     window.onYouTubeIframeAPIReady = onYouTubeReady;
+    window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
   })();
 </script>
 

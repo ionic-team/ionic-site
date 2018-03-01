@@ -237,7 +237,7 @@
       };
     }
 
-    if (IntersectionObserver) {
+    if (window.IntersectionObserver) {
       const anchorMap = new Map();
       document.querySelectorAll('.pro-nav-icons a').forEach(anchor => {
         anchorMap.set(document.querySelector(anchor.getAttribute('href')), anchor);

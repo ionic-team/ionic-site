@@ -56,10 +56,10 @@ module.exports = function(req, res, next) {
   if (req.hostname.indexOf('ionicframework.com') == -1) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     protocol = 'http';
- } else {
+  } else {
    // require https in prod
-    const csp = 'default-src https: data: blob: \'unsafe-eval\' \'unsafe-inline\'';
-    csp += 'frame-src https://www.youtube.com';
+    let csp = 'default-src https: data: blob: \'unsafe-eval\' \'unsafe-inline\'; ';
+    csp += 'frame-src \'self\' https://www.youtube.com;';
     res.setHeader('Content-Security-Policy', csp);
     res.setHeader('X-Content-Security-Policy', csp);
     res.setHeader('X-WebKit-CSP', csp);

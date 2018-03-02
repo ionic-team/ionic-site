@@ -30,6 +30,10 @@ While the Ionic Cordova plugin can handle all of your updates and perform them f
 
 The Pro Client gives you access to everything you need to make these modifications, and it's recommended that you always use the Pro Client instead of the Cordova plugin directly.
 
+In the following video tutorial, we use the Deploy API to set up a custom Beta Channel that users can subscribe to in order to get updates early!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I7PC3O4q1ug?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ### Choose your Integration Type:
 
 <div style="margin-top:15px;">

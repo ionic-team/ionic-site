@@ -59,7 +59,7 @@ module.exports = function(req, res, next) {
   } else {
    // require https in prod
     let csp = 'default-src https: data: blob: \'unsafe-eval\' \'unsafe-inline\'; ';
-    csp += 'frame-src \'self\' https://www.youtube.com;';
+    csp += 'frame-src \'self\' https://www.youtube.com https://hire.withgoogle.com/;';
     res.setHeader('Content-Security-Policy', csp);
     res.setHeader('X-Content-Security-Policy', csp);
     res.setHeader('X-WebKit-CSP', csp);

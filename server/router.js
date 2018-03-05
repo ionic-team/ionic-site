@@ -49,6 +49,7 @@ module.exports = function router(app) {
   .get('/pro/deploy', (req, res) => { res.render('pro/deploy'); })
   .get('/pro/monitor', (req, res) => { res.render('pro/monitor'); })
   .get('/pro/package', (req, res) => { res.render('pro/package'); })
+  .get('/pro/teams', (req, res) => { res.render('pro/teams'); })
   .get('/pro/view', (req, res) => { res.render('pro/view'); })
   .get('/pwa', (req, res) => { res.render('pwa'); })
   .get('/resources', (req, res) => { res.render('resources'); })

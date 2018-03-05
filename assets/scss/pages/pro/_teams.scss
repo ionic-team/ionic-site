@@ -1,0 +1,71 @@
+#page-pro-for-teams {
+
+  main,
+  .sub-header,
+  .cta {
+    font-family: $font-family-eina;
+  }
+
+  .sub-header > .container {
+    align-items: center;
+  }
+
+  .cta {
+    background-color: #12223a;
+    background-image: linear-gradient(120deg, #12223a, #000a1c);
+    margin-top: -136px;
+    padding-top: 136px;
+    text-align: center;
+  }
+
+  .cta hgroup {
+    padding-bottom: 114px;
+  }
+
+  .cta h1 {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  .cta p {
+    color: #a0abbf;
+    font-weight: 600;
+  }
+
+  .cta p strong {
+    color: #ccd4e3;
+  }
+
+  .cta-buttons {
+    margin-top: 50px;
+  }
+
+  .cta .btn {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+
+    &.secondary {
+      background-color: #21314e;
+    }
+  }
+
+  .cta .logo-field {
+    align-items: center;
+    background-color: #1d314b;
+    background-image: linear-gradient(90deg, #1d314b, #00122c);
+    display: flex;
+    height: 120px;
+    justify-content: center;
+
+    img {
+      max-width: 895px;
+      width: 80%;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+}

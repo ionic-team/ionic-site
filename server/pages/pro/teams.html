@@ -1,0 +1,62 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'pro-for-teams' %}
+{% set title = "Ionic Framework - Ionic Pro" %}
+{% set meta_image = '/img/meta/ionic-pro-og.png'%}
+{% set meta_description = 'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards.'%}
+
+{% block header_style %}transparent{% endblock %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li>Pro</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/pro">Overview</a></li>
+      <li><a href="/pro/teams" class="active">For teams</a></li>
+      <li><a href="/pro/pricing">Pricing</a></li>
+      <li><a href="/docs/pro">Docs</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <h1>Better apps, powered by teams</h1>
+    <p>Whether you work for a small business or a large company, <strong>Ionic Pro</strong> helps you tap the power of your team to deliver incredible app experiences, faster than ever before.</p>
+    <div class="cta-buttons">
+      <a class="btn" href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}" title="Sign up your team">Sign up your team</a>
+      <a class="btn secondary" href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}" title="Get in touch">Get in touch</a>
+    </div>
+  </hgroup>
+  <div class="logo-field">
+    <img src="/img/pro/teams-logos.png" alt="Teams at Comcast, IBM, and Shipt are using Ionic Pro">
+  </div>
+</div>
+
+<main>
+  <section class="bar get-started">
+    <div class="container">
+      <hgroup>
+        <h2>Get started with Ionic Pro today.</h2>
+        <p class="lg">
+          Create a free account, or check out our plans and pricing.
+        </p>
+      </hgroup>
+      <div>
+        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+          class="btn sm" id="btn-products-create-account">Create a Pro account
+          </a>
+        <a class="btn sm white" id="btn-products-see-pricing"
+          href="/pro/pricing">See pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

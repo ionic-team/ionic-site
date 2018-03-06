@@ -260,6 +260,7 @@
 
   .quotes__content {
     max-width: 490px;
+    position: relative;
   }
 
   .quotes__napa,
@@ -282,6 +283,38 @@
     }
   }
 
+  .quotes__napa .case-study-pill {
+    background-color: #5635c2;
+    border-radius: 20px;
+    color: rgba(255,255,255,0.6);
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 30px;
+    padding: 7px 10px 6px;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    transition: color 200ms ease-in-out;
+
+    strong {
+      font-weight: inherit;
+      color: #ffffff;
+    }
+
+    &:after {
+      content: " \203a";
+    }
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: $screen-lg) {
+      position: relative;
+    }
+  }
+
   .quotes__hmb {
     background-color: #424b58;
   }
@@ -291,7 +324,7 @@
     background-position: top;
     background-size: 100%;
     background-repeat: no-repeat;
-    display: inline-block;
+    display: block;
     height: 40px;
     margin-bottom: 2em;
     width: 260px;

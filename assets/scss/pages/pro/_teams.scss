@@ -164,6 +164,70 @@
     @media (min-width: 1400px) { background-position: center left -50px; }
   }
 
+  .features {
+    padding: 100px 0;
+  }
+
+  .features .hero__content {
+    @media (min-width: $screen-sm) {
+      width: 70%;
+    }
+  }
+
+  .features h3 {
+    color: #24282e;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .features p {
+    color: #747f92;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .features .hero__icon {
+    background-image: url("/img/pro/teams-subfeature-icons.png");
+    height: 48px;
+    margin-bottom: 0;
+    width: 48px;
+
+    &.sharing { background-position-y: 0; }
+    &.ci { background-position-y: -48px * 1; }
+    &.feed { background-position-y: -48px * 2; }
+    &.collab { background-position-y: -48px * 3; }
+    &.binaries { background-position-y: -48px * 4; }
+    &.channels { background-position-y: -48px * 5; }
+    &.cd { background-position-y: -48px * 6; }
+    &.monitoring { background-position-y: -48px * 7; }
+    &.rapid { background-position-y: -48px * 8; }
+  }
+
+  .features__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 70px 0 0;
+    padding: 0;
+  }
+
+  .features__list li {
+    flex: 0 0 33.33%;
+    padding-bottom: 4em;
+    padding-right: 4em;
+
+    @media (max-width: $screen-md) {
+      flex: 0 0 50%;
+    }
+
+    @media (max-width: $screen-sm) {
+      flex: 0 0 100%;
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+
   @media (max-width: $screen-sm) {
 
     .hero {

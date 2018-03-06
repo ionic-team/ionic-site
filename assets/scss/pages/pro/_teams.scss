@@ -246,4 +246,54 @@
     }
   }
 
+  .get-started {
+    background: #1b212a;
+    overflow: auto;
+  }
+
+  .get-started .container {
+    align-items: center;
+    display: flex;
+    margin-bottom: 110px;
+    margin-top: 110px;
+
+    @media (max-width: $screen-sm-max) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .get-started hgroup {
+    letter-spacing: -.025em;
+    flex-grow: 1;
+
+    @media (max-width: $screen-sm-max) {
+      padding-bottom: 16px;
+    }
+  }
+
+  .get-started h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: inherit;
+    margin: 0 0 5px;
+  }
+
+  .get-started p {
+    color: #98a3b2;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .get-started .btn {
+    font-size: 16px;
+    font-weight: 700;
+
+    &.secondary {
+      background-color: #3d4b5f;
+    }
+  }
+
 }

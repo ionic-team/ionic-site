@@ -246,6 +246,84 @@
     }
   }
 
+  .quotes {
+    color: #ffffff;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+
+  .quotes__content {
+    max-width: 490px;
+  }
+
+  .quotes__napa,
+  .quotes__hmb {
+    display: flex;
+    flex: 1;
+    padding: 80px;
+
+    @media (max-width: $screen-xs) {
+      padding: 40px;
+    }
+  }
+
+  .quotes__napa {
+    background-color: #6b56d4;
+    justify-content: flex-end;
+
+    @media (max-width: $screen-sm) {
+      justify-content: flex-start;
+    }
+  }
+
+  .quotes__hmb {
+    background-color: #424b58;
+  }
+
+  .quotes__logo {
+    background-image: url("/img/pro/teams-quote-logos.png");
+    background-position: top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 40px;
+    margin-bottom: 2em;
+    width: 260px;
+  }
+
+  .quotes__hmb .quotes__logo {
+    background-position-y: -40px;
+  }
+
+  .quotes blockquote {
+    border: none;
+    font-size: inherit;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .quotes blockquote > small {
+    color: rgba(255,255,255,0.6);
+    margin-top: 2em;
+    text-align: right;
+
+    &::before {
+      content: "";
+    }
+
+    strong {
+      font-weight: inherit;
+      color: #ffffff;
+    }
+  }
+
   .get-started {
     background: #1b212a;
     overflow: auto;

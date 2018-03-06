@@ -89,6 +89,11 @@
 
   .hero__content {
     width: 40%;
+
+    @media (max-width: $screen-sm) {
+      text-align: center;
+      width: 100%;
+    }
   }
 
   .hero__icon {
@@ -100,6 +105,10 @@
     height: 64px;
     margin-bottom: 40px;
     width: 64px;
+
+    @media (max-width: $screen-sm) {
+      margin-bottom: 20px;
+    }
   }
 
   .ship .hero__icon {
@@ -162,6 +171,15 @@
     @media (min-width: $screen-sm) { background-position: center left -350px; }
     @media (min-width: $screen-lg) { background-position: center left -150px; }
     @media (min-width: 1400px) { background-position: center left -50px; }
+  }
+
+  .ship,
+  .listen,
+  .collaborate {
+    @media (max-width: $screen-sm) {
+      background-image: none;
+      padding: 60px 0;
+    }
   }
 
   .features {
@@ -228,20 +246,4 @@
     }
   }
 
-  @media (max-width: $screen-sm) {
-
-    .hero {
-      background-image: none;
-      padding: 60px 0;
-    }
-
-    .hero__content {
-      text-align: center;
-      width: 100%;
-    }
-
-    .hero__icon {
-      margin-bottom: 20px;
-    }
-  }
 }

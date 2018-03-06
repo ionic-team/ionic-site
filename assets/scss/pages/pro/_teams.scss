@@ -64,8 +64,120 @@
       width: 80%;
     }
 
-    @media (max-width: $screen-xs-max) {
+    @media (max-width: $screen-xs) {
       display: none;
+    }
+  }
+
+  .hero {
+    background-repeat: no-repeat;
+    padding: 260px 0;
+
+    @media (max-width: $screen-lg) {
+      padding: 20% 0;
+    }
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero.flipped .container {
+    align-items: flex-end;
+  }
+
+  .hero__content {
+    width: 40%;
+  }
+
+  .hero__icon {
+    background-image: url("/img/pro/teams-feature-icons.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 64px;
+    margin-bottom: 40px;
+    width: 64px;
+  }
+
+  .ship .hero__icon {
+    background-position-y: 0;
+  }
+
+  .listen .hero__icon {
+    background-position-y: -64px;
+  }
+
+  .collaborate .hero__icon {
+    background-position-y: -128px;
+  }
+
+  .hero h2 {
+    color: #9aaac1;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 46px;
+    margin-bottom: 1em;
+  }
+
+  .hero h2 strong {
+    color: #24282e;
+  }
+
+  .hero p {
+    color: #505863;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .ship {
+    background-image: url("/img/pro/teams-ship-hero.jpg");
+    background-position: right center;
+    background-size: 811px;
+  }
+
+  .listen {
+    background-image: url("/img/pro/teams-listen-hero.png");
+    background-position: left center;
+    background-size: 811px;
+  }
+
+  .collaborate {
+    background-image: url("/img/pro/teams-collaborate-hero.jpg");
+    background-position: right center;
+    background-size: 811px;
+  }
+
+  .ship,
+  .collaborate {
+    @media (min-width: $screen-sm) { background-position: center right -400px; }
+    @media (min-width: $screen-lg) { background-position: center right -150px; }
+    @media (min-width: 1400px) { background-position: center right -50px; }
+  }
+
+  .listen {
+    @media (min-width: $screen-sm) { background-position: center left -350px; }
+    @media (min-width: $screen-lg) { background-position: center left -150px; }
+    @media (min-width: 1400px) { background-position: center left -50px; }
+  }
+
+  @media (max-width: $screen-sm) {
+
+    .hero {
+      background-image: none;
+      padding: 60px 0;
+    }
+
+    .hero__content {
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero__icon {
+      margin-bottom: 20px;
     }
   }
 }

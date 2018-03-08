@@ -3,12 +3,22 @@
 {% set title = "Ionic Framework - Startups" %}
 {% set meta_image = '/img/meta/ionic-pro-og.png'%}
 {% set meta_description = ''%}
-
-{% block header_style %}transparent{% endblock %}
+{% set header_style = 'transparent light' %}
 
 {% block main %}
 
-<h1>Startups</h1>
+<main>
+  <section class="cta">
+    <div class="container">
+      <h1>Ionic Powers Startups</h1>
+      <p>Ionic helps some of the world's fastest growing startups turn their vision into reality with stunning cross platform app experiences, powered by open web technology.</p>
+      <div class="cta__buttons">
+        <a href="#" class="btn">Start with Framework</a>
+        <a href="#" class="btn btn--secondary">Scale with Pro</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 {% endblock %}
 

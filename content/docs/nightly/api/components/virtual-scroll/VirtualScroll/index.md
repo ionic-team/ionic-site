@@ -329,7 +329,11 @@ takes <code>20</code> cells to fill up the height of the viewable area, then
 with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
-viewable area. Default is <code>3</code>.</p>
+viewable area. Default is <code>3</code>.
+In case more than one items are rendered per row, bufferRatio
+has to account for that and a multiple number should be used.
+For example if a single item per row list used 3 as bufferRatio
+a 4 item per row list should use 3 * 4 = 12 as buffer ratio.</p>
 </td>
     </tr>
     

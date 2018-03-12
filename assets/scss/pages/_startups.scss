@@ -132,6 +132,7 @@
     flex-direction: column;
     font-size: 16px;
     font-weight: 600;
+    letter-spacing: -0.01em;
 
     &--horizontal {
       flex-direction: row;
@@ -152,6 +153,10 @@
     height: 48px;
     margin-bottom: 1.25em;
     width: 48px;
+
+    &.dazzle  { background-position-y: 0; }
+    &.speed   { background-position-y: -48px * 1; }
+    &.takeoff { background-position-y: -48px * 2; }
   }
 
   .feature__text strong {
@@ -162,6 +167,28 @@
 
   .feature__text p {
     color: #788497;
+    line-height: 1.65;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .feature-list > li:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  .key-benefits .feature-list {
+    @media (min-width: $screen-sm) {
+      display: flex;
+
+      > li {
+        flex: 1;
+        padding-right: 3em;
+      }
+    }
   }
 
   .quotes {

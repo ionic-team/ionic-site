@@ -154,9 +154,15 @@
     margin-bottom: 1.25em;
     width: 48px;
 
-    &.dazzle  { background-position-y: 0; }
-    &.speed   { background-position-y: -48px * 1; }
-    &.takeoff { background-position-y: -48px * 2; }
+    &.dazzle    { background-position-y: 0; }
+    &.speed     { background-position-y: -48px * 1; }
+    &.takeoff   { background-position-y: -48px * 2; }
+    &.platforms { background-position-y: -48px * 3; }
+    &.native    { background-position-y: -48px * 4; }
+    &.worldwide { background-position-y: -48px * 5; }
+    &.deploy    { background-position-y: -48px * 6; }
+    &.compile   { background-position-y: -48px * 7; }
+    &.monitor   { background-position-y: -48px * 8; }
   }
 
   .feature__text strong {
@@ -189,6 +195,11 @@
         padding-right: 3em;
       }
     }
+  }
+
+  .oss,
+  .pro {
+    padding-bottom: 100px;
   }
 
   .quotes {

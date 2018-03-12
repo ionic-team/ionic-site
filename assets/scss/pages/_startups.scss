@@ -111,6 +111,22 @@
     }
   }
 
+  .section-header {
+    color: #2f3744;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 4em;
+    margin-top: 4em;
+    max-width: 32em;
+  }
+
+  .section-header h2 {
+    color: #24282e;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 0.65em;
+  }
+
   .quotes {
     color: #ffffff;
     display: flex;

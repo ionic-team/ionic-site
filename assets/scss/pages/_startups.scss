@@ -129,19 +129,9 @@
 
   .feature {
     display: flex;
-    flex-direction: column;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: -0.01em;
-
-    &--horizontal {
-      flex-direction: row;
-
-      .feature__icon {
-        flex: 0 0 48px;
-        margin-right: 2em;
-      }
-    }
   }
 
   .feature__icon {
@@ -150,8 +140,9 @@
     background-repeat: no-repeat;
     background-size: 100%;
     display: block;
+    flex: 0 0 48px;
     height: 48px;
-    margin-bottom: 1.25em;
+    margin-right: 2em;
     width: 48px;
 
     &.dazzle    { background-position-y: 0; }
@@ -186,13 +177,23 @@
     margin-bottom: 2em;
   }
 
-  .key-benefits .feature-list {
+  .key-benefits {
     @media (min-width: $screen-sm) {
-      display: flex;
+      .feature-list {
+        display: flex;
+      }
 
-      > li {
+      .feature-list > li {
         flex: 1;
         padding-right: 3em;
+      }
+
+      .feature {
+        flex-direction: column;
+      }
+
+      .feature__icon {
+        margin-bottom: 1.25em;
       }
     }
   }

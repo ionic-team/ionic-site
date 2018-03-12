@@ -127,6 +127,43 @@
     margin-bottom: 0.65em;
   }
 
+  .feature {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 600;
+
+    &--horizontal {
+      flex-direction: row;
+
+      .feature__icon {
+        flex: 0 0 48px;
+        margin-right: 2em;
+      }
+    }
+  }
+
+  .feature__icon {
+    background-image: url("/img/startups/startups-feature-icons.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    height: 48px;
+    margin-bottom: 1.25em;
+    width: 48px;
+  }
+
+  .feature__text strong {
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: 0.75em;
+  }
+
+  .feature__text p {
+    color: #788497;
+  }
+
   .quotes {
     color: #ffffff;
     display: flex;

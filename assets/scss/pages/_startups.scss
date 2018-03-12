@@ -127,6 +127,13 @@
     margin-bottom: 0.65em;
   }
 
+  .oss,
+  .pro {
+    .section-header h2 span {
+      border-bottom: solid 4px #24282e;
+    }
+  }
+
   .feature {
     display: flex;
     font-size: 16px;

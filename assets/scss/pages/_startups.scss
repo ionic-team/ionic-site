@@ -280,6 +280,28 @@
     }
   }
 
+  .pro .feature__text strong {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-lg) {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .pro .feature__text strong a {
+    font-size: 0.55em;
+    letter-spacing: 0.05em;
+    margin-top: 0.5em;
+    text-transform: uppercase;
+
+    @media (min-width: $screen-lg) {
+      margin-top: 0;
+    }
+  }
+
   .resources {
     padding-bottom: 100px;
   }

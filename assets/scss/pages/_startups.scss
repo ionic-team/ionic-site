@@ -184,6 +184,46 @@
     margin-bottom: 2em;
   }
 
+  .app-showcase {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-showcase__image {
+    width: 100%;
+  }
+
+  .app-showcase__icon {
+    width: 93px;
+    margin-right: 1em;
+  }
+
+  .app-showcase__footer {
+    align-items: center;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    padding: 1em;
+  }
+
+  .app-showcase__footer blockquote {
+    border-left: none;
+    margin-bottom: 0.75em;
+    padding: 0;
+  }
+
+  .app-showcase__footer small {
+    display: block;
+    font-weight: 600;
+    text-align: right;
+
+    > span {
+      opacity: 0.5;
+    }
+  }
+
   .key-benefits {
     @media (min-width: $screen-sm) {
       .feature-list {

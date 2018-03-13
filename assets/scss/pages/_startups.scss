@@ -246,7 +246,40 @@
   }
 
   .oss,
-  .pro,
+  .pro {
+    padding-bottom: 100px;
+
+    .container {
+      display: flex;
+      align-items: center;
+
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+      }
+    }
+
+    .app-showcase {
+      margin: auto 10%;
+      max-width: 860px;
+      padding-top: 100px;
+    }
+  }
+
+  .oss .app-showcase {
+    @media (min-width: $screen-sm) {
+      margin-left: 0;
+      margin-right: 80px;
+    }
+  }
+
+  .pro .app-showcase {
+    @media (min-width: $screen-sm) {
+      order: 1;
+      margin-left: 80px;
+      margin-right: 0;
+    }
+  }
+
   .resources {
     padding-bottom: 100px;
   }

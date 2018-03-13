@@ -477,4 +477,53 @@
     }
   }
 
+  .get-started {
+    background-image: linear-gradient(90deg, #3880ff, #67c0ff);
+    padding: 80px 0;
+  }
+
+  .get-started .container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &:after,
+    &:before {
+      display: none;
+    }
+
+    @media (max-width: $screen-lg) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .get-started .btn {
+    margin: 0.35em;
+  }
+
+  .get-started .btn--secondary {
+    background-color: #0078ff;
+  }
+
+  .get-started h2,
+  .get-started p {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .get-started h2 {
+    color: #ffffff;
+    font-size: 28px;
+  }
+
+  .get-started p {
+    color: #003e82;
+    font-size: 20px;
+
+    @media (max-width: $screen-lg) {
+      margin-bottom: 1em;
+    }
+  }
+
 }

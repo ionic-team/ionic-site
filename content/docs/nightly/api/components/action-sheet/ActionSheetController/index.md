@@ -259,7 +259,7 @@ Open an action sheet with a title, subTitle, and an array of buttons
 <tr>
 <td>role</td>
 <td><code>string</code></td>
-<td>How the button should be displayed, <code>destructive</code> or <code>cancel</code>. If not role is provided, it will display the button without any additional styles.</td>
+<td>How the button should be displayed, <code>destructive</code> or <code>cancel</code>. If no role is provided, it will display the button without any additional styles.</td>
 </tr>
 </tbody>
 </table>

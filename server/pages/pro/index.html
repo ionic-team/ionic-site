@@ -1,0 +1,271 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'products' %}
+{% set mixpanelEnabled = true %}
+{% set bodyController = "ProductsPageCtrl" %}
+{% set title = "Ionic Framework - Ionic Pro" %}
+{% set meta_image = '/img/meta/ionic-pro-og.png'%}
+{% set meta_description = 'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards.'%}
+
+{% block header_style %}transparent{% endblock %}
+
+{% block body_attributes %}
+  data-spy="scroll"
+  data-target="#platform-nav"
+  data-offset="64"
+{% endblock %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li>Pro</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/pro" class="active">Overview</a></li>
+      <li><a href="/pro/teams">For teams</a></li>
+      <li><a href="/pro/pricing">Pricing</a></li>
+      <li><a href="/docs/pro">Docs</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <h1>Your mobile development toolkit.</h1>
+    <p>A powerful platform built for shipping incredible Ionic apps. Build better apps with Ionic Pro’s integrated suite of tools and services designed for the entire app lifecycle.</p>
+    <div class="cta-buttons">
+      <a class="btn"
+      href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      alt="Sign up for Ionic Pro"
+      id="btn-products-create-pro-account">Create a Pro account</a><br>
+      {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
+    </div>
+  </hgroup>
+</div>
+
+<nav class="pro-nav pro-nav--upper">
+  <div class="container">
+    <div class="pro-logo">
+      <a href="/pro"><img src="/img/pro/pro-logo.png"/></a>
+    </div>
+    <ul class="pro-nav-icons">
+      <li><a class="prototyping anchor" href="#prototyping" title="Creator"></a></li>
+      <li><a class="testing anchor" href="#testing" title="View App"></a></li>
+      <li><a class="updates anchor" href="#updates" title="Deploy"></a></li>
+      <li><a class="build anchor" href="#build" title="Package"></a></li>
+      <li><a class="reporting anchor" href="#reporting" title="Monitor"></a></li>
+    </ul>
+    <div class="pro-pricing-btn">
+      <a href="/pro/pricing" class="btn">See Pricing</a>
+    </div>
+  </div>
+</nav>
+
+<div class="pro-nav pro-nav--lower">
+  <div class="container">
+    <ul class="pro-nav-text">
+      <li><a href="#prototyping"><strong>Creator</strong>Rapid app prototyping</a></li>
+      <li><a href="#testing"><strong>View App</strong>Remote app testing</a></li>
+      <li><a href="#updates"><strong>Deploy</strong>Live app updating</a></li>
+      <li><a href="#build"><strong>Package</strong>Native cloud builds</a></li>
+      <li><a href="#reporting"><strong>Monitor</strong>Error / crash reporting</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="pro-video">
+  <div class="video-player">
+    <svg class="video-player-button" viewBox="0 0 278 278">
+      <title>Play Video</title>
+      <g fill="none" fill-rule="evenodd">
+        <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
+        <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
+      </g>
+    </svg>
+    <div class="video-player-frame">
+      <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="overview hero" id="overview">
+    <div class="container">
+      <hgroup class="text-center">
+        <h3>Everything in one experience.</h3>
+        <p>Spend more time on what matters. <strong>Ionic Pro</strong> takes care of the rest, with a suite of powerful mobile development tools and services for apps of all shapes and sizes.</p>
+      </hgroup>
+      <ul class="features">
+        <li class="better">
+          <h4>Better apps</h4>
+          <p>Build apps your users will love, with simple app sharing, feedback and monitoring to craft the perfect app experience.</p>
+        </li>
+        <li class="faster">
+          <h4>Faster development</h4>
+          <p>Quickly prototype and test new concepts, and speed up development to bring more ideas to market in less time.</p>
+        </li>
+        <li class="happier">
+          <h4>Happier devs &amp; teams</h4>
+          <p>Keep it simple with developer-friendly tools, easy collaboration, and everything you need in one place.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="prototyping hero left activateOnScroll" id="prototyping">
+    <div class="container">
+      <div class="content">
+        <h4>Ionic Creator</h4>
+        <h2>Rapid app prototyping</h2>
+        <p>Visually build high-fidelity apps in minutes. Drag and drop core Ionic UI components, add themes, animations, design files, and even custom code to create real, interactive Ionic mobile apps.</p>
+        <a class="hero__cta" href="/pro/creator" target="_blank" id="btn-products-learn-more-creator">Learn about Creator</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing right hero activateOnScroll" id="testing">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic View app</h4>
+        <h2>Remote sharing &amp; testing</h2>
+        <p>Use the Ionic View app for live app testing and to get your app in the hands of clients, testers, or collaborators as quickly as you make changes.</p>
+        <a class="hero__cta" href="/pro/view" id="btn-products-learn-more-view">Learn about View App</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="updates left hero activateOnScroll" id="updates">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Deploy</h4>
+        <h2>Realtime app updates</h2>
+        <p>Deliver hot code updates, content changes, A/B tests, and bug fixes in real time before and after your app is in the app stores, with LiveDeploy.</p>
+        <a class="hero__cta" href="/pro/deploy" id="btn-products-learn-more-deploy">Learn about Deploy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="build right hero activateOnScroll" id="build">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Package</h4>
+        <h2>Continuous native builds</h2>
+        <p>Create native apps binaries in the cloud with Ionic Package to get from code to app store with no platform dependencies or complicated build steps.</p>
+        <a class="hero__cta" href="/pro/package" id="btn-products-learn-more-package">Learn about Package</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reporting left hero activateOnScroll" id="reporting">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Monitor</h4>
+        <h2>Runtime error monitoring</h2>
+        <p>Track issues in development and catch bugs before they ship. Pinpoint and resolve runtime errors by drilling into your core codebase, down to the Typescript level.</p>
+        <a class="hero__cta" href="/pro/monitor" id="btn-products-learn-more-monitor">Learn about Monitor</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bar get-started">
+    <div class="container">
+      <hgroup>
+        <h2>Get started with Ionic Pro today.</h2>
+        <p class="lg">
+          Create a free account, or check out our plans and pricing.
+        </p>
+      </hgroup>
+      <div>
+        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+          class="btn sm" id="btn-products-create-account">Create a Pro account
+          </a>
+        <a class="btn sm white" id="btn-products-see-pricing"
+          href="/pro/pricing">See pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+<script async src="https://www.youtube.com/iframe_api"></script>
+<script>
+  (function() {
+    const videoPlayer = document.querySelector('.video-player');
+    const iframeTarget = document.querySelector('.js-video-target');
+
+    function onYouTubeReady() {
+      videoPlayer.classList.add('is-ready');
+      videoPlayer.addEventListener('click', onPlayerClick);
+    }
+
+    function onPlayerClick() {
+      videoPlayer.classList.add('is-playing');
+      new YT.Player(iframeTarget, {
+        height: '1164',
+        width: '1800',
+        videoId: 'ZB5lQTP987s',
+        events: {
+          'onReady': onPlayerReady
+        },
+        playerParams: {
+          color: 'white',
+          enablejsapi: 1,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
+
+    function onPlayerReady(e) {
+      e.target.playVideo();
+    }
+
+    function initStickyNav(nav) {
+      function check() {
+        if (nav.getBoundingClientRect().top < 1) {
+          nav.classList.add('is-stuck');
+        } else {
+          nav.classList.remove('is-stuck');
+        }
+      }
+
+      return function() {
+        requestAnimationFrame(check);
+      };
+    }
+
+    if (window.IntersectionObserver) {
+      const anchorMap = new Map();
+      document.querySelectorAll('.pro-nav-icons a').forEach(anchor => {
+        anchorMap.set(document.querySelector(anchor.getAttribute('href')), anchor);
+      });
+
+      const observer = new IntersectionObserver(handleIntersectionChange, { threshold: 0.5 });
+
+      for (section of anchorMap.keys()) {
+        observer.observe(section);
+      }
+
+      function getActiveSection(entries) {
+        return entries
+          .filter(entry => entry.intersectionRatio > 0.5)
+          .sort((a,b) => a.intersectionRatio > b.intersectionRatio ? -1 : 1)[0];
+      }
+
+      function handleIntersectionChange(entries) {
+        for (anchor of anchorMap.values()) anchor.classList.remove('is-active');
+        const activeSection = getActiveSection(entries);
+        if (activeSection) anchorMap.get(activeSection.target).classList.add('is-active');
+      }
+    }
+
+    window.onYouTubeIframeAPIReady = onYouTubeReady;
+    window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
+  })();
+</script>
+
+{% endblock %}

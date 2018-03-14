@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.local-notification
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-local-notification
 $ npm install --save @ionic-native/local-notifications
 </code></pre>
   </li>

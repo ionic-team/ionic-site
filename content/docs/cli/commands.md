@@ -32,7 +32,7 @@ Command | Description
 [serve](serve/) | Start a local dev server for app dev/testing
 [signup](signup/) | Create an Ionic account
 [start](start/) | Create a new project
-[telemetry](telemetry/) | Opt in and out of telemetry
+[telemetry](telemetry/) | (deprecated) Opt in and out of telemetry
 [upload](upload/) | (deprecated) Upload a new snapshot of your app
 [config get](config/get/) | Print config values
 [config set](config/set/) | Set config values
@@ -45,7 +45,12 @@ Command | Description
 [cordova requirements](cordova/requirements/) | Checks and print out all the requirements for platforms
 [cordova resources](cordova/resources/) | Automatically create icon and splash screen resources
 [cordova run](cordova/run/) | Run an Ionic project on a connected device
+[doctor check](doctor/check/) | Check the health of your Ionic project
+[doctor ignore](doctor/ignore/) | Ignore a particular issue
+[doctor list](doctor/list/) | List all issue identifiers
 [git remote](git/remote/) | Adds/updates the Ionic git remote to your local Ionic app repository
+[integrations disable](integrations/disable/) | Disable an integration
+[integrations enable](integrations/enable/) | Add various integrations to your app
 [monitoring syncmaps](monitoring/syncmaps/) | Sync Source Maps to Ionic Pro Error Monitoring service
 [package build](package/build/) | (deprecated) Start a package build
 [package download](package/download/) | (deprecated) Download your packaged app

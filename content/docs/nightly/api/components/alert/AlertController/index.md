@@ -93,6 +93,7 @@ presentAlert() {
     subTitle: &#39;10% of battery remaining&#39;,
     buttons: [&#39;Dismiss&#39;]
   });
+  alert.onDidDismiss(() =&gt; console.log(&#39;Alert was dismissed by the user&#39;));
   alert.present();
 }
 
@@ -116,6 +117,7 @@ presentConfirm() {
       }
     ]
   });
+  alert.onDidDismiss(() =&gt; console.log(&#39;Alert was dismissed by the user&#39;));
   alert.present();
 }
 
@@ -326,6 +328,11 @@ Display an alert with a title, inputs, and buttons
 <td>Whether or not the input is checked.</td>
 </tr>
 <tr>
+<td>disabled</td>
+<td><code>boolean</code></td>
+<td>Whether or not the input is disabled.</td>
+</tr>
+<tr>
 <td>id</td>
 <td><code>string</code></td>
 <td>The input&#39;s id.</td>
@@ -364,6 +371,9 @@ Display an alert with a title, inputs, and buttons
 </tr>
 </tbody>
 </table>
+<h3 id="detecting-dismissal">Detecting dismissal</h3>
+<p>Any dismissal of the alert (including backdrop) can be detected
+using the method <code>onDidDismiss(() =&gt; {})</code>.</p>
 <h3 id="dismissing-and-async-navigation">Dismissing And Async Navigation</h3>
 <p>After an alert has been dismissed, the app may need to also transition
 to another page depending on the handler&#39;s logic. However, because multiple

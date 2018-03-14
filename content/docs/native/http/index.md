@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -286,6 +286,34 @@ Remove cookies
   </tbody>
 </table>
 
+<h3><a class="anchor" name="disableRedirect" href="#disableRedirect"></a><code>disableRedirect(disable)</code></h3>
+
+
+
+
+Disable following redirects automatically
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      disable</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to disable following redirects automatically</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="setRequestTimeout" href="#setRequestTimeout"></a><code>setRequestTimeout(timeout)</code></h3>
 
 
@@ -368,35 +396,6 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
     </td>
     <td>
       <p>Set to true to accept</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="validateDomainName" href="#validateDomainName"></a><code>validateDomainName(validate)</code></h3>
-
-
-Whether or not to validate the domain name in the certificate. This defaults to true.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      validate</td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Set to true to validate</p>
 </td>
   </tr>
   </tbody>
@@ -511,6 +510,57 @@ Make a GET request
 
 
 Make a PUT request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="patch" href="#patch"></a><code>patch(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PATCH request
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

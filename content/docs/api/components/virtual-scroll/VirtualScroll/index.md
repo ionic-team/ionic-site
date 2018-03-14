@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -104,7 +104,7 @@ returned data.</p>
 
 
 <p>If the height of items in the virtual scroll are not close to the
-default size of 40px, it is extremely important to provide a value for
+default size of 40px, it is extremely important to provide an value for
 approxItemHeight height. An exact pixel-perfect size is not necessary,
 but without an estimate the virtual scroll will not render correctly.</p>
 <p>The approximate width and height of each template is used to help
@@ -168,7 +168,7 @@ dimensions are measured correctly.</p>
 
 
 <p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
-<a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
+<a href="https://blog.ionicframework.com/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
 in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
 WKWebView is superior at scrolling efficiently in comparision to the older
 UIWebView.</p>

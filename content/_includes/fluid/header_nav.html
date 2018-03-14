@@ -9,7 +9,7 @@
   </a>
   <ul class="dropdown-menu">
     <li>
-      <a href="/" class="framework">
+      <a href="/framework" class="framework">
         <strong>Ionic Framework</strong>
         The popular open source SKD, built for developers.
       </a>
@@ -29,61 +29,51 @@
   </ul>
 </li> -->
 
-<li{% if id == 'home' %} class="active"{% endif %}><a href="/">Framework</a></li>
+<li{% if id == 'home' %} class="active"{% endif %}><a href="/framework">
+  Framework</a></li>
 <li{% if id.indexOf('products') == 0%} class="active"{% endif %}>
-  <a href="/products">Products</a></li>
+  <a href="/pro">Products</a></li>
 
 <!-- <li class="dropdown products">
-  <a href="#"
+  <a href="/pro"
      class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
      aria-haspopup="true"
      aria-expanded="false">
     Products
   </a>
   <ul class="dropdown-menu">
     <li>
-      <a href="/products" class="pro">
+      <a href="/pro" class="pro">
         <strong>Ionic Pro</strong>
         The premier product suite for serious app creators.
       </a>
     </li>
     <li>
-      <a href="/products#prototyping" class="creator">
-        <strong>Creator</strong>
-        Visually drag &amp; drop Ionic app prototyping tool.
-      </a>
-    </li>
-    <li>
-      <a href="/products#view" class="view">
+      <a href="/pro/view" class="view">
         <strong>View App</strong>
         The live preview app for device testing &amp; sharing.
       </a>
     </li>
     <li>
-      <a href="/products#updates" class="deploy">
+      <a href="/pro/deploy" class="deploy">
         <strong>Deploy</strong>
         Push hot code updates live to production apps.
       </a>
     </li>
     <li>
-      <a href="/products#build" class="package">
+      <a href="/pro/package" class="package">
         <strong>Package</strong>
         Compile and publish native binaries in the cloud.
       </a>
     </li>
     <li>
-      <a href="/products#reporting" class="monitor">
+      <a href="/pro/monitor" class="monitor">
         <strong>Monitor</strong>
         Ionic app error monitoring and log tracking.
       </a>
     </li>
   </ul>
 </li> -->
-
-<li class="sm-hide{% if id.indexOf('products') == 0%} active{% endif %}">
-  <a href="/pricing">Pricing</a></li>
 
 <li class="dropdown developers">
   <a href="#"
@@ -131,7 +121,7 @@
     <!-- <li><a href="/customers" class=""></a></li> -->
     <li><a href="/resources" class="resources">Resource Center</a></li>
     <li><a href="/enterprise" class="enterprise">Enterprise</a></li>
-    <!-- <li><a href="/demo" class="demo">Request a demo</a></li> -->
+    <li><a href="/demo" class="demo">Request a demo</a></li>
     <li><a href="/sales" class="sales">Contact Sales</a></li>
     <li><a href="/about" class="about">About Ionic</a></li>
   </ul>
@@ -160,14 +150,19 @@
      aria-haspopup="true"
      aria-expanded="false">Ecosystem</a>
   <ul class="dropdown-menu">
-    <li><a href="https://blog.ionic.io" class="blog">Ionic Blog</a></li>
+    <li class="hide-gt-md"><a href="https://blog.ionicframework.com" class="blog">Ionic Blog</a></li>
     <!--<li><a href="" class="community">Community Hub</a></li> -->
-    <li><a href="https://market.ionic.io" class="market">Ionic Market</a></li>
-    <li><a href="https://jobs.ionic.io" class="jobs">Job Board</a></li>
-    <li><a href="https://shop.ionic.io/" class="shop">Swag Shop</a></li>
+    <li><a href="https://market.ionicframework.com" class="market">Ionic Market</a></li>
+    <!-- <li><a href="https://jobs.ionicframework.com" class="jobs">Job Board</a></li> -->
+    <li><a href="https://shop.ionicframework.com/" class="shop">Swag Shop</a></li>
     <li class="divider"></li>
     <li><a href="https://twitter.com/IonicFramework" class="twitter">Twitter</a></li>
     <li><a href="http://ionicworldwide.herokuapp.com" class="slack">Slack</a></li>
     <li><a href="https://github.com/ionic-team/" class="github">GitHub</a></li>
   </ul>
 </li>
+
+<li class="hide-lt-lg"><a href="https://blog.ionicframework.com" class="blog">Blog</a></li>
+
+<li class="sm-hide{% if id.indexOf('products') == 0%} active{% endif %}">
+  <a href="/pro/pricing">Pricing</a></li>

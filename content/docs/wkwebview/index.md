@@ -144,7 +144,7 @@ You can force cordova to use the default engine (UIWebView) by explicitally tell
 <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
 ```
 
-### Option 2: Uninstall the Ionic's WebView plugin
+### Option 2: Uninstall the Ionic WebView plugin
 
 ```bash
 $ ionic cordova plugin remove cordova cordova-plugin-ionic-webview --save
@@ -169,7 +169,7 @@ We strongly recommend to use the [ionic-storage](https://ionicframework.com/docs
 
 > I don't have any error in my code, but still I get a blank screen
 
-Most of the time, this kind of problems come from an incorrect installation of cordova.
+Most of the time, this kind of problems come from an incorrect installation of the Cordova platform:
 
 - Ensure Xcode is closed
 
@@ -218,7 +218,7 @@ Develop -> *Your_Device_Name* uncheck **"Automatically Show Web Inspector for JS
 This should resolve your issue.
 
 
-## My local resources does not load
+## My local resources do not load
 
 > Some of the `<img>`/`<video>`/`<audio>` does not load.
 
@@ -248,7 +248,7 @@ Fortunatelly, Ionic's WebView can do this for you by setting the `AudioCanMix` c
 ```
 
 
-## XHR requests does not work
+## XHR requests do not work
 
 > I am trying to call some remote service using XHR (or fetch), but it is not working.
 
@@ -261,5 +261,5 @@ As we said previously, WKWebView enforces CORS. You will need to whitelist `http
 
 If it is not an possibility to implement or configure CORS in the server, there is a native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypassed:
 
-Read more here: [cordova-plugin-http](http://ionicframework.com/docs/native/http/).
+Read more here: [cordova-plugin-http](https://ionicframework.com/docs/native/http/).
 

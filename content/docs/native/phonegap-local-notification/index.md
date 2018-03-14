@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -60,7 +60,7 @@ $ npm install --save @ionic-native/phonegap-local-notification
 <pre><code>import { PhonegapLocalNotification } from &#39;@ionic-native/phonegap-local-notification&#39;;
 
 
-constructor(private localNotification: PhonegapLocalNotifications) { }
+constructor(private localNotification: PhonegapLocalNotification) { }
 
 ...
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -52,9 +52,8 @@ welcome to get a bit crazy with it if you fancy.</p>
 
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">export class MyClass {
-
- constructor(haptic: Haptic) {
+<pre><code class="lang-ts">export class MyClass{
+ constructor(haptic: Haptic){
    haptic.selection();
  }
 }

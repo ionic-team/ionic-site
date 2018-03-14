@@ -1,0 +1,94 @@
+#page-enterprise-training {
+  .banner {
+    padding-top: 198px;
+    padding-bottom: 90px;
+    font-family: $font-family-eina;
+
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -.018em;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.03em;
+    }
+  }
+
+  main {
+    max-width: 630px;
+
+    h2 {
+      font-size: 29px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: -.04em;
+      font-family: $font-family-eina;
+    }
+
+    h3 {
+      margin-top: 39px;
+      margin-bottom: 21px;
+      font-size: 19px;
+      font-weight: 700;
+      font-family: $font-family-eina;
+      letter-spacing: -.005em;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: .02em;
+      line-height: 1.9em;
+      margin-bottom: 32px;
+
+      + ul {
+        margin-top: -16px;
+      }
+    }
+
+    ul {
+      padding-left: 26px;
+    }
+
+    li {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -.005em;
+      line-height: 1.8em;
+    }
+  }
+
+  aside {
+    max-width: 520px;
+    margin-top: 46px;
+    margin-bottom: 78px;
+    text-align: center;
+
+    h3 {
+      color: #3880ff;
+      font-size: 28px;
+      font-weight: 700;
+      font-family: $font-family-eina;
+      letter-spacing: -.03em;
+
+      i {
+        color: #93a2bc;
+        font-style: normal;
+      }
+    }
+
+    .card {
+      padding: 30px 30px 1px;
+      width: 100%;
+      min-height: 300px;
+      background: white;
+      border-radius: 8px;
+      margin: 32px auto;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

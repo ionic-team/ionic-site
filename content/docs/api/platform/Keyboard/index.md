@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -51,9 +51,9 @@ by the Ionic keyboard plugin.</p>
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">export class MyClass {
+  constructor(public keyboard: Keyboard) {
 
-  constructor(public keyboard: Keyboard) { }
-
+  }
 }
 </code></pre>
 

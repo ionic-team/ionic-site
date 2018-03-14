@@ -82,7 +82,7 @@ within 3KB.
   stop-color: #fff; }
 </style>
 
-<script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+<script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
 <table class="table spinner-table" ng-app="ionic">
  <tr>
    <th>

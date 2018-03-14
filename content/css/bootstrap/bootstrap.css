@@ -1450,13 +1450,15 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   .form-inline .form-control, .navbar-form .form-control {
     display: inline-block; }
   .form-inline .radio, .navbar-form .radio,
-  .form-inline .checkbox, .navbar-form .checkbox {
+  .form-inline .checkbox,
+  .navbar-form .checkbox {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0; }
   .form-inline .radio input[type="radio"], .navbar-form .radio input[type="radio"],
-  .form-inline .checkbox input[type="checkbox"], .navbar-form .checkbox input[type="checkbox"] {
+  .form-inline .checkbox input[type="checkbox"],
+  .navbar-form .checkbox input[type="checkbox"] {
     float: none;
     margin-left: 0; } }
 
@@ -1699,7 +1701,9 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn {
+
+.btn-xs,
+.btn-group-xs > .btn {
   padding: 1px 5px; }
 
 .btn-block {

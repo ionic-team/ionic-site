@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -710,6 +710,29 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
+</div><h3><a class="anchor" name="startStateNotifications" href="#startStateNotifications"></a><code>startStateNotifications()</code></h3>
+
+
+
+
+Register to be notified when Bluetooth state changes on the device.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b>  Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
+
+</div><h3><a class="anchor" name="stopStateNotifications" href="#stopStateNotifications"></a><code>stopStateNotifications()</code></h3>
+
+
+Stop state notifications.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 

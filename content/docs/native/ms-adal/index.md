@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">MS ADAL</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ms-adal/index.ts#L49">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ms-adal/index.ts#L50">
   Improve this doc
 </a>
 
@@ -361,6 +361,19 @@ displaying UI it will fail. This method guarantees that no UI will be shown to u
     </td>
     <td>
       <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      userInfo
+    </td>
+    <td>
+      <code>UserInfo</code>
     </td>
     <td>
       

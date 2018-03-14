@@ -10,10 +10,11 @@ if (sidebarToggleEl) {
 $(document).ready(function() {
   // activate dropdowns
   $('.dropdown-toggle').dropdown();
-  // $(".navbar.transparent .dropdown").hover(
-  //   function(){ $(this).addClass('open') },
-  //   function(){ $(this).removeClass('open') }
-  // );
+  $(".navbar.transparent .dropdown").hover(
+    function(){ $(this).addClass('open') },
+    function(){ $(this).removeClass('open') }
+  );
+	$(".navbar.transparent .dropdown").click()
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');
   // activate collapseable ToCs
@@ -31,6 +32,11 @@ window.mobileAndTabletCheck = function() {
   return check;
 };
 
+window.getCookie = function(name) {
+  var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
+}
+
 window.tocToggle = function(btnEl) {
   btnEl.parentElement.classList.toggle('collapsed');
 };
@@ -40,7 +46,7 @@ $('[data-toggle="tooltip"]').tooltip({container: 'body'});
 // since we don't use mixpanel on every page
 if (!window.mixpanel) {
   window.mixpanel = {
-    track: function() { console.error('Mixpanel not enabled on this page'); }
+    track: function() { console.log('Mixpanel not enabled on this page'); }
   }
 }
 // optional shorthand
@@ -68,8 +74,8 @@ if (activateOnScroll.length) {
 
 function checkForActivateOnScroll() {
   if (!activateOnScroll.length) return;
-  var viewportHeight = window.innerHeight || 
-                       document.documentElement.clientHeight || 
+  var viewportHeight = window.innerHeight ||
+                       document.documentElement.clientHeight ||
                        document.body.clientHeight;
   for (var i = 0; i < activateOnScroll.length; i++) {
     var elPos = activateOnScroll[i].getBoundingClientRect();
@@ -121,28 +127,35 @@ hljs.initHighlightingOnLoad();
 }());
 
 // Smooth Scroll To anchor links with the .anchor class
-$('a.anchor[href*="#"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        var offset = event.target.dataset && event.target.dataset.offset 
-          ? event.target.dataset.offset : 100
-        $('html, body').animate({
-          scrollTop: target.offset().top - offset // give 100px of headroom
-        }, 1000);
-      }
-      return false;
+$('a.anchor[href*="#"]').click(function(event) {
+  // On-page links
+  if (
+    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+    &&
+    location.hostname == this.hostname
+  ) {
+    // Figure out element to scroll to
+    var target = $(this.hash);
+    if (!target.length) {
+      target = $('[name="' + this.hash.substring(1) + '"]');
     }
-  });
+    // Does a scroll target exist?
+    if (target.length) {
+      var offset = event.target.dataset && event.target.dataset.offset
+        ? event.target.dataset.offset : 100
+      $('html, body').animate({
+        scrollTop: target.offset().top - offset // give 100px of headroom
+      }, 600);
+    } else {
+      // otherwise scroll to the top of the page
+      $('html, body').animate({
+        scrollTop: 0
+      }, 600);
+    }
+    history.pushState && history.pushState(null, null, this.hash)
+    return false;
+  }
+});
 
 
 window.scrollToEl = function(selector) {

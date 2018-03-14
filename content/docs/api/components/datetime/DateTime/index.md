@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L26">
 Improve this doc
 </a>
 
@@ -228,7 +228,6 @@ for its value. The value is simply a string, rather than using JavaScript&#39;s 
 object. Additionally, when using the ISO datetime format, it makes it easier
 to serialize and pass within JSON objects, and sending databases a standardized
 format which it can be easily parsed if need be.</p>
-<p>To create an ISO datetime string for the current date and time, e.g. use <code>const currentDate = (new Date()).toISOString();</code>.</p>
 <p>An ISO format can be used as a simple year, or just the hour and minute, or get more
 detailed down to the millisecond and timezone. Any of the ISO formats below can be used,
 and after a user selects a new value, Ionic will continue to use the same ISO format
@@ -296,7 +295,7 @@ interface, but the datetime&#39;s value is always persisted as a valid ISO 8601 
 string.</p>
 <h2 id="min-and-max-datetimes">Min and Max Datetimes</h2>
 <p>Dates are infinite in either direction, so for a user&#39;s selection there should be at
-least some form of restricting the dates that can be selected. By default, the maximum
+least some form of restricting the dates that can be selected. Be default, the maximum
 date is to the end of the current year, and the minimum date is from the beginning
 of the year that was 100 years ago.</p>
 <p>To customize the minimum and maximum datetime values, the <code>min</code> and <code>max</code> component
@@ -485,16 +484,6 @@ more info. Defaults to <code>MMM D, YYYY</code>.</p>
 the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
 to control exactly which hours to display, the <code>hourValues</code> input can take either an
 array of numbers, or string of comma separated numbers.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>initialValue</td>
-      <td><code>string</code></td>
-      <td><p> The default datetime selected in picker modal if field value is empty.
-Value must be a date string following the
-<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
-<code>1996-12-19</code>.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -85,10 +85,12 @@ building the form within a modal instead.</p>
 
 <pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
 
-constructor(public alertCtrl: AlertController) { }
+constructor(private alertCtrl: AlertController) {
+
+}
 
 presentAlert() {
-  const alert = this.alertCtrl.create({
+  let alert = this.alertCtrl.create({
     title: &#39;Low battery&#39;,
     subTitle: &#39;10% of battery remaining&#39;,
     buttons: [&#39;Dismiss&#39;]
@@ -97,7 +99,7 @@ presentAlert() {
 }
 
 presentConfirm() {
-  const alert = this.alertCtrl.create({
+  let alert = this.alertCtrl.create({
     title: &#39;Confirm purchase&#39;,
     message: &#39;Do you want to buy this book?&#39;,
     buttons: [
@@ -120,7 +122,7 @@ presentConfirm() {
 }
 
 presentPrompt() {
-  const alert = this.alertCtrl.create({
+  let alert = this.alertCtrl.create({
     title: &#39;Login&#39;,
     inputs: [
       {
@@ -379,14 +381,14 @@ back a page in the same stack. The potential problem is that the async operation
 may have been completed before the alert has even finished its transition
 out. In this case, it&#39;s best to ensure the alert has finished its transition
 out first, <em>then</em> start the next transition.</p>
-<pre><code class="lang-ts">const alert = this.alertCtrl.create({
+<pre><code class="lang-ts">let alert = this.alertCtrl.create({
   title: &#39;Hello&#39;,
   buttons: [{
     text: &#39;Ok&#39;,
     handler: () =&gt; {
       // user has clicked the alert button
       // begin the alert&#39;s dismiss transition
-      const navTransition = alert.dismiss();
+      let navTransition = alert.dismiss();
 
       // start some async method
       someAsyncOperation().then(() =&gt; {

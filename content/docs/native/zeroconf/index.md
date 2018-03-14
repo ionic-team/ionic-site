@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -319,6 +319,15 @@ Stops watching for services of the specified type.
 
 
 Closes the service browser and stops watching.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="reInit" href="#reInit"></a><code>reInit()</code></h3>
+
+
+Re-initializes the plugin to clean service & browser state.
 
 
 <div class="return-value" markdown="1">

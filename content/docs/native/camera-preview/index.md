@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L50">
   Improve this doc
 </a>
 
@@ -747,6 +747,20 @@ Set specific focus point. Note, this assumes the camera is full-screen.
     </td>
     <td>
       <p>Alpha channel of the preview box, float, [0,1], default 1</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tapToFocus
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Tap to set specific focus point. Note, this assumes the camera is full-screen. default false</p>
 
       <em>(optional)</em>
     </td>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.1"
+version: "4.5.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,7 @@ docType: "class"
 
 
 
+<p>This plugin obtains information and performs operations specific to the user&#39;s locale, language, and timezone.</p>
 
 
 <p>Repo:
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/globalization
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

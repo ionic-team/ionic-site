@@ -39,16 +39,18 @@
 </li>
 {% endmacro %}
 
-{% macro contactForm(page) %}
+{% macro contactForm(
+  page,
+  messagePlaceholder="Send us a message",
+  buttonText="Send message",
+  successLink=""
+)%}
 <form class="form-inline container"
       name="contact"
+      ng-class="{'is-submitted':status.ok}"
       ng-controller="ContactCtrl"
       ng-submit="submit($event)"
       ng-init="form.page = '{{page}}'">
-  <h3 class="text-center"
-      ng-if="!!status" 
-      ng-class="{'text-danger':!status.ok}" 
-      ng-bind="status.message"></h3>
   <input class="form-control"
          type="text"
          name="first_name"
@@ -93,8 +95,8 @@
          placeholder="Phone *"
          ng-focus="track('Form Progress', 'phone')"
          required>
-  <div class="select-wrapper full-width"><select 
-         required 
+  <div class="select-wrapper full-width"><select
+         required
          class="form-control select-helper"
          name="employees"
          ng-model="form.employees"
@@ -105,15 +107,19 @@
             ng-model="form.message"
             cols="30"
             rows="10"
-            placeholder="Send us a message"
+            placeholder="{{messagePlaceholder}}"
             ng-focus="track('Form Progress', 'message')"
-            required
             ></textarea>
-  <button type="submit" 
-          class="btn ionic" 
+  <div class="alert alert-success"
+      ng-if="!!status"
+      ng-class="{'text-danger':!status.ok}"
+      ng-bind="status.message"></div>
+  <button type="submit"
+          class="btn ionic"
           value="Send message"
-          ng-disabled="formDisabled">
-    Send message
+          ng-disabled="formDisabled"
+          ng-init="successLink = '{{successLink}}'">
+    {{buttonText}}
   </button>
 </form>
 {% endmacro %}

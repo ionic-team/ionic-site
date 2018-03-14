@@ -70,3 +70,21 @@ You can view feedback submitted by testers for any app from the Feedback tab in 
 </div>
 
 See the [Submitting Feedback](/docs/pro/view.html#submitting-feedback) for more details.
+
+## CORS
+
+If web requests for your app are failing when using View, you may be running into issues with
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+There are a couple things you can do to resolve the issue.
+
+### Set the appropriate headers
+
+If you control the server responding to the failing requests, you can set the `Access-Control-Allow-Origin`
+header to `*` (wildcard) on the server. Be aware that requests from any origin will be able to see responses from your server when using `*`.
+Wildcard is a common setting for any API, or any other endpoint that is expected to be accessed from various origins.
+
+### Use a plugin
+
+If you can't or don't control the server headers, you can use the [Advanced HTTP plugin](https://ionicframework.com/docs/native/http/) (which doesn't enforce CORS) to make
+requests. The plugin receives responses natively and passes them back to JavaScript.

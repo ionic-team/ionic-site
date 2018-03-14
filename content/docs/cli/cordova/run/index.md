@@ -48,7 +48,7 @@ Option | Description
 `--port`, `-p` | Use specific port for HTTP
 `--livereload-port`, `-r` | Use specific port for live-reload
 `--dev-logger-port` | Use specific port for dev server communication
-`--prod` | Mark as a production build
+`--prod` | Build the application for production
 `--aot` | Perform ahead-of-time compilation for this build
 `--minifyjs` | Minify JS for this build
 `--minifycss` | Minify CSS for this build

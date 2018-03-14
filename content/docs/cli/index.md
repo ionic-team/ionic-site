@@ -71,13 +71,13 @@ The `ionic cordova` commands (aside from `ionic cordova resources`) wrap the Cor
 
 ## Ionic Pro
 
-[Ionic Pro](/products/) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. Ionic Pro is fully supported in the Ionic CLI. See the [Pro Docs](/docs/pro/basics/getting-started/) to get started.
+[Ionic Pro](/pro) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. Ionic Pro is fully supported in the Ionic CLI. See the [Pro Docs](/docs/pro//basics/getting-started/) to get started.
 
 Ionic Cloud (legacy) will be supported until its end-of-life on January 31st, 2018. Until then, you can switch between Ionic Cloud and Ionic Pro with `ionic config set -g backend legacy` and `ionic config set -g backend pro`. Unfortunately, you'll need to re-authenticate with `ionic login` each time the backend mode is switched.
 
 ## Troubleshooting
 
-If you're having trouble with the CLI, you can try the following:
+If you're having trouble with the Ionic CLI, you can try the following:
 
 * Make sure you're on the latest version of the CLI. Update with `npm update -g ionic`.
 * Try running commands with the `--verbose` flag, which will print `DEBUG` messages.

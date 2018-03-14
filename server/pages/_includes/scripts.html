@@ -1,9 +1,7 @@
-{% include '_includes/mixpanel.html' %}
-
 {% if dev %}
 <script src="/js/ionic-site.js"></script>
 {% else %}
 <script src="/js/ionic-site.min.js"></script>
 {% endif %}
-<script async src="https://ga.clearbit.com/v1/ga.js?authorization=pk_15ddaa2a40791f38734f40e0565526b7"></script>
+
 {% if page.footer_includes %}{{ page.footer_includes }}{% endif %}

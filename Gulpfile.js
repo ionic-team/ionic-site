@@ -74,17 +74,38 @@ function bustCache() {
 
 function bustCacheAndReload(done) {
   bustCache().on('end', function() {
-    browserSync.reload();
     done();
+    browserSync.reload();
     // apply the template change in the background
     // gulp.start('jekyll-build.incremental');
   });
 }
 
+gulp.task('styles:creator', function() {
+  // For best performance, don't add Sass partials to `gulp.src`
+  var sassStream =  gulp.src('assets/scss/creator.scss')
+    .pipe($.sourcemaps.init())
+    .pipe(sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
+    // Concatenate and minify styles
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename({extname: '.min.css'}))
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
+    .pipe($.size({title: 'styles'}));
+});
+
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src(['assets/scss/styles.scss'].concat(lib.css))
-    .pipe($.sourcemaps.init())
+  var sassStream =  gulp.src(
+    ['assets/scss/styles.scss'].concat(lib.css)
+  ) .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -209,15 +230,19 @@ gulp.task('server:server', function() {
 gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
+gulp.task('server:creator', ['styles:creator'], bustCacheAndReload);
+
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['assets/scss/creator.scss'], ['server:creator']);
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
+  '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',
   '!content/_includes/head_includes.*', '!content/_includes/fluid/head.*',
   '!content/_includes/fluid/footer_tags.*'], ['jekyll-rebuild']);
 });
@@ -226,7 +251,7 @@ gulp.task('watch.min', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
-              'content/docs/**/*.{md,html}'], ['server:jekyll']);
+              'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 
 });
 
@@ -410,6 +435,18 @@ gulp.task('slug.prep', function () {
   return del(['assets', 'content']);
 });
 
-gulp.task('build-prep', ['ionicons', 'styles:v1', 'styles:v2', 'images', 'js', 'docs.index'], bustCache);
+gulp.task(
+  'build-prep',
+  [
+    'ionicons',
+    'styles:v1',
+    'styles:v2',
+    'styles:creator',
+    'images',
+    'js',
+    'docs.index'
+  ],
+  bustCache
+);
 
 gulp.task('default', ['build']);

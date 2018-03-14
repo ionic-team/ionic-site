@@ -5,11 +5,11 @@
   input,
   .select-wrapper,
   textarea {
-    border: 2px solid $lighter-grey;
+    border: 1px solid #e1e5ed;
     // padding: 15px 5px 15px 18px;
     font-weight: 500;
     float: left;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: border-color .2s;
     box-shadow: none;
 

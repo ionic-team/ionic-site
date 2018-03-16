@@ -69,7 +69,7 @@ constructor(private navigationBar: NavigationBar) { }
 ...
 
 let autoHide: boolean = true;
-this.navigationBar.hide(autoHide);
+this.navigationBar.setUp(autoHide);
 </code></pre>
 
 

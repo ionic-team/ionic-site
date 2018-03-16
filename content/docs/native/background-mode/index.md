@@ -328,7 +328,7 @@ Turn screen on and show app even locked
       title
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Title of the background task</p>
@@ -342,7 +342,7 @@ Turn screen on and show app even locked
       text
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Description of background task</p>
@@ -373,7 +373,8 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      
+      <p>Color</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -400,7 +401,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Hidden</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -413,7 +415,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Big text</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -423,7 +426,7 @@ Turn screen on and show app even locked
       ticker
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>The text that scrolls itself on statusbar</p>

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L96">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L101">
   Improve this doc
 </a>
 
@@ -805,6 +805,20 @@ Default: FFFFFF</p>
     </td>
     <td>
       <p>Notification priority.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      silent
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Is a silent notification</p>
 
       <em>(optional)</em>
     </td>

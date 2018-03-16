@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.printer
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-printer
 $ npm install --save @ionic-native/printer
 </code></pre>
   </li>

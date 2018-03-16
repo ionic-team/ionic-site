@@ -695,10 +695,10 @@ Write a new file to the desired location.
     <td>
       text</td>
     <td>
-      <code>string</code>|<code>Blob</code>
+      <code>string</code>|<code>Blob</code>|<code>ArrayBuffer</code>
     </td>
     <td>
-      <p>content or blob to write</p>
+      <p>content, blob or ArrayBuffer to write</p>
 </td>
   </tr>
   

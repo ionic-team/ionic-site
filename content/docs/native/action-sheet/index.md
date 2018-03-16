@@ -199,94 +199,10 @@ Progamtically hide the native ActionSheet
       androidTheme
     </td>
     <td>
-      <code>number</code>
+      <code></code>
     </td>
     <td>
       <p>Theme to be used on Android</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      androidEnableCancelButton
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Enable a cancel on Android</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      winphoneEnableCancelButton
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Enable a cancel on Windows Phone</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      addCancelButtonWithLabel
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Add a cancel button with text</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      addDestructiveButtonWithLabel
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Add a destructive button with text</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      position
-    </td>
-    <td>
-      <code>number[]</code>
-    </td>
-    <td>
-      <p>On an iPad, set the X,Y position</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      destructiveButtonLast
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Choose if destructive button will be the last</p>
 
       <em>(optional)</em>
     </td>

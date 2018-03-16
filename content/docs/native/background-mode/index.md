@@ -387,7 +387,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>By default the app will come to foreground when taping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
+      <p>By default the app will come to foreground when tapping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
 
       <em>(optional)</em>
     </td>

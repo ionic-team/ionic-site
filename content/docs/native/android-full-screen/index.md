@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Android Full Screen</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-full-screen/index.ts#L30">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-full-screen/index.ts#L28">
   Improve this doc
 </a>
 
@@ -65,8 +65,8 @@ constructor(private androidFullScreen: AndroidFullScreen) { }
 ...
 
 this.androidFullScreen.isImmersiveModeSupported()
-  .then(() =&gt; this.androidFullScreen.immersiveMode())
-  .catch((error: any) =&gt; console.log(error));
+  .then(() =&gt; console.log(&#39;Immersive mode supported&#39;))
+  .catch(err =&gt; console.log(error));
 </code></pre>
 
 

@@ -70,7 +70,7 @@ let subscription = this.dbMeter.start().subscribe(
 
 // Check if we are listening
 this.dbMeter.isListening().then(
-  (isListening: boolean) =&gt; console.log(isListening)
+  isListening =&gt; console.log(isListening)
 );
 
 // Stop listening

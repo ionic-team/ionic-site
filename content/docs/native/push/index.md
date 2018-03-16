@@ -589,7 +589,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     <td>
       <p>Maps to the project number in the Google Developer Console.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

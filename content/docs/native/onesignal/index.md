@@ -735,7 +735,16 @@ This includes the following events:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="clearOneSignalNotifications" href="#clearOneSignalNotifications"></a><code>clearOneSignalNotifications()</code></h3>
+
+
+
+
+Clears all OneSignla notifications
+
+
+
+
 
 
 

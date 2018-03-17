@@ -67,7 +67,12 @@ constructor(private iab: InAppBrowser) { }
 const browser = this.iab.create(&#39;https://ionicframework.com/&#39;);
 
 browser.executeScript(...);
+
 browser.insertCSS(...);
+browser.on(&#39;loadstop&#39;).subscribe(event =&gt; {
+   browser.insertCSS({ code: &quot;body{color: red;&quot; });
+});
+
 browser.close();
 </code></pre>
 

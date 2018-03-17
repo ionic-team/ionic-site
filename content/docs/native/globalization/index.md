@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Globalization</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/globalization/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/globalization/index.ts#L6">
   Improve this doc
 </a>
 
@@ -421,6 +421,51 @@ Returns a pattern string to format and parse currency values according to the cl
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="GlobalizationOptions" href="#GlobalizationOptions"></a>GlobalizationOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      formatLength
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      selector
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

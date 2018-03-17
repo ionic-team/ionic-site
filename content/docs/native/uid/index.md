@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/hygieiasoft/cordova-plugin-uid
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-uid
 $ npm install --save @ionic-native/uid
 </code></pre>
   </li>

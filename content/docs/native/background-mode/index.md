@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L50">
   Improve this doc
 </a>
 
@@ -373,7 +373,7 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      <p>Color</p>
+      <p>Set the background color of the notification circle</p>
 
       <em>(optional)</em>
     </td>
@@ -401,7 +401,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>Hidden</p>
+      <p>When set to false makes the notifications visible on lockscreen (Android 5.0+)</p>
 
       <em>(optional)</em>
     </td>

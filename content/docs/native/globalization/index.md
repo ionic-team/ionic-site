@@ -209,7 +209,7 @@ Returns a pattern string to format and parse dates according to the client's use
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;{ pattern: string, timezone: string, utf_offset: number, dst_offset: number }&gt;</code> Returns a promise.
+  <b>Returns:</b> <code>Promise&lt;{ pattern: string, timezone: string, utc_offset: number, dst_offset: number }&gt;</code> Returns a promise.
 </div><h3><a class="anchor" name="getDateNames" href="#getDateNames"></a><code>getDateNames(options)</code></h3>
 
 

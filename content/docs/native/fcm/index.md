@@ -62,25 +62,25 @@ constructor(private fcm: FCM) {}
 
 ...
 
-fcm.subscribeToTopic(&#39;marketing&#39;);
+this.fcm.subscribeToTopic(&#39;marketing&#39;);
 
-fcm.getToken().then(token=&gt;{
+this.fcm.getToken().then(token =&gt; {
   backend.registerToken(token);
-})
+});
 
-fcm.onNotification().subscribe(data=&gt;{
+this.fcm.onNotification().subscribe(data =&gt; {
   if(data.wasTapped){
     console.log(&quot;Received in background&quot;);
   } else {
     console.log(&quot;Received in foreground&quot;);
   };
-})
+});
 
-fcm.onTokenRefresh().subscribe(token=&gt;{
+this.fcm.onTokenRefresh().subscribe(token =&gt; {
   backend.registerToken(token);
-})
+});
 
-fcm.unsubscribeFromTopic(&#39;marketing&#39;);
+this.fcm.unsubscribeFromTopic(&#39;marketing&#39;);
 </code></pre>
 
 

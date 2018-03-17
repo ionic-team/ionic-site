@@ -118,47 +118,7 @@ this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
 
 
 
-<h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code></h3>
-
-
-Browser wrapper
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      appId</td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Your Facebook AppID from their dashboard</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      version</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The version of API you may want to use. Optional</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code></h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code></h3>
 
 
 Login to Facebook to authenticate this app.

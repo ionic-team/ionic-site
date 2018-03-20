@@ -263,12 +263,12 @@ Gets the Uri the app was invoked with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onNewIntent" href="#onNewIntent"></a><code>onNewIntent()</code></h3>
+</div><h3><a class="anchor" name="onIntent" href="#onIntent"></a><code>onIntent()</code></h3>
 
 
 
 
-
+Returns the content of the intent used whenever the application activity is launched
 
 
 <div class="return-value" markdown="1">
@@ -365,24 +365,6 @@ Registers a broadcast receiver for the specified filters
 
 
 Unregisters a broadcast receiver
-
-
-
-<h3><a class="anchor" name="onIntent" href="#onIntent"></a><code>onIntent()</code></h3>
-
-
-
-
-Returns the content of the intent used whenever the application activity is launched
-
-
-
-<h3><a class="anchor" name="onActivityResult" href="#onActivityResult"></a><code>onActivityResult()</code></h3>
-
-
-
-
-
 
 
 

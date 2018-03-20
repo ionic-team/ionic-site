@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>CodePush plugin for Cordova by Microsoft that supports iOS and Android.</p>
-<p>For more info, please see <a href="https://github.com/ksachdeva/ionic2-code-push-example">https://github.com/ksachdeva/ionic2-code-push-example</a></p>
+<p>For more info, please see <a href="https://github.com/Dellos7/example-cordova-code-push-plugin">https://github.com/Dellos7/example-cordova-code-push-plugin</a></p>
 
 
 <p>Repo:

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -30,12 +30,21 @@ for more information.</p>
 <h4 id="icons">Icons</h4>
 <p>If you want to use generated icons with command <code>ionic cordova resources</code>:</p>
 <ol>
-<li><p>Add a file to your <code>hooks</code> directory inside the <code>after_prepare</code> folder called <code>030_copy_android_notification_icons.js</code></p>
+<li><p>Add a file to your <code>hooks</code> directory called <code>copy_android_notification_icons.js</code></p>
+</li>
+<li><p>Configure the hook in your config.xml</p>
+<pre><code>&lt;platform name=&quot;android&quot;&gt;
+    &lt;hook type=&quot;after_prepare&quot; src=&quot;hooks/copy_android_notification_icons.js&quot; /&gt;
+&lt;/platform&gt;
+</code></pre>
 </li>
 <li><p>Put the following code in it:</p>
 </li>
 </ol>
 <pre><code>#!/usr/bin/env node
+
+var fs = require(&#39;fs&#39;);
+var path = require(&#39;path&#39;);
 
 var filestocopy = [{
     &quot;resources/android/icon/drawable-hdpi-icon.png&quot;:
@@ -54,25 +63,26 @@ var filestocopy = [{
         &quot;platforms/android/res/drawable-xxxhdpi/ic_stat_onesignal_default.png&quot;
 } ];
 
-var fs = require(&#39;fs&#39;);
-var path = require(&#39;path&#39;);
+module.exports = function(context) {
 
-// no need to configure below
-var rootdir = process.argv[2];
+    // no need to configure below
+    var rootdir = context.opts.projectRoot;
 
-filestocopy.forEach(function(obj) {
-    Object.keys(obj).forEach(function(key) {
-        var val = obj[key];
-        var srcfile = path.join(rootdir, key);
-        var destfile = path.join(rootdir, val);
-        //console.log(&quot;copying &quot;+srcfile+&quot; to &quot;+destfile);
-        var destdir = path.dirname(destfile);
-        if (fs.existsSync(srcfile) &amp;&amp; fs.existsSync(destdir)) {
-            fs.createReadStream(srcfile).pipe(
-                fs.createWriteStream(destfile));
-        }
+    filestocopy.forEach(function(obj) {
+        Object.keys(obj).forEach(function(key) {
+            var val = obj[key];
+            var srcfile = path.join(rootdir, key);
+            var destfile = path.join(rootdir, val);
+            console.log(&quot;copying &quot;+srcfile+&quot; to &quot;+destfile);
+            var destdir = path.dirname(destfile);
+            if (fs.existsSync(srcfile) &amp;&amp; fs.existsSync(destdir)) {
+                fs.createReadStream(srcfile).pipe(
+                    fs.createWriteStream(destfile));
+            }
+        });
     });
-});
+
+};
 </code></pre>
 <ol>
 <li>From the root of your project make the file executable:
@@ -735,7 +745,16 @@ This includes the following events:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="clearOneSignalNotifications" href="#clearOneSignalNotifications"></a><code>clearOneSignalNotifications()</code></h3>
+
+
+
+
+Clears all OneSignla notifications
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L96">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L101">
   Improve this doc
 </a>
 
@@ -465,10 +465,10 @@ Get all triggered notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code></h3>
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
 
 
-Register permission to show notifications if not already granted.
+Request permission to show notifications if not already granted.
 
 
 <div class="return-value" markdown="1">
@@ -805,6 +805,20 @@ Default: FFFFFF</p>
     </td>
     <td>
       <p>Notification priority.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      silent
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Is a silent notification</p>
 
       <em>(optional)</em>
     </td>

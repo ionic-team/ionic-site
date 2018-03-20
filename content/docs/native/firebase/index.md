@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -682,6 +682,35 @@ Sends an SMS to the user with the SMS verification code and returns the Verifica
     </td>
     <td>
       <p>the timeout in sec - no more SMS will be sent to this number until this timeout expires</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setAnalyticsCollectionEnabled" href="#setAnalyticsCollectionEnabled"></a><code>setAnalyticsCollectionEnabled(enabled)</code></h3>
+
+
+Allows the user to enable/disable analytics collection
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      enabled</td>
+    <td>
+      <code>booleab</code>
+    </td>
+    <td>
+      <p>value to set collection</p>
 </td>
   </tr>
   </tbody>

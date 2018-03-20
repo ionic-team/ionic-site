@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -69,7 +69,7 @@ constructor(private navigationBar: NavigationBar) { }
 ...
 
 let autoHide: boolean = true;
-this.navigationBar.hide(autoHide);
+this.navigationBar.setUp(autoHide);
 </code></pre>
 
 

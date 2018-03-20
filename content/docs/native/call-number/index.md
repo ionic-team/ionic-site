@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -65,8 +65,8 @@ constructor(private callNumber: CallNumber) { }
 
 
 this.callNumber.callNumber(&quot;18001010101&quot;, true)
-  .then(() =&gt; console.log(&#39;Launched dialer!&#39;))
-  .catch(() =&gt; console.log(&#39;Error launching dialer&#39;));
+  .then(res =&gt; console.log(&#39;Launched dialer!&#39;, res))
+  .catch(err =&gt; console.log(&#39;Error launching dialer&#39;, err));
 </code></pre>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -237,7 +237,7 @@ Stop the watch by unsubscribing from the observable
       timestamp
     </td>
     <td>
-      <code>any</code>
+      <code>number</code>
     </td>
     <td>
       <p>The time at which this heading was determined. (DOMTimeStamp)</p>

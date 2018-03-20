@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Resizer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L36">
   Improve this doc
 </a>
 
@@ -191,8 +191,7 @@ this.imageResizer
       <code>string</code>
     </td>
     <td>
-      <p>A custom name for the file. Default name is a timestamp
-(Android and Windows only)</p>
+      <p>A custom name for the file. Default name is a timestamp. You have to set this value on iOS</p>
 
       <em>(optional)</em>
     </td>

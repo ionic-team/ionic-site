@@ -4,6 +4,8 @@
   "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
   "scripts": {
+    "build": "gulp build.clean",
+    "dev": "gulp watch",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
     "heroku-postbuild": "gulp build.clean && gulp slug.prep"
   },
@@ -53,7 +55,6 @@
     "gulp-develop-server": "^0.5.2",
     "gulp-footer": "^1.0.5",
     "gulp-header": "^1.7.1",
-    "gulp-imagemin": "^4.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",

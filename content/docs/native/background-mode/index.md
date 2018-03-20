@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L50">
   Improve this doc
 </a>
 
@@ -328,7 +328,7 @@ Turn screen on and show app even locked
       title
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Title of the background task</p>
@@ -342,7 +342,7 @@ Turn screen on and show app even locked
       text
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Description of background task</p>
@@ -373,7 +373,8 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the background color of the notification circle</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -386,7 +387,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>By default the app will come to foreground when taping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
+      <p>By default the app will come to foreground when tapping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
 
       <em>(optional)</em>
     </td>
@@ -400,7 +401,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>When set to false makes the notifications visible on lockscreen (Android 5.0+)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -413,7 +415,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Big text</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -423,7 +426,7 @@ Turn screen on and show app even locked
       ticker
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>The text that scrolls itself on statusbar</p>

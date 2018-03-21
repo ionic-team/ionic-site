@@ -11,6 +11,7 @@
     "node_modules/angular-cookies/angular-cookies.min.js",
     "node_modules/d3/d3.js",
     "node_modules/c3/c3.js",
-    "node_mdules/scrollreveal/dist/scrollreveal.js"
+    "node_mdules/scrollreveal/dist/scrollreveal.js",
+    "node_mdules/@ionic/ionic-site-components/dist/ionic-site-components.js.js"
   ]
 }

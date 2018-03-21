@@ -11,7 +11,7 @@ doc: "Navbar"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navbar/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/navbar/navbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/navbar/navbar.ts#L7">
 Improve this doc
 </a>
 
@@ -95,7 +95,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <h3>
 <a class="anchor" name="backButtonClick" href="#backButtonClick"></a>
 <code>backButtonClick()</code>
-  
+
 
 </h3>
 
@@ -114,7 +114,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <h3>
 <a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
 <code>setBackButtonText()</code>
-  
+
 
 </h3>
 
@@ -139,14 +139,14 @@ Set the text of the Back Button in the Nav Bar. Defaults to "Back".
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>hideBackButton</td>
       <td><code>boolean</code></td>
       <td><p> If true, the back button will be hidden.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

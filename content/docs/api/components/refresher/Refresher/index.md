@@ -11,7 +11,7 @@ doc: "Refresher"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/refresher/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/refresher/refresher.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/refresher/refresher.ts#L8">
 Improve this doc
 </a>
 
@@ -127,7 +127,7 @@ custom SVG or CSS animations.</p>
 <h3>
 <a class="anchor" name="cancel" href="#cancel">
 <code>cancel()</code>
-  
+
 
 </a>
 </h3>
@@ -148,7 +148,7 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 <h3>
 <a class="anchor" name="complete" href="#complete">
 <code>complete()</code>
-  
+
 
 </a>
 </h3>
@@ -175,7 +175,7 @@ the refresher. This method also changes the refresher's state from
 <h3>
 <a class="anchor" name="currentY" href="#currentY">
 <code>currentY</code>
-  
+
 
 </a>
 </h3>
@@ -196,7 +196,7 @@ The current touch or mouse event's Y coordinate.
 <h3>
 <a class="anchor" name="deltaY" href="#deltaY">
 <code>deltaY</code>
-  
+
 
 </a>
 </h3>
@@ -218,7 +218,7 @@ mouse event's Y coordinate.
 <h3>
 <a class="anchor" name="progress" href="#progress">
 <code>progress</code>
-  
+
 
 </a>
 </h3>
@@ -245,7 +245,7 @@ position.
 <h3>
 <a class="anchor" name="startY" href="#startY">
 <code>startY</code>
-  
+
 
 </a>
 </h3>
@@ -266,7 +266,7 @@ The Y coordinate of where the user started to the pull down the content.
 <h3>
 <a class="anchor" name="state" href="#state">
 <code>state</code>
-  
+
 
 </a>
 </h3>
@@ -299,21 +299,21 @@ The current state which the refresher is in. The refresher's states include:
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>closeDuration</td>
       <td><code>number</code></td>
       <td><p> How many milliseconds it takes to close the refresher. Default is <code>280</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
       <td><p> If the refresher is enabled or not. This should be used in place of an <code>ngIf</code>. Default is <code>true</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pullMax</td>
       <td><code>number</code></td>
@@ -322,7 +322,7 @@ will automatically go into the <code>refreshing</code> state. By default, the pu
 maximum will be the result of <code>pullMin + 60</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pullMin</td>
       <td><code>number</code></td>
@@ -330,14 +330,14 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
 refresher can go into the <code>refreshing</code> state. Default is <code>60</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>snapbackDuration</td>
       <td><code>number</code></td>
       <td><p> How many milliseconds it takes the refresher to to snap back to the <code>refreshing</code> state. Default is <code>280</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -350,13 +350,13 @@ refresher can go into the <code>refreshing</code> state. Default is <code>60</co
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionPull</td>
       <td><p> Emitted while the user is pulling down the content and exposing the refresher.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionRefresh</td>
       <td><p> Emitted when the user lets go and has pulled down
@@ -365,13 +365,13 @@ fired and the state is updated to <code>refreshing</code>. From within your refr
 you must call the <code>complete()</code> method when your async operation has completed.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionStart</td>
       <td><p> Emitted when the user begins to start pulling down.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -379,13 +379,13 @@ you must call the <code>complete()</code> method when your async operation has c
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -395,64 +395,64 @@ you must call the <code>complete()</code> method when your async operation has c
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$refresher-height</code></td>
-        
+
           <td><code>60px</code></td>
-        
+
         <td><p>Height of the refresher</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-icon-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the refresher icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-icon-font-size</code></td>
-        
+
           <td><code>30px</code></td>
-        
+
         <td><p>Font size of the refresher icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-text-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Text color of the refresher content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-text-font-size</code></td>
-        
+
           <td><code>16px</code></td>
-        
+
         <td><p>Font size of the refresher content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-border-color</code></td>
-        
+
           <td><code>#ddd</code></td>
-        
+
         <td><p>Border color of the refresher</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

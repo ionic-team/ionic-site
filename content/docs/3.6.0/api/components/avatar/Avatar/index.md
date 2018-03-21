@@ -33,7 +33,7 @@ Avatar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/avatar/avatar.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/avatar/avatar.ts#L0">
 Improve this doc
 </a>
 

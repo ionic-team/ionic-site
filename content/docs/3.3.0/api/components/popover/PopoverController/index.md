@@ -11,7 +11,7 @@ doc: "PopoverController"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/popover/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/popover/popover-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/popover/popover-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -140,7 +140,7 @@ class PopoverPage {
 <h3>
 <a class="anchor" name="config" href="#config"></a>
 <code>config</code>
-  
+
 
 </h3>
 
@@ -159,7 +159,7 @@ class PopoverPage {
 <h3>
 <a class="anchor" name="create" href="#create"></a>
 <code>create(component,&nbsp;data,&nbsp;opts)</code>
-  
+
 
 </h3>
 
@@ -175,58 +175,58 @@ Present a popover. See below for options
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         component
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>The Popover</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         data
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Any data to pass to the Popover view</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>PopoverOptions</code>
       </td>
       <td>
         <p>Popover options</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -269,25 +269,25 @@ Present a popover. See below for options
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -297,82 +297,82 @@ Present a popover. See below for options
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$popover-ios-width</code></td>
-        
+
           <td><code>200px</code></td>
-        
+
         <td><p>Width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-min-width</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Min width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-min-height</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-border-radius</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Border radius of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-text-color</code></td>
-        
+
           <td><code>$text-ios-color</code></td>
-        
+
         <td><p>Text color of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-background</code></td>
-        
+
           <td><code>$background-ios-color</code></td>
-        
+
         <td><p>Background of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-ios-arrow-background</code></td>
-        
+
           <td><code>$popover-ios-background</code></td>
-        
+
         <td><p>Background of the popover arrow</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -382,91 +382,91 @@ Present a popover. See below for options
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$popover-md-width</code></td>
-        
+
           <td><code>250px</code></td>
-        
+
         <td><p>Width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-min-width</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Min width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-min-height</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-border-radius</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border radius of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-text-color</code></td>
-        
+
           <td><code>$text-md-color</code></td>
-        
+
         <td><p>Text color of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-background</code></td>
-        
+
           <td><code>$background-md-color</code></td>
-        
+
         <td><p>Background of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .3)</code></td>
-        
+
         <td><p>Box shadow color of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-md-box-shadow</code></td>
-        
+
           <td><code>0 3px 12px 2px $popover-md-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the popover content</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -476,82 +476,82 @@ Present a popover. See below for options
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$popover-wp-width</code></td>
-        
+
           <td><code>200px</code></td>
-        
+
         <td><p>Width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-min-width</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Min width of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-min-height</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-border</code></td>
-        
+
           <td><code>2px solid #ccc</code></td>
-        
+
         <td><p>Border of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-border-radius</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Border radius of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-text-color</code></td>
-        
+
           <td><code>$text-wp-color</code></td>
-        
+
         <td><p>Text color of the popover content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$popover-wp-background</code></td>
-        
+
           <td><code>$background-wp-color</code></td>
-        
+
         <td><p>Background of the popover content</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

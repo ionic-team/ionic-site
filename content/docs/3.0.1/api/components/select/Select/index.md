@@ -11,7 +11,7 @@ doc: "Select"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/select/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/select/select.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/select/select.ts#L18">
 Improve this doc
 </a>
 
@@ -138,7 +138,7 @@ for the properties that each interface accepts.</p>
 <h3>
 <a class="anchor" name="config" href="#config"></a>
 <code>config</code>
-  
+
 
 </h3>
 
@@ -157,7 +157,7 @@ for the properties that each interface accepts.</p>
 <h3>
 <a class="anchor" name="open" href="#open"></a>
 <code>open()</code>
-  
+
 
 </h3>
 
@@ -177,7 +177,7 @@ Open the select interface.
 <h3>
 <a class="anchor" name="options" href="#options"></a>
 <code>options</code>
-  
+
 
 </h3>
 
@@ -201,49 +201,49 @@ Open the select interface.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>interface</td>
       <td><code>string</code></td>
       <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>multiple</td>
       <td><code>boolean</code></td>
       <td><p> If true, the element can accept multiple values.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>okText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the ok button. Default: <code>OK</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>placeholder</td>
       <td><code>string</code></td>
       <td><p> The text to display when the select is empty.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>selectOptions</td>
       <td><code>any</code></td>
@@ -253,14 +253,14 @@ See the <a href="../../alert/AlertController/#create">AlertController API docs</
 create options for each interface.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>selectedText</td>
       <td><code>string</code></td>
       <td><p> The text to display instead of the selected option&#39;s value.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -273,19 +273,19 @@ create options for each interface.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the selection was cancelled.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionChange</td>
       <td><p> Emitted when the selection has changed.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -293,25 +293,25 @@ create options for each interface.</p>
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -321,64 +321,64 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-ios-padding-top</code></td>
-        
+
           <td><code>$item-ios-padding-top</code></td>
-        
+
         <td><p>Padding top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-right</code></td>
-        
+
           <td><code>($item-ios-padding-right / 2)</code></td>
-        
+
         <td><p>Padding right of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-bottom</code></td>
-        
+
           <td><code>$item-ios-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-left</code></td>
-        
+
           <td><code>$item-ios-padding-left</code></td>
-        
+
         <td><p>Padding left of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-icon-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-placeholder-color</code></td>
-        
+
           <td><code>$select-ios-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -388,64 +388,64 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-md-padding-top</code></td>
-        
+
           <td><code>$item-md-padding-top</code></td>
-        
+
         <td><p>Padding top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-right</code></td>
-        
+
           <td><code>($item-md-padding-right / 2)</code></td>
-        
+
         <td><p>Padding right of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-bottom</code></td>
-        
+
           <td><code>$item-md-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-left</code></td>
-        
+
           <td><code>$item-md-padding-left</code></td>
-        
+
         <td><p>Padding left of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-icon-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-placeholder-color</code></td>
-        
+
           <td><code>$select-md-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -455,118 +455,118 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-wp-padding-vertical</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Padding top and bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-padding-horizontal</code></td>
-        
+
           <td><code>($item-wp-padding-right / 2)</code></td>
-        
+
         <td><p>Padding left and right of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-top</code></td>
-        
+
           <td><code>$item-wp-padding-top</code></td>
-        
+
         <td><p>Margin top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-right</code></td>
-        
+
           <td><code>($item-wp-padding-right / 2)</code></td>
-        
+
         <td><p>Margin right of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-bottom</code></td>
-        
+
           <td><code>$item-wp-padding-bottom</code></td>
-        
+
         <td><p>Margin bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-left</code></td>
-        
+
           <td><code>($item-wp-padding-left / 2)</code></td>
-        
+
         <td><p>Margin left of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-border-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border width of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-border-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Border color of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-width</code></td>
-        
+
           <td><code>18px</code></td>
-        
+
         <td><p>Width of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-arrow-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Width of the select icon arrow</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-color</code></td>
-        
+
           <td><code>$select-wp-border-color</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-placeholder-color</code></td>
-        
+
           <td><code>$select-wp-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

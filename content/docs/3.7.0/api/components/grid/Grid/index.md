@@ -33,7 +33,7 @@ Grid
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/grid/grid.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/grid/grid.ts#L0">
 Improve this doc
 </a>
 
@@ -635,13 +635,13 @@ $grid-max-widths: (
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -651,56 +651,56 @@ $grid-max-widths: (
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$grid-breakpoints</code></td>
-        
+
           <td><code>(&#10;  xs: 0,&#10;  sm: 576px,&#10;  md: 768px,&#10;  lg: 992px,&#10;  xl: 1200px&#10;)</code></td>
-        
+
         <td><p>The minimum dimensions at which your layout will change,
 adapting to different screen sizes, for use in media queries</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-max-widths</code></td>
-        
+
           <td><code>(&#10;  sm: 540px,&#10;  md: 720px,&#10;  lg: 960px,&#10;  xl: 1140px&#10;)</code></td>
-        
+
         <td><p>Maximum width of the grid for different screen sizes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-columns</code></td>
-        
+
           <td><code>12</code></td>
-        
+
         <td><p>Number of columns for the grid</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-padding-width</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Total width of the padding for the grid</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-padding-widths</code></td>
-        
+
           <td><code>(&#10;  xs: $grid-padding-width,&#10;  sm: $grid-padding-width,&#10;  md: $grid-padding-width,&#10;  lg: $grid-padding-width,&#10;  xl: $grid-padding-width&#10;)</code></td>
-        
+
         <td><p>Padding for the columns for different screen sizes</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

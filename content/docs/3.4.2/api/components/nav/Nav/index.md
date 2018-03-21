@@ -11,7 +11,7 @@ doc: "Nav"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navigation/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/nav/nav.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/nav/nav.ts#L14">
 Improve this doc
 </a>
 
@@ -87,7 +87,7 @@ class MyApp {
 <h3>
 <a class="anchor" name="goToRoot" href="#goToRoot"></a>
 <code>goToRoot()</code>
-  
+
 
 </h3>
 
@@ -106,7 +106,7 @@ class MyApp {
 <h3>
 <a class="anchor" name="initPane" href="#initPane"></a>
 <code>initPane()</code>
-  
+
 
 </h3>
 
@@ -125,7 +125,7 @@ class MyApp {
 <h3>
 <a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
 <code>ngAfterViewInit()</code>
-  
+
 
 </h3>
 
@@ -144,7 +144,7 @@ class MyApp {
 <h3>
 <a class="anchor" name="paneChanged" href="#paneChanged"></a>
 <code>paneChanged()</code>
-  
+
 
 </h3>
 
@@ -168,21 +168,21 @@ class MyApp {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> The Page component to load as the root page within this nav.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>rootParams</td>
       <td><code>object</code></td>
       <td><p> Any nav-params to pass to the root page of this nav.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

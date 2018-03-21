@@ -26,11 +26,11 @@
   },
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
+    "@ionic/ionic-site-components": "0.0.1",
     "angular": "1.6.8",
     "angular-animate": "1.6.8",
     "angular-cookies": "1.6.8",
     "angular-sanitize": "1.6.8",
-    "angularjs-rzslider": "^0.1.4",
     "body-parser": "^1.18.2",
     "bootstrap": "3.3.5",
     "browser-sync": "^2.23.3",

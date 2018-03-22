@@ -4,16 +4,16 @@ version: "4.6.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "file-chooser"
-title: "File Chooser"
+id: "ios-file-picker"
+title: "iOS File Picker"
 header_sub_title: "Class in module "
-doc: "File Chooser"
+doc: "iOS File Picker"
 docType: "class"
 ---
 
-<h1 class="api-title">File Chooser</h1>
+<h1 class="api-title">iOS File Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file-chooser/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file-picker/index.ts#L1">
   Improve this doc
 </a>
 
@@ -23,12 +23,12 @@ docType: "class"
 
 
 
-<p>Opens the file picker on Android for the user to select a file, returns a file URI.</p>
+<p>Opens the file picker on iOS for the user to select a file, returns a file URI.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/ihadeed/cordova-filechooser">
-    https://github.com/ihadeed/cordova-filechooser
+  <a href="https://github.com/jcesarmobile/FilePicker-Phonegap-iOS-Plugin">
+    https://github.com/jcesarmobile/FilePicker-Phonegap-iOS-Plugin
   </a>
 </p>
 
@@ -36,8 +36,8 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-filechooser
-$ npm install --save @ionic-native/file-chooser
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-filepicker
+$ npm install --save @ionic-native/file-picker
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/file-chooser
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li>
+  <li>iOS</li>
 </ul>
 
 
@@ -56,15 +56,15 @@ $ npm install --save @ionic-native/file-chooser
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { FileChooser } from &#39;@ionic-native/file-chooser&#39;;
+<pre><code class="lang-typescript">import { IOSFilePicker } from &#39;@ionic-native/file-picker&#39;;
 
-constructor(private fileChooser: FileChooser) { }
+constructor(private filePicker: IOSFilePicker) { }
 
 ...
 
-this.fileChooser.open()
+this.filePicker.pickFile()
   .then(uri =&gt; console.log(uri))
-  .catch(e =&gt; console.log(e));
+  .catch(err =&gt; console.log(&#39;Error&#39;, err));
 </code></pre>
 
 
@@ -75,7 +75,7 @@ this.fileChooser.open()
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="open" href="#open"></a><code>open()</code></h3>
+<h3><a class="anchor" name="pickFile" href="#pickFile"></a><code>pickFile()</code></h3>
 
 
 Open a file

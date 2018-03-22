@@ -51,7 +51,7 @@
 body.docs #snap-bar {
   + .navbar {
     margin-top: 0;
-  
+
     @media (max-width: $screen-xs-max) {
       padding-top: 0;
     }
@@ -72,4 +72,10 @@ body.has-snap {
 
 body.docs #snap-bar ~ .docs-container .side-nav {
   padding-top: 36px;
+}
+
+ionic-snap-bar {
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
 }

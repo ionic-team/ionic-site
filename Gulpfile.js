@@ -407,13 +407,9 @@ gulp.task('ionicons', function() {
 });
 
 gulp.task('stencil', function() {
-  gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components.json')
-    .pipe(gulp.dest('_site/stencil/'))
-    .pipe(gulp.dest('content/stencil/'));
-
   return gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components/*.js')
-    .pipe(gulp.dest('_site/stencil/ionic-site-components/'))
-    .pipe(gulp.dest('content/stencil/ionic-site-components/'));
+    .pipe(gulp.dest('_site/js/ionic-site-components/'))
+    .pipe(gulp.dest('content/js/ionic-site-components/'));
 });
 
 gulp.task('build', ['build-prep'], function(done) {

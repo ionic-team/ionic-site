@@ -8,7 +8,7 @@
   </head>
   <body id="page-{{id}}"
         class="page-{{id}}
-               {% if id != 'enterprise' %}has-snap{% endif %}
+               {% if id == 'homer' %}has-snap{% endif %}
                {% if header_style %}{{header_style}}{% endif %}"
         ng-app="IonicSite"
         {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
@@ -16,7 +16,7 @@
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
               style="display:none;visibility:hidden"
-              height="0" 
+              height="0"
               width="0" ></iframe>
     </noscript>
 		{% block page %}

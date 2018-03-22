@@ -2,15 +2,14 @@
 
 {% block page %}
 
-  {# <div id="snap-bar">
-    <img src="/img/net-neutrality-loading.png" width="16" class="loading"/>
-    Speak up for a free and open internet. 
-    <a href="https://www.battleforthenet.com" target="_blank">
-      <b>Act now to save Net Neutrality</b>
-      <i class="ion-md-arrow-forward"></i>
-    </a>
-  </div> #}
-  
+  {% if id == 'home' %}
+    <ionic-snap-bar>
+      <strong>Ionic Pro</strong>
+      <span>The powerful mobile development toolkit.</span>
+      <a href="/pro">Explore ionic pro</a>
+    </ionic-snap-bar>
+  {% endif %}
+
   {% include '../_includes/header.html' %}
 
   {% block main %}

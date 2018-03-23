@@ -106,7 +106,7 @@
   .pro-nav--upper {
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 20;
 
     .container {
       padding-bottom: 1em;
@@ -313,7 +313,7 @@
       padding-top: 100px;
       padding-bottom: 120px;
       color: #070f1a;
-      min-height: 700px;
+      min-height: 724px;
       position: relative;
 
       &.dark {
@@ -603,6 +603,7 @@
 
   #testing {
     background: #192434;
+    padding: 50px 0;
 
     h4 {
       color: #707e92;
@@ -610,15 +611,32 @@
       &::before { background-position: 0 -64px; }
     }
 
-    .container::before {
-        background-image: url('/img/pro/landing-hero-view.png');
-        background-position: top left;
-        background-size: 540px;
-        top: 72px;
-    }
-
     .content {
       padding-top: 163px;
+    }
+
+    .anim-testing {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-620px);
+    }
+
+    .anim-testing__device--one,
+    .anim-testing__device--two {
+      position: absolute;
+    }
+
+    .anim-testing__device--one {
+      width: 430px;
+      bottom: -46px;
+      left: 209px;
+    }
+
+    .anim-testing__device--two {
+      width: 540px;
+      bottom: -118px;
     }
 
     @media (max-width: $screen-sm-max)  {
@@ -630,13 +648,25 @@
 
       .content {
         padding-top: 64px;
-        width: 73%;
+        width: 49%;
         min-height: 0;
+      }
+
+      .anim-testing__device--one {
+        width: 330px;
+        left: 310px;
+      }
+
+      .anim-testing__device--two {
+        width: 440px;
+        left: 150px;
       }
     }
 
     @media (max-width: $screen-xs-max)  {
-      .container::before {
+      padding: 0;
+
+      .anim-testing {
         display: none;
       }
 
@@ -664,20 +694,75 @@
       &::before { background-position: 0 -128px; }
     }
 
-    .container::before {
-      background-image: url('/img/pro/product-deploy-img.png');
-    }
-
     .content {
       padding-top: 179px;
+      position: relative;
+      z-index: 10;
 
       @media (max-width: $screen-md-max)  {
         padding-top: 148px;
       }
     }
 
+    .anim-updates {
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-100px);
+      display: flex;
+      align-items: center;
+    }
+    .anim-updates__root {
+      width: 726px;
+      height: 437px;
+      position: relative;
+    }
+    .anim-updates__foreground,
+    .anim-updates__background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .anim-updates__foreground {
+      z-index: 10;
+      transform: translateZ(1000px);
+    }
+    .anim-updates__background {
+      z-index: 1;
+      transform: translateZ(100px);
+    }
+
+    .anim-updates__device {
+      width: 726px;
+      height: 437px;
+      background-image: url('/img/pro/updates-illustration-device@2x.png');
+      background-repeat: no-repeat;
+      background-size: 726px 437px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      transform: translateZ(500px);
+    }
+
+    .anim-updates__screen {
+      width: 308px;
+      height: 554px;
+      background: #5d37ff;
+      position: absolute;
+      top: 28px;
+      left: 406px;
+      transform-origin: top left;
+      transform: rotateX(60deg) rotateY(0.7deg) rotateZ(36.5deg) skew(2deg, -1.5deg);
+    }
+
+
     @media (max-width: $screen-sm-max)  {
-      .container::before {
+      .anim-updates {
         display: none;
       }
 
@@ -698,18 +783,30 @@
   #build {
     background-color: #f75982;
     background-image: linear-gradient(90deg, #fff0f6 50%, #f75982 50%);
+    padding: 50px 0;
 
     h4 {
       color: #ffc2d2;
-
       &::before { background-position: 0 -192px; }
     }
 
-    .container::before {
-        background-image: url('/img/pro/product-package-img.png');
-        background-position: left 0;
-        top: 102px;
-        bottom: 104px;
+    .anim-build {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 39%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .anim-build__text {
+      fill: #EE2C5F;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
     .content {
@@ -732,8 +829,9 @@
 
     @media (max-width: $screen-xs-max)  {
       background-image: none;
+      padding: 0;
 
-      .container::before {
+      .anim-build {
         display: none;
       }
 
@@ -753,6 +851,7 @@
 
   #reporting {
     background: #081b17;
+    padding: 50px 0;
 
     h4,
     .btn {
@@ -761,13 +860,53 @@
       &::before { background-position: 0 -256px; }
     }
 
-    .container::before {
-        background-image: url('/img/pro/product-monitor-img.png');
+    .anim-reporting {
+      width: 1084px;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-240px);
+      bottom: 0;
+      z-index: 1;
+    }
+
+    #anim-reporting__svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .anim-reporting__bg {
+      fill: #0d2b25;
+    }
+
+    .anim-reporting__scan {
+      animation-name: cycle-fade;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+    }
+    @keyframes cycle-fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .anim-reporting__bug {
+      fill: #ff3267;
+      transform-origin: center center;
     }
 
     .content {
       padding-top: 172px;
       width: 40%;
+      z-index: 5;
     }
 
     @media (max-width: $screen-sm-max)  {
@@ -776,10 +915,18 @@
         padding-top: 64px;
         width: 100%;
       }
+      .anim-reporting {
+        opacity: 0.7;
+      }
+      .anim-reporting__clipped {
+        transform: scale(0.80);
+      }
     }
 
     @media (max-width: $screen-xs-max)  {
-      .container::before {
+      padding: 0;
+
+      .anim-reporting {
         display: none;
       }
 

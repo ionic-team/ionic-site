@@ -165,7 +165,7 @@ Request permission
       value
     </td>
     <td>
-      <code>string</code>
+      <code>string|Array&lt;string&gt;</code>
     </td>
     <td>
       
@@ -178,7 +178,7 @@ Request permission
       operator
     </td>
     <td>
-      <code>&#39;==&#39; | &#39;!=&#39; | &#39;&gt;&#39; | &#39;&gt;=&#39; | &#39;&lt;&#39; | &#39;&lt;=&#39;</code>
+      <code>&#39;==&#39; | &#39;!=&#39; | &#39;&gt;&#39; | &#39;&gt;=&#39; | &#39;&lt;&#39; | &#39;&lt;=&#39; | &#39;like&#39;</code>
     </td>
     <td>
       

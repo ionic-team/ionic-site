@@ -1,22 +1,24 @@
 // This is a collection of generics for the products pages
 .products-page {
+  font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
   position: relative;
 
   .top {
     position: relative;
 
     h1 {
-      letter-spacing: -.042em;
-      font-weight: 600;
+      letter-spacing: -.03em;
+      font-weight: 700;
     }
 
     p {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 600;
       margin-top: 17px;
       display: inline-block;
       letter-spacing: -.03em;
-      line-height: 32px;
+      line-height: 1.5em;
+      color: #2f3744;
     }
 
     .graphics {
@@ -33,17 +35,18 @@
 
       h2 {
         font-size: 28px;
-        font-weight: 600;
-        letter-spacing: -.04em;
+        font-weight: 700;
+        letter-spacing: -.03em;
+        font-size: 28px;
       }
 
       p {
         font-size: 18px;
-        color: #51555d;
-        margin-top: 30px;
+        color: #747f92;
+        margin-top: 28px;
         letter-spacing: -0.03em;
-        line-height: 32px;
-        font-weight: 500;
+        line-height: 1.5em;
+        font-weight: 600;
       }
     }
   }
@@ -58,7 +61,7 @@
       list-style: none;
       padding-top: 67px;
       position: relative;
-  
+
       &::before {
         background: 0 0 no-repeat;
         background-size: 100%;
@@ -69,28 +72,32 @@
         position: absolute;
         top: 0;
       }
-  
+
       strong {
-        font-weight: 600;
-        font-size: 18px;
-        letter-spacing: -.02em;
+        letter-spacing: -.03em;
+        margin-top: 8px;
         margin-bottom: 8px;
         display: inline-block;
+
+        color: #24282e;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
       }
-  
+
       p {
-        color: #727a87;
-        font-size: 14px;
-        line-height: 24px;
         letter-spacing: -0.01em;
-        font-weight: 500;
+        font-weight: 600;
+        color: #747f92;
+        font-size: 16px;
+        line-height: 1.6;
       }
-  
+
       @media (max-width: $screen-xs-max)  {
         display: block;
         flex-basis: 100%;
         text-align: center;
-  
+
         &::before {
           left: calc(50% - 24px);
         }
@@ -131,10 +138,15 @@
       }
 
       h2 {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 26px;
         letter-spacing: -.01em;
         margin-bottom: 30px;
+
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 46px;
       }
 
       p {
@@ -144,8 +156,14 @@
         line-height: 32px;
         font-weight: 500;
 
+        color: #505863;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: -0.02em;
+
         strong {
-          font-weight: 500;
+          font-weight: 600;
         }
       }
     }
@@ -163,7 +181,7 @@
       &.activateOnScroll {
         filter: blur(10px);
         transition: .4s opacity, .4s filter;
-  
+
         &.active {
           opacity: 1;
           filter: blur(0);
@@ -196,13 +214,13 @@
       display: flex;
       clear: both;
       justify-content: space-between;
-  
+
       &::before,
       &::after {
         display: none;
       }
     }
-  } 
+  }
 
   .get-started {
     background: 0 0 no-repeat;
@@ -237,25 +255,25 @@
     h2 {
       color: white;
       font-size: 28px;
-      letter-spacing: -.032em;
-      margin-top: 14px;
-      font-weight: 600;
+      letter-spacing: -.03em;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      font-weight: 700;
     }
 
     p {
-      color: #003e82;
-      font-size: 24px;
-      letter-spacing: -.032em;
-      margin-bottom: 5px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: rgba(#fff, 0.75);
     }
 
     .btns {
       .btn {
-        padding: 12px 16px;
+        padding: 12px 19px 10px;
         font-size: 16px;
-        font-weight: 600;
-  
+        font-weight: 700;
+
         &:last-child {
           margin-right: -5px;
         }

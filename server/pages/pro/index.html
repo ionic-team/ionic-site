@@ -124,7 +124,7 @@
     </div>
   </section>
 
-  <section class="testing right hero activateOnScroll" id="testing">
+  <section class="testing right hero" id="testing">
     <div class="container">
       <div class="content dark">
         <h4>Ionic View app</h4>
@@ -139,7 +139,7 @@
     </div>
   </section>
 
-  <section class="updates left hero activateOnScroll" id="updates">
+  <section class="updates left hero" id="updates">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Deploy</h4>
@@ -157,7 +157,7 @@
     </div>
   </section>
 
-  <section class="build right hero activateOnScroll" id="build">
+  <section class="build right hero" id="build">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Package</h4>
@@ -242,7 +242,7 @@
     </div>
   </section>
 
-  <section class="reporting left hero activateOnScroll" id="reporting">
+  <section class="reporting left hero" id="reporting">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Monitor</h4>
@@ -370,18 +370,20 @@
     }
 
     function initAnimation(el, ctx, options = {}) {
+      const breakpoint = options.breakpoint || 767;
       const once = options.once || false;
       let hasPlayed = options.playWhenInView ? false : true;
       let isPlaying = false;
 
       function firstPlay () {
+        if (window.innerWidth < breakpoint) return;
         ctx.play();
         hasPlayed = true;
         isPlaying = true;
       }
 
       function play () {
-        if( isPlaying) return;
+        if (isPlaying || window.innerWidth < breakpoint) return;
         ctx.play();
         isPlaying = true;
       }
@@ -392,7 +394,7 @@
         isPlaying = false;
       }
 
-      function check() {
+      function checkScroll() {
         if (once && hasPlayed) return;
         const winHeight = window.innerHeight;
         const bbox = el.getBoundingClientRect();
@@ -406,8 +408,13 @@
         if (!isPlaying && bbox.bottom > 0 && bbox.top < winHeight) play();
       }
 
-      check();
-      window.addEventListener('scroll', () => requestAnimationFrame(check));
+      function checkViewport() {
+        if (window.innerWidth < breakpoint && isPlaying) pause();
+      }
+
+      checkScroll();
+      window.addEventListener('scroll', () => requestAnimationFrame(checkScroll));
+      window.addEventListener('resize', () => requestAnimationFrame(checkViewport));
     }
 
     if (window.IntersectionObserver) {
@@ -438,436 +445,451 @@
     window.onYouTubeIframeAPIReady = onYouTubeReady;
     window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
 
-
     // TESTING ANIMATION
-    const testingStage = document.querySelector('#testing');
-    const device1 = document.querySelector('.anim-testing__device--one');
-    const device2 = document.querySelector('.anim-testing__device--two');
-    const testingTl = new TimelineLite();
+    function setupTestingAnimation() {
+      const testingStage = document.querySelector('#testing');
+      const device1 = document.querySelector('.anim-testing__device--one');
+      const device2 = document.querySelector('.anim-testing__device--two');
+      const testingTl = new TimelineLite();
 
-    TweenLite.set([device1, device2], {
-      opacity: 0,
-      y: -60
-    })
-    testingTl.to(device1, 0.1, {
-      opacity: 1
-    }, 0.3);
-    testingTl.to(device1, 0.8, {
-      y: 0,
-      ease: Expo.easeOut
-    }, 0.3);
-    testingTl.to(device2, 0.1, {
-      opacity: 1,
-    }, 0.5);
-    testingTl.to(device2, 0.8, {
-      y: 0,
-      ease: Expo.easeOut
-    }, 0.5);
-    testingTl.pause();
+      TweenLite.set([device1, device2], {
+        opacity: 0,
+        y: -40
+      })
+      testingTl.to(device1, 0.1, {
+        opacity: 1
+      }, 0.4);
+      testingTl.to(device1, 0.8, {
+        y: 0,
+        ease: Expo.easeOut
+      }, 0.4);
+      testingTl.to(device2, 0.1, {
+        opacity: 1,
+      }, 0.7);
+      testingTl.to(device2, 0.8, {
+        y: 0,
+        ease: Expo.easeOut
+      }, 0.7);
+      testingTl.pause();
 
-    initAnimation(testingStage, testingTl, {
-      once: true,
-      playWhenInView: true
-    });
-
+      initAnimation(testingStage, testingTl, {
+        once: true,
+        playWhenInView: true
+      });
+    }
+    setupTestingAnimation();
 
     // UPDATES ANIMATION
-    const updatesStage = document.querySelector('#updates');
-    const foreground = document.querySelector('.anim-updates__foreground');
-    const background = document.querySelector('.anim-updates__background');
-    const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#ffffff' ];
-    const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
-    const spacing = 170;
-    let foregroundScreens = [];
-    let backgroundScreens = [];
-    let updatesTl;
+    function setupUpdatesAnimation() {
+      const updatesStage = document.querySelector('#updates');
+      const foreground = document.querySelector('.anim-updates__foreground');
+      const background = document.querySelector('.anim-updates__background');
+      const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#ffffff' ];
+      const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
+      const spacing = 170;
+      let foregroundScreens = [];
+      let backgroundScreens = [];
+      let updatesTl;
 
-    // create foreground screens
-    for (let i=0; i < 4; i++) {
-      let screen = document.createElement('div');
-      screen.className = 'anim-updates__screen';
-      foreground.append(screen);
-      TweenLite.set(screen, {
-        backgroundColor: foregroundColors[i],
-        y: -i * spacing + 'px',
-        boxShadow: (i == 0) ? 0 :'24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
-      });
-      foregroundScreens.push(screen);
-    }
-
-    // create background screens
-    for (let j=0; j < 4; j++) {
-      let screen = document.createElement('div');
-      screen.className = 'anim-updates__screen';
-      background.prepend(screen);
-      TweenLite.set(screen, {
-        backgroundColor: backgroundColors[j],
-        y: (j) * spacing + 'px',
-        boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
-      });
-      backgroundScreens.push(screen);
-    }
-
-    updatesTl = new TimelineLite();
-    createTimeline();
-    updatesTl.pause();
-
-    function createTimeline () {
-      updatesTl.add(function(){
-        for (let f=foregroundScreens.length - 1; f > 0; f--) {
-          let screen = foregroundScreens[f];
-          TweenLite.to(screen, 1, {
-            backgroundColor: foregroundColors[f-1],
-            y: - (f - 1) * spacing  + 'px',
-            ease: Power3.easeInOut
-          });
-        }
-        for (let b = 0; b < backgroundScreens.length - 1; b++) {
-          let screen = backgroundScreens[b];
-          TweenLite.to(screen, 1, {
-            backgroundColor: backgroundColors[b+1],
-            y: (b + 1) * spacing  + 'px',
-            ease: Power3.easeInOut
-          });
-        }
-      }, 0)
-
-      updatesTl.to(foregroundScreens[0], 1, {
-        backgroundColor: '#4d4668',
-      }, 0.3)
-
-      updatesTl.to(foregroundScreens[1], 0.5, {
-        boxShadow: '0px 0px 0px 0 #5d37ff',
-      }, 0.3)
-
-      updatesTl.add(function(){
-        let screen;
-
-        // cleanup foreground
-        foregroundScreens[0].remove();
-        foregroundScreens.shift();
-        screen = document.createElement('div');
-        screen.className = 'anim-updates__screen new';
-        foreground.append(screen);
+      // create foreground screens
+      for (let i=0; i < 4; i++) {
+        let screen = document.createElement('div');
+        screen.className = 'anim-updates__screen';
+        foreground.appendChild(screen);
         TweenLite.set(screen, {
-          backgroundColor: foregroundColors[3],
-          y: -(3) * spacing + 'px',
-          boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          backgroundColor: foregroundColors[i],
+          y: -i * spacing + 'px',
+          boxShadow: (i == 0) ? 0 :'24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
         });
         foregroundScreens.push(screen);
+      }
 
-        // cleanup background
-        backgroundScreens[backgroundScreens.length - 1].remove();
-        backgroundScreens.pop();
-        screen = document.createElement('div');
-        screen.className = 'anim-updates__screen new';
-        background.append(screen);
+      // create background screens
+      for (let j=0; j < 4; j++) {
+        let screen = document.createElement('div');
+        screen.className = 'anim-updates__screen';
+        background.insertBefore(screen, background.firstChild);
         TweenLite.set(screen, {
-          backgroundColor: backgroundColors[3],
-          y: 0,
+          backgroundColor: backgroundColors[j],
+          y: (j) * spacing + 'px',
           boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
         });
-        backgroundScreens.unshift(screen);
-      }, 1.2)
+        backgroundScreens.push(screen);
+      }
 
-      updatesTl.add(()=>{
-        updatesTl.clear();
-        createTimeline();
-      }, 2.4);
-    }
+      updatesTl = new TimelineLite();
+      createTimeline();
+      updatesTl.pause();
 
-    initAnimation(updatesStage, updatesTl, {
-      playWhenInView: true
-    });
+      function createTimeline () {
+        updatesTl.add(function(){
+          for (let f=foregroundScreens.length - 1; f > 0; f--) {
+            let screen = foregroundScreens[f];
+            TweenLite.to(screen, 1, {
+              backgroundColor: foregroundColors[f-1],
+              y: - (f - 1) * spacing  + 'px',
+              ease: Power3.easeInOut
+            });
+          }
+          for (let b = 0; b < backgroundScreens.length - 1; b++) {
+            let screen = backgroundScreens[b];
+            TweenLite.to(screen, 1, {
+              backgroundColor: backgroundColors[b+1],
+              y: (b + 1) * spacing  + 'px',
+              ease: Power3.easeInOut
+            });
+          }
+        }, 0)
 
+        updatesTl.to(foregroundScreens[0], 1, {
+          backgroundColor: '#4d4668',
+        }, 0.3)
 
-    // BUILD ANIMATION
-    const buildStage = document.getElementById('anim-build__svg');
-    const title1 = buildStage.querySelector('#title-1');
-    const title2 = buildStage.querySelector('#title-2');
-    const title3 = buildStage.querySelector('#title-3');
-    const line1A = buildStage.querySelector('#line-1-A');
-    const line1B = buildStage.querySelector('#line-1-B');
-    const line2 = buildStage.querySelector('#line-2');
-    const line3A = buildStage.querySelector('#line-3-A');
-    const line3B = buildStage.querySelector('#line-3-B');
-    const line4 = buildStage.querySelector('#line-4');
-    const line5A = buildStage.querySelector('#line-5-A');
-    const line5B = buildStage.querySelector('#line-5-B');
-    const icons = buildStage.querySelectorAll('.icon');
+        updatesTl.to(foregroundScreens[1], 0.5, {
+          boxShadow: '0px 0px 0px 0 #5d37ff',
+        }, 0.3)
 
-    function setupDashOffset(el, direction) {
-      const len = el.getTotalLength();
-      el.setAttribute('stroke-dasharray', len);
-      el.setAttribute('stroke-dashoffset', len * direction);
-    }
+        updatesTl.add(function(){
+          let screen;
 
-    setupDashOffset(line1A, 1);
-    setupDashOffset(line1B, 1);
-    setupDashOffset(line2, 1);
-    setupDashOffset(line3A, 1);
-    setupDashOffset(line3B, 1);
-    setupDashOffset(line4, 1);
-    setupDashOffset(line5A, 1);
-    setupDashOffset(line5B, 1);
+          // cleanup foreground
+          foregroundScreens[0].remove();
+          foregroundScreens.shift();
+          screen = document.createElement('div');
+          screen.className = 'anim-updates__screen new';
+          foreground.appendChild(screen);
+          TweenLite.set(screen, {
+            backgroundColor: foregroundColors[3],
+            y: -(3) * spacing + 'px',
+            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          });
+          foregroundScreens.push(screen);
 
-    const stepDuration = 0.65;
+          // cleanup background
+          backgroundScreens[backgroundScreens.length - 1].remove();
+          backgroundScreens.pop();
+          screen = document.createElement('div');
+          screen.className = 'anim-updates__screen new';
+          background.appendChild(screen);
+          TweenLite.set(screen, {
+            backgroundColor: backgroundColors[3],
+            y: 0,
+            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          });
+          backgroundScreens.unshift(screen);
+        }, 1.2)
 
-    TweenLite.set([title1, title2, title3], { opacity: 0.4 });
-    for (icon of icons) {
-      TweenLite.set(icon, {
-        opacity: 0,
-        scale: 0.8,
-        transformOrigin:"center center",
+        updatesTl.add(()=>{
+          updatesTl.clear();
+          createTimeline();
+        }, 2.4);
+      }
+
+      initAnimation(updatesStage, updatesTl, {
+        playWhenInView: true,
+        breakpoint: 991
       });
     }
-    TweenLite.set(buildStage, { opacity: 1 });
 
-    const buildTl = new TimelineLite();
-    TweenLite.defaultEase = Linear.easeNone;
-    buildTl.pause();
-
-    function animateIconsIn (selector) {
-      let icons = buildStage.querySelectorAll(selector);
-      for (let i = 0; i < icons.length; i++) {
-        TweenLite.to(icons[i], 0.1, {
-          opacity: 1,
-          delay: i * 0.15
-        })
-        TweenLite.to(icons[i], 1.4, {
-          scale: 1,
-          ease: Elastic.easeOut.config(1, 0.3),
-          delay: i * 0.15
-        })
+    let hasUpdatesAnimIntialized = false;
+    function checkForUpdatesReady() {
+      if (!hasUpdatesAnimIntialized && window.innerWidth > 991) {
+          setupUpdatesAnimation();
+          hasUpdatesAnimIntialized = true;
       }
     }
+    checkForUpdatesReady();
+    window.addEventListener('resize', () => requestAnimationFrame(checkForUpdatesReady));
 
-    buildTl.to(title1, 0.3, { opacity: 1 }, 0)
-    buildTl.fromTo( title1, 1.4, {
-      scale: 1.1,
-      transformOrigin:"center center"
-    },{
-      scale: 1,
-      ease: Elastic.easeOut.config(1, 0.3)
-    }, 0)
+    // BUILD ANIMATION
+    function setupBuildAnimation() {
+      const buildStage = document.getElementById('anim-build__svg');
+      const title1 = buildStage.querySelector('#title-1');
+      const title2 = buildStage.querySelector('#title-2');
+      const title3 = buildStage.querySelector('#title-3');
+      const line1A = buildStage.querySelector('#line-1-A');
+      const line1B = buildStage.querySelector('#line-1-B');
+      const line2 = buildStage.querySelector('#line-2');
+      const line3A = buildStage.querySelector('#line-3-A');
+      const line3B = buildStage.querySelector('#line-3-B');
+      const line4 = buildStage.querySelector('#line-4');
+      const line5A = buildStage.querySelector('#line-5-A');
+      const line5B = buildStage.querySelector('#line-5-B');
+      const icons = buildStage.querySelectorAll('.icon');
 
-    buildTl.to(line1A, stepDuration, { 'stroke-dashoffset': 0 }, 0)
-    buildTl.to(line1B, stepDuration, { 'stroke-dashoffset': 0 }, 0)
-    buildTl.add(() => animateIconsIn('#icons-1 .icon'), 0.8)
-    buildTl.to(line2, stepDuration, { 'stroke-dashoffset': 0, }, 1 * stepDuration)
+      function setupDashOffset(el, direction) {
+        const len = el.getTotalLength();
+        el.setAttribute('stroke-dasharray', len);
+        el.setAttribute('stroke-dashoffset', len * direction);
+      }
 
-    buildTl.to(title2, 0.1, {
-      scale: 1.1,
-      opacity: 1,
-      transformOrigin:"center center",
-    }, 2 * stepDuration)
-    buildTl.to(title2, 1.4, {
-      scale: 1,
-      ease: Elastic.easeOut.config(1, 0.3),
-    }, 2 * stepDuration + 0.1)
+      setupDashOffset(line1A, 1);
+      setupDashOffset(line1B, 1);
+      setupDashOffset(line2, 1);
+      setupDashOffset(line3A, 1);
+      setupDashOffset(line3B, 1);
+      setupDashOffset(line4, 1);
+      setupDashOffset(line5A, 1);
+      setupDashOffset(line5B, 1);
 
-    buildTl.to(line3A, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
-    buildTl.to(line3B, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
-    buildTl.add(() => animateIconsIn('#icons-2 .icon'), 2 * stepDuration + 0.2)
-    buildTl.to(line4, stepDuration, { 'stroke-dashoffset': 0 }, 3 * stepDuration)
+      const stepDuration = 0.65;
 
-    buildTl.to(title3, 0.1, {
-      scale: 1.1,
-      opacity: 1,
-      transformOrigin:"center center",
-    }, 4 * stepDuration)
-    buildTl.to(title3, 1.4, {
-      scale: 1,
-      ease: Elastic.easeOut.config(1, 0.3),
-    }, 4 * stepDuration + 0.1)
-
-    buildTl.to(line5A, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
-    buildTl.to(line5B, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
-    buildTl.add(() => animateIconsIn('#icons-3 .icon'), 4 * stepDuration + 0.2);
-
-    initAnimation(buildStage, buildTl, {
-      once: true,
-      playWhenInView: true
-    });
-
-
-    // REPORTING ANIMATION
-    const reportingStage = document.getElementById('anim-reporting__svg');
-    const svgNS = reportingStage.namespaceURI;
-    const svgBBox = reportingStage.getBBox();
-    const clippingMask = reportingStage.querySelector('.anim-reporting__mask');
-    const clippedGroup = reportingStage.querySelector('.anim-reporting__clipped');
-    const clippedGroupBack = clippedGroup.querySelector('.back');
-    const numCols = 5;
-    const numRows = 4;
-    const screenPadding = 20;
-    const screenBorderRadius = 35;
-    const screenWidth = svgBBox.width / numCols;
-    const screenHeight = screenWidth * 1.75;
-    const yStart = -screenHeight;
-    const yEnd = screenHeight * (numRows - 1);
-    const columnSpeeds = [0.3, 0.5, 0.35, 0.4, 0.25];
-    const columnColors = ['#091e1a', '#0b2620', '#0d2b25', '#0a221d', '#091e1a'];
-    let bugs = [];
-    let screens = [];
-    let scanners = [];
-
-    for (let i = 0; i < numCols; i++) {
-      //set up column background
-      let colBG = document.createElementNS(svgNS,'rect');
-      colBG.setAttribute('x', i * screenWidth);
-      colBG.setAttribute('y', 0);
-      colBG.setAttribute('width', screenWidth);
-      colBG.setAttribute('height', '100%');
-      colBG.setAttribute('fill', columnColors[i]);
-      clippedGroupBack.append(colBG);
-
-      //set up scanner bars
-      if (i != 0 && i != 4 ) {
-        let xPos = i * screenWidth + (screenPadding / 2);
-        let yPos = i * (screenHeight * 0.45);
-        let elHeight = 300;
-
-        let scan = document.createElementNS(svgNS,'rect');
-        scan.setAttribute('x', xPos);
-        scan.setAttribute('y', yPos);
-        scan.setAttribute('width', screenWidth - screenPadding);
-        scan.setAttribute('height', elHeight);
-        scan.setAttribute('fill', "url(#scanGradient)");
-        scan.setAttribute('class', 'anim-reporting__scan');
-        clippedGroup.append(scan);
-
-        let scannerBar = document.createElementNS(svgNS,'rect');
-        scannerBar.setAttribute('x', xPos);
-        scannerBar.setAttribute('y', yPos);
-        scannerBar.setAttribute('width', screenWidth - screenPadding);
-        scannerBar.setAttribute('height', '2px');
-        scannerBar.setAttribute('fill', '#fff');
-        scannerBar.setAttribute('class', 'anim-reporting__scanner-bar');
-        clippedGroup.append(scannerBar);
-
-        scanners.push({
-          col: i,
-          yPos: yPos
+      TweenLite.set([title1, title2, title3], { opacity: 0.4 });
+      for (icon of icons) {
+        TweenLite.set(icon, {
+          opacity: 0,
+          scale: 0.8,
+          transformOrigin:"center center",
         });
       }
+      TweenLite.set(buildStage, { opacity: 1 });
 
-      // set up screens
-      let yOffset = (i % 2 == 0) ? 0 : -screenHeight/2;
-      for (let j = 0; j < numRows; j++) {
-        let rect = document.createElementNS(svgNS,'rect');
-        let yPos = yStart + (j * screenHeight + (screenPadding / 2)) + yOffset;
+      const buildTl = new TimelineLite();
+      TweenLite.defaultEase = Linear.easeNone;
+      buildTl.pause();
 
-        // if(i == 0) {
-        //   console.log(yOffset)
-        // }
-
-        rect.setAttribute('x', i * screenWidth + (screenPadding / 2));
-        rect.setAttribute('y', yPos);
-        rect.setAttribute('width', screenWidth - screenPadding);
-        rect.setAttribute('height', screenHeight - screenPadding);
-        rect.setAttribute('rx', screenBorderRadius);
-        rect.setAttribute('ry', screenBorderRadius);
-
-        clippingMask.append(rect)
-        screens.push({
-          el: rect,
-          yPos: yPos,
-          col: i
-        })
-      }
-    }
-
-    function createBug(col, offset) {
-      let bug = document.createElementNS(svgNS,'circle');
-      let xMin = (screenWidth * col) + 60;
-      let xMax = (screenWidth * col) + screenWidth - 60;
-      let xPos = getRandomInt(xMin, xMax)
-      let radius = 3;
-      let origin = -50;
-      let yPos = origin;
-      if (offset) {
-        yPos += offset;
-        bug.style.transform = `translateY(${ yPos }px)`;
-      }
-      bug.setAttribute('cx', xPos);
-      bug.setAttribute('cy', origin);
-      bug.setAttribute('r', radius);
-      bug.setAttribute('class', 'anim-reporting__bug');
-      clippedGroupBack.append(bug);
-
-      bugs.push({
-        el: bug,
-        yPos: yPos,
-        xPos: xPos,
-        col: col,
-        origin: origin,
-        scannerPos: scanners.find(function(o) {
-          return o.col === col;
-        }).yPos
-      })
-    }
-
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    // set up a few intial bugs that are in view
-    createBug(1, 150);
-    createBug(2, 310);
-
-    //animation loop
-    let tick = 0;
-    let reportingCtx = rafContext(() => {
-      // generate bug
-      if (tick % 250 == 0) {
-        let randCol = getRandomInt(1, 3);
-        createBug(randCol, -50);
-      }
-
-      //animate screens
-      for (let i = 0; i < screens.length; i++) {
-        let screen = screens[i];
-        let yLocation = screen.yPos + columnSpeeds[screen.col];
-        if (yLocation >= yEnd) {
-          yLocation = yStart;
-        }
-        TweenLite.set(screen.el, {
-          attr: { y: yLocation }
-        })
-        // screen.el.style.transform = `translateY(${ yLocation }px)`;
-        screen.yPos = yLocation;
-      }
-
-      // animate bugs
-      for (let k = 0; k < bugs.length; k++) {
-        let bug = bugs[k];
-        bug.yPos += columnSpeeds[bug.col];
-
-        // test it bug has crossed scanner line
-        // remove bug if true
-        if (bug.yPos + bug.origin - 1.5 >= bug.scannerPos) {
-          TweenLite.set(bug.el, {
-            y : bug.yPos,
-            transformOrigin: 'center center'
+      function animateIconsIn (selector) {
+        let icons = buildStage.querySelectorAll(selector);
+        for (let i = 0; i < icons.length; i++) {
+          TweenLite.to(icons[i], 0.1, {
+            opacity: 1,
+            delay: i * 0.15
           })
-          TweenLite.to(bug.el, 0.8, {
-            opacity: 0,
-            scale: 8,
-            onComplete: function() {
-              bug.el.remove();
-            }
-          });
-          bugs.splice(k, 1);
-        } else {
-          bug.el.style.transform = `translateY(${ bug.yPos }px)`;
+          TweenLite.to(icons[i], 1.4, {
+            scale: 1,
+            ease: Elastic.easeOut.config(1, 0.3),
+            delay: i * 0.15
+          })
         }
       }
 
-      tick++;
-    })
+      buildTl.to(title1, 0.3, { opacity: 1 }, 0)
+      buildTl.fromTo( title1, 1.4, {
+        scale: 1.1,
+        transformOrigin:"center center"
+      },{
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3)
+      }, 0)
 
-    initAnimation(reportingStage, reportingCtx);
+      buildTl.to(line1A, stepDuration, { 'stroke-dashoffset': 0 }, 0)
+      buildTl.to(line1B, stepDuration, { 'stroke-dashoffset': 0 }, 0)
+      buildTl.add(() => animateIconsIn('#icons-1 .icon'), 0.8)
+      buildTl.to(line2, stepDuration, { 'stroke-dashoffset': 0, }, 1 * stepDuration)
+
+      buildTl.to(title2, 0.1, {
+        scale: 1.1,
+        opacity: 1,
+        transformOrigin:"center center",
+      }, 2 * stepDuration)
+      buildTl.to(title2, 1.4, {
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3),
+      }, 2 * stepDuration + 0.1)
+
+      buildTl.to(line3A, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
+      buildTl.to(line3B, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
+      buildTl.add(() => animateIconsIn('#icons-2 .icon'), 2 * stepDuration + 0.2)
+      buildTl.to(line4, stepDuration, { 'stroke-dashoffset': 0 }, 3 * stepDuration)
+
+      buildTl.to(title3, 0.1, {
+        scale: 1.1,
+        opacity: 1,
+        transformOrigin:"center center",
+      }, 4 * stepDuration)
+      buildTl.to(title3, 1.4, {
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3),
+      }, 4 * stepDuration + 0.1)
+
+      buildTl.to(line5A, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
+      buildTl.to(line5B, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
+      buildTl.add(() => animateIconsIn('#icons-3 .icon'), 4 * stepDuration + 0.2);
+
+      initAnimation(buildStage, buildTl, {
+        once: true,
+        playWhenInView: true
+      });
+    }
+    setupBuildAnimation();
+
+    // REPORTING ANIMATION
+    function setupReportingAnimation () {
+      const reportingStage = document.getElementById('anim-reporting__svg');
+      const svgNS = reportingStage.namespaceURI;
+      const svgBBox = reportingStage.getBBox();
+      const clippingMask = reportingStage.querySelector('.anim-reporting__mask');
+      const clippedGroup = reportingStage.querySelector('.anim-reporting__clipped');
+      const clippedGroupBack = clippedGroup.querySelector('.back');
+      const numCols = 5;
+      const numRows = 4;
+      const screenPadding = 20;
+      const screenBorderRadius = 35;
+      const screenWidth = svgBBox.width / numCols;
+      const screenHeight = screenWidth * 1.75;
+      const yStart = -screenHeight;
+      const yEnd = screenHeight * (numRows - 1);
+      const columnSpeeds = [0.3, 0.5, 0.35, 0.4, 0.25];
+      const columnColors = ['#091e1a', '#0b2620', '#0d2b25', '#0a221d', '#091e1a'];
+      let bugs = [];
+      let screens = [];
+      let scanners = [];
+
+      for (let i = 0; i < numCols; i++) {
+        //set up column background
+        let colBG = document.createElementNS(svgNS,'rect');
+        colBG.setAttribute('x', i * screenWidth);
+        colBG.setAttribute('y', 0);
+        colBG.setAttribute('width', screenWidth);
+        colBG.setAttribute('height', '150%');
+        colBG.setAttribute('fill', columnColors[i]);
+        clippedGroupBack.appendChild(colBG);
+
+        //set up scanner bars
+        if (i != 0 && i != 4 ) {
+          let xPos = i * screenWidth + (screenPadding / 2);
+          let yPos = i * (screenHeight * 0.45);
+          let elHeight = 300;
+
+          let scan = document.createElementNS(svgNS,'rect');
+          scan.setAttribute('x', xPos);
+          scan.setAttribute('y', yPos);
+          scan.setAttribute('width', screenWidth - screenPadding);
+          scan.setAttribute('height', elHeight);
+          scan.setAttribute('fill', "url(#scanGradient)");
+          scan.setAttribute('class', 'anim-reporting__scan');
+          clippedGroup.appendChild(scan);
+
+          let scannerBar = document.createElementNS(svgNS,'rect');
+          scannerBar.setAttribute('x', xPos);
+          scannerBar.setAttribute('y', yPos);
+          scannerBar.setAttribute('width', screenWidth - screenPadding);
+          scannerBar.setAttribute('height', '2px');
+          scannerBar.setAttribute('fill', '#fff');
+          scannerBar.setAttribute('class', 'anim-reporting__scanner-bar');
+          clippedGroup.appendChild(scannerBar);
+
+          scanners.push({
+            col: i,
+            yPos: yPos
+          });
+        }
+
+        // set up screens
+        let yOffset = (i % 2 == 0) ? 0 : -screenHeight/2;
+        for (let j = 0; j < numRows; j++) {
+          let rect = document.createElementNS(svgNS,'rect');
+          let yPos = yStart + (j * screenHeight + (screenPadding / 2)) + yOffset;
+
+          rect.setAttribute('x', i * screenWidth + (screenPadding / 2));
+          rect.setAttribute('y', yPos);
+          rect.setAttribute('width', screenWidth - screenPadding);
+          rect.setAttribute('height', screenHeight - screenPadding);
+          rect.setAttribute('rx', screenBorderRadius);
+          rect.setAttribute('ry', screenBorderRadius);
+
+          clippingMask.appendChild(rect);
+          screens.push({
+            el: rect,
+            yPos: yPos,
+            col: i
+          });
+        }
+      }
+
+      function createBug(col, offset) {
+        let bug = document.createElementNS(svgNS,'circle');
+        let xMin = (screenWidth * col) + 60;
+        let xMax = (screenWidth * col) + screenWidth - 60;
+        let xPos = getRandomInt(xMin, xMax)
+        let radius = 3;
+        let origin = -50;
+        let yPos = origin;
+        if (offset) {
+          yPos += offset;
+          bug.style.transform = `translateY(${ yPos }px)`;
+        }
+        bug.setAttribute('cx', xPos);
+        bug.setAttribute('cy', origin);
+        bug.setAttribute('r', radius);
+        bug.setAttribute('class', 'anim-reporting__bug');
+        clippedGroupBack.appendChild(bug);
+
+        bugs.push({
+          el: bug,
+          yPos: yPos,
+          xPos: xPos,
+          col: col,
+          origin: origin,
+          scannerPos: scanners.find(function(o) {
+            return o.col === col;
+          }).yPos
+        })
+      }
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // set up a few intial bugs that are in view
+      createBug(1, 150);
+      createBug(2, 310);
+
+      //animation loop
+      let tick = 0;
+      let reportingCtx = rafContext(() => {
+
+        // generate bug
+        if (tick % 250 == 0) {
+          let randCol = getRandomInt(1, 3);
+          createBug(randCol, -50);
+        }
+
+        //animate screens
+        for (let i = 0; i < screens.length; i++) {
+          let screen = screens[i];
+          let yLocation = screen.yPos + columnSpeeds[screen.col];
+          if (yLocation >= yEnd) {
+            yLocation = yStart;
+          }
+          TweenLite.set(screen.el, {
+            attr: { y: yLocation }
+          });
+          // screen.el.style.transform = `translateY(${ yLocation }px)`;
+          screen.yPos = yLocation;
+        }
+
+        // animate bugs
+        for (let k = 0; k < bugs.length; k++) {
+          let bug = bugs[k];
+          bug.yPos += columnSpeeds[bug.col];
+
+          // test it bug has crossed scanner line
+          // remove bug if true
+          if (bug.yPos + bug.origin - 1.5 >= bug.scannerPos) {
+            TweenLite.set(bug.el, {
+              y : bug.yPos,
+              transformOrigin: 'center center'
+            })
+            TweenLite.to(bug.el, 0.8, {
+              opacity: 0,
+              scale: 8,
+              onComplete: function() {
+                bug.el.remove();
+              }
+            });
+            bugs.splice(k, 1);
+          } else {
+            bug.el.style.transform = `translateY(${ bug.yPos }px)`;
+          }
+        }
+
+        tick++;
+      })
+
+      initAnimation(reportingStage, reportingCtx);
+    }
+    setupReportingAnimation();
   })();
 </script>
 

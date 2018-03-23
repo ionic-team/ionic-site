@@ -610,13 +610,6 @@
       &::before { background-position: 0 -64px; }
     }
 
-    // .container::before {
-    //     background-image: url('/img/pro/landing-hero-view.png');
-    //     background-position: top left;
-    //     background-size: 540px;
-    //     top: 72px;
-    // }
-
     .content {
       padding-top: 163px;
     }
@@ -653,13 +646,23 @@
 
       .content {
         padding-top: 64px;
-        width: 73%;
+        width: 40%;
         min-height: 0;
+      }
+
+      .anim-testing__device--one {
+        width: 330px;
+        left: 310px;
+      }
+
+      .anim-testing__device--two {
+        width: 440px;
+        left: 150px;
       }
     }
 
     @media (max-width: $screen-xs-max)  {
-      .container::before {
+      .anim-testing {
         display: none;
       }
 
@@ -686,10 +689,6 @@
 
       &::before { background-position: 0 -128px; }
     }
-
-    // .container::before {
-    //   background-image: url('/img/pro/product-deploy-img.png');
-    // }
 
     .content {
       padding-top: 179px;
@@ -727,12 +726,10 @@
     .anim-updates__foreground {
       z-index: 10;
       transform: translateZ(1000px);
-      // transform-style: preserve-3d;
     }
     .anim-updates__background {
       z-index: 1;
       transform: translateZ(100px);
-      // transform-style: preserve-3d;
     }
 
     .anim-updates__device {
@@ -746,14 +743,12 @@
       left: 0;
       z-index: 5;
       transform: translateZ(500px);
-      // transform-style: preserve-3d;
     }
 
     .anim-updates__screen {
       width: 308px;
       height: 554px;
       background: #5d37ff;
-      // background: rgba(red, 1);
       position: absolute;
       top: 28px;
       left: 406px;
@@ -763,7 +758,7 @@
 
 
     @media (max-width: $screen-sm-max)  {
-      .container::before {
+      .anim-updates {
         display: none;
       }
 
@@ -810,13 +805,6 @@
       letter-spacing: 0.05em;
     }
 
-    // .container::before {
-    //     background-image: url('/img/pro/product-package-img.png');
-    //     background-position: left 0;
-    //     top: 102px;
-    //     bottom: 104px;
-    // }
-
     .content {
       padding-top: 140px;
     }
@@ -838,7 +826,7 @@
     @media (max-width: $screen-xs-max)  {
       background-image: none;
 
-      .container::before {
+      .anim-build {
         display: none;
       }
 
@@ -865,10 +853,6 @@
 
       &::before { background-position: 0 -256px; }
     }
-
-    // .container::before {
-    //     background-image: url('/img/pro/product-monitor-img.png');
-    // }
 
     .anim-reporting {
       width: 1084px;
@@ -925,10 +909,16 @@
         padding-top: 64px;
         width: 100%;
       }
+      .anim-reporting {
+        opacity: 0.7;
+      }
+      .anim-reporting__clipped {
+        transform: scale(0.80);
+      }
     }
 
     @media (max-width: $screen-xs-max)  {
-      .container::before {
+      .anim-reporting {
         display: none;
       }
 

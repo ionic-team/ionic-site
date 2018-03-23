@@ -313,7 +313,7 @@
       padding-top: 100px;
       padding-bottom: 120px;
       color: #070f1a;
-      min-height: 700px;
+      min-height: 724px;
       position: relative;
 
       &.dark {
@@ -603,6 +603,7 @@
 
   #testing {
     background: #192434;
+    padding: 50px 0;
 
     h4 {
       color: #707e92;
@@ -617,6 +618,7 @@
     .anim-testing {
       position: absolute;
       top: 0;
+      bottom: 0;
       left: 50%;
       transform: translateX(-620px);
     }
@@ -628,13 +630,13 @@
 
     .anim-testing__device--one {
       width: 430px;
-      top: 40px;
+      bottom: -46px;
       left: 209px;
     }
 
     .anim-testing__device--two {
       width: 540px;
-      top: 65px;
+      bottom: -118px;
     }
 
     @media (max-width: $screen-sm-max)  {
@@ -646,7 +648,7 @@
 
       .content {
         padding-top: 64px;
-        width: 40%;
+        width: 49%;
         min-height: 0;
       }
 
@@ -662,6 +664,8 @@
     }
 
     @media (max-width: $screen-xs-max)  {
+      padding: 0;
+
       .anim-testing {
         display: none;
       }
@@ -779,10 +783,10 @@
   #build {
     background-color: #f75982;
     background-image: linear-gradient(90deg, #fff0f6 50%, #f75982 50%);
+    padding: 50px 0;
 
     h4 {
       color: #ffc2d2;
-
       &::before { background-position: 0 -192px; }
     }
 
@@ -825,6 +829,7 @@
 
     @media (max-width: $screen-xs-max)  {
       background-image: none;
+      padding: 0;
 
       .anim-build {
         display: none;
@@ -846,6 +851,7 @@
 
   #reporting {
     background: #081b17;
+    padding: 50px 0;
 
     h4,
     .btn {
@@ -918,6 +924,8 @@
     }
 
     @media (max-width: $screen-xs-max)  {
+      padding: 0;
+
       .anim-reporting {
         display: none;
       }

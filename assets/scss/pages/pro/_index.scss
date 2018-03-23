@@ -348,6 +348,29 @@
       }
     }
 
+    &__cta-bar {
+      display: flex;
+      align-items: center;
+
+      a + a {
+        margin-left: 20px;
+      }
+    }
+
+    &__cta-bar-secondary {
+      margin-left: 30px;
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      &__cta-bar {
+        flex-direction: column;
+      }
+      &__cta-bar-secondary {
+        margin-left: 0;
+        margin-top: 24px;
+      }
+    }
+
     &__cta {
       border-bottom-style: solid;
       border-bottom-width: 2px;
@@ -366,6 +389,21 @@
 
       &:hover {
         border-bottom-color: transparent;
+      }
+    }
+
+    &__icon-link {
+      transition: opacity 0.3s;
+      display: inline-block;
+      opacity: 0.7;
+
+      i {
+        font-size: 30px;
+        color: #fff;
+      }
+
+      &:hover {
+        opacity: 1;
       }
     }
 

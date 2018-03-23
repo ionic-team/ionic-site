@@ -75,6 +75,10 @@ body.docs #snap-bar ~ .docs-container .side-nav {
 }
 
 ionic-snap-bar {
+  &:not(.hydrated) {
+    display: none;
+  }
+
   @media (max-width: $screen-xs-max) {
     display: none;
   }

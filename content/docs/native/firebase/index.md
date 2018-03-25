@@ -419,7 +419,7 @@ Fetch Remote Config parameter values for your app
     <td>
       cacheExpirationSeconds</td>
     <td>
-      
+      <code>number</code>
     </td>
     <td>
       </td>
@@ -471,7 +471,8 @@ Retrieve a Remote Config value
       <code>string</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -514,7 +515,8 @@ Retrieve a Remote Config byte array
       <code>string</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -604,7 +606,8 @@ Set defaults in the Remote Config
       <code>string</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>

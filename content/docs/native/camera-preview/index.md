@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L50">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L53">
   Improve this doc
 </a>
 
@@ -770,6 +770,20 @@ Add a listener for the back event for the preview
     </td>
     <td>
       <p>Tap to set specific focus point. Note, this assumes the camera is full-screen. default false</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      disableExifHeaderStripping
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>On Android disable automatic rotation of the image and stripping of Exif header. default false</p>
 
       <em>(optional)</em>
     </td>

@@ -9,6 +9,7 @@
     h1 {
       letter-spacing: -.03em;
       font-weight: 700;
+      font-size: 48px;
     }
 
     p {
@@ -28,24 +29,24 @@
 
   .center {
     hgroup {
-      padding-top: 77px;
+      padding-top: 100px;
       text-align: center;
       max-width: 748px;
       margin: 0 auto 22px;
 
       h2 {
-        font-size: 28px;
+        font-size: 36px;
         font-weight: 700;
         letter-spacing: -.03em;
-        font-size: 28px;
+        color: #161a1f;
       }
 
       p {
-        font-size: 18px;
-        color: #747f92;
-        margin-top: 28px;
+        font-size: 20px;
+        color: #2f3744;
+        margin-top: 20px;
         letter-spacing: -0.03em;
-        line-height: 1.5em;
+        line-height: 32px;
         font-weight: 600;
       }
     }
@@ -141,7 +142,7 @@
         font-weight: 700;
         font-size: 26px;
         letter-spacing: -.01em;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
 
         font-size: 36px;
         font-weight: 700;
@@ -150,16 +151,10 @@
       }
 
       p {
-        font-size: 18px;
-        color: #51555d;
-        letter-spacing: -.015em;
-        line-height: 32px;
-        font-weight: 500;
-
         color: #505863;
         font-size: 18px;
         font-weight: 600;
-        line-height: 28px;
+        line-height: 32px;
         letter-spacing: -0.02em;
 
         strong {
@@ -258,14 +253,14 @@
       letter-spacing: -.03em;
       margin-top: 30px;
       margin-bottom: 5px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     p {
       font-size: 20px;
       font-weight: 600;
       letter-spacing: -.02em;
-      color: rgba(#fff, 0.75);
+      color: #003e82;
     }
 
     .btns {

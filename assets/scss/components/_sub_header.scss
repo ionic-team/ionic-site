@@ -38,7 +38,7 @@
   }
 
   .breadcrumbs {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
     font-size: 16px;
 
     li {
@@ -53,7 +53,7 @@
         font-size: 16px;
         vertical-align: 0px;
       }
-  
+
       &:last-child::after {
         display: none;
       }
@@ -70,7 +70,7 @@
       padding: 17px 0;
       display: inline-block;
       margin-left: -1px;
-  
+
       &:hover {
         color: rgba(white, .3);
       }

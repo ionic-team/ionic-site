@@ -28,7 +28,7 @@
         display: block;
         position: absolute;
         left: -9px;
-        top: 4px;
+        top: -5px;
       }
 
       &::after {
@@ -63,7 +63,7 @@
 
       a {
         font-weight: 600;
-        font-size: 22px;
+        font-size: 20px;
         margin-bottom: 5px;
         letter-spacing: -.02em;
 
@@ -90,9 +90,9 @@
       }
 
       p {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.6em;
-        color: #7f8fab;
+        color: #727a87;
         margin-top: 2px;
         font-weight: 600;
         letter-spacing: -0.02em;

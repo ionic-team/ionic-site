@@ -235,6 +235,7 @@ gulp.task('watch.max', ['server'], function() {
 });
 
 gulp.task('watch', ['server'], function() {
+  gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);

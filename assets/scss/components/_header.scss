@@ -1,13 +1,14 @@
 .navbar-default {
   background: linear-gradient(to right, #347eff, #1ea3ff);
-  border-radius: 0;
-  border: 0;
-  margin-bottom: 0;
-  position: relative;
-  min-height: 32px;
-  padding-top: 20px;
+  font-family: $font-family-eina;
   margin-bottom: 20px;
-  z-index: 10;
+  position: relative;
+  padding-top: 20px;
+  border-radius: 0;
+  margin-bottom: 20px;
+  min-height: 32px;
+  z-index: 30;
+  border: 0;
 
   @media (max-width: $screen-xs-max) {
     position: fixed;
@@ -18,7 +19,7 @@
   }
 
   .navbar-header {
-    width: 136px;
+    width: 132px;
 
     @media (max-width: $screen-sm-max) {
       width: auto;
@@ -123,15 +124,21 @@
         margin-top: 0px;
         padding: 6px 12px 6px;
         letter-spacing: -.01em;
-        margin-left: 5px;
-        margin-right: 4px;
+        margin-left: 9px;
+        margin-right: 9px;
         transition: .2s color;
         border-top: none;
         border-radius: 4px;
         transition-duration: .3s;
 
+        @media (max-width: $screen-md-max) {
+          margin-left: 6px;
+          margin-right: 6px;
+        }
+
         @media (max-width: $screen-sm-max) {
-          // padding: 9px 13px 8px;
+          margin-left: 0px;
+          margin-right: 0px;
         }
 
         @media (max-width: $screen-xs-max) {
@@ -161,12 +168,12 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 6px 10px;
+          padding: 6px 8px 4px;
           border-radius: 4px;
           color: $blue;
           box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-          margin-right: 1px;
-          margin-left: -1px;
+          margin-right: 3px;
+          margin-left: -4px;
           transition: .3s box-shadow, .3s background;
 
           &:hover {
@@ -217,49 +224,15 @@
 
     .divider {
       border-bottom: 1px solid #ebeef2;
-      margin: 8px 0 8px;
+      margin: 6px 0 13px;
     }
 
     @media (max-width: $screen-xs-max) {
       .dropdown-menu {
         text-align: center;
-      }
 
-      &.developers {
-        text-align: center;
-
-        ul {
-          padding: 0;
-          text-align: center;
-        }
-
-        i {
-          display: none;
-        }
-
-        a {
-          color: rgba(255, 255, 255, 0.8);
-          line-height: 20px;
-        }
-
-        li {
-          list-style: none;
-        }
-
-        .split {
-          .title {
-            font-weight: 700
-          }
-
-          a {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            display: block;
-          }
-
-          ul + ul {
-            margin-top: 16px;
-          }
+        strong {
+          display: block;
         }
       }
 
@@ -276,15 +249,14 @@
         display: block;
         position: absolute;
         border: 0;
-        border-radius: 4px;
+        border-radius: 8px;
         top: 39px;
-        left: -52%;
-        padding: 11px 0 10px;
+        padding: 14px 0 15px;
         right: auto;
         min-width: 155px;
         box-shadow:
-          0 12px 28px rgba(0, 0, 0, 0.25),
-          0 1px 4px rgba(0, 0, 0, 0.1);
+          0 12px 28px rgba(0, 16, 44, 0.18),
+          0 2px 4px rgba(0, 16, 44, 0.08);
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -292,22 +264,22 @@
         z-index: 1;
         transition-delay: 0s;
         transform-origin: 50% 0;
-        transition: 
-          transform .2s cubic-bezier(0.36,0.66,0.04,1), 
-          opacity .2s linear, 
-          top .35s step-end;
-        
+        transition:
+          transform .2s cubic-bezier(0.36,0.66,0.04,1),
+          opacity .2s linear,
+          top .25s step-end;
+
         // li {
         //   opacity: 0;
         //   transition: .3s;
         // }
 
         a {
-          padding: 7px 52px 7px 52px;
-          letter-spacing: -.02em;
+          padding: 13px 64px 13px 82px;
+          letter-spacing: -.03em;
           line-height: 1.6;
           font-size: 13px;
-          font-weight: 500;
+          font-weight: 600;
           color: #727c8e;
           transition: .2s color;
 
@@ -318,15 +290,33 @@
         }
 
         &::before {
-          background: url('/img/ico-nav-arrow.png') center center no-repeat;
-          background-size: 15px;
-          width: 100%;
-          height: 8px;
           position: absolute;
-          top: -7px;
-          left: 0;
+          top: -10px;
           content: '';
-          z-index: 5;
+          width: 100%;
+          height: 19px;
+        }
+
+        .arrow {
+          position: absolute;
+          height: 8px;
+          width: 20px;
+          overflow: hidden;
+          top: -8px;
+          left: calc(50% - 8px);
+
+          &::before {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 4px;
+            background:white;
+            transform: rotate(45deg);
+            border-radius: 4px;
+            box-shadow: 1px 1px 3px black;
+            content: '';
+            display: block;
+          }
         }
       }
 
@@ -337,10 +327,10 @@
         z-index: 4;
         pointer-events: all;
         transform: translate3d(0, 0, 0) scaleY(1);
-        transition: 
-          transform .35s cubic-bezier(.17,.67,.52,1), 
-          opacity .1s linear, 
-          top .35s step-start;
+        transition:
+          transform .25s cubic-bezier(.17,.67,.52,1),
+          opacity .1s linear,
+          top .25s step-start;
         transition-delay: .2s;
 
         // li {
@@ -373,7 +363,7 @@
         // transition-delay: .1s !important;
 
         a {
-          padding: 12px 47px 12px 71px;
+          padding: 15px 84px;
           font-size: 12px;
           position: relative;
           line-height: 19px;
@@ -387,8 +377,8 @@
             width: 32px;
             content: '';
             position: absolute;
-            left: 23px;
-            top: 15px;
+            left: 32px;
+            top: 18px;
           }
 
           strong {
@@ -433,227 +423,187 @@
       }
     }
 
-    .developers {
-      .dropdown-menu {
-        left: -145px;
-        // transition-delay: .1s !important;
-      }
-
-      a {
-        &:hover i::before {
-          transform: translate3d(0, 0, 0);
-          opacity: 1;
-          color: $blue;
-        }
-
-        i {
-          float: right;
-          display: block;
-          font-size: 17px;
-          position: relative;
-          top: -4px;
-
-          &::before {
-            color: #727c8e;
-            opacity: 0;
-            transform: translate3d(-5px, 0, 0);
-            transition: .2s transform, .2s opacity, .2s color;
-          }
-        }
-      }
-
-      .split {
-        display: flex;
-        padding-bottom: 14px;
-        border-bottom: 1px solid #e8ebf1;
-        margin-bottom: 10px;
-
-        ul {
-          padding: 0;
-          list-style: none;
-        }
-
-        a {
-          padding: 5px 13px 5px 26px;
-          display: block;
-          min-width: 194px;
-          letter-spacing: -.02em;
-          text-decoration: none;
-          position: relative;
-        }
-
-
-        .title a {
-          text-transform: uppercase;
-          font-weight: 700;
-          font-size: 11px;
-          letter-spacing: 0.1em;
-          padding: 14px 26px 8px;
-        }
-      }
-
-      .forward {
-        padding: 9px 26px 9px 52px !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: .05em !important;
-        position: relative;
-
-        &::before,
-        &::after {
-          background: url('/img/dropdown-icons-sm.png') 0 0 no-repeat;
-          background-size: 16px;
-          content: '';
-          width: 16px;
-          height: 16px;
-          position: absolute;
-          left: 29px;
-          top: 9px;
-          transition: .2s opacity;
-        }
-
-        &::after {
-          background-position: 0 -16px;
-          opacity: 0;
-          transition: .3s opacity;
-        }
-
-        &:hover::after {
-          opacity: 1
-        }
-      }
-    }
-
+    .developers,
     .businesses,
     .support,
     .ecosystem {
-      ul {
-        // transition-delay: .1s !important;
+      a {
+        strong {
+          display: block;
+          color: #131924;
+          letter-spacing: 0;
+          font-size: 15px;
+          font-weight: 600;
+          transition: .2s color ease;
+        }
+
+        span {
+          display: block;
+          color: #818da0;
+          transition: .2s color ease;
+        }
       }
+
       ul a {
-         position: relative;
+        position: relative;
+        display: block;
 
         &::before,
         &::after {
           background: url('/img/dropdown-icons-sm.png') 0 0 no-repeat;
-          background-size: 16px;
+          background-size: 32px;
           content: '';
-          width: 16px;
-          height: 16px;
+          width: 32px;
+          height: 32px;
           position: absolute;
-          left: 21px;
-          top: 9px;
+          left: 32px;
+          top: 17px;
           transition: .2s opacity;
         }
 
         &::after { opacity: 0; }
 
-        &:hover::after { opacity: 1; }
+        &:hover {
+          strong {
+            color: black;
+          }
 
-        &.customers {
-          &::before {background-position: 0 -32px;}
-          &::after {background-position: 0 -48px;}
+          span {
+            color: darken(#818da0, 10);
+          }
+
+          &::after { opacity: 1; }
         }
 
-        &.resources {
-          &::before {background-position: 0 -64px;}
-          &::after {background-position: 0 -80px;}
+        &.framework-docs {
+          &::before {background-position: 0 0px;}
+          &::after {background-position: 0 -32px;}
         }
 
-        &.enterprise {
-          &::before {background-position: 0 -96px;}
-          &::after {background-position: 0 -112px;}
+        &.pro-docs {
+          &::before {background-position: 0 2 * -32px;}
+          &::after {background-position: 0 3 * -32px;}
+        }
+
+        &.setup {
+          &::before {background-position: 0 4 * -32px;}
+          &::after {background-position: 0 5 * -32px;}
+        }
+
+        &.ui {
+          &::before {background-position: 0 6 * -32px;}
+          &::after {background-position: 0 7 * -32px;}
+        }
+
+        &.api {
+          &::before {background-position: 0 8 * -32px;}
+          &::after {background-position: 0 9 * -32px;}
+        }
+
+        &.native {
+          &::before {background-position: 0 10 * -32px;}
+          &::after {background-position: 0 11 * -32px;}
+        }
+
+        &.dev-resources {
+          &::before {background-position: 0 12 * -32px;}
+          &::after {background-position: 0 13 * -32px;}
+        }
+
+        &.enterprise,
+        &.enterprise-support {
+          &::before {background-position: 0 14 * -32px;}
+          &::after {background-position: 0 15 * -32px;}
+        }
+
+        &.startups {
+          &::before {background-position: 0 16 * -32px;}
+          &::after {background-position: 0 17 * -32px;}
         }
 
         &.demo {
-          &::before {background-position: 0 -128px;}
-          &::after {background-position: 0 -144px;}
+          &::before {background-position: 0 18 * -32px;}
+          &::after {background-position: 0 19 * -32px;}
         }
 
         &.sales,
         &.enterprise-support {
-          &::before {background-position: 0 -160px;}
-          &::after {background-position: 0 -176px;}
+          &::before {background-position: 0 20 * -32px;}
+          &::after {background-position: 0 21 * -32px;}
         }
 
         &.about {
-          &::before {background-position: 0 -192px;}
-          &::after {background-position: 0 -208px;}
+          &::before {background-position: 0 22 * -32px;}
+          &::after {background-position: 0 23 * -32px;}
         }
 
         &.forum {
-          &::before {background-position: 0 -224px;}
-          &::after {background-position: 0 -240px;}
+          &::before {background-position: 0 24 * -32px;}
+          &::after {background-position: 0 25 * -32px;}
         }
 
         &.support {
-          &::before {background-position: 0 -256px;}
-          &::after {background-position: 0 -272px;}
+          &::before {background-position: 0 26 * -32px;}
+          &::after {background-position: 0 27 * -32px;}
         }
 
         &.trusted-partners {
-          &::before {background-position: 0 -288px;}
-          &::after {background-position: 0 -304px;}
-        }
-
-        &.blog {
-          &::before {background-position: 0 -320px;}
-          &::after {background-position: 0 -336px;}
-        }
-
-        &.community {
-          &::before {background-position: 0 -352px;}
-          &::after {background-position: 0 -368px;}
-        }
-
-        &.market {
-          &::before {background-position: 0 -384px;}
-          &::after {background-position: 0 -400px;}
-        }
-
-        &.jobs {
-          &::before {background-position: 0 -416px;}
-          &::after {background-position: 0 -432px;}
-        }
-
-        &.shop {
-          &::before {background-position: 0 -448px;}
-          &::after {background-position: 0 -464px;}
+          &::before {background-position: 0 28 * -32px;}
+          &::after {background-position: 0 29 * -32px;}
         }
 
         &.contact {
-          &::before {background-position: 0 -480px;}
-          &::after {background-position: 0 -496px;}
+          &::before {background-position: 0 30 * -32px;}
+          &::after {background-position: 0 31 * -32px;}
         }
 
-        &.twitter {
-          &::before {background-position: 0 -512px;}
-          &::after {background-position: 0 -528px;}
+        &.developer-resources {
+          &::before {background-position: 0 32 * -32px;}
+          &::after {background-position: 0 33 * -32px;}
         }
 
-        &.slack {
-          &::before {background-position: 0 -544px;}
-          &::after {background-position: 0 -560px;}
+        &.blog {
+          &::before {background-position: 0 34 * -32px;}
+          &::after {background-position: 0 35 * -32px;}
         }
 
-        &.github {
-          &::before {background-position: 0 -576px;}
-          &::after {background-position: 0 -592px;}
+        &.events {
+          &::before {background-position: 0 36 * -32px;}
+          &::after {background-position: 0 37 * -32px;}
+        }
+
+        &.showcase {
+          &::before {background-position: 0 38 * -32px;}
+          &::after {background-position: 0 39 * -32px;}
+        }
+
+        &.market {
+          &::before {background-position: 0 40 * -32px;}
+          &::after {background-position: 0 41 * -32px;}
+        }
+
+        &.shop {
+          &::before {background-position: 0 42 * -32px;}
+          &::after {background-position: 0 43 * -32px;}
         }
       }
     }
+    .dropdown {
+      &.developers ul {
+        left: calc(50% - 212px);
+      }
 
-    .businesses ul {
-      left: -56px;
-    }
+      &.businesses ul {
+        left: calc(50% - 220px);
+      }
 
-    .support ul {
-      left: -66px !important;
-    }
+      &.support ul {
+        left: calc(50% - 220px);
+      }
 
-    .ecosystem ul {
-      left: -41px !important;
+      &.ecosystem ul {
+        left: calc(50% - 225px);
+      }
     }
   }
 
@@ -1105,6 +1055,10 @@
         }
       }
     }
+  }
+
+  .navbar-right > li > a {
+    font-weight: 700;
   }
 }
 

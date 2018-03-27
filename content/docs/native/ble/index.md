@@ -131,7 +131,7 @@ constructor(private ble: BLE) { }
 }
 </code></pre>
 <h2 id="advertising-data">Advertising Data</h2>
-<p>Bluetooth advertising data is returned in when scanning for devices. The format format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
+<p>Bluetooth advertising data is returned in when scanning for devices. The format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
 <p>The advertising information for both Android and iOS appears to be a combination of advertising data and scan response data.</p>
 <h3 id="android">Android</h3>
 <pre><code class="lang-typescript"> {

@@ -139,7 +139,7 @@ export class SettingsPage {
     */
 
     try {
-      const resp = await Pro.deploy.checkAndApply(true, function(progress){
+      const resp = await Pro.deploy.checkAndApply(true, progress => {
           this.downloadProgress = progress;
       });
 

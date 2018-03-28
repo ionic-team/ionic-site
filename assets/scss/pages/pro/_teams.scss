@@ -12,10 +12,15 @@
 
   .cta {
     background-color: #12223a;
-    background-image: linear-gradient(120deg, #12223a, #000a1c);
+    background-image:
+      url('/img/pro/teams-hero-bg.jpg'),
+      linear-gradient(120deg, #12223a, #000a1c);
+    background-size: cover, 100%;
+    background-position: 50% 50%;
     margin-top: -136px;
     padding-top: 136px;
     text-align: center;
+    position: relative;
   }
 
   .cta hgroup {
@@ -54,18 +59,34 @@
 
   .cta .logo-field {
     align-items: center;
-    background-color: #1d314b;
-    background-image: linear-gradient(90deg, #1d314b, #00122c);
     display: flex;
     height: 120px;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      background-image:
+        linear-gradient(rgba(white, .1), rgba(white, .1)),
+        url(/img/pro/teams-hero-bg.jpg);
+      background-size: 100%, cover;
+      background-position: 50% 50%, 50% 50%;
+      position: absolute;
+      content: '';
+      top: calc(100% - 661px);
+      width: 100%;
+      height: 661px;
+      -webkit-filter: blur(10px);
+      filter: blur(10px);
+    }
 
     img {
       max-width: 895px;
       width: 80%;
+      position: relative;
     }
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
       display: none;
     }
   }

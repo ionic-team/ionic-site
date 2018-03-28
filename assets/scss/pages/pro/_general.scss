@@ -32,7 +32,7 @@
       padding-top: 100px;
       text-align: center;
       max-width: 748px;
-      margin: 0 auto 22px;
+      margin: 0 auto 18px;
 
       h2 {
         font-size: 36px;
@@ -42,12 +42,17 @@
       }
 
       p {
-        font-size: 20px;
-        color: #2f3744;
-        margin-top: 20px;
+        font-size: 18px;
+        color: #5e6777;
+        margin-top: 29px;
         letter-spacing: -0.03em;
-        line-height: 32px;
+        line-height: 1.8em;
         font-weight: 600;
+      }
+
+      p strong {
+        color: #272a2f;
+        font-weight: 700;
       }
     }
   }
@@ -80,10 +85,11 @@
         margin-bottom: 8px;
         display: inline-block;
 
-        color: #24282e;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 20px;
+        font-size: 17px;
+        text-transform: none;
+        letter-spacing: .001em;
+        margin-top: 4px;
+        margin-bottom: 10px;
       }
 
       p {
@@ -92,6 +98,13 @@
         color: #747f92;
         font-size: 16px;
         line-height: 1.6;
+
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.026em;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+        color: #5e6777;
       }
 
       @media (max-width: $screen-xs-max)  {
@@ -147,7 +160,7 @@
         font-size: 36px;
         font-weight: 700;
         letter-spacing: -0.03em;
-        line-height: 46px;
+        line-height: 42px;
       }
 
       p {
@@ -156,6 +169,13 @@
         font-weight: 600;
         line-height: 32px;
         letter-spacing: -0.02em;
+
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.026em;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+        color: #5e6777;
 
         strong {
           font-weight: 600;

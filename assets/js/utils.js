@@ -231,7 +231,7 @@ window.stickyNav = {
     this.navBar = document.querySelector('.navbar');
     this.stickyNavBar = document.createElement("div");
     this.stickyNavBar.classList.add('navbar','navbar-default', 'navbar-sticky', 'navbar-sticky--hide');
-    this.stickyNavBar.append(this.navBar.querySelector('.container').cloneNode(true));
+    this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);
     document.addEventListener('scroll', this.handleScroll.bind(this))

@@ -26,8 +26,6 @@ $(document).ready(function() {
     ariaVal = ariaVal === 'false' ? 'true' : 'false';
     $('#collapse-toggle').attr('aria-expanded', ariaVal);
   });
-
-  console.log('utils runs')
 });
 
 window.mobileAndTabletCheck = function() {

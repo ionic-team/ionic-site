@@ -1,0 +1,231 @@
+#page-contributors {
+
+  main {
+    color: #161a1f;
+    font-family: $font-family-eina;
+    font-weight: 600;
+  }
+
+  .btn {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 20px;
+
+    &--secondary {
+      background-color: #102242;
+    }
+  }
+
+  .cta {
+    background-color: transparent;
+    color: inherit;
+    padding-bottom: 60px;
+    padding-top: 120px;
+    text-align: center;
+
+    @media (max-width: $screen-sm) {
+      padding-top: 180px;
+    }
+  }
+
+  .cta h1 {
+    color: #3880FF;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .cta p {
+    color: #2f3744;
+    font-size: 18px;
+    margin: 1em auto 1.5em;
+    max-width: 720px;
+  }
+
+  .section-header {
+    color: #2f3744;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 4em;
+    margin-top: 4em;
+    max-width: 32em;
+  }
+
+  .section-header h2 {
+    color: #24282e;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 0.65em;
+  }
+
+  .oss,
+  .pro {
+    .section-header h2 span {
+      border-bottom: solid 4px #24282e;
+    }
+  }
+
+  .feature {
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .feature__icon {
+    background-image: url("/img/contributors/contributor-features-icons.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    flex: 0 0 48px;
+    height: 48px;
+    margin-right: 2em;
+    width: 48px;
+
+    &.talk    { background-position-y: 0; }
+    &.story     { background-position-y: -48px * 1; }
+    &.blog   { background-position-y: -48px * 2; }
+  }
+
+  .feature__text strong {
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: 0.75em;
+  }
+
+  .feature__text p {
+    color: #788497;
+    line-height: 1.65;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .feature-list > li:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  .key-benefits {
+    @media (min-width: $screen-sm) {
+      .feature-list {
+        display: flex;
+      }
+
+      .feature-list > li {
+        flex: 1;
+        padding-right: 3em;
+      }
+
+      .feature {
+        flex-direction: column;
+      }
+
+      .feature__icon {
+        margin-bottom: 1.25em;
+      }
+    }
+  }
+
+  .quotes {
+    color: #ffffff;
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+
+  .quotes__content {
+    max-width: 490px;
+    position: relative;
+  }
+
+  .quotes__quote {
+    display: flex;
+    flex: 1;
+    padding: 80px;
+
+    @media (max-width: $screen-xs) {
+      padding: 40px;
+    }
+
+    &:first-child {
+      @media (min-width: $screen-sm) {
+        justify-content: flex-end;
+      }
+    }
+
+    &.joule {
+      background-color: #E9F2FF;
+    }
+
+    &.comichaus {
+      background-color: #D0E2FD;
+      color: #24282e;
+    }
+  }
+
+  .quotes__logo {
+    background-image: url("/img/startups/startups-quote-logos.png");
+    background-position: top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 40px;
+    margin-bottom: 2em;
+    width: 160px;
+
+    &.joule {
+      background-position-y: 0;
+    }
+
+    &.comichaus {
+      background-position-y: -40px;
+    }
+
+    &.pacifica {
+      background-position-y: -80px;
+    }
+
+    &.natural-cycles {
+      background-position-y: -120px;
+    }
+  }
+
+  .quotes blockquote {
+    border: none;
+    font-size: inherit;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .quotes blockquote > small {
+    color: inherit;
+    font-weight: 600;
+    margin-top: 2em;
+    text-align: right;
+
+    > span {
+      opacity: 0.5;
+      padding-left: 0.5em;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+
+
+
+
+
+}

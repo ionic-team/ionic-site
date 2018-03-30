@@ -28,6 +28,7 @@ module.exports = function router(app) {
   .get('/books/hybrid-vs-native', (req, res) => { res.render('books/hybrid-vs-native'); })
   .get('/books/hybrid-vs-native/preview', (req, res) => { res.render('books/hybrid-vs-native-preview'); })
   .get('/contact', (req, res) => { res.render('contact'); })
+  .get('/contributors', (req, res) => { res.render('contributors'); })
   .get('/demo', (req, res) => { res.render('demo'); })
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/enterprise', (req, res) => { res.render('enterprise/index'); })

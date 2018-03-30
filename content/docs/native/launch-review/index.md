@@ -71,7 +71,7 @@ this.launchReview.launch()
 
 if(this.launchReview.isRatingSupported()){
   this.launchReview.rating()
-    .then(() =&gt; console.log(&#39;Successfully launched rating dialog&#39;);
+    .then(() =&gt; console.log(&#39;Successfully launched rating dialog&#39;));
 }
 </code></pre>
 

@@ -74,8 +74,7 @@
 
 @font-face {
   font-family: 'Eina';
-  src: local('Eina 03 Bold'),
-       url('/fonts/eina/eina-03-bold.woff2') format('woff2'),
+  src: url('/fonts/eina/eina-03-bold.woff2') format('woff2'),
        url('/fonts/eina/eina-03-bold.woff') format('woff'),
        url('/fonts/eina/eina-03-bold.ttf') format('ttf'),
        url('/fonts/eina/eina-03-bold.eot?#iefix') format('eot');
@@ -84,8 +83,7 @@
 }
 @font-face {
   font-family: 'Eina';
-  src: local('Eina 03 SemiBold'),
-       url('/fonts/eina/eina-03-semibold.woff2') format('woff2'),
+  src: url('/fonts/eina/eina-03-semibold.woff2') format('woff2'),
        url('/fonts/eina/eina-03-semibold.woff') format('woff'),
        url('/fonts/eina/eina-03-semibold.ttf') format('ttf'),
        url('/fonts/eina/eina-03-semibold.eot?#iefix') format('eot');
@@ -94,8 +92,7 @@
 }
 @font-face {
   font-family: 'Eina';
-  src: local('Eina 03 Regular'),
-       url('/fonts/eina/eina-03-regular.woff2') format('woff2'),
+  src: url('/fonts/eina/eina-03-regular.woff2') format('woff2'),
        url('/fonts/eina/eina-03-regular.woff') format('woff'),
        url('/fonts/eina/eina-03-regular.ttf') format('ttf'),
        url('/fonts/eina/eina-03-regular.eot?#iefix') format('eot');

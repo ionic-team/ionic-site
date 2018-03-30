@@ -316,6 +316,7 @@
     .graphics {
       background-image: url('/img/pro/monitor/feature-img-confidence.png');
       background-size: 1145px;
+      background-position: bottom center;
       width: 1145px;
 
       @media (max-width: $screen-md-max)  {

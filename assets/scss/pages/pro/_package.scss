@@ -13,6 +13,7 @@
       padding-bottom: 148px;
       text-align: left;
       position: relative;
+      z-index: 5;
 
       &::before {
         background: url('/img/pro/package/package-hero-icon.png') no-repeat 0 0;
@@ -23,10 +24,6 @@
         position: absolute;
         top: 0;
         left: 15px;
-
-        @media (max-width: $screen-xs-max)  {
-          left: calc(50% - 40px);
-        }
       }
 
       h1,
@@ -62,14 +59,30 @@
           &.pink {
             background: #e33766;
             margin-right: 9px;
-            padding: 12px 19px 10px;
+            padding: 12px 19px 12px;
           }
 
           &.white  {
             color: #e33766;
-            padding: 12px 19px 10px;
+            padding: 12px 19px 12px;
           }
         }
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      hgroup:before {
+        left: 50%;
+        transform: translateX(-40px);
+      }
+      hgroup,
+      .btns {
+        text-align: center;
+      }
+      hgroup,
+      hgroup h1 {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -79,6 +92,7 @@
       right: 0;
       bottom: 0;
       width: 50%;
+      z-index: 1;
     }
 
     .cloud {
@@ -246,6 +260,10 @@
       max-width: 740px;
       padding-top: 100px;
       padding-bottom: 423px;
+
+      @media (max-width: $screen-md-max)  {
+        padding-bottom: 314px;
+      }
     }
 
     p {

@@ -200,7 +200,7 @@ Retrieve the version of the card.io library. Useful when contacting support.
   
   <tr>
     <td>
-      supressManual
+      suppressManual
     </td>
     <td>
       <code>boolean</code>

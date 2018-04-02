@@ -255,8 +255,8 @@
         right: auto;
         min-width: 155px;
         box-shadow:
-          0 12px 28px rgba(0, 16, 44, 0.18),
-          0 2px 4px rgba(0, 16, 44, 0.08);
+          0 10px 28px rgba(0, 16, 44, 0.18),
+          0 1px 5px rgba(0, 16, 44, 0.2);
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -313,7 +313,7 @@
             background:white;
             transform: rotate(45deg);
             border-radius: 4px;
-            box-shadow: 1px 1px 3px black;
+            box-shadow: 1px 1px 3px rgba(#000, 0.4);
             content: '';
             display: block;
           }

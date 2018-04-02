@@ -671,10 +671,21 @@
   opacity: 0;
   transform: translate3d(0, -100%, 0);
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.07);
+  background: #fff;
 
-  .navbar-nav > li.header-btn-white.blue a {
-    background-color: white;
-    color: #4a8bfc;
+  @supports (backdrop-filter: saturate(180%) blur(20px)) {
+    background: rgba(#fff, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .navbar-nav > li.header-btn-white a {
+    background-color: #488aff;
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(74,139,252,.9);
+      color: #fff;
+    }
   }
 
   &--show,

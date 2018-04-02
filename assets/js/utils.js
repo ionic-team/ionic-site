@@ -7,6 +7,8 @@ if (sidebarToggleEl) {
   };
 }
 
+
+
 $(document).ready(function() {
   // activate dropdowns
   $('.dropdown-toggle').dropdown();
@@ -217,4 +219,51 @@ window.scrollToY = function(scrollTargetY, speed, easing) {
 
     // call it once to get started
     tick();
+}
+
+
+window.stickyNav = {
+  init: function () {
+    this.isShown = false;
+    this.once = false;
+    this.navBar = document.querySelector('.navbar');
+    this.stickyNavBar = document.createElement("div");
+    this.stickyNavBar.classList.add('navbar','navbar-default', 'navbar-sticky', 'navbar-sticky--hide');
+    this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
+    this.stickyNavBar.style.visibility = 'hidden';
+    document.body.appendChild(this.stickyNavBar);
+    document.addEventListener('scroll', this.handleScroll.bind(this))
+  },
+
+  handleScroll: function () {
+    var self = this;
+    requestAnimationFrame(function(){
+      if (window.scrollY > 120) {
+        self.show();
+      } else {
+        self.hide();
+      }
+    });
+  },
+
+  show: function () {
+    if (this.isShown) return;
+    this.isShown = true;
+
+    if (!this.once) {
+      this.stickyNavBar.style.visibility = 'visible';
+      this.once = true;
+    }
+
+    this.stickyNavBar.classList.add('navbar-sticky--show');
+    this.stickyNavBar.classList.remove('navbar-sticky--hide');
+  },
+
+  hide: function () {
+    if (!this.isShown) return;
+    this.isShown = false;
+    this.stickyNavBar.classList.add('navbar-sticky--hide');
+    this.stickyNavBar.classList.remove('navbar-sticky--show');
+  }
+
 }

@@ -1,28 +1,28 @@
-var gulp        = require('gulp');
-var $           = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
-var cache       = require('gulp-cache');
-var cachebust   = require('gulp-cache-bust');
-var cleanCSS    = require('gulp-clean-css');
-var concat      = require('gulp-concat');
-var cp          = require('child_process');
-var del         = require('del');
-var es          = require('event-stream');
-var footer      = require('gulp-footer');
-var header      = require('gulp-header');
-var lib         = require('./assets/3rd-party-libs.json');
-var merge       = require('merge-stream');
-var minifyCss   = require('gulp-minify-css');
-var pagespeed   = require('psi');
-var pkg         = require('./package.json');
-var prefix      = require('gulp-autoprefixer');
-var rename      = require('gulp-rename');
-var runSequence = require('run-sequence');
-var sass        = require('gulp-sass');
-var server      = require('gulp-develop-server');
-var shell       = require('gulp-shell');
-var uglify      = require('gulp-uglify');
-var del          = require('del');
+const gulp         = require('gulp');
+const $            = require('gulp-load-plugins')();
+const browserSync  = require('browser-sync');
+const cache        = require('gulp-cache');
+const cachebust    = require('gulp-cache-bust');
+const cleanCSS     = require('gulp-clean-css');
+const concat       = require('gulp-concat');
+const cp           = require('child_process');
+const del          = require('del');
+const es           = require('event-stream');
+const footer       = require('gulp-footer');
+const header       = require('gulp-header');
+const lib          = require('./assets/3rd-party-libs.json');
+const merge        = require('merge-stream');
+const minifyCss    = require('gulp-minify-css');
+const pagespeed    = require('psi');
+const pkg          = require('./package.json');
+const prefix       = require('gulp-autoprefixer');
+const rename       = require('gulp-rename');
+const runSequence  = require('run-sequence');
+const sass         = require('gulp-sass');
+const server       = require('gulp-develop-server');
+const shell        = require('gulp-shell');
+const sitemappings = require('./scripts/sitemappings.json');
+const uglify       = require('gulp-uglify');
 
 var bustingCache = false;
 
@@ -243,6 +243,29 @@ gulp.task('watch', ['server'], function() {
               'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 });
 
+gulp.task('sitemap', function () {
+  gulp.src([
+    'server/pages/**/*.html',
+    '!server/pages/_*/**/*',
+    'content/**/*.{html,md}',
+    '!content/docs/{demos,dist}/**/*',
+    '!content/{_includes,_layouts}/**/*',
+    '!content/present-ionic/slides/**/*'
+  ], {
+    read: false
+  })
+  .pipe($.sitemap({
+    siteUrl: 'https://www.ionicframework.com',
+     getLoc: function(siteUrl, loc, entry) {
+      return loc.replace(/\.\w+$/, '').replace(/\/$/, '');
+    },
+    mappings: sitemappings,
+    // verbose: true
+  }))
+  .pipe(gulp.dest('content/'))
+  .pipe(gulp.dest('_site'));
+});
+
 gulp.task('docs.index', function() {
   var lunr = require('lunr');
   var gutil = require('gulp-util');
@@ -438,7 +461,8 @@ gulp.task(
     'styles:creator',
     'js',
     'docs.index',
-    'stencil'
+    'stencil',
+    'sitemap'
   ],
   bustCache
 );

@@ -73,7 +73,7 @@
   }
 
   .feature__icon {
-    background-image: url("/img/contributors/contributor-features-icons.png");
+    background-image: url("/img/contributors/contributors-feature-icons.png");
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -151,6 +151,7 @@
     display: flex;
     flex: 1;
     padding: 80px;
+      color: #24282e;
 
     @media (max-width: $screen-xs) {
       padding: 40px;
@@ -162,40 +163,35 @@
       }
     }
 
-    &.joule {
+    &.morony {
       background-color: #E9F2FF;
     }
 
-    &.comichaus {
+    &.verganara {
       background-color: #D0E2FD;
-      color: #24282e;
+
     }
   }
 
-  .quotes__logo {
-    background-image: url("/img/startups/startups-quote-logos.png");
-    background-position: top;
+  .quotes__avatar {
+    background-image: url("/img/contributors/contributors-testimonial-avatars.png");
+    background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
     display: block;
-    height: 40px;
-    margin-bottom: 2em;
-    width: 160px;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 1em;
+    border-radius: 62px;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
 
-    &.joule {
+    &.morony {
       background-position-y: 0;
     }
 
-    &.comichaus {
-      background-position-y: -40px;
-    }
-
-    &.pacifica {
-      background-position-y: -80px;
-    }
-
-    &.natural-cycles {
-      background-position-y: -120px;
+    &.verganara {
+      background-position-y: -62px;
     }
   }
 
@@ -214,13 +210,20 @@
     text-align: right;
 
     > span {
-      opacity: 0.5;
       padding-left: 0.5em;
     }
 
     &:before {
       display: none;
     }
+  }
+
+  .morony blockquote > small > span {
+    color: #93A8C6;
+  }
+
+  .verganara blockquote > small > span {
+    color: #5C749B;
   }
 
 

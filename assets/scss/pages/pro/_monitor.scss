@@ -25,19 +25,22 @@
 
     h1 {
       color: white;
-      font-family: $font-family-eina;
-      letter-spacing: -.017em;
-      font-size: 40px;
+      letter-spacing: -.03em;
+      font-weight: 700;
+      font-size: 48px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     p {
       color: #abb3b2;
-      max-width: 600px;
+      max-width: 760px;
       margin-bottom: 32px;
 
       strong {
         color: white;
-        font-weight: 500;
+        font-weight: 700;
       }
     }
 
@@ -46,17 +49,18 @@
 
       .btn {
         font-size: 16px;
+        font-weight: 700;
 
         &.green {
           background: #31ca74;
-          padding: 14px 17px 12px;
+          padding: 12px 19px 10px;
           margin-right: 9px;
         }
 
         &.dark  {
           color: #31ca74;
           background: #313f3f;
-          padding: 14px 14px 12px;
+          padding: 12px 19px 10px;
         }
       }
     }
@@ -153,13 +157,14 @@
     }
 
     hgroup {
-      max-width: 886px;
+      max-width:960px;
 
       h3 {
         text-transform: uppercase;
         color: $green;
         font-weight: 700;
         letter-spacing: .06em;
+        font-size: 24px;
       }
 
       h2 {
@@ -224,10 +229,10 @@
 
       h2 {
         color: $green;
-        font-size: 23px;
-        font-weight: 500;
-        letter-spacing: -.01em;
-        margin-bottom: 6px;
+        margin-bottom: 0;
+        font-size: 28px;
+        letter-spacing: -.03em;
+        font-weight: 600;
       }
 
       p {
@@ -235,7 +240,7 @@
         letter-spacing: -.02em;
 
         strong {
-          font-weight: 500;
+          font-weight: 700;
           letter-spacing: 0;
         }
       }
@@ -243,8 +248,9 @@
       .btn {
         background: $green;
         margin-right: 4px;
-        padding: 13px 17px;
-        font-size: 17px;
+        padding: 12px 19px 10px;
+        font-size: 16px;
+        font-weight: 700;
         letter-spacing: .01em;
       }
 
@@ -269,9 +275,11 @@
     }
 
     h2 {
-      font-size: 26px;
-      letter-spacing: -.01em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 42px;
     }
 
     p {
@@ -304,6 +312,7 @@
     .graphics {
       background-image: url('/img/pro/monitor/feature-img-confidence.png');
       background-size: 1145px;
+      background-position: bottom center;
       width: 1145px;
 
       @media (max-width: $screen-md-max)  {

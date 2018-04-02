@@ -228,7 +228,7 @@ window.stickyNav = {
     this.once = false;
     this.navBar = document.querySelector('.navbar');
     this.stickyNavBar = document.createElement("div");
-    this.stickyNavBar.classList.add('navbar','navbar-default', 'navbar-sticky', 'navbar-sticky--hide');
+    this.stickyNavBar.classList.add('navbar','navbar-default', 'light', 'navbar-sticky', 'navbar-sticky--hide');
     this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);

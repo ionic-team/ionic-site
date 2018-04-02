@@ -218,6 +218,9 @@
         background-image: url('/img/pro/package/feature-icons-sm.png');
         background-size: 48px;
       }
+
+      &.zero::before { background-position: 0 -48px; }
+      &.peace::before { background-position: 0 -96px; }
     }
 
     p {

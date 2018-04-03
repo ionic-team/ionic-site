@@ -10,7 +10,7 @@
 <main>
   <section class="cta">
     <div class="container">
-      <h1>Become a contributor for Ionic</h1>
+      <h1><span class="typed"></span> for Ionic</h1>
       <p>Our community is full of thought leaders and developers doing amazing things on Ionic. Join us by sharing your story.</p>
       <div class="cta__buttons">
         <a href="/framework" class="btn">Apply now</a>
@@ -52,6 +52,15 @@
     </div>
   </section>
 
+  <section class="topics">
+    <div class="container">
+      <hgroup>
+        <h1>Trending topics</h1>
+        <p>These are some of the most talked about topics in the industry. Select one of these topics and we can work together to share your views.</p>
+      </hgroup>
+    </div>
+    <svg class="topics__animation" width="800" height="800"></svg>
+  </section>
 
   <section class="quotes">
     <div class="quotes__quote morony">
@@ -74,15 +83,107 @@
     </div>
   </section>
 
+  <section class="apply">
+    <div class="container">
+      <div class="apply__form hubspot-override">
+        <h2>Apply to contribute</h2>
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "42616a34-422d-444d-be90-20f18073516a",
+          css: ''
+        });
+        </script>
+      </div>
+      <div class="apply__benefits">
+        <h4>Why contribute with us?</h4>
+        <ul class="benefit-list">
+          <li class="benefit-list__item">
+            <h5>Become a thought leader</h5>
+            <p>Help us share your story with our community and expand your reach with fellow Ionic developers.</p>
+          </li>
+          <li class="benefit-list__item">
+            <h5>Maximize your reach</h5>
+            <p>We will post on our blog and resources sections and link your content back to your site, maximizing visibility and value for your brand and ours.</p>
+          </li>
+          <li class="benefit-list__item">
+            <h5>Help others find success</h5>
+            <p>Give back and empower other developers to find similar success based on your experiences.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 {% endblock %}
 
 {% block scripts %}
-
-<script async src="https://www.youtube.com/iframe_api"></script>
 <script>
   (function() {
+    // enable sticky nav
+    stickyNav.init();
+
+    // typed animation
+    var typed = new Typed('.typed', {
+      strings: ["Become a contributor", "Host a talk", "Tell your story", "Be a blogger"],
+      typeSpeed: 50,
+      backSpeed: 20,
+      loop: true,
+      backDelay: 2400,
+      autoInsertCss: false,
+    });
+
+    // stop typed when it's scrolled out of view
+    var typing = true;
+    window.addEventListener('scroll', function(){
+      if(typing && window.scrollY > 560){
+        typed.stop();
+        typing = false;
+      } else if(!typing && window.scrollY < 560){
+        typed.start();
+        typing = true;
+      }
+    });
+
+    // topics animation
+    var width = 800;
+    var height = 800;
+    var padding = 2;
+    var maxRadius = 1000;
+    var topics = ['Why Ionic?', 'PWAs', 'Service Workers', 'Web Components', 'Performance Techniques', 'Native Integration', 'New Web APIs', 'Electron', 'Desktop'];
+    var yScale = d3.scale.linear().domain([0, topics.length]).range([0, 800]);
+    var nodes = d3.range(topics.length).map(function(d, i){
+      return {
+        idealcx: width / 2,
+        idealcy: yScale(i),
+        x: width / 2 + Math.random(),
+        y: yScale(i),
+        idealradius: getRandomInt(40, 70),
+        radius: 0,
+        value: topics[i]
+      }
+    });
+
+    var force = d3.layout.force()
+      .nodes(nodes)
+      .size([width, height])
+      .gravity(0)
+      .charge(0)
+      // .on("tick", tick)
+      .start();
+
+    var g = d3.select('svg').append('g');
+
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 
   })();
 </script>
-
 {% endblock %}

@@ -29,17 +29,46 @@
   }
 
   .cta h1 {
-    color: #3880FF;
+    color: #73ABFF;
     font-size: 48px;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
 
+  .cta h1 span {
+    color: #3880FF;
+  }
+
+  .cta .typed-cursor {
+    text-indent: 99999px;
+    display: inline-block;
+    width: 4px;
+    height: 56px;
+    position: relative;
+    top: -4px;
+    background: #BFD6FF;
+    opacity: 1;
+    animation: typedjsBlink 1s infinite;
+  }
+
+  @keyframes typedjsBlink{
+    0% { opacity: 1; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1; }
+  }
+
   .cta p {
-    color: #2f3744;
+    color: #505863;
     font-size: 18px;
-    margin: 1em auto 1.5em;
-    max-width: 720px;
+    line-height: 30px;
+    letter-spacing: -0.03em;
+    margin: 0.75em auto 1.25em;
+    max-width: 570px;
+  }
+
+  .cta .container {
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
   .section-header {
@@ -106,7 +135,7 @@
   }
 
   .feature-list > li:not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .key-benefits {
@@ -127,6 +156,32 @@
       .feature__icon {
         margin-bottom: 1.25em;
       }
+    }
+  }
+
+  .topics {
+    min-height: 660px;
+    background-color: #242355;
+    color: #fff;
+
+    hgroup {
+      max-width: 440px;
+      margin-top: 136px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #FFFFFF;
+      letter-spacing: -1.2px;
+      line-height: 48px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 18px;
+      color: #BFC5E5;
+      letter-spacing: -0.62px;
+      line-height: 30px;
     }
   }
 
@@ -226,9 +281,76 @@
     color: #5C749B;
   }
 
+  .apply {
+    padding-top: 100px;
+    padding-bottom: 100px;
 
+    .container {
+      display: flex;
+    }
+  }
 
+  .apply__form {
+    flex: 0 0 685px;
+    padding: 46px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px 0 rgba(0,14,39,0.12), 0 10px 20px 0 rgba(0,14,39,0.12);
+    border-radius: 15px;
 
+    h2 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 36px;
+      letter-spacing: -1.2px;
+      line-height: 48px;
+      color: #161A1F;
+    }
 
+    .hbspt-form {
+      margin: 44px 0 0;
+    }
+  }
+
+  .apply__benefits {
+    padding-left: 50px;
+    margin-top: 62px;
+
+    h4 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #161A1F;
+      margin: 0 0 36px;
+    }
+  }
+
+  .benefit-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .benefit-list__item {
+    padding-left: 42px;
+    margin-top: 28px;
+    background: url(/img/framework/checkmark-icon.png) no-repeat 0 5px;
+    background-size: 24px;
+
+    h5 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #161A1F;
+      line-height: 32px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: #747F92;
+      letter-spacing: -0.25px;
+      line-height: 24px;
+      max-width: 280px;
+    }
+  }
 
 }

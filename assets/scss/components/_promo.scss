@@ -51,12 +51,12 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-480px);
-    z-index: 99;
+    z-index: 3;
   }
 
   @media (max-width: $screen-sm-max) {
     &__illustration {
-      transform: translateX(-430px);
+      transform: translateX(-400px);
     }
   }
 

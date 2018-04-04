@@ -59,7 +59,7 @@
         <p>These are some of the most talked about topics in the industry. Select one of these topics and we can work together to share your views.</p>
       </hgroup>
     </div>
-    <svg class="topics__animation" width="800" height="800"></svg>
+    <svg class="topics__animation"></svg>
   </section>
 
   <section class="quotes">
@@ -90,14 +90,14 @@
         <!--[if lte IE 8]>
         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
         <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <!-- <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
         <script>
           hbspt.forms.create({
         	portalId: "3776657",
         	formId: "42616a34-422d-444d-be90-20f18073516a",
           css: ''
         });
-        </script>
+        </script> -->
       </div>
       <div class="apply__benefits">
         <h4>Why contribute with us?</h4>
@@ -150,40 +150,175 @@
     });
 
     // topics animation
-    var width = 800;
-    var height = 800;
-    var padding = 2;
-    var maxRadius = 1000;
-    var topics = ['Why Ionic?', 'PWAs', 'Service Workers', 'Web Components', 'Performance Techniques', 'Native Integration', 'New Web APIs', 'Electron', 'Desktop'];
-    var yScale = d3.scale.linear().domain([0, topics.length]).range([0, 800]);
-    var nodes = d3.range(topics.length).map(function(d, i){
+    var stage = document.querySelector('.topics')
+    var width = 600;
+    var height = stage.clientHeight;
+    var svg = d3.select('svg')
+      .style("width", width)
+      .style("height", height);
+
+    var defs = svg.append("defs");
+
+    var mask = defs.append("mask")
+      .attr("id", "mask");
+
+    var gradient = defs.append("linearGradient")
+       .attr("id", "bgGradient")
+       .attr("x1", "0%")
+       .attr("x2", "0%")
+       .attr("y1", "0%")
+       .attr("y2", "100%");
+
+    gradient.append("stop")
+       .attr("offset", "0%")
+       .attr("stop-color", "#51ECAA")
+       .attr("stop-opacity", 1);
+
+   gradient.append("stop")
+      .attr("offset", "50%")
+      .attr("stop-color", "#2F9DFF")
+      .attr("stop-opacity", 1);
+
+    gradient.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#9737DC")
+      .attr("stop-opacity", 1);
+
+    var gradient = defs.append("linearGradient")
+       .attr("id", "circleGradient")
+       .attr("x1", "0%")
+       .attr("x2", "100%")
+       .attr("y1", "0%")
+       .attr("y2", "100%");
+
+    gradient.append("stop")
+       .attr("offset", "0%")
+       .attr("stop-color", "#fff")
+       .attr("stop-opacity", 0.2);
+
+    gradient.append("stop")
+      .attr("offset", "70%")
+      .attr("stop-color", "#fff")
+      .attr("stop-opacity", 1);
+
+    svg.append('rect')
+      .attr('y', 0)
+      .attr('x', 0)
+      .attr('height', height)
+      .attr('width', width)
+      .style('fill', 'url(#bgGradient)')
+      .attr('mask', 'url(#mask)')
+
+    var nodeLayer = mask.append("g").selectAll(".node");
+    var textLayer = svg.append("g").selectAll(".text");
+
+    var nodeId = 0;
+    var topics = [
+      { name: 'Web Components', radius: 120 },
+      { name: 'Why Ionic?', radius: 80 },
+      { name: 'PWAs', radius: 60 },
+      { name: 'Service Workers', radius: 100 },
+      { name: 'Performance Techniques', radius: 140 },
+      { name: 'Electron', radius: 80 },
+      { name: 'Native Integration', radius: 120 },
+      { name: 'New Web APIs', radius: 140 },
+      { name: 'Desktop', radius: 80 }
+    ];
+
+    var yScale = d3.scaleLinear().domain([0, topics.length]).range([-200, height + 200]);
+
+    var nodes = topics.map(function(o, i){
+      var y = yScale(i);
       return {
-        idealcx: width / 2,
-        idealcy: yScale(i),
-        x: width / 2 + Math.random(),
-        y: yScale(i),
-        idealradius: getRandomInt(40, 70),
-        radius: 0,
-        value: topics[i]
+        id: nodeId++,
+        name: o.name,
+        radius: o.radius,
+        yPos: y,
+        y: y
       }
-    });
+    })
 
-    var force = d3.layout.force()
-      .nodes(nodes)
-      .size([width, height])
-      .gravity(0)
-      .charge(0)
-      // .on("tick", tick)
-      .start();
+    var simulation = d3.forceSimulation(nodes)
+      .force('charge', d3.forceManyBody().strength(5))
+      .force('y', d3.forceY().y(function(d) {
+        return d.yPos;
+      }))
+      .force('x', d3.forceX().x(function(d) {
+        return (width / 2);
+      }))
+      .force('collision', d3.forceCollide().radius(function(d) {
+        return d.radius + 10;
+      }).strength(0.7))
+      .stop();
 
-    var g = d3.select('svg').append('g');
+    for (var i = 0; i < 20; i++) {
+      simulation.tick();
+    }
 
+    render();
+
+    function render () {
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].yPos -= 0.75;
+        if (nodes[i].y < -300) {
+          var resetNode = nodes.splice(i, 1)[0];
+          var y = height + 300;
+          var x = width/2 * Math.random();
+          nodes.push({
+            id: nodeId++,
+            name: resetNode.name,
+            radius: resetNode.radius,
+            yPos: y,
+            y: y,
+            x: x,
+            vy: y,
+            vx: x
+          })
+        }
+      }
+
+      simulation
+        .nodes(nodes)
+        .alpha(0.1)
+        .restart();
+
+      nodeLayer = nodeLayer.data(nodes, function(d) { return d.id;});
+      nodeLayer.exit().remove();
+      nodeLayer = nodeLayer.enter()
+        .append("circle")
+        .attr('class', 'node')
+        .style('fill', 'url(#circleGradient)')
+        // .style('fill', '#fff')
+        .attr('r', function(d) {
+          return d.radius;
+        })
+        .merge(nodeLayer)
+        .attr('cx', function(d) {
+          return d.x;
+        })
+        .attr('cy', function(d) {
+          return d.y;
+        })
+
+      textLayer = textLayer.data(nodes);
+      textLayer.exit().remove();
+      textLayer = textLayer.enter()
+        .append("text")
+        .attr('class', 'text')
+        .merge(textLayer)
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .attr('dy', 5)
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+          return d.name;
+        });
+
+      requestAnimationFrame(render);
+    }
 
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
-
   })();
 </script>
 {% endblock %}

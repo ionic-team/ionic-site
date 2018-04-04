@@ -34,7 +34,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "3.3.5",
     "browser-sync": "^2.23.3",
-    "c3": "^0.4.14",
+    "c3": "^0.5.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "del": "^2.2.2",

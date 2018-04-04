@@ -160,6 +160,7 @@
   }
 
   .topics {
+    position: relative;
     min-height: 660px;
     background-color: #242355;
     color: #fff;
@@ -167,6 +168,8 @@
     hgroup {
       max-width: 440px;
       margin-top: 136px;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -182,6 +185,20 @@
       color: #BFC5E5;
       letter-spacing: -0.62px;
       line-height: 30px;
+    }
+  }
+
+  .topics__animation {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(90%);
+    z-index: 1;
+
+    .text {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      fill: #fff;
     }
   }
 

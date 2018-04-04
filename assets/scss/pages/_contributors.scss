@@ -40,7 +40,7 @@
   }
 
   .cta .typed-cursor {
-    text-indent: 99999px;
+    color: rgba(0,0,0,0);
     display: inline-block;
     width: 4px;
     height: 56px;
@@ -170,6 +170,7 @@
     min-height: 660px;
     background-color: #242355;
     color: #fff;
+    overflow: hidden;
 
     &:before,
     &:after {
@@ -242,7 +243,7 @@
     right: 50%;
     transform: translateX(90%);
     z-index: 1;
-
+    overflow: hidden;
     .text {
       font-size: 18px;
       letter-spacing: -0.03em;
@@ -437,6 +438,22 @@
     }
   }
 
+  @media (max-width: $screen-sm) {
+    .apply__form {
+      flex: 0 0 auto;
+      padding: 26px;
+
+      h2 {
+        text-align: center;
+        font-size: 30px;
+        margin: 16px 0;
+      }
+      .hbspt-form {
+        // margin: 24px 0 0;
+      }
+    }
+  }
+
   @media (max-width: $screen-md) {
     .apply__benefits {
       padding-left: 0;
@@ -445,5 +462,4 @@
       max-width: none;
     }
   }
-
 }

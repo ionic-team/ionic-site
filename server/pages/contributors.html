@@ -10,10 +10,10 @@
 <main>
   <section class="cta">
     <div class="container">
-      <h1><span class="typed"></span> for Ionic</h1>
+      <h1><span class="fallback">Become a contributor</span><span class="typed"></span> for Ionic</h1>
       <p>Our community is full of thought leaders and developers doing amazing things on Ionic. Join us by sharing your story.</p>
       <div class="cta__buttons">
-        <a href="/framework" class="btn">Apply now</a>
+        <a href="#" id="apply-cta" class="btn">Apply now</a>
       </div>
     </div>
   </section>
@@ -124,10 +124,18 @@
 {% block scripts %}
 <script>
   (function() {
+    // scroll to apply
+    var applyCta = document.querySelector('#apply-cta');
+    applyCta.addEventListener('click', function(e){
+      e.preventDefault();
+      scrollToEl('.apply__form');
+    });
+
     // enable sticky nav
     stickyNav.init();
 
     // typed animation
+    document.querySelector('.fallback').style.display = "none";
     var typed = new Typed('.typed', {
       strings: ["Become a contributor", "Host a talk", "Tell your story", "Be a blogger"],
       typeSpeed: 50,
@@ -150,9 +158,9 @@
     });
 
     // topics animation
-    var stage = document.querySelector('.topics')
+    var topicsStage = document.querySelector('.topics')
     var width = 600;
-    var height = stage.clientHeight;
+    var height = topicsStage.clientHeight;
     var svg = d3.select('svg')
       .attr("width", width)
       .attr("height", height);
@@ -162,41 +170,41 @@
     var mask = defs.append("mask")
       .attr("id", "mask");
 
-    var gradient = defs.append("linearGradient")
+    var gradient1 = defs.append("linearGradient")
        .attr("id", "bgGradient")
        .attr("x1", "0%")
        .attr("x2", "0%")
        .attr("y1", "0%")
        .attr("y2", "100%");
 
-    gradient.append("stop")
+    gradient1.append("stop")
        .attr("offset", "0%")
        .attr("stop-color", "#51ECAA")
        .attr("stop-opacity", 1);
 
-   gradient.append("stop")
+   gradient1.append("stop")
       .attr("offset", "50%")
       .attr("stop-color", "#2F9DFF")
       .attr("stop-opacity", 1);
 
-    gradient.append("stop")
+    gradient1.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#9737DC")
       .attr("stop-opacity", 1);
 
-    var gradient = defs.append("linearGradient")
+    var gradient2 = defs.append("linearGradient")
        .attr("id", "circleGradient")
        .attr("x1", "0%")
        .attr("x2", "100%")
        .attr("y1", "0%")
        .attr("y2", "100%");
 
-    gradient.append("stop")
+    gradient2.append("stop")
        .attr("offset", "0%")
        .attr("stop-color", "#fff")
        .attr("stop-opacity", 0.3);
 
-    gradient.append("stop")
+    gradient2.append("stop")
       .attr("offset", "70%")
       .attr("stop-color", "#fff")
       .attr("stop-opacity", 1);
@@ -255,9 +263,8 @@
       simulation.tick();
     }
 
-    render();
+    var topicsCtx = rafContext(function() {
 
-    function render () {
       for (var i = 0; i < nodes.length; i++) {
         nodes[i].yPos -= 0.75;
         if (nodes[i].y < -300) {
@@ -313,8 +320,9 @@
           return d.name;
         });
 
-      requestAnimationFrame(render);
-    }
+    });
+
+    initAnimation(topicsStage, topicsCtx, {breakpoint: 1});
 
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;

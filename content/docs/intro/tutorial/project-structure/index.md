@@ -75,7 +75,7 @@ Near the top of the file, we should see this:
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage],
-  providers: []
+  providers: [ StatusBar,SplashScreen,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
 ```
@@ -95,9 +95,9 @@ let's look in there.
 Here's the main template for the app in `src/app/app.html`:
 
 ```html
-<ion-nav id="nav" [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 
-<ion-menu [content]="nav">
+<ion-menu [content]="content">
 
   <ion-header>
     <ion-toolbar>

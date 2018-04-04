@@ -114,4 +114,27 @@
     }
   }
 
+  @media (max-width: $screen-sm) {
+    fieldset.form-columns-2 .hs-form-field {
+      width: 100%;
+      float: none;
+      padding: 0;
+
+      & + .hs-form-field {
+        margin-top: 24px;
+      }
+    }
+    .inputs-list.multi-container {
+      li:nth-last-child(n+6):first-child,
+      li:nth-last-child(n+6):first-child ~ li {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+      }
+      li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+        padding-left: 0;
+      }
+    }
+  }
+
 }

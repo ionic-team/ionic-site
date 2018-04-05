@@ -159,6 +159,14 @@
 
     // topics animation
     var topicsStage = document.querySelector('.topics')
+    
+    var isIE = navigator.userAgent.match(/Trident\/7\./);
+    var isEdge = !isIE && !!window.StyleMedia;
+    if (isIE || isEdge) {
+      topicsStage.classList.add('image-fallback')
+      return;
+    }
+
     var width = 600;
     var height = topicsStage.clientHeight;
     var svg = d3.select('svg')
@@ -284,10 +292,7 @@
         }
       }
 
-      simulation
-        .nodes(nodes)
-        .alpha(0.1)
-        .restart();
+
 
       nodeLayer = nodeLayer.data(nodes, function(d) { return d.id;});
       nodeLayer.exit().remove();
@@ -319,6 +324,11 @@
         .text(function(d) {
           return d.name;
         });
+
+      simulation
+        .nodes(nodes)
+        .alpha(0.1)
+        .restart();
 
     });
 

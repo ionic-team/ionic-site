@@ -218,6 +218,22 @@
       line-height: 30px;
     }
 
+    &.image-fallback:after {
+      content: '';
+      display: block;
+      width: 388px;
+      height: 658px;
+      background-image: url('../img/contributors/contributors-topics.png');
+      background-repeat: no-repeat;
+      background-size: 388px 658px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.5;
+      z-index: 1;
+    }
+
     @media (max-width: $screen-sm) {
       &:before {
         height: 400px;
@@ -228,6 +244,10 @@
       }
     }
     @media (min-width: $screen-sm) {
+      &.image-fallback:after {
+        transform: translateX(10%);
+        opacity: 1;
+      }
       hgroup {
         text-align: left;
         margin-left: 0;

@@ -57,6 +57,7 @@ module.exports = function router(app) {
   .get('/startups', (req, res) => { res.render('startups'); })
   .get('/strategysession', (req, res) => { res.render('strategysession'); })
   .get('/support', (req, res) => { res.render('support'); })
+  .get('/support/request', (req, res) => { res.redirect(301, 'https://ionic.zendesk.com/hc/en-us/requests/new'); })
   .get('/survey/2017', (req, res) => { res.render('survey/2017'); })
   .get('/team', (req, res) => { res.render('team'); })
   .get('/tos', (req, res) => { markdown(res, 'tos'); })

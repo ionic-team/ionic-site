@@ -21,6 +21,8 @@ module.exports = function(req, res, next) {
 
   if (parts.path.indexOf('/blog') == 0) {
     return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
+  } else if (req.headers.host.indexOf('pwasftw.com') === 0) {
+    return res.redirect(301, 'https://ionicframework.com/pwa');
   } else if (parts.path.indexOf('/creator/') == 0) {
     return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/products') == 0) {

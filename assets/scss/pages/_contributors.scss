@@ -348,8 +348,11 @@
     margin: 0;
     padding: 0;
   }
-
-  .quotes blockquote > small {
+  .quotes a {
+    color: initial;
+    text-underline: none;
+  }
+  .quotes a blockquote > small {
     color: inherit;
     font-weight: 600;
     margin-top: 2em;
@@ -364,11 +367,11 @@
     }
   }
 
-  .morony blockquote > small > span {
+  .morony a blockquote > small > span {
     color: #93A8C6;
   }
 
-  .verganara blockquote > small > span {
+  .verganara a blockquote > small > span {
     color: #5C749B;
   }
 

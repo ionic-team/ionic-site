@@ -103,8 +103,12 @@
     color: $green;
     font-size: 20px;
     font-weight: 500;
-    padding: 64px 0 128px;
+    padding: 86px 0 128px;
     text-align: center;
+    font-weight: 700;
+    max-width: 410px;
+    background-color: white;
+    margin: 0 auto;
   }
 }
 
@@ -200,15 +204,17 @@
   }
 
   .hs-form-checkbox-display {
-    padding-left: 22px;
-    position: relative;
     margin-top: 4px;
+    display: flex;
   }
 
   .hs-form-checkbox-display .hs-input[type="checkbox"]{
-    position: absolute;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 12px;
+    // height: 12px;
+    margin-right: 10px;
   }
 
   .hs-form-checkbox-display span {

@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/hygieiasoft/cordova-plugin-uid">
-    https://github.com/hygieiasoft/cordova-plugin-uid
+  <a href="https://github.com/lionelhe/cordova-plugin-uid">
+    https://github.com/lionelhe/cordova-plugin-uid
   </a>
 </p>
 

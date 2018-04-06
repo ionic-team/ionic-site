@@ -65,7 +65,9 @@
   <section class="quotes">
     <div class="quotes__quote morony">
       <div class="quotes__content">
-        <div class="quotes__avatar morony" title="Josh Morony"></div>
+        <a href="http://joshmorony.com/">
+          <div class="quotes__avatar morony" title="Josh Morony"></div>
+        </a>
         <blockquote>
           <p>&ldquo;Writing content about Ionic has generated enough interest in my website and personal brand that I am now able to work full-time writing content on my blog.&rdquo;</p>
           <small>Josh Morony <span>Developer, teacher, entrepreneur</span></small>
@@ -74,7 +76,9 @@
     </div>
     <div class="quotes__quote verganara">
       <div class="quotes__content">
-        <div class="quotes__avatar verganara" title="Jorge Vergara"></div>
+        <a href="https://javebratt.com/">
+          <div class="quotes__avatar verganara" title="Jorge Vergara"></div>
+        </a>
         <blockquote>
           <p>&ldquo;During 2017/18 I've had my articles on the Ionic blog and shared on their newsletter. The exposure led to over 1,500 new subscribers and over $5,000 in book sales.&rdquo;</p>
           <small>Jorge Vergara <span>Developer, teacher, entrepreneur</span></small>
@@ -124,17 +128,11 @@
 {% block scripts %}
 <script>
   (function() {
-    // scroll to apply
-    var applyCta = document.querySelector('#apply-cta');
-    applyCta.addEventListener('click', function(e){
-      e.preventDefault();
-      scrollToEl('.apply__form');
-    });
-
     // enable sticky nav
     stickyNav.init();
 
     // typed animation
+    var isTyping = true;
     document.querySelector('.fallback').style.display = "none";
     var typed = new Typed('.typed', {
       strings: ["Become a contributor", "Host a talk", "Tell your story", "Be a blogger"],
@@ -146,20 +144,32 @@
     });
 
     // stop typed when it's scrolled out of view
-    var typing = true;
     window.addEventListener('scroll', function(){
-      if(typing && window.scrollY > 560){
-        typed.stop();
-        typing = false;
-      } else if(!typing && window.scrollY < 560){
-        typed.start();
-        typing = true;
+      if(window.scrollY > 560){
+        stopTyped();
+      } else if(window.scrollY < 560){
+        startTyped();
       }
     });
 
+    function startTyped () {
+      if (isTyping) return;
+      isTyping = true;
+      typed.start();
+    }
+
+    function stopTyped () {
+      if (!isTyping) return;
+      isTyping = false;
+      typed.stop();
+      clearInterval(typed.timeout);
+    }
+
+
+
     // topics animation
     var topicsStage = document.querySelector('.topics')
-    
+
     var isIE = navigator.userAgent.match(/Trident\/7\./);
     var isEdge = !isIE && !!window.StyleMedia;
     if (isIE || isEdge) {
@@ -292,8 +302,6 @@
         }
       }
 
-
-
       nodeLayer = nodeLayer.data(nodes, function(d) { return d.id;});
       nodeLayer.exit().remove();
       nodeLayer = nodeLayer.enter()
@@ -333,6 +341,16 @@
     });
 
     initAnimation(topicsStage, topicsCtx, {breakpoint: 1});
+
+
+    // scroll to apply
+    var applyCta = document.querySelector('#apply-cta');
+    applyCta.addEventListener('click', function(e){
+      e.preventDefault();
+      stopTyped();
+      topicsCtx.stop();
+      scrollToEl('.apply__form');
+    });
 
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;

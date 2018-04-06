@@ -34,7 +34,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "3.3.5",
     "browser-sync": "^2.23.3",
-    "c3": "^0.4.14",
+    "c3": "^0.5.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "del": "^2.2.2",
@@ -60,8 +60,8 @@
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-shell": "0.5.1",
-    "gulp-size": "^1.0.0",
     "gulp-sitemap": "^5.1.0",
+    "gulp-size": "^1.0.0",
     "gulp-sourcemaps": "^2.6.3",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.6",
@@ -85,6 +85,7 @@
     "sendgrid": "^5.1.0",
     "tiny-lr": "1.0.5",
     "twilio": "^3.11.0",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "typed.js": "^2.0.6"
   }
 }

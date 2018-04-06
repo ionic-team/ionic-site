@@ -166,7 +166,7 @@ window.scrollToEl = function(selector) {
   if(typeof selector === 'string') {
     selector = document.querySelector(selector);
   }
-  scrollToY(selector.offsetTop)
+  scrollToY(selector.offsetTop - 100)
 }
 
 window.scrollToY = function(scrollTargetY, speed, easing) {
@@ -209,10 +209,8 @@ window.scrollToY = function(scrollTargetY, speed, easing) {
 
         if (p < 1) {
             requestAnimationFrame(tick);
-
             window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
         } else {
-            console.log('scroll done');
             window.scrollTo(0, scrollTargetY);
         }
     }
@@ -265,5 +263,75 @@ window.stickyNav = {
     this.stickyNavBar.classList.add('navbar-sticky--hide');
     this.stickyNavBar.classList.remove('navbar-sticky--show');
   }
+}
 
+window.rafContext = function(drawFn) {
+  var requestId;
+  function render() {
+    drawFn();
+    requestId = requestAnimationFrame(render);
+  }
+
+  return {
+    play: function() {
+      if (!requestId) {
+        render();
+      }
+    },
+    stop: function() {
+      if (requestId) {
+        cancelAnimationFrame(requestId);
+        requestId = null;
+      }
+    }
+  }
+}
+
+window.initAnimation = function(el, ctx, _options) {
+  var options = _options || {};
+  var breakpoint = (options.breakpoint) ?  options.breakpoint : 767;
+  var once = options.once || false;
+  var hasPlayed = options.playWhenInView ? false : true;
+  var isPlaying = false;
+
+  function firstPlay () {
+    if (window.innerWidth < breakpoint) return;
+    ctx.play();
+    hasPlayed = true;
+    isPlaying = true;
+  }
+
+  function play () {
+    if (isPlaying || window.innerWidth < breakpoint) return;
+    ctx.play();
+    isPlaying = true;
+  }
+
+  function pause () {
+    if (!isPlaying) return;
+    ctx.stop();
+    isPlaying = false;
+  }
+
+  function checkScroll() {
+    if (once && hasPlayed) return;
+    var winHeight = window.innerHeight;
+    var bbox = el.getBoundingClientRect();
+    var offset = 0.5;
+
+    if (!hasPlayed && bbox.top < winHeight * offset && bbox.bottom > winHeight * offset ) firstPlay();
+    if (!hasPlayed) return;
+    if (!isPlaying && bbox.top < winHeight && bbox.bottom > 0) play();
+    if (isPlaying && bbox.top > winHeight) pause();
+    if (isPlaying && bbox.bottom < 0) pause();
+    if (!isPlaying && bbox.bottom > 0 && bbox.top < winHeight) play();
+  }
+
+  function checkViewport() {
+    if (window.innerWidth < breakpoint && isPlaying) pause();
+  }
+
+  checkScroll();
+  window.addEventListener('scroll', function() { requestAnimationFrame(checkScroll) });
+  window.addEventListener('resize', function() { requestAnimationFrame(checkViewport) });
 }

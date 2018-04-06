@@ -103,11 +103,183 @@
     color: $green;
     font-size: 20px;
     font-weight: 500;
-    padding: 64px 0 128px;
+    padding: 86px 0 128px;
     text-align: center;
+    font-weight: 700;
+    max-width: 410px;
+    background-color: white;
+    margin: 0 auto;
   }
 }
 
 .modal .hbspt-form .hs_submit input.hs-button {
   padding: 0;
+}
+
+.hubspot-override .hbspt-form {
+  // TODO these styles are only used on contributors landing,
+  // need to be applied to all hubspot forms
+
+  &,
+  & fieldset {
+    max-width: 100%;
+  }
+
+  fieldset + fieldset {
+    margin-top: 24px;
+  }
+
+  label {
+    margin-bottom: 3px;
+  }
+
+  .hs-form-required {
+    display: inline;
+    color: #F45454;
+    margin-left: 4px
+  }
+
+  .hs-input,
+  input.hs-input {
+    transition: border 0.3s;
+    font-weight: 600;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #e1e5ed;
+    line-height: 1.39286;
+    border-radius: 4px;
+    padding: 11px 15px;
+    font-size: 15px;
+    height: auto;
+    width: 100%;
+    color: #505863;
+
+    &:focus {
+      border-color: #9AAAC1;
+    }
+  }
+
+  form fieldset.form-columns-2 .input {
+    margin: 0;
+  }
+
+  fieldset .hs-form-field + .hs-form-field {
+    margin-top: 24px;
+  }
+
+  fieldset.form-columns-2 .hs-form-field {
+    padding: 0 10px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+    & + .hs-form-field {
+      margin-top: 0;
+    }
+  }
+
+  .inputs-list,
+  .hs-error-msgs {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .inputs-list.multi-container {
+    overflow: hidden;
+
+    li:nth-last-child(n+6):first-child,
+    li:nth-last-child(n+6):first-child ~ li {
+      width: 50%;
+      float: left;
+      padding-right: 11px;
+    }
+    li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+      padding-right: 0;
+      padding-left: 11px;
+    }
+  }
+
+  .hs-form-checkbox-display {
+    margin-top: 4px;
+    display: flex;
+  }
+
+  .hs-form-checkbox-display .hs-input[type="checkbox"]{
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 12px;
+    // height: 12px;
+    margin-right: 10px;
+  }
+
+  .hs-form-checkbox-display span {
+    font-size: 15px;
+    color: #505863;
+  }
+
+
+  .hs-error-msgs {
+    padding: 5px 0 0;
+    font-size: 11px;
+    color: #F45454;
+  }
+
+  .hs_submit {
+    margin-top: 30px;
+  }
+
+  .hs_submit input.hs-button {
+    transition: all .3s ease;
+    margin: 0;
+    float: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 20px;
+    vertical-align: middle;
+    color: white;
+    background: #4a8bfc;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+
+    &:hover {
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+      background: #5995fc;
+      color: #fff;
+      outline: none;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    fieldset.form-columns-2 .hs-form-field {
+      width: 100%;
+      float: none;
+      padding: 0;
+
+      & + .hs-form-field {
+        margin-top: 24px;
+      }
+    }
+    .inputs-list.multi-container {
+      li:nth-last-child(n+6):first-child,
+      li:nth-last-child(n+6):first-child ~ li {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+      }
+      li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+        padding-left: 0;
+      }
+    }
+    .hs_submit input.hs-button {
+      width: 100%;
+    }
+  }
+
 }

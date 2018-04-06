@@ -77,11 +77,6 @@ this.qrScanner.prepare()
          scanSub.unsubscribe(); // stop scanning
        });
 
-       // show camera preview
-       this.qrScanner.show();
-
-       // wait for user to scan something, then the observable callback will be called
-
      } else if (status.denied) {
        // camera permission was permanently denied
        // you must use QRScanner.openSettings() method to guide the user to the settings page

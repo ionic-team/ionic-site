@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ''
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-uptime
 $ npm install --save @ionic-native/uptime
 </code></pre>
   </li>
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/uptime
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 
@@ -63,8 +63,8 @@ constructor(private uptime: Uptime) { }
 ...
 
 this.uptime.getUptime()
-  .then((uptime: any) =&gt; console.log(uptime))
-  .catch((error: any) =&gt; console.log(error));
+  .then(uptime =&gt; console.log(uptime))
+  .catch(error =&gt; console.log(error));
 </code></pre>
 
 

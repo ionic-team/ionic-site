@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Card IO</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L129">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L125">
   Improve this doc
 </a>
 
@@ -120,7 +120,7 @@ Scan a credit card with card.io.
       <code>CardIOOptions</code>
     </td>
     <td>
-      <p>Options for configuring the plugin</p>
+      <p>Options for configuring the plugin<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

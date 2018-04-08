@@ -125,7 +125,7 @@ Show a native ActionSheet component. See below for options.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(options?)</code></h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(options)</code></h3>
 
 
 Programmatically hide the native ActionSheet
@@ -140,12 +140,13 @@ Programmatically hide the native ActionSheet
   <tbody>
   <tr>
     <td>
-      options?</td>
+      options</td>
     <td>
-      <code>any</code>
+      <code>ActionSheetOptions</code>
     </td>
     <td>
-      </td>
+      <p>Options See table below<strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>

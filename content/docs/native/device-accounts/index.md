@@ -84,11 +84,30 @@ Gets all accounts registered on the Android Device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;AndroidAccount[]&gt;</code> 
-</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType()</code></h3>
+</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType(type)</code></h3>
 
 
 Get all accounts registered on Android device for requested type
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

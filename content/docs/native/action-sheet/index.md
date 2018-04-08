@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Action Sheet</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L53">
   Improve this doc
 </a>
 
@@ -115,7 +115,7 @@ Show a native ActionSheet component. See below for options.
       <code>ActionSheetOptions</code>
     </td>
     <td>
-      <p>Options See table below</p>
+      <p>Options See table below<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -125,11 +125,30 @@ Show a native ActionSheet component. See below for options.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(options?)</code></h3>
 
 
-Progamtically hide the native ActionSheet
-
+Programmatically hide the native ActionSheet
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options?</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

@@ -92,7 +92,7 @@ Resolve native path for given content URL/path.
     <td>
       path</td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Content URL/path.</p>

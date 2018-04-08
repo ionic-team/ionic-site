@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">iOS DocumentPicker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/document-picker/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/document-picker/index.ts#L1">
   Improve this doc
 </a>
 
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Opens the file picker on iOS for the user to select a file, returns a file URI.
-Allows the user to upload files from icloud</p>
+Allows the user to upload files from iCloud</p>
 
 
 <p>Repo:
@@ -76,7 +76,7 @@ this.docPicker.getFile(&#39;all&#39;)
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getFile" href="#getFile"></a><code>getFile(filters)</code></h3>
+<h3><a class="anchor" name="getFile" href="#getFile"></a><code>getFile(option)</code></h3>
 
 
 Open a file
@@ -91,12 +91,12 @@ Open a file
   <tbody>
   <tr>
     <td>
-      filters</td>
+      option</td>
     <td>
       <code>string</code>
     </td>
     <td>
-      <p>files between &#39;image&#39;, &#39;pdf&#39; or &#39;all&#39;</p>
+      <p>files between &#39;image&#39;, &#39;pdf&#39; or &#39;all&#39;<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

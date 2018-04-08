@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Contacts</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L255">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L301">
   Improve this doc
 </a>
 
@@ -117,7 +117,7 @@ Search for contacts in the Contacts list.
       <code>IContactFindOptions</code>
     </td>
     <td>
-      <p>Optional options for the query</p>
+      <p>Optional options for the query<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

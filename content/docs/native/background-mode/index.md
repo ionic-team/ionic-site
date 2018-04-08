@@ -146,7 +146,10 @@ Available only for Android platform.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
 
 
@@ -172,7 +175,7 @@ Available only for Android platform.
       <code>BackgroundModeConfiguration</code>
     </td>
     <td>
-      <p>Any options you want to update. See table below.</p>
+      <p>Any options you want to update. See table below.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -280,8 +283,10 @@ Exclude the app from the recent task list. Works on Android 5.0+.
 The method works async instead of isActive() or isEnabled().
 
 
-
-<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
 
 
 
@@ -401,7 +406,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>When set to false makes the notifications visible on lockscreen (Android 5.0+)</p>
+      <p>When set to false makes the notifications visible on lock screen (Android 5.0+)</p>
 
       <em>(optional)</em>
     </td>

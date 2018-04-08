@@ -116,12 +116,30 @@ Reads the current brightness of the device display.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
-</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn()</code></h3>
+</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn(value)</code></h3>
 
 
 Keeps the screen on. Prevents the device from setting the screen to sleep.
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      value</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 
 

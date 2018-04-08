@@ -107,7 +107,7 @@ Watch when the battery level goes low
 
 
 
-Watch when the battery level goes to critial
+Watch when the battery level goes to critical
 
 
 <div class="return-value" markdown="1">

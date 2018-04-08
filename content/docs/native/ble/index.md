@@ -299,10 +299,11 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>BLEScanOptions</code>
     </td>
     <td>
-      </td>
+      <p>Options</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -319,8 +320,7 @@ Stop a scan started by `startScan`.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  returns a Promise.
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(deviceId)</code></h3>
 
 
@@ -351,8 +351,7 @@ Connect to a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of connect/disconnect.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
 </div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code></h3>
 
 
@@ -381,8 +380,7 @@ Disconnect from a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="read" href="#read"></a><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -434,8 +432,7 @@ Read the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="write" href="#write"></a><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -497,8 +494,7 @@ Write the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="writeWithoutResponse" href="#writeWithoutResponse"></a><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -561,8 +557,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="startNotification" href="#startNotification"></a><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -616,8 +611,7 @@ Register to be notified when the value of a characteristic changes.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of characteristic changes.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of characteristic changes.
 </div><h3><a class="anchor" name="stopNotification" href="#stopNotification"></a><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -721,8 +715,7 @@ Register to be notified when Bluetooth state changes on the device.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
 </div><h3><a class="anchor" name="stopStateNotifications" href="#stopStateNotifications"></a><code>stopStateNotifications()</code></h3>
 
 

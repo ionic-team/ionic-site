@@ -83,7 +83,7 @@ constructor(private appUpdate: AppUpdate) {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code></h3>
+<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl,&nbsp;options)</code></h3>
 
 
 
@@ -106,6 +106,17 @@ Check and update
     </td>
     <td>
       <p>update api url</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>AppUpdateOptions</code>
+    </td>
+    <td>
+      <p>options<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

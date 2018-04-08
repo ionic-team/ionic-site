@@ -78,7 +78,7 @@ this.appCenterPush.setEnabled(true).then(() =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener(eventname)</code></h3>
+<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener(eventName)</code></h3>
 
 
 
@@ -95,7 +95,7 @@ Subscribe to an event
   <tbody>
   <tr>
     <td>
-      eventname</td>
+      eventName</td>
     <td>
       <code>string</code>
     </td>

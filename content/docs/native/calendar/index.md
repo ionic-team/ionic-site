@@ -82,7 +82,7 @@ this.calendar.createCalendar(&#39;MyCalendar&#39;).then(
 This function checks if we have permission to read/write from/to the calendar.
 The promise will resolve with `true` when:
 - You're running on iOS, or
-- You're targetting API level lower than 23, or
+- You're targeting API level lower than 23, or
 - You're using Android < 6, or
 - You've already granted permission
 
@@ -213,7 +213,7 @@ Returns the default calendar options.
 
 
 
-Returns options for a custom calender with sepcific colord
+Returns options for a custom calender with specific color
 
 
 

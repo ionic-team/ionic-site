@@ -428,7 +428,7 @@ Get the current flash mode
 
 
 
-Set the flashmode
+Set the flash mode
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -616,7 +616,7 @@ Add a listener for the back event for the preview
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> if backbutton pressed
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> if back button pressed
 </div>
 
 
@@ -783,7 +783,7 @@ Add a listener for the back event for the preview
       <code>boolean</code>
     </td>
     <td>
-      <p>On Android disable automatic rotation of the image and stripping of Exif header. default false</p>
+      <p>On Android disable automatic rotation of the image and stripping of Exit header. default false</p>
 
       <em>(optional)</em>
     </td>

@@ -422,7 +422,8 @@ Fetch Remote Config parameter values for your app
       <code>number</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -673,7 +674,7 @@ Sends an SMS to the user with the SMS verification code and returns the Verifica
       <code>string</code>
     </td>
     <td>
-      <p>the phone number, including &#39;+&#39; and country code</p>
+      <p>The phone number, including &#39;+&#39; and country code</p>
 </td>
   </tr>
   
@@ -684,7 +685,7 @@ Sends an SMS to the user with the SMS verification code and returns the Verifica
       <code>number</code>
     </td>
     <td>
-      <p>the timeout in sec - no more SMS will be sent to this number until this timeout expires</p>
+      <p>The timeout in sec - no more SMS will be sent to this number until this timeout expires</p>
 </td>
   </tr>
   </tbody>
@@ -710,7 +711,7 @@ Allows the user to enable/disable analytics collection
     <td>
       enabled</td>
     <td>
-      <code>booleab</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>value to set collection</p>

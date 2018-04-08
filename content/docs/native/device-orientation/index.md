@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Device Orientation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L36">
   Improve this doc
 </a>
 
@@ -119,7 +119,7 @@ Stop the watch by unsubscribing from the observable
       <code>DeviceOrientationCompassOptions</code>
     </td>
     <td>
-      <p>Options for compass. Frequency and Filter. Optional</p>
+      <p>Options for compass. Frequency and Filter. Optional<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

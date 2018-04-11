@@ -117,6 +117,7 @@
 }
 
 .hubspot-override .hbspt-form {
+  font-family: $font-family-system;
   // TODO these styles are only used on contributors landing,
   // need to be applied to all hubspot forms
 
@@ -125,7 +126,9 @@
     max-width: 100%;
   }
 
-  fieldset + fieldset {
+  fieldset + fieldset,
+  form.stacked .hs-form-field + .hs-form-field,
+  fieldset .hs-form-field + .hs-form-field {
     margin-top: 24px;
   }
 
@@ -142,7 +145,7 @@
   .hs-input,
   input.hs-input {
     transition: border 0.3s;
-    font-weight: 600;
+    font-weight: 500;
     background-color: #fff;
     background-image: none;
     border: 1px solid #e1e5ed;
@@ -159,12 +162,15 @@
     }
   }
 
-  form fieldset.form-columns-2 .input {
-    margin: 0;
+  select.hs-input {
+    // -webkit-appearance: none;
+    // -moz-appearance : none;
+    // background : none;
+    height: 44px;
   }
 
-  fieldset .hs-form-field + .hs-form-field {
-    margin-top: 24px;
+  form fieldset.form-columns-2 .input {
+    margin: 0;
   }
 
   fieldset.form-columns-2 .hs-form-field {

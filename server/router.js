@@ -25,6 +25,7 @@ module.exports = function router(app) {
   .get('/', (req, res) => { res.render('index'); })
   .get('/home', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
+  .get('/articles/pwa-architects-guide', (req, res) => { res.render('articles/pwa-architects-guide'); })
   .get('/books/hybrid-vs-native', (req, res) => { res.render('books/hybrid-vs-native'); })
   .get('/books/hybrid-vs-native/preview', (req, res) => { res.render('books/hybrid-vs-native-preview'); })
   .get('/contact', (req, res) => { res.render('contact'); })

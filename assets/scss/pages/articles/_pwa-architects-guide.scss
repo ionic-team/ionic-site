@@ -42,7 +42,7 @@
 
   .signup-form {
     padding-top: 110px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     display: flex;
     justify-content: space-between;
     max-width: 1000px;
@@ -65,13 +65,21 @@
       .p-large {
         color: #6e7f99;
         font-size: 18px;
-        line-height: 32px;
+        line-height: 28px;
+      }
+
+      h5 {
+        font-size: 14px;
+        color: #4e545e;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+            margin-top: 13px;
       }
 
       ul {
         list-style-type: none;
         padding: 0;
-        margin: 26px 0 32px;
+        margin: 16px 0 32px;
         line-height: 20px;
       }
 

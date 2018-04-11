@@ -1,218 +1,231 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'pricing-table' %}
+{% set header_style = 'transparent light' %}
 
 {% block main %}
 <div class="cta banner">
   <hgroup class="container">
     <h1>Ionic Pro pricing</h1>
-    <p>
-      Ionic pro is here to be used along with the forever-free, open source
-      Ionic Framework and UI Kit for building beautiful cross-platform apps
-      for mobile, web, and desktop alike.
-    </p>
-    <h4>You don’t need ionic pro to have access to the ionic framework.</h4>
+    <p><b>Ionic Pro</b> is a companion platform to be used alongside the open source Framework, for building cross-platform mobile, web, and desktop apps like.</p>
   </hgroup>
 </div>
 <main>
-  <div class="container box">
-    {# <hgroup>
-      <h3>
-        Choose a plan that’s right for you or your team. Need help? <a
-        data-toggle="modal" data-target="#contactForm">Drop us a line</a>
-      </h3>
-    </hgroup> #}
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <td></td>
-            <th class="starter">
-              <h3>Starter</h3>
-              <div class="price"><strong>Free</strong></div>
-              <div class="type">Solo license</div>
-            </th>
-            <th class="developer">
-              <h3>Developer</h3>
-              <div class="price"><strong><sup>$</sup>29</strong>/mo</div>
-              <div class="type">Solo license</div>
-            </th>
-            <th class="team">
-              <h3>Team</h3>
-              <div class="price"><strong><sup>$</sup>49</strong>/mo</div>
-              <div class="type">Per team member</div>
-            </th>
-            <th class="business">
-              <h3>Business</h3>
-              <div class="price"><strong><sup>$</sup>169</strong>/mo*</div>
-              <div class="type">Per team member</div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th colspan="5">Open Source Products</th>
-          </tr>
-          <tr class="stripe">
-            <th>
-              <strong>Ionic Framework</strong>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>
-              <strong>Stencil</strong>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr class="stripe">
-            <th>
-              <strong>Ionicons</strong>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th colspan="5">Ionic Pro Suite Products</th>
-          </tr>
-          <tr class="stripe">
-            <th>
-              <strong>Ionic DevApp</strong>
-              <span>Local device testing of realtime changes</span>
-              {# <a href="">Learn more</a> #}
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>
-              <strong>Ionic View</strong>
-              <span>Easy app sharing &amp; user testing</span>
-              <a href="/pro/view">Learn More</a>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr class="stripe">
-            <th>
-              <strong>Ionic Creator</strong>
-              <a href="/pro/creator">Learn More</a>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>
-              <strong>Ionic Deploy</strong>
-              <a href="/pro/deploy">Learn More</a>
-            </th>
-            <td>100</td>
-            <td>25k</td>
-            <td>100k</td>
-            <td>1 Million + </td>
-          </tr>
-          <tr class="stripe">
-            <th>
-              <strong>Ionic Package</strong>
-              <a href="/pro/package">Learn More</a>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>
-              <strong>Ionic Monitoring</strong>
-              <a href="/pro/monitor">Learn More</a>
-            </th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th colspan="5">Features</th>
-          </tr>
-          <tr class="stripe">
-            <th>Git Based Workflow</th>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>App Level Permissions</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr class="stripe">
-            <th>Product Support</th>
-            <td></td>
-            <td>Basic</td>
-            <td>Standard</td>
-            <td>Business Level SLA</td>
-          </tr>
-          <tr>
-            <th>Live Onboarding</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr class="stripe">
-            <th>Company Based Account</th>
-            <td></td>
-            <td></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th>Team Collaboration</th>
-            <td></td>
-            <td></td>
-            <td>Single Team</td>
-            <td>Multiple Teams</td>
-          </tr>
-          <tr class="stripe last">
-            <th>Activity Feed</th>
-            <td></td>
-            <td></td>
-            <td><span class="check"></span></td>
-            <td><span class="check"></span></td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a class="btn sm btn-default"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a></td>
-            <td><a class="btn sm btn-default"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a></td>
-            <td><a class="btn sm btn-default"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a></td>
-            <td><a class="btn sm btn-default"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a></td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="container">
+    <div class="box">
+      {# <hgroup>
+        <h3>
+          Choose a plan that’s right for you or your team. Need help? <a
+          data-toggle="modal" data-target="#contactForm">Drop us a line</a>
+        </h3>
+      </hgroup> #}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <span class="eyebrow">Pro</span>
+                <h2>Features</h2>
+              </td>
+              <th class="starter">
+                <h3>Starter</h3>
+                <div class="price"><strong>$0</strong>/mo</div>
+                <a href="#" class="btn micro">Try Pro Free</a>
+              </th>
+              <th class="developer">
+                <h3>Developer</h3>
+                <div class="price"><strong>$29</strong>/mo</div>
+                <a href="#" class="btn micro">Choose plan</a>
+              </th>
+              <th class="team">
+                <h3>Team</h3>
+                <div class="price"><strong>$69</strong>/member/mo</div>
+                <a href="#" class="btn micro">Choose plan</a>
+              </th>
+              <th class="business">
+                <h3>Enterprise</h3>
+                <div class="price"><strong>Custom</strong></div>
+                <a href="#"
+                  class="btn micro"
+                  data-toggle="modal"
+                  data-target="#contactForm">Contact us</a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <tr>
+              <th colspan="5"><span>Device Testing & Feedback</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Local testing with <b>DevApp</b></strong>
+              </th>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Public sharing with <b>View</b></strong>
+              </th>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Private sharing with <b>View</b></strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+
+            <tr>
+              <th colspan="5"><span>Building & Deploying</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Simultaneous Git Push Builds</strong>
+              </th>
+              <td>1</td>
+              <td>3</td>
+              <td>5 / member</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Live updates with Deploy</strong>
+              </th>
+              <td>20 / mo</td>
+              <td>10,000 / mo</td>
+              <td>25,000 / mo</td>
+              <td>Custom</td>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Multi-Channel Live Updates</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+
+            <tr>
+              <th colspan="5"><span>Native Releases & CI</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Native builds with Package</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td>20 / mo</td>
+              <td>40 / member / mo</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Debug & Production Builds</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>AdHoc Builds</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Enterprise Builds</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+
+            <tr>
+              <th colspan="5"><span>App Monitoring</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Error reporting with <b>Monitor</b></strong>
+              </th>
+              <td>Up to 10 devices</td>
+              <td>Up to 2,500 devices</td>
+              <td>Up to 7,500 devices</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Error history</strong>
+              </th>
+              <td>7 days</td>
+              <td>60 days</td>
+              <td>90 days</td>
+              <td>365 days +</td>
+            </tr>
+
+
+            <tr>
+              <th colspan="5"><span>Team Collaboration</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Number of team members</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td>Up tp 5</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <th>
+                <strong>Activity Feed</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>Roles & Permissions</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+
+            <tr>
+              <th></th>
+              <td><a class="btn sm btn-secondary">Try Pro Free</a></td>
+              <td><a class="btn sm">Buy Now</a></td>
+              <td><a class="btn sm">Buy Now</a></td>
+              <td><a class="btn sm"
+                    data-toggle="modal"
+                    data-target="#contactForm">Contact us</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>

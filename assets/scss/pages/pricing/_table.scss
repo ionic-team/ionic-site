@@ -32,26 +32,28 @@
 
   }
   main {
-    .container {
+    padding-bottom: 100px;
 
-    }
-    @media (max-width: $screen-md) {
-      padding-bottom: 100px;
+    .container {
+      max-width: 1170px;
+      width: 100% !important;
     }
 
     .box {
       border-radius: 16px;
       background-color: rgb(255, 255, 255);
-      box-shadow: 0px 32px 64px 0px rgba(0, 13, 36, 0.1), 0px 4px 16px 0px rgba(0, 13, 35, 0.18);
+      box-shadow: 0px 22px 44px 0px rgba(0, 13, 36, 0.1), 0px 4px 16px 0px rgba(0, 13, 35, 0.12);
       font-family: $font-family-eina;
-
-      @media (max-width: $screen-md) {
-        overflow-x: scroll;
-      }
+      overflow-x: scroll;
     }
 
     .table-wrap {
       min-width: 970px;
+    }
+
+    table,
+    .table {
+      margin-bottom: 0;
     }
 
     hgroup {
@@ -73,6 +75,13 @@
         font-size: 24px;
         line-height: 1.8em
       }
+    }
+
+    .btn.sm {
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      font-weight: 700;
     }
 
     thead,
@@ -167,6 +176,7 @@
         &[colspan="5"] span {
           display: inline-block;
           font-size: 16px;
+          line-height: 22px;
           font-weight: 700;
           color: #333;
           border-top: none;
@@ -233,11 +243,7 @@
       }
 
       .btn {
-        text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 0.05em;
         width: 100%;
-        font-weight: 700;
       }
 
       .btn-secondary {
@@ -257,8 +263,59 @@
       }
     }
 
+    .enterprise-callout {
+      margin-top: 36px;
+      padding: 36px;
+      display: flex;
+      justify-content: space-between;
+
+      hgroup {
+        text-align: left;
+        flex: 0 1 auto;
+        padding-right: 32px;
+      }
+
+      .eyebrow {
+        color: #ffa800;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #171a20;
+        font-weight: 700;
+        margin-top: 8px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #565c67;
+        margin: 18px 0 22px;
+        letter-spacing: -0.03em;
+        max-width: 520px;
+      }
+
+      .logos {
+        flex: 0 0 440px;
+        max-width: 440px;
+        background: url('/img/pricing/enterprise-logos-v2.png') no-repeat right center;
+        background-size: contain;
+      }
+    }
+
     @media (max-width: $screen-md) {
+
+
       thead {
+        th,
+        td {
+          padding-top: 24px;
+          padding-bottom: 18px;
+        }
         th {
           width: auto;
         }
@@ -268,6 +325,44 @@
       }
       tbody th[colspan="5"] span {
         width: 130px;
+        padding-top: 8px;
+        padding-bottom: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      thead,
+      tbody {
+        tr td:first-child,
+        tr th:first-child {
+          padding-left: 16px;
+        }
+
+        tr td:last-child,
+        tr th:last-child {
+          padding-right: 16px;
+        }
+      }
+
+      .enterprise-callout {
+        flex-direction: column-reverse;
+
+        align-items: center;
+
+        hgroup,
+        .logos {
+          flex: 0 0 auto;
+        }
+        hgroup {
+          padding: 0;
+          text-align: center;
+        }
+        .logos {
+          width: 100%;
+          padding-top: 38%;
+          background-position: center center;
+          margin-bottom: 36px;
+        }
       }
     }
 

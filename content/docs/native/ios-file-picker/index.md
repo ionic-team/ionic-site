@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">iOS File Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file-picker/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file-picker/index.ts#L8">
   Improve this doc
 </a>
 
@@ -78,6 +78,8 @@ this.filePicker.pickFile()
 <h3><a class="anchor" name="pickFile" href="#pickFile"></a><code>pickFile()</code></h3>
 
 
+
+
 Open a file
 
 
@@ -85,6 +87,77 @@ Open a file
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="IOSFilePickerPosition" href="#IOSFilePickerPosition"></a>IOSFilePickerPosition</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      x
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      y
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      width
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      height
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

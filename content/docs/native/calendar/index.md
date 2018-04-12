@@ -155,7 +155,7 @@ Create a calendar. (iOS only)
     <td>
       nameOrOptions</td>
     <td>
-      <code>string</code>|<code>CalendarOptions</code>
+      <code>string</code>|<code>NameOrOptions</code>
     </td>
     <td>
       <p>either a string name or a options object. If string, provide the calendar name. IF an object, provide a calendar name as a string and a calendar color in hex format as a string</p>

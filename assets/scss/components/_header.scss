@@ -1044,15 +1044,14 @@
       }
 
       .navbar-nav > li:not(.header-btn-white) > a {
-        color: #697384;
-
-        &.active {
-          color: #272a2f;
-        }
+        color: #788294;
 
         &:hover {
           color: $blue;
         }
+      }
+      .navbar-nav > li.active > a {
+        color: #c7d0e0;
       }
     }
   }

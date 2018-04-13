@@ -1,6 +1,10 @@
 #page-pricing-table {
   font-family: $font-family-eina;
 
+  .navbar {
+    position: relative;
+  }
+
   .cta {
     background-color: #fff;
 
@@ -9,6 +13,7 @@
     }
 
     hgroup {
+      padding-top: 54px;
       max-width: 720px;
     }
 
@@ -34,6 +39,49 @@
 
   main {
     padding-bottom: 170px;
+    @media (max-width: $screen-sm) {
+      padding-bottom: 90px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 25px;
+
+      span {
+        transition: color 0.3s, background 0.3s;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #97a4ba;
+        background-color: #fff;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 5px 13px;
+        display: inline-block;
+      }
+      span:hover {
+        cursor: pointer;
+        background-color: #ecf1fb;
+        color: #7398d8;
+      }
+
+      span + span {
+        margin-left: 6px;
+      }
+
+      span b {
+        opacity: 0.5;
+      }
+
+      .active,
+      .active:hover {
+        cursor: default;
+        background-color: #3880ff;
+        color: #fff;
+      }
+    }
 
     .container {
       max-width: 1170px;
@@ -45,17 +93,18 @@
       background-color: rgb(255, 255, 255);
       box-shadow: 0px 22px 44px 0px rgba(0, 13, 36, 0.1), 0px 4px 16px 0px rgba(0, 13, 35, 0.12);
       font-family: $font-family-eina;
-      overflow-x: scroll;
+      overflow: hidden;
     }
 
     .table-wrap {
-      min-width: 970px;
+      position: relative;
+      overflow-x: auto;
     }
 
     table,
     .table {
       margin-bottom: 0;
-      position: relative;
+      min-width: 800px;
     }
 
     hgroup {
@@ -115,7 +164,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 9999;
+        z-index: 1000;
 
         tr {
           display: flex;
@@ -139,6 +188,7 @@
 
         tr {
           display: flex;
+          width: 100%;
         }
 
         th {
@@ -238,7 +288,7 @@
           color: #333;
           border-top: none;
           padding-top: 30px;
-          padding-bottom: 18px;
+          padding-bottom: 8px;
         }
 
         strong {
@@ -265,6 +315,11 @@
         }
       }
 
+      td,
+      th {
+        background: #fff;
+      }
+
       .stripe {
         td,
         th {
@@ -286,7 +341,7 @@
         color: #c3ccdb;
       }
 
-      .check::before {
+      .check:before {
         font-family: 'Ionicons';
         content: "\f2bc";
         color: #00d287;
@@ -364,7 +419,27 @@
       }
     }
 
-    @media (max-width: $screen-md) {
+    @media (max-width: 830px) {
+
+
+      thead,
+      tbody {
+        tr td:first-child,
+        tr th:first-child {
+          padding-left: 16px;
+          // position: absolute;
+          // left: 0;
+        }
+
+        tr td:last-child,
+        tr th:last-child {
+          padding-right: 16px;
+        }
+      }
+
+      .btn.sm {
+        font-size: 12px;
+      }
 
 
       thead {
@@ -373,33 +448,120 @@
           padding-top: 24px;
           padding-bottom: 18px;
         }
-        th {
-          width: auto;
-        }
-        td {
-          width: 180px;
-        }
       }
       tbody th[colspan="5"] span {
-        width: 130px;
         padding-top: 8px;
         padding-bottom: 0;
       }
+
+
+      .box,
+      .table-wrap,
+      table,
+      .table {
+        overflow: hidden;
+      }
+      // min-width: 800px;
+
+      thead {
+        position: relative;
+        display: block; /*seperates the header from the body allowing it to be positioned*/
+        width: 800px;
+        overflow: visible;
+
+        td,
+        th {
+          height: 118px;
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        td {/*first cell in the header*/
+          position: relative;
+          display: block; /*seperates the first cell in the header from the header*/
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+      }
+
+      tbody {
+        height: calc(100vh - 100px - 118px);
+        position: relative;
+        display: block; /*seperates the tbody from the header*/
+        width: calc(100vw - 30px);
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      thead tr,
+      tbody tr {
+        display: flex;
+      }
+
+      thead th,
+      tbody td {
+        flex: 0 0 180px;
+      }
+
+      thead td,
+      // tbody th:not([colspan="5"]) {
+      tbody th {
+        flex: 0 0 120px;
+        border-right: 1px solid rgba(232, 235, 241, 0.6);
+      }
+
+      tbody th[colspan="5"] span,
+      tbody th strong{
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      tbody tr th {  /*the first cell in each tr*/
+        position: relative;
+        display: block; /*seperates the first column from the tbody*/
+      }
+
+      tbody tr:last-child th {
+        height: 110px;
+      }
+
+      // .box {
+      //   // position: relative;
+      //   overflow: hidden;
+      // }
+      // .table-wrap {
+      //   position: static;
+      //   // overflow-y: scroll;
+      // }
+      //
+      // tr {
+      //   position: relative;
+      //   width: calc(100vw - 30px);
+      //   display: flex;
+      //   padding-left: 160px;
+      //
+      //   th {
+      //     flex: 0 0 160px;
+      //   }
+      //   td {
+      //     flex: 0 0 160px;
+      //   }
+      // }
+      //
+      // thead tr td,
+      // tbody tr th {
+      //   width: 160px;
+      //   position: absolute;
+      //   left: 0;
+      // }
+
+
+
     }
 
     @media (max-width: $screen-sm) {
-      thead,
-      tbody {
-        tr td:first-child,
-        tr th:first-child {
-          padding-left: 16px;
-        }
 
-        tr td:last-child,
-        tr th:last-child {
-          padding-right: 16px;
-        }
-      }
 
       .enterprise-callout {
         flex-direction: column-reverse;
@@ -424,6 +586,8 @@
     }
 
   }
+
+
 
 
   .also,
@@ -545,7 +709,38 @@
       line-height: 28px;
     }
 
+    @media (max-width: $screen-sm) {
+      padding-top: 26px;
+      padding-bottom: 74px;
+
+      li + li {
+        padding-top: 40px;
+      }
+    }
   }
 
+  .modal {
+    hgroup {
+      padding-top: 18px;
+      padding-bottom: 32px;
+    }
+    h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #171a20;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #4c576c;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form {
+      font-family: $font-family-system;
+      max-width: 100%;
+      padding: 0 15px 15px;
+    }
+  }
 
 }

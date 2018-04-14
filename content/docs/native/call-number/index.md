@@ -122,8 +122,6 @@ Calls a phone number
 </div><h3><a class="anchor" name="isCallSupported" href="#isCallSupported"></a><code>isCallSupported()</code></h3>
 
 
-
-
 Check if call feature is available
 
 

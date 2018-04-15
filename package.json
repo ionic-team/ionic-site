@@ -7,7 +7,7 @@
     "build": "gulp build.clean",
     "dev": "gulp watch",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
-    "heroku-postbuild": "gulp build.clean && gulp slug.prep"
+    "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep"
   },
   "engines": {
     "node": "6.11.1"

@@ -448,7 +448,7 @@ gulp.task('build.clean', ['build-prep'], function(done) {
   })
 });
 
-gulp.task('slug.prep', ['sitemap'], function () {
+gulp.task('slug.prep', function () {
   return del(['assets', 'content']);
 });
 

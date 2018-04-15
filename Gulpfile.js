@@ -442,7 +442,7 @@ gulp.task('build', ['build-prep'], function(done) {
   })
 });
 
-gulp.task('build.clean', ['build-prep'], function(done) {
+gulp.task('build.clean', ['build-prep', 'sitemap'], function(done) {
   runSequence('jekyll-build.clean', function() {
     done();
   })
@@ -455,7 +455,6 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
-    'sitemap',
     'ionicons',
     'styles:v1',
     'styles:v2',

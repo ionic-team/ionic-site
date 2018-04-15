@@ -442,13 +442,13 @@ gulp.task('build', ['build-prep'], function(done) {
   })
 });
 
-gulp.task('build.clean', ['build-prep', 'sitemap'], function(done) {
+gulp.task('build.clean', ['build-prep'], function(done) {
   runSequence('jekyll-build.clean', function() {
     done();
   })
 });
 
-gulp.task('slug.prep', function () {
+gulp.task('slug.prep', ['slug-prep'], function () {
   return del(['assets', 'content']);
 });
 

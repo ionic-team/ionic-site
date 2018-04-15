@@ -263,7 +263,7 @@ gulp.task('sitemap', function () {
     // verbose: true
   }))
   .pipe(gulp.dest('content/'))
-  .pipe(gulp.dest('_site'));
+  .pipe(gulp.dest('_site/'));
 });
 
 gulp.task('docs.index', function() {
@@ -455,6 +455,7 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
+    'sitemap',
     'ionicons',
     'styles:v1',
     'styles:v2',
@@ -462,7 +463,6 @@ gulp.task(
     'js',
     'docs.index',
     'stencil',
-    'sitemap'
   ],
   bustCache
 );

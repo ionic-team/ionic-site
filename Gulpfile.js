@@ -260,7 +260,8 @@ gulp.task('sitemap', function () {
       return loc.replace(/\.\w+$/, '').replace(/\/$/, '');
     },
     mappings: sitemappings,
-    verbose: true
+    // verbose: true,
+    lastmod: false
   }))
   .pipe(gulp.dest('content/'))
   .pipe(gulp.dest('_site/'));

@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L154">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L156">
   Improve this doc
 </a>
 
@@ -626,6 +626,20 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     </td>
     <td>
       <p>(iOS Only) Set to top or bottom (default is bottom). Causes the toolbar to be at the top or bottom of the window.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hidespinner
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(iOS Only) Set to yes or no to change the visibility of the loading indicator (defaults to no).</p>
 
       <em>(optional)</em>
     </td>

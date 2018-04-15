@@ -5,13 +5,13 @@ versionHref: "/docs/native"
 path: ""
 category: native
 id: "google-nearby"
-title: "google-nearby"
+title: "Google Nearby"
 header_sub_title: "Class in module "
-doc: "google-nearby"
+doc: "Google Nearby"
 docType: "class"
 ---
 
-<h1 class="api-title">google-nearby</h1>
+<h1 class="api-title">Google Nearby</h1>
 
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-nearby/index.ts#L2">
   Improve this doc

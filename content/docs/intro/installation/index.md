@@ -36,7 +36,7 @@ $ npm install -g ionic cordova
 ```
 
 > Note: The `-g` means this is a global install, so for Window's you will need
-> to open an Admin command prompt. For Mac/Linux, you'll need to run the command
+> to open an Admin command prompt. For Mac/Linux, you might need to run the command
 > with `sudo`.
 
 Once that's done, create your first Ionic app:

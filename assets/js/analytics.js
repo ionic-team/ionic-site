@@ -18,7 +18,7 @@ $(function() {
       return;
     }
 
-    var els = document.querySelectorAll('a[href*="dashboard.ionicjs.com"]');
+    var els = document.querySelectorAll('a[href*="dashboard.ionicframework.com"]');
     if(!els) {
       //console.log('no dash links')
       return;

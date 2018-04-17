@@ -18,7 +18,7 @@ Below you'll find guides and resources to help you get your app moved over from 
 
 If you were paying for Ionic Cloud, then your login has been migrated over to the new Ionic Pro dashboard! Send an email to <a href="mailto:help@ionic.io">help@ionic.io</a> to migrate your paid plan to the new Pro service.
 
-To start using your new account, just head over to [dashboard.ionicjs.com](https://dashboard.ionicjs.com/apps) and log in with your existing Cloud credentials.
+To start using your new account, just head over to [dashboard.ionicframework.com](https://dashboard.ionicframework.com/apps) and log in with your existing Cloud credentials.
 
 <p class="paid-notice">
   Ionic Pro is a new service, so once you start using the new dashboard, any changes you make to your account may not be reflected on the legacy dashboard.
@@ -30,7 +30,7 @@ To start using your new account, just head over to [dashboard.ionicjs.com](https
 
 Migrating apps over to the new Ionic Pro service is a manual process and your existing channel/deploy/view data *will not* transfer over to the new system. Essentially you're creating a new app on the Pro dashboard and linking together the new products and services.
 
-First, be sure to log in using your existing credentials in [the Ionic Pro Dashboard](https://dashboard.ionicjs.com). This will ensure your account is ready to go.
+First, be sure to log in using your existing credentials in [the Ionic Pro Dashboard](https://dashboard.ionicframework.com). This will ensure your account is ready to go.
 
 To begin the linking process, run the following commands in your project directory:
 

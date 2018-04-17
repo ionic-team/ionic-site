@@ -31,7 +31,7 @@ access you your source code and Git versioning history.
 
 ## GitHub Integration
 
-If you are already using [GitHub](https://github.com/) you can [link your GitHub account with your Ionic Pro account](https://dashboard.ionicjs.com/settings/integrations).
+If you are already using [GitHub](https://github.com/) you can [link your GitHub account with your Ionic Pro account](https://dashboard.ionicframework.com/settings/integrations).
 In order to link your Ionic Pro app with GitHub you will need an [existing GitHub repository](https://help.github.com/articles/create-a-repo/).
 Once your account is linked and the GitHub repository exists you can link it to your Ionic app in the `Git` section of the app settings tab in your app on the Ionic Pro dashboard
 

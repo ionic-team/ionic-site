@@ -54,7 +54,7 @@ See the note about versions below, as keeping your Source Maps in sync with your
 
 #### Manually adding Source Maps
 
-To add a Source Map manually, navigate to your app on the [https://dashboard.ionicjs.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
+To add a Source Map manually, navigate to your app on the [https://dashboard.ionicframework.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
 then click "Source Maps" in the upper right.
 
 You can find your Source Maps after doing a dev or prod build in `YOUR_APP/.sourcemaps/`. Upload the `main.js.map` sourcemap for Angular/Ionic 2+, and any other sourcemaps that correspond to your code for other Ionic/Angular versions.

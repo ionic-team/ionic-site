@@ -25,3 +25,34 @@ Basic gestures can be accessed from HTML by binding to `tap`, `press`, `pan`, `s
   </ion-item>
 </ion-card>
 ```
+
+```html
+<ion-card (tap)="swipeEvent($event)">
+  <ion-item>
+    Swiped: {% raw %}{{swipe}}{% endraw %} times
+  </ion-item>
+</ion-card>
+```
+Example of the .ts code to capture the events:
+```html
+swipeEvent(e) {
+    if (e.direction == 2) {
+        //direction 2 = right to left swipe.
+    }
+}
+```
+
+<p>
+  Swipe directions include:
+     Value - Name
+  <ul>
+    <li>DIRECTION_NONE - 1</li>
+    <li>2 - DIRECTION_LEFT</li>
+    <li>4 - DIRECTION_RIGHT</li>
+    <li>8 - DIRECTION_UP </li>
+    <li>16 - DIRECTION_DOWN</li>
+    <li>6 - DIRECTION_HORIZONTAL</li>
+    <li>24 - DIRECTION_VERTICAL</li>
+    <li>30 - DIRECTION_ALL</li>
+  </ul>
+</p>

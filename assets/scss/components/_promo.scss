@@ -45,6 +45,17 @@
     }
   }
 
+  &--dark {
+    background-color: #112037;
+
+    h2 {
+      color: #fff;
+    }
+    p {
+      color: #a8b0be;
+    }
+  }
+
   &__illustration {
     width: 459px;
     position: absolute;

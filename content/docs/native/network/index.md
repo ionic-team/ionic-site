@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Network</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L11">
   Improve this doc
 </a>
 

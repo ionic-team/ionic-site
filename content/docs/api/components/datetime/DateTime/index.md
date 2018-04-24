@@ -469,6 +469,16 @@ the datetime picker&#39;s columns. See the <code>pickerFormat</code> input descr
 more info. Defaults to <code>MMM D, YYYY</code>.</p>
 </td>
     </tr>
+    
+    <tr>
+      <td>initialValue</td>
+      <td><code>string</code></td>
+      <td><p> The default datetime selected in picker modal if field value is empty.
+     Value must be a date string following the
+     [ISO 8601 datetime format standard](https://www.w3.org/TR/NOTE-datetime),
+     <code>1996-12-19</code>.</p>
+</td>
+    </tr>
 
     <tr>
       <td>doneText</td>

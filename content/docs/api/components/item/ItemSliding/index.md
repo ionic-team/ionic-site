@@ -117,9 +117,9 @@ to the left of the text by setting <code>icon-start</code> as an attribute on th
 <p>Options can be expanded to take up the full width of the item if you swipe past
 a certain point. This can be combined with the <code>ionSwipe</code> event to call methods
 on the class.</p>
-<pre><code class="lang-html">&lt;ion-item-sliding (ionSwipe)=&quot;delete(item)&quot;&gt;
+<pre><code class="lang-html">&lt;ion-item-sliding &gt;
   &lt;ion-item&gt;Item&lt;/ion-item&gt;
-  &lt;ion-item-options&gt;
+  &lt;ion-item-options (ionSwipe)=&quot;delete(item)&quot; &gt;
     &lt;button ion-button expandable (click)=&quot;delete(item)&quot;&gt;Delete&lt;/button&gt;
   &lt;/ion-item-options&gt;
 &lt;/ion-item-sliding&gt;

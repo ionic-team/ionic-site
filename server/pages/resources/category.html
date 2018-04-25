@@ -1,0 +1,77 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'resource-center' %}
+{% import "_includes/macros.html" as macros %}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+
+<div class="banner">
+  <div class="container">
+    <hgroup>
+      <h1 class="f-1">Resource Center</h1>
+      <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
+    </hgroup>
+
+    <div class="card-list card-list--third transitionHero">
+    {% for r in resources.resources[currentCategory].slice(0, 3) %}
+      <div class="card">
+        {{ macros.resource(r) }}
+      </div>
+    {% endfor %}
+    </div>
+
+    <ul class="tabs">
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources', 'featured', 'Featured', currentCategory) }}
+      </li>
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources/articles', 'articles', 'Articles', currentCategory) }}
+      </li>
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources/case-studies', 'case-studies', 'Case Studies', currentCategory) }}
+      </li>
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources/webinars', 'webinars', 'Webinars', currentCategory) }}
+      </li>
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources/videos', 'videos', 'Videos', currentCategory) }}
+      </li>
+      <li class="tabs__item">
+        {{ macros.routeLink('/resources/presentations', 'presentations', 'Presentations', currentCategory) }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="transitionBody">
+    <section class="resource-list">
+        <div class="card-list card-list--quarter">
+        {% for r in resources.resources[currentCategory].slice(3) %}
+          <div class="card">
+            {{ macros.resource(r) }}
+          </div>
+        {% endfor %}
+        </div>
+    </section>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
+<script>
+
+  // enable sticky nav
+  stickyNav.init();
+
+  // enable page transitions
+  pjx.init();
+
+</script>
+{% endblock %}

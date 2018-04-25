@@ -1,5 +1,18 @@
+{% macro resource(e) %}
+<a href="{{ e.url }}" target="_blank">
+  <h4>{{ e.title }}</h4>
+</a>
+{% endmacro %}
+
+{% macro routeLink(path, slug, name, currentRoute) %}
+<a href="{{ path }}"
+  class="pjxLink {% if currentRoute === slug %} active{% endif %}">
+  {{ name }}
+</a>
+{% endmacro %}
+
 {% macro employee(e) %}
-<a class="employee" href="https://twitter.com/{{ e.twitter }}" target="_blank">
+<a class="employee" href="https://twitter.com/{{ e.twitter }}">
   <div class="avatar" style="background-position: center -{{ e.spritePosition }}px">
   </div>
   <hgroup>

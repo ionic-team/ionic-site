@@ -7,39 +7,25 @@
 
 <div class="banner">
   <div class="container">
-    <hgroup>
-      <h1>Resource Center</h1>
-      <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
-    </hgroup>
-
-    <div class="card-list card-list--third transitionHero">
-    {% for r in resources.heroFeatured %}
-      <div class="card">
-        {{ macros.resource(r) }}
-      </div>
-    {% endfor %}
+    <div class="transitionTitle">
+      <hgroup>
+        <h1>Resource Center</h1>
+        <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
+      </hgroup>
     </div>
 
-    <ul class="tabs">
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources', 'featured', 'Featured', currentCategory) }}
-      </li>
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources/articles', 'articles', 'Articles', currentCategory) }}
-      </li>
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources/case-studies', 'case-studies', 'Case Studies', currentCategory) }}
-      </li>
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources/webinars', 'webinars', 'Webinars', currentCategory) }}
-      </li>
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources/videos', 'videos', 'Videos', currentCategory) }}
-      </li>
-      <li class="tabs__item">
-        {{ macros.routeLink('/resources/presentations', 'presentations', 'Presentations', currentCategory) }}
-      </li>
-    </ul>
+    <div class="hero-content">
+      <div class="card-list card-list--third transitionHero">
+      {% for r in resources.heroFeatured %}
+        <div class="card card--large">
+          {{ macros.resource(r, true) }}
+        </div>
+      {% endfor %}
+      </div>
+
+      {{ macros.resourcesTabs(currentCategory) }}
+
+    </div>
   </div>
 </div>
 
@@ -47,7 +33,10 @@
 
   <div class="transitionBody">
     <section class="resource-list">
-      <h4>Featured Articles</h4>
+      <div class="resource-list__header">
+        <h4>Featured Articles</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/articles">See all</a>
+      </div>
       <div class="card-list card-list--quarter">
       {% for r in resources.sectionFeatured['articles'] %}
         <div class="card">
@@ -58,7 +47,10 @@
     </section>
 
     <section class="resource-list">
-      <h4>Featured Case Studies</h4>
+      <div class="resource-list__header">
+        <h4>Featured Case Studies</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/case-studies">See all</a>
+      </div>
       <div class="card-list card-list--quarter">
       {% for r in resources.sectionFeatured['case-studies'] %}
         <div class="card">
@@ -69,7 +61,10 @@
     </section>
 
     <section class="resource-list">
-      <h4>Featured Webinars</h4>
+      <div class="resource-list__header">
+        <h4>Featured Webinars</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/webinars">See all</a>
+      </div>
       <div class="card-list card-list--quarter">
       {% for r in resources.sectionFeatured['webinars'] %}
         <div class="card">
@@ -80,7 +75,10 @@
     </section>
 
     <section class="resource-list">
-      <h4>Featured Videos</h4>
+      <div class="resource-list__header">
+        <h4>Featured Videos</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/videos">See all</a>
+      </div>
       <div class="card-list card-list--quarter">
       {% for r in resources.sectionFeatured['videos'] %}
         <div class="card">
@@ -91,7 +89,10 @@
     </section>
 
     <section class="resource-list">
-      <h4>Featured Presentations</h4>
+      <div class="resource-list__header">
+        <h4>Featured Presentations</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/presentations">See all</a>
+      </div>
       <div class="card-list card-list--quarter">
       {% for r in resources.sectionFeatured['presentations'] %}
         <div class="card">
@@ -113,12 +114,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
+  (function(){  
+    // enable sticky nav
+    stickyNav.init();
 
-  // enable sticky nav
-  stickyNav.init();
+    // enable page transitions
+    pjx.init();
 
-  // enable page transitions
-  pjx.init();
+    window.addEventListener('click', function(ev) {
+      if (ev.target.matches('.scrollTopLink')) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    });
 
+    var tabs = document.querySelector('.tabs');
+    ['scroll','touchmove'].forEach( function(evt) {
+      tabs.addEventListener(evt, function () {
+        tabs.parentElement.classList.remove('tabs__scroll--hint')
+      });
+    });
+  })()
 </script>
 {% endblock %}

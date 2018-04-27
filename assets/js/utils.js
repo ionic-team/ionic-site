@@ -338,70 +338,77 @@ window.initAnimation = function(el, ctx, _options) {
 
 window.pjx = {
   isAnimating: false,
-  links: null,
+  navLinks: null,
 
   init: function() {
     var self = this;
-    this.links = document.querySelectorAll('.pjxLink');
+    this.navLinks = document.querySelectorAll('.pjxNavLink');
 
-    this.each(function(el){
-      el.addEventListener('click', self.handleClick.bind(self))
-    })
+    var delegatorID = '#page-resource-center';
+    document.querySelector(delegatorID).addEventListener('click', function(ev){
+      var el = ev.target;
+      while (el && !el.matches('a.pjxLink')) {
+        el = el.parentNode;
+        if (el.matches(delegatorID)) return;
+      }
+      ev.preventDefault();
+      self.handleClick(el);
+    });
 
     window.onpopstate = this.handlePopState.bind(this);
   },
 
   each: function(fn) {
-    for (i = 0; i < this.links.length; i++) {
-      fn(this.links[i], i);
+    for (i = 0; i < this.navLinks.length; i++) {
+      fn(this.navLinks[i], i);
     }
   },
 
-  handleClick: function(ev) {
-    ev.preventDefault();
+  handleClick: function(el) {
     if (this.isAnimating) return;
-
-    this.each(function(el) {
-      if (el.classList.contains('active')) {
-        transitionDirection = (el.offsetLeft < ev.target.offsetLeft) ? 1 : -1;
-      }
-      el.classList.remove('active');
-    });
-    ev.target.classList.add('active');
-
-    this.handleTransition(ev.target.href, transitionDirection, true)
+    this.handleTransition(el.href, true)
   },
 
   handlePopState: function(ev) {
+    if (this.isAnimating) {
+      ev.preventDefault();
+      return;
+    }
     var direction = ev.state ? ev.state.direction : 1;
-
-    this.handleTransition(document.location.href, direction, false);
-
-    this.each(function(el) {
-      el.classList.remove('active');
-      if (el.href === document.location.href) {
-        el.classList.add('active');
-      }
-    });
+    this.handleTransition(document.location.href, false);
   },
 
-  handleTransition: function (url, direction, doPushState) {
+  handleTransition: function (url, doPushState) {
+
     var self = this;
     var urlSplit = url.split('/')
-    var slug ='/resources/' + (urlSplit[urlSplit.indexOf('resources') + 1] ? urlSplit[urlSplit.indexOf('resources') + 1] : '');
+    var slug ='/resources' + (urlSplit[urlSplit.indexOf('resources') + 1] ?  '/' + urlSplit[urlSplit.indexOf('resources') + 1] : '');
+
+    this.each(function(el) {
+      el.parentElement.classList.remove('active');
+      if (el.href === url) {
+        el.parentElement.classList.add('active');
+      }
+    });
 
     this.fetchContent(url , function(content){
-      if (doPushState) self.updateHistory(slug, direction);
-      self.transition(content, direction);
+      if (doPushState) self.updateHistory(slug);
+      self.transition(content);
     });
   },
 
-  transition: function(content, direction) {
+  transition: function(content) {
     this.isAnimating = true;
 
     var self = this;
     var parser = new DOMParser();
     var nextDoc = parser.parseFromString(content, "text/html");
+
+    var nextTitleGroup = nextDoc.querySelector('.transitionTitle hgroup');
+    var currTitleGroup = document.querySelector('.transitionTitle hgroup');
+    var currTitle = currTitleGroup.parentElement;
+    currTitle.appendChild(nextTitleGroup);
+    currTitle.removeChild(currTitleGroup);
 
     var nextHeroCardLinks = nextDoc.querySelectorAll('.transitionHero .card a');
     var currHeroCardLinks = document.querySelectorAll('.transitionHero .card a');
@@ -414,19 +421,19 @@ window.pjx = {
 
         TweenLite.set(nextLink, {
           alpha: 0,
-          x: 10 * direction
+          y: -10
         });
         TweenLite.to(nextLink, 0.8, {
           alpha: 1,
-          x: 0,
+          y: 0,
           ease: Expo.easeOut,
-          delay: (i * 0.1) + 0.1 + 0.15
+          delay: (i * 0.1) + 0.1
         });
         TweenLite.to(currLink, 0.4, {
           alpha: 0,
-          x: -10 * direction,
+          y: 10,
           ease: Expo.easeOut,
-          delay: (i * 0.1) + 0.15,
+          delay: (i * 0.1) ,
           onComplete: function() {
             card.removeChild(currLink);
           }
@@ -439,20 +446,20 @@ window.pjx = {
     var currBodyCards = document.querySelector('.transitionBody' );
     var currBody = currBodyCards.parentElement;
     TweenLite.to(currBodyCards, 0.3, {
-      y: 5,
+      y: 10,
       opacity: 0,
       onComplete: function () {
         currBody.removeChild(currBodyCards)
         currBody.appendChild(nextBodyCards)
         TweenLite.set(nextBodyCards, {
           opacity: 0,
-          y: 10
+          y: -10
         })
         TweenLite.to(nextBodyCards, 0.6, {
           opacity: 1,
           y: 0,
           ease: Expo.easeOut,
-          delay: 0.3,
+          delay: 0.125,
           onComplete: function () {
             self.isAnimating = false;
           }
@@ -461,10 +468,8 @@ window.pjx = {
     });
   },
 
-  updateHistory: function(slug, direction) {
-    history.pushState({
-      direction: -direction
-    }, '', slug);
+  updateHistory: function(slug) {
+    history.pushState({}, '', slug);
   },
 
   fetchContent: function(url, callback) {

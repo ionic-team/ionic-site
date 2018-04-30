@@ -17,8 +17,10 @@
     <div class="hero-content">
       <div class="card-list card-list--third transitionHero">
       {% for r in resources.resources[currentCategory].items.slice(0, 3) %}
-        <div class="card card--large">
+        <div class="card card-large">
+          <div class="card__inner">
           {{ macros.resource(r, true) }}
+          </div>
         </div>
       {% endfor %}
       </div>
@@ -38,7 +40,9 @@
         <div class="card-list card-list--quarter">
         {% for r in resources.resources[currentCategory].items.slice(3) %}
           <div class="card">
+            <div class="card__inner">
             {{ macros.resource(r) }}
+            </div>
           </div>
         {% endfor %}
         </div>
@@ -59,24 +63,24 @@
     // enable sticky nav
     stickyNav.init();
 
-    // // enable page transitions
-    // pjx.init();
-    //
-    // window.addEventListener('click', function(ev) {
-    //   if (ev.target.matches('.scrollTopLink')) {
-    //     window.scrollTo({
-    //       top: 0,
-    //       behavior: "smooth"
-    //     });
-    //   }
-    // });
-    //
-    // var tabs = document.querySelector('.tabs');
-    // ['scroll','touchmove'].forEach( function(evt) {
-    //   tabs.addEventListener(evt, function () {
-    //     tabs.parentElement.classList.remove('tabs__scroll--hint')
-    //   });
-    // });
+    // enable page transitions
+    pjx.init();
+
+    window.addEventListener('click', function(ev) {
+      if (ev.target.matches('.scrollTopLink')) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    });
+
+    var tabs = document.querySelector('.tabs');
+    ['scroll','touchmove'].forEach( function(evt) {
+      tabs.addEventListener(evt, function () {
+        tabs.parentElement.classList.remove('hint')
+      });
+    });
   })()
 </script>
 {% endblock %}

@@ -79,7 +79,7 @@
       font-size: 18px;
       font-weight: 700;
       color: #24282e;
-      margin-bottom: 20px;
+      margin-bottom: 4px;
     }
 
     a {
@@ -141,13 +141,6 @@
     }
   }
 
-  .tabs__scroll--hint {
-    &:before,
-    &:after {
-      opacity: 1;
-    }
-  }
-
   .tabs {
     width: 100%;
     max-width: 900px;
@@ -164,6 +157,11 @@
       justify-content: space-between;
       min-width: 560px;
     }
+  }
+
+  .tabs__scroll.hint:before,
+  .tabs__scroll.hint:after {
+    opacity: 1;
   }
 
   .tabs__item {
@@ -243,47 +241,66 @@
   }
 
   .card-list {
-    display: -ms-grid;
-    display: grid;
-    grid-auto-rows: minmax(240px, auto);
-    grid-gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .card {
+    padding: 16px;
   }
 
-  .card-list--third {
-    grid-template-columns: repeat(3, 1fr);
+  .card-list--third .card {
+    width: 33.33%;
   }
 
-  .card-list--quarter {
-    grid-template-columns: repeat(4, 1fr);
+  .card-list--quarter .card {
+    width: 25%;
   }
 
   @media (max-width: $screen-md-min) {
     .card-list {
-      grid-gap: 24px;
+      margin-left: -12px;
+      margin-right: -12px;
     }
-    .card-list--third {
-      grid-template-columns: repeat(1, 1fr);
+    .card {
+      padding: 12px;
     }
-    .card-list--quarter {
-      grid-template-columns: repeat(2, 1fr);
+    .card-list--third .card {
+      width: 100%;
+    }
+    .card-list--quarter .card {
+      width: 50%;
     }
   }
 
   @media (max-width: $screen-sm-min) {
     .card-list {
-      grid-gap: 16px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+    .card {
+      padding: 8px;
     }
   }
 
   @media (max-width: 500px) {
     .card-list--quarter {
-      grid-template-columns: repeat(1, 1fr);
+      .card {
+        width: 100%;
+      }
     }
+  }
+
+  .card__inner {
+    position: relative;
+    height: 100%;
   }
 
   .card {
     position: relative;
     transition: transform 0.3s;
+    height: 272px;
 
     a {
       transition: box-shadow 0.4s;
@@ -341,7 +358,7 @@
     }
   }
 
-  .card--large {
+  .card-large {
     a {
       h4 {
         font-size: 24px;

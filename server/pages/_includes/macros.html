@@ -60,7 +60,7 @@
               <polygon class="highlight"  points="13.5 10 8 14.5 8 5.5"></polygon>
             </g>
           </svg>
-          <span>Videos</span> 
+          <span>Videos</span>
        </a>
       </li>
 
@@ -89,7 +89,7 @@
 {% endmacro %}
 
 {% macro resource(e, isLarge) %}
-<a href="{{ e.url }}" target="_blank" style="background-color: {{ e.bgColor }};">
+<a href="{{ e.url }}" target="_blank" style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %} background-color: {{ e.bgColor }};">
   <div>
     <span class="eyebrow">{{ e.type }}</span>
     <h4>{{ e.title }}</h4>

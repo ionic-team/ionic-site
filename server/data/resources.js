@@ -3,11 +3,11 @@ const heroFeatured = [
     category: "articles",
     id: 1
   }, {
-    category: "articles",
-    id: 2
-  }, {
     category: "case-studies",
     id: 1
+  }, {
+    category: "articles",
+    id: 2
   }
 ];
 
@@ -20,26 +20,35 @@ const resources = {
         "id": 1,
         "type": "Article",
         "title": "Hybrid Vs. Native ebook",
-        "url": "https://ionicframework.com/articles/pwa-architects-guide",
-        "action": "Read"
+        "url": "https://ionicframework.com/books/hybrid-vs-native",
+
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-hybrid-native.jpg",
+        "bgColor": "#3b69f1"
       }, {
         "id": 2,
         "type": "Article",
         "title": "PWA Architects Guide",
-        "url": "https://ionicframework.com/books/hybrid-vs-native",
-        "action": "Read"
+        "url": "https://ionicframework.com/articles/pwa-architects-guide",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-pwa-guide.jpg",
+        "bgColor": "#4ebff3"
       }, {
         "id": 3,
         "type": "Article",
         "title": "The Mobile Delivery Gap",
         "url": "https://blog.ionicframework.com/the-mobile-delivery-gap/",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-mobile-gap.jpg",
+        "bgColor": "#56d995"
       }, {
         "id": 4,
         "type": "Article",
         "title": "2017 Developer Survey",
         "url": "https://ionicframework.com/survey/2017",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionic-survey.jpg",
+        "bgColor": "#5a6eb9"
       }, {
         "id": 5,
         "type": "Article",
@@ -106,31 +115,41 @@ const resources = {
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
         "url": "https://ionicframework.com/case-studies/MarketWatch.pdf",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
+        "bgColor": "#000000"
       }, {
         "id": 2,
         "type": "Case Study",
         "title": "Napa Group speeds up development",
         "url": "https://ionicframework.com/files/NapaGroup_CS_05.pdf",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-napa.jpg",
+        "bgColor": "#7479e4"
       }, {
         "id": 3,
         "type": "Case Study",
         "title": "Airbus takes to the skies with Ionic",
         "url": "https://ionicframework.com/files/Airbus_Case_Study.pdf",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-airbus-helicopter.jpg",
+        "bgColor": "#4466d6"
       }, {
         "id": 4,
         "type": "Case Study",
-        "title": "SworKit lorem ipsum dolor",
+        "title": "Sworkit goes cross platform with Ionic",
         "url": "https://ionicframework.com/case-studies/Sworkit.pdf",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-sworkit.jpg",
+        "bgColor": "#fbb363"
       }, {
         "id": 5,
         "type": "Case Study",
-        "title": "Lorem ipsum",
+        "title": "Natural Cycles all-in on cross-platform",
         "url": "#",
-        "action": "Read"
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-natural-cycles.jpg",
+        "bgColor": "#f8926b"
       }, {
         "id": 6,
         "type": "Case Study",
@@ -189,27 +208,35 @@ const resources = {
       {
         "id": 1,
         "type": "Webinar",
-        "title": "Development & Testing On-Device with Ionic DevApp and View",
+        "title": "Device testing with DevApp and View",
         "url": "https://www.youtube.com/watch?v=7jTQYF5qE98",
-        "action": "Listen"
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinar-device-testing.jpg",
+        "bgColor": "#f66b7b"
       }, {
         "id": 2,
         "type": "Webinar",
-        "title": "Continuous Deployment & Live Updates with Ionic Deploy",
+        "title": "Live app updates with Ionic Deploy",
         "url": "https://www.youtube.com/watch?v=I7PC3O4q1ug",
-        "action": "Listen"
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinar-deploy.jpg",
+        "bgColor": "#272d63"
       }, {
         "id": 3,
         "type": "Webinar",
-        "title": "PWA Overview",
+        "title": "Livestream overview of PWAs",
         "url": "https://www.youtube.com/watch?v=ooWIY_bnwKs",
-        "action": "Listen"
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinar-livestream-pwa.jpg",
+        "bgColor": "#3880ff"
       }, {
         "id": 4,
         "type": "Webinar",
-        "title": "Ionic Pro Live Demo",
+        "title": "Live demo of the Ionic Pro platform",
         "url": "https://cdn.livestorm.co/uploads/video/file/10951/d39abc95-7382-43b4-ba5d-75dbb5d97fde.mp4?v=1518086083",
-        "action": "Listen"
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinar-pro-overview.jpg",
+        "bgColor": "#667b9a"
       }, {
         "id": 5,
         "type": "Webinar",
@@ -359,27 +386,35 @@ const resources = {
       {
         "id": 1,
         "type": "Presentation",
-        "title": "Lorem ipsum",
-        "url": "#",
-        "action": "View"
+        "title": "Web Components in Ionic with Stencil",
+        "url": "https://www.youtube.com/watch?v=UfD-k7aHkQE",
+        "action": "View",
+        "bgImage": "/img/resource-center/presentation-ionic-stencil.jpg",
+        "bgColor": "#555d81"
       }, {
         "id": 2,
         "type": "Presentation",
-        "title": "Dolor sit amet",
-        "url": "#",
-        "action": "View"
+        "title": "High Performance Animations in Ionic",
+        "url": "https://www.youtube.com/watch?v=t_mo0QCbRG4",
+        "action": "View",
+        "bgImage": "/img/resource-center/presentation-performance-animations.jpg",
+        "bgColor": "#96d1f4"
       }, {
         "id": 3,
         "type": "Presentation",
-        "title": "Lorem ipsum",
-        "url": "#",
-        "action": "View"
+        "title": "Building an Ionic app with Firebase",
+        "url": "https://www.youtube.com/watch?v=I_73tsvj6OI",
+        "action": "View",
+        "bgImage": "/img/resource-center/presentation-ionic-firebase.jpg",
+        "bgColor": "#0099e7"
       }, {
         "id": 4,
         "type": "Presentation",
-        "title": "Dolor sit amet",
-        "url": "#",
-        "action": "View"
+        "title": "Building production PWAs with Ionic",
+        "url": "https://www.youtube.com/watch?v=aVZ_HyA6XjA",
+        "action": "View",
+        "bgImage": "/img/resource-center/presentation-production-pwas.jpg",
+        "bgColor": "#57db95"
       }, {
         "id": 5,
         "type": "Presentation",

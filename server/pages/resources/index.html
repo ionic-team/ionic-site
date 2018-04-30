@@ -114,28 +114,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
-  (function(){  
+  (function(){
     // enable sticky nav
     stickyNav.init();
 
-    // enable page transitions
-    pjx.init();
-
-    window.addEventListener('click', function(ev) {
-      if (ev.target.matches('.scrollTopLink')) {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
-    });
-
-    var tabs = document.querySelector('.tabs');
-    ['scroll','touchmove'].forEach( function(evt) {
-      tabs.addEventListener(evt, function () {
-        tabs.parentElement.classList.remove('tabs__scroll--hint')
-      });
-    });
+    // // enable page transitions
+    // pjx.init();
+    //
+    // window.addEventListener('click', function(ev) {
+    //   if (ev.target.matches('.scrollTopLink')) {
+    //     window.scrollTo({
+    //       top: 0,
+    //       behavior: "smooth"
+    //     });
+    //   }
+    // });
+    //
+    // var tabs = document.querySelector('.tabs');
+    // ['scroll','touchmove'].forEach( function(evt) {
+    //   tabs.addEventListener(evt, function () {
+    //     tabs.parentElement.classList.remove('tabs__scroll--hint')
+    //   });
+    // });
   })()
 </script>
 {% endblock %}

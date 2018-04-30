@@ -20,7 +20,7 @@ const resources = {
         "id": 1,
         "type": "Article",
         "title": "Hybrid Vs. Native ebook",
-        "url": "https://ionicframework.com/books/hybrid-vs-native",
+        "url": "/books/hybrid-vs-native",
 
         "action": "Read",
         "bgImage": "/img/resource-center/article-hybrid-native.jpg",
@@ -29,7 +29,7 @@ const resources = {
         "id": 2,
         "type": "Article",
         "title": "PWA Architects Guide",
-        "url": "https://ionicframework.com/articles/pwa-architects-guide",
+        "url": "/articles/pwa-architects-guide",
         "action": "Read",
         "bgImage": "/img/resource-center/article-pwa-guide.jpg",
         "bgColor": "#4ebff3"
@@ -45,7 +45,7 @@ const resources = {
         "id": 4,
         "type": "Article",
         "title": "2017 Developer Survey",
-        "url": "https://ionicframework.com/survey/2017",
+        "url": "/survey/2017",
         "action": "Read",
         "bgImage": "/img/resource-center/article-ionic-survey.jpg",
         "bgColor": "#5a6eb9"
@@ -114,7 +114,7 @@ const resources = {
         "id": 1,
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
-        "url": "https://ionicframework.com/case-studies/MarketWatch.pdf",
+        "url": "/case-studies/MarketWatch.pdf",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
         "bgColor": "#000000"
@@ -122,7 +122,7 @@ const resources = {
         "id": 2,
         "type": "Case Study",
         "title": "Napa Group speeds up development",
-        "url": "https://ionicframework.com/files/NapaGroup_CS_05.pdf",
+        "url": "/files/NapaGroup_CS_05.pdf",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-napa.jpg",
         "bgColor": "#7479e4"
@@ -130,7 +130,7 @@ const resources = {
         "id": 3,
         "type": "Case Study",
         "title": "Airbus takes to the skies with Ionic",
-        "url": "https://ionicframework.com/files/Airbus_Case_Study.pdf",
+        "url": "/files/Airbus_Case_Study.pdf",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-airbus-helicopter.jpg",
         "bgColor": "#4466d6"
@@ -138,7 +138,7 @@ const resources = {
         "id": 4,
         "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",
-        "url": "https://ionicframework.com/case-studies/Sworkit.pdf",
+        "url": "/case-studies/Sworkit.pdf",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sworkit.jpg",
         "bgColor": "#fbb363"

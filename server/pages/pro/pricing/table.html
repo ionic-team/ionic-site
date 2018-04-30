@@ -12,11 +12,118 @@
   </hgroup>
 </div>
 <main>
-  <div class="container container-wide">
+  <div class="container">
+
     <div class="toggle">
       <span class="active">Monthly billing</span>
       <span>Annual billing <b>15% off</b></span>
     </div>
+
+    <div class="plans">
+      <div class="group">
+        <h3>
+          Powerful tools &amp; services for individual <strong>developers.
+          </strong>
+        </h3>
+        <div class="plan-container">
+          <div class="plan starter">
+            <h3>Starter</h3>
+            <div class="price"><strong>$0</strong>/mo</div>
+            <div class="type">Solo license</div>
+            <ul class="features">
+              <li><strong>DevApp</strong> local device testing</li>
+              <li><strong>View App</strong> public sharing</li>
+              <li><strong>100</strong> Live Deploys</li>
+              <li><strong>Error</strong> monitoring</li>
+              <li><strong>7 day</strong> error history</li>
+              <li>Git-based workflow</li>
+              <li><strong>Single-channel</strong> live updating</li>
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+              class="btn sm btn-secondary" id="btn-pricing-starter">Try it now</a>
+          </div>
+          <div class="plan developer">
+            <h3>Developer</h3>
+            <div class="price" data-toggle="billing-dev"><strong>$29</strong>/mo</div>
+            <div class="type">Solo license</div>
+            <ul class="features">
+              <li class="plus">Everything in Starter +</li>
+              <li><strong>Creator</strong> rapid prototyping</li>
+              <li><strong>10,000</strong> Live Deploys</li>
+              <li><strong>View App</strong> private sharing</li>
+              <li ng-mouseover="dph = true" ng-mouseout="dph = false">
+                <strong>Package</strong> dev &amp; prod apps
+                <tippy ng-class="{active: dph}" pos="right">
+                  <p>
+                    <strong>Dev builds</strong> are native binaries created using
+                    a development code signing certificate, and cannot be
+                    submitted to App Stores. <strong>Production builds</strong>
+                    can be submitted to App Stores.
+                  </p>
+                </tippy>
+              </li>
+              <li><strong>Private</strong> View Feedback</li>
+              <li><strong>60 day</strong> error history</li>
+              <li><strong>Multi-channel</strong> live updating</li>
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
+               class="btn sm" id="btn-pricing-developer">Buy now</a>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Complete app building platform for <strong>teams &amp; orgs.</strong></h3>
+        <div class="plan-container">
+          <div class="plan team">
+            <div class="popular">Most Popular</div>
+            <h3>Team</h3>
+            <div class="price" data-toggle="billing-team"><strong>$49</strong>/mo/seat</div>
+            <div class="type">Per team member</div>
+            <ul class="features">
+              <li class="plus">Everything in Developer +</li>
+              <li><strong>Organization</strong> account</li>
+              <li><strong>25,000</strong> Live Deploys</li>
+              <li><strong>Team</strong> collaboration</li>
+              <li><strong>Activity</strong> feed</li>
+              <li><strong>90 day</strong> error history</li>
+              {# <li><strong>Ad Hoc App</strong> Package</li> #}
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
+               class="btn sm" id="btn-pricing-team">Buy now</a>
+          </div>
+          <div class="plan business">
+            <h3>Business</h3>
+            <div class="price"><strong>Contact us</strong></div>
+            <div class="type">For customized solutions</div>
+            <ul class="features">
+              <li class="plus">Everything in Team +</li>
+              <li><strong>Multiple</strong> teams</li>
+              <li>
+                <strong>50,000</strong> Live Deploys
+                <tippy ng-class="{active: biz}" pos="bottom">
+                  <p>
+                    Need more? <a href="/sales">Contact us</a> to customize a plan
+                    that scales to meet your needs.
+                  </p>
+                </tippy>
+              </li>
+              <li><strong>App-level</strong> permissions</li>
+              <li><strong>Live</strong> onboarding</li>
+              <li><strong>Long-term</strong> error history</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              {# <li><strong>Enterprise App</strong> Package</li> #}
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=business"
+               class="btn sm" id="btn-pricing-business">Buy now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-wide comparison">
+    <h3 class="text-center">Full plan comparison</h3>
     <div class="box">
       <div class="table-wrap">
         <table>
@@ -34,13 +141,13 @@
               </th>
               <th class="developer">
                 <h3>Developer</h3>
-                <div class="price" data-toggle="billing"><strong>$29</strong>/mo</div>
+                <div class="price" data-toggle="billing-dev"><strong>$29</strong>/mo</div>
                 <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
                   class="btn micro" id="btn-pricing-developer">Choose plan</a>
               </th>
               <th class="team">
                 <h3>Team</h3>
-                <div class="price" data-toggle="billing"><strong>$49</strong>/mo/seat</div>
+                <div class="price" data-toggle="billing-team"><strong>$49</strong>/mo/seat</div>
                 <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
                   class="btn micro" id="btn-pricing-team">Choose plan</a>
               </th>
@@ -476,9 +583,11 @@
     });
 
     function swapValues(vals) {
-      var $targets = $('[data-toggle="billing"]');
-      $targets.each(function(i, o){
-        $(o).html(vals[i]);
+      $('[data-toggle="billing-dev"]').each(function(i, o){
+        $(o).html(vals[0]);
+      });
+      $('[data-toggle="billing-team"]').each(function(i, o){
+        $(o).html(vals[1]);
       });
     }
 

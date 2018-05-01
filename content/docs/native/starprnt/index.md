@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">StarPRNT</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/star-prnt/index.ts#L489">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/star-prnt/index.ts#L621">
   Improve this doc
 </a>
 
@@ -38,7 +38,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ''
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-starprnt
 $ npm install --save @ionic-native/star-prnt
 </code></pre>
   </li>
@@ -58,7 +58,7 @@ $ npm install --save @ionic-native/star-prnt
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { StarPRNT } from &#39;@ionic-native/starprnt&#39;;
+<pre><code class="lang-typescript">import { StarPRNT } from &#39;@ionic-native/star-prnt&#39;;
 
 
 constructor(private starprnt: StarPRNT) { }
@@ -79,6 +79,24 @@ this.starprnt.portDiscovery(&#39;all&#39;)
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="Emulation" href="#Emulation"></a><code>Emulation</code></h3>
+
+Constant for Emulation
+
+
+
+<h3><a class="anchor" name="Encoding" href="#Encoding"></a><code>Encoding</code></h3>
+
+Constant for possible Encoding
+
+
+
+<h3><a class="anchor" name="CodePageType" href="#CodePageType"></a><code>CodePageType</code></h3>
+
+CodePageType constants
+
+
+
 <h3><a class="anchor" name="InternationalType" href="#InternationalType"></a><code>InternationalType</code></h3>
 
 Constant for possible InternationalType

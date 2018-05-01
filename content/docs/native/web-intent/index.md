@@ -355,7 +355,10 @@ Registers a broadcast receiver for the specified filters
   </tbody>
 </table>
 
-<h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
 
 
 

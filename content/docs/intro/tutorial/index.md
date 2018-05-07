@@ -44,7 +44,7 @@ Along with creating your project, this will also install [node
 modules](../../resources/what-is/#npm) for the application, and prompt you if
 you want [Cordova](../../resources/what-is/#cordova) set up.
 
-Along with the tutorial template, Ionic also provide the follow official
+Along with the tutorial template, Ionic also provides the following official
 templates:
 
 * `tabs` : a simple 3 tab layout

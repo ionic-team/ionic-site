@@ -32,7 +32,7 @@ constructor(private file: File) { }
 
 ...
 
-this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesn&#39;t exist&#39;));
+this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesn\&#39;t exist&#39;));
 </code></pre>
 <p> This plugin is based on several specs, including : The HTML5 File API http: //<a href="http://www.w3.org/TR/FileAPI/">www.w3.org/TR/FileAPI/</a>
  The (now-defunct) Directories and System extensions Latest: http: //<a href="http://www.w3.org/TR/2012/WD-file-system-api-20120417/">www.w3.org/TR/2012/WD-file-system-api-20120417/</a>

@@ -36,10 +36,10 @@ Go to firebase console and export google-services.json and GoogleService-Info.pl
 <p>Preferences GoogleIOSClientId and GoogleAndroidClientId are used to setup dynamic links when you have an app for several platforms.
 You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and google-services.json (key client[0].oauth_client[0].client_id).</p>
 <p>config.xml:</p>
-<pre><code class="lang-xml">&lt;platform name=&quot;android&quot;&gt;
+<pre><code class="lang-xml">&lt;platform name=&quot;ios&quot;&gt;
     &lt;preference name=&quot;GoogleIOSClientId&quot; value=&quot;...&quot; /&gt;
 &lt;/platform&gt;
-&lt;platform name=&quot;ios&quot;&gt;
+&lt;platform name=&quot;android&quot;&gt;
     &lt;preference name=&quot;GoogleAndroidClientId&quot; value=&quot;...&quot; /&gt;
 &lt;/platform&gt;
 </code></pre>

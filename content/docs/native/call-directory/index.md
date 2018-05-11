@@ -23,7 +23,7 @@ docType: "class"
 
 
 
-<p>This plugin can add phone numbers to an Callkit call directory extension. Call <code>reloadExtension</code> after using <code>addentIfication</code> and <code>removeIdentification</code>
+<p>This plugin can add phone numbers to an Callkit call directory extension. Call <code>reloadExtension</code> after using <code>addIdentification</code> and <code>removeIdentification</code>
 to process the changes in the call directory extension.</p>
 
 
@@ -62,12 +62,14 @@ $ npm install --save @ionic-native/call-directory
 
 constructor(private callDirectory: CallDirectory) { }
 
-...
-
 
 let items = [{label: &quot;Hello&quot;, number: &quot;123&quot;}];
 this.callDirectory.addIdentification(items)
   .then((res: any) =&gt; console.log(res))
+  .catch((error: any) =&gt; console.error(error));
+
+this.callDirectory.reloadExtension()
+  .then(res: string) =&gt; console.log(res))
   .catch((error: any) =&gt; console.error(error));
 </code></pre>
 

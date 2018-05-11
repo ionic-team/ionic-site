@@ -20,9 +20,13 @@ module.exports = function(req, res, next) {
   // redirect entire old sections
   var parts = url.parse(req.url);
 
+
   if (parts.path.indexOf('/blog') == 0) {
     return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
-  } else if (req.headers.host.indexOf('pwasftw.com') === 0) {
+  } else if (
+    req.headers.host.indexOf('pwasftw.com') !== -1 ||
+    (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
+  ) {
     return res.redirect(301, 'https://ionicframework.com/pwa');
   } else if (parts.path.indexOf('/creator/') == 0) {
     return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));

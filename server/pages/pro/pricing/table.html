@@ -12,11 +12,108 @@
   </hgroup>
 </div>
 <main>
-  <div class="container container-wide">
+  <div class="container">
+
     <div class="toggle">
       <span class="active">Monthly billing</span>
       <span>Annual billing <b>15% off</b></span>
     </div>
+
+    <div class="plans">
+      <div class="group">
+        <h3>
+          Powerful tools &amp; services for individual <strong>developers.
+          </strong>
+        </h3>
+        <div class="plan-container">
+          <div class="plan starter">
+            <h3>Starter</h3>
+            <div class="price"><strong>$0</strong>/mo</div>
+            <div class="type">Solo license</div>
+            <ul class="features">
+              <li><strong>DevApp</strong> local device testing</li>
+              <li><strong>View App</strong> public sharing</li>
+              <li><strong>100</strong> Live Updates</li>
+              <li><strong>Error</strong> monitoring</li>
+              <li><strong>7 day</strong> error history</li>
+              <li><strong>Github</strong> integration</li>
+              <li><strong>Single-channel</strong> live updating</li>
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+              class="btn sm btn-secondary" id="btn-pricing-starter">Try it now</a>
+          </div>
+          <div class="plan developer">
+            <h3>Developer</h3>
+            <div class="price" data-toggle="billing-dev"><strong>$29</strong>/mo</div>
+            <div class="type">Solo license</div>
+            <ul class="features">
+              <li class="plus">Everything in Starter +</li>
+              <li><strong>Creator</strong> rapid prototyping</li>
+              <li><strong>10,000</strong> Live Updates</li>
+              <li><strong>View App</strong> private sharing</li>
+              <li><strong>Package</strong> IPA &amp; APK binaries</li>
+              <li><strong>Private</strong> View Feedback</li>
+              <li><strong>60 day</strong> error history</li>
+              <li><strong>Multi-channel</strong> live updating</li>
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
+               class="btn sm" id="btn-pricing-developer">Buy now</a>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Complete app building platform for <strong>teams &amp; orgs.</strong></h3>
+        <div class="plan-container">
+          <div class="plan team">
+            <div class="popular">Most Popular</div>
+            <h3>Team</h3>
+            <div class="price" data-toggle="billing-team"><strong>$49</strong>/mo/seat</div>
+            <div class="type">Per team member</div>
+            <ul class="features">
+              <li class="plus">Everything in Developer +</li>
+              <li><strong>Organization</strong> account</li>
+              <li><strong>25,000</strong> Live Updates</li>
+              <li><strong>Team</strong> collaboration</li>
+              <li><strong>Activity</strong> feed</li>
+              <li><strong>90 day</strong> error history</li>
+              {# <li><strong>Ad Hoc App</strong> Package</li> #}
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
+               class="btn sm" id="btn-pricing-team">Buy now</a>
+          </div>
+          <div class="plan business">
+            <h3>Enterprise</h3>
+            <div class="price"><strong>Contact us</strong></div>
+            <div class="type">For customized solutions</div>
+            <ul class="features">
+              <li class="plus">Everything in Team +</li>
+              <li><strong>Multiple</strong> teams</li>
+              <li>
+                <strong>Custom</strong> Live Updates
+                <tippy ng-class="{active: biz}" pos="bottom">
+                  <p>
+                    <a href="/sales">Contact us</a> to customize a plan
+                    that scales to meet your needs.
+                  </p>
+                </tippy>
+              </li>
+              <li><strong>App-level</strong> permissions</li>
+              <li><strong>Live</strong> onboarding</li>
+              <li><strong>Long-term</strong> error history</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              {# <li><strong>Enterprise App</strong> Package</li> #}
+            </ul>
+            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=business"
+               class="btn sm" id="btn-pricing-business">Buy now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-wide comparison">
+    <h3 class="text-center">Full plan comparison</h3>
     <div class="box">
       <div class="table-wrap">
         <table>
@@ -34,13 +131,13 @@
               </th>
               <th class="developer">
                 <h3>Developer</h3>
-                <div class="price" data-toggle="billing"><strong>$29</strong>/mo</div>
+                <div class="price" data-toggle="billing-dev"><strong>$29</strong>/mo</div>
                 <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
                   class="btn micro" id="btn-pricing-developer">Choose plan</a>
               </th>
               <th class="team">
                 <h3>Team</h3>
-                <div class="price" data-toggle="billing"><strong>$49</strong>/mo/seat</div>
+                <div class="price" data-toggle="billing-team"><strong>$49</strong>/mo/seat</div>
                 <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
                   class="btn micro" id="btn-pricing-team">Choose plan</a>
               </th>
@@ -61,7 +158,7 @@
             </tr>
             <tr class="stripe">
               <th>
-                <strong>Rapid app prototyping with <b>Creator</b></strong>
+                <strong>Rapid app prototyping with <b><a href="/pro/creator">Creator</a></b></strong>
               </th>
               <td><span class="dash"></span></td>
               <td><span class="check"></span></td>
@@ -84,7 +181,7 @@
             </tr>
             <tr>
               <th>
-                <strong>Public sharing with <b>View</b></strong>
+                <strong>Public sharing with <b><a href="/pro/view">View</a></b></strong>
               </th>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
@@ -93,7 +190,7 @@
             </tr>
             <tr class="stripe">
               <th>
-                <strong>Private sharing with <b>View</b></strong>
+                <strong>Private sharing with <b><a href="/pro/view">View</a></b></strong>
               </th>
               <td><span class="dash"></span></td>
               <td><span class="check"></span></td>
@@ -116,7 +213,7 @@
             </tr>
             <tr>
               <th>
-                <strong>Live updates with Deploy</strong>
+                <strong>Live updates with <b><a href="/pro/deploy">Deploy</a></b></strong>
               </th>
               <td>100 / mo</td>
               <td>10,000 / mo</td>
@@ -138,7 +235,7 @@
             </tr>
             <tr class="stripe">
               <th>
-                <strong>Native builds with Package</strong>
+                <strong>Native builds with <b><a href="/pro/package">Package</a></b></strong>
               </th>
               <td><span class="dash"></span></td>
               <td>20 / mo</td>
@@ -165,7 +262,7 @@
             </tr>
             <tr>
               <th>
-                <strong>iOS   Enterprise Builds</strong>
+                <strong>iOS Enterprise Builds</strong>
               </th>
               <td><span class="dash"></span></td>
               <td><span class="dash"></span></td>
@@ -179,7 +276,7 @@
             </tr>
             <tr class="stripe">
               <th>
-                <strong>Error reporting with <b>Monitor</b></strong>
+                <strong>Error reporting with <b><a href="/pro/monitor">Monitor</a></b></strong>
               </th>
               <td>Up to 10 devices</td>
               <td>Up to 2,500 devices</td>
@@ -338,7 +435,21 @@
     <li class="item">
       <h4>What is a live deploy?</h4>
       <p>
-        Using the Ionic Deploy service allows you to push hot code updates directly to your users’ devices, all from the Ionic Pro dashboard, without having to go through the App Stores. A single Live Deploy is one code update to one device. If you send one update to 200 devices, that counts as 200 Live Deploys. If you send two updates to 200 devices, that counts as 400 Live Deploys. The Deploy limits associated with each plan are monthly. Your quota will refresh at the beginning of each calendar month. If you exceed your quota for a given month, you will have to upgrade to a higher plan, or wait until the next calendar month to send more updates. If you need more than 50,000 Live Deploys (our highest self-service plan limit associated with the Business tier), contact our <a href="/sales">sales team</a> for an Enterprise plan that will scale to meet your needs.
+        Using the Ionic Deploy service allows you to push hot code updates
+        directly to your users’ devices, all from the Ionic Pro dashboard,
+        without having to go through the App Stores. A single Live Deploy is one
+        code update to one device. If you send one update to 200 devices, that
+        counts as 200 Live Deploys. If you send two updates to 200 devices, that
+        counts as 400 Live Deploys. The Deploy limits associated with each plan
+        are monthly. Your quota will refresh at the beginning of each calendar
+        month. If you exceed your quota for a given month, you will have to
+        upgrade to a higher plan, or wait until the next calendar month to send
+        more updates. If you need more than 50,000 Live Deploys (our highest
+        self-service plan limit associated with the Business tier), contact our
+        <a href="/sales">sales team</a> for an Enterprise plan that will scale
+        to meet your needs. <a target="_blank"
+        href="https://ionic.zendesk.com/hc/en-us/articles/360001657093">Learn
+        more about Deploy Support.</a>
       </p>
     </li>
     <li class="item">
@@ -462,9 +573,11 @@
     });
 
     function swapValues(vals) {
-      var $targets = $('[data-toggle="billing"]');
-      $targets.each(function(i, o){
-        $(o).html(vals[i]);
+      $('[data-toggle="billing-dev"]').each(function(i, o){
+        $(o).html(vals[0]);
+      });
+      $('[data-toggle="billing-team"]').each(function(i, o){
+        $(o).html(vals[1]);
       });
     }
 

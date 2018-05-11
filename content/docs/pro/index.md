@@ -10,9 +10,6 @@ dark_header: true
 
 # Welcome to Ionic Pro
 
-Page Data
-{{ page.body_class }}
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZB5lQTP987s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Ionic Pro is a powerful set of services and features built on top of the flagship Ionic Framework that brings a totally new level of app development agility to mobile dev teams.

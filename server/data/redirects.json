@@ -33,6 +33,7 @@
   "/docs/native/filechooser": "/docs/native/file-chooser",
   "/docs/native/fileopener": "/docs/native/file-opener",
   "/docs/native/filepath": "/docs/native/file-path",
+  "/docs/native/google-maps": "https://github.com/ionic-team/ionic-native-google-maps/blob/master/documents/README.md",
   "/docs/native/headercolor": "/docs/native/header-color",
   "/docs/native/ibeacon/LocationManager": "/docs/native/ibeacon",
   "/docs/native/imageresizer": "/docs/native/image-resizer",

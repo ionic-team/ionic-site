@@ -2,22 +2,26 @@
 {% set id = 'resource-center' %}
 {% import "_includes/macros.html" as macros %}
 {% set header_style = 'transparent light' %}
-{% set name = 'Resource Center - Ionic Framework' %}
+{% set title = 'Resource Center - Ionic Framework' %}
 
 {% block main %}
 
 <div class="banner">
   <div class="container">
     <div class="transitionTitle">
-      <hgroup>
+      <!-- <hgroup>
         <h1 class="f-1">{{ resources.resources[currentCategory].title }}</h1>
         <p>{{ resources.resources[currentCategory].description }}</p>
+      </hgroup> -->
+      <hgroup>
+        <h1>Resource Center</h1>
+        <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
       </hgroup>
     </div>
 
     <div class="hero-content">
       <div class="card-list card-list--third transitionHero">
-      {% for r in resources.resources[currentCategory].items.slice(0, 3) %}
+      {% for r in resources.heroFeatured %}
         <div class="card card-large">
           <div class="card__inner">
           {{ macros.resource(r, true) }}
@@ -39,7 +43,7 @@
         <h4>Recent {{ resources.resources[currentCategory].title }}</h4>
       </div>
         <div class="card-list card-list--quarter">
-        {% for r in resources.resources[currentCategory].items.slice(3) %}
+        {% for r in resources.resources[currentCategory].items %}
           <div class="card">
             <div class="card__inner">
             {{ macros.resource(r) }}
@@ -60,28 +64,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
-  (function(){
-    // enable sticky nav
-    stickyNav.init();
+(function(){
+  // enable sticky nav
+  stickyNav.init();
 
-    // enable page transitions
-    pjx.init();
+  // enable page transitions
+  pjx.init();
 
-    window.addEventListener('click', function(ev) {
-      if (ev.target.matches('.scrollTopLink')) {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
+  var tabs = document.querySelector('.tabs');
+  ['scroll','touchmove'].forEach( function(evt) {
+    tabs.addEventListener(evt, function () {
+      tabs.parentElement.classList.remove('hint')
     });
+  });
 
-    var tabs = document.querySelector('.tabs');
-    ['scroll','touchmove'].forEach( function(evt) {
-      tabs.addEventListener(evt, function () {
-        tabs.parentElement.classList.remove('hint')
+  window.addEventListener('click', function(ev) {
+    if (ev.target.matches('.scrollTopLink')) {
+      var scrollTop = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
+      window.scrollTo({
+        top: tabs.getBoundingClientRect().top + window.scrollY - 80,
+        behavior: "smooth"
       });
-    });
-  })()
+    }
+  });
+
+})()
 </script>
 {% endblock %}

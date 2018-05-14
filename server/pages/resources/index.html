@@ -2,7 +2,7 @@
 {% set id = 'resource-center' %}
 {% import "_includes/macros.html" as macros %}
 {% set header_style = 'transparent light' %}
-{% set name = 'Resource Center - Ionic Framework' %}
+{% set title = 'Resource Center - Ionic Framework' %}
 
 {% block main %}
 
@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <section class="resource-list">
+    <!-- <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Presentations</h4>
         <a class="pjxLink scrollTopLink" href="/resources/presentations">See all</a>
@@ -113,7 +113,7 @@
         </div>
       {% endfor %}
       </div>
-    </section>
+    </section> -->
   </div>
 
 </section>
@@ -134,21 +134,23 @@
     // enable page transitions
     pjx.init();
 
+    var tabs = document.querySelector('.tabs');
+    ['scroll','touchmove'].forEach( function(evt) {
+      tabs.addEventListener(evt, function () {
+        tabs.parentElement.classList.remove('tabs__scroll--hint')
+      });
+    });
+
     window.addEventListener('click', function(ev) {
       if (ev.target.matches('.scrollTopLink')) {
+        var scrollTop = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
         window.scrollTo({
-          top: 0,
+          top: tabs.getBoundingClientRect().top + window.scrollY - 80,
           behavior: "smooth"
         });
       }
     });
 
-    var tabs = document.querySelector('.tabs');
-    ['scroll','touchmove'].forEach( function(evt) {
-      tabs.addEventListener(evt, function () {
-        tabs.parentElement.classList.remove('hint')
-      });
-    });
   })()
 </script>
 {% endblock %}

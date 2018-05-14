@@ -404,44 +404,6 @@ window.pjx = {
     var parser = new DOMParser();
     var nextDoc = parser.parseFromString(content, "text/html");
 
-    var nextTitleGroup = nextDoc.querySelector('.transitionTitle hgroup');
-    var currTitleGroup = document.querySelector('.transitionTitle hgroup');
-    var currTitle = currTitleGroup.parentElement;
-    currTitle.appendChild(nextTitleGroup);
-    currTitle.removeChild(currTitleGroup);
-
-    var nextHeroCardLinks = nextDoc.querySelectorAll('.transitionHero .card a');
-    var currHeroCardLinks = document.querySelectorAll('.transitionHero .card a');
-    for (var i = 0; i < currHeroCardLinks.length; i++) {
-      (function(){
-        var card = currHeroCardLinks[i].parentElement;
-        var currLink = currHeroCardLinks[i];
-        var nextLink = nextHeroCardLinks[i];
-        card.appendChild(nextLink);
-
-        TweenLite.set(nextLink, {
-          alpha: 0,
-          y: -10
-        });
-        TweenLite.to(nextLink, 0.8, {
-          alpha: 1,
-          y: 0,
-          ease: Expo.easeOut,
-          delay: (i * 0.1) + 0.1
-        });
-        TweenLite.to(currLink, 0.4, {
-          alpha: 0,
-          y: 10,
-          ease: Expo.easeOut,
-          delay: (i * 0.1) ,
-          onComplete: function() {
-            card.removeChild(currLink);
-          }
-        });
-
-      })();
-    }
-
     var nextBodyCards = nextDoc.querySelector('.transitionBody');
     var currBodyCards = document.querySelector('.transitionBody' );
     var currBody = currBodyCards.parentElement;
@@ -459,7 +421,7 @@ window.pjx = {
           opacity: 1,
           y: 0,
           ease: Expo.easeOut,
-          delay: 0.125,
+          // delay: 0.125,
           onComplete: function () {
             self.isAnimating = false;
           }

@@ -42,9 +42,9 @@
       .transitionTitle {
         margin-bottom: 40px;
       }
-      .hero-content {
-        flex-direction: column-reverse;
-      }
+      // .hero-content {
+      //   flex-direction: column-reverse;
+      // }
     }
 
     @media (max-width: $screen-sm-min) {
@@ -124,10 +124,11 @@
       &:before {
         font-family: 'Ionicons';
         content: '\f3d1';
-        font-size: 16px;
         font-size: 14px;
         color: #626c7d;
-        z-index: 2;
+        z-index: 3;
+        top: 50%;
+        transform: translateY(-60%);
       }
 
       &:after {
@@ -135,7 +136,7 @@
         display: block;
         width: 80px;
         height: 100%;
-        z-index: 1;
+        z-index: 2;
         background-image: linear-gradient(90deg, rgba(246,248,252,0.00) 0%, #F6F8FC 75%);
       }
     }
@@ -143,24 +144,28 @@
 
   .tabs {
     width: 100%;
-    max-width: 900px;
+    max-width: 780px;
     margin: 0 auto;
     overflow-x: auto;
     position: relative;
+    z-index: 1;
     -webkit-overflow-scrolling: touch;
 
     ul {
       margin: 0 auto;
       padding: 0;
+      padding-left: 40px;
+      padding-right: 40px;
       list-style-type: none;
       display: flex;
+      align-items: flex-end;
       justify-content: space-between;
       min-width: 560px;
     }
   }
 
-  .tabs__scroll.hint:before,
-  .tabs__scroll.hint:after {
+  .tabs__scroll--hint:before,
+  .tabs__scroll--hint:after {
     opacity: 1;
   }
 
@@ -189,6 +194,8 @@
     }
 
     svg {
+      width: 20px;
+      height: 20px;
       margin: 0 10px 0 0;
     }
     .highlight {
@@ -227,7 +234,7 @@
 
   @media (max-width: $screen-md-min) {
     .tabs ul {
-      margin-bottom: 40px;
+      // margin-bottom: 40px;
     }
     .tabs__item a {
       padding-bottom: 8px;

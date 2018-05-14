@@ -139,15 +139,17 @@ const resources = {
         "bgColor": "#f8926b"
       }, {
         "type": "Case Study",
-        "title": "Diesel brings their salesforce crm to mobile with Ionic",
+        "title": "Diesel brings their Salesforce CRM to mobile with Ionic",
         "url": "https://blog.ionicframework.com/built-with-ionic-diesel-mobile-app/",
         "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-diesel.jpg",
         "bgColor": "#131c2a"
       }, {
         "type": "Case Study",
         "title": "National Museum of African American History and Culture",
         "url": "https://blog.ionicframework.com/built-with-ionic-2-the-national-museum-of-african-american-history-and-culture-mobile-app/",
         "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-natlmuseumofaahistory.jpg",
         "bgColor": "#ffcf5a"
       }
     ]

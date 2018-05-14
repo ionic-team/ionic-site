@@ -335,3 +335,120 @@ window.initAnimation = function(el, ctx, _options) {
   window.addEventListener('scroll', function() { requestAnimationFrame(checkScroll) });
   window.addEventListener('resize', function() { requestAnimationFrame(checkViewport) });
 }
+
+window.pjx = {
+  isAnimating: false,
+  navLinks: null,
+
+  init: function() {
+    var self = this;
+    this.navLinks = document.querySelectorAll('.pjxNavLink');
+
+    var delegatorID = '#page-resource-center';
+    document.querySelector(delegatorID).addEventListener('click', function(ev){
+      var el = ev.target;
+      while (el && !el.matches('a.pjxLink')) {
+        el = el.parentNode;
+        if (el.matches(delegatorID)) return;
+      }
+      ev.preventDefault();
+      self.handleClick(el);
+    });
+
+    window.onpopstate = this.handlePopState.bind(this);
+  },
+
+  each: function(fn) {
+    for (i = 0; i < this.navLinks.length; i++) {
+      fn(this.navLinks[i], i);
+    }
+  },
+
+  handleClick: function(el) {
+    if (this.isAnimating) return;
+    this.handleTransition(el.href, true)
+  },
+
+  handlePopState: function(ev) {
+    if (this.isAnimating) {
+      ev.preventDefault();
+      return;
+    }
+    var direction = ev.state ? ev.state.direction : 1;
+    this.handleTransition(document.location.href, false);
+  },
+
+  handleTransition: function (url, doPushState) {
+
+    var self = this;
+    var urlSplit = url.split('/')
+    var slug ='/resources' + (urlSplit[urlSplit.indexOf('resources') + 1] ?  '/' + urlSplit[urlSplit.indexOf('resources') + 1] : '');
+
+    this.each(function(el) {
+      el.parentElement.classList.remove('active');
+      if (el.href === url) {
+        el.parentElement.classList.add('active');
+      }
+    });
+
+    this.fetchContent(url , function(content){
+      if (doPushState) self.updateHistory(slug);
+      self.transition(content);
+    });
+  },
+
+  transition: function(content) {
+    this.isAnimating = true;
+
+    var self = this;
+    var parser = new DOMParser();
+    var nextDoc = parser.parseFromString(content, "text/html");
+
+    var nextBodyCards = nextDoc.querySelector('.transitionBody');
+    var currBodyCards = document.querySelector('.transitionBody' );
+    var currBody = currBodyCards.parentElement;
+    TweenLite.to(currBodyCards, 0.3, {
+      y: 10,
+      opacity: 0,
+      onComplete: function () {
+        currBody.removeChild(currBodyCards)
+        currBody.appendChild(nextBodyCards)
+        TweenLite.set(nextBodyCards, {
+          opacity: 0,
+          y: -10
+        })
+        TweenLite.to(nextBodyCards, 0.6, {
+          opacity: 1,
+          y: 0,
+          ease: Expo.easeOut,
+          // delay: 0.125,
+          onComplete: function () {
+            self.isAnimating = false;
+          }
+        })
+      }
+    });
+  },
+
+  updateHistory: function(slug) {
+    history.pushState({}, '', slug);
+  },
+
+  fetchContent: function(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+        if (xmlhttp.status == 200) {
+          callback(xmlhttp.responseText);
+        }
+        else if (xmlhttp.status == 400) {
+          alert('There was an error 400');
+        }
+      }
+    };
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+}

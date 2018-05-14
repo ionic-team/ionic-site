@@ -1,4 +1,5 @@
 var employees       = require('./data/employees');
+var resources       = require('./data/resources');
 var frameworkInfo   = require('./data/framework-info');
 var redirects       = require('./data/redirects');
 var trustedPartners = require('./data/trusted-partners');
@@ -86,6 +87,7 @@ module.exports = function(req, res, next) {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
     employees: shuffle(employees),
+    resources: resources,
     followerCount: followerCount,
     pre_footer: true,
     protocol: protocol,

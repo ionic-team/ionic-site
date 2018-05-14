@@ -1,0 +1,156 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'resource-center' %}
+{% import "_includes/macros.html" as macros %}
+{% set header_style = 'transparent light' %}
+{% set title = 'Resource Center - Ionic Framework' %}
+
+{% block main %}
+
+<div class="banner">
+  <div class="container">
+    <div class="transitionTitle">
+      <hgroup>
+        <h1>Resource Center</h1>
+        <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
+      </hgroup>
+    </div>
+
+    <div class="hero-content">
+      <div class="card-list card-list--third transitionHero">
+      {% for r in resources.heroFeatured %}
+        <div class="card card-large">
+          <div class="card__inner">
+          {{ macros.resource(r, true) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+
+      {{ macros.resourcesTabs(currentCategory) }}
+
+    </div>
+  </div>
+</div>
+
+<section class="container">
+
+  <div class="transitionBody">
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <h4>Featured Articles</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/articles">See all</a>
+      </div>
+      <div class="card-list card-list--quarter">
+      {% for r in resources.sectionFeatured['articles'] %}
+        <div class="card">
+          <div class="card__inner">
+          {{ macros.resource(r) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <h4>Featured Case Studies</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/case-studies">See all</a>
+      </div>
+      <div class="card-list card-list--quarter">
+      {% for r in resources.sectionFeatured['case-studies'] %}
+        <div class="card">
+          <div class="card__inner">
+          {{ macros.resource(r) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <h4>Featured Webinars</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/webinars">See all</a>
+      </div>
+      <div class="card-list card-list--quarter">
+      {% for r in resources.sectionFeatured['webinars'] %}
+        <div class="card">
+          <div class="card__inner">
+          {{ macros.resource(r) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <h4>Featured Videos</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/videos">See all</a>
+      </div>
+      <div class="card-list card-list--quarter">
+      {% for r in resources.sectionFeatured['videos'] %}
+        <div class="card">
+          <div class="card__inner">
+          {{ macros.resource(r) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+
+    <!-- <section class="resource-list">
+      <div class="resource-list__header">
+        <h4>Featured Presentations</h4>
+        <a class="pjxLink scrollTopLink" href="/resources/presentations">See all</a>
+      </div>
+      <div class="card-list card-list--quarter">
+      {% for r in resources.sectionFeatured['presentations'] %}
+        <div class="card">
+          <div class="card__inner">
+          {{ macros.resource(r) }}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section> -->
+  </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
+<script>
+  (function(){
+    // enable sticky nav
+    stickyNav.init();
+
+    // enable page transitions
+    pjx.init();
+
+    var tabs = document.querySelector('.tabs');
+    ['scroll','touchmove'].forEach( function(evt) {
+      tabs.addEventListener(evt, function () {
+        tabs.parentElement.classList.remove('tabs__scroll--hint')
+      });
+    });
+
+    window.addEventListener('click', function(ev) {
+      if (ev.target.matches('.scrollTopLink')) {
+        var scrollTop = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
+        window.scrollTo({
+          top: tabs.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: "smooth"
+        });
+      }
+    });
+
+  })()
+</script>
+{% endblock %}

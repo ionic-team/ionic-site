@@ -67,11 +67,43 @@
     }
 
     .logos {
-      background-color: rgba(#040910, 0.4);
+      background-color: #212a36;
+      overflow:hidden;
       padding: 34px 0;
       width: 100%;
       flex: 1 0 auto;
       margin-top: 140px;
+      position: relative;
+
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+    }
+
+    .logos__bg {
+      width: 100%;
+      height: 100%;
+      border: 1px solid red;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: no-repeat center bottom url('/img/enterprise/cta-bg.jpg');
+      background-size: cover;
+      filter: url('#blur');
+      filter: blur(10px);
+      z-index: 1;
+
+      &:after {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.18);
+      }
     }
 
     @media (max-width: $screen-sm-min) {

@@ -30,6 +30,7 @@
       <div class="logo logo--bmw"></div>
       <div class="logo logo--ibm"></div>
     </div>
+    <div class="logos__bg"></div>
   </div>
 </div>
 
@@ -234,6 +235,11 @@
 </section>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;" >
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="10" />
+    </filter>
+  </defs>
   <symbol id="icon-book" viewBox="0 0 512 512"><path d="M146 64.1c54.1 0 100 27.9 100 82V446c0 2.2-3.1 2.7-3.8.7v-.1c-10.3-34.2-38.2-67.6-82.3-70.5-34.2-2.2-66.9 12.9-93.1 37.1-1.6 1.5-4.3 2.9-6.6 2.9h-4.5c-3.7 0-7.6-2.7-7.6-6.1V120.2C48 88.1 91.9 64.1 146 64.1zM366 64c-54.1 0-100 27.9-100 82v299.9c0 2.2 3.1 2.7 3.8.7v-.1c10.3-34.2 39.4-67.9 82.3-70.5 32.9-2 63.9 11 93.1 37.1 1.6 1.4 4.3 2.9 6.6 2.9h4.5c3.7 0 7.6-2.7 7.6-6.1V120c.1-32-43.8-56-97.9-56z"/></symbol>
   <symbol id="icon-arrow" viewBox="0 0 512 512"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"/></symbol>
 </svg>
@@ -269,6 +275,17 @@
         );
       })()
     }
+
+    // frosted blur for hero banner logos
+    var banner = document.querySelector('.banner');
+    var img = document.querySelector('.logos__bg');
+    function resizeImg () {
+      img.style.width = banner.scrollWidth + 'px';
+      img.style.height = banner.scrollHeight + 'px';
+    }
+    window.addEventListener('resize', resizeImg);
+    resizeImg();
+
 
     // testimonial slider
     var slideState = [];

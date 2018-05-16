@@ -213,7 +213,7 @@ const resources = {
         "url": "https://www.youtube.com/watch?v=cTHjJ5-e6YQ",
         "action": "Watch",
         "bgImage": "/img/resource-center/video-sworkit.jpg",
-        "bgColor": "#96d1f4"
+        "bgColor": "#12120f"
       }, {
         "type": "Video",
         "title": "Why we built Ionic Pro",
@@ -289,8 +289,6 @@ const colors = [
   '#a382e7'
 ];
 
-const hFeatured = heroFeatured.map(o => resources[o.category].items.find(r => r.title === o.title))
-
 let sectionFeatured = [];
 
 Object.keys(resources).forEach((category, index) => {
@@ -314,15 +312,19 @@ Object.keys(resources).forEach((category, index) => {
 });
 
 // for use on enterprise page
-let gallery = [...hFeatured];
-let i = 0;
-while (gallery.length < 8) {
-  Object.keys(sectionFeatured).forEach((category) => {
-    gallery.push(sectionFeatured[category][i])
-  });
-  i++;
-}
-gallery = gallery.slice(0, 8);
+let gallery = [{
+  category: "articles",
+  title: "Hybrid Vs. Native ebook",
+}, {
+  category: "case-studies",
+  title: "Building the new Marketwatch app",
+}, {
+  category: "articles",
+  title: "PWA Architects Guide",
+}, {
+  category: "webinars",
+  title: "Building Ionic Applications for Zebra Devices",
+}];
 
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
@@ -333,8 +335,8 @@ function shuffle(a) {
 }
 
 module.exports = {
-  heroFeatured: hFeatured,
+  heroFeatured: heroFeatured.map(o => resources[o.category].items.find(r => r.title === o.title)),
   sectionFeatured: sectionFeatured,
-  gallery: gallery,
+  gallery: gallery.map(o => resources[o.category].items.find(r => r.title === o.title)),
   resources: resources
 };

@@ -311,7 +311,7 @@ window.initAnimation = function(el, ctx, _options) {
   }
 
   function pause () {
-    if (!isPlaying) return;
+    if (!isPlaying || typeof ctx === 'function') return;
     ctx.stop();
     isPlaying = false;
   }

@@ -1,9 +1,8 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'enterprise' %}
-{% set mixpanelEnabled = true %}
-{% set bodyController = 'EnterpriseCtrl' %}
 {% import "../_includes/macros.html" as macros %}
 {% set pre_footer = false %}
+{% set title = 'Enterprise - Ionic Framework' %}
 
 {% block main %}
 
@@ -16,7 +15,7 @@
     <a onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})"
        data-toggle="modal"
        data-target="#contactForm"
-       class="btn white"
+       class="btn white scrollToForm"
        id="btn-enterprise-get-in-touch">Contact us</a>
   </hgroup>
   <div class="logos">
@@ -143,7 +142,7 @@
   </div>
 </section>
 
-<section class="testimonial-slides">
+<section class="testimonial-slides" style="background-color: #2e41b5;">
 
   <div class="slide slide--airbus active" data-id="1" data-bgcolor="#2e41b5">
     <div class="container">
@@ -216,7 +215,7 @@
 
 </section>
 
-{% include '../_includes/promos/pwa-architects-guide.html' %}
+<!-- {% include '../_includes/promos/pwa-architects-guide.html' %} -->
 
 <section class="bar get-started">
   <div class="container">
@@ -229,7 +228,7 @@
       </p>
     </hgroup>
     <div class="btns">
-      <a href="#" class="btn">Get in touch to learn more</a>
+      <a href="#" class="btn scrollToForm">Get in touch to learn more</a>
     </div>
   </div>
 </section>
@@ -237,7 +236,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;" >
   <defs>
     <filter id="blur">
-      <feGaussianBlur stdDeviation="10" />
+      <feGaussianBlur stdDeviation="20" />
     </filter>
   </defs>
   <symbol id="icon-book" viewBox="0 0 512 512"><path d="M146 64.1c54.1 0 100 27.9 100 82V446c0 2.2-3.1 2.7-3.8.7v-.1c-10.3-34.2-38.2-67.6-82.3-70.5-34.2-2.2-66.9 12.9-93.1 37.1-1.6 1.5-4.3 2.9-6.6 2.9h-4.5c-3.7 0-7.6-2.7-7.6-6.1V120.2C48 88.1 91.9 64.1 146 64.1zM366 64c-54.1 0-100 27.9-100 82v299.9c0 2.2 3.1 2.7 3.8.7v-.1c10.3-34.2 39.4-67.9 82.3-70.5 32.9-2 63.9 11 93.1 37.1 1.6 1.4 4.3 2.9 6.6 2.9h4.5c3.7 0 7.6-2.7 7.6-6.1V120c.1-32-43.8-56-97.9-56z"/></symbol>
@@ -286,6 +285,20 @@
     window.addEventListener('resize', resizeImg);
     resizeImg();
 
+    // scroll to form button
+    var scrollToFormEls = document.querySelectorAll('.scrollToForm');
+    for (var i = 0; i < scrollToFormEls.length; i++) {
+      var el = scrollToFormEls[i];
+      el.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var offset = document.querySelector('.form').offsetTop - 80;
+
+        window.scrollTo({
+          behavior: "smooth",
+          top: offset
+        });
+      });
+    }
 
     // testimonial slider
     var slideState = [];
@@ -325,8 +338,7 @@
 
     function handleClick(ev) {
       if (isSliderAnimating) return;
-      isSliderAnimating = true;
-
+      
       for (var i = 0; i < indicators.length; i++) {
         var indicator = indicators[i];
         indicator.classList.remove('active');
@@ -334,7 +346,28 @@
       ev.target.classList.add('active');
 
       var targetId = ev.target.dataset.target;
-      var newSlide = slideState.filter(function(o){ return o.id === targetId})[0];
+      transitionTo(targetId);
+    }
+
+    function triggerTo(id) {
+      for (var i = 0; i < indicators.length; i++) {
+        var indicator = indicators[i];
+        if (indicator.dataset.target === id) {
+          indicator.classList.add('active');
+        } else {
+          indicator.classList.remove('active');
+        }
+      }
+      transitionTo(id);
+    }
+
+
+
+    function transitionTo(id) {
+      if (isSliderAnimating) return;
+      isSliderAnimating = true;
+
+      var newSlide = slideState.filter(function(o){ return o.id === id})[0];
       var oldSlide = slideState.filter(function(o){ return o.isActive == true})[0];
 
       newSlide.isActive = true;
@@ -391,27 +424,16 @@
       })
     }
 
-  })()
+    var didSlideTrigger = false;
+    window.addEventListener('scroll', function(){
+      requestAnimationFrame(function(){
+        if (slideWrap.getBoundingClientRect().top < 200 && !didSlideTrigger) {
+          didSlideTrigger = true;
+          triggerTo('2');
+        }
+      });
+    });
 
-
-   /* Replace 'APP_ID' with your app ID */
-   window.intercomSettings = {
-    app_id: 'm0la1vjm'
-};
-   /* Replace 'APP_ID' with your app ID */
-   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
-     ic('reattach_activator');ic('update',intercomSettings);}else{var
-     d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
-     {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
-     s.type='text/javascript';s.async=true;
-     s.src='https://widget.intercom.io/widget/APP_ID';
-     var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
-     }if(w.attachEvent){w.attachEvent('onload',l);}else{
-       w.addEventListener('load',l,false);}}})()
+  })();
 </script>
-<script type="text/javascript"
-        id="hs-script-loader"
-        async
-        defer
-        src="//js.hs-scripts.com/3776657.js"></script>
 {% endblock %}

@@ -2,7 +2,7 @@
   font-family: $font-family-eina;
 
   .navbar.transparent + .banner {
-    background: #293340 no-repeat center bottom url('/img/enterprise/cta-bg.jpg');
+    background: #293340 no-repeat center bottom url('/img/enterprise/cta-background.jpg');
     background-size: cover;
     padding-top: 300px;
     padding-bottom: 0;
@@ -41,6 +41,7 @@
         line-height: 14px;
         padding: 18px 20px;
         color: #3880ff;
+        cursor: pointer;
       }
     }
 
@@ -84,14 +85,13 @@
     .logos__bg {
       width: 100%;
       height: 100%;
-      border: 1px solid red;
       position: absolute;
       bottom: 0;
       left: 0;
-      background: no-repeat center bottom url('/img/enterprise/cta-bg.jpg');
+      background: no-repeat center bottom url('/img/enterprise/cta-background.jpg');
       background-size: cover;
       filter: url('#blur');
-      filter: blur(10px);
+      filter: blur(20px);
       z-index: 1;
 
       &:after {
@@ -341,7 +341,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 70px;
+      margin-bottom: 40px;
 
       h3 {
         margin-bottom: 0

@@ -299,6 +299,11 @@
     text-indent: 10px;
     height: 60px;
   }
+  @-moz-document url-prefix() {
+    select.hs-input {
+       text-indent: 0;
+    }
+  }
 
   .hs-error-msgs label {
     font-size: 11px;

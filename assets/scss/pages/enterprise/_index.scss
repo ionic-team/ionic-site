@@ -561,7 +561,7 @@
   }
 
   .form {
-    padding-top: 30px;
+    padding-top: 60px;
     max-width: 900px;
     margin: 0 auto;
 
@@ -609,6 +609,9 @@
     }
 
     @media (max-width: $screen-sm-max)  {
+      .form {
+        padding-top: 24px;
+      }
       .container {
         display: block;
         text-align: center

@@ -42,7 +42,7 @@
   </hgroup>
 </section>
 
-<section class="container section__content framework-section">
+<section class="container section__content framework-section bg-animate">
   <hgroup>
     <h5  class="two-tone">Ionic <b>Framework</b></h5>
     <h3>The open source UI Toolkit for building high performance mobile & PWAs with one codebase, for any device.</h3>
@@ -73,7 +73,7 @@
   </div>
 </section>
 
-<section class="container section__content section__content--align-right pro-section">
+<section class="container section__content section__content--align-right pro-section bg-animate">
   <hgroup>
     <h5 class="two-tone">Ionic <b>Pro</b></h5>
     <h3>A fully integrated DevOps platform covering the entire app lifecycle for Enterprise teams building and shipping apps with Ionic.</h3>
@@ -104,7 +104,7 @@
   </div>
 </section>
 
-<section class="container section__content support-section">
+<section class="container section__content support-section bg-animate">
   <hgroup>
     <h5 class="two-tone">Customized <b>Support & Services</b></h5>
     <h3>Ionic experts on-hand, ready to provide support, training, and guidance for Enterprise teams when they need it.</h3>
@@ -255,6 +255,23 @@
     // enable sticky nav
     stickyNav.init();
 
+    // fade in bg images
+    var bgAnimates = document.querySelectorAll('.bg-animate');
+    for (var i = 0; i < bgAnimates.length; i++) {
+      (function(){
+        var stageEl = bgAnimates[i];
+        initAnimation(
+          stageEl,
+          function () {
+            stageEl.classList.add('animate-bg-in');
+          },{
+            once: true,
+            playWhenInView: true
+          }
+        );
+      })()
+    }
+
     // testimonial slider
     var slideState = [];
     var indicators = document.querySelectorAll('.slide-indicator span');
@@ -340,7 +357,7 @@
           oldSlide.img.style.display = 'none';
         }
       })
-      
+
       TweenLite.fromTo(newSlide.img, 0.8, {
         scale: 1.2,
         opacity: 0,

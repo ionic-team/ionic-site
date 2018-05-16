@@ -295,15 +295,18 @@ window.initAnimation = function(el, ctx, _options) {
   var isPlaying = false;
 
   function firstPlay () {
-    if (window.innerWidth < breakpoint) return;
-    ctx.play();
+    play();
     hasPlayed = true;
-    isPlaying = true;
   }
 
   function play () {
     if (isPlaying || window.innerWidth < breakpoint) return;
-    ctx.play();
+    if (typeof ctx === 'function') {
+      ctx();
+    } else {
+      ctx.play();
+    }
+
     isPlaying = true;
   }
 

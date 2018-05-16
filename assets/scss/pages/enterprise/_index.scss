@@ -500,6 +500,7 @@
     position: relative;
 
     &:after {
+      transition: opacity 1s, transform 1s;
       display: block;
       content: '';
       background-repeat: none;
@@ -507,7 +508,14 @@
       z-index: -1;
       background-size: contain;
       top: 50%;
+      transform-origin: center top;
+      transform: translateY(-52%);
+      opacity: 0;
+    }
+
+    &.animate-bg-in:after {
       transform: translateY(-50%);
+      opacity: 1;
     }
   }
 

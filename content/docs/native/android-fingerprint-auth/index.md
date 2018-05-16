@@ -100,6 +100,7 @@ this.androidFingerprintAuth.isAvailable()
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ERRORS" href="#ERRORS"></a><code>ERRORS</code></h3>
 
+Convenience property containing all possible errors
 
 
 

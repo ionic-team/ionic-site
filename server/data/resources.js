@@ -289,6 +289,8 @@ const colors = [
   '#a382e7'
 ];
 
+const hFeatured = heroFeatured.map(o => resources[o.category].items.find(r => r.title === o.title))
+
 let sectionFeatured = [];
 
 Object.keys(resources).forEach((category, index) => {
@@ -311,6 +313,17 @@ Object.keys(resources).forEach((category, index) => {
   sectionFeatured[category] = candidates.slice(0, 4);
 });
 
+// for use on enterprise page
+let gallery = [...hFeatured];
+let i = 0;
+while (gallery.length < 8) {
+  Object.keys(sectionFeatured).forEach((category) => {
+    gallery.push(sectionFeatured[category][i])
+  });
+  i++;
+}
+gallery = gallery.slice(0, 8);
+
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -320,7 +333,8 @@ function shuffle(a) {
 }
 
 module.exports = {
-  heroFeatured: heroFeatured.map(o => resources[o.category].items.find(r => r.title === o.title)),
+  heroFeatured: hFeatured,
   sectionFeatured: sectionFeatured,
+  gallery: gallery,
   resources: resources
 };

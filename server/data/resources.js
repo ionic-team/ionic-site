@@ -213,7 +213,7 @@ const resources = {
         "url": "https://www.youtube.com/watch?v=cTHjJ5-e6YQ",
         "action": "Watch",
         "bgImage": "/img/resource-center/video-sworkit.jpg",
-        "bgColor": "#96d1f4"
+        "bgColor": "#12120f"
       }, {
         "type": "Video",
         "title": "Why we built Ionic Pro",
@@ -311,6 +311,21 @@ Object.keys(resources).forEach((category, index) => {
   sectionFeatured[category] = candidates.slice(0, 4);
 });
 
+// for use on enterprise page
+let gallery = [{
+  category: "articles",
+  title: "Hybrid Vs. Native ebook",
+}, {
+  category: "case-studies",
+  title: "Building the new Marketwatch app",
+}, {
+  category: "articles",
+  title: "PWA Architects Guide",
+}, {
+  category: "webinars",
+  title: "Building Ionic Applications for Zebra Devices",
+}];
+
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -322,5 +337,6 @@ function shuffle(a) {
 module.exports = {
   heroFeatured: heroFeatured.map(o => resources[o.category].items.find(r => r.title === o.title)),
   sectionFeatured: sectionFeatured,
+  gallery: gallery.map(o => resources[o.category].items.find(r => r.title === o.title)),
   resources: resources
 };

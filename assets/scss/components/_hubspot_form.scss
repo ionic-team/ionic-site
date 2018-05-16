@@ -129,7 +129,7 @@
   fieldset + fieldset,
   form.stacked .hs-form-field + .hs-form-field,
   fieldset .hs-form-field + .hs-form-field {
-    margin-top: 24px;
+    margin-top: 26px;
   }
 
   label {
@@ -148,7 +148,7 @@
     font-weight: 500;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #e1e5ed;
+    border: 1px solid #ced6e3;
     line-height: 1.39286;
     border-radius: 4px;
     padding: 11px 15px;
@@ -158,14 +158,11 @@
     color: #505863;
 
     &:focus {
-      border-color: #9AAAC1;
+      border-color: #629eff;
     }
   }
 
   select.hs-input {
-    // -webkit-appearance: none;
-    // -moz-appearance : none;
-    // background : none;
     height: 44px;
   }
 
@@ -215,11 +212,6 @@
   }
 
   .hs-form-checkbox-display .hs-input[type="checkbox"]{
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // width: 12px;
-    // height: 12px;
     margin-right: 10px;
   }
 
@@ -248,7 +240,7 @@
     padding: 12px 20px;
     vertical-align: middle;
     color: white;
-    background: #4a8bfc;
+    background: #3880ff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
     line-height: 18px;
@@ -256,7 +248,7 @@
 
     &:hover {
       box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
-      background: #5995fc;
+      background: #4d8dfd;
       color: #fff;
       outline: none;
     }
@@ -287,5 +279,55 @@
       width: 100%;
     }
   }
+}
 
+.hubspot-override--large .hbspt-form {
+  label {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .hs-input,
+  input.hs-input {
+    padding: 16px 20px 18px;
+    font-size: 18px;
+  }
+
+  select.hs-input {
+    text-indent: 10px;
+    height: 60px;
+  }
+  @-moz-document url-prefix() {
+    select.hs-input {
+       text-indent: 0;
+    }
+  }
+
+  .hs-error-msgs label {
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  fieldset.form-columns-2 .hs-form-field {
+    padding: 0 20px;
+  }
+
+  .hs_submit {
+    text-align: center;
+    padding-top: 18px;
+  }
+
+  .hs_submit input.hs-button {
+    padding: 22px 27px 24px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: $screen-sm) {
+    fieldset.form-columns-2 .hs-form-field {
+      padding: 0;
+    }
+  }
 }

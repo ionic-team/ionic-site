@@ -92,7 +92,7 @@
 <a href="{{ e.url }}" target="_blank" style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %} background-color: {{ e.bgColor }};">
   <div>
     <span class="eyebrow">{{ e.type }}</span>
-    <h4>{{ e.title }}</h4>
+    <div class="title">{{ e.title }}</div>
   </div>
   <span class="action">
     {% if isLarge == true %}

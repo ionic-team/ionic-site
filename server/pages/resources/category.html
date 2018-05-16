@@ -20,10 +20,10 @@
     </div>
 
     <div class="hero-content">
-      <div class="card-list card-list--third transitionHero">
+      <div class="resource-card-list resource-card-list--third transitionHero">
       {% for r in resources.heroFeatured %}
-        <div class="card card-large">
-          <div class="card__inner">
+        <div class="resource-card resource-card-large">
+          <div class="resource-card__inner">
           {{ macros.resource(r, true) }}
           </div>
         </div>
@@ -42,10 +42,10 @@
       <div class="resource-list__header">
         <h4>Recent {{ resources.resources[currentCategory].title }}</h4>
       </div>
-        <div class="card-list card-list--quarter">
+        <div class="resource-card-list resource-card-list--quarter">
         {% for r in resources.resources[currentCategory].items %}
-          <div class="card">
-            <div class="card__inner">
+          <div class="resource-card">
+            <div class="resource-card__inner">
             {{ macros.resource(r) }}
             </div>
           </div>

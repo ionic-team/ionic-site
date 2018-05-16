@@ -105,19 +105,20 @@
 {% endmacro %}
 
 {% macro employee(e) %}
-<a class="employee" href="https://twitter.com/{{ e.twitter }}">
-  <div class="avatar" style="background-position: center -{{ e.spritePosition }}px">
-  </div>
+<div class="employee">
+  <img class="avatar" src="/img/team/{{ e.image }}">
   <hgroup>
-    <h4>{{ e.name }}</h4>
+    <h4>
+      {% if e.twitter %}
+        <a class="twitter"
+           href="https://twitter.com/{{ e.twitter }}"
+           target="_blank"></a>
+      {% endif %}
+      {{ e.name }}
+    </h4>
     <p>{{ e.title }}</p>
   </hgroup>
-  <div class="description">
-    <p>
-      {{ e.description|safe }}
-    </p>
-  </div>
-</a>
+</div>
 {% endmacro %}
 
 {% macro trustedPartner(tp) %}

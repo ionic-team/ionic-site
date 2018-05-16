@@ -7,8 +7,6 @@
 
 {% block main %}
 
-
-
 <div class="banner cta" >
   <hgroup class="container">
     <h1>Ionic <em>for</em> Enterprise</h1>
@@ -132,7 +130,7 @@
 <section class="container section__content form">
   <h2  class="two-tone">Learn more about <b>Ionic Enterprise.</b></h2>
 
-  <div class="hubspot-override">
+  <div class="hubspot-override hubspot-override--large">
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
     <script>
       hbspt.forms.create({
@@ -274,6 +272,7 @@
 
     // testimonial slider
     var slideState = [];
+    var isSliderAnimating = false;
     var indicators = document.querySelectorAll('.slide-indicator span');
     var slideWrap = document.querySelector('.testimonial-slides');
 
@@ -308,6 +307,9 @@
     });
 
     function handleClick(ev) {
+      if (isSliderAnimating) return;
+      isSliderAnimating = true;
+
       for (var i = 0; i < indicators.length; i++) {
         var indicator = indicators[i];
         indicator.classList.remove('active');
@@ -345,6 +347,7 @@
         onComplete: function () {
           newSlide.el.style.position = 'relative';
           oldSlide.el.style.display = 'none';
+          isSliderAnimating = false;
         }
       })
 

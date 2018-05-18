@@ -29,12 +29,13 @@
   </ul>
 </li> #}
 
-<li{% if id == 'framework' %} class="active"{% endif %}><a href="/framework"
-  id="btn-header-framework">Framework</a></li>
+<!-- <li{% if id == 'framework' %} class="active"{% endif %}><a href="/framework"
+  id="btn-header-framework">Framework</a></li> -->
+<!--
 <li{% if id.indexOf('products') == 0%} class="active"{% endif %}><a
-  href="/pro" id="btn-header-products">Products</a></li>
+  href="/pro" id="btn-header-products">Products</a></li> -->
 
-{# <li class="dropdown products">
+<li class="dropdown products">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
@@ -44,6 +45,7 @@
     Products
   </a>
   <ul class="dropdown-menu">
+    <div class="arrow"></div>
     <li>
       <a href="/pro" class="pro">
         <strong>Ionic Pro</strong>
@@ -75,7 +77,7 @@
       </a>
     </li>
   </ul>
-</li> #}
+</li>
 
 <li class="dropdown developers">
   <a href="#"
@@ -193,58 +195,6 @@
          class="about">
         <strong>About Ionic</strong>
         <span>Learn more about Ionic and what we offer</span>
-      </a>
-    </li>
-  </ul>
-</li>
-
-<li class="dropdown support">
-  <a href="#"
-     class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
-     aria-haspopup="true"
-     aria-expanded="false">Support</a>
-  <ul class="dropdown-menu">
-    <div class="arrow"></div>
-    <li>
-      <a id="btn-header-support-community-forum"
-         href="https://forum.ionicframework.com"
-         class="forum">
-        <strong>Community Forum</strong>
-        <span>The developer friendly, enterprise ready platform</span>
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-support-technical-support"
-         href="/support"
-         class="support">
-        <strong>Technical Support</strong>
-        <span>Learn how Ionic helps small teams do big things</span>
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-support-enterprise-support"
-         href="/enterprise/support"
-         class="enterprise-support">
-        <strong>Enterprise Support</strong>
-        <span>Learn more about Ionic and what we offer</span>
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-support-trusted-partners"
-         href="/trusted-partners"
-         class="trusted-partners">
-        <strong>Trusted Partners</strong>
-        <span>Discover and work with vetted Ionic partners</span>
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-support-contact-us"
-         href="/contact"
-         class="contact">
-        <strong>Contact Us</strong>
-        <span>Ready to take your company further? Get in touch</span>
       </a>
     </li>
   </ul>

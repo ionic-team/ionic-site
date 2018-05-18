@@ -242,6 +242,7 @@
       }
     }
   }
+
   // desktop width animation
   @media (min-width: $screen-sm-min) {
     .dropdown {
@@ -357,7 +358,7 @@
 
     .products {
       .dropdown-menu {
-        left: -143px;
+        left: -174px;
         padding-top: 9px;
         // top: 39px;
         // transition-delay: .1s !important;

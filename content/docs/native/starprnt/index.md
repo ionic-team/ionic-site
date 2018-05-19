@@ -476,7 +476,7 @@ Sends an Array of commands to the command buffer using the Android ICommandBuild
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Success! if printed correctly or error message string returned by the SDK.
-</div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(port,&nbsp;emulation)</code></h3>
+</div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(port,&nbsp;emulation,&nbsp;hasBarcodeReader)</code></h3>
 
 
 
@@ -510,6 +510,17 @@ Allows you to connect to the printer, keep the connection alive and receive stat
     </td>
     <td>
       <p>StarPrinter Emulation type: &quot;StarPRNT&quot;, &quot;StarPRNTL&quot;, &quot;StarLine&quot;, &quot;StarGraphic&quot;, &quot;EscPos&quot;, &quot;EscPosMobile&quot;, &quot;StarDotImpact&quot;</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasBarcodeReader</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true if the device has a barcode reader (e.g. mPop)</p>
 </td>
   </tr>
   </tbody>

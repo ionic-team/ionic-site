@@ -592,7 +592,7 @@ the column with the `3rd` column description will actually be the first column f
 
 All columns can be vertically aligned inside of a row by adding different
 attributes to the row. For a list of available attributes, see
-[row attributes](../Row#row-attributes).
+[row attributes](#row-attributes).
 
 <ion-grid>
   <ion-row align-items-start>

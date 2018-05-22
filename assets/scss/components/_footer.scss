@@ -134,21 +134,22 @@ footer {
       padding-left: 15px;
       text-align: right;
 
-      a {
-        color: $grey;
-      }
-
       @media (max-width: $screen-xs-max) {
         width: 100%;
         padding-left: 0;
       }
     }
 
+    a {
+      color: $grey;
+    }
+
     .privacy {
       margin-right: 4px;
-      padding-right: 8px;
+      padding-right: 4px;
       height: 1em;
       border-right: 1px solid #bcc5d5;
+      margin-left: 12px;
     }
 
     .copyright {

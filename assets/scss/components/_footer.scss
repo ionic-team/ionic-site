@@ -132,11 +132,23 @@ footer {
       margin-left: auto;
       margin-right: -3px;
       padding-left: 15px;
+      text-align: right;
+
+      a {
+        color: $grey;
+      }
 
       @media (max-width: $screen-xs-max) {
         width: 100%;
         padding-left: 0;
       }
+    }
+
+    .privacy {
+      margin-right: 4px;
+      padding-right: 8px;
+      height: 1em;
+      border-right: 1px solid #bcc5d5;
     }
 
     .copyright {
@@ -197,13 +209,5 @@ footer {
       &::before { background-position: 0 -192px; }
       &::after  { background-position: 0 -208px; }
     }
-  }
-
-  .privacy {
-    margin-left: auto;
-    margin-right: 4px;
-    padding-right: 4px;
-    height: 1em;
-    border-right: 1px solid #bcc5d5;
   }
 }

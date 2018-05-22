@@ -7,8 +7,6 @@ if (sidebarToggleEl) {
   };
 }
 
-
-
 $(document).ready(function() {
   // activate dropdowns
   $('.dropdown-toggle').dropdown();
@@ -18,8 +16,10 @@ $(document).ready(function() {
     function(){ $(this).removeClass('open') }
   );
 	$(".navbar.transparent .dropdown, .pre-header .dropdown").click()
+
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');
+
   // activate collapseable ToCs
   $('#collapse-toggle').unbind().click(function() {
     $('#navbar-collapse').collapse('toggle');
@@ -27,6 +27,10 @@ $(document).ready(function() {
     ariaVal = ariaVal === 'false' ? 'true' : 'false';
     $('#collapse-toggle').attr('aria-expanded', ariaVal);
   });
+
+  setTimeout(function(){
+    $('.pre-header__announcement').addClass('active');
+  }, 2500)
 });
 
 window.mobileAndTabletCheck = function() {
@@ -231,6 +235,7 @@ window.stickyNav = {
     this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);
+    document.body.classList.add('body-sticky-nav');
     document.addEventListener('scroll', this.handleScroll.bind(this))
   },
 

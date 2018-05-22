@@ -132,6 +132,10 @@
     .pro-logo img {
       width: 64px;
     }
+
+    @media (max-width: $screen-sm-min) {
+      position: static;
+    }
   }
 
   .pro-nav--upper .pro-pricing-btn,

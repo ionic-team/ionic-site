@@ -15,6 +15,14 @@ body {
     background: linear-gradient(90deg, $whiteish, $whiteish ($sidenav-width),
       white ($sidenav-width), white 100%);
   }
+
+  @media (max-width: $screen-sm-min) {
+    padding-top: 50px;
+
+    &#page-pricing-table {
+      padding-top: 0px;
+    }
+  }
 }
 
 #components-index ul.nav > li > a {
@@ -84,7 +92,7 @@ body {
         margin-right: 0;
       }
     }
-    
+
     .component-doc-demo-mobile {
       display: inline-block;
     }

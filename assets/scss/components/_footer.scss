@@ -198,4 +198,12 @@ footer {
       &::after  { background-position: 0 -208px; }
     }
   }
+
+  .privacy {
+    margin-left: auto;
+    margin-right: 4px;
+    padding-right: 4px;
+    height: 1em;
+    border-right: 1px solid #bcc5d5;
+  }
 }

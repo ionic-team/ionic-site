@@ -200,6 +200,13 @@ const resources = {
         "action": "Listen",
         "bgImage": "/img/resource-center/webinar-pro-overview.jpg",
         "bgColor": "#667b9a"
+      }, {
+        "type": "Webinar",
+        "title": "How SWORKIT is driving growth with PWAs and Ionic",
+        "url": "https://ionicpro.wistia.com/medias/05b54g640s",
+        "action": "Listen",
+        "bgImage": "/img/resource-center/webinar-sworkit.jpg",
+        "bgColor": "#b396ec"
       }
     ]
   },

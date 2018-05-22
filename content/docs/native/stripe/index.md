@@ -458,7 +458,7 @@ Get a card type from card number
   
   <tr>
     <td>
-      postal_code
+      postalCode
     </td>
     <td>
       <code>string</code>

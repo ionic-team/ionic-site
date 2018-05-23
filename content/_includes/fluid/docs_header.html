@@ -48,12 +48,9 @@
         </li>
       </ul>
       {% endif %}
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse">
       {% if page.hide_header_search != true %}
-      <form class="navbar-form navbar-left"
+      <form class="header-form navbar-left"
             id="header-search"
             role="search"
             data-searchpos="header">
@@ -66,6 +63,11 @@
         </div>
       </form>
       {% endif %}
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+
       <ul class="nav navbar-nav navbar-center">
         {% include fluid/header_nav.html isDocs='true' %}
       </ul>

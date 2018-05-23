@@ -21,11 +21,23 @@ $(document).ready(function() {
   $('.active-on-load').addClass('active');
 
   // activate collapseable ToCs
-  $('#collapse-toggle').unbind().click(function() {
-    $('#navbar-collapse').collapse('toggle');
-    var ariaVal = $('#collapse-toggle').attr('aria-expanded');
-    ariaVal = ariaVal === 'false' ? 'true' : 'false';
-    $('#collapse-toggle').attr('aria-expanded', ariaVal);
+  $('#collapse-toggle').on('click', function() {
+    $('.mobile-nav').removeClass('closed');
+    $('.mobile-nav').addClass('open');
+    $('.mobile-nav').css({
+      'display': 'block'
+    });
+  });
+
+  $('.mobile-nav__close').on('click', function() {
+    $('.mobile-nav').addClass('closed');
+    $('.mobile-nav').removeClass('open');
+    setTimeout(function() {
+      $('.mobile-nav').css({
+        'display': 'none'
+      });
+    }, 100);
+
   });
 
   setTimeout(function(){

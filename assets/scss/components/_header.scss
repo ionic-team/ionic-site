@@ -22,7 +22,7 @@
   }
 
   .navbar-header {
-    width: 132px;
+    // width: 132px;
     @media (max-width: $screen-sm-max) {
       width: auto;
     }
@@ -48,15 +48,16 @@
   &.transparent {
     background: transparent;
     @media (max-width: $screen-xs-max) {
-      background: linear-gradient(to right, #347eff, #1ea3ff);
+      background: #fff;
+      box-shadow: 0px 1px 2px 0px rgba(0, 20, 56, 0.06);
     }
   }
+
   @media (max-width: $screen-xs-max) {
     .navbar-collapse {
       box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
     }
   }
-
 
 
   #ionic-io-logo {
@@ -67,6 +68,10 @@
     display: block;
 
     &.light {
+      background-position: 0 0;
+    }
+
+    @media (max-width: $screen-xs-max) {
       background-position: 0 0;
     }
   }
@@ -195,6 +200,9 @@
       }
     }
   }
+
+
+
   // mobile width animation & default styles
   .dropdown {
     .dropdown-menu {
@@ -772,15 +780,17 @@
     }
   }
 
-  .navbar-form {
+  .header-form {
     margin: 6px 0 0 110px;
-    @media (max-width: 1630px) {
+
+    @media (max-width: 1330px) {
       margin-left: 0;
     }
 
     .form-group {
       position: relative;
       padding-left: 0;
+      margin-bottom: 0;
 
       input {
         background: rgba(255, 255, 255, .1);
@@ -814,22 +824,37 @@
         position: absolute;
         top: 4px;
         left: 14px;
+        cursor: pointer;
+
+        @media (max-width: $screen-xs-max) {
+          color: rgba(255, 255, 255, 1);
+        }
       }
     }
     @media (max-width: $screen-md-max) {
-      margin-left: 5px;
+      margin-left: 40px;
 
       .form-group input:focus {
         width: 192px;
       }
     }
     @media (max-width: $screen-xs-max) {
-      margin-top: -1px;
-      margin-left: 0;
+      float: right;
+      margin-left: 10px;
 
-      .form-group input,
+      .form-group input {
+        width: 40px;
+        padding: 0px;
+        opacity: 0;
+      }
+
       .form-group input:focus {
-        width: 100%;
+        width: calc(100vw - 20px);
+        padding: 6px 12px;
+        padding-left: 38px;
+        opacity: 1;
+        margin-bottom: 10px;
+        margin-right: 10px;
       }
     }
   }
@@ -844,7 +869,7 @@
       position: absolute;
       font-size: 27px;
       top: -3px;
-      color: $navbar-default-link-color;
+      color: #fff;
       transition: color 0.3s, transform 0.3s, opacity 0.3s;
     }
 
@@ -855,7 +880,7 @@
       outline: none;
 
       i {
-        color: white;
+        color: #fff;
         transform: scale(1.05);
       }
     }
@@ -879,6 +904,22 @@
       }
     }
   }
+
+  &.transparent .navbar-toggle,
+  &.transparent .sidebar-toggle {
+    i {
+      color: $blue;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      i {
+        color: $blue;
+      }
+    }
+  }
+
 
   .sidebar-toggle {
     float: left;
@@ -914,16 +955,16 @@
     }
     @media (max-width: 1514px) {
       .navbar-nav > li > a {
-        padding-left: 7px;
-        padding-right: 7px;
+        padding-left: 14px;
+        padding-right: 14px;
       }
     }
-    @media (max-width: 1226px) {
-      .navbar-nav > li > a {
-        padding-left: 5px;
-        padding-right: 4px;
-      }
-    }
+    // @media (max-width: 1226px) {
+    //   .navbar-nav > li > a {
+    //     padding-left: 5px;
+    //     padding-right: 4px;
+    //   }
+    // }
     @media (max-width: 1062px) and (min-width: $screen-sm-min) {
       #header-search {
         display: none;
@@ -1128,6 +1169,15 @@
     font-weight: 700;
   }
 }
+
+.docs .navbar-default .navbar-nav {
+  @media (min-width: $screen-md-min) {
+    &.navbar-center {
+      margin-left: 0;
+    }
+  }
+}
+
 // fix for the header component API docs page. it conflicts w/ a bootstrap
 // component
 

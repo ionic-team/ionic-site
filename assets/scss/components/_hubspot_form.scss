@@ -304,11 +304,22 @@
 }
 
 .hubspot-override--large .hbspt-form {
-  label {
+  label:not(.hs-form-booleancheckbox-display) {
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.05em;
     margin-bottom: 6px;
+  }
+
+  .hs-form-booleancheckbox-display {
+    font-size: 15px;
+  }
+
+  .hs-richtext {
+    p span, 
+    p a {
+      font-size: 15px;
+    }
   }
 
   .hs-input,

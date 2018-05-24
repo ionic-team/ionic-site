@@ -64,7 +64,6 @@
 }
 
 .pre-header__announcement {
-  transition: opacity 0.6s, transform 0.4s;
   display: flex;
   align-items: center;
   position: relative;
@@ -87,9 +86,14 @@
     }
   }
 
-  &.active {
+  &.in,
+  &.animate-in {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  &.animate-in {
+    transition: opacity 0.6s, transform 0.4s;
   }
 
   @media (max-width: $screen-sm-max) {

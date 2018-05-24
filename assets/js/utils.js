@@ -36,14 +36,26 @@ $(document).ready(function() {
       $('.mobile-nav').css({
         'display': 'none'
       });
-    }, 100);
-
+    }, 800);
   });
-
-  setTimeout(function(){
-    $('.pre-header__announcement').addClass('active');
-  }, 2500)
 });
+
+(function () {
+  var announcement = document.querySelector('.pre-header__announcement');
+  var lastClear = localStorage.getItem('last-clear');
+  var timeNow  = (new Date()).getTime();
+
+  if ((timeNow - lastClear) > 1000 * 60 * 60 ) {
+    localStorage.clear();
+    localStorage.setItem('last-clear', timeNow);
+
+    setTimeout(function(){
+      announcement.classList.add('animate-in');
+    }, 2500)
+  } else {
+    announcement.classList.add('in');
+  }
+})();
 
 window.mobileAndTabletCheck = function() {
   var check = false;

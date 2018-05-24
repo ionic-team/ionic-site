@@ -1,6 +1,7 @@
 .hbspt-form {
   max-width: 420px;
   margin: 0 auto;
+  font-weight: 400;
 
   .hs-form-required {
     display: none;
@@ -126,11 +127,15 @@
     max-width: 100%;
   }
 
-  fieldset + fieldset,
-  form.stacked .hs-form-field + .hs-form-field,
-  fieldset .hs-form-field + .hs-form-field {
-    margin-top: 26px;
-  }
+  // fieldset + fieldset,
+  // form.stacked .hs-form-field + .hs-form-field,
+  // fieldset .hs-form-field + .hs-form-field,
+  // form.stacked .hs-form-field + .hs-dependent-field {
+  //   margin-top: 26px;
+  // }
+   .hs-form-field {
+     margin-top: 26px;
+   }
 
   label {
     margin-bottom: 3px;
@@ -140,6 +145,10 @@
     display: inline;
     color: #F45454;
     margin-left: 4px
+  }
+
+  .hs-richtext {
+    margin-top: 8px;
   }
 
   .hs-input,
@@ -153,13 +162,29 @@
     border-radius: 4px;
     padding: 11px 15px;
     font-size: 15px;
+    color: #505863;
+  }
+
+  input.hs-input[type="text"],
+  input.hs-input[type="email"],
+  input.hs-input[type="tel"]  {
     height: auto;
     width: 100%;
-    color: #505863;
+
 
     &:focus {
       border-color: #629eff;
     }
+  }
+
+  input.hs-input[type="radio"],
+  input.hs-input[type="checkbox"] {
+    height: auto;
+    margin-right: 8px;
+  }
+
+  .hs-form-booleancheckbox-display {
+    display: flex;
   }
 
   select.hs-input {
@@ -178,9 +203,6 @@
     }
     &:last-child {
       padding-right: 0;
-    }
-    & + .hs-form-field {
-      margin-top: 0;
     }
   }
 

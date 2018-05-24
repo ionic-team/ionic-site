@@ -291,13 +291,20 @@
       var el = scrollToFormEls[i];
       el.addEventListener('click', function(ev){
         ev.preventDefault();
-        var offset = document.querySelector('.form').offsetTop - 80;
-
-        window.scrollTo({
-          behavior: "smooth",
-          top: offset
-        });
+        scrollToForm();
       });
+    }
+
+    function scrollToForm () {
+      var offset = document.querySelector('.form').offsetTop - 80;
+      window.scrollTo({
+        behavior: "smooth",
+        top: offset
+      });
+    }
+    
+    if (window.location.hash == '#contact-us') {
+      scrollToForm();
     }
 
     // testimonial slider
@@ -338,7 +345,7 @@
 
     function handleClick(ev) {
       if (isSliderAnimating) return;
-      
+
       for (var i = 0; i < indicators.length; i++) {
         var indicator = indicators[i];
         indicator.classList.remove('active');

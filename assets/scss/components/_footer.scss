@@ -132,11 +132,26 @@ footer {
       margin-left: auto;
       margin-right: -3px;
       padding-left: 15px;
+      text-align: right;
 
       @media (max-width: $screen-xs-max) {
         width: 100%;
         padding-left: 0;
       }
+    }
+
+    a {
+      color: $grey;
+    }
+
+    .privacy {
+      height: 1em;
+      margin-left: 12px;
+    }
+
+    .spacer {
+      margin-right: 2px;
+      margin-left: 2px;
     }
 
     .copyright {

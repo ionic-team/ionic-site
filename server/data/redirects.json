@@ -97,5 +97,6 @@
   "/pricing/index2.html": "/pro/pricing",
   "/pricing/index.html": "/pro/pricing",
   "/pricing/trial": "/pro/pricing",
-  "/resource-center": "/resources"
+  "/resource-center": "/resources",
+  "/unsubscribe": "https://hs-3776657.s.hubspotemail.net/hs/manage-preferences/unsubscribe"
 }

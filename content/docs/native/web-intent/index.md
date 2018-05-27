@@ -376,6 +376,16 @@ Unregisters a broadcast receiver
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="sendResult" href="#sendResult"></a><code>sendResult()</code></h3>
+
+
+Send a result back to the Intent that started this Activity.
+The data can be passed using 'extras'.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

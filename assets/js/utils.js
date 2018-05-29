@@ -19,42 +19,47 @@ $(document).ready(function() {
 
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');
-
-  // activate collapseable ToCs
-  $('#collapse-toggle').on('click', function() {
-    $('.mobile-nav').removeClass('closed');
-    $('.mobile-nav').addClass('open');
-    $('.mobile-nav').css({
-      'display': 'block'
-    });
-  });
-
-  $('.mobile-nav__close').on('click', function() {
-    $('.mobile-nav').addClass('closed');
-    $('.mobile-nav').removeClass('open');
-    setTimeout(function() {
-      $('.mobile-nav').css({
-        'display': 'none'
-      });
-    }, 800);
-  });
 });
 
 (function () {
+  // pre-header announcement animation
   var announcement = document.querySelector('.pre-header__announcement');
-  var lastClear = localStorage.getItem('last-clear');
-  var timeNow  = (new Date()).getTime();
+  if (announcement) {
+    var lastClear = localStorage.getItem('last-clear');
+    var timeNow  = (new Date()).getTime();
 
-  if ((timeNow - lastClear) > 1000 * 60 * 60 ) {
-    localStorage.clear();
-    localStorage.setItem('last-clear', timeNow);
+    if ((timeNow - lastClear) > 1000 * 60 * 60 ) {
+      localStorage.clear();
+      localStorage.setItem('last-clear', timeNow);
 
-    setTimeout(function(){
-      announcement.classList.add('animate-in');
-    }, 2500)
-  } else {
-    announcement.classList.add('in');
+      setTimeout(function(){
+        announcement.classList.add('animate-in');
+      }, 2500)
+    } else {
+      announcement.classList.add('in');
+    }
   }
+
+
+  // mobile nav
+  var mobileNav = document.querySelector('.mobile-nav');
+
+  document.querySelector('#collapse-toggle').addEventListener('click', function(){
+    document.body.classList.add('no-scroll');
+    mobileNav.classList.add('open');
+    mobileNav.classList.remove('closed');
+    mobileNav.style.display = 'block';
+  });
+
+  document.querySelector('.mobile-nav__close').addEventListener('click', function(){
+    document.body.classList.remove('no-scroll');
+    mobileNav.classList.remove('open');
+    mobileNav.classList.add('closed');
+    setTimeout(function() {
+      mobileNav.style.display = 'none';
+    }, 300);
+  });
+
 })();
 
 window.mobileAndTabletCheck = function() {

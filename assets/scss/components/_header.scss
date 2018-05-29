@@ -61,18 +61,18 @@
 
 
   #ionic-io-logo {
-    background: url('/img/ionic-logo.png') no-repeat 0 bottom;
-    background-size: 90px;
+    fill: #fff;
     height: 32px;
-    width: 90px;
-    display: block;
+    width: 95px;
+    margin: 0;
 
+    .light &,
     &.light {
-      background-position: 0 0;
+      fill: #3880FF;
     }
 
     @media (max-width: $screen-xs-max) {
-      background-position: 0 0;
+      fill: #3880FF;
     }
   }
 
@@ -93,7 +93,7 @@
     }
     @media (min-width: $screen-md-min) {
       &.navbar-center {
-        margin-left: 34px;
+        margin-left: 0px; //offset to align with pre-header announcement
       }
     }
     @media (max-width: $screen-xs-max) {
@@ -159,6 +159,10 @@
 
       &.active > a {
         color: rgba(white, 1);
+      }
+
+      .light &.open > a {
+        color: #131924 !important;
       }
 
       &.header-btn-white {
@@ -1148,7 +1152,7 @@
   @media (min-width: $screen-sm-min) {
     &.light {
       #ionic-io-logo {
-        background-position: 0 0;
+        fill: #3880FF;
       }
 
       .navbar-nav > li:not(.header-btn-white) > a {

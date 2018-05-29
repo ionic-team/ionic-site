@@ -12,23 +12,23 @@
 
   &.open {
     animation-name: revealIn;
-    animation-duration: 0.4s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   &.closed {
     animation-name: revealOut;
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
   }
 
   @keyframes revealIn {
     from {
-      transform: translateY(-100%);
+      opacity: 0;
     }
     to {
-      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -53,8 +53,11 @@
 .mobile-nav__menu {
   margin: 0;
   padding: 0;
+  //deal with ie edge bug always rendering bullets
+  list-style: none;
+  list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
   list-style-type: none;
-  max-width: 240px;
+  max-width: 300px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 80px;
@@ -72,7 +75,7 @@
     animation-name: navMenuIn;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
     opacity: 0;
   }
 
@@ -110,13 +113,14 @@
   font-size: 24px;
   line-height: 1;
   font-weight: 600;
-  margin-top: 24px;
+  margin-top: 28px;
 
   & + h6 {
-    margin-top: 42px;
+    margin-top: 46px;
   }
 
   a {
+    width: 100%;
     color: #131924;
     padding-left: 36px;
     display: inline-block;
@@ -236,15 +240,21 @@
   }
 
   a {
+    width: 100%;
+    display: inline-block;
     color: #5977a8;
   }
 }
 
 .mobile-nav__logo {
-  position: fixed;
+  position: absolute;
   top: 9px;
-  left: 12px;
+  left: 13px;
   fill: #3880FF;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  margin: 0;
 }
 
 .mobile-nav__close {
@@ -254,6 +264,7 @@
   right: 15px;
   opacity: 0.4;
   transition: opacity 0.3s;
+  z-index: 2;
 
   &:hover {
     opacity: 1;
@@ -263,6 +274,7 @@
     width: 14px;
     height: 14px;
     fill: #5977a8;
+    margin: 0;
   }
 }
 
@@ -272,7 +284,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 12px;
+  padding: 14px;
   display: flex;
   justify-content: flex-end;
 
@@ -285,26 +297,27 @@
   }
 
   .btn {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 10px 12px 8px;
+    padding: 12px 14px 10px;
     vertical-align: middle;
     border-radius: 4px;
   }
 
   .open & {
     animation-name: navFooterIn;
-    animation-duration: 0.2s;
+    animation-duration: 0.6s;
     animation-fill-mode: forwards;
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(100%);
+    opacity: 0;
   }
 
   .closed & {
     animation-name: navFooterOut;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
-    transform: translateY(100%);
-    opacity: 0;
   }
 
   @keyframes navFooterIn {

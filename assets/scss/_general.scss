@@ -6,6 +6,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @media (max-width: $screen-xs-max) {
+    padding-top: 50px;
     width: 100%;
     min-width: 100%;
     background: #fff;
@@ -17,12 +18,18 @@ body {
   }
 
   @media (max-width: $screen-sm-min) {
-    padding-top: 50px;
-
     &#page-pricing-table {
       padding-top: 0px;
     }
   }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  overflow: hidden;
 }
 
 #components-index ul.nav > li > a {

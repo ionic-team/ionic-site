@@ -1,3 +1,12 @@
+// shim foreach for ie11
+if ( !Array.prototype.forEach ) {
+  Array.prototype.forEach = function(fn, scope) {
+    for (var i = 0, len = this.length; i < len; ++i) {
+      fn.call(scope || this, this[i], i, this);
+    }
+  }
+}
+
 // sidebar toggle for mobile views
 var sidebarToggleEl = document.getElementById('sidebar-toggle');
 if (sidebarToggleEl) {
@@ -100,7 +109,7 @@ window.guid = function() {
 
 // add an .active class to elements w/ .activateOnScroll class on when they
 // scroll in to view
-window.activateOnScroll = Array.from(
+window.activateOnScroll = Array.prototype.slice.call(
   document.getElementsByClassName('activateOnScroll')
 );
 if (activateOnScroll.length) {

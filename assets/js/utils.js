@@ -100,7 +100,7 @@ window.guid = function() {
 
 // add an .active class to elements w/ .activateOnScroll class on when they
 // scroll in to view
-window.activateOnScroll = Array.from(
+window.activateOnScroll = Array.prototype.slice.call(
   document.getElementsByClassName('activateOnScroll')
 );
 if (activateOnScroll.length) {

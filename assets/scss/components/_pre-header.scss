@@ -25,6 +25,10 @@
     text-transform: uppercase;
     color: #a8b0be;
 
+    .lower-case {
+      text-transform: lowercase;
+    }
+
     &:hover {
       color: #3880ff;
     }

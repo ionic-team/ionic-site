@@ -25,7 +25,7 @@ project files.
 <h3 class="file-title">./src/index.html</h3>
 
 `src/index.html` is the main entry point for the app, though its purpose is to
-set up script and CSS includes and bootstrap, or start running, our app. We
+set up scripts, CSS includes, and bootstrap, or start running our app. We
 won't spend much of our time in this file.
 
 For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In
@@ -35,7 +35,7 @@ this example we have:
 <ion-app></ion-app>
 ```
 
-And the following scripts near the bottom:
+and the following scripts near the bottom:
 
 ```html
 <!-- Ionic's root component and where the app will load -->

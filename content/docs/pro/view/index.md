@@ -57,6 +57,9 @@ These users will receive an email with a link that will automatically download I
 
 ## Sharing Publicly
 
+<i class="ion-ios-information-circle" style="font-size: 24px; vertical-align: middle"></i> <span style="font-weight: 600">Public app sharing is currently disabled on iOS to comply with
+the Apple App Store Guidelines.</span>
+
 If you'd like to share your App publicly in Ionic View (for instance, on our Marketplace), all you have to do is set up one or more Public Channels (See [Using Public Channels](/docs/pro/channels.html#using-public-channels)).
 
 Once your Public channels have been set up, click on the **Share App** button in the top right of your Apps dashboard and click the "Public Ionic View" tab. Copy your AppId and share it with whomever you'd like.

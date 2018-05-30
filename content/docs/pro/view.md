@@ -38,6 +38,9 @@ If you received an email inviting you to test an app, simply clicking on the lin
 If for some reason the link doesn't work, you can also enter your invite code that should have been included in the email.
 
 ### By app ID (public Channels only)
+<i class="ion-ios-information-circle" style="font-size: 24px; vertical-align: middle"></i> <span style="font-weight: 600">Public app sharing is currently disabled on iOS to comply with
+the Apple App Store Guidelines.</span>
+
 If you know an app's ID, you can enter its ID to view any Channels the app owner has made public.
 
 <div style="text-align: center">

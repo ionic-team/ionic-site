@@ -167,7 +167,7 @@ By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to get
   template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
-  @ViewChild('myNav') nav
+  @ViewChild('myNav') nav;
   rootPage = TabsPage;
 
   // Wait for the components in MyApp's template to be initialized

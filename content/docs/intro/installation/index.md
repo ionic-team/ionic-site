@@ -5,7 +5,7 @@ id: installation
 title: Installing Ionic
 header_sub_title: Getting Started with Ionic
 next_page_title: Tutorial
-next_page_link: /docs//intro/tutorial
+next_page_link: /docs/intro/tutorial
 ---
 
 # Installing Ionic

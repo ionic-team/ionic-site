@@ -35,7 +35,7 @@ With Node and NPM setup, let's install the Ionic and Cordova CLI.
 $ npm install -g ionic cordova
 ```
 
-> Note: The `-g` means this is a global install, so for Window's you will need
+> Note: The `-g` means this is a global install, so for Windows you will need
 > to open an Admin command prompt. For Mac/Linux, you might need to run the command
 > with `sudo`.
 

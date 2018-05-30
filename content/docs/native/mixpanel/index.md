@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -187,6 +187,15 @@ this.mixpanel.init(token)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSuperProperties" href="#getSuperProperties"></a><code>getSuperProperties()</code></h3>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="registerSuperProperties" href="#registerSuperProperties"></a><code>registerSuperProperties(superProperties)</code></h3>
 
 
@@ -205,6 +214,62 @@ this.mixpanel.init(token)
       superProperties</td>
     <td>
       <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="registerSuperPropertiesOnce" href="#registerSuperPropertiesOnce"></a><code>registerSuperPropertiesOnce(superProperties)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      superProperties</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unregisterSuperProperty" href="#unregisterSuperProperty"></a><code>unregisterSuperProperty(superPropertyName)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      superPropertyName</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
       </td>

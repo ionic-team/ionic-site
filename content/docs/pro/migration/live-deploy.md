@@ -10,7 +10,9 @@ dark_header: true
 
 # Migrate from Ionic Cloud Deploy to Ionic Pro Deploy
 
-If you're moving your app from the legacy Ionic Cloud dashbaord and want to keep using Ionic Pro Deploy, here's what you need to do.
+<div class="alert alert-warning" role="alert">In order to continue deploying live updates to your users, you must migrate to the new Ionic Pro service by following the instructions below. A native binary release (through the app stores, etc) is required for this change.</div>
+
+If you're moving your app from the legacy Ionic Cloud dashboard and want to keep using Ionic Pro Deploy, here's what you need to do.
 
 ## Remove the old plugin
 
@@ -26,7 +28,7 @@ Your app probably has code to check for and download updates using the `ionic-cl
 
 ## Set up the new plugin
 
-The Ionic Pro services which take advantage of native device features are now centralized in the `cordova-plugin-ionic` plugin.  
+The Ionic Pro services which take advantage of native device features are now centralized in the `cordova-plugin-ionic` plugin.
 
 You'll install it as part of the setup process **[here](/docs/pro/deploy/)**.
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -86,7 +86,7 @@ Returns the name of the app
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="getPackageName" href="#getPackageName"></a><code>getPackageName()</code></h3>
 
 
@@ -95,7 +95,7 @@ Returns the package name of the app
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="getVersionCode" href="#getVersionCode"></a><code>getVersionCode()</code></h3>
 
 
@@ -104,7 +104,7 @@ Returns the build identifier of the app
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="getVersionNumber" href="#getVersionNumber"></a><code>getVersionNumber()</code></h3>
 
 
@@ -113,7 +113,7 @@ Returns the version of the app
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
 
 

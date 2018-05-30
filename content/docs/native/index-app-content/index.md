@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -134,36 +134,6 @@ Add or change items to spotlight index
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns if index set was successfull
-</div><h3><a class="anchor" name="onItemPressed" href="#onItemPressed"></a><code>onItemPressed(Clicked)</code></h3>
-
-
-If user taps on a search result in spotlight then the app will be launched.
-You can register a Javascript handler to get informed when this happens.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      Clicked</td>
-    <td>
-      <code>IndexItem</code>
-    </td>
-    <td>
-      <p>Item</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns promise
 </div><h3><a class="anchor" name="clearItemsForDomains" href="#clearItemsForDomains"></a><code>clearItemsForDomains(Array)</code></h3>
 
 

@@ -31,7 +31,7 @@ We strongly believe WKWebview is the best option for any app, as it features man
 - Improved rendering performance
 - Less memory consumption
 - Better adherence to web standards
-- Reliable scroll events (important for virutal-list)
+- Reliable scroll events (important for virtual-list)
 
 
 We wanted to make sure that people could easily switch to WKWebView without many issues, but there are still some things that you'll need to consider.
@@ -64,7 +64,6 @@ Origin: http://localhost:8080
 2. [Whitelist Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
 3. [Whitelist Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
 4. [CORS preflight request (OPTION)](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request)
-
 
 
 
@@ -123,10 +122,6 @@ takePhoto() {
 
 **Note**: Core cordova plugins also allow you to reference a file via the `cdvfile://` protocol. Unfortunately, we cannot rewrite this path as it is something that gets resolved in native code. We suggest that when ever you reference a file, use the full path for rewrites, not `cdvfile://`.
 
-## App data is not copied over
-
-Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
-
 
 ## Upgrading to WKWebView (UIWebView users only)
 
@@ -141,22 +136,40 @@ More info: [https://github.com/ionic-team/cordova-plugin-ionic-webview#installat
 
 As we said previously, we strongly recommend developers upgrade to WKWebView, but if you still need to use UIWebView, here’s the step to downgrade:
 
+### Option 1: Force UIWebView usage
+
+You can force cordova to use the default engine (UIWebView) by explicitally telling so:
+
+```xml
+<preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
+```
+
+### Option 2: Uninstall the Ionic WebView plugin
+
 ```bash
 $ ionic cordova plugin remove cordova cordova-plugin-ionic-webview --save
 $ rm -rf platforms/
 $ rm -rf plugins/
-$ ionic cordova platform add ios
 $ ionic cordova build ios
 ```
 
 
 # FAQs
 
+## App data is not copied over
+
+> I just migrated from UIWebView to WKWebView and the storage data looks lost.
+
+Since WKWebView is essentially a new browser, any data that you could have in LocalStorage or IndexDB will not be copied over. In this case, migrating data to a native storage mechanism, SQLite, is suggested to make sure that the data will still be available.
+
+We strongly recommend to use the [ionic-storage](https://ionicframework.com/docs/storage/) package which abstracts aways most of the problems with persistent storage. 
+
+
 ## My app does not load, white screen
 
 > I don't have any error in my code, but still I get a blank screen
 
-Most of the time, this kind of problems come from an incorrect installation of cordova.
+Most of the time, this kind of problems come from an incorrect installation of the Cordova platform:
 
 - Ensure Xcode is closed
 
@@ -205,7 +218,7 @@ Develop -> *Your_Device_Name* uncheck **"Automatically Show Web Inspector for JS
 This should resolve your issue.
 
 
-## My local resources does not load
+## My local resources do not load
 
 > Some of the `<img>`/`<video>`/`<audio>` does not load.
 
@@ -218,8 +231,24 @@ import { normalizeURL} from 'ionic-angular';
 imageSRC = normalizeURL(url);
 ```
 
+## Configuring AVAudioSession doesn't affect WKWebView
 
-## XHR requests does not work
+WKWebView runs in a separate process from your app. It is likely that it has its own AudioSession separate from your app's AudioSession. One possible workaround is to allow your app's AudioSession to mix with others:
+
+```obj-c
+[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord 
+                                 withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                                       error:&error];
+```
+
+Fortunatelly, Ionic's WebView can do this for you by setting the `AudioCanMix` cordova preference to `true`.
+
+```xml
+<preference name="AudioCanMix" value="true" />
+```
+
+
+## XHR requests do not work
 
 > I am trying to call some remote service using XHR (or fetch), but it is not working.
 
@@ -230,7 +259,7 @@ As we said previously, WKWebView enforces CORS. You will need to whitelist `http
 
 > I don't control the backend, so I can't add CORS to it, how can I make it work with WKWebView?
 
-If it is not an possibility to implement or configure CORS in the server, there is a native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypasses:
+If it is not an possibility to implement or configure CORS in the server, there is a native plugin that can "proxy" the HTTP requests using native code, so CORS can be completely bypassed:
 
-Read more here: [cordova-plugin-http](http://ionicframework.com/docs/native/http/).
+Read more here: [cordova-plugin-http](https://ionicframework.com/docs/native/http/).
 

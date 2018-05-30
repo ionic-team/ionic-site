@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,7 +23,7 @@ docType: "class"
 
 
 
-<p>An Ionic plugin to use Taptic Engine API on iPHone 7, 7 Plus or newer.</p>
+<p>An Ionic plugin to use Taptic Engine API on iPhone 7, 7 Plus or newer.</p>
 
 
 <p>Repo:

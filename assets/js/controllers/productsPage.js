@@ -9,7 +9,7 @@ IonicSiteModule
     mixpanel.track('Pricing Button Click',
       {'test': 'ProductsTest - 5', 'location': location});
     $timeout(function() {
-      window.location = '/products/pricing';
+      window.location = '/pro/pricing';
     }, 5);
   };
 

@@ -17,19 +17,16 @@
                 <a href="/docs/pro/basics/git/#installing-git">Installing Git</a>
               </li>
               <li>
-                <a href="/docs/pro/basics/git/#adding-your-existing-repository">Adding Existing Repositories</a>
+                <a href="/docs/pro/basics/git/#sharing-your-code-with-ionic-pro">Sharing your code with Ionic Pro</a>
               </li>
               <li>
-                <a href="/docs/pro/basics/git/#pushing-new-builds">Pushing Builds</a>
+                <a href="/docs/pro/basics/git/#github-integration">GitHub Integration</a>
               </li>
               <li>
-                <a href="/docs/pro/basics/git/#working-with-branches">Using Branches</a>
+                <a href="/docs/pro/basics/git/#using-ionic-as-a-git-remote">Using Ionic as a Git Remote</a>
               </li>
               <li>
-                <a href="/docs/pro/basics/git/#working-with-other-team-members">Working w/ Team Members</a>
-              </li>
-              <li>
-                <a href="/docs/pro/basics/git/#ssh-keys">Adding SSH Keys</a>
+                <a href="/docs/pro/basics/git/#using-a-git-hosting-service">Using a Git Hosting Service</a>
               </li>
             </ul>
           </li>
@@ -46,8 +43,16 @@
           </li>
         </ul>
       </li>
+      <li class="{% if page.category == 'pro-devapp' %}active{% endif %}" >
+        <a ng-click="toggle('devapp')" class="pro-devapp-link">DevApp: Local Development</a>
+        <ul ng-show="sections.devapp" ng-cloak {% if page.category == 'pro-devapp' %}ng-init="sections.devapp = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/devapp/">Introduction</a>
+          </li>
+        </ul>
+      </li>
       <li class="{% if page.category == 'pro-view' %}active{% endif %}" >
-        <a ng-click="toggle('view')" class="pro-view-link">View</a>
+        <a ng-click="toggle('view')" class="pro-view-link">View: Beta Testing</a>
         <ul ng-show="sections.view" ng-cloak {% if page.category == 'pro-view' %}ng-init="sections.view = true"{% endif %}>
           <li>
             <a href="/docs/pro/view/">Introduction</a>
@@ -72,7 +77,10 @@
               </li>
               <li>
                 <a href="/docs/pro/view.html#plugin-support">Plugin Support</a>
-                </li>
+              </li>
+              <li>
+                <a href="/docs/pro/view.html#plugin-issues">Plugin Issues</a>
+              </li>
               </ul>
             </li>
         </ul>
@@ -90,7 +98,7 @@
             <a href="/docs/pro/deploy/setup/#usage">Deploying</a>
           </li>
           <li>
-            <a href="/docs/pro/deploy/plugin-api.html">Plugin API</a>
+            <a href="/docs/pro/deploy/plugin-api.html">Deploy API</a>
           </li>
         </ul>
       </li>
@@ -121,10 +129,10 @@
             <a href="/docs/pro/monitoring/#getting-started">Installation</a>
           </li>
           <li>
-            <a href="/docs/pro/monitoring/#manual-capture">Manual Capture</a>
+            <a href="/docs/pro/monitoring/#source-maps">Adding SourceMaps</a>
           </li>
           <li>
-            <a href="/docs/pro/monitoring/#source-maps">Adding SourceMaps</a>
+            <a href="/docs/pro/monitoring/#manual-capture-using-the-monitoring-api">Manual Capture API</a>
           </li>
         </ul>
       </li>

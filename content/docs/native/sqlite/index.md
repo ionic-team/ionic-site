@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L112">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L139">
   Improve this doc
 </a>
 
@@ -123,6 +123,15 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 Verify that both the Javascript and native part of this plugin are installed in your application
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="selfTest" href="#selfTest"></a><code>selfTest()</code></h3>
+
+
+Automatically verify basic database access operations including opening a database
 
 
 <div class="return-value" markdown="1">
@@ -433,7 +442,12 @@ ensure it resolved and successfully opened the database.
       executeSql
     </td>
     <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
+      <code>(
+    sql: any,
+    values: any,
+    success: Function,
+    error: Function
+  ) =&gt; void</code>
     </td>
     <td>
       
@@ -446,7 +460,12 @@ ensure it resolved and successfully opened the database.
       addStatement
     </td>
     <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
+      <code>(
+    sql: any,
+    values: any,
+    success: Function,
+    error: Function
+  ) =&gt; void</code>
     </td>
     <td>
       

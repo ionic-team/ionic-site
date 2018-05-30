@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">AdMob Pro<span class="paid" title="paid">Paid</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-pro/index.ts#L89">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-pro/index.ts#L97">
   Improve this doc
 </a>
 
@@ -575,6 +575,20 @@ Triggered when dismiss the Ad and back to your App
     </td>
     <td>
       <p>License key for the plugin</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      offsetTopBar
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set offset</p>
 
       <em>(optional)</em>
     </td>

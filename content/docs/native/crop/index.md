@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Crop</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/crop/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/crop/index.ts#L7">
   Improve this doc
 </a>
 
@@ -96,7 +96,7 @@ Crops an image
     <td>
       pathToImage</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -106,10 +106,11 @@ Crops an image
     <td>
       options</td>
     <td>
-      
+      <code>CropOptions</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -118,6 +119,64 @@ Crops an image
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the new image path, or rejects if failed to crop.
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="CropOptions" href="#CropOptions"></a>CropOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      quality
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      targetHeight
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      targetWidth
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

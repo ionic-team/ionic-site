@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Email Composer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L45">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L53">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/email-composer
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li><li>macOS</li>
 </ul>
 
 
@@ -364,6 +364,20 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       <p>Indicates if the body is HTML or plain text</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Content type of the email (Android only)</p>
 
       <em>(optional)</em>
     </td>

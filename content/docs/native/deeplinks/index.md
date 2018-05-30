@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Deeplinks</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L30">
   Improve this doc
 </a>
 
@@ -137,7 +137,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(navController,&nbsp;paths)</code></h3>
+</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(navController,&nbsp;paths,&nbsp;options)</code></h3>
 
 
 
@@ -178,6 +178,16 @@ promise result which you can then use to navigate in the app as you see fit.</p>
       paths</td>
     <td>
       <code>Object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>DeeplinkOptions</code>
     </td>
     <td>
       </td>

@@ -57,6 +57,9 @@ These users will receive an email with a link that will automatically download I
 
 ## Sharing Publicly
 
+<i class="ion-ios-information-circle" style="font-size: 24px; vertical-align: middle"></i> <span style="font-weight: 600">Public app sharing is currently disabled on iOS to comply with
+the Apple App Store Guidelines.</span>
+
 If you'd like to share your App publicly in Ionic View (for instance, on our Marketplace), all you have to do is set up one or more Public Channels (See [Using Public Channels](/docs/pro/channels.html#using-public-channels)).
 
 Once your Public channels have been set up, click on the **Share App** button in the top right of your Apps dashboard and click the "Public Ionic View" tab. Copy your AppId and share it with whomever you'd like.
@@ -70,3 +73,21 @@ You can view feedback submitted by testers for any app from the Feedback tab in 
 </div>
 
 See the [Submitting Feedback](/docs/pro/view.html#submitting-feedback) for more details.
+
+## CORS
+
+If web requests for your app are failing when using View, you may be running into issues with
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+There are a couple things you can do to resolve the issue.
+
+### Set the appropriate headers
+
+If you control the server responding to the failing requests, you can set the `Access-Control-Allow-Origin`
+header to `*` (wildcard) on the server. Be aware that requests from any origin will be able to see responses from your server when using `*`.
+Wildcard is a common setting for any API, or any other endpoint that is expected to be accessed from various origins.
+
+### Use a plugin
+
+If you can't or don't control the server headers, you can use the [Advanced HTTP plugin](https://ionicframework.com/docs/native/http/) (which doesn't enforce CORS) to make
+requests. The plugin receives responses natively and passes them back to JavaScript.

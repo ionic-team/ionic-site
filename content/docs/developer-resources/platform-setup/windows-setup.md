@@ -9,7 +9,7 @@ header_sub_title: Ionic Developer Preview
 
 ## Windows
 
-There are two paths you can take to set up a Windows machine. One is installing all the dependencies one by one, and the other is installing the Tools for Cordova plugin for Visual Studio 2015. We go over the process of using the Visual Studio installer in [our blog](http://blog.ionic.io/visual-studio-tools-for-apache-cordova/).
+There are two paths you can take to set up a Windows machine. One is installing all the dependencies one by one, and the other is installing the Tools for Cordova plugin for Visual Studio 2015. We go over the process of using the Visual Studio installer in [our blog](https://blog.ionicframework.com/visual-studio-tools-for-apache-cordova/).
 
 
 ### Common Tools
@@ -20,7 +20,7 @@ Once installed, you should have access to both `node` and `npm` from your comman
 
 
 ### iOS
-The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](http://ionic.io/cloud#packaging), part of the Ionic Cloud.
+The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](/pro#packaging), part of the Ionic Cloud.
 
 ### Java JDK
 We'll need to download and install the Java JDK from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

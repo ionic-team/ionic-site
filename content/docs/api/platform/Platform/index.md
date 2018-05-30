@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -61,7 +61,7 @@ customize your app to fit any device.</p>
 
 @Component({...})
 export MyPage {
-  constructor(public platform: Platform) {
+  constructor(public plt: Platform) {
 
   }
 }
@@ -175,8 +175,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public platform: Platform) {
-    if (this.platform.is('ios')) {
+  constructor(public plt: Platform) {
+    if (this.plt.is('ios')) {
       // This will only print when on iOS
       console.log('I am an iOS device!');
     }
@@ -388,9 +388,9 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public platform: Platform) {
+  constructor(public plt: Platform) {
     // This will print an array of the current platforms
-    console.log(this.platform.platforms());
+    console.log(this.plt.platforms());
   }
 }
 ```
@@ -440,8 +440,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyApp {
-  constructor(public platform: Platform) {
-    this.platform.ready().then((readySource) => {
+  constructor(public plt: Platform) {
+    this.plt.ready().then((readySource) => {
       console.log('Platform ready from', readySource);
       // Platform now ready, execute any required native code
     });
@@ -799,10 +799,10 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public platform: Platform) {
+  constructor(public plt: Platform) {
     // This will print an object containing
     // all of the platforms and their versions
-    console.log(platform.versions());
+    console.log(plt.versions());
   }
 }
 ```

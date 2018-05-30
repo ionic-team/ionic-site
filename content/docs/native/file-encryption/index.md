@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -79,7 +79,7 @@ this.fileEncryption.encrypt(&#39;assets/json/topSecret.json&#39;, &#39;secretKey
 <h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(file,&nbsp;key)</code></h3>
 
 
-Enrcypt a file
+Encrypt a file
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova">
-    https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova
+  <a href="https://github.com/BlyncSync/cordova-plugin-jins-meme">
+    https://github.com/BlyncSync/cordova-plugin-jins-meme
   </a>
 </p>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add JinsMemeSDK-Plugin-Cordova
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-jins-meme
 $ npm install --save @ionic-native/jins-meme
 </code></pre>
   </li>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "NavPop"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navigation/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/nav/nav-pop.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/nav/nav-pop.ts#L2">
 Improve this doc
 </a>
 

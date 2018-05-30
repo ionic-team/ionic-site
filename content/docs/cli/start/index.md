@@ -29,9 +29,11 @@ $ ionic start [<name>] [<template>]
 
 This command creates a working Ionic app. It installs dependencies for you and sets up your project.
 
-`ionic start` will create an app from a template. You can list all templates with the `--list` option.
+`ionic start` will create a new app from `template`. You can list all templates with the `--list` option. For more information on starter templates, see the CLI documentation\[1\].
 
-See the CLI documentation on starters: **[https://ionicframework.com/docs/cli/starters.html](https://ionicframework.com/docs/cli/starters.html)**
+You can also specify a git repository URL for `template` and your existing project will be cloned.
+
+\[1\]: **[https://ionicframework.com/docs/cli/starters.html](https://ionicframework.com/docs/cli/starters.html)**
 
 
 Input | Description
@@ -44,11 +46,13 @@ Option | Description
 ------ | ----------
 `--list`, `-l` | List starter templates available
 `--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
-`--app-name`, `-n` | Human-readable name (use quotes around the name)
+`--display-name`, `-n` | Human-readable name (use quotes around the name)
+`--cordova` | Include Cordova integration
 `--no-deps` | Do not install npm/yarn dependencies
 `--no-git` | Do not initialize a git repo
 `--no-link` | Do not ask to connect the app with the Ionic Dashboard
 `--pro-id` | Specify an app ID from the Ionic Dashboard to link
+`--bundle-id` | Specify the bundle ID/application ID for your app (reverse-DNS notation)
 
 ## Examples
 
@@ -56,5 +60,7 @@ Option | Description
 $ ionic start 
 $ ionic start --list
 $ ionic start myApp blank
+$ ionic start myApp tabs --cordova
 $ ionic start myApp blank --type=ionic1
+$ ionic start myConferenceApp https://github.com/ionic-team/ionic-conference-app
 ```

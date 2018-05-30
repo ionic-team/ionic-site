@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Device Orientation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L36">
   Improve this doc
 </a>
 
@@ -119,7 +119,7 @@ Stop the watch by unsubscribing from the observable
       <code>DeviceOrientationCompassOptions</code>
     </td>
     <td>
-      <p>Options for compass. Frequency and Filter. Optional</p>
+      <p>Options for compass. Frequency and Filter. Optional<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -237,7 +237,7 @@ Stop the watch by unsubscribing from the observable
       timestamp
     </td>
     <td>
-      <code>any</code>
+      <code>number</code>
     </td>
     <td>
       <p>The time at which this heading was determined. (DOMTimeStamp)</p>

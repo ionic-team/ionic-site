@@ -38,6 +38,9 @@ If you received an email inviting you to test an app, simply clicking on the lin
 If for some reason the link doesn't work, you can also enter your invite code that should have been included in the email.
 
 ### By app ID (public Channels only)
+<i class="ion-ios-information-circle" style="font-size: 24px; vertical-align: middle"></i> <span style="font-weight: 600">Public app sharing is currently disabled on iOS to comply with
+the Apple App Store Guidelines.</span>
+
 If you know an app's ID, you can enter its ID to view any Channels the app owner has made public.
 
 <div style="text-align: center">
@@ -81,6 +84,7 @@ cordova-plugin-3dtouch 1.3.5 "3D Touch"
 cordova-plugin-actionsheet 2.3.3 "ActionSheet"
 cordova-plugin-add-swift-support 1.6.2 "AddSwiftSupport"
 cordova-plugin-admob-free 0.10.0 "Cordova AdMob Plugin"
+cordova-plugin-advanced-http 1.8.1 "Advanced HTTP plugin"
 cordova-plugin-app-event 1.2.0 "Application Events"
 cordova-plugin-apprate 1.3.0 "AppRate"
 cordova-plugin-battery-status 1.2.4 "Battery"
@@ -90,7 +94,6 @@ cordova-plugin-brightness 0.1.5 "Brightness"
 cordova-plugin-calendar 4.6.0 "Calendar"
 cordova-plugin-camera 2.4.1 "Camera"
 cordova-plugin-compat 1.1.0 "Compat"
-cordova-plugin-console 1.0.7 "Console"
 cordova-plugin-contacts 2.3.1 "Contacts"
 cordova-plugin-datepicker 0.9.3 "DatePicker"
 cordova-plugin-device 1.1.6 "Device"
@@ -105,8 +108,7 @@ cordova-plugin-health 1.0.0 "Cordova Health"
 cordova-plugin-image-picker 1.1.1 "ImagePicker"
 cordova-plugin-inappbrowser 1.6.1 "InAppBrowser"
 cordova-plugin-insomnia 4.3.0 "Insomnia (prevent screen sleep)"
-cordova-plugin-intercom 3.2.2 "Intercom"
-cordova-plugin-ionic 1.1.6 "IonicCordova"
+cordova-plugin-ionic 1.1.8 "IonicCordova"
 cordova-plugin-ios-keychain 3.0.1 "KeyChain Plugin for Cordova iOS"
 cordova-plugin-media 3.0.1 "Media"
 cordova-plugin-mixpanel 3.1.0 "Mixpanel"
@@ -121,7 +123,7 @@ cordova-plugin-secure-storage 2.6.8 "SecureStorage"
 cordova-plugin-shake 0.6.0 "Shake Gesture Detection"
 cordova-plugin-sim 1.3.3 "SIM"
 cordova-plugin-splashscreen 4.0.3 "Splashscreen"
-cordova-plugin-statusbar 2.2.3 "StatusBar"
+cordova-plugin-statusbar 2.2.4-dev "StatusBar"
 cordova-plugin-stripe 1.5.3 "cordova-plugin-stripe"
 cordova-plugin-taptic-engine 2.1.0 "Taptic Engine"
 cordova-plugin-themeablebrowser 0.2.17 "ThemeableBrowser"
@@ -139,8 +141,13 @@ cordova-universal-clipboard 0.1.0 "Clipboard"
 de.appplant.cordova.plugin.local-notification 0.8.5 "LocalNotification"
 de.appplant.cordova.plugin.printer 0.7.1 "Printer"
 ionic-plugin-keyboard 2.2.1 "Keyboard"
-phonegap-nfc 0.6.6 "NFC"
 phonegap-plugin-barcodescanner 6.0.7 "BarcodeScanner"
 phonegap-plugin-mobile-accessibility 1.0.5-dev "Mobile Accessibility"
 uk.co.workingedge.phonegap.plugin.launchnavigator 4.0.4 "Launch Navigator"
 </pre>
+
+## Plugin Issues
+
+If you are using a plugin from our supported list, and you are still encountering issues using that plugin, please make sure that you are utilizing the `platform.ready()` call before calling any native functionality. You can learn more about `platform.ready()` in our <a href="https://ionicframework.com/docs/api/platform/Platform/#ready" target="_blank">Framework documentation</a>.
+
+If a plugin isn't supported yet, or you are still encountering issues after `platform.ready()` then please <a href="https://ionicframework.com/support">reach out to Support</a>.

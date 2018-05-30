@@ -169,6 +169,56 @@ Programmatically close the keyboard.
 
 
 
+<div id="hideFormAccessoryBar"></div>
+
+<h3>
+<a class="anchor" name="hideFormAccessoryBar" href="#hideFormAccessoryBar">
+<code>hideFormAccessoryBar(hidden)</code>
+  
+
+</a>
+</h3>
+
+Set to true to hide the additional toolbar that is on top of the keyboard.
+This toolbar features the Prev, Next, and Done buttons.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        hidden
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
 <div id="isOpen"></div>
 
 <h3>

@@ -1,0 +1,360 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'contributors' %}
+{% set title = "Ionic Guest Contributors Program - Ionic Framework" %}
+{% set meta_image = '/img/meta/ionic-framework-og.png'%}
+{% set meta_description = "The Ionic community has some of the best thoughts in the world. We wanted to help you share them with the developer community. Sign up to be a part of our guest contributors program." %}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+
+<main>
+  <section class="cta">
+    <div class="container">
+      <h1><span class="fallback">Become a contributor</span><span class="typed"></span> for Ionic</h1>
+      <p>Our community is full of thought leaders and developers doing amazing things on Ionic. Join us by sharing your story.</p>
+      <div class="cta__buttons">
+        <a href="#" id="apply-cta" class="btn">Apply now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="key-benefits">
+    <div class="container">
+      <ul class="feature-list">
+        <li>
+          <div class="feature">
+            <div class="feature__icon talk"></div>
+            <div class="feature__text">
+              <strong>Host a live talk</strong>
+              <p>Join us as a guest speaker on for one of our upcoming live talks. Help share your experience and voice with the community on one of our hot topics.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="feature">
+            <div class="feature__icon story"></div>
+            <div class="feature__text">
+              <strong>Tell your customer story</strong>
+              <p>Interested in joining us for a two minute Q&A interview style video? Tell your story and how Ionic has set your organization up for success in mobile.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="feature">
+            <div class="feature__icon blog"></div>
+            <div class="feature__text">
+              <strong>Be a guest blogger</strong>
+              <p>Some of our best content comes from our community members. We want to enable you to contribute to our blog, and weigh in on some of the hottest Ionic topics and trends.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="topics">
+    <div class="container">
+      <hgroup>
+        <h1>Trending topics</h1>
+        <p>These are some of the most talked about topics in the industry. Select one of these topics and we can work together to share your views.</p>
+      </hgroup>
+    </div>
+    <svg class="topics__animation"></svg>
+  </section>
+
+  <section class="quotes">
+    <div class="quotes__quote morony">
+      <div class="quotes__content">
+        <a href="https://www.joshmorony.com/">
+          <div class="quotes__avatar morony" title="Josh Morony"></div>
+          <blockquote>
+            <p>&ldquo;Writing content about Ionic has generated enough interest in my website and personal brand that I am now able to work full-time writing content on my blog.&rdquo;</p>
+            <small>Josh Morony <span>Developer, teacher, entrepreneur</span></small>
+          </blockquote>
+        </a>
+      </div>
+    </div>
+    <div class="quotes__quote verganara">
+      <div class="quotes__content">
+        <a href="https://javebratt.com/">
+          <div class="quotes__avatar verganara" title="Jorge Vergara"></div>
+          <blockquote>
+            <p>&ldquo;During 2017/18 I've had my articles on the Ionic blog and shared on their newsletter. The exposure led to over 1,500 new subscribers and over $5,000 in book sales.&rdquo;</p>
+            <small>Jorge Vergara <span>Developer, teacher, entrepreneur</span></small>
+          </blockquote>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="container">
+      <div class="apply__form hubspot-override">
+        <h2>Apply to contribute</h2>
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "42616a34-422d-444d-be90-20f18073516a",
+          css: ''
+        });
+        </script>
+      </div>
+      <div class="apply__benefits">
+        <h4>Why contribute with us?</h4>
+        <ul class="benefit-list">
+          <li class="benefit-list__item">
+            <h5>Become a thought leader</h5>
+            <p>Help us share your story with our community and expand your reach with fellow Ionic developers.</p>
+          </li>
+          <li class="benefit-list__item">
+            <h5>Maximize your reach</h5>
+            <p>We will post on our blog and resources sections and link your content back to your site, maximizing visibility and value for your brand and ours.</p>
+          </li>
+          <li class="benefit-list__item">
+            <h5>Help others find success</h5>
+            <p>Give back and empower other developers to find similar success based on your experiences.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function() {
+    // enable sticky nav
+    stickyNav.init();
+
+    // typed animation
+    var isTyping = true;
+    document.querySelector('.fallback').style.display = "none";
+    var typed = new Typed('.typed', {
+      strings: ["Become a contributor", "Host a talk", "Tell your story", "Be a blogger"],
+      typeSpeed: 50,
+      backSpeed: 20,
+      loop: true,
+      backDelay: 2400,
+      autoInsertCss: false,
+    });
+
+    // stop typed when it's scrolled out of view
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 560){
+        stopTyped();
+      } else if(window.scrollY < 560){
+        startTyped();
+      }
+    });
+
+    function startTyped () {
+      if (isTyping) return;
+      isTyping = true;
+      typed.start();
+    }
+
+    function stopTyped () {
+      if (!isTyping) return;
+      isTyping = false;
+      typed.stop();
+      clearInterval(typed.timeout);
+    }
+
+
+
+    // topics animation
+    var topicsStage = document.querySelector('.topics')
+
+    var isIE = navigator.userAgent.match(/Trident\/7\./);
+    var isEdge = !isIE && !!window.StyleMedia;
+    if (isIE || isEdge) {
+      topicsStage.classList.add('image-fallback')
+      return;
+    }
+
+    var width = 600;
+    var height = topicsStage.clientHeight;
+    var svg = d3.select('svg')
+      .attr("width", width)
+      .attr("height", height);
+
+    var defs = svg.append("defs");
+
+    var mask = defs.append("mask")
+      .attr("id", "mask");
+
+    var gradient1 = defs.append("linearGradient")
+       .attr("id", "bgGradient")
+       .attr("x1", "0%")
+       .attr("x2", "0%")
+       .attr("y1", "0%")
+       .attr("y2", "100%");
+
+    gradient1.append("stop")
+       .attr("offset", "0%")
+       .attr("stop-color", "#51ECAA")
+       .attr("stop-opacity", 1);
+
+   gradient1.append("stop")
+      .attr("offset", "50%")
+      .attr("stop-color", "#2F9DFF")
+      .attr("stop-opacity", 1);
+
+    gradient1.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#9737DC")
+      .attr("stop-opacity", 1);
+
+    var gradient2 = defs.append("linearGradient")
+       .attr("id", "circleGradient")
+       .attr("x1", "0%")
+       .attr("x2", "100%")
+       .attr("y1", "0%")
+       .attr("y2", "100%");
+
+    gradient2.append("stop")
+       .attr("offset", "0%")
+       .attr("stop-color", "#fff")
+       .attr("stop-opacity", 0.3);
+
+    gradient2.append("stop")
+      .attr("offset", "70%")
+      .attr("stop-color", "#fff")
+      .attr("stop-opacity", 1);
+
+    svg.append('rect')
+      .attr('y', 0)
+      .attr('x', 0)
+      .attr('height', height)
+      .attr('width', width)
+      .style('fill', 'url(#bgGradient)')
+      .attr('mask', 'url(#mask)')
+
+    var nodeLayer = mask.append("g").selectAll(".node");
+    var textLayer = svg.append("g").selectAll(".text");
+
+    var nodeId = 0;
+    var topics = [
+      { name: 'Web Components', radius: 120 },
+      { name: 'Why Ionic?', radius: 80 },
+      { name: 'PWAs', radius: 60 },
+      { name: 'Service Workers', radius: 100 },
+      { name: 'Performance Techniques', radius: 140 },
+      { name: 'Electron', radius: 80 },
+      { name: 'Native Integration', radius: 120 },
+      { name: 'New Web APIs', radius: 140 },
+      { name: 'Desktop', radius: 80 }
+    ];
+
+    var yScale = d3.scaleLinear().domain([0, topics.length]).range([-200, height + 200]);
+
+    var nodes = topics.map(function(o, i){
+      var y = yScale(i);
+      return {
+        id: nodeId++,
+        name: o.name,
+        radius: o.radius,
+        yPos: y,
+        y: y
+      }
+    })
+
+    var simulation = d3.forceSimulation(nodes)
+      .force('charge', d3.forceManyBody().strength(5))
+      .force('y', d3.forceY().y(function(d) {
+        return d.yPos;
+      }))
+      .force('x', d3.forceX().x(function(d) {
+        return (width / 2);
+      }))
+      .force('collision', d3.forceCollide().radius(function(d) {
+        return d.radius + 10;
+      }).strength(0.7))
+      .stop();
+
+    for (var i = 0; i < 20; i++) {
+      simulation.tick();
+    }
+
+    var topicsCtx = rafContext(function() {
+
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].yPos -= 0.75;
+        if (nodes[i].y < -300) {
+          var resetNode = nodes.splice(i, 1)[0];
+          var y = height + 300;
+          var x = width/2 * Math.random();
+          nodes.push({
+            id: nodeId++,
+            name: resetNode.name,
+            radius: resetNode.radius,
+            yPos: y,
+            y: y,
+            x: x,
+            vy: y,
+            vx: x
+          })
+        }
+      }
+
+      nodeLayer = nodeLayer.data(nodes, function(d) { return d.id;});
+      nodeLayer.exit().remove();
+      nodeLayer = nodeLayer.enter()
+        .append("circle")
+        .attr('class', 'node')
+        .style('fill', 'url(#circleGradient)')
+        // .style('fill', '#fff')
+        .attr('r', function(d) {
+          return d.radius;
+        })
+        .merge(nodeLayer)
+        .attr('cx', function(d) {
+          return d.x;
+        })
+        .attr('cy', function(d) {
+          return d.y;
+        })
+
+      textLayer = textLayer.data(nodes);
+      textLayer.exit().remove();
+      textLayer = textLayer.enter()
+        .append("text")
+        .attr('class', 'text')
+        .merge(textLayer)
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .attr('dy', 5)
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+          return d.name;
+        });
+
+      simulation
+        .nodes(nodes)
+        .alpha(0.1)
+        .restart();
+
+    });
+
+    initAnimation(topicsStage, topicsCtx, {breakpoint: 1});
+
+
+    // scroll to apply
+    var applyCta = document.querySelector('#apply-cta');
+    applyCta.addEventListener('click', function(e){
+      e.preventDefault();
+      stopTyped();
+      topicsCtx.stop();
+      scrollToEl('.apply__form');
+    });
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  })();
+</script>
+{% endblock %}

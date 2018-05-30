@@ -33,4 +33,9 @@
       color: #fff;
     }
   }
+
+  &-success {
+    background-color: rgba($green, 0.1);
+    border-color: rgba($green, 0.3);
+  }
 }

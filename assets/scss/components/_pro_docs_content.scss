@@ -125,10 +125,22 @@ body.docs #snap-bar + #pro-header.navbar {
   }
 
   .pro-intro-link::before { background-position: 0px 0px }
+  .pro-view-link::before { background-position: 0px -48px }
   .pro-deploy-link::before { background-position: 0px -64px }
   .pro-package-link::before { background-position: 0px -80px }
   .pro-monitoring-link::before { background-position: 0px -96px }
-  .pro-view-link::before { background-position: 0px -128px }
+  .pro-devapp-link::before { background-position: 0px -128px }
   .pro-advanced-link::before { background-position: 0px -160px }
+}
 
+#branch-sms-box {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 20px;
+
+  .btn {
+    font-size: 14px;
+    margin-top: 10px;
+  }
 }

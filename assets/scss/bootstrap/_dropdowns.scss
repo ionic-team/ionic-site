@@ -147,6 +147,11 @@
   left: 0;
   right: auto;
 }
+//centered dropdown menu
+.dropdown-menu-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 // Dropdown section headers
 .dropdown-header {

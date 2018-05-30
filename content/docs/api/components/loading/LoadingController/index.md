@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "LoadingController"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/loading/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -33,7 +33,7 @@ LoadingController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/loading/loading-controller.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/loading/loading-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -87,12 +87,12 @@ a higher <code>z-index</code> than this element.</p>
 
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">import { LoadingController } from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">constructor(public loadingCtrl: LoadingController) {
 
-constructor(public loadingCtrl: LoadingController) { }
+}
 
 presentLoadingDefault() {
-  const loading = this.loadingCtrl.create({
+  let loading = this.loadingCtrl.create({
     content: &#39;Please wait...&#39;
   });
 
@@ -104,7 +104,7 @@ presentLoadingDefault() {
 }
 
 presentLoadingCustom() {
-  const loading = this.loadingCtrl.create({
+  let loading = this.loadingCtrl.create({
     spinner: &#39;hide&#39;,
     content: `
       &lt;div class=&quot;custom-spinner-container&quot;&gt;
@@ -121,7 +121,7 @@ presentLoadingCustom() {
 }
 
 presentLoadingText() {
-  const loading = this.loadingCtrl.create({
+  let loading = this.loadingCtrl.create({
     spinner: &#39;hide&#39;,
     content: &#39;Loading Please Wait...&#39;
   });
@@ -154,7 +154,7 @@ presentLoadingText() {
 <h3>
 <a class="anchor" name="config" href="#config">
 <code>config</code>
-  
+
 
 </a>
 </h3>
@@ -174,7 +174,7 @@ presentLoadingText() {
 <h3>
 <a class="anchor" name="create" href="#create">
 <code>create(opts)</code>
-  
+
 
 </a>
 </h3>
@@ -191,24 +191,24 @@ Create a loading indicator. See below for options.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>LoadingOptions</code>
       </td>
       <td>
         <p>Loading options<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -218,7 +218,7 @@ Create a loading indicator. See below for options.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Loading</code> <p>Returns a Loading Instance</p>
 
 
@@ -279,25 +279,25 @@ Create a loading indicator. See below for options.
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -307,163 +307,163 @@ Create a loading indicator. See below for options.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$loading-ios-padding-top</code></td>
-        
+
           <td><code>24px</code></td>
-        
+
         <td><p>Padding top of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-padding-end</code></td>
-        
+
           <td><code>34px</code></td>
-        
+
         <td><p>Padding end of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-padding-bottom</code></td>
-        
+
           <td><code>$loading-ios-padding-top</code></td>
-        
+
         <td><p>Padding bottom of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-padding-start</code></td>
-        
+
           <td><code>$loading-ios-padding-end</code></td>
-        
+
         <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-max-width</code></td>
-        
+
           <td><code>270px</code></td>
-        
+
         <td><p>Max width of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-border-radius</code></td>
-        
+
           <td><code>8px</code></td>
-        
+
         <td><p>Border radius of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-text-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Text color of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-background</code></td>
-        
+
           <td><code>#f8f8f8</code></td>
-        
+
         <td><p>Background of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-content-font-weight</code></td>
-        
+
           <td><code>bold</code></td>
-        
+
         <td><p>Font weight of the loading content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-content-margin-start</code></td>
-        
+
           <td><code>$content-ios-margin</code></td>
-        
+
         <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-ios-color</code></td>
-        
+
           <td><code>$loading-ios-spinner-color</code></td>
-        
+
         <td><p>Color of the ios loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-bubbles-color</code></td>
-        
+
           <td><code>$loading-ios-spinner-color</code></td>
-        
+
         <td><p>Color of the bubbles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-circles-color</code></td>
-        
+
           <td><code>$loading-ios-spinner-color</code></td>
-        
+
         <td><p>Color of the circles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-crescent-color</code></td>
-        
+
           <td><code>$loading-ios-spinner-color</code></td>
-        
+
         <td><p>Color of the crescent loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-ios-spinner-dots-color</code></td>
-        
+
           <td><code>$loading-ios-spinner-color</code></td>
-        
+
         <td><p>Color of the dots loading spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -473,172 +473,172 @@ Create a loading indicator. See below for options.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$loading-md-padding-top</code></td>
-        
+
           <td><code>24px</code></td>
-        
+
         <td><p>Padding top of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-padding-end</code></td>
-        
+
           <td><code>$loading-md-padding-top</code></td>
-        
+
         <td><p>Padding end of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-padding-bottom</code></td>
-        
+
           <td><code>$loading-md-padding-top</code></td>
-        
+
         <td><p>Padding bottom of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-padding-start</code></td>
-        
+
           <td><code>$loading-md-padding-end</code></td>
-        
+
         <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-max-width</code></td>
-        
+
           <td><code>280px</code></td>
-        
+
         <td><p>Max width of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-border-radius</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border radius of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-text-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .5)</code></td>
-        
+
         <td><p>Text color of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-background</code></td>
-        
+
           <td><code>#fafafa</code></td>
-        
+
         <td><p>Background of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .4)</code></td>
-        
+
         <td><p>Box shadow color of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-box-shadow</code></td>
-        
+
           <td><code>0 16px 20px $loading-md-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-content-margin-start</code></td>
-        
+
           <td><code>$content-md-margin</code></td>
-        
+
         <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-color</code></td>
-        
+
           <td><code>color($colors-md, primary)</code></td>
-        
+
         <td><p>Color of the loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-ios-color</code></td>
-        
+
           <td><code>$loading-md-spinner-color</code></td>
-        
+
         <td><p>Color of the ios loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-bubbles-color</code></td>
-        
+
           <td><code>$loading-md-spinner-color</code></td>
-        
+
         <td><p>Color of the bubbles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-circles-color</code></td>
-        
+
           <td><code>$loading-md-spinner-color</code></td>
-        
+
         <td><p>Color of the circles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-crescent-color</code></td>
-        
+
           <td><code>$loading-md-spinner-color</code></td>
-        
+
         <td><p>Color of the crescent loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-md-spinner-dots-color</code></td>
-        
+
           <td><code>$loading-md-spinner-color</code></td>
-        
+
         <td><p>Color of the dots loading spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -648,154 +648,154 @@ Create a loading indicator. See below for options.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$loading-wp-padding-top</code></td>
-        
+
           <td><code>20px</code></td>
-        
+
         <td><p>Padding top of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-padding-end</code></td>
-        
+
           <td><code>$loading-wp-padding-top</code></td>
-        
+
         <td><p>Padding end of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-padding-bottom</code></td>
-        
+
           <td><code>$loading-wp-padding-top</code></td>
-        
+
         <td><p>Padding bottom of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-padding-start</code></td>
-        
+
           <td><code>$loading-wp-padding-end</code></td>
-        
+
         <td><p>Padding start of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-max-width</code></td>
-        
+
           <td><code>280px</code></td>
-        
+
         <td><p>Max width of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-max-height</code></td>
-        
+
           <td><code>90%</code></td>
-        
+
         <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-border-radius</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border radius of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-text-color</code></td>
-        
+
           <td><code>#fff</code></td>
-        
+
         <td><p>Text color of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-background</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Background of the loading wrapper</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-content-margin-start</code></td>
-        
+
           <td><code>$content-wp-margin</code></td>
-        
+
         <td><p>Margin start of the loading content next to a spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-color</code></td>
-        
+
           <td><code>$loading-wp-text-color</code></td>
-        
+
         <td><p>Color of the loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-ios-color</code></td>
-        
+
           <td><code>$loading-wp-spinner-color</code></td>
-        
+
         <td><p>Color of the ios loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-bubbles-color</code></td>
-        
+
           <td><code>$loading-wp-spinner-color</code></td>
-        
+
         <td><p>Color of the bubbles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-circles-color</code></td>
-        
+
           <td><code>$loading-wp-spinner-color</code></td>
-        
+
         <td><p>Color of the circles loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-crescent-color</code></td>
-        
+
           <td><code>$loading-wp-spinner-color</code></td>
-        
+
         <td><p>Color of the crescent loading spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$loading-wp-spinner-dots-color</code></td>
-        
+
           <td><code>$loading-wp-spinner-color</code></td>
-        
+
         <td><p>Color of the dots loading spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

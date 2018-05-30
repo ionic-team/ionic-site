@@ -22,13 +22,15 @@ Sync Source Maps to Ionic Pro Error Monitoring service
 ## Synopsis
 
 ```bash
-$ ionic monitoring syncmaps 
+$ ionic monitoring syncmaps [<snapshot_id>]
 ```
   
 ## Details
 
 
-
+Input | Description
+----- | ----------
+`snapshot_id` | An Ionic Pro snapshot id to associate these sourcemaps with.
 
 
 

@@ -49,6 +49,21 @@ The CLI will look for the following environment variables:
 * `IONIC_HTTP_PROXY`: Set a URL for proxying all CLI requests through. See [Using a Proxy](#using-a-proxy). The CLI will also look for `HTTP_PROXY` and `HTTPS_PROXY`, both of which npm use.
 * `IONIC_EMAIL` / `IONIC_PASSWORD`: For automatic login via environment variables.
 
+### Command Options
+
+You can express command options (normally set with `--opt=value` syntax) with environment variables. The naming of these environment variables follows a pattern: start with `IONIC_CMDOPTS_`, add the command name (replacing any spaces with underscores), add the option name (replacing any hyphens with underscores), and then uppercase everything. Boolean flags (command-line options that don't take a value) can be set to `1` or `0`. Strip the `--no-` prefix in boolean flags, if it exists (`--no-open` in `ionic serve` can be expressed with `IONIC_CMDOPTS_SERVE_OPEN=0`, for example).
+
+For example, the command options in `ionic cordova run ios -lc --livereload-port=1234 --address=localhost` can also be expressed with this series of environment variables:
+
+```bash
+export IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD=1
+export IONIC_CMDOPTS_CORDOVA_RUN_CONSOLELOGS=1
+export IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD_PORT=1234
+export IONIC_CMDOPTS_CORDOVA_RUN_ADDRESS=localhost
+```
+
+If these variables are set in your environment, `ionic cordova build ios` will use new defaults for its options.
+
 ## Flags
 
 CLI flags are global options that alter the behavior of a CLI command.
@@ -120,16 +135,33 @@ $ npm install -g @ionic/cli-plugin-proxy
 For CLI installed locally:
 
 ```bash
-$ cd myProject # cd into your project
+$ cd myProject # cd into your project's directory
 $ npm install --save-exact --save-dev @ionic/cli-plugin-proxy
 ```
 
 Then, use one of the following environment variables:
 
 ```bash
-$ export HTTP_PROXY="http://proxy.example.org:8888" # used by npm
-$ export HTTPS_PROXY="https://proxy.example.org:8888" # used by npm
-$ export IONIC_HTTP_PROXY="http://proxy.example.org:8888"
+$ export HTTP_PROXY="http://proxy.example.com:8888" # also used by npm
+$ export HTTPS_PROXY="https://proxy.example.com:8888" # also used by npm
+$ export IONIC_HTTP_PROXY="http://proxy.example.com:8888"
+```
+
+### Other CLIs
+
+Each CLI that you use must be configured separately to proxy network requests.
+
+#### npm
+
+```bash
+$ npm config set proxy http://proxy.company.com:8888
+$ npm config set https-proxy https://proxy.company.com:8888
+```
+
+#### git
+
+```bash
+$ git config --global http.proxy http://proxy.example.com:8888
 ```
 
 ### SSL Configuration
@@ -143,3 +175,7 @@ $ ionic config set -g ssl.keyfile /path/to/keyfile # file path to a client key f
 ```
 
 The `cafile`, `certfile`, and `keyfile` entries can be manually edited as arrays of strings in `~/.ionic/config.json` to include multiple files.
+
+## Telemetry
+
+By default, the Ionic CLI sends usage data to Ionic, which we use to better your experience. To disable this functionality, you can run `ionic config set -g telemetry false`.

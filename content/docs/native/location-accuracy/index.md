@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -123,7 +123,7 @@ Requests accurate location
       <code>number</code>
     </td>
     <td>
-      <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST<em>PRIORITY</em></p>
+      <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST_PRIORITY_</p>
 </td>
   </tr>
   </tbody>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -87,6 +87,8 @@ this.firebaseAnalytics.logEvent(&#39;page_view&#39;, {page: &quot;dashboard&quot
 <h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(name,&nbsp;params)</code></h3>
 
 
+
+
 Logs an app event.
 Be aware of automatically collected events.
 <table class="table param-table" style="margin:0;">
@@ -128,6 +130,8 @@ Be aware of automatically collected events.
 </div><h3><a class="anchor" name="setUserId" href="#setUserId"></a><code>setUserId(id)</code></h3>
 
 
+
+
 Sets the user ID property.
 This feature must be used in accordance with Google's Privacy Policy.
 <table class="table param-table" style="margin:0;">
@@ -156,6 +160,8 @@ This feature must be used in accordance with Google's Privacy Policy.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
 </div><h3><a class="anchor" name="setUserProperty" href="#setUserProperty"></a><code>setUserProperty(name,&nbsp;value)</code></h3>
+
+
 
 
 This feature must be used in accordance with Google's Privacy Policy.
@@ -199,6 +205,8 @@ Be aware of automatically collected user properties.
 </div><h3><a class="anchor" name="setEnabled" href="#setEnabled"></a><code>setEnabled(enabled)</code></h3>
 
 
+
+
 Sets whether analytics collection is enabled for this app on this device.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -225,6 +233,8 @@ Sets whether analytics collection is enabled for this app on this device.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
 </div><h3><a class="anchor" name="setCurrentScreen" href="#setCurrentScreen"></a><code>setCurrentScreen(name)</code></h3>
+
+
 
 
 Sets the current screen name, which specifies the current visual context in your app.

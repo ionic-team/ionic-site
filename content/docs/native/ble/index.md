@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">BLE</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L7">
   Improve this doc
 </a>
 
@@ -131,7 +131,7 @@ constructor(private ble: BLE) { }
 }
 </code></pre>
 <h2 id="advertising-data">Advertising Data</h2>
-<p>Bluetooth advertising data is returned in when scanning for devices. The format format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
+<p>Bluetooth advertising data is returned in when scanning for devices. The format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
 <p>The advertising information for both Android and iOS appears to be a combination of advertising data and scan response data.</p>
 <h3 id="android">Android</h3>
 <pre><code class="lang-typescript"> {
@@ -189,38 +189,6 @@ function bytesToString(buffer) {
 
 
 
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
-
-
-Read the RSSI value on the device connection.
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      deviceId</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>UUID or MAC address of the peripheral</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
 
 
 
@@ -331,10 +299,11 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>BLEScanOptions</code>
     </td>
     <td>
-      </td>
+      <p>Options</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -351,8 +320,7 @@ Stop a scan started by `startScan`.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  returns a Promise.
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(deviceId)</code></h3>
 
 
@@ -383,8 +351,7 @@ Connect to a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of connect/disconnect.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
 </div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code></h3>
 
 
@@ -413,8 +380,7 @@ Disconnect from a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="read" href="#read"></a><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -466,8 +432,7 @@ Read the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="write" href="#write"></a><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -529,8 +494,7 @@ Write the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="writeWithoutResponse" href="#writeWithoutResponse"></a><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -593,8 +557,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="startNotification" href="#startNotification"></a><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -648,8 +611,7 @@ Register to be notified when the value of a characteristic changes.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of characteristic changes.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of characteristic changes.
 </div><h3><a class="anchor" name="stopNotification" href="#stopNotification"></a><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -742,6 +704,28 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
+</div><h3><a class="anchor" name="startStateNotifications" href="#startStateNotifications"></a><code>startStateNotifications()</code></h3>
+
+
+
+
+Register to be notified when Bluetooth state changes on the device.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
+</div><h3><a class="anchor" name="stopStateNotifications" href="#stopStateNotifications"></a><code>stopStateNotifications()</code></h3>
+
+
+Stop state notifications.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 
@@ -762,7 +746,70 @@ Enable Bluetooth on the device (Android only).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
+
+
+Read the RSSI value on the device connection.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="BLEScanOptions" href="#BLEScanOptions"></a>BLEScanOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      reportDuplicates
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>true if duplicate devices should be reported, false (default) if devices should only be reported once.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

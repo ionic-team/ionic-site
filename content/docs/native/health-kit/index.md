@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Health Kit</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L114">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L125">
   Improve this doc
 </a>
 
@@ -609,6 +609,21 @@ Read more here: <a href="https://developer.apple.com/library/ios/documentation/H
   
   <tr>
     <td>
+      ascending
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>specifies if the data returned by querySampleType() should be sorted by
+end date in ascending order, default is false</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       correlationType
     </td>
     <td>
@@ -723,6 +738,20 @@ Read more here: <a href="https://developer.apple.com/library/ios/documentation/H
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      limit
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>limits the maximum number of records returned by querySampleType()</p>
+
       <em>(optional)</em>
     </td>
   </tr>

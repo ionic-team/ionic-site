@@ -1,6 +1,6 @@
 ---
 layout: fluid/docs_base
-version: "2.0.1"
+version: "2.1.3"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -55,7 +55,7 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
   declarations: [
     // ...
   ],
-  imports: [      
+  imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()

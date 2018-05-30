@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">FCM</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/fcm/index.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/fcm/index.ts#L16">
   Improve this doc
 </a>
 
@@ -62,25 +62,25 @@ constructor(private fcm: FCM) {}
 
 ...
 
-fcm.subscribeToTopic(&#39;marketing&#39;);
+this.fcm.subscribeToTopic(&#39;marketing&#39;);
 
-fcm.getToken().then(token=&gt;{
+this.fcm.getToken().then(token =&gt; {
   backend.registerToken(token);
-})
+});
 
-fcm.onNotification().subscribe(data=&gt;{
+this.fcm.onNotification().subscribe(data =&gt; {
   if(data.wasTapped){
     console.log(&quot;Received in background&quot;);
   } else {
     console.log(&quot;Received in foreground&quot;);
   };
-})
+});
 
-fcm.onTokenRefresh().subscribe(token=&gt;{
+this.fcm.onTokenRefresh().subscribe(token =&gt; {
   backend.registerToken(token);
-})
+});
 
-fcm.unsubscribeFromTopic(&#39;marketing&#39;);
+this.fcm.unsubscribeFromTopic(&#39;marketing&#39;);
 </code></pre>
 
 
@@ -94,7 +94,7 @@ fcm.unsubscribeFromTopic(&#39;marketing&#39;);
 <h3><a class="anchor" name="getToken" href="#getToken"></a><code>getToken()</code></h3>
 
 
-Get's device's current registration id
+Gets device's current registration id
 
 
 
@@ -146,7 +146,7 @@ Subscribes you to a [topic](https://firebase.google.com/docs/notifications/andro
 </div><h3><a class="anchor" name="unsubscribeFromTopic" href="#unsubscribeFromTopic"></a><code>unsubscribeFromTopic(topic)</code></h3>
 
 
-Unubscribes you from a [topic](https://firebase.google.com/docs/notifications/android/console-topics)
+Unsubscribes you from a [topic](https://firebase.google.com/docs/notifications/android/console-topics)
 
 <table class="table param-table" style="margin:0;">
   <thead>

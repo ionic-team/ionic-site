@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Device Accounts</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-accounts/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-accounts/index.ts#L12">
   Improve this doc
 </a>
 
@@ -83,16 +83,35 @@ Gets all accounts registered on the Android Device
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType()</code></h3>
+  <b>Returns:</b> <code>Promise&lt;AndroidAccount[]&gt;</code> 
+</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType(type)</code></h3>
 
 
 Get all accounts registered on Android device for requested type
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;AndroidAccount[]&gt;</code> 
 </div><h3><a class="anchor" name="getEmails" href="#getEmails"></a><code>getEmails()</code></h3>
 
 
@@ -101,7 +120,7 @@ Get all emails registered on Android device (accounts with 'com.google' type)
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string[]&gt;</code> 
 </div><h3><a class="anchor" name="getEmail" href="#getEmail"></a><code>getEmail()</code></h3>
 
 
@@ -110,8 +129,69 @@ Get the first email registered on Android device
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="AndroidAccount" href="#AndroidAccount"></a>AndroidAccount</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      CREATOR
+    </td>
+    <td>
+      <code>AndroidAccount</code>
+    </td>
+    <td>
+      <p>Account creator</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      name
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Account name</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Account type</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

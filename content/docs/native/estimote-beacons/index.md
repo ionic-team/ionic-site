@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Estimote Beacons</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/estimote-beacons/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/estimote-beacons/index.ts#L14">
   Improve this doc
 </a>
 
@@ -480,7 +480,7 @@ Stop ranging beacons. Available on iOS and Android.
 
 
 Start ranging secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>startRangingBeaconsInRegion</code></a>.
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.
@@ -493,7 +493,7 @@ To use secure beacons set the App ID and App Token using
 
 
 Stop ranging secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>stopRangingBeaconsInRegion</code></a>.
 
 
@@ -538,7 +538,7 @@ Start monitoring beacons. Available on iOS and Android.
 are inside a region when the user turns display on, see
 <a href="<a">href="https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS">https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS</a> documentation</a>
 for further details (iOS only).<strong class="tag">Optional</strong></p>
-<p><em>(default: false)</em></p></td>
+</td>
   </tr>
   </tbody>
 </table>
@@ -582,7 +582,7 @@ Stop monitoring beacons. Available on iOS and Android.
 
 
 Start monitoring secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 EstimoteBeacons.startMonitoringForRegion.
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.
@@ -625,7 +625,7 @@ To use secure beacons set the App ID and App Token using
 
 
 Stop monitoring secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>stopMonitoringForRegion</code></a>.
 <table class="table param-table" style="margin:0;">
   <thead>

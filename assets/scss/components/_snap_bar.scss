@@ -1,8 +1,8 @@
 #snap-bar {
-  background: #2e64c3;
-  color: #dce9ff;
+  background: #171629;
+  color: #CCCAEA;
   text-align: center;
-  padding: 7px 10px;
+  padding: 9px 10px 7px;
   font-weight: 500;
   font-size: 14px;
   position: relative;
@@ -16,12 +16,18 @@
     color: white;
   }
 
+  .loading {
+    width: 16px;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+  }
+
   a {
     color: white;
     transition: .2s color;
 
     &:hover {
-      color: #dce9ff;
+      color: #fd4935;
       text-decoration: none;
     }
   }
@@ -45,7 +51,7 @@
 body.docs #snap-bar {
   + .navbar {
     margin-top: 0;
-  
+
     @media (max-width: $screen-xs-max) {
       padding-top: 0;
     }
@@ -61,5 +67,19 @@ body.has-snap {
 
   @media (max-width: $screen-xs-max) {
     margin-top: 0;
+  }
+}
+
+body.docs #snap-bar ~ .docs-container .side-nav {
+  padding-top: 36px;
+}
+
+ionic-snap-bar {
+  &:not(.hydrated) {
+    display: none;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    display: none;
   }
 }

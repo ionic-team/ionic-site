@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Base64 To Gallery</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/base64-to-gallery/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/base64-to-gallery/index.ts#L11">
   Improve this doc
 </a>
 
@@ -111,7 +111,7 @@ Converts a base64 string to an image file in the device gallery
       <code>any</code>
     </td>
     <td>
-      <p>An object with properties: prefix: string, mediaScanner: boolean. Prefix will be prepended to the filename. If true, mediaScanner runs Media Scanner on Android and saves to Camera Roll on iOS; if false, saves to Library folder on iOS.<strong class="tag">Optional</strong></p>
+      <p>An object with properties<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -121,6 +121,54 @@ Converts a base64 string to an image file in the device gallery
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves when the image is saved.
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="Base64ToGalleryOptions" href="#Base64ToGalleryOptions"></a>Base64ToGalleryOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      prefix
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Saved file name prefix</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mediaScanner
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>On Android runs Media Scanner after file creation.
+On iOS if true the file will be added to camera roll, otherwise will be saved to a library folder.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

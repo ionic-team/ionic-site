@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -74,8 +74,8 @@ if (this.platform.is(&#39;ios&#39;)) {
 
 this.appAvailability.check(app)
   .then(
-    (yes: string) =&gt; console.log(app + &#39; is available&#39;),
-    (no: string) =&gt; console.log(app + &#39; is NOT available&#39;)
+    (yes: boolean) =&gt; console.log(app + &#39; is available&#39;),
+    (no: boolean) =&gt; console.log(app + &#39; is NOT available&#39;)
   );
 </code></pre>
 

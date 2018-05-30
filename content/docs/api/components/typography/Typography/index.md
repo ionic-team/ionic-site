@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Typography
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/typography/typography.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/typography/typography.ts#L3">
 Improve this doc
 </a>
 

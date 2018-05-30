@@ -51,9 +51,14 @@
           color: white;
         }
 
+        h1 {
+          font-size: 36px;
+        }
+
         p {
           max-width: 650px;
           margin: 0 auto;
+          font-size: 14px;
 
           a {
             color: rgba(white, .9);
@@ -511,6 +516,10 @@
           font-size: 11px;
         }
       }
+    }
+
+    hgroup {
+      padding-bottom: 64px;
     }
 
     @media (max-width: $screen-xs-max)  {

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -118,47 +118,7 @@ this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
 
 
 
-<h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code></h3>
-
-
-Browser wrapper
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      appId</td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Your Facebook AppID from their dashboard</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      version</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The version of API you may want to use. Optional</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code></h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code></h3>
 
 
 Login to Facebook to authenticate this app.
@@ -438,64 +398,6 @@ Log a purchase. For more information see the Events section above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="appInvite" href="#appInvite"></a><code>appInvite(options,&nbsp;options.url,&nbsp;options.picture)</code></h3>
-
-
-Open App Invite dialog. Does not require login.
-
-For more information see:
-
-  the App Invites Overview - https://developers.facebook.com/docs/app-invites/overview
-  the App Links docs - https://developers.facebook.com/docs/applinks
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      options</td>
-    <td>
-      <code>Object</code>
-    </td>
-    <td>
-      <p>An object containing an <a href="https://developers.facebook.com/docs/applinks">App Link</a> URL to your app and an optional image URL.</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      options.url</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p><a href="https://developers.facebook.com/docs/applinks">App Link</a> to your app</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      options.picture</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>image to be displayed in the App Invite dialog<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result data, or rejects with an error
 </div>
 
 

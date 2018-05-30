@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -149,7 +149,7 @@ Returns the AdMobFreeRewardVideo object
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -179,7 +179,7 @@ Update config.
 
 
 
-Hide the banner.
+Hide the banner
 
 
 <div class="return-value" markdown="1">
@@ -190,7 +190,7 @@ Hide the banner.
 
 
 
-Create banner.
+Create banner
 
 
 <div class="return-value" markdown="1">
@@ -201,7 +201,7 @@ Create banner.
 
 
 
-Remove the banner.
+Remove the banner
 
 
 <div class="return-value" markdown="1">
@@ -212,7 +212,7 @@ Remove the banner.
 
 
 
-Show the banner.
+Show the banner
 
 
 <div class="return-value" markdown="1">
@@ -229,7 +229,7 @@ Show the banner.
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -298,7 +298,7 @@ Show the interstitial
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -312,10 +312,11 @@ Update config.
     <td>
       options</td>
     <td>
-      
+      <code>AdMobFreeRewardVideoConfig</code>
     </td>
     <td>
-      </td>
+      <p>Admob reward config</p>
+</td>
   </tr>
   </tbody>
 </table>

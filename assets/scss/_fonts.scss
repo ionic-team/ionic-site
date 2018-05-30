@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Bold'),
        url('/fonts/avenir-next/bold.woff2') format('woff2'),
        url('/fonts/avenir-next/bold.woff') format('woff'),
        url('/fonts/avenir-next/bold.ttf') format('ttf'),
@@ -25,7 +25,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Demi Bold'),
        url('/fonts/avenir-next/demi.woff2') format('woff2'),
        url('/fonts/avenir-next/demi.woff') format('woff'),
        url('/fonts/avenir-next/demi.ttf') format('ttf'),
@@ -35,8 +35,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
-       url('/fonts/avenir-next/medium.woff2') format('woff2'),
+  src: local('Avenir Next Medium'),
        url('/fonts/avenir-next/medium.woff') format('woff'),
        url('/fonts/avenir-next/medium.ttf') format('truetype'),
        url('/fonts/avenir-next/medium.eot?#iefix') format('eot');
@@ -45,8 +44,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
-       url('/fonts/avenir-next/regular.woff2') format('woff2'),
+  src: local('Avenir Next Regular'),
        url('/fonts/avenir-next/regular.woff') format('woff'),
        url('/fonts/avenir-next/regular.ttf') format('ttf'),
        url('/fonts/avenir-next/regular.eot?#iefix') format('eot');
@@ -55,7 +53,7 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Thin'),
        url('/fonts/avenir-next/thin.woff2') format('woff2'),
        url('/fonts/avenir-next/thin.woff') format('woff'),
        url('/fonts/avenir-next/thin.ttf') format('ttf'),
@@ -65,11 +63,39 @@
 }
 @font-face {
   font-family: 'Avenir Next';
-  src: local('Avenir Next'),
+  src: local('Avenir Next Ultra Light'),
        url('/fonts/avenir-next/ultralight.woff2') format('woff2'),
        url('/fonts/avenir-next/ultralight.woff') format('woff'),
        url('/fonts/avenir-next/ultralight.ttf') format('ttf'),
        url('/fonts/avenir-next/ultralight.eot?#iefix') format('eot');
   font-weight: 200;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Eina';
+  src: url('/fonts/eina/eina-01-bold.woff2') format('woff2'),
+       url('/fonts/eina/eina-01-bold.woff') format('woff'),
+       url('/fonts/eina/eina-01-bold.ttf') format('ttf'),
+       url('/fonts/eina/eina-01-bold.eot?#iefix') format('eot');
+  font-weight: 700;
+  unicode-range: U+000-5FF;
+}
+@font-face {
+  font-family: 'Eina';
+  src: url('/fonts/eina/eina-01-semibold.woff2') format('woff2'),
+       url('/fonts/eina/eina-01-semibold.woff') format('woff'),
+       url('/fonts/eina/eina-01-semibold.ttf') format('ttf'),
+       url('/fonts/eina/eina-01-semibold.eot?#iefix') format('eot');
+  font-weight: 600;
+  unicode-range: U+000-5FF;
+}
+@font-face {
+  font-family: 'Eina';
+  src: url('/fonts/eina/eina-01-regular.woff2') format('woff2'),
+       url('/fonts/eina/eina-01-regular.woff') format('woff'),
+       url('/fonts/eina/eina-01-regular.ttf') format('ttf'),
+       url('/fonts/eina/eina-01-regular.eot?#iefix') format('eot');
+  font-weight: 400;
   unicode-range: U+000-5FF;
 }

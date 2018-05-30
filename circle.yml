@@ -2,6 +2,7 @@ general:
   branches:
     ignore:
       - production
+      - master
 machine:
   node:
     version: 6.9.2

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -64,7 +64,7 @@ constructor(private fileOpener: FileOpener) { }
 
 this.fileOpener.open(&#39;path/to/file.pdf&#39;, &#39;application/pdf&#39;)
   .then(() =&gt; console.log(&#39;File is opened&#39;))
-  .catch(e =&gt; console.log(&#39;Error openening file&#39;, e));
+  .catch(e =&gt; console.log(&#39;Error opening file&#39;, e));
 </code></pre>
 
 

@@ -1,0 +1,431 @@
+#page-products-for-teams {
+
+  main,
+  .sub-header,
+  .cta {
+    font-family: $font-family-eina;
+  }
+
+  .sub-header > .container {
+    align-items: center;
+  }
+
+  .cta {
+    background-color: #12223a;
+    background-image:
+      url('/img/pro/teams-hero-bg.jpg'),
+      linear-gradient(120deg, #12223a, #000a1c);
+    background-size: cover, 100%;
+    background-position: 50% 50%;
+    margin-top: -136px;
+    padding-top: 136px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta hgroup {
+    padding-bottom: 114px;
+  }
+
+  .cta h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 30px;
+  }
+
+  .cta p {
+    color: #a0abbf;
+    font-weight: 600;
+  }
+
+  .cta p strong {
+    color: #ccd4e3;
+  }
+
+  .cta-buttons {
+    margin-top: 50px;
+  }
+
+  .cta .btn {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+
+    &.secondary {
+      background-color: #21314e;
+    }
+  }
+
+  .cta .logo-field {
+    align-items: center;
+    display: flex;
+    height: 120px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      background-image:
+        linear-gradient(rgba(200, 225, 255, 0.08), rgba(200, 220, 255, 0.08)),
+        url(/img/pro/teams-hero-bg.jpg);
+      background-size: 100%, cover;
+      background-position: 50% 50%, 50% 50%;
+      position: absolute;
+      content: '';
+      top: calc(100% - 661px);
+      width: 100%;
+      height: 661px;
+      filter: blur(24px);
+    }
+
+    img {
+      max-width: 895px;
+      width: 80%;
+      position: relative;
+    }
+
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .hero {
+    background-repeat: no-repeat;
+    padding: 260px 0;
+
+    @media (max-width: $screen-lg) {
+      padding: 20% 0;
+    }
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero.flipped .container {
+    align-items: flex-end;
+  }
+
+  .hero__content {
+    width: 40%;
+
+    @media (max-width: $screen-sm) {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .hero__icon {
+    background-image: url("/img/pro/teams-feature-icons.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 64px;
+    margin-bottom: 40px;
+    width: 64px;
+
+    @media (max-width: $screen-sm) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .ship .hero__icon {
+    background-position-y: 0;
+  }
+
+  .listen .hero__icon {
+    background-position-y: -64px;
+  }
+
+  .collaborate .hero__icon {
+    background-position-y: -128px;
+  }
+
+  .hero h2 {
+    color: #9aaac1;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 46px;
+    margin-bottom: 1em;
+  }
+
+  .hero h2 strong {
+    color: #24282e;
+  }
+
+  .hero p {
+    color: #505863;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .ship {
+    background-image: url("/img/pro/teams-ship-hero.jpg");
+    background-position: right center;
+    background-size: 811px;
+  }
+
+  .listen {
+    background-image: url("/img/pro/teams-listen-hero.png");
+    background-position: left center;
+    background-size: 811px;
+  }
+
+  .collaborate {
+    background-image: url("/img/pro/teams-collaborate-hero.jpg");
+    background-position: right center;
+    background-size: 811px;
+  }
+
+  .ship,
+  .collaborate {
+    @media (min-width: $screen-sm) { background-position: center right -400px; }
+    @media (min-width: $screen-lg) { background-position: center right -150px; }
+    @media (min-width: 1400px) { background-position: center right -50px; }
+  }
+
+  .listen {
+    @media (min-width: $screen-sm) { background-position: center left -350px; }
+    @media (min-width: $screen-lg) { background-position: center left -150px; }
+    @media (min-width: 1400px) { background-position: center left -50px; }
+  }
+
+  .ship,
+  .listen,
+  .collaborate {
+    @media (max-width: $screen-sm) {
+      background-image: none;
+      padding: 60px 0;
+    }
+  }
+
+  .features {
+    padding: 100px 0;
+  }
+
+  .features .hero__content {
+    @media (min-width: $screen-sm) {
+      width: 70%;
+    }
+  }
+
+  .features h3 {
+    color: #24282e;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .features p {
+    color: #747f92;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .features .hero__icon {
+    background-image: url("/img/pro/teams-subfeature-icons.png");
+    height: 48px;
+    margin-bottom: 0;
+    width: 48px;
+
+    &.sharing { background-position-y: 0; }
+    &.ci { background-position-y: -48px * 1; }
+    &.feed { background-position-y: -48px * 2; }
+    &.collab { background-position-y: -48px * 3; }
+    &.binaries { background-position-y: -48px * 4; }
+    &.channels { background-position-y: -48px * 5; }
+    &.cd { background-position-y: -48px * 6; }
+    &.monitoring { background-position-y: -48px * 7; }
+    &.rapid { background-position-y: -48px * 8; }
+  }
+
+  .features__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 70px 0 0;
+    padding: 0;
+  }
+
+  .features__list li {
+    flex: 0 0 33.33%;
+    padding-bottom: 4em;
+    padding-right: 4em;
+
+    @media (max-width: $screen-md) {
+      flex: 0 0 50%;
+    }
+
+    @media (max-width: $screen-sm) {
+      flex: 0 0 100%;
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+
+  .quotes {
+    color: #ffffff;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+
+  .quotes__content {
+    max-width: 490px;
+    position: relative;
+  }
+
+  .quotes__napa,
+  .quotes__hmb {
+    display: flex;
+    flex: 1;
+    padding: 80px;
+
+    @media (max-width: $screen-xs) {
+      padding: 40px;
+    }
+  }
+
+  .quotes__napa {
+    background-color: #6b56d4;
+    justify-content: flex-end;
+
+    @media (max-width: $screen-sm) {
+      justify-content: flex-start;
+    }
+  }
+
+  .quotes__napa .case-study-pill {
+    background-color: #5635c2;
+    border-radius: 20px;
+    color: rgba(255,255,255,0.6);
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 30px;
+    padding: 7px 10px 6px;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    transition: color 200ms ease-in-out;
+
+    strong {
+      font-weight: inherit;
+      color: #ffffff;
+    }
+
+    &:after {
+      content: " \203a";
+    }
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: $screen-lg) {
+      position: relative;
+    }
+  }
+
+  .quotes__hmb {
+    background-color: #424b58;
+  }
+
+  .quotes__logo {
+    background-image: url("/img/pro/teams-quote-logos.png");
+    background-position: top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 40px;
+    margin-bottom: 2em;
+    width: 260px;
+  }
+
+  .quotes__hmb .quotes__logo {
+    background-position-y: -40px;
+  }
+
+  .quotes blockquote {
+    border: none;
+    font-size: inherit;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .quotes blockquote > small {
+    color: rgba(255,255,255,0.6);
+    margin-top: 2em;
+    text-align: right;
+
+    &::before {
+      content: "";
+    }
+
+    strong {
+      font-weight: inherit;
+      color: #ffffff;
+    }
+  }
+
+  .get-started {
+    background: #1b212a;
+    overflow: auto;
+  }
+
+  .get-started .container {
+    align-items: center;
+    display: flex;
+    margin-bottom: 110px;
+    margin-top: 110px;
+
+    @media (max-width: $screen-sm-max) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .get-started hgroup {
+    letter-spacing: -.025em;
+    flex-grow: 1;
+
+    @media (max-width: $screen-sm-max) {
+      padding-bottom: 16px;
+    }
+  }
+
+  .get-started h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: inherit;
+    margin: 0 0 5px;
+  }
+
+  .get-started p {
+    color: #98a3b2;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .get-started .btn {
+    font-size: 16px;
+    font-weight: 700;
+
+    &.secondary {
+      background-color: #3d4b5f;
+    }
+  }
+
+}

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -76,11 +76,6 @@ this.qrScanner.prepare()
          this.qrScanner.hide(); // hide camera preview
          scanSub.unsubscribe(); // stop scanning
        });
-
-       // show camera preview
-       this.qrScanner.show();
-
-       // wait for user to scan something, then the observable callback will be called
 
      } else if (status.denied) {
        // camera permission was permanently denied

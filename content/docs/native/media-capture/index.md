@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -46,7 +46,7 @@ $ npm install --save @ionic-native/media-capture
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

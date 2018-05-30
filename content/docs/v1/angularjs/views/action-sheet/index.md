@@ -15,7 +15,7 @@ Action Sheet
 The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are highlighted in red and made obvious, and there are easy ways to cancel out out of action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
 
 
-<img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif" alt="Action Sheet" style="border: 1px solid #eee">
+<img src="https://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif" alt="Action Sheet" style="border: 1px solid #eee">
 
 ## Ionic-Angular Usage
 

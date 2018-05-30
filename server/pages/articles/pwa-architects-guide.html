@@ -1,0 +1,177 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'articles-pwa-architects-guide' %}
+{% set title = 'The Architects Guide to PWAs - Ionic Framework' %}
+{% set meta_image = '/img/meta/ionic-framework-og.png'%}
+{% set meta_description = "Progressive Web Apps take advantage of major advances in modern web browsers, web APIs, and front-end frameworks to deliver great app experiences to mobile and desktop users. This brief guide provides enterprise architects and app dev leaders with essential insights and how to build a production-ready PWA today." %}
+
+{% set pre_footer = false %}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs breadcrumbs--small">
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/articles">Articles</a></li>
+      <li>Download</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <hgroup class="container">
+    <h5>White Paper</h5>
+    <h1>The Architect’s Guide to PWAs</h1>
+    <p>By 2020, 50% of apps will be PWAs. See what’s behind the trend. Discover when and how PWAs can help boost your app strategy by tapping into the power of the web.</p>
+  </hgroup>
+</div>
+
+<div class="container">
+  <div class="signup-form">
+    <div class="left-col">
+      <div class="illustration">
+        <div class="card">
+          <div class="layer-1"></div>
+          <div class="layer-2"></div>
+        </div>
+      </div>
+      <p class="p-large">Big brands like Twitter and Pinterest are demonstrating how Progressive Web Apps (PWAs) can boost user acquisition, engagement, and ultimately, revenue.</p>
+      <p>This guide provides enterprise architects and app dev leaders with practical insights on which projects are right for PWAs, and how to build a production-ready PWA today.</p>
+      <p>In this guide, you’ll learn:</p>
+      <ul>
+        <li><span><strong>What makes a PWA.</strong> The key capabilities and features that define PWAs</li></span>
+        <li><span><strong>How PWAs work.</strong> An overview of the APIs and browser standards that allow PWAs to provide reliable, fast, engaging experiences with the web.</li></span>
+        <li><span><strong>How PWAs fit into your app strategy.</strong> When and why to use a PWA in favor of a traditional native mobile app.</li></span>
+        <li><span><strong>How to get started.</strong> Everything you need to get started with PWAs today.</li></span>
+      </ul>
+    </div>
+    <div class="right-col hubspot-override">
+      <h3>Download now</h3>
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+      	portalId: "3776657",
+      	formId: "504e0e0c-29f0-4234-8853-61110a01a2ef",
+      	css: ""
+      });
+      </script>
+    </div>
+  </div>
+
+  <div class="company">
+    <h2>
+      <strong>You’re in good company.</strong> Ionic powers millions of apps at
+      some of the smartest companies around the world.
+    </h2>
+    <div class="logos"></div>
+  </div>
+</div>
+<section class="bar get-started">
+  <div class="container">
+    <hgroup>
+      <h2>Get your team started with Ionic Pro today. </h2>
+      <p class="lg">
+        Start building better apps faster with Ionic Pro.
+      </p>
+    </hgroup>
+    <div>
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+        class="btn sm" id="btn-products-create-account">Create a Pro account
+        </a>
+      <a class="btn sm white" id="btn-products-see-pricing"
+        href="/pro/pricing">See pricing</a>
+    </div>
+  </div>
+</section>
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+
+  // apple tv style card tilt
+  var tilt = {
+    init: function() {
+      this.draw = this.draw.bind(this);
+      this.activateElement = this.activateElement.bind(this);
+      this.queueDraw = this.queueDraw.bind(this);
+      this.letGo = this.letGo.bind(this);
+
+      const $card = document.querySelector('.card');
+      this.halfW = $card.clientWidth / 2;
+      this.halfH = $card.clientHeight / 2;
+      this.$cards = document.querySelectorAll('.card');
+      this.$container = document.querySelector('.illustration');
+      this.event = {};
+
+      this.$cards.forEach(function(el) {
+        // set listeners for each card
+        el.addEventListener('mouseenter', this.activateElement)
+        el.addEventListener('mousemove', this.queueDraw)
+        el.addEventListener('mouseleave', this.letGo.bind(this))
+      }, this)
+      this.$container.addEventListener('mouseleave',this.letGo.bind(this))
+
+      return this;
+    },
+
+    activateElement: function(event) {
+      this.$el = event.target;
+      this.$layer1 = event.target.querySelector('.layer-1');
+      // this.$layer2 = event.target.querySelector('.layer-2');
+      this.offsetLeft = this.$container.offsetLeft;
+      this.offsetTop = this.$container.offsetTop;
+      this.coorX = this.coorY = 0;
+      this.queued = false;
+    },
+
+    queueDraw: function(event) {
+      if(event.pageX === this.event.pageX && event.pageX === this.event.pageX) {
+        return;
+      }
+
+      if (!this.queued) {
+        this.event = event;
+        this.queued = true;
+        requestAnimationFrame(this.draw)
+      }
+    },
+
+    letGo: function() {
+      this.queued = true;
+      this.$el.style['transform'] = '';
+      this.$layer1.style['transform'] = '';
+      // this.$layer2.style['transform'] = '';
+    },
+
+    draw: function() {
+      var Y = ( Math.round(( this.halfH - (this.event.pageY - this.offsetTop)) / this.halfH * 50 ) / 10);
+      var X = ( Math.round((this.halfW - (this.event.pageX - this.offsetLeft)) / this.halfW * -50) / 10);
+
+      this.$el.style['transform'] =
+        'rotateX(' + (Y * -1) + 'deg) rotateY(' + (X * -1) + 'deg)';
+      this.$layer1.style['transform'] = function() {
+        let transform = 'translate3d(' + (X * -0.03) + 'px, ' + (Y * 0.03) + 'px, 12px)';
+        transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+        return transform;
+      }();
+      // this.$layer2.style['transform'] = function() {
+      //   let transform = 'translate3d(' + (X * -.5) + 'px, ' + (Y * .5) + 'px, 25px)';
+      //   transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+      //   return transform;
+      // }();
+      this.queued = false;
+    }
+  }
+
+  tilt.init();
+
+</script>
+{% endblock %}

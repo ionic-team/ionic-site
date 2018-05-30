@@ -41,7 +41,14 @@ Input | Description
 `platform` | The platform you would like to prepare (`android`, `ios`)
 
 
-
+Option | Description
+------ | ----------
+`--no-build` | Do not invoke an Ionic build
+`--prod` | Build the application for production
+`--aot` | Perform ahead-of-time compilation for this build
+`--minifyjs` | Minify JS for this build
+`--minifycss` | Minify CSS for this build
+`--optimizejs` | Perform JS optimizations for this build
 
 ## Examples
 

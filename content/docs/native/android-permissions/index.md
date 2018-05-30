@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -65,12 +65,13 @@ constructor(private androidPermissions: AndroidPermissions) { }
 ...
 
 this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-  success =&gt; console.log(&#39;Permission granted&#39;),
+  result =&gt; console.log(&#39;Has permission?&#39;,result.hasPermission),
   err =&gt; this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
 );
 
 this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
 </code></pre>
+<p>Android 26 and above: due to Android 26&#39;s changes to permissions handling (permissions are requested at time of use rather than at runtime,) if your app does not include any functions (eg. other Ionic Native plugins) that utilize a particular permission, then <code>requestPermission()</code> and <code>requestPermissions()</code> will resolve immediately with no prompt shown to the user.  Thus, you must include a function utilizing the feature you would like to use before requesting permission for it.</p>
 
 
 

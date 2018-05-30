@@ -10,6 +10,8 @@ dark_header: true
 
 # Welcome to Ionic Pro
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZB5lQTP987s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 Ionic Pro is a powerful set of services and features built on top of the flagship Ionic Framework that brings a totally new level of app development agility to mobile dev teams.
 
 Ionic Pro has several core services that help you through the full app lifecycle, including
@@ -24,7 +26,7 @@ Each one of these services is based around a simple git-based workflow that shou
 
 ## Create an Account
 
-To get started with Ionic Pro, first [create an account](https://dashboard.ionicjs.com/signup).
+To get started with Ionic Pro, first [create an account](https://dashboard.ionicframework.com/signup).
 
 Ionic Pro has a free plan for development and kicking the tires, and paid plans for production app usage. Larger teams can also create Organizations to administer team members and make it easy to manage projects.
 

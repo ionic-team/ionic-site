@@ -11,7 +11,7 @@ doc: "MenuController"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/menu/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -33,7 +33,7 @@ MenuController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/menu/menu-controller.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/menu/menu-controller.ts#L3">
 Improve this doc
 </a>
 
@@ -143,7 +143,7 @@ id will be disabled.</p>
 <h3>
 <a class="anchor" name="close" href="#close"></a>
 <code>close(menuId)</code>
-  
+
 
 </h3>
 
@@ -161,24 +161,24 @@ is given then it'll close that exact menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -188,7 +188,7 @@ is given then it'll close that exact menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu is fully closed</p>
 
 
@@ -202,7 +202,7 @@ is given then it'll close that exact menu.
 <h3>
 <a class="anchor" name="enable" href="#enable"></a>
 <code>enable(menuId)</code>
-  
+
 
 </h3>
 
@@ -221,24 +221,24 @@ will also automatically disable all the others that are on the same side.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -248,7 +248,7 @@ will also automatically disable all the others that are on the same side.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
 
 
@@ -262,7 +262,7 @@ will also automatically disable all the others that are on the same side.
 <h3>
 <a class="anchor" name="get" href="#get"></a>
 <code>get(menuId)</code>
-  
+
 
 </h3>
 
@@ -282,24 +282,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -309,7 +309,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
 
 
@@ -323,7 +323,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="getMenus" href="#getMenus"></a>
 <code>getMenus()</code>
-  
+
 
 </h3>
 
@@ -336,7 +336,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
 
 
@@ -350,7 +350,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="getOpen" href="#getOpen"></a>
 <code>getOpen()</code>
-  
+
 
 </h3>
 
@@ -363,7 +363,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
 
 
@@ -377,7 +377,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="isEnabled" href="#isEnabled"></a>
 <code>isEnabled(menuId)</code>
-  
+
 
 </h3>
 
@@ -393,24 +393,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -420,7 +420,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
 
 
@@ -434,7 +434,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="isOpen" href="#isOpen"></a>
 <code>isOpen(menuId)</code>
-  
+
 
 </h3>
 
@@ -450,24 +450,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -477,7 +477,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> <p>Returns true if the specified menu is currently open, otherwise false.
 If the menuId is not specified, it returns true if ANY menu is currenly open.</p>
 
@@ -492,7 +492,7 @@ If the menuId is not specified, it returns true if ANY menu is currenly open.</p
 <h3>
 <a class="anchor" name="open" href="#open"></a>
 <code>open(menuId)</code>
-  
+
 
 </h3>
 
@@ -508,24 +508,24 @@ Programatically open the Menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -535,7 +535,7 @@ Programatically open the Menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
 
 
@@ -549,7 +549,7 @@ Programatically open the Menu.
 <h3>
 <a class="anchor" name="swipeEnable" href="#swipeEnable"></a>
 <code>swipeEnable(shouldEnable,&nbsp;menuId)</code>
-  
+
 
 </h3>
 
@@ -565,41 +565,41 @@ Used to enable or disable the ability to swipe open the menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>True if it should be swipe-able, false if not.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -609,7 +609,7 @@ Used to enable or disable the ability to swipe open the menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
 
 
@@ -623,7 +623,7 @@ Used to enable or disable the ability to swipe open the menu.
 <h3>
 <a class="anchor" name="toggle" href="#toggle"></a>
 <code>toggle(menuId)</code>
-  
+
 
 </h3>
 
@@ -640,24 +640,24 @@ will close.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -667,7 +667,7 @@ will close.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
 
 
@@ -680,29 +680,29 @@ will close.
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -712,28 +712,28 @@ will close.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-width</code></td>
-        
+
           <td><code>304px</code></td>
-        
+
         <td><p>Width of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-small-width</code></td>
-        
+
           <td><code>$menu-width - 40px</code></td>
-        
+
         <td><p>Width of the menu on small devices (under 340px)</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -743,37 +743,37 @@ will close.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-ios-background</code></td>
-        
+
           <td><code>$background-ios-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-ios-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -783,37 +783,37 @@ will close.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-md-background</code></td>
-        
+
           <td><code>$background-md-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-md-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -823,19 +823,19 @@ will close.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-wp-background</code></td>
-        
+
           <td><code>#f2f2f2</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

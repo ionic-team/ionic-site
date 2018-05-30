@@ -11,7 +11,7 @@ doc: "FabContainer"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/fab/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ FabContainer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/fab/fab-container.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/fab/fab-container.ts#L5">
 Improve this doc
 </a>
 
@@ -237,7 +237,7 @@ Used to place the container between the content and the header/footer
 <h3>
 <a class="anchor" name="close" href="#close">
 <code>close()</code>
-  
+
 
 </a>
 </h3>
@@ -257,29 +257,29 @@ Close an active FAB list container
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -289,55 +289,55 @@ Close an active FAB list container
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$fab-size</code></td>
-        
+
           <td><code>56px</code></td>
-        
+
         <td><p>Width and height of the FAB button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-mini-size</code></td>
-        
+
           <td><code>40px</code></td>
-        
+
         <td><p>Width and height of the FAB button mini</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-content-margin</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Margin of the FAB Container</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-list-margin</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Margin of the FAB List</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-list-button-background-color</code></td>
-        
+
           <td><code>#f4f4f4</code></td>
-        
+
         <td><p>Background color of the button in a list</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -347,91 +347,91 @@ Close an active FAB list container
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$fab-ios-background-color</code></td>
-        
+
           <td><code>color($colors-ios, primary)</code></td>
-        
+
         <td><p>Background color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-ios, $fab-ios-background-color)</code></td>
-        
+
         <td><p>Text color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-ios-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-background-color</code></td>
-        
+
           <td><code>$fab-list-button-background-color</code></td>
-        
+
         <td><p>Background color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-ios, $fab-ios-list-button-background-color)</code></td>
-        
+
         <td><p>Text color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-ios-list-button-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-transition-duration</code></td>
-        
+
           <td><code>200ms</code></td>
-        
+
         <td><p>Transition duration of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-transition-timing-function</code></td>
-        
+
           <td><code>ease</code></td>
-        
+
         <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-ios-list-button-transition-delay</code></td>
-        
+
           <td><code>10ms</code></td>
-        
+
         <td><p>Transition delay of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -441,109 +441,109 @@ Close an active FAB list container
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$fab-md-box-shadow</code></td>
-        
+
           <td><code>0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1)</code></td>
-        
+
         <td><p>Box shadow of the FAB button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-box-shadow-activated</code></td>
-        
+
           <td><code>0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1)</code></td>
-        
+
         <td><p>Box shadow of the activated FAB button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-background-color</code></td>
-        
+
           <td><code>color($colors-md, primary)</code></td>
-        
+
         <td><p>Background color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-md, $fab-md-background-color)</code></td>
-        
+
         <td><p>Text color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-md-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-background-color</code></td>
-        
+
           <td><code>$fab-list-button-background-color</code></td>
-        
+
         <td><p>Background color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-md, $fab-md-list-button-background-color)</code></td>
-        
+
         <td><p>Text color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-md-list-button-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-transition-duration</code></td>
-        
+
           <td><code>200ms</code></td>
-        
+
         <td><p>Transition duration of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-transition-timing-function</code></td>
-        
+
           <td><code>ease</code></td>
-        
+
         <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-md-list-button-transition-delay</code></td>
-        
+
           <td><code>10ms</code></td>
-        
+
         <td><p>Transition delay of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -553,91 +553,91 @@ Close an active FAB list container
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$fab-wp-background-color</code></td>
-        
+
           <td><code>color($colors-wp, primary)</code></td>
-        
+
         <td><p>Background color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-wp, $fab-wp-background-color)</code></td>
-        
+
         <td><p>Text color of the button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-wp-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-background-color</code></td>
-        
+
           <td><code>$fab-list-button-background-color</code></td>
-        
+
         <td><p>Background color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-text-color</code></td>
-        
+
           <td><code>color-contrast($colors-wp, $fab-wp-list-button-background-color)</code></td>
-        
+
         <td><p>Text color of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-background-color-activated</code></td>
-        
+
           <td><code>color-shade($fab-wp-list-button-background-color)</code></td>
-        
+
         <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-transition-duration</code></td>
-        
+
           <td><code>200ms</code></td>
-        
+
         <td><p>Transition duration of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-transition-timing-function</code></td>
-        
+
           <td><code>ease</code></td>
-        
+
         <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$fab-wp-list-button-transition-delay</code></td>
-        
+
           <td><code>10ms</code></td>
-        
+
         <td><p>Transition delay of the transform and opacity of the button in a list</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

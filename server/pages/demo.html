@@ -1,0 +1,39 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'demo' %}
+{% import "_includes/macros.html" as macros %}
+
+{% block main %}
+<div class="cta demo-cta gradient" ng-init="period = 'monthly'">
+  <div class="container">
+    <img class="demo-cta__icon" src="/img/demo/demo-icon.png">
+    <hgroup>
+      <h1>Set up a demo</h1>
+      <p>Connect with one of our app strategists and get a walkthrough of the Ionic Pro development platform.</p>
+    </hgroup>
+  </div>
+</div>
+
+<main class="container demo-form">
+  <script charset="utf-8"
+          type="text/javascript"
+          src="https://js.hsforms.net/forms/v2.js"></script>
+  <script>
+    hbspt.forms.create({
+      portalId: '3776657',
+      formId: 'ee085c18-7c6c-4fe8-ba46-298f8270b342'
+    });
+  </script>
+
+  <aside class="demo-form__aside">
+    <p>Powering apps at some of the world&rsquo;s smartest companies</p>
+    <img src="/img/demo/demo-logos.png">
+  </aside>
+</main>
+{% endblock %}
+
+{% block modals %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

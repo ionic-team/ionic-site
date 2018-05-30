@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L210">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L224">
   Improve this doc
 </a>
 
@@ -77,6 +77,20 @@ this.push.hasPermission()
 
   });
 
+// Create a channel (Android O and above). You&#39;ll need to provide the id, description and importance properties.
+this.push.createChannel({
+ id: &quot;testchannel1&quot;,
+ description: &quot;My first test channel&quot;,
+ // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
+ importance: 3
+}).then(() =&gt; console.log(&#39;Channel created&#39;));
+
+// Delete a channel (Android O and above)
+this.push.deleteChannel(&#39;testchannel1&#39;).then(() =&gt; console.log(&#39;Channel deleted&#39;));
+
+// Return a list of currently configured channels
+this.push.listChannels().then((channels) =&gt; console.log(&#39;List of channels&#39;, channels))
+
 // to initialize push notifications
 
 const options: PushOptions = {
@@ -93,6 +107,7 @@ const options: PushOptions = {
 };
 
 const pushObject: PushObject = this.push.init(options);
+
 
 pushObject.on(&#39;notification&#39;).subscribe((notification: any) =&gt; console.log(&#39;Received a notification&#39;, notification));
 
@@ -145,6 +160,69 @@ Check whether the push notification permission has been granted.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{isEnabled: boolean}&gt;</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
+</div><h3><a class="anchor" name="createChannel" href="#createChannel"></a><code>createChannel(channel)</code></h3>
+
+
+
+
+Create a new notification channel for Android O and above.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      channel</td>
+    <td>
+      <code>Channel</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="deleteChannel" href="#deleteChannel"></a><code>deleteChannel(id)</code></h3>
+
+
+
+
+Delete a notification channel for Android O and above.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="listChannels" href="#listChannels"></a><code>listChannels()</code></h3>
+
+
+Returns a list of currently configured channels.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Channel[]&gt;</code> 
 </div>
 
 
@@ -504,6 +582,20 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
   </tr>
   </thead>
   <tbody>
+  
+  <tr>
+    <td>
+      senderID
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Maps to the project number in the Google Developer Console.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
   
   <tr>
     <td>

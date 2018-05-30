@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Diagnostic</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L6">
   Improve this doc
 </a>
 
@@ -125,6 +125,12 @@ this.diagnostic.getBluetoothState()
 
 
 
+<h3><a class="anchor" name="motionStatus" href="#motionStatus"></a><code>motionStatus</code></h3>
+
+
+
+
+
 <h3><a class="anchor" name="isLocationAvailable" href="#isLocationAvailable"></a><code>isLocationAvailable()</code></h3>
 
 
@@ -168,7 +174,7 @@ application is authorized to use it.
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -192,7 +198,7 @@ On Android this requires permission <uses-permission android:name="android.permi
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Displays the device location settings to allow user to enable location services/change location mode.
@@ -432,7 +438,7 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -467,7 +473,7 @@ Returns the camera authorization status for the application.
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -502,7 +508,7 @@ Requests camera authorization for the application.
     </td>
     <td>
       <p>Android only: If true, requests permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -712,7 +718,7 @@ Registers a function to be called when a change in Bluetooth state occurs.
     <td>
       handler</td>
     <td>
-      
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -742,7 +748,7 @@ Registers a function to be called when a change in Location state occurs.
     <td>
       handler</td>
     <td>
-      
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -759,7 +765,7 @@ Registers a function to be called when a change in Location state occurs.
 
 
 Checks if high-accuracy locations are available to the app from GPS hardware.
-Returns true if Location mode is enabled and is set to "Device only" or "High accuracy" AND if the app is authorised to use location.
+Returns true if Location mode is enabled and is set to "Device only" or "High accuracy" AND if the app is authorized to use location.
 
 
 <div class="return-value" markdown="1">
@@ -791,7 +797,7 @@ Checks if location mode is set to return high-accuracy locations from GPS hardwa
 
 
 Checks if low-accuracy locations are available to the app from network triangulation/WiFi access points.
-Returns true if Location mode is enabled and is set to "Battery saving" or "High accuracy" AND if the app is authorised to use location.
+Returns true if Location mode is enabled and is set to "Battery saving" or "High accuracy" AND if the app is authorized to use location.
 
 
 <div class="return-value" markdown="1">
@@ -836,7 +842,7 @@ Returns the current location mode setting for the device.
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Returns the current authorisation status for a given permission.
+Returns the current authorization status for a given permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -870,7 +876,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Returns the current authorisation status for multiple permissions.
+Returns the current authorization status for multiple permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -885,7 +891,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions</td>
     <td>
-      
+      <code>any[]</code>
     </td>
     <td>
       </td>
@@ -904,7 +910,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Requests app to be granted authorisation for a runtime permission.
+Requests app to be granted authorization for a runtime permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will have no effect as the permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -938,7 +944,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Requests app to be granted authorisation for multiple runtime permissions.
+Requests app to be granted authorization for multiple runtime permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -953,7 +959,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions</td>
     <td>
-      
+      <code>any[]</code>
     </td>
     <td>
       </td>
@@ -984,7 +990,7 @@ Multiple permission requests should be grouped into a single call since the nati
 
 
 Registers a function to be called when a runtime permission request has completed.
-Pass in a falsey value to de-register the currently registered function.
+Pass in a falsy value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1201,7 +1207,7 @@ Note: this operation does not require NFC permission in the manifest.
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Registers a function to be called when a change in NFC state occurs. Pass in a falsey value to de-register the currently registered function.
+Registers a function to be called when a change in NFC state occurs. Pass in a falsy value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1227,6 +1233,48 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isDataRoamingEnabled" href="#isDataRoamingEnabled"></a><code>isDataRoamingEnabled()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device data roaming setting is enabled.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="isADBModeEnabled" href="#isADBModeEnabled"></a><code>isADBModeEnabled()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device setting for ADB(debug) is switched on.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="isDeviceRooted" href="#isDeviceRooted"></a><code>isDeviceRooted()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+Checks if the device is rooted.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
 </div><h3><a class="anchor" name="isCameraRollAuthorized" href="#isCameraRollAuthorized"></a><code>isCameraRollAuthorized()</code></h3>
 
 
@@ -1276,7 +1324,7 @@ Calling it when in any other state will have no effect.
 
 
 <p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;</p>
 
 
 Checks if remote (push) notifications are enabled.
@@ -1299,6 +1347,21 @@ Indicates if the app is registered for remote (push) notifications on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="getRemoteNotificationsAuthorizationStatus" href="#getRemoteNotificationsAuthorizationStatus"></a><code>getRemoteNotificationsAuthorizationStatus()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Returns the authorization status for the application to use Remote Notifications.
+Note: Works on iOS 10+ only (iOS 9 and below will invoke the error callback).
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div><h3><a class="anchor" name="getRemoteNotificationTypes" href="#getRemoteNotificationTypes"></a><code>getRemoteNotificationTypes()</code></h3>
 
 
@@ -1431,7 +1494,7 @@ therefore, if the device supports motion tracking but not Pedometer Event Tracki
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestAndCheckMotionAuthorization" href="#requestAndCheckMotionAuthorization"></a><code>requestAndCheckMotionAuthorization()</code></h3>
+</div><h3><a class="anchor" name="requestMotionAuthorization" href="#requestMotionAuthorization"></a><code>requestMotionAuthorization()</code></h3>
 
 
 
@@ -1439,15 +1502,32 @@ therefore, if the device supports motion tracking but not Pedometer Event Tracki
   <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
-Requests and checks motion authorization for the application: there is no way to independently request only or check only, so both must be done in one operation.
+Requests motion tracking authorization for the application.
 
-Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestandcheckmotionauthorization)
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestmotionauthorization)
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+</div><h3><a class="anchor" name="getMotionAuthorizationStatus" href="#getMotionAuthorizationStatus"></a><code>getMotionAuthorizationStatus()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Checks motion authorization status for the application.
+
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#getmotionauthorizationstatus)
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
 
 

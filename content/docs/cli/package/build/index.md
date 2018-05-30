@@ -41,7 +41,11 @@ Input | Description
 
 Option | Description
 ------ | ----------
-`--prod` | Mark as a production build
+`--prod` | Build the application for production
+`--aot` | Perform ahead-of-time compilation for this build
+`--minifyjs` | Minify JS for this build
+`--minifycss` | Minify CSS for this build
+`--optimizejs` | Perform JS optimizations for this build
 `--release` | Mark as a release build
 `--profile`, `-p` | The security profile to use with this build
 `--note` | Give the package snapshot a note

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -69,7 +69,7 @@ constructor(private selector: WheelSelector) { }
 
 ...
 
-let jsonData = {
+const jsonData = {
   numbers: [
    { description: &quot;1&quot; },
     { description: &quot;2&quot; },
@@ -98,7 +98,7 @@ let jsonData = {
 
 ...
 
-//basic number selection, index is always returned in the result
+// basic number selection, index is always returned in the result
  selectANumber() {
    this.selector.show({
      title: &quot;How Many?&quot;,
@@ -115,7 +115,7 @@ let jsonData = {
 
  ...
 
- //basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
+ // basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
  selectFruit() {
    this.selector.show({
      title: &quot;How Much?&quot;,
@@ -138,8 +138,8 @@ let jsonData = {
 
  ...
 
- //more complex as overrides which key to display
- //then retrieve properties from original data
+ // more complex as overrides which key to display
+ // then retrieve properties from original data
  selectNamesUsingDisplayKey() {
    this.selector.show({
      title: &quot;Who?&quot;,
@@ -307,7 +307,7 @@ Default: Cancel</p>
       theme
     </td>
     <td>
-      <code>string</code>
+      <code>&#39;light&#39; | &#39;dark&#39;</code>
     </td>
     <td>
       <p>Android only - theme color, &#39;light&#39; or &#39;dark&#39;.

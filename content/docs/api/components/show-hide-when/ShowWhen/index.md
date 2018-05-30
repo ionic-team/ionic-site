@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.7.1"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "ShowWhen"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/show-when/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/show-hide-when/show-when.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/show-hide-when/show-when.ts#L4">
 Improve this doc
 </a>
 

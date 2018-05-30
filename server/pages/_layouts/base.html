@@ -1,48 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% block header %}
-      {% include '../_includes/head.prod.html' %}
-      {% block header_includes %}{% endblock %}
-    {% endblock %}
-  </head>
-  <body id="page-{{id}}"
-        class="page-{{id}}
-               {% if id != 'enterprise' %}has-snap{% endif %}
-               {% if header_style %}{{header_style}}{% endif %}"
-        ng-app="IonicSite"
-        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
-        {% block body_attributes %}data-spy="scroll" data-offset="100"{% endblock %}>
+{% extends '_layouts/blank.html' %}
 
-    {% if id == 'home' %} 
-      <div id="snap-bar">
-        Building apps at a large company? Check out
-        <a href="/enterprise">
-          <b>Ionic Enterprise</b>
-          <i class="ion-md-arrow-forward"></i>
-        </a>
+{% block page %}
+
+  <!-- {% if id == 'home' %}
+    <ionic-snap-bar>
+      <strong>Ionic Pro</strong>
+      <span>The powerful mobile development toolkit.</span>
+      <a href="/pro" id="snap-bar-link">Explore ionic pro</a>
+    </ionic-snap-bar>
+  {% endif %} -->
+
+  {% include '../_includes/header.html' %}
+
+  {% block main %}
+    {% if press_breadcrumb %}
+      <div class="sub-header">
+        <div class="container">
+          <ul class="left breadcrumbs">
+            <li><a href="/press">Press &amp; Media</a></li>
+            <li>{{title | title}}</li>
+          </ul>
+        </div>
       </div>
-    {% endif %}
-    {% include '../_includes/header.html' %}
-
-    {% block main %}
+    {% else %}
       <div class="cta banner"></div>
-      <main class="container">
-        {{ markdown }}
-      </main>
-    {% endblock %}
-
-    {% if pre_footer == true %}
-      {% include '../_includes/pre_footer.html' %}
     {% endif %}
 
-    {% include '../_includes/footer.html' %}
+    <main class="container">
+      {{ markdown }}
+    </main>
+  {% endblock %}
 
-    {% block modals %}{% endblock %}
+  {% if pre_footer == true %}
+    {% include '../_includes/pre_footer.html' %}
+  {% endif %}
 
-    {% block footer %}
-      {% include '../_includes/scripts.prod.html' %}
-      {% block scripts %}{% endblock %}
-    {% endblock %}
-  </body>
-</html>
+  {% include '../_includes/footer.html' %}
+{% endblock %}

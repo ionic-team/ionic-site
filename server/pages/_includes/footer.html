@@ -2,82 +2,83 @@
   <nav class="container">
     <!--<a class="logo" href="/"></a>-->
     <ul>
-      <li><strong>Company</strong></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/team">Team</a></li>
-      <li><a href="/jobs">Jobs</a></li>
-      <li><a href="/press">Press</a></li>
-      <li><a href="/support">Support</a></li>
+      <li><strong>Ionic OSS</strong></li>
+      <li><a href="/framework" id="btn-footer-framework">Framework</a></li>
+      <li><a href="https://stenciljs.com/" id="btn-footer-stencil">Stencil</a></li>
+      <li><a href="http://ionicons.com/" id="btn-footer-ionicons">Ionicons</a></li>
+      <li><a href="https://github.com/ionic-team/ionic" id="btn-footer-github">GitHub</a></li>
+    </ul>
+    <ul>
+      <li><strong>Ionic Pro</strong></li>
+      <li><a href="/pro" id="btn-footer-cloud">Overview</a></li>
+      <li><a href="/pro/deploy" id="btn-footer-pro-deploy">Deploy</a></li>
+      <li><a href="/pro/package" id="btn-footer-pro-package">Package</a></li>
+      <li><a href="/pro/monitor" id="btn-footer-pro-monitor">Monitor</a></li>
+      <li><a href="/pro/pricing" id="btn-footer-pro-pricing">Pricing</a></li>
     </ul>
     <ul>
       <li><strong>Developers</strong></li>
-      <li><a href="/getting-started/">Getting Started</a></li>
-      <li><a href="/docs/">Documentation</a></li>
-      <li><a href="/docs//components/">UI Components</a></li>
-      <li><a href="/docs//api/">API Reference</a></li>
-      <li><a href="/docs//native/">Ionic Native</a></li>
+      <li><a href="/developers" id="btn-footer-developers">Developer Center</a></li>
+      <li><a href="/docs" id="btn-footer-documentation">Framework Docs</a></li>
+      <li><a href="/docs/pro" id="btn-footer-docs-pro">Ionic Pro Docs</a></li>
+      <li><a href="/docs/api" id="btn-footer-api-reference">API Reference</a></li>
+      <li><a href="/docs/developer-resources/" id="btn-footer-dev-resources">Dev Resources</a></li>
     </ul>
     <ul>
-      <li><strong>Resources</strong></li>
-      <li><a href="https://ionic.io/trusted-partners">Consulting Partners</a></li>
-      <li><a href="/docs/ionicons/">Ionicons</a></li>
-      <li><a href="/resources">Resources Center</a></li>
-      <li><a href="https://jobs.ionic.io">Job Board</a></li>
-      <li><a href="https://market.ionic.io">Ionic Market</a></li>
+      <li><strong>Businesses</strong></li>
+      <li><a href="/resources" id="btn-footer-resources-center">Resource Center</a></li>
+      <li><a href="https://showcase.ionicframework.com/apps/top" id="btn-footer-showcase">App Showcase</a></li>
+      <li><a href="/enterprise" id="btn-footer-enterprise">Ionic Enterprise</a></li>
+      <li><a href="/support" id="btn-footer-support">Support &amp; Training</a></li>
+      <li><a href="/sales" id="btn-footer-sales">Contact Sales</a></li>
     </ul>
     <ul>
-      <li><strong>Contribute</strong></li>
-      <li><a href="https://forum.ionicframework.com">Community Forum</a></li>
-      <li><a href="http://ionicworldwide.herokuapp.com">Worldwide Slack</a></li>
-      <li><a href="/contribute/">Contribute</a></li>
-      <li><a href="https://shop.ionic.io">Ionic Shop</a></li>
-      <li><a href="http://status.ionicframework.com">Service Status</a></li>
+      <li><strong>Ecosystem</strong></li>
+      <li><a href="https://forum.ionicframework.com" id="btn-footer-forum">Community Forum</a></li>
+      <li><a href="http://ionicworldwide.herokuapp.com" id="btn-footer-slack">Worldwide Slack</a></li>
+      <li><a href="https://market.ionicframework.com" id="btn-footer-ionic-market">Ionic Market</a></li>
+      <li><a href="/trusted-partners" id="btn-footer-consulting-partners">Trusted Partners</a></li>
+      <li><a href="/contributors">Guest Contributors</a></li>
     </ul>
     <ul>
-      <li><strong>Connect</strong></li>
-      <li><a href="https://twitter.com/IonicFramework">Twitter</a></li>
-      <li><a href="https://github.com/ionic-team/ionic">GitHub</a></li>
-      <li><a href="https://www.facebook.com/ionicframework">Facebook</a></li>
-      <li><a href="https://plus.google.com/+Ionicframework">Google+</a></li>
-      <li><a href="https://www.youtube.com/c/Ionicframework">YouTube</a></li>
-    </ul>
-    <ul>
-      <li><strong>Products</strong></li>
-      <li><a href="/">Ionic Framework</a></li>
-      <li><a href="/products">Ionic Cloud</a></li>
-      <li><a href="https://ionic.io/products/creator">Ionic Creator</a></li>
-      <li><a href="http://view.ionic.io">Ionic View app</a></li>
-      <li><a href="/enterprise">Ionic Enterprise</a></li>
+      <li><strong>Company</strong></li>
+      <li><a href="/about" id="btn-footer-about">About</a></li>
+      <li><a href="https://blog.ionicframework.com" id="btn-footer-blog">Blog</a></li>
+      <li><a href="/jobs" id="btn-footer-jobs">Careers</a></li>
+      <li><a href="/press" id="btn-footer-press">Press</a></li>
+      <li><a href="https://shop.ionicframework.com" id="btn-footer-shop">Shop</a></li>
     </ul>
   </nav>
   <div class="signup container">
-    <form action="https://codiqa.createsend.com/t/t/s/jytylh/" method="post">
-      <input name="cm-jytylh-jytylh"
-             type="text"
-             class="form-control"
-             placeholder="Email address">
-      <button class="btn">Subscribe</button>
-    </form>
+    <ionic-newsletter-signup></ionic-newsletter-signup>
     <hgroup>
-      <h3>Stay in the loop!</h3>
-      <p>
-        Sign up to receive emails for the latest Framework updates, features,
-        and news.
-      </p>
+      <h3>Join our Newsletter</h3>
+      <p>Sign up to receive a monthly email on the latest Ionic updates,
+        features, and news!</p>
     </hgroup>
   </div>
-  <div class="copyright">
-    <div class="container">
-      <span class="left">
-        &copy;2013 - 2017 Drifty Co | <a href="/tos">Terms</a>
-      </span>
-      <span class="right">
+  <div class="container">
+    <ul class="sub-footer">
+      <li class="copyright">&copy;2018 Ionic</li>
+      <li class="social-start"><a href="https://twitter.com/IonicFramework" title="twitter" id="btn-footer-twitter"></a></li>
+      <li><a href="http://ionicworldwide.herokuapp.com" title="slack" id="btn-footer-slack"></a></li>
+      <li><a href="https://github.com/ionic-team/ionic" title="github" id="btn-footer-github"></a></li>
+      <li><a href="https://www.facebook.com/ionicframework" title="facebook" id="btn-footer-facebook"></a></li>
+      <li><a href="https://medium.com/ionic-and-the-mobile-web" title="medium" id="btn-footer-medium"></a></li>
+      <li><a href="https://www.youtube.com/c/Ionicframework" title="youtube" id="btn-footer-youtube"></a></li>
+      <li><a href="https://stackoverflow.com/questions/tagged/ionic-framework" title="stack-overflow" id="btn-footer-stack-overflow"></a></li>
+      <li class="license">
         Ionic Framework is licensed under <a target="_blank"
         href="https://github.com/ionic-team/ionic/blob/master/LICENSE">MIT</a>.
         Docs under <a target="_blank"
-        href="https://github.com/ionic-team/ionic-site/blob/master/LICENSE">Apache
-        2</a>.
-      </span>
-    </div>
+        href="https://github.com/ionic-team/ionic-site/blob/master/LICENSE">
+        Apache 2</a>.
+        <br>
+
+      </li>
+      <li class="privacy"><a href="/privacy">Privacy</a></li>
+      <li class="spacer">/</li>
+      <li class="tos"><a href="/tos">Terms</a></li>
+    </ul>
   </div>
 </footer>

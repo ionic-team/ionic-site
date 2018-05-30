@@ -562,9 +562,9 @@ the back button action.</p>
 </a>
 </h3>
 
-The resize event emits when the native platform pulls the application
-out from the background. This event would emit when a Cordova app comes
-out from the background, however, it would not fire on a standard web browser.
+The resize event emits when the browser window has changed dimensions. This
+could be from a browser window being physically resized, or from a device
+changing orientation.
 
 
 

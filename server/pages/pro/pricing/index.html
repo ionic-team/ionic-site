@@ -1,0 +1,390 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'pricing' %}
+{% set header_style = 'transparent light' %}
+{% set bodyController = 'pricingCtrl' %}
+{% import "../../_includes/macros.html" as macros %}
+
+{% macro tippyMDU(activeVar, pos) %}
+<tippy ng-class="{active: {{activeVar}}}" {% if pos %} pos={{pos}} {% endif %}>
+  <p>
+    <strong>LiveDeploy</strong> lets you instantly update your app, bypassing
+    the App Stores.
+  </p>
+  <p>
+    <strong>Monthly Devices Updated (MDU)</strong> are any devices that receive
+    live updates/month.
+  </p>
+  <p>
+    <strong>Need more?</strong> We can design a plan to meet your needs. <a
+    data-toggle="modal" data-target="#contactForm">Get in touch</a>
+  </p>
+</tippy>
+{% endmacro %}
+
+{% block main %}
+<div class="cta" ng-init="period = 'monthly'">
+  <hgroup class="container">
+    <h1>Ionic Pro Pricing</h1>
+    <p>
+      Ionic Pro is a companion platform to be used alongside the forever-free
+      open source Ionic Framework, for building cross-platform mobile, web, and
+      desktop apps alike.
+    </p>
+  </hgroup>
+</div>
+<div class="container">
+  <div class="plans">
+    <div class="group">
+      <h3>
+        Powerful tools &amp; services for individual <strong>developers.
+        </strong>
+      </h3>
+      <div class="plan-container">
+        <div class="plan starter">
+          <h3>Starter</h3>
+          <div class="price"><strong>Free</strong></div>
+          <div class="type">Solo license</div>
+          <ul class="features">
+            <li><strong>DevApp</strong> local device testing</li>
+            <li><strong>View App</strong> public sharing</li>
+            <li><strong>100</strong> Live Deploys</li>
+            <li><strong>Error</strong> monitoring</li>
+            <li><strong>7 day</strong> error history</li>
+            <li>Git-based workflow</li>
+            <li><strong>Single-channel</strong> live updating</li>
+          </ul>
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+            class="btn cta" id="btn-pricing-starter">Try it now</a>
+        </div>
+        <div class="plan developer">
+          <h3>Developer</h3>
+          <div class="price"><strong>$29</strong> per month</div>
+          <div class="type">Solo license</div>
+          <ul class="features">
+            <li class="plus">Everything in Starter +</li>
+            <li><strong>Creator</strong> rapid prototyping</li>
+            <li><strong>10,000</strong> Live Deploys</li>
+            <li><strong>View App</strong> private sharing</li>
+            <li ng-mouseover="dph = true" ng-mouseout="dph = false">
+              <strong>Package</strong> dev &amp; prod apps
+              <tippy ng-class="{active: dph}" pos="right">
+                <p>
+                  <strong>Dev builds</strong> are native binaries created using
+                  a development code signing certificate, and cannot be
+                  submitted to App Stores. <strong>Production builds</strong>
+                  can be submitted to App Stores.
+                </p>
+              </tippy>
+            </li>
+            <li><strong>Private</strong> View Feedback</li>
+            <li><strong>60 day</strong> error history</li>
+            <li><strong>Multi-channel</strong> live updating</li>
+          </ul>
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
+             class="btn cta" id="btn-pricing-developer">Buy now</a>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <h3>Complete app building platform for <strong>teams &amp; orgs.</strong></h3>
+      <div class="plan-container">
+        <div class="plan team">
+          <div class="popular">Most Popular</div>
+          <h3>Team</h3>
+          <div class="price"><strong>$49</strong> per month</div>
+          <div class="type">Per team member</div>
+          <ul class="features">
+            <li class="plus">Everything in Developer +</li>
+            <li><strong>Organization</strong> account</li>
+            <li><strong>25,000</strong> Live Deploys</li>
+            <li><strong>Team</strong> collaboration</li>
+            <li><strong>Activity</strong> feed</li>
+            <li><strong>90 day</strong> error history</li>
+            {# <li><strong>Ad Hoc App</strong> Package</li> #}
+          </ul>
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
+             class="btn cta" id="btn-pricing-team">Buy now</a>
+        </div>
+        <div class="plan business">
+          <h3>Business</h3>
+          <div class="price"><strong>$199</strong> per month</div>
+          <div class="type">Per team member</div>
+          <ul class="features">
+            <li class="plus">Everything in Team +</li>
+            <li><strong>Multiple</strong> teams</li>
+            <li>
+              <strong>50,000</strong> Live Deploys
+              <tippy ng-class="{active: biz}" pos="bottom">
+                <p>
+                  Need more? <a href="/sales">Contact us</a> to customize a plan
+                  that scales to meet your needs.
+                </p>
+              </tippy>
+            </li>
+            <li><strong>App-level</strong> permissions</li>
+            <li><strong>Live</strong> onboarding</li>
+            <li><strong>Long-term</strong> error history</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            {# <li><strong>Enterprise App</strong> Package</li> #}
+          </ul>
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=business"
+             class="btn cta" id="btn-pricing-business">Buy now</a>
+        </div>
+      </div>
+    </div>
+    <div class="plan enterprise">
+      <h3>Ionic for Enterprise</h3>
+      <p>
+        Some of the smartest companies on earth power their apps with Ionic. Get
+        in touch to customize a plan that fits the needs of your organization.
+      </p>
+      <a class="btn cta"
+         data-toggle="modal"
+         data-target="#contactForm"
+         id="btn-pricing-enterprise">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<div class="conditions">
+  <p class="container">
+    All plans include <strong>unlimited apps</strong>, <strong>Ionic DevApp
+    </strong>, and <strong>public sharing with View app</strong>. You do not
+    need an Ionic Pro account to access the Framework.
+  </p>
+</div>
+
+<div class="also">
+  <div class="container">
+    <h3 class="text-center">Every Pro plan comes with</h3>
+    <ul class="items">
+      <li class="item framework">
+        <h4>Ionic Framework</h4>
+        <p>
+          The forever-free, open source Ionic Framework and UI Kit for building
+          beautiful cross-platform apps for mobile, web, and desktop alike.
+        </p>
+      </li>
+      <li class="item unlimited">
+        <h4>Unlimited apps</h4>
+        <p>
+          Build as many Ionic apps as your heart desires. We’ll store them in
+          the Pro Dashboard for easy access to sharing, live testing, and more.
+        </p>
+      </li>
+      <li class="item templates">
+        <h4>Starter templates</h4>
+        <p>
+          Start with one of our pre-made, ready-to-go starter templates to hit
+          the ground running each time you start a new project.
+        </p>
+      </li>
+      <li class="item dev">
+        <h4>Ionic Dev app</h4>
+        <p>
+          The easiest way to let others preview your Ionic apps, directly on the
+          device, as though they were natively deployed.
+        </p>
+      </li>
+      <li class="item dashboard">
+        <h4>Pro dashboard</h4>
+        <p>
+          A unified Dashboard to house and organize all your Ionic apps,
+          accessible in one place. Track activity and builds from anywhere.
+        </p>
+      </li>
+      <li class="item git">
+        <h4>Git integration</h4>
+        <p>
+          Starting and deploying apps is as simple as <code>git push ionic
+          </code> and we handle the rest. Get up and running with Git and
+          starting shipping.
+        </p>
+      </li>
+      <li class="item forum">
+        <h4>Access to Forum</h4>
+        <p>
+          All Ionic accounts unlock access to post and comment on the Ionic
+          Forum, the single most active community hub for Ionic developers.
+        </p>
+      </li>
+      <li class="item market">
+        <h4>Access to Market</h4>
+        <p>
+          Having an Ionic account allows you to buy, sell, and rate Ionic Market
+          starter apps, templates, and themes.
+        </p>
+      </li>
+      <li class="item lab">
+        <h4>Ionic Lab</h4>
+        <p>
+          Open up and preview your app directly in the browser with Ionic Lab.
+          Preview your app across multiple platform design modes.
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="faq container">
+  <h3 class="text-center">Frequently asked questions</h3>
+  <ul class="items left">
+    <li class="item">
+      <h4>What is a live deploy?</h4>
+      <p>
+        Using the Ionic Deploy service allows you to push hot code updates
+        directly to your users’ devices, all from the Ionic Pro dashboard,
+        without having to go through the App Stores. A single Live Deploy is one
+        code update to one device. If you send one update to 200 devices, that
+        counts as 200 Live Deploys. If you send two updates to 200 devices, that
+        counts as 400 Live Deploys. The Deploy limits associated with each plan
+        are monthly. Your quota will refresh at the beginning of each calendar
+        month. If you exceed your quota for a given month, you will have to
+        upgrade to a higher plan, or wait until the next calendar month to send
+        more updates. If you need more than 50,000 Live Deploys (our highest
+        self-service plan limit associated with the Business tier), contact our
+        <a href="/sales">sales team</a> for an Enterprise plan that will scale
+        to meet your needs. <a target="_blank"
+        href="https://ionic.zendesk.com/hc/en-us/articles/360001657093">Learn
+        more about Deploy Support.</a>
+      </p>
+    </li>
+    <li class="item">
+      <h4>What is error monitoring?</h4>
+      <p>
+        Ionic Monitor provides error catching and stack trace capabilities so
+        you can identify errors and pinpoint the portions of your code that
+        require updates. The Kickstarter plan offers limited error monitoring
+        with 100 events per month included for free. Starting with the Developer
+        plan, we offer advanced error monitoring with unlimited event tracking.
+      </p>
+    </li>
+    <li class="item">
+      <h4>What is a channel?</h4>
+      <p>
+        A Channel points to a specific build of your app that will be shared
+        with specific testers and users. You can change which build a Channel
+        points to whenever you'd like, and can rollback changes as well.
+        Channels are used for both Ionic View and Ionic Deploy. See below for
+        more detail.
+      </p>
+    </li>
+    <li class="item">
+      <h4>What’s the difference between Developer, Business, and Enterprise?</h4>
+      <p>
+        Our paid plans offer varying levels of services and usage limits that
+        are designed to meet the needs of different audiences. The Developer
+        plan is ideal for serious app builders looking to accelerate development
+        and build higher quality apps.  The Business plan offers a complete app
+        building platform for teams and organizations working collaboratively or
+        with larger scale apps.  Finally, the Enterprise plan is targeted at
+        larger organizations that want the peace of mind of additional support
+        services and training, simplified licensing and custom billing.
+      </p>
+    </li>
+  </ul>
+  <ul class="items right">
+    <li class="item">
+      <h4>How does public and private sharing with the View App work?</h4>
+      <p>
+        The Ionic View App is the easiest way to get your app in the hands of
+        testers and collaborators. Starting with the Developer plan, apps are
+        private by default and can be shared via a simple email invite. With the
+        Kickstarter plan, apps are publicly accessible. You can invite testers
+        simply by sharing the App Id and inviting them to download the View App.
+      </p>
+    </li>
+    <li class="item">
+      <h4>What is split testing?</h4>
+      <p>
+        With Business and Enterprise plans, you can use multiple development
+        channels to share different versions of your app with View. For example,
+        you can share stable versions of your app with the Marketing department
+        to get their feedback on new features, while allowing your QA team to
+        test the latest bug fixes on a more recent version.
+      </p>
+    </li>
+    <li class="item">
+      <h4>How do Channels work with Deploy?</h4>
+      <p>
+        When using Deploy to push live updates to your users’ devices, you first
+        select the associated Channel and build version. Developer plans are
+        restricted to a single channel for live updating with Deploy. Starting
+        with the Business plan, you can set up multiple channels and use the
+        Deploy service to push live updates of different versions to each
+        channel.
+      </p>
+    </li>
+    <li class="item">
+      <h4>What’s included in the Teams &amp; Organizations feature?</h4>
+      <p>
+        Teams and organizations allows you to invite development team members,
+        testers, and other collaborators, to participate in app development and
+        track the progress of your projects. Granular permissions allow Ionic
+        Pro administrators to add and remove team members and control who has
+        access to which projects.
+      </p>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: 'aa955aa8-4dbf-4d6d-9d5f-57c06717a94f'
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+
+  /* Replace 'APP_ID' with your app ID */
+  window.intercomSettings = {
+    app_id: 'm0la1vjm'
+  };
+  /* Replace 'APP_ID' with your app ID */
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
+    ic('reattach_activator');ic('update',intercomSettings);}else{var
+    d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
+    {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+    s.type='text/javascript';s.async=true;
+    s.src='https://widget.intercom.io/widget/APP_ID';
+    var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
+    }if(w.attachEvent){w.attachEvent('onload',l);}else{
+      w.addEventListener('load',l,false);}}})()
+</script>
+{% endblock %}

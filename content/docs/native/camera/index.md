@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Take a photo or capture video.</p>
-<p>Requires and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>Requires the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 
 <p>Repo:
@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/camera
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Flurry Analytics</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L175">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/flurry-analytics/index.ts#L181">
   Improve this doc
 </a>
 
@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/flurry-analytics
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { FlurryAnalytics, FlurryAnalyticsObject, FlurryAnalyticsOptions } from &#39;ionic-native/flurry-analytics&#39;;
+<pre><code class="lang-typescript">import { FlurryAnalytics, FlurryAnalyticsObject, FlurryAnalyticsOptions } from &#39;@ionic-native/flurry-analytics&#39;;
 
 constructor(private flurryAnalytics: FlurryAnalytics) { }
 
@@ -102,7 +102,7 @@ Creates a new instance of FlurryAnalyticsObject
       <code>FlurryAnalyticsOptions</code>
     </td>
     <td>
-      <p>options</p>
+      <p>Options</p>
 </td>
   </tr>
   </tbody>
@@ -161,7 +161,7 @@ This function set the Event
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when event is sent
-</div><h3><a class="anchor" name="startTimedEvent" href="#startTimedEvent"></a><code>startTimedEvent(eventName,&nbsp;params)</code></h3>
+</div><h3><a class="anchor" name="startTimedEvent" href="#startTimedEvent"></a><code>startTimedEvent(eventName,&nbsp;Optional)</code></h3>
 
 
 
@@ -189,12 +189,12 @@ Start a timed event
   
   <tr>
     <td>
-      params</td>
+      Optional</td>
     <td>
       <code>Object</code>
     </td>
     <td>
-      <p>Optional params</p>
+      <p>params</p>
 </td>
   </tr>
   </tbody>
@@ -262,7 +262,7 @@ This function log an error
     <td>
       code</td>
     <td>
-      
+      <code>Object</code>
     </td>
     <td>
       </td>
@@ -272,7 +272,7 @@ This function log an error
     <td>
       message</td>
     <td>
-      
+      <code>Object</code>
     </td>
     <td>
       </td>

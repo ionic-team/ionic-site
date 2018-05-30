@@ -1,0 +1,26 @@
+.site-search {
+  font-family: $font-family-eina;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.site-search__trigger {
+  cursor: pointer;
+
+  svg {
+    transition: fill 0.2s;
+    margin: 0;
+    fill: #a8b0be;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover svg {
+    fill: #606c82;
+  }
+}
+
+.site-search__input {
+  display: none;
+}

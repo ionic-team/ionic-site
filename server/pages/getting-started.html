@@ -50,23 +50,13 @@
         <div class="left">
           <figure class="highlight">
             <pre><code class="language-bash hljs"
-                    data-lang="bash">npm install -g cordova ionic</code></pre>
+                    data-lang="bash">npm install -g ionic</code></pre>
           </figure>
-          <div class="vs">
-            <img src="/img/vs.png" style="width: 30px">
-            <p>
-              <strong>Windows Developers:</strong> We recommend <a
-              href="https://www.visualstudio.com/cordova-vs?wt.mc_id=o~display~ionic~dn948185">
-              Visual Studio Community</a>, which comes with everything you need, including <a
-              href="https://taco.visualstudio.com/en-us/docs/tutorial-ionic/">
-              starter templates</a>!
-            </p>
-          </div>
         </div>
         <div class="right">
           <p>
             First, install <a href="http://nodejs.org/">Node.js</a>. Then,
-            install the latest Cordova and Ionic command-line tools in your
+            install the latest Ionic command-line tools in your
             terminal. Follow the <a
             href="https://cordova.apache.org/docs/en/latest/guide/platforms/android">
             Android</a> and <a
@@ -74,7 +64,7 @@
             iOS</a> platform guides to install required tools for development.
           </p>
           <div class="info-container">
-            <a class="info" href="http://blog.ionic.io/new-to-the-command-line/">
+            <a class="info" href="https://blog.ionicframework.com/new-to-the-command-line/">
               If you’re new to the command line, read our Terminal tutorial
               <i class="ion-ios-arrow-forward"></i>
             </a>
@@ -93,7 +83,7 @@
           <p>
             Create an Ionic App using one of our ready-made app templates, or a
             blank one to start fresh. Check out the <a target="_blank"
-            href="https://market.ionic.io/starters/">Market</a> for more designs.
+            href="https://market.ionicframework.com/starters/">Market</a> for more designs.
           </p>
           <p>For v1 projects, use the <code>--type ionic1</code> flag.</p>
         </div>
@@ -136,9 +126,9 @@ ionic serve</code>
     </ul>
     <section id="dashboard-cta">
       <div class="help">
-        <a href="/products">Learn more</a> about Ionic Pro.
+        <a href="/pro">Learn more</a> about Ionic Pro.
         <br>
-        Your dashboard is always available at <a href="https://dashboard.ionicjs.com/">dashboard.ionicjs.com</a>
+        Your dashboard is always available at <a href="https://dashboard.ionicframework.com/">dashboard.ionicframework.com</a>
       </div>
     </section>
   </section>
@@ -152,12 +142,12 @@ ionic serve</code>
         <h4>Live App Testing</h4>
         <h2>Test your apps, live on the device</h2>
         <p>
-          The <a href="http://view.ionic.io" target="_blank">Ionic View app</a>
+          The <a href="/pro/view" target="_blank">Ionic View app</a>
           makes it easy to preview, test, and share your apps directly on the
           device with co-workers, testers, and clients alike.
         </p>
         <div class="links">
-          <a href="http://view.ionic.io/"
+          <a href="/pro/view/"
              class="btn white rounded sm"
              target="_blank">
             Learn more about View <i class="ion-ios-arrow-forward"></i>
@@ -242,4 +232,11 @@ ionic serve</code>
   </section>
 </main>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

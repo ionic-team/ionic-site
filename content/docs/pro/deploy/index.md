@@ -26,8 +26,10 @@ This enables you to
 * Get new features and bug fixes to your users quickly
 * A/B test changes with certain users before rolling them out to everyone
 
+In order to use advanced features such as switching Channels on the fly, Split Testing, Beta Channels, etc, you may have to use some of the [Deploy API](/docs/pro/deploy/plugin-api.html).
+
 ## Get started
 
 * [Setup and use the plugin](/docs/pro/deploy/setup/)
-* [Learn the plugin API](/docs/pro/deploy/plugin-api.html)
+* [Advanced Usage with the Deploy API](/docs/pro/deploy/plugin-api.html)
 * [Migrate from the legacy Cloud Dashboard](/docs/pro/migration/live-updates.html)

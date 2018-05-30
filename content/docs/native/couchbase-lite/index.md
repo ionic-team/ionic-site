@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -71,6 +71,7 @@ initMethod() {
 getUrl() {
      return this.url;
 }
+// DATABASES //
 createDatabase(database_name:string) {
      let url = this.getUrl();
      url = url+database_name;
@@ -81,7 +82,6 @@ createDatabase(database_name:string) {
           return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
         })
  }
-
 deleteDatabase(database_name:string) {
      let url = this.getUrl();
      url = url+database_name;
@@ -92,7 +92,6 @@ deleteDatabase(database_name:string) {
           return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
        })
 }
-
 getAllDbs() {
      let url = this.getUrl();
      url = url+&#39;_all_dbs&#39;;
@@ -102,6 +101,59 @@ getAllDbs() {
        .catch((error:any) =&gt; {
           return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
        })
+}
+// DOCUMENTS //
+getAllDocuments(database_name:string){
+     let url = this.getUrl();
+     // include_docs=true will include a doc inside response, it is false by default
+     url = url + database_name + &#39;/_all_docs?include_docs=true&#39;;
+     return this._http
+       .get(url)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })        .
+}      
+createDocument(database_name:string,document){   
+     let url = this.getUrl();
+     url = url + database_name;
+     return this._http
+       .post(url,document)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })        .
+}
+let document = {
+   _id:&#39;You can either specify the document ID (must be string) else couchbase generates one for your doc&#39;,
+   data:{name:&#39;sandman&#39;,age:25,city:pune}
+ }
+createDocument(&#39;justbe&#39;, document);
+// successful response
+{ &quot;id&quot;: &quot;string&quot;,&quot;rev&quot;: &quot;string&quot;,&quot;ok&quot;: true }
+updateDocument(database_name:string,document){    
+     let url = this.getUrl();
+     url = url + database_name + &#39;/&#39; + document._id;     
+     return this._http
+       .put(url,document)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })        .
+}
+// for updation of document your document must contain most recent rev(revision) id.
+// for each updation of document new rev id is get generated
+// successful response
+{ &quot;id&quot;: &quot;string&quot;,&quot;rev&quot;: &quot;string(new revision id)&quot;,&quot;ok&quot;: true }
+deleteDocument(database_name:string,document){
+     let url = this.getUrl();
+     url = url + database_name + &#39;/&#39; + document._id +&#39;?rev=&#39;+doc._rev;
+     return this._http
+       .delete(url)
+       .map(data =&gt; { this.results = data[&#39;results&#39;] })
+       .catch((error:any) =&gt; {
+          return Observable.throw(error.json() || &#39;Couchbase Lite error&#39;);
+       })        .
 }
 </code></pre>
 

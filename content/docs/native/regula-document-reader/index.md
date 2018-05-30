@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -58,7 +58,7 @@ $ npm install --save @ionic-native/regula-document-reader
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>iOS</li>
+  <li>iOS</li><li>Android</li>
 </ul>
 
 
@@ -70,7 +70,8 @@ $ npm install --save @ionic-native/regula-document-reader
 <pre><code class="lang-typescript">import { RegulaDocumentReader } from &#39;@ionic-native/regula-document-reader&#39;;
 
 let license; // read regula.license file
-RegulaDocumentReader.scanDocument(license).then((result) =&gt; {
+RegulaDocumentReader.initReader(license); // initialize reader
+RegulaDocumentReader.scanDocument().then((result) =&gt; {
         // read result
 })
 </code></pre>
@@ -83,10 +84,10 @@ RegulaDocumentReader.scanDocument(license).then((result) =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="scanDocument" href="#scanDocument"></a><code>scanDocument(license)</code></h3>
+<h3><a class="anchor" name="initReader" href="#initReader"></a><code>initReader(license)</code></h3>
 
 
-Run the scanner
+Initialize the scanner
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -108,6 +109,12 @@ Run the scanner
   </tr>
   </tbody>
 </table>
+
+<h3><a class="anchor" name="scanDocument" href="#scanDocument"></a><code>scanDocument()</code></h3>
+
+
+Run the scanner
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

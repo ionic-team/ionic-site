@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.3.0"
+version: "4.7.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Alipay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L59">
   Improve this doc
 </a>
 
@@ -37,7 +37,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-alipay-base --variable APP_ID=your_app_id
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-alipay-base --variable ALI_PID=your_app_id
 $ npm install --save @ionic-native/alipay
 </code></pre>
   </li>
@@ -103,7 +103,7 @@ Open Alipay to perform App pay
     <td>
       order</td>
     <td>
-      <code>AlipayOrder</code>
+      <code>AlipayOrder</code>|<code>string</code>
     </td>
     <td>
       <p>alipay options</p>

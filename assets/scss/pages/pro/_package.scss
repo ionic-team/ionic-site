@@ -1,0 +1,506 @@
+#page-products-package {
+  .top {
+    clear: both;
+    position: relative;
+    top: -144px;
+    overflow: hidden;
+    padding-top: 178px;
+    background: #e7a2dd;
+    background: linear-gradient(to right, #c696f8 0%, #fca5a7 100%);
+
+    hgroup {
+      padding-top: 103px;
+      padding-bottom: 148px;
+      text-align: left;
+      position: relative;
+      z-index: 5;
+
+      &::before {
+        background: url('/img/pro/package/package-hero-icon.png') no-repeat 0 0;
+        background-size: 80px;
+        width: 80px;
+        height: 80px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15px;
+      }
+
+      h1,
+      p {
+        color: white;
+      }
+
+      h1 {
+        max-width: 350px;
+      }
+
+      p {
+        color: rgba(white, .9);
+        max-width: 475px;
+        letter-spacing: -.03em;
+        line-height: 1.5em;
+        font-size: 20px;
+
+        strong {
+          color: rgba(white, 1);
+        }
+      }
+
+      .btns {
+        margin-top: 32px;
+
+        .btn {
+          font-size: 16px;
+          font-weight: 700;
+
+          &.pink {
+            background: #e33766;
+            margin-right: 9px;
+            padding: 12px 19px 12px;
+          }
+
+          &.white  {
+            color: #e33766;
+            padding: 12px 19px 12px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      hgroup:before {
+        left: 50%;
+        transform: translateX(-40px);
+      }
+      hgroup,
+      .btns {
+        text-align: center;
+      }
+      hgroup,
+      hgroup h1 {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .graphics {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 1;
+    }
+
+    .cloud {
+      opacity: 0;
+      position: absolute;
+      top: 200px;
+      left: -200px;
+      width: 346px;
+      height: 312px;
+      animation: 40s floatingCloud linear infinite;
+      z-index: 5;
+
+      &::before {
+        background: url('/img/pro/package/package-hero-cloud.png') no-repeat 0 0;
+        background-size: 346px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        content: '';
+        position: absolute;
+      }
+
+      .build {
+        background: url('/img/pro/package/package-hero-app-icon.png') no-repeat 0 0;
+        background-size: 87px;
+        width: 87px;
+        height: 116px;
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        animation: 10s rainDrop linear infinite;
+        z-index: 6;
+
+        &:nth-child(2) {
+          top: 166px;
+          left: 220px;
+          animation-delay: .8s;
+          animation-duration: 8s;
+        }
+
+        &:nth-child(3) {
+          top: 33px;
+          left: 130px;
+          animation-delay: 1.8s;
+          animation-duration: 9s;
+        }
+
+        &:nth-child(4) {
+          top: 50px;
+          left: 60px;
+          animation-delay: 2.8s;
+          animation-duration: 12s;
+        }
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        left: 0;
+        transform: scale3d(.5,.5,1);
+        animation-name: floatingCloud-2;
+        animation-duration: 60s;
+        animation-delay: 10s;
+        z-index: 1;
+
+        .build {
+          z-index: 2;
+          animation-delay: 1s;
+
+          &:nth-child(2) {animation-delay: 2s;}
+          &:nth-child(3) {animation-delay: 3s;}
+          &:nth-child(4) {animation-delay: 4s;}
+        }
+      }
+
+      &:nth-child(3) {
+        top: 10px;
+        left: -150px;
+        animation-name: floatingCloud-3;
+        animation-duration: 50s;
+        animation-delay: 2s;
+        z-index: 3;
+
+        .build {
+          z-index: 4;
+          animation-delay: .1s;
+
+          &:nth-child(2) {animation-delay: .2s;}
+          &:nth-child(3) {animation-delay: .3s;}
+          &:nth-child(4) {animation-delay: .4s;}
+        }
+      }
+
+      &:nth-child(4) {
+        top: 300px;
+        left: -250px;
+        animation-name: floatingCloud-4;
+        animation-duration: 30s;
+        animation-delay: 2s;
+        z-index: 3;
+
+        .build {
+          z-index: 4;
+          animation-delay: .1s;
+
+          &:nth-child(2) {animation-delay: .2s;}
+          &:nth-child(3) {animation-delay: .3s;}
+          &:nth-child(4) {animation-delay: .4s;}
+        }
+      }
+    }
+  }
+
+  .features {
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(to right, #efddff 0,#ffe3e4 100%);
+
+    // cool blur effect in webkit
+    @supports (backdrop-filter: blur(10px)) {
+      backdrop-filter: blur(10px);
+      background: rgba(white,.6);
+    }
+
+    ul {
+      padding: 71px 0px 45px;
+
+      @media (max-width: $screen-xs-max)  {
+        display: block;
+      }
+    }
+
+    li {
+      flex: 0 1 315px;
+
+      @media (max-width: $screen-md-max)  {
+        flex: 0 1 303px;
+      }
+
+      &::before {
+        background-image: url('/img/pro/package/feature-icons-sm.png');
+        background-size: 48px;
+      }
+
+      &.zero::before { background-position: 0 -48px; }
+      &.peace::before { background-position: 0 -96px; }
+    }
+
+    p {
+      letter-spacing: -0.02em;
+      margin-top: 2px;
+      margin-right: 5px;
+    }
+  }
+
+  main {
+    margin-top: -144px;
+  }
+
+  .turn {
+    background: #f8f5fb;
+
+    hgroup {
+      max-width: 740px;
+      padding-top: 100px;
+      padding-bottom: 423px;
+
+      @media (max-width: $screen-md-max)  {
+        padding-bottom: 314px;
+      }
+    }
+
+    p {
+      margin-top: 30px;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .graphics {
+      width: 1056px;
+      height: 401px;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 544px);
+
+      .html {
+        background: no-repeat 0 0 url('/img/pro/package/package-img-css-file.png');
+        background-size: 150px;
+        width: 150px;
+        height: 180px;
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: 76px;
+
+        &::before,
+        &::after {
+          background: no-repeat 0 0 url('/img/pro/package/package-img-html-file.png');
+          background-size: 150px;
+          width: 150px;
+          height: 180px;
+          content: '';
+          position: absolute;
+          left: 67px;
+          top: 5px;
+        }
+
+        &::after {
+          background-image: url('/img/pro/package/package-img-js-file.png');
+          background-size: 150px;
+          left: 137px;
+          top: -2px;
+        }
+      }
+
+      .app {
+        background: no-repeat 0 0 url('/img/pro/package/package-img-ipa-file.png');
+        background-size: 150px;
+        width: 150px;
+        height: 180px;
+        content: '';
+        position: absolute;
+        left: 912px;
+        top: 81px;
+
+        &::before {
+          background: no-repeat 0 0 url('/img/pro/package/package-img-apk-file.png');
+          background-size: 150px;
+          width: 150px;
+          height: 180px;
+          content: '';
+          position: absolute;
+          left: -100px;
+          top: 2px;
+        }
+      }
+
+      .circles {
+        width: 1056px;
+        margin: 0 auto;
+      }
+
+      .box {
+        background: no-repeat 0 0 url('/img/pro/package/package-img-server.png');
+        background-size: 460px;
+        width: 460px;
+        height: 402px;
+        content: '';
+        position: absolute;
+        left: 375px;
+        top: 1px;
+
+        &::before {
+          background: no-repeat center center url('/img/pro/package/ionic-package-server-light.jpg.png');
+          background-size: 45px;
+          width: 44px;
+          height: 44px;
+          content: '';
+          position: absolute;
+          left: 262px;
+          top: 95px;
+          opacity: 0;
+          transition: opacity .3s;
+        }
+
+        &.active::before {
+          opacity: 1;
+        }
+      }
+
+      .circle {
+        height: 7px;
+        width: 7px;
+        position: absolute;
+        top: 169px;
+        left: 288px;
+        border-radius: 50%;
+        background: #e5e9f1;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          opacity: 0;
+          content: '';
+          border-radius: 50%;
+          background-color: $red;
+          transition: opacity .6s;
+        }
+
+        &.active::before {
+          opacity: 1;
+        }
+
+        &:nth-child(2) { left: 308px; }
+        &:nth-child(3) { left: 328px; }
+        &:nth-child(4) { left: 348px; }
+        &:nth-child(5) { left: 367px; }
+        &:nth-child(6) { left: 711px; }
+        &:nth-child(7) { left: 731px; }
+        &:nth-child(8) { left: 750px; }
+        &:nth-child(9) { left: 770px; }
+        &:nth-child(10) { left: 790px; }
+      }
+
+      @media (max-width: $screen-md-max)  {
+        transform: scale3d(.5,.5,1);
+        left: calc(50% - 526px);
+      }
+
+      @media (max-width: $screen-xs-max)  {
+        transform: scale3d(0.3, 0.3, 1);
+      }
+    }
+  }
+
+  .leave {
+    hgroup {
+      width: calc(50% - 130px);
+      padding-top: 100px;
+      padding-bottom: 100px;
+
+      @media (max-width: $screen-xs-max)  {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    h2 {
+      letter-spacing: -.015em;
+      margin-bottom: 31px;
+    }
+
+    p {
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.8em;
+      margin-bottom: 18px;
+      color: #5e6777;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    .container {
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        background: url('/img/pro/package/floating-app-icons.png') 0 0 no-repeat;
+        background-size: 682px;
+        width: 682px;
+        height: 650px;
+        content: '';
+        position: absolute;
+        top: -96px;
+        right: 0;
+        pointer-events: none;
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      hgroup {
+        width: 100%;
+        text-align: center;
+      }
+
+      .container::after {
+        opacity: .5;
+      }
+    }
+
+  }
+
+  .get-started {
+    background: linear-gradient(to right, #c696f8 0%, #fca5a7 100%);
+
+     h2 {
+       margin-bottom: 7px;
+     }
+
+     p {
+      color: #601baa;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    .btn {
+      padding: 12px 19px 10px;
+      font-size: 16px;
+      letter-spacing: -.02em;
+      font-weight: 700;
+
+      &.pink {
+        background: #f34971;
+        margin-right: 2px;
+      }
+
+      &.white {
+        background: white;
+        color: #e93677;
+      }
+    }
+  }
+}

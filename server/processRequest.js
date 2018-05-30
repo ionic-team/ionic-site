@@ -1,4 +1,5 @@
 var employees       = require('./data/employees');
+var resources       = require('./data/resources');
 var frameworkInfo   = require('./data/framework-info');
 var redirects       = require('./data/redirects');
 var trustedPartners = require('./data/trusted-partners');
@@ -19,9 +20,13 @@ module.exports = function(req, res, next) {
   // redirect entire old sections
   var parts = url.parse(req.url);
 
+
   if (parts.path.indexOf('/blog') == 0) {
     return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
-  } else if (req.headers.host.indexOf('pwasftw.com') === 0) {
+  } else if (
+    req.headers.host.indexOf('pwasftw.com') !== -1 ||
+    (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
+  ) {
     return res.redirect(301, 'https://ionicframework.com/pwa');
   } else if (parts.path.indexOf('/creator/') == 0) {
     return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));
@@ -82,6 +87,7 @@ module.exports = function(req, res, next) {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
     employees: shuffle(employees),
+    resources: resources,
     followerCount: followerCount,
     pre_footer: true,
     protocol: protocol,

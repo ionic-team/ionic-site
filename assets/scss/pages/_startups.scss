@@ -24,7 +24,7 @@
     text-align: center;
 
     @media (max-width: $screen-sm) {
-      padding-top: 180px;
+      padding-top: 140px;
     }
   }
 
@@ -135,7 +135,7 @@
       text-align: center;
 
       &:before {
-        display: none; 
+        display: none;
       }
     }
   }
@@ -389,7 +389,7 @@
     }
   }
 
-  .resources {
+  section.resources {
     padding-bottom: 100px;
   }
 

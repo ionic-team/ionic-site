@@ -93,7 +93,7 @@
       </h3>
     </div>
   </div>
-    {% include '_includes/promos/ebook.html' %}
+    {% include '_includes/promos/hybrid-vs-native.html' %}
   <div class="container">
     <div class="newsletter">
       <hgroup>
@@ -103,7 +103,7 @@
           full Ionic experience.
         </p>
       </hgroup>
-      <form action="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      <form action="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
             method="get"
             id="form-home-get-started-now">
         <input type="text" name="email" placeholder="Your email address">
@@ -136,7 +136,7 @@ var tilt = {
     const $card = document.querySelector('.paths li:first-child .card');
     this.halfW = $card.clientWidth / 2;
     this.halfH = $card.clientHeight / 2;
-    this.$cards = document.querySelectorAll('.paths .card');
+    this.$cards = Array.prototype.slice.call(document.querySelectorAll('.paths .card'));
     this.$container = document.querySelector('.paths');
     this.bannerHeight = $banner.offsetHeight;
     this.event = {};

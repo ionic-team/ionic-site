@@ -5,7 +5,7 @@ id: installation
 title: Installing Ionic
 header_sub_title: Getting Started with Ionic
 next_page_title: Tutorial
-next_page_link: /docs//intro/tutorial
+next_page_link: /docs/intro/tutorial
 ---
 
 # Installing Ionic
@@ -36,7 +36,7 @@ $ npm install -g ionic cordova
 ```
 
 > Note: The `-g` means this is a global install, so for Windows you will need
-> to open an Admin command prompt. For Mac/Linux, you'll need to run the command
+> to open an Admin command prompt. For Mac/Linux, you might need to run the command
 > with `sudo`.
 
 Once that's done, create your first Ionic app:

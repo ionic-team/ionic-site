@@ -66,7 +66,7 @@ constructor(private androidFullScreen: AndroidFullScreen) { }
 
 this.androidFullScreen.isImmersiveModeSupported()
   .then(() =&gt; console.log(&#39;Immersive mode supported&#39;))
-  .catch(err =&gt; console.log(error));
+  .catch(err =&gt; console.log(err));
 </code></pre>
 
 

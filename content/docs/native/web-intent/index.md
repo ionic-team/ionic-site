@@ -355,7 +355,10 @@ Registers a broadcast receiver for the specified filters
   </tbody>
 </table>
 
-<h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
 
 
 
@@ -368,6 +371,16 @@ Unregisters a broadcast receiver
 
 
 
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="sendResult" href="#sendResult"></a><code>sendResult()</code></h3>
+
+
+Send a result back to the Intent that started this Activity.
+The data can be passed using 'extras'.
 
 
 <div class="return-value" markdown="1">

@@ -55,7 +55,6 @@ module.exports = function router(app) {
   .get('/pro/teams', (req, res) => { res.render('pro/teams'); })
   .get('/pro/view', (req, res) => { res.render('pro/view'); })
   .get('/pwa', (req, res) => { res.render('pwa'); })
-  .get('/resources', (req, res) => { res.render('resources'); })
   .get('/sales', (req, res) => { res.render('sales'); })
   .get('/startups', (req, res) => { res.render('startups'); })
   .get('/strategysession', (req, res) => { res.render('strategysession'); })
@@ -65,6 +64,10 @@ module.exports = function router(app) {
   .get('/team', (req, res) => { res.render('team'); })
   .get('/tos', (req, res) => { markdown(res, 'tos'); })
   .get('/values', (req, res) => { res.render('values'); })
+
+  // resource center
+  .get('/resources', (req, res) => { res.render('resources/index', {currentCategory: 'featured'}); })
+  .get('/resources/:category', (req, res) => { res.render('resources/category', {currentCategory: req.params.category}); })
 
   // press releases
   .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',

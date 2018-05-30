@@ -1,0 +1,344 @@
+.mobile-nav {
+  font-family: $font-family-eina;
+  transition: opacity 0.4s;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  display: none;
+
+  &.open {
+    animation-name: revealIn;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &.closed {
+    animation-name: revealOut;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes revealIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes revealOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.mobile-nav__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav__menu {
+  margin: 0;
+  padding: 0;
+  //deal with ie edge bug always rendering bullets
+  list-style: none;
+  list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
+  list-style-type: none;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 160px;
+
+  h6 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #b0bccf;
+  }
+
+  .open & {
+    animation-name: navMenuIn;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .closed & {
+    animation-name: navMenuOut;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes navMenuIn {
+    from {
+      transform: translateY(-6px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes navMenuOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-6px);
+      opacity: 0;
+    }
+  }
+}
+
+.mobile-nav__menuitem {
+  position: relative;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
+  margin-top: 28px;
+
+  & + h6 {
+    margin-top: 46px;
+  }
+
+  a {
+    width: 100%;
+    color: #131924;
+    padding-left: 36px;
+    display: inline-block;
+
+    &::after,
+    &::before {
+      background: url('/img/dropdown-icons-xs.png') 0 0 no-repeat;
+      background-size: 24px;
+      content: '';
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.2s opacity;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &.pro a {
+    &::before {
+      background-position: 0 0;
+    }
+
+    &::after {
+      background-position: 0 -24px;
+    }
+  }
+
+  &.enterprise a {
+    &::before {
+      background-position: 0 14 * -24px;
+    }
+
+    &::after {
+      background-position: 0 15 * -24px;
+    }
+  }
+
+  &.framework a {
+    &::before {
+      background-position: 0 22 * -24px;
+    }
+
+    &::after {
+      background-position: 0 23 * -24px;
+    }
+  }
+
+  &.stencil a {
+    &::before {
+      background-position: 0 44 * -24px;
+    }
+
+    &::after {
+      background-position: 0 45 * -24px;
+    }
+  }
+
+  &.capacitor a {
+    &::before {
+      background-position: 0 46 * -24px;
+    }
+
+    &::after {
+      background-position: 0 47 * -24px;
+    }
+  }
+
+  &.ionicon a {
+    &::before {
+      background-position: 0 48 * -24px;
+    }
+
+    &::after {
+      background-position: 0 49 * -24px;
+    }
+  }
+
+  &.framework-docs a {
+    &::before {
+      background-position: 0 60 * -24px;
+    }
+
+    &::after {
+      background-position: 0 61 * -24px;
+    }
+  }
+
+  &.pro-docs a {
+    &::before {
+      background-position: 0 2 * -24px;
+    }
+
+    &::after {
+      background-position: 0 3 * -24px;
+    }
+  }
+}
+
+.mobile-nav__menuitem--small {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  margin-top: 26px;
+
+  .mobile-nav__menuitem + & {
+    margin-top: 56px;
+  }
+
+  a {
+    width: 100%;
+    display: inline-block;
+    color: #5977a8;
+  }
+}
+
+.mobile-nav__logo {
+  position: absolute;
+  top: 9px;
+  left: 13px;
+  fill: #3880FF;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+.mobile-nav__close {
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  z-index: 2;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: #5977a8;
+    margin: 0;
+  }
+}
+
+.mobile-nav__footer {
+  background-color: #f6f8fe;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 14px;
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    font-weight: 700;
+  }
+
+  a + .btn {
+    margin-left: 12px;
+  }
+
+  .btn {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 14px 10px;
+    vertical-align: middle;
+    border-radius: 4px;
+  }
+
+  .open & {
+    animation-name: navFooterIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .closed & {
+    animation-name: navFooterOut;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes navFooterIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes navFooterOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(6px);
+      opacity: 0;
+    }
+  }
+}

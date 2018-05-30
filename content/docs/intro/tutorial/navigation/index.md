@@ -31,7 +31,7 @@ Here we are referencing a class called `ItemDetailsPage`, which is another page 
 
 ```typescript
 ...
-import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { ItemDetailsPage } from '../item-details/item-details';
 ```
 
 Let's revisit our app in the browser. When we tap an item it will navigate to the item details page using the code above. As a bonus, Ionic automatically adds a back button to the pushed view.

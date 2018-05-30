@@ -164,6 +164,7 @@
     @media (max-width: $screen-sm-max) {
 
       .container {
+        padding-top: 44px;
         padding-bottom: 64px;
       }
 
@@ -184,6 +185,12 @@
         animation-name: fadeInUpSmall;
         left: calc(50% - 270px);
         opacity: .5;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .container {
+        padding-top: 124px;
       }
     }
   }

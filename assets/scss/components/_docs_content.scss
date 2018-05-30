@@ -32,6 +32,11 @@
       height: 74px;
       line-height: 74px;
 
+      @media (max-width: $screen-xs-max) {
+        height: 46px;
+        line-height: 46px;
+      }
+
       > * {
         display: inline-block;
         margin: 0px;
@@ -327,4 +332,3 @@
     overflow: hidden;
   }
 }
-

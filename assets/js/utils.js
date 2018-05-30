@@ -1,3 +1,12 @@
+// shim foreach for ie11
+if ( !Array.prototype.forEach ) {
+  Array.prototype.forEach = function(fn, scope) {
+    for (var i = 0, len = this.length; i < len; ++i) {
+      fn.call(scope || this, this[i], i, this);
+    }
+  }
+}
+
 // sidebar toggle for mobile views
 var sidebarToggleEl = document.getElementById('sidebar-toggle');
 if (sidebarToggleEl) {
@@ -7,26 +16,60 @@ if (sidebarToggleEl) {
   };
 }
 
-
-
 $(document).ready(function() {
   // activate dropdowns
   $('.dropdown-toggle').dropdown();
-  $(".navbar.transparent .dropdown").hover(
+
+  $(".navbar.transparent .dropdown, .pre-header .dropdown").hover(
     function(){ $(this).addClass('open') },
     function(){ $(this).removeClass('open') }
   );
-	$(".navbar.transparent .dropdown").click()
+	$(".navbar.transparent .dropdown, .pre-header .dropdown").click()
+
   // Generic helper class for on-load animations
   $('.active-on-load').addClass('active');
-  // activate collapseable ToCs
-  $('#collapse-toggle').unbind().click(function() {
-    $('#navbar-collapse').collapse('toggle');
-    var ariaVal = $('#collapse-toggle').attr('aria-expanded');
-    ariaVal = ariaVal === 'false' ? 'true' : 'false';
-    $('#collapse-toggle').attr('aria-expanded', ariaVal);
-  });
 });
+
+(function () {
+  // pre-header announcement animation
+  var announcement = document.querySelector('.pre-header__announcement');
+  if (announcement) {
+    var lastClear = localStorage.getItem('last-clear');
+    var timeNow  = (new Date()).getTime();
+
+    if ((timeNow - lastClear) > 1000 * 60 * 60 ) {
+      localStorage.clear();
+      localStorage.setItem('last-clear', timeNow);
+
+      setTimeout(function(){
+        announcement.classList.add('animate-in');
+      }, 2500)
+    } else {
+      announcement.classList.add('in');
+    }
+  }
+
+
+  // mobile nav
+  var mobileNav = document.querySelector('.mobile-nav');
+
+  document.querySelector('#collapse-toggle').addEventListener('click', function(){
+    document.body.classList.add('no-scroll');
+    mobileNav.classList.add('open');
+    mobileNav.classList.remove('closed');
+    mobileNav.style.display = 'block';
+  });
+
+  document.querySelector('.mobile-nav__close').addEventListener('click', function(){
+    document.body.classList.remove('no-scroll');
+    mobileNav.classList.remove('open');
+    mobileNav.classList.add('closed');
+    setTimeout(function() {
+      mobileNav.style.display = 'none';
+    }, 300);
+  });
+
+})();
 
 window.mobileAndTabletCheck = function() {
   var check = false;
@@ -66,7 +109,7 @@ window.guid = function() {
 
 // add an .active class to elements w/ .activateOnScroll class on when they
 // scroll in to view
-window.activateOnScroll = Array.from(
+window.activateOnScroll = Array.prototype.slice.call(
   document.getElementsByClassName('activateOnScroll')
 );
 if (activateOnScroll.length) {
@@ -230,6 +273,7 @@ window.stickyNav = {
     this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);
+    document.body.classList.add('body-sticky-nav');
     document.addEventListener('scroll', this.handleScroll.bind(this))
   },
 

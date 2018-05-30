@@ -946,7 +946,7 @@ slider.</p>
     <tr>
       <td>zoom</td>
       <td><code>boolean</code></td>
-      <td><p> If true, enables zooming functionality.</p>
+      <td><p> If true, enables zooming functionality. You might need to wrap the ion-slide with a container div with the class `.swiper-zoom-container` to get zoom working.</p>
 </td>
     </tr>
 

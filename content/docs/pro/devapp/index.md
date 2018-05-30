@@ -75,7 +75,7 @@ Wildcard is a common setting for any API, or any other endpoint that is expected
 
 ### Use a proxy
 
-The [Ionic CLI can proxy requests](/docs/pro/cli/configuring.html#service-proxies) you make to it. Since CORS is enforced by the
+The [Ionic CLI can proxy requests](/docs/cli/configuring.html#service-proxies) you make to it. Since CORS is enforced by the
 browser (in this case the Android or iOS web view), by having the Ionic CLI make the request for you, it won't care
 whether there is an `Access-Control-Allow-Origin` header in the server response and will simply pass the response back
 to your app.

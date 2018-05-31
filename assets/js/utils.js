@@ -53,22 +53,23 @@ $(document).ready(function() {
   // mobile nav
   var mobileNav = document.querySelector('.mobile-nav');
 
-  document.querySelector('#collapse-toggle').addEventListener('click', function(){
-    document.body.classList.add('no-scroll');
-    mobileNav.classList.add('open');
-    mobileNav.classList.remove('closed');
-    mobileNav.style.display = 'block';
-  });
+  if (mobileNav) {
+    document.querySelector('#collapse-toggle').addEventListener('click', function(){
+      document.body.classList.add('no-scroll');
+      mobileNav.classList.add('open');
+      mobileNav.classList.remove('closed');
+      mobileNav.style.display = 'block';
+    });
 
-  document.querySelector('.mobile-nav__close').addEventListener('click', function(){
-    document.body.classList.remove('no-scroll');
-    mobileNav.classList.remove('open');
-    mobileNav.classList.add('closed');
-    setTimeout(function() {
-      mobileNav.style.display = 'none';
-    }, 300);
-  });
-
+    document.querySelector('.mobile-nav__close').addEventListener('click', function(){
+      document.body.classList.remove('no-scroll');
+      mobileNav.classList.remove('open');
+      mobileNav.classList.add('closed');
+      setTimeout(function() {
+        mobileNav.style.display = 'none';
+      }, 300);
+    });
+  }
 })();
 
 window.mobileAndTabletCheck = function() {

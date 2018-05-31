@@ -699,6 +699,16 @@
           }
         }
 
+        &.creator {
+          &::before {
+            background-position: 0 62 * -24px;
+          }
+
+          &::after {
+            background-position: 0 63 * -24px;
+          }
+        }
+
       }
     }
   }

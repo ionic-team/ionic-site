@@ -122,7 +122,7 @@ have been saved by the `User` service by this point.
 See
 [biometricAuth()](https://github.com/ionic-team/enterprise-auth/blob/3d9a96bdda94de0071474147f65a0e727bfb712b/demo/src/pages/login/login.ts#L65) in `login.ts`.
 
-# Autmatically adding your token to requests
+# Automatically adding your token to requests
 
 If you'd like to automatically add your authorization token from your user service to every request, you can follow
 along with the simple example at `demo/src/services/http-interceptor.ts`.

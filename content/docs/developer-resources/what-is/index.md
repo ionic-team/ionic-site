@@ -177,7 +177,7 @@ header_sub_title: Ionic Resources
   <section id="typescript">
     <h3><a href="#typescript">TypeScript</a></h3>
     <p>
-    TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/Handbook#basic-types">type declarations</a> and <a href="http://www.typescriptlang.org/Handbook#interfaces">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
+    TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">type declarations</a> and <a href="http://www.typescriptlang.org/docs/handbook/interfaces.html">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
     </p>
   </section>
 

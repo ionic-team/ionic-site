@@ -603,7 +603,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
       hidden
     </td>
     <td>
-      <code>string</code>
+      <code>boolean</code>
     </td>
     <td>
       
@@ -616,7 +616,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
       clearcache
     </td>
     <td>
-      <code>string</code>
+      <code>boolean</code>
     </td>
     <td>
       
@@ -629,7 +629,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
       clearsessioncache
     </td>
     <td>
-      <code>string</code>
+      <code>boolean</code>
     </td>
     <td>
       

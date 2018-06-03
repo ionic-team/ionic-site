@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>The 3D Touch plugin adds 3D Touch capabilities to your Cordova app.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-3dtouch</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-3dtouch">3D Touch plugin docs</a>.</p>
 
 
 <p>Repo:

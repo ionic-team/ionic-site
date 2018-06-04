@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>A free, no ad-sharing version of Google AdMob plugin for Cordova.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-admob-free</code>. For more info, please see the <a href="https://github.com/ratson/cordova-plugin-admob-free">AdMob Free plugin docs</a>.</p>
 
 
 <p>Repo:

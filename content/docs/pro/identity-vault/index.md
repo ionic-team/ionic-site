@@ -127,6 +127,9 @@ See
 If you'd like to automatically add your authorization token from your user service to every request, you can follow
 along with the simple example at `demo/src/services/http-interceptor.ts`.
 
+<iframe src="https://fast.wistia.net/embed/iframe/ykv4h1dpiq" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+
 # Working with multiple authentication tokens
 
 Identity Vault also supports using an `object` to store multiple tokens at once. This requires a few changes to your user service to make it use an
@@ -134,6 +137,9 @@ object instead of a string. Please see `demo/src/services/user-multitoken.js` fo
 
 Please note that this means `user.token` becomes an object with the tokens you stored, so any time you use `user.token` you'll also want to specify
 whick key such as `user.token.mainToken`. You may also need to modify `http-interceptor.ts` from above to include the right tokens.
+
+<iframe src="https://fast.wistia.net/embed/iframe/kz8oekyfxs" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
 
 # Function & Callback Documentation
 

@@ -127,6 +127,14 @@ See
 If you'd like to automatically add your authorization token from your user service to every request, you can follow
 along with the simple example at `demo/src/services/http-interceptor.ts`.
 
+# Working with multiple authentication tokens
+
+Identity Vault also supports using an `object` to store multiple tokens at once. This requires a few changes to your user service to make it use an
+object instead of a string. Please see `demo/src/services/user-multitoken.js` for an example.
+
+Please note that this means `user.token` becomes an object with the tokens you stored, so any time you use `user.token` you'll also want to specify
+whick key such as `user.token.mainToken`. You may also need to modify `http-interceptor.ts` from above to include the right tokens.
+
 # Function & Callback Documentation
 
 When extending a User service with `IonicIdentityVaultUser`, this modifies your user

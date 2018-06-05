@@ -219,6 +219,7 @@ gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
 gulp.task('server:creator', ['styles:creator'], bustCacheAndReload);
+gulp.task('server:stencil', ['stencil'], bustCacheAndReload);
 
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
@@ -239,6 +240,8 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*'],
+    ['server:stencil'])
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
               'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 });
@@ -432,7 +435,7 @@ gulp.task('ionicons', function() {
 });
 
 gulp.task('stencil', function() {
-  return gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components/*.js')
+  return gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*')
     .pipe(gulp.dest('_site/js/ionic-site-components/'))
     .pipe(gulp.dest('content/js/ionic-site-components/'));
 });

@@ -9,6 +9,7 @@
   bottom: 0;
   background: #fff;
   display: none;
+  overflow: touch;
 
   &.open {
     animation-name: revealIn;
@@ -45,7 +46,7 @@
 .mobile-nav__wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }

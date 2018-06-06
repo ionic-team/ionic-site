@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
-    "@ionic/ionic-site-components": "0.1.1",
+    "@ionic/ionic-site-components": "0.1.2",
     "angular": "1.6.8",
     "angular-animate": "1.6.8",
     "angular-cookies": "1.6.8",

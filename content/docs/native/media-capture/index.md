@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>This plugin provides access to the device&#39;s audio, image, and video capture capabilities.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-media-capture</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-media-capture">Media Capture plugin docs</a>.</p>
 
 
 <p>Repo:

@@ -1,6 +1,6 @@
 ---
 layout: fluid/docs_base
-version: "2.1.3"
+version: "2.1.3-0"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"

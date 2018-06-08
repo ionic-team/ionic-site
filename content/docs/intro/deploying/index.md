@@ -108,7 +108,7 @@ Creating a provisioning profile with a paid Apple Developer account is a little 
 ### Running Your App
 
 1. Run a production build of your app with `ionic cordova build ios --prod`
-2. Open the `.xcodeproj` file in `platforms/ios/` in Xcode
+2. Open the `.xcworkspace` file in `platforms/ios/` in Xcode
 3. Connect your phone via USB and select it as the run target
 4. Click the play button in Xcode to try to run your app
 

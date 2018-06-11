@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>A fast, energy efficient, highly-configurable QR code scanner for Cordova apps.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-qrscanner</code>. For more info, please see the <a href="https://github.com/bitpay/cordova-plugin-qrscanner">QR Scanner plugin docs</a>.</p>
 
 
 <p>Repo:

@@ -34,6 +34,7 @@ module.exports = function router(app) {
   .get('/demo', (req, res) => { res.render('demo'); })
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/enterprise', (req, res) => { res.render('enterprise/index'); })
+  .get('/enterprise/identity-vault', (req, res) => { res.render('enterprise/identity-vault'); })
   .get('/enterprise/support', (req, res) => { res.render('enterprise/support'); })
   .get('/enterprise/training', (req, res) => { res.render('enterprise/training'); })
   .get('/framework', (req, res) => { res.render('framework'); })

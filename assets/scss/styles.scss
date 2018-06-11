@@ -10,7 +10,7 @@
 @import '../../node_modules/ionicons/dist/scss/ionicons';
 
 .ionic-example {
-  @import '../../content/docs/demos/css/ionic';
+  @import '../../content/docs/demos/css/ionic.css';
 }
 
 @import 'vars';
@@ -127,6 +127,7 @@
 @import 'pages/docs/search';
 @import 'pages/docs/pro/beta-testing';
 @import 'pages/enterprise/index';
+@import 'pages/enterprise/identity-vault';
 @import 'pages/enterprise/support';
 @import 'pages/enterprise/training';
 @import 'pages/framework';

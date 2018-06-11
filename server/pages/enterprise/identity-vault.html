@@ -9,7 +9,7 @@
   <div class="container">
     <a class="vault-link" href="/enterprise/identity-vault">Identity Vault</a>
     <ul class="right">
-      <li><a href="/overview" class="active">overview</a></li>
+      <li><a href="/overview" class="active">Overview</a></li>
       <li><a href="#demo" class="demo anchor">Request Demo</a></li>
     </ul>
   </div>
@@ -246,6 +246,8 @@
 
 {% block scripts %}
 <script>
+stickyNav.init();
+
 function toggleFigure(el) {
   el.parentElement.classList.toggle('active');
 }

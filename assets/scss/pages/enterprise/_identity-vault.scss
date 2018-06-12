@@ -747,6 +747,9 @@
 
     .form {
       margin-top: 50px;
+      max-width: 930px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (max-width: $screen-sm-max)  {

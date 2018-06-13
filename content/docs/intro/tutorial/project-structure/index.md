@@ -106,7 +106,7 @@ Here's the main template for the app in `src/app/app.html`:
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        {% raw %}{{p.title}}{% endraw %}
       </button>
     </ion-list>
   </ion-content>

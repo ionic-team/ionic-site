@@ -21,28 +21,28 @@
     h1 {
       max-width: calc(50% - 71px);
       color: white;
-      font-weight: 700;
-      line-height: 1.35em;
-      font-size: 48px;
+      font-weight: 600;
+      line-height: 56px;
+      font-size: 44px;
       letter-spacing: -.039em;
 
       @media (min-width: $screen-lg-min) {
-        height: 192px;
+        height: 172px;
       }
     }
 
     p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.6em;
+      font-size: 21px;
+      line-height: 36px;
+      font-weight: 400;
       margin-top: 20px;
       margin-bottom: 35px;
       letter-spacing: -.03em;
       max-width: calc(50% - 72px);
-      color: rgba(white, 0.75);
+      color: #f0f4fe;
 
       @media (min-width: $screen-lg-min) {
-        height: 64px;
+        height: 74px;
       }
 
       a {

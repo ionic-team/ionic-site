@@ -125,9 +125,15 @@ function checkForActivateOnScroll() {
                        document.body.clientHeight;
   for (var i = 0; i < activateOnScroll.length; i++) {
     var elPos = activateOnScroll[i].getBoundingClientRect();
+    var offset = parseInt(activateOnScroll[i].dataset.offset || 0, 10);
     if (
-      (elPos.y < 0 && elPos.y + (elPos.height / 2) > 0) ||
-      (elPos.y > 0 && elPos.y + (elPos.height / 2) < viewportHeight)
+      (
+        elPos.y - offset < 0 &&  // already past the item
+        elPos.y + (elPos.height / 2) - offset > 0
+      ) || (
+        elPos.y + offset > 0 && // item is yet below
+        elPos.y + (elPos.height / 2) + offset < viewportHeight
+      )
     ) {
       activateOnScroll[i].classList.add('active');
       delete activateOnScroll[i];

@@ -95,8 +95,6 @@ let's look in there.
 Here's the main template for the app in `src/app/app.html`:
 
 ```html
-<ion-nav id="nav" [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>
-
 <ion-menu [content]="nav">
 
   <ion-header>
@@ -114,6 +112,9 @@ Here's the main template for the app in `src/app/app.html`:
   </ion-content>
 
 </ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>
+
 ```
 
 In this template, we set up an [`ion-menu`](/docs//components/#menus) to

@@ -1,12 +1,7 @@
 .page-home {
   .banner {
-    background: linear-gradient(
-      60deg,
-      #3d7afd 0%,
-      #4c6df9 50%,
-      #4a68ef 50%,
-      #5b5ef4 100%
-    );
+    background-image: linear-gradient( 90deg, rgb(56,128,255) 15%, rgb(103,167,255) 100%);
+
     margin-top: -80px;
     font-family: $font-family-eina;
 
@@ -14,9 +9,11 @@
       position: relative;
       overflow: hidden;
       padding-bottom: 166px;
-      padding-top: 124px;
+      padding-top: 144px;
       clear: left;
     }
+
+
 
     h1 {
       max-width: calc(50% - 71px);
@@ -32,6 +29,7 @@
     }
 
     p {
+      font-family: $font-family-graphik;
       font-size: 21px;
       line-height: 36px;
       font-weight: 400;
@@ -45,6 +43,8 @@
         height: 74px;
       }
 
+
+
       a {
         color: white;
         text-decoration: underline;
@@ -55,19 +55,75 @@
       text-align: left;
     }
 
+    .btns {
+      font-family: $font-family-graphik;
+      color: #dde6ff;
+    }
+
     .btn {
-      padding: 15px 15px 11px;
-      font-size: 16px;
+      font-family: $font-family-eina;
+      padding: 17px 20px 17px;
+      font-size: 15px;
       letter-spacing: 0;
-      font-weight: 600;
-      margin-right: 7px;
+      font-weight: 700;
+      margin-right: 10px;
+      color: #3880ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+
+      &:after {
+        font-family: Ionicons;
+        content: '\f3d1';
+        font-size: 24px;
+        margin-left: 5px;
+        font-weight: 400;
+        line-height: 1;
+        display: inline-block;
+        transform: translateY(-1px);
+        transition: .3s transform;
+      }
+      &:hover:after {
+        transform: translate(2px, -1px);
+      }
 
       @media (min-width: $screen-lg-min) {
-        height: 48px;
+        height: 54px;
       }
 
       @media (max-width: $screen-xs-max) {
         margin-bottom: 16px;
+      }
+    }
+
+    .text-link {
+      transition: border 0.2s;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      font-weight: 600;
+
+      &:hover {
+        border-bottom: 1px solid rgba(#fff, 0);
+      }
+    }
+
+    .target {
+      margin-top: 12px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ccdfff;
+
+      i {
+        display: inline-block;
+        width: 143px;
+        height: 13px;
+        background: url('/img/homepage/hero-target-icons.png') 0 0 no-repeat;
+        background-size: 100%;
+        margin-left: 6px;
+        transform: translateY(2px);
       }
     }
 
@@ -176,7 +232,9 @@
 
       h1,
       p {
-        max-width: 100%;
+        max-width: 528px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .graphics {
@@ -203,7 +261,7 @@
   }
 
 	.paths {
-    margin-top: 64px;
+    margin-bottom: 72px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -377,7 +435,7 @@
   }
 
   .company {
-    margin: 77px auto 68px;
+    margin: 70px auto 68px;
 
     h2 {
       color: #7f8fab;
@@ -408,22 +466,58 @@
       display: flex;
       flex-wrap: wrap;
       margin-top: 51px;
-      justify-content: space-evenly;
+      justify-content: space-between;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
 
       &::before,
       &::after {
         background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
-        background-size: 494px;
-        width: 494px;
+        background-size: 960px;
+        width: 960px;
         height: 42px;
         content: '';
         max-width: 100%;
-        margin-bottom: 32px;
+
         display: inline-block;
       }
 
+      &::before {
+        width: 480px;
+      }
+
       &::after {
-        background-position: 0 bottom;
+        width: 428px;
+        background-position: 100% 0;
+      }
+
+      @media (max-width: $screen-md-max) {
+        flex-direction: column;
+        align-items: center;
+
+        &::before {
+          margin-bottom: 32px;
+        }
+      }
+
+    }
+
+    @media (max-width: 560px) {
+      margin: 54px auto 42px;
+
+      .logos {
+        &::before,
+        &::after {
+          background-size: 620px;
+        }
+        &::before {
+          margin-bottom: 12px;
+          width: 310px;
+        }
+        &::after {
+          width: 276px;
+        }
       }
     }
   }

@@ -441,6 +441,19 @@
   .table-wrap {
     position: relative;
     overflow-x: auto;
+
+    tippy .tip.right {
+      top: -60px;
+    }
+
+    .badge {
+      background: $blue;
+      color: white;
+      font-size: 80%;
+      font-weight: 600;
+      padding-top: 4px;
+      vertical-align: 2px;
+    }
   }
 
   table,

@@ -13,7 +13,6 @@ const header       = require('gulp-header');
 const lib          = require('./assets/3rd-party-libs.json');
 const merge        = require('merge-stream');
 const minifyCss    = require('gulp-minify-css');
-const pagespeed    = require('psi');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');

@@ -82,6 +82,18 @@ tippy {
       left: -170px;
     }
 
+    &.top {
+      left: -170px;
+      bottom: 23px;
+
+      &::after {
+        transform: rotate(180deg);
+        top: auto;
+        bottom: 5px;
+        right: 18px;
+      }
+    }
+
     p {
       margin-bottom: 8px;
     }

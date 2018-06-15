@@ -89,7 +89,7 @@ tippy {
       &::after {
         transform: rotate(180deg);
         top: auto;
-        bottom: 5px;
+        bottom: -5px;
         right: 18px;
       }
     }

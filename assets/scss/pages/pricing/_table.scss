@@ -426,8 +426,27 @@
       }
     }
   }
+  .soon {
+    margin-bottom: 6px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-top: 0;
 
+    .badge {
+      position: relative;
+      display: inline-block;
+      bottom: -14px;
+    }
+  }
 
+  .badge {
+    background: $blue;
+    color: white;
+    font-size: 80%;
+    font-weight: 600;
+    padding-top: 5px;
+    vertical-align: 2px;
+  }
 
   .box {
     margin-top: 50px;
@@ -444,15 +463,6 @@
 
     tippy .tip.right {
       top: -60px;
-    }
-
-    .badge {
-      background: $blue;
-      color: white;
-      font-size: 80%;
-      font-weight: 600;
-      padding-top: 5px;
-      vertical-align: 2px;
     }
   }
 

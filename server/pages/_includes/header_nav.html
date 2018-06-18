@@ -1,4 +1,4 @@
-<li class="dropdown products">
+<!-- <li class="dropdown products">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
     Products
   </a>
@@ -54,6 +54,12 @@
 
     </div>
   </div>
+</li> -->
+
+<li class="{% if id.indexOf('products') == 0%} active{% endif %}">
+  <a href="/pro" id="btn-header-products">
+    Products
+  </a>
 </li>
 
 <li class="dropdown developers">

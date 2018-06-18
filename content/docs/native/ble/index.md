@@ -352,6 +352,121 @@ Connect to a peripheral.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
+</div><h3><a class="anchor" name="autoConnect" href="#autoConnect"></a><code>autoConnect(deviceId)</code></h3>
+
+
+
+
+Establish an automatic connection to a peripheral.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
+</div><h3><a class="anchor" name="requestMtu" href="#requestMtu"></a><code>requestMtu(deviceId,&nbsp;mtuSize)</code></h3>
+
+
+Request MTU size.
+May be used to fix the Error 14 "Unlikely" on write requests with more than 20 bytes.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      mtuSize</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The new MTU size. (23 - 517, default is usually 23. Max recommended: 512)</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise.
+</div><h3><a class="anchor" name="refreshDeviceCache" href="#refreshDeviceCache"></a><code>refreshDeviceCache(deviceId,&nbsp;timeoutMillis)</code></h3>
+
+
+Refresh Device Cache
+This method may fix a issue of old cached services and characteristics.
+NOTE Since this uses an undocumented API it's not guaranteed to work.
+If you choose a too low delay time (timeoutMillis) the method could fail.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeoutMillis</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Delay in milliseconds after refresh before discovering services.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise.
 </div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code></h3>
 
 

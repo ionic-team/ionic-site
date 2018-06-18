@@ -75,7 +75,7 @@ Near the top of the file, we should see this:
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage],
-  providers: []
+  providers: [StatusBar, SplashScreen, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
 ```

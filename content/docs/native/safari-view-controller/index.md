@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>For displaying read-only web content.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-safariviewcontroller</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">Safari View Controller plugin docs</a>.</p>
 
 
 <p>Repo:

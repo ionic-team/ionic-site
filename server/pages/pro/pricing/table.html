@@ -55,6 +55,8 @@
               <li><strong>Private</strong> View Feedback</li>
               <li><strong>60 day</strong> error history</li>
               <li><strong>Multi-channel</strong> live updating</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
             </ul>
             <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
                class="btn sm" id="btn-pricing-developer">Buy now</a>
@@ -76,7 +78,15 @@
               <li><strong>Team</strong> collaboration</li>
               <li><strong>Activity</strong> feed</li>
               <li><strong>90 day</strong> error history</li>
-              {# <li><strong>Ad Hoc App</strong> Package</li> #}
+              <li class="soon"><span class="badge">Coming Soon!</span></li>
+              <li>
+                <strong>Usage Statistics</strong>
+                <tippy pos="top">
+                  Ability to see information about how many of your users are
+                    on each channel and how many of them are on the latest
+                    versions.
+                </tippy>
+              </li>
             </ul>
             <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
                class="btn sm" id="btn-pricing-team">Buy now</a>
@@ -100,9 +110,25 @@
               <li><strong>App-level</strong> permissions</li>
               <li><strong>Live</strong> onboarding</li>
               <li><strong>Long-term</strong> error history</li>
-              <li>&nbsp;</li>
-              <li>&nbsp;</li>
-              {# <li><strong>Enterprise App</strong> Package</li> #}
+              <li><strong>Private hosted</strong> Git Servers</li>
+              <li class="soon"><span class="badge">Coming Soon!</span></li>
+              <li>
+                <strong>Single Sign On</strong>
+                <tippy pos="top">
+                  Improve security and streamline authentication by forcing your
+                  entire organization to use the SSO provider that you use
+                  internally to log into Ionic Pro.
+                </tippy>
+              </li>
+              <li>
+                <strong>Private</strong>Domains
+                <tippy pos="top">
+                  Your access, including SSO, is on a domain unique to you, and
+                  we’ll prevent access to your accounts from our generally
+                  available dashboard.
+                </tippy>
+              </li>
+
             </ul>
             <a href="#"
                class="btn sm"
@@ -224,10 +250,27 @@
             </tr>
             <tr class="stripe">
               <th>
-                <strong>Multi-Channel Live Updates</strong>
+                <strong>Concurrent Builds</strong>
+              </th>
+              <td>1</td>
+              <td>3</td>
+              <td>5 / member</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <th>
+                <span class="badge">Coming Soon!</span>
+                <strong>
+                  Usage statistics
+                  <tippy pos="right">
+                    Ability to see information about how many of your users are
+                    on each channel and how many of them are on the latest
+                    versions.
+                  </tippy>
+                </strong>
               </th>
               <td><span class="dash"></span></td>
-              <td><span class="check"></span></td>
+              <td><span class="dash"></span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
             </tr>
@@ -320,6 +363,78 @@
             <tr class="stripe">
               <th>
                 <strong>Roles &amp; Permissions</strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+
+            <tr>
+              <th colspan="5"><span>Security</span></th>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <strong>
+                  Private hosted Git servers
+                  <tippy pos="right">
+                    Use your own self-hosted git service with Ionic Pro, such as
+                    BitBucket Server. Allows support for your App repository as
+                    well as private Cordova plugins.
+                  </tippy>
+                </strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr class="stripe">
+              <th>
+                <span class="badge">Coming Soon!</span>
+                <strong>
+                  Single sign-on
+                  <tippy pos="right">
+                    Improve security and streamline authentication by forcing
+                    your entire organization to use the SSO provider that you
+                    use internally to log into Ionic Pro.
+                  </tippy>
+                </strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                <span class="badge">Coming Soon!</span>
+                <strong>
+                  Private domains
+                  <tippy pos="right">
+                    Your access, including SSO, is on a domain unique to you,
+                    and we’ll prevent access to your accounts from our generally
+                    available dashboard.
+                  </tippy>
+                </strong>
+              </th>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="dash"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th><span class="badge">Coming Soon!</span>
+                <strong>
+                  Code signing
+                  <tippy pos="right">
+                    Guarantee that your app updates are indeed coming directly
+                    from your developers. You can locally code-sign your files,
+                    which are then verified securely when downloaded to a user.
+                  </tippy>
+                </strong>
+
               </th>
               <td><span class="dash"></span></td>
               <td><span class="dash"></span></td>
@@ -460,12 +575,6 @@
         Ionic Monitor provides error catching and stack trace capabilities so you can identify errors and pinpoint the portions of your code that require updates. The Kickstarter plan offers limited error monitoring with 100 events per month included for free. Starting with the Developer plan, we offer advanced error monitoring with unlimited event tracking.
       </p>
     </li>
-    <li class="item">
-      <h4>What is a channel?</h4>
-      <p>
-        A Channel points to a specific build of your app that will be shared with specific testers and users. You can change which build a Channel points to whenever you'd like, and can rollback changes as well. Channels are used for both Ionic View and Ionic Deploy. See below for more detail.
-      </p>
-    </li>
 
   </ul>
   <ul class="items right">
@@ -476,9 +585,9 @@
       </p>
     </li>
     <li class="item">
-      <h4>What is split testing?</h4>
+      <h4>What is a channel?</h4>
       <p>
-        With Business and Enterprise plans, you can use multiple development channels to share different versions of your app with View. For example, you can share stable versions of your app with the Marketing department to get their feedback on new features, while allowing your QA team to test the latest bug fixes on a more recent version.
+        A Channel points to a specific build of your app that will be shared with specific testers and users. You can change which build a Channel points to whenever you'd like, and can rollback changes as well. Channels are used for both Ionic View and Ionic Deploy. See below for more detail.
       </p>
     </li>
     <li class="item">

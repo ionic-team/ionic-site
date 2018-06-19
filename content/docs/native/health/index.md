@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Health</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L154">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L160">
   Improve this doc
 </a>
 
@@ -504,6 +504,21 @@ In the latter case the query object must contain the field filtered: true.</p>
 supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39;, &#39;year&#39;.</p>
 
       
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      filtered
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>In Android, it is possible to query for &quot;raw&quot; steps or to select those as filtered by the Google Fit app.
+In the latter case the query object must contain the field filtered: true.</p>
+
+      <em>(optional)</em>
     </td>
   </tr>
   

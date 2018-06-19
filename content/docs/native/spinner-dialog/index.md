@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>Cordova plugin for showing a native spinner based on Paldom/SpinnerDialog.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-native-spinner</code>. For more info, please see the <a href="https://github.com/greybax/cordova-plugin-native-spinner">Spinner Dialog plugin docs</a>.</p>
 
 
 <p>Repo:

@@ -158,7 +158,12 @@
       }
 
       &.active > a {
-        color: rgba(white, 1);
+        color: rgba(white, 0.4);
+        pointer-events: none;
+      }
+
+      &.active > a:hover {
+        color: rgba(255, 255, 255, 0.65);
       }
 
       .light &.open > a {

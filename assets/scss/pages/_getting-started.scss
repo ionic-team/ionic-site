@@ -300,7 +300,16 @@
       letter-spacing: -0.02em;
     }
 
+    h4 {
+      font-size: 16px;
+      color: #0F1620;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
     p {
+      font-family: $font-family-graphik;
       font-size: 15px;
       line-height: 28px;
       letter-spacing: -0.01em;
@@ -381,6 +390,7 @@
 
     .content-row {
       display: flex;
+      justify-content: space-between;
       margin-top: 24px;
       margin-left: -24px;
       margin-right: -24px;
@@ -407,6 +417,10 @@
         }
       }
 
+      .form-wrapper {
+        flex: 0 0 640px;
+      }
+
       @media (max-width: $screen-sm-min) {
         margin-left: 0;
         margin-right: 0;
@@ -422,7 +436,143 @@
       }
     }
 
-    .content__tip {
+
+
+    .form {
+      padding: 64px;
+      background: #FFFFFF;
+      box-shadow: 0 10px 20px 0 rgba(0,13,36,0.16), 0 2px 8px 0 rgba(0,13,36,0.08);
+      border-radius: 16px;
+
+      h1 {
+        margin-top: 0;
+      }
+
+      h2 {
+        margin-top: 10px;
+        margin-bottom: 42px;
+      }
+
+      label {
+        font-size: 13px;
+        color: #3B434D;
+        letter-spacing: -0.015em;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+
+      input[type="text"] {
+        display: block;
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #C3CDDF;
+        border-radius: 6px;
+        padding: 11px 16px;
+      }
+
+      .checkbox-label {
+        color: #727A87;
+        font-size: 11px;
+        font-weight: 600;
+        margin-left: 4px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+      }
+
+      .well {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        width: 100%;
+        border: 1px solid #E1E5ED;
+        border-radius: 6px;
+        margin-top: 16px;
+        color: #3B424D;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .text-link {
+        text-decoration: underline;
+        margin-left: 8px;
+      }
+    }
+
+    .benefits {
+      max-width: 390px;
+
+      & > p {
+        font-size: 16px;
+        line-height: 28px;
+        color: #424C5A;
+        margin-top: 18px;
+
+        b {
+          font-weight: 500;
+          color: #424C5A;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 60px 0 0;
+        padding: 0;
+      }
+
+      h5 {
+        color: #161A1F;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      li {
+        position: relative;
+        padding-left: 42px;
+
+        p {
+          font-size: 14px;
+          line-height: 24px;
+          color: #545C6A;
+        }
+
+        &::before {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          font-family: Ionicons;
+          content: '\f2bc';
+          color: #D0E6FF;
+          background: #67A2FF;
+          border-radius: 100px;
+          font-size: 1.2em;
+          margin-left: 5px;
+          font-weight: 400;
+          line-height: 1em;
+          position: relative;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      li + li {
+        margin-top: 40px;
+      }
+    }
+
+    .content-tip {
       transition: border 0.2s;
       color: #8594AF;
       font-weight: 600;
@@ -548,14 +698,54 @@
           margin-left: 12px;
           margin-right: 12px;
         }
+
+        .content-card {
+          position: relative;
+
+          &::after {
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 80px;
+            width: 80px;
+            height: 144px;
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: calc(50% - 72px);
+          }
+
+          &:nth-child(1)::after {
+            background-image: url(/img/getting-started/ionic-native-card.png);
+          }
+          &:nth-child(2)::after {
+            background-image: url(/img/getting-started/components-card.png);
+          }
+          &:nth-child(3)::after {
+            background-image: url(/img/getting-started/theming-card.png);
+          }
+        }
       }
     }
 
     .content-card {
+      transition: box-shadow 0.3s;
       background: #FFFFFF;
-      box-shadow: 0 10px 20px 0 rgba(0,13,36,0.16), 0 2px 8px 0 rgba(0,13,36,0.08);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.08);
       border-radius: 8px;
       padding: 16px 92px 16px 32px;
+
+      h3 {
+        color: #0F1620
+      }
+
+      p {
+        color: #545C6A;
+      }
+
+      &:hover {
+        box-shadow: 0 5px 10px 0 rgba(0,13,36,0.08), 0 2px 8px 0 rgba(0,13,36,0.08);
+      }
     }
   }
 

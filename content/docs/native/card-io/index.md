@@ -78,7 +78,7 @@ this.cardIO.canScan()
           requireCVV: false,
           requirePostalCode: false
         };
-        CardIO.scan(options);
+        this.cardIO.scan(options);
       }
     }
   );

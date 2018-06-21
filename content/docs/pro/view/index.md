@@ -8,11 +8,10 @@ hide_header_search: true
 dark_header: true
 ---
 
-<h1 style="color: red; line-height: 50px;">
-  <span style="font-size: 48px;">Warning: Depreciated</span><br>
-  Sunsetting Sept 1, 2018
-</h1>
-_[Learn more](https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/)_
+<h1 style="color: red;">Notice: Ionic View will be sunsetting on September 1,
+2018. More info is available <a
+href="https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/">here.
+</a></h1>
 
 # Beta Testing with Ionic View
 
@@ -24,13 +23,9 @@ In order to share & test with Ionic View, you'll have to push any code up to Ion
 
 ## Install Ionic View
 
-As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for iOS or Android:
+As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for Android:
 
 <div id="badges" style="text-align:center">
-  <a  style="opacity:.5">
-    <img style="width: 148px" src="/img/pro/appstore.png" id="appstore-image">
-  </a>
-
   <a href="https://play.google.com/store/apps/details?id=com.ionicframework.view">
     <img style="width: 180px" alt="Get it on Google Play" src="/img/pro/playstore.png" id="playstore-image">
   </a>

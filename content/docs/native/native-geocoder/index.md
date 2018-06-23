@@ -56,18 +56,23 @@ $ npm install --save @ionic-native/native-geocoder
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from &#39;@ionic-native/native-geocoder&#39;;
+<pre><code class="lang-typescript">import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions } from &#39;@ionic-native/native-geocoder&#39;;
 
 constructor(private nativeGeocoder: NativeGeocoder) { }
 
 ...
 
-this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-  .then((result: NativeGeocoderReverseResult) =&gt; console.log(JSON.stringify(result)))
+let options: NativeGeocoderOptions = {
+    useLocale: true,
+    maxResults: 5
+};
+
+this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818, options)
+  .then((result: NativeGeocoderReverseResult[]) =&gt; console.log(JSON.stringify(result[0])))
   .catch((error: any) =&gt; console.log(error));
 
-this.nativeGeocoder.forwardGeocode(&#39;Berlin&#39;)
-  .then((coordinates: NativeGeocoderForwardResult) =&gt; console.log(&#39;The coordinates are latitude=&#39; + coordinates.latitude + &#39; and longitude=&#39; + coordinates.longitude))
+this.nativeGeocoder.forwardGeocode(&#39;Berlin&#39;, options)
+  .then((coordinates: NativeGeocoderForwardResult[]) =&gt; console.log(&#39;The coordinates are latitude=&#39; + coordinates[0].latitude + &#39; and longitude=&#39; + coordinates[0].longitude))
   .catch((error: any) =&gt; console.log(error));
 </code></pre>
 
@@ -79,7 +84,7 @@ this.nativeGeocoder.forwardGeocode(&#39;Berlin&#39;)
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="reverseGeocode" href="#reverseGeocode"></a><code>reverseGeocode(latitude,&nbsp;longitude)</code></h3>
+<h3><a class="anchor" name="reverseGeocode" href="#reverseGeocode"></a><code>reverseGeocode(latitude,&nbsp;longitude,&nbsp;options)</code></h3>
 
 
 
@@ -115,13 +120,24 @@ Reverse geocode a given latitude and longitude to find location address
       <p>The longitude</p>
 </td>
   </tr>
+  
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>NativeGeocoderOptions</code>
+    </td>
+    <td>
+      <p>The options</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;NativeGeocoderReverseResult&gt;</code> 
-</div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString)</code></h3>
+  <b>Returns:</b> <code>Promise&lt;NativeGeocoderReverseResult[]&gt;</code> 
+</div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString,&nbsp;options)</code></h3>
 
 
 
@@ -146,12 +162,23 @@ Forward geocode a given address to find coordinates
       <p>The address to be geocoded</p>
 </td>
   </tr>
+  
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>NativeGeocoderOptions</code>
+    </td>
+    <td>
+      <p>The options</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;NativeGeocoderForwardResult&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;NativeGeocoderForwardResult[]&gt;</code> 
 </div>
 
 
@@ -335,6 +362,68 @@ Forward geocode a given address to find coordinates
     </td>
     <td>
       <p>The longitude.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="NativeGeocoderOptions" href="#NativeGeocoderOptions"></a>NativeGeocoderOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      useLocale
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>The locale to use when returning the address information.
+If set to &#39;false&#39; the locale will always be &#39;en_US&#39;.
+Default is &#39;true&#39;</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      defaultLocale
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The default locale to use when returning the address information.
+e.g.: &#39;fa-IR&#39; or &#39;de_DE&#39;.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      maxResults
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The maximum number of result to return (max is 5).
+Default is 1</p>
 
       
     </td>

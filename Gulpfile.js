@@ -259,7 +259,7 @@ gulp.task('sitemap', function () {
   .pipe($.sitemap({
     siteUrl: 'https://www.ionicframework.com',
      getLoc: function(siteUrl, loc, entry) {
-      return loc.replace(/\.\w+$/, '').replace(/\/$/, '');
+      return loc.replace(/\.\w+$/, '').replace(/\/$/, '').replace(/(.*)\/index$/, '$1');
     },
     mappings: sitemappings,
     // verbose: true,

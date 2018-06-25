@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.7.0"
+version: "4.8.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L296">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L300">
   Improve this doc
 </a>
 

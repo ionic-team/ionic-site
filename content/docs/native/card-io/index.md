@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.7.0"
+version: "4.8.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -78,7 +78,7 @@ this.cardIO.canScan()
           requireCVV: false,
           requirePostalCode: false
         };
-        CardIO.scan(options);
+        this.cardIO.scan(options);
       }
     }
   );

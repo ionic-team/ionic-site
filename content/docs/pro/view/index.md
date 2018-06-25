@@ -8,6 +8,11 @@ hide_header_search: true
 dark_header: true
 ---
 
+<h1 style="color: red;">Notice: Ionic View will be sunsetting on September 1,
+2018. More info is available <a
+href="https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/">here.
+</a></h1>
+
 # Beta Testing with Ionic View
 
 Ionic View makes it easy to distribute versions of your app to beta testers, clients, co-workers, and more, without dealing with the complicated device provisioning and configuration required with traditional beta testing services.
@@ -18,13 +23,9 @@ In order to share & test with Ionic View, you'll have to push any code up to Ion
 
 ## Install Ionic View
 
-As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for iOS or Android:
+As a Developer with an Ionic Pro account, you can log into your own account in View to access your projects. You can download Ionic View for Android:
 
 <div id="badges" style="text-align:center">
-  <a href="https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931?ls=1&mt=8">
-    <img style="width: 148px" src="/img/pro/appstore.png" id="appstore-image">
-  </a>
-
   <a href="https://play.google.com/store/apps/details?id=com.ionicframework.view">
     <img style="width: 180px" alt="Get it on Google Play" src="/img/pro/playstore.png" id="playstore-image">
   </a>

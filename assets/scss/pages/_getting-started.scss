@@ -259,6 +259,10 @@
     .container:last-child {
       border-bottom: 1px solid #edf2f7;
       padding-bottom: 120px;
+
+      @media (max-width: $screen-sm-max) {
+        padding-bottom: 40px;
+      }
     }
 
     &--active {
@@ -442,6 +446,7 @@
 
       .benefits {
         margin-left: 48px;
+        margin-top: 76px;
       }
 
         @media (max-width: $screen-sm-max) {
@@ -590,6 +595,91 @@
 
       li + li {
         margin-top: 40px;
+      }
+    }
+
+    .sign-up-logos {
+      padding: 100px 0 40px;
+
+      .sign-up-logos__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 34px;
+      }
+
+      .sign-up-logos__content > div {
+        background-image: url('/img/getting-started/getting-started-signup-logo-sprite.png');
+        background-repeat: no-repeat;
+        background-size: 128px 186px;
+
+        &.target {
+          width: 22px;
+          height: 22px;
+          background-position: 0 0;
+        }
+
+        &.verizon {
+          width: 79px;
+          height: 18px;
+          background-position: 0 -23px;
+        }
+
+        &.amtrak {
+          width: 52px;
+          height: 22px;
+          background-position: 0 -42px;
+        }
+
+        &.marketwatch {
+          width: 129px;
+          height: 18px;
+          background-position: 0 -65px;
+        }
+
+        &.usarmy {
+          width: 52px;
+          height: 18px;
+          background-position: 0 -84px;
+        }
+
+        &.ge {
+          width: 22px;
+          height: 22px;
+          background-position: 0 -103px;
+        }
+
+        &.comcast {
+          width: 80px;
+          height: 22px;
+          background-position: 0 -126px;
+        }
+
+        &.ea {
+          width: 37px;
+          height: 18px;
+          background-position: 0 -149px;
+        }
+
+        &.ibm {
+          width: 48px;
+          height: 18px;
+          background-position: 0 -168px;
+        }
+      }
+
+      @media (max-width: $screen-sm-min) {
+        .sign-up-logos__content {
+          justify-content: center;
+          max-width: 590px;
+          margin: 34px auto 0;
+          flex-wrap: wrap;
+        }
+
+        .sign-up-logos__content > div {
+          margin: 0 20px 30px;
+          flex: 0 0 auto;
+        }
       }
     }
 

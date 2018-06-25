@@ -417,10 +417,6 @@
         }
       }
 
-      .form-wrapper {
-        flex: 0 0 640px;
-      }
-
       @media (max-width: $screen-sm-min) {
         margin-left: 0;
         margin-right: 0;
@@ -436,7 +432,28 @@
       }
     }
 
+    .form-row {
+      display: flex;
+      justify-content: space-between;
 
+      .form-wrapper {
+        flex: 0 0 640px;
+      }
+
+      .benefits {
+        margin-left: 48px;
+      }
+
+        @media (max-width: $screen-sm-max) {
+          display: block;
+
+          .benefits {
+            margin-top: 100px;
+            margin-left: 0;
+            max-width: 590px;
+          }
+        }
+    }
 
     .form {
       padding: 64px;
@@ -503,6 +520,10 @@
       .text-link {
         text-decoration: underline;
         margin-left: 8px;
+      }
+
+      @media (max-width: $screen-xs-min) {
+        padding: 36px 28px;
       }
     }
 

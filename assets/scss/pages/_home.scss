@@ -166,7 +166,7 @@
 
       .layer-1 {
         position: absolute;
-        background: url('/img/homepage/hero-img-android.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-android-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 410px;
         height: 870px;
@@ -176,7 +176,7 @@
 
       .layer-2 {
         position: absolute;
-        background: url('/img/homepage/hero-img-components-android.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-components-android-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 316px;
         height: 571px;
@@ -188,7 +188,7 @@
 
       .layer-3 {
         position: absolute;
-        background: url('/img/homepage/hero-img-iphone.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-iphone-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 420px;
         height: 830px;
@@ -198,7 +198,7 @@
 
       .layer-4 {
         position: absolute;
-        background: url('/img/homepage/hero-img-components.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-components-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 286px;
         height: 612px;
@@ -212,7 +212,7 @@
     @media (max-width: $screen-sm-max) {
 
       .container {
-        padding-top: 44px;
+        padding-top: 84px;
         padding-bottom: 64px;
       }
 

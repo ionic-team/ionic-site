@@ -65,12 +65,12 @@ this.deeplinks.route({
      &#39;/about-us&#39;: AboutPage,
      &#39;/universal-links-test&#39;: AboutPage,
      &#39;/products/:productId&#39;: ProductPage
-   }).subscribe((match) =&gt; {
+   }).subscribe(match =&gt; {
      // match.$route - the route we matched, which is the matched entry from the arguments to route()
      // match.$args - the args passed in the link
      // match.$link - the full link data
      console.log(&#39;Successfully matched route&#39;, match);
-   }, (nomatch) =&gt; {
+   }, nomatch =&gt; {
      // nomatch.$link - the full link data
      console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
    });
@@ -80,12 +80,12 @@ the actual navigation for you:</p>
 <pre><code class="lang-typescript">this.deeplinks.routeWithNavController(this.navController, {
   &#39;/about-us&#39;: AboutPage,
   &#39;/products/:productId&#39;: ProductPage
-}).subscribe((match) =&gt; {
+}).subscribe(match =&gt; {
     // match.$route - the route we matched, which is the matched entry from the arguments to route()
     // match.$args - the args passed in the link
     // match.$link - the full link data
     console.log(&#39;Successfully matched route&#39;, match);
-  }, (nomatch) =&gt; {
+  }, nomatch =&gt; {
     // nomatch.$link - the full link data
     console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
   });

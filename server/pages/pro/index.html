@@ -361,39 +361,39 @@
     window.onYouTubeIframeAPIReady = onYouTubeReady;
     window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
 
-    // TESTING ANIMATION
-    function setupTestingAnimation() {
-      const testingStage = document.querySelector('#testing');
-      const device1 = document.querySelector('.anim-testing__device--one');
-      const device2 = document.querySelector('.anim-testing__device--two');
-      const testingTl = new TimelineLite();
-
-      TweenLite.set([device1, device2], {
-        opacity: 0,
-        y: -40
-      })
-      testingTl.to(device1, 0.1, {
-        opacity: 1
-      }, 0.4);
-      testingTl.to(device1, 0.8, {
-        y: 0,
-        ease: Expo.easeOut
-      }, 0.4);
-      testingTl.to(device2, 0.1, {
-        opacity: 1,
-      }, 0.7);
-      testingTl.to(device2, 0.8, {
-        y: 0,
-        ease: Expo.easeOut
-      }, 0.7);
-      testingTl.pause();
-
-      initAnimation(testingStage, testingTl, {
-        once: true,
-        playWhenInView: true
-      });
-    }
-    setupTestingAnimation();
+    // // TESTING ANIMATION
+    // function setupTestingAnimation() {
+    //   const testingStage = document.querySelector('#testing');
+    //   const device1 = document.querySelector('.anim-testing__device--one');
+    //   const device2 = document.querySelector('.anim-testing__device--two');
+    //   const testingTl = new TimelineLite();
+    //
+    //   TweenLite.set([device1, device2], {
+    //     opacity: 0,
+    //     y: -40
+    //   })
+    //   testingTl.to(device1, 0.1, {
+    //     opacity: 1
+    //   }, 0.4);
+    //   testingTl.to(device1, 0.8, {
+    //     y: 0,
+    //     ease: Expo.easeOut
+    //   }, 0.4);
+    //   testingTl.to(device2, 0.1, {
+    //     opacity: 1,
+    //   }, 0.7);
+    //   testingTl.to(device2, 0.8, {
+    //     y: 0,
+    //     ease: Expo.easeOut
+    //   }, 0.7);
+    //   testingTl.pause();
+    //
+    //   initAnimation(testingStage, testingTl, {
+    //     once: true,
+    //     playWhenInView: true
+    //   });
+    // }
+    // setupTestingAnimation();
 
     // UPDATES ANIMATION
     function setupUpdatesAnimation() {

@@ -84,7 +84,7 @@ module.exports = function(context) {
 
 };
 </code></pre>
-<ol start="3">
+<ol>
 <li>From the root of your project make the file executable:
 <code>$ chmod +x hooks/after_prepare/030_copy_android_notification_icons.js</code></li>
 </ol>

@@ -110,7 +110,7 @@ this.hyperTrack.setUserId(&quot;xxx&quot;).then(user =&gt; {
     // Handle success (String). Should be &quot;OK&quot;.
   }, error =&gt; {});
 
-}, error =&gt; {});* 
+}, error =&gt; {});*
 </code></pre>
 
 

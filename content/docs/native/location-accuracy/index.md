@@ -123,7 +123,7 @@ Requests accurate location
       <code>number</code>
     </td>
     <td>
-      <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST_PRIORITY_</p>
+      <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST<em>PRIORITY</em></p>
 </td>
   </tr>
   </tbody>

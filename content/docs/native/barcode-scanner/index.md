@@ -348,7 +348,7 @@ NOTE: not well supported on Android
     | &#39;ITF&#39;
     | &#39;RSS14&#39;
     | &#39;RSS_EXPANDED&#39;
-    | &#39;PDF417&#39;
+    | &#39;PDF_417&#39;
     | &#39;AZTEC&#39;
     | &#39;MSI&#39;</code>
     </td>

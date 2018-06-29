@@ -891,6 +891,80 @@ Read the RSSI value on the device connection.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="connectedPeripheralsWithServices" href="#connectedPeripheralsWithServices"></a><code>connectedPeripheralsWithServices(services)</code></h3>
+
+
+Retrieves a list of the peripherals (containing any of the specified services)
+currently connected to the system. The peripheral list is sent to the success callback.
+iOS only
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      services</td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>List of services to discover</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
+</div><h3><a class="anchor" name="peripheralsWithIdentifiers" href="#peripheralsWithIdentifiers"></a><code>peripheralsWithIdentifiers(uuids)</code></h3>
+
+
+Find the connected peripherals offering the listed service UUIDs.
+iOS only
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      uuids</td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>List of peripheral UUIDs</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
+</div><h3><a class="anchor" name="bondedDevices" href="#bondedDevices"></a><code>bondedDevices()</code></h3>
+
+
+Find the bonded devices
+Android only
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
 </div>
 
 

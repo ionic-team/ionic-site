@@ -142,7 +142,7 @@ header_sub_title: Ionic Resources
 
 <section id="polyfill">
     <h3><a href="#polyfill">Polyfill</a></h3>
-    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the browser.</p>
+    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has its own API, a polyfill let's you use the expect API of the browser.</p>
     <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</a></p>
   </section>
 
@@ -158,7 +158,7 @@ header_sub_title: Ionic Resources
 
 <section id="shim">
     <h3><a href="#shim">Shim</a></h3>
-    <p>A shim is a piece of code that normailizes an APIs across browsers. A shim can have it's own API that hides the browser specific implimentation from the end user.</p>
+    <p>A shim is a piece of code that normailizes an APIs across browsers. A shim can have its own API that hides the browser specific implimentation from the end user.</p>
   </section>
 
 

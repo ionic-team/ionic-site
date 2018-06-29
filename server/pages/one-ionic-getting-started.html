@@ -1,0 +1,315 @@
+{% extends '_layouts/base.html' %}
+{% set title = "Getting Started with Ionic" %}
+{% set id = "get-started" %}
+{% set pre_footer = false %}
+
+{% block main %}
+<div class="cta gradient">
+  <hgroup class="container center">
+    <a class="crash-course" href="https://youtu.be/O2WiI9QrS5s" target="_blank">
+      <img src="/img/getting-started/video-thumbnail.png" />
+    </a>
+    <h1>Get started with Ionic</h1>
+    <h4>
+      Follow our Getting Started guides for building high-quality Ionic apps with the web tech you know and love.
+    </h4>
+  </hgroup>
+
+  <div class="container">
+    <ul class="tabs">
+      <li class="tab tab--active" data-tab-content="account" id="get-started-tab-create-account">
+        <div class="tab__inner">
+          <svg width="20px" height="20px" viewBox="0 0 20 20">
+            <g transform="translate(-309.000000, -479.000000)">
+              <g transform="translate(309.000000, 479.000000)">
+                <circle class="back" cx="10" cy="10" r="10"></circle>
+                <g class="front" transform="translate(5.000000, 1.000000)">
+                  <circle cx="5" cy="9" r="5"></circle>
+                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span>Create Ionic account</span>
+        </div>
+      </li>
+      <li class="tab" data-tab-content="cli" id="get-started-tab-cli">
+        <div class="tab__inner">
+          <svg width="20px" height="18px" viewBox="0 0 20 18">
+            <g transform="translate(-567.000000, -480.000000)">
+              <g transform="translate(560.000000, 480.000000)">
+                <circle class="middle" cx="17" cy="10" r="8"></circle>
+                <g class="front">
+                  <rect x="17" y="14" width="10" height="2"></rect>
+                  <g transform="translate(8.485281, 8.485281) rotate(-315.000000) translate(-8.485281, -8.485281) translate(2.485281, 2.485281)">
+                    <rect x="0" y="0" width="12" height="2"></rect>
+                    <rect transform="translate(11.000000, 6.000000) rotate(-90.000000) translate(-11.000000, -6.000000) " x="5" y="5" width="12" height="2"></rect>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span>Install with CLI</span>
+        </div>
+      </li>
+      <li class="tab" data-tab-content="creator" id="get-started-tab-creator">
+        <div class="tab__inner">
+          <svg width="21px" height="21px" viewBox="0 0 21 21">
+            <g transform="translate(-771.000000, -478.000000)">
+              <g transform="translate(771.000000, 478.000000)">
+                <rect class="back" x="0" y="0" width="14" height="14" rx="4"></rect>
+                <rect class="middle middle--border" x="3.5" y="3.5" width="15" height="15" rx="4"></rect>
+                <path d="M18.2583573,17.3292828 L19.1883542,19.2360589 L16.491972,20.5511724 L15.5384277,18.5961167 L13.5,20.3795001 L13.5,9.83378992 L20.8782282,16.8566861 L18.2583573,17.3292828 Z" class="front front--border" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+            </g>
+          </svg>
+          <span>Design with Creator</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <section class="tab-content tab-content--active" id="account">
+    <div class="container">
+      <div class="form-row">
+        <div class="col form-wrapper">
+          <form class="form">
+            <h1>Create a free Ionic account</h1>
+            <h2>Unlock the full experience. No credit card required.</h2>
+            <div class="form-group">
+              <label for="">Full name</label>
+              <input type="text" name="" value="">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" name="" value="">
+            </div>
+            <div class="form-group">
+              <label for="">Username</label>
+              <input type="text" name="" value="">
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="text" name="" value="">
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="" value="">
+              <label class="checkbox-label" for="">I agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></label>
+            </div>
+            <button type="button" name="button" class="btn btn-block">Create free account</button>
+            <div class="well">
+              Already have an account? <a class="text-link" href="https://dashboard.ionicframework.com/login">Log in</a>
+            </div>
+          </form>
+        </div>
+        <div class="col benefits">
+          <h4>Get more with an Ionic account</h4>
+          <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Pro</b> cloud features</p>
+          <ul>
+            <li>
+              <h5>Continuous delivery</h5>
+              <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
+            </li>
+            <li>
+              <h5>Package apps in the cloud</h5>
+              <p>Go from code to app store with no platform dependencies or complicated build steps.</p>
+            </li>
+            <li>
+              <h5>Error monitoring and tracking</h5>
+              <p>Improve app quality by catching UX issues before your users do.</p>
+            </li>
+            <li>
+              <h5>Ionic updates and tutorials</h5>
+              <p>Get access to the Forum, plus news and developer-focused trainings and workshops.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-row">
+        <div class="col col--centered col--full sign-up-logos">
+          <h1>Don't take our word for it</h1>
+          <h2>Developers and teams across the globe build better apps with an Ionic Account</h2>
+          <div class="sign-up-logos__content">
+            <div class="target"></div>
+            <div class="verizon"></div>
+            <div class="amtrak"></div>
+            <div class="marketwatch"></div>
+            <div class="usarmy"></div>
+            <div class="ge"></div>
+            <div class="comcast"></div>
+            <div class="ea"></div>
+            <div class="ibm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-content" id="cli">
+    <div class="container">
+      <ol>
+        <li>
+          <div>
+            <h1>Install Ionic</h1>
+            <div class="content-row">
+              <div class="col col--half">
+                <pre><code>npm install -g ionic</code></pre>
+              </div>
+              <div class="col col--half">
+                <p>First, install <a target="_blank" href="https://nodejs.org/en/">Node.js</a>. Then, install the latest Ionic command-line tools in your terminal. Follow the <a target="_blank"  href="https://cordova.apache.org/docs/en/8.x/guide/platforms/android/">Android</a> and <a target="_blank"  href="https://cordova.apache.org/docs/en/8.x/guide/platforms/ios/">iOS</a> platform guides to install required tools for development.</p>
+                <a href="https://blog.ionicframework.com/new-to-the-command-line/" class="content-tip">If you’re new to the command line, read our Terminal tutorial</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h1>Start an app</h1>
+            <div class="content-row">
+              <div class="col col--half">
+                <pre><code>ionic start myApp tabs</code></pre>
+              </div>
+              <div class="col col--half">
+                <p>Create an Ionic App using one of our ready-made app templates, or a blank one to start fresh. Check out the <a href="https://market.ionicframework.com/starters/">Market</a> for more designs.</p>
+                <p>For v1 projects, use the <code>--type ionic1</code> flag.</p>
+              </div>
+            </div>
+            <div class="content-row">
+              <div class="col col--third col--centered">
+                <img class="img" src="/img/getting-started/starter-app-thumbnails-1.png" />
+                <code>$ ionic start myApp blank</code>
+              </div>
+              <div class="col col--third col--centered">
+                <img class="img" src="/img/getting-started/starter-app-thumbnails-2.png" />
+                <code>$ ionic start  myApp tabs</code>
+              </div>
+              <div class="col col--third col--centered">
+                <img class="img" src="/img/getting-started/starter-app-thumbnails-3.png" />
+                <code>$ ionic start myApp sidemenu</code>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h1>Run your app</h1>
+            <div class="content-row">
+              <div class="col col--half">
+                <pre><code>cd myApp <br/>ionic serve</code></pre>
+              </div>
+              <div class="col col--half">
+                <p>Much of your app can be built right in the browser with <code>ionic serve</code>. We recommend starting with this workflow.</p>
+                <p>When you're ready to deploy your app to a real device, check out our <a href="https://ionicframework.com/docs/intro/deploying/">Deploying guide</a>.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <div class="supercharge">
+          <li>
+            <div>
+              <h1>Supercharge your app</h1>
+              <div class="content-row">
+                <div class="col col--half">
+                  <pre><code>ionic link</code></pre>
+                </div>
+                <div class="col col--half">
+                  <p>Update your app remotely, build native binaries in the cloud, and share your app easily with others, all from the Ionic Pro dashboard.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <img src="/img/getting-started/supercharge-dash-screenshot.png" alt="Dashboard preview" class="img">
+        </div>
+      </ol>
+
+      <div class="learn-more">
+        <p>
+          <a href="https://ionicframework.com/pro">Learn more</a> about Ionic Pro.
+        </p>
+        <p>
+          Your dashboard is always available at <a href="https://dashboard.ionicframework.com/login">dashboard.ionicframework.com</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <div class="container">
+        <hgroup>
+          <h1>That's it! You're done.</h1>
+          <h2>Head over to the <a href="/docs">Docs</a> for more information, or explore some of the Ionic Framework’s other features below.</h2>
+        </hgroup>
+
+        <div class="content-row">
+          <a class="col content-card" href="https://ionicframework.com/docs/native/">
+            <h3>Ionic Native</h3>
+            <p>A curated set of ES5/ES6/TypeScript wrappers for plugins to easily add any native functionality to your Ionic apps.</p>
+          </a>
+          <a class="col content-card" href="https://ionicframework.com/docs/components/">
+            <h3>UI Components</h3>
+            <p>Tabs, buttons, inputs, lists, cards, and more! A comprehensive library of mobile UI components, ready to go.</p>
+          </a>
+          <a class="col content-card" href="https://ionicframework.com/docs/theming/">
+            <h3>Theming</h3>
+            <p>Learn how to easily customize and modify your app’s design to fit your brand across all mobile platform styles.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-content" id="creator">
+    <div class="container">
+      <hgroup>
+        <img src="/img/getting-started/creator-logo.png" alt="Creator" class="logo">
+        <h1>Create your Ionic apps visually</h1>
+        <h2>A simple drag-&-drop tool for going from idea to App Store, with just the drag of a mouse.</h2>
+        <a href="https://usecreator.com" class="btn">
+          Start an app in Creator <i class="ion-ios-arrow-forward"></i>
+        </a>
+      </hgroup>
+      <img src="/img/getting-started/creator-devices.png" alt="Creator preview" class="img">
+    </div>
+  </section>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+
+  (function(){
+    // tabs
+    var tabs = document.querySelectorAll('.tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function () {
+        selectTab(this);
+      });
+    }
+
+    if (window.location.hash && ['#account','#cli', '#creator'].includes(window.location.hash)) {
+      var content = window.location.hash.replace('#', '');
+      var tab = document.querySelector('[data-tab-content="' + content + '"]')
+      selectTab(tab);
+    }
+
+
+    function selectTab(tab) {
+      var contentId = tab.dataset.tabContent;
+      window.location.hash = contentId;
+
+      document.querySelector('.tab--active').classList.remove('tab--active');
+      document.querySelector('.tab-content--active').classList.remove('tab-content--active');
+      tab.classList.add('tab--active');
+      document.getElementById(contentId).classList.add('tab-content--active');
+    }
+
+  })();
+</script>
+{% endblock %}

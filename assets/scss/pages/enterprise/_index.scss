@@ -459,6 +459,10 @@
 
       & + .section__content {
         padding-top: 10px;
+
+        &.iv {
+          padding-top: 90px;
+        }
       }
 
       h2 {
@@ -597,6 +601,96 @@
     .pro-section:after,
     .support-section:after {
       display: none;
+    }
+  }
+
+  .section-conten + .iv {
+    padding-top: 90px;
+  }
+
+  .iv {
+    background: #152b40;
+    background:
+      url('/img/enterprise/bg-pattern.png') repeat 50% 50%,
+      linear-gradient(to right, #102132 0%, #1f3d5a 100%);
+    background-size: 512px, 100%;
+    margin-top: 32px;
+    padding-bottom: 85px;
+    margin-bottom: 64px;
+
+    hgroup {
+      padding-left: 139px;
+      position: relative;
+
+      &::before {
+        background: url('/img/enterprise/identity-vault-icon.png') repeat 0 0;
+        background-size: 90px;
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 15px;
+      }
+    }
+
+    strong {
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: .23em;
+      color: #809ab3;
+    }
+
+    h2 {
+      color: white;
+      margin-top: 15px;
+      font-size: 32px;
+      margin-bottom: 3px;
+    }
+
+    p {
+      color: #98cdff;
+      margin-bottom: 0;
+      font-size: 18px;
+      letter-spacing: .024em;
+      font-weight: 500;
+    }
+
+    .btn {
+      margin-top: 48px;
+      margin-right: 0;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 16px 11px;
+      letter-spacing: .06em;
+      margin-left: 20px;
+
+      i {
+        margin-left: 1px;
+        vertical-align: -3px;
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      hgroup:not(.overview) {
+        text-align: center;
+        padding-left: 15px;
+        display: block;
+        padding-bottom: 80px;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .btn {
+        position: absolute;
+        bottom: 0px;
+        left: calc(50% - 102px);
+        margin-left: 0;
+      }
     }
   }
 

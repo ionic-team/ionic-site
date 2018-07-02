@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Health Kit</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L125">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L79">
   Improve this doc
 </a>
 
@@ -772,6 +772,19 @@ end date in ascending order, default is false</p>
   <tr>
     <td>
       quantityType
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
     </td>
     <td>
       <code>string</code>

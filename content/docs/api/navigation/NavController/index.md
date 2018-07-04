@@ -122,7 +122,7 @@ export class MyApp {
 
 <p>What if you wanted to navigate from an overlay component (popover, modal, alert, etc)?
 In this example, we&#39;ve displayed a popover in our app. From the popover, we&#39;ll get a
-reference of the root <code>NavController</code> in our app, using the <code>getRootNav()</code> method.</p>
+reference of the root <code>NavController</code> in our app, using the <code>getRootNavs()</code> method.</p>
 <pre><code class="lang-typescript">import { Component } from &#39;@angular/core&#39;;
 import { App, ViewController } from &#39;ionic-angular&#39;;
 
@@ -142,7 +142,7 @@ import { App, ViewController } from &#39;ionic-angular&#39;;
 
     pushPage() {
       this.viewCtrl.dismiss();
-      this.appCtrl.getRootNav().push(SecondPage);
+      this.appCtrl.getRootNavs()[0].push(SecondPage);
     }
   }
 </code></pre>

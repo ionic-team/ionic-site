@@ -81,7 +81,7 @@ this.appVersion.getVersionNumber();
 <h3><a class="anchor" name="getAppName" href="#getAppName"></a><code>getAppName()</code></h3>
 
 
-Returns the name of the app
+Returns the name of the app, e.g.: "My Awesome App"
 
 
 <div class="return-value" markdown="1">
@@ -90,7 +90,7 @@ Returns the name of the app
 </div><h3><a class="anchor" name="getPackageName" href="#getPackageName"></a><code>getPackageName()</code></h3>
 
 
-Returns the package name of the app
+Returns the package name of the app, e.g.: "com.example.myawesomeapp"
 
 
 <div class="return-value" markdown="1">
@@ -99,16 +99,18 @@ Returns the package name of the app
 </div><h3><a class="anchor" name="getVersionCode" href="#getVersionCode"></a><code>getVersionCode()</code></h3>
 
 
-Returns the build identifier of the app
+Returns the build identifier of the app.
+In iOS a string with the build version like "1.6095"
+In Android a number generated from the version string, like 10203 for version "1.2.3"
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string | number&gt;</code> 
 </div><h3><a class="anchor" name="getVersionNumber" href="#getVersionNumber"></a><code>getVersionNumber()</code></h3>
 
 
-Returns the version of the app
+Returns the version of the app, e.g.: "1.2.3"
 
 
 <div class="return-value" markdown="1">

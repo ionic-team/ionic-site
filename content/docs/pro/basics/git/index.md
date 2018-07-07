@@ -25,30 +25,32 @@ Ionic Pro to needs access to your source code to build native binaries, release 
 Using Git allows you to specify the exact versions of your app which you would like to operate on. There are two ways in which you can give Ionic Pro
 access you your source code and Git versioning history.
 
-* [GitHub Integration](#github-integration)
+* [GitHub & Bitbucket Cloud Integration](#github--bitbucket-cloud-integration)
 * [Ionic Git Remote](#ionic-git)
 
 
-## GitHub Integration
+## GitHub & Bitbucket Cloud Integration
 
-If you are already using [GitHub](https://github.com/) you can [link your GitHub account with your Ionic Pro account](https://dashboard.ionicframework.com/settings/integrations).
-In order to link your Ionic Pro app with GitHub you will need an [existing GitHub repository](https://help.github.com/articles/create-a-repo/).
-Once your account is linked and the GitHub repository exists you can link it to your Ionic app in the `Git` section of the app settings tab in your app on the Ionic Pro dashboard
+If you are already using [GitHub](https://github.com/) or [Bitbucket Cloud](https://bitbucket.org/)
+you can link your repository with your Ionic Pro app to push code automatically.
+In order to enable the integration with your Ionic Pro app you will need an existing repository on GitHub or Bitbucket Cloud.
+Navigate to the `Git` section of the app settings tab in your app on the Ionic Pro dashboard choose the tab of the
+correct integration. If this is your first time connecting you'll need to click the `Connect` button. Then you can choose
+the repository to link from the list of available repos.
 
 <div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/github-connect-app.png">
+  <img style="width: 950px" src="/img/pro/github-connect-app.png?1">
 </div>
 
-or in the terminal by running `ionic link` in the root directory of you Ionic app (you can also link to GitHub during `ionic start`).
-
-When you link the GitHub repository a [webhook](https://help.github.com/articles/about-webhooks/) will be created on GitHub
-and events will be sent to Ionic Pro so that we can automatically trigger builds for any of the branches you specify during the linking process.
-If you're not familiar with branches or the GitHub flow you might want read about them [here](https://guides.github.com/introduction/flow/).
-Be sure to specify all the branches you would like to trigger builds for. By default only the `master` branch will trigger builds.
+When you link the repository a webhook will be created for the repository
+and events will be sent to Ionic Pro so that we can automatically trigger builds
+for any of the branches you specify during the linking process.
+Be sure to specify all the branches you would like to trigger builds for.
+By default only pushes to the `master` branch will trigger builds.
 
 ## Using Ionic as a git remote
 
-If you are not using GitHub you can push your source code directly to Ionic Pro using Git.
+If you are not using GitHub or Bitbucket Cloud you can push your source code directly to Ionic Pro using Git.
 Simply choose `Ionic` as your git remote during `ionic start` or run `ionic link` in the root directory of your existing app
 in order to create the `ionic` git remote. You can learn about git remotes [here](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes).
 
@@ -79,7 +81,7 @@ git push ionic master
 ```
 
 Don't forget to also periodically push to your `origin` [git hosting service](#using-a-git-hosting-service)
-as Ionic Pro is not a replacement for GitHub, GitLab, or a self-hosted git repository.
+as Ionic Pro is not a replacement for GitHub, Bitbucket Cloud, GitLab, or a self-hosted git repository.
 
 ### Working with Branches
 
@@ -124,11 +126,11 @@ log into your Ionic Pro account, and add the keys manually under "SSH Keys"
 ## Using a Git Hosting Service
 
 If you used `ionic start` to begin your project, we've already ran `git init` for you.
-We recommend that you host your code on a service like [GitHub](https://github.com/), [Bitbucket](https://bitbucket.org/), [GitLab](https://gitlab.com), etc.
+We recommend that you host your code on a service like [GitHub](https://github.com/), [Bitbucket Cloud](https://bitbucket.org/), [GitLab](https://gitlab.com), etc.
 You can find information on setting up & pushing to each of the above services on their page:
 
 * [GitHub](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-* [Bitbucket](https://confluence.atlassian.com/bitbucket/repository-setup-877174034.html)
+* [Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/repository-setup-877174034.html)
 * [GitLab](https://docs.gitlab.com/ce/gitlab-basics/create-project.html)
 
 Once you've added your remote origin, you can use plain 'ol `git push` to send commits to your repository on the hosting service of your choice.

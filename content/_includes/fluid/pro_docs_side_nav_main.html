@@ -100,7 +100,7 @@
           </li>
           <li>
             <a href="/docs/pro/deploy/setup" class="{% if page.id == 'pro-deploy-setup' %}active{% endif %}">Setup</a>
-            <ul>
+            <ul ng-show="sections.deploySetup" ng-cloak {% if page.id == 'pro-deploy-setup' %}ng-init="sections.deploySetup = true"{% endif %}>
               <li><a href="/docs/pro/deploy/setup/#installation">Installation</a></li>
               <li><a href="/docs/pro/deploy/setup/#plugin-variables">Plugin Variables</a></li>
               <li><a href="/docs/pro/deploy/setup/#usage">Usage</a></li>
@@ -109,14 +109,14 @@
           </li>
           <li>
             <a href="/docs/pro/deploy/builds/" class="{% if page.id == 'pro-deploy-builds' %}active{% endif %}">Builds</a>
-            <ul>
+            <ul ng-show="sections.deployBuilds" ng-cloak {% if page.id == 'pro-deploy-builds' %}ng-init="sections.deployBuilds = true"{% endif %}>
               <li><a href="/docs/pro/deploy/builds/#customizing-your-builds">Customizing Builds</a></li>
               <li><a href="/docs/pro/deploy/builds/#using-different-repository-structures">Using Different Repository Structures</a></li>
             </ul>
           </li>
           <li>
             <a href="/docs/pro/deploy/channels" class="{% if page.id == 'pro-deploy-channels' %}active{% endif %}">Channels</a>
-            <ul>
+            <ul ng-show="sections.deployChannels" ng-cloak {% if page.id == 'pro-deploy-channels' %}ng-init="sections.deployChannels = true"{% endif %}>
               <li><a href="/docs/pro/deploy/channels/#setting-up-a-channel">Setting up a Channel</a></li>
               <li><a href="/docs/pro/deploy/channels/#assigning-a-build-to-a-channel">Assign a build to a Channel</a></li>
               <li><a href="/docs/pro/deploy/channels/#automating-deployment-from-a-git-branch">Automating Deployment</a></li>
@@ -124,14 +124,14 @@
           </li>
           <li>
             <a href="/docs/pro/deploy/api/" class="{% if page.id == 'pro-deploy-api' %}active{% endif %}">Deploy API</a>
-            <ul>
+            <ul ng-show="sections.deployApi" ng-cloak {% if page.id == 'pro-deploy-api' %}ng-init="sections.deployApi = true"{% endif %}>
               <li><a href="/docs/pro/deploy/api/#methods">Methods</a></li>
               <li><a href="/docs/pro/deploy/api/#interfaces">Interfaces</a></li>
             </ul>
           </li>
           <li>
             <a href="/docs/pro/deploy/tutorials" class="{% if page.id == 'pro-deploy-tutorials' %}active{% endif %}">Tutorials & Videos</a>
-            <ul>
+            <ul ng-show="sections.deployTutorials" ng-cloak {% if page.id == 'pro-deploy-tutorials' %}ng-init="sections.deployTutorials = true"{% endif %}>
               <li><a href="/docs/pro/deploy/tutorials/#setup-and-deploy-on-ios">Installation & Setup Video</a></li>
               <li><a href="/docs/pro/deploy/tutorials/#setup-automated-live-deployments">Automated Deployments Video</a></li>
               <li><a href="/docs/pro/deploy/tutorials/#setting-up-a-beta-channel">Setting up a Beta Channel</a></li>

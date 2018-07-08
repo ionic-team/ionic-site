@@ -69,7 +69,7 @@ this.linkedin.hasActiveSession().then((active) =&gt; console.log(&#39;has active
 // login
 const scopes = [&#39;r_basicprofile&#39;, &#39;r_emailaddress&#39;, &#39;rw_company_admin&#39;, &#39;w_share&#39;];
 this.linkedin.login(scopes, true)
-  .then(() =&gt; console.log(&#39;Logged in!&#39;)
+  .then(() =&gt; console.log(&#39;Logged in!&#39;))
   .catch(e =&gt; console.log(&#39;Error logging in&#39;, e));
 
 

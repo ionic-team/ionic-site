@@ -62,7 +62,7 @@ npm install @ionic/pro@latest --save
 cordova plugin add cordova-plugin-ionic@latest --save
 ```
 
-For ease of migration we have released `1.2.0` of the Pro Client which requires `cordova-plugin-ionic@>=4.2.0` and exposes both the old and new API so
+For ease of migration we have released `1.1.0` of the Pro Client which requires `cordova-plugin-ionic@>=4.2.0` and exposes both the old and new API so
 that you can incrementally replace the deprecated methods.
 
 To install the backwards compatible version you can do the following

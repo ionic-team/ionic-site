@@ -193,16 +193,12 @@ Where `YOUR_APP_ID` is the ID of the app in Ionic Pro, and `YOUR_CHANNEL_NAME` i
 There are a number of variables you can install the plugin with to configure the behavior of the plugin and how
 updates are applied to your app.
 
-### `APP_ID`
-
-`Required`
+### `APP_ID` - `Required`
 
 The `APP_ID` variable sets app in the pro dashboard the plugin should check for updates.
 The App ID can be updated at runtime via the [Deploy Pro Client](/docs/pro/deploy/plugin-api.html).
 
-### `CHANNEL_NAME`
-
-`Required`
+### `CHANNEL_NAME` - `Required`
 
 The `CHANNEL_NAME` variable sets which channel the plugin should check for updates.
 The Channel can be updated at runtime via the [configure method](/docs/pro/deploy/api/#configure) of the Deploy Pro Client.

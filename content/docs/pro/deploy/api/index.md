@@ -53,10 +53,23 @@ async getInfo(){
 
 <div class="alert alert-warning" role="alert"><h4>API Changes: </h4>
 <div markdown="1">
-Versions of the Pro Client `>=2.0.0` use the new API of v5 of the deploy plugin and therefore requires `cordova-plugin-ionic >=5.0.0`.
-This is the latest API and we highly recommend using it to take advantage of the new features, CDN, and faster downloads.
-For ease of migration we have released `1.2.0` of the Pro Client which requires `4.2.0` and exposes both the old and new API so
+Versions of the Pro Client `>=2.0.0` expose a new API and require `cordova-plugin-ionic >=5.0.0`.
+This is the latest API and we highly recommend using it to take advantage of the new features, such as CDN and faster downloads.
+
+To install the latest versions of both you can do the following:
+```bash
+npm install @ionic/pro@latest --save
+cordova plugin add cordova-plugin-ionic@latest --save
+```
+
+For ease of migration we have released `1.2.0` of the Pro Client which requires `cordova-plugin-ionic@>=4.2.0` and exposes both the old and new API so
 that you can incrementally replace the deprecated methods.
+
+To install the backwards compatible version you can do the following
+```bash
+npm install @ionic/pro@legacy --save
+cordova plugin add cordova-plugin-ionic@legacy --save
+```
 </div>
 </div>
 

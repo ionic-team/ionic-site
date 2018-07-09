@@ -251,8 +251,9 @@ Keeping more versions around locally makes rolling back faster but takes up more
 
 `Default: 30`
 
-The `MIN_BACKGROUND_DURATION` variable sets the number of seconds the app needs to be in the background before checking for
-an update according to the specified [update method](#update_method).
+The `MIN_BACKGROUND_DURATION` variable sets the minimum number of seconds the user needs to put the app in the background before
+the plugin considers the app closed and checks for an update on resume like it would on a fresh app open according to the specified
+[update method](#update_method).
 
 ## Usage
 

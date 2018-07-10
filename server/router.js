@@ -23,8 +23,7 @@ module.exports = function router(app) {
 
   // normal pages
   .get('/', (req, res) => { res.render('index'); })
-  .get('/home', (req, res) => { res.render('one-ionic-home'); }) // 1 ionic homepage for a/b test
-  // .get('/home', (req, res) => { res.render('index'); })
+  .get('/home', (req, res) => { res.render('index'); })
   .get('/about', (req, res) => { res.render('about'); })
   .get('/articles/pwa-architects-guide', (req, res) => { res.render('articles/pwa-architects-guide'); })
   .get('/articles/pwa-architects-guide/preview', (req, res) => { res.render('articles/pwa-architects-guide-preview'); })
@@ -40,7 +39,6 @@ module.exports = function router(app) {
   .get('/enterprise/training', (req, res) => { res.render('enterprise/training'); })
   .get('/framework', (req, res) => { res.render('framework'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
-  .get('/get-started', (req, res) => { res.render('one-ionic-getting-started'); }) // 1 ionic getting started for a/b test
   .get('/jobs', (req, res) => { res.render('jobs'); })
   .get('/press', (req, res) => { res.render('press'); })
   .get('/pro/pricing', (req, res) => { res.render('pro/pricing/table'); })

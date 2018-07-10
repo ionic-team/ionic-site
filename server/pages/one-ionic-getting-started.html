@@ -75,35 +75,43 @@
     <div class="container">
       <div class="form-row">
         <div class="col form-wrapper">
-          <form class="form">
+          <form class="form" id="signup-form" role="form">
             <h1>Create a free Ionic account</h1>
             <h2>Unlock the full experience. No credit card required.</h2>
-            <div class="form-group">
-              <label for="">Full name</label>
-              <input type="text" name="" value="">
+            <div class="errorlist">
+              <div>Unable to create account.</div>
+              <div class="form-message"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="field-name">
+              <label for="id_name">Full name</label>
+              <input type="text" id="id_name" name="name" tabindex="1" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <div class="form-group" id="field-email">
               <label for="">Email</label>
-              <input type="text" name="" value="">
+              <input type="text" id="id_email" name="email" tabindex="2" required>
+              <div class="form-message form-message--small"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="field-username">
               <label for="">Username</label>
-              <input type="text" name="" value="">
+              <input type="text" id="id_username" name="username" tabindex="3" required>
+              <div class="form-message form-message--small"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="field-password">
               <label for="">Password</label>
-              <input type="text" name="" value="">
+              <input type="password" id="id_password" name="password" tabindex="4" required>
+              <div class="form-message form-message--small"></div>
             </div>
             <div class="form-group">
-              <input type="checkbox" name="" value="">
-              <label class="checkbox-label" for="">I agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></label>
+              <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
             </div>
-            <button type="button" name="button" class="btn btn-block">Create free account</button>
+            <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
             <div class="well">
               Already have an account? <a class="text-link" href="https://dashboard.ionicframework.com/login">Log in</a>
             </div>
           </form>
         </div>
+
         <div class="col benefits">
           <h4>Get more with an Ionic account</h4>
           <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Pro</b> cloud features</p>
@@ -285,7 +293,8 @@
   stickyNav.init();
 
   (function(){
-    // tabs
+
+    // content tabs
     var tabs = document.querySelectorAll('.tab');
     for (var i = 0; i < tabs.length; i++) {
       tabs[i].addEventListener('click', function () {
@@ -308,6 +317,120 @@
       document.querySelector('.tab-content--active').classList.remove('tab-content--active');
       tab.classList.add('tab--active');
       document.getElementById(contentId).classList.add('tab-content--active');
+    }
+
+    // handle sign up form submission
+    document.getElementById("signup-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      var name = document.getElementById('id_name').value;
+      var email = document.getElementById('id_email').value;
+      var username = document.getElementById('id_username').value;
+      var password = document.getElementById('id_password').value;
+      var source = 'framework-getting-started';
+      var data = {
+        name,
+        email,
+        username,
+        password,
+        source
+      };
+
+      $.ajax({
+        url: 'https://api-staging.ionicjs.com/signup',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: function(response){
+          console.log(response)
+          window.c('Get started', 'btn-get-started-signup-submit');
+          setCookie('_ionic_token', response.data.token);
+          setCookie('_ionic_user_id', response.data.user.id);
+          // window.location = 'http://staging.ionicjs.com/select-plan?plan=starter';
+        },
+        error: function(data){
+          console.log(data)
+          clearErrors();
+          handleError(data.responseJSON.error);
+        }
+      });
+
+      // fetch('https://api-staging.ionicjs.com/signup', {
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   method: 'POST',
+      //   body: JSON.stringify(data)
+      // }).then((response) => {
+      //   if (response.status === 201) {
+      //     response.json().then(json => {
+      //       console.log(json);
+      //       console.log(json.data.token);
+      //       setCookie('_ionic_token', json.data.token);
+      //       setCookie('_ionic_user_id', json.data.user.id);
+      //       window.location = 'http://staging.ionicjs.com/select-plan?plan=starter';
+      //     })
+      //   }
+      //   else {
+      //     console.error('err', response);
+      //     response.json().then(json => {
+      //       clearErrors();
+      //       handleError(json.error);
+      //     });
+      //   }
+      // });
+
+    });
+
+    handleError = function (response) {
+      var signupError = response;
+      var signupErrors = signupError && signupError.details
+        ? signupError.details.reduce(function (acc, current) {
+            acc[current.parameter] = current.errors.join(' ');
+            return acc;
+          }, {})
+        : {};
+
+      if (signupError) {
+        var errorlist = document.querySelector('.errorlist');
+        var message = errorlist.querySelector('.form-message');
+        errorlist.classList.add('error');
+        message.innerHTML = signupError.message;
+      }
+
+      if (signupErrors) {
+        for (var key in signupErrors) {
+          var errorGroup = document.querySelector('#field-' + key);
+          var message = errorGroup.querySelector('.form-message');
+          errorGroup.classList.add('error');
+          message.innerHTML = signupErrors[key];
+        }
+      }
+    }
+
+    clearErrors = function () {
+      var errorlist = document.querySelector('.errorlist');
+      var message = errorlist.querySelector('.form-message');
+      errorlist.classList.remove('error');
+      message.innerHTML = '';
+
+      var keys = ['name', 'email', 'username', 'password'];
+      for (var i = 0; i < keys.length; i++) {
+        var errorGroup = document.querySelector('#field-' + keys[i]);
+        var message = errorGroup.querySelector('.form-message');
+        errorGroup.classList.remove('error');
+        message.innerHTML = '';
+      }
+    }
+
+    setCookie = function (name, value) {
+      const days = 365;
+      const dt = new Date();
+      dt.setTime(dt.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + dt.toGMTString();
+      document.cookie = name + "=" + value + "; domain=ionicjs.com; expires=" + expires + ";";
     }
 
   })();

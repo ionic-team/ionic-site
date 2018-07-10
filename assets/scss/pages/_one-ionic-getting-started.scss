@@ -509,13 +509,19 @@
         margin-bottom: 3px;
       }
 
-      input[type="text"] {
+      input[type="text"],
+      input[type="password"] {
         display: block;
         width: 100%;
         background: #FFFFFF;
         border: 1px solid #C3CDDF;
         border-radius: 6px;
         padding: 11px 16px;
+      }
+
+      .error input[type="text"],
+      .error input[type="password"] {
+        border-color: #f45454;
       }
 
       .checkbox-label {
@@ -529,9 +535,28 @@
         margin-bottom: 20px;
       }
 
+      .form-message {
+        color: #f45454;
+        font-weight: 600;
+
+        &--small {
+          font-size: 11px;
+          line-height: 16px;
+          margin-top: 6px;
+        }
+      }
+
       .btn {
         display: block;
         width: 100%;
+      }
+
+      .disclaimer {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        color: #a0a9b7;
+        font-weight: 600;
       }
 
       .well {
@@ -555,6 +580,19 @@
 
       @media (max-width: $screen-xs-min) {
         padding: 36px 28px;
+      }
+    }
+
+    .errorlist {
+      display: none;
+      color: #f45454;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      margin-bottom: 28px;
+
+      &.error {
+        display: block;
       }
     }
 

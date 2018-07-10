@@ -316,7 +316,7 @@
       document.querySelector('.tab--active').classList.remove('tab--active');
       document.querySelector('.tab-content--active').classList.remove('tab-content--active');
       tab.classList.add('tab--active');
-      document.getElementById('content-'+contentId).classList.add('tab-content--active');
+      document.getElementById('content-' + contentId).classList.add('tab-content--active');
     }
 
     // handle sign up form submission
@@ -336,7 +336,7 @@
       };
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://api-staging.ionicjs.com/signup');
+      xhr.open('POST', 'https://api.ionicjs.com/signup');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onload = function() {
           var response = JSON.parse(xhr.responseText);
@@ -345,7 +345,7 @@
             console.log(response.data.token);
             setCookie('_ionic_token', response.data.token);
             setCookie('_ionic_user_id', response.data.user.id);
-            window.location = 'http://staging.ionicjs.com/select-plan?plan=starter';
+            window.location = 'http://dashboard.ionicframework.com/select-plan?plan=starter';
           }
           else {
             console.error('err', response);
@@ -402,7 +402,7 @@
       const dt = new Date();
       dt.setTime(dt.getTime() + (days * 24 * 60 * 60 * 1000));
       expires = "; expires=" + dt.toGMTString();
-      document.cookie = name + "=" + value + "; domain=ionicjs.com; expires=" + expires + ";";
+      document.cookie = name + "=" + value + "; domain=ionicframework.com; expires=" + expires + ";";
     }
 
   })();

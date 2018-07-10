@@ -1,25 +1,39 @@
 #page-sales {
-  .navbar + .banner {
-    background: $blue no-repeat center 90px;
-    background-image: url('/img/sales/sales-bg-icon.png');
-    background-size: 98px;
-    padding-top: 160px;
+  font-family:$font-family-eina;
 
-    hgroup {
-      padding-bottom: 40px;
-    }
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 0;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+
 
     h1 {
-      color: $whiteish;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
     }
 
     p {
-      color: $light-grey;
+      font-size: 20px;
+      font-weight: 500;
     }
+
   }
 
-  form {
-    margin-top: 50px;
-    margin-bottom: 50px;
+  .hubspot-override {
+    max-width: 860px;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $screen-sm) {
+      margin-bottom: 60px;
+    }
   }
 }

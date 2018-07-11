@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Streaming Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L46">
   Improve this doc
 </a>
 
@@ -63,7 +63,9 @@ constructor(private streamingMedia: StreamingMedia) { }
 let options: StreamingVideoOptions = {
   successCallback: () =&gt; { console.log(&#39;Video played&#39;) },
   errorCallback: (e) =&gt; { console.log(&#39;Error streaming&#39;) },
-  orientation: &#39;landscape&#39;
+  orientation: &#39;landscape&#39;,
+  shouldAutoClose: true,
+  controls: false
 };
 
 this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
@@ -214,7 +216,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after success playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -227,7 +230,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after error playing video.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -240,7 +244,36 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Force one orientation for playing video.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      shouldAutoClose
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Should the video close after it&#39;s over. Defaults to true.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      controls
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Should the video have controls. Defaults to true. Android only.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -269,7 +302,8 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background color for audio player.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -282,7 +316,8 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background image for audio player.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -295,7 +330,12 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background image scale for audio player.
+Valid values are: 
+fit
+stretch
+aspectStretch.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -308,7 +348,23 @@ Resumes streaming audio
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Start audio player in full screen. iOS only.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      keepAwake
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Keeps the screen lit and stops it from locking 
+while audio is playing. Android only.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -321,7 +377,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after success playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -334,7 +391,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after error playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>

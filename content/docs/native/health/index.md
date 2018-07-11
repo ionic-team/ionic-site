@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -249,7 +249,7 @@ Automatic conversion is not trivial and depends on the actual substance.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;HealthData&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;HealthData[]&gt;</code> 
 </div><h3><a class="anchor" name="queryAggregated" href="#queryAggregated"></a><code>queryAggregated(queryOptionsAggregated)</code></h3>
 
 

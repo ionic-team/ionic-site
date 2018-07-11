@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -174,7 +174,7 @@ application is authorized to use it.
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -438,7 +438,7 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -473,7 +473,7 @@ Returns the camera authorization status for the application.
     </td>
     <td>
       <p>Android only: If true, checks permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -508,7 +508,7 @@ Requests camera authorization for the application.
     </td>
     <td>
       <p>Android only: If true, requests permission for READ_EXTERNAL_STORAGE in addition to CAMERA run-time permission.
- <a href="mailto:cordova-plugin-camera@2.2">cordova-plugin-camera@2.2</a>+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
+ cordova-plugin-camera@2.2+ requires both of these permissions. Defaults to true.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

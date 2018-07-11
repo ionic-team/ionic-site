@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -110,7 +110,7 @@ this.hyperTrack.setUserId(&quot;xxx&quot;).then(user =&gt; {
     // Handle success (String). Should be &quot;OK&quot;.
   }, error =&gt; {});
 
-}, error =&gt; {});* 
+}, error =&gt; {});*
 </code></pre>
 
 

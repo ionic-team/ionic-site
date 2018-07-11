@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -58,13 +58,21 @@ $ npm install --save @ionic-native/network-interface
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { NetworkInterface } from &#39;@ionic-native/network-interface&#39;;
 
+constructor( private networkInterface: NetworkInterface ) {
 
-constructor(private networkInterface: NetworkInterface) { }
+  this.networkInterface.getWiFiIPAddress()
+    .then(address =&gt; console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
+    .catch(error =&gt; console.error(`Unable to get IP: ${error}`));
 
-...
+  this.networkInterface.getCarrierIPAddress() {
+    .then(address =&gt; console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
+    .catch(error =&gt; console.error(`Unable to get IP: ${error}`));
 
-this.networkInterface.getWiFiIPAddress(function (ip) { alert(ip); });
-this.networkInterface.getCarrierIPAddress(function (ip) { alert(ip); });
+  const url = &#39;www.github.com&#39;;
+  this.networkInterface.getHttpProxyInformation(url)
+    .then(proxy =&gt; console.info(`Type: ${proxy.type}, Host: ${proxy.host}, Port: ${proxy.port}`))
+    .catch(error =&gt; console.error(`Unable to get proxy info: ${error}`));
+}
 </code></pre>
 
 
@@ -75,53 +83,28 @@ this.networkInterface.getCarrierIPAddress(function (ip) { alert(ip); });
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="getIPAddress" href="#getIPAddress"></a><code>getIPAddress()</code></h3>
-
-
-
-
-
-<h3><a class="anchor" name="getWiFiIPAddress" href="#getWiFiIPAddress"></a><code>getWiFiIPAddress(success,&nbsp;error)</code></h3>
+<h3><a class="anchor" name="getWiFiIPAddress" href="#getWiFiIPAddress"></a><code>getWiFiIPAddress()</code></h3>
 
 
 Gets the WiFi IP address
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      success</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>Callback used when successful</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      error</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>Callback used when failure</p>
-</td>
-  </tr>
-  </tbody>
-</table>
 
-<h3><a class="anchor" name="getCarrierIPAddress" href="#getCarrierIPAddress"></a><code>getCarrierIPAddress(success,&nbsp;error)</code></h3>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the IP address information.
+</div><h3><a class="anchor" name="getCarrierIPAddress" href="#getCarrierIPAddress"></a><code>getCarrierIPAddress()</code></h3>
 
 
 Gets the wireless carrier IP address
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the IP address information.
+</div><h3><a class="anchor" name="getHttpProxyInformation" href="#getHttpProxyInformation"></a><code>getHttpProxyInformation(message)</code></h3>
+
+
+Gets the relevant proxies for the passed URL in order of application
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -133,29 +116,21 @@ Gets the wireless carrier IP address
   <tbody>
   <tr>
     <td>
-      success</td>
+      message</td>
     <td>
-      <code>Function</code>
+      <code>url</code>
     </td>
     <td>
-      <p>Callback used when successful</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      error</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>Callback used when failure</p>
+      <p>The message to display.</p>
 </td>
   </tr>
   </tbody>
 </table>
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the proxy information.
+</div>
 
 
 

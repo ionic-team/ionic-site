@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L139">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L145">
   Improve this doc
 </a>
 
@@ -213,7 +213,7 @@ Deletes a database
     <td>
       fn</td>
     <td>
-      <code>any</code>
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -430,24 +430,6 @@ ensure it resolved and successfully opened the database.
     </td>
     <td>
       <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      executeSql
-    </td>
-    <td>
-      <code>(
-    sql: any,
-    values: any,
-    success: Function,
-    error: Function
-  ) =&gt; void</code>
     </td>
     <td>
       

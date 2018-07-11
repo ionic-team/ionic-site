@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.8.0"
+version: "4.9.1"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -34,9 +34,9 @@ constructor(private file: File) { }
 
 this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesn\&#39;t exist&#39;));
 </code></pre>
-<p> This plugin is based on several specs, including : The HTML5 File API http: //<a href="http://www.w3.org/TR/FileAPI/">www.w3.org/TR/FileAPI/</a>
- The (now-defunct) Directories and System extensions Latest: http: //<a href="http://www.w3.org/TR/2012/WD-file-system-api-20120417/">www.w3.org/TR/2012/WD-file-system-api-20120417/</a>
- Although most of the plugin code was written when an earlier spec was current: http: //<a href="http://www.w3.org/TR/2011/WD-file-system-api-20110419/">www.w3.org/TR/2011/WD-file-system-api-20110419/</a>
+<p> This plugin is based on several specs, including : The HTML5 File API http: //www.w3.org/TR/FileAPI/
+ The (now-defunct) Directories and System extensions Latest: http: //www.w3.org/TR/2012/WD-file-system-api-20120417/
+ Although most of the plugin code was written when an earlier spec was current: http: //www.w3.org/TR/2011/WD-file-system-api-20110419/
  It also implements the FileWriter spec : http: //dev.w3.org/2009/dap/file-system/file-writer.html</p>
 
 

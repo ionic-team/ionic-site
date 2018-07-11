@@ -344,6 +344,7 @@
 
           if (xhr.status === 201) {
             console.log(response.data.token);
+            window.c('Get started', 'btn-get-started-signup-submit');
             setCookie('_ionic_token', response.data.token);
             setCookie('_ionic_user_id', response.data.user.id);
             window.location = 'http://dashboard.ionicframework.com/select-plan?plan=starter';

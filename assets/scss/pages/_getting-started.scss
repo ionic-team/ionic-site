@@ -6,7 +6,7 @@
       background-image: linear-gradient( 90deg, rgb(56,128,255) 15%, rgb(103,167,255) 100%);
     }
     hgroup {
-      padding-top: 72px;
+      padding-top: 62px;
       padding-bottom: 0;
       max-width: 100%;
     }
@@ -32,7 +32,7 @@
       font-size: 20px;
       line-height: 32px;
       color: #E3E9F4;
-      margin-bottom: 100px;
+      margin-bottom: 60px;
     }
 
     @media (max-width: $screen-xs-max) {
@@ -53,13 +53,23 @@
     margin-left: 30px;
     color: white;
     text-decoration: none;
+    transition: .2s transform cubic-bezier(.2,.78,.66,1.73);
 
     img {
-      max-width: 400px;
-      transition: .2s transform cubic-bezier(.2,.78,.66,1.73);
+      max-width: 358px;
     }
 
-    &:hover img {
+    h3 {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin: 0;
+      transform: translate(-8px, -91px) rotate(3.70deg);
+    }
+
+    &:hover {
       transform: scale(1.02, 1.02);
     }
 

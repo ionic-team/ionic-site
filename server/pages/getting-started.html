@@ -336,7 +336,12 @@
         source
       };
 
-      var xhr = new XMLHttpRequest();
+      var xhr;
+      if (window.ActiveXObject) {
+        xhr = new ActiveXObject('Microsoft.XMLHTTP')
+      } else {
+        xhr = new XMLHttpRequest()
+      }
       xhr.open('POST', 'https://api.ionicjs.com/signup');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onload = function() {

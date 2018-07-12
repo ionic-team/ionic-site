@@ -1187,6 +1187,10 @@
   .navbar-right > li > a {
     font-weight: 700;
   }
+
+  &.navbar-sticky {
+    z-index: 999;
+  }
 }
 
 .docs .navbar-default .navbar-nav {

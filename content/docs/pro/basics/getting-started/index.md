@@ -137,7 +137,7 @@ export class AppModule {}
 
 `YOUR_APP_ID` is the Ionic Pro App ID found on the dashboard for your app:
 
-![App ID Location](/img/docs/pro/app-id-location.png)
+![App ID Location](/img/docs/pro/app-id-location.png?1)
 
 `APP_VERSION` is the version of the code running for the purposes of tracking code changes. We strongly recommend that this mirrors the version in `package.json` or `config.xml`.
 

@@ -49,27 +49,60 @@ async getInfo(){
 </div>
 </div>
 
+## Try the New Improved Deploy Plugin
+
+We're excited to announce that we've pushed a release candidate for our the deploy plugin and Pro Client!
+The new version of the plugin was neccessary to support underlying changes to the `cordova-plugin-ionic-webview`
+in order to support Ionic 4 and it also brings with it a number of optimizations that we know users have been looking
+forward to for a long time and lays the foundation for more! The major updates include:
+* CDN - The new deploy plugin is backed by a CDN so that files are cached close to your users in edge locations
+and will reduce download times
+* Differential Updates - The previous version of the plugin shipped all the assets in you built `www` directory for every
+update. The new one only downloads files that have changed since the previous versions stored on the device which can reduce
+bandwidth by up to 90% and should increase download speeds as well.
+* MIN_BACKGROUND_
+
+While the plugin is in the `rc` phase we will additionally be incetivizing early adopters to test the plugin and report issues
+by not counting any deploys done with the new plugin against you're plan's usage limits up to 10,000 updates per month!
+We encourage users to use the `rc` and submit feedback to us via our [support portal](https://ionic.zendesk.com) or by opening
+a [github issue directly](https://github.com/ionic-team/cordova-plugin-ionic). If you are reporting issues please be sure
+to include the version of `cordova-plugin-ionic` you are experiencing them with.
+
+### How To Install the RC
+
+Here are the steps in order to successfully install the `rc` version of the Pro Client, Deploy Plugin, and Webview Plugin.
+You'll need specifice versions of each of the following libraries:
+* `cordova-plugin-ionic-webview@beta`
+* `cordoava-plugin-ionic@rc`
+* `@ionic/pro@rc`
+
+The following commands inside the root of you Ionic app should setup the `rc` version of the plugin for you:
+
+```bash
+// remove the stable version of the webview plugin
+cordova plugin rm cordova-plugin-ionic-webview
+// add the beta version of the new webview plugin
+cordova plugin add cordova-plugin-ionic-webview@beta --save
+// remove the old deploy plugin (you can skip if it is not installed)
+cordova plugin rm cordova-plugin-ionic
+// install the rc version of the deploy plugin
+cordova plugin add cordova-plugin-ionic@rc --save --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
+// install the rc of the Pro SDK which wraps and exposes the deploy plugin
+npm install @ionic/pro@rc --save
+```
+
+That's it! You should be all configured to start taking advanatage of the new deploy features! The new plugin
+comes with a new API so be sure select the correct version of the API docs below!
+
 ## Methods
 
-<div class="alert alert-warning" role="alert"><h4>API Changes: </h4>
+<div class="alert alert-warning" role="alert"><h4>API changes: </h4>
 <div markdown="1">
-Versions of the Pro Client `>=2.0.0` expose a new API and require `cordova-plugin-ionic >=5.0.0`.
-This is the latest API and we highly recommend using it to take advantage of the new features, such as CDN and faster downloads.
-
-To install the latest versions of both you can do the following:
-```bash
-npm install @ionic/pro@latest --save
-cordova plugin add cordova-plugin-ionic@latest --save
-```
-
-For ease of migration we have released `1.1.0` of the Pro Client which requires `cordova-plugin-ionic@>=4.2.0` and exposes both the old and new API so
-that you can incrementally replace the deprecated methods.
-
-To install the backwards compatible version you can do the following
-```bash
-npm install @ionic/pro@legacy --save
-cordova plugin add cordova-plugin-ionic@legacy --save
-```
+Note that if you're using the
+<a href="/docs/pro/deploy/api/#try-the-new-improved-deploy-plugin" style="color: #4a8bfc;">new release candidate of the deploy plugin</a>
+the API has changed and you can toggle between the new and old API docs below. Above you'll find info about
+<a href="/docs/pro/deploy/api/#how-to-install-the-rc" style="color: #4a8bfc;">installing the rc version</a>
+and info about <a href="/docs/pro/deploy/api/#try-the-new-improved-deploy-plugin" style="color: #4a8bfc;">what's new</a>.
 </div>
 </div>
 
@@ -816,3 +849,73 @@ A callback function to handle the result.
 | `Optional` result | [T]() | 
 
 **Returns:** `void`
+
+## Plugin Variables
+
+When installing `cordova-plugin-ionic` there are a number of variables you can install the plugin with to configure the behavior of the plugin and how
+updates are applied to your app by using the `--variable` flag.
+
+Example:
+```bash
+// use the MIN_BACKGROUND_DURATION variable
+cordova plugin add cordova-plugin-ionic --variable MIN_BACKGROUND_DURATION=60 ...
+```
+
+
+### `APP_ID` - `Required`
+
+The `APP_ID` variable sets app in the pro dashboard the plugin should check for updates.
+The App ID can be updated at runtime via the [Deploy Pro Client](/docs/pro/deploy/api).
+
+### `CHANNEL_NAME` - `Required`
+
+The `CHANNEL_NAME` variable sets which channel the plugin should check for updates.
+The Channel can be updated at runtime via the [configure method](/docs/pro/deploy/api/#configure) of the Deploy Pro Client.
+
+### `UPDATE_METHOD`
+
+`Default: background`
+
+The `UPDATE_METHOD` determines how updates are applied to your app.
+When you are installing the Ionic Pro plugin, you have the option to choose which update method to use.
+The three options are:
+
+`background` - mode will check for updates when a user first opens your app from a completely closed state
+(in the splashscreen) or after a user resumes the app from the background after the [minimum duration](#min_background_duration).
+It will download the update in the background while the user is using your app.
+The next time they close and open your app, we will apply the updated version.
+You can still perform updates yourself and override the update method using the
+[Deploy Pro Client](/docs/pro/deploy/api) as well.
+
+`auto` - mode will check for updates when a user first opens your app from a completely closed state (in the splashscreen)
+or after a user resumes the app from the background after the [minimum duration](#min_background_duration).
+It will then WAIT on the splashscreen until the new update is downloaded, and immediately show the user the new version of the code after the splashscreen.
+Using this method essentially forces users to always use the most up to date version when connected to the internet
+with the trade off that users may wait on the splashscreen longer before interacting with the app while waiting for an update.
+You can still perform updates yourself and override the update method using the
+[Deploy Pro Client](/docs/pro/deploy/api) as well.
+
+`none` - will not automatically apply or download updates for you.
+Instead you have to manage the entire update process yourself using the [Deploy Pro Client](/docs/pro/deploy/api).
+This isn't recommended as if you deploy an update that "breaks" your app and can no longer apply Deploy updates,
+you will have to release a native binary in order to fix the issue or the user will have to delete and reinstall your app.
+Using the background or auto methods protects you by applying updates in the native layer.
+
+### `MAX_STORE`
+
+`Default: 2`
+
+The `MAX_STORE` variable can be configured to tell the deploy plugin how many updates to keep around locally on the device.
+Keeping more versions around locally makes rolling back faster but takes up more room on the device.
+
+### `MIN_BACKGROUND_DURATION`
+
+`New in v5 RC`
+
+`Default: 30`
+
+The `MIN_BACKGROUND_DURATION` variable sets the minimum number of seconds the user needs to put the app in the background before
+the plugin considers the app closed and checks for an update on resume like it would on a fresh app open according to the specified
+[update method](#update_method).
+
+

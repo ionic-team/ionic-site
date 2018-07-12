@@ -102,7 +102,6 @@
             <a href="/docs/pro/deploy/setup" class="{% if page.id == 'pro-deploy-setup' %}active{% endif %}">Setup</a>
             <ul ng-show="sections.deploySetup" ng-cloak {% if page.id == 'pro-deploy-setup' %}ng-init="sections.deploySetup = true"{% endif %}>
               <li><a href="/docs/pro/deploy/setup/#installation">Installation</a></li>
-              <li><a href="/docs/pro/deploy/setup/#plugin-variables">Plugin Variables</a></li>
               <li><a href="/docs/pro/deploy/setup/#usage">Usage</a></li>
               <li><a href="/docs/pro/deploy/setup/#advanced-usage">Advanced Usage</a></li>
             </ul>
@@ -125,8 +124,10 @@
           <li>
             <a href="/docs/pro/deploy/api/" class="{% if page.id == 'pro-deploy-api' %}active{% endif %}">Deploy API</a>
             <ul ng-show="sections.deployApi" ng-cloak {% if page.id == 'pro-deploy-api' %}ng-init="sections.deployApi = true"{% endif %}>
+              <li><a href="/docs/pro/deploy/api/#try-the-new-improved-deploy-plugin">Try the New Deploy Plugin</a></li>
               <li><a href="/docs/pro/deploy/api/#methods">Methods</a></li>
               <li><a href="/docs/pro/deploy/api/#interfaces">Interfaces</a></li>
+              <li><a href="/docs/pro/deploy/api/#plugin-variables">Plugin Variables</a></li>
             </ul>
           </li>
           <li>

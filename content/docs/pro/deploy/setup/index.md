@@ -186,70 +186,12 @@ To install the plugin manually, run the following command in the root of your Io
 cordova plugin add cordova-plugin-ionic --save --variable APP_ID="YOUR_APP_ID" --variable CHANNEL_NAME="YOUR_CHANNEL_NAME" --variable UPDATE_METHOD="background|auto|none" --variable MAX_STORE="2"
 ```
 
-Where `YOUR_APP_ID` is the ID of the app in Ionic Pro, and `YOUR_CHANNEL_NAME` is the name of a channel. Make sure to use the exact name of your channel, including the exact casing. `MAX_STORE` tells us how many previous versions of code to keep inside your app, this enables you to revert to those versions quickly, or swap between versions. `UPDATE_METHOD` is one of the options from below.
-
-## Plugin Variables
-
-There are a number of variables you can install the plugin with to configure the behavior of the plugin and how
-updates are applied to your app.
-
-### `APP_ID` - `Required`
-
-The `APP_ID` variable sets app in the pro dashboard the plugin should check for updates.
-The App ID can be updated at runtime via the [Deploy Pro Client](/docs/pro/deploy/plugin-api.html).
-
-### `CHANNEL_NAME` - `Required`
-
-The `CHANNEL_NAME` variable sets which channel the plugin should check for updates.
-The Channel can be updated at runtime via the [configure method](/docs/pro/deploy/api/#configure) of the Deploy Pro Client.
-
-### `UPDATE_METHOD`
-
-`Default: background`
-
-The `UPDATE_METHOD` determines how updates are applied to your app.
-When you are installing the Ionic Pro plugin, you have the option to choose which update method to use.
-The three options are:
-
-`background` - mode will check for updates when a user first opens your app from a completely closed state
-(in the splashscreen) or after a user resumes the app from the background after the [minimum duration](#min_background_duration).
-It will download the update in the background while the user is using your app.
-The next time they close and open your app, we will apply the updated version.
-You can still perform updates yourself and override the update method using the
-[Deploy Pro Client](/docs/pro/deploy/api) as well.
-
-`auto` - mode will check for updates when a user first opens your app from a completely closed state (in the splashscreen)
-or after a user resumes the app from the background after the [minimum duration](#min_background_duration).
-It will then WAIT on the splashscreen until the new update is downloaded, and immediately show the user the new version of the code after the splashscreen.
-Using this method essentially forces users to always use the most up to date version when connected to the internet
-with the trade off that users may wait on the splashscreen longer before interacting with the app while waiting for an update.
-You can still perform updates yourself and override the update method using the
-[Deploy Pro Client](/docs/pro/deploy/api) as well.
-
-`none` - will not automatically apply or download updates for you.
-Instead you have to manage the entire update process yourself using the [Deploy Pro Client](/docs/pro/deploy/api).
-This isn't recommended as if you deploy an update that "breaks" your app and can no longer apply Deploy updates,
-you will have to release a native binary in order to fix the issue or the user will have to delete and reinstall your app.
-Using the background or auto methods protects you by applying updates in the native layer.
-
-### `MAX_STORE`
-
-`New in v4.2.0`
-
-`Default: 2`
-
-The `MAX_STORE` variable can be configured to tell the deploy plugin how many updates to keep around locally on the device.
-Keeping more versions around locally makes rolling back faster but takes up more room on the device.
-
-### `MIN_BACKGROUND_DURATION`
-
-`New in v4.2.0`
-
-`Default: 30`
-
-The `MIN_BACKGROUND_DURATION` variable sets the minimum number of seconds the user needs to put the app in the background before
-the plugin considers the app closed and checks for an update on resume like it would on a fresh app open according to the specified
-[update method](#update_method).
+Where `YOUR_APP_ID` is the ID of the app in Ionic Pro, and `YOUR_CHANNEL_NAME` is the name of a [channel](/docs/pro/deploy/channels).
+Make sure to use the exact name of your channel, including the exact casing.
+[MAX_STORE](/docs/pro/deploy/api/#max_store) tells us how many previous versions of code to keep inside your app,
+this enables you to revert to those versions quickly, or swap between versions.
+[UPDATE_METHOD](/docs/pro/deploy/api/#update_method) is one of `background | auto | none`. You can read about all the
+available [plugin variables in our api docs](/docs/pro/deploy/api/#plugin-variables).
 
 ## Usage
 

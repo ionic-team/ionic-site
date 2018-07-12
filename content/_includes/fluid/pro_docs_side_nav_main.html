@@ -2,7 +2,7 @@
   <li class="active">
     <ul>
       <li class="{% if page.category == 'pro-basics' %}active{% endif %}" >
-        <a  href="/docs/pro/basics/welcome/" class="pro-intro-link">Introduction</a>
+        <a ng-click="toggle('intro')" class="pro-intro-link">Introduction</a>
         <ul ng-show="sections.intro" ng-cloak {% if page.category == 'pro-basics' %}ng-init="sections.intro = true"{% endif %}>
           <li>
             <a href="/docs/pro/basics/welcome/" class="{% if page.id == 'pro-welcome' %}active{% endif %}">Welcome</a>
@@ -36,7 +36,7 @@
         </ul>
       </li>
       <li class="{% if page.category == 'pro-devapp' %}active{% endif %}" >
-        <a href="/docs/pro/devapp" class="pro-devapp-link">DevApp: Local Development</a>
+        <a  ng-click="toggle('devapp')" class="pro-devapp-link">DevApp: Local Development</a>
         <ul ng-show="sections.devapp" ng-cloak {% if page.category == 'pro-devapp' %}ng-init="sections.devapp = true"{% endif %}>
           <li>
             <a href="/docs/pro/devapp/#download-the-devapp">Download The Devapp</a>
@@ -50,7 +50,7 @@
         </ul>
       </li>
       <li class="{% if page.category == 'pro-view' %}active{% endif %}" >
-        <a  href="/docs/pro/view" class="pro-view-link">View: Beta Testing</a>
+        <a ng-click="toggle('view')" class="pro-view-link">View: Beta Testing</a>
         <ul ng-show="sections.view" ng-cloak {% if page.category == 'pro-view' %}ng-init="sections.view = true"{% endif %}>
           <li>
             <a href="/docs/pro/view/">Introduction</a>
@@ -93,7 +93,7 @@
         </ul>
       </li>
       <li class="{% if page.category == 'pro-deploy' %}active{% endif %}">
-        <a href="/docs/pro/deploy/" ng-click="toggle('deploy')" class="pro-deploy-link">Deploy</a>
+        <a ng-click="toggle('deploy')" class="pro-deploy-link">Deploy</a>
         <ul ng-show="sections.deploy" ng-cloak {% if page.category == 'pro-deploy' %}ng-init="sections.deploy = true"{% endif %}>
           <li>
             <a href="/docs/pro/deploy/" class="{% if page.id == 'pro-live-deploy' %}active{% endif %}">Introduction</a>
@@ -142,7 +142,7 @@
         </ul>
       </li>
       <li class="{% if page.category == 'pro-package' %}active{% endif %}" >
-        <a href="/docs/pro/package/" class="pro-package-link">Package</a>
+        <a ng-click="toggle('package')" class="pro-package-link">Package</a>
         <ul ng-show="sections.package" ng-cloak {% if page.category == 'pro-package' %}ng-init="sections.package = true"{% endif %}>
           <li>
             <a href="/docs/pro/package/">Introduction</a>
@@ -159,7 +159,7 @@
         </ul>
       </li>
       <li class="{% if page.category == 'pro-monitoring' %}active{% endif %}" >
-        <a href="/docs/pro/monitoring/" class="pro-monitoring-link">Monitoring</a>
+        <a  ng-click="toggle('monitoring')" class="pro-monitoring-link">Monitoring</a>
         <ul ng-show="sections.monitoring" ng-cloak {% if page.category == 'pro-monitoring' %}ng-init="sections.monitoring = true"{% endif %}>
           <li>
             <a href="/docs/pro/monitoring/">Introduction</a>

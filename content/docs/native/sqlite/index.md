@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L145">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L140">
   Improve this doc
 </a>
 
@@ -442,90 +442,7 @@ ensure it resolved and successfully opened the database.
       addStatement
     </td>
     <td>
-      <code>(
-    sql: any,
-    values: any,
-    success: Function,
-    error: Function
-  ) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementSuccess
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementFailure
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      run
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abort
-    </td>
-    <td>
-      <code>(txFailure: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      finish
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abortFromQ
-    </td>
-    <td>
-      <code>(sqlerror: any) =&gt; void</code>
+      <code>DbTransaction[</code>
     </td>
     <td>
       

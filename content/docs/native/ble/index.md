@@ -352,12 +352,18 @@ Connect to a peripheral.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
-</div><h3><a class="anchor" name="autoConnect" href="#autoConnect"></a><code>autoConnect(deviceId)</code></h3>
+</div><h3><a class="anchor" name="autoConnect" href="#autoConnect"></a><code>autoConnect(deviceId,&nbsp;connectCallback,&nbsp;disconnectCallback)</code></h3>
 
 
 
 
-Establish an automatic connection to a peripheral.
+Establish an automatic connection to a peripheral. The phone will automatically connect to the Bluetooth peripheral
+whenever it is in range. The autoConnect function uses callbacks instead of observables because connect and
+disconnect can each be called many times as a devices connects and disconnects.
+
+On Android you can pass a MAC address directly to autoConnect. With iOS, you need to get a device id by scanning,
+calling ble.peripheralsWithIdentifiers, or calling ble.connectedPeripheralsWithServices.
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -377,13 +383,32 @@ Establish an automatic connection to a peripheral.
       <p>UUID or MAC address of the peripheral</p>
 </td>
   </tr>
+  
+  <tr>
+    <td>
+      connectCallback</td>
+    <td>
+      <code>function</code>
+    </td>
+    <td>
+      <p>function that is called with peripheral data when the devices connects</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      disconnectCallback</td>
+    <td>
+      <code>function</code>
+    </td>
+    <td>
+      <p>function that is called with peripheral data when the devices disconnects</p>
+</td>
+  </tr>
   </tbody>
 </table>
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
-</div><h3><a class="anchor" name="requestMtu" href="#requestMtu"></a><code>requestMtu(deviceId,&nbsp;mtuSize)</code></h3>
+<h3><a class="anchor" name="requestMtu" href="#requestMtu"></a><code>requestMtu(deviceId,&nbsp;mtuSize)</code></h3>
 
 
 Request MTU size.

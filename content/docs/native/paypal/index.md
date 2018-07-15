@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>PayPal plugin for Cordova/Ionic Applications</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com.paypal.cordova.mobilesdk
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/paypal
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/paypal
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/paypal&#39;;
 
 constructor(private payPal: PayPal) { }
@@ -110,7 +111,7 @@ this.payPal.init({
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="version" href="#version"></a><code>version()</code></h3>
 
 
@@ -290,7 +291,7 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="amount" href="#amount"></a><code>amount()</code></h3>
 
 The amount of the payment.
@@ -346,6 +347,13 @@ Optional array of PayPalItem objects.
 
 
 
+<h3><a class="anchor" name="payeeEmail" href="#payeeEmail"></a><code>payeeEmail()</code></h3>
+
+Optional payee email, if your app is paying a third-party merchant.
+The payee's email. It must be a valid PayPal email address.
+
+
+
 <h3><a class="anchor" name="shippingAddress" href="#shippingAddress"></a><code>shippingAddress()</code></h3>
 
 Optional customer shipping address, if your app wishes to provide this to the SDK.
@@ -363,7 +371,7 @@ Optional PayPalPaymentDetails object
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="name" href="#name"></a><code>name()</code></h3>
 
 Name of the item. 127 characters max
@@ -399,7 +407,7 @@ The stock keeping unit for this item. 50 characters max (optional)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="subtotal" href="#subtotal"></a><code>subtotal()</code></h3>
 
 Sub-total (amount) of items being paid for. 10 characters max with support for 2 decimal places.
@@ -423,7 +431,7 @@ Amount charged for tax. 10 characters max with support for 2 decimal places.
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="recipientName" href="#recipientName"></a><code>recipientName()</code></h3>
 
 Name of the recipient at this address. 50 characters max.

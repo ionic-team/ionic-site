@@ -1,7 +1,11 @@
 
 $font-family-avenir: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-eina: 'Eina', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-graphik: 'Graphik', 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-system: apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 
 $font-family-monospace: 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-serif: Georgia, Times, 'Times New Roman', serif;
 
 $font-family-default: $font-family-avenir;
 
@@ -20,7 +24,7 @@ $grey:          #9da5b3;
 $darkish-grey:  #898989;
 $dark-grey:     #576070;
 $blackish:      #4C555A;
-$blacker:       #26292e;
+$blacker:       #24282e;
 
 $sidenav-width: 230px;
 $platform-preview-width: 467px;

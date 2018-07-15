@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -58,7 +58,7 @@ over the world.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>The first step to setting up deep links is to add the page that should be
 a deep link in the <code>IonicPageModule.forChild</code> import of the page&#39;s module.

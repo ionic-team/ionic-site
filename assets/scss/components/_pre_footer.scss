@@ -1,4 +1,5 @@
 #pre-footer {
+  font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
   background: $whiteish;
   color: #727a87;
   padding-top: 80px;
@@ -27,7 +28,7 @@
         display: block;
         position: absolute;
         left: -9px;
-        top: 4px;
+        top: -5px;
       }
 
       &::after {
@@ -61,10 +62,10 @@
       }
 
       a {
-        font-size: 22px;
-        margin-bottom: 13px;
-        letter-spacing: -.03em;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 5px;
+        letter-spacing: -.02em;
 
         &::after {
           font-family: 'Ionicons';
@@ -89,11 +90,12 @@
       }
 
       p {
-        font-size: 16px;
-        line-height: 1.8em;
-        margin-top: 6px;
-        font-weight: 500;
-        letter-spacing: -0.03em;
+        font-size: 15px;
+        line-height: 1.6em;
+        color: #727a87;
+        margin-top: 2px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
       }
 
 

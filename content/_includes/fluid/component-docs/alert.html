@@ -21,11 +21,18 @@ _For more information, Check out the [API docs](../api/components/alert/AlertCon
   <li class="docs-content-item"><a href="#alert-checkbox">Checkbox Alerts</a></li>
 </ul>
 
-<h3 class="section-nav" id="alerts">Basic Usage:</h3>
+<h3 class="section-nav" id="alerts">Basic Usage</h3>
 
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/alert-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 Basic Alerts are typically used to notify the user about new information (a change in the app, a new feature, etc), an urgent situation that requires acknowledgement, or as a confirmation to the user that an action was successful or not.
 
@@ -33,11 +40,11 @@ Basic Alerts are typically used to notify the user about new information (a chan
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public alertCtrl: AlertController) {
-  }
+
+  constructor(public alertCtrl: AlertController) { }
 
   showAlert() {
-    let alert = this.alertCtrl.create({
+    const alert = this.alertCtrl.create({
       title: 'New Friend!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
       buttons: ['OK']
@@ -49,9 +56,16 @@ export class MyPage {
 
 <h3 class="section-nav" id="alert-prompt">Prompt Alerts</h3>
 
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/prompt">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/alert-prompt">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/prompt">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 Prompts offer a way to input data or information.  Often times  Prompts will be used to ask the user for a password before moving forward in an application’s flow.
 
@@ -59,11 +73,11 @@ Prompts offer a way to input data or information.  Often times  Prompts will be 
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public alertCtrl: AlertController) {
-  }
+
+  constructor(public alertCtrl: AlertController) { }
 
   showPrompt() {
-    let prompt = this.alertCtrl.create({
+    const prompt = this.alertCtrl.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -94,9 +108,16 @@ export class MyPage {
 
 <h3 class="section-nav" id="alert-confirm">Confirmation Alerts</h3>
 
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/confirm">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/alert-confirm">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/confirm">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 Confirmation Alerts are used when it is required that the user explicitly confirms a particular choice before progressing forward in the app. A common example of the Confirmation Alert is checking to make sure a user wants to delete or remove a contact from their address book.
 
@@ -104,11 +125,11 @@ Confirmation Alerts are used when it is required that the user explicitly confir
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public alertCtrl: AlertController) {
-  }
+
+  constructor(public alertCtrl: AlertController) { }
 
   showConfirm() {
-    let confirm = this.alertCtrl.create({
+    const confirm = this.alertCtrl.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -134,18 +155,25 @@ export class MyPage {
 
 <h3 class="section-nav" id="alert-radio">Radio</h3>
 
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/radio">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/alert-radio">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/radio">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
-Radio Alerts are a type of Confirmation Alert, but use the [Radio](http://ionicframework.com/docs/components/#radio) component to offer several choices. A set of options is provided to the user, but only one option can be chosen.
+Radio Alerts are a type of Confirmation Alert, but use the [Radio](https://ionicframework.com/docs/components/#radio) component to offer several choices. A set of options is provided to the user, but only one option can be chosen.
 
 ```
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public alertCtrl: AlertController) {
-  }
+
+  constructor(public alertCtrl: AlertController) { }
 
   showRadio() {
     let alert = this.alertCtrl.create();
@@ -174,9 +202,16 @@ export class MyPage {
 
 <h3 class="section-nav" id="alert-checkbox">Checkbox</h3>
 
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/checkbox">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/alert-checkbox">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/alerts/checkbox">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 Checkbox Alerts are a type of Confirmation Alert, but use the [Checkbox](/docs/components/#checkbox) component to offer several choices. They offer the user a set of options to choose from.
 
@@ -184,8 +219,8 @@ Checkbox Alerts are a type of Confirmation Alert, but use the [Checkbox](/docs/c
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public alertCtrl: AlertController) {
-  }
+
+  constructor(public alertCtrl: AlertController) { }
 
   showCheckbox() {
     let alert = this.alertCtrl.create();

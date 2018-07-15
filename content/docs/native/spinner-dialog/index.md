@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Spinner Dialog</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L23">
   Improve this doc
 </a>
 
@@ -23,6 +23,9 @@ docType: "class"
 
 
 
+<p>Cordova plugin for showing a native spinner based on Paldom/SpinnerDialog.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-native-spinner</code>. For more info, please see the <a href="https://github.com/greybax/cordova-plugin-native-spinner">Spinner Dialog plugin docs</a>.</p>
+
 
 <p>Repo:
   <a href="https://github.com/greybax/cordova-plugin-native-spinner">
@@ -31,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-spinner
@@ -43,7 +46,7 @@ $ npm install --save @ionic-native/spinner-dialog
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows</li>
 </ul>
@@ -53,7 +56,7 @@ $ npm install --save @ionic-native/spinner-dialog
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SpinnerDialog } from &#39;@ionic-native/spinner-dialog&#39;;
 
 constructor(private spinnerDialog: SpinnerDialog) { }
@@ -72,7 +75,7 @@ this.spinnerDialog.hide();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code></h3>
 
 
@@ -169,7 +172,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Opacity of the overlay, between 0 (transparent) and 1 (opaque). Default: 0.35</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -182,7 +186,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Red component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -195,7 +200,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Green component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -208,7 +214,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Blue component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>

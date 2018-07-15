@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L156">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-inappbrowser
@@ -44,9 +45,9 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>AmazonFire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>AmazonFire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>macOS</li><li>Windows</li>
 </ul>
 
 
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/in-app-browser
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { InAppBrowser } from &#39;@ionic-native/in-app-browser&#39;;
 
 constructor(private iab: InAppBrowser) { }
@@ -66,7 +67,12 @@ constructor(private iab: InAppBrowser) { }
 const browser = this.iab.create(&#39;https://ionicframework.com/&#39;);
 
 browser.executeScript(...);
+
 browser.insertCSS(...);
+browser.on(&#39;loadstop&#39;).subscribe(event =&gt; {
+   browser.insertCSS({ code: &quot;body{color: red;&quot; });
+});
+
 browser.close();
 </code></pre>
 
@@ -77,7 +83,7 @@ browser.close();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code></h3>
 
 Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
@@ -137,7 +143,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
@@ -458,6 +464,34 @@ If there is no previous page, the InAppBrowser will close. The default value is 
   
   <tr>
     <td>
+      footer
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(Android Only) Set to yes to show a close button in the footer similar to the iOS Done button. The close button will appear the same as for the header hence use closebuttoncaption and closebuttoncolor to set its properties</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      footercolor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>(Android Only) Set to a valid hex color string, for example #00ff00 or #CC00ff00 (#aarrggbb) , and it will change the footer color from default. Only has effect if user has footer set to yes</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       closebuttoncaption
     </td>
     <td>
@@ -592,6 +626,20 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     </td>
     <td>
       <p>(iOS Only) Set to top or bottom (default is bottom). Causes the toolbar to be at the top or bottom of the window.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hidespinner
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(iOS Only) Set to yes or no to change the visibility of the loading indicator (defaults to no).</p>
 
       <em>(optional)</em>
     </td>

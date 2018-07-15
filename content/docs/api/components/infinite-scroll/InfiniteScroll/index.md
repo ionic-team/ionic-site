@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "InfiniteScroll"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/infinite-scroll/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/infinite-scroll/infinite-scroll.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/infinite-scroll/infinite-scroll.ts#L4">
 Improve this doc
 </a>
 
@@ -56,7 +56,7 @@ on the infinite scroll instance.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -170,15 +170,16 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="complete"></div>
 
 <h3>
-<a class="anchor" name="complete" href="#complete"></a>
+<a class="anchor" name="complete" href="#complete">
 <code>complete()</code>
-  
 
+
+</a>
 </h3>
 
 Call `complete()` within the `infinite` output event handler when
@@ -202,10 +203,11 @@ to `enabled`.
 <div id="enable"></div>
 
 <h3>
-<a class="anchor" name="enable" href="#enable"></a>
+<a class="anchor" name="enable" href="#enable">
 <code>enable(shouldEnable)</code>
-  
 
+
+</a>
 </h3>
 
 Call `enable(false)` to disable the infinite scroll from actively
@@ -223,15 +225,15 @@ the infinite scroll is no longer needed.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
@@ -239,10 +241,10 @@ the infinite scroll is no longer needed.
 enabled or not. Setting to <code>false</code> will remove scroll event listeners
 and hide the display.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -256,10 +258,11 @@ and hide the display.</p>
 <div id="waitFor"></div>
 
 <h3>
-<a class="anchor" name="waitFor" href="#waitFor"></a>
+<a class="anchor" name="waitFor" href="#waitFor">
 <code>waitFor()</code>
-  
 
+
+</a>
 </h3>
 
 Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
@@ -274,7 +277,7 @@ change state of infiniteScroll to "complete"
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -284,7 +287,7 @@ change state of infiniteScroll to "complete"
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
@@ -293,7 +296,7 @@ enabled or not. Setting to <code>false</code> will remove scroll event listeners
 and hide the display.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>position</td>
       <td><code>string</code></td>
@@ -302,7 +305,7 @@ The value can be either <code>top</code> or <code>bottom</code>.
 Default is <code>bottom</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>threshold</td>
       <td><code>string</code></td>
@@ -316,11 +319,11 @@ scroll is within 100 pixels from the bottom of the page.
 Default is <code>15%</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -329,7 +332,7 @@ Default is <code>15%</code>.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionInfinite</td>
       <td><p> Emitted when the scroll reaches
@@ -338,21 +341,21 @@ you must call the infinite scroll&#39;s <code>complete()</code> method when
 your async operation has completed.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -362,100 +365,100 @@ your async operation has completed.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-margin-top</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin top of the infinite scroll loading icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-margin-end</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin end of the infinite scroll loading icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-margin-bottom</code></td>
-        
+
           <td><code>32px</code></td>
-        
+
         <td><p>Margin bottom of the infinite scroll loading icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-margin-start</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin start of the infinite scroll loading icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-color</code></td>
-        
+
           <td><code>#666</code></td>
-        
+
         <td><p>Color of the infinite scroll loading indicator</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-text-color</code></td>
-        
+
           <td><code>$infinite-scroll-loading-color</code></td>
-        
+
         <td><p>Text color of the infinite scroll loading indicator</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-text-margin-top</code></td>
-        
+
           <td><code>4px</code></td>
-        
+
         <td><p>Margin top of the infinite scroll loading text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-text-margin-end</code></td>
-        
+
           <td><code>32px</code></td>
-        
+
         <td><p>Margin end of the infinite scroll loading text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-text-margin-bottom</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin bottom of the infinite scroll loading text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$infinite-scroll-loading-text-margin-start</code></td>
-        
+
           <td><code>32px</code></td>
-        
+
         <td><p>Margin start of the infinite scroll loading text</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

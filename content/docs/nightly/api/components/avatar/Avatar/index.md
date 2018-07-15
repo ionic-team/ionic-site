@@ -33,7 +33,7 @@ Avatar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/avatar/avatar.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/avatar/avatar.ts#L0">
 Improve this doc
 </a>
 
@@ -62,7 +62,7 @@ Avatars can be placed on the left or right side of an item with the <code>item-s
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components/#avatar-list">Avatar Component Docs</a><!-- end content block -->
 

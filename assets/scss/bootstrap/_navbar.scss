@@ -660,3 +660,76 @@
     }
   }
 }
+
+.navbar-default.navbar-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 10px 0;
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.07);
+  background: #fff;
+
+  @supports (backdrop-filter: saturate(180%) blur(20px)) {
+    background: rgba(#fff, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .navbar-nav > li.header-btn-white a {
+    background-color: #488aff;
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(74,139,252,.9);
+      color: #fff;
+    }
+  }
+
+  &--show,
+  &--hide {
+    animation-fill-mode:forwards;
+  }
+
+  &--hide {
+    animation-duration: 0.1s;
+    animation-name: slideup;
+
+    @keyframes slideup {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+      }
+    }
+  }
+
+  &--show {
+    animation-duration: 0.5s;
+    animation-name: slidedown;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    @keyframes slidedown {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+      }
+      1% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
+}

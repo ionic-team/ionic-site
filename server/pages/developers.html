@@ -5,32 +5,43 @@
 
 <div class="cta gradient">
   <hgroup class="container center">
-    <h1>Developers</h1>
-    <h4>Choose an Ionic product below to view its documentation</h4>
+    <h1>Documentation</h1>
+    <h4>Choose an Ionic product below to view documentation and resources</h4>
   </hgroup>
 </div>
 
 <section class="container primary">
   <div class="items">
-    <a href="/docs/" class="framework">
+    <a href="/docs/v2/" class="framework">
       <hgroup>
-        <h2>Framework Docs</h2>
+        <h2>Ionic Framework</h2>
         <p>
-          Browse Ionic Framework components, api, plugins, theming, and CLI 
+          Browse Ionic Framework components, api, plugins, theming, and CLI
           documentation and guides.
         </p>
       </hgroup>
     </a>
-    <a href="https://docs.ionic.io/" class="platform">
+    <a href="/docs/pro" class="platform">
       <hgroup>
-        <h2>Ionic Services</h2>
+        <h2>Ionic Pro</h2>
         <p>
-          Browse service configuration, user admin, and troubleshooting docs and 
-          guides for Ionic Services.
+          Get the most out of Ionic Pro, Ionic's suite of powerful app development
+          features for professional developers.
         </p>
       </hgroup>
     </a>
   </div>
+
+  <div style="text-align: center; margin: 20px">
+    <i>Looking for Ionic Cloud (legacy) documentation? Visit <a href="https://docs.ionic.io/">docs.ionic.io</a>.</i>
+  </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

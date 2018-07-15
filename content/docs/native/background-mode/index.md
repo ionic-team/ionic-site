@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L50">
   Improve this doc
 </a>
 
@@ -22,8 +22,9 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin to prevent the app from going to sleep while in background.
-Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
+Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, visit: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
 
 
 <p>Repo:
@@ -33,7 +34,7 @@ Requires Cordova plugin: cordova-plugin-background-mode. For more info about plu
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-mode
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/background-mode
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>AmazonFire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/background-mode
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { BackgroundMode } from &#39;@ionic-native/background-mode&#39;;
 
 constructor(private backgroundMode: BackgroundMode) { }
@@ -72,7 +73,7 @@ this.backgroundMode.enable();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code></h3>
 
 
@@ -145,7 +146,10 @@ Available only for Android platform.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
 
 
@@ -171,7 +175,7 @@ Available only for Android platform.
       <code>BackgroundModeConfiguration</code>
     </td>
     <td>
-      <p>Any options you want to update. See table below.</p>
+      <p>Any options you want to update. See table below.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -264,7 +268,7 @@ Override the back button on Android to go to background instead of closing the a
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Exclude the app from the recent task list works on Android 5.0+.
+Exclude the app from the recent task list. Works on Android 5.0+.
 
 
 
@@ -279,8 +283,10 @@ Exclude the app from the recent task list works on Android 5.0+.
 The method works async instead of isActive() or isEnabled().
 
 
-
-<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
 
 
 
@@ -327,7 +333,7 @@ Turn screen on and show app even locked
       title
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Title of the background task</p>
@@ -341,7 +347,7 @@ Turn screen on and show app even locked
       text
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Description of background task</p>
@@ -358,7 +364,7 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      <p>This will look for <icon name>.png in platforms/android/res/drawable|mipmap</p>
+      <p>This will look for <code>&lt;icon name&gt;.png</code> in platforms/android/res/drawable|mipmap</p>
 
       <em>(optional)</em>
     </td>
@@ -372,7 +378,8 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the background color of the notification circle</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -385,7 +392,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>By default the app will come to foreground when taping on the notification. If false, plugin wont come to foreground when tapped.</p>
+      <p>By default the app will come to foreground when tapping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
 
       <em>(optional)</em>
     </td>
@@ -399,7 +406,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>When set to false makes the notifications visible on lock screen (Android 5.0+)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -412,7 +420,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Big text</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -422,7 +431,7 @@ Turn screen on and show app even locked
       ticker
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>The text that scrolls itself on statusbar</p>

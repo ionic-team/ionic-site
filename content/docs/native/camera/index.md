@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Camera</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L85">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L121">
   Improve this doc
 </a>
 
@@ -22,8 +22,9 @@ docType: "class"
 
 
 
+
 <p>Take a photo or capture video.</p>
-<p>Requires and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>Requires the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 
 <p>Repo:
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-camera
@@ -45,9 +46,9 @@ $ npm install --save @ionic-native/camera
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/camera
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Camera, CameraOptions } from &#39;@ionic-native/camera&#39;;
 
 constructor(private camera: Camera) { }
@@ -65,14 +66,14 @@ constructor(private camera: Camera) { }
 
 const options: CameraOptions = {
   quality: 100,
-  destinationType: this.camera.DestinationType.DATA_URL,
+  destinationType: this.camera.DestinationType.FILE_URI,
   encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
 }
 
 this.camera.getPicture(options).then((imageData) =&gt; {
  // imageData is either a base64 encoded string or a file URI
- // If it&#39;s base64:
+ // If it&#39;s base64 (DATA_URL):
  let base64Image = &#39;data:image/jpeg;base64,&#39; + imageData;
 }, (err) =&gt; {
  // Handle error
@@ -86,7 +87,7 @@ this.camera.getPicture(options).then((imageData) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="DestinationType" href="#DestinationType"></a><code>DestinationType</code></h3>
 
 Constant for possible destination types
@@ -211,7 +212,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
     <td>
       <p>Choose the format of the return value.
 Defined in Camera.DestinationType. Default is FILE_URI.
-     DATA_URL : 0,   Return image as base64-encoded string,
+     DATA_URL : 0,   Return image as base64-encoded string (DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible),
      FILE_URI : 1,   Return image file URI,
      NATIVE_URI : 2  Return image native URI
          (e.g., assets-library:// on iOS or content:// on Android)</p>

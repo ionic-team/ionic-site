@@ -72,7 +72,8 @@ class MyApp {
   }
 }
 </code></pre>
-<h3 id="injecting-navcontroller">Injecting NavController</h3>
+<h3><a class="anchor" name="injecting-navcontroller" href="#injecting-navcontroller">Injecting NavController</a></h3>
+
 <p>Injecting NavController will always get you an instance of the nearest
 NavController, regardless of whether it is a Tab or a Nav.</p>
 <p>Behind the scenes, when Ionic instantiates a new NavController, it creates an
@@ -90,7 +91,8 @@ class MyComponent {
   }
 }
 </code></pre>
-<h3 id="navigating-from-the-root-component">Navigating from the Root component</h3>
+<h3><a class="anchor" name="navigating-from-the-root-component" href="#navigating-from-the-root-component">Navigating from the Root component</a></h3>
+
 <p>What if you want to control navigation from your root app component?
 You can&#39;t inject <code>NavController</code> because any components that are navigation
 controllers are <em>children</em> of the root component so they aren&#39;t available
@@ -116,7 +118,8 @@ export class MyApp {
    }
 }
 </code></pre>
-<h3 id="navigating-from-an-overlay-component">Navigating from an Overlay Component</h3>
+<h3><a class="anchor" name="navigating-from-an-overlay-component" href="#navigating-from-an-overlay-component">Navigating from an Overlay Component</a></h3>
+
 <p>What if you wanted to navigate from an overlay component (popover, modal, alert, etc)?
 In this example, we&#39;ve displayed a popover in our app. From the popover, we&#39;ll get a
 reference of the root <code>NavController</code> in our app, using the <code>getRootNav()</code> method.</p>
@@ -154,7 +157,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
 <p>To push a new view onto the navigation stack, use the <code>push</code> method.
-If the page has an <a href="../../navbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
+If the page has an <a href="../../components/toolbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
 The pushed view can then receive the data by accessing it via the <code>NavParams</code>
@@ -302,6 +305,7 @@ class HelloWorld {
 </tr>
 </tbody>
 </table>
+<p>Those events are only fired on IonicPage, for classic Angular Component, use <a href="https://angular.io/guide/lifecycle-hooks">Angular Lifecycle Hooks</a>.</p>
 <h2 id="nav-guards">Nav Guards</h2>
 <p>In some cases, a developer should be able to control views leaving and entering. To allow for this, NavController has the <code>ionViewCanEnter</code> and <code>ionViewCanLeave</code> methods.
 Similar to Angular route guards, but are more integrated with NavController. For example, if you wanted to prevent a user from leaving a view:</p>
@@ -344,7 +348,7 @@ export class DetailPage(){
   ){}
   ionViewCanEnter(): boolean{
    // here we can either return true or false
-   // depending on if we want to leave this view
+   // depending on if we want to enter this view
    if(isValid(randomValue)){
       return true;
     } else {
@@ -408,15 +412,16 @@ To do this, we can pass an object with the modified properites.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="canGoBack"></div>
 
 <h3>
-<a class="anchor" name="canGoBack" href="#canGoBack"></a>
+<a class="anchor" name="canGoBack" href="#canGoBack">
 <code>canGoBack()</code>
   
 
+</a>
 </h3>
 
 Returns `true` if there's a valid previous page that we can pop
@@ -440,10 +445,11 @@ back to. Otherwise returns `false`.
 <div id="canSwipeBack"></div>
 
 <h3>
-<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack">
 <code>canSwipeBack()</code>
   
 
+</a>
 </h3>
 
 If it's possible to use swipe back or not. If it's not possible
@@ -469,10 +475,11 @@ will return `true`.
 <div id="first"></div>
 
 <h3>
-<a class="anchor" name="first" href="#first"></a>
+<a class="anchor" name="first" href="#first">
 <code>first()</code>
   
 
+</a>
 </h3>
 
 Returns the first view controller in this nav controller's stack.
@@ -495,10 +502,11 @@ Returns the first view controller in this nav controller's stack.
 <div id="getActive"></div>
 
 <h3>
-<a class="anchor" name="getActive" href="#getActive"></a>
+<a class="anchor" name="getActive" href="#getActive">
 <code>getActive()</code>
   
 
+</a>
 </h3>
 
 
@@ -522,10 +530,11 @@ Returns the first view controller in this nav controller's stack.
 <div id="getActiveChildNav"></div>
 
 <h3>
-<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav">
 <code>getActiveChildNav()</code>
   
 
+</a>
 </h3>
 
 Returns the active child navigation.
@@ -539,13 +548,56 @@ Returns the active child navigation.
 
 
 
+<div id="getActiveChildNavs"></div>
+
+<h3>
+<a class="anchor" name="getActiveChildNavs" href="#getActiveChildNavs">
+<code>getActiveChildNavs()</code>
+  
+
+</a>
+</h3>
+
+Returns a list of the active child navigation.
+
+
+
+
+
+
+
+
+
+
+<div id="getAllChildNavs"></div>
+
+<h3>
+<a class="anchor" name="getAllChildNavs" href="#getAllChildNavs">
+<code>getAllChildNavs()</code>
+  
+
+</a>
+</h3>
+
+Returns a list of all child navigation containers
+
+
+
+
+
+
+
+
+
+
 <div id="getByIndex"></div>
 
 <h3>
-<a class="anchor" name="getByIndex" href="#getByIndex"></a>
+<a class="anchor" name="getByIndex" href="#getByIndex">
 <code>getByIndex(index)</code>
   
 
+</a>
 </h3>
 
 
@@ -599,10 +651,11 @@ Returns the active child navigation.
 <div id="getPrevious"></div>
 
 <h3>
-<a class="anchor" name="getPrevious" href="#getPrevious"></a>
+<a class="anchor" name="getPrevious" href="#getPrevious">
 <code>getPrevious(view)</code>
   
 
+</a>
 </h3>
 
 Returns the view controller which is before the given view controller.
@@ -655,10 +708,11 @@ If no view controller is passed in, then it'll default to the active view.
 <div id="getSecondaryIdentifier"></div>
 
 <h3>
-<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier"></a>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier">
 <code>getSecondaryIdentifier()</code>
   
 
+</a>
 </h3>
 
 
@@ -674,10 +728,11 @@ If no view controller is passed in, then it'll default to the active view.
 <div id="getType"></div>
 
 <h3>
-<a class="anchor" name="getType" href="#getType"></a>
+<a class="anchor" name="getType" href="#getType">
 <code>getType()</code>
   
 
+</a>
 </h3>
 
 
@@ -693,10 +748,11 @@ If no view controller is passed in, then it'll default to the active view.
 <div id="getViews"></div>
 
 <h3>
-<a class="anchor" name="getViews" href="#getViews"></a>
+<a class="anchor" name="getViews" href="#getViews">
 <code>getViews()</code>
   
 
+</a>
 </h3>
 
 Returns the current stack of views in this nav controller.
@@ -720,10 +776,11 @@ Returns the current stack of views in this nav controller.
 <div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<a class="anchor" name="goToRoot" href="#goToRoot">
 <code>goToRoot()</code>
   
 
+</a>
 </h3>
 
 
@@ -739,10 +796,11 @@ Returns the current stack of views in this nav controller.
 <div id="indexOf"></div>
 
 <h3>
-<a class="anchor" name="indexOf" href="#indexOf"></a>
+<a class="anchor" name="indexOf" href="#indexOf">
 <code>indexOf(view)</code>
   
 
+</a>
 </h3>
 
 Returns the index number of the given view controller.
@@ -794,10 +852,11 @@ Returns the index number of the given view controller.
 <div id="insert"></div>
 
 <h3>
-<a class="anchor" name="insert" href="#insert"></a>
+<a class="anchor" name="insert" href="#insert">
 <code>insert(insertIndex,&nbsp;page,&nbsp;params,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Inserts a component into the nav stack at the specified index. This is useful if
@@ -905,10 +964,11 @@ you need to add a component at any point in your navigation stack.
 <div id="insertPages"></div>
 
 <h3>
-<a class="anchor" name="insertPages" href="#insertPages"></a>
+<a class="anchor" name="insertPages" href="#insertPages">
 <code>insertPages(insertIndex,&nbsp;insertPages,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Inserts an array of components into the nav stack at the specified index.
@@ -999,10 +1059,11 @@ and animate in to become the active view.
 <div id="isActive"></div>
 
 <h3>
-<a class="anchor" name="isActive" href="#isActive"></a>
+<a class="anchor" name="isActive" href="#isActive">
 <code>isActive(view)</code>
   
 
+</a>
 </h3>
 
 Returns if the given view is the active view or not.
@@ -1054,10 +1115,11 @@ Returns if the given view is the active view or not.
 <div id="isTransitioning"></div>
 
 <h3>
-<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
+<a class="anchor" name="isTransitioning" href="#isTransitioning">
 <code>isTransitioning()</code>
   
 
+</a>
 </h3>
 
 Returns if the nav controller is actively transitioning or not.
@@ -1080,10 +1142,11 @@ Returns if the nav controller is actively transitioning or not.
 <div id="last"></div>
 
 <h3>
-<a class="anchor" name="last" href="#last"></a>
+<a class="anchor" name="last" href="#last">
 <code>last()</code>
   
 
+</a>
 </h3>
 
 Returns the last page in this nav controller's stack.
@@ -1106,10 +1169,11 @@ Returns the last page in this nav controller's stack.
 <div id="length"></div>
 
 <h3>
-<a class="anchor" name="length" href="#length"></a>
+<a class="anchor" name="length" href="#length">
 <code>length()</code>
   
 
+</a>
 </h3>
 
 Returns the number of views in this nav controller.
@@ -1133,10 +1197,11 @@ Returns the number of views in this nav controller.
 <div id="parent"></div>
 
 <h3>
-<a class="anchor" name="parent" href="#parent"></a>
+<a class="anchor" name="parent" href="#parent">
 <code>parent</code>
   
 
+</a>
 </h3>
 
 The parent navigation instance. If this is the root nav, then
@@ -1155,10 +1220,11 @@ the parent would be another nav, if it's not already the root nav.
 <div id="pop"></div>
 
 <h3>
-<a class="anchor" name="pop" href="#pop"></a>
+<a class="anchor" name="pop" href="#pop">
 <code>pop(opts)</code>
   
 
+</a>
 </h3>
 
 Call to navigate back from a current component. Similar to `push()`, you
@@ -1214,10 +1280,11 @@ can also pass navigation options.
 <div id="popToRoot"></div>
 
 <h3>
-<a class="anchor" name="popToRoot" href="#popToRoot"></a>
+<a class="anchor" name="popToRoot" href="#popToRoot">
 <code>popToRoot(opts)</code>
   
 
+</a>
 </h3>
 
 Navigate back to the root of the stack, no matter how far back that is.
@@ -1272,10 +1339,11 @@ Navigate back to the root of the stack, no matter how far back that is.
 <div id="push"></div>
 
 <h3>
-<a class="anchor" name="push" href="#push"></a>
+<a class="anchor" name="push" href="#push">
 <code>push(page,&nbsp;params,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Push a new component onto the current navigation stack. Pass any aditional information
@@ -1365,10 +1433,11 @@ along as an object. This additional information is accessible through NavParams
 <div id="remove"></div>
 
 <h3>
-<a class="anchor" name="remove" href="#remove"></a>
+<a class="anchor" name="remove" href="#remove">
 <code>remove(startIndex,&nbsp;removeCount,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Removes a page from the nav stack at the specified index.
@@ -1457,10 +1526,11 @@ Removes a page from the nav stack at the specified index.
 <div id="removeView"></div>
 
 <h3>
-<a class="anchor" name="removeView" href="#removeView"></a>
+<a class="anchor" name="removeView" href="#removeView">
 <code>removeView(viewController,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Removes the specified view controller from the nav stack.
@@ -1532,10 +1602,11 @@ Removes the specified view controller from the nav stack.
 <div id="setPages"></div>
 
 <h3>
-<a class="anchor" name="setPages" href="#setPages"></a>
+<a class="anchor" name="setPages" href="#setPages">
 <code>setPages(pages,&nbsp;opts)</code>
   
 
+</a>
 </h3>
 
 Set the views of the current navigation stack and navigate to the
@@ -1610,10 +1681,11 @@ navigation params to the individual pages in the array.
 <div id="setRoot"></div>
 
 <h3>
-<a class="anchor" name="setRoot" href="#setRoot"></a>
+<a class="anchor" name="setRoot" href="#setRoot">
 <code>setRoot(pageOrViewCtrl,&nbsp;params,&nbsp;opts,&nbsp;done)</code>
   
 
+</a>
 </h3>
 
 Set the root for the current navigation stack.
@@ -1718,10 +1790,11 @@ Set the root for the current navigation stack.
 <div id="swipeBackEnabled"></div>
 
 <h3>
-<a class="anchor" name="swipeBackEnabled" href="#swipeBackEnabled"></a>
+<a class="anchor" name="swipeBackEnabled" href="#swipeBackEnabled">
 <code>swipeBackEnabled</code>
   
 
+</a>
 </h3>
 
 
@@ -1737,10 +1810,11 @@ Set the root for the current navigation stack.
 <div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter">
 <code>viewDidEnter</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component has fully become the active component.
@@ -1764,10 +1838,11 @@ Observable to be subscribed to when a component has fully become the active comp
 <div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave">
 <code>viewDidLeave</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component has fully left and is no longer active.
@@ -1791,10 +1866,11 @@ Observable to be subscribed to when a component has fully left and is no longer 
 <div id="viewDidLoad"></div>
 
 <h3>
-<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad">
 <code>viewDidLoad</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component is loaded.
@@ -1818,10 +1894,11 @@ Observable to be subscribed to when a component is loaded.
 <div id="viewWillEnter"></div>
 
 <h3>
-<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter">
 <code>viewWillEnter</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component is about to be loaded.
@@ -1845,10 +1922,11 @@ Observable to be subscribed to when a component is about to be loaded.
 <div id="viewWillLeave"></div>
 
 <h3>
-<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave">
 <code>viewWillLeave</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component is about to leave, and no longer active.
@@ -1872,10 +1950,11 @@ Observable to be subscribed to when a component is about to leave, and no longer
 <div id="viewWillUnload"></div>
 
 <h3>
-<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload">
 <code>viewWillUnload</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when a component is about to be unloaded and destroyed.
@@ -1901,7 +1980,7 @@ Observable to be subscribed to when a component is about to be unloaded and dest
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#navigation">Navigation Component Docs</a><!-- end content block -->
 

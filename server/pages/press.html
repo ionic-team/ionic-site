@@ -4,67 +4,189 @@
 {% block main %}
 <div class="cta banner">
   <hgroup class="container">
-    <h1>Press and Media</h1>
+    <h1>Press &amp; Media</h1>
     <p>
-      Assets and information for our users and the press. <br> for media
-      inquiries, contact <a href="mailto:press@ionic.io">press@ionic.io</a>
+      Ionic assets and press information. For media inquiries, contact
+      <a href="mailto:press@ionic.io">press@ionic.io</a>
     </p>
   </hgroup>
 </div>
 
+<ul class="container cards">
+  <li class="primary-logo">
+    <h3>Primary Logo</h3>
+    <p>Use this version against light backgrounds.</p>
+    <a href="/files/primary_logo.zip"
+       target="_blank"
+       class="btn sm">Download</a>
+  </li>
+  <li class="light-logo">
+    <h3>Light Logo</h3>
+    <p>Use this version against dark backgrounds.</p>
+    <a href="/files/light_logo.zip"
+       target="_blank"
+       class="btn sm">Download</a>
+  </li>
+  <li class="all">
+    <h3>ALL Brand assets</h3>
+    <p>All of Ionic’s brand assets, logos to colors.</p>
+    <a href="http://ionicframework.com.s3.amazonaws.com/press-pack.zip"
+       target="_blank"
+       class="btn sm">Download</a>
+  </li>
+</ul>
+
 <div class="container tabs">
-  <div class="col-sm-3">
+  <div class="tab-menu">
     <ul class="nav nav-stacked">
+    <li role="presentation"><h4>Media</h4></li>
       <li role="presentation" class="active"><a data-toggle="tab"
-        href="#press">Press and coverage</a></li>
-      <!--<li role="presentation"><a data-toggle="tab" href="#facts">Company facts
-      </a></li>-->
-      <li role="presentation"><a data-toggle="tab" href="#assets">Brand assets
-        </a></li>
-      <!--<li role="presentation"><a data-toggle="tab" href="#media">Media files
-      </a></li>-->
+        href="#press">Press coverage</a></li>
+      <li role="presentation"><a data-toggle="tab" href="#press-releases">Press
+        releases</a></li>
+      {# <li role="presentation"><a data-toggle="tab" href="#assets">Brand
+        guidelines</a></li> #}
     </ul>
   </div>
-  <div class="col-sm-9 tab-content">
-    <div role="tabpanel" class="tab-pane active" id="press">
-      <h3>Featured Press Coverage</h3>
-      <p>
-        <a href="https://www-03.ibm.com/press/us/en/pressrelease/46623.wss">IBM and Ionic Empower Business Users to Accelerate Mobile App Development</a> - IBM News Room
-      </p>
-      <p>
-        <a href="http://devblog.blackberry.com/2015/07/top-javascript-frameworks-for-enterprise-mobility-part-13/">Top JavaScript Frameworks for Enterprise Mobility</a> - BlackBerry
-      </p>
-      <p>
-        <a href="http://www.programmableweb.com/news/appery.io-integrates-ionic-sdk-hybrid-mobile-app-development/2015/07/21">Ionic and Appery.io Partner</a> - Programmable Web
-      </p>
-      <p>
-        <a href="https://www.cs.wisc.edu/features/2015-05-28-madison-based-ionic-cofounded-cs-alumnus-supercharges-mobile-app-development">Ionic, cofounded by CS alumnus, supercharges mobile app development</a> - UW-Madison Computer Science
-      </p>
-      <p>
-        <a href="http://www.forbes.com/sites/bruceupbin/2015/01/05/meet-the-30-under-30-rising-stars-in-enterprise-technology/#2715e4857a0b760c0d8b675c">Ionic CEO Max Lynch named to Forbes 30 under 30 in Enterprise Technology</a> - Forbes.com
-      </p>
-      <p>
-        <a href="http://techcrunch.com/2015/03/30/drifty-grabs-2-6-million-to-turn-web-developers-into-mobile-app-makers/#.wchkt9:0HOM">Ionic raises $2.6M to turn Web Developers into Mobile App Makers</a> - TechCrunch
-      </p>
-      <p>
-        <a href="http://www.developer.com/ws/android/development-tools/developing-hybrid-apps-with-the-ionic-framework.html">Developing apps with the Ionic Framework</a> - Developer.com
-      </p>
-      <p>
-        <a href="http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/">Ionic raises $1M</a> - TechCrunch
-      </p>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="facts">
-    </div>
-    <div role="tabpanel" class="tab-pane" id="assets">
+  <main class="tab-content">
+    <section role="tabpanel" class="tab-pane active" id="press">
+      <ul>
+        <li>
+          <a href="http://searchsoftwarequality.techtarget.com/news/450431838/Ionic-Pro-embodies-mobile-app-dev-tools-DevOps-embrace"
+             target="_blank">
+            <strong>TechTarget</strong>
+            <time>Dec 14 2017</time>
+            <span>Ionic Pro embodies mobile app dev tools' DevOps embrace</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.xconomy.com/wisconsin/2017/12/06/ionic-unveils-new-app-making-tools-continues-push-to-make-money/?single_page=true"
+             target="_blank">
+            <strong>Xconomy</strong>
+            <time>Dec 6 2017</time>
+            <span>Ionic Unveils New App-Making Tools for Enterprise Developers
+              &amp; Teams</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://news.wisc.edu/app-software-firm-with-uw-madison-roots-starts-selling-pro-version/"
+             target="_blank">
+            <strong>University of Wisconsin News</strong>
+            <time>Dec 6 2017</time>
+            <span>App software firm with UW-Madison roots starts selling "pro"
+              version</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.theregister.co.uk/2017/07/25/dev_app_survey/"
+             target="_blank">
+            <strong>The Register</strong>
+            <time>July 25 2017</time>
+            <span>Devs shun smartwatch work, gaze longingly at web-only apps
+              again</span></a>
+        </li>
+        <li>
+          <a href="http://devblog.blackberry.com/2015/07/top-javascript-frameworks-for-enterprise-mobility-part-13/"
+             target="_blank">
+            <strong>BlackBerry</strong>
+            <time>Jul 23 2015</time>
+            <span>Top JavaScript Frameworks for Enterprise Mobility</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.programmableweb.com/news/appery.io-integrates-ionic-sdk-hybrid-mobile-app-development/2015/07/21"
+             target="_blank">
+            <strong>Programmable Web</strong>
+            <time>Jul 21 2015</time>
+            <span>Ionic and Appery.io Partner</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www-03.ibm.com/press/us/en/pressrelease/46623.wss"
+             target="_blank">
+            <strong>IBM News Room</strong>
+            <time>May 8 2015</time>
+            <span>IBM and Ionic Empower Business Users to Accelerate Mobile App
+              Development</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://techcrunch.com/2015/03/30/drifty-grabs-2-6-million-to-turn-web-developers-into-mobile-app-makers/#.wchkt9:0HOM"
+             target="_blank">
+            <strong>TechCrunch</strong>
+            <time>Mar 30 2015</time>
+            <span>Ionic raises $2.6M to turn Web Developers into Mobile App
+              Makers</span></a>
+        </li>
+        <li>
+          <a href="https://www.cs.wisc.edu/features/2015-05-28-madison-based-ionic-cofounded-cs-alumnus-supercharges-mobile-app-development"
+             target="_blank">
+            <strong>UW-Madison Computer Science</strong>
+            <time>Mar 28 2015</time>
+            <span>Ionic, cofounded by CS alumnus, supercharges mobile app
+              development</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.forbes.com/sites/bruceupbin/2015/01/05/meet-the-30-under-30-rising-stars-in-enterprise-technology/#2715e4857a0b760c0d8b675c"
+             target="_blank">
+            <strong>Forbes.com</strong>
+            <time>Jan 5 2015</time>
+            <span>Ionic CEO Max Lynch named to Forbes 30 under 30 in Enterprise
+              Technology</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.developer.com/ws/android/development-tools/developing-hybrid-apps-with-the-ionic-framework.html"
+             target="_blank">
+            <strong>Developer.com</strong>
+            <time>Sep 10 2014</time>
+            <span>Developing apps with the Ionic Framework</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://techcrunch.com/2014/03/10/drifty-makers-of-the-ionic-mobile-framework-raise-1-million/"
+             target="_blank">
+            <strong>TechCrunch</strong>
+            <time>Mar 3 2014</time>
+            <span>Ionic raises $1M</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section role="tabpanel" class="tab-pane" id="press-releases">
+      <ul>
+        <li>
+          <a href="/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises">
+            <strong>Ionic Brings Powerful App Development Suite to Teams and
+              Enterprises</strong>
+            <time>Dec 6 2017</time>
+          </a>
+        </li>
+        <li>
+          <a href="/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev">
+            <strong>Survey Says: The Web is Winning in Mobile Dev</strong>
+            <time>July 25 2017</time>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section role="tabpanel" class="tab-pane" id="assets">
       <h3>Press Pack</h3>
       <p>
-        <a href="http://ionicframework.com.s3.amazonaws.com/press-pack.zip">
-        Download Press Pack</a>
+        <a href="https://ionicframework.com.s3.amazonaws.com/press-pack.zip"
+           target="_blank">Download Press Pack</a>
       </p>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="media">
-    </div>
-
-  </div>
+    </section>
+  </main>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

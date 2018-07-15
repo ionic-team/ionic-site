@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -268,15 +268,16 @@ chart displays each property with a description of what it controls.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="get"></div>
 
 <h3>
-<a class="anchor" name="get" href="#get"></a>
+<a class="anchor" name="get" href="#get">
 <code>get(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Returns a single config value, given a key.
@@ -341,10 +342,11 @@ value was not found, or is config value is <code>null</code>. Fallback value
 <div id="getBoolean"></div>
 
 <h3>
-<a class="anchor" name="getBoolean" href="#getBoolean"></a>
+<a class="anchor" name="getBoolean" href="#getBoolean">
 <code>getBoolean(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Same as `get()`, however always returns a boolean value. If the
@@ -412,10 +414,11 @@ value was <code>null</code>. Fallback value defaults to <code>false</code>.<stro
 <div id="getNumber"></div>
 
 <h3>
-<a class="anchor" name="getNumber" href="#getNumber"></a>
+<a class="anchor" name="getNumber" href="#getNumber">
 <code>getNumber(key,&nbsp;fallbackValue)</code>
   
 
+</a>
 </h3>
 
 Same as `get()`, however always returns a number value. Uses `parseFloat()`
@@ -483,10 +486,11 @@ value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</c
 <div id="set"></div>
 
 <h3>
-<a class="anchor" name="set" href="#set"></a>
+<a class="anchor" name="set" href="#set">
 <code>set(platform,&nbsp;key,&nbsp;value)</code>
   
 
+</a>
 </h3>
 
 Sets a single config value.

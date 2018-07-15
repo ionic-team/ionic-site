@@ -1,0 +1,280 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'products-view' %}
+{% set header_style = 'transparent light products-page' %}
+
+{% block body_attributes %}
+
+{% endblock %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/pro">Pro</a></li>
+      <li>View app</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/pro/view" class="active">Features</a></li>
+      <li><a href="/docs/pro/view/">Docs</a></li>
+      <li>
+        <a class="btn white show-desktop" href="https://play.google.com/store/apps/details?id=com.ionicframework.view">
+          Download
+        </a>
+        <a class="btn white show-mobile"
+           href="https://play.google.com/store/apps/details?id=com.ionicframework.view"
+           target="_blank">
+          Download
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="top container">
+  <hgroup class=" left">
+    <h1>Mobile testing, the easy way.</h1>
+    <p style=""><strong style="color: red">Notice:</strong><br>Ionic View will be sunsetting on September 1,
+2018. <br>More info is available <a
+href="https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/">here.
+</a></p>
+    <h4 class="stores">
+      Get the app on:
+      <a class="google"
+         id="btn-products-view-download-android"
+         target="_blank"
+         href="https://play.google.com/store/apps/details?id=com.ionicframework.view"></a>
+    </h4>
+  </hgroup>
+  <div class="graphics">
+    <img class="android" />
+    <img class="iphone" />
+  </div>
+</div>
+
+<main>
+  <section class="center simple">
+    <div class="container">
+      <hgroup>
+        <h2>Simply choose an app, and share.</h2>
+        <p>
+          <strong>View</strong> lets you and others easily preview and test Ionic apps as though they were deployed natively. Choose the app and version you want to share, and start testing.
+        </p>
+      </hgroup>
+      <ul class="items">
+        <li class="groups">
+          <strong>External testers &amp; groups</strong>
+          <p>
+            Invite anyone to provide feedback on your app. Segment audiences by
+            group or department.
+          </p>
+        </li>
+        <li class="sharing">
+          <strong>Easy sharing</strong>
+          <p>
+            Share multiple versions of your app directly with users and testers.
+            All it takes is a simple email invite.
+          </p>
+        </li>
+        <li class="feedback">
+          <strong>In-app feedback</strong>
+          <p>
+            Users submit feedback right from the View App, with results
+            collected in a central dashboard.
+          </p>
+        </li>
+        <li class="native">
+          <strong>Native app behavior</strong>
+          <p>
+            Easily preview and test your Ionic apps as though they were actually
+            deployed natively.
+          </p>
+        </li>
+      </ul>
+      <div id="phone-tilt" class="activateOnScroll"></div>
+    </div>
+  </section>
+
+  <section class="left testers">
+    <div class="container">
+      <hgroup>
+        <h2>Invite testers by email.</h2>
+        <p>
+          <strong>View</strong> makes it easy to share versions of your app with
+          anyone in world, with a simple email invite. Choose a test group or
+          invite new testers to preview your app and provide feedback. Add as
+          many testers as you like, without the complicated beta provisioning or
+          ever going through the App Stores.
+        </p>
+      </hgroup>
+      <div class="graphics activateOnScroll"></div>
+    </div>
+  </section>
+
+  <section class="right choose">
+    <div class="container">
+      <hgroup>
+        <h2>Choose who sees what.</h2>
+        <p>
+          Segment your audiences by team, client, or department, and then choose
+          which version of your app you want them to see. Get feedback on new
+          features from the Marketing team, while testing bug fixes with QA.
+        </p>
+      </hgroup>
+      <div class="graphics activateOnScroll"></div>
+    </div>
+  </section>
+
+  <section class="left feedback">
+    <div class="container">
+      <hgroup>
+        <h2>Gather and analyze feedback.</h2>
+        <p>
+          Testers can capture screenshots and provide feedback directly within
+          the the View App. The Ionic dashboard allows you to centrally manage
+          and analyze incoming comments to look for trends and insights, and
+          help prioritize changes.
+        </p>
+      </hgroup>
+      <div class="graphics activateOnScroll"></div>
+    </div>
+  </section>
+
+  <section class="right experience">
+    <div class="container">
+      <hgroup>
+        <h2>Share the full app experience.</h2>
+        <p>
+          Unlike browser-based testing, <strong>View</strong> gives testers a
+          complete app experience, with full support for native plugins and
+          functionality. View works on all supported iOS and Android devices,
+          allowing you to test new features and functionality across platforms.
+        </p>
+      </hgroup>
+      <div class="graphics activateOnScroll"></div>
+    </div>
+  </section>
+
+  <section class="bar get-started">
+    <div class="container">
+      <hgroup>
+        <h2>Start testing your apps the easy way.</h2>
+        <p class="lg">
+          Get in touch to learn more, or create an account.
+        </p>
+      </hgroup>
+      <div class="btns">
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+          class="btn white" id="btn-products-view-create-account">Create an
+          account</a>
+        <a class="btn btn-default show-desktop"
+           id="btn-products-view-download-desktop"
+           href="https://play.google.com/store/apps/details?id=com.ionicframework.view">Download <strong>View</strong></a>
+        <a class="btn btn-default show-mobile"
+           href="https://play.google.com/store/apps/details?id=com.ionicframework.view"
+           id="btn-products-view-download-mobile"
+           target="_blank">Download</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade fullscreen"
+     id="downloadForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="container">
+    <button class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"
+           ng-controller="ViewCtrl">
+        <hgroup>
+          <h3>Download <strong>View</strong></h3>
+          <p>
+            With an Ionic account, you can access and share you apps on <strong>
+            View</strong> from anywhere in the world.
+          </p>
+          <h4 ng-if="error" ng-bind="error" class="text-danger"></h4>
+          <form ng-submit="submit($event)">
+            <input class="form-control"
+                   type="tel"
+                   required
+                   ng-model="phone"
+                   placeholder="Your phone number">
+            <button ng-if="!sent"
+                    class="btn btn-primary"
+                    type="submit"
+                    ng-disabled="formDisabled">
+              Text me the link
+            </button>
+            <h3 ng-if="sent">Text sent, check your mobile device.</h3>
+            <small>
+              We will not save or share numbers entered here.
+            </small>
+          </form>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+</div>
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     class="blur-svg"
+     style="display: none;">
+  <defs>
+    <filter id="blur-filter">
+      <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// enable sticky nav
+stickyNav.init();
+
+function openDownloadModal() {
+  if (document.body.scrollTop === 0 &&
+    document.getElementsByTagName('html')[0].scrollTop == 0) {
+
+    return $('#downloadForm').modal()
+  }
+  // not at the top of the page. scroll first
+  $('body, html').animate({
+    scrollTop: 0
+  }, 200, 'linear', function() {
+    $('#downloadForm').modal()
+  });
+}
+
+// preload phone images images
+var iphone = document.querySelector('.iphone');
+var android = document.querySelector('.android');
+var imgsLoaded = 0;
+iphone.addEventListener('load', imgLoaded);
+android.addEventListener('load', imgLoaded);
+iphone.src = '/img/pro/view/view-iphone.png';
+android.src = '/img/pro/view/view-pixel.png';
+
+function imgLoaded(){
+  imgsLoaded++
+  if (imgsLoaded > 1) {
+    iphone.classList.add('loaded')
+    android.classList.add('loaded')
+  }
+}
+
+// apply a class to body based on if mobile or not
+document.body.classList.add(window.mobileAndTabletCheck() ? 'is-mobile':'is-desktop');
+
+</script>
+{% endblock %}

@@ -17,7 +17,7 @@ pre_footer: true
   </form>
   <div class="sections">
     <a class="section getting-started"
-       href="/docs/intro/installation">
+       href="/docs/intro/installation/">
       <h3>Introduction</h3>
       <p>
         Everything you need to know to get started with Ionic.

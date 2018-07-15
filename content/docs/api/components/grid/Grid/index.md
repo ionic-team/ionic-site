@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Grid
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/grid/grid.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/grid/grid.ts#L0">
 Improve this doc
 </a>
 
@@ -235,7 +235,9 @@ For more information, see <a href="#customizing-the-grid">customizing the grid</
 <p><em>Note: the first breakpoint must have the value set to 0 and all breakpoint values must be in
 ascending order.</em></p>
 <h2 id="auto-layout-columns">Auto-layout columns</h2>
-<h3 id="equal-width">Equal-width</h3>
+<h3><a class="anchor" name="equal-width" href="#equal-width">Equal-width</a></h3>
+
+
 <p>By default, columns will take up equal width inside of a row for all devices and screen sizes.</p>
 <pre><code>&lt;ion-grid&gt;
   &lt;ion-row&gt;
@@ -259,7 +261,9 @@ ascending order.</em></p>
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<h3 id="setting-one-column-width">Setting one column width</h3>
+<h3><a class="anchor" name="setting-one-column-width" href="#setting-one-column-width">Setting one column width</a></h3>
+
+
 <p>Set the width of one column and the others will automatically resize around it.
 This can be done using our predefined grid attributes. In the example below,
 the other columns will resize no matter the width of the center column.</p>
@@ -288,7 +292,9 @@ the other columns will resize no matter the width of the center column.</p>
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<h3 id="variable-width">Variable-width</h3>
+<h3><a class="anchor" name="variable-width" href="#variable-width">Variable-width</a></h3>
+
+
 <p>Using the <code>col-{breakpoint}-auto</code> attributes, the column can size itself based on the
 natural width of its content. This is extremely useful for setting a column width
 using pixels. The columns next to the variable-width column will resize to fill the row.</p>
@@ -321,7 +327,9 @@ using pixels. The columns next to the variable-width column will resize to fill 
 &lt;/ion-grid&gt;
 </code></pre>
 <h2 id="responsive-attributes">Responsive attributes</h2>
-<h3 id="all-breakpoints">All breakpoints</h3>
+<h3><a class="anchor" name="all-breakpoints" href="#all-breakpoints">All breakpoints</a></h3>
+
+
 <p>To customize a column&#39;s width for all devices and screens, add the <code>col-*</code>
 attribute. These attributes tell the column to take up <code>*</code> columns out
 of the available columns.</p>
@@ -342,7 +350,9 @@ of the available columns.</p>
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<h3 id="stacked-to-horizontal">Stacked to horizontal</h3>
+<h3><a class="anchor" name="-stacked-to-horizontal" href="#-stacked-to-horizontal"> Stacked to horizontal</a></h3>
+
+
 <p>Use a combination of width and breakpoint attributes to create a grid that starts out stacked
 on extra small screens before becoming horizontal on small screens.</p>
 <pre><code>&lt;ion-grid&gt;
@@ -363,7 +373,9 @@ on extra small screens before becoming horizontal on small screens.</p>
 &lt;/ion-grid&gt;
 </code></pre>
 <h2 id="reordering">Reordering</h2>
-<h3 id="offsetting-columns">Offsetting columns</h3>
+<h3><a class="anchor" name="offsetting-columns" href="#offsetting-columns">Offsetting columns</a></h3>
+
+
 <p>Move columns to the right by adding the <code>offset-*</code> attributes. These attributes
 increase the margin start of the column by <code>*</code> columns. For example, in the following
 grid the last column will be offset by 3 columns and take up 3 columns:</p>
@@ -394,7 +406,9 @@ grid where the last column will be offset by 3 columns for <code>md</code> scree
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<h3 id="push-and-pull">Push and pull</h3>
+<h3><a class="anchor" name="push-and-pull" href="#push-and-pull">Push and pull</a></h3>
+
+
 <p>Reorder the columns by adding the <code>push-*</code> and <code>pull-*</code> attributes. These attributes
 adjust the <code>left</code> and <code>right</code> of the columns by <code>*</code> columns making it easy to reorder
 columns. For example, in the following grid the column with the <code>1st col</code> description
@@ -428,7 +442,9 @@ the column with the <code>3rd</code> column description will actually be the fir
 &lt;/ion-grid&gt;
 </code></pre>
 <h2 id="alignment">Alignment</h2>
-<h3 id="vertical-alignment">Vertical alignment</h3>
+<h3><a class="anchor" name="vertical-alignment" href="#vertical-alignment">Vertical alignment</a></h3>
+
+
 <p>All columns can be vertically aligned inside of a row by adding different
 attributes to the row. For a list of available attributes, see
 <a href="../Row#row-attributes">row attributes</a>.</p>
@@ -507,7 +523,9 @@ attributes, see <a href="../Col#column-attributes">column attributes</a>.</p>
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<h3 id="horizontal-alignment">Horizontal alignment</h3>
+<h3><a class="anchor" name="horizontal-alignment" href="#horizontal-alignment">Horizontal alignment</a></h3>
+
+
 <p>All columns can be horizontally aligned inside of a row by adding different
 attributes to the row. For a list of available attributes, see
 <a href="../Row#row-attributes">row attributes</a>.</p>
@@ -562,7 +580,9 @@ attributes to the row. For a list of available attributes, see
 <p>Using our built-in grid Sass variables and maps, it’s possible to completely customize
 the predefined grid attributes. Change the number of breakpoints, the media query values,
 the number of columns, and more.</p>
-<h3 id="number-of-columns-and-padding">Number of columns and padding</h3>
+<h3><a class="anchor" name="number-of-columns-and-padding" href="#number-of-columns-and-padding">Number of columns and padding</a></h3>
+
+
 <p>The number of grid columns and their padding can be modified via Sass variables.
 <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column.
 <code>$grid-padding-width</code> is used for the padding on the grid, while <code>$grid-padding-widths</code>
@@ -580,7 +600,9 @@ $grid-padding-widths: (
   xl: $grid-padding-width
 ) !default;
 </code></pre>
-<h3 id="grid-tiers">Grid tiers</h3>
+<h3><a class="anchor" name="grid-tiers" href="#grid-tiers">Grid tiers</a></h3>
+
+
 <p>To customize the breakpoints and their values, override the values of
 <code>$grid-breakpoints</code> and <code>$grid-max-widths</code>. For example, to only use
 3 breakpoints, the following could be written:</p>
@@ -610,16 +632,16 @@ $grid-max-widths: (
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -629,56 +651,56 @@ $grid-max-widths: (
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$grid-breakpoints</code></td>
-        
+
           <td><code>(&#10;  xs: 0,&#10;  sm: 576px,&#10;  md: 768px,&#10;  lg: 992px,&#10;  xl: 1200px&#10;)</code></td>
-        
+
         <td><p>The minimum dimensions at which your layout will change,
 adapting to different screen sizes, for use in media queries</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-max-widths</code></td>
-        
+
           <td><code>(&#10;  sm: 540px,&#10;  md: 720px,&#10;  lg: 960px,&#10;  xl: 1140px&#10;)</code></td>
-        
+
         <td><p>Maximum width of the grid for different screen sizes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-columns</code></td>
-        
+
           <td><code>12</code></td>
-        
+
         <td><p>Number of columns for the grid</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-padding-width</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Total width of the padding for the grid</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$grid-padding-widths</code></td>
-        
+
           <td><code>(&#10;  xs: $grid-padding-width,&#10;  sm: $grid-padding-width,&#10;  md: $grid-padding-width,&#10;  lg: $grid-padding-width,&#10;  xl: $grid-padding-width&#10;)</code></td>
-        
+
         <td><p>Padding for the columns for different screen sizes</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

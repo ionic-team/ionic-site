@@ -59,7 +59,7 @@
     min-height: 54px;
 
     &.search {
-      padding: 20px 20px 20px;
+      padding: 10px 20px 10px;
       margin-bottom: 0;
 
       &:hover::before {
@@ -73,7 +73,7 @@
         font-weight: 800;
         color: #bdc3cc;
         position: absolute;
-        top: 28px;
+        top: 16px;
         left: 34px;
         transition: .2s color;
       }
@@ -137,6 +137,24 @@
       top: 17px;
       right: 20px;
       transition: .2s color;
+    }
+  }
+
+  > ul.nested-menu {
+    > li > ul > li > a {
+      color: #9da5b3;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      position: relative;
+      cursor: pointer;
+    }
+    > li > ul > li > ul {
+      //margin-left: 20px;
     }
   }
 
@@ -204,7 +222,7 @@
 
         a {
           padding: 0;
-          height: 0;
+          height: 0 !important;
         }
       }
     }
@@ -236,5 +254,23 @@
     border-radius: 3px;
     position: relative;
     top: -2px;
+  }
+
+  .paid {
+    background: $blue;
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+    padding: 0 2px;
+    border-radius: 3px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+
+body:not(.ng-scope) {
+  .side-nav ul a {
+    transition: none;
   }
 }

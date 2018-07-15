@@ -9,20 +9,26 @@ Toast is a subtle notification that appears on top of an app's content. Typicall
 _For more information, Check out the [API docs](../api/components/toast/ToastController)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/toast/basic">
-  Demo Source
-</a>
-
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/toast-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/toast/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```typescript
 import { ToastController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public toastCtrl: ToastController) {
-  }
+
+  constructor(public toastCtrl: ToastController) { }
 
   presentToast() {
-    let toast = this.toastCtrl.create({
+    const toast = this.toastCtrl.create({
       message: 'User was added successfully',
       duration: 3000
     });

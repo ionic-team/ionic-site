@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin gets, sets and removes key,value pairs from a device&#39;s secure storage.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-secure-storage</code>. For more info, please see the <a href="https://github.com/Crypho/cordova-plugin-secure-storage">Cordova Secure Storage docs</a>.</p>
 <p>The browser platform is supported as a mock only. Key/values are stored unencrypted in localStorage.</p>
@@ -34,7 +35,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-secure-storage
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/secure-storage
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -56,7 +57,7 @@ $ npm install --save @ionic-native/secure-storage
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SecureStorage, SecureStorageObject } from &#39;@ionic-native/secure-storage&#39;;
 
 constructor(private secureStorage: SecureStorage) { }
@@ -94,7 +95,7 @@ this.secureStorage.create(&#39;my_store_name&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(store)</code></h3>
 
 
@@ -130,7 +131,7 @@ Creates a namespaced storage.
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code></h3>
 
 

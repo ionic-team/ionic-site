@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-docs
-command_name: docs
-title: Ionic CLI Documentation - docs
+page_name: ionic docs
+command_name: ionic docs
+title: ionic docs - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic docs`
 
@@ -22,4 +31,6 @@ $ ionic docs
 
 
 
-
+Option | Description
+------ | ----------
+`--browser`, `-w` | Specifies the browser to use (`safari`, `firefox`, `google chrome`)

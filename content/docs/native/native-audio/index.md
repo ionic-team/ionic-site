@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Native Audio Playback</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-nativeaudio
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/native-audio
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/native-audio
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { NativeAudio } from &#39;@ionic-native/native-audio&#39;;
 
 constructor(private nativeAudio: NativeAudio) { }
@@ -85,7 +86,7 @@ this.nativeAudio.unload(&#39;uniqueId1&#39;).then(onSuccess,onError);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="preloadSimple" href="#preloadSimple"></a><code>preloadSimple(id,&nbsp;assetPath)</code></h3>
 
 

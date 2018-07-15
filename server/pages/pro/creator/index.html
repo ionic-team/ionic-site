@@ -1,0 +1,155 @@
+{% set page = "home" %}
+{% set showBuildNowSignup = true %}
+{% extends "_layouts/creator.html" %}
+
+{% block title %}Ionic Creator - Rapid Mobile App Builder{% endblock %}
+
+{% block body_id %}page-creator{% endblock %}
+
+{% block main %}
+<section class="hero">
+  <hgroup class="container">
+    <h1>
+      Build amazing mobile apps, faster.
+    </h1>
+    <h3>
+      <strong>Creator</strong> is a simple drag-&amp;-drop tool for going from
+      <br>idea to <strong>App Store</strong>, with just the drag of a mouse.
+    </h3>
+    <a href="https://creator.ionic.io/app/signup"class="btn btn-ionic"
+      id="btn-products-creator-start-building-now">Start building now</a>
+  </hgroup>
+</section>
+<div class="container used-by">
+  <p>Used by these awesome companies</p>
+  <img src="/img/pro/creator/comp-logos.png">
+</div>
+<section class="how-creator-works">
+  <div class="container">
+    <hgroup>
+      <h3>Here’s how Creator works</h3>
+      <p>
+        <strong>Creator</strong> makes building real mobile apps dead-simple.
+      </p>
+    </hgroup>
+    <div class="step drag-n-drop">
+      <h4>Drag and drop components</h4>
+      <p>
+        Visually build your app by dragging in pre-made mobile components into
+        the device emulator.
+      </p>
+    </div>
+    <div class="step preview">
+      <h4>Preview and share</h4>
+      <p>
+        Preview and interact with your projects live on your devices. Share with
+        colleagues and clients alike.
+      </p>
+    </div>
+    <div class="step export">
+      <h4>Export and deploy</h4>
+      <p>
+        Export a fully functional <strong>Ionic</strong> project, or even native IPA &amp; APK
+        files to install directly on your devices.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="hero-side left tool">
+  <div class="container">
+    <h2>The simplest app <em>Creator</em> around.</h2>
+    <p>
+      Thousands of businesses across 150 countries use Creator to dramatically
+      reduce the time and cost it takes to create fully functional hybrid
+      mobile apps.
+    </p>
+    <p>
+      <em>Go beyond prototyping</em>: Add your own code, export clean,
+      standards compliant Ionic projects, and even iOS and Android builds ready to submit to the App Stores.
+    </p>
+  </div>
+</section>
+<section class="hero-side right dnd">
+  <div class="container">
+    <h2>As easy as drag and drop.</h2>
+    <p>
+      Click, move, and place premade mobile components onto your screen with our
+      easy-to-use drag &amp; drop technology.
+    </p>
+    <p>
+      Choose from our pack of useful and intuitive <a target="_blank"
+      href="https://ionicframework.com/">Ionic-powered</a> components that create
+      production-ready HTML5 when dropped into the screen.
+    </p>
+  </div>
+</section>
+<section class="hero-side left xplatform">
+  <div class="container">
+    <h2>Build it once. Run it anywhere.</h2>
+    <p>
+      Your time is precious. <strong>Creator</strong> has your back. Spend more
+      time on building a great app experience, and less time managing separate
+      code bases and devices.
+    </p>
+    <p>
+      Export cross-platform mobile apps that look, feel, and perform amazing
+      across all modern phones and devices.
+    </p>
+    <p>
+      <img class="platforms" src="/img/pro/creator/platforms.png" alt="platforms" />
+    </p>
+  </div>
+</section>
+<section class="hero-side right teams">
+  <div class="container">
+    <h2>Share projects. Collect feedback. Iterate. Repeat.</h2>
+    <p>
+      Good projects deserve to be shared, to be criticized, and to be refined.
+      Save and access them anywhere from your phone and share with team members,
+      developers, and designers alike.
+    </p>
+    <p>
+      Present your live previews to stakeholders and clients for easier testing
+      and feedback.
+    </p>
+  </div>
+</section>
+<section class="hero-side left inline-code-editing">
+  <div class="container">
+    <h2>Code without ever leaving Creator</h2>
+    <p>
+      With a fully integrated code editor inside Creator, you don't need a local
+      development environment to add custom dynamic functionality to your
+      projects.
+    </p>
+    <p>
+      One-Click Addons enable you to include popular tools and services like
+      Google Maps, Analytics and database solutions.
+    </p>
+  </div>
+</section>
+<section class="hero-center creator-app">
+  <div class="top">
+    <hgroup class="container">
+      <h2>Preview your projects live on your device. From anywhere.</h2>
+      <p>
+        With the <strong>Creator App</strong> you can interact with your
+        projects on real devices, at any time, from anywhere.
+      </p>
+    </hgroup>
+  </div>
+  <div class="bottom">
+    <div class="container">
+      <p>Download the <strong>Creator App</strong> free today!</p>
+      <a class="btn app-store"
+         href="https://itunes.apple.com/us/app/ionic-creator/id1055373342?mt=8"
+         id="btn-products-creator-download-ios"
+         target="_blank"></a>
+      <a class="btn google-play"
+         href="https://play.google.com/store/apps/details?id=io.ionic.creator"
+         id="btn-products-creator-download-android"
+         target="_blank"></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

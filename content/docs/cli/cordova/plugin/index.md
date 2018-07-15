@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-plugin
-command_name: cordova plugin
-title: Ionic CLI Documentation - cordova plugin
+page_name: ionic cordova plugin
+command_name: ionic cordova plugin
+title: ionic cordova plugin - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova plugin`
 
@@ -29,7 +38,7 @@ Input | Description
 
 Option | Description
 ------ | ----------
-`--force` | Forve overwrite the plugin if it exists (corresponds to `add`)
+`--force` | Force overwrite the plugin if it exists (corresponds to `add`)
 `--variable` | Specify plugin variables
 
 ## Examples

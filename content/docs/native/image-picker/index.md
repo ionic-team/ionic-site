@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Image Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L36">
   Improve this doc
 </a>
+
 
 
 
@@ -34,10 +35,10 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-telerik-imagepicker --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
 $ npm install --save @ionic-native/image-picker
 </code></pre>
   </li>
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/image-picker
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -56,7 +57,7 @@ $ npm install --save @ionic-native/image-picker
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { ImagePicker } from &#39;@ionic-native/image-picker&#39;;
 
 
@@ -78,7 +79,7 @@ this.imagePicker.getPictures(options).then((results) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getPictures" href="#getPictures"></a><code>getPictures(options)</code></h3>
 
 
@@ -220,7 +221,10 @@ Request permission to read images
       <code>number</code>
     </td>
     <td>
-      <p>Output type, defaults to 0  (FILE_URI).</p>
+      <p>Choose the format of the return value.
+Defined in ImagePicker.OutputType. Default is FILE_URI.
+     FILE_URI : 0,   Return image file URI,
+     DATA_URL : 1,   Return image as base64-encoded string</p>
 
       <em>(optional)</em>
     </td>

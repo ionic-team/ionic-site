@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Action Sheet</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L53">
   Improve this doc
 </a>
+
 
 
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-actionsheet
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/action-sheet
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/action-sheet
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { ActionSheet, ActionSheetOptions } from &#39;@ionic-native/action-sheet&#39;;
 
 constructor(private actionSheet: ActionSheet) { }
@@ -87,10 +88,10 @@ this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ANDROID_THEMES" href="#ANDROID_THEMES"></a><code>ANDROID_THEMES</code></h3>
 
-
+Convenience property to select an Android theme value
 
 
 
@@ -114,7 +115,7 @@ Show a native ActionSheet component. See below for options.
       <code>ActionSheetOptions</code>
     </td>
     <td>
-      <p>Options See table below</p>
+      <p>Options See table below<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -124,11 +125,31 @@ Show a native ActionSheet component. See below for options.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(options)</code></h3>
 
 
-Progamtically hide the native ActionSheet
-
+Programmatically hide the native ActionSheet
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>ActionSheetOptions</code>
+    </td>
+    <td>
+      <p>Options See table below<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -198,94 +219,10 @@ Progamtically hide the native ActionSheet
       androidTheme
     </td>
     <td>
-      <code>number</code>
+      <code></code>
     </td>
     <td>
       <p>Theme to be used on Android</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      androidEnableCancelButton
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Enable a cancel on Android</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      winphoneEnableCancelButton
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Enable a cancel on Windows Phone</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      addCancelButtonWithLabel
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Add a cancel button with text</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      addDestructiveButtonWithLabel
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Add a destructive button with text</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      position
-    </td>
-    <td>
-      <code>number[]</code>
-    </td>
-    <td>
-      <p>On an iPad, set the X,Y position</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      destructiveButtonLast
-    </td>
-    <td>
-      <code>boolean</code>
-    </td>
-    <td>
-      <p>Choose if destructive button will be the last</p>
 
       <em>(optional)</em>
     </td>

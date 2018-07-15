@@ -48,7 +48,7 @@ bootstraps a child <a href="../navigation/IonicPage/">IonicPage</a> in order to 
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { NgModule } from &#39;@angular/core&#39;;
 
@@ -74,11 +74,11 @@ export class HomePageModule { }
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members">Static Members</a></h2>
 <div id="forChild"></div>
-<h3><a class="anchor" name="forChild" href="#forChild"></a><code>forChild()</code>
+<h3><a class="anchor" name="forChild" href="#forChild"><code>forChild()</code>
   
-</h3>
+</a></h3>
 
 
 

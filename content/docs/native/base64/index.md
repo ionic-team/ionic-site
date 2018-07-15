@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>This Plugin is used to encode base64 of any file, it uses js code for iOS, but in case of android it uses native code to handle android versions lower than v.3</p>
 
 
@@ -38,7 +39,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com-badrit-base64
@@ -50,7 +51,7 @@ $ npm install --save @ionic-native/base64
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -60,7 +61,7 @@ $ npm install --save @ionic-native/base64
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Base64 } from &#39;@ionic-native/base64&#39;;
 
 constructor(private base64: Base64) { }
@@ -82,7 +83,7 @@ this.base64.encodeFile(filePath).then((base64File: string) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="encodeFile" href="#encodeFile"></a><code>encodeFile(filePath)</code></h3>
 
 

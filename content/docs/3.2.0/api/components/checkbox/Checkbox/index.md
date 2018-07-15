@@ -11,7 +11,7 @@ doc: "Checkbox"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/checkbox/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Checkbox
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/checkbox/checkbox.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/checkbox/checkbox.ts#L7">
 Improve this doc
 </a>
 
@@ -95,14 +95,14 @@ for more info on forms and inputs.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>checked</td>
       <td><code>boolean</code></td>
       <td><p> If true, the element is selected.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -110,25 +110,25 @@ for more info on forms and inputs.</p>
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -138,136 +138,136 @@ for more info on forms and inputs.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$checkbox-ios-background-color-off</code></td>
-        
+
           <td><code>$list-ios-background-color</code></td>
-        
+
         <td><p>Background color of the checkbox when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-background-color-on</code></td>
-        
+
           <td><code>color($colors-ios, primary)</code></td>
-        
+
         <td><p>Background color of the checkbox when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-size</code></td>
-        
+
           <td><code>21px</code></td>
-        
+
         <td><p>Size of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-border-color-off</code></td>
-        
+
           <td><code>$list-ios-border-color</code></td>
-        
+
         <td><p>Border color of the checkbox icon when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-border-color-on</code></td>
-        
+
           <td><code>$checkbox-ios-background-color-on</code></td>
-        
+
         <td><p>Border color of the checkbox icon when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-border-width</code></td>
-        
+
           <td><code>1px</code></td>
-        
+
         <td><p>Border width of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-border-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Border style of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-border-radius</code></td>
-        
+
           <td><code>50%</code></td>
-        
+
         <td><p>Border radius of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-checkmark-width</code></td>
-        
+
           <td><code>1px</code></td>
-        
+
         <td><p>Width of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-checkmark-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Style of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-icon-checkmark-color</code></td>
-        
+
           <td><code>color-contrast($colors-ios, $checkbox-ios-background-color-on)</code></td>
-        
+
         <td><p>Color of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-disabled-opacity</code></td>
-        
+
           <td><code>.3</code></td>
-        
+
         <td><p>Opacity of the disabled checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-item-start-margin</code></td>
-        
+
           <td><code>$checkbox-ios-item-left-margin</code></td>
-        
+
         <td><p>Margin of the start checkbox item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-ios-item-end-margin</code></td>
-        
+
           <td><code>$checkbox-ios-item-right-margin</code></td>
-        
+
         <td><p>Margin of the end checkbox item</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -277,199 +277,199 @@ for more info on forms and inputs.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$checkbox-md-border-bottom-width</code></td>
-        
+
           <td><code>1px</code></td>
-        
+
         <td><p>Border bottom width of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-border-bottom-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Border bottom style of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-border-bottom-color</code></td>
-        
+
           <td><code>$list-md-border-color</code></td>
-        
+
         <td><p>Border bottom color of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-padding</code></td>
-        
+
           <td><code>$item-md-padding-top ($item-md-padding-right / 2) $item-md-padding-bottom 0</code></td>
-        
+
         <td><p>Padding of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-margin</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-disabled-opacity</code></td>
-        
+
           <td><code>.3</code></td>
-        
+
         <td><p>Opacity of the disabled checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-background-color-off</code></td>
-        
+
           <td><code>$list-md-background-color</code></td>
-        
+
         <td><p>Background color of the checkbox icon when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-background-color-on</code></td>
-        
+
           <td><code>color($colors-md, primary)</code></td>
-        
+
         <td><p>Background color of the checkbox icon when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-size</code></td>
-        
+
           <td><code>16px</code></td>
-        
+
         <td><p>Size of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-checkmark-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Width of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-checkmark-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Style of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-checkmark-color</code></td>
-        
+
           <td><code>color-contrast($colors-md, $checkbox-md-icon-background-color-on)</code></td>
-        
+
         <td><p>Color of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-border-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border width of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-border-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Border style of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-border-radius</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border radius of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-border-color-off</code></td>
-        
+
           <td><code>darken($list-md-border-color, 40%)</code></td>
-        
+
         <td><p>Border color of the checkbox icon when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-icon-border-color-on</code></td>
-        
+
           <td><code>color($colors-md, primary)</code></td>
-        
+
         <td><p>Border color of the checkbox icon when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-transition-duration</code></td>
-        
+
           <td><code>280ms</code></td>
-        
+
         <td><p>Transition duration of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-transition-easing</code></td>
-        
+
           <td><code>cubic-bezier(.4, 0, .2, 1)</code></td>
-        
+
         <td><p>Transition easing of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-item-start-margin</code></td>
-        
+
           <td><code>$checkbox-md-item-left-margin</code></td>
-        
+
         <td><p>Margin of the start checkbox item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-md-item-end-margin</code></td>
-        
+
           <td><code>$checkbox-md-item-right-margin</code></td>
-        
+
         <td><p>Margin of the end checkbox item</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -479,181 +479,181 @@ for more info on forms and inputs.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$checkbox-wp-border-bottom-width</code></td>
-        
+
           <td><code>1px</code></td>
-        
+
         <td><p>Border bottom width of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-border-bottom-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Border bottom style of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-border-bottom-color</code></td>
-        
+
           <td><code>$list-wp-border-color</code></td>
-        
+
         <td><p>Border bottom color of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-padding</code></td>
-        
+
           <td><code>$item-wp-padding-top ($item-wp-padding-right / 2) $item-wp-padding-bottom 0</code></td>
-        
+
         <td><p>Padding of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-margin</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin of the checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-disabled-opacity</code></td>
-        
+
           <td><code>.3</code></td>
-        
+
         <td><p>Opacity of the disabled checkbox</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-background-color-off</code></td>
-        
+
           <td><code>$list-wp-background-color</code></td>
-        
+
         <td><p>Background color of the checkbox icon when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-background-color-on</code></td>
-        
+
           <td><code>color($colors-wp, primary)</code></td>
-        
+
         <td><p>Background color of the checkbox icon when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-size</code></td>
-        
+
           <td><code>16px</code></td>
-        
+
         <td><p>Size of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-checkmark-width</code></td>
-        
+
           <td><code>1px</code></td>
-        
+
         <td><p>Width of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-checkmark-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Style of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-checkmark-color</code></td>
-        
+
           <td><code>color-contrast($colors-wp, $checkbox-wp-icon-background-color-on)</code></td>
-        
+
         <td><p>Color of the checkbox icon checkmark</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-border-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border width of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-border-style</code></td>
-        
+
           <td><code>solid</code></td>
-        
+
         <td><p>Border style of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-border-radius</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Border radius of the checkbox icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-border-color-off</code></td>
-        
+
           <td><code>#333</code></td>
-        
+
         <td><p>Border color of the checkbox icon when off</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-icon-border-color-on</code></td>
-        
+
           <td><code>color($colors-wp, primary)</code></td>
-        
+
         <td><p>Border color of the checkbox icon when on</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-item-start-margin</code></td>
-        
+
           <td><code>$checkbox-wp-item-left-margin</code></td>
-        
+
         <td><p>Margin of the start checkbox item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$checkbox-wp-item-end-margin</code></td>
-        
+
           <td><code>$checkbox-wp-item-right-margin</code></td>
-        
+
         <td><p>Margin of the end checkbox item</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

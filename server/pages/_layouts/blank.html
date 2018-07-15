@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block header %}
+      {% include '../_includes/head.prod.html' %}
+      {% block header_includes %}{% endblock %}
+    {% endblock %}
+  </head>
+  <body id="page-{{id}}"
+        class="page-{{id}}
+               {% if id == 'homer' %}has-snap{% endif %}
+               {% if header_style %}{{header_style}}{% endif %}"
+        ng-app="IonicSite"
+        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
+        {% block body_attributes %}data-spy="scroll" data-offset="100"{% endblock %}>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0"
+              width="0" ></iframe>
+    </noscript>
+		{% block page %}
+			{% block main %}{% endblock %}
+		{% endblock %}
+
+	  {% block modals %}{% endblock %}
+
+	  {% block footer %}
+	    {% include '../_includes/scripts.prod.html' %}
+	    {% block scripts %}{% endblock %}
+	  {% endblock %}
+
+  </body>
+</html>

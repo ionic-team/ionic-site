@@ -1,0 +1,176 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'products-package' %}
+{% set header_style = 'transparent products-page' %}
+
+{% block body_attributes %}
+
+{% endblock %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/pro">Pro</a></li>
+      <li>Package</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/pro/package" class="active">Features</a></li>
+      <li><a href="/docs/pro/package/">Docs</a></li>
+      <li><a href="/pro/pricing">Pricing</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="top">
+  <div class="container">
+    <hgroup>
+      <h1>Native builds, in the cloud.</h1>
+      <p>
+        Create native apps in the cloud with <strong>Ionic Package</strong> to
+        get from code to app store with no platform dependencies or complicated
+        build steps.
+      </p>
+      <div class="btns">
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+           class="btn pink" id="btn-products-package-activate" target="_blank">
+          Activate Package</a>
+        <a class="btn white" id="btn-products-package-get-in-touch"
+           href="/sales">Get in touch</a>
+      </div>
+    </hgroup>
+    <div class="graphics">
+      <div class="cloud">
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+      </div>
+      <div class="cloud">
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+      </div>
+       <div class="cloud">
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+      </div>
+       <div class="cloud">
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+        <div class="build"></div>
+      </div>
+    </div>
+  </div>
+  <section class="features">
+    <div class="container">
+      <ul class="items">
+        <li class="ready">
+          <strong>Ready for the app stores</strong>
+          <p>
+            Turn your web assets into native SDKs with everything you need to
+            submit to the app stores or distributed in an internal MDM solution.
+          </p>
+        </li>
+        <li class="zero">
+          <strong>Zero platform dependencies</strong>
+          <p>
+            Publish real native apps across multiple mobile platforms all from a
+            single codebase. It’s all done in the Ionic cloud.
+          </p>
+        </li>
+        <li class="peace">
+          <strong>Peace of mind</strong>
+          <p>
+            Focus on your app: Leave the configuration, compilation, and
+            packaging to us, so you can focus building better apps, faster.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<main>
+  <section class="turn center" ng-controller="productsPackageCtrl">
+    <div class="container">
+      <hgroup>
+        <h2>Turn web assets into native SDKs.</h2>
+        <p>
+          Upload your Ionic project files and turn web assets into native SDKs
+          for iOS and Android.  Ionic Package configures, compiles, and packages
+          it all in the cloud, and gives you everything you need to submit to
+          the app stores.
+        </p>
+      </hgroup>
+      <div class="graphics">
+        <div class="html"></div>
+        <div class="circles">
+          <div class="circle" ng-class="circles[0]"></div>
+          <div class="circle" ng-class="circles[1]"></div>
+          <div class="circle" ng-class="circles[2]"></div>
+          <div class="circle" ng-class="circles[3]"></div>
+          <div class="circle" ng-class="circles[4]"></div>
+          <div class="circle" ng-class="circles[5]"></div>
+          <div class="circle" ng-class="circles[6]"></div>
+          <div class="circle" ng-class="circles[7]"></div>
+          <div class="circle" ng-class="circles[8]"></div>
+          <div class="circle" ng-class="circles[9]"></div>
+          <div class="box" ng-class="packageBoxStyle"></div>
+        </div>
+        <div class="app"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="leave left">
+    <div class="container">
+      <hgroup>
+        <h2>Leave it all to us.</h2>
+        <p>
+          We’ll make sure your native binaries meet the latest app store
+          requirements and platform-specific dependencies.
+        </p><p>
+          With <strong>Ionic Package</strong>, you’ll know the build process is
+          done right, so you can rest easy and focus on what matters - building
+          your app and shipping code.
+        </p>
+      </hgroup>
+    </div>
+  </section>
+
+  <section class="bar get-started">
+    <div class="container">
+      <hgroup>
+        <h2>Ready to start building native apps?</h2>
+        <p class="lg">
+          Get in touch to learn more, or create an <strong>Ionic Pro</strong>
+          account.
+        </p>
+      </hgroup>
+      <div class="btns">
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+           class="btn white" id="btn-products-package-create-account">
+          Create an account</a>
+        <a id="btn-products-package-see-pricing" class="btn pink"
+          href="/pro/pricing">See Pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block modals %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// enable sticky nav
+stickyNav.init();
+</script>
+{% endblock %}

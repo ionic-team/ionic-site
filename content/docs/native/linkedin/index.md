@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>A Cordova plugin that lets you use LinkedIn Native SDKs for Android and iOS.</p>
 <p>Please see the <a href="https://github.com/zyramedia/cordova-plugin-linkedin#installation">plugin&#39;s repo</a> for detailed installation steps.</p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/linkedin
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/linkedin
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { LinkedIn } from &#39;@ionic-native/linkedin&#39;;
 
 constructor(private linkedin: LinkedIn) { }
@@ -68,7 +69,7 @@ this.linkedin.hasActiveSession().then((active) =&gt; console.log(&#39;has active
 // login
 const scopes = [&#39;r_basicprofile&#39;, &#39;r_emailaddress&#39;, &#39;rw_company_admin&#39;, &#39;w_share&#39;];
 this.linkedin.login(scopes, true)
-  .then(() =&gt; console.log(&#39;Logged in!&#39;)
+  .then(() =&gt; console.log(&#39;Logged in!&#39;))
   .catch(e =&gt; console.log(&#39;Error logging in&#39;, e));
 
 
@@ -97,7 +98,7 @@ this.linkedin.postRequest(&#39;~/shares&#39;, body)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="login" href="#login"></a><code>login(scopes,&nbsp;promptToInstall)</code></h3>
 
 

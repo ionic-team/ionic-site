@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,23 +11,19 @@ doc: "Web Intent"
 docType: "class"
 ---
 
-<h1 class="api-title">Web Intent<span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Web Intent</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L16">
   Improve this doc
 </a>
 
 
 
 
-<p class="beta-notice">
-  This plugin is still in beta stage and may not work as expected. Please
-  submit any issues to the <a target="_blank"
-  href="https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent/issues">plugin repo</a>.
-</p>
 
 
 
+<p>This Plugin provides a general purpose shim layer for the Android intent mechanism, exposing various ways to handle sending and receiving intents.</p>
 
 
 <p>Repo:
@@ -37,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
@@ -49,7 +45,7 @@ $ npm install --save @ionic-native/web-intent
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -59,7 +55,7 @@ $ npm install --save @ionic-native/web-intent
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>For usage information please refer to the plugin&#39;s Github repo.</p>
 <pre><code class="lang-typescript">import { WebIntent } from &#39;@ionic-native/web-intent&#39;;
 
@@ -83,7 +79,7 @@ this.webIntent.startActivity(options).then(onSuccess, onError);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ACTION_SEND" href="#ACTION_SEND"></a><code>ACTION_SEND</code></h3>
 
 
@@ -161,11 +157,10 @@ Launches an Android intent
     <td>
       options</td>
     <td>
-      <code>Object</code>
+      <code>IntentOptions</code>
     </td>
     <td>
-      <p>{ action: any, url: string, type?: string }</p>
-</td>
+      </td>
   </tr>
   </tbody>
 </table>
@@ -190,11 +185,10 @@ Starts a new activity and return the result to the application
     <td>
       options</td>
     <td>
-      <code>Object</code>
+      <code>IntentOptions</code>
     </td>
     <td>
-      <p>{ action: any, url: string, type?: string }</p>
-</td>
+      </td>
   </tr>
   </tbody>
 </table>
@@ -267,12 +261,12 @@ Gets the Uri the app was invoked with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onNewIntent" href="#onNewIntent"></a><code>onNewIntent()</code></h3>
+</div><h3><a class="anchor" name="onIntent" href="#onIntent"></a><code>onIntent()</code></h3>
 
 
 
 
-
+Returns the content of the intent used whenever the application activity is launched
 
 
 <div class="return-value" markdown="1">
@@ -295,11 +289,38 @@ Sends a custom intent passing optional extras
     <td>
       options</td>
     <td>
-      <code>Object</code>
+      <code>IntentOptions</code>
     </td>
     <td>
-      <p>{ action: string, extras?: { option: boolean } }</p>
-</td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="startService" href="#startService"></a><code>startService(options)</code></h3>
+
+
+Request that a given application service be started
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>IntentOptions</code>
+    </td>
+    <td>
+      </td>
   </tr>
   </tbody>
 </table>
@@ -334,30 +355,15 @@ Registers a broadcast receiver for the specified filters
   </tbody>
 </table>
 
-<h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unregisterBroadcastReceiver" href="#unregisterBroadcastReceiver"></a><code>unregisterBroadcastReceiver()</code></h3>
 
 
 
 
 Unregisters a broadcast receiver
-
-
-
-<h3><a class="anchor" name="onIntent" href="#onIntent"></a><code>onIntent()</code></h3>
-
-
-
-
-Returns the content of the intent used whenever the application activity is launched
-
-
-
-<h3><a class="anchor" name="onActivityResult" href="#onActivityResult"></a><code>onActivityResult()</code></h3>
-
-
-
-
-
 
 
 
@@ -370,7 +376,143 @@ Returns the content of the intent used whenever the application activity is laun
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="sendResult" href="#sendResult"></a><code>sendResult()</code></h3>
+
+
+Send a result back to the Intent that started this Activity.
+The data can be passed using 'extras'.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="IntentOptions" href="#IntentOptions"></a>IntentOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      requestCode
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      package
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      extras
+    </td>
+    <td>
+      <code>object</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      action
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      component
+    </td>
+    <td>
+      <code>{
+    package: string;
+    class: string;
+  }</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      flags
+    </td>
+    <td>
+      <code>number[]</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

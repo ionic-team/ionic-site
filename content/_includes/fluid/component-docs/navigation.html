@@ -15,16 +15,23 @@ Like native apps, URLs are not required for navigation in Ionic.  Instead, pages
 There are several ways to navigate throughout an Ionic app:
 
 <h3 id="basic_navigation">Basic Navigation</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/navigation/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/navigation-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/navigation/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 Navigation is handled through the [`<ion-nav>`](../api/components/nav/Nav/) component, which works as a simple stack that new pages are pushed onto and popped off of, corresponding to moving forward and backward in history.
 
 We start with a root page that loads the Nav component:
 
 ```typescript
-import {StartPage} from 'start'
+import { StartPage } from 'start'
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
@@ -50,8 +57,9 @@ Note that Page components does not need a selector. Ionic adds these automatical
   <ion-content>Hello World</ion-content>`
 })
 export class StartPage {
-  constructor(public navCtrl: NavController) {
-  }
+  
+  constructor(public navCtrl: NavController) { }
+  
 }
 ```
 
@@ -73,7 +81,8 @@ To navigate from one page to another simply push or pop a new page onto the stac
   </ion-content>`
 })
 export class StartPage {
-  constructor(public navCtrl: NavController) {}
+  
+  constructor(public navCtrl: NavController) { }
 
   goToOtherPage() {
     //push another page onto the history stack
@@ -92,7 +101,7 @@ export class StartPage {
 
   <ion-content>I'm the other page!</ion-content>`
 })
-class OtherPage {}
+class OtherPage { }
 ```
 
 If your page has an [`<ion-navbar>`](../api/components/navbar/NavBar/), a back button will automatically be added to it if it is not a root page, and the title of the Nav Bar will be updated.
@@ -109,7 +118,8 @@ Alternatively, if you want to go back, but don't have a NavBar, you can pop the 
   </ion-content>`
 })
 class OtherPage {
-  constructor(public navCtrl: NavController) {}
+  
+  constructor(public navCtrl: NavController) { }
 
   goBack() {
     this.navCtrl.pop();
@@ -160,7 +170,7 @@ By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to get
   template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
-  @ViewChild('myNav') nav
+  @ViewChild('myNav') nav;
   rootPage = TabsPage;
 
   // Wait for the components in MyApp's template to be initialized

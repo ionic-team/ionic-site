@@ -51,13 +51,17 @@ option with a simple <code>get</code> method.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">export class MyClass{
- constructor(public navParams: NavParams){
+<pre><code class="lang-ts">import { NavParams } from &#39;ionic-angular&#39;;
+
+export class MyClass{
+
+ constructor(navParams: NavParams){
    // userParams is an object we have in our nav-parameters
-   this.navParams.get(&#39;userParams&#39;);
+   navParams.get(&#39;userParams&#39;);
  }
+
 }
 </code></pre>
 
@@ -70,15 +74,16 @@ option with a simple <code>get</code> method.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="data"></div>
 
 <h3>
-<a class="anchor" name="data" href="#data"></a>
+<a class="anchor" name="data" href="#data">
 <code>data</code>
   
 
+</a>
 </h3>
 
 
@@ -94,15 +99,18 @@ option with a simple <code>get</code> method.</p>
 <div id="get"></div>
 
 <h3>
-<a class="anchor" name="get" href="#get"></a>
+<a class="anchor" name="get" href="#get">
 <code>get(param)</code>
   
 
+</a>
 </h3>
 
 Get the value of a nav-parameter for the current view
 
 ```ts
+import { NavParams } from 'ionic-angular';
+
 export class MyClass{
  constructor(public navParams: NavParams){
    // userParams is an object we have in our nav-parameters
@@ -156,7 +164,7 @@ export class MyClass{
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#navigation">Navigation Component Docs</a>,
 <a href="../NavController/">NavController API Docs</a>,

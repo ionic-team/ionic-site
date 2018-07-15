@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This is a plugin that allows your Ionic app to use Intercom for iOS and/or Intercom for Android.
 Follow the offical documentation to setup this plugin correctly: <a href="https://developers.intercom.com/docs/cordova-phonegap-configuration">https://developers.intercom.com/docs/cordova-phonegap-configuration</a></p>
 
@@ -33,7 +34,7 @@ Follow the offical documentation to setup this plugin correctly: <a href="https:
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-intercom
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/intercom
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/intercom
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Intercom } from &#39;@ionic-native/intercom&#39;;
 
 
@@ -75,7 +76,7 @@ this.intercom.registerForPush();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="registerIdentifiedUser" href="#registerIdentifiedUser"></a><code>registerIdentifiedUser(options)</code></h3>
 
 

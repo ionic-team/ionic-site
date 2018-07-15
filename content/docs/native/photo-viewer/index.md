@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Photo Viewer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L8">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com-sarriaroman-photoviewer
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/photo-viewer
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/photo-viewer
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { PhotoViewer } from &#39;@ionic-native/photo-viewer&#39;;
 
 constructor(private photoViewer: PhotoViewer) { }
@@ -73,7 +74,7 @@ this.photoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My im
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show(url,&nbsp;title,&nbsp;options)</code></h3>
 
 
@@ -114,7 +115,7 @@ Shows an image in full screen
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>PhotoViewerOptions</code>
     </td>
     <td>
       </td>

@@ -10,19 +10,26 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 _For more information, Check out the [API docs](../api/components/loading/LoadingController)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/loading/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/loading-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/loading/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```typescript
 import { LoadingController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public loadingCtrl: LoadingController) {
-  }
+
+  constructor(public loadingCtrl: LoadingController) { }
 
   presentLoading() {
-    let loader = this.loadingCtrl.create({
+    const loader = this.loadingCtrl.create({
       content: "Please wait...",
       duration: 3000
     });

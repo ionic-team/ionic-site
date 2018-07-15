@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin provides functions for working with iBeacons.</p>
 <p> The plugin&#39;s API closely mimics the one exposed through the <a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html">CLLocationManager</a> introduced in iOS 7.</p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ibeacon
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/ibeacon
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/ibeacon
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { IBeacon } from &#39;@ionic-native/ibeacon&#39;;
 
 constructor(private ibeacon: IBeacon) { }
@@ -72,12 +73,12 @@ let delegate = this.ibeacon.Delegate();
 delegate.didRangeBeaconsInRegion()
   .subscribe(
     data =&gt; console.log(&#39;didRangeBeaconsInRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didStartMonitoringForRegion()
   .subscribe(
     data =&gt; console.log(&#39;didStartMonitoringForRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didEnterRegion()
   .subscribe(
@@ -102,7 +103,7 @@ this.ibeacon.startMonitoringForRegion(beaconRegion)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="Delegate" href="#Delegate"></a><code>Delegate()</code></h3>
 
 

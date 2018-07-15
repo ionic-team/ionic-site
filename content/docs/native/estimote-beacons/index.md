@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Estimote Beacons</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/estimote-beacons/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/estimote-beacons/index.ts#L14">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-estimote
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/estimote-beacons
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/estimote-beacons
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { EstimoteBeacons } from &#39;@ionic-native/estimote-beacons&#39;;
 
 constructor(private eb: EstimoteBeacons) { }
@@ -73,7 +74,7 @@ this.eb.enableAnalytics(true);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ProximityUnknown" href="#ProximityUnknown"></a><code>ProximityUnknown</code></h3>
 
 Proximity value
@@ -479,7 +480,7 @@ Stop ranging beacons. Available on iOS and Android.
 
 
 Start ranging secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>startRangingBeaconsInRegion</code></a>.
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.
@@ -492,7 +493,7 @@ To use secure beacons set the App ID and App Token using
 
 
 Stop ranging secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>stopRangingBeaconsInRegion</code></a>.
 
 
@@ -537,7 +538,7 @@ Start monitoring beacons. Available on iOS and Android.
 are inside a region when the user turns display on, see
 <a href="<a">href="https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS">https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS</a> documentation</a>
 for further details (iOS only).<strong class="tag">Optional</strong></p>
-<p><em>(default: false)</em></p></td>
+</td>
   </tr>
   </tbody>
 </table>
@@ -581,7 +582,7 @@ Stop monitoring beacons. Available on iOS and Android.
 
 
 Start monitoring secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 EstimoteBeacons.startMonitoringForRegion.
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.
@@ -624,7 +625,7 @@ To use secure beacons set the App ID and App Token using
 
 
 Stop monitoring secure beacons. Available on iOS.
-This function has the same parameters/behaviour as
+This function has the same parameters/behavior as
 <a href="undefined"><code>stopMonitoringForRegion</code></a>.
 <table class="table param-table" style="margin:0;">
   <thead>

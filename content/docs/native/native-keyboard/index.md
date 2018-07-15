@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -11,7 +11,7 @@ doc: "Native Keyboard"
 docType: "class"
 ---
 
-<h1 class="api-title">Native Keyboard</h1>
+<h1 class="api-title">Native Keyboard<span class="paid" title="paid">Paid</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/native-keyboard/index.ts#L171">
   Improve this doc
@@ -21,9 +21,14 @@ docType: "class"
 
 
 
+<p class="paid-notice">
+  This plugin might require a paid license, or might take a share of your app's earnings.
+  Check the <a target="_blank" rel="nofollow" href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard">plugin's repo</a> for more information.
+</p>
+
+
 
 <p>A cross platform WhatsApp / Messenger / Slack -style keyboard even. For your Cordova app.</p>
-<p>IMPORTANT NOTICE: this plugin is paid, please read more about this at the <a href="https://github.com/EddyVerbruggen/cordova-plugin-native-keyboard#i-like-it-hook-me-up">plugin&#39;s repo</a>.</p>
 
 
 <p>Repo:
@@ -33,7 +38,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-native-keyboard
@@ -45,7 +50,7 @@ $ npm install --save @ionic-native/native-keyboard
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +60,7 @@ $ npm install --save @ionic-native/native-keyboard
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code>import { NativeKeyboard } from &#39;@ionic-native/native-keyboard&#39;;
 
 
@@ -71,7 +76,7 @@ constructor(private nativeKeyboard: NativeKeyboard) { }
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="showMessenger" href="#showMessenger"></a><code>showMessenger(options)</code></h3>
 
 

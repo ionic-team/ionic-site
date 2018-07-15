@@ -9,20 +9,27 @@ Modals slide in off screen to display a temporary UI, often used for login or si
 _For more information, Check out the [API docs](../api/components/modal/ModalController)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/modals/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/modal-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/modals/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```typescript
 import { ModalController } from 'ionic-angular';
 import { ModalPage } from './modal-page';
 
 export class MyPage {
-  constructor(public modalCtrl: ModalController) {
-  }
+
+  constructor(public modalCtrl: ModalController) { }
 
   presentModal() {
-    let modal = this.modalCtrl.create(ModalPage);
+    const modal = this.modalCtrl.create(ModalPage);
     modal.present();
   }
 }

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "Nav"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navigation/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/nav/nav.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/nav/nav.ts#L14">
 Improve this doc
 </a>
 
@@ -53,7 +53,7 @@ take a look at the <a href="../../../navigation/NavController/">NavController AP
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>You must set a root page to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
@@ -80,15 +80,56 @@ class MyApp {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
+
+<div id="getSecondaryIdentifier"></div>
+
+<h3>
+<a class="anchor" name="getSecondaryIdentifier" href="#getSecondaryIdentifier">
+<code>getSecondaryIdentifier()</code>
+
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getType"></div>
+
+<h3>
+<a class="anchor" name="getType" href="#getType">
+<code>getType()</code>
+
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<a class="anchor" name="goToRoot" href="#goToRoot">
 <code>goToRoot()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -104,10 +145,11 @@ class MyApp {
 <div id="initPane"></div>
 
 <h3>
-<a class="anchor" name="initPane" href="#initPane"></a>
+<a class="anchor" name="initPane" href="#initPane">
 <code>initPane()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -123,10 +165,11 @@ class MyApp {
 <div id="ngAfterViewInit"></div>
 
 <h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit">
 <code>ngAfterViewInit()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -142,10 +185,11 @@ class MyApp {
 <div id="paneChanged"></div>
 
 <h3>
-<a class="anchor" name="paneChanged" href="#paneChanged"></a>
+<a class="anchor" name="paneChanged" href="#paneChanged">
 <code>paneChanged()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -158,7 +202,7 @@ class MyApp {
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -168,21 +212,28 @@ class MyApp {
     </tr>
   </thead>
   <tbody>
-    
+
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> a unique name for the nav element</p>
+</td>
+    </tr>
+
     <tr>
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> The Page component to load as the root page within this nav.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>rootParams</td>
       <td><code>object</code></td>
       <td><p> Any nav-params to pass to the root page of this nav.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -191,7 +242,7 @@ class MyApp {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#navigation">Navigation Component Docs</a><!-- end content block -->
 

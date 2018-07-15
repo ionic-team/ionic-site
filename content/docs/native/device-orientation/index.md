@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Device Orientation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L36">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-device-orientation
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/device-orientation
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/device-orientation
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">// DeviceOrientationCompassHeading is an interface for compass
 import { DeviceOrientation, DeviceOrientationCompassHeading } from &#39;@ionic-native/device-orientation&#39;;
 
@@ -84,7 +85,7 @@ subscription.unsubscribe();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getCurrentHeading" href="#getCurrentHeading"></a><code>getCurrentHeading()</code></h3>
 
 
@@ -118,7 +119,7 @@ Stop the watch by unsubscribing from the observable
       <code>DeviceOrientationCompassOptions</code>
     </td>
     <td>
-      <p>Options for compass. Frequency and Filter. Optional</p>
+      <p>Options for compass. Frequency and Filter. Optional<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -236,7 +237,7 @@ Stop the watch by unsubscribing from the observable
       timestamp
     </td>
     <td>
-      <code>any</code>
+      <code>number</code>
     </td>
     <td>
       <p>The time at which this heading was determined. (DOMTimeStamp)</p>

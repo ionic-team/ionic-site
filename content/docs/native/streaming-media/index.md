@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Streaming Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L46">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-streaming-media
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/streaming-media
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/streaming-media
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { StreamingMedia, StreamingVideoOptions } from &#39;@ionic-native/streaming-media&#39;;
 
 constructor(private streamingMedia: StreamingMedia) { }
@@ -62,7 +63,9 @@ constructor(private streamingMedia: StreamingMedia) { }
 let options: StreamingVideoOptions = {
   successCallback: () =&gt; { console.log(&#39;Video played&#39;) },
   errorCallback: (e) =&gt; { console.log(&#39;Error streaming&#39;) },
-  orientation: &#39;landscape&#39;
+  orientation: &#39;landscape&#39;,
+  shouldAutoClose: true,
+  controls: false
 };
 
 this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
@@ -75,7 +78,7 @@ this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="playVideo" href="#playVideo"></a><code>playVideo(videoUrl,&nbsp;options)</code></h3>
 
 
@@ -213,7 +216,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after success playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -226,7 +230,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after error playing video.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -239,7 +244,36 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Force one orientation for playing video.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      shouldAutoClose
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Should the video close after it&#39;s over. Defaults to true.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      controls
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Should the video have controls. Defaults to true. Android only.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -268,7 +302,8 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background color for audio player.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -281,7 +316,8 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background image for audio player.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -294,7 +330,12 @@ Resumes streaming audio
       <code>string</code>
     </td>
     <td>
-      
+      <p>Background image scale for audio player.
+Valid values are: 
+fit
+stretch
+aspectStretch.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -307,7 +348,23 @@ Resumes streaming audio
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Start audio player in full screen. iOS only.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      keepAwake
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Keeps the screen lit and stops it from locking 
+while audio is playing. Android only.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -320,7 +377,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after success playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -333,7 +391,8 @@ Resumes streaming audio
       <code>Function</code>
     </td>
     <td>
-      
+      <p>Executes after error playing audio.</p>
+
       <em>(optional)</em>
     </td>
   </tr>

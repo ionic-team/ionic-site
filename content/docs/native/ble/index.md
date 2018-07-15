@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">BLE</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L7">
   Improve this doc
 </a>
+
 
 
 
@@ -42,7 +43,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ble-central
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/ble
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -64,7 +65,7 @@ $ npm install --save @ionic-native/ble
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { BLE } from &#39;@ionic-native/ble&#39;;
 
 constructor(private ble: BLE) { }
@@ -130,7 +131,7 @@ constructor(private ble: BLE) { }
 }
 </code></pre>
 <h2 id="advertising-data">Advertising Data</h2>
-<p>Bluetooth advertising data is returned in when scanning for devices. The format format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
+<p>Bluetooth advertising data is returned in when scanning for devices. The format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
 <p>The advertising information for both Android and iOS appears to be a combination of advertising data and scan response data.</p>
 <h3 id="android">Android</h3>
 <pre><code class="lang-typescript"> {
@@ -188,43 +189,11 @@ function bytesToString(buffer) {
 
 
 
-<h2>Static Members</h2>
-<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
-
-
-Read the RSSI value on the device connection.
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      deviceId</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>UUID or MAC address of the peripheral</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
 
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="scan" href="#scan"></a><code>scan(services,&nbsp;seconds)</code></h3>
 
 
@@ -330,10 +299,11 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
     <td>
       options</td>
     <td>
-      <code>any</code>
+      <code>BLEScanOptions</code>
     </td>
     <td>
-      </td>
+      <p>Options</p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -350,8 +320,7 @@ Stop a scan started by `startScan`.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  returns a Promise.
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(deviceId)</code></h3>
 
 
@@ -382,8 +351,147 @@ Connect to a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of connect/disconnect.
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of connect/disconnect.
+</div><h3><a class="anchor" name="autoConnect" href="#autoConnect"></a><code>autoConnect(deviceId,&nbsp;connectCallback,&nbsp;disconnectCallback)</code></h3>
 
+
+
+
+Establish an automatic connection to a peripheral. The phone will automatically connect to the Bluetooth peripheral
+whenever it is in range. The autoConnect function uses callbacks instead of observables because connect and
+disconnect can each be called many times as a devices connects and disconnects.
+
+On Android you can pass a MAC address directly to autoConnect. With iOS, you need to get a device id by scanning,
+calling ble.peripheralsWithIdentifiers, or calling ble.connectedPeripheralsWithServices.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      connectCallback</td>
+    <td>
+      <code>function</code>
+    </td>
+    <td>
+      <p>function that is called with peripheral data when the devices connects</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      disconnectCallback</td>
+    <td>
+      <code>function</code>
+    </td>
+    <td>
+      <p>function that is called with peripheral data when the devices disconnects</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="requestMtu" href="#requestMtu"></a><code>requestMtu(deviceId,&nbsp;mtuSize)</code></h3>
+
+
+Request MTU size.
+May be used to fix the Error 14 "Unlikely" on write requests with more than 20 bytes.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      mtuSize</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The new MTU size. (23 - 517, default is usually 23. Max recommended: 512)</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise.
+</div><h3><a class="anchor" name="refreshDeviceCache" href="#refreshDeviceCache"></a><code>refreshDeviceCache(deviceId,&nbsp;timeoutMillis)</code></h3>
+
+
+Refresh Device Cache
+This method may fix a issue of old cached services and characteristics.
+NOTE Since this uses an undocumented API it's not guaranteed to work.
+If you choose a too low delay time (timeoutMillis) the method could fail.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeoutMillis</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Delay in milliseconds after refresh before discovering services.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise.
 </div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code></h3>
 
 
@@ -412,8 +520,7 @@ Disconnect from a peripheral.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="read" href="#read"></a><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -465,8 +572,7 @@ Read the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="write" href="#write"></a><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -528,8 +634,7 @@ Write the value of a characteristic.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="writeWithoutResponse" href="#writeWithoutResponse"></a><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
@@ -592,8 +697,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
-
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
 </div><h3><a class="anchor" name="startNotification" href="#startNotification"></a><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -647,8 +751,7 @@ Register to be notified when the value of a characteristic changes.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns an Observable that notifies of characteristic changes.
-
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of characteristic changes.
 </div><h3><a class="anchor" name="stopNotification" href="#stopNotification"></a><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
@@ -741,6 +844,28 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
+</div><h3><a class="anchor" name="startStateNotifications" href="#startStateNotifications"></a><code>startStateNotifications()</code></h3>
+
+
+
+
+Register to be notified when Bluetooth state changes on the device.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies when the Bluetooth is enabled or disabled on the device.
+</div><h3><a class="anchor" name="stopStateNotifications" href="#stopStateNotifications"></a><code>stopStateNotifications()</code></h3>
+
+
+Stop state notifications.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 
@@ -761,7 +886,144 @@ Enable Bluetooth on the device (Android only).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
+
+
+Read the RSSI value on the device connection.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      deviceId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>UUID or MAC address of the peripheral</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="connectedPeripheralsWithServices" href="#connectedPeripheralsWithServices"></a><code>connectedPeripheralsWithServices(services)</code></h3>
+
+
+Retrieves a list of the peripherals (containing any of the specified services)
+currently connected to the system. The peripheral list is sent to the success callback.
+iOS only
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      services</td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>List of services to discover</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
+</div><h3><a class="anchor" name="peripheralsWithIdentifiers" href="#peripheralsWithIdentifiers"></a><code>peripheralsWithIdentifiers(uuids)</code></h3>
+
+
+Find the connected peripherals offering the listed service UUIDs.
+iOS only
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      uuids</td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>List of peripheral UUIDs</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
+</div><h3><a class="anchor" name="bondedDevices" href="#bondedDevices"></a><code>bondedDevices()</code></h3>
+
+
+Find the bonded devices
+Android only
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with a list of peripheral objects
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="BLEScanOptions" href="#BLEScanOptions"></a>BLEScanOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      reportDuplicates
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>true if duplicate devices should be reported, false (default) if devices should only be reported once.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

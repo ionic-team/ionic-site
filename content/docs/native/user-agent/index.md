@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>The UserAgent plugin provides functions to set the HTTP  user-agent header. For more info about User-Agents, please <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">see the HTTP User-Agent docs</a>.</p>
 <p>Requires Cordova plugin: <code>cordova-useragent</code>. For more info, please see the <a href="https://github.com/LouisT/cordova-useragent">User-Agent plugin docs</a>.</p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-useragent
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/user-agent
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/user-agent
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { UserAgent } from &#39;@ionic-native/user-agent&#39;;
 
 
@@ -84,7 +85,7 @@ this.userAgent.set(&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="set" href="#set"></a><code>set(userAgent)</code></h3>
 
 

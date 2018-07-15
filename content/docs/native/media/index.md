@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Media</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L182">
   Improve this doc
 </a>
 
@@ -22,28 +22,8 @@ docType: "class"
 
 
 
-<p>Some hints if you are using iOS and recording doesn&#39;t work:
-1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
-Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
-Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
-2.) If that&#39;s not working, too, create the file before using.
-Example:</p>
-<pre><code class="lang-typescript">import { MediaPlugin, MediaObject } from &#39;@ionic-native/media&#39;;
-import { File } from &#39;@ionic-native/file&#39;;
 
-...
-
-constructor(private media: MediaPlugin, private file: File) { }
-
-...
-
-this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(() =&gt; {
-  let file = this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;);
-  file.startRecord();
-  window.setTimeout(() =&gt; file.stopRecord(), 10000);
-});
-</code></pre>
-<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
+<p>This plugin provides the ability to record and play back audio files on a device.</p>
 
 
 <p>Repo:
@@ -53,7 +33,7 @@ this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-media
@@ -65,9 +45,9 @@ $ npm install --save @ionic-native/media
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -75,24 +55,28 @@ $ npm install --save @ionic-native/media
 
 
 
-<h2>Usage</h2>
-<pre><code class="lang-typescript">import { MediaPlugin, MediaObject } from &#39;@ionic-native/media&#39;;
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
 
 
-constructor(private media: MediaPlugin) { }
+constructor(private media: Media) { }
 
 
 ...
 
 
-// Create a MediaPlugin instance.  Expects path to file or url as argument
+// Create a Media instance.  Expects path to file or url as argument
 // We can optionally pass a second argument to track the status of the media
 
-const onStatusUpdate = (status) =&gt; console.log(status);
-const onSuccess = () =&gt; console.log(&#39;Action is successful.&#39;);
-const onError = (error) =&gt; console.error(error.message);
+const file: MediaObject = this.media.create(&#39;file.mp3&#39;);
 
-const file: MediaObject = this.media.create(&#39;path/to/file.mp3&#39;, onStatusUpdate, onSuccess, onError);
+// to listen to plugin events:
+
+file.onStatusUpdate.subscribe(status =&gt; console.log(status)); // fires when file status changes
+
+file.onSuccess.subscribe(() =&gt; console.log(&#39;Action is successful&#39;));
+
+file.onError.subscribe(error =&gt; console.log(&#39;Error!&#39;, error));
 
 // play the file
 file.play();
@@ -130,6 +114,28 @@ file.startRecord();
 
 file.stopRecord();
 </code></pre>
+<p>Some hints if you are using iOS and recording doesn&#39;t work:
+1.) Try to use a absolute file path but remove beginning &quot;file://&quot;.
+Then it looks like: <code>/var/mobile/Containers/Data/Application/AF438B8B-7724-4FBB-8E69-083463224FC4/tmp/my_file.m4a</code>
+Example: <code>this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;)</code>
+2.) If that&#39;s not working, too, create the file before using.
+Example:</p>
+<pre><code class="lang-typescript">import { Media, MediaObject } from &#39;@ionic-native/media&#39;;
+import { File } from &#39;@ionic-native/file&#39;;
+
+...
+
+constructor(private media: Media, private file: File) { }
+
+...
+
+this.file.createFile(this.file.tempDirectory, &#39;my_file.m4a&#39;, true).then(() =&gt; {
+  let file = this.media.create(this.file.tempDirectory.replace(/^file:\/\//, &#39;&#39;) + &#39;my_file.m4a&#39;);
+  file.startRecord();
+  window.setTimeout(() =&gt; file.stopRecord(), 10000);
+});
+</code></pre>
+<p>You can find the reasons here: <a href="https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906">https://github.com/ionic-team/ionic-native/issues/1452#issuecomment-299605906</a></p>
 
 
 
@@ -138,8 +144,8 @@ file.stopRecord();
 
 
 
-<h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate,&nbsp;onSuccess,&nbsp;onError)</code></h3>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(src)</code></h3>
 
 Open a media file
 <table class="table param-table" style="margin:0;">
@@ -161,39 +167,6 @@ Open a media file
       <p>A URI containing the audio content.</p>
 </td>
   </tr>
-  
-  <tr>
-    <td>
-      onStatusUpdate</td>
-    <td>
-      <code>MediaStatusUpdateCallback</code>
-    </td>
-    <td>
-      <p>A callback function to be invoked when the status of the file changes<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      onSuccess</td>
-    <td>
-      <code>Function</code>
-    </td>
-    <td>
-      <p>A callback function to be invoked after the current play, record, or stop action is completed<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      onError</td>
-    <td>
-      <code>MediaErrorCallback</code>
-    </td>
-    <td>
-      <p>A callback function is be invoked if an error occurs.<strong class="tag">Optional</strong></p>
-</td>
-  </tr>
   </tbody>
 </table>
 
@@ -207,7 +180,25 @@ Open a media file
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="onSuccess" href="#onSuccess"></a><code>onSuccess()</code></h3>
+
+An observable that notifies you on actions success
+
+
+
+<h3><a class="anchor" name="onError" href="#onError"></a><code>onError()</code></h3>
+
+An observable that notifies you when an error occurs
+
+
+
+<h3><a class="anchor" name="onStatusUpdate" href="#onStatusUpdate"></a><code>onStatusUpdate()</code></h3>
+
+An observable that notifies you when the file status changes
+
+
+
 <h3><a class="anchor" name="getCurrentAmplitude" href="#getCurrentAmplitude"></a><code>getCurrentAmplitude()</code></h3>
 
 
@@ -319,6 +310,14 @@ Set the volume for an audio file.
   </tr>
   </tbody>
 </table>
+
+<h3><a class="anchor" name="setRate" href="#setRate"></a><code>setRate()</code></h3>
+
+
+
+
+
+
 
 <h3><a class="anchor" name="startRecord" href="#startRecord"></a><code>startRecord()</code></h3>
 

@@ -76,35 +76,55 @@
     padding-top: 100px;
 
     .employee {
-      flex: 0 1 350px;
+      flex: 0 1 260px;
       padding: 0 50px 50px;
       position: relative;
       margin: 0 auto;
       text-decoration: none;
 
       .avatar {
-        background: no-repeat center top url('/img/team/team-avatars.jpg?2');
-        background-size: 250px;
-        height: 250px;
-        width: 250px;
-        transition: opacity .5s;
+        height: 160px;
+        width: 160px;
+        -webkit-clip-path: circle(80px at center);
+        clip-path: circle(80px at center);
+        transition: transform .2s ease;
+      }
+
+      &[href]:hover .avatar {
+        transform: scale(1.05, 1.05);
       }
 
       hgroup {
-        text-align: center;
-        margin-top: 18px;
+        margin-top: 12px;
 
         h4 {
           font-size: 16px;
-          margin-bottom: 0;
-          font-weight: 500;
+          margin-bottom: 8px;
+          font-weight: 600;
           color: $blackish;
         }
 
+        .twitter {
+          &::before {
+            float: right;
+            color: $blackish;
+            content: "\f2b0";
+            font-family: "Ionicons";
+            transition: .2s color ease;
+          }
+
+          &:hover::before {
+            color: $blue;
+          }
+        }
+
+
         p {
-          font-size: 14px;
-          color: $dark-grey;
-          font-weight: 400;
+          font-size: 10px;
+          color: #aaa;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .03em;
 
           &.blue {
             color: $blue;
@@ -129,16 +149,6 @@
           font-weight: 400;
           font-size: 13px;
           line-height: 22px;
-        }
-      }
-
-      &:not(.apply):hover {
-        .avatar {
-          opacity: .05;
-        }
-
-        .description {
-          opacity: 1;
         }
       }
     }

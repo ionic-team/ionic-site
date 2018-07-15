@@ -11,7 +11,7 @@ doc: "Select"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/select/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/select/select.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/select/select.ts#L15">
 Improve this doc
 </a>
 
@@ -54,14 +54,18 @@ given a <code>value</code> attribute then it will use its text as the value.</p>
 <p>If <code>ngModel</code> is bound to <code>ion-select</code>, the selected value will be based on the
 bound value of the model. Otherwise, the <code>selected</code> attribute can be used on
 <code>ion-option</code> components.</p>
-<h3 id="interfaces">Interfaces</h3>
+<h3><a class="anchor" name="interfaces" href="#interfaces">Interfaces</a></h3>
+
+
 <p>By default, the <code>ion-select</code> uses the <a href="../../alert/AlertController">AlertController API</a>
 to open up the overlay of options in an alert. The interface can be changed to use the
 <a href="../../action-sheet/ActionSheetController">ActionSheetController API</a> or
 <a href="../../popover/PopoverController">PopoverController API</a> by passing <code>action-sheet</code> or <code>popover</code>,
 respectively, to the <code>interface</code> property. Read on to the other sections for the limitations
 of the different interfaces.</p>
-<h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
+<h3><a class="anchor" name="single-value-radio-buttons" href="#single-value-radio-buttons">Single Value: Radio Buttons</a></h3>
+
+
 <p>The standard <code>ion-select</code> component allows the user to select only one
 option. When selecting only one option the alert interface presents users with
 a radio button styled list of options. The action sheet interface can only be
@@ -76,7 +80,9 @@ component&#39;s value receives the value of the selected option&#39;s value.</p>
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="multiple-value-checkboxes">Multiple Value: Checkboxes</h3>
+<h3><a class="anchor" name="multiple-value-checkboxes" href="#multiple-value-checkboxes">Multiple Value: Checkboxes</a></h3>
+
+
 <p>By adding the <code>multiple=&quot;true&quot;</code> attribute to <code>ion-select</code>, users are able
 to select multiple options. When multiple options can be selected, the alert
 overlay presents users with a checkbox styled list of options. The
@@ -96,7 +102,8 @@ a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="select-buttons">Select Buttons</h3>
+<h3><a class="anchor" name="select-buttons" href="#select-buttons">Select Buttons</a></h3>
+
 <p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. Each button&#39;s text
 can be customized using the <code>cancelText</code> and <code>okText</code> attributes:</p>
 <pre><code class="lang-html">&lt;ion-select okText=&quot;Okay&quot; cancelText=&quot;Dismiss&quot;&gt;
@@ -106,7 +113,9 @@ can be customized using the <code>cancelText</code> and <code>okText</code> attr
 <p>The <code>action-sheet</code> and <code>popover</code> interfaces do not have an <code>OK</code> button, clicking
 on any of the options will automatically close the overlay and select
 that value.</p>
-<h3 id="select-options">Select Options</h3>
+<h3><a class="anchor" name="select-options" href="#select-options">Select Options</a></h3>
+
+
 <p>Since <code>ion-select</code> uses the <code>Alert</code>, <code>Action Sheet</code> and <code>Popover</code> interfaces, options can be
 passed to these components through the <code>selectOptions</code> property. This can be used
 to pass a custom title, subtitle, css class, and more. See the
@@ -125,7 +134,9 @@ for the properties that each interface accepts.</p>
   mode: &#39;md&#39;
 };
 </code></pre>
-<h3 id="object-value-references">Object Value References</h3>
+<h3><a class="anchor" name="object-value-references" href="#object-value-references">Object Value References</a></h3>
+
+
 <p>When using objects for select values, it is possible for the identities of these objects to
 change if they are coming from a server or database, while the selected value&#39;s identity
 remains the same. For example, this can occur when an existing record with the desired object value
@@ -156,15 +167,16 @@ result in the select appearing to have no value at all, even though the original
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="close"></div>
 
 <h3>
-<a class="anchor" name="close" href="#close"></a>
+<a class="anchor" name="close" href="#close">
 <code>close()</code>
-  
 
+
+</a>
 </h3>
 
 Close the select interface.
@@ -181,10 +193,11 @@ Close the select interface.
 <div id="config"></div>
 
 <h3>
-<a class="anchor" name="config" href="#config"></a>
+<a class="anchor" name="config" href="#config">
 <code>config</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -200,10 +213,11 @@ Close the select interface.
 <div id="deepLinker"></div>
 
 <h3>
-<a class="anchor" name="deepLinker" href="#deepLinker"></a>
+<a class="anchor" name="deepLinker" href="#deepLinker">
 <code>deepLinker</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -219,10 +233,11 @@ Close the select interface.
 <div id="open"></div>
 
 <h3>
-<a class="anchor" name="open" href="#open"></a>
+<a class="anchor" name="open" href="#open">
 <code>open()</code>
-  
 
+
+</a>
 </h3>
 
 Open the select interface.
@@ -239,10 +254,11 @@ Open the select interface.
 <div id="options"></div>
 
 <h3>
-<a class="anchor" name="options" href="#options"></a>
+<a class="anchor" name="options" href="#options">
 <code>options</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -255,7 +271,7 @@ Open the select interface.
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -265,49 +281,49 @@ Open the select interface.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>compareWith</td>
       <td><code>Function</code></td>
       <td><p> The function that will be called to compare object values</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>interface</td>
       <td><code>string</code></td>
       <td><p> The interface the select should use: <code>action-sheet</code>, <code>popover</code> or <code>alert</code>. Default: <code>alert</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>multiple</td>
       <td><code>boolean</code></td>
       <td><p> If true, the element can accept multiple values.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>okText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the ok button. Default: <code>OK</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>placeholder</td>
       <td><code>string</code></td>
       <td><p> The text to display when the select is empty.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>selectOptions</td>
       <td><code>any</code></td>
@@ -317,18 +333,18 @@ See the <a href="../../alert/AlertController/#create">AlertController API docs</
 create options for each interface.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>selectedText</td>
       <td><code>string</code></td>
       <td><p> The text to display instead of the selected option&#39;s value.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -337,43 +353,43 @@ create options for each interface.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the selection was cancelled.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -383,46 +399,46 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-popover-list-margin-top</code></td>
-        
+
           <td><code>-1px</code></td>
-        
+
         <td><p>Margin top of the select popover list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-popover-list-margin-end</code></td>
-        
+
           <td><code>$select-popover-list-margin-right</code></td>
-        
+
         <td><p>Margin end of the select popover list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-popover-list-margin-bottom</code></td>
-        
+
           <td><code>-1px</code></td>
-        
+
         <td><p>Margin bottom of the select popover list</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-popover-list-margin-start</code></td>
-        
+
           <td><code>$select-popover-list-margin-left</code></td>
-        
+
         <td><p>Margin start of the select popover list</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -432,64 +448,64 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-ios-padding-top</code></td>
-        
+
           <td><code>$item-ios-padding-top</code></td>
-        
+
         <td><p>Padding top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-end</code></td>
-        
+
           <td><code>$select-ios-padding-right</code></td>
-        
+
         <td><p>Padding end of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-bottom</code></td>
-        
+
           <td><code>$item-ios-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-padding-start</code></td>
-        
+
           <td><code>$select-ios-padding-left</code></td>
-        
+
         <td><p>Padding start of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-icon-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-ios-placeholder-color</code></td>
-        
+
           <td><code>$select-ios-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -499,64 +515,64 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-md-padding-top</code></td>
-        
+
           <td><code>$item-md-padding-top</code></td>
-        
+
         <td><p>Padding top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-end</code></td>
-        
+
           <td><code>$select-md-padding-right</code></td>
-        
+
         <td><p>Padding end of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-bottom</code></td>
-        
+
           <td><code>$item-md-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-padding-start</code></td>
-        
+
           <td><code>$select-md-padding-left</code></td>
-        
+
         <td><p>Padding start of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-icon-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-md-placeholder-color</code></td>
-        
+
           <td><code>$select-md-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -566,118 +582,118 @@ create options for each interface.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$select-wp-padding-vertical</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Padding top and bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-padding-horizontal</code></td>
-        
+
           <td><code>($item-wp-padding-end / 2)</code></td>
-        
+
         <td><p>Padding start/end of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-top</code></td>
-        
+
           <td><code>$item-wp-padding-top</code></td>
-        
+
         <td><p>Margin top of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-end</code></td>
-        
+
           <td><code>$select-wp-margin-right</code></td>
-        
+
         <td><p>Margin end of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-bottom</code></td>
-        
+
           <td><code>$item-wp-padding-bottom</code></td>
-        
+
         <td><p>Margin bottom of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-margin-start</code></td>
-        
+
           <td><code>$select-wp-margin-left</code></td>
-        
+
         <td><p>Margin start of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-border-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border width of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-border-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Border color of the select</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-width</code></td>
-        
+
           <td><code>18px</code></td>
-        
+
         <td><p>Width of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-arrow-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Width of the select icon arrow</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-icon-color</code></td>
-        
+
           <td><code>$select-wp-border-color</code></td>
-        
+
         <td><p>Color of the select icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$select-wp-placeholder-color</code></td>
-        
+
           <td><code>$select-wp-icon-color</code></td>
-        
+
         <td><p>Color of the select placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">FTP</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ftp/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/ftp/index.ts#L2">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-ftp
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/ftp
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/ftp
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { FTP } from &#39;@ionic-native/ftp&#39;;
 
 
@@ -75,7 +76,7 @@ this.fTP.connect(&#39;ftp_host&#39;, &#39;ftp_user&#39;, &#39;ftp_password&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="connect" href="#connect"></a><code>connect(hostname,&nbsp;username,&nbsp;password)</code></h3>
 
 
@@ -262,6 +263,8 @@ Delete one file on the ftp server.
 </div><h3><a class="anchor" name="upload" href="#upload"></a><code>upload(localFile,&nbsp;remoteFile)</code></h3>
 
 
+
+
 Upload one local file to the ftp server.
 
 <table class="table param-table" style="margin:0;">
@@ -299,10 +302,12 @@ Upload one local file to the ftp server.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise.
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable.
                        It will be triggered many times according the file's size.
                        The arg `0`, `0.1xx`, `0.2xx` ... `1` means the upload percent. When it reach `1`, means success.
 </div><h3><a class="anchor" name="download" href="#download"></a><code>download(localFile,&nbsp;remoteFile)</code></h3>
+
+
 
 
 Download one remote file on the ftp server to local path.
@@ -342,7 +347,7 @@ Download one remote file on the ftp server to local path.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise.
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable.
                        It will be triggered many times according the file's size.
                        The arg `0`, `0.1xx`, `0.2xx` ... `1` means the upload percent. When it reach `1`, means success.
 </div><h3><a class="anchor" name="cancel" href="#cancel"></a><code>cancel()</code></h3>

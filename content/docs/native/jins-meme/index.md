@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,20 +22,21 @@ docType: "class"
 
 
 
+
 <p>Implementation of the JINS MEME SDK</p>
 
 
 <p>Repo:
-  <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova">
-    https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova
+  <a href="https://github.com/BlyncSync/cordova-plugin-jins-meme">
+    https://github.com/BlyncSync/cordova-plugin-jins-meme
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add JinsMemeSDK-Plugin-Cordova
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-jins-meme
 $ npm install --save @ionic-native/jins-meme
 </code></pre>
   </li>
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/jins-meme
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/jins-meme
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { JinsMeme } from &#39;@ionic-native/jins-meme&#39;;
 
 constructor(private jinsMeme: JinsMeme) { }
@@ -80,7 +81,7 @@ this.jinsMeme.setAppClientID(appClientId: string, clientSecret: string).then(
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="setAppClientID" href="#setAppClientID"></a><code>setAppClientID(setAppClientID,&nbsp;clientSecret)</code></h3>
 
 

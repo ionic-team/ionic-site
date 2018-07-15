@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -16,6 +16,7 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/google-analytics/index.ts#L1">
   Improve this doc
 </a>
+
 
 
 
@@ -38,7 +39,7 @@ Prerequisites:</p>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-google-analytics
@@ -50,7 +51,7 @@ $ npm install --save @ionic-native/google-analytics
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
@@ -60,7 +61,7 @@ $ npm install --save @ionic-native/google-analytics
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { GoogleAnalytics } from &#39;@ionic-native/google-analytics&#39;;
 
 constructor(private ga: GoogleAnalytics) { }
@@ -84,7 +85,7 @@ this.ga.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="startTrackerWithId" href="#startTrackerWithId"></a><code>startTrackerWithId(id,&nbsp;interval)</code></h3>
 
 
@@ -218,7 +219,7 @@ Set a anonymize Ip address
 </div><h3><a class="anchor" name="setAppVersion" href="#setAppVersion"></a><code>setAppVersion(appVersion)</code></h3>
 
 
-Sets the app version
+Set the app version
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -236,6 +237,75 @@ Sets the app version
     </td>
     <td>
       <p>App version</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getVar" href="#getVar"></a><code>getVar(key)</code></h3>
+
+
+Get a variable
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Variable</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setVar" href="#setVar"></a><code>setVar(key,&nbsp;value)</code></h3>
+
+
+Set a variable
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Variable</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      value</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Parameter</p>
 </td>
   </tr>
   </tbody>
@@ -300,7 +370,7 @@ Track custom metric
     <td>
       key</td>
     <td>
-      <code>string</code>
+      <code>number</code>
     </td>
     <td>
       </td>
@@ -775,6 +845,20 @@ Enable/disable automatic reporting of uncaught exceptions
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="dispatch" href="#dispatch"></a><code>dispatch()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
+
+
+Manually dispatch any data
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

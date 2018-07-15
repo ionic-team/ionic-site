@@ -3,7 +3,7 @@ Copyright 2013 Drifty Co.
 http://drifty.com/
 
 Ionic - an amazing HTML5 mobile app framework.
-http://ionicframework.com/
+https://ionicframework.com/
 
 By @maxlynch, @benjsperry, @adamdbradley <3
 

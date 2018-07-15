@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">WheelSelector Plugin<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L57">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/wheel-selector/index.ts#L62">
   Improve this doc
 </a>
 
@@ -28,6 +28,7 @@ docType: "class"
 
 
 
+
 <p>Native wheel selector for Cordova (Android/iOS).</p>
 
 
@@ -38,7 +39,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-wheel-selector-plugin
@@ -50,7 +51,7 @@ $ npm install --save @ionic-native/wheel-selector
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -60,7 +61,7 @@ $ npm install --save @ionic-native/wheel-selector
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code>import { WheelSelector } from &#39;@ionic-native/wheel-selector&#39;;
 
 
@@ -68,7 +69,7 @@ constructor(private selector: WheelSelector) { }
 
 ...
 
-let jsonData = {
+const jsonData = {
   numbers: [
    { description: &quot;1&quot; },
     { description: &quot;2&quot; },
@@ -97,7 +98,7 @@ let jsonData = {
 
 ...
 
-//basic number selection, index is always returned in the result
+// basic number selection, index is always returned in the result
  selectANumber() {
    this.selector.show({
      title: &quot;How Many?&quot;,
@@ -114,7 +115,7 @@ let jsonData = {
 
  ...
 
- //basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
+ // basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
  selectFruit() {
    this.selector.show({
      title: &quot;How Much?&quot;,
@@ -124,8 +125,8 @@ let jsonData = {
      positiveButtonText: &quot;Ok&quot;,
      negativeButtonText: &quot;Nope&quot;,
      defaultItems: [
-       this.jsonData.numbers[2], // &#39;3&#39;
-       this.jsonData.fruits[3] // &#39;Banana&#39;
+       {index:0, value: this.jsonData.numbers[2].description},
+       {index: 1, value: this.jsonData.fruits[3].description}
      ]
    }).then(
      result =&gt; {
@@ -137,8 +138,8 @@ let jsonData = {
 
  ...
 
- //more complex as overrides which key to display
- //then retrieve properties from original data
+ // more complex as overrides which key to display
+ // then retrieve properties from original data
  selectNamesUsingDisplayKey() {
    this.selector.show({
      title: &quot;Who?&quot;,
@@ -147,8 +148,8 @@ let jsonData = {
      ],
      displayKey: &#39;name&#39;,
      defaultItems: [
-       this.jsonData.firstNames[2],
-       this.jsonData.lastNames[3]
+       {index:0, value: this.jsonData.firstNames[2].name}, 
+       {index: 0, value: this.jsonData.lastNames[3].name}
      ]
    }).then(
      result =&gt; {
@@ -167,7 +168,7 @@ let jsonData = {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
 
 
@@ -262,10 +263,10 @@ Hide the selector
       defaultItems
     </td>
     <td>
-      <code>Array&lt;WheelSelectorItem&gt;</code>
+      <code>Array&lt;DefaultItem&gt;</code>
     </td>
     <td>
-      <p>Which items to display by default, example [&quot;2&quot;,&quot;Apple&quot;] (if items.length is 2 for instance)</p>
+      <p>Which items to display by default.</p>
 
       <em>(optional)</em>
     </td>
@@ -306,7 +307,7 @@ Default: Cancel</p>
       theme
     </td>
     <td>
-      <code>string</code>
+      <code>&#39;light&#39; | &#39;dark&#39;</code>
     </td>
     <td>
       <p>Android only - theme color, &#39;light&#39; or &#39;dark&#39;.

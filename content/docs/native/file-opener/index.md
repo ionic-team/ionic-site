@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin will open a file on your device file system with its default application.</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file-opener2
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/file-opener
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/file-opener
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { FileOpener } from &#39;@ionic-native/file-opener&#39;;
 
 constructor(private fileOpener: FileOpener) { }
@@ -63,7 +64,7 @@ constructor(private fileOpener: FileOpener) { }
 
 this.fileOpener.open(&#39;path/to/file.pdf&#39;, &#39;application/pdf&#39;)
   .then(() =&gt; console.log(&#39;File is opened&#39;))
-  .catch(e =&gt; console.log(&#39;Error openening file&#39;, e));
+  .catch(e =&gt; console.log(&#39;Error opening file&#39;, e));
 </code></pre>
 
 
@@ -73,7 +74,7 @@ this.fileOpener.open(&#39;path/to/file.pdf&#39;, &#39;application/pdf&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="open" href="#open"></a><code>open(filePath,&nbsp;fileMIMEType)</code></h3>
 
 

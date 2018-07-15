@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>A Cordova plugin that simply allows you to immediately play a video in fullscreen mode.</p>
 <p>Requires Cordova plugin: <code>com.moust.cordova.videoplayer</code>. For more info, please see the <a href="https://github.com/moust/cordova-plugin-videoplayer">VideoPlayer plugin docs</a>.</p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/moust/cordova-plugin-videoplayer.git
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/video-player
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/video-player
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { VideoPlayer } from &#39;@ionic-native/video-player&#39;;
 
 constructor(private videoPlayer: VideoPlayer) { }
@@ -77,7 +78,7 @@ this.videoPlayer.play(&#39;file:///android_asset/www/movie.mp4&#39;).then(() =&g
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="play" href="#play"></a><code>play(fileUrl,&nbsp;options)</code></h3>
 
 
@@ -168,7 +169,7 @@ For example: for a volume of 30% set the value to 0.3.</p>
       <code>number</code>
     </td>
     <td>
-      <p>There are to options for the scaling mode. SCALE_TO_FIT which is default and SCALE_TO_FIT_WITH_CROPPING.
+      <p>There are two options for the scaling mode. SCALE_TO_FIT which is default and SCALE_TO_FIT_WITH_CROPPING.
 These strings are the only ones which can be passed as option.</p>
 
       <em>(optional)</em>

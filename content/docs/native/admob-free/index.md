@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,9 @@ docType: "class"
 
 
 
+<p>A free, no ad-sharing version of Google AdMob plugin for Cordova.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-admob-free</code>. For more info, please see the <a href="https://github.com/ratson/cordova-plugin-admob-free">AdMob Free plugin docs</a>.</p>
+
 
 <p>Repo:
   <a href="https://github.com/ratson/cordova-plugin-admob-free">
@@ -31,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admob-free
@@ -43,7 +46,7 @@ $ npm install --save @ionic-native/admob-free
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -53,7 +56,7 @@ $ npm install --save @ionic-native/admob-free
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AdMobFree, AdMobFreeBannerConfig } from &#39;@ionic-native/admob-free&#39;;
 
 
@@ -86,7 +89,7 @@ this.admobFree.banner.prepare()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="events" href="#events"></a><code>events</code></h3>
 
 Convenience object to get event names
@@ -142,13 +145,13 @@ Returns the AdMobFreeRewardVideo object
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="config" href="#config"></a><code>config(options)</code></h3>
 
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -178,7 +181,7 @@ Update config.
 
 
 
-Hide the banner.
+Hide the banner
 
 
 <div class="return-value" markdown="1">
@@ -189,7 +192,7 @@ Hide the banner.
 
 
 
-Create banner.
+Create banner
 
 
 <div class="return-value" markdown="1">
@@ -200,7 +203,7 @@ Create banner.
 
 
 
-Remove the banner.
+Remove the banner
 
 
 <div class="return-value" markdown="1">
@@ -211,7 +214,7 @@ Remove the banner.
 
 
 
-Show the banner.
+Show the banner
 
 
 <div class="return-value" markdown="1">
@@ -222,13 +225,13 @@ Show the banner.
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="config" href="#config"></a><code>config(options)</code></h3>
 
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -291,13 +294,13 @@ Show the interstitial
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="config" href="#config"></a><code>config(options)</code></h3>
 
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -311,10 +314,11 @@ Update config.
     <td>
       options</td>
     <td>
-      
+      <code>AdMobFreeRewardVideoConfig</code>
     </td>
     <td>
-      </td>
+      <p>Admob reward config</p>
+</td>
   </tr>
   </tbody>
 </table>

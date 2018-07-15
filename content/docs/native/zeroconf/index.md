@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin allows you to browse and publish Zeroconf/Bonjour/mDNS services.</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-zeroconf
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/zeroconf
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/zeroconf
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Zeroconf } from &#39;@ionic-native/zeroconf&#39;;
 
 constructor(private zeroconf: Zeroconf) { }
@@ -89,7 +90,7 @@ this.zeroconf.unregister(&#39;_http._tcp.&#39;, &#39;local.&#39;, &#39;Becvert\&
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getHostname" href="#getHostname"></a><code>getHostname()</code></h3>
 
 
@@ -323,7 +324,28 @@ Closes the service browser and stops watching.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="reInit" href="#reInit"></a><code>reInit()</code></h3>
+
+
+Re-initializes the plugin to clean service & browser state.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="registerAddressFamily" href="#registerAddressFamily"></a><code>registerAddressFamily</code></h3>
+
+Family of addresses to register: ipv4, ipv6 or any.
+
+
+
+<h3><a class="anchor" name="watchAddressFamily" href="#watchAddressFamily"></a><code>watchAddressFamily</code></h3>
+
+Family of addresses to watch for: ipv4, ipv6 or any.
+
+
+
+
 
 
 

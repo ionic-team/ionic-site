@@ -9,9 +9,16 @@ A Searchbar binds to a model, and emits an input event when the model is changed
 _For more information, Check out the [API docs](../api/components/searchbar/Searchbar)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/searchbars">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/searchbar-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/searchbars">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```html
 <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -50,7 +57,7 @@ class SearchPage {
     this.initializeItems();
 
     // set val to the value of the searchbar
-    let val = ev.target.value;
+    const val = ev.target.value;
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {

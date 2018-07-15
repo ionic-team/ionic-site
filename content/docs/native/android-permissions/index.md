@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin is designed to support Android new permissions checking mechanism.</p>
 <p>You can find all permissions here: <a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a></p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-android-permissions
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/android-permissions
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/android-permissions
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code>import { AndroidPermissions } from &#39;@ionic-native/android-permissions&#39;;
 
 
@@ -64,12 +65,13 @@ constructor(private androidPermissions: AndroidPermissions) { }
 ...
 
 this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-  success =&gt; console.log(&#39;Permission granted&#39;),
-  err =&gt; this.androidPermissions.requestPermissions(this.androidPermissions.PERMISSION.CAMERA)
+  result =&gt; console.log(&#39;Has permission?&#39;,result.hasPermission),
+  err =&gt; this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
 );
 
 this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
 </code></pre>
+<p>Android 26 and above: due to Android 26&#39;s changes to permissions handling (permissions are requested at time of use rather than at runtime,) if your app does not include any functions (eg. other Ionic Native plugins) that utilize a particular permission, then <code>requestPermission()</code> and <code>requestPermissions()</code> will resolve immediately with no prompt shown to the user.  Thus, you must include a function utilizing the feature you would like to use before requesting permission for it.</p>
 
 
 
@@ -78,7 +80,7 @@ this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.C
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="PERMISSION" href="#PERMISSION"></a><code>PERMISSION</code></h3>
 
 

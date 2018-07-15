@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Barcode Scanner</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L75">
   Improve this doc
 </a>
+
 
 
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-barcodescanner
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/barcode-scanner
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/barcode-scanner
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { BarcodeScanner } from &#39;@ionic-native/barcode-scanner&#39;;
 
 constructor(private barcodeScanner: BarcodeScanner) { }
@@ -63,10 +64,10 @@ constructor(private barcodeScanner: BarcodeScanner) { }
 ...
 
 
-this.barcodeScanner.scan().then((barcodeData) =&gt; {
- // Success! Barcode data is here
-}, (err) =&gt; {
-    // An error occurred
+this.barcodeScanner.scan().then(barcodeData =&gt; {
+ console.log(&#39;Barcode data&#39;, barcodeData);
+}).catch(err =&gt; {
+    console.log(&#39;Error&#39;, err);
 });
 </code></pre>
 
@@ -77,7 +78,7 @@ this.barcodeScanner.scan().then((barcodeData) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="Encode" href="#Encode"></a><code>Encode</code></h3>
 
 
@@ -105,7 +106,7 @@ Open the barcode scanner.
       <code>BarcodeScannerOptions</code>
     </td>
     <td>
-      <p>Optional options to pass to the scanner</p>
+      <p>Optional options to pass to the scanner<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -334,7 +335,22 @@ NOTE: not well supported on Android
       format
     </td>
     <td>
-      <code>&#39;QR_CODE&#39; | &#39;DATA_MATRIX&#39; | &#39;UPC_E&#39; | &#39;UPC_A&#39; | &#39;EAN_8&#39; | &#39;EAN_13&#39; | &#39;CODE_128&#39; | &#39;CODE_39&#39; | &#39;CODE_93&#39; | &#39;CODABAR&#39; | &#39;ITF&#39; | &#39;RSS14&#39; | &#39;RSS_EXPANDED&#39; | &#39;PDF417&#39; | &#39;AZTEC&#39; | &#39;MSI&#39;</code>
+      <code>| &#39;QR_CODE&#39;
+    | &#39;DATA_MATRIX&#39;
+    | &#39;UPC_E&#39;
+    | &#39;UPC_A&#39;
+    | &#39;EAN_8&#39;
+    | &#39;EAN_13&#39;
+    | &#39;CODE_128&#39;
+    | &#39;CODE_39&#39;
+    | &#39;CODE_93&#39;
+    | &#39;CODABAR&#39;
+    | &#39;ITF&#39;
+    | &#39;RSS14&#39;
+    | &#39;RSS_EXPANDED&#39;
+    | &#39;PDF_417&#39;
+    | &#39;AZTEC&#39;
+    | &#39;MSI&#39;</code>
     </td>
     <td>
       

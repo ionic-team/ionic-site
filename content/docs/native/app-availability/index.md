@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin allows you to check if an app is installed on the user&#39;s device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
 <p>Requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-appavailability
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/app-availability
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/app-availability
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AppAvailability } from &#39;@ionic-native/app-availability&#39;;
 import { Platform } from &#39;ionic-angular&#39;;
 
@@ -73,8 +74,8 @@ if (this.platform.is(&#39;ios&#39;)) {
 
 this.appAvailability.check(app)
   .then(
-    (yes: string) =&gt; console.log(app + &#39; is available&#39;),
-    (no: string) =&gt; console.log(app + &#39; is NOT available&#39;)
+    (yes: boolean) =&gt; console.log(app + &#39; is available&#39;),
+    (no: boolean) =&gt; console.log(app + &#39; is NOT available&#39;)
   );
 </code></pre>
 
@@ -85,7 +86,7 @@ this.appAvailability.check(app)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="check" href="#check"></a><code>check(app)</code></h3>
 
 

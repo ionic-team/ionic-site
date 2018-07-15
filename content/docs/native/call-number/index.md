@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,7 +22,9 @@ docType: "class"
 
 
 
-<p>Call a number directly from your Cordova/Ionic application.</p>
+
+<p>Call a number directly from your Cordova/Ionic application.
+<strong>NOTE</strong>: The iOS Simulator (and maybe Android Simulators) do not provide access to the phone subsystem.</p>
 
 
 <p>Repo:
@@ -32,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add call-number
@@ -44,7 +46,7 @@ $ npm install --save @ionic-native/call-number
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -54,7 +56,7 @@ $ npm install --save @ionic-native/call-number
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { CallNumber } from &#39;@ionic-native/call-number&#39;;
 
 constructor(private callNumber: CallNumber) { }
@@ -63,8 +65,8 @@ constructor(private callNumber: CallNumber) { }
 
 
 this.callNumber.callNumber(&quot;18001010101&quot;, true)
-  .then(() =&gt; console.log(&#39;Launched dialer!&#39;))
-  .catch(() =&gt; console.log(&#39;Error launching dialer&#39;));
+  .then(res =&gt; console.log(&#39;Launched dialer!&#39;, res))
+  .catch(err =&gt; console.log(&#39;Error launching dialer&#39;, err));
 </code></pre>
 
 
@@ -74,7 +76,7 @@ this.callNumber.callNumber(&quot;18001010101&quot;, true)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="callNumber" href="#callNumber"></a><code>callNumber(numberToCall,&nbsp;bypassAppChooser)</code></h3>
 
 
@@ -113,6 +115,15 @@ Calls a phone number
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isCallSupported" href="#isCallSupported"></a><code>isCallSupported()</code></h3>
+
+
+Check if call feature is available
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

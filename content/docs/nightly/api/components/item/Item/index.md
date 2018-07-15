@@ -11,7 +11,7 @@ doc: "Item"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/item/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/item/item.ts#L8">
 Improve this doc
 </a>
 
@@ -53,7 +53,8 @@ be in a <a href="../../list/List">List</a> if manipulating the item via gestures
 The basic item can be written as an <code>&lt;ion-item&gt;</code> element or it can be added to any element by adding
 <code>ion-item</code> as an attribute. List headers and item dividers, although styled differently, are also items
 and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-item-divider&gt;</code>, respectively.</p>
-<h3 id="as-an-element">As an Element</h3>
+<h3><a class="anchor" name="as-an-element" href="#as-an-element">As an Element</a></h3>
+
 <p>A basic item should be written as a <code>&lt;ion-item&gt;</code> element when it is not clickable.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   Item
@@ -69,7 +70,8 @@ and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-ite
   Item Divider
 &lt;/ion-item-divider&gt;
 </code></pre>
-<h3 id="as-an-attribute">As an Attribute</h3>
+<h3><a class="anchor" name="as-an-attribute" href="#as-an-attribute">As an Attribute</a></h3>
+
 <p>The attribute <code>ion-item</code> should be added to a <code>&lt;button&gt;</code> when the item can be clicked or tapped. It
 should be added to an <code>&lt;a&gt;</code> element when the item needs to contain a <code>href</code>. It can be added as an
 attribute to any element to take on the item styling.</p>
@@ -134,19 +136,22 @@ that attribute inside of the item:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</h3>
+<h3><a class="anchor" name="checkboxes-radios-and-toggles" href="#checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</a></h3>
+
 <p><a href="../../checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-start</code> attribute.
 <a href="../../radio/RadioButton">Radios</a> and <a href="../../toggle/Toggle">Toggles</a> are positioned in the same place
 as the <code>item-end</code> attribute. All of these components can be positioned differently by adding the
 <code>item-start</code> or <code>item-end</code> attribute.</p>
-<h3 id="content-and-inputs">Content and Inputs</h3>
+<h3><a class="anchor" name="content-and-inputs" href="#content-and-inputs">Content and Inputs</a></h3>
+
 <p>A <a href="../../label/Label">Label</a> is placed inside of the item to the left of all content and inputs. The
 following components are all placed in the same position as the <code>item-content</code> attribute: <a href="../../select/Select">Select</a>,
 <a href="../../input/Input">Input</a>, <a href="../../input/TextArea">TextArea</a>, <a href="../../datetime/DateTime">DateTime</a>, and
 <a href="../../range/Range">Range</a>.</p>
 <p>Any element directly placed inside of an <code>&lt;ion-item&gt;</code> that does not have one of the previously mentioned
 attributes and isn&#39;t one of the above elements will be placed inside of a <a href="../../label/Label">Label</a>.</p>
-<h3 id="text-alignment">Text Alignment</h3>
+<h3><a class="anchor" name="text-alignment" href="#text-alignment">Text Alignment</a></h3>
+
 <p>By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
 See the <a href="../../../../theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
 be added to <code>ion-item</code> to transform the text.</p>
@@ -156,7 +161,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -207,7 +212,7 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
 <pre><code class="lang-html">&lt;ion-list&gt;
 
   &lt;!-- List header with buttons on each side --&gt;
@@ -297,28 +302,28 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -328,154 +333,154 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$item-ios-body-text-font-size</code></td>
-        
+
           <td><code>1.7rem</code></td>
-        
+
         <td><p>Font size of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-margin-top</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin top of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-margin-end</code></td>
-        
+
           <td><code>0</code></td>
-        
+
         <td><p>Margin end of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-margin-bottom</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Margin bottom of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-margin-start</code></td>
-        
+
           <td><code>$item-ios-paragraph-margin-end</code></td>
-        
+
         <td><p>Margin start of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-font-size</code></td>
-        
+
           <td><code>1.4rem</code></td>
-        
+
         <td><p>Font size of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-paragraph-text-color</code></td>
-        
+
           <td><code>#8e9093</code></td>
-        
+
         <td><p>Color of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-avatar-size</code></td>
-        
+
           <td><code>36px</code></td>
-        
+
         <td><p>Size of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-avatar-border-radius</code></td>
-        
+
           <td><code>50%</code></td>
-        
+
         <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
-        
+
           <td><code>56px</code></td>
-        
+
         <td><p>Size of the thumbnail in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-detail-push-show</code></td>
-        
+
           <td><code>true</code></td>
-        
+
         <td><p>Shows the detail arrow icon on an item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-detail-push-color</code></td>
-        
+
           <td><code>$list-ios-border-color</code></td>
-        
+
         <td><p>Color of the detail arrow icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-detail-push-svg</code></td>
-        
+
           <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 12 20&#39;&gt;&lt;path d=&#39;M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z&#39; fill=&#39;#{$item-ios-detail-push-color}&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
-        
+
         <td><p>Icon for the detail arrow</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-divider-background</code></td>
-        
+
           <td><code>#f7f7f7</code></td>
-        
+
         <td><p>Background for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-divider-color</code></td>
-        
+
           <td><code>#222</code></td>
-        
+
         <td><p>Color for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-ios-sliding-content-background</code></td>
-        
+
           <td><code>$list-ios-background-color</code></td>
-        
+
         <td><p>Background for the sliding content</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -485,145 +490,145 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$item-md-body-text-font-size</code></td>
-        
+
           <td><code>1.4rem</code></td>
-        
+
         <td><p>Font size of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-body-text-line-height</code></td>
-        
+
           <td><code>1.5</code></td>
-        
+
         <td><p>line height of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-paragraph-text-color</code></td>
-        
+
           <td><code>#666</code></td>
-        
+
         <td><p>Color of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-font-size</code></td>
-        
+
           <td><code>1.6rem</code></td>
-        
+
         <td><p>Font size of the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-avatar-size</code></td>
-        
+
           <td><code>40px</code></td>
-        
+
         <td><p>Size of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-avatar-border-radius</code></td>
-        
+
           <td><code>50%</code></td>
-        
+
         <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-thumbnail-size</code></td>
-        
+
           <td><code>80px</code></td>
-        
+
         <td><p>Size of the thumbnail in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-detail-push-show</code></td>
-        
+
           <td><code>false</code></td>
-        
+
         <td><p>Shows the detail arrow icon on an item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-detail-push-color</code></td>
-        
+
           <td><code>$list-md-border-color</code></td>
-        
+
         <td><p>Color of the detail arrow icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-detail-push-svg</code></td>
-        
+
           <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 12 20&#39;&gt;&lt;path d=&#39;M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z&#39; fill=&#39;#{$item-md-detail-push-color}&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
-        
+
         <td><p>Icon for the detail arrow</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-divider-color</code></td>
-        
+
           <td><code>#858585</code></td>
-        
+
         <td><p>Color for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-divider-background</code></td>
-        
+
           <td><code>#fff</code></td>
-        
+
         <td><p>Background for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-divider-font-size</code></td>
-        
+
           <td><code>$item-md-body-text-font-size</code></td>
-        
+
         <td><p>Font size for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-divider-border-bottom</code></td>
-        
+
           <td><code>1px solid $list-md-border-color</code></td>
-        
+
         <td><p>Border bottom for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-md-sliding-content-background</code></td>
-        
+
           <td><code>$list-md-background-color</code></td>
-        
+
         <td><p>Background for the sliding content</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -633,170 +638,170 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$item-wp-body-text-font-size</code></td>
-        
+
           <td><code>1.4rem</code></td>
-        
+
         <td><p>Font size of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-body-text-line-height</code></td>
-        
+
           <td><code>1.5</code></td>
-        
+
         <td><p>line height of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-body-background-color</code></td>
-        
+
           <td><code>$list-wp-background-color</code></td>
-        
+
         <td><p>Background color of the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-body-text-color</code></td>
-        
+
           <td><code>$list-wp-text-color</code></td>
-        
+
         <td><p>Color of the item text</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-paragraph-text-color</code></td>
-        
+
           <td><code>#666</code></td>
-        
+
         <td><p>Color of the item paragraph</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-font-size</code></td>
-        
+
           <td><code>1.6rem</code></td>
-        
+
         <td><p>Font size of the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-avatar-size</code></td>
-        
+
           <td><code>40px</code></td>
-        
+
         <td><p>Size of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-avatar-border-radius</code></td>
-        
+
           <td><code>50%</code></td>
-        
+
         <td><p>Border radius of the avatar in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-thumbnail-size</code></td>
-        
+
           <td><code>80px</code></td>
-        
+
         <td><p>Size of the thumbnail in the item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-detail-push-show</code></td>
-        
+
           <td><code>false</code></td>
-        
+
         <td><p>Shows the detail arrow icon on an item</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-detail-push-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Color of the detail arrow icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-detail-push-svg</code></td>
-        
+
           <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 12 20&#39;&gt;&lt;path d=&#39;M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z&#39; fill=&#39;#{$item-wp-detail-push-color}&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
-        
+
         <td><p>Icon for the detail arrow</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-divider-color</code></td>
-        
+
           <td><code>$list-wp-text-color</code></td>
-        
+
         <td><p>Color for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-divider-background</code></td>
-        
+
           <td><code>#fff</code></td>
-        
+
         <td><p>Background for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-divider-border-bottom</code></td>
-        
+
           <td><code>1px solid $list-wp-border-color</code></td>
-        
+
         <td><p>Bodrer bottom for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-divider-font-size</code></td>
-        
+
           <td><code>2rem</code></td>
-        
+
         <td><p>Font size for the divider</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$item-wp-sliding-content-background</code></td>
-        
+
           <td><code>$list-wp-background-color</code></td>
-        
+
         <td><p>Background for the sliding content</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#lists">List Component Docs</a>,
 <a href="../../list/List">List API Docs</a>,

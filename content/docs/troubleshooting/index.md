@@ -42,7 +42,7 @@ For windows, run this from an admin command prompt.
 
 ## Adding third party libs
 
-See our resources page on [Adding Third Party Libs](/docs//resources/third-party-libs).
+See our resources page on [Adding Third Party Libs](/docs/resources/third-party-libs).
 
 
 ## Blank App
@@ -78,7 +78,7 @@ Here's an example using an attribute selector:
 
 ```typescript
 @Directive({
-  selector: '[my-dir]' // <-- [my-dir] because it's an attribute
+  selector: '[my-dir]' // <-- [my-dir] because it is an attribute
 })                     // Could be my-dir, [my-dir], .my-dir
 class MyDir {
   constructor() {
@@ -311,7 +311,7 @@ class MyDir {
 
     // Errors when directive is on regular div because there is no MyComp in the
     // component tree so there is no MyComp to inject
-    console.log('Host component's name: ' + c.name);
+    console.log('Host component\'s name: ' + c.name);
 
   }
 }
@@ -354,7 +354,7 @@ class MyDir {
   constructor( @Optional() c: MyComp) {
     // No longer errors if c is undefined
     if (c) {
-      console.log('Host component's name: ' + c.name);
+      console.log('Host component\'s name: ' + c.name);
     }
   }
 }

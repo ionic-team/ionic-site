@@ -1,6 +1,6 @@
 #search-results {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 77px;
   left: 233px;
   right: 0;
@@ -8,6 +8,7 @@
   background: rgba(white, .97);
   padding: 30px 0 30px 40px;
   justify-content: space-between;
+  align-content: flex-start;
   flex-wrap: wrap;
   opacity: 0;
   transform: translate3d(0, -50px, 0);
@@ -135,7 +136,7 @@
   @media (max-width: $screen-xs-max) {
     left: 0;
     z-index: 10000;
-    top: 110px;
+    top: 100px;
 
     &.sidebar {
       top: 127px;

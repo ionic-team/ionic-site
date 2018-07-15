@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -49,7 +49,9 @@ consist of items, headers, and footers.</p>
 <p>For performance reasons, not every record in the list is rendered at once;
 instead a small subset of records (enough to fill the viewport) are rendered
 and reused as the user scrolls.</p>
-<h3 id="the-basics">The Basics</h3>
+<h3><a class="anchor" name="the-basics" href="#the-basics">The Basics</a></h3>
+
+
 <p>The array of records should be passed to the <code>virtualScroll</code> property.
 The data given to the <code>virtualScroll</code> property must be an array. An item
 template with the <code>*virtualItem</code> property is required in the <code>virtualScroll</code>.
@@ -62,7 +64,9 @@ The <code>virtualScroll</code> and <code>*virtualItem</code> properties can be a
 
 &lt;/ion-list&gt;
 </code></pre>
-<h3 id="section-headers-and-footers">Section Headers and Footers</h3>
+<h3><a class="anchor" name="section-headers-and-footers" href="#section-headers-and-footers">Section Headers and Footers</a></h3>
+
+
 <p>Section headers and footers are optional. They can be dynamically created
 from developer-defined functions. For example, a large list of contacts
 usually has a divider for each letter in the alphabet. Developers provide
@@ -96,9 +100,11 @@ returned data.</p>
   return null;
 }
 </code></pre>
-<h3 id="approximate-widths-and-heights">Approximate Widths and Heights</h3>
+<h3><a class="anchor" name="approximate-widths-and-heights" href="#approximate-widths-and-heights">Approximate Widths and Heights</a></h3>
+
+
 <p>If the height of items in the virtual scroll are not close to the
-default size of 40px, it is extremely important to provide an value for
+default size of 40px, it is extremely important to provide a value for
 approxItemHeight height. An exact pixel-perfect size is not necessary,
 but without an estimate the virtual scroll will not render correctly.</p>
 <p>The approximate width and height of each template is used to help
@@ -108,7 +114,9 @@ of each cell comes from the app&#39;s CSS, whereas this approximation
 is only used to help calculate initial dimensions.</p>
 <p>It&#39;s also important to know that Ionic&#39;s default item sizes have
 slightly different heights between platforms, which is perfectly fine.</p>
-<h3 id="images-within-virtual-scroll">Images Within Virtual Scroll</h3>
+<h3><a class="anchor" name="images-within-virtual-scroll" href="#images-within-virtual-scroll">Images Within Virtual Scroll</a></h3>
+
+
 <p>HTTP requests, image decoding, and image rendering can cause jank while
 scrolling. In order to better control images, Ionic provides <code>&lt;ion-img&gt;</code>
 to manage HTTP requests and image rendering. While scrolling through items
@@ -137,7 +145,9 @@ images while scrolling quickly.</p>
 
 &lt;/ion-list&gt;
 </code></pre>
-<h3 id="custom-components">Custom Components</h3>
+<h3><a class="anchor" name="custom-components" href="#custom-components">Custom Components</a></h3>
+
+
 <p>If a custom component is going to be used within Virtual Scroll, it&#39;s best
 to wrap it with a good old <code>&lt;div&gt;</code> to ensure the component is rendered
 correctly. Since each custom component&#39;s implementation and internals can be
@@ -154,24 +164,32 @@ dimensions are measured correctly.</p>
 &lt;/ion-list&gt;
 </code></pre>
 <h2 id="virtual-scroll-performance-tips">Virtual Scroll Performance Tips</h2>
-<h4 id="ios-cordova-wkwebview">iOS Cordova WKWebView</h4>
+<h3><a class="anchor" name="ios-cordova-wkwebview" href="#ios-cordova-wkwebview">iOS Cordova WKWebView</a></h3>
+
+
 <p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
 <a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
 in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
 WKWebView is superior at scrolling efficiently in comparision to the older
 UIWebView.</p>
-<h4 id="lock-in-element-dimensions-and-locations">Lock in element dimensions and locations</h4>
+<h3><a class="anchor" name="lock-in-element-dimensions-and-locations" href="#lock-in-element-dimensions-and-locations">Lock in element dimensions and locations</a></h3>
+
+
 <p>In order for virtual scroll to efficiently size and locate every item, it&#39;s
 very important every element within each virtual item does not dynamically
 change its dimensions or location. The best way to ensure size and location
 does not change, it&#39;s recommended each virtual item has locked in its size
 via CSS.</p>
-<h4 id="use-ion-img-for-images">Use <code>ion-img</code> for images</h4>
+<h3><a class="anchor" name="use-ion-img-for-images" href="#use-ion-img-for-images">Use <code>ion-img</code> for images</a></h3>
+
+
 <p>When including images within Virtual Scroll, be sure to use
 <a href="../img/Img/"><code>ion-img</code></a> rather than the standard <code>&lt;img&gt;</code> HTML element.
 With <code>ion-img</code>, images are lazy loaded so only the viewable ones are
 rendered, and HTTP requests are efficiently controlled while scrolling.</p>
-<h4 id="set-approximate-widths-and-heights">Set Approximate Widths and Heights</h4>
+<h3><a class="anchor" name="set-approximate-widths-and-heights" href="#set-approximate-widths-and-heights">Set Approximate Widths and Heights</a></h3>
+
+
 <p>As mentioned above, all elements should lock in their dimensions. However,
 virtual scroll isn&#39;t aware of the dimensions until after they have been
 rendered. For the initial render, virtual scroll still needs to set
@@ -179,14 +197,18 @@ how many items should be built. With &quot;approx&quot; property inputs, such as
 <code>approxItemHeight</code>, we&#39;re able to give virtual scroll an approximate size,
 therefore allowing virtual scroll to decide how many items should be
 created.</p>
-<h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>
+<h3><a class="anchor" name="changing-dataset-should-use-virtualtrackby-" href="#changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></a></h3>
+
+
 <p>It is possible for the identities of elements in the iterator to change
 while the data does not. This can happen, for example, if the iterator
 produced from an RPC to the server, and that RPC is re-run. Even if the
 &quot;data&quot; hasn&#39;t changed, the second response will produce objects with
 different identities, and Ionic will tear down the entire DOM and rebuild
 it. This is an expensive operation and should be avoided if possible.</p>
-<h4 id="efficient-headers-and-footer-functions">Efficient headers and footer functions</h4>
+<h3><a class="anchor" name="efficient-headers-and-footer-functions" href="#efficient-headers-and-footer-functions">Efficient headers and footer functions</a></h3>
+
+
 <p>Each virtual item must stay extremely efficient, but one way to really
 kill its performance is to perform any DOM operations within section header
 and footer functions. These functions are called for every record in the
@@ -204,7 +226,7 @@ dataset, so please make sure they&#39;re performant.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -214,7 +236,7 @@ dataset, so please make sure they&#39;re performant.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>approxFooterHeight</td>
       <td><code>string</code></td>
@@ -227,7 +249,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxFooterWidth</td>
       <td><code>string</code></td>
@@ -240,7 +262,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderHeight</td>
       <td><code>string</code></td>
@@ -253,7 +275,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderWidth</td>
       <td><code>string</code></td>
@@ -266,7 +288,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
@@ -282,7 +304,7 @@ initial dimensions before the item has been rendered. Default is
 <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemWidth</td>
       <td><code>string</code></td>
@@ -296,7 +318,7 @@ initial dimensions before the item has been rendered. Default is
 <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>bufferRatio</td>
       <td><code>number</code></td>
@@ -307,10 +329,14 @@ takes <code>20</code> cells to fill up the height of the viewable area, then
 with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
-viewable area. Default is <code>3</code>.</p>
+viewable area. Default is <code>3</code>.
+In case more than one items are rendered per row, bufferRatio
+has to account for that and a multiple number should be used.
+For example if a single item per row list used 3 as bufferRatio
+a 4 item per row list should use 3 * 4 = 12 as buffer ratio.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>footerFn</td>
       <td><code>function</code></td>
@@ -321,7 +347,7 @@ should be used, and what data to give to the footer template. The function
 must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>headerFn</td>
       <td><code>function</code></td>
@@ -335,7 +361,7 @@ and what data to give to the header template. The function must return
 <code>null</code> if a header cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualScroll</td>
       <td><code>array</code></td>
@@ -345,14 +371,14 @@ that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualTrackBy</td>
       <td><code>function</code></td>
       <td><p> Same as <code>ngForTrackBy</code> which can be used on <code>ngFor</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

@@ -47,7 +47,7 @@ header_sub_title: Ionic Resources
 
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
-    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
+    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="https://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="/pro/">Ionic services</a>.</p>
   </section>
 
   <section id="commonjs">
@@ -84,7 +84,7 @@ header_sub_title: Ionic Resources
 
   <section id="genymotion">
     <h3><a href="#genymotion">Genymotion</a></h3>
-    <p>Genymotion is a third-party Android emulator. It is extremely fast, and is useful for quickly testing your app on Android. Check out our <a href="/docs//resources/developer-tips/#using-genymotion-android">resource section</a> on Genymotion for more info.</p>
+    <p>Genymotion is a third-party Android emulator. It is extremely fast, and is useful for quickly testing your app on Android. Check out our <a href="/docs/resources/developer-tips/#using-genymotion-android">resource section</a> on Genymotion for more info.</p>
   </section>
 
   <section id="git">
@@ -142,7 +142,7 @@ header_sub_title: Ionic Resources
 
 <section id="polyfill">
     <h3><a href="#polyfill">Polyfill</a></h3>
-    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
+    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the browser.</p>
     <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</a></p>
   </section>
 

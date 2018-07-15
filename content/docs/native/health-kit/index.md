@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Health Kit</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L114">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/health-kit/index.ts#L79">
   Improve this doc
 </a>
+
 
 
 
@@ -33,7 +34,7 @@ Any data saved shows up in the iOS Health app and is available for other iOS app
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/health-kit
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/health-kit
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { HealthKit } from &#39;@ionic-native/health-kit&#39;;
 
 
@@ -71,7 +72,7 @@ constructor(private healthKit: HealthKit) { }
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="available" href="#available"></a><code>available()</code></h3>
 
 
@@ -608,6 +609,21 @@ Read more here: <a href="https://developer.apple.com/library/ios/documentation/H
   
   <tr>
     <td>
+      ascending
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>specifies if the data returned by querySampleType() should be sorted by
+end date in ascending order, default is false</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       correlationType
     </td>
     <td>
@@ -728,6 +744,20 @@ Read more here: <a href="https://developer.apple.com/library/ios/documentation/H
   
   <tr>
     <td>
+      limit
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>limits the maximum number of records returned by querySampleType()</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       metadata
     </td>
     <td>
@@ -742,6 +772,19 @@ Read more here: <a href="https://developer.apple.com/library/ios/documentation/H
   <tr>
     <td>
       quantityType
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
     </td>
     <td>
       <code>string</code>

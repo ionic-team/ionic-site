@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,8 +22,14 @@ docType: "class"
 
 
 
+
 <p>This plugin provides information about the device&#39;s location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs.</p>
 <p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
+<p>For iOS you have to add this configuration to your configuration.xml file</p>
+<pre><code class="lang-xml">&lt;edit-config file=&quot;*-Info.plist&quot; mode=&quot;merge&quot; target=&quot;NSLocationWhenInUseUsageDescription&quot;&gt;
+   &lt;string&gt;We want your location! Best regards NSA&lt;/string&gt;
+&lt;/edit-config&gt;
+</code></pre>
 
 
 <p>Repo:
@@ -33,10 +39,10 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geolocation
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION="To locate you"
 $ npm install --save @ionic-native/geolocation
 </code></pre>
   </li>
@@ -45,9 +51,9 @@ $ npm install --save @ionic-native/geolocation
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -55,7 +61,7 @@ $ npm install --save @ionic-native/geolocation
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Geolocation } from &#39;@ionic-native/geolocation&#39;;
 
 ...
@@ -86,7 +92,7 @@ watch.subscribe((data) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition(options)</code></h3>
 
 

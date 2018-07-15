@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L224">
   Improve this doc
 </a>
+
 
 
 
@@ -34,10 +35,10 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
+    <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-push
 $ npm install --save @ionic-native/push
 </code></pre>
   </li>
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/push
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -56,7 +57,7 @@ $ npm install --save @ionic-native/push
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Push, PushObject, PushOptions } from &#39;@ionic-native/push&#39;;
 
 constructor(private push: Push) { }
@@ -76,21 +77,37 @@ this.push.hasPermission()
 
   });
 
+// Create a channel (Android O and above). You&#39;ll need to provide the id, description and importance properties.
+this.push.createChannel({
+ id: &quot;testchannel1&quot;,
+ description: &quot;My first test channel&quot;,
+ // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
+ importance: 3
+}).then(() =&gt; console.log(&#39;Channel created&#39;));
+
+// Delete a channel (Android O and above)
+this.push.deleteChannel(&#39;testchannel1&#39;).then(() =&gt; console.log(&#39;Channel deleted&#39;));
+
+// Return a list of currently configured channels
+this.push.listChannels().then((channels) =&gt; console.log(&#39;List of channels&#39;, channels))
+
 // to initialize push notifications
 
 const options: PushOptions = {
-   android: {
-       senderID: &#39;12345679&#39;
-   },
+   android: {},
    ios: {
        alert: &#39;true&#39;,
        badge: true,
        sound: &#39;false&#39;
    },
-   windows: {}
+   windows: {},
+   browser: {
+       pushServiceURL: &#39;http://push.api.phonegap.com/v1/push&#39;
+   }
 };
 
 const pushObject: PushObject = this.push.init(options);
+
 
 pushObject.on(&#39;notification&#39;).subscribe((notification: any) =&gt; console.log(&#39;Received a notification&#39;, notification));
 
@@ -106,7 +123,7 @@ pushObject.on(&#39;error&#39;).subscribe(error =&gt; console.error(&#39;Error wi
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="init" href="#init"></a><code>init(options)</code></h3>
 
 Init push notifications
@@ -143,6 +160,69 @@ Check whether the push notification permission has been granted.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{isEnabled: boolean}&gt;</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
+</div><h3><a class="anchor" name="createChannel" href="#createChannel"></a><code>createChannel(channel)</code></h3>
+
+
+
+
+Create a new notification channel for Android O and above.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      channel</td>
+    <td>
+      <code>Channel</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="deleteChannel" href="#deleteChannel"></a><code>deleteChannel(id)</code></h3>
+
+
+
+
+Delete a notification channel for Android O and above.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="listChannels" href="#listChannels"></a><code>listChannels()</code></h3>
+
+
+Returns a list of currently configured channels.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Channel[]&gt;</code> 
 </div>
 
 
@@ -376,22 +456,7 @@ For windows, it represents the value in the badge notification which could be a 
   
   <tr>
     <td>
-      senderID
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Maps to the project number in the Google Developer Console. Setting this
-uses GCM for notifications instead of native.</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      gcmSandbox
+      fcmSandbox
     </td>
     <td>
       <code>boolean | string</code>
@@ -528,7 +593,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     <td>
       <p>Maps to the project number in the Google Developer Console.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -649,6 +714,79 @@ subscribe to a GcmPubSub topic.</p>
     </td>
   </tr>
   
+  <tr>
+    <td>
+      messageKey
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The key to search for text of notification.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      titleKey
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The key to search for title of notification.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="BrowserPushOptions" href="#BrowserPushOptions"></a>BrowserPushOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      applicationServerKey
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Optional. Your GCM API key if you are using VAPID keys.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pushServiceURL
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL for the push server you want to use.
+Default: <a href="http://push.api.phonegap.com/v1/push">http://push.api.phonegap.com/v1/push</a>    Optional.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -697,6 +835,19 @@ subscribe to a GcmPubSub topic.</p>
     </td>
     <td>
       <code>any</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      browser
+    </td>
+    <td>
+      <code>BrowserPushOptions</code>
     </td>
     <td>
       

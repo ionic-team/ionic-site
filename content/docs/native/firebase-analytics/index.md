@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -28,8 +28,9 @@ docType: "class"
 
 
 
+
 <p>Cordova plugin for Firebase Analytics</p>
-<p>Go yo firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
+<p>Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
 <p>NOTE: on iOS in order to collect demographic, age, gender data etc. you should additionally include AdSupport.framework into your project.</p>
 
 
@@ -40,7 +41,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-firebase-analytics
@@ -52,7 +53,7 @@ $ npm install --save @ionic-native/firebase-analytics
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -62,7 +63,7 @@ $ npm install --save @ionic-native/firebase-analytics
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { FirebaseAnalytics } from &#39;@ionic-native/firebase-analytics&#39;;
 
 
@@ -82,8 +83,10 @@ this.firebaseAnalytics.logEvent(&#39;page_view&#39;, {page: &quot;dashboard&quot
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(name,&nbsp;params)</code></h3>
+
+
 
 
 Logs an app event.
@@ -127,6 +130,8 @@ Be aware of automatically collected events.
 </div><h3><a class="anchor" name="setUserId" href="#setUserId"></a><code>setUserId(id)</code></h3>
 
 
+
+
 Sets the user ID property.
 This feature must be used in accordance with Google's Privacy Policy.
 <table class="table param-table" style="margin:0;">
@@ -145,7 +150,7 @@ This feature must be used in accordance with Google's Privacy Policy.
       <code>string</code>
     </td>
     <td>
-      <p>THe user ID</p>
+      <p>The user ID</p>
 </td>
   </tr>
   </tbody>
@@ -155,6 +160,8 @@ This feature must be used in accordance with Google's Privacy Policy.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
 </div><h3><a class="anchor" name="setUserProperty" href="#setUserProperty"></a><code>setUserProperty(name,&nbsp;value)</code></h3>
+
+
 
 
 This feature must be used in accordance with Google's Privacy Policy.
@@ -198,6 +205,8 @@ Be aware of automatically collected user properties.
 </div><h3><a class="anchor" name="setEnabled" href="#setEnabled"></a><code>setEnabled(enabled)</code></h3>
 
 
+
+
 Sets whether analytics collection is enabled for this app on this device.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -224,6 +233,8 @@ Sets whether analytics collection is enabled for this app on this device.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
 </div><h3><a class="anchor" name="setCurrentScreen" href="#setCurrentScreen"></a><code>setCurrentScreen(name)</code></h3>
+
+
 
 
 Sets the current screen name, which specifies the current visual context in your app.

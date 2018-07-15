@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">App Update</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-update/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-update/index.ts#L7">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-app-update
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/app-update
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/app-update
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>You should first host an XML file on your server with the following data in it:</p>
 <pre><code class="lang-xml">&lt;update&gt;
     &lt;version&gt;302048&lt;/version&gt;
@@ -67,8 +68,8 @@ $ npm install --save @ionic-native/app-update
 
 constructor(private appUpdate: AppUpdate) {
 
-   const updateUrl = &#39;http://your-remote-api.com/update.xml&#39;;
-   this.appUpdate.checkAppUpdate(updateUrl);
+   const updateUrl = &#39;https://your-remote-api.com/update.xml&#39;;
+   this.appUpdate.checkAppUpdate(updateUrl).then(() =&gt; { console.log(&#39;Update available&#39;) });
 
 }
 </code></pre>
@@ -81,8 +82,8 @@ constructor(private appUpdate: AppUpdate) {
 
 
 
-<h2>Instance Members</h2>
-<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code></h3>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl,&nbsp;options)</code></h3>
 
 
 
@@ -107,6 +108,17 @@ Check and update
       <p>update api url</p>
 </td>
   </tr>
+  
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>AppUpdateOptions</code>
+    </td>
+    <td>
+      <p>options<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
   </tbody>
 </table>
 
@@ -114,6 +126,64 @@ Check and update
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when something happens
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="AppUpdateOptions" href="#AppUpdateOptions"></a>AppUpdateOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      authType
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      username
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

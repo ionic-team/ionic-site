@@ -12,19 +12,26 @@ The Action Sheet always appears above any other components on the page, and must
 _For more information, Check out the [API docs](../api/components/action-sheet/ActionSheetController)._
 
 <h3 class="section-nav">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/action-sheets/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/action-sheet-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/action-sheets/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```typescript
 import { ActionSheetController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public actionSheetCtrl: ActionSheetController) {
-  }
+
+  constructor(public actionSheetCtrl: ActionSheetController) { }
 
   presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
+    const actionSheet = this.actionSheetCtrl.create({
       title: 'Modify your album',
       buttons: [
         {

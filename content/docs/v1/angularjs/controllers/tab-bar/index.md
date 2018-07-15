@@ -13,7 +13,7 @@ Tab Bar Controller
 
 The Tab Bar Controller powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/tabs.gif" style="border: 1px solid #eee">
+<img src="https://ionicframework.com.s3.amazonaws.com/docs/controllers/tabs.gif" style="border: 1px solid #eee">
 
 ## \<ion-tabs\>
 

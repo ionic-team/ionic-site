@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/app.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/app/app.ts#L16">
 Improve this doc
 </a>
 
@@ -54,15 +54,16 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="getActiveNav"></div>
 
 <h3>
-<a class="anchor" name="getActiveNav" href="#getActiveNav"></a>
+<a class="anchor" name="getActiveNav" href="#getActiveNav">
 <code>getActiveNav()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -74,8 +75,8 @@ Improve this doc
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>NavController</code> <p>Returns the active NavController. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
+<b>Returns:</b>
+  <code>NavController</code> <p>Returns the first Active Nav Controller from the list. This method is deprecated</p>
 
 
 </div>
@@ -86,10 +87,59 @@ Improve this doc
 <div id="getActiveNavContainers"></div>
 
 <h3>
-<a class="anchor" name="getActiveNavContainers" href="#getActiveNavContainers"></a>
+<a class="anchor" name="getActiveNavContainers" href="#getActiveNavContainers">
 <code>getActiveNavContainers()</code>
-  
 
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getActiveNavs"></div>
+
+<h3>
+<a class="anchor" name="getActiveNavs" href="#getActiveNavs">
+<code>getActiveNavs()</code>
+
+
+</a>
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b>
+  <code>NavController[]</code> <p>Returns the active NavControllers. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like <code>registerBackButtonAction()</code></p>
+
+
+</div>
+
+
+
+
+<div id="getNavByIdOrName"></div>
+
+<h3>
+<a class="anchor" name="getNavByIdOrName" href="#getNavByIdOrName">
+<code>getNavByIdOrName()</code>
+
+
+</a>
 </h3>
 
 
@@ -105,10 +155,11 @@ Improve this doc
 <div id="getRootNav"></div>
 
 <h3>
-<a class="anchor" name="getRootNav" href="#getRootNav"></a>
+<a class="anchor" name="getRootNav" href="#getRootNav">
 <code>getRootNav()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -124,10 +175,11 @@ Improve this doc
 <div id="getRootNavById"></div>
 
 <h3>
-<a class="anchor" name="getRootNavById" href="#getRootNavById"></a>
+<a class="anchor" name="getRootNavById" href="#getRootNavById">
 <code>getRootNavById()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -139,7 +191,7 @@ Improve this doc
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>NavController</code> <p>Returns the root NavController</p>
 
 
@@ -151,10 +203,11 @@ Improve this doc
 <div id="getRootNavs"></div>
 
 <h3>
-<a class="anchor" name="getRootNavs" href="#getRootNavs"></a>
+<a class="anchor" name="getRootNavs" href="#getRootNavs">
 <code>getRootNavs()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -170,10 +223,11 @@ Improve this doc
 <div id="isScrolling"></div>
 
 <h3>
-<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<a class="anchor" name="isScrolling" href="#isScrolling">
 <code>isScrolling()</code>
-  
 
+
+</a>
 </h3>
 
 Boolean if the app is actively scrolling or not.
@@ -185,7 +239,7 @@ Boolean if the app is actively scrolling or not.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> <p>returns true or false</p>
 
 
@@ -197,10 +251,11 @@ Boolean if the app is actively scrolling or not.
 <div id="setTitle"></div>
 
 <h3>
-<a class="anchor" name="setTitle" href="#setTitle"></a>
+<a class="anchor" name="setTitle" href="#setTitle">
 <code>setTitle(val)</code>
-  
 
+
+</a>
 </h3>
 
 Sets the document title.
@@ -215,24 +270,24 @@ Sets the document title.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         val
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Value to set the document title to.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -246,10 +301,11 @@ Sets the document title.
 <div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter">
 <code>viewDidEnter</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits after any view is entered in the app.
@@ -261,7 +317,7 @@ Observable that emits after any view is entered in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -273,10 +329,11 @@ Observable that emits after any view is entered in the app.
 <div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave">
 <code>viewDidLeave</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits after any view is exited in the app.
@@ -288,7 +345,7 @@ Observable that emits after any view is exited in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -300,10 +357,11 @@ Observable that emits after any view is exited in the app.
 <div id="viewDidLoad"></div>
 
 <h3>
-<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad">
 <code>viewDidLoad</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits whenever a view loads in the app.
@@ -315,7 +373,7 @@ Observable that emits whenever a view loads in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -327,10 +385,11 @@ Observable that emits whenever a view loads in the app.
 <div id="viewWillEnter"></div>
 
 <h3>
-<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter">
 <code>viewWillEnter</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits before any view is entered in the app.
@@ -342,7 +401,7 @@ Observable that emits before any view is entered in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -354,10 +413,11 @@ Observable that emits before any view is entered in the app.
 <div id="viewWillLeave"></div>
 
 <h3>
-<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave">
 <code>viewWillLeave</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits before any view is exited in the app.
@@ -369,7 +429,7 @@ Observable that emits before any view is exited in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -381,10 +441,11 @@ Observable that emits before any view is exited in the app.
 <div id="viewWillUnload"></div>
 
 <h3>
-<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload">
 <code>viewWillUnload</code>
-  
 
+
+</a>
 </h3>
 
 Observable that emits before any view unloads in the app.
@@ -396,7 +457,7 @@ Observable that emits before any view unloads in the app.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Observable</code> <p>Returns an observable</p>
 
 
@@ -406,16 +467,16 @@ Observable that emits before any view unloads in the app.
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -425,137 +486,137 @@ Observable that emits before any view unloads in the app.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$font-size-root</code></td>
-        
+
           <td><code>62.5%</code></td>
-        
+
         <td><p>Font size of the root html</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$headings-font-weight</code></td>
-        
+
           <td><code>500</code></td>
-        
+
         <td><p>Font weight of all headings</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$headings-line-height</code></td>
-        
+
           <td><code>1.2</code></td>
-        
+
         <td><p>Line height of all headings</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h1-font-size</code></td>
-        
+
           <td><code>2.6rem</code></td>
-        
+
         <td><p>Font size of heading level 1</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h2-font-size</code></td>
-        
+
           <td><code>2.4rem</code></td>
-        
+
         <td><p>Font size of heading level 2</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h3-font-size</code></td>
-        
+
           <td><code>2.2rem</code></td>
-        
+
         <td><p>Font size of heading level 3</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h4-font-size</code></td>
-        
+
           <td><code>2rem</code></td>
-        
+
         <td><p>Font size of heading level 4</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h5-font-size</code></td>
-        
+
           <td><code>1.8rem</code></td>
-        
+
         <td><p>Font size of heading level 5</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h6-font-size</code></td>
-        
+
           <td><code>1.6rem</code></td>
-        
+
         <td><p>Font size of heading level 6</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-responsive-utilities</code></td>
-        
+
           <td><code>true</code></td>
-        
+
         <td><p>Whether to include all of the responsive utility attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-text-alignment-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive text alignment attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-text-transform-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive text transform attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-float-element-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive float attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$screen-breakpoints</code></td>
-        
+
           <td><code>(&#10;  xs: 0,&#10;  sm: 576px,&#10;  md: 768px,&#10;  lg: 992px,&#10;  xl: 1200px&#10;)</code></td>
-        
+
         <td><p>The minimum dimensions at which your layout will change,
 adapting to different screen sizes, for use in media queries</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

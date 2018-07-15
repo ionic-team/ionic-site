@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "Refresher"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/refresher/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/refresher/refresher.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/refresher/refresher.ts#L8">
 Improve this doc
 </a>
 
@@ -59,7 +59,7 @@ display or hide the refresher.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -120,15 +120,16 @@ custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="cancel"></div>
 
 <h3>
-<a class="anchor" name="cancel" href="#cancel"></a>
+<a class="anchor" name="cancel" href="#cancel">
 <code>cancel()</code>
-  
 
+
+</a>
 </h3>
 
 Changes the refresher's state from `refreshing` to `cancelling`.
@@ -145,10 +146,11 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 <div id="complete"></div>
 
 <h3>
-<a class="anchor" name="complete" href="#complete"></a>
+<a class="anchor" name="complete" href="#complete">
 <code>complete()</code>
-  
 
+
+</a>
 </h3>
 
 Call `complete()` when your async operation has completed.
@@ -171,10 +173,11 @@ the refresher. This method also changes the refresher's state from
 <div id="currentY"></div>
 
 <h3>
-<a class="anchor" name="currentY" href="#currentY"></a>
+<a class="anchor" name="currentY" href="#currentY">
 <code>currentY</code>
-  
 
+
+</a>
 </h3>
 
 The current touch or mouse event's Y coordinate.
@@ -191,10 +194,11 @@ The current touch or mouse event's Y coordinate.
 <div id="deltaY"></div>
 
 <h3>
-<a class="anchor" name="deltaY" href="#deltaY"></a>
+<a class="anchor" name="deltaY" href="#deltaY">
 <code>deltaY</code>
-  
 
+
+</a>
 </h3>
 
 The distance between the start of the pull and the current touch or
@@ -212,10 +216,11 @@ mouse event's Y coordinate.
 <div id="progress"></div>
 
 <h3>
-<a class="anchor" name="progress" href="#progress"></a>
+<a class="anchor" name="progress" href="#progress">
 <code>progress</code>
-  
 
+
+</a>
 </h3>
 
 A number representing how far down the user has pulled.
@@ -238,10 +243,11 @@ position.
 <div id="startY"></div>
 
 <h3>
-<a class="anchor" name="startY" href="#startY"></a>
+<a class="anchor" name="startY" href="#startY">
 <code>startY</code>
-  
 
+
+</a>
 </h3>
 
 The Y coordinate of where the user started to the pull down the content.
@@ -258,10 +264,11 @@ The Y coordinate of where the user started to the pull down the content.
 <div id="state"></div>
 
 <h3>
-<a class="anchor" name="state" href="#state"></a>
+<a class="anchor" name="state" href="#state">
 <code>state</code>
-  
 
+
+</a>
 </h3>
 
 The current state which the refresher is in. The refresher's states include:
@@ -282,7 +289,7 @@ The current state which the refresher is in. The refresher's states include:
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -292,21 +299,21 @@ The current state which the refresher is in. The refresher's states include:
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>closeDuration</td>
       <td><code>number</code></td>
       <td><p> How many milliseconds it takes to close the refresher. Default is <code>280</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
       <td><p> If the refresher is enabled or not. This should be used in place of an <code>ngIf</code>. Default is <code>true</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pullMax</td>
       <td><code>number</code></td>
@@ -315,7 +322,7 @@ will automatically go into the <code>refreshing</code> state. By default, the pu
 maximum will be the result of <code>pullMin + 60</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pullMin</td>
       <td><code>number</code></td>
@@ -323,18 +330,18 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
 refresher can go into the <code>refreshing</code> state. Default is <code>60</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>snapbackDuration</td>
       <td><code>number</code></td>
       <td><p> How many milliseconds it takes the refresher to to snap back to the <code>refreshing</code> state. Default is <code>280</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -343,13 +350,13 @@ refresher can go into the <code>refreshing</code> state. Default is <code>60</co
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionPull</td>
       <td><p> Emitted while the user is pulling down the content and exposing the refresher.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionRefresh</td>
       <td><p> Emitted when the user lets go and has pulled down
@@ -358,27 +365,27 @@ fired and the state is updated to <code>refreshing</code>. From within your refr
 you must call the <code>complete()</code> method when your async operation has completed.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionStart</td>
       <td><p> Emitted when the user begins to start pulling down.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -388,64 +395,64 @@ you must call the <code>complete()</code> method when your async operation has c
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$refresher-height</code></td>
-        
+
           <td><code>60px</code></td>
-        
+
         <td><p>Height of the refresher</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-icon-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the refresher icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-icon-font-size</code></td>
-        
+
           <td><code>30px</code></td>
-        
+
         <td><p>Font size of the refresher icon</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-text-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Text color of the refresher content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-text-font-size</code></td>
-        
+
           <td><code>16px</code></td>
-        
+
         <td><p>Font size of the refresher content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$refresher-border-color</code></td>
-        
+
           <td><code>#ddd</code></td>
-        
+
         <td><p>Border color of the refresher</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

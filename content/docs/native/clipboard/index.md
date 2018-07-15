@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,20 +22,21 @@ docType: "class"
 
 
 
+
 <p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/danielsogl/cordova-plugin-clipboard">
-    https://github.com/danielsogl/cordova-plugin-clipboard
+  <a href="https://github.com/ihadeed/cordova-clipboard">
+    https://github.com/ihadeed/cordova-clipboard
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add danielsogl-cordova-plugin-clipboard
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-clipboard
 $ npm install --save @ionic-native/clipboard
 </code></pre>
   </li>
@@ -44,9 +45,9 @@ $ npm install --save @ionic-native/clipboard
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/clipboard
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Clipboard } from &#39;@ionic-native/clipboard&#39;;
 
 constructor(private clipboard: Clipboard) { }
@@ -72,6 +73,8 @@ this.clipboard.paste().then(
       alert(&#39;Error: &#39; + reject);
     }
   );
+
+this.clipboard.clear();
 </code></pre>
 
 
@@ -81,7 +84,7 @@ this.clipboard.paste().then(
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="copy" href="#copy"></a><code>copy(text)</code></h3>
 
 
@@ -120,6 +123,15 @@ Pastes the text stored in clipboard
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been pasted
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
+
+
+Clear the text stored in clipboard
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been cleaned
 </div>
 
 

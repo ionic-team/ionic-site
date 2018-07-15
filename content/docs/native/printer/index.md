@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Prints documents or HTML rendered content</p>
 
 
@@ -32,10 +33,10 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.printer
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-printer
 $ npm install --save @ionic-native/printer
 </code></pre>
   </li>
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/printer
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/printer
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Printer, PrintOptions } from &#39;@ionic-native/printer&#39;;
 
 constructor(private printer: Printer) { }
@@ -81,10 +82,10 @@ this.printer.print(content, options).then(onSuccess, onError);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
-Checks whether to device is capable of printing.
+Checks whether the device is capable of printing (uses `check()` internally)
 
 
 <div class="return-value" markdown="1">

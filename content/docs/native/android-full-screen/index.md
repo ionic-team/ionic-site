@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Android Full Screen</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-full-screen/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-full-screen/index.ts#L28">
   Improve this doc
 </a>
+
 
 
 
@@ -34,7 +35,7 @@ In Android 4.4+, however, you can now enter true full screen, fully interactive 
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fullscreen
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/android-full-screen
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -56,7 +57,7 @@ $ npm install --save @ionic-native/android-full-screen
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AndroidFullScreen } from &#39;@ionic-native/android-full-screen&#39;;
 
 constructor(private androidFullScreen: AndroidFullScreen) { }
@@ -64,8 +65,8 @@ constructor(private androidFullScreen: AndroidFullScreen) { }
 ...
 
 this.androidFullScreen.isImmersiveModeSupported()
-  .then(() =&gt; this.androidFullScreen.immersiveMode())
-  .catch((error: any) =&gt; console.log(error));
+  .then(() =&gt; console.log(&#39;Immersive mode supported&#39;))
+  .catch(err =&gt; console.log(err));
 </code></pre>
 
 
@@ -75,7 +76,7 @@ this.androidFullScreen.isImmersiveModeSupported()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isSupported" href="#isSupported"></a><code>isSupported()</code></h3>
 
 
@@ -153,6 +154,35 @@ Extend your app underneath the system UI (Android 4.4+ only).
 
 Hide system UI and keep it hidden (Android 4.4+ only).
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="setSystemUiVisibility" href="#setSystemUiVisibility"></a><code>setSystemUiVisibility(visibility)</code></h3>
+
+
+Manually set the the system UI to a custom mode. This mirrors the Android method of the same name. (Android 4.4+ only).
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      visibility</td>
+    <td>
+      <code>AndroidSystemUiFlags</code>
+    </td>
+    <td>
+      <p>Bitwise-OR of flags in AndroidSystemUiFlags</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

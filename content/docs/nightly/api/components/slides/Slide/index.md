@@ -11,7 +11,7 @@ doc: "Slide"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/slides/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Slide
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/slides/slide.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/slides/slide.ts#L2">
 Improve this doc
 </a>
 
@@ -66,7 +66,7 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/api/components/slides/Slides/">Slides API Docs</a><!-- end content block -->
 

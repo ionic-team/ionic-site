@@ -1,0 +1,239 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'enterprise-support' %}
+{% set mixpanelEnabled = true %}
+{% set bodyController = 'EnterpriseCtrl' %}
+{% import "../_includes/macros.html" as macros %}
+
+{% block main %}
+
+<div class="banner cta">
+  <hgroup class="container">
+    <h1>Enterprise Support</h1>
+    <p>
+      Expert help and guidance, when you need it most.
+    </p>
+  </hgroup>
+</div>
+
+<section class="container help">
+  <hgroup class="hero text-center">
+    <h2>Our experts can help.</h2>
+    <p class="lg">
+      Protect your investment with enterprise-grade support, tailored to fit
+      your needs.
+    </p>
+  </hgroup>
+  <ul class="features icons">
+    <li class="fixes">
+      <h4>Hot-fixes</h4>
+      <p>
+        Get rapid remediation of issues, so you can focus on building  your app
+        and shipping sooner.
+      </p>
+    </li>
+    <li class="reviews">
+      <h4>Code reviews</h4>
+      <p>
+        Go line-by-line with our experts as they share coding best practices and
+        advice.
+      </p>
+    </li>
+    <li class="sla">
+      <h4>Response SLAs</h4>
+      <p>
+        Rest easy knowing you’ll get the attention and responsive you need to
+        meet your goals.
+      </p>
+    </li>
+    <li class="training">
+      <h4>Live training</h4>
+      <p>
+        Give your team the skills and tools they need to be successful building
+        apps on day one.
+      </p>
+    </li>
+    <li class="contact">
+      <h4>Single point of contact</h4>
+      <p>
+        Work with a dedicated engineer who knows your history, your team, and
+        your priorities.
+      </p>
+    </li>
+    <li class="slack">
+      <h4>Dedicated Slack channel</h4>
+      <p>
+        Need answers now? Get instant access to support with a dedicated Slack
+        channel.
+      </p>
+    </li>
+  </ul>
+</section>
+
+<section class="plan">
+  <div class="container">
+    <hgroup>
+      <h2>Pick the plan that’s right for you.</h2>
+      <p class="lg">
+        Choose from one of our existing support plans, or customize one that’s
+        perfect for you.
+      </p>
+    </hgroup>
+    <div class="x-scroll">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <td></td>
+              <th>Standard</th>
+              <th>Premium</th>
+              <th>Business Critical</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Service requests</th>
+              <td>12/ mo</td>
+              <td>24/ mo</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <th>Bugs and feature requests</th>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <th>Support SLA</th>
+              <td>One business day</td>
+              <td>12 business hours</td>
+              <td>12 business hours</td>
+            </tr>
+            <tr>
+              <th>Hotfixes</th>
+              <td></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Priority queuing</th>
+              <td></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Architecture and code review consulting</th>
+              <td></td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Private Slack Channel</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Designated Solutions Architect</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Prioritized Feature Requests</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Private Insiders Updates</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><a class="btn sm btn-default"
+                     data-toggle="modal"
+                     data-target="#contactForm"
+                     id="btn-enterprise-support-basic">Contact us</a></td>
+              <td><a class="btn sm btn-default"
+                     data-toggle="modal"
+                     data-target="#contactForm"
+                     id="btn-enterprise-support-premiere">Contact us</a></td>
+              <td><a class="btn sm btn-default"
+                     data-toggle="modal"
+                     data-target="#contactForm"
+                     id="btn-enterprise-support-critical">Contact us</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bar cta get-in-touch">
+  <div class="container">
+    <hgroup>
+      <h2>Start building apps the better way. </h2>
+      <p>Free accounts and free advice. Everything you need to get started.</p>
+    </hgroup>
+
+    <div class="btn-group">
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+         class="btn white sm"
+         id="btn-enterprise-create-account">Create an account</a>
+      <a class="btn btn-default sm"
+         data-toggle="modal"
+         data-target="#contactForm"
+         id="btn-enterprise-talk-to-sales">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: 'c81f2203-1ed3-4afd-91a9-9136235b2b11'
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
+{% endblock %}

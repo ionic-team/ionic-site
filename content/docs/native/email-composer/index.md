@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Email Composer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L53">
   Improve this doc
 </a>
+
 
 
 
@@ -26,16 +27,16 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/hypery2k/cordova-email-plugin">
-    https://github.com/hypery2k/cordova-email-plugin
+  <a href="https://github.com/katzer/cordova-plugin-email-composer">
+    https://github.com/katzer/cordova-plugin-email-composer
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-email
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-email-composer
 $ npm install --save @ionic-native/email-composer
 </code></pre>
   </li>
@@ -44,9 +45,9 @@ $ npm install --save @ionic-native/email-composer
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li><li>macOS</li>
 </ul>
 
 
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/email-composer
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { EmailComposer } from &#39;@ionic-native/email-composer&#39;;
 
 constructor(private emailComposer: EmailComposer) { }
@@ -86,6 +87,16 @@ let email = {
 // Send a text message using default options
 this.emailComposer.open(email);
 </code></pre>
+<p>You can also assign aliases to email apps</p>
+<pre><code class="lang-ts">// add alias
+this.email.addAlias(&#39;gmail&#39;, &#39;com.google.android.gm&#39;);
+
+// then use alias when sending email
+this.email.open({
+  app: &#39;gmail&#39;,
+  ...
+});
+</code></pre>
 
 
 
@@ -94,7 +105,7 @@ this.emailComposer.open(email);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code></h3>
 
 
@@ -125,6 +136,28 @@ Verifies if sending emails is supported on the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
+
+
+
+
+Request permission to access email accounts information
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+
+
+
+
+Checks if the app has a permission to access email accounts information
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
 </div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code></h3>
 
 
@@ -232,7 +265,8 @@ Displays the email composer pre-filled with data.
       <code>string</code>
     </td>
     <td>
-      
+      <p>App to send the email with</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -245,7 +279,8 @@ Displays the email composer pre-filled with data.
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
-      
+      <p>Email address(es) for To field</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -258,7 +293,8 @@ Displays the email composer pre-filled with data.
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
-      
+      <p>Email address(es) for CC field</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -271,7 +307,8 @@ Displays the email composer pre-filled with data.
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
-      
+      <p>Email address(es) for BCC field</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -281,10 +318,11 @@ Displays the email composer pre-filled with data.
       attachments
     </td>
     <td>
-      <code>Array&lt;any&gt;</code>
+      <code>string[]</code>
     </td>
     <td>
-      
+      <p>File paths or base64 data streams</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -297,7 +335,8 @@ Displays the email composer pre-filled with data.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Subject of the email</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -310,7 +349,8 @@ Displays the email composer pre-filled with data.
       <code>string</code>
     </td>
     <td>
-      
+      <p>Email body (for HTML, set isHtml to true)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -323,7 +363,22 @@ Displays the email composer pre-filled with data.
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Indicates if the body is HTML or plain text</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Content type of the email (Android only)</p>
+
       <em>(optional)</em>
     </td>
   </tr>

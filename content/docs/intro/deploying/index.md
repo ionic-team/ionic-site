@@ -11,7 +11,7 @@ header_sub_title: Getting Started with Ionic
 
 <a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
-Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](http://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
+Testing your app in the browser with `ionic serve` or with an emulator is fast, easy and convenient when your app is in development, but eventually you're going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many [Ionic Native](https://ionicframework.com/docs//native/) plugins will only work when they are run on actual hardware.
 
 ## Android Devices
 
@@ -58,13 +58,13 @@ __Note__: Make sure to save this file somewhere safe, if you lose it you won’t
 To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
 
 ```bash
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk my-alias
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks app-release-unsigned.apk my-alias
 ```
 
 This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
 
 ```bash
-zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
+zipalign -v 4 app-release-unsigned.apk HelloWorld.apk
 ```
 
 To verify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:

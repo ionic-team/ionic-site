@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">HTTP</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/http/index.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/http/index.ts#L24">
   Improve this doc
 </a>
+
 
 
 
@@ -31,16 +32,16 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/wymsee/cordova-HTTP">
-    https://github.com/wymsee/cordova-HTTP
+  <a href="https://github.com/silkimen/cordova-plugin-advanced-http">
+    https://github.com/silkimen/cordova-plugin-advanced-http
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-http
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-advanced-http
 $ npm install --save @ionic-native/http
 </code></pre>
   </li>
@@ -49,7 +50,7 @@ $ npm install --save @ionic-native/http
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -59,10 +60,10 @@ $ npm install --save @ionic-native/http
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { HTTP } from &#39;@ionic-native/http&#39;;
 
-constructor(private http: HTTP) { }
+constructor(private http: HTTP) {}
 
 ...
 
@@ -90,7 +91,7 @@ this.http.get(&#39;http://ionic.io&#39;, {}, {})
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getBasicAuthHeader" href="#getBasicAuthHeader"></a><code>getBasicAuthHeader(username,&nbsp;password)</code></h3>
 
 
@@ -172,12 +173,12 @@ This sets up all future requests to use Basic HTTP authentication with the given
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setHeader" href="#setHeader"></a><code>setHeader(header,&nbsp;value)</code></h3>
+<h3><a class="anchor" name="getHeaders" href="#getHeaders"></a><code>getHeaders(host)</code></h3>
 
 
 
 
-Set a header for all future requests. Takes a header and a value.
+Get all headers defined for a given hostname.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -187,6 +188,48 @@ Set a header for all future requests. Takes a header and a value.
   </tr>
   </thead>
   <tbody>
+  <tr>
+    <td>
+      host</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The hostname</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> return all headers defined for the hostname
+</div><h3><a class="anchor" name="setHeader" href="#setHeader"></a><code>setHeader(host,&nbsp;header,&nbsp;value)</code></h3>
+
+
+
+
+Set a header for all future requests. Takes a hostname, a header and a value.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      host</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The hostname to be used for scoping this header</p>
+</td>
+  </tr>
+  
   <tr>
     <td>
       header</td>
@@ -211,12 +254,202 @@ Set a header for all future requests. Takes a header and a value.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="getDataSerializer" href="#getDataSerializer"></a><code>getDataSerializer()</code></h3>
+
+
+
+
+Get the name of the data serializer which will be used for all future POST and PUT requests.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>string</code> returns the name of the configured data serializer
+</div><h3><a class="anchor" name="setDataSerializer" href="#setDataSerializer"></a><code>setDataSerializer(serializer)</code></h3>
+
+
+
+
+Set the data serializer which will be used for all future POST and PUT requests. Takes a string representing the name of the serializer.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      serializer</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the serializer. Can be urlencoded, utf8 or json</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="setCookie" href="#setCookie"></a><code>setCookie(url,&nbsp;cookie)</code></h3>
+
+
+
+
+Add a custom cookie.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Scope of the cookie</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      cookie</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>RFC compliant cookie string</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="clearCookies" href="#clearCookies"></a><code>clearCookies()</code></h3>
+
+
+
+
+Clear all cookies.
+
+
+
+<h3><a class="anchor" name="removeCookies" href="#removeCookies"></a><code>removeCookies(url,&nbsp;cb)</code></h3>
+
+
+
+
+Remove cookies for given URL.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      cb</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getCookieString" href="#getCookieString"></a><code>getCookieString(url)</code></h3>
+
+
+
+
+Resolve cookie string for given URL.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getRequestTimeout" href="#getRequestTimeout"></a><code>getRequestTimeout()</code></h3>
+
+
+
+
+Get global request timeout value in seconds.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>number</code> returns the global request timeout value
+</div><h3><a class="anchor" name="setRequestTimeout" href="#setRequestTimeout"></a><code>setRequestTimeout(timeout)</code></h3>
+
+
+
+
+Set global request timeout value in seconds.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      timeout</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The timeout in seconds. Default 60</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="enableSSLPinning" href="#enableSSLPinning"></a><code>enableSSLPinning(enable)</code></h3>
 
 
 Enable or disable SSL Pinning. This defaults to false.
 
-To use SSL pinning you must include at least one .cer SSL certificate in your app project. You can pin to your server certificate or to one of the issuing CA certificates. For ios include your certificate in the root level of your bundle (just add the .cer file to your project/target at the root level). For android include your certificate in your project's platforms/android/assets folder. In both cases all .cer files found will be loaded automatically. If you only have a .pem certificate see this stackoverflow answer. You want to convert it to a DER encoded certificate with a .cer extension.
+To use SSL pinning you must include at least one .cer SSL certificate in your app project. You can pin to your server certificate or to one of the issuing CA certificates. For ios include your certificate in the root level of your bundle (just add the .cer file to your project/target at the root level). For android include your certificate in your project's platforms/android/assets folder. In both cases all .cer files found will be loaded automatically. If you only have a .pem certificate see this [stackoverflow answer](https://stackoverflow.com/questions/16583428/how-to-convert-an-ssl-certificate-in-linux/16583429#16583429). You want to convert it to a DER encoded certificate with a .cer extension.
 
 As an alternative, you can store your .cer files in the www/certificates folder.
 <table class="table param-table" style="margin:0;">
@@ -273,10 +506,10 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="validateDomainName" href="#validateDomainName"></a><code>validateDomainName(validate)</code></h3>
+</div><h3><a class="anchor" name="disableRedirect" href="#disableRedirect"></a><code>disableRedirect(disable)</code></h3>
 
 
-Whether or not to validate the domain name in the certificate. This defaults to true.
+Disable following redirects automatically.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -288,12 +521,12 @@ Whether or not to validate the domain name in the certificate. This defaults to 
   <tbody>
   <tr>
     <td>
-      validate</td>
+      disable</td>
     <td>
       <code>boolean</code>
     </td>
     <td>
-      <p>Set to true to validate</p>
+      <p>Set to true to disable following redirects automatically</p>
 </td>
   </tr>
   </tbody>
@@ -356,7 +589,211 @@ Make a POST request
 </div><h3><a class="anchor" name="get" href="#get"></a><code>get(url,&nbsp;parameters,&nbsp;headers)</code></h3>
 
 
+Make a GET request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="put" href="#put"></a><code>put(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PUT request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="patch" href="#patch"></a><code>patch(url,&nbsp;body,&nbsp;headers)</code></h3>
+
+
+Make a PATCH request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      body</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The body of the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a DELETE request
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      url</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The url to send the request to</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      parameters</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>Parameters to send with the request</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>The headers to set for this request</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+</div><h3><a class="anchor" name="head" href="#head"></a><code>head(url,&nbsp;parameters,&nbsp;headers)</code></h3>
+
+
+Make a HEAD request
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -573,20 +1010,6 @@ Make a POST request
   
   <tr>
     <td>
-      data
-    </td>
-    <td>
-      <code>any</code>
-    </td>
-    <td>
-      <p>The data that is in the response. This property usually exists when a promise returned by a request method resolves.</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       headers
     </td>
     <td>
@@ -596,6 +1019,34 @@ Make a POST request
       <p>The headers of the response</p>
 
       
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The URL of the response. This property will be the final URL obtained after any redirects.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      data
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>The data that is in the response. This property usually exists when a promise returned by a request method resolves.</p>
+
+      <em>(optional)</em>
     </td>
   </tr>
   

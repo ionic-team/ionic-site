@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -29,6 +29,9 @@ docType: "class"
 
 
 
+<p>A Cordova plugin for managing Hotspot networks on Android.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-hotspot</code>. For more info, please see the <a href="https://github.com/hypery2k/cordova-hotspot-plugin">Hotspot plugin docs</a>.</p>
+
 
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-hotspot-plugin">
@@ -37,7 +40,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-hotspot
@@ -49,7 +52,7 @@ $ npm install --save @ionic-native/hotspot
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
@@ -59,7 +62,7 @@ $ npm install --save @ionic-native/hotspot
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Hotspot, HotspotNetwork } from &#39;@ionic-native/hotspot&#39;;
 
 constructor(private hotspot: Hotspot) { }
@@ -79,7 +82,7 @@ this.hotspot.scanWifi().then((networks: Array&lt;HotspotNetwork&gt;) =&gt; {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 

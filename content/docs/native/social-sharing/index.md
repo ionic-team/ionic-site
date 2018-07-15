@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Share text, files, images, and links via social networks, sms, and email.</p>
 <p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api</a></p>
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-x-socialsharing
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/social-sharing
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/social-sharing
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SocialSharing } from &#39;@ionic-native/social-sharing&#39;;
 
 constructor(private socialSharing: SocialSharing) { }
@@ -84,8 +85,10 @@ this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, [&#39;recipi
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="share" href="#share"></a><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code></h3>
+
+
 
 
 Shares using the share sheet
@@ -837,7 +840,41 @@ defines the popup position before call the share method.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="saveToPhotoAlbum" href="#saveToPhotoAlbum"></a><code>saveToPhotoAlbum(fileOrFileArray)</code></h3>
 
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Save an array of images to the camera roll
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fileOrFileArray</td>
+    <td>
+      <code>string</code>|<code>Array.&lt;string&gt;</code>
+    </td>
+    <td>
+      <p>Single or multiple files</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

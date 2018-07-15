@@ -95,7 +95,7 @@
       "created_at": "2014-04-01T10:07:16Z",
       "updated_at": "2014-06-08T16:47:14Z",
       "closed_at": null,
-      "body": "http://ionicframework.com/docs/v1/guide/testing.html\r\nIt says:\r\n\"You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to enable the remote web inspector on both the device and Safari on desktop. To do this with iOS 7 and OS X Mavericks, enable the Web Inspector option in the iOS Settings -> Safari -> Advanced section, and also enable the Developer Menu in the Advanced section of the Safari OS X settings.\"\r\n\r\nIt also works on my iOS 6 device and it works on installed Ionic apps (not just using the Safari browser in iOS). I didn't know about this feature it is VERY useful.",
+      "body": "https://ionicframework.com/docs/v1/guide/testing.html\r\nIt says:\r\n\"You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to enable the remote web inspector on both the device and Safari on desktop. To do this with iOS 7 and OS X Mavericks, enable the Web Inspector option in the iOS Settings -> Safari -> Advanced section, and also enable the Developer Menu in the Advanced section of the Safari OS X settings.\"\r\n\r\nIt also works on my iOS 6 device and it works on installed Ionic apps (not just using the Safari browser in iOS). I didn't know about this feature it is VERY useful.",
       "score": 9.99341
     },
     {
@@ -218,7 +218,7 @@
       "created_at": "2014-04-01T09:52:20Z",
       "updated_at": "2014-06-08T16:26:14Z",
       "closed_at": "2014-06-08T16:26:14Z",
-      "body": "http://ionicframework.com/docs/v1/guide/testing.html\r\nSays:\r\n\r\n\"......it's very easy to test in the desktop browser. The easiest thing is to cd into the www folder, and run\r\n\r\n$ python -m SimpleHTTPServer 8000\r\nSubstitute SimpleHTTPServer with http.server if your Python version is 3.x (run python --version to check).\"\r\n\r\nI think doing the following is perhaps the \"easiest thing\": (no need for Python)\r\n\r\nhttp-server ./\r\n\r\nThen in a browser go to http://localhost:8080 (or whatever the command line tool said is the port number - it might be 8083, etc) (to specify a port use -p then the port number)\r\n\r\nI think to install it use\r\n\r\nnpm install -g http-server\r\n\r\n(g is for \"global\" I think)\r\n\r\nIf there are error messages I think you can use sudo npm install -g http-server\r\n",
+      "body": "https://ionicframework.com/docs/v1/guide/testing.html\r\nSays:\r\n\r\n\"......it's very easy to test in the desktop browser. The easiest thing is to cd into the www folder, and run\r\n\r\n$ python -m SimpleHTTPServer 8000\r\nSubstitute SimpleHTTPServer with http.server if your Python version is 3.x (run python --version to check).\"\r\n\r\nI think doing the following is perhaps the \"easiest thing\": (no need for Python)\r\n\r\nhttp-server ./\r\n\r\nThen in a browser go to http://localhost:8080 (or whatever the command line tool said is the port number - it might be 8083, etc) (to specify a port use -p then the port number)\r\n\r\nI think to install it use\r\n\r\nnpm install -g http-server\r\n\r\n(g is for \"global\" I think)\r\n\r\nIf there are error messages I think you can use sudo npm install -g http-server\r\n",
       "score": 3.0663767
     },
     {
@@ -1347,7 +1347,7 @@
       "created_at": "2014-05-06T13:58:54Z",
       "updated_at": "2014-07-06T20:34:01Z",
       "closed_at": null,
-      "body": "Best reproduce case I've found so far is at http://ionicframework.com/demos/collection-repeat.\r\n\r\nDrag the header left or right.\r\n\r\nMentioned in #1157",
+      "body": "Best reproduce case I've found so far is at https://ionicframework.com/demos/collection-repeat.\r\n\r\nDrag the header left or right.\r\n\r\nMentioned in #1157",
       "score": 0.45349312
     },
     {

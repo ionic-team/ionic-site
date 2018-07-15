@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SMS</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sms/index.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sms/index.ts#L20">
   Improve this doc
 </a>
 
@@ -22,7 +22,8 @@ docType: "class"
 
 
 
-<p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
+
+<p>Requires Cordova plugin: cordova-sms-plugin. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-sms-plugin
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/sms
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/sms
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SMS } from &#39;@ionic-native/sms&#39;;
 
 constructor(private sms: SMS) { }
@@ -74,7 +75,7 @@ this.sms.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="send" href="#send"></a><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code></h3>
 
 

@@ -1,28 +1,27 @@
-var gulp        = require('gulp');
-var $           = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
-var cache       = require('gulp-cache');
-var cachebust   = require('gulp-cache-bust');
-var cleanCSS    = require('gulp-clean-css');
-var concat      = require('gulp-concat');
-var cp          = require('child_process');
-var del         = require('del');
-var es          = require('event-stream');
-var footer      = require('gulp-footer');
-var header      = require('gulp-header');
-var lib         = require('./assets/3rd-party-libs.json');
-var merge       = require('merge-stream');
-var minifyCss   = require('gulp-minify-css');
-var pagespeed   = require('psi');
-var pkg         = require('./package.json');
-var prefix      = require('gulp-autoprefixer');
-var rename      = require('gulp-rename');
-var runSequence = require('run-sequence');
-var sass        = require('gulp-sass');
-var server      = require('gulp-develop-server');
-var shell       = require('gulp-shell');
-var uglify      = require('gulp-uglify');
-var del          = require('del');
+const gulp         = require('gulp');
+const $            = require('gulp-load-plugins')();
+const browserSync  = require('browser-sync');
+const cache        = require('gulp-cache');
+const cachebust    = require('gulp-cache-bust');
+const cleanCSS     = require('gulp-clean-css');
+const concat       = require('gulp-concat');
+const cp           = require('child_process');
+const del          = require('del');
+const es           = require('event-stream');
+const footer       = require('gulp-footer');
+const header       = require('gulp-header');
+const lib          = require('./assets/3rd-party-libs.json');
+const merge        = require('merge-stream');
+const minifyCss    = require('gulp-minify-css');
+const pkg          = require('./package.json');
+const prefix       = require('gulp-autoprefixer');
+const rename       = require('gulp-rename');
+const runSequence  = require('run-sequence');
+const sass         = require('gulp-sass');
+const server       = require('gulp-develop-server');
+const shell        = require('gulp-shell');
+const sitemappings = require('./scripts/sitemappings.json');
+const uglify       = require('gulp-uglify');
 
 var bustingCache = false;
 
@@ -74,17 +73,38 @@ function bustCache() {
 
 function bustCacheAndReload(done) {
   bustCache().on('end', function() {
-    browserSync.reload();
     done();
+    browserSync.reload();
     // apply the template change in the background
     // gulp.start('jekyll-build.incremental');
   });
 }
 
+gulp.task('styles:creator', function() {
+  // For best performance, don't add Sass partials to `gulp.src`
+  var sassStream =  gulp.src('assets/scss/creator.scss')
+    .pipe($.sourcemaps.init())
+    .pipe(sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
+    // Concatenate and minify styles
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename({extname: '.min.css'}))
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
+    .pipe($.size({title: 'styles'}));
+});
+
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src(['assets/scss/styles.scss'].concat(lib.css))
-    .pipe($.sourcemaps.init())
+  var sassStream =  gulp.src(
+    ['assets/scss/styles.scss'].concat(lib.css)
+  ) .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -114,18 +134,6 @@ gulp.task('styles:v1', function() {
     .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('content/css/'))
     .pipe(gulp.dest('_site/css/'));
-});
-
-// Optimize images
-gulp.task('images', function() {
-  return gulp.src('assets/img/**/*')
-    .pipe(cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest('content/img'))
-    .pipe(gulp.dest('_site/img'))
-    .pipe($.size({title: 'images'}));
 });
 
 // compress and concat JS
@@ -209,25 +217,56 @@ gulp.task('server:server', function() {
 gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
+gulp.task('server:creator', ['styles:creator'], bustCacheAndReload);
+gulp.task('server:stencil', ['stencil'], bustCacheAndReload);
+
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
-gulp.task('watch', ['server'], function() {
+gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
-  gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
+  gulp.watch(['assets/scss/creator.scss'], ['server:creator']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
+  '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',
   '!content/_includes/head_includes.*', '!content/_includes/fluid/head.*',
   '!content/_includes/fluid/footer_tags.*'], ['jekyll-rebuild']);
 });
 
-gulp.task('watch.min', ['server'], function() {
+gulp.task('watch', ['server'], function() {
+  gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*'],
+    ['server:stencil'])
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
-              'content/docs/**/*.{md,html}'], ['server:jekyll']);
+              'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
+});
 
+gulp.task('sitemap', function () {
+  gulp.src([
+    'server/pages/**/*.html',
+    '!server/pages/_*/**/*',
+    'content/**/*.{html,md}',
+    '!content/docs/{demos,dist}/**/*',
+    '!content/{_includes,_layouts}/**/*',
+    '!content/present-ionic/slides/**/*'
+  ], {
+    read: false
+  })
+  .pipe($.sitemap({
+    siteUrl: 'https://www.ionicframework.com',
+     getLoc: function(siteUrl, loc, entry) {
+      return loc.replace(/\.\w+$/, '').replace(/\/$/, '').replace(/(.*)\/index$/, '$1');
+    },
+    mappings: sitemappings,
+    // verbose: true,
+    lastmod: false
+  }))
+  .pipe(gulp.dest('content/'))
+  .pipe(gulp.dest('_site/'));
 });
 
 gulp.task('docs.index', function() {
@@ -394,6 +433,12 @@ gulp.task('ionicons', function() {
     .pipe(gulp.dest('content/css/v2-demos/fonts/'));
 });
 
+gulp.task('stencil', function() {
+  return gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*')
+    .pipe(gulp.dest('_site/js/ionic-site-components/'))
+    .pipe(gulp.dest('content/js/ionic-site-components/'));
+});
+
 gulp.task('build', ['build-prep'], function(done) {
   runSequence('jekyll-build', function() {
     done();
@@ -410,6 +455,18 @@ gulp.task('slug.prep', function () {
   return del(['assets', 'content']);
 });
 
-gulp.task('build-prep', ['ionicons', 'styles:v1', 'styles:v2', 'images', 'js', 'docs.index'], bustCache);
+gulp.task(
+  'build-prep',
+  [
+    'ionicons',
+    'styles:v1',
+    'styles:v2',
+    'styles:creator',
+    'js',
+    'docs.index',
+    'stencil',
+  ],
+  bustCache
+);
 
 gulp.task('default', ['build']);

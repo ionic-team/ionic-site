@@ -13,6 +13,7 @@
   &.macadamian { background-image: url('/img/trusted-partners/tp-logo-macadamian.png'); }
   &.modus-create { background-image: url('/img/trusted-partners/tp-logo-modus.png'); }
   &.onetree { background-image: url('/img/trusted-partners/tp-logo-onetree.png'); }
+  &.openforge { background-image: url('/img/trusted-partners/tp-logo-openforge.png'); }
   &.ordina { background-image: url('/img/trusted-partners/tp-logo-ordina.png'); }
   &.powergate { background-image: url('/img/trusted-partners/tp-logo-powergate.png'); }
   &.rangle { background-image: url('/img/trusted-partners/tp-logo-rangle.png'); }
@@ -21,7 +22,6 @@
   &.spatial-vision { background-image: url('/img/trusted-partners/tp-logo-spatial-vision.png'); }
   &.tepee { background-image: url('/img/trusted-partners/tp-logo-tepee.png'); }
   &.warpdev { background-image: url('/img/trusted-partners/tp-logo-warpdev.png'); }
-  &.webjunto { background-image: url('/img/trusted-partners/tp-logo-webjunto.png'); }
   &.yuxi { background-image: url('/img/trusted-partners/tp-logo-yuxi.png'); }
 }
 
@@ -51,9 +51,14 @@
           color: white;
         }
 
+        h1 {
+          font-size: 36px;
+        }
+
         p {
           max-width: 650px;
           margin: 0 auto;
+          font-size: 14px;
 
           a {
             color: rgba(white, .9);
@@ -511,6 +516,10 @@
           font-size: 11px;
         }
       }
+    }
+
+    hgroup {
+      padding-bottom: 64px;
     }
 
     @media (max-width: $screen-xs-max)  {

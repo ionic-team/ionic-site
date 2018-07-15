@@ -59,7 +59,7 @@ the content left or right or by toggling a button to show the side menu. Additio
 <a href="/docs/v1/api/directive/ionSideMenu/"><code>ionSideMenu</code></a> element directive, a side menu can be given instructions about
 "when" the menu should be exposed (always viewable).
 
-![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
+![Side Menu](https://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
 
 For more information on side menus, check out:
 

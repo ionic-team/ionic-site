@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/content/content.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/content/content.ts#L25">
 Improve this doc
 </a>
 
@@ -45,7 +45,7 @@ Improve this doc
 <p>The Content component provides an easy to use content area with
 some useful methods to control the scrollable area. There should
 only be one content in a single view component. If additional scrollable
-elements are need, use <a href="../../scroll/Scroll">ionScroll</a>.</p>
+elements are needed, use <a href="../../scroll/Scroll">ionScroll</a>.</p>
 <p>The content area can also implement pull-to-refresh with the
 <a href="../../refresher/Refresher">Refresher</a> component.</p>
 
@@ -54,7 +54,7 @@ elements are need, use <a href="../../scroll/Scroll">ionScroll</a>.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!
@@ -84,15 +84,16 @@ export class MyPage{
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="addImg"></div>
 
 <h3>
-<a class="anchor" name="addImg" href="#addImg"></a>
+<a class="anchor" name="addImg" href="#addImg">
 <code>addImg()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -108,10 +109,11 @@ export class MyPage{
 <div id="contentBottom"></div>
 
 <h3>
-<a class="anchor" name="contentBottom" href="#contentBottom"></a>
+<a class="anchor" name="contentBottom" href="#contentBottom">
 <code>contentBottom</code>
-  
 
+
+</a>
 </h3>
 
 A number representing how many pixels the bottom of the content has been
@@ -126,8 +128,8 @@ is to account for the space needed for the footer.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -137,10 +139,11 @@ is to account for the space needed for the footer.
 <div id="contentHeight"></div>
 
 <h3>
-<a class="anchor" name="contentHeight" href="#contentHeight"></a>
+<a class="anchor" name="contentHeight" href="#contentHeight">
 <code>contentHeight</code>
-  
 
+
+</a>
 </h3>
 
 Content height of the viewable area. This does not include content
@@ -155,8 +158,8 @@ headers and footers. Read-only.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -166,10 +169,11 @@ headers and footers. Read-only.
 <div id="contentTop"></div>
 
 <h3>
-<a class="anchor" name="contentTop" href="#contentTop"></a>
+<a class="anchor" name="contentTop" href="#contentTop">
 <code>contentTop</code>
-  
 
+
+</a>
 </h3>
 
 A number representing how many pixels the top of the content has been
@@ -184,8 +188,8 @@ is to account for the space needed for the header.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -195,10 +199,11 @@ is to account for the space needed for the header.
 <div id="contentWidth"></div>
 
 <h3>
-<a class="anchor" name="contentWidth" href="#contentWidth"></a>
+<a class="anchor" name="contentWidth" href="#contentWidth">
 <code>contentWidth</code>
-  
 
+
+</a>
 </h3>
 
 Content width including content which is not visible on the screen
@@ -212,8 +217,8 @@ due to overflow. Read-only.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -223,10 +228,11 @@ due to overflow. Read-only.
 <div id="directionX"></div>
 
 <h3>
-<a class="anchor" name="directionX" href="#directionX"></a>
+<a class="anchor" name="directionX" href="#directionX">
 <code>directionX</code>
-  
 
+
+</a>
 </h3>
 
 The current, or last known, horizontal scroll direction. Possible
@@ -240,8 +246,8 @@ string values include `right` and `left`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>string</code> 
+<b>Returns:</b>
+  <code>string</code>
 
 </div>
 
@@ -251,10 +257,11 @@ string values include `right` and `left`.
 <div id="directionY"></div>
 
 <h3>
-<a class="anchor" name="directionY" href="#directionY"></a>
+<a class="anchor" name="directionY" href="#directionY">
 <code>directionY</code>
-  
 
+
+</a>
 </h3>
 
 The current, or last known, vertical scroll direction. Possible
@@ -268,8 +275,8 @@ string values include `down` and `up`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>string</code> 
+<b>Returns:</b>
+  <code>string</code>
 
 </div>
 
@@ -279,10 +286,11 @@ string values include `down` and `up`.
 <div id="getContentDimensions"></div>
 
 <h3>
-<a class="anchor" name="getContentDimensions" href="#getContentDimensions"></a>
+<a class="anchor" name="getContentDimensions" href="#getContentDimensions">
 <code>getContentDimensions()</code>
-  
 
+
+</a>
 </h3>
 
 Returns the content and scroll elements' dimensions.
@@ -294,7 +302,7 @@ Returns the content and scroll elements' dimensions.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>object</code> <p><span class="fixed-width">dimensions</span>  The content and scroll elements&#39; dimensions</p>
 
 
@@ -307,7 +315,7 @@ Returns the content and scroll elements' dimensions.
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentHeight
@@ -320,7 +328,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentTop
@@ -333,7 +341,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentBottom
@@ -346,7 +354,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentWidth
@@ -359,7 +367,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentLeft
@@ -372,7 +380,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.contentRight
@@ -385,7 +393,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollHeight
@@ -398,7 +406,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollTop
@@ -411,7 +419,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollBottom
@@ -424,7 +432,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollWidth
@@ -437,7 +445,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollLeft
@@ -450,7 +458,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="fixed-width">
             dimensions.scrollRight
@@ -463,7 +471,7 @@ Returns the content and scroll elements' dimensions.
 
           </td>
         </tr>
-        
+
       </tbody>
     </table>
 
@@ -475,10 +483,11 @@ Returns the content and scroll elements' dimensions.
 <div id="getFixedElement"></div>
 
 <h3>
-<a class="anchor" name="getFixedElement" href="#getFixedElement"></a>
+<a class="anchor" name="getFixedElement" href="#getFixedElement">
 <code>getFixedElement()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -494,10 +503,11 @@ Returns the content and scroll elements' dimensions.
 <div id="isScrolling"></div>
 
 <h3>
-<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<a class="anchor" name="isScrolling" href="#isScrolling">
 <code>isScrolling</code>
-  
 
+
+</a>
 </h3>
 
 If the content is actively scrolling or not.
@@ -510,8 +520,8 @@ If the content is actively scrolling or not.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
+<b>Returns:</b>
+  <code>boolean</code>
 
 </div>
 
@@ -521,10 +531,11 @@ If the content is actively scrolling or not.
 <div id="resize"></div>
 
 <h3>
-<a class="anchor" name="resize" href="#resize"></a>
+<a class="anchor" name="resize" href="#resize">
 <code>resize()</code>
-  
 
+
+</a>
 </h3>
 
 Tell the content to recalculate its dimensions. This should be called
@@ -542,10 +553,11 @@ after dynamically adding/removing headers, footers, or tabs.
 <div id="scrollHeight"></div>
 
 <h3>
-<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
+<a class="anchor" name="scrollHeight" href="#scrollHeight">
 <code>scrollHeight</code>
-  
 
+
+</a>
 </h3>
 
 Content height including content which is not visible on the screen
@@ -559,8 +571,8 @@ due to overflow. Read-only.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -570,10 +582,11 @@ due to overflow. Read-only.
 <div id="scrollLeft"></div>
 
 <h3>
-<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
+<a class="anchor" name="scrollLeft" href="#scrollLeft">
 <code>scrollLeft</code>
-  
 
+
+</a>
 </h3>
 
 The distance of the content's left to its leftmost visible content.
@@ -586,8 +599,8 @@ The distance of the content's left to its leftmost visible content.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -597,10 +610,11 @@ The distance of the content's left to its leftmost visible content.
 <div id="scrollTo"></div>
 
 <h3>
-<a class="anchor" name="scrollTo" href="#scrollTo"></a>
+<a class="anchor" name="scrollTo" href="#scrollTo">
 <code>scrollTo(x,&nbsp;y,&nbsp;duration)</code>
-  
 
+
+</a>
 </h3>
 
 Scroll to the specified position.
@@ -616,58 +630,58 @@ Scroll to the specified position.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         x
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>number</code>
       </td>
       <td>
         <p>The x-value to scroll to.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         y
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>number</code>
       </td>
       <td>
         <p>The y-value to scroll to.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         duration
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>number</code>
       </td>
       <td>
         <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -677,7 +691,7 @@ Scroll to the specified position.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
 
 
@@ -689,10 +703,11 @@ Scroll to the specified position.
 <div id="scrollToBottom"></div>
 
 <h3>
-<a class="anchor" name="scrollToBottom" href="#scrollToBottom"></a>
+<a class="anchor" name="scrollToBottom" href="#scrollToBottom">
 <code>scrollToBottom(duration)</code>
-  
 
+
+</a>
 </h3>
 
 Scroll to the bottom of the content component.
@@ -708,24 +723,24 @@ Scroll to the bottom of the content component.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         duration
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>number</code>
       </td>
       <td>
         <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -735,7 +750,7 @@ Scroll to the bottom of the content component.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
 
 
@@ -747,10 +762,11 @@ Scroll to the bottom of the content component.
 <div id="scrollToTop"></div>
 
 <h3>
-<a class="anchor" name="scrollToTop" href="#scrollToTop"></a>
+<a class="anchor" name="scrollToTop" href="#scrollToTop">
 <code>scrollToTop(duration)</code>
-  
 
+
+</a>
 </h3>
 
 Scroll to the top of the content component.
@@ -766,24 +782,24 @@ Scroll to the top of the content component.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         duration
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>number</code>
       </td>
       <td>
         <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -793,7 +809,7 @@ Scroll to the top of the content component.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
 
 
@@ -805,10 +821,11 @@ Scroll to the top of the content component.
 <div id="scrollTop"></div>
 
 <h3>
-<a class="anchor" name="scrollTop" href="#scrollTop"></a>
+<a class="anchor" name="scrollTop" href="#scrollTop">
 <code>scrollTop</code>
-  
 
+
+</a>
 </h3>
 
 The distance of the content's top to its topmost visible content.
@@ -821,8 +838,8 @@ The distance of the content's top to its topmost visible content.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
@@ -832,10 +849,11 @@ The distance of the content's top to its topmost visible content.
 <div id="scrollWidth"></div>
 
 <h3>
-<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
+<a class="anchor" name="scrollWidth" href="#scrollWidth">
 <code>scrollWidth</code>
-  
 
+
+</a>
 </h3>
 
 Content width including content which is not visible due to
@@ -849,15 +867,15 @@ overflow. Read-only.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
+<b>Returns:</b>
+  <code>number</code>
 
 </div>
 
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -867,7 +885,7 @@ overflow. Read-only.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>fullscreen</td>
       <td><code>boolean</code></td>
@@ -876,18 +894,18 @@ and footers. This effect can easily be seen by setting the toolbar
 to transparent.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>scrollDownOnLoad</td>
       <td><code>boolean</code></td>
       <td><p> If true, the content will scroll down on load.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -896,28 +914,28 @@ to transparent.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionScroll</td>
       <td><p> Emitted on every scroll event.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionScrollEnd</td>
       <td><p> Emitted when scrolling ends.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionScrollStart</td>
       <td><p> Emitted when the scrolling first starts.</p>
 </td>
     </tr>
-    
+
   </tbody>
-</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<h3 id="sroll-events">Sroll Events</h3>
+</table><h2><a class="anchor" name="advanced" href="#advanced">Advanced</a></h2>
+<h3 id="scroll-events">Scroll Events</h3>
 <p>Scroll events happen outside of Angular&#39;s Zones. This is for performance reasons. So
 if you&#39;re trying to bind a value to any scroll event, it will need to be wrapped in
 a <code>zone.run()</code></p>
@@ -998,16 +1016,16 @@ export class MyPage{
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('ios')">iOS</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -1017,28 +1035,28 @@ export class MyPage{
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$content-ios-outer-background</code></td>
-        
+
           <td><code>#efeff4</code></td>
-        
+
         <td><p>Background color of the outer content</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$content-ios-transition-background</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Background color of the content when making transition</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

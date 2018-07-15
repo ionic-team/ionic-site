@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Stripe</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L79">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L104">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-stripe
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/stripe
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>Browser</li><li>iOS</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/stripe
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Stripe } from &#39;@ionic-native/stripe&#39;;
 
 constructor(private stripe: Stripe) { }
@@ -71,7 +72,7 @@ let card = {
 };
 
 this.stripe.createCardToken(card)
-   .then(token =&gt; console.log(token))
+   .then(token =&gt; console.log(token.id))
    .catch(error =&gt; console.error(error));
 </code></pre>
 
@@ -82,7 +83,7 @@ this.stripe.createCardToken(card)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="setPublishableKey" href="#setPublishableKey"></a><code>setPublishableKey(publishableKey)</code></h3>
 
 
@@ -140,7 +141,7 @@ Create Credit Card Token
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> returns a promise that resolves with the token, or rejects with an error
+  <b>Returns:</b> <code>Promise&lt;StripeCardTokenRes&gt;</code> returns a promise that resolves with the token object, or rejects with an error
 </div><h3><a class="anchor" name="createBankAccountToken" href="#createBankAccountToken"></a><code>createBankAccountToken(params)</code></h3>
 
 
@@ -457,7 +458,7 @@ Get a card type from card number
   
   <tr>
     <td>
-      postal_code
+      postalCode
     </td>
     <td>
       <code>string</code>

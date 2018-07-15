@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -42,7 +42,9 @@ Improve this doc
 
 <p>The <code>IonicErrorHandler</code> intercepts the default <code>Console</code> error handling
 and displays runtime errors as an overlay when using Ionic&#39;s Dev Build Server.</p>
-<h3 id="ionicerrorhandler-example">IonicErrorHandler Example</h3>
+<h3><a class="anchor" name="ionicerrorhandler-example" href="#ionicerrorhandler-example">IonicErrorHandler Example</a></h3>
+
+
 <pre><code class="lang-typescript">import { NgModule, ErrorHandler } from &#39;@angular/core&#39;;
 import { IonicErrorHandler } from &#39;ionic-angular&#39;;
 
@@ -51,7 +53,9 @@ import { IonicErrorHandler } from &#39;ionic-angular&#39;;
 })
 class AppModule {}
 </code></pre>
-<h3 id="custom-error-handlers">Custom Error Handlers</h3>
+<h3><a class="anchor" name="custom-error-handlers" href="#custom-error-handlers">Custom Error Handlers</a></h3>
+
+
 <p>Custom error handlers can be built to replace the default, or extend Ionic&#39;s
 error handler.</p>
 <pre><code class="lang-typescript">class MyErrorHandler implements ErrorHandler {

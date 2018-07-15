@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Dialogs</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L13">
   Improve this doc
 </a>
+
 
 
 
@@ -33,7 +34,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-dialogs
@@ -45,9 +46,9 @@ $ npm install --save @ionic-native/dialogs
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/dialogs
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Dialogs } from &#39;@ionic-native/dialogs&#39;;
 
 constructor(private dialogs: Dialogs) { }
@@ -74,7 +75,7 @@ this.dialogs.alert(&#39;Hello world&#39;)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="alert" href="#alert"></a><code>alert(message,&nbsp;title,&nbsp;buttonName)</code></h3>
 
 
@@ -108,7 +109,7 @@ Shows a custom alert or dialog box.
       <code>string</code>
     </td>
     <td>
-      <p>Dialog title. (Optional, defaults to Alert)</p>
+      <p>Dialog title. (Optional, defaults to Alert)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   
@@ -119,7 +120,7 @@ Shows a custom alert or dialog box.
       <code>string</code>
     </td>
     <td>
-      <p>Button name. (Optional, defaults to OK)</p>
+      <p>Button name. (Optional, defaults to OK)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -161,7 +162,7 @@ Displays a customizable confirmation dialog box.
       <code>string</code>
     </td>
     <td>
-      <p>Dialog title. (Optional, defaults to Confirm)</p>
+      <p>Dialog title. (Optional, defaults to Confirm)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   
@@ -172,7 +173,7 @@ Displays a customizable confirmation dialog box.
       <code>Array&lt;string&gt;</code>
     </td>
     <td>
-      <p>Array of strings specifying button labels. (Optional, defaults to [OK,Cancel])</p>
+      <p>Array of strings specifying button labels. (Optional, defaults to [OK,Cancel])<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -203,7 +204,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <code>string</code>
     </td>
     <td>
-      <p>Dialog message.</p>
+      <p>Dialog message.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   
@@ -214,7 +215,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <code>string</code>
     </td>
     <td>
-      <p>Dialog title. (Optional, defaults to Prompt)</p>
+      <p>Dialog title. (Optional, defaults to Prompt)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   
@@ -225,7 +226,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <code>Array&lt;string&gt;</code>
     </td>
     <td>
-      <p>Array of strings specifying button labels. (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
+      <p>Array of strings specifying button labels. (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   
@@ -236,7 +237,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <code>string</code>
     </td>
     <td>
-      <p>Default textbox input value.  (Optional, Default: empty string)</p>
+      <p>Default text box input value.  (Optional, Default: empty string)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

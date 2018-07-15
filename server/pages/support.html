@@ -27,7 +27,10 @@
       </p>
     </hgroup>
     <div class="items">
-      <a class="forum" target="_blank" href="https://forum.ionicframework.com/">
+      <a class="forum"
+         target="_blank"
+         href="https://forum.ionicframework.com/"
+         id="btn-support-forum">
         <h3>Community Forum</h3>
         <p>
           The Forum is the best place to connect with other Ionic developers,
@@ -36,7 +39,8 @@
       </a>
       <a class="slack"
          target="_blank"
-         href="https://ionicworldwide.herokuapp.com/">
+         href="https://ionicworldwide.herokuapp.com/"
+         id="btn-support-slack">
         <h3>Worldwide Slack</h3>
         <p>
           Chat in our Slack channel with other Ionic community members, and
@@ -45,7 +49,8 @@
       </a>
       <a class="so"
          target="_blank"
-         href="https://stackoverflow.com/questions/tagged/ionic-framework">
+         href="https://stackoverflow.com/questions/tagged/ionic-framework"
+         id="btn-support-stackoverflow">
         <h3>StackOverflow</h3>
         <p>
           For crowdsourced technical questions from expert Ionic devs in our
@@ -65,7 +70,8 @@
     </hgroup>
     <div class="items">
       <a class="account"
-         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632028">
+         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632028"
+         id="btn-support-account">
         <h3>Account and billing</h3>
         <p>
           Contact our support team for any issues or problems with your Ionic
@@ -73,7 +79,8 @@
         </p>
       </a>
       <a class="bug"
-         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632048">
+         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632048"
+         id="btn-support-bug">
         <h3>Report services bug or issue</h3>
         <p>
           Find a bug in the Ionic services? Have a novel idea? Let us know!
@@ -81,7 +88,8 @@
         </p>
       </a>
       <a class="troubleshooting"
-         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632068">
+         href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632068"
+         id="btn-support-troubleshooting">
         <h3>Using Ionic Services</h3>
         <p>
           Have questions about what Ionic has to offer or how to use our
@@ -99,7 +107,9 @@
       </p>
     </hgroup>
     <div class="items">
-      <a class="resources" href="/docs/resources/">
+      <a class="resources"
+         href="/docs/resources/"
+         id="btn-support-framework-resources">
         <h3>Ionic Framework Resources</h3>
         <p>
           Ionic Framework guides, videos, books, tools and everything in between
@@ -108,14 +118,17 @@
       </a>
       <a class="github"
          target="_blank"
-         href="https://github.com/ionic-team/ionic/issues/new">
+         href="https://github.com/ionic-team/ionic/issues/new"
+         id="btn-support-github">
         <h3>GitHub issues</h3>
         <p>
           The end all, be all Knowledge Base for learning more about how to
           build even better Ionic apps.
         </p>
       </a>
-      <a class="faq" href="/docs/troubleshooting/">
+      <a class="faq"
+         href="/docs/troubleshooting/"
+         id="btn-support-faq">
         <h3>FAQ</h3>
         <p>
           You have frequent questions, we have the answers. Stop by our FAQ and
@@ -133,8 +146,9 @@
         agencies and businesses trained in helping their clients ship incredible
         Ionic apps. Search our list to find the right partner for you.
       </p>
-      <a class="btn rounded white" href="/trusted-partners">Find a Trusted
-        Partner</a>
+      <a class="btn rounded white"
+         href="/trusted-partners"
+         id="btn-support-trusted-partner">Find a Trusted Partner</a>
     </hgroup>
   </section>
 </main>
@@ -144,19 +158,7 @@
 
 {% block scripts %}
 <script>
-   /* Replace 'APP_ID' with your app ID */
-   window.intercomSettings = {
-    app_id: 'yqjddt6b'
-};
-   /* Replace 'APP_ID' with your app ID */
-   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
-     ic('reattach_activator');ic('update',intercomSettings);}else{var    
-     d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)   
-     {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
-     s.type='text/javascript';s.async=true;
-     s.src='https://widget.intercom.io/widget/APP_ID';
-     var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
-     }if(w.attachEvent){w.attachEvent('onload',l);}else{
-       w.addEventListener('load',l,false);}}})()
-</script> 
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

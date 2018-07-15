@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This plugin provides foreground and background geolocation with battery-saving &quot;circular region monitoring&quot; and &quot;stop detection&quot;. For
 more detail, please see <a href="https://github.com/mauron85/cordova-plugin-background-geolocation">https://github.com/mauron85/cordova-plugin-background-geolocation</a></p>
 
@@ -33,7 +34,7 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-mauron85-background-geolocation
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/background-geolocation
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,9 +56,9 @@ $ npm install --save @ionic-native/background-geolocation
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>BackgroundGeolocation must be called within app.ts and or before Geolocation. Otherwise the platform will not ask you for background tracking permission.</p>
-<pre><code class="lang-typescript">import { BackgroundGeolocation, BackgroundGeolocationConfig } from &#39;@ionic-native/background-geolocation&#39;;
+<pre><code class="lang-typescript">import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from &#39;@ionic-native/background-geolocation&#39;;
 
 constructor(private backgroundGeolocation: BackgroundGeolocation) { }
 
@@ -97,7 +98,7 @@ this.backgroundGeolocation.stop();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="LocationProvider" href="#LocationProvider"></a><code>LocationProvider</code></h3>
 
 Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
@@ -338,7 +339,7 @@ In case or error (SettingNotFoundException) fail callback will be executed.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;number&gt;</code> 
 </div><h3><a class="anchor" name="stopWatchingLocationMode" href="#stopWatchingLocationMode"></a><code>stopWatchingLocationMode()</code></h3>
 
 

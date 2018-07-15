@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L28">
   Improve this doc
 </a>
+
 
 
 
@@ -34,7 +35,7 @@ Handle also headset event (plug, unplug, headset button).</p>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-music-controls
@@ -46,7 +47,7 @@ $ npm install --save @ionic-native/music-controls
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -56,7 +57,7 @@ $ npm install --save @ionic-native/music-controls
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { MusicControls } from &#39;@ionic-native/music-controls&#39;;
 
 constructor(private musicControls: MusicControls) { }
@@ -78,49 +79,83 @@ this.musicControls.create({
   hasClose  : true,       // show close button, optional, default: false
 
 // iOS only, optional
-  album       : &#39;Absolution&#39;     // optional, default: &#39;&#39;
+  album       : &#39;Absolution&#39;,     // optional, default: &#39;&#39;
   duration : 60, // optional, default: 0
   elapsed : 10, // optional, default: 0
+  hasSkipForward : true,  // show skip forward button, optional, default: false
+  hasSkipBackward : true, // show skip backward button, optional, default: false
+  skipForwardInterval: 15, // display number for skip forward, optional, default: 0
+  skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
+  hasScrubbing: false, // enable scrubbing from control center and lockscreen progress bar, optional
 
   // Android only, optional
-  // text displayed in the status bar when the notification (and the ticker) are updated
-  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;
+  // text displayed in the status bar when the notification (and the ticker) are updated, optional
+  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;,
+  // All icons default to their built-in android equivalents
+ // The supplied drawable name, e.g. &#39;media_play&#39;, is the name of a drawable found under android/res/drawable* folders
+  playIcon: &#39;media_play&#39;,
+  pauseIcon: &#39;media_pause&#39;,
+  prevIcon: &#39;media_prev&#39;,
+  nextIcon: &#39;media_next&#39;,
+  closeIcon: &#39;media_close&#39;,
+  notificationIcon: &#39;notification&#39;
  });
 
  this.musicControls.subscribe().subscribe(action =&gt; {
 
-   switch(action) {
-       case &#39;music-controls-next&#39;:
+   function events(action) {
+     const message = JSON.parse(action).message;
+         switch(message) {
+             case &#39;music-controls-next&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-previous&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-pause&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-play&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-destroy&#39;:
+                 // Do something
+                 break;
+
+         // External controls (iOS only)
+         case &#39;music-controls-toggle-play-pause&#39; :
+                 // Do something
+                 break;
+         case &#39;music-controls-seek-to&#39;:
+           const seekToInSeconds = JSON.parse(action).position;
+           this.musicControls.updateElapsed({
+             elapsed: seekToInSeconds,
+             isPlaying: true
+           });
            // Do something
            break;
-       case &#39;music-controls-previous&#39;:
+         case &#39;music-controls-skip-forward&#39;:
            // Do something
            break;
-       case &#39;music-controls-pause&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-play&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-destroy&#39;:
+         case &#39;music-controls-skip-backward&#39;:
            // Do something
            break;
 
-       // Headset events (Android only)
-       case &#39;music-controls-media-button&#39; :
-           // Do something
-           break;
-       case &#39;music-controls-headset-unplugged&#39;:
-           // Do something
-           break;
-       case &#39;music-controls-headset-plugged&#39;:
-           // Do something
-           break;
-       default:
-           break;
-   }
-
- });
+             // Headset events (Android only)
+             // All media button events are listed below
+             case &#39;music-controls-media-button&#39; :
+                 // Do something
+                 break;
+             case &#39;music-controls-headset-unplugged&#39;:
+                 // Do something
+                 break;
+             case &#39;music-controls-headset-plugged&#39;:
+                 // Do something
+                 break;
+             default:
+                 break;
+         }
+     }
 
  this.musicControls.listen(); // activates the observable above
 
@@ -134,7 +169,7 @@ this.musicControls.create({
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(options)</code></h3>
 
 
@@ -217,6 +252,36 @@ Toggle play/pause:
   </tbody>
 </table>
 
+<h3><a class="anchor" name="updateElapsed" href="#updateElapsed"></a><code>updateElapsed(args)</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Update elapsed time, optionally toggle play/pause:
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      args</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="updateDismissable" href="#updateDismissable"></a><code>updateDismissable(dismissable)</code></h3>
 
 
@@ -269,7 +334,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -282,7 +347,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -295,7 +360,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -308,7 +373,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -321,7 +386,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -334,7 +399,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -347,7 +412,72 @@ Toggle dismissable:
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipForward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipBackward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipForwardInterval
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipBackwardInterval
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasScrubbing
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -360,7 +490,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -373,7 +503,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -386,7 +516,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -399,7 +529,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -412,7 +542,85 @@ Toggle dismissable:
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      playIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pauseIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      prevIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      nextIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closeIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
     </td>
   </tr>
   

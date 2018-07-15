@@ -9,21 +9,21 @@
     {% include fluid/head.prod.html %}
   </head>
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
-        class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}} has-snap
+        class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}}
+               {% if page.body_class %} page-{{page.body_class}}{% endif %}
+               {% if layout.body_class %} {{layout.body_class}}{% endif %}
                {% if page.header_style %}{{page.header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
         {% if isDocs %}data-target="#components-index"{% endif %}
         ng-app="IonicSite">
-
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0"
+              width="0" ></iframe>
+    </noscript>
     {% if page.centered != true %}
-      <div id="snap-bar">
-        Check out
-        <a href="/enterprise" style="color: #fff">
-          <b>Ionic Enterprise</b>
-          <i class="ion-md-arrow-forward"></i>
-        </a>
-      </div>
       {% include fluid/docs_header.html %}
     {% else %}
       {% include fluid/header.html %}

@@ -6,6 +6,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @media (max-width: $screen-xs-max) {
+    padding-top: 50px;
     width: 100%;
     min-width: 100%;
     background: #fff;
@@ -15,6 +16,20 @@ body {
     background: linear-gradient(90deg, $whiteish, $whiteish ($sidenav-width),
       white ($sidenav-width), white 100%);
   }
+
+  @media (max-width: $screen-sm-min) {
+    &#page-pricing-table {
+      padding-top: 0px;
+    }
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  overflow: hidden;
 }
 
 #components-index ul.nav > li > a {
@@ -37,6 +52,24 @@ body {
   display: block;
   float: right;
   margin-top: -3.1em;
+  line-height: 25px;
+
+
+  .component-doc-demo-mobile {
+    margin-right: 6px;
+  }
+}
+
+.component-doc-demo-mobile {
+  cursor: pointer;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  background-color: $blue;
+  display: none;
+  line-height: inherit;
 }
 
 .docs-container {
@@ -66,6 +99,10 @@ body {
         margin-right: 0;
       }
     }
+
+    .component-doc-demo-mobile {
+      display: inline-block;
+    }
   }
 
   @media (max-width: $screen-xs-max) {
@@ -77,9 +114,8 @@ body {
     }
 
     #side-nav {
-      padding-top: 0;
-      top: 50px;
       z-index: 1;
+      top: -4px;
       transform: translateX(-$sidenav-width);
       transition: transform .3s ease;
 
@@ -100,10 +136,10 @@ html {
 
 body {
   min-height: 100%;
-  margin: 20px 0 -130px; // bottom = footer height
+  margin: 0 0 -130px; // bottom = footer height
 
   @media (max-width: $screen-xs-max) {
-    margin-top: 50px;
+    // margin-top: 50px;
   }
 }
 
@@ -183,10 +219,22 @@ a.footer-link {
   right: 0;
   text-align: center;
   right: -20px;
+  z-index: 1;
+  background-color: white;
 
   &.fixey {
     position: fixed;
     top: 0;
+  }
+
+  > a {
+    position: relative;
+    top: -25px;
+    font-size: 15px;
+
+    &, &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
   }
 }
 
@@ -255,6 +303,17 @@ a.footer-link {
 @media (max-width: 1300px) and (min-width: $screen-xs) {
   #sass-variables {
     bottom: -10px;
+
+    .table.param-table {
+      td,
+      th {
+        white-space: normal;
+
+        &:nth-last-child(2) {
+          width: auto;
+        }
+      }
+    }
   }
 }
 
@@ -401,11 +460,15 @@ ul.docs-example {
   }
 }
 
-.docs-container h3 a:not([role='button']) {
-  color: #26292e !important;
+.docs-container {
+  h2, h3 {
+    a:not([role='button']) {
+      color: #26292e !important;
 
-  &:hover {
-    color: #26292e !important;
+      &:hover {
+        color: #26292e !important;
+      }
+    }
   }
 }
 

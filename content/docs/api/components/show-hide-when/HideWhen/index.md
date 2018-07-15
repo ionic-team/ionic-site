@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "HideWhen"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/hide-when/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ HideWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/show-hide-when/hide-when.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/show-hide-when/hide-when.ts#L4">
 Improve this doc
 </a>
 
@@ -58,7 +58,7 @@ platforms you can use.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;div hideWhen=&quot;android&quot;&gt;
  I am hidden on Android!
@@ -95,7 +95,7 @@ platforms you can use.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="../ShowWhen">ShowWhen API Docs</a>,
 <a href="../../../platform/Platform">Platform API Docs</a><!-- end content block -->

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,9 +13,10 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L108">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L140">
   Improve this doc
 </a>
+
 
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-sqlite-storage
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/sqlite
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>macOS</li><li>Windows</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/sqlite
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SQLite, SQLiteObject } from &#39;@ionic-native/sqlite&#39;;
 
 constructor(private sqlite: SQLite) { }
@@ -84,7 +85,7 @@ this.sqlite.create({
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(config)</code></h3>
 
 
@@ -127,6 +128,15 @@ Verify that both the Javascript and native part of this plugin are installed in 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="selfTest" href="#selfTest"></a><code>selfTest()</code></h3>
+
+
+Automatically verify basic database access operations including opening a database
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="deleteDatabase" href="#deleteDatabase"></a><code>deleteDatabase(config)</code></h3>
 
 
@@ -163,7 +173,7 @@ Deletes a database
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="databaseFeatures" href="#databaseFeatures"></a><code>databaseFeatures()</code></h3>
 
 
@@ -203,7 +213,7 @@ Deletes a database
     <td>
       fn</td>
     <td>
-      <code>any</code>
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -293,7 +303,7 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlStatements</td>
     <td>
-      <code>Array&lt;string | string[]&gt;</code>
+      <code>Array&lt;string | string[] | any&gt;</code>
     </td>
     <td>
       </td>
@@ -384,6 +394,20 @@ ensure it resolved and successfully opened the database.
     </td>
   </tr>
   
+  <tr>
+    <td>
+      key
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>support encrypted databases with <a href="https://github.com/litehelpers/Cordova-sqlcipher-adapter">https://github.com/litehelpers/Cordova-sqlcipher-adapter</a></p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -415,101 +439,10 @@ ensure it resolved and successfully opened the database.
   
   <tr>
     <td>
-      executeSql
-    </td>
-    <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       addStatement
     </td>
     <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementSuccess
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementFailure
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      run
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abort
-    </td>
-    <td>
-      <code>(txFailure: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      finish
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abortFromQ
-    </td>
-    <td>
-      <code>(sqlerror: any) =&gt; void</code>
+      <code>DbTransaction[</code>
     </td>
     <td>
       

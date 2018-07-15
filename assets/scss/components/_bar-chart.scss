@@ -1,0 +1,42 @@
+bar-chart,
+#page-survey-2017 svg {
+  width: 100%;
+  display: block;
+  margin-bottom: 48px;
+
+  > svg {
+    width: 100%;
+  }
+
+  .tick {
+    line {
+      opacity: 0;
+    }
+
+    tspan {
+      font-size: 12px;
+      font-weight: 500;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+  }
+
+  .c3-text {
+    font-size: 11px;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  .domain {
+    opacity: 0;
+  } 
+
+  .c3-grid line {
+    stroke: #eee;
+    stroke-dasharray: 0;
+  }
+
+  .c3-bar._expanded_ {
+    fill-opacity: 1;
+  }
+}
+

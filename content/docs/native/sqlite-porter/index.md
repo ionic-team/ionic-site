@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>This Cordova/Phonegap plugin can be used to import/export to/from a SQLite database using either SQL or JSON.</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/sqlite-porter
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Tizen</li><li>Windows</li><li>Windows Phone</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/sqlite-porter
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { SQLitePorter } from &#39;@ionic-native/sqlite-porter&#39;;
 
 
@@ -90,7 +91,7 @@ this.sqlitePorter.importSqlToDb(db, sql)
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="importSqlToDb" href="#importSqlToDb"></a><code>importSqlToDb(db,&nbsp;sql)</code></h3>
 
 

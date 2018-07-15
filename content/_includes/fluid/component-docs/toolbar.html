@@ -5,7 +5,7 @@
 
   A toolbar is a generic bar that can be used in an app as a header, sub-header, footer, or even sub-footer. Since `ion-toolbar` is based on flexbox, no matter how many toolbars you have in your page, they will be displayed correctly and `ion-content` will adjust accordingly.
 
-  Note: Typically a [NavBar](../api/components/navbar/Navbar) is used inside the `ion-header` when used in conjunction with navigation.
+  Note: Typically a [NavBar](../api/components/toolbar/Navbar) is used inside the `ion-header` when used in conjunction with navigation.
 
   _For more information, Check out the [API docs](../api/components/toolbar/Toolbar)._
 
@@ -20,10 +20,16 @@
 
 
 <h3 class="no-para">Basic Usage</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/toolbar/basic">
-  Demo Source
-</a>
-
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/toolbar-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/toolbar/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 ```html
 <ion-header>
@@ -153,7 +159,7 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
   <ion-toolbar>
     <p>Ash, Misty, Brock</p>
     <ion-buttons end>
-      <button ion-button icon-right color="royal">
+      <button ion-button icon-end color="royal">
         Send
         <ion-icon name="send"></ion-icon>
       </button>

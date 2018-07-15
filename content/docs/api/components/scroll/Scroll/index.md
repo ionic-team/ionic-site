@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "Scroll"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/scroll/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Scroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/scroll/scroll.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/scroll/scroll.ts#L2">
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-scroll scrollX=&quot;true&quot;&gt;
 &lt;/ion-scroll&gt;
@@ -72,7 +72,7 @@ Improve this doc
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -82,35 +82,35 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>maxZoom</td>
       <td><code>number</code></td>
       <td><p> Set the max zoom amount.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>scrollX</td>
       <td><code>boolean</code></td>
       <td><p> If true, scrolling along the X axis is enabled.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>scrollY</td>
       <td><code>boolean</code></td>
       <td><p> If true, scrolling along the Y axis is enabled; requires the following CSS declaration: ion-scroll { white-space: nowrap; }</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>zoom</td>
       <td><code>boolean</code></td>
       <td><p> If true, zooming is enabled.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

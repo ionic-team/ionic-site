@@ -156,7 +156,7 @@ dimensions are measured correctly.</p>
 <h2 id="virtual-scroll-performance-tips">Virtual Scroll Performance Tips</h2>
 <h4 id="ios-cordova-wkwebview">iOS Cordova WKWebView</h4>
 <p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
-<a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
+<a href="https://blog.ionicframework.com/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
 in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
 WKWebView is superior at scrolling efficiently in comparision to the older
 UIWebView.</p>

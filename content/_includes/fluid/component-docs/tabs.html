@@ -18,17 +18,24 @@ _For more information, Check out the [Tabs API docs](../api/components/tabs/Tabs
 </ul>
 
 ### Basic Usage
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/basic">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/tab-basic">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/basic">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
 ```typescript
 import { Component } from '@angular/core';
-import { ionicBootstrap } from 'ionic-angular';
 import { Tab1 } from './tab1-page';
 import { Tab2 } from './tab2-page';
+  
 @Component({
   template: `
     <ion-tabs>
@@ -62,7 +69,7 @@ import { Component } from '@angular/core';
   </ion-header>
   <ion-content>Tab 1</ion-content>`
 })
-export class Tab1 {}
+export class Tab1 { }
 
 @Component({
   template: `
@@ -73,7 +80,7 @@ export class Tab1 {}
   </ion-header>
   <ion-content>Tab 2</ion-content>`
 })
-export class Tab2 {}
+export class Tab2 { }
 ```
 
 Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Components` of each tab will be unique to each tab:
@@ -86,6 +93,7 @@ import { NavController } from 'ionic-angular';
 ...
 })
 class Tab1 {
+  
   constructor(public navCtrl: NavController) {
     // Id is 1, nav refers to Tab1
     console.log(this.nav.id)
@@ -96,6 +104,7 @@ class Tab1 {
 ...
 })
 class Tab2 {
+  
   constructor(public navCtrl: NavController) {
     // Id is 2, nav refers to Tab2
     console.log(this.nav.id)
@@ -104,9 +113,16 @@ class Tab2 {
 ```
 
 <h3 class="section-nav" id="tabs-icon">Icon Tabs</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/tab-icon">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can be passed the name of any [icon](#icon):
 
@@ -122,7 +138,9 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
   `
 })
 class TabContentPage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -135,18 +153,27 @@ class TabContentPage {
   </ion-tabs>`
 })
 export class TabsIconPage {
+  
   constructor() {
     this.tab1 = TabContentPage;
     this.tab2 = TabContentPage;
     ...
   }
+  
 }
 ```
 
 <h3 class="section-nav" id="tabs-icon-text">Icon and Text</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon-text">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/tab-icon-text">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon-text">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attributes:
 
@@ -162,7 +189,9 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   `
 })
 class TabsTextContentPage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -175,18 +204,27 @@ class TabsTextContentPage {
   </ion-tabs>`
 })
 export class TabsTextPage {
+  
   constructor() {
     this.tab1 = TabsTextContentPage;
     this.tab2 = TabsTextContentPage;
     ...
   }
+  
 }
 ```
 
 <h3 class="section-nav" id="tabs-badges">Badges</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon-text">
-  Demo Source
-</a>
+<p>
+  <nobr class="component-doc-demo">
+    <a target="_blank" class="btn component-doc-demo-mobile" href="/dist/preview-app/www/?production=true#/nav/n4/tab-badge">
+      Demo
+    </a>
+    <a target="_blank" href="https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/tabs/icon-text">
+      Demo Source
+    </a>
+  </nobr>
+</p>
 
 To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The `tabBadgeStyle` attribute can be passed the name of any [color](/docs/theming/theming-your-app/):
 
@@ -203,7 +241,9 @@ To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The 
   `
 })
 class TabBadgePage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -216,10 +256,12 @@ class TabBadgePage {
     `
 })
 export class BadgesPage {
+  
   constructor() {
     this.tabOne = TabBadgePage;
     this.tabTwo = TabBadgePage;
   }
+  
 }
 ```
 

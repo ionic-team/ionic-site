@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Plugin to serve ads through native Appodeal SDKs</p>
 
 
@@ -32,7 +33,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/appodeal/appodeal-cordova-plugin.git
@@ -44,7 +45,7 @@ $ npm install --save @ionic-native/appodeal
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
@@ -54,7 +55,7 @@ $ npm install --save @ionic-native/appodeal
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Appodeal } from &#39;@ionic-native/appodeal&#39;;
 
 constructor(private appodeal: Appodeal) {
@@ -73,7 +74,7 @@ constructor(private appodeal: Appodeal) {
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="readonly" href="#readonly"></a><code>readonly</code></h3>
 
 
@@ -214,7 +215,7 @@ hide ad of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(adType)</code></h3>
+<h3><a class="anchor" name="canShow" href="#canShow"></a><code>canShow(adType)</code></h3>
 
 
 confirm use of ads of specified type
@@ -239,7 +240,10 @@ confirm use of ads of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code></h3>
 
 
 check if ad of specified type has been loaded
@@ -355,7 +359,7 @@ forcefully cache an ad by type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setOnLoadedTriggerBoth" href="#setOnLoadedTriggerBoth"></a><code>setOnLoadedTriggerBoth(set)</code></h3>
+<h3><a class="anchor" name="setTriggerOnLoadedOnPrecache" href="#setTriggerOnLoadedOnPrecache"></a><code>setTriggerOnLoadedOnPrecache(set)</code></h3>
 
 
 
@@ -480,7 +484,7 @@ enable or disable banner animations
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setLogging" href="#setLogging"></a><code>setLogging(logging)</code></h3>
+<h3><a class="anchor" name="setLogLevel" href="#setLogLevel"></a><code>setLogLevel(logging)</code></h3>
 
 
 enable or disable logging
@@ -1333,6 +1337,47 @@ set Interests preference in Appodeal for current user
 <h3><a class="anchor" name="onBannerShown" href="#onBannerShown"></a><code>onBannerShown()</code></h3>
 
 
+
+
+
+
+
+<h3><a class="anchor" name="getRewardParametersForPlacement" href="#getRewardParametersForPlacement"></a><code>getRewardParametersForPlacement()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="getRewardParameters" href="#getRewardParameters"></a><code>getRewardParameters()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="canShowWithPlacement" href="#canShowWithPlacement"></a><code>canShowWithPlacement()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="showTestScreen" href="#showTestScreen"></a><code>showTestScreen()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+
+
+
+<h3><a class="anchor" name="muteVideosIfCallsMuted" href="#muteVideosIfCallsMuted"></a><code>muteVideosIfCallsMuted()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="setChildDirectedTreatment" href="#setChildDirectedTreatment"></a><code>setChildDirectedTreatment()</code></h3>
 
 
 

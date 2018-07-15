@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -47,7 +47,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
 import { ViewController } from &#39;ionic-angular&#39;;
@@ -69,15 +69,16 @@ export class MyPage{
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="component"></div>
 
 <h3>
-<a class="anchor" name="component" href="#component"></a>
+<a class="anchor" name="component" href="#component">
 <code>component</code>
   
 
+</a>
 </h3>
 
 
@@ -93,10 +94,11 @@ export class MyPage{
 <div id="contentRef"></div>
 
 <h3>
-<a class="anchor" name="contentRef" href="#contentRef"></a>
+<a class="anchor" name="contentRef" href="#contentRef">
 <code>contentRef()</code>
   
 
+</a>
 </h3>
 
 
@@ -120,10 +122,11 @@ export class MyPage{
 <div id="didEnter"></div>
 
 <h3>
-<a class="anchor" name="didEnter" href="#didEnter"></a>
+<a class="anchor" name="didEnter" href="#didEnter">
 <code>didEnter</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when the current component has become active
@@ -147,10 +150,11 @@ Observable to be subscribed to when the current component has become active
 <div id="didLeave"></div>
 
 <h3>
-<a class="anchor" name="didLeave" href="#didLeave"></a>
+<a class="anchor" name="didLeave" href="#didLeave">
 <code>didLeave</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when the current component is no long active
@@ -174,10 +178,11 @@ Observable to be subscribed to when the current component is no long active
 <div id="dismiss"></div>
 
 <h3>
-<a class="anchor" name="dismiss" href="#dismiss"></a>
+<a class="anchor" name="dismiss" href="#dismiss">
 <code>dismiss(data,&nbsp;role ,&nbsp;navOptions)</code>
   
 
+</a>
 </h3>
 
 Dismiss the current viewController
@@ -265,10 +270,11 @@ Dismiss the current viewController
 <div id="enableBack"></div>
 
 <h3>
-<a class="anchor" name="enableBack" href="#enableBack"></a>
+<a class="anchor" name="enableBack" href="#enableBack">
 <code>enableBack()</code>
   
 
+</a>
 </h3>
 
 Check to see if you can go back in the navigation stack.
@@ -292,10 +298,11 @@ Check to see if you can go back in the navigation stack.
 <div id="getContent"></div>
 
 <h3>
-<a class="anchor" name="getContent" href="#getContent"></a>
+<a class="anchor" name="getContent" href="#getContent">
 <code>getContent()</code>
   
 
+</a>
 </h3>
 
 
@@ -319,10 +326,11 @@ Check to see if you can go back in the navigation stack.
 <div id="hasNavbar"></div>
 
 <h3>
-<a class="anchor" name="hasNavbar" href="#hasNavbar"></a>
+<a class="anchor" name="hasNavbar" href="#hasNavbar">
 <code>hasNavbar()</code>
   
 
+</a>
 </h3>
 
 Find out if the current component has a NavBar or not. Be sure
@@ -348,10 +356,11 @@ the view has rendered fully.
 <div id="index"></div>
 
 <h3>
-<a class="anchor" name="index" href="#index"></a>
+<a class="anchor" name="index" href="#index">
 <code>index</code>
   
 
+</a>
 </h3>
 
 Get the index of the current component in the current navigation stack.
@@ -375,10 +384,11 @@ Get the index of the current component in the current navigation stack.
 <div id="isFirst"></div>
 
 <h3>
-<a class="anchor" name="isFirst" href="#isFirst"></a>
+<a class="anchor" name="isFirst" href="#isFirst">
 <code>isFirst()</code>
   
 
+</a>
 </h3>
 
 
@@ -402,10 +412,11 @@ Get the index of the current component in the current navigation stack.
 <div id="isLast"></div>
 
 <h3>
-<a class="anchor" name="isLast" href="#isLast"></a>
+<a class="anchor" name="isLast" href="#isLast">
 <code>isLast()</code>
   
 
+</a>
 </h3>
 
 
@@ -429,10 +440,11 @@ Get the index of the current component in the current navigation stack.
 <div id="onDidDismiss"></div>
 
 <h3>
-<a class="anchor" name="onDidDismiss" href="#onDidDismiss"></a>
+<a class="anchor" name="onDidDismiss" href="#onDidDismiss">
 <code>onDidDismiss()</code>
   
 
+</a>
 </h3>
 
 Called when the current viewController has be successfully dismissed
@@ -449,10 +461,11 @@ Called when the current viewController has be successfully dismissed
 <div id="onWillDismiss"></div>
 
 <h3>
-<a class="anchor" name="onWillDismiss" href="#onWillDismiss"></a>
+<a class="anchor" name="onWillDismiss" href="#onWillDismiss">
 <code>onWillDismiss()</code>
   
 
+</a>
 </h3>
 
 Called when the current viewController will be dismissed
@@ -469,10 +482,11 @@ Called when the current viewController will be dismissed
 <div id="pageRef"></div>
 
 <h3>
-<a class="anchor" name="pageRef" href="#pageRef"></a>
+<a class="anchor" name="pageRef" href="#pageRef">
 <code>pageRef()</code>
   
 
+</a>
 </h3>
 
 
@@ -496,10 +510,11 @@ Called when the current viewController will be dismissed
 <div id="setBackButtonText"></div>
 
 <h3>
-<a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
+<a class="anchor" name="setBackButtonText" href="#setBackButtonText">
 <code>setBackButtonText(val)</code>
   
 
+</a>
 </h3>
 
 Change the title of the back-button. Be sure to call this
@@ -546,10 +561,11 @@ after `ionViewWillEnter` to make sure the  DOM has been rendered.
 <div id="showBackButton"></div>
 
 <h3>
-<a class="anchor" name="showBackButton" href="#showBackButton"></a>
+<a class="anchor" name="showBackButton" href="#showBackButton">
 <code>showBackButton(Set)</code>
   
 
+</a>
 </h3>
 
 Set if the back button for the current view is visible or not. Be sure to call this
@@ -596,10 +612,11 @@ after `ionViewWillEnter` to make sure the  DOM has been rendered.
 <div id="willEnter"></div>
 
 <h3>
-<a class="anchor" name="willEnter" href="#willEnter"></a>
+<a class="anchor" name="willEnter" href="#willEnter">
 <code>willEnter</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when the current component will become active
@@ -623,10 +640,11 @@ Observable to be subscribed to when the current component will become active
 <div id="willLeave"></div>
 
 <h3>
-<a class="anchor" name="willLeave" href="#willLeave"></a>
+<a class="anchor" name="willLeave" href="#willLeave">
 <code>willLeave</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when the current component will no longer be active
@@ -650,10 +668,11 @@ Observable to be subscribed to when the current component will no longer be acti
 <div id="willUnload"></div>
 
 <h3>
-<a class="anchor" name="willUnload" href="#willUnload"></a>
+<a class="anchor" name="willUnload" href="#willUnload">
 <code>willUnload</code>
   
 
+</a>
 </h3>
 
 Observable to be subscribed to when the current component has been destroyed

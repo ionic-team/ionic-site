@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
 Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
 
@@ -33,7 +34,7 @@ Geofences persist after device reboot. Geofences will be monitored even when the
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-geofence
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/geofence
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/geofence
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { Geofence } from &#39;@ionic-native/geofence&#39;;
 
 ...
@@ -130,13 +131,13 @@ platform directories.</p>
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="TransitionType" href="#TransitionType"></a><code>TransitionType</code></h3>
 
 
 
 
-<h3><a class="anchor" name="onTrasitionReceived" href="#onTrasitionReceived"></a><code>onTrasitionReceived()</code></h3>
+<h3><a class="anchor" name="onTransitionReceived" href="#onTransitionReceived"></a><code>onTransitionReceived()</code></h3>
 
 
 Subscribe to get notified when a transition is received
@@ -196,15 +197,6 @@ Returns an array of geofences currently being monitored.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;string&gt;&gt;</code> 
-</div><h3><a class="anchor" name="onTransitionReceived" href="#onTransitionReceived"></a><code>onTransitionReceived()</code></h3>
-
-Called when a geofence is crossed in the direction specified by `TransitType`.
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="onNotificationClicked" href="#onNotificationClicked"></a><code>onNotificationClicked()</code></h3>
 
 Called when the user clicks a geofence notification. iOS and Android only.

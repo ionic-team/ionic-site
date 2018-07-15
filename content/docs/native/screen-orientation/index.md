@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,8 +22,8 @@ docType: "class"
 
 
 
-<p>Cordova plugin to set/lock the screen orientation in a common way for iOS, Android, WP8 and Blackberry 10.
-This plugin is based on an early version of Screen Orientation API so the api does not currently match the current spec.</p>
+
+<p>Cordova plugin to set/lock the screen orientation in a common way.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-screen-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-screen-orientation">Screen Orientation plugin docs</a>.</p>
 
 
@@ -34,7 +34,7 @@ This plugin is based on an early version of Screen Orientation API so the api do
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-screen-orientation
@@ -46,9 +46,9 @@ $ npm install --save @ionic-native/screen-orientation
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>iOS</li><li>Windows</li>
+  <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -56,7 +56,7 @@ $ npm install --save @ionic-native/screen-orientation
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { ScreenOrientation } from &#39;@ionic-native/screen-orientation&#39;;
 
 constructor(private screenOrientation: ScreenOrientation) { }
@@ -72,6 +72,13 @@ this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
 // allow user rotate
 this.screenOrientation.unlock();
+
+// detect orientation changes
+this.screenOrientation.onChange().subscribe(
+   () =&gt; {
+       console.log(&quot;Orientation Changed&quot;);
+   }
+);
 </code></pre>
 
 
@@ -81,7 +88,7 @@ this.screenOrientation.unlock();
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ORIENTATIONS" href="#ORIENTATIONS"></a><code>ORIENTATIONS</code></h3>
 
 Convenience enum for possible orientations

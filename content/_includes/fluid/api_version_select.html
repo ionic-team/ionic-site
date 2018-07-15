@@ -10,8 +10,56 @@
 
   <option
    value="/docs/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.9.2"%}selected{% endif %}>
+    3.9.2 (latest)
+  </option>
+
+  <option
+   value="/docs/3.8.0/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.8.0"%}selected{% endif %}>
+    3.8.0 
+  </option>
+
+  <option
+   value="/docs/3.7.1/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.7.1"%}selected{% endif %}>
+    3.7.1 
+  </option>
+
+  <option
+   value="/docs/3.7.0/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.7.0"%}selected{% endif %}>
+    3.7.0 
+  </option>
+
+  <option
+   value="/docs/3.6.1/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.6.1"%}selected{% endif %}>
+    3.6.1 
+  </option>
+
+  <option
+   value="/docs/3.6.0/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.6.0"%}selected{% endif %}>
+    3.6.0 
+  </option>
+
+  <option
+   value="/docs/3.5.3/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.5.3"%}selected{% endif %}>
+    3.5.3 
+  </option>
+
+  <option
+   value="/docs/3.5.0/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
+    {% if page.version == "3.5.0"%}selected{% endif %}>
+    3.5.0 
+  </option>
+
+  <option
+   value="/docs/3.4.2/{% if page.path != ''%}{{page.path}}{% else %}api/{% endif %}"
     {% if page.version == "3.4.2"%}selected{% endif %}>
-    3.4.2 (latest)
+    3.4.2 
   </option>
 
   <option

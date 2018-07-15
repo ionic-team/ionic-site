@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,9 +22,12 @@ docType: "class"
 
 
 
-<p>This launches the native store app in order for the user to leave a review.
-On Android, the plugin opens the the app&#39;s storepage in the Play Store where the user can leave a review by pressing the stars to give a rating.
-On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses the Review tab, where the user can leave a review by pressing &quot;Write a review&quot;.</p>
+
+<p>Assists in leaving user reviews/ratings in the App Stores.</p>
+<ul>
+<li>Launches the platform&#39;s App Store page for the current app in order for the user to leave a review.</li>
+<li>On iOS (10.3 and above) invokes the native in-app rating dialog which allows a user to rate your app without needing to open the App Store.</li>
+</ul>
 
 
 <p>Repo:
@@ -34,7 +37,7 @@ On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses th
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-launch-review
@@ -46,7 +49,7 @@ $ npm install --save @ionic-native/launch-review
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -56,16 +59,20 @@ $ npm install --save @ionic-native/launch-review
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { LaunchReview } from &#39;@ionic-native/launch-review&#39;;
 
 constructor(private launchReview: LaunchReview) { }
 
 ...
 
-const appId: string = &#39;yourAppId&#39;;
-this.launchReview.launch(appId)
+this.launchReview.launch()
   .then(() =&gt; console.log(&#39;Successfully launched store app&#39;);
+
+if(this.launchReview.isRatingSupported()){
+  this.launchReview.rating()
+    .then(() =&gt; console.log(&#39;Successfully launched rating dialog&#39;));
+}
 </code></pre>
 
 
@@ -75,16 +82,78 @@ this.launchReview.launch(appId)
 
 
 
-<h2>Instance Members</h2>
-<h3><a class="anchor" name="launch" href="#launch"></a><code>launch()</code></h3>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="launch" href="#launch"></a><code>launch(appId)</code></h3>
 
 
-Launch store app using given app ID
 
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Launches App Store on current platform in order to leave a review for given app.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      appId</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>(optional) the platform-specific app ID to use to open the page in the store app.
+If not specified, the plugin will use the app ID for the app in which the plugin is contained.
+On Android this is the full package name of the app. For example, for Google Maps: <code>com.google.android.apps.maps</code>
+On iOS this is the Apple ID of the app. For example, for Google Maps: <code>585027354</code></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="rating" href="#rating"></a><code>rating()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Invokes the native in-app rating dialog which allows a user to rate your app without needing to open the App Store.
+Requires iOS 10.3 and above: Calling this on any platform/version other than iOS 10.3+ will result in the error callback.
+Success callback will be called up to 3 times:
+- First: after `LaunchReview.rating()` is called and the request to show the dialog is successful. Will be passed the value `requested`.
+- Second: if and when the Rating dialog is actually displayed.  Will be passed the value `shown`.
+- Third: if and when the Rating dialog is dismissed.  Will be passed the value `dismissed`.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+</div><h3><a class="anchor" name="isRatingSupported" href="#isRatingSupported"></a><code>isRatingSupported()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Indicates if the current platform/version supports in-app ratings dialog, i.e. calling LaunchReview.rating().
+Will return true if current platform is iOS 10.3 or above.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
 </div>
 
 

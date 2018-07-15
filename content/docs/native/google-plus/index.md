@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,6 +24,7 @@ docType: "class"
 
 
 
+
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-googleplus">
     https://github.com/EddyVerbruggen/cordova-plugin-googleplus
@@ -31,7 +32,7 @@ docType: "class"
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=myreversedclientid
@@ -43,7 +44,7 @@ $ npm install --save @ionic-native/google-plus
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -53,7 +54,7 @@ $ npm install --save @ionic-native/google-plus
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { GooglePlus } from &#39;@ionic-native/google-plus&#39;;
 
 constructor(private googlePlus: GooglePlus) { }
@@ -72,7 +73,7 @@ this.googlePlus.login({})
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="login" href="#login"></a><code>login(options)</code></h3>
 
 
@@ -144,6 +145,15 @@ This will clear the OAuth2 token.
 
 
 This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSigningCertificateFingerprint" href="#getSigningCertificateFingerprint"></a><code>getSigningCertificateFingerprint()</code></h3>
+
+
+This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
 
 
 <div class="return-value" markdown="1">

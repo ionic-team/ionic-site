@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-start
-command_name: start
-title: Ionic CLI Documentation - start
+page_name: ionic start
+command_name: ionic start
+title: ionic start - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic start`
 
@@ -20,9 +29,11 @@ $ ionic start [<name>] [<template>]
 
 This command creates a working Ionic app. It installs dependencies for you and sets up your project.
 
-`ionic start` will create an app from a template. You can list all templates with the `--list` option.
+`ionic start` will create a new app from `template`. You can list all templates with the `--list` option. For more information on starter templates, see the CLI documentation\[1\].
 
-If you want to create an Ionic/Cordova app, use the `--cordova` option.
+You can also specify a git repository URL for `template` and your existing project will be cloned.
+
+\[1\]: **[https://ionicframework.com/docs/cli/starters.html](https://ionicframework.com/docs/cli/starters.html)**
 
 
 Input | Description
@@ -33,13 +44,15 @@ Input | Description
 
 Option | Description
 ------ | ----------
-`--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
-`--app-name`, `-n` | Human-readable name (use quotes around the name)
 `--list`, `-l` | List starter templates available
-`--skip-deps` | Skip npm/yarn package installation of dependencies
+`--type` | Type of project to start (e.g. `ionic-angular`, `ionic1`)
+`--display-name`, `-n` | Human-readable name (use quotes around the name)
 `--cordova` | Include Cordova integration
-`--git` | Do not initialize a git repo
-`--skip-link` | Do not link app to an Ionic Account
+`--no-deps` | Do not install npm/yarn dependencies
+`--no-git` | Do not initialize a git repo
+`--no-link` | Do not ask to connect the app with the Ionic Dashboard
+`--pro-id` | Specify an app ID from the Ionic Dashboard to link
+`--bundle-id` | Specify the bundle ID/application ID for your app (reverse-DNS notation)
 
 ## Examples
 
@@ -49,4 +62,5 @@ $ ionic start --list
 $ ionic start myApp blank
 $ ionic start myApp tabs --cordova
 $ ionic start myApp blank --type=ionic1
+$ ionic start myConferenceApp https://github.com/ionic-team/ionic-conference-app
 ```

@@ -33,7 +33,7 @@ Typography
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/typography/typography.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/typography/typography.ts#L3">
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ map and change the text color of that element.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;h1 ion-text color=&quot;secondary&quot;&gt;H1: The quick brown fox jumps over the lazy dog&lt;/h1&gt;
 

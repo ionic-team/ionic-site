@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -22,6 +22,7 @@ docType: "class"
 
 
 
+
 <p>Detect if the app is running in debug mode or not.
 Debug mode is when the app is built and installed locally via xcode / eclipse / the cordova cli etc, compared to release mode when the app was downloaded from the app / play store via an end user.</p>
 
@@ -33,7 +34,7 @@ Debug mode is when the app is built and installed locally via xcode / eclipse / 
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-is-debug
@@ -45,7 +46,7 @@ $ npm install --save @ionic-native/is-debug
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
@@ -55,7 +56,7 @@ $ npm install --save @ionic-native/is-debug
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { IsDebug } from &#39;@ionic-native/is-debug&#39;;
 
 constructor(private isDebug: IsDebug) { }
@@ -63,8 +64,8 @@ constructor(private isDebug: IsDebug) { }
 ...
 
 this.isDebug.getIsDebug()
-  .then((isDebug: boolean) =&gt; console.log(&#39;Is debug:&#39;, isDebug))
-  .catch((error: any) =&gt; console.error(error));
+  .then(isDebug =&gt; console.log(&#39;Is debug:&#39;, isDebug))
+  .catch(err =&gt; console.error(err));
 </code></pre>
 
 
@@ -74,7 +75,7 @@ this.isDebug.getIsDebug()
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="getIsDebug" href="#getIsDebug"></a><code>getIsDebug()</code></h3>
 
 

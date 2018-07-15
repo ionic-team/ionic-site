@@ -5,12 +5,12 @@
   line-height: 1.4em;
   padding: 14px 33px 14px;
   margin-right: 10px;
-  transition: all .2s linear;
+  transition: all .3s ease;
   font-size: 18px;
   border: 0px solid rgba(0, 0, 0, 0);
   color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-  background: #4a8bfc;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,0.12);
+  background: #3880ff;
   letter-spacing: -0.01em;
 
   &:last-child {
@@ -19,14 +19,15 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-    background: #5995fc;
+    box-shadow: 0 7px 14px rgba(0,0,0,.12), 0 3px 6px rgba(0,0,0,.08);
+    background: #4d8dfd;
     color: #fff;
     outline: none;
   }
 
   &:active,
-  &:active:focus {
+  &:active:focus,
+  &:active:hover {
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
     background: lighten($blue, 3);
     outline: none;
@@ -64,6 +65,28 @@
     }
   }
 
+  &.navy {
+    background: #0039a2;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: darken(#0039a2, 10);
+    }
+  }
+
+  &.green {
+    background: $green;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover  {
+      background: lighten($green, 10);
+    }
+  }
+
   &.white {
     background: white;
     // box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
@@ -77,8 +100,23 @@
       color: lighten($blue, 5);
     }
 
-    &:active {
+    &:active,
+    &:active:focus,
+    &:active:hover  {
+      background: white;
       // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
+    }
+
+    &.outline {
+      color: $blue;
+      background: white;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: darken($blue, 10);
+        background: white;
+      }
     }
   }
 
@@ -97,16 +135,41 @@
 
       &:hover,
       &:focus,
-      &:active {
+      &:active,
+      &:active:focus,
+      &:active:hover  {
         color: darken($grey, 10);
         background: transparent;
       }
     }
   }
 
+  &.dark-pink {
+    background: #212f45;
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    color: #ff567b;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover  {
+      color: #ff567b;
+      background: lighten(#212f45, 5)
+    }
+  }
+
+  &.orange {
+    background-color: #ffa800;
+
+    &:hover {
+      background-color: #feb323;
+    }
+  }
+
   &.sm {
     font-weight: 600;
-    border-radius: 2px;
+    border-radius: 4px;
     letter-spacing: 0;
     text-transform: none;
     padding: 12px 19px 10px;
@@ -126,5 +189,31 @@
       font-size: 14px;
       font-weight: 600;
     }
+  }
+
+  &.micro {
+    font-family: $font-family-eina;
+    padding: 4px 8px;
+    font-size: 10px;
+    letter-spacing: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid rgba(#3880ff, 0.3);
+    color: #3880ff;
+    box-shadow: none;
+
+    &:hover {
+      border-color: #3880ff;
+    }
+
+    &:active,
+    &:active:focus,
+    &:active:hover  {
+      background: #f2f8ff;
+      border-color: lighten(#3880ff, 15%);
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
   }
 }

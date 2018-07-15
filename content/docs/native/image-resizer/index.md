@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.12.1"
+version: "4.9.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Resizer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L42">
   Improve this doc
 </a>
 
@@ -22,23 +22,21 @@ docType: "class"
 
 
 
+
 <p>Cordova Plugin For Image Resize</p>
-<p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
-<code>ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
-<p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
 
 
 <p>Repo:
-  <a href="https://github.com/protonet/cordova-plugin-image-resizer">
-    https://github.com/protonet/cordova-plugin-image-resizer
+  <a href="https://github.com/JoschkaSchulz/cordova-plugin-image-resizer">
+    https://github.com/JoschkaSchulz/cordova-plugin-image-resizer
   </a>
 </p>
 
 
-<h2>Installation</h2>
+<h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
+    <pre><code class="nohighlight">$ ionic cordova plugin add info.protonet.imageresizer
 $ npm install --save @ionic-native/image-resizer
 </code></pre>
   </li>
@@ -47,7 +45,7 @@ $ npm install --save @ionic-native/image-resizer
 
 
 
-<h2>Supported platforms</h2>
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
@@ -57,7 +55,7 @@ $ npm install --save @ionic-native/image-resizer
 
 
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { ImageResizer, ImageResizerOptions } from &#39;@ionic-native/image-resizer&#39;;
 
 constructor(private imageResizer: ImageResizer) { }
@@ -85,7 +83,7 @@ this.imageResizer
 
 
 
-<h2>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="resize" href="#resize"></a><code>resize()</code></h3>
 
 
@@ -129,6 +127,50 @@ this.imageResizer
   
   <tr>
     <td>
+      folderName
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the folder the image should be put
+(Android only)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A custom name for the file. Default name is a timestamp. You have to set this value on iOS</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      quality
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Quality given as Number for the quality of the new image
+(Android and iOS only)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       width
     </td>
     <td>
@@ -157,44 +199,14 @@ this.imageResizer
   
   <tr>
     <td>
-      folderName
+      base64
     </td>
     <td>
-      <code>string</code>
+      <code>boolean</code>
     </td>
     <td>
-      <p>The name of the folder the image should be put
-(Android only)</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      quality
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Quality given as Number for the quality of the new image
-(Android and iOS only)</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      fileName
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>A custom name for the file. Default name is a timestamp
-(Android and Windows only)</p>
+      <p>Whether or not to return a base64 encoded image string instead of the path to the resized image.
+iOS only</p>
 
       <em>(optional)</em>
     </td>

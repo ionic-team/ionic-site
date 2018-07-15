@@ -29,7 +29,7 @@ You can find help here with anything ionic related.
 
 The [Ionic](http://github.com/ionic-team/ionic) repository pertains to everything about how Ionic works on the users phone. Anything from 'the animations didnt work', to 'Ionic startup doesnt run', or other bug relating to the framework itself.  
 
-[Report a Framework issue](http://ionicframework.com/submit-issue/)  
+[Report a Framework issue](https://ionicframework.com/submit-issue/)  
   
 ### CLI issues
 

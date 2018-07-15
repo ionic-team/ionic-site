@@ -55,13 +55,13 @@ customize your app to fit any device.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { Platform } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
 
   }
 }
@@ -76,15 +76,16 @@ export MyPage {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="dir"></div>
 
 <h3>
-<a class="anchor" name="dir" href="#dir"></a>
+<a class="anchor" name="dir" href="#dir">
 <code>dir()</code>
   
 
+</a>
 </h3>
 
 Returns app's language direction.
@@ -110,10 +111,11 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div id="getQueryParam"></div>
 
 <h3>
-<a class="anchor" name="getQueryParam" href="#getQueryParam"></a>
+<a class="anchor" name="getQueryParam" href="#getQueryParam">
 <code>getQueryParam()</code>
   
 
+</a>
 </h3>
 
 Get the query string parameter
@@ -130,10 +132,11 @@ Get the query string parameter
 <div id="height"></div>
 
 <h3>
-<a class="anchor" name="height" href="#height"></a>
+<a class="anchor" name="height" href="#height">
 <code>height()</code>
   
 
+</a>
 </h3>
 
 Gets the height of the platform's viewport using `window.innerHeight`.
@@ -152,10 +155,11 @@ which reduces the chance of multiple and expensive DOM reads.
 <div id="is"></div>
 
 <h3>
-<a class="anchor" name="is" href="#is"></a>
+<a class="anchor" name="is" href="#is">
 <code>is(platformName)</code>
   
 
+</a>
 </h3>
 
 Depending on the platform the user is on, `is(platformName)` will
@@ -171,8 +175,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
-    if (this.plt.is('ios')) {
+  constructor(public platform: Platform) {
+    if (this.platform.is('ios')) {
       // This will only print when on iOS
       console.log('I am an iOS device!');
     }
@@ -242,10 +246,11 @@ export MyPage {
 <div id="isLandscape"></div>
 
 <h3>
-<a class="anchor" name="isLandscape" href="#isLandscape"></a>
+<a class="anchor" name="isLandscape" href="#isLandscape">
 <code>isLandscape()</code>
   
 
+</a>
 </h3>
 
 Returns `true` if the app is in landscape mode.
@@ -262,10 +267,11 @@ Returns `true` if the app is in landscape mode.
 <div id="isPortrait"></div>
 
 <h3>
-<a class="anchor" name="isPortrait" href="#isPortrait"></a>
+<a class="anchor" name="isPortrait" href="#isPortrait">
 <code>isPortrait()</code>
   
 
+</a>
 </h3>
 
 Returns `true` if the app is in portait mode.
@@ -282,10 +288,11 @@ Returns `true` if the app is in portait mode.
 <div id="isRTL"></div>
 
 <h3>
-<a class="anchor" name="isRTL" href="#isRTL"></a>
+<a class="anchor" name="isRTL" href="#isRTL">
 <code>isRTL</code>
   
 
+</a>
 </h3>
 
 Returns if this app is using right-to-left language direction or not.
@@ -311,10 +318,11 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div id="lang"></div>
 
 <h3>
-<a class="anchor" name="lang" href="#lang"></a>
+<a class="anchor" name="lang" href="#lang">
 <code>lang()</code>
   
 
+</a>
 </h3>
 
 Returns app's language and optional country code.
@@ -340,10 +348,11 @@ attribute value set, such as `<html lang="en">`.
 <div id="pause"></div>
 
 <h3>
-<a class="anchor" name="pause" href="#pause"></a>
+<a class="anchor" name="pause" href="#pause">
 <code>pause</code>
   
 
+</a>
 </h3>
 
 The pause event emits when the native platform puts the application
@@ -363,10 +372,11 @@ the background, however, it would not fire on a standard web browser.
 <div id="platforms"></div>
 
 <h3>
-<a class="anchor" name="platforms" href="#platforms"></a>
+<a class="anchor" name="platforms" href="#platforms">
 <code>platforms()</code>
   
 
+</a>
 </h3>
 
 Depending on what device you are on, `platforms` can return multiple values.
@@ -378,9 +388,9 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
     // This will print an array of the current platforms
-    console.log(this.plt.platforms());
+    console.log(this.platform.platforms());
   }
 }
 ```
@@ -404,10 +414,11 @@ export MyPage {
 <div id="ready"></div>
 
 <h3>
-<a class="anchor" name="ready" href="#ready"></a>
+<a class="anchor" name="ready" href="#ready">
 <code>ready()</code>
   
 
+</a>
 </h3>
 
 Returns a promise when the platform is ready and native functionality
@@ -429,8 +440,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyApp {
-  constructor(public plt: Platform) {
-    this.plt.ready().then((readySource) => {
+  constructor(public platform: Platform) {
+    this.platform.ready().then((readySource) => {
       console.log('Platform ready from', readySource);
       // Platform now ready, execute any required native code
     });
@@ -456,10 +467,11 @@ export MyApp {
 <div id="registerBackButtonAction"></div>
 
 <h3>
-<a class="anchor" name="registerBackButtonAction" href="#registerBackButtonAction"></a>
+<a class="anchor" name="registerBackButtonAction" href="#registerBackButtonAction">
 <code>registerBackButtonAction(fn,&nbsp;priority)</code>
   
 
+</a>
 </h3>
 
 The back button event is triggered when the user presses the native
@@ -543,15 +555,16 @@ the back button action.</p>
 <div id="resize"></div>
 
 <h3>
-<a class="anchor" name="resize" href="#resize"></a>
+<a class="anchor" name="resize" href="#resize">
 <code>resize</code>
   
 
+</a>
 </h3>
 
-The resize event emits when the native platform pulls the application
-out from the background. This event would emit when a Cordova app comes
-out from the background, however, it would not fire on a standard web browser.
+The resize event emits when the browser window has changed dimensions. This
+could be from a browser window being physically resized, or from a device
+changing orientation.
 
 
 
@@ -565,10 +578,11 @@ out from the background, however, it would not fire on a standard web browser.
 <div id="resume"></div>
 
 <h3>
-<a class="anchor" name="resume" href="#resume"></a>
+<a class="anchor" name="resume" href="#resume">
 <code>resume</code>
   
 
+</a>
 </h3>
 
 The resume event emits when the native platform pulls the application
@@ -587,10 +601,11 @@ out from the background, however, it would not fire on a standard web browser.
 <div id="setDir"></div>
 
 <h3>
-<a class="anchor" name="setDir" href="#setDir"></a>
+<a class="anchor" name="setDir" href="#setDir">
 <code>setDir(dir,&nbsp;updateDocument)</code>
   
 
+</a>
 </h3>
 
 Set the app's language direction, which will update the `dir` attribute
@@ -657,10 +672,11 @@ direction needs to be dynamically changed per user/session.
 <div id="setLang"></div>
 
 <h3>
-<a class="anchor" name="setLang" href="#setLang"></a>
+<a class="anchor" name="setLang" href="#setLang">
 <code>setLang(language,&nbsp;updateDocument)</code>
   
 
+</a>
 </h3>
 
 Set the app's language and optionally the country code, which will update
@@ -728,10 +744,11 @@ the language needs to be dynamically changed per user/session.
 <div id="testUserAgent"></div>
 
 <h3>
-<a class="anchor" name="testUserAgent" href="#testUserAgent"></a>
+<a class="anchor" name="testUserAgent" href="#testUserAgent">
 <code>testUserAgent()</code>
   
 
+</a>
 </h3>
 
 
@@ -747,10 +764,11 @@ the language needs to be dynamically changed per user/session.
 <div id="url"></div>
 
 <h3>
-<a class="anchor" name="url" href="#url"></a>
+<a class="anchor" name="url" href="#url">
 <code>url()</code>
   
 
+</a>
 </h3>
 
 Get the current url.
@@ -767,10 +785,11 @@ Get the current url.
 <div id="versions"></div>
 
 <h3>
-<a class="anchor" name="versions" href="#versions"></a>
+<a class="anchor" name="versions" href="#versions">
 <code>versions()</code>
   
 
+</a>
 </h3>
 
 Returns an object containing version information about all of the platforms.
@@ -780,10 +799,10 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(public plt: Platform) {
+  constructor(public platform: Platform) {
     // This will print an object containing
     // all of the platforms and their versions
-    console.log(plt.versions());
+    console.log(platform.versions());
   }
 }
 ```
@@ -808,10 +827,11 @@ export MyPage {
 <div id="width"></div>
 
 <h3>
-<a class="anchor" name="width" href="#width"></a>
+<a class="anchor" name="width" href="#width">
 <code>width()</code>
   
 
+</a>
 </h3>
 
 Gets the width of the platform's viewport using `window.innerWidth`.
@@ -828,7 +848,7 @@ which reduces the chance of multiple and expensive DOM reads.
 
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     

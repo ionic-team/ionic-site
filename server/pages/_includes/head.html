@@ -9,17 +9,22 @@
 
 {% if title %}
   <title>{{title}}</title>
+{% elif 'products-' in id %}
+  <title>Ionic Pro - {{ id | replace('products-','') | title}}</title>
+  {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png' %}
+  {% set meta_description = "The Ionic Pro platform helps you build better apps on ionic framework with Pro's integrated suite of tools and services designed for the entire app lifecycle." %}
+  {% set meta_keywords = "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs, ionic pro, ionic pro apps, ionic pro suite, ionic pro product, ionic pro tools" %}
 {% elif name %}
   <title>Ionic Framework - {{name}}</title>
 {% elif id %}
-  <title>Ionic Framework - {{id | title}}</title>
+  <title>Ionic Framework - {{id | replace("-", " ") | title}}</title>
 {% else %}
   <title>Ionic Framework</title>
 {% endif %}
 
-<meta name="author" content="Drifty">
-<meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
-<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Ionic">
+<meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards{% endif %}">
+<meta name="keywords" content="{% if meta_keywords %}{{ meta_keywords }}{% else %}html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs{% endif %}">
 <link rel="canonical" href="https://ionicframework.com{{url}}">
 
 <!-- Social: Twitter -->
@@ -35,8 +40,8 @@
 {% else %}
   <meta name="twitter:title" content="Ionic Framework">
 {% endif %}
-<meta name="twitter:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
-<meta name="twitter:image:src" content="https://ionicframework.com/img/ionic-meta.jpg">
+<meta name="twitter:description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards{% endif %}">
+<meta name="twitter:image" content="{% if meta_image %}{{meta_image}}{% else %}https://ionicframework.com/img/meta/ionic-framework-og.png{% endif %}">
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
@@ -51,10 +56,12 @@
 {% else %}
   <meta property="og:title" content="Ionic Framework">
 {% endif %}
-<meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
-<meta property="og:description" content="The easiest way to build amazing mobile and progressive web apps. 100% free and open source.">
+<meta property="og:image" content="{% if meta_image %}{{meta_image}}{% else %}https://ionicframework.com/img/meta/ionic-framework-og.png{% endif %}"/>
+<meta property="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards{% endif %}">
 <meta property="og:site_name" content="Ionic Framework">
 <meta property="article:publisher" content="https://www.facebook.com/ionicframework">
+<meta property="og:locale" content="en_US" />
+<link href="https://plus.google.com/+Ionicframework" rel="publisher" />
 
 <link rel="apple-touch-icon" sizes="57x57" href="/img/meta/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/meta/apple-touch-icon-60x60.png">

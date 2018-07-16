@@ -20,6 +20,59 @@ Learn how to install, configure, and deploy your first live update.
 
 Setup a channel so that when you push a branch it automatically deploys to the channel.
 
+## Upgrading to the New Deploy Plugin
+
+Here are the steps in order to successfully upgrade to the new version of the Pro Client, Deploy Plugin, and Webview Plugin.
+You can follow the guide below or watch this video:
+
+<!-- TODO: Replace with appropriate video -->
+<script src="https://fast.wistia.com/embed/medias/00mgfso2ak.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_00mgfso2ak" style="height:400px;width:640px">&nbsp;</div>
+
+### Deploy Upgrade Guide
+You'll need specific versions of each of the following libraries:
+* `cordova-plugin-ionic-webview >= 2.0.0`
+* `cordoava-plugin-ionic >= 5.0.0`
+* `@ionic/pro >= 2.0.0`
+
+The following commands inside the root of you Ionic app should remove the old versions and install the new ones for you:
+
+```bash
+// remove the old version of the webview plugin
+cordova plugin rm cordova-plugin-ionic-webview
+// add the the new webview plugin
+cordova plugin add cordova-plugin-ionic-webview@latest --save
+// remove the old deploy plugin
+cordova plugin rm cordova-plugin-ionic
+// install the new deploy plugin
+cordova plugin add cordova-plugin-ionic@latest --save --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
+// install the new Pro SDK
+npm install @ionic/pro@latest --save
+```
+
+That's it! You should be all configured to start taking advanatage of the new deploy features! The new plugin
+
+### Using the Legacy Plugin
+
+For convienience we've also provided an intermediate version which exposes both the old and new API for those looking to incrementally upgrade.
+You'll still need the `latest` tag of the `cordova-plugin-ionic-webview` plugin but you can use `cordova-plugin-ionic@4.2.0` and `@ionic/pro@1.1.0`.
+
+You can follow the instructions above but use the `legacy` tag for `cordova-plugin-ionic` & `@ionic/pro`.
+```bash
+// remove the old version of the webview plugin
+cordova plugin rm cordova-plugin-ionic-webview
+// add the the new webview plugin
+cordova plugin add cordova-plugin-ionic-webview@latest --save
+// remove the old deploy plugin
+cordova plugin rm cordova-plugin-ionic
+// install the new deploy plugin
+cordova plugin add cordova-plugin-ionic@legacy --save --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
+// install the new Pro SDK
+npm install @ionic/pro@legacy --save
+```
+
+We highly recommend updating your code where neccessary and moving to the latest versions as we will be releasing new features to the latest versions
+the the `legacy` tag is only meant to help with the migration path.
+
 ## Setting up a Beta Channel
 
 In the following video tutorial, and code snippets we use the Deploy API to set up a custom Beta Channel that users can subscribe to in order to get updates early!

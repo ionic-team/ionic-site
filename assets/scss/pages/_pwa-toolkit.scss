@@ -27,10 +27,17 @@
       grid-template-columns: auto auto auto auto;
 
       @media (max-width: $screen-sm-max) {
-        grid-template-columns: auto auto auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        li {
+          flex: 0 0 234px;
+        }
       }
 
-      &::before {
+      &::before,
+      &::after {
         content: none;
       }
     }

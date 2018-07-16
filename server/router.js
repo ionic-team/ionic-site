@@ -56,6 +56,7 @@ module.exports = function router(app) {
   .get('/pro/teams', (req, res) => { res.render('pro/teams'); })
   .get('/pro/view', (req, res) => { res.render('pro/view'); })
   .get('/pwa', (req, res) => { res.render('pwa'); })
+  .get('/pwa-toolkit', (req, res) => { res.render('pwa-toolkit'); })
   .get('/sales', (req, res) => { res.render('sales'); })
   .get('/startups', (req, res) => { res.render('startups'); })
   .get('/strategysession', (req, res) => { res.render('strategysession'); })

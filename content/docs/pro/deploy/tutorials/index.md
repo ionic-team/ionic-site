@@ -40,13 +40,13 @@ The following commands inside the root of you Ionic app should remove the old ve
 // remove the old version of the webview plugin
 cordova plugin rm cordova-plugin-ionic-webview
 // add the the new webview plugin
-cordova plugin add cordova-plugin-ionic-webview@latest --save
+cordova plugin add cordova-plugin-ionic-webview@latest
 // remove the old deploy plugin
 cordova plugin rm cordova-plugin-ionic
 // install the new deploy plugin
-cordova plugin add cordova-plugin-ionic@latest --save --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
+cordova plugin add cordova-plugin-ionic@latest --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
 // install the new Pro SDK
-npm install @ionic/pro@latest --save
+npm install @ionic/pro@latest
 ```
 
 That's it! You should be all configured to start taking advanatage of the new deploy features! The new plugin

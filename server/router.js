@@ -39,6 +39,7 @@ module.exports = function router(app) {
   .get('/enterprise/training', (_, res) => { res.render('enterprise/training'); })
   .get('/framework', (_, res) => { res.render('framework'); })
   .get('/getting-started', (_, res) => { res.render('getting-started'); })
+  .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide'); })
   .get('/jobs', (_, res) => { res.render('jobs'); })
   .get('/press', (_, res) => { res.render('press'); })
   .get('/pro/pricing', (_, res) => { res.render('pro/pricing/table'); })

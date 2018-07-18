@@ -64,7 +64,7 @@ constructor( private networkInterface: NetworkInterface ) {
     .then(address =&gt; console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
     .catch(error =&gt; console.error(`Unable to get IP: ${error}`));
 
-  this.networkInterface.getCarrierIPAddress() {
+  this.networkInterface.getCarrierIPAddress()
     .then(address =&gt; console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
     .catch(error =&gt; console.error(`Unable to get IP: ${error}`));
 

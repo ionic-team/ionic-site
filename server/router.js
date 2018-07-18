@@ -79,7 +79,6 @@ module.exports = function router(app) {
   .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
     (_, res) => { markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'); })
 
-
   // pages w/ POST handlers
   .get('/trusted-partners', (_, res) => { res.render('trusted-partners'); })
   .post('/trusted-partners', bp.urlencoded({extended: true}), es(),

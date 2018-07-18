@@ -166,7 +166,7 @@ ___
 
 ###  sync
 
-▸ **sync**(options: [SyncOptions](#syncoptions)): `Promise`<[SnapshotInfo](#snapshotinfo)>
+▸ **sync**(options: [SyncOptions](#syncoptions)): `Promise`<[SnapshotInfo](#snapshotinfo) `| undefined`>
 
 *__description__*: This function performs an entire standard check, download, extract, and reload cycle rather than having to program it yourself. This should be used most of the time unless you need to customize the flow.
 
@@ -178,7 +178,7 @@ ___
 | ------ | ------ | ------ |
 | options | [SyncOptions](#syncoptions) |  Options to call sync with to override the default update method. |
 
-**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo)> - The info of the currently applied update
+**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo) `| undefined`> - The info of the currently applied update or undefined if there is no applied update.
 
 ```js
 async performAutomaticUpdate() {
@@ -209,7 +209,7 @@ ___
 
 *__since__*: v5.0.0
 
-**Returns:** `Promise`<[CheckForUpdateResponse](#checkforupdateresponse)>
+**Returns:** `Promise`<[CheckForUpdateResponse](#checkforupdateresponse)> - An object describing if an update is available.
 
 ```js
 async performManualUpdate() {
@@ -224,7 +224,7 @@ ___
 
 ###  downloadUpdate
 
-▸ **downloadUpdate**(progress?: *[CallbackFunction](#callbackfunction)<`string`>*): `Promise`<`string`>
+▸ **downloadUpdate**(progress?: *[CallbackFunction](#callbackfunction)<`number`>*): `Promise`<`boolean`>
 
 *__description__*: Download the new files from an available update found by the checkForUpdate method and prepare the update.
 
@@ -234,9 +234,9 @@ ___
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| `Optional` progress | [CallbackFunction](#callbackfunction)<`string`> |  A progress callback function which will be called with a number representing the percent of completion of the download and prepare. |
+| `Optional` progress | [CallbackFunction](#callbackfunction)<`number`> |  A progress callback function which will be called with a number representing the percent of completion of the download and prepare. |
 
-**Returns:** `Promise`<`string`>
+**Returns:** `Promise`<`boolean`> - `true` if the available update was successfully downloaded.
 
 ```js
 
@@ -254,7 +254,7 @@ ___
 
 ###  extractUpdate
 
-▸ **extractUpdate**(progress?: *[CallbackFunction](#callbackfunction)<`string`>*): `Promise`<`string`>
+▸ **extractUpdate**(progress?: *[CallbackFunction](#callbackfunction)<`number`>*): `Promise`<`boolean`>
 
 *__description__*: Extract the files from an update downloaded with the downloadUpdate method to prepare for loading the app.
 
@@ -264,9 +264,9 @@ ___
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| `Optional` progress | [CallbackFunction](#callbackfunction)<`string`> |  A progress callback function which will be called with a number representing the percent of completion of the download and prepare. |
-
-**Returns:** `Promise`<`string`>
+| `Optional` progress | [CallbackFunction](#callbackfunction)<`number`> |  A progress callback function which will be called with a number representing the percent of completion of the download and prepare. |
+ 
+**Returns:** `Promise`<`boolean`> - `true` if the available update was successfully extracted.
 
 ```js
 async performManualUpdate() {
@@ -286,13 +286,13 @@ ___
 
 ###  reloadApp
 
-▸ **reloadApp**(): `Promise`<`string`>
+▸ **reloadApp**(): `Promise`<`boolean`>
 
 *__description__*: Reload the app if a more recent version of the app is available.
 
 *__since__*: v5.0.0
 
-**Returns:** `Promise`<`string`>
+**Returns:** `Promise`<`boolean`> - `true` if the app was successfully reloaded.
 
 ```js
 async performManualUpdate() {
@@ -313,13 +313,13 @@ ___
 
 ###  getCurrentVersion
 
-▸ **getCurrentVersion**(): `Promise`<[SnapshotInfo](#snapshotinfo)>
+▸ **getCurrentVersion**(): `Promise`<[SnapshotInfo](#snapshotinfo) `| undefined`>
 
 *__description__*: Get info about the currently deployed update.
 
 *__since__*: v5.0.0
 
-**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo)>
+**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo) `| undefined`> - Info about the currently applied update or `undefined` if there isn't one applied.
 
 ```js
 const info = await Pro.deploy.getCurrentVersion()
@@ -340,7 +340,7 @@ ___
 
 *__since__*: v5.0.0
 
-**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo)[]>
+**Returns:** `Promise`<[SnapshotInfo](#snapshotinfo)[]> - A list of updates stored locally on the device.
 
 ```js
 async checkVersions() {
@@ -364,7 +364,7 @@ ___
 
 ###  deleteVersionById
 
-▸ **deleteVersionById**(versionId: *`string`*): `Promise`<`string`>
+▸ **deleteVersionById**(versionId: *`string`*): `Promise`<`boolean`>
 
 *__description__*: Remove the files specific to a snapshot from the device.
 
@@ -376,7 +376,7 @@ ___
 | ------ | ------ |
 | versionId | `string` | 
 
-**Returns:** `Promise`<`string`>
+**Returns:** `Promise`<`boolean`> - `true` if the version was successfully deleted.
 
 ```js
 async deleteVersion() {
@@ -413,7 +413,7 @@ ___
 
 *__description__*: Update the default configuration for the plugin on the current device. The new configuration will be persisted across app close and binary updates.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#configure" target="_blank">configure</a>
 
 **Parameters:**
 
@@ -441,7 +441,7 @@ ___
 
 *__description__*: This function performs an entire standard check, download, extract, and reload cycle rather than having to program it yourself. This should be used most of the time unless you need to customize the flow.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#sync" target="_blank">sync</a>
 
 **Parameters:**
 
@@ -482,7 +482,7 @@ ___
 
 *__description__*: Check for available updates for the currently configured app id and channel.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#checkforupdate" target="_blank">checkForUpdate</a>
 
 **Returns:** `Promise`<[CheckForUpdateResponse](#checkforupdateresponse)>
 
@@ -503,7 +503,7 @@ ___
 
 *__description__*: Download the new files from an available update found by the checkForUpdate method and prepare the update.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#downloadupdate" target="_blank">downloadUpdate</a>
 
 **Parameters:**
 
@@ -536,7 +536,7 @@ ___
 
 *__description__*: Extract the files from an update downloaded with the downloadUpdate method to prepare for loading the app.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#extractupdate" target="_blank">extractUpdate</a>
 
 **Parameters:**
 
@@ -575,7 +575,7 @@ ___
 
 *__description__*: Reload the app if a more recent version of the app is available.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#reloadapp" target="_blank">reloadApp</a>
 
 **Returns:** `Promise`<`string`>
 
@@ -608,7 +608,7 @@ ___
 
 *__description__*: Get the versionId of the currently deployed update.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#getcurrentversion" target="_blank">getCurrentVersion</a>
 
 **Returns:** `Promise`<`string`>
 
@@ -630,7 +630,7 @@ ___
 
 *__description__*: Get a list of the snapshots available on the device.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#getavailableversions" target="_blank">getAvailableVersions</a>
 
 **Returns:** `Promise`<`string[]`>
 
@@ -650,7 +650,7 @@ ___
 
 *__description__*: Remove the files specific to a snapshot from the device.
 
-*__deprecated__*: in v4.2.0
+*__deprecated__*: in v4.2.0 in favor of <a href="#deleteversionbyid" target="_blank">deleteVersionById</a>
 
 **Parameters:**
 

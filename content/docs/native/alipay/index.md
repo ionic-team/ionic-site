@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Alipay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L1">
   Improve this doc
 </a>
 
@@ -23,13 +23,13 @@ docType: "class"
 
 
 
-<p>This plugin is used for Alipay APP support. Integrated with the latest SDK.</p>
-<p>Requires Cordova plugin: <code>cordova-alipay-base</code>. For more info, please see the <a href="https://github.com/xueron/cordova-alipay-base">Alipay plugin docs</a>.</p>
+<p>This plugin facilitates the usage of Alipay 支付宝 in an Ionic apps with the integrated AlipaySDK dated on 20180601.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-gubnoi-alipay</code>. For more info, please see <a href="https://github.com/jing-zhou/cordova-plugin-alipay">https://github.com/jing-zhou/cordova-plugin-alipay</a> .</p>
 
 
 <p>Repo:
-  <a href="https://github.com/xueron/cordova-alipay-base">
-    https://github.com/xueron/cordova-alipay-base
+  <a href="https://github.com/jing-zhou/cordova-plugin-alipay">
+    https://github.com/jing-zhou/cordova-plugin-alipay
   </a>
 </p>
 
@@ -37,7 +37,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-alipay-base --variable ALI_PID=your_app_id
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-gubnoi-alipay --variable APP_ID=your_app_id
 $ npm install --save @ionic-native/alipay
 </code></pre>
   </li>
@@ -57,16 +57,11 @@ $ npm install --save @ionic-native/alipay
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { Alipay, AlipayOrder } from &#39;@ionic-native/alipay&#39;;
+<pre><code class="lang-typescript">import { Alipay } from &#39;@ionic-native/alipay&#39;;
 
 constructor(private alipay: Alipay) {
 
-// Should get from server side with sign.
-const alipayOrder: AlipayOrder = {
-      ...
-    };
-
-
+//alipayOrder is a string that has been generated and signed by the server side.
 this.alipay.pay(alipayOrder)
    .then(result =&gt; {
       console.log(result); // Success
@@ -103,10 +98,10 @@ Open Alipay to perform App pay
     <td>
       order</td>
     <td>
-      <code>AlipayOrder</code>|<code>string</code>
+      <code>string</code>
     </td>
     <td>
-      <p>alipay options</p>
+      <p>alipay order string</p>
 </td>
   </tr>
   </tbody>
@@ -116,171 +111,6 @@ Open Alipay to perform App pay
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the success return, or rejects with an error.
 </div>
-
-
-
-
-
-<h2><a class="anchor" name="AlipayOrder" href="#AlipayOrder"></a>AlipayOrder</h2>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      app_id
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>appId assigned by Alipay</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      method
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Api name.
-Should be: alipay.trade.app.pay</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      format
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Data format
-Default: &quot;JSON&quot;</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      charset
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Charset
-Possible values: &quot;UTF-8&quot;, &quot;GBK&quot;
-Default: &quot;UTF-8&quot;</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sign_type
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Sign method
-Default: &#39;RSA&#39;</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sign
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Sign value. Should be got from server side.
-Default: &#39;RSA&#39;</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      timestamp
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Timestamp, formated like &quot;yyyy-MM-dd HH:mm:ss&quot;, e.g. 2014-07-24 03:07:50</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      version
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Api version. Fixed value &#39;1.0&#39;</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      notify_url
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>Notify url.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      biz_content
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>biz content. formated in json. see alipay doc for detail.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
 
 
 

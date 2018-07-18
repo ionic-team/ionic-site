@@ -34,15 +34,15 @@ This is just an alternative to using `.then`. Async/Await just allows your code 
 Here are two ways to write the same piece of code:</p>
 <div markdown="1">
 ```js
-Pro.deploy.info().then((info) => {
-  console.log(info);
+Pro.deploy.getCurrentVersion().then((versionInfo) => {
+  console.log(versionInfo);
 })
 
 // is the same as
 
-async getInfo(){
-  const info = await Pro.deploy.info();
-  console.log(info);
+async getVersionInfo(){
+  const versionInfo = await Pro.deploy.getCurrentVersion();
+  console.log(versionInfo);
 }
 
 ```

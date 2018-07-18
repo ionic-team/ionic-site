@@ -12,9 +12,10 @@
 
     p {
       margin-top: 61px;
-      font-size: 31px;
+      font-size: 32px;
       font-weight: 600;
-      letter-spacing: .008em;
+      letter-spacing: -.008em;
+      color: #0f151f;
     }
 
     ul {
@@ -27,10 +28,17 @@
       grid-template-columns: auto auto auto auto;
 
       @media (max-width: $screen-sm-max) {
-        grid-template-columns: auto auto auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        li {
+          flex: 0 0 234px;
+        }
       }
 
-      &::before {
+      &::before,
+      &::after {
         content: none;
       }
     }
@@ -65,7 +73,8 @@
     h3 {
       font-family: $font-family-eina;
       font-weight: 700;
-      letter-spacing: -.05em;
+      letter-spacing: -.008em;
+      color: #0f1620;
     }
 
     h2 {
@@ -73,10 +82,8 @@
     }
 
     h3 {
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: .01em;
-      margin-top: 53px;
+      font-size: 18px;
+      margin-top: 56px;
       margin-bottom: 16px;
     }
 

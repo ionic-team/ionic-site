@@ -70,7 +70,8 @@ module.exports = function router(app) {
 
   // resource center
   .get('/resources', (_, res) => { res.render('resources/index', {currentCategory: 'featured'}); })
-  .get('/resources/:category', (_, res) => { res.render('resources/category', {currentCategory: _.params.category}); })
+  .get('/resources/:category', (req, res) => {
+    res.render('resources/category', {currentCategory: req.params.category}); })
 
   // press releases
   .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',

@@ -27,8 +27,8 @@ docType: "class"
 
 
 <p>Repo:
-  <a href="https://github.com/fechanique/cordova-plugin-fcm">
-    https://github.com/fechanique/cordova-plugin-fcm
+  <a href="https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated">
+    https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated
   </a>
 </p>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fcm
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
 $ npm install --save @ionic-native/fcm
 </code></pre>
   </li>

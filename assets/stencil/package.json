@@ -1,0 +1,60 @@
+{
+  "name": "@ionic/ionic-site-components",
+  "version": "0.1.6",
+  "description": "Stencil components used by the websites belonging to the Ionic Framework team.",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "serve": "stencil-dev-server",
+    "start": "npm run dev",
+    "test": "jest --no-cache",
+    "test.watch": "jest --watch --no-cache",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@stencil/core": "0.9.6",
+    "@stencil/sass": "0.0.5",
+    "ionicons": "^4.1.2"
+  },
+  "devDependencies": {
+    "@stencil/dev-server": "0.0.18",
+    "@stencil/utils": "latest",
+    "@types/jest": "^21.1.1",
+    "jest": "^21.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-site-components.git"
+  },
+  "author": "Ionic Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
+  "homepage": "https://github.com/ionic-team/stencil",
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  },
+  "keywords": [
+    "webcomponents",
+    "ionic-site",
+    "stencil"
+  ]
+}

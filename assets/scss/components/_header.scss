@@ -1191,6 +1191,10 @@
   &.navbar-sticky {
     z-index: 999;
   }
+
+  ionic-search:not(.hydrated) {
+    display: none;
+  }
 }
 
 .docs .navbar-default .navbar-nav {

@@ -140,6 +140,13 @@
     "image": "liz.jpg"
   },
   {
+    "name":"Mano",
+    "dept":"Development",
+    "description":"",
+    "twitter":"techmano",
+    "image": "mano.jpg"
+  },
+  {
     "name":"Manu Mtz.Almeida",
     "dept":"Development",
     "description":"From “sunny” Spain, Manu spends most of his time building high quality components for the framework. When he’s not getting his hands dirty with performance optimizations, you can find him training for a half marathon or experimenting with hardware. He’s powered by the most bitter IPAs that can be found.",
@@ -152,6 +159,13 @@
     "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
     "twitter":"matthewkremer",
     "image": "matt.jpg"
+  },
+  {
+    "name":"Matt Netkow",
+    "dept":"Marketing",
+    "description":"",
+    "twitter":"dotNetkow",
+    "image": "matt-n.jpg"
   },
   {
     "name":"Max Lynch",
@@ -204,7 +218,7 @@
   },
   {
     "name":"Ryan Bowman",
-    "dept":"Head of Sales",
+    "dept":"VP of Sales",
     "description":null,
     "twitter":"TheRyanBowman",
     "image": "ryan.jpg"

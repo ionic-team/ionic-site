@@ -61,13 +61,13 @@ You can follow the instructions above but use the `legacy` tag for `cordova-plug
 // remove the old version of the webview plugin
 cordova plugin rm cordova-plugin-ionic-webview
 // add the the new webview plugin
-cordova plugin add cordova-plugin-ionic-webview@latest --save
+cordova plugin add cordova-plugin-ionic-webview@latest
 // remove the old deploy plugin
 cordova plugin rm cordova-plugin-ionic
 // install the new deploy plugin
-cordova plugin add cordova-plugin-ionic@legacy --save --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
+cordova plugin add cordova-plugin-ionic@legacy --variable APP_ID=YOUR_APP_ID --variable CHANNEL_NAME=YOUR_CHANNEL_NAME
 // install the new Pro SDK
-npm install @ionic/pro@legacy --save
+npm install @ionic/pro@legacy
 ```
 
 We highly recommend updating your code where neccessary and moving to the latest versions as we will be releasing new features to the latest versions
@@ -146,7 +146,7 @@ export class SettingsPage {
 
   async checkChannel() {
     try {
-      const res = await Pro.deploy.info();
+      const res = await Pro.deploy.getConfiguration();
       this.deployChannel = res.channel;
       this.isBeta = (this.deployChannel === 'Beta')
     } catch (err) {
@@ -163,9 +163,9 @@ export class SettingsPage {
     }
 
     try {
-      await Pro.deploy.init(config);
+      await Pro.deploy.configure(config);
       await this.checkChannel();
-      await this.performAutomaticUpdate(); // Alternatively, to customize how this works, use performManualUpdate()
+      await this.sync({updateMethod: 'auto'}); // Alternatively, to customize how this works, use performManualUpdate()
     } catch (err) {
       // We encountered an error.
       // Here's how we would log it to Ionic Pro Monitoring while also catching:
@@ -173,32 +173,6 @@ export class SettingsPage {
       // Pro.monitoring.exception(err);
     }
 
-  }
-
-  async performAutomaticUpdate() {
-
-    /*
-      This code performs an entire Check, Download, Extract, Redirect flow for
-      you so you don't have to program the entire flow yourself. This should
-      work for a majority of use cases.
-    */
-
-    try {
-      const resp = await Pro.deploy.checkAndApply(true, progress => {
-          this.downloadProgress = progress;
-      });
-
-      if (resp.update){
-        // We found an update, and are in process of redirecting you since you put true!
-      }else{
-        // No update available
-      }
-    } catch (err) {
-      // We encountered an error.
-      // Here's how we would log it to Ionic Pro Monitoring while also catching:
-
-      // Pro.monitoring.exception(err);
-    }
   }
 
   async performManualUpdate() {
@@ -206,8 +180,6 @@ export class SettingsPage {
     /*
       Here we are going through each manual step of the update process:
       Check, Download, Extract, and Redirect.
-      This code is currently exactly the same as performAutomaticUpdate,
-      but you could split it out to customize the flow.
 
       Ex: Check, Download, Extract when a user logs into your app,
         but Redirect when they logout for an app that is always running
@@ -215,16 +187,16 @@ export class SettingsPage {
     */
 
     try {
-      const haveUpdate = await Pro.deploy.check();
+      const update = await Pro.deploy.checkForUpdate();
 
-      if (haveUpdate){
+      if (update.available){
         this.downloadProgress = 0;
 
-        await Pro.deploy.download((progress) => {
+        await Pro.deploy.downloadUpdate((progress) => {
           this.downloadProgress = progress;
         })
-        await Pro.deploy.extract();
-        await Pro.deploy.redirect();
+        await Pro.deploy.extractUpdate();
+        await Pro.deploy.reloadApp();
       }
     } catch (err) {
       // We encountered an error.
@@ -278,7 +250,7 @@ Here's an example template/JS for a page where we allow users to toggle to pull 
   }
 
   function checkChannel(){
-    Pro.deploy.info().then(function(res){
+    Pro.deploy.getConfiguration().then(function(res){
       $timeout(function(){
         $scope.data.deployChannel = res.channel;
         $scope.data.isBeta = ($scope.data.deployChannel === 'Beta');
@@ -290,53 +262,28 @@ Here's an example template/JS for a page where we allow users to toggle to pull 
     checkChannel();
   });
 
-  function performAutomaticUpdate(){
-
-    /*
-      This code performs an entire Check, Download, Extract, Redirect flow for
-      you so you don't have to program the entire flow yourself. This should
-      work for a majority of use cases.
-    */
-
-    Pro.deploy.checkAndApply(true, function(progress){
-      $timeout(function(){
-        $scope.data.downloadProgress = progress;
-      });
-    }).then(function(res){
-      if (res.update){
-        // Awesome we have an update and are redirecting!
-      }else{
-        // We didn't have an update!
-      }
-    }, function(err){
-
-    })
-
-  }
 
   function performManualUpdate(){
 
     /*
       Here we are going through each manual step of the update process:
       Check, Download, Extract, and Redirect.
-      This code is currently exactly the same as performAutomaticUpdate,
-      but you could split it out to customize the flow.
 
       Ex: Check, Download, Extract when a user logs into your app,
         but Redirect when they logout for an app that is always running
         but used with multiple users (like at a doctors office).
     */
 
-    Pro.deploy.check().then(function(haveUpdate){
-     if (haveUpdate){
+    Pro.deploy.checkForUpdate().then(function(update){
+     if (update.available){
       $scope.data.downloadProgress = 0;
-      Pro.deploy.download(function(progress){
+      Pro.deploy.downloadUpdate(function(progress){
         $timeout(function(){
           $scope.data.downloadProgress = progress;
         })
       }).then(function(res){
-        Pro.deploy.extract().then(function(res){
-          Pro.deploy.redirect();
+        Pro.deploy.extractUpdate().then(function(res){
+          Pro.deploy.reloadApp();
         }, function(err){
           // We encountered an error.
           // Here's how we would log it to Ionic Pro Monitoring while also catching:
@@ -362,9 +309,9 @@ Here's an example template/JS for a page where we allow users to toggle to pull 
       channel: ( $scope.data.isBeta ? 'Beta' : 'Production' )
     }
 
-    Pro.deploy.init(config).then(function(res){
+    Pro.deploy.configure(config).then(function(res){
       checkChannel();
-      performAutomaticUpdate(); // Alternatively, to customize how this works, use performManualUpdate()
+      Pro.deploy.sync({updateMethod: 'auto'}); // Alternatively, to customize how this works, use performManualUpdate()
     }, function(err){
       // We encountered an error.
       // Here's how we would log it to Ionic Pro Monitoring while also catching:

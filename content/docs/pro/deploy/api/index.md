@@ -138,6 +138,31 @@ async configureDeploy() {
   await Pro.deploy.configure(config);
 }
 ```
+###  getConfiguration
+
+▸ **getConfiguration**(): `Promise`<[ConfigurationInfo](#configurationinfo)>
+
+*__description__*: Get info about the current configuration on the device.
+
+*__since__*: v5.0.0
+
+**Returns:** `Promise`<[ConfigurationInfo](#configurationinfo)> - Info about the currently applied configuration details.
+
+```js
+const info = await Pro.deploy.getConfiguration()
+console.log(info)
+// {
+//   'appId': 'abcd1234',
+//   'channel': 'MY_CHANNEL_NAME',
+//   'binaryVersion': 'X.X.X',
+//   'debug': false,
+//   'debug': false,
+//   'updateMethod': 'auto',
+//   'maxVersions': 3,
+//   'minBackgroundDuration': 30,
+//   'currentVersionId': 'xxxx-xxxx-xxxx-xxxx'
+// }
+```
 
 ___
 
@@ -756,6 +781,22 @@ ___
 **● updateMethod**: `'background' | 'auto'`
 
 The update method to use when applying an update if available. This will override the default method the plugin was configured with temporarily.
+
+___
+
+### ConfigurationInfo
+
+#### Properties
+* `binaryVersion` `<string>` - The binary version of the native bundle.
+* `channel` `<string>` - The channel name the device is currently configured to check for updates on.
+* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
+* `updateMethod` `<'none' | 'auto' | 'background'>` - The currently configured updateMethod for the plugin.
+* `maxVersions` `<number>` - The maximum number of updates to be stored locally on the device.
+* `minBackgroundDuration` `<number>` - The number of seconds the app needs to be in the background before the plugin considers it closed for the purposes of fetching and applying a new update.
+* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
+* `currentVersionId` `<string | undefined>` - The id of the currently applied update or `undefined` if none is applied.
+
+
 
 ___
 

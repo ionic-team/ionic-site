@@ -33,7 +33,7 @@ The Ionic Pro Client gives you access to the Monitoring and Deploy APIs inside o
 The first thing you have to do is set up the Pro Client (or update it to the latest version) in your project. Inside of your app directory, make sure you are on the latest version of the Pro Client and App Scripts:
 
 ```bash
-npm install @ionic/app-scripts@latest @ionic/pro@latest
+npm install @ionic/pro@latest --save
 ```
 
 ### Choose your Integration Type:

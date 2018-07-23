@@ -25,8 +25,7 @@ Setup a channel so that when you push a branch it automatically deploys to the c
 Here are the steps in order to successfully upgrade to the new version of the Pro Client, Deploy Plugin, and Webview Plugin.
 You can follow the guide below or watch this video:
 
-<!-- TODO: Replace with appropriate video -->
-<script src="https://fast.wistia.com/embed/medias/00mgfso2ak.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_00mgfso2ak" style="height:400px;width:640px">&nbsp;</div>
+<script src="https://ionicpro.wistia.com/medias/0o27tfvoam.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_0o27tfvoam" style="height:400px;width:640px">&nbsp;</div>
 
 ### Deploy Upgrade Guide
 You'll need specific versions of each of the following libraries:

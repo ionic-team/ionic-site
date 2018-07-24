@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Android Fingerprint Auth</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L96">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L104">
   Improve this doc
 </a>
 
@@ -100,6 +100,7 @@ this.androidFingerprintAuth.isAvailable()
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="ERRORS" href="#ERRORS"></a><code>ERRORS</code></h3>
 
+Convenience property containing all possible errors
 
 
 
@@ -131,7 +132,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;AFAEncryptResponse&gt;</code> 
 </div><h3><a class="anchor" name="decrypt" href="#decrypt"></a><code>decrypt(options)</code></h3>
 
 
@@ -160,7 +161,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;AFADecryptOptions&gt;</code> 
 </div><h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
@@ -169,16 +170,36 @@ Check if service is available
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if fingerprint auth is available on the device
-</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code></h3>
+  <b>Returns:</b> <code>Promise&lt;AFAAvailableResponse&gt;</code> Returns a Promise that resolves if fingerprint auth is available on the device
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete(options)</code></h3>
 
 
 Delete the cipher used for encryption and decryption by username
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>AFADeleteOptions</code>
+    </td>
+    <td>
+      <p>Options</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the cipher was successfully deleted
+  <b>Returns:</b> <code>Promise&lt;{ deleted: boolean }&gt;</code> Returns a Promise that resolves if the cipher was successfully deleted
 </div>
 
 
@@ -468,6 +489,103 @@ re-enable the fingerprint authentication dialog.</p>
       <p>FingerprintAuth.CipherMode.DECRYPT
 Decrypted password</p>
 
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="AFAAvailableResponse" href="#AFAAvailableResponse"></a>AFAAvailableResponse</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      isAvailable
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isHardwareDetected
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasEnrolledFingerprints
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="AFADeleteOptions" href="#AFADeleteOptions"></a>AFADeleteOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      clientId
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      username
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
       
     </td>
   </tr>

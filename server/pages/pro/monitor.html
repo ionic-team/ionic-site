@@ -32,7 +32,7 @@
     </p>
 
     <div class="btns">
-      <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
          class="btn green"
          id="btn-products-monitor-activate"
          target="_blank">Activate Monitor</a>
@@ -157,7 +157,7 @@
           </p>
         </hgroup>
         <div class="btns">
-          <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
              id="btn-products-monitor-activate-mid" class="btn btn-green">
             Activate Monitor</a>
         </div>
@@ -230,7 +230,7 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn green" id="btn-products-monitor-create-account">
           Create an account</a>
         <a class="btn white" id="btn-products-monitor-see-pricing"
@@ -247,6 +247,9 @@
 
 {% block scripts %}
 <script>
+// enable sticky nav
+stickyNav.init();
+
 var gradient = document.getElementById('gradient');
 var gradient2 = document.getElementById('gradient-2');
 var dot = document.getElementById('dot');

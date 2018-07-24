@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Date Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/date-picker/index.ts#L119">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/date-picker/index.ts#L118">
   Improve this doc
 </a>
 
@@ -182,7 +182,7 @@ Default: empty String</p>
     </td>
     <td>
       <p>Maximum date
-Default?: empty String</p>
+Default: empty String</p>
 
       <em>(optional)</em>
     </td>
@@ -197,7 +197,7 @@ Default?: empty String</p>
     </td>
     <td>
       <p>Label for the dialog title. If empty, uses android default (Set date/Set time).
-Default?: empty String</p>
+Default: empty String</p>
 
       <em>(optional)</em>
     </td>

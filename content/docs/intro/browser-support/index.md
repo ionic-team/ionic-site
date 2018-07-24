@@ -22,7 +22,7 @@ Mobile OSs
 * Android 4.4+
   * Support can be pushed back to 4.1 if Crosswalk is used with Cordova
 
-Broswer
+Browser
 
 * Safari
 * Chrome

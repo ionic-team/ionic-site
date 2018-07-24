@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -71,7 +71,7 @@ this.launchReview.launch()
 
 if(this.launchReview.isRatingSupported()){
   this.launchReview.rating()
-    .then(() =&gt; console.log(&#39;Successfully launched rating dialog&#39;);
+    .then(() =&gt; console.log(&#39;Successfully launched rating dialog&#39;));
 }
 </code></pre>
 

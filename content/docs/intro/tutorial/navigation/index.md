@@ -27,14 +27,15 @@ itemTapped(event, item) {
 }
 ```
 
-You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/pages/list/list.ts` so we can use it:
+Here we are referencing a class called `ItemDetailsPage`, which is another page included in the tutorial starter project. We can use it here because of the import statement at the top of `src/pages/list/list.ts`:
 
 ```typescript
 ...
-import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { ItemDetailsPage } from '../item-details/item-details';
 ```
 
-After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page! Notice that the menu-toggle is replaced with a back button instead. This is a native style that Ionic follows, but can be configured.
+Let's revisit our app in the browser. When we tap an item it will navigate to the item details page using the code above. As a bonus, Ionic automatically adds a back button to the pushed view.
+>See the [Navbar documentation](../../../api/components/toolbar/Navbar) for options to hide or change the back button text.
 
 ### How It Works
 

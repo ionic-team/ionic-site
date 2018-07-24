@@ -11,7 +11,7 @@ doc: "NavPush"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navigation/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/nav/nav-push.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/nav/nav-push.ts#L3">
 Improve this doc
 </a>
 
@@ -97,21 +97,21 @@ class MyPage {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>navParams</td>
       <td><code>any</code></td>
       <td><p> Any NavParams you want to pass along to the next view.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>navPush</td>
       <td><code>Page | string</code></td>
       <td><p> The component class or deeplink name you want to push onto the navigation stack.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

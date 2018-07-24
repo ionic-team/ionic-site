@@ -4,7 +4,7 @@
  * September 2017
  */
 .sub-header {
-  .container {
+  & > .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,12 +38,13 @@
   }
 
   .breadcrumbs {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
     font-size: 16px;
 
     li {
       font-weight: 600;
       color: white;
+      padding: 17px 0;
 
       &::after {
         content: '/';
@@ -53,7 +54,7 @@
         font-size: 16px;
         vertical-align: 0px;
       }
-  
+
       &:last-child::after {
         display: none;
       }
@@ -67,13 +68,24 @@
     a {
       color: rgba(white, .5);
       transition: .2s color;
-      padding: 17px 0;
+      padding: 0;
       display: inline-block;
       margin-left: -1px;
-  
+
       &:hover {
         color: rgba(white, .3);
       }
+    }
+  }
+
+  .breadcrumbs--small {
+    &,
+    li:after {
+      font-size: 13px;
+    }
+
+    li a {
+      font-weight: 600;
     }
   }
 
@@ -123,12 +135,12 @@ body.light .sub-header {
       color: #272a2f;
 
       &::after {
-        color:rgba(black, .1)
+        color:rgba(black, .3)
       }
     }
 
     a {
-      color: #697384;
+      color: #7a88a0;
 
       &:hover {
         color: $blue;

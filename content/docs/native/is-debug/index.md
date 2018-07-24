@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -64,8 +64,8 @@ constructor(private isDebug: IsDebug) { }
 ...
 
 this.isDebug.getIsDebug()
-  .then((isDebug: boolean) =&gt; console.log(&#39;Is debug:&#39;, isDebug))
-  .catch((error: any) =&gt; console.error(error));
+  .then(isDebug =&gt; console.log(&#39;Is debug:&#39;, isDebug))
+  .catch(err =&gt; console.error(err));
 </code></pre>
 
 

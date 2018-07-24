@@ -1,0 +1,272 @@
+#page-go-pwa-architects-guide {
+  font-family: $font-family-graphik;
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-family-eina;
+  }
+
+  .banner {
+    background-color: #f6f8fc;
+    border-bottom: 1px solid #e5e7eb;
+    margin-top: -138px;
+    padding-top: 78px;
+
+    svg {
+      fill: #4f6384;
+    }
+
+    hgroup {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding-top: 81px;
+      padding-bottom: 72px;
+      padding-right: 632px;
+    }
+
+    h1 {
+      color: #24282e;
+      font-size: 37px;
+      font-weight: 700;
+      letter-spacing: -0.034em;
+      margin: 77px 0 22px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 32px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #626c7d;
+      max-width: 800px;
+    }
+  }
+
+  .content,
+  .signup-form {
+    flex: 1 0;
+  }
+
+  .content {
+    padding-top: 279px;
+    padding-right: 30px;
+    font-size: 14px;
+    color: #4e545e;
+    letter-spacing: -0.02em;
+    max-width: 526px;
+  }
+
+  main {
+    margin-top: -240px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: visible;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .lg {
+      color: #6e7f99;
+      font-size: 18px;
+      line-height: 36px;
+      perspective: 600px;
+      margin-bottom: 48px;
+
+      &::before {
+        background-image:
+          url('/img/articles/pwa-cover-title.png'),
+          url('/img/articles/pwa-cover-bg.png'),
+          linear-gradient(60deg, #73c5ff 0, #3880ff 100%);
+        background-size: 64%, 100%, 100%;
+        background-repeat: no-repeat, repeat, repeat;
+        background-position: 20% 12%, 50% 50%, 50% 50%;
+        height: 281px;
+        width: 186px;
+        content: '';
+        float: left;
+        margin-left: 6px;
+        margin-right: 61px;
+        border-radius: 8px;
+        transform: rotateY(12deg);
+        margin-top: -64px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, .2);
+      }
+    }
+
+    p {
+      letter-spacing: -.02em;
+      line-height: 2em;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 46px;
+    }
+
+    li {
+      padding: 0px 0 0 21px;
+      font-size: 16px;
+      line-height: 32px;
+      position: relative;
+      letter-spacing: -.021em;
+
+      strong {
+        font-weight: 500;
+      }
+
+      &:before {
+        content: '•';
+        opacity: 0.8;
+        position: absolute;
+        left: 7px;
+      }
+    }
+  }
+
+  .signup-form {
+    padding: 42px 48px 48px;
+    background: white;
+    box-shadow: 0 8px 48px 0px rgba(black, 0.2);
+    max-width: 536px;
+    border-radius: 10px;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  .company {
+    margin: 232px 0 68px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      color: #7f8fab;
+      margin: 0 auto;
+      font-size: 28px;
+      max-width: 760px;
+      text-align: center;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      font-weight: 600;
+    }
+
+    strong {
+      color: #131924;
+      font-weight: 700;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 51px;
+      justify-content: space-evenly;
+
+      &::before,
+      &::after {
+        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 494px;
+        height: 42px;
+        content: '';
+        max-width: 100%;
+        margin-bottom: 32px;
+        display: inline-block;
+      }
+
+      &::after {
+        background-position: 0 bottom;
+      }
+    }
+  }
+
+  .get-started {
+    background: #f1f4f8;
+    overflow: auto;
+
+    .container {
+      align-items: center;
+      display: flex;
+      margin-bottom: 110px;
+      margin-top: 110px;
+    }
+
+    hgroup {
+      letter-spacing: -.025em;
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: $blue;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: inherit;
+      margin: 0 0 5px;
+    }
+
+    p {
+      color: #24282e;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .btn {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .banner hgroup {
+      padding-right: 15px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    p.lg {
+      margin-right: 24px;
+    }
+
+    main {
+      display: block;
+    }
+
+    .content {
+      max-width: 100%;
+      padding-right: 0;
+    }
+
+    .signup-form {
+      max-width: 100%;
+    }
+
+    .company {
+      margin-top: 128px;
+    }
+
+    .get-started .btn + .btn  {
+      margin-top: 8px;
+    }
+  }
+}

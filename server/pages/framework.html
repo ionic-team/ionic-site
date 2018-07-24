@@ -17,7 +17,7 @@
         <p class="btn-row">
           <a id="repo-download"
              class="btn white btn-download desktop-btn"
-             href="/getting-started/">Get started</a>
+             href="/getting-started#cli">Get started</a>
           <a class="btn btn-primary btn-get-started hide-sm"
              href="/docs/"
              alt="Docs for v{{frameworkInfo.version}}"
@@ -390,9 +390,11 @@
 {% endblock %}
 
 {% block scripts %}
-<!--
-<script type="text/javascript" src="/js/slick.js"></script> -->
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script>
+
+// enable sticky nav
+stickyNav.init();
 
 // Grab fresh social data from GH and Twitter
 function digits(n){

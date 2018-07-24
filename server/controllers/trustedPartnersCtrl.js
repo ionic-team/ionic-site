@@ -9,7 +9,7 @@ module.exports = function(req, res) {
 
   // automatically send to brody, but also send to the TP directly, if provided
   let toEmail = [
-    // 'brody@ionic.io',
+    'ryan@ionic.io',
     'perry@ionic.io',
   ];
   let partnerEmail = getTrustedPartnerEmailByName(

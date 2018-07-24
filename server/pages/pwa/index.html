@@ -1,0 +1,451 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'pwa' %}
+{% set title = 'Ionic Framework - Progressive Web Apps' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/pwa-link.jpg'%}
+{% set meta_description = 'Progressive Web Apps deliver fast, native-app experiences with no app stores.'%}
+
+{% block main %}
+<header class="cta">
+  <div class="container">
+    <div class="eyebrow">Progressive Web Apps</div>
+    <h1>Embrace the power of the web.</h1>
+    <p class="lede"><strong>Progressive Web Apps</strong> use modern web capabilities to deliver fast, native-app experiences with no app stores or downloads, and all the goodness of the web.</p>
+  </div>
+</header>
+
+<aside id="social-share-sidebar"
+  class="meta activeOnLoad social-links active"
+  role="complementary"
+  data-spy="affix"
+  data-offset-top="400">
+  <h4>Share</h4>
+  <ul>
+    <li>
+      <a href="http://twitter.com/home?status=Check%20out%20this%20site%20from%20the%20Ionic%20team.%20All%20you%20need%20to%20know%20about%20Progressive%20Web%20Apps.%20https%3A%2F%2Fionicframework.com%2Fpwa"
+        onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;"
+        class="twitter"></a>
+    </li>
+    <li>
+      <a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fionicframework.com%2Fpwa"
+        onclick="window.open(this.href, 'Share via Facebook', 'width=
+                 555, height=656'); return false;"
+        class="facebook"></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=https%3A%2F%2Fionicframework.com%2Fpwa"
+        onclick="window.open(this.href, 'Share via Google+', 'width=400, height=450'); return false;"
+        class="google-plus"></a>
+    </li>
+    <li>
+      <a href="https://buffer.com/add?text=Check%20out%20this%20site%20from%20the%20Ionic%20team.%20All%20you%20need%20to%20know%20about%20Progressive%20Web%20Apps.%20&amp;url=https%3A%2F%2Fionicframework.com%2Fpwa"
+        onclick="window.open(this.href, 'Share via Buffer', 'width=500, height=600'); return false;"
+        class="buffer"></a>
+    </li>
+  </ul>
+</aside>
+
+<section class="panel">
+  <div class="container">
+    <header class="panel__header">
+      <h2>An escape hatch from the App Stores.</h2>
+      <p class="lede"><strong>Progressive Web Apps</strong> are a new way to offer incredible mobile app experiences that are highly optimized, reliable, and accessible completely on the web.</p>
+    </header>
+    <ul class="features">
+      <li>
+        <div class="features__icon features__icon--reliable"></div>
+        <h4>Reliable</h4>
+        <p>Works offline and performs well on low quality networks.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--fast"></div>
+        <h4>Fast</h4>
+        <p>Loads in seconds, with smooth interactions inside the app.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--accessible"></div>
+        <h4>Accessible</h4>
+        <p>Runs on desktop and mobile, or anywhere you find a browser.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--web-based"></div>
+        <h4>Web-based</h4>
+        <!-- This is wrong -->
+        <p>Immersive app experience with full access to native features.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--discoverable"></div>
+        <h4>Discoverable</h4>
+        <p>Easily discovered through a simple web search.</p>
+      </li>
+      <li>
+          <div class="features__icon features__icon--small"></div>
+        <h4>Small</h4>
+        <p>A fraction of the size of a traditional app store app.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--instant"></div>
+        <h4>Instant</h4>
+        <p>Always up-to-date with the latest content served instantly.</p>
+      </li>
+      <li>
+        <div class="features__icon features__icon--simple"></div>
+        <h4>Simple</h4>
+        <!-- Huh? -->
+        <p>Allows users to “keep” apps they find useful on their home screen.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel examples">
+  <div class="container">
+    <header class="panel__header">
+      <h2>Who’s building PWAs?</h2>
+      <p class="lede">Brands large and small are jumping on Progressive Web Apps to create better user experiences, anywhere the web runs. Here are some of our favorites.</p>
+    </header>
+    <div class="examples__list">
+      <div class="card">
+        <a href="https://app.starbucks.com/" target="_blank">
+          <div class="example starbucks">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-starbucks-logo.png" alt="Starbucks"/>
+              <p>The Starbucks PWA expands their reach and makes the experience of ordering faster.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://www.pinterest.com/" target="_blank">
+          <div class="example pinterest">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-pinterest-logo.png" alt="Pinterest"/>
+              <p>Pinterest built a PWA and saw a  44% increase in their overall ad revenue.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://m.uber.com/" target="_blank">
+          <div class="example uber">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-uber-logo.png" alt="Uber"/>
+              <p>Uber built their PWA to better serve customers as they expand into new markets and regions.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://ride.lyft.com/" target="_blank">
+          <div class="example lyft">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-lyft-logo.png" alt="Lyft"/>
+              <p>Lyft built their PWA to better serve their drivers and riders in new, emerging markets.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://twitter.com/" target="_blank">
+          <div class="example twitter">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-twitter-logo.png" alt="Twitter"/>
+              <p>Twitter’s PWA saw a 65% increase in pages per session and 75% increase tweets.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://m.forbes.com/" target="_blank">
+          <div class="example forbes">
+            <div class="example__content">
+              <img src="/img/pwa/pwa-forbes-logo.png" alt="Forbes"/>
+              <p>Forbes built a PWA that garnered a 100% increase in time spent on their app.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel library">
+  <div class="container">
+    <header class="panel__header">
+      <h2>Dive in.</h2>
+      <p class="lede">Learn how Progressive Web Apps can boost your app strategy with greater reach and engagement, and start building yours today.</p>
+    </header>
+    <section>
+      <h3 class="eyebrow">PWA Basics</h3>
+      <ul class="library__list">
+        <li>
+          <a href="http://blog.ionicframework.com/what-is-a-progressive-web-app/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-what-are-pwas.png"/>
+              <div class="card__content">
+                <h4>What are PWAs?</h4>
+                <p>What exactly are PWAs? Get the overview on what they are and why they aren’t going away.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="http://blog.ionicframework.com/how-to-make-pwas-with-ionic/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-your-first-pwa.png"/>
+              <div class="card__content">
+                <h4>Your First PWA</h4>
+                <p>Go over exactly what a PWA is and how to deploy your first PWA using Ionic Framework.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="https://developers.google.com/web/showcase/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-pwa-case-studies.png"/>
+              <div class="card__content">
+                <h4>PWA Case Studies</h4>
+                <p>Learn why and how other devs have used the web to create amazing PWA experiences.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pwastats.com/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-conversion-stats.png"/>
+              <div class="card__content">
+                <h4>PWA Conversion Stats</h4>
+                <p>A community-driven list of stats and news all about Progressive Web Apps.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-beginners-guide.png"/>
+              <div class="card__content">
+                <h4>Beginners Guide to PWAs</h4>
+                <p>Learn more about how to build a PWA, what they are, and what you’ll need to get going.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="https://javebratt.com/pwa-faq/" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-faq.png"/>
+              <div class="card__content">
+                <h4>PWA with Ionic FAQ</h4>
+                <p>A community FAQ session answering the big questions about PWAs and Ionic.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.cabotsolutions.com/2017/10/developing-progressive-web-apps-in-ionic-framework" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-developing-pwas.png"/>
+              <div class="card__content">
+                <h4>Developing PWAs with Ionic</h4>
+                <p>An in-depth, step-by-step guide on how to develop Progressive Web Apps with Ionic.</p>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/pwa-architects-guide" target="_blank">
+            <article class="card">
+              <img class="card__image" src="/img/pwa/dive-in-architects-guide.png"/>
+              <div class="card__content">
+                <h4>Architect's Guide to PWAs</h4>
+                <p>Learn what makes a PWA, how PWAs work, how PWAs fit into your app strategy and how to get started!</p>
+              </div>
+            </article>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3 class="eyebrow">Technical Deep Dive</h3>
+      <ul class="library__list">
+          <li>
+            <a href="http://blog.ionicframework.com/service-workers-revolution-against-the-network/" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-service-workers.png"/>
+                <div class="card__content">
+                  <h4>Service Workers</h4>
+                  <p>Learn why Service Workers are one of the most useful APIs to come to the JS world in years.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://whatwebcando.today/" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-web-api.png"/>
+                <div class="card__content">
+                  <h4>Modern Web API Overview</h4>
+                  <p>A comprehensive overview of of the device integration HTML5 APIs currently available.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://jakearchibald.com/2014/offline-cookbook/" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-advanced-sw.png"/>
+                <div class="card__content">
+                  <h4>Advanced Service Workers</h4>
+                  <p>Take a deeper look into a few possible Service Worker patterns in isolation.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://developers.google.com/web/fundamentals/codelabs/push-notifications/" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-push.png"/>
+                <div class="card__content">
+                  <h4>PWA Push Notifications</h4>
+                  <p>Learn how to easily add dynamic push notifications to your Progressive Web App.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+      </ul>
+    </section>
+    <section>
+      <h3 class="eyebrow">Development Stories</h3>
+      <ul class="library__list">
+          <li>
+            <a href="https://blog.twitter.com/engineering/en_us/topics/open-source/2017/how-we-built-twitter-lite.html" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-twitter.png"/>
+                <div class="card__content">
+                  <h4>How Twitter Built a PWA</h4>
+                  <p>Twitter’s PWA is fast, responsive, uses less data, takes up less storage space, and much more.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/engineering-housing/progressing-mobile-web-fac3efb8b454" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-housing.png"/>
+                <div class="card__content">
+                  <h4>How Housing Built a PWA</h4>
+                  <p>How a redesign provided an opportunity to revamp the code base to push performance.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.joshmorony.com/launching-a-progressive-web-app-pwa-with-ionic/" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-ionic.png"/>
+                <div class="card__content">
+                  <h4>Launching PWAs with Ionic</h4>
+                  <p>Developing a PWA is mostly the same as a normal Ionic app, with a couple of new steps...</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/@addyosmani/a-pinterest-progressive-web-app-performance-case-study-3bd6ed2e6154" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-pinterest.png"/>
+                <div class="card__content">
+                  <h4>How Pinterest Built a PWA</h4>
+                  <p>Learn how and why the Pinterest team rebuilt their mobile experience as a PWA.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+      </ul>
+    </section>
+    <section>
+      <h3 class="eyebrow">Videos</h3>
+      <ul class="library__list">
+          <li>
+            <a href="https://www.youtube.com/watch?v=DtuJ55tmjps" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-workbox.png"/>
+                <div class="card__content">
+                  <h4>Workbox: PWA Libraries</h4>
+                  <p>Workbox is a set of libraries that work together to power your PWA’s service worker.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=goafiwzhKMI&list=PLNYkxOF6rcICUD5nBfRdAR6Fveosnqa5m&index=6" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-journey.png"/>
+                <div class="card__content">
+                  <h4>Your Journey to PWAs</h4>
+                  <p>Learn how to take a web site and turn it into to a Progressive Web App experience.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=Di7RvMlk9io&list=PLNYkxOF6rcICUD5nBfRdAR6Fveosnqa5m&index=10" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-wp.png"/>
+                <div class="card__content">
+                  <h4>Wordpress + PWAs</h4>
+                  <p>Integrating Progressive Technologies into the workflow of platforms such as WordPress.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=Y3M9NjUGL7c" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-amp.png"/>
+                <div class="card__content">
+                  <h4>PWA + AMP</h4>
+                  <p>Learn how AMP makes the web fast for users and simple for developers.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?time_continue=446&v=aVZ_HyA6XjA" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-pwa.png"/>
+                <div class="card__content">
+                  <h4>Build PWAs with Ionic</h4>
+                  <p>Learn how to create a production version of a PWA built with Ionic Framework.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+          <li>
+            <a href="https://ionicpro.wistia.com/medias/05b54g640s" target="_blank">
+              <article class="card">
+                <img class="card__image" src="/img/pwa/dive-in-sworkit.png"/>
+                <div class="card__content">
+                  <h4>SWORKIT + PWAs</h4>
+                  <p>Learn how SWORKIT is driving growth with PWAs and Ionic.</p>
+                </div>
+              </article>
+            </a>
+          </li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+{% include '_includes/promos/pwa-architects-guide.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
+{% endblock %}

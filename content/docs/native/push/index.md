@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L223">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L224">
   Improve this doc
 </a>
 
@@ -163,6 +163,8 @@ Check whether the push notification permission has been granted.
 </div><h3><a class="anchor" name="createChannel" href="#createChannel"></a><code>createChannel(channel)</code></h3>
 
 
+
+
 Create a new notification channel for Android O and above.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -188,6 +190,8 @@ Create a new notification channel for Android O and above.
 <h3><a class="anchor" name="deleteChannel" href="#deleteChannel"></a><code>deleteChannel(id)</code></h3>
 
 
+
+
 Delete a notification channel for Android O and above.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -202,7 +206,7 @@ Delete a notification channel for Android O and above.
     <td>
       id</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -589,7 +593,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     <td>
       <p>Maps to the project number in the Google Developer Console.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

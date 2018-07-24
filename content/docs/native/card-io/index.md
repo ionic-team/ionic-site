@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Card IO</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L129">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L125">
   Improve this doc
 </a>
 
@@ -55,6 +55,9 @@ $ npm install --save @ionic-native/card-io
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<p>This plug-in exposes card.io credit card scanning.</p>
+<p><strong>NOTE</strong>: If you would like to actually process a credit card charge, you might be interested in the <a href="https://github.com/paypal/PayPal-Cordova-Plugin">PayPal Cordova Plug-in</a>.</p>
+<p>Requires Cordova plugin: <code>card.io.cordova.mobilesdk</code>. For more info, please see the <a href="https://github.com/card-io/card.io-Cordova-Plugin">Card IO plugin docs</a>.</p>
 <p>Note: For use with iOS 10 + When building your app with the iOS 10 SDK +, you have to add some info to the info.plist file. This is due to increased security in iOS 10. Go to your app directory and search for the <your app name>Info.plist file. Add the following lines in the main <dict> element.</p>
 <pre><code class="lang-xml">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
 &lt;string&gt;To scan credit cards.&lt;/string&gt;
@@ -75,7 +78,7 @@ this.cardIO.canScan()
           requireCVV: false,
           requirePostalCode: false
         };
-        CardIO.scan(options);
+        this.cardIO.scan(options);
       }
     }
   );
@@ -120,7 +123,7 @@ Scan a credit card with card.io.
       <code>CardIOOptions</code>
     </td>
     <td>
-      <p>Options for configuring the plugin</p>
+      <p>Options for configuring the plugin<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -200,7 +203,7 @@ Retrieve the version of the card.io library. Useful when contacting support.
   
   <tr>
     <td>
-      supressManual
+      suppressManual
     </td>
     <td>
       <code>boolean</code>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Resizer</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L42">
   Improve this doc
 </a>
 
@@ -127,6 +127,50 @@ this.imageResizer
   
   <tr>
     <td>
+      folderName
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the folder the image should be put
+(Android only)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A custom name for the file. Default name is a timestamp. You have to set this value on iOS</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      quality
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Quality given as Number for the quality of the new image
+(Android and iOS only)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       width
     </td>
     <td>
@@ -155,44 +199,14 @@ this.imageResizer
   
   <tr>
     <td>
-      folderName
+      base64
     </td>
     <td>
-      <code>string</code>
+      <code>boolean</code>
     </td>
     <td>
-      <p>The name of the folder the image should be put
-(Android only)</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      quality
-    </td>
-    <td>
-      <code>number</code>
-    </td>
-    <td>
-      <p>Quality given as Number for the quality of the new image
-(Android and iOS only)</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      fileName
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>A custom name for the file. Default name is a timestamp
-(Android and Windows only)</p>
+      <p>Whether or not to return a base64 encoded image string instead of the path to the resized image.
+iOS only</p>
 
       <em>(optional)</em>
     </td>

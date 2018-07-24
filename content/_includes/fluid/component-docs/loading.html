@@ -25,11 +25,11 @@ _For more information, Check out the [API docs](../api/components/loading/Loadin
 import { LoadingController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(public loadingCtrl: LoadingController) {
-  }
+
+  constructor(public loadingCtrl: LoadingController) { }
 
   presentLoading() {
-    let loader = this.loadingCtrl.create({
+    const loader = this.loadingCtrl.create({
       content: "Please wait...",
       duration: 3000
     });

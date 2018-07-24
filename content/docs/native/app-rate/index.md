@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">App Rate</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L102">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L125">
   Improve this doc
 </a>
 
@@ -254,7 +254,7 @@ Immediately send the user to the app store rating page
       customLocale
     </td>
     <td>
-      <code>any</code>
+      <code>AppRateCustomLocale</code>
     </td>
     <td>
       <p>Custom locale object</p>
@@ -437,6 +437,9 @@ Immediately send the user to the app store rating page
   
   </tbody>
 </table>
+
+
+<h2><a class="anchor" name="AppRateCustomLocal" href="#AppRateCustomLocal"></a>AppRateCustomLocal</h2>
 
 
 

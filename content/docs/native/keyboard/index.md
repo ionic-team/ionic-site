@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>Keyboard plugin for Cordova.</p>
+<p>Requires Cordova plugin: <code>ionic-plugin-keyboard</code>. For more info, please see the <a href="https://github.com/ionic-team/ionic-plugin-keyboard">Keyboard plugin docs</a>.</p>
 
 
 <p>Repo:

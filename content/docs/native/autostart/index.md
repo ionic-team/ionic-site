@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,7 +23,7 @@ docType: "class"
 
 
 
-<p>This plugin will start automatically your Android app after the every boot or the auto-update of your application.
+<p>This plugin automatically starts your Android app after every boot or auto-update.
 You can enable or disable the autostart function in your app.</p>
 
 

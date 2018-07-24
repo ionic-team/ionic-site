@@ -11,7 +11,7 @@ doc: "MenuController"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/menu/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -33,7 +33,7 @@ MenuController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/app/menu-controller.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/app/menu-controller.ts#L2">
 Improve this doc
 </a>
 
@@ -143,7 +143,7 @@ id will be disabled.</p>
 <h3>
 <a class="anchor" name="close" href="#close"></a>
 <code>close(menuId)</code>
-  
+
 
 </h3>
 
@@ -161,24 +161,24 @@ is given then it'll close that exact menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -188,7 +188,7 @@ is given then it'll close that exact menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu is fully closed</p>
 
 
@@ -202,7 +202,7 @@ is given then it'll close that exact menu.
 <h3>
 <a class="anchor" name="enable" href="#enable"></a>
 <code>enable(menuId)</code>
-  
+
 
 </h3>
 
@@ -221,24 +221,24 @@ will also automatically disable all the others that are on the same side.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -248,7 +248,7 @@ will also automatically disable all the others that are on the same side.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
 
 
@@ -262,7 +262,7 @@ will also automatically disable all the others that are on the same side.
 <h3>
 <a class="anchor" name="get" href="#get"></a>
 <code>get(menuId)</code>
-  
+
 
 </h3>
 
@@ -282,24 +282,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -309,7 +309,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
 
 
@@ -323,7 +323,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="getMenus" href="#getMenus"></a>
 <code>getMenus()</code>
-  
+
 
 </h3>
 
@@ -336,7 +336,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
 
 
@@ -350,7 +350,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="getOpen" href="#getOpen"></a>
 <code>getOpen()</code>
-  
+
 
 </h3>
 
@@ -363,7 +363,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
 
 
@@ -377,7 +377,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="isEnabled" href="#isEnabled"></a>
 <code>isEnabled(menuId)</code>
-  
+
 
 </h3>
 
@@ -393,24 +393,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -420,7 +420,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
 
 
@@ -434,7 +434,7 @@ property. If a menu is not found then it'll return `null`.
 <h3>
 <a class="anchor" name="isOpen" href="#isOpen"></a>
 <code>isOpen(menuId)</code>
-  
+
 
 </h3>
 
@@ -450,24 +450,24 @@ property. If a menu is not found then it'll return `null`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -477,7 +477,7 @@ property. If a menu is not found then it'll return `null`.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> <p>Returns true if the specified menu is currently open, otherwise false.
 If the menuId is not specified, it returns true if ANY menu is currenly open.</p>
 
@@ -492,7 +492,7 @@ If the menuId is not specified, it returns true if ANY menu is currenly open.</p
 <h3>
 <a class="anchor" name="open" href="#open"></a>
 <code>open(menuId)</code>
-  
+
 
 </h3>
 
@@ -508,24 +508,24 @@ Programatically open the Menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -535,7 +535,7 @@ Programatically open the Menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
 
 
@@ -549,7 +549,7 @@ Programatically open the Menu.
 <h3>
 <a class="anchor" name="swipeEnable" href="#swipeEnable"></a>
 <code>swipeEnable(shouldEnable,&nbsp;menuId)</code>
-  
+
 
 </h3>
 
@@ -565,41 +565,41 @@ Used to enable or disable the ability to swipe open the menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>True if it should be swipe-able, false if not.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -609,7 +609,7 @@ Used to enable or disable the ability to swipe open the menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
 
 
@@ -623,7 +623,7 @@ Used to enable or disable the ability to swipe open the menu.
 <h3>
 <a class="anchor" name="toggle" href="#toggle"></a>
 <code>toggle(menuId)</code>
-  
+
 
 </h3>
 
@@ -640,24 +640,24 @@ will close.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         menuId
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -667,7 +667,7 @@ will close.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
 
 
@@ -680,13 +680,13 @@ will close.
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -696,137 +696,137 @@ will close.
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$font-size-root</code></td>
-        
+
           <td><code>62.5%</code></td>
-        
+
         <td><p>Font size of the root html</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$headings-font-weight</code></td>
-        
+
           <td><code>500</code></td>
-        
+
         <td><p>Font weight of all headings</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$headings-line-height</code></td>
-        
+
           <td><code>1.2</code></td>
-        
+
         <td><p>Line height of all headings</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h1-font-size</code></td>
-        
+
           <td><code>2.6rem</code></td>
-        
+
         <td><p>Font size of heading level 1</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h2-font-size</code></td>
-        
+
           <td><code>2.4rem</code></td>
-        
+
         <td><p>Font size of heading level 2</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h3-font-size</code></td>
-        
+
           <td><code>2.2rem</code></td>
-        
+
         <td><p>Font size of heading level 3</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h4-font-size</code></td>
-        
+
           <td><code>2rem</code></td>
-        
+
         <td><p>Font size of heading level 4</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h5-font-size</code></td>
-        
+
           <td><code>1.8rem</code></td>
-        
+
         <td><p>Font size of heading level 5</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$h6-font-size</code></td>
-        
+
           <td><code>1.6rem</code></td>
-        
+
         <td><p>Font size of heading level 6</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-responsive-utilities</code></td>
-        
+
           <td><code>true</code></td>
-        
+
         <td><p>Whether to include all of the responsive utility attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-text-alignment-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive text alignment attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-text-transform-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive text transform attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$include-float-element-utilities</code></td>
-        
+
           <td><code>$include-responsive-utilities</code></td>
-        
+
         <td><p>Whether to include all of the responsive float attributes</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$screen-breakpoints</code></td>
-        
+
           <td><code>(&#10;  xs: 0,&#10;  sm: 576px,&#10;  md: 768px,&#10;  lg: 992px,&#10;  xl: 1200px&#10;)</code></td>
-        
+
         <td><p>The minimum dimensions at which your layout will change,
 adapting to different screen sizes, for use in media queries</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

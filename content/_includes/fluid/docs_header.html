@@ -1,3 +1,5 @@
+{% include fluid/mobile_nav.html %}
+
 <nav class="navbar navbar-default{% if page.dark_header %} navbar-dark{% endif %}" id="{{layout.navbar_id}}">
   <div class="{% if layout.is_responsive %}container{% else %}container-fluid{% endif %}">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,16 +46,14 @@
               </a>
             </li>
             <li><a href="/docs/v1">v1 Framework Docs</a></li>
+            <li><a href="https://beta.ionicframework.com">v4 beta Framework Docs</a></li>
           </ul>
         </li>
       </ul>
       {% endif %}
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse">
       {% if page.hide_header_search != true %}
-      <form class="navbar-form navbar-left"
+      <form class="header-form navbar-left"
             id="header-search"
             role="search"
             data-searchpos="header">
@@ -66,15 +66,20 @@
         </div>
       </form>
       {% endif %}
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+
       <ul class="nav navbar-nav navbar-center">
         {% include fluid/header_nav.html isDocs='true' %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="sm-hide">
-          <a href="https://apps.ionic.io/login" class="header-btn">Log in</a>
+          <a href="https://apps.ionic.io/login" class="header-btn" id="btn-header-log-in">Log in</a>
         </li>
         <li class="header-btn-white">
-          <a href="https://apps.ionic.io/signup">Sign up</a>
+          <a href="https://apps.ionic.io/signup" id="btn-header-sign-up">Sign up</a>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

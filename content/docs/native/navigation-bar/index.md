@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -29,7 +29,7 @@ docType: "class"
 
 
 
-<p>The NavigationBar plugin can you to hide and auto hide the android navigation bar.</p>
+<p>The NavigationBar plugin allows you to hide and auto hide the android navigation bar.</p>
 
 
 <p>Repo:
@@ -69,7 +69,7 @@ constructor(private navigationBar: NavigationBar) { }
 ...
 
 let autoHide: boolean = true;
-this.navigationBar.hide(autoHide);
+this.navigationBar.setUp(autoHide);
 </code></pre>
 
 

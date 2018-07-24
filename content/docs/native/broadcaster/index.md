@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/broadcaster
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li>
+  <li>Android</li><li>iOS</li><li>Browser</li>
 </ul>
 
 

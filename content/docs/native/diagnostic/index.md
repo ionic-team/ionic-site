@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Diagnostic</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L6">
   Improve this doc
 </a>
 
@@ -718,7 +718,7 @@ Registers a function to be called when a change in Bluetooth state occurs.
     <td>
       handler</td>
     <td>
-      
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -748,7 +748,7 @@ Registers a function to be called when a change in Location state occurs.
     <td>
       handler</td>
     <td>
-      
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -765,7 +765,7 @@ Registers a function to be called when a change in Location state occurs.
 
 
 Checks if high-accuracy locations are available to the app from GPS hardware.
-Returns true if Location mode is enabled and is set to "Device only" or "High accuracy" AND if the app is authorised to use location.
+Returns true if Location mode is enabled and is set to "Device only" or "High accuracy" AND if the app is authorized to use location.
 
 
 <div class="return-value" markdown="1">
@@ -797,7 +797,7 @@ Checks if location mode is set to return high-accuracy locations from GPS hardwa
 
 
 Checks if low-accuracy locations are available to the app from network triangulation/WiFi access points.
-Returns true if Location mode is enabled and is set to "Battery saving" or "High accuracy" AND if the app is authorised to use location.
+Returns true if Location mode is enabled and is set to "Battery saving" or "High accuracy" AND if the app is authorized to use location.
 
 
 <div class="return-value" markdown="1">
@@ -842,7 +842,7 @@ Returns the current location mode setting for the device.
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Returns the current authorisation status for a given permission.
+Returns the current authorization status for a given permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -876,7 +876,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Returns the current authorisation status for multiple permissions.
+Returns the current authorization status for multiple permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -891,7 +891,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions</td>
     <td>
-      
+      <code>any[]</code>
     </td>
     <td>
       </td>
@@ -910,7 +910,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Requests app to be granted authorisation for a runtime permission.
+Requests app to be granted authorization for a runtime permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will have no effect as the permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -944,7 +944,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Requests app to be granted authorisation for multiple runtime permissions.
+Requests app to be granted authorization for multiple runtime permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -959,7 +959,7 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions</td>
     <td>
-      
+      <code>any[]</code>
     </td>
     <td>
       </td>
@@ -990,7 +990,7 @@ Multiple permission requests should be grouped into a single call since the nati
 
 
 Registers a function to be called when a runtime permission request has completed.
-Pass in a falsey value to de-register the currently registered function.
+Pass in a falsy value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1207,7 +1207,7 @@ Note: this operation does not require NFC permission in the manifest.
   <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
 
 
-Registers a function to be called when a change in NFC state occurs. Pass in a falsey value to de-register the currently registered function.
+Registers a function to be called when a change in NFC state occurs. Pass in a falsy value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

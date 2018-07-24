@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Fingerprint AIO</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L29">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L28">
   Improve this doc
 </a>
 
@@ -111,7 +111,7 @@ Show authentication dialogue
       <code>FingerprintOptions</code>
     </td>
     <td>
-      <p>options for platform specific fingerprint API</p>
+      <p>Options for platform specific fingerprint API</p>
 </td>
   </tr>
   </tbody>
@@ -119,7 +119,7 @@ Show authentication dialogue
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when authentication was successfull
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when authentication was successful
 </div>
 
 

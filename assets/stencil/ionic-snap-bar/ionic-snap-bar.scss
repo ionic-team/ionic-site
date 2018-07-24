@@ -1,0 +1,113 @@
+@import '../vars';
+
+ionic-snap-bar {
+  background: linear-gradient(to right, #17203d, #1f2c53);
+  display: none;
+  width: 100%;
+  position: relative;
+  padding: 0 24px;
+  z-index: 1;
+  font-family: $font-family-eina;
+
+  &.hydrated {
+    display: block;
+  }
+
+  .wrapper {
+    padding: 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: rgba(white, .6);
+    margin: 0 auto;
+    max-width: 586px;
+    height: 0;
+    transition: .4s height ease, .4s padding ease;
+
+    &.active {
+      height: 48px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+
+      > * {
+        transform: scaleY(1);
+      }
+
+      + .close {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    > * {
+      font-size: 1em;
+      font-weight: 600;
+      display: inline-block;
+      transform: scaleY(0);
+      transition: .2s transform ease
+    }
+
+    a {
+      border-radius: 1.8em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(56,128,255,.28);
+      display: inline-block;
+      padding: 6px 12px 4px;
+      font-size: 10px;
+      letter-spacing: .1em;
+      margin-bottom: 2px;
+      transition: .2s background ease;
+      font-weight: 800;
+
+      &::after {
+        content: '';
+        border: solid white;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-left: 2px;
+        vertical-align: 1px;
+        transform: rotate(-45deg);
+      }
+
+      &:hover {
+        background: rgba(56,128,255,.4);
+      }
+    }
+
+    strong,
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      color: white;
+      letter-spacing: .01em;
+    }
+  }
+
+
+
+  .close {
+    color: rgba(white, .3);
+    position: absolute;
+    font-size: 24px;
+    right: 16px;
+    top: 5px;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: .4s opacity ease, .2s color ease;
+
+    &:hover {
+      color: rgba(white, .5);
+    }
+  }
+}
+
+
+
+

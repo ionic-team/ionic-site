@@ -27,7 +27,7 @@
       margin-right: 668px;
       background: url('/img/pro/view/ionic-view-logo.png') 0 0 no-repeat;
       background-size: 184px;
-      margin-top: 87px;
+      margin-top: 0;
       margin-left: -1px;
 
       @media (max-width: $screen-md-max)  {
@@ -36,7 +36,7 @@
 
       @media (max-width: $screen-sm-max)  {
         margin-right: 390px;
-        margin-top: 56px;
+        // margin-top: 56px;
       }
 
       @media (max-width: $screen-xs-max)  {
@@ -166,7 +166,7 @@
 
       @media (max-width: $screen-sm-max)  {
         flex-basis: 330px;
-        margin-bottom: 48px;
+        margin-bottom: 18px;
       }
 
       @media (max-width: $screen-xs-max)  {

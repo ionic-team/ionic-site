@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Firebase Dynamic Links<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase-dynamic-links/index.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/firebase-dynamic-links/index.ts#L7">
   Improve this doc
 </a>
 
@@ -29,19 +29,17 @@ docType: "class"
 
 
 
-<p>Cordova plugin for Firebase Invites and Firebase Dynamic Links</p>
+<p>Cordova plugin for Firebase Dynamic Links</p>
 <p>Variables APP_DOMAIN and APP_PATH specify web URL where your app will start an activity to handle the link. They also used to setup support for App Indexing.
-Variable REVERSED_CLIENT_ID can be found in your GoogleService-Info.plist under the same key name.
-Variable PHOTO_LIBRARY_USAGE_DESCRIPTION specifies required value for NSPhotoLibraryUsageDescription on iOS.
 Go to firebase console and export google-services.json and GoogleService-Info.plist. Put those files into the root of your cordova app folder.</p>
 <p>Preferences:</p>
 <p>Preferences GoogleIOSClientId and GoogleAndroidClientId are used to setup dynamic links when you have an app for several platforms.
 You can find values at your GoogleService-Info.plist (key ANDROID_CLIENT_ID) and google-services.json (key client[0].oauth_client[0].client_id).</p>
 <p>config.xml:</p>
-<pre><code class="lang-xml">&lt;platform name=&quot;android&quot;&gt;
+<pre><code class="lang-xml">&lt;platform name=&quot;ios&quot;&gt;
     &lt;preference name=&quot;GoogleIOSClientId&quot; value=&quot;...&quot; /&gt;
 &lt;/platform&gt;
-&lt;platform name=&quot;ios&quot;&gt;
+&lt;platform name=&quot;android&quot;&gt;
     &lt;preference name=&quot;GoogleAndroidClientId&quot; value=&quot;...&quot; /&gt;
 &lt;/platform&gt;
 </code></pre>
@@ -83,17 +81,6 @@ $ npm install --save @ionic-native/firebase-dynamic-links
 constructor(private firebaseDynamicLinks: FirebaseDynamicLinks) { }
 
 ...
-// The deepLink and callToActionText properties are optional
-const options: DynamicLinksOptions = {
-  title: &#39;My Title&#39;;
-  message: &#39;My message&#39;;
-  deepLink: &#39;http://example.com/&#39;;
-  callToActionText: &#39;Message on button&#39;;
-}
-
-this.firebaseDynamicLinks.sendInvitation(options)
-  .then((res: any) =&gt; console.log(res))
-  .catch((error: any) =&gt; console.error(error));
 
 this.firebaseDynamicLinks.onDynamicLink()
   .then((res: any) =&gt; console.log(res)) //Handle the logic here after opening the app with the Dynamic link
@@ -111,41 +98,14 @@ this.firebaseDynamicLinks.onDynamicLink()
 <h3><a class="anchor" name="onDynamicLink" href="#onDynamicLink"></a><code>onDynamicLink()</code></h3>
 
 
+
+
 Registers callback that is triggered on each dynamic link click.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
-</div><h3><a class="anchor" name="sendInvitation" href="#sendInvitation"></a><code>sendInvitation(options)</code></h3>
-
-
-Display invitation dialog.
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      options</td>
-    <td>
-      <code>DynamicLinksOptions</code>
-    </td>
-    <td>
-      <p>Some param to configure something</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+  <b>Returns:</b> <code>Observable&lt;IDynamicLink&gt;</code> Returns an observable
 </div>
 
 
@@ -153,71 +113,6 @@ Display invitation dialog.
 
 
 <h2><a class="anchor" name="DynamicLinksOptions" href="#DynamicLinksOptions"></a>DynamicLinksOptions</h2>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      title
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      message
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      deepLink
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      callToActionText
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
 
 
 

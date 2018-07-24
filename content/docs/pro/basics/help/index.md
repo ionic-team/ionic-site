@@ -11,6 +11,6 @@ dark_header: true
 
 # Ionic Pro Help and Support
 
-Need help with any Ionic Pro service? Visit the main support portal at [support.ionicjs.com](http://support.ionicjs.com).
+Need help with any Ionic Pro service? Visit the [main support portal](https://ionic.zendesk.com/hc/en-us).
 
 For help with Ionic Framework issues or problems, please see our [community support channels](https://ionicframework.com/support).

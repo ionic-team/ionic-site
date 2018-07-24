@@ -1,0 +1,65 @@
+@import '../vars';
+@mixin colorize($color, $dark: true) {
+  background: $color;
+
+  @if $dark {
+    color: white;
+
+    &:hover {
+      background: lighten($color, 5);
+    }
+
+    &:active {
+      background: darken($color, 5);
+    }
+  } @else {
+
+    &:active {
+      background: darken($color, 2);
+    }
+  }
+}
+
+ionic-button {
+  button {
+    border-radius: 4px;
+    padding: 10px 15px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $font-family-default;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    border: 0;
+    outline: none;
+    height: 100%;
+    transition:
+      background-color .2s,
+      border-color .3s,
+      box-shadow .3s,
+      color .3s;
+
+    &.default { @include colorize($blue) }
+    &.white {
+      @include colorize(white, false);
+      border-color: $lightgrey;
+      color: $blue;
+    }
+
+    &:hover {
+      box-shadow: 0 2px 5px rgba(0,0,0,.12);
+    }
+
+    &:active {
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    }
+
+    &:disabled {
+      background: $lightgrey;
+      color: white;
+      box-shadow: none;
+    }
+  }
+}
+
+
+
+

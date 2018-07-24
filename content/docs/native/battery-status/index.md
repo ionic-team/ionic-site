@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Battery Status</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/battery-status/index.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/battery-status/index.ts#L14">
   Improve this doc
 </a>
 
@@ -64,11 +64,9 @@ constructor(private batteryStatus: BatteryStatus) { }
 
 
 // watch change in battery status
-let subscription = this.batteryStatus.onChange().subscribe(
- (status: BatteryStatusResponse) =&gt; {
+const subscription = this.batteryStatus.onChange().subscribe(status =&gt; {
    console.log(status.level, status.isPlugged);
- }
-);
+});
 
 // stop watch
 subscription.unsubscribe();
@@ -109,7 +107,7 @@ Watch when the battery level goes low
 
 
 
-Watch when the battery level goes to critial
+Watch when the battery level goes to critical
 
 
 <div class="return-value" markdown="1">

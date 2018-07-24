@@ -26,7 +26,7 @@ Note: you may need to add `sudo` to this command on Mac/Linux.
 
 <script src="https://fast.wistia.com/embed/medias/5mpnif6345.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_5mpnif6345" style="height:400px;width:640px">&nbsp;</div>
 
-If you are looking to create a brand new App to use with Ionic Pro, you can either start the process in [your dashboard](https://dashboard.ionicjs.com) or use the CLI locally. If you already have an App you'd like to link, skip this step.
+If you are looking to create a brand new App to use with Ionic Pro, you can either start the process in [your dashboard](https://dashboard.ionicframework.com) or use the CLI locally. If you already have an App you'd like to link, skip this step.
 
 To create a new app, run the `ionic start` command, or follow the official [Ionic Framework Getting Started](/getting-started) guide.
 
@@ -137,7 +137,7 @@ export class AppModule {}
 
 `YOUR_APP_ID` is the Ionic Pro App ID found on the dashboard for your app:
 
-![App ID Location](/img/docs/pro/app-id-location.png)
+![App ID Location](/img/docs/pro/app-id-location.png?1)
 
 `APP_VERSION` is the version of the code running for the purposes of tracking code changes. We strongly recommend that this mirrors the version in `package.json` or `config.xml`.
 

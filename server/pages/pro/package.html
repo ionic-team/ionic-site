@@ -32,7 +32,7 @@
         build steps.
       </p>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn pink" id="btn-products-package-activate" target="_blank">
           Activate Package</a>
         <a class="btn white" id="btn-products-package-get-in-touch"
@@ -153,7 +153,7 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn white" id="btn-products-package-create-account">
           Create an account</a>
         <a id="btn-products-package-see-pricing" class="btn pink"
@@ -169,5 +169,8 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+// enable sticky nav
+stickyNav.init();
+</script>
 {% endblock %}

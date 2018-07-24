@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Barcode Scanner</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L75">
   Improve this doc
 </a>
 
@@ -64,10 +64,10 @@ constructor(private barcodeScanner: BarcodeScanner) { }
 ...
 
 
-this.barcodeScanner.scan().then((barcodeData) =&gt; {
- // Success! Barcode data is here
-}, (err) =&gt; {
-    // An error occurred
+this.barcodeScanner.scan().then(barcodeData =&gt; {
+ console.log(&#39;Barcode data&#39;, barcodeData);
+}).catch(err =&gt; {
+    console.log(&#39;Error&#39;, err);
 });
 </code></pre>
 
@@ -106,7 +106,7 @@ Open the barcode scanner.
       <code>BarcodeScannerOptions</code>
     </td>
     <td>
-      <p>Optional options to pass to the scanner</p>
+      <p>Optional options to pass to the scanner<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -335,7 +335,22 @@ NOTE: not well supported on Android
       format
     </td>
     <td>
-      <code>&#39;QR_CODE&#39; | &#39;DATA_MATRIX&#39; | &#39;UPC_E&#39; | &#39;UPC_A&#39; | &#39;EAN_8&#39; | &#39;EAN_13&#39; | &#39;CODE_128&#39; | &#39;CODE_39&#39; | &#39;CODE_93&#39; | &#39;CODABAR&#39; | &#39;ITF&#39; | &#39;RSS14&#39; | &#39;RSS_EXPANDED&#39; | &#39;PDF417&#39; | &#39;AZTEC&#39; | &#39;MSI&#39;</code>
+      <code>| &#39;QR_CODE&#39;
+    | &#39;DATA_MATRIX&#39;
+    | &#39;UPC_E&#39;
+    | &#39;UPC_A&#39;
+    | &#39;EAN_8&#39;
+    | &#39;EAN_13&#39;
+    | &#39;CODE_128&#39;
+    | &#39;CODE_39&#39;
+    | &#39;CODE_93&#39;
+    | &#39;CODABAR&#39;
+    | &#39;ITF&#39;
+    | &#39;RSS14&#39;
+    | &#39;RSS_EXPANDED&#39;
+    | &#39;PDF_417&#39;
+    | &#39;AZTEC&#39;
+    | &#39;MSI&#39;</code>
     </td>
     <td>
       

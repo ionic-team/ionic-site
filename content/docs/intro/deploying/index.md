@@ -58,13 +58,13 @@ __Note__: Make sure to save this file somewhere safe, if you lose it you won’t
 To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
 
 ```bash
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk my-alias
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks app-release-unsigned.apk my-alias
 ```
 
 This signs the APK in place. Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`. For example, on OS X with Android Studio installed, zipalign is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
 
 ```bash
-zipalign -v 4 android-release-unsigned.apk HelloWorld.apk
+zipalign -v 4 app-release-unsigned.apk HelloWorld.apk
 ```
 
 To verify that your apk is signed run apksigner. The apksigner can be also found in the same path as the zipalign tool:

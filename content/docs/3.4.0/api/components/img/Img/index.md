@@ -33,7 +33,7 @@ Img
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/img/img.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/img/img.ts#L6">
 Improve this doc
 </a>
 
@@ -129,7 +129,7 @@ currently working on.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>alt</td>
       <td><code>string</code></td>
@@ -137,7 +137,7 @@ currently working on.</p>
 the inner <code>img</code> element.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>bounds</td>
       <td><code>any</code></td>
@@ -146,7 +146,7 @@ When using <code>VirtualScroll</code>, each virtual item should pass its bounds 
 <code>ion-img</code>. The passed in data object should include <code>top</code> and <code>bottom</code> properties.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>cache</td>
       <td><code>boolean</code></td>
@@ -156,7 +156,7 @@ cached, and not rendered, until after scrolling has completed, which allows for
 smoother scrolling.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>height</td>
       <td><code>string</code></td>
@@ -165,14 +165,14 @@ the dimensions are still set using CSS. If the dimension is just a number it
 will assume the <code>px</code> unit.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>src</td>
       <td><code>string</code></td>
       <td><p> The source of the image.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>width</td>
       <td><code>string</code></td>
@@ -181,7 +181,7 @@ the dimensions are still set using CSS. If the dimension is just a number it
 will assume the <code>px</code> unit.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -189,13 +189,13 @@ will assume the <code>px</code> unit.</p>
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
+
     <h3 ng-init="setSassPlatform('base')">All</h3>
-    
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -205,19 +205,19 @@ will assume the <code>px</code> unit.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$img-placeholder-background</code></td>
-        
+
           <td><code>#eee</code></td>
-        
+
         <td><p>Color of the image when it hasn&#39;t fully loaded yet</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

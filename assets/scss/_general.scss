@@ -6,6 +6,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @media (max-width: $screen-xs-max) {
+    padding-top: 50px;
     width: 100%;
     min-width: 100%;
     background: #fff;
@@ -15,6 +16,20 @@ body {
     background: linear-gradient(90deg, $whiteish, $whiteish ($sidenav-width),
       white ($sidenav-width), white 100%);
   }
+
+  @media (max-width: $screen-sm-min) {
+    &#page-pricing-table {
+      padding-top: 0px;
+    }
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  overflow: hidden;
 }
 
 #components-index ul.nav > li > a {
@@ -84,7 +99,7 @@ body {
         margin-right: 0;
       }
     }
-    
+
     .component-doc-demo-mobile {
       display: inline-block;
     }

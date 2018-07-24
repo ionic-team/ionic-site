@@ -22,7 +22,7 @@ can build your first app! This section will guide you through the process of
 starting a new application, adding pages, navigating between those pages, and
 more. Let's get started!
 
-> Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, dont
+> Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, don't
 > worry, it's very similar to regular JavaScript. But if you want to read up on
 > it, take a look at [this resource
 > page](https://ionicframework.com/docs/resources/what-is/#typescript).
@@ -44,7 +44,7 @@ Along with creating your project, this will also install [node
 modules](../../resources/what-is/#npm) for the application, and prompt you if
 you want [Cordova](../../resources/what-is/#cordova) set up.
 
-Along with the tutorial template, Ionic also provide the follow official
+Along with the tutorial template, Ionic also provides the following official
 templates:
 
 * `tabs` : a simple 3 tab layout

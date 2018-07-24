@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -61,21 +61,13 @@ $ npm install --save @ionic-native/browser-tab
 constructor(private browserTab: BrowserTab) {
 
   browserTab.isAvailable()
-    .then((isAvailable: boolean) =&gt; {
-
+    .then(isAvailable =&gt; {
       if (isAvailable) {
-
         browserTab.openUrl(&#39;https://ionic.io&#39;);
-
       } else {
-
         // open URL with InAppBrowser instead or SafariViewController
-
       }
-
     });
-
-
 }
 </code></pre>
 

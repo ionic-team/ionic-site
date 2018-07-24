@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-play-games-service --variable APP_ID="YOUR_APP_ID
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-play-games-services --variable APP_ID="YOUR_APP_ID
 $ npm install --save @ionic-native/google-play-games-services
 </code></pre>
   </li>

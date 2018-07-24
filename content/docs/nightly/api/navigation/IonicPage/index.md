@@ -100,7 +100,8 @@ export class AnotherPage {
 </code></pre>
 <p>The <code>@IonicPage</code> decorator accepts a <code>DeepLinkMetadataType</code> object. This object accepts
 the following properties: <code>name</code>, <code>segment</code>, <code>defaultHistory</code>, and <code>priority</code>. All of them
-are optional but can be used to create complex navigation links.</p>
+are optional but can be used to create complex navigation links. The <code>name</code> and <code>segment</code>
+values must be unique.</p>
 <h3 id="changing-name">Changing Name</h3>
 <p>As mentioned previously, the <code>name</code> property will be set to the class name if it isn&#39;t provided.
 Changing the name of the link is extremely simple. To change the name used to link to the
@@ -118,9 +119,10 @@ example, the page can be navigated to by using the name:</p>
 </code></pre>
 <h3 id="setting-url-path">Setting URL Path</h3>
 <p>The <code>segment</code> property is used to set the URL to the page. If this property isn&#39;t provided, the
-<code>segment</code> will use the value of <code>name</code>. Since components can be loaded anywhere in the app, the
-<code>segment</code> doesn&#39;t require a full URL path. When a page becomes the active page, the <code>segment</code> is
-appended to the URL.</p>
+<code>segment</code> will use the value of source file name without the extension (<code>&#39;my-page.ts&#39;</code> results
+in segment name <code>&#39;my-page&#39;</code>). Since components can be loaded anywhere in the app, the <code>segment</code>
+doesn&#39;t require a full URL path. When a page becomes the active page, the <code>segment</code> is appended
+to the URL.</p>
 <p>The <code>segment</code> can be changed to anything and doesn&#39;t have to match the <code>name</code>. For example, passing
 a value for <code>name</code> and <code>segment</code>:</p>
 <pre><code class="lang-ts">@IonicPage({

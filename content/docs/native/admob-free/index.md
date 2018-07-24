@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>A free, no ad-sharing version of Google AdMob plugin for Cordova.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-admob-free</code>. For more info, please see the <a href="https://github.com/ratson/cordova-plugin-admob-free">AdMob Free plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -149,7 +151,7 @@ Returns the AdMobFreeRewardVideo object
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -179,7 +181,7 @@ Update config.
 
 
 
-Hide the banner.
+Hide the banner
 
 
 <div class="return-value" markdown="1">
@@ -190,7 +192,7 @@ Hide the banner.
 
 
 
-Create banner.
+Create banner
 
 
 <div class="return-value" markdown="1">
@@ -201,7 +203,7 @@ Create banner.
 
 
 
-Remove the banner.
+Remove the banner
 
 
 <div class="return-value" markdown="1">
@@ -212,7 +214,7 @@ Remove the banner.
 
 
 
-Show the banner.
+Show the banner
 
 
 <div class="return-value" markdown="1">
@@ -229,7 +231,7 @@ Show the banner.
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -298,7 +300,7 @@ Show the interstitial
 
 
 
-Update config.
+Update config
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -312,10 +314,11 @@ Update config.
     <td>
       options</td>
     <td>
-      
+      <code>AdMobFreeRewardVideoConfig</code>
     </td>
     <td>
-      </td>
+      <p>Admob reward config</p>
+</td>
   </tr>
   </tbody>
 </table>

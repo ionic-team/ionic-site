@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.2"
+version: "4.10.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Globalization</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/globalization/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/globalization/index.ts#L6">
   Improve this doc
 </a>
 
@@ -209,7 +209,7 @@ Returns a pattern string to format and parse dates according to the client's use
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;{ pattern: string, timezone: string, utf_offset: number, dst_offset: number }&gt;</code> Returns a promise.
+  <b>Returns:</b> <code>Promise&lt;{ pattern: string, timezone: string, utc_offset: number, dst_offset: number }&gt;</code> Returns a promise.
 </div><h3><a class="anchor" name="getDateNames" href="#getDateNames"></a><code>getDateNames(options)</code></h3>
 
 
@@ -421,6 +421,51 @@ Returns a pattern string to format and parse currency values according to the cl
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
 </div>
+
+
+
+
+
+<h2><a class="anchor" name="GlobalizationOptions" href="#GlobalizationOptions"></a>GlobalizationOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      formatLength
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      selector
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

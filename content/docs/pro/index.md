@@ -26,7 +26,7 @@ Each one of these services is based around a simple git-based workflow that shou
 
 ## Create an Account
 
-To get started with Ionic Pro, first [create an account](https://app.ionicjs.com/signup).
+To get started with Ionic Pro, first [create an account](https://dashboard.ionicframework.com/signup).
 
 Ionic Pro has a free plan for development and kicking the tires, and paid plans for production app usage. Larger teams can also create Organizations to administer team members and make it easy to manage projects.
 

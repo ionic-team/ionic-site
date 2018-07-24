@@ -1,4 +1,8 @@
 #page-products-package {
+  .sub-header > .container {
+    z-index: 2;
+  }
+
   .top {
     clear: both;
     position: relative;

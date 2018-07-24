@@ -153,6 +153,24 @@ gulp.task('js', function() {
     .pipe($.size({title: 'js'}));
 });
 
+
+
+gulp.task('stencil', function(done) {
+  return cp.spawn('npm',
+    ['run', 'stencil-build'],
+    {
+      cwd: process.cwd(),
+      env: {
+          PATH: process.env.PATH
+      },
+      stdio: 'inherit'
+    }
+  )
+  .on('close', function() {
+    done();
+  }).on('error', function(err) {throw err; });
+});
+
 /**
  * Build the Jekyll Site
  */
@@ -407,22 +425,6 @@ gulp.task('docs.index', function() {
   });
 });
 
-gulp.task('stencil', function(done) {
-  return cp.spawn('npm',
-    ['run', 'stencil-build'],
-    {
-      cwd: process.cwd(),
-      env: {
-          PATH: process.env.PATH
-      },
-      stdio: 'inherit'
-    }
-  )
-  .on('close', function() {
-    done();
-  }).on('error', function(err) {throw err; });
-});
-
 gulp.task('build', ['build-prep'], function(done) {
   runSequence('jekyll-build', function() {
     done();
@@ -432,7 +434,7 @@ gulp.task('build', ['build-prep'], function(done) {
 gulp.task('build.clean', ['build-prep'], function(done) {
   runSequence('jekyll-build.clean', function() {
     done();
-  })
+  });
 });
 
 gulp.task('slug.prep', function () {

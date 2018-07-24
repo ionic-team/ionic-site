@@ -12,7 +12,6 @@
     "node_modules/d3/build/d3.min.js",
     "node_modules/c3/c3.js",
     "node_modules/scrollreveal/dist/scrollreveal.js",
-    "node_modules/@ionic/ionic-site-components/dist/ionic-site-components.js",
     "node_modules/typed.js/lib/typed.min.js"
   ]
 }

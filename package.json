@@ -2,12 +2,16 @@
   "name": "ionic-site",
   "version": "1.0.0",
   "description": "Ionic Framework main site - IonicFramework.com",
-  "main": "Gulpfile.js",
   "scripts": {
     "build": "gulp build.clean",
     "dev": "gulp watch",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
-    "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep"
+    "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep",
+    "stencil-build": "stencil build",
+    "stencil-dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "stencil-serve": "stencil-dev-server",
+    "stencil-start": "npm run dev",
+    "stencil-prepublish": "npm run build"
   },
   "engines": {
     "node": "6.11.1"
@@ -26,7 +30,10 @@
   },
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
-    "@ionic/ionic-site-components": "0.1.6",
+    "@stencil/core": "0.10.4",
+    "@stencil/dev-server": "0.0.18",
+    "@stencil/sass": "0.0.5",
+    "@stencil/utils": "latest",
     "angular": "1.6.8",
     "angular-animate": "1.6.8",
     "angular-cookies": "1.6.8",
@@ -67,7 +74,7 @@
     "gulp-util": "^3.0.6",
     "helmet": "^3.9.0",
     "htmlparser2": "^3.8.3",
-    "ionicons": "^3.0.0-alpha.3",
+    "ionicons": "^4.1.2",
     "jquery": "3.1.1",
     "js-yaml": "^3.4.2",
     "jsforce": "^1.8.4",
@@ -85,5 +92,9 @@
     "twilio": "^3.11.0",
     "twitter": "^1.7.1",
     "typed.js": "^2.0.6"
-  }
+  },
+  "module": "content/js/stencil/esm/index.js",
+  "main": "content/js/stencil/index.js",
+  "collection": "content/js/stencil/collection/collection-manifest.json",
+  "types": "content/js/stencil/types/components.d.ts"
 }

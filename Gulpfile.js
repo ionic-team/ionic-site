@@ -214,7 +214,6 @@ gulp.task('server:server', function() {
   });
 });
 
-gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
 gulp.task('server:creator', ['styles:creator'], bustCacheAndReload);
@@ -239,8 +238,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
-  gulp.watch(['node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*'],
-    ['server:stencil'])
+  gulp.watch(['content/js/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
               'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 });
@@ -409,34 +407,20 @@ gulp.task('docs.index', function() {
   });
 });
 
-gulp.task('ionicons', function() {
-  gulp.src('node_modules/ionicons/dist/data/ionicons.json')
-    .pipe(rename('site_data.json'))
-    .pipe(gulp.dest('_site/docs/resources/ionicons/'))
-    .pipe(gulp.dest('content/docs/resources/ionicons/'));
-
-  gulp.src('node_modules/ionicons/dist/data/mode-icons.json')
-    .pipe(gulp.dest('_site/docs/resources/ionicons/data/'))
-    .pipe(gulp.dest('content/docs/resources/ionicons/data/'));
-
-  gulp.src('node_modules/ionicons/dist/data/logo-icons.json')
-    .pipe(rename('generic-icons.json'))
-    .pipe(gulp.dest('_site/docs/resources/ionicons/data/'))
-    .pipe(gulp.dest('content/docs/resources/ionicons/data/'));
-
-  gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
-    .pipe(gulp.dest('_site/css/v2-demos/ionicons/'))
-    .pipe(gulp.dest('content/css/v2-demos/ionicons/'));
-
-  return gulp.src('node_modules/ionicons/dist/fonts/*{eot,svg,ttf,woff}')
-    .pipe(gulp.dest('_site/css/v2-demos/fonts/'))
-    .pipe(gulp.dest('content/css/v2-demos/fonts/'));
-});
-
-gulp.task('stencil', function() {
-  return gulp.src('node_modules/@ionic/ionic-site-components/dist/ionic-site-components/**/*')
-    .pipe(gulp.dest('_site/js/ionic-site-components/'))
-    .pipe(gulp.dest('content/js/ionic-site-components/'));
+gulp.task('stencil', function(done) {
+  return cp.spawn('npm',
+    ['run', 'stencil-build'],
+    {
+      cwd: process.cwd(),
+      env: {
+          PATH: process.env.PATH
+      },
+      stdio: 'inherit'
+    }
+  )
+  .on('close', function() {
+    done();
+  }).on('error', function(err) {throw err; });
 });
 
 gulp.task('build', ['build-prep'], function(done) {
@@ -458,7 +442,6 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
-    'ionicons',
     'styles:v1',
     'styles:v2',
     'styles:creator',

@@ -17,9 +17,6 @@ linkchecker.html
 /content/css/creator.min.css
 /content/css/bootstrap/bootstrap.css
 /content/docs/data/index.json
-/content/docs/resources/ionicons/data/generic-icons.json
-/content/docs/resources/ionicons/data/mode-icons.json
-/content/docs/resources/ionicons/site_data.json
 /content/js/ionic-site.js
 /content/js/ionic-site.min.js
 /content/js/ionic-site-components/
@@ -33,3 +30,5 @@ linkchecker.html
 /package-lock.json
 /null
 /content/sitemap.xml
+/assets/stencil/components.d.ts
+/content/js/stencil

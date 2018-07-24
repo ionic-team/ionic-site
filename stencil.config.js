@@ -6,22 +6,22 @@ exports.config = {
     sass()
   ],
   copy: [
-    { src: 'node_modules/ionicons/dist/collection/icon/svg/md-search.svg' }
+    // { src: 'node_modules/ionicons/dist/collection/icon/svg/md-search.svg' }
   ],
   outputTargets: [
+    // {
+    //   type: 'dist',
+    //   dir: '_site/js/stencil',
+    // },
     {
       type: 'dist',
-      dir: 'dist',
-      baseUrl: '/stencil',
+      dir: 'content/js/stencil',
     },
-    {
-      type: 'www',
-      serviceWorker: false
-    }
-  ]
+  ],
+  srcDir: 'assets/stencil'
 };
 
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'
-}
+};

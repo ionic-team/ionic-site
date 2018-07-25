@@ -256,7 +256,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
-  gulp.watch(['content/js/stencil/**/*'], ['server:stencil']);
+  gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
               'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 });

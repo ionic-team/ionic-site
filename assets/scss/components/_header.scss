@@ -9,6 +9,7 @@
   min-height: 32px;
   z-index: 30;
   border: 0;
+
   @media (max-width: $screen-xs-max) {
     position: fixed;
     top: 0;
@@ -34,6 +35,10 @@
     transition: 0.3s opacity;
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
+    }
+
+    svg {
+      margin-top: -1px;
     }
 
     img {
@@ -129,8 +134,8 @@
         margin-top: 0;
         padding: 6px 12px;
         letter-spacing: -.01em;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 14px;
+        margin-right: 14px;
         transition: 0.2s color;
         border-top: none;
         border-radius: 4px;
@@ -174,12 +179,12 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 6px 8px 4px;
+          padding: 6px 8px 6px;
           border-radius: 4px;
           color: $blue;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-          margin-right: 3px;
-          margin-left: -4px;
+          margin-right: 0;
+          margin-left: 0;
           transition: 0.3s box-shadow, 0.3s background;
 
           &:hover {
@@ -1186,6 +1191,8 @@
 
   .navbar-right > li > a {
     font-weight: 700;
+    margin-right: 4px;
+    margin-left: 4px;
   }
 
   &.navbar-sticky {

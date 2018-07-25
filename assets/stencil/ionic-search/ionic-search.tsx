@@ -175,7 +175,7 @@ export class IonicSearch {
                 name="md-search"
                 onClick={this.active ? null : this.activate}></ion-icon>,
 
-      <div class={`backdrop${this.active ? ' active' : null}`}
+      <div class={`backdrop ${this.active ? 'active' : null}`}
            onClick={this.close}></div>
     ];
   }

@@ -25,8 +25,6 @@ ionic-search {
   ion-icon {
     font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    top: 4px;
 
     &:hover svg {
       fill: #3880ff;
@@ -35,8 +33,9 @@ ionic-search {
 
   .search {
     right: 115px;
-    font-size: 16px;
-    margin-right: 8px;
+    font-size: 18px;
+    margin-top:7px;
+    color: white;
     transition: .2s opacity, .4s transform cubic-bezier(0.23, 1, 0.32, 1);
 
     &.active {
@@ -200,6 +199,11 @@ ionic-search {
         transition-delay: .4s;
       }
     }
+
+    ion-icon {
+      top: 4px;
+      position: absolute;
+    }
   }
 
   .backdrop {
@@ -209,10 +213,12 @@ ionic-search {
     right: 0;
     bottom: 0;
     left: 0;
+    opacity: 0;
     pointer-events: none;
     transition: .4s all ease;
 
     &.active {
+      opacity: 1;
       pointer-events: all;
     }
   }

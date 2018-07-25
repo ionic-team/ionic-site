@@ -298,6 +298,11 @@
         left: 0;
         z-index: 1;
         box-shadow: 0 2px 8px rgba(black, 0.2);
+        transition: .3s box-shadow ease-out;
+      }
+
+      &:hover::before {
+        box-shadow: 0 4px 16px rgba(black, 0.16);
       }
     }
 

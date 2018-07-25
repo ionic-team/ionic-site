@@ -50,8 +50,7 @@ ionic-search {
   }
 
   .search-static {
-    left: 9px;
-    top: 4px;
+    left: 15px;
     z-index: 2;
     opacity: 0;
     transform: translate3d(0, -25px, 0);
@@ -59,7 +58,7 @@ ionic-search {
   }
 
   .close {
-    right: 4px;
+    right: 11px;
     z-index: 2;
     opacity: 0;
     pointer-events: none;
@@ -80,8 +79,12 @@ ionic-search {
     outline: none;
     border: none;
     z-index: 2;
+    background: white;
+    border-radius: 6px;
+    padding: 14px 30px 14px 41px;
+    font-size: 14px;
+    letter-spacing: -.01em;
     position: relative;
-    font-size: 16px;
     opacity: 0;
     transform: translate3d(0, -15px, 0);
     transition: .2s opacity, .4s transform cubic-bezier(0.23, 1, 0.32, 1);
@@ -106,13 +109,10 @@ ionic-search {
     background: white;
     list-style: none;
     margin-top: 4px;
-    border-top: 1px solid #f6f6f6;
-    padding-top: 8px;
-    padding-left: 0;
-    padding-bottom: 8px;
     margin-bottom: 0;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-radius: 6px;
+    text-align: left;
+    padding: 19px 3px;
     box-shadow: 0 8px 16px rgba(0,0,0,.08);
     opacity: 0;
     transform: translate3d(0, -50px, 0);
@@ -165,13 +165,19 @@ ionic-search {
   .search-box {
     // display: none;
     position: absolute;
-    left: 25%;
-    width: 50%;
-    top: 0;
+    left: calc(50% - 330px);
+    width: 660px;
+    top: 10px;
     z-index: 1;
     padding-top: 2px;
     pointer-events: none;
     transition: opacity 0.2s linear;
+
+    ion-icon {
+      top: 17px;
+      font-size: 17px;
+      position: absolute;
+    }
 
     &.active {
       pointer-events: all;
@@ -199,11 +205,6 @@ ionic-search {
         transition-delay: .4s;
       }
     }
-
-    ion-icon {
-      top: 4px;
-      position: absolute;
-    }
   }
 
   .backdrop {
@@ -227,6 +228,7 @@ ionic-search {
     display: block;
 
     .search {
+      color: #999;
       right: auto;
       left: 0;
       bottom: 0;

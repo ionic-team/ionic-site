@@ -238,10 +238,6 @@
     @media (max-width: $screen-xs-max) {
       .dropdown-menu {
         text-align: center;
-
-        strong {
-          display: block;
-        }
       }
     }
   }
@@ -254,7 +250,7 @@
         border: 0;
         border-radius: 8px;
         top: 39px;
-        padding: 16px 24px 19px;
+        padding: 15px 0;
         right: auto;
         left: 50%;
         box-shadow: 0 10px 28px rgba(0, 16, 44, 0.18), 0 1px 5px rgba(0, 16, 44, 0.2);
@@ -290,12 +286,19 @@
 
         li {
           list-style-type: none;
-          padding: 10px 0;
+          padding: 0;
         }
 
-        a {
-          padding-left: 36px;
+        a,
+        span,
+        strong {
           color: #131924;
+          display: block;
+          font-size: 14px;
+          line-height: 1.6;
+          font-weight: 600;
+          padding: 7px 28px;
+          min-width: 230px;
           transition: 0.2s color;
 
           &:hover {
@@ -304,14 +307,73 @@
           }
         }
 
-        a strong {
-          font-size: 14px;
-          line-height: 1.6;
-          font-weight: 600;
-          letter-spacing: -.01em;
+        [target] {
+          &::after {
+            background: url('/img/external-link.png') no-repeat 0 0;
+            background-size: 11px;
+            width: 11px;
+            height: 11px;
+            content: '';
+            display: inline-block;
+            margin-left: 3px;
+            transition: .2s transform ease-out;
+          }
+
+          &:hover::after {
+            transform: translateX(1px);
+          }
         }
 
-        &::before {
+        span {
+          color: #95a3bd;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: .04em;
+        }
+
+        .divider {
+          padding-top: 10px;
+          background: #f8f9fb;
+          margin-top: 8px;
+          border-bottom: none;
+
+          ~ li a,
+          ~ li span {
+            background: #f8f9fb;
+          }
+
+          ~ li:last-child a {
+            margin-bottom: -15px;
+            padding-bottom: 21px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+        }
+
+        .split {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          min-width: 360px;
+          padding-bottom: 8px;
+
+          a {
+            min-width: 0;
+          }
+
+          .sm {
+            color: #3b5073;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 4px 28px;
+
+            &:hover {
+              color: $blue;
+            }
+          }
+        }
+
+        &::after {
           position: absolute;
           top: -10px;
           content: '';
@@ -319,39 +381,60 @@
           height: 19px;
         }
 
-        .arrow {
-          position: absolute;
-          height: 8px;
-          width: 20px;
-          overflow: hidden;
-          top: -8px;
-          left: calc(50% - 8px);
-
-          &::before {
+        &::before {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 4px;
+            width: 14px;
+            height: 14px;
+            top: -5px;
+            right: calc(50% - 7px);
             background: white;
             transform: rotate(45deg);
             border-radius: 4px;
-            box-shadow: 1px 1px 3px rgba(#000, 0.4);
             content: '';
             display: block;
-          }
         }
       }
 
-      .dropdown-menu .dropdown-menu__row {
-        display: flex;
-      }
+      #v4 {
+        background: linear-gradient(to right, #7ea9ff, #a0d1ff);
+        margin-top: 14px;
+        padding: 12px 28px 8px;
+        position: relative;
+        color: white;
 
-      .dropdown-menu .dropdown-menu__col {
-        flex: 1 0 auto;
-        width: 200px;
+        i {
+          font-size: 25px;
+          vertical-align: middle;
+          margin-right: 7px;
+        }
 
-        & + .dropdown-menu__col {
-          margin-left: 32px;
+        &::before {
+          position: absolute;
+          width: 100%;
+          height: 14px;
+          top: -14px;
+          left: 0;
+          content: '';
+          background: #f8f9fb;
+        }
+
+        &::after {
+          font-family: 'Ionicons';
+          content: '\f28a';
+          position: absolute;
+          right: 22px;
+          font-weight: 400;
+          font-size: 18px;
+          top: 16px;
+          transition: .2s transform ease-out;
+        }
+
+        &:hover {
+          color: #eee;
+
+          &::after {
+            transform: translateX(2px);
+          }
         }
       }
 
@@ -370,351 +453,6 @@
         border-top: 3px dashed;
         border-right: 3px solid transparent;
         border-left: 3px solid transparent;
-      }
-    }
-
-    .businesses,
-    .developers,
-    .ecosystem,
-    .products {
-      ul a {
-        position: relative;
-
-        &::after,
-        &::before {
-          background: url('/img/dropdown-icons-xs.png') 0 0 no-repeat;
-          background-size: 24px;
-          content: '';
-          width: 24px;
-          height: 24px;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: 0.2s opacity;
-        }
-
-        &::after {
-          opacity: 0;
-        }
-
-        &:hover::after {
-          opacity: 1;
-        }
-
-        &.pro {
-          &::before {
-            background-position: 0 0;
-          }
-
-          &::after {
-            background-position: 0 -24px;
-          }
-        }
-
-        &.pro-docs {
-          &::before {
-            background-position: 0 2 * -24px;
-          }
-
-          &::after {
-            background-position: 0 3 * -24px;
-          }
-        }
-
-        &.setup {
-          &::before {
-            background-position: 0 4 * -24px;
-          }
-
-          &::after {
-            background-position: 0 5 * -24px;
-          }
-        }
-
-        &.ui {
-          &::before {
-            background-position: 0 6 * -24px;
-          }
-
-          &::after {
-            background-position: 0 7 * -24px;
-          }
-        }
-
-        &.api {
-          &::before {
-            background-position: 0 8 * -24px;
-          }
-
-          &::after {
-            background-position: 0 9 * -24px;
-          }
-        }
-
-        &.native {
-          &::before {
-            background-position: 0 10 * -24px;
-          }
-
-          &::after {
-            background-position: 0 11 * -24px;
-          }
-        }
-
-        &.dev-resources {
-          &::before {
-            background-position: 0 12 * -24px;
-          }
-
-          &::after {
-            background-position: 0 13 * -24px;
-          }
-        }
-
-        &.enterprise,
-        &.enterprise-support {
-          &::before {
-            background-position: 0 14 * -24px;
-          }
-
-          &::after {
-            background-position: 0 15 * -24px;
-          }
-        }
-
-        &.startups {
-          &::before {
-            background-position: 0 16 * -24px;
-          }
-
-          &::after {
-            background-position: 0 17 * -24px;
-          }
-        }
-
-        &.demo {
-          &::before {
-            background-position: 0 18 * -24px;
-          }
-
-          &::after {
-            background-position: 0 19 * -24px;
-          }
-        }
-
-        &.enterprise-support,
-        &.sales {
-          &::before {
-            background-position: 0 20 * -24px;
-          }
-
-          &::after {
-            background-position: 0 21 * -24px;
-          }
-        }
-
-        &.about,
-        &.framework {
-          &::before {
-            background-position: 0 22 * -24px;
-          }
-
-          &::after {
-            background-position: 0 23 * -24px;
-          }
-        }
-
-        &.forum {
-          &::before {
-            background-position: 0 24 * -24px;
-          }
-
-          &::after {
-            background-position: 0 25 * -24px;
-          }
-        }
-
-        &.support {
-          &::before {
-            background-position: 0 26 * -24px;
-          }
-
-          &::after {
-            background-position: 0 27 * -24px;
-          }
-        }
-
-        &.trusted-partners {
-          &::before {
-            background-position: 0 28 * -24px;
-          }
-
-          &::after {
-            background-position: 0 29 * -24px;
-          }
-        }
-
-        &.contact {
-          &::before {
-            background-position: 0 30 * -24px;
-          }
-
-          &::after {
-            background-position: 0 31 * -24px;
-          }
-        }
-
-        &.resources {
-          &::before {
-            background-position: 0 32 * -24px;
-          }
-
-          &::after {
-            background-position: 0 33 * -24px;
-          }
-        }
-
-        &.blog {
-          &::before {
-            background-position: 0 34 * -24px;
-          }
-
-          &::after {
-            background-position: 0 35 * -24px;
-          }
-        }
-
-        &.events {
-          &::before {
-            background-position: 0 36 * -24px;
-          }
-
-          &::after {
-            background-position: 0 37 * -24px;
-          }
-        }
-
-        &.showcase {
-          &::before {
-            background-position: 0 38 * -24px;
-          }
-
-          &::after {
-            background-position: 0 39 * -24px;
-          }
-        }
-
-        &.market {
-          &::before {
-            background-position: 0 40 * -24px;
-          }
-
-          &::after {
-            background-position: 0 41 * -24px;
-          }
-        }
-
-        &.shop {
-          &::before {
-            background-position: 0 42 * -24px;
-          }
-
-          &::after {
-            background-position: 0 43 * -24px;
-          }
-        }
-
-        &.stencil {
-          &::before {
-            background-position: 0 44 * -24px;
-          }
-
-          &::after {
-            background-position: 0 45 * -24px;
-          }
-        }
-
-        &.capacitor {
-          &::before {
-            background-position: 0 46 * -24px;
-          }
-
-          &::after {
-            background-position: 0 47 * -24px;
-          }
-        }
-
-        &.product-ionicons {
-          &::before {
-            background-position: 0 48 * -24px;
-          }
-
-          &::after {
-            background-position: 0 49 * -24px;
-          }
-        }
-
-        &.deploy {
-          &::before {
-            background-position: 0 50 * -24px;
-          }
-
-          &::after {
-            background-position: 0 51 * -24px;
-          }
-        }
-
-        &.package {
-          &::before {
-            background-position: 0 52 * -24px;
-          }
-
-          &::after {
-            background-position: 0 53 * -24px;
-          }
-        }
-
-        &.monitor {
-          &::before {
-            background-position: 0 54 * -24px;
-          }
-
-          &::after {
-            background-position: 0 55 * -24px;
-          }
-        }
-
-        &.teams {
-          &::before {
-            background-position: 0 56 * -24px;
-          }
-
-          &::after {
-            background-position: 0 57 * -24px;
-          }
-        }
-
-        &.pwa {
-          &::before {
-            background-position: 0 58 * -24px;
-          }
-
-          &::after {
-            background-position: 0 59 * -24px;
-          }
-        }
-
-        &.creator {
-          &::before {
-            background-position: 0 62 * -24px;
-          }
-
-          &::after {
-            background-position: 0 63 * -24px;
-          }
-        }
-
       }
     }
   }

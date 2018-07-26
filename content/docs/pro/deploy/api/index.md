@@ -610,7 +610,7 @@ ___
 
 *__description__*: Get the versionId of the currently deployed update.
 
-*__deprecated__*: in v4.2.0 in favor of <a href="#getcurrentversion" target="_blank">getCurrentVersion</a>
+*__deprecated__*: in v4.2.0 in favor of <a href="#getconfiguration" target="_blank">getConfiguration</a>
 
 **Returns:** `Promise`<`string`>
 

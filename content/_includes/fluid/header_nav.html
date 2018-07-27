@@ -1,228 +1,198 @@
-<!-- <li class="dropdown products">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-    Products
-  </a>
-  <div class="dropdown-menu">
-    <div class="arrow"></div>
-    <div class="dropdown-menu__row">
-
-      <div class="dropdown-menu__col">
-        <h6>Solutions</h6>
-        <ul>
-          <li>
-            <a id="btn-header-products" href="/pro" class="pro">
-              <strong>Ionic Pro</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-enterprise" href="/enterprise" class="enterprise">
-              <strong>Ionic Enterprise</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-solutions-creator" href="/pro/creator" class="creator">
-              <strong>Creator</strong>
-            </a>
-          </li>
-        </ul>
-
-        <h6>Open Source
-        </h6>
-        <ul>
-          <li>
-            <a id="btn-header-framework" href="/framework" class="framework">
-              <strong>Ionic Framework</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-stencil" href="https://stenciljs.com/" class="stencil">
-              <strong>Stencil</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-capacitor" href="https://capacitor.ionicframework.com/" class="capacitor">
-              <strong>Capacitor</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ionicons" href="https://ionicons.com/" class="product-ionicons">
-              <strong>Ionicons</strong>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</li> -->
-
-<li class="{% if id.indexOf('products') == 0%} active{% endif %}">
+<li>
   <a href="/pro" id="btn-header-products">
     Products
   </a>
 </li>
 
 <li class="dropdown developers">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers</a>
-
-  <div class="dropdown-menu">
-    <div class="arrow"></div>
-
-    <div class="dropdown-menu__row">
-      <div class="dropdown-menu__col">
-        <h6>Framework docs</h6>
-        <ul>
-          <li>
-            <a id="btn-header-developers-setup-installation" href="/getting-started" class="setup">
-              <strong>Setup &amp; Installation</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-ui-components" href="/docs/components/" class="ui">
-              <strong>UI Components</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-api-reference" href="/docs/api/" class="api">
-              <strong>API Reference</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-native-plugins" href="/docs/native/" class="native">
-              <strong>Native APIs</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-dev-resources" href="/docs/developer-resources/" class="dev-resources">
-              <strong>Dev Resources</strong>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="dropdown-menu__col">
-        <h6>Pro docs</h6>
-        <ul>
-          <li>
-            <a id="btn-header-developers-pro-intro" href="/docs/pro/" class="pro-docs">
-              <strong>Introduction</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-pro-deploy" href="/docs/pro/deploy/" class="deploy">
-              <strong>Deploy</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-pro-package" href="/docs/pro/package/" class="package">
-              <strong>Package</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-developers-pro-monitoring" href="/docs/pro/monitoring/" class="monitor">
-              <strong>Monitor</strong>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu">
+    <li><span>Documentation</span></li>
+    <li class="split">
+      <ul>
+        <li><a href="/docs">Framework Docs</a></li>
+        <li>
+          <a class="sm" id="btn-header-developers-setup-installation" href="/getting-started">
+            Installation
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-ui-components" href="/docs/components/">
+            UI Components
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-api-reference" href="/docs/api/">
+            API Reference
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-native-plugins" href="/docs/native/">
+            Native APIs
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="/docs/pro">Pro Docs</a></li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-intro" href="/docs/pro/">
+            Introduction
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-package" href="/docs/pro/package/">
+            Native Package
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-deploy" href="/docs/pro/deploy/">
+            Live Deploy
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-monitoring" href="/docs/pro/monitoring/">
+            App Monitoring
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li><span>Open Source</span></li>
+    <li>
+      <a href="/framework">
+        Ionic Framework
+      </a>
+    </li>
+    <li>
+      <a href="https://stenciljs.com/" target="_blank">
+        Stencil
+      </a>
+    </li>
+    <li>
+      <a href="https://capacitor.ionicframework.com/" target="_blank">
+        Capacitor
+      </a>
+    </li>
+    <li>
+      <a href="https://beta.ionicframework.com/docs/" id="v4">
+        <i class="ion-md-ionic"></i> The new v4 beta docs are live
+      </a>
+    </li>
+  </ul>
 </li>
 
 <li class="dropdown businesses">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Businesses</a>
-
-  <div class="dropdown-menu">
-    <div class="arrow"></div>
-
-    <div class="dropdown-menu__row">
-      <div class="dropdown-menu__col">
-
-        <ul>
-          <li>
-            <a id="btn-header-businesses-enterprise" href="/enterprise" class="enterprise">
-              <strong>Ionic for Enterprise</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-teams" href="/pro/teams" class="teams">
-              <strong>Ionic for Teams</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-startups" href="/startups" class="startups">
-              <strong>Ionic for Startups</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-request-a-demo" href="/demo" class="demo">
-              <strong>Request a Demo</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-contact-sales" href="/sales" class="sales">
-              <strong>Contact Sales</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-businesses-about-ionic" href="/about" class="about">
-              <strong>About Ionic</strong>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Businesses</a>
+  <ul class="dropdown-menu">
+    <li><span>Ionic for</span></li>
+    <li>
+      <a id="btn-header-businesses-enterprise" href="/enterprise">
+        Enterprise
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-businesses-teams" href="/pro/teams">
+        Teams
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-businesses-startups" href="/startups">
+        Startups
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a id="btn-header-businesses-request-a-demo" href="/demo">
+        Request a demo
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-businesses-contact-sales" href="/sales">
+        Contact sales
+      </a>
+    </li>
+  </ul>
 </li>
 
 <li class="dropdown ecosystem">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
-  <div class="dropdown-menu">
-    <div class="arrow"></div>
-
-    <div class="dropdown-menu__row">
-      <div class="dropdown-menu__col">
-        <ul>
-          <li>
-            <a id="btn-header-businesses-resource-center" href="/resources" class="resources">
-              <strong>Resource Center</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-resources-pwas" href="/pwa" class="pwa">
-              <strong>PWAs</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com" class="blog">
-              <strong>Blog</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ecosystem-events" href="https://www.meetup.com/pro/ionic/" class="events" target="_blank">
-              <strong>Events</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ecosystem-showcase" href="/showcase" class="showcase">
-              <strong>Showcase</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ecosystem-market" href="https://market.ionicframework.com" class="market">
-              <strong>Ionic Market</strong>
-            </a>
-          </li>
-          <li>
-            <a id="btn-header-ecosystem-swag-shop" href="https://shop.ionicframework.com/" class="shop">
-              <strong>Swag Shop</strong>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Resources</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a id="btn-header-businesses-resource-center" href="/resources">
+        Resource Center
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com">
+        The Ionic Blog
+      </a>
+    </li>
+    <li>
+      <a href="https://forum.ionicframework.com">
+        Ionic Forum
+      </a>
+    </li>
+    <li>
+      <a href="/resources/webinars">
+        Webinars
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-resources-pwas" href="/pwa">
+        PWAs
+      </a>
+    </li>
+  </ul>
 </li>
 
-<li class="{% if id.indexOf('pricing') == 0%} active{% endif %}"> <a href="/pro/pricing" id="btn-header-pricing">Pricing</a></li>
+<li class="dropdown support hide-sm">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Support</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="https://ionic.zendesk.com/">
+        Help Center
+      </a>
+    </li>
+    <li>
+      <a href="/enterprise/support">
+        Enterprise Support
+      </a>
+    </li>
+    <li>
+      <a href="/trusted-partners">
+        Trusted Partners
+      </a>
+    </li>
+    <li>
+      <a href="/contact">
+        Talk to us
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li>
+  <a href="/pro/pricing" id="btn-header-pricing">
+    Pricing
+  </a>
+</li>

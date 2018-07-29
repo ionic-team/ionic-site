@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Facebook</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L23">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L19">
   Improve this doc
 </a>
 
@@ -394,6 +394,15 @@ Log a purchase. For more information see the Events section above.
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getDeferredApplink" href="#getDeferredApplink"></a><code>getDeferredApplink()</code></h3>
+
+
+Returns the deferred app link
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

@@ -133,7 +133,7 @@ This returns an object representing a basic HTTP Authorization header of the for
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Object</code> an object representing a basic HTTP Authorization header of the form {'Authorization': 'Basic base64encodedusernameandpassword'}
+  <b>Returns:</b> <code>Object</code> an object representing a basic HTTP Authorization header of the form {'Authorization': 'Basic base64EncodedUsernameAndPassword'}
 </div><h3><a class="anchor" name="useBasicAuth" href="#useBasicAuth"></a><code>useBasicAuth(username,&nbsp;password)</code></h3>
 
 
@@ -913,7 +913,7 @@ Make a HEAD request
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a FileEntry promise that resolve on success, and reject on failure
 </div><h3><a class="anchor" name="downloadFile" href="#downloadFile"></a><code>downloadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath)</code></h3>
 
 
@@ -967,7 +967,7 @@ Make a HEAD request
       <code>string</code>
     </td>
     <td>
-      <p>The path to donwload the file to, including the file name.</p>
+      <p>The path to download the file to, including the file name.</p>
 </td>
   </tr>
   </tbody>
@@ -975,7 +975,7 @@ Make a HEAD request
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a FileEntry promise that resolve on success, and reject on failure
 </div>
 
 

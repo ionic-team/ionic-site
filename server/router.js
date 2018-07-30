@@ -39,7 +39,11 @@ module.exports = function router(app) {
   .get('/enterprise/training', (_, res) => { res.render('enterprise/training'); })
   .get('/framework', (_, res) => { res.render('framework'); })
   .get('/getting-started', (_, res) => { res.render('getting-started'); })
-  .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide'); })
+
+  .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/index'); })
+  .post('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
+  .get('/go/pwa-architects-guide/thank-you', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
+
   .get('/jobs', (_, res) => { res.render('jobs'); })
   .get('/press', (_, res) => { res.render('press'); })
   .get('/pro/pricing', (_, res) => { res.render('pro/pricing/table'); })
@@ -66,6 +70,10 @@ module.exports = function router(app) {
   .get('/survey/2017', (_, res) => { res.render('survey/2017'); })
   .get('/team', (_, res) => { res.render('team'); })
   .get('/tos', (_, res) => { markdown(res, 'tos'); })
+
+  .get('/trusted-partners', (_, res) => { res.render('trusted-partners'); })
+  .post('/trusted-partners', bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
+
   .get('/values', (_, res) => { res.render('values'); })
 
   // resource center
@@ -78,11 +86,6 @@ module.exports = function router(app) {
     (_, res) => { markdown(res, 'pr-170725-dev-survey-says-the-web-is-wi'); })
   .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
     (_, res) => { markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'); })
-
-  // pages w/ POST handlers
-  .get('/trusted-partners', (_, res) => { res.render('trusted-partners'); })
-  .post('/trusted-partners', bp.urlencoded({extended: true}), es(),
-    trustedPartnersCtrl)
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

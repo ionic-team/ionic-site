@@ -8,6 +8,7 @@
   .container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
   }
 
   hgroup {
@@ -65,6 +66,19 @@
     z-index: 3;
   }
 
+  &.promo-reversed .container {
+    justify-content: flex-start;
+
+    hgroup {
+      flex: 1;
+    }
+  }
+
+  .promo__image {
+    max-width: 100%;
+    margin: 32px 15px;
+  }
+
   @media (max-width: $screen-sm-max) {
     &__illustration {
       transform: translateX(-400px);
@@ -73,6 +87,10 @@
 
   @media (max-width: $screen-xs-max) {
     padding-bottom: 272px;
+
+    &.promo-inline {
+      padding-bottom: 64px;
+    }
 
     .container {
       justify-content: center;

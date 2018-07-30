@@ -307,23 +307,6 @@
           }
         }
 
-        [target] {
-          &::after {
-            background: url('/img/external-link.png') no-repeat 0 0;
-            background-size: 11px;
-            width: 11px;
-            height: 11px;
-            content: '';
-            display: inline-block;
-            margin-left: 3px;
-            transition: .2s transform ease-out;
-          }
-
-          &:hover::after {
-            transform: translateX(1px);
-          }
-        }
-
         span {
           color: #95a3bd;
           font-size: 11px;
@@ -418,21 +401,19 @@
           background: #f8f9fb;
         }
 
-        &::after {
-          font-family: 'Ionicons';
-          content: '\f28a';
+        ion-icon {
           position: absolute;
           right: 22px;
           font-weight: 400;
           font-size: 18px;
-          top: 16px;
+          top: 23px;
           transition: .2s transform ease-out;
         }
 
         &:hover {
           color: #eee;
 
-          &::after {
+          ion-icon {
             transform: translateX(2px);
           }
         }

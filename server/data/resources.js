@@ -88,6 +88,13 @@ const resources = {
         "bgColor": "#7479e4"
       }, {
         "type": "Case Study",
+        "title": "Why the world's largest healthcare provider chose Ionic",
+        "url": "/files/Ionic_NHS_Case_Study.pdf",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-nhs.jpg",
+        "bgColor": "#0163ac"
+      }, {
+        "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",
         "url": "/case-studies/Sworkit.pdf",
         "action": "Read",

@@ -66,7 +66,7 @@ export class User extends IonicIdentityVaultUser {
       lockAfter: 5000,
       // Obscure the app when the app is backgrounded (most apps will want
       // to set this to false unless sensitive financial data is being displayed)
-      secureOnBackground: true
+      hideScreenOnBackground: true
     })
   }
 }
@@ -169,7 +169,7 @@ export class User extends IonicIdentityVaultUser {
       lockAfter: 5000,
       // Obscure the app when the app is backgrounded (most apps will want
       // to set this to false unless sensitive financial data is being displayed)
-      secureOnBackground: true
+      hideScreenOnBackground: true
     })
   }
 }
@@ -184,7 +184,7 @@ their session token after completely closing the app on their device.
 out of the vault and required to re-authenticate. Set to `0` to allow long lived sessions,
 appropriate for social network and non-financial apps.
 
-`secureOnBackground` obscures the app when backgrounded to avoid leaking sensitive information,
+`hideScreenOnBackground` obscures the app when backgrounded to avoid leaking sensitive information,
 such as financial statements or balances. Most non-financial apps should set this to `false`.
 
 ### `onVaultLocked()`

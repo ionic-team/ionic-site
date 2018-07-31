@@ -2,7 +2,8 @@
 layout: fluid/pro_docs_base
 category: pro-deploy
 id: pro-live-deploy
-title: Live Deploy - Ionic Pro Documentation
+title: App Deployment
+header_sub_title: Real Time App Updates | Ionic Pro
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

@@ -2,8 +2,7 @@
 layout: fluid/docs_base
 category: intro
 id: installation
-title: Installing Ionic
-header_sub_title: Getting Started with Ionic
+title: Ionic Native App Installation with Ionic CLI and Cordova
 next_page_title: Tutorial
 next_page_link: /docs/intro/tutorial
 ---

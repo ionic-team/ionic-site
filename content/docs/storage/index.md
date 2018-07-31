@@ -3,7 +3,7 @@ layout: fluid/docs_base
 version: "2.1.3-0"
 category: storage
 id: "storage"
-title: "Storage - Ionic Framework"
+title: "Native Web App Storage for WebSQL, PWA and JSON Objects"
 ---
 
 
@@ -118,14 +118,14 @@ export class AppModule { }
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <div id="driver"></div>
 <h3><a class="anchor" name="driver" href="#driver"></a><code>driver</code>
-  
+
 </h3>
 Get the name of the driver being used.
 
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Name of the driver</p>
 
 
@@ -134,14 +134,14 @@ Get the name of the driver being used.
 
 <div id="ready"></div>
 <h3><a class="anchor" name="ready" href="#ready"></a><code>ready()</code>
-  
+
 </h3>
 Reflect the readiness of the store.
 
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves when the store is ready</p>
 
 
@@ -150,7 +150,7 @@ Reflect the readiness of the store.
 
 <div id="get"></div>
 <h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code>
-  
+
 </h3>
 Get the value associated with the given key.
 <table class="table param-table" style="margin:0;">
@@ -162,30 +162,30 @@ Get the value associated with the given key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the key to identify this value</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise with the value of the given key</p>
 
 
@@ -194,7 +194,7 @@ Get the value associated with the given key.
 
 <div id="set"></div>
 <h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code>
-  
+
 </h3>
 Set the value for the given key.
 <table class="table param-table" style="margin:0;">
@@ -206,47 +206,47 @@ Set the value for the given key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the key to identify this value</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the value for this key</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves when the key and value are set</p>
 
 
@@ -255,7 +255,7 @@ Set the value for the given key.
 
 <div id="remove"></div>
 <h3><a class="anchor" name="remove" href="#remove"></a><code>remove(key)</code>
-  
+
 </h3>
 Remove any value associated with this key.
 <table class="table param-table" style="margin:0;">
@@ -267,30 +267,30 @@ Remove any value associated with this key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the key to identify this value</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves when the value is removed</p>
 
 
@@ -299,14 +299,14 @@ Remove any value associated with this key.
 
 <div id="clear"></div>
 <h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
-  
+
 </h3>
 Clear the entire key value store. WARNING: HOT!
 
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves when the store is cleared</p>
 
 
@@ -315,14 +315,14 @@ Clear the entire key value store. WARNING: HOT!
 
 <div id="length"></div>
 <h3><a class="anchor" name="length" href="#length"></a><code>length()</code>
-  
+
 </h3>
 
 
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves with the number of keys stored.</p>
 
 
@@ -331,14 +331,14 @@ Clear the entire key value store. WARNING: HOT!
 
 <div id="keys"></div>
 <h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code>
-  
+
 </h3>
 
 
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves with the keys in the store.</p>
 
 
@@ -347,7 +347,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div id="forEach"></div>
 <h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(iteratorCallback)</code>
-  
+
 </h3>
 Iterate through each key,value pair.
 <table class="table param-table" style="margin:0;">
@@ -359,30 +359,30 @@ Iterate through each key,value pair.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         iteratorCallback
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>a callback of the form (value, key, iterationNumber)</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
 <div class="return-value">
-<b>Returns:</b> 
+<b>Returns:</b>
    <p>Returns a promise that resolves when the iteration has finished.</p>
 
 

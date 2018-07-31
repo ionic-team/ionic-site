@@ -2,7 +2,8 @@
 layout: fluid/pro_docs_base
 category: pro-basics
 id: pro-home
-title: Ionic Pro Documentation
+title: Mobile Development Toolkit
+header_sub_title: Ionic Pro App Development
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

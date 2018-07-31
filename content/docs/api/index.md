@@ -6,8 +6,8 @@ path: ""
 
 category: api
 id: api
-title: Javascript
-header_sub_title: Extend Ionic even further with the power of Angular
+title: Ionic APIs
+header_sub_title: Component and Service APIs for Ionic Framework
 searchable: false
 ---
 

@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-monitoring
 id: pro-error-monitoring
-title: Runtime Error Monitoring - Ionic Pro Documentation
+title: Runtime Error Monitoring API | Ionic Pro
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

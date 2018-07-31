@@ -2,7 +2,8 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-index
-title: Ionic CLI Documentation
+title: Ionic App CLI Development
+header_sub_title: Command Line Interface Tool
 hide_header_search: true
 dark_header: true
 ---

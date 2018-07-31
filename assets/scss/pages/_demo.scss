@@ -62,6 +62,7 @@
 #page-strategy-session .demo-form {
 
   display: flex;
+  overflow: visible;
 
   &::before,
   &::after {

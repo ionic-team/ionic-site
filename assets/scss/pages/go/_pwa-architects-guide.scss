@@ -272,12 +272,19 @@
   }
 
   .banner .thank-you {
-    min-height: 435px;
+    min-height: 490px;
   }
 
-  .thank-you aside {
-    margin-right: auto;
-    margin-left: auto;
+  main.thank-you {
+    margin-top: -340px;
+  }
+
+  .thank-you {
+    aside {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 500px;
+    }
 
     p::before {
       content: none;
@@ -285,6 +292,19 @@
 
     .btn {
       display: block;
+    }
+
+    p.lg {
+      margin-bottom: 0;
+    }
+
+    .also {
+      margin-top: 0;
+      margin-bottom: 64px;
+    }
+
+    .company {
+      margin-top: 128px;
     }
   }
 }

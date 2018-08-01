@@ -75,6 +75,7 @@ module.exports = function router(app) {
   .post('/trusted-partners', bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
 
   .get('/values', (_, res) => { res.render('values'); })
+  .get('/what-is-ionic', (_, res) => { res.render('what-is-ionic'); })
 
   // resource center
   .get('/resources', (_, res) => { res.render('resources/index', {currentCategory: 'featured'}); })

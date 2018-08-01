@@ -181,10 +181,10 @@
     "company-size": "11-50"
   },
   {
-    "slug":"tepee",
-    "name":"tepee",
-    "short-description":"design and build apps for mobile, web and embedded software distribution. They specialise in IoT, BLE and integrated hardware projects with complex management systems",
-    "long-description":"<p>Tepee is a Northern Ireland based multi-disciplinary studio specialising in software development covering both web / app and machine-based software design and development in a variety of languages. We have been delivering Ionic based solutions since 2014 and offer development in both Ionic 1 and Ionic 2.</p><p>We have a wealth of experience in app development within the IoT (Internet of Things) sector including development for internet enabled devices. We have completed projects that incorporate integration with sensors via cable accessories and via wireless protocols such as Bluetooth and Bluetooth Low Energy (BLE).</p><p>We excel in delivering solutions to challenging problems and have a proven record in delivering award winning applications alongside robust systems and infrastructure for industries including manufacturing, education, automotive, health care and multimedia.</p><p>We are a team of developers, designers and thinkers that will ensure you get the best solution for you, your projects and your business.</p>﻿",
+    "slug":"scaffold",
+    "name":"Scaffold",
+    "short-description":"uilds apps for mobile, web and embedded software distribution. They specialise in IoT, BLE and integrated hardware projects with complex management systems.",
+    "long-description":"<p>Scaffold is a Northern Ireland based multi-disciplinary studio specialising in software development covering both web / app and machine-based software design and development in a variety of languages. We have been delivering Ionic based solutions since 2014 and offer development in both Ionic 1 and Ionic 2.</p><p>We have a wealth of experience in app development within the IoT (Internet of Things) sector including development for internet enabled devices. We have completed projects that incorporate integration with sensors via cable accessories and via wireless protocols such as Bluetooth and Bluetooth Low Energy (BLE).</p><p>We excel in delivering solutions to challenging problems and have a proven record in delivering award winning applications alongside robust systems and infrastructure for industries including manufacturing, education, automotive, health care and multimedia.</p><p>We are a team of developers, designers and thinkers that will ensure you get the best solution for you, your projects and your business.</p>﻿",
     "address":"Moira Road<br>Lisburn BT28 2RF, UK",
     "features":null,
     "coordinates":[46,30.8],

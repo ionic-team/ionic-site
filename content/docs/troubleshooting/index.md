@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 id: troubleshooting
 category: troubleshooting
-title: Ionic App Troubleshooting | Updating Ionic Packages
+title: Ionic App Troubleshooting - Updating Ionic Packages
 footer_includes: |
   <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
   <script>

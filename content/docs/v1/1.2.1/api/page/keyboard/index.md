@@ -77,7 +77,7 @@ animations on Android that occur when the keyboard opens (for example, scrolling
 
 ### Plugin Usage
 Information on using the plugin can be found at
-[https://github.com/ionic-team/ionic-plugins-keyboard](https://github.com/ionic-team/ionic-plugin-keyboard).
+[https://github.com/ionic-team/ionic-plugin-keyboard](https://github.com/ionic-team/ionic-plugin-keyboard).
 
 ----------
 

@@ -44,6 +44,14 @@
     &:hover {
       background-color: #4486fb;
     }
+
+    &.white {
+      background: white;
+
+      &:hover {
+        background: white;
+      }
+    }
   }
 
   &--dark {
@@ -77,6 +85,60 @@
   .promo__image {
     max-width: 100%;
     margin: 32px 15px;
+  }
+
+  &.promo-btns {
+    hgroup {
+      flex: 1;
+      padding: 46px 0;
+    }
+
+    .container {
+      padding-top: 37px;
+    }
+
+    h2,
+    p {
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 20px;
+      letter-spacing: -.031em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: $blue;
+    }
+
+    .btns {
+      margin-left: 24px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-bottom: 64px;
+
+      .btns {
+        text-align: center;
+      }
+
+      .btn {
+        margin-bottom: 12px;
+      }
+    }
   }
 
   @media (max-width: $screen-sm-max) {

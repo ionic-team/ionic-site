@@ -30,6 +30,16 @@
   }
 
   main {
+    a {
+      text-decoration: none;
+      transition: .2s opacity;
+
+      &:hover {
+        color: $blue;
+        opacity: .8;
+      }
+    }
+
     section {
       padding-top: 200px;
       padding-bottom: 200px;
@@ -153,7 +163,8 @@
 
       ion-icon {
         font-size: .9em;
-        vertical-align: -10%;
+        vertical-align: -7%;
+        margin-left: -2px;
       }
     }
 

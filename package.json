@@ -30,9 +30,8 @@
   },
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
-    "@stencil/core": "0.10.4",
-    "@stencil/dev-server": "0.0.18",
-    "@stencil/sass": "0.0.5",
+    "@stencil/core": "0.11.3",
+    "@stencil/sass": "0.1.0",
     "@stencil/utils": "latest",
     "angular": "1.6.8",
     "angular-animate": "1.6.8",

@@ -116,6 +116,10 @@ export class IonicSearch {
     // });
   }
 
+  isFirefox() {
+    return navigator.userAgent.indexOf("Firefox") != -1;
+  }
+
   touchEnd() {
     if (this.dragY > 30) {
       this.close();
@@ -136,7 +140,7 @@ export class IonicSearch {
         <ion-icon class={`search-static ${this.active ? ' active' : ''}`}
                   name="md-search"></ion-icon>
 
-        {this.mobile ?
+        {this.mobile && !this.isFirefox() ?
           <div class="mobile-close"
                onClick={this.close}
                onTouchStart={this.touchStart}

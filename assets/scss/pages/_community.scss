@@ -1,0 +1,189 @@
+#page-community {
+  .banner,
+  main {
+    font-family: $font-family-graphik;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    strong {
+      font-family: $font-family-eina;
+    }
+  }
+
+  .banner {
+    background: url('/img/community/hero-bg.jpg') no-repeat 0 0;
+    background-size: cover;
+    padding-top: 226px;
+    margin-top: -110px;
+
+    hgroup {
+      max-width: 768px;
+
+      li:first-child a {
+        padding-left: 0;
+      }
+    }
+
+    h1 {
+      font-size: 49px;
+      font-weight: 700;
+      letter-spacing: -.04em;
+      margin-bottom: 23px;
+    }
+
+    p {
+      font-size: 22px;
+      letter-spacing: -.03em;
+      line-height: 36px;
+    }
+
+    ul {
+      padding: 33px 0 0;
+      display: flex;
+      list-style: none;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    li {
+      font-size: 24px;
+
+      a {
+        padding: 0 20px;
+        font-family: $font-family-eina;
+        letter-spacing: -.024em;
+      }
+
+      ion-icon {
+        font-size: 19px;
+        vertical-align: -10%;
+      }
+    }
+
+    .features {
+      max-width: 982px;
+      margin-top: 120px;
+      padding-bottom: 27px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      li {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        min-width: 128px;
+        padding-left: 15px;
+        padding-bottom: 32px;
+      }
+
+      strong {
+        display: block;
+        font-size: 37px;
+        letter-spacing: -.04em;
+        line-height: 40px;
+      }
+
+      span {
+        font-size: 19px;
+        display: block;
+      }
+    }
+  }
+
+  .meetups {
+    padding-top: 128px;
+
+    .split {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    hgroup {
+      max-width: 560px;
+      display: inline-block;
+
+      h2 {
+        font-size: 31px;
+        font-weight: 700;
+        letter-spacing: -.006em;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 28px;
+        letter-spacing: .005em;
+      }
+    }
+
+    .btns {
+      padding-top: 78px;
+
+      :first-child {
+        margin-right: 6px;
+      }
+    }
+
+    .btn {
+      font-size: 15px;
+      padding: 12px 15px 14px;
+      letter-spacing: .02em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 68px 0 0;
+      display: flex;
+
+      position: relative;
+      left: -231px;
+    }
+
+    li {
+      padding: 14px 35px 14px 72px;
+      position: relative;
+      margin-right: 80px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        content: '';
+        box-shadow: 0 2px 8px 2px rgba(black, .1);
+        border-radius: 30px;
+      }
+
+      strong,
+      span {
+        position: relative;
+        z-index: 1;
+        display: block;
+        white-space: nowrap;
+      }
+
+      strong {
+        font-weight: 600;
+        letter-spacing: .01em;
+        font-size: 13px;
+        line-height: 16px;
+      }
+
+      span {
+        font-size: 12px;
+        letter-spacing: .016em;
+      }
+    }
+  }
+}

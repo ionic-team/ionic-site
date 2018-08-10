@@ -29,6 +29,7 @@ module.exports = function router(app) {
   .get('/articles/pwa-architects-guide/preview', (_, res) => { res.render('articles/pwa-architects-guide-preview'); })
   .get('/books/hybrid-vs-native', (_, res) => { res.render('books/hybrid-vs-native'); })
   .get('/books/hybrid-vs-native/preview', (_, res) => { res.render('books/hybrid-vs-native-preview'); })
+  .get('/community', (_, res) => { res.render('community'); })
   .get('/contact', (_, res) => { res.render('contact'); })
   .get('/contributors', (_, res) => { res.render('contributors'); })
   .get('/demo', (_, res) => { res.render('demo'); })

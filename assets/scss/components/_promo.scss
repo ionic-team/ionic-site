@@ -9,6 +9,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
   hgroup {
@@ -151,6 +156,16 @@
 
     .btns {
       flex: 0 1 476px;
+
+      @media (max-width: $screen-sm-max) {
+        flex: 0;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        max-width: 476px;
+        margin-left: 0;
+      }
     }
   }
 

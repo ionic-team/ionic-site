@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ''
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-webengage
 $ npm install --save @ionic-native/webengage
 </code></pre>
   </li>
@@ -74,11 +74,31 @@ this.webengage.engage();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="engage" href="#engage"></a><code>engage()</code></h3>
+<h3><a class="anchor" name="engage" href="#engage"></a><code>engage(config)</code></h3>
 
 
 Initializes WebEngage SDK
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      config</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -151,7 +171,8 @@ Tracks event
       <code>any</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -189,7 +210,8 @@ Tracks screen
       <code>any</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>

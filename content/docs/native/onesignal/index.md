@@ -750,7 +750,7 @@ This includes the following events:
 
 
 
-Clears all OneSignla notifications
+Clears all OneSignal notifications
 
 
 

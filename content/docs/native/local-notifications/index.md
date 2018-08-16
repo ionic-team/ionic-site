@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L400">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L402">
   Improve this doc
 </a>
 
@@ -844,7 +844,7 @@ Use the default notification vibrate.</p>
       led
     </td>
     <td>
-      <code>{color: string, on: number, off: number} | any[] | boolean | string</code>
+      <code>{ color: string; on: number; off: number } | any[] | boolean | string</code>
     </td>
     <td>
       <p>ANDROID ONLY
@@ -1177,6 +1177,20 @@ Specifies the channel the notification should be delivered on.</p>
     <td>
       <p>ANDROID ONLY
 Set the token for the media session</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      foreground
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Make this notification show when app in foreground.</p>
 
       <em>(optional)</em>
     </td>

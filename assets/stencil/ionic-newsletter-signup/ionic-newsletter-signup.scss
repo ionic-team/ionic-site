@@ -37,6 +37,32 @@ ionic-newsletter-signup {
         }
       }
     }
+
+    &.lg {
+      height: 48px;
+
+      input {
+        padding: 1px 17px 0;
+        font-size: 14px;
+      }
+
+      ionic-button button {
+        padding: 11px 12px;
+      }
+    }
+
+    &.arrow {
+      input::placeholder {
+        color: #a8b0be;
+        font-weight: 400;
+      }
+
+      ionic-button button {
+        background: #f0f5ff;
+        color: #3880ff;
+        font-size: 23px;
+      }
+    }
   }
 
   input {
@@ -44,7 +70,7 @@ ionic-newsletter-signup {
     background: rgba(white, .2);
     border-radius: 4px 0 0 4px;
     font-size: 13px;
-    color:$dark;
+    color: $dark;
     box-shadow: none;
     font-weight: 500;
     height: 100%;

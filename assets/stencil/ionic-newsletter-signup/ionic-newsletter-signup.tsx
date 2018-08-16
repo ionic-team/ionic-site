@@ -10,6 +10,8 @@ export class IonicNewsletterSignup {
   @Prop() placeholder: string = 'Email address';
   @Prop() buttonText: string = 'Subscribe';
   @Prop() darkMode: boolean = false;
+  @Prop() arrowMode: boolean = false;
+  @Prop() lg: boolean = false;
 
   @State() isLoading: boolean = false;
   @State() hasSubmitted: boolean = false;
@@ -36,11 +38,22 @@ export class IonicNewsletterSignup {
     xhr.send(JSON.stringify({ email: this.email}));
   }
 
+  getFormClass() {
+    let str = this.darkMode ? 'dark' : '';
+    if (this.arrowMode) {
+      str += ' arrow';
+    }
+    if (this.lg) {
+      str += ' lg';
+    }
+    return str;
+  }
+
   render() {
     return (
-      <form 
-        onSubmit={(e) => this.handleSubmit(e)} 
-        class={this.darkMode ? 'dark' : null}>
+      <form
+        onSubmit={(e) => this.handleSubmit(e)}
+        class={this.getFormClass()}>
 
         <input
           name="email"
@@ -51,12 +64,15 @@ export class IonicNewsletterSignup {
           placeholder={this.placeholder}
           required />
 
-        <ionic-button 
+        <ionic-button
           color={this.darkMode ? 'white' : 'default'}
           type="submit"
           disabled={this.isLoading || this.hasSubmitted}>
 
-          {this.hasSubmitted ? 'Added!' : this.buttonText}
+          {this.hasSubmitted ? 'Added!' :
+            this.arrowMode ?
+              <ion-icon name="md-arrow-forward"></ion-icon> : this.buttonText
+          }
         </ionic-button>
       </form>
     );

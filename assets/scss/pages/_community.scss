@@ -8,12 +8,17 @@
     h3,
     h4,
     strong {
+      color: #0f1622;
       font-family: $font-family-eina;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
   .banner {
-    background: url('/img/community/hero-bg.jpg') no-repeat 0 0;
+    background: #fcfdff url('/img/community/hero-bg.jpg') no-repeat 0 0;
     background-size: cover;
     padding-top: 226px;
     margin-top: -110px;
@@ -55,6 +60,15 @@
         padding: 0 20px;
         font-family: $font-family-eina;
         letter-spacing: -.024em;
+        transition: all .15s ease;
+        color: #0079ff;
+        transition: .2s opacity;
+
+        &:hover {
+          text-decoration: none;
+          color: #0079ff;
+          opacity: 0.6;
+        }
       }
 
       ion-icon {
@@ -142,7 +156,7 @@
 
     ul {
       list-style: none;
-      padding: 68px 0 0;
+      padding: 64px 0;
       display: flex;
 
       position: relative;
@@ -150,19 +164,71 @@
     }
 
     li {
-      padding: 14px 35px 14px 72px;
-      position: relative;
       margin-right: 80px;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        content: '';
-        box-shadow: 0 2px 8px 2px rgba(black, .1);
-        border-radius: 30px;
+      a {
+        padding: 16px 35px 14px 73px;
+        position: relative;
+        display: block;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          content: '';
+          box-shadow: 0 6px 16px rgba(0,8,24,.08);
+          border-radius: 30px;
+        }
+
+        &::after {
+          background: url('/img/community/flags.png') 0 0 no-repeat;
+          background-size: 48px;
+          position: absolute;
+          left: 11px;
+          top: calc(50% - 24px);
+          height: 48px;
+          width: 48px;
+          content: '';
+        }
+
+        &.ch::after { background-position: 0 -48px * 1 }
+        &.de::after { background-position: 0 -48px * 2 }
+        &.il::after { background-position: 0 -48px * 3 }
+        &.us::after { background-position: 0 -48px * 4 }
+        &.br::after { background-position: 0 -48px * 5 }
+        &.nl::after { background-position: 0 -48px * 6 }
+        &.es::after { background-position: 0 -48px * 7 }
+        &.ams::after { background-position: 0 -48px * 8 }
+        &.in::after { background-position: 0 -48px * 9 }
+        &.yvr::after { background-position: 0 -48px * 10 }
+        &.tr::after { background-position: 0 -48px * 11 }
+        &.au::after { background-position: 0 -48px * 12 }
+        &.dk::after { background-position: 0 -48px * 13 }
+        &.hu::after { background-position: 0 -48px * 14 }
+        &.co::after { background-position: 0 -48px * 15 }
+        &.jp::after { background-position: 0 -48px * 16 }
+
+        @include sprite(
+          'uk'
+          'ch'
+          'de'
+          'il'
+          'us'
+          'br'
+          'nl'
+          'es'
+          'ams'
+          'in'
+          'yvr'
+          'tr'
+          'au'
+          'dk'
+          'hu'
+          'co'
+          'jp'
+        , 48, '::after');
       }
 
       strong,
@@ -175,15 +241,443 @@
 
       strong {
         font-weight: 600;
-        letter-spacing: .01em;
-        font-size: 13px;
+        letter-spacing: -.01em;
+        font-size: 14px;
         line-height: 16px;
+        color: #0f1622;
       }
 
       span {
         font-size: 12px;
-        letter-spacing: .016em;
+        letter-spacing: -.01em;
+        color: #506176;
       }
+    }
+  }
+
+  .image-wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 17px;
+
+    img {
+      height: 256px;
+      margin-bottom: 14px;
+    }
+  }
+
+  .leaders {
+    background: linear-gradient(to bottom, #f7f9fb, white 50%, white);
+    margin-top: -142px;
+    padding-top: 182px;
+
+    hgroup {
+      margin: 84px auto 66px;
+      max-width: 678px;
+      text-align: center;
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        margin-bottom: 13px;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        font-size: 18px;
+        letter-spacing: -.01em;
+        line-height: 28px;
+        color: #3f4b5a;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 15px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    li {
+      flex: 0 0 271px;
+      list-style: none;
+      padding: 82px 24px 18px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 55px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+      }
+
+      &::before {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 8px;
+        box-shadow:
+          0 4px 8px rgba(0,8,24,.08),
+          0px 8px 32px rgba(0,8,24,0.1);
+      }
+
+      &::after {
+        top: -20px;
+        right: calc(50% - 45px);
+        background: url('/img/community/community-leaders-avatars.png') 0 0 no-repeat;
+        background-size: 90px;
+        height: 90px;
+        width: 90px;
+      }
+
+      @include sprite(
+        'simon'
+        'josh'
+        'jorge'
+        'veni'
+        'ashteya'
+        'paul'
+        'sani'
+        'leif'
+        'david'
+        'chris'
+        'dayana'
+        'aaron'
+      , 90, '::after');
+    }
+
+    strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 7px;
+      letter-spacing: -.02em;
+    }
+
+    .twitter {
+      position: absolute;
+      top: 9px;
+      right: 15px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      color: #d6ddea;
+    }
+  }
+
+  .join {
+    .split {
+      display: flex;
+      padding: 60px 0;
+      align-items: flex-end;
+    }
+
+    hgroup {
+      flex: 0 508px;
+
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+      }
+
+      p {
+        font-size: 16px;
+        margin-top: 17px;
+        line-height: 1.5em;
+        letter-spacing: -.02em;
+        margin-bottom: 0;
+        color: #3f4b5a;
+      }
+    }
+
+    aside {
+      margin-left: auto;
+      width: 460px;
+      padding-bottom: 2px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.01em;
+      }
+
+      ionic-newsletter-signup {
+        margin-top: 11px;
+        display: block;
+      }
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 27px;
+      justify-content: space-between;
+    }
+
+    li {
+      position: relative;
+      padding-left: 82px;
+      margin-bottom: 58px;
+      width: 337px;
+
+      &::before {
+        background: url('/img/community/social-icons.png') 0 0 no-repeat;
+        background-size: 70px;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        content: '';
+        top: calc(50% - 33px);
+        left: -2px;
+      }
+
+      @include sprite(
+        'slack'
+        'forum'
+        'twitter'
+        'github'
+        'so'
+        'facebook'
+        'youtube'
+        'blog'
+        'medium'
+      , 70);
+
+      strong {
+        display: block;
+        font-size: 17px;
+        color: #0f1622;
+        margin-bottom: 2px;
+      }
+
+      span {
+        font-size: 13px;
+        letter-spacing: .014em;
+        color: #6c7e95;
+      }
+    }
+  }
+
+  .latest {
+    background: linear-gradient(to bottom, #f7f9fc, #fefeff);
+    margin-top: 101px;
+    padding-top: 138px;
+
+    hgroup {
+      margin: 0 auto 72px;
+      max-width: 560px;
+      text-align: center;
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: -.02em;
+      }
+
+      p {
+        margin-top: 12px;
+        font-size: 17px;
+        line-height: 28px;
+        letter-spacing: .006em;
+      }
+    }
+
+    .tutorials,
+    .videos {
+      margin-top: 26px;
+      position: relative;
+
+      h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-weight: 600;
+      }
+
+      .subscribe {
+        position: absolute;
+        color: #3880ff;
+        background: #dfedff;
+        border-radius: 16px;
+        padding: 4px 11px 5px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        right: 0;
+        top: -2px;
+
+        ion-icon {
+          margin-right: 1px;
+          font-size: 10px;
+          vertical-align: -5%;
+        }
+      }
+
+      ul {
+        padding: 24px 0px;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      li {
+        flex: 0 333px;
+        margin-bottom: 28px;
+
+        a {
+          display: block;
+          padding: 1px 0 1px 39px;
+          position: relative;
+
+          &::before {
+            background: url('/img/community/latest-rss-icons.png') 0 0 no-repeat;
+            background-size: 28px;
+            height: 28px;
+            width: 28px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        strong {
+          display: block;
+          letter-spacing: -.018em;
+          font-weight: 600;
+          line-height: 1.75em;
+        }
+
+        p {
+          display: block;
+          color: #51607a;
+          margin-top: 3px;
+          font-size: 13px;
+          line-height: 1.9em;
+          letter-spacing: -.02em;
+        }
+
+        span {
+          display: block;
+          color: #8796a9;
+          font-size: 12px;
+          margin-top: 12px;
+          letter-spacing: .03em;
+        }
+      }
+    }
+
+    .videos {
+      li a::before { background-position: 0 -28px; }
+    }
+  }
+
+  .education {
+    background: #071225 url('/img/community/community-edu-bg.jpg') no-repeat;
+    background-position: 50% 0;
+    background-size: 1680px;
+    margin-top: 93px;
+    padding-top: 138px;
+    padding-bottom: 75px;
+
+    h2,
+    h3 {
+      color: white;
+    }
+
+    p,
+    h4 {
+      color: #cfd9e7;
+    }
+
+    hgroup {
+      max-width: 580px;
+
+      h2 {
+        font-size: 31px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 18px;
+        margin-top: 13px;
+        line-height: 1.6em;
+        font-weight: 500;
+        letter-spacing: -.026em;
+      }
+    }
+
+    ul {
+      padding: 47px 1px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    li {
+      flex: 0 270px;
+      height: 230px;
+      background: #3880ff;
+      border-radius: 8px;
+      margin-bottom: 28px;
+
+      a {
+        padding: 12px 29px;
+        display: block;
+        height: 100%;
+        position: relative;
+      }
+
+      h4 {
+        font-weight: 700;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+        margin-bottom: 8px;
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: 21px;
+        margin-top: 0;
+        letter-spacing: -.01em;
+      }
+
+      p {
+        position: absolute;
+        bottom: 15px;
+        font-size: 12px;
+        left: 28px;
+        right: 28px;
+        letter-spacing: -.01em;
+        line-height: 1.4em;
+      }
+
+      &:nth-child(2) { background: #287ea1; }
+      &:nth-child(3) { background: #da5b70; }
+      &:nth-child(4) { background: #95b251; }
+      &:nth-child(5) { background: #30aeeb; }
+      &:nth-child(6) { background: #4a628a; }
+      &:nth-child(7) { background: #8d5ce3; }
+      &:nth-child(8) { background: #f48f63; }
     }
   }
 }

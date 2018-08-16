@@ -87,7 +87,8 @@
     margin: 32px 15px;
   }
 
-  &.promo-btns {
+  &.promo-btns,
+  &.promo-newsletter {
     hgroup {
       flex: 1;
       padding: 46px 0;
@@ -138,6 +139,18 @@
       .btn {
         margin-bottom: 12px;
       }
+    }
+  }
+
+  &.promo-newsletter {
+    background: white;
+
+    .container {
+      padding-top: 6px;
+    }
+
+    .btns {
+      flex: 0 1 476px;
     }
   }
 

@@ -920,7 +920,10 @@
   }
 
   ionic-search:not(.hydrated) {
-    display: none;
+    visibility: hidden;
+    width: 18px;
+    height: 31px;
+    display: block;
   }
 }
 

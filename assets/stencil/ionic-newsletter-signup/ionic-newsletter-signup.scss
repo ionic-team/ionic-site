@@ -52,15 +52,38 @@ ionic-newsletter-signup {
     }
 
     &.arrow {
-      input::placeholder {
-        color: #a8b0be;
-        font-weight: 400;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,16,44,.08), 0 2px 4px rgba(0,16,44,.12);
+      transition: .15s box-shadow ease;
+
+      &:hover {
+        box-shadow: 0 7px 14px rgba(0,16,44,.12), 0 3px 6px rgba(0,16,44,.08);
+      }
+
+      input {
+        border-radius: 6px 0 0 6px;
+        box-shadow: none;
+
+        &::placeholder {
+          color: #a8b0be;
+          font-weight: 400;
+        }
       }
 
       ionic-button button {
         background: #f0f5ff;
         color: #3880ff;
         font-size: 23px;
+
+        border-radius: 0 6px 6px 0;
+
+        &:hover {
+          background: darken(#f0f5ff, 1);
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 100%;
       }
     }
   }

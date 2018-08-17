@@ -61,7 +61,7 @@
           <a href="" class="btn sm white">Start your own</a>
         </div>
       </div>
-      <ul>
+      <ul id="countries">
         <li>
           <a class="ch" href="">
             <strong>Ionic Zürich</strong><span>Zürich, Switzerland</span>
@@ -626,5 +626,18 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+$countries = document.getElementById('countries');
+totalWidth = 0;
+originalLength = $countries.children.length;
 
+for (var i = 0; i < originalLength; i++) {
+  totalWidth += $countries.children[i].offsetWidth + 80;
+  $countries.appendChild($countries.children[i].cloneNode(true));
+}
+
+totalWidth = totalWidth * 2;
+
+$countries.style.width = totalWidth + 'px';
+</script>
 {% endblock %}

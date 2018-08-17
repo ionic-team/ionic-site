@@ -180,6 +180,18 @@
       align-items: center;
       justify-content: space-between;
 
+      @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
+
+        .btns {
+          padding-top: 0;
+          margin-left: 24px;
+        }
+
+        .btn {
+          margin-bottom: 8px;
+        }
+      }
+
       @media (max-width: $screen-xs-max) {
         flex-direction: column;
         text-align: center;
@@ -225,9 +237,9 @@
       list-style: none;
       padding: 64px 0;
       display: flex;
-
-      position: relative;
-      left: -231px;
+      position: absolute;
+      left: 0;
+      animation: carousel 15s linear infinite;
     }
 
     li {
@@ -319,7 +331,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 17px;
+    margin-top: 220px;
 
     @media (max-width: $screen-md-max) {
       justify-content: space-around;

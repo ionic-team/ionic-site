@@ -1,7 +1,8 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'community' %}
 {% set pre_footer = false %}
-{% set title = "Community" %}
+{% set title = "Ionic Developer Community" %}
+{% set meta_image = 'https://ionicframework.com/img/meta/community-og.png'%}
 {% set header_style = 'transparent light' %}
 
 {% block main %}
@@ -786,11 +787,11 @@ window.carousel = {
     this.scrollRef = TweenLite.to(this.$countries, this.speed, {
       x: this.originalWidth * -1,
       ease: Linear.easeNone,
-      lazy:true,
+      force3D: true,
       onCompleteScope: this,
       onComplete: function() {
         // jump back to starting position and restart the scroll in 1 frame
-        TweenLite.to(this.$countries, {
+        TweenLite.to(this.$countries, 0, {
           x: 0,
           lazy:true,
           onCompleteScope: this,

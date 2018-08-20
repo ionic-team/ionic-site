@@ -139,7 +139,8 @@
       }
 
       @media (max-width: $screen-xs-max) {
-        margin-top: 0
+        margin-top: 0;
+        justify-content: space-around;
       }
     }
 
@@ -172,6 +173,15 @@
       &:nth-child(3) { animation-delay: 2.4s; }
 
       &:nth-child(4) { animation-delay: 2.5s; }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      transform: none !important;
+
+      hgroup,
+      .features {
+        transform: none !important;
+      }
     }
   }
 

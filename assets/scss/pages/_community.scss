@@ -152,28 +152,34 @@
     p { animation-delay: 1s; }
 
     hgroup li {
-      animation-delay: 2s;
+      animation-delay: 1.6s;
 
-      &:nth-child(2) { animation-delay: 2.1s; }
+      &:nth-child(2) { animation-delay: 1.7s; }
 
-      &:nth-child(3) { animation-delay: 2.2s; }
+      &:nth-child(3) { animation-delay: 1.8s; }
 
-      &:nth-child(4) { animation-delay: 2.3s; }
+      &:nth-child(4) { animation-delay: 1.9s; }
     }
 
     .features li {
-      animation-delay: 2.7s;
+      animation-delay: 2.2s;
 
-      &:nth-child(2) { animation-delay: 2.8s; }
+      &:nth-child(2) { animation-delay: 2.3s; }
 
-      &:nth-child(3) { animation-delay: 2.9s; }
+      &:nth-child(3) { animation-delay: 2.4s; }
 
-      &:nth-child(4) { animation-delay: 3s; }
+      &:nth-child(4) { animation-delay: 2.5s; }
     }
   }
 
+  main {
+    background: white;
+    position: relative;
+    z-index: 1;
+  }
+
   .meetups {
-    padding-top: 128px;
+    padding-top: 64px;
 
     .split {
       display: flex;
@@ -235,11 +241,12 @@
 
     ul {
       list-style: none;
-      padding: 64px 0;
+      padding: 0;
+      margin: 64px 0 80px;
       display: flex;
       position: absolute;
       left: 0;
-      animation: carousel 15s linear infinite;
+      opacity: 0;
     }
 
     li {
@@ -249,6 +256,7 @@
         padding: 16px 35px 14px 73px;
         position: relative;
         display: block;
+        transition: .4s transform ease;
 
         &::before {
           position: absolute;
@@ -295,11 +303,15 @@
           'jp'
         , 48, '::after');
 
-        &:hover::before {
-          box-shadow:
-            0 10px 18px rgba(0,8,24,.1),
-            0 4px 8px rgba(0,8,24,.08);
-          transform: scale3d(1.01, 1.02, 1);
+        &:hover {
+          transform: translateY(-1px);
+
+          &::before {
+            box-shadow:
+              0 10px 18px rgba(0,8,24,.1),
+              0 4px 8px rgba(0,8,24,.08);
+            transform: scale3d(1.01, 1.02, 1);
+          }
         }
       }
 

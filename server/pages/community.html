@@ -15,22 +15,22 @@
     </p>
     <ul class="links">
       <li>
-        <a href="https://ionicworldwide.herokuapp.com/">
+        <a target="_blank" href="https://ionicworldwide.herokuapp.com/">
           Slack<ion-icon name="ios-arrow-forward"></ion-icon>
         </a>
       </li>
       <li>
-        <a href="https://forum.ionicframework.com/">
+        <a target="_blank" href="https://forum.ionicframework.com/">
           Forum<ion-icon name="ios-arrow-forward"></ion-icon>
         </a>
       </li>
       <li>
-        <a href="//www.meetup.com/topics/ionic-framework/">
+        <a target="_blank" href="//www.meetup.com/topics/ionic-framework/">
           Meetups<ion-icon name="ios-arrow-forward"></ion-icon>
         </a>
       </li>
       <li>
-        <a href="/docs/developer-resources">
+        <a target="_blank" href="/docs/developer-resources">
           Tutorials &amp; Videos<ion-icon name="ios-arrow-forward"></ion-icon>
         </a>
       </li>
@@ -63,33 +63,115 @@
       </div>
       <ul id="countries">
         <li>
-          <a class="ch" href="">
+          <a class="ch"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Zurich/">
             <strong>Ionic Zürich</strong><span>Zürich, Switzerland</span>
           </a>
         </li>
         <li>
-          <a class="de" href="">
+          <a class="de"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Berlin/">
             <strong>Ionic Berlin</strong><span>Berlin, Germany</span>
           </a>
         </li>
         <li>
-          <a class="il" href="">
+          <a class="il"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Israel/">
             <strong>Ionic Israel</strong><span>Tel Aviv-Yafo, Israel</span>
           </a>
         </li>
         <li>
-          <a class="uk" href="">
+          <a class="uk"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-UK">
             <strong>Ionic UK</strong><span>London, UK</span>
           </a>
         </li>
         <li>
-          <a class="br" href="">
+          <a class="br"
+             target="_blank"
+             href="https://www.meetup.com/IonicRio/">
             <strong>Ionic Rio</strong><span>Rio de Janeiro</span>
           </a>
         </li>
         <li>
-          <a class="nl" href="">
+          <a class="nl"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Nederland/">
             <strong>Ionic Nederland</strong><span>Utrecht, Netherlands</span>
+          </a>
+        </li>
+        <li>
+          <a class="es"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Madrid/">
+            <strong>Ionic Madrid</strong><span>Madrid, Spain</span>
+          </a>
+        </li>
+        <li>
+          <a class="ams"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Amsterdam/">
+            <strong>Ionic Amsterdam</strong><span>Amsterdam, Netherlands</span>
+          </a>
+        </li>
+        <li>
+          <a class="in"
+             target="_blank"
+             href="https://www.meetup.com/Chandigarh-Ionic-Framework-Meetup/">
+            <strong>Ionic India</strong><span>Chandigarh, India</span>
+          </a>
+        </li>
+        <li>
+          <a class="yvr"
+             target="_blank"
+             href="https://www.meetup.com/ion-van/">
+            <strong>Ionic Vancouver</strong><span>Vancouver, Canada</span>
+          </a>
+        </li>
+        <li>
+          <a class="tr"
+             target="_blank"
+             href="https://www.meetup.com/Istanbul-Ionic-Meetup/">
+            <strong>Ionic Istanbul</strong><span>Istanbul, Turkey</span>
+          </a>
+        </li>
+        <li>
+          <a class="au"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Australia/">
+            <strong>Ionic Australia</strong><span>Sydney, Australia</span>
+          </a>
+        </li>
+        <li>
+          <a class="dk"
+             target="_blank"
+             href="https://www.meetup.com/ionicdenmark/">
+            <strong>Ionic Denmark</strong><span>Århus, Denmark</span>
+          </a>
+        </li>
+        <li>
+          <a class="hu"
+             target="_blank"
+             href="https://www.meetup.com/IonicFramework-Budapest/">
+            <strong>Ionic Hungary</strong><span>Budapest, Hungary</span>
+          </a>
+        </li>
+        <li>
+          <a class="co"
+             target="_blank"
+             href="https://www.meetup.com/topics/ionic-framework/co/">
+            <strong>Ionic Colombia</strong><span>Colombia</span>
+          </a>
+        </li>
+        <li>
+          <a class="jp"
+             target="_blank"
+             href="https://ionic-jp.connpass.com/">
+            <strong>Ionic Japan</strong><span>Tokyo, Japan</span>
           </a>
         </li>
       </ul>
@@ -626,18 +708,80 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
-$countries = document.getElementById('countries');
-totalWidth = 0;
-originalLength = $countries.children.length;
+// enable sticky nav
+stickyNav.init();
 
-for (var i = 0; i < originalLength; i++) {
-  totalWidth += $countries.children[i].offsetWidth + 80;
-  $countries.appendChild($countries.children[i].cloneNode(true));
+// header parallax
+var $banner = document.querySelector('.banner');
+var $bannerHeading = document.querySelector('.banner hgroup');
+var $bannerFeatures = document.querySelector('.banner .features');
+window.addEventListener('scroll', function(e) {
+  $banner.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/5)+')';
+  $bannerHeading.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/10)+')';
+  $bannerFeatures.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/20 * 1)+')';
+})
+
+// meetup carousel
+window.carousel = {
+  $countries: document.getElementById('countries'),
+  totalWidth: 0,
+  rightMargin: 80,
+  speed: 50,
+
+  init: function() {
+    this.originalLength = this.$countries.children.length;
+
+    for (var i = 0; i < this.originalLength; i++) {
+      this.totalWidth +=
+        this.$countries.children[i].offsetWidth + this.rightMargin;
+      this.$countries.appendChild(this.$countries.children[i].cloneNode(true));
+    }
+    this.originalWidth = this.totalWidth;
+
+    this.$countries.addEventListener('mouseover', this.pause.bind(this))
+    this.$countries.addEventListener('mouseleave', this.resume.bind(this))
+
+    TweenLite.to(this.$countries, 2, {
+      opacity: 1
+    });
+
+    this.scroll();
+  },
+
+  pause: function() {
+    TweenLite.to(this.scrollRef, 1, {timeScale: 0.16});
+  },
+
+  resume: function() {
+    TweenLite.to(this.scrollRef, 1, {timeScale: 1});
+  },
+
+  scroll: function() {
+    this.scrollRef = TweenLite.to(this.$countries, this.speed, {
+      x: this.originalWidth * -1,
+      ease: Linear.easeNone,
+      onCompleteScope: this,
+      onComplete: function() {
+        // jump back to starting position and restart the scroll in 1 frame
+        TweenLite.to(this.$countries, 0, {
+          x: 0,
+          onCompleteScope: this,
+          onComplete: function() {
+            this.scroll();
+          }
+        })
+      }
+    })
+  },
 }
 
-totalWidth = totalWidth * 2;
+carousel.init();
 
-$countries.style.width = totalWidth + 'px';
 </script>
 {% endblock %}

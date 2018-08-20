@@ -29,9 +29,11 @@
     background-size: cover, 100%;
     padding-top: 226px;
     margin-top: -110px;
+    will-change: trasnform;
 
     hgroup {
       max-width: 768px;
+      will-change: trasnform;
 
       li {
 
@@ -107,6 +109,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      will-change: trasnform;
 
       &::before,
       &::after {
@@ -247,6 +250,8 @@
       position: absolute;
       left: 0;
       opacity: 0;
+      will-change: transform;
+      animation: 1s fadeIn forwards 1s;
     }
 
     li {

@@ -708,31 +708,55 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
 <script>
 // enable sticky nav
 stickyNav.init();
 
 // header parallax
-var $banner = document.querySelector('.banner');
-var $bannerHeading = document.querySelector('.banner hgroup');
-var $bannerFeatures = document.querySelector('.banner .features');
-window.addEventListener('scroll', function(e) {
-  $banner.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/5)+')';
-  $bannerHeading.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/10)+')';
-  $bannerFeatures.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/20 * 1)+')';
-})
+window.parallax = {
+  $banner: document.querySelector('.banner'),
+  $bannerHeading: document.querySelector('.banner hgroup'),
+  $bannerFeatures: document.querySelector('.banner .features'),
+  lastScroll: 0,
+  ticking: false,
+
+  update: function() {
+    this.$banner.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,' + (this.lastScroll/5) + ',0,1)';
+    this.$bannerHeading.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,'+ (this.lastScroll/10)+',0,1)';
+    this.$bannerFeatures.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,'+ (this.lastScroll/20 * 1)+',0,1)';
+    this.ticking = false;
+  },
+
+  // RAF Debounce
+  onScroll: function() {
+    this.lastScroll = window.scrollY;
+
+    if (!this.ticking) {
+      window.requestAnimationFrame(this.update.bind(this));
+      ticking = true;
+    }
+  },
+
+  init: function() {
+    window.addEventListener('scroll', this.onScroll.bind(this));
+  }
+}
+
+parallax.init();
+
 
 // meetup carousel
 window.carousel = {
   $countries: document.getElementById('countries'),
   totalWidth: 0,
   rightMargin: 80,
-  speed: 50,
+  speed: 150,
 
   init: function() {
     this.originalLength = this.$countries.children.length;
@@ -747,15 +771,11 @@ window.carousel = {
     this.$countries.addEventListener('mouseover', this.pause.bind(this))
     this.$countries.addEventListener('mouseleave', this.resume.bind(this))
 
-    TweenLite.to(this.$countries, 2, {
-      opacity: 1
-    });
-
     this.scroll();
   },
 
   pause: function() {
-    TweenLite.to(this.scrollRef, 1, {timeScale: 0.16});
+    TweenLite.to(this.scrollRef, 1, {timeScale: 0.2});
   },
 
   resume: function() {
@@ -766,11 +786,13 @@ window.carousel = {
     this.scrollRef = TweenLite.to(this.$countries, this.speed, {
       x: this.originalWidth * -1,
       ease: Linear.easeNone,
+      lazy:true,
       onCompleteScope: this,
       onComplete: function() {
         // jump back to starting position and restart the scroll in 1 frame
-        TweenLite.to(this.$countries, 0, {
+        TweenLite.to(this.$countries, {
           x: 0,
+          lazy:true,
           onCompleteScope: this,
           onComplete: function() {
             this.scroll();

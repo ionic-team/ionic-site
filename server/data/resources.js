@@ -32,6 +32,13 @@ const resources = {
         "bgColor": "#4ebff3"
       }, {
         "type": "Article",
+        "title": "Why Hybrid",
+        "url": "/articles/why-hybrid",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-hybrid.jpg",
+        "bgColor": "#7b63b0"
+      }, {
+        "type": "Article",
         "title": "2017 Developer Survey",
         "url": "/survey/2017",
         "action": "Read",

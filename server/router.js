@@ -27,6 +27,7 @@ module.exports = function router(app) {
   .get('/about', (_, res) => { res.render('about'); })
   .get('/articles/pwa-architects-guide', (_, res) => { res.render('articles/pwa-architects-guide'); })
   .get('/articles/pwa-architects-guide/preview', (_, res) => { res.render('articles/pwa-architects-guide-preview'); })
+  .get('/articles/why-hybrid', (_, res) => { res.render('articles/why-hybrid'); })
   .get('/books/hybrid-vs-native', (_, res) => { res.render('books/hybrid-vs-native'); })
   .get('/books/hybrid-vs-native/preview', (_, res) => { res.render('books/hybrid-vs-native-preview'); })
   .get('/community', (_, res) => { res.render('community'); })
@@ -44,6 +45,10 @@ module.exports = function router(app) {
   .get('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/index'); })
   .post('/go/pwa-architects-guide', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
   .get('/go/pwa-architects-guide/thank-you', (_, res) => { res.render('go/pwa-architects-guide/thank-you'); })
+
+  .get('/go/why-hybrid', (_, res) => { res.render('go/why-hybrid/index'); })
+  .post('/go/why-hybrid', (_, res) => { res.render('go/why-hybrid/thank-you'); })
+  .get('/go/why-hybrid/thank-you', (_, res) => { res.render('go/why-hybrid/thank-you'); })
 
   .get('/jobs', (_, res) => { res.render('jobs'); })
   .get('/press', (_, res) => { res.render('press'); })

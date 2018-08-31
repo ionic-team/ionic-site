@@ -161,7 +161,7 @@ Opens a setting dialog
     <td>
       setting</td>
     <td>
-      <code>string</code>
+      <code>string</code>|<code>array</code>
     </td>
     <td>
       <p>setting name</p>

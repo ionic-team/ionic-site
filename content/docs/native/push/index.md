@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L224">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L231">
   Improve this doc
 </a>
 
@@ -562,6 +562,22 @@ subscribe to a GcmPubSub topic.
     <td>
       <p>The data required in order to enable Action Buttons for iOS.
 Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1">https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1</a></p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      voip
+    </td>
+    <td>
+      <code>boolean | string</code>
+    </td>
+    <td>
+      <p>If true the device will be set up to receive VoIP Push notifications and the
+other options will be ignored since VoIP notifications are silent
+notifications that should be handled in the &quot;notification&quot; event.</p>
 
       <em>(optional)</em>
     </td>

@@ -18,7 +18,6 @@ Ionic Pro is a powerful set of services and features built on top of the flagshi
 Ionic Pro has several core services that help you through the full app lifecycle, including
 
  * [Deploy](/docs/pro/deploy/): Update your app remotely in real-time without app store delays.
- * [View](/docs/pro/view/): Test your app with testers and get feedback immediately without complicated device and provisioning profile management.
  * [Package](/docs/pro/package/): Build app binaries in the cloud for iOS and Android.
  * [Monitoring](/docs/pro/monitoring/): Track runtime errors in production back to your original TypeScript.
 

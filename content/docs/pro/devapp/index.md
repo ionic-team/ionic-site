@@ -178,16 +178,3 @@ phonegap-plugin-barcodescanner 6.0.7 "BarcodeScanner"
 phonegap-plugin-mobile-accessibility 1.0.5-dev "Mobile Accessibility"
 uk.co.workingedge.phonegap.plugin.launchnavigator 4.0.4 "Launch Navigator"
 </pre>
-
-
-## What about Ionic View?
-
-Ionic Developers may remember that Ionic View helped test apps on device without dealing with the SDK toolchain.
-
-As of August, 2017, the Ionic View app has "split" into two apps: Ionic DevApp focused on rapid local development and testing, and the new Ionic View focused on helping developers share and test their apps with external users, co-workers, clients, and more.
-
-With this change, we've added a ton of new features to Ionic View to make it easier than ever before for teams to distribute an app for testing.
-
-Read more about the [new Ionic View app](../view/).
-
-To sum it up: pick Ionic DevApp for local development/testing, and Ionic View for sharing your app with others.

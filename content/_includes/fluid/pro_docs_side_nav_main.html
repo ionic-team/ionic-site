@@ -49,49 +49,6 @@
           </li>
         </ul>
       </li>
-      <li class="{% if page.category == 'pro-view' %}active{% endif %}" >
-        <a ng-click="toggle('view')" class="pro-view-link">View: Beta Testing</a>
-        <ul ng-show="sections.view" ng-cloak {% if page.category == 'pro-view' %}ng-init="sections.view = true"{% endif %}>
-          <li>
-            <a href="/docs/pro/view/">Introduction</a>
-          </li>
-          <li>
-            <a href="/docs/pro/view/#using-channels-with-ionic-view">Using Channels</a>
-          </li>
-          <li>
-            <a href="/docs/pro/view/#inviting-private-testers">Inviting Testers</a>
-          </li>
-          <li>
-            <a href="/docs/pro/view/#sharing-publicly">Sharing Publicly</a>
-          </li>
-          <li>
-            <a href="/docs/pro/view/#viewing-feedback">Viewing Feedback</a>
-          </li>
-          <li>
-            <a href="/docs/pro/view/#cors">CORS</a>
-          </li>
-          <li class="{% if page.id == 'pro-view-app' %}active{% endif %}">
-            <a href="/docs/pro/view.html">Using the App</a>
-            <ul>
-              <li>
-                <a href="/docs/pro/view.html#testing-apps">Testing Apps</a>
-              </li>
-              <li>
-                <a href="/docs/pro/view.html#submitting-feedback">Submitting Feedback</a>
-              </li>
-              <li>
-                <a href="/docs/pro/view.html#exiting-apps">Exiting Apps</a>
-              </li>
-              <li>
-                <a href="/docs/pro/view.html#plugin-support">Plugin Support</a>
-              </li>
-              <li>
-                <a href="/docs/pro/view.html#plugin-issues">Plugin Issues</a>
-              </li>
-              </ul>
-            </li>
-        </ul>
-      </li>
       <li class="{% if page.category == 'pro-deploy' %}active{% endif %}">
         <a ng-click="toggle('deploy')" class="pro-deploy-link">Deploy</a>
         <ul ng-show="sections.deploy" ng-cloak {% if page.category == 'pro-deploy' %}ng-init="sections.deploy = true"{% endif %}>

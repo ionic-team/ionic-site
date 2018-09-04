@@ -133,6 +133,14 @@
           </li>
         </ul>
       </li>
+      <li class="{% if page.category == 'pro-environments' %}active{% endif %}" >
+        <a ng-click="toggle('environments')" class="pro-package-link">Environments</a>
+        <ul ng-show="sections.environments" ng-cloak {% if page.category == 'pro-environments' %}ng-init="sections.environments = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/environments" class="{% if page.id == 'pro-environments' %}active{% endif %}">Welcome</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>

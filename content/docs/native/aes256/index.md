@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.0"
+version: "4.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -60,18 +60,36 @@ $ npm install --save @ionic-native/aes-256
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <pre><code class="lang-typescript">import { AES256 } from &#39;@ionic-native/aes-256&#39;;
 
+private secureKey: string;
+private secureIV: string;
 
-constructor(private aES256: AES256) { }
+constructor(private aes256: AES256) { 
+   this.generateSecureKeyAndIV(); // To generate the random secureKey and secureIV
+}
 
 ...
 
+async generateSecureKeyAndIV() {
+   this.secureKey = await this.aes256.generateSecureKey(&#39;random password 12345&#39;); // Returns a 32 bytes string
+   this.secureIV = await this.aes256.generateSecureIV(&#39;random password 12345&#39;); // Returns a 16 bytes string
+}
 
-this.aES256.encrypt(&#39;12345678123456781234567812345678&#39;, &#39;1234567812345678&#39;, &#39;testdata&#39;)
+this.aes256.encrypt(this.secureKey, this.secureIV, &#39;testdata&#39;)
   .then(res =&gt; console.log(&#39;Encrypted Data: &#39;,res))
   .catch((error: any) =&gt; console.error(error));
 
-this.aES256.decrypt(&#39;12345678123456781234567812345678&#39;, &#39;1234567812345678&#39;, &#39;encryptedData&#39;)
+this.aes256.decrypt(this.secureKey, this.secureIV, &#39;encryptedData&#39;)
   .then(res =&gt; console.log(&#39;Decrypted Data : &#39;,res))
+  .catch((error: any) =&gt; console.error(error));
+
+
+* this.aes256.generateSecureKey(&#39;random password 12345&#39;)
+  .then(res =&gt; console.log(&#39;Secure Key : &#39;,res))
+  .catch((error: any) =&gt; console.error(error));
+
+
+* this.aes256.generateSecureIV(&#39;random password 12345&#39;)
+  .then(res =&gt; console.log(&#39;Secure IV : &#39;,res))
   .catch((error: any) =&gt; console.error(error));
 </code></pre>
 
@@ -185,6 +203,66 @@ This function used to perform the aes256 decryption
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves when decryption happens. The success response will returns decrypted data.
+</div><h3><a class="anchor" name="generateSecureKey" href="#generateSecureKey"></a><code>generateSecureKey(password)</code></h3>
+
+
+This function used to generate a secure key based on an password. Perfect if you want to delegate the key generation for encryption to the plugin.
+Make sure to save the return value of this function somewhere so your encrypted data can be decrypted in the future.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      password</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A random string, which will be used as input for a PBKDF2 function</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves when key is generated.
+</div><h3><a class="anchor" name="generateSecureIV" href="#generateSecureIV"></a><code>generateSecureIV(password)</code></h3>
+
+
+This function used to generate a secure IV based on an password. Perfect if you want to delegate the IV generation for encryption to the plugin.
+Make sure to save the return value of this function somewhere so your encrypted data can be decrypted in the future.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      password</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A random string, which will be used as input for a PBKDF2 function</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves when IV is generated.
 </div>
 
 

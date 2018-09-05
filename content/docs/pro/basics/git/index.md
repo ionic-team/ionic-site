@@ -9,7 +9,7 @@ body_class: 'pro-docs'
 # Working with Git
 
 Ionic Pro integrates with [Git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) version control software
-in order to manage the versions of your app that you share through Ionic View, updates released with Live Deploy, and iOS & Android binaries built on Ionic Pro.
+in order to manage the versions of your app that you release with Live Deploy and iOS & Android binaries built on Ionic Pro.
 If you're familiar with how Heroku works, then you'll find Ionic Pro's git workflow similar to use.
 
 ## Installing Git
@@ -21,7 +21,7 @@ If you're using the GitHub integration you can also use GitHub's [Desktop Client
 
 ## Sharing your code with Ionic Pro
 
-Ionic Pro to needs access to your source code to build native binaries, release live deploys & bug fixes, and share your app on Ionic View.
+Ionic Pro to needs access to your source code to build native binaries and release live deploys & bug fixes.
 Using Git allows you to specify the exact versions of your app which you would like to operate on. There are two ways in which you can give Ionic Pro
 access you your source code and Git versioning history.
 
@@ -99,7 +99,7 @@ git commit -m 'in our new branch'
 git push ionic my-new-branch
 ```
 
-It's also common to set up automatic deployments (for Deploy and Ionic View to use) to channels using specific branches.
+It's also common to set up automatic deployments to deploy channels using specific branches.
 For more information on that, please check out our [Ionic Deploy](/docs/pro/deploy) documentation.
 
 ### Working with other Team Members

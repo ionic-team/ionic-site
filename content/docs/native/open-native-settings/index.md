@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.12.0"
+version: "4.12.2"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -161,7 +161,7 @@ Opens a setting dialog
     <td>
       setting</td>
     <td>
-      <code>string</code>
+      <code>string</code>|<code>array</code>
     </td>
     <td>
       <p>setting name</p>

@@ -77,6 +77,7 @@
   "/docs/pro/git.html": "/docs/pro/basics/git/",
   "/docs/pro/getting-started.html": "/docs/pro/basics/getting-started/",
   "/docs/pro/native-builds.html": "/docs/pro/package/",
+  "/docs/pro/view": "https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/",
   "/docs/resources/resources/what-is": "/docs/cli",
   "/docs/resources/books-and-courses": "/docs/resources/#/books",
   "/docs/setup/concepts": "/docs/intro/concepts",
@@ -90,6 +91,7 @@
   "/docs/setup/tutoria/using-platform-plugins": "/docs/intro/tutorial/using-platform-plugins",
   "/examples": "/docs/components",
   "/html5-input-types": "/docs/components",
+  "/pro/view": "https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/",
   "/products/index.html": "/pro",
   "/products/pricing": "/pro/pricing",
   "/pricing": "/pro/pricing",
@@ -98,5 +100,6 @@
   "/pricing/index.html": "/pro/pricing",
   "/pricing/trial": "/pro/pricing",
   "/resource-center": "/resources",
+  "/support/request": "https://ionic.zendesk.com/hc/en-us/requests/new",
   "/unsubscribe": "https://hs-3776657.s.hubspotemail.net/hs/manage-preferences/unsubscribe"
 }

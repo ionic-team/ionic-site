@@ -19,13 +19,10 @@ module.exports = function(req, res) {
   }));
 
   // relfect because we want to show the page even if one of the tasks error
-  Promise.all(promises.map(reflect)).then(values => {
+  Promise.all(promises.map(tools.reflect)).then(values => {
     res.json({ ok: true, message: `${email} added to newsletter` });
   });
 }
 
-function reflect(promise) {
-  return promise.then(function(v) { return {v: v, status: 'resolved'};},
-                      function(e) { return {e: e, status: 'rejected'};});
-}
+
 

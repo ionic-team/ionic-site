@@ -244,7 +244,7 @@ gulp.task('watch.max', ['server'], function() {
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/scss/creator.scss'], ['server:creator']);
-  gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
   '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',
   '!content/_includes/head_includes.*', '!content/_includes/fluid/head.*',
@@ -255,7 +255,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
-  gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
               'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);

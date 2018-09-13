@@ -155,8 +155,7 @@ console.log(info)
 //   'appId': 'abcd1234',
 //   'channel': 'MY_CHANNEL_NAME',
 //   'binaryVersion': 'X.X.X',
-//   'debug': false,
-//   'debug': false,
+//   'disabled': false,
 //   'updateMethod': 'auto',
 //   'maxVersions': 3,
 //   'minBackgroundDuration': 30,
@@ -689,7 +688,6 @@ ___
 
 * [channel](#optional-channel)
 * [appId](#optional-appid)
-* [debug](#optional-debug)
 
 ___
 
@@ -710,17 +708,6 @@ ___
 
 
 The [channel](/docs/pro/deploy/channels) that the plugin should listen for updates on.
-
-___
-
-#### `<Optional>` debug
-
-**● debug**: `undefined` |
-`true` |
-`false`
-
-
-whether or not the app should in debug mode
 
 ___
 
@@ -789,11 +776,10 @@ ___
 #### Properties
 * `binaryVersion` `<string>` - The binary version of the native bundle.
 * `channel` `<string>` - The channel name the device is currently configured to check for updates on.
-* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
+* `disabled` `<boolean>` - Whether the deploy updates are disabled or not.
 * `updateMethod` `<'none' | 'auto' | 'background'>` - The currently configured updateMethod for the plugin.
 * `maxVersions` `<number>` - The maximum number of updates to be stored locally on the device.
 * `minBackgroundDuration` `<number>` - The number of seconds the app needs to be in the background before the plugin considers it closed for the purposes of fetching and applying a new update.
-* `debug` `<boolean>` - Whether the plugin is in debug mode or not.
 * `currentVersionId` `<string | undefined>` - The id of the currently applied update or `undefined` if none is applied.
 
 
@@ -937,3 +923,14 @@ the plugin considers the app closed and checks for an update on resume like it w
 [update method](#update_method).
 
 
+## Plugin Preferences
+
+### `DisableDeploy`
+
+`Default: false`
+
+Allows to disable deploy updates by adding this preference in the config.xml
+
+```
+<preference name="DisableDeploy" value="true" />
+```

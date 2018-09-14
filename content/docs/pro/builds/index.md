@@ -83,9 +83,6 @@ reads the branch and triggers a custom build.
 ```
 
 ```
-#!/bash/bin
-# customize bash script
-
 #!/bin/bash
 if [ "$CI_GIT_REF" = "master" ]; then
     npx ionic-app-scripts build --prod

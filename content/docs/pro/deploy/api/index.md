@@ -716,6 +716,8 @@ ___
 #### Properties
 
 * [available](#available)
+* [compatible](#compatible)
+* [partial](#partial)
 * [integrity](#optional-integrity)
 * [snapshot](#optional-snapshot)
 * [url](#optional-url)
@@ -725,6 +727,24 @@ ___
 **● available**: `boolean`
 
 Whether or not an update is available.
+
+___
+
+####  compatible
+
+**● compatible**: `boolean`
+
+*__deprecated__*: in favor of [available](#available)
+Whether or not an update is available. Will always be identical to [available](#available)
+
+___
+
+####  partial
+
+**● compatible**: `boolean`
+
+*__deprecated__*
+Legacy way of determining whether an update was full or partial. Will always be `false`.
 
 ___
 
@@ -934,3 +954,5 @@ Allows to disable deploy updates by adding this preference in the config.xml
 ```
 <preference name="DisableDeploy" value="true" />
 ```
+
+After adding be sure to run `cordova prepare [platform]` in order for changes to take effect.

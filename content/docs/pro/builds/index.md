@@ -15,15 +15,15 @@ which can then be used to trigger two distinct types of builds.
 
 ## Deploy Builds
 
-A `Deploy Build` is a build of your application that includes only the web assets (Javascript, HTML, fonts, and imgs) which
-can be shipped out to customer via [Deploy](/docs/pro/deploy/). `Deploy Builds` are currently automatically triggered when
+A deploy build is a build of your application that includes only the web assets (JavaScript, HTML, fonts, and images) which
+can be shipped out to customer via [Deploy](/docs/pro/deploy/). Deploy builds are currently automatically triggered when
 you push code to the Ionic Pro Remote or any branch that is connected to your app via the GitHub or Bitbucket integration.
-The basic steps of the `Deploy Build` are as follows:
+The basic steps of the deploy build are as follows:
 
 * `npm install` will run to install any dependencies you have.
-* `npm run build` will run to if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.
+* `npm run build` will run if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.
 * The `www` directory with your built application will be stored and made available for live updates via [Deploy](/docs/pro/deploy/)
-* You can find the history and status of your `Deploy Builds` in the side menu under `Builds` in the `Deploy` tab.
+* You can find the history and status of your deploy builds in the side menu under `Builds` in the `Deploy` tab.
 
 <div style="text-align: center">
   <img style="width: 950px" src="/img/pro/deploy-builds-img.png">
@@ -31,17 +31,17 @@ The basic steps of the `Deploy Build` are as follows:
 
 ## Package Builds
 
-A `Package Build` is a native build of your application that is platform specific and can run on a physical device.
-`Package Builds` produce `apk` files for Android and `ipa` files for iOS. Currently Package builds are only available
+A package build is a native build of your application that is platform specific and can run on a physical device.
+Package builds produce `apk` files for Android and `ipa` files for iOS. Currently package builds are only available
 to customers on one of the paid plans and must manually be triggered from the dashboard.
-The basic steps of the `Package Build` are as follows:
+The basic steps of the package build are as follows:
 
 * `npm install` will run to install any dependencies you have.
-* `npm run build` will run to if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.
+* `npm run build` will run if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.
 * `cordova platform add [ios|android]` will run with the platform you have configured `NOTE:` *DO NOT* commit your `platforms` directory as this will cause your build to fail.
 * `cordova build [ios|android]` will run with the platform and options you have configured and generate the `ipa` or `apk` file
 * The generated `ipa` or `apk` will be stored and available for you to download from the dashboard
-* You can find the history and status of your `Package Builds` as well as download successful builds in the side menu under `Builds` in the `Package` tab.
+* You can find the history and status of your package builds as well as download successful builds in the side menu under `Builds` in the `Package` tab.
 
 <div style="text-align: center">
   <img style="width: 950px" src="/img/pro/package-builds-img.png">
@@ -65,7 +65,7 @@ The following environment variables are provided in every build, which can be ac
 * `CI_GIT_REF` **(string):** The git ref from which the build was created (i.e. `master`).
 * `CI_GIT_REF_TYPE` **(string):** The git ref type (i.e. `branch`).
 
-For example you could replace you `build` script in the `package.json` with a custom shell script that
+For example you could replace your `build` script in the `package.json` with a custom shell script that
 reads the branch and triggers a custom build.
 
 ```json
@@ -95,7 +95,7 @@ fi
 ```
 
 As of `@ionic/app-scripts@3.2.0` you can also use
-[environment variables directly in you source code](https://github.com/ionic-team/ionic-app-scripts#environments)
+[environment variables directly in your source code](https://github.com/ionic-team/ionic-app-scripts#environments)
 and they will be replaced at build time so that you can customize your code based on the environment.
 
 For example:

@@ -49,6 +49,17 @@
           </li>
         </ul>
       </li>
+      <li class="{% if page.category == 'pro-builds' %}active{% endif %}">
+        <a ng-click="toggle('builds')" class="pro-builds-link">Builds</a>
+        <ul ng-show="sections.builds" ng-cloak {% if page.category == 'pro-builds' %}ng-init="sections.builds = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/builds/#builds">Introduction</a>
+            <a href="/docs/pro/builds/#deploy-builds">Deploy Builds</a>
+            <a href="/docs/pro/builds/#package-builds">Package Builds</a>
+            <a href="/docs/pro/builds/#build-environments">Build Environments</a>
+          </li>
+        </ul>
+      </li>
       <li class="{% if page.category == 'pro-deploy' %}active{% endif %}">
         <a ng-click="toggle('deploy')" class="pro-deploy-link">Deploy</a>
         <ul ng-show="sections.deploy" ng-cloak {% if page.category == 'pro-deploy' %}ng-init="sections.deploy = true"{% endif %}>
@@ -61,13 +72,6 @@
               <li><a href="/docs/pro/deploy/setup/#installation">Installation</a></li>
               <li><a href="/docs/pro/deploy/setup/#usage">Usage</a></li>
               <li><a href="/docs/pro/deploy/setup/#advanced-usage">Advanced Usage</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="/docs/pro/deploy/builds/" class="{% if page.id == 'pro-deploy-builds' %}active{% endif %}">Builds</a>
-            <ul ng-show="sections.deployBuilds" ng-cloak {% if page.id == 'pro-deploy-builds' %}ng-init="sections.deployBuilds = true"{% endif %}>
-              <li><a href="/docs/pro/deploy/builds/#customizing-your-builds">Customizing Builds</a></li>
-              <li><a href="/docs/pro/deploy/builds/#using-different-repository-structures">Using Different Repository Structures</a></li>
             </ul>
           </li>
           <li>
@@ -130,14 +134,6 @@
           </li>
           <li>
             <a href="/docs/pro/monitoring/#manual-capture-using-the-monitoring-api">Manual Capture API</a>
-          </li>
-        </ul>
-      </li>
-      <li class="{% if page.category == 'pro-environments' %}active{% endif %}" >
-        <a ng-click="toggle('environments')" class="pro-package-link">Environments</a>
-        <ul ng-show="sections.environments" ng-cloak {% if page.category == 'pro-environments' %}ng-init="sections.environments = true"{% endif %}>
-          <li>
-            <a href="/docs/pro/environments" class="{% if page.id == 'pro-environments' %}active{% endif %}">Welcome</a>
           </li>
         </ul>
       </li>

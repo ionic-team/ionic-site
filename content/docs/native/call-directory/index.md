@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Call Directory</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/call-directory/index.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/call-directory/index.ts#L11">
   Improve this doc
 </a>
 
@@ -175,6 +175,15 @@ Reload extension to process queued changes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise after refresh with message
+</div><h3><a class="anchor" name="getLog" href="#getLog"></a><code>getLog()</code></h3>
+
+
+Get log from plugin and call directory extension
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;CallDirectoryLog&gt;</code> Returns a promise with an object of log messages
 </div>
 
 

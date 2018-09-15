@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L402">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L425">
   Improve this doc
 </a>
 

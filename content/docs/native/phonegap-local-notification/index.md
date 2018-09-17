@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Phonegap Local Notification</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/phonegap-local-notification/index.ts#L50">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/phonegap-local-notification/index.ts#L58">
   Improve this doc
 </a>
 

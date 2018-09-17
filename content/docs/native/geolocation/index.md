@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Geolocation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L110">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L104">
   Improve this doc
 </a>
 

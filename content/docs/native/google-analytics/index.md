@@ -71,7 +71,7 @@ constructor(private ga: GoogleAnalytics) { }
 this.ga.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
    .then(() =&gt; {
      console.log(&#39;Google analytics is ready now&#39;);
-        this.ga.trackView(&#39;test&#39;);
+      this.ga.trackView(&#39;test&#39;);
      // Tracker is ready
      // You can now track pages or set additional information such as AppVersion or UserId
    })

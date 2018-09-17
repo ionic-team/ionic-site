@@ -115,7 +115,7 @@ hide automatically (or not) the navigation bar.
 
 
 
-Hide the navigation bar. 
+Hide the navigation bar.
 
 
 <div class="return-value" markdown="1">

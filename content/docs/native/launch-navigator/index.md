@@ -1102,7 +1102,7 @@ Default <code>actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT</code></p>
       set
     </td>
     <td>
-      <code>( callback: () =&gt; void) =&gt; void</code>
+      <code>(callback: () =&gt; void) =&gt; void</code>
     </td>
     <td>
       <p>Sets flag indicating user has already been prompted whether to remember their choice a preferred navigator app.</p>
@@ -1116,7 +1116,7 @@ Default <code>actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT</code></p>
       clear
     </td>
     <td>
-      <code>( callback: () =&gt; void) =&gt; void</code>
+      <code>(callback: () =&gt; void) =&gt; void</code>
     </td>
     <td>
       <p>Clears flag which indicates if user has already been prompted whether to remember their choice a preferred navigator app.</p>

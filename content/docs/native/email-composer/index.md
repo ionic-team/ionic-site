@@ -276,7 +276,7 @@ Displays the email composer pre-filled with data.
       to
     </td>
     <td>
-      <code>string | Array&lt;string&gt;</code>
+      <code>string | string[]</code>
     </td>
     <td>
       <p>Email address(es) for To field</p>
@@ -290,7 +290,7 @@ Displays the email composer pre-filled with data.
       cc
     </td>
     <td>
-      <code>string | Array&lt;string&gt;</code>
+      <code>string | string[]</code>
     </td>
     <td>
       <p>Email address(es) for CC field</p>
@@ -304,7 +304,7 @@ Displays the email composer pre-filled with data.
       bcc
     </td>
     <td>
-      <code>string | Array&lt;string&gt;</code>
+      <code>string | string[]</code>
     </td>
     <td>
       <p>Email address(es) for BCC field</p>

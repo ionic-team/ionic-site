@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Photo Library</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-library/index.ts#L49">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-library/index.ts#L69">
   Improve this doc
 </a>
 

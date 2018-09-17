@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Geolocation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-geolocation/index.ts#L287">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-geolocation/index.ts#L251">
   Improve this doc
 </a>
 
@@ -101,24 +101,24 @@ this.backgroundGeolocation.stop();
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="LocationProvider" href="#LocationProvider"></a><code>LocationProvider</code></h3>
 
-Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
+Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers
 
 Possible values:
- ANDROID_DISTANCE_FILTER_PROVIDER: 0, 
- ANDROID_ACTIVITY_PROVIDER: 1 
+ ANDROID_DISTANCE_FILTER_PROVIDER: 0,
+ ANDROID_ACTIVITY_PROVIDER: 1
 
 
 
 <h3><a class="anchor" name="Accuracy" href="#Accuracy"></a><code>Accuracy</code></h3>
 
-Desired accuracy in meters. Possible values [0, 10, 100, 1000]. 
-The lower the number, the more power devoted to GeoLocation resulting in higher accuracy readings. 
-1000 results in lowest power drain and least accurate readings. 
+Desired accuracy in meters. Possible values [0, 10, 100, 1000].
+The lower the number, the more power devoted to GeoLocation resulting in higher accuracy readings.
+1000 results in lowest power drain and least accurate readings.
 
 Possible values:
- HIGH: 0 
- MEDIUM: 10 
- LOW: 100 
+ HIGH: 0
+ MEDIUM: 10
+ LOW: 100
  PASSIVE: 1000
 
 enum {number}
@@ -127,11 +127,11 @@ enum {number}
 
 <h3><a class="anchor" name="Mode" href="#Mode"></a><code>Mode</code></h3>
 
-Used in the switchMode function 
+Used in the switchMode function
 
 Possible values:
  BACKGROUND: 0
- FOREGROUND: 1 
+ FOREGROUND: 1
 
 
 
@@ -376,7 +376,7 @@ Locations are stored when:
 </div><h3><a class="anchor" name="getValidLocations" href="#getValidLocations"></a><code>getValidLocations()</code></h3>
 
 
-Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId. 
+Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId.
 
 
 <div class="return-value" markdown="1">
@@ -441,11 +441,11 @@ Normally plugin will handle switching between BACKGROUND and FOREGROUND mode its
 Calling switchMode you can override plugin behavior and force plugin to switch into other mode.
 
 In FOREGROUND mode plugin uses iOS local manager to receive locations and behavior is affected by option.desiredAccuracy and option.distanceFilter.
-In BACKGROUND mode plugin uses significant changes and region monitoring to receive locations and uses option.stationaryRadius only. 
+In BACKGROUND mode plugin uses significant changes and region monitoring to receive locations and uses option.stationaryRadius only.
 
 BackgroundGeolocation.Mode.FOREGROUND
-BackgroundGeolocation.Mode.BACKGROUND 
-*
+BackgroundGeolocation.Mode.BACKGROUND
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -470,14 +470,31 @@ BackgroundGeolocation.Mode.BACKGROUND 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getLogEntries" href="#getLogEntries"></a><code>getLogEntries()</code></h3>
+</div><h3><a class="anchor" name="getLogEntries" href="#getLogEntries"></a><code>getLogEntries(limit)</code></h3>
 
 
-Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
-@see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
-
-@param limit {number} Limits the number of entries 
-
+Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      limit</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Limits the number of entries</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -786,8 +803,8 @@ Enable this in order to force a stop() when the application terminated
       <code>boolean</code>
     </td>
     <td>
-      <p>ANDROID ONLY 
-Start background service on device boot. </p>
+      <p>ANDROID ONLY
+Start background service on device boot.</p>
 <p>Defaults to false</p>
 
       <em>(optional)</em>
@@ -802,7 +819,7 @@ Start background service on device boot. </p>
       <code>boolean</code>
     </td>
     <td>
-      <p>ANDROID ONLY 
+      <p>ANDROID ONLY
 If false location service will not be started in foreground and no notification will be shown.</p>
 <p>Defaults to true</p>
 
@@ -879,8 +896,8 @@ The accent color to use for notification. Eg. #4CAF50.</p>
       <code>string</code>
     </td>
     <td>
-      <p>ANDROID ONLY 
-The filename of a custom notification icon. See android quirks. 
+      <p>ANDROID ONLY
+The filename of a custom notification icon. See android quirks.
 NOTE: Only available for API Level &gt;=21.</p>
 
       <em>(optional)</em>
@@ -895,8 +912,8 @@ NOTE: Only available for API Level &gt;=21.</p>
       <code>string</code>
     </td>
     <td>
-      <p>ANDROID ONLY 
-The filename of a custom notification icon. See android quirks. 
+      <p>ANDROID ONLY
+The filename of a custom notification icon. See android quirks.
 NOTE: Only available for API Level &gt;=21.</p>
 
       <em>(optional)</em>
@@ -943,8 +960,8 @@ this affects iOS GPS algorithm. @see Apple docs for more information
       <code>boolean</code>
     </td>
     <td>
-      <p>IOS ONLY 
-Pauses location updates when app is paused </p>
+      <p>IOS ONLY
+Pauses location updates when app is paused</p>
 <p>Defaults to true</p>
 
       <em>(optional)</em>
@@ -959,7 +976,7 @@ Pauses location updates when app is paused </p>
       <code>string</code>
     </td>
     <td>
-      <p>Server url where to send HTTP POST with recorded locations </p>
+      <p>Server url where to send HTTP POST with recorded locations</p>
 
       <em>(optional)</em>
     </td>
@@ -973,7 +990,7 @@ Pauses location updates when app is paused </p>
       <code>string</code>
     </td>
     <td>
-      <p>Server url where to send fail to post locations </p>
+      <p>Server url where to send fail to post locations</p>
 
       <em>(optional)</em>
     </td>
@@ -987,7 +1004,7 @@ Pauses location updates when app is paused </p>
       <code>number</code>
     </td>
     <td>
-      <p>Specifies how many previously failed locations will be sent to server at once </p>
+      <p>Specifies how many previously failed locations will be sent to server at once</p>
 <p>Defaults to 100</p>
 
       <em>(optional)</em>
@@ -1016,7 +1033,7 @@ Pauses location updates when app is paused </p>
       <code>boolean</code>
     </td>
     <td>
-      <p>IOS ONLY 
+      <p>IOS ONLY
 Switch to less accurate significant changes and region monitory when in background (default)</p>
 <p>Defaults to 100</p>
 
@@ -1032,7 +1049,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <code>number</code>
     </td>
     <td>
-      <p>Limit maximum number of locations stored into db </p>
+      <p>Limit maximum number of locations stored into db</p>
 <p>Defaults to 10000</p>
 
       <em>(optional)</em>

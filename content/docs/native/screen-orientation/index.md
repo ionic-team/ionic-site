@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Screen Orientation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/screen-orientation/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/screen-orientation/index.ts#L7">
   Improve this doc
 </a>
 

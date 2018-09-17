@@ -165,7 +165,7 @@ Request permission
       value
     </td>
     <td>
-      <code>string | Array&lt;string&gt;</code>
+      <code>string | string[]</code>
     </td>
     <td>
       

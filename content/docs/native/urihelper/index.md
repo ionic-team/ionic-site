@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">UriHelper</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L368">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L471">
   Improve this doc
 </a>
 

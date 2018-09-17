@@ -688,8 +688,7 @@ This writes the data contained in a secure data instance into secure storage.
       <code>String</code>
     </td>
     <td>
-      <p>Non-empty string. *</p>
-
+      
       
     </td>
   </tr>

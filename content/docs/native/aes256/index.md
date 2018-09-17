@@ -63,7 +63,7 @@ $ npm install --save @ionic-native/aes-256
 private secureKey: string;
 private secureIV: string;
 
-constructor(private aes256: AES256) { 
+constructor(private aes256: AES256) {
    this.generateSecureKeyAndIV(); // To generate the random secureKey and secureIV
 }
 

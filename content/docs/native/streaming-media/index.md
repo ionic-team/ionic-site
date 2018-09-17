@@ -331,7 +331,7 @@ Resumes streaming audio
     </td>
     <td>
       <p>Background image scale for audio player.
-Valid values are: 
+Valid values are:
 fit
 stretch
 aspectStretch.</p>
@@ -362,7 +362,7 @@ aspectStretch.</p>
       <code>boolean</code>
     </td>
     <td>
-      <p>Keeps the screen lit and stops it from locking 
+      <p>Keeps the screen lit and stops it from locking
 while audio is playing. Android only.</p>
 
       <em>(optional)</em>

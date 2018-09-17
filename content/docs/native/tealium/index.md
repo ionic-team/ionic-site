@@ -94,7 +94,7 @@ this.tealium.init(tealConfig).then(()=&gt;{
 <h3><a class="anchor" name="init" href="#init"></a><code>init(config)</code></h3>
 
 
-This function initializes the Tealium Cordova plugin. 
+This function initializes the Tealium Cordova plugin.
 This should usually be done inside the "deviceReady" handler.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -538,7 +538,7 @@ This function retrieves a value from the Tealium Volatile data store
 </div><h3><a class="anchor" name="addRemoteCommand" href="#addRemoteCommand"></a><code>addRemoteCommand(commandName,&nbsp;instanceName,&nbsp;callback)</code></h3>
 
 
-This function adds a remote command for later execution 
+This function adds a remote command for later execution
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

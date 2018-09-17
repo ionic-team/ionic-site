@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Pinterest<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L131">
   Improve this doc
 </a>
 

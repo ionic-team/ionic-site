@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">File</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L639">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L607">
   Improve this doc
 </a>
 
@@ -659,7 +659,6 @@ Removes a file from a desired location.
 
 
 Write a new file to the desired location.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -722,7 +721,6 @@ Write a new file to the desired location.
 
 
 Write to an existing file.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

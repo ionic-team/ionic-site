@@ -630,13 +630,12 @@ Sets a callback for a specific event
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable</code> 
-</div><h3><a class="anchor" name="fireEvent" href="#fireEvent"></a><code>fireEvent(args)</code></h3>
+</div><h3><a class="anchor" name="fireEvent" href="#fireEvent"></a><code>fireEvent(eventName,&nbsp;args)</code></h3>
 
 
 
 
 Not an official interface, however its possible to manually fire events.
-* @param eventName The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall. Custom event names are possible for actions
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -646,6 +645,17 @@ Not an official interface, however its possible to manually fire events.
   </tr>
   </thead>
   <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall. Custom event names are possible for actions</p>
+</td>
+  </tr>
+  
   <tr>
     <td>
       args</td>

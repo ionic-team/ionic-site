@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L174">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L197">
   Improve this doc
 </a>
 
@@ -370,9 +370,7 @@ A method that allows you to listen to events happening in the browser.
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>Set to yes to create the browser and load the page, but not show it. The loadstop event fires when loading is complete.
-Omit or set to no (default) to have the browser open and load normally.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -399,8 +397,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>&#39;yes&#39;</code>
     </td>
     <td>
-      <p>Set to yes to have the session cookie cache cleared before the new window is opened.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -413,9 +410,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>string</code>
     </td>
     <td>
-      <p>(Android) Set to a string to use as the close button&#39;s caption instead of a X. Note that you need to localize this value yourself. 
- (iOS) Set to a string to use as the Done button&#39;s caption. Note that you need to localize this value yourself.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -428,9 +423,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>string</code>
     </td>
     <td>
-      <p>(Android) Set to a valid hex color string, for example: #00ff00, and it will change the close button color from default, regardless of being a text or default X. Only has effect if user has location set to yes. 
- (iOS) Set as a valid hex color string, for example: #00ff00, to change from the default Done button&#39;s color. Only applicable if toolbar is not disabled.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -457,9 +450,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(Android &amp; Windows Phone Only) Set to yes to use the hardware back button to navigate backwards through the InAppBrowser&#39;s history.
-If there is no previous page, the InAppBrowser will close. The default value is yes, so you must set it to no if you want the back button to simply close the InAppBrowser.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -486,9 +477,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(Android) Set to yes to hide the navigation buttons on the location toolbar, only has effect if user has location set to yes. The default value is no. 
- (iOS) Set to yes or no to turn the toolbar navigation buttons on or off (defaults to no). Only applicable if toolbar is not disabled.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -501,8 +490,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(Android) Set to yes to hide the url bar on the location toolbar, only has effect if user has location set to yes. The default value is no.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -515,9 +503,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>string</code>
     </td>
     <td>
-      <p>(Android) Set to a valid hex color string, for example: #00ff00, and it will change the color of both navigation buttons from default. Only has effect if user has location set to yes and not hidenavigationbuttons set to yes.
- (iOS) Set as a valid hex color string, for example: #00ff00, to change from the default color. Only applicable if navigation buttons are visible.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -530,9 +516,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>string</code>
     </td>
     <td>
-      <p>(Android) Set to a valid hex color string, for example: #00ff00, and it will change the color the toolbar from default. Only has effect if user has location set to yes. 
- (iOS) Set as a valid hex color string, for example: #00ff00, to change from the default color of the toolbar. Only applicable if toolbar is not disabled.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -643,9 +627,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(iOS Only) Set to yes or no to allow in-line HTML5 media playback, displaying within the browser window rather than a device-specific playback interface.
-The HTML&#39;s video element must also include the webkit-playsinline attribute (defaults to no)</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -742,9 +724,7 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
       <code>&#39;yes&#39;</code>
     </td>
     <td>
-      <p>(Windows only) Set to yes to create the browser control without a border around it.
-Please note that if location=no is also specified, there will be no control presented to user to close IAB window.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>

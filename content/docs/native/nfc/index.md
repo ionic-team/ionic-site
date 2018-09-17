@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">NFC</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L29">
   Improve this doc
 </a>
 

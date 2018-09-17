@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Index App Content</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/index-app-content/index.ts#L29">
   Improve this doc
 </a>
 

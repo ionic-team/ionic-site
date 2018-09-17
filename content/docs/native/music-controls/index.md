@@ -92,7 +92,6 @@ this.musicControls.create({
   // text displayed in the status bar when the notification (and the ticker) are updated, optional
   ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;,
   // All icons default to their built-in android equivalents
- // The supplied drawable name, e.g. &#39;media_play&#39;, is the name of a drawable found under android/res/drawable* folders
   playIcon: &#39;media_play&#39;,
   pauseIcon: &#39;media_pause&#39;,
   prevIcon: &#39;media_prev&#39;,

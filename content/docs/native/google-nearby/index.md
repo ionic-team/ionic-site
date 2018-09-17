@@ -112,12 +112,12 @@ Publish a message
 
 
 
-Subscribe to recieve messages
+Subscribe to receive messages
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable that emits recieved messages
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable that emits received messages
 </div>
 
 

@@ -57,31 +57,31 @@ $ npm install --save @ionic-native/open-native-settings
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 <p>You can open any of these settings:</p>
-<pre><code>&quot;about&quot;, // ios
-&quot;accessibility&quot;, // ios, android
-&quot;account&quot;, // ios, android
-&quot;airplane_mode&quot;, // ios, android
-&quot;apn&quot;, // android
-&quot;application_details&quot;, // ios, android
-&quot;application_development&quot;, // android
-&quot;application&quot;, // android
-&quot;autolock&quot;, // ios
-&quot;battery_optimization&quot;, // android
-&quot;bluetooth&quot;, // ios, android
-&quot;castle&quot;, // ios
-&quot;captioning&quot;, // android
-&quot;cast&quot;, // android
-&quot;cellular_usage&quot;, // ios
-&quot;configuration_list&quot;, // ios
-&quot;data_roaming&quot;, // android
-&quot;date&quot;, // ios, android
-&quot;display&quot;, // ios, android
-&quot;dream&quot;, // android
-&quot;facetime&quot;, // ios
-&quot;home&quot;, // android
-&quot;keyboard&quot;, // ios, android
-&quot;keyboard_subtype&quot;, // android
-&quot;locale&quot;, // ios, android
+<pre><code> &quot;about&quot;, // ios
+ &quot;accessibility&quot;, // ios, android
+ &quot;account&quot;, // ios, android
+ &quot;airplane_mode&quot;, // ios, android
+ &quot;apn&quot;, // android
+ &quot;application_details&quot;, // ios, android
+ &quot;application_development&quot;, // android
+ &quot;application&quot;, // android
+ &quot;autolock&quot;, // ios
+ &quot;battery_optimization&quot;, // android
+ &quot;bluetooth&quot;, // ios, android
+ &quot;castle&quot;, // ios
+ &quot;captioning&quot;, // android
+ &quot;cast&quot;, // android
+ &quot;cellular_usage&quot;, // ios
+ &quot;configuration_list&quot;, // ios
+ &quot;data_roaming&quot;, // android
+ &quot;date&quot;, // ios, android
+ &quot;display&quot;, // ios, android
+ &quot;dream&quot;, // android
+ &quot;facetime&quot;, // ios
+ &quot;home&quot;, // android
+ &quot;keyboard&quot;, // ios, android
+ &quot;keyboard_subtype&quot;, // android
+ &quot;locale&quot;, // ios, android
 &quot;location&quot;, // ios, android
 &quot;locations&quot;, // ios
 &quot;manage_all_applications&quot;, // android

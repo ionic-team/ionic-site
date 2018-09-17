@@ -148,7 +148,7 @@ const jsonData = {
      ],
      displayKey: &#39;name&#39;,
      defaultItems: [
-       {index:0, value: this.jsonData.firstNames[2].name}, 
+       {index:0, value: this.jsonData.firstNames[2].name},
        {index: 0, value: this.jsonData.lastNames[3].name}
      ]
    }).then(
@@ -249,7 +249,7 @@ Hide the selector
       items
     </td>
     <td>
-      <code>Array&lt;Array&lt;WheelSelectorItem&gt;&gt;</code>
+      <code>WheelSelectorItem[][]</code>
     </td>
     <td>
       <p>The items to display (array of items).</p>
@@ -263,7 +263,7 @@ Hide the selector
       defaultItems
     </td>
     <td>
-      <code>Array&lt;DefaultItem&gt;</code>
+      <code>DefaultItem[]</code>
     </td>
     <td>
       <p>Which items to display by default.</p>

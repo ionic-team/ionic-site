@@ -772,6 +772,66 @@ This includes the following events:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setEmail" href="#setEmail"></a><code>setEmail(email,&nbsp;emailAuthToken)</code></h3>
+
+
+Allows you to set the user's email address with the OneSignal SDK.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      email</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Email address</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      emailAuthToken</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Email auth token<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="logoutEmail" href="#logoutEmail"></a><code>logoutEmail()</code></h3>
+
+
+If your app implements logout functionality, you can call logoutEmail to dissociate the email from the device
+
+
+
+<h3><a class="anchor" name="addEmailSubscriptionObserver" href="#addEmailSubscriptionObserver"></a><code>addEmailSubscriptionObserver()</code></h3>
+
+
+
+
+The passed in function will be fired when a notification subscription property changes.
+This includes the following events:
+- Getting a push token from Apple / Google.
+- Getting a player / user id from OneSignal
+- OneSignal.setSubscription is called
+- User disables or enables notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="clearOneSignalNotifications" href="#clearOneSignalNotifications"></a><code>clearOneSignalNotifications()</code></h3>
 
 
@@ -780,6 +840,83 @@ This includes the following events:
 Clears all OneSignal notifications
 
 
+
+<h3><a class="anchor" name="setRequiresUserPrivacyConsent" href="#setRequiresUserPrivacyConsent"></a><code>setRequiresUserPrivacyConsent(required)</code></h3>
+
+
+Allows you to delay the initialization of the SDK until the user provides privacy consent.
+The SDK will not be fully initialized until the provideUserConsent(true) method is called.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      required</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="provideUserConsent" href="#provideUserConsent"></a><code>provideUserConsent(granted)</code></h3>
+
+
+If your application is set to require the user's privacy consent, you can provide this consent using this method.
+Until you call provideUserConsent(true), the SDK will not fully initialize and will not send any data to OneSignal.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      granted</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="userProvidedPrivacyConsent" href="#userProvidedPrivacyConsent"></a><code>userProvidedPrivacyConsent(callback)</code></h3>
+
+
+Accepts a callback, which returns a boolean variable indicating if the user has given privacy consent yet.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 
 

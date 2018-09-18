@@ -104,7 +104,25 @@ this.localNotifications.schedule({
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
+<h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+
+
+Informs if the app has the permission to show notifications.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
+
+
+Request permission to show notifications if not already granted.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
 
 
 
@@ -320,19 +338,76 @@ Checks if a notification is triggered
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getIds" href="#getIds"></a><code>getIds()</code></h3>
+</div><h3><a class="anchor" name="hasType" href="#hasType"></a><code>hasType(id,&nbsp;type)</code></h3>
 
 
-Get all the notification ids
-
+Check if a notification has a given type.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The ID of the notification.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The type of the notification.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getTriggeredIds" href="#getTriggeredIds"></a><code>getTriggeredIds()</code></h3>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="getType" href="#getType"></a><code>getType(id)</code></h3>
 
 
-Get the ids of triggered notifications
+Get the type (triggered, scheduled) for the notification.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The ID of the notification.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getIds" href="#getIds"></a><code>getIds()</code></h3>
+
+
+Get all the notification ids
 
 
 <div class="return-value" markdown="1">
@@ -347,6 +422,15 @@ Get the ids of scheduled notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="getTriggeredIds" href="#getTriggeredIds"></a><code>getTriggeredIds()</code></h3>
+
+
+Get the ids of triggered notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
 </div><h3><a class="anchor" name="get" href="#get"></a><code>get(notificationId)</code></h3>
 
 
@@ -376,6 +460,15 @@ Get a notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
+</div><h3><a class="anchor" name="getAll" href="#getAll"></a><code>getAll()</code></h3>
+
+
+Get all notification objects
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
 </div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled(notificationId)</code></h3>
 
 
@@ -434,51 +527,6 @@ Get a triggered notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getAll" href="#getAll"></a><code>getAll()</code></h3>
-
-
-Get all notification objects
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllScheduled" href="#getAllScheduled"></a><code>getAllScheduled()</code></h3>
-
-
-Get all scheduled notification objects
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllTriggered" href="#getAllTriggered"></a><code>getAllTriggered()</code></h3>
-
-
-Get all triggered notification objects
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
-
-
-Request permission to show notifications if not already granted.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
-
-
-Informs if the app has the permission to show notifications.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
 </div><h3><a class="anchor" name="addActions" href="#addActions"></a><code>addActions(groupId,&nbsp;actions)</code></h3>
 
 
@@ -599,6 +647,24 @@ Overwrites the (platform specific) default settings.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getAllScheduled" href="#getAllScheduled"></a><code>getAllScheduled()</code></h3>
+
+
+Get all scheduled notification objects
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getAllTriggered" href="#getAllTriggered"></a><code>getAllTriggered()</code></h3>
+
+
+Get all triggered notification objects
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
 </div><h3><a class="anchor" name="on" href="#on"></a><code>on(eventName)</code></h3>
 
 

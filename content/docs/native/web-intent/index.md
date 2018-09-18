@@ -140,6 +140,18 @@ Convenience constant for actions
 Convenience constant for actions
 
 
+<h3><a class="anchor" name="ACTION_INSTALL_PACKAGE" href="#ACTION_INSTALL_PACKAGE"></a><code>ACTION_INSTALL_PACKAGE</code></h3>
+
+
+Convenience constant for actions
+
+
+<h3><a class="anchor" name="ACTION_UNINSTALL_PACKAGE" href="#ACTION_UNINSTALL_PACKAGE"></a><code>ACTION_UNINSTALL_PACKAGE</code></h3>
+
+
+Convenience constant for actions
+
+
 <h3><a class="anchor" name="startActivity" href="#startActivity"></a><code>startActivity(options)</code></h3>
 
 

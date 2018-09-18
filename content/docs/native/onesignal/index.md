@@ -149,12 +149,6 @@ this.oneSignal.endInit();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="OSInFocusDisplayOption" href="#OSInFocusDisplayOption"></a><code>OSInFocusDisplayOption</code></h3>
-
-constants to use in inFocusDisplaying()
-
-
-
 <h3><a class="anchor" name="startInit" href="#startInit"></a><code>startInit(appId,&nbsp;googleProjectNumber)</code></h3>
 
 

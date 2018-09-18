@@ -714,6 +714,33 @@ The higher the value the more information is shown.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="setLocationShared" href="#setLocationShared"></a><code>setLocationShared(shared)</code></h3>
+
+
+
+
+Disable or enable location collection (Defaults to enabled) if your app has location permission.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      shared</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="addPermissionObserver" href="#addPermissionObserver"></a><code>addPermissionObserver()</code></h3>
 
 

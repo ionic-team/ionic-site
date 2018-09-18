@@ -106,7 +106,29 @@ this.email.open({
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code></h3>
+<h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+
+
+
+
+Checks if the app has a permission to access email accounts information
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
+
+
+
+
+Request permission to access email accounts information
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
+</div><h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code></h3>
 
 
 Verifies if sending emails is supported on the device.
@@ -136,67 +158,7 @@ Verifies if sending emails is supported on the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
-</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
-
-
-
-
-Request permission to access email accounts information
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
-
-
-
-
-Checks if the app has a permission to access email accounts information
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the permission was granted
-</div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code></h3>
-
-
-Adds a new mail app alias.
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      alias</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The alias name</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      packageName</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The package name</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="open" href="#open"></a><code>open(options,&nbsp;scope)</code></h3>
+</div><h3><a class="anchor" name="open" href="#open"></a><code>open(options,&nbsp;scope)</code></h3>
 
 
 
@@ -239,7 +201,45 @@ Displays the email composer pre-filled with data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the EmailComposer has been opened
-</div>
+</div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code></h3>
+
+
+Adds a new mail app alias.
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      alias</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The alias name</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      packageName</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The package name</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 
 

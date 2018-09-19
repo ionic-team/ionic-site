@@ -304,11 +304,11 @@
           padding: 7px 28px;
           min-width: 230px;
           transition: 0.2s color;
+        }
 
-          &:hover {
+        a:hover {
             background: transparent;
             color: $blue;
-          }
         }
 
         span {

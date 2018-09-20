@@ -102,6 +102,7 @@ and info about <a href="/docs/pro/deploy/api/#try-the-new-improved-deploy-plugin
 <!-- BEGIN v5 API -->
 
 * [configure](#configure)
+* [getConfiguration](#getconfiguration)
 * [sync](#sync)
 * [checkForUpdate](#checkforupdate)
 * [downloadUpdate](#downloadupdate)
@@ -154,7 +155,8 @@ console.log(info)
 // {
 //   'appId': 'abcd1234',
 //   'channel': 'MY_CHANNEL_NAME',
-//   'binaryVersion': 'X.X.X',
+//   'binaryVersionName': 'X.X.X',
+//   'binaryVersionCode': 'X.X.X', (string on iOS number on Android)
 //   'disabled': false,
 //   'updateMethod': 'auto',
 //   'maxVersions': 3,
@@ -616,7 +618,7 @@ ___
 ```js
 const info = await Pro.deploy.info()
 console.log(info)
-// { 
+// {
 //   'deploy_uuid': 'UUID_OF_ACTIVE_CODE',
 //   'channel': 'CHANNEL_NAME',
 //   'binary_version': 'X.X.X'
@@ -794,7 +796,9 @@ ___
 ### ConfigurationInfo
 
 #### Properties
-* `binaryVersion` `<string>` - The binary version of the native bundle.
+* `binaryVersion` `<string>` - **deprecated** in favor of `binaryVersionName`. The versionName on Android or CFBundleShortVersionString on iOS this is the end user readable version listed on the stores.
+* `binaryVersionName` `<string>` - The versionName on Android or CFBundleShortVersionString on iOS this is the end user readable version listed on the stores.
+* `binaryVersionCode` `<string(iOS)|number(Android)>` -The versionCode on Android or CFBundleVersion on iOS this should be changed every time you do a new build.
 * `channel` `<string>` - The channel name the device is currently configured to check for updates on.
 * `disabled` `<boolean>` - Whether the deploy updates are disabled or not.
 * `updateMethod` `<'none' | 'auto' | 'background'>` - The currently configured updateMethod for the plugin.

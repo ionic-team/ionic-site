@@ -70,6 +70,20 @@
     "image": "danielle.jpg"
   },
   {
+    "name":"Derek Wilson",
+    "dept":"Sales",
+    "description": null,
+    "twitter": null,
+    "image": "derek.jpg"
+  },
+  {
+    "name":"Elizabeth Powers",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": null,
+    "image": "elizabeth.jpg"
+  },
+  {
     "name":"Ely Lucas",
     "dept":"Development",
     "description":"Nestled at the base of the Colorado mountains, Ely is a software developer that fell in love with the web ${years} years ago and never looked back.  Most of his “off” time is spent enjoying time with his four kids, wife, and dog, but in that off chance he gets a free moment, he loves learning new tech and sharing at local meet ups and tech conferences.  And in the rarest of free moments, he tries to get outdoors and enjoy that great Colorado sunshine.",
@@ -96,13 +110,6 @@
     "description":"A boy has no bio",
     "twitter":"jcesarmobile",
     "image": "julio.jpg"
-  },
-  {
-    "name":"Justin Willis",
-    "dept":"Development",
-    "description":"Musician turned programmer, when not responding to the awesome Ionic community on Github, talking all things Ionic on Twitter or generally helping with Ionic development, you can probably find Justin spending time with his girlfriend, playing Assassins Creed, drinking unhealthy amounts of Mountain Dew, sharing food with his dog and developing Ionic apps!",
-    "twitter":"justinwillis96",
-    "image": "justin.jpg"
   },
   {
     "name":"Ken Sodemann",
@@ -175,13 +182,6 @@
     "image": "max.jpg"
   },
   {
-    "name":"Max Rahder",
-    "dept":"Customer Success",
-    "description":"As a member of the Ionic Enterprise team, Max writes courseware and holds training classes. A long-time programmer (from COBOL to Java, and everything in-between), for the last 10 years Max has loved specializing in Javascript and front-end development. On weekends, you can find Max walking or biking around Madison, or sailing on Lake Mendota.",
-    "twitter":"MaxRahder",
-    "image": "max-rahder.jpg"
-  },
-  {
     "name":"Michael Kipnis",
     "dept":"VP of Customer Success",
     "description":null,
@@ -208,6 +208,13 @@
     "description":"Be it code, places, gadgets, food, or conversation, Perry loves to explore it all. While AFK he's probably biking around Madison, spending time with his wife and son, \"refactoring\" his house, building something in his backyard, talking politics, or pretending to be an urban farmer.",
     "twitter":"perrygovier",
     "image": "perry.jpg"
+  },
+  {
+    "name":"Rachel Brown",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": "rachelanjali",
+    "image": "rachel.jpg"
   },
   {
     "name":"Rudy Pelrine",

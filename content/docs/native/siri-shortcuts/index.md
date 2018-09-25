@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Siri Shortcuts<span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/siri-shortcuts/index.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/siri-shortcuts/index.ts#L17">
   Improve this doc
 </a>
 
@@ -29,7 +29,7 @@ docType: "class"
 
 
 
-<p>This plugin only works when your app is built with XCode 10 Beta. Shortcuts will only appear on iOS-versions &gt;= 12.0</p>
+<p>This plugin only works when your app is built with XCode 10. Shortcuts will only appear on iOS-versions &gt;= 12.0</p>
 <p>This plugin enables the use of Siri shortcuts in Cordova. Siri Shortcuts enable the user to perform certain actions by adding them to Siri.
 After you have donated a shortcut to Siri, it will appear in the settings menu, after which the user is able to add the action. You can check
 whether the user launched your app through a shortcut by calling <code>getActivatedShortcut()</code> when the app is resumed. It will return <code>null</code>
@@ -347,11 +347,42 @@ Remove all shortcuts from the application
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Promise<void>
 
-</div><h3><a class="anchor" name="getActivatedShortcut" href="#getActivatedShortcut"></a><code>getActivatedShortcut()</code></h3>
+</div><h3><a class="anchor" name="getActivatedShortcut" href="#getActivatedShortcut"></a><code>getActivatedShortcut(options,&nbsp;options.clear)</code></h3>
 
 
 Get the current clicked user activity, and return `null` if none
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>ActivatedShortcutOptions</code>|<code>null</code>
+    </td>
+    <td>
+      <p>Options to specify for getting the shortcut</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      options.clear</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Clear the currently activated shortcut, defaults to true</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -459,6 +490,35 @@ Get the current clicked user activity, and return `null` if none
   <tr>
     <td>
       isEligibleForPrediction
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="ActivatedShortcutOptions" href="#ActivatedShortcutOptions"></a>ActivatedShortcutOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      clear
     </td>
     <td>
       <code>boolean</code>

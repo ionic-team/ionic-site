@@ -127,7 +127,7 @@ Force keyboard to be shown.
 
 
 
-<h3><a class="anchor" name="setResizeMode" href="#setResizeMode"></a><code>setResizeMode()</code></h3>
+<h3><a class="anchor" name="setResizeMode" href="#setResizeMode"></a><code>setResizeMode(mode)</code></h3>
 
 
 
@@ -136,8 +136,26 @@ Force keyboard to be shown.
 
 
 Programmatically set the resize mode
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      mode</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 <h3><a class="anchor" name="onKeyboardShow" href="#onKeyboardShow"></a><code>onKeyboardShow()</code></h3>
 

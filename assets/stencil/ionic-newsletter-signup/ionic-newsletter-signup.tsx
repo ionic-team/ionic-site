@@ -23,19 +23,27 @@ export class IonicNewsletterSignup {
 
   handleSubmit(e) {
     e.preventDefault();
+    const email = this.email;
     this.isLoading = true;
     var xhr = new XMLHttpRequest();   // new HttpRequest instance
     xhr.open("POST", "/api/v1/newsletter");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
-      console.log(xhr)
       if (xhr.readyState === 4 && xhr.status === 200) {
           this.isLoading = false;
           var json = JSON.parse(xhr.responseText);
           this.hasSubmitted = json.ok;
       }
+      this.huspotIdentify(email);
     };
     xhr.send(JSON.stringify({ email: this.email}));
+  }
+
+  huspotIdentify(email: string) {
+    const _hsq = window['_hsq'] = window['_hsq'] || [];
+    _hsq.push(["identify",{
+      email: email
+    }]);
   }
 
   getFormClass() {

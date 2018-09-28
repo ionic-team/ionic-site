@@ -40,7 +40,6 @@ export class IonicNewsletterSignup {
   }
 
   hubspotIdentify(email: string) {
-    console.log('tracking')
     const _hsq = window['_hsq'] = window['_hsq'] || [];
     _hsq.push(["identify",{
       email: email

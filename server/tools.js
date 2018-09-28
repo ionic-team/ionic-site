@@ -225,7 +225,7 @@ module.exports = {
 
   // HubSpot
   saveEmailHubSpot: (opts) => {
-    return hs.contacts.create({
+    return hs.contacts.createOrUpdate(opts.email, {
       "properties": [
         {
           "property": "email",

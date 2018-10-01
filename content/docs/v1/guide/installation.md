@@ -167,7 +167,7 @@ If you chose to emulate on Android, be patient as this takes several minutes as 
 
 The emulator takes a LONG time to boot. After about 5 or 10 minutes, you should see the default Cordova app running in the emulator:
 
-<img src="https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
+<img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/1-emulator.jpg" alt="Android Emulator">
 </p>
 <p>
 Of course, you can always test directly on the device, and that is the recommended way to develop on Android due to the slow emulator. To do that,

@@ -35132,7 +35132,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
  * hitting escape on the keyboard for desktop testing.
  *
- * ![Action Sheet](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
+ * ![Action Sheet](https://s3.amazonaws.com/ionicframework.com/docs/v1/controllers/actionSheet.gif)
  *
  * @usage
  * To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:
@@ -42636,7 +42636,7 @@ IonicModule
  * links and buttons within `ion-side-menu` content, so that when the element is
  * clicked then the opened side menu will automatically close.
  *
- * ![Side Menu](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
+ * ![Side Menu](https://s3.amazonaws.com/ionicframework.com/docs/v1/controllers/sidemenu.gif)
  *
  * For more information on side menus, check out:
  *
@@ -42703,7 +42703,7 @@ IonicModule
  * @description
  * The Slide Box is a multi-page container where each page can be swiped or dragged between:
  *
- * ![SlideBox](https://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
+ * ![SlideBox](https://s3.amazonaws.com/ionicframework.com/docs/v1/controllers/slideBox.gif)
  *
  * @usage
  * ```html

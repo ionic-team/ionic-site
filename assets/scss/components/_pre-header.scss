@@ -21,6 +21,10 @@
     }
   }
 
+  #optimizely {
+    transition: .2s opacity;
+  }
+
   strong {
     font-weight: 600;
   }

@@ -23,10 +23,6 @@
 
   #optimizely {
     transition: .2s opacity;
-
-    &.optimize-loading {
-      transition-duration: 0s;
-    }
   }
 
   strong {

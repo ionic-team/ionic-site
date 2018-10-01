@@ -92,8 +92,7 @@ window.c = function(cat, lbl, el, val) {
     eventValue: val,
     hitCallback: function() {
       if (!!el) {
-        console.log(!!el, el)
-        //document.location = el.href;
+        document.location = el.href;
       };
     }
   });

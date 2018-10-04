@@ -105,18 +105,8 @@
       box-sizing: border-box;
     }
 
-    .form-columns-2 .hs-input {
-      // width: 90%;
-    }
-
     .form-columns-1 .input {
-      // width: 100%;
-      // max-width: 100%;
       margin-right: 0;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      // max-width: 100%;
     }
   }
 

@@ -73,7 +73,7 @@
     @include box;
     margin-bottom: 50px;
     margin-top: -40px;
-    min-width: 630px;
+    // min-width: 630px;
     padding: 64px 64px 24px;
 
     form {
@@ -89,13 +89,34 @@
       }
     }
 
+    .hs-form-required {
+      position: absolute;
+      pointer-events: none;
+    }
+
     button {
       float: none;
       margin-top: 0;
     }
 
-    @media (max-width: $screen-sm-max) {
+    .hs-input {
+      width: 100%;
       max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .form-columns-2 .hs-input {
+      // width: 90%;
+    }
+
+    .form-columns-1 .input {
+      // width: 100%;
+      // max-width: 100%;
+      margin-right: 0;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      // max-width: 100%;
     }
   }
 
@@ -151,18 +172,18 @@
     }
   }
 
-  textarea,
-  .form-control,
-  .select-wrapper {
-    margin-bottom: 12px;
-    margin-right: 0;
-  }
+  // textarea,
+  // .form-control,
+  // .select-wrapper {
+  //   margin-bottom: 12px;
+  //   margin-right: 0;
+  // }
 
-  form > .form-control {
-    width: 49%;
+  // form > .form-control {
+  //   width: 49%;
 
-    @media (max-width: 520px) {
-      width: 100%;
-    }
-  }
+  //   @media (max-width: 520px) {
+  //     width: 100%;
+  //   }
+  // }
 }

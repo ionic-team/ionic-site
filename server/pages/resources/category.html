@@ -2,7 +2,11 @@
 {% set id = 'resource-center' %}
 {% import "_includes/macros.html" as macros %}
 {% set header_style = 'transparent light' %}
-{% set title = 'Ionic Resources: eBooks, Articles, Case Studies and Webinars' %}
+{% if resources.resources[currentCategory].meta %}
+  {% set title = resources.resources[currentCategory].meta %}
+{% else %}
+  {% set title = 'Ionic Resources: eBooks, Articles, Case Studies and Webinars' %}
+{% endif %}
 
 {% block main %}
 

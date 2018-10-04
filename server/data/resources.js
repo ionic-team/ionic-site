@@ -171,6 +171,7 @@ const resources = {
   "webinars": {
     title: "Webinars",
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
+    meta: "Ionic Resources: Webinars for developers and architects",
     items: [
       {
         "type": "Webinar",

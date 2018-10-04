@@ -1,10 +1,10 @@
 [
   {
-    "slug":"arctic-empire",
-    "name":"Arctic Empire",
+    "slug":"arctic-leaf",
+    "name":"Arctic Leaf",
     "short-description":"specializes in cross-platform Ionic apps with an emphasis on user-experience, long-term engagement & fluid design for startups and enterprises.",
-    "long-description":"<p>With our grassroots in game development and user-interface design, Arctic Empire is no stranger to producing original, cutting-edge mobile products for a variety of local and international clients.</p><p>Since our inception in 2010, Arctic Empire has gone on to build over 50 amazing cross-platform mobile applications with a share of those apps developed in Ionic Frameworks.</p><p>From tax filing to crowdfunding, including integrations with push notifications, analytics, social media authentication and more, our dedicated team of developers have the insight and know-how to produce expertly crafted mobile experiences that will resonate with your audience!</p><p>We pride ourselves on bringing businesses from start-up to enterprise with our expertise in design, development, and digital marketing.",
-    "address":"75 Albert St #207<br>Ottawa, ON, K1P 5E7",
+    "long-description":"<p>With our grassroots in game development and user-interface design, Arctic Empire is no stranger to producing original, cutting-edge mobile products for a variety of local and international clients.</p><p>Since our inception in 2010, Arctic Leaf has gone on to build over 50 amazing cross-platform mobile applications with a share of those apps developed in Ionic Frameworks.</p><p>From tax filing to crowdfunding, including integrations with push notifications, analytics, social media authentication and more, our dedicated team of developers have the insight and know-how to produce expertly crafted mobile experiences that will resonate with your audience!</p><p>We pride ourselves on bringing businesses from start-up to enterprise with our expertise in design, development, and digital marketing.",
+    "address":"400 Cooper #501<br>Ottawa, ON, K2P 2H8",
     "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
     "coordinates":[27,34],
     "company-size": "11-50"

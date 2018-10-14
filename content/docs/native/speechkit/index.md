@@ -61,7 +61,8 @@ $ npm install --save @ionic-native/speechkit
 constructor(private speechkit: SpeechKit) { }
 
 
-this.speechkit.tts(&#39;Text to be read out loud&#39;, &#39;ENG-GBR&#39;).then(
+// find voice names that match language from: https://developer.nuance.com/public/index.php?task=supportedLanguages
+this.speechkit.tts(&#39;Text to be read out loud&#39;, &#39;ENG-GBR&#39;, &#39;Serena&#39;).then(
   (msg) =&gt; { console.log(msg); },
   (err) =&gt; { console.log(err); }
 );

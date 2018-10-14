@@ -76,7 +76,16 @@ this.keyboard.hide();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="hideFormAccessoryBar" href="#hideFormAccessoryBar"></a><code>hideFormAccessoryBar(hide)</code></h3>
+<h3><a class="anchor" name="isVisible" href="#isVisible"></a><code>isVisible</code></h3>
+
+
+Check keyboard status visible or not.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>boolean</code> 
+</div><h3><a class="anchor" name="hideFormAccessoryBar" href="#hideFormAccessoryBar"></a><code>hideFormAccessoryBar(hide)</code></h3>
 
 
 

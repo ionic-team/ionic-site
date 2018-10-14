@@ -61,19 +61,27 @@ $ npm install --save @ionic-native/apple-wallet
 
 constructor(private appleWallet: AppleWallet) { }
 
+
 ...
 
 
+// Simple call to check whether the app can add cards to Apple Pay.
 this.appleWallet.available()
  .then((res) =&gt; {
-   // res is a boolean value, either true or false
-   console.log(&quot;Is Apple Wallet available? &quot;, res);
+   // Apple Wallet is enabled and a supported card is setup. Expect:
+   // boolean value, true or false
   })
  .catch((message) =&gt; {
-   console.error(&quot;ERROR AVAILBLE&gt;&gt; &quot;, message);
+   // Error message while trying to know if device is able to add to wallet
  });
 
+
 ...
+
+
+// Simple call with the configuration data needed to instantiate a new PKAddPaymentPassViewController object.
+// The encryption scheme, cardholder name, and primary account suffix are required for configuration.
+// The configuration information is used for setup and display only. It should not contain any sensitive information.
 
 let data: cardData = {
    cardholderName: &#39;Test User&#39;,
@@ -84,13 +92,31 @@ let data: cardData = {
 
 this.appleWallet.startAddPaymentPass(data: cardData)
  .then((res) =&gt; {
-   console.log(&quot;startAddPaymentPass success response &quot;, res);
+   // User proceed and successfully asked to add card to his wallet
+   // Use the callback response JSON payload to complete addition process
   })
  .catch((err) =&gt; {
-   console.error(&quot;startAddPaymentPass ERROR response&quot;, err);
+   // Error or user cancelled.
  });
 
+// You should expect the callback success response to be as follow
+
+ // {
+ //  data: {
+ //    &quot;certificateSubCA&quot;: &quot;Base64 string represents certificateSubCA&quot;,
+ //    &quot;certificateLeaf&quot;:&quot; Base64 string represents certificateLeaf&quot;
+ //    &quot;nonce&quot;: &quot;Base64 string represents nonce&quot;,
+ //    &quot;nonceSignature&quot;: &quot;Base64 string represents nonceSignature&quot;,
+ //   }
+ // }
+
+// This method provides the data needed to create an add payment request.
+// Pass the certificate chain to the issuer server. The server returns an encrypted JSON file containing the card data.
+// After you receive the encrypted data, pass it to completeAddPaymentPass method
+
+
 ...
+
 
 let data: encryptedCardData = {
    activationData: &#39;encoded Base64 activationData from your server&#39;,
@@ -100,10 +126,12 @@ let data: encryptedCardData = {
 
 this.appleWallet.encryptedCardData(data: encryptedCardData)
  .then((res) =&gt; {
-   console.log(&quot;completeAddCardToAppleWallet success response &quot;, res);
+   // callback success response means card has been added successfully,
+   // PKAddPaymentPassViewController will be dismissed
   })
  .catch((err) =&gt; {
-   console.error(&quot;completeAddCardToAppleWallet ERROR response&quot;, err);
+   // Error and can not add the card, or something wrong happend
+   // PKAddPaymentPassViewController will be dismissed
  });
 </code></pre>
 

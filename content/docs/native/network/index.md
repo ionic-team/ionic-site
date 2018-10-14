@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Network</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L22">
   Improve this doc
 </a>
 
@@ -96,6 +96,12 @@ connectSubscription.unsubscribe();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="Connection" href="#Connection"></a><code>Connection</code></h3>
+
+Constants for possible connection types
+
+
+
 <h3><a class="anchor" name="type" href="#type"></a><code>type</code></h3>
 
 

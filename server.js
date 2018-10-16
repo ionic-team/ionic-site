@@ -28,7 +28,6 @@ if (config.REDIS_URL) {
   })
 }
 
-
 process.env.PWD = process.cwd();
 
 console.log('PWD', process.env.PWD);

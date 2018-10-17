@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">AdMob Free</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-free/index.ts#L64">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L8">
   Improve this doc
 </a>
 
@@ -23,13 +23,12 @@ docType: "class"
 
 
 
-<p>A free, no ad-sharing version of Google AdMob plugin for Cordova.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-admob-free</code>. For more info, please see the <a href="https://github.com/ratson/cordova-plugin-admob-free">AdMob Free plugin docs</a>.</p>
+<p>AdMob Plus is the successor of cordova-plugin-admob-free, which provides a cleaner API and build with modern tools.</p>
 
 
 <p>Repo:
-  <a href="https://github.com/ratson/cordova-plugin-admob-free">
-    https://github.com/ratson/cordova-plugin-admob-free
+  <a href="">
+    
   </a>
 </p>
 
@@ -37,8 +36,8 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-admob-free
-$ npm install --save @ionic-native/admob-free
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-admob-plus
+$ npm install --save @ionic-native/admob-plus
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -46,7 +45,41 @@ $ npm install --save @ionic-native/admob-free
 
 
 
-<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
+
+
+
+
+
+
+
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>

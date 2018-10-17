@@ -3,11 +3,17 @@ const ab       = require('express-ab');
 const bp       = require('body-parser');
 const markdown = require('./markdown');
 const es       = require('express-sanitizer');
+const { join } = require('path');
 
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
+const integrations = require('./data/integrations');
+
+function send404(res) {
+  res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
+}
 
 module.exports = function router(app) {
 
@@ -50,6 +56,15 @@ module.exports = function router(app) {
   .post('/go/why-hybrid', (_, res) => { res.render('go/why-hybrid/thank-you'); })
   .get('/go/why-hybrid/thank-you', (_, res) => { res.render('go/why-hybrid/thank-you'); })
 
+  .get('/integrations', (_, res) => { res.render('integrations/index'); })
+  .get('/integrations/logo/:integration.png', (req, res) => { 
+    const integration = integrations.find(i => i.id === req.params.integration);
+    integration ? res.sendFile(integration.img.path) : send404(res);
+  })
+  .get('/integrations/:integration', (req, res) => { 
+    const integration = integrations.find(i => i.id === req.params.integration)
+    integration ? res.render('integrations/detail', {integration}) : send404(res)
+  })
   .get('/jobs', (_, res) => { res.render('jobs'); })
   .get('/press', (_, res) => { res.render('press'); })
   .get('/pro/pricing', (_, res) => { res.render('pro/pricing'); })

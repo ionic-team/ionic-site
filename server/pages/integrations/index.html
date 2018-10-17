@@ -1,0 +1,12 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'integrations' %}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+{% for i in integrations %}
+  <h1>{{ i.name }}</h1>
+  <img src="{{i.img.url}}" width="100"/>
+  <pre><code>{{ i|dump(2) }}</pre><code>
+  <hr>
+{% endfor %}
+{% endblock %}

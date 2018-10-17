@@ -469,64 +469,6 @@ Get all notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled(notificationId)</code></h3>
-
-
-Get a scheduled notification object
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      notificationId</td>
-    <td>
-      <code>any</code>
-    </td>
-    <td>
-      <p>The id of the notification to get</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getTriggered" href="#getTriggered"></a><code>getTriggered(notificationId)</code></h3>
-
-
-Get a triggered notification object
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      notificationId</td>
-    <td>
-      
-    </td>
-    <td>
-      <p>The id of the notification to get</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
 </div><h3><a class="anchor" name="addActions" href="#addActions"></a><code>addActions(groupId,&nbsp;actions)</code></h3>
 
 
@@ -647,19 +589,19 @@ Overwrites the (platform specific) default settings.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getAllScheduled" href="#getAllScheduled"></a><code>getAllScheduled()</code></h3>
+</div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled()</code></h3>
 
 
-Get all scheduled notification objects
+List of all scheduled notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllTriggered" href="#getAllTriggered"></a><code>getAllTriggered()</code></h3>
+</div><h3><a class="anchor" name="getTriggered" href="#getTriggered"></a><code>getTriggered()</code></h3>
 
 
-Get all triggered notification objects
+List of all triggered notifications
 
 
 <div class="return-value" markdown="1">

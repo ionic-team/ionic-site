@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">RewardVideo</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L47">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L49">
   Improve this doc
 </a>
 

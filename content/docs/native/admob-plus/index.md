@@ -4,16 +4,16 @@ version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "interstitial"
-title: "Interstitial"
+id: "admob-plus"
+title: "AdMob Plus"
 header_sub_title: "Class in module "
-doc: "Interstitial"
+doc: "AdMob Plus"
 docType: "class"
 ---
 
-<h1 class="api-title">Interstitial</h1>
+<h1 class="api-title">AdMob Plus</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L32">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L8">
   Improve this doc
 </a>
 
@@ -23,11 +23,12 @@ docType: "class"
 
 
 
+<p>AdMob Plus is the successor of cordova-plugin-admob-free, which provides a cleaner API and build with modern tools.</p>
 
 
 <p>Repo:
-  <a href="">
-    
+  <a href="https://github.com/admob-plus/admob-plus">
+    https://github.com/admob-plus/admob-plus
   </a>
 </p>
 
@@ -44,6 +45,11 @@ $ npm install --save @ionic-native/admob-plus
 
 
 
+<h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
 
 
 
@@ -56,7 +62,7 @@ $ npm install --save @ionic-native/admob-plus
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="load" href="#load"></a><code>load()</code></h3>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 

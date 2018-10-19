@@ -3,27 +3,33 @@ $(document).ready(function() {
   var $searchResultsDiv = $('#search-results');
   var activeSearchInputPos;
 
+  // don't even try to load this on a non-docs page
+  if (!$searchInput.length) return;
+
   setTimeout(function() {
     // check if there if there is recent search data in local storage
-    // try {
-    //   var localData = JSON.parse(localStorage.getItem('v2-search-index'));
-    //   if (localData && (localData.ts + 86400000) > Date.now()) {
-    //     searchReady(localData);
-    //     return;
-    //   }
-    // } catch (e) {}
+    var usingLocal = false;
+    try {
+      var localData = JSON.parse(localStorage.getItem('v2-search-index'));
+      if (localData && (localData.ts + 86400000) > Date.now()) {
+        searchReady(localData);
+        usingLocal = true;
+        return;
+      }
+    } catch (e) {}
 
-    $.getJSON('/docs/data/index.json', function(requestData) {
-      searchReady(requestData);
-      setTimeout(function() {
-        try {
-          requestData.ts = Date.now();
-          localStorage.setItem('v2-search-index', JSON.stringify(requestData));
-        } catch (e) {}
-      }, 100);
-    });
-
-  }, 5);
+    if (!usingLocal) {
+      $.getJSON('/docs/data/index.json', function(requestData) {
+        searchReady(requestData);
+        setTimeout(function() {
+          try {
+            requestData.ts = Date.now();
+            localStorage.setItem('v2-search-index', JSON.stringify(requestData));
+          } catch (e) {}
+        }, 100);
+      });
+    }
+  }, 50);
 
   var debounce = function(fn) {
     var timeout;

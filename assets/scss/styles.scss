@@ -16,10 +16,6 @@
 @import 'vars';
 @import 'fonts';
 
-// Core variables and mixins
-@import 'bootstrap/variables';
-@import 'bootstrap/mixins';
-
 // Reset and dependencies
 @import 'bootstrap/normalize';
 @import 'bootstrap/print';
@@ -158,7 +154,7 @@
 @import 'pages/startups';
 @import 'pages/support';
 @import 'pages/surveys';
-@import 'pages/team';
+// @import 'pages/team';
 @import 'pages/trusted-partners';
 @import 'pages/values';
 @import 'pages/what-is-ionic';

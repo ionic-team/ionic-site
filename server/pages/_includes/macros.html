@@ -121,6 +121,14 @@
 </div>
 {% endmacro %}
 
+{% macro pageSpecificCSS(dev, page) %}
+  {% if dev %}
+    <link href="/css/pages/{{page}}.css" rel="stylesheet">
+  {% else %}
+    <link href="/css/pages/{{page}}.min.css" rel="stylesheet">
+  {% endif %}
+{% endmacro %}
+
 {% macro trustedPartner(tp) %}
 <li class="{{ tp.slug }}">
   <p><strong>{{ tp.name }}</strong> {{ tp['short-description'] }}</p>

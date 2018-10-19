@@ -80,9 +80,12 @@ function bustCacheAndReload(done) {
   });
 }
 
-gulp.task('styles:creator', function() {
+gulp.task('styles:others', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src('assets/scss/creator.scss')
+  var sassStream =  gulp.src([
+    'assets/scss/**/*.scss',
+    '!assets/scss/styles.scss'
+  ])
     .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
@@ -234,7 +237,7 @@ gulp.task('server:server', function() {
 
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
-gulp.task('server:creator', ['styles:creator'], bustCacheAndReload);
+gulp.task('server:creator', ['styles:others'], bustCacheAndReload);
 gulp.task('server:stencil', ['stencil'], bustCacheAndReload);
 
 gulp.task('server:js', ['js'], bustCacheAndReload);
@@ -446,7 +449,7 @@ gulp.task(
   [
     'styles:v1',
     'styles:v2',
-    'styles:creator',
+    'styles:others',
     'js',
     'docs.index',
     'stencil',

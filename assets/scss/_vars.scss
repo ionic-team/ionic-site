@@ -46,3 +46,7 @@ $navbar-default-link-active-bg: transparent;
 // $navbar-default-toggle-border-color;
 // $navbar-default-toggle-hover-bg;
 // $navbar-default-toggle-icon-bar-bg;
+
+// bootstrap variables and mixins
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';

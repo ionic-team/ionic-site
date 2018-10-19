@@ -33,3 +33,4 @@ linkchecker.html
 /assets/stencil/components.d.ts
 /content/js/stencil
 /.stencil
+content/css/p*

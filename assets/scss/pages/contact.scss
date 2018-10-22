@@ -82,14 +82,14 @@
         }
 
         h3 {
-          transform: translate3d(0, -100px, 0);
+          transform: translate3d(0, -92px, 0);
         }
       }
 
       h3 {
-        font-size: 16px;
+        font-size: 18px;
         position: absolute;
-        font-weight: 700;
+        font-weight: 600;
         top: 195px;
         left: 0;
         right: 0;
@@ -150,7 +150,7 @@
         line-height: 22px;
         margin-bottom: 3px;
         color: $dark-grey;
-        font-size: 13px;
+        font-size: 14px;
       }
 
       &:first-child a {
@@ -159,6 +159,8 @@
 
       .icon {
         font-size: 20px;
+        position: relative;
+        top: 2px;
       }
 
       .twitter { color: #5ea9dc; &:hover { color: lighten(#5ea9dc, 10); }}

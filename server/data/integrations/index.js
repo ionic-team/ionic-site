@@ -5,7 +5,7 @@ const marked = require('marked');
 const { join } = require('path')
 
 
-// combine  data and parse the descriptions of each integration
+// combine data and parse the descriptions of each integration
 const integrations = readdirSync(collectionDir)
   .filter(name => lstatSync(join(collectionDir, name)).isDirectory())
   .map(dirName => {
@@ -16,7 +16,6 @@ const integrations = readdirSync(collectionDir)
     data.id = dirName;
     data['long-description'] = data['direct-link'] ? 
       null : marked(readFileSync(join(currentDir, 'description.md')).toString());
-    console.log(__dirname)
     data.img = {
       path: join(__dirname, `${data.id}/logo.png`),
       url: `/integrations/logo/${data.id}.png`

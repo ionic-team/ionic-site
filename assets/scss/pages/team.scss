@@ -1,5 +1,4 @@
 @import '../vars';
-@import '../bootstrap/variables';
 
 #page-team {
   .navbar + .banner {
@@ -33,6 +32,7 @@
       background-size: cover;
       height: 436px;
       width: 100%;
+
       @media (max-width: $screen-xs-max)  {
         height: 290px;
       }

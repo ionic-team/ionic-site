@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-about {
   .navbar.transparent {
     + .banner {
@@ -19,7 +22,7 @@
 
       &.lg {
         font-size: 18px;
-        line-height: 34px;
+        line-height: 32px;
 
         &.light {
           font-size: 16px;
@@ -38,7 +41,7 @@
       .period {
         width: 190px;
         position: relative;
-        margin-bottom: 45px;
+        margin-bottom: 40px;
         opacity: 0;
         // transform: scale3d(.1,.1,1);
         transition: opacity .6s,
@@ -61,13 +64,15 @@
 
         h4 {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 600;
           margin-bottom: 5px;
         }
 
         p {
           font-size: 12px;
           line-height: 16px;
+          letter-spacing: 0;
+          color: #898989;
         }
 
         strong {
@@ -134,7 +139,7 @@
     p {
       color: rgba(white, .7);
       line-height: 1.8em;
-
+      font-size: 16px;
       strong,
       a {
         color: white;
@@ -150,7 +155,7 @@
     background-size: 1680px, 100%;
 
     .container {
-      padding-top: 90px;
+      padding-top: 64px;
       height: 470px;
     }
 
@@ -171,12 +176,12 @@
 
     h3 {
       color: white;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     p {
       color: $blue;
-      font-weight: 400;
+      font-weight: 500;
       text-decoration: none;
 
       a:hover {

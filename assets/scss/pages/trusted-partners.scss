@@ -63,7 +63,12 @@
           margin: 0 auto;
           font-size: 18px;
           font-family: $font-family-graphik;
-          
+          font-weight: 400;
+
+          b, strong {
+            font-weight: 600;
+          }
+
           a {
             color: rgba(white, .9);
             text-decoration: underline;
@@ -137,7 +142,6 @@
       p {
         line-height: 24px;
         max-width: 300px;
-        font-weight: 500;
         font-size: 14px;
         margin: 0 auto;
       }

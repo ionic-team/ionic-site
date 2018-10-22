@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-jobs {
   .navbar + .banner {
     background: #26708a no-repeat center top;
@@ -52,8 +55,9 @@
       margin: 95px auto 55px;
 
       p {
+        color: #5d636c;
         font-size: 18px;
-        line-height: 32px;
+        line-height: 28px;
         font-weight: 400;
       }
     }
@@ -191,6 +195,13 @@
 
     hgroup {
       padding: 90px 25px 70px;
+    }
+
+    hgroup p {
+      color: #5d636c;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
     }
 
     ul,

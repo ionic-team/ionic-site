@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-contact {
   .navbar + .banner {
     background: #6e4a71 no-repeat center top;
@@ -11,8 +14,11 @@
     padding-top: 80px;
     padding-bottom: 40px;
 
-    h3 {
-      font-weight: 500;
+    p {
+      color: #5d636c;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
     }
   }
 
@@ -76,14 +82,14 @@
         }
 
         h3 {
-          transform: translate3d(0, -110px, 0);
+          transform: translate3d(0, -100px, 0);
         }
       }
 
       h3 {
         font-size: 16px;
         position: absolute;
-        font-weight: 500;
+        font-weight: 700;
         top: 195px;
         left: 0;
         right: 0;

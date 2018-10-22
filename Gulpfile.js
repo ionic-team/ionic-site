@@ -246,7 +246,8 @@ gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
-  gulp.watch(['assets/scss/creator.scss'], ['server:creator']);
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], 
+    ['server:creator']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
   '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',

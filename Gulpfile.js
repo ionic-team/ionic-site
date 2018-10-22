@@ -1,7 +1,6 @@
 const gulp         = require('gulp');
 const $            = require('gulp-load-plugins')();
 const browserSync  = require('browser-sync');
-const cache        = require('gulp-cache');
 const cachebust    = require('gulp-cache-bust');
 const cleanCSS     = require('gulp-clean-css');
 const concat       = require('gulp-concat');
@@ -11,7 +10,6 @@ const es           = require('event-stream');
 const footer       = require('gulp-footer');
 const header       = require('gulp-header');
 const lib          = require('./assets/3rd-party-libs.json');
-const merge        = require('merge-stream');
 const minifyCss    = require('gulp-minify-css');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
@@ -91,7 +89,7 @@ gulp.task('styles:others', function() {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('content/css/'))
     .pipe(gulp.dest('_site/css/'))
@@ -112,7 +110,7 @@ gulp.task('styles:v2', function() {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(concat('styles.css'))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('content/css/'))
@@ -128,7 +126,7 @@ gulp.task('styles:v2', function() {
 gulp.task('styles:v1', function() {
   return gulp.src('content/scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
-    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(gulp.dest('content/css/'))
     .pipe(gulp.dest('_site/css/'))
     .pipe(minifyCss({
@@ -237,7 +235,7 @@ gulp.task('server:server', function() {
 
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
-gulp.task('server:creator', ['styles:others'], bustCacheAndReload);
+gulp.task('server:others', ['styles:others'], bustCacheAndReload);
 gulp.task('server:stencil', ['stencil'], bustCacheAndReload);
 
 gulp.task('server:js', ['js'], bustCacheAndReload);
@@ -245,9 +243,10 @@ gulp.task('server:js', ['js'], bustCacheAndReload);
 gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], 
-    ['server:creator']);
+  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], 
+    ['server:stylesv2']);
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', 
+    '!assets/scss/**/_*.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
   '!content/v1/**/*.*', '!content/2.*/**/*.*', '!content/3.{0,1,2,3,4}.*/**/*.*',
@@ -258,7 +257,10 @@ gulp.task('watch.max', ['server'], function() {
 gulp.task('watch', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
-  gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], 
+    ['server:stylesv2']);
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', 
+    '!assets/scss/**/_*.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',

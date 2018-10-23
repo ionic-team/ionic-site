@@ -1,0 +1,61 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'webinars' %}
+{% import "_includes/macros.html" as macros %}
+
+{% block main %}
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/webinars">Webinars</a></li>
+      <li><a href="/resources/webinars/{{webinar}}" class="active">Watch</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <strong>Ionic Webinar</strong>
+    <h1>How to build a PWA</h1>
+    <p>
+      Tuesday, Oct 12 @ 12PM CST | Hosted by <a target="_blank" 
+      href="https://twitter.com/mhartington">Mike Hartington</a>
+    </p>
+    <div class="cta-buttons">
+      <a class="btn white" href="">Watch Now</a>
+    </div>
+  </hgroup>
+</div>
+
+<main class="card">
+  <section>
+  
+  </section>
+  <aside>
+  
+  </aside>
+</main>
+
+<div class="container">
+  <div class="transitionBody">
+    <div class="transitionBody">
+      <section class="resource-list">
+        <div class="resource-list__header">
+          <h4>Featured Articles</h4>
+          <a class="pjxLink scrollTopLink" href="/resources/articles">See all</a>
+        </div>
+        <div class="resource-card-list resource-card-list--quarter">
+          {# {% for r in resources.sectionFeatured['articles'] %}
+            <div class="resource-card">
+              <div class="resource-card__inner">
+              {{ macros.resource(r) }}
+              </div>
+            </div>
+          {% endfor %} #}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{{ data | dump(2) }}
+{% endblock %}

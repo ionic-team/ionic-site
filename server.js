@@ -3,7 +3,6 @@ require('dotenv').config({silent: true});
 const express         = require('express');
 const app             = express();
 const compress        = require('compression');
-const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
 const expressNunjucks = require('express-nunjucks');
 const helmet          = require('helmet');
@@ -12,9 +11,13 @@ const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
 const tools           = require('./server/tools');
 
+const { prismicMiddleware } = require('./server/prismic');
+
+const { PORT, PROD, REDIS_URL } = require('./server/config');
+
 // rate limit POST requests
-if (config.REDIS_URL) {
-  var redis   = require('redis').createClient(config.REDIS_URL);
+if (REDIS_URL) {
+  var redis   = require('redis').createClient(REDIS_URL);
   var limiter = require('express-limiter')(app, redis);
 
   // rate limit POST requests
@@ -36,11 +39,12 @@ app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
+app.use(prismicMiddleware);
 app.use(processRequest);
 
 app.set('views', __dirname + '/server/pages');
 expressNunjucks(app, {
-  noCache: !config.PROD,
+  noCache: !PROD,
   autoescape: false
 });
 app.enable('etag');
@@ -54,8 +58,8 @@ app.use(express.static(process.env.PWD + '/_site/', {
 app.use(pageNotFound);
 
 // bind the app to listen for connections on a specified port
-app.listen(config.PORT, function() {
+app.listen(PORT, function() {
   // Render some console log output
-  console.log('Listening on port ' + config.PORT);
+  console.log('Listening on port ' + PORT);
   tools.bustCloudflareCache();
 });

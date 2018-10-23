@@ -4,6 +4,7 @@ const express         = require('express');
 const app             = express();
 const compress        = require('compression');
 const cookieParser    = require('cookie-parser');
+const dateFilter      = require('nunjucks-date-filter');
 const expressNunjucks = require('express-nunjucks');
 const helmet          = require('helmet');
 const pageNotFound    = require('./server/pageNotFound');
@@ -45,7 +46,10 @@ app.use(processRequest);
 app.set('views', __dirname + '/server/pages');
 expressNunjucks(app, {
   noCache: !PROD,
-  autoescape: false
+  autoescape: false,
+  filters: {
+    date: dateFilter
+  }
 });
 app.enable('etag');
 

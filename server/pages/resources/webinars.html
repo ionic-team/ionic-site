@@ -16,10 +16,11 @@
 <div class="cta gradient">
   <hgroup class="container">
     <strong>Ionic Webinar</strong>
-    <h1>How to build a PWA</h1>
+    <h1>{{data.title}}</h1>
     <p>
-      Tuesday, Oct 12 @ 12PM CST | Hosted by <a target="_blank" 
-      href="https://twitter.com/mhartington">Mike Hartington</a>
+      {{data.when|date('add', -5, 'hours')|date('dddd, MMM Do @ ha')}} CST | 
+      Hosted by <a target="_blank" href="https://twitter.com/mhartington">
+      Mike Hartington</a>
     </p>
     <div class="cta-buttons">
       <a class="btn white" href="">Watch Now</a>

@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-values {
   .navbar + .banner {
     background: #181830 no-repeat center top;
@@ -23,17 +26,18 @@
 
     dt {
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
       color: $blacker;
       position: relative;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      font-family: $font-family-eina;
 
       span {
-        font-weight: 800;
+        font-weight: 700;
         color: #d2d6db;
         position: absolute;
         left: -30px;
-        top: 2px;
+        top: 0px;
       }
     }
 
@@ -41,7 +45,7 @@
       color: #5d636c;
       font-size: 18px;
       line-height: 28px;
-      font-weight: 500;
+      font-weight: 400;
       margin-bottom: 90px;
     }
   }

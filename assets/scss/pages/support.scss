@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-support {
   .cta {
     background: #4192fe no-repeat center top;
@@ -17,8 +20,12 @@
       p {
         font-size: 16px;
         color: $darkish-grey;
-        font-weight: 500;
+        font-weight: 400;
       }
+    }
+
+    .container {
+      margin-top: 40px;
     }
   }
 
@@ -43,6 +50,7 @@
       display: inline-block;
       width: 365px;
       margin-bottom: 30px;
+      vertical-align: top;
 
       &:last-child {
         margin-right: 0;
@@ -121,15 +129,15 @@
         font-size: 16px;
         position: relative;
         letter-spacing: -.02em;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
       }
 
       p {
         color: $darkish-grey;
-        font-size: 13px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         position: relative;
-        line-height: 2em;
+        line-height: 1.4;
       }
     }
   }
@@ -149,10 +157,16 @@
 
       strong {
         color: white;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 30px;
       }
 
       p {
-        max-width: 680px;
+        font-size: 18px;
+        max-width: 650px;
         margin: 0 auto;
         color: rgba(white, .7);
 
@@ -164,6 +178,8 @@
       .btn.white {
         color: $blue;
         margin: 44px auto 5px;
+        font-weight: 700;
+        font-family: $font-family-eina;
       }
     }
   }

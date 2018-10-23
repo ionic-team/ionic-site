@@ -856,6 +856,8 @@
               color: $dark-grey;
               border-bottom: 2px solid transparent;
               transition: color 0.2s, border-color 0.2s;
+              font-family: $font-family-eina;
+              font-weight: 600;
 
               &:focus {
                 background: transparent;

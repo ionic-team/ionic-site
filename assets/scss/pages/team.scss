@@ -10,17 +10,20 @@
   }
 
   .made-of {
-    max-width: 530px;
+    max-width: 680px;
     width: 100%;
     margin: 80px auto 90px;
+    text-align: center;
 
     h3 {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
     p {
-      line-height: 34px;
-      font-weight: 500;
+      color: #5d636c;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
     }
   }
 
@@ -76,7 +79,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 100px;
+    padding-bottom: 60px;
 
     .employee {
       flex: 0 1 260px;
@@ -98,11 +101,11 @@
       }
 
       hgroup {
-        margin-top: 12px;
+        margin-top: 16px;
 
         h4 {
           font-size: 16px;
-          margin-bottom: 8px;
+          margin-bottom: 4px;
           font-weight: 600;
           color: $blackish;
         }
@@ -125,7 +128,7 @@
         p {
           font-size: 10px;
           color: #aaa;
-          font-weight: 700;
+          font-weight: 600;
           text-transform: uppercase;
           letter-spacing: .03em;
 
@@ -161,7 +164,7 @@
     background: no-repeat center top url('/img/team/see-openings-bg.jpg');
     background-size: cover;
     height: 260px;
-    padding-top: 87px;
+    padding-top: 65px;
 
     h3 {
       color: white;
@@ -169,8 +172,8 @@
 
     .btn.white {
       text-transform: none;
-      letter-spacing: .5px;
-      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-weight: 700;
       font-size: 14px;
       border-radius: 3px;
       padding: 16px 15px 14px;

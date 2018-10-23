@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 #page-developers {
   .cta {
     background: #111c30 no-repeat center top;
@@ -27,6 +30,7 @@
       }
 
       p {
+        font-size: 20px;
         max-width: 660px;
         margin: 0 auto;
       }
@@ -40,11 +44,12 @@
     max-width: 1030px;
 
     h2 {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 700;
       min-height: 24px;
       margin-bottom: 11px;
-          color: $blacker;
+      color: $blacker;
+      margin-top: 0;
     }
 
     .items {
@@ -114,8 +119,8 @@
 
         p {
           color: #727a87;
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 15px;
+          line-height: 22px;
           max-width: 410px;
           margin: 0 auto;
         }

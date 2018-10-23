@@ -77,13 +77,6 @@
     "image": "derek.jpg"
   },
   {
-    "name":"Elizabeth Powers",
-    "dept":"Marketing",
-    "description": null,
-    "twitter": null,
-    "image": "elizabeth.jpg"
-  },
-  {
     "name":"Ely Lucas",
     "dept":"Development",
     "description":"Nestled at the base of the Colorado mountains, Ely is a software developer that fell in love with the web ${years} years ago and never looked back.  Most of his “off” time is spent enjoying time with his four kids, wife, and dog, but in that off chance he gets a free moment, he loves learning new tech and sharing at local meet ups and tech conferences.  And in the rarest of free moments, he tries to get outdoors and enjoy that great Colorado sunshine.",
@@ -122,7 +115,6 @@
     "name":"Kevin Ports",
     "dept":"Frontend/Design",
     "description":"Kevin is a pixel wranglin man, helping out with design and front-end development at Ionic. When he’s not in the office he can probably be found playing a guitar or calling for Sasquatch deep in the Wisconsin Northwoods.",
-    "twitter":"kevinports",
     "image": "kevin.jpg"
   },
   {
@@ -180,13 +172,6 @@
     "description":null,
     "twitter":"maxlynch",
     "image": "max.jpg"
-  },
-  {
-    "name":"Michael Kipnis",
-    "dept":"VP of Customer Success",
-    "description":null,
-    "twitter":null,
-    "image": "michael.jpg"
   },
   {
     "name":"Mike Hartington",

@@ -35,6 +35,7 @@
 
   li {
     display: inline-block;
+    font-weight: 500;
   }
 
   .breadcrumbs {
@@ -71,6 +72,7 @@
       padding: 0;
       display: inline-block;
       margin-left: -1px;
+
 
       &:hover {
         color: rgba(white, .3);

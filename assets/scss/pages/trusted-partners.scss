@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
 @mixin tp-logos() {
   &.arctic-leaf { background-image: url('/img/trusted-partners/tp-logo-arctic-leaf.png'); }
   &.bendyworks { background-image: url('/img/trusted-partners/tp-logo-bendyworks.png'); }
@@ -58,7 +61,13 @@
         p {
           max-width: 650px;
           margin: 0 auto;
-          font-size: 14px;
+          font-size: 18px;
+          font-family: $font-family-graphik;
+          font-weight: 400;
+
+          b, strong {
+            font-weight: 600;
+          }
 
           a {
             color: rgba(white, .9);
@@ -79,11 +88,7 @@
         .btn.white {
           color: $blue;
           margin: 44px auto 5px;
-
-          strong {
-            color: $blue;
-            font-weight: 700;
-          }
+          font-weight: 700 !important;
         }
       }
     }
@@ -137,7 +142,6 @@
       p {
         line-height: 24px;
         max-width: 300px;
-        font-weight: 500;
         font-size: 14px;
         margin: 0 auto;
       }

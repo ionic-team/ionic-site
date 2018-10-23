@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+@import '../../mixins';
+
 #page-press {
   .navbar + .banner {
     background: #182949 no-repeat center top;
@@ -104,6 +108,7 @@
       font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: .1em;
+      color: #272a2f;
     }
 
     p {
@@ -131,9 +136,9 @@
 
     .nav-stacked {
       h4 {
-        font-size: 17px;
+        font-size: 14px;
         text-transform: uppercase;
-        letter-spacing: .05em;
+        letter-spacing: .08em;
         font-weight: 700;
         margin-top: 13px;
       }
@@ -142,9 +147,9 @@
         font-weight: 500;
         color: $blackish;
         font-size: 15px;
-        padding: 0;
-        margin: 19px 0 19px -1px;
-        border-right: 2px solid transparent;
+        padding: 0 0 0 8px;
+        margin: 19px 0 19px -10px;
+        border-left: 2px solid transparent;
         background: transparent !important;
         transition: color .2s, border-color .2s;
       }
@@ -153,7 +158,7 @@
       li a:hover,
       li a:active {
         color: $blue;
-        border-color: $blue;
+        border-color: rgba($blue, 0.6);
       }
     }
 
@@ -174,7 +179,7 @@
           padding-left: 102px;
           margin-top: 12px;
           margin-bottom: 43px;
-  
+
           &::before,
           &::after {
             background: url('/img/press/press-thumbnail.png') 0 0 no-repeat;
@@ -187,32 +192,34 @@
             top: 0;
             transition: .3s opacity;
           }
-  
+
           &::after {
             opacity: 0;
             background-position: 0 -72px;
           }
-  
+
           &:hover {
             &::before {
               // opacity: 0;
             }
-  
+
             &::after {
               opacity: 1;
             }
-  
+
             strong {
               color: $blue;
             }
           }
-  
+
           strong {
             color: #272a2f;
             font-size: 16px;
+            font-weight: 700;
+            font-family: $font-family-eina;
             transition: .3s color;
           }
-  
+
           time {
             color: #727a87;
             display: block;
@@ -221,12 +228,12 @@
             font-weight: 500;
             transition: .3s color;
           }
-  
+
           span {
             color: #727a87;
             display: block;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 28px;
             letter-spacing: -.004em;
             transition: .3s color;
@@ -244,11 +251,11 @@
           .nav-stacked {
           display: flex;
           justify-content: space-around;
-  
+
           h4 {
             margin-top: 25px;
           }
-  
+
           li.active a,
           li a:hover,
           li a:active {

@@ -25,7 +25,7 @@ async function getPrismic (req, res, type, uid, template) {
     const response = await api.getByUID(type, uid);
     // console.log(response.data);
     res.render(template, {data: response.data});
-  } catch {
+  } catch (e) {
     send404(res);
   }
 }

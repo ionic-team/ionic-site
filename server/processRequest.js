@@ -84,7 +84,7 @@ module.exports = function(req, res, next) {
   }
 
   // Setting default Page Vars
-  res.locals = {
+  res.locals = Object.assign({}, res.locals, {
     ...res.locals,
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
@@ -99,7 +99,7 @@ module.exports = function(req, res, next) {
     dev: req.get('host').indexOf('localhost') === 0,
     trustedPartners: shuffle(trustedPartners),
     frameworkInfo: frameworkInfo
-  };
+  });
 
   return next();
 };

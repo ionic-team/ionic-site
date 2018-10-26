@@ -17,17 +17,19 @@ function send404(res) {
   res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
 }
 
-async function getPrismic (req, res, type, uid, template) {
-  try {
-    const api = await Prismic.getApi(PRISMIC_ENDPOINT, {
+function getPrismic (req, res, type, uid, template) {
+  return new Promise((resolve, reject) => {
+    Prismic.getApi(PRISMIC_ENDPOINT, {
       req: req
+    })
+    .then(api => api.getByUID(type, uid))
+    .then(response => res.render(template, {data: response.data}))
+    .then(resolve)
+    .catch(e => {
+      send404(res);
+      reject(e);
     });
-    const response = await api.getByUID(type, uid);
-    // console.log(response.data);
-    res.render(template, {data: response.data});
-  } catch (e) {
-    send404(res);
-  }
+  });
 }
 
 module.exports = function router(app) {

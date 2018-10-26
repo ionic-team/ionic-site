@@ -12,7 +12,7 @@ const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
 const tools           = require('./server/tools');
 
-const { prismicMiddleware } = require('./server/prismic');
+const prismicMiddleware = require('./server/prismic');
 
 const { PORT, PROD, REDIS_URL } = require('./server/config');
 

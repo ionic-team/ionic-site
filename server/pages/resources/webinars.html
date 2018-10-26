@@ -1,5 +1,6 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'webinars' %}
+{% set cssPath = 'webinars' %}
 {% import "_includes/macros.html" as macros %}
 
 {% block main %}
@@ -8,7 +9,7 @@
     <ul class="left breadcrumbs">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/webinars">Webinars</a></li>
-      <li><a href="/resources/webinars/{{webinar}}" class="active">Watch</a></li>
+      <li>Watch</li>
     </ul>
   </div>
 </div>
@@ -18,22 +19,44 @@
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when|date('add', -5, 'hours')|date('dddd, MMM Do @ ha')}} CST | 
-      Hosted by <a target="_blank" href="https://twitter.com/mhartington">
-      Mike Hartington</a>
+      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST | 
+      Hosted by
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}" 
+           href="{{host.profile_link.url}}">
+          {{host.name}}
+        </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
+      {% endfor %} 
+      
     </p>
     <div class="cta-buttons">
-      <a class="btn white" href="">Watch Now</a>
+      <a class="btn sm white" href="{{data.watch_now_link.url}}">Watch Now</a>
     </div>
   </hgroup>
 </div>
 
-<main class="card">
-  <section>
-  
-  </section>
+<main class="card container">
+  <article>
+    {{PrismicDOM.RichText.asHtml(data.description)}}
+  </article>
   <aside>
-  
+    <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
+    {% for host in data.hosts %}
+      <a target="{{host.profile_link.target}}" 
+         href="{{host.profile_link.url}}">
+        <img src="{{host.photo.url}}" 
+             srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
+             atl="{{host.name}}">
+        <strong>{{host.name}}</strong>
+        <span>{{host.title}}</span>
+      </a>
+    {% endfor %} 
+
+    <div class="subscribe-cta">
+      <h3>Never miss a webinar!</h3>
+      <p>Subscribe to our newsletter for all the latest Ionic content.</p>
+      <a href="" class="btn lightblue">Subscribe now!</a>
+    </div>
   </aside>
 </main>
 
@@ -42,21 +65,23 @@
     <div class="transitionBody">
       <section class="resource-list">
         <div class="resource-list__header">
-          <h4>Featured Articles</h4>
-          <a class="pjxLink scrollTopLink" href="/resources/articles">See all</a>
+          <h4>Other Resources you might like</h4>
+          <a class="scrollTopLink" href="/resources/articles">
+            See all <ion-icon name="arrow-round-forward"></ion-icon>
+          </a>
         </div>
         <div class="resource-card-list resource-card-list--quarter">
-          {# {% for r in resources.sectionFeatured['articles'] %}
+          {% for r in resources.sectionFeatured['webinars'] %}
             <div class="resource-card">
               <div class="resource-card__inner">
               {{ macros.resource(r) }}
               </div>
             </div>
-          {% endfor %} #}
+          {% endfor %}
         </div>
       </section>
     </div>
   </div>
 </div>
-{{ data | dump(2) }}
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}

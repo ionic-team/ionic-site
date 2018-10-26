@@ -1,1 +1,70 @@
 @import '../vars';
+@import '../mixins';
+
+#page-webinars {
+  h1,
+  h2,
+  h3,
+  h4,
+  .btn {
+    font-family: $font-family-eina;
+  }
+
+  .cta {
+    background-color: #12223a;
+    background-image:
+      url('/img/resource-center/webinars/bg-header.jpg'),
+      linear-gradient(120deg, #4864ec, #84aff4);
+    background-size: cover, 100%;
+    background-position: 50% 50%;
+    margin-top: -138px;
+    padding-top: 138px;
+
+    hgroup {
+      padding-top: 76px;
+      max-width: 100%;
+    }
+
+    strong {
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .13em;
+    }
+
+    h1 {
+      font-size: 72px;
+      font-size: 56px;
+      margin-top: 22px;
+    }
+
+    p {
+      color: #d9e9fe;
+      margin-top: 19px;
+      font-size: 16px;
+    }
+
+    .btn {
+      text-transform: uppercase;
+      margin-top: 41px;
+      padding: 15px 25px 16px;
+      font-size: 15px;
+      letter-spacing: .11em;
+    }
+  }
+
+  .card {
+    @include box;
+    margin-top: -38px;
+    display: flex;
+
+    article {
+      flex-grow: 1;
+    }
+
+    aside {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

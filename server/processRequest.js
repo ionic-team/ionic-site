@@ -85,6 +85,7 @@ module.exports = function(req, res, next) {
 
   // Setting default Page Vars
   res.locals = {
+    ...res.locals,
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
     integrations: integrations,

@@ -47,9 +47,8 @@
         <a target="{{host.profile_link.target}}" 
            href="{{host.profile_link.url}}"
            class="host">
-          <img src="{{host.photo.url|replace('http:', 'https:')}}" 
-               srcset="{{host.photo['1x'].url|replace('http:', 'https:')}} 1x, 
-                       {{host.photo.url|replace('http:', 'https:')}} 2x"
+          <img src="{{host.photo.url}}" 
+               srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
                atl="{{host.name}}">
           <strong>{{host.name}}</strong>
           <span>{{host.title}}</span>

@@ -36,7 +36,7 @@ module.exports = {
   HUBSPOT_API_KEY: process.env.HUBSPOT_API_KEY || null,
 
   PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT || 
-    'http://ionicframeworkcom.prismic.io/api/v2'
+    'https://ionicframeworkcom.prismic.io/api/v2'
 };
 
 function bool(str) {

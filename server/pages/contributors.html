@@ -4,6 +4,7 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/ionic-framework-og.png'%}
 {% set meta_description = "The Ionic community has some of the best thoughts in the world. We wanted to help you share them with the developer community. Sign up to be a part of our guest contributors program." %}
 {% set header_style = 'transparent light' %}
+{% set stickyNav = true %}
 
 {% block main %}
 
@@ -128,8 +129,6 @@
 {% block scripts %}
 <script>
   (function() {
-    // enable sticky nav
-    stickyNav.init();
 
     // typed animation
     var isTyping = true;

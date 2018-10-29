@@ -2,6 +2,7 @@
 {% set title = 'Open Source Framework for Building Amazing Mobile Apps - Ionic Pro' %}
 {% set id = "framework" %}
 {% set meta_description = "Ionic is the top open source framework for app platform for web developers. Build amazing hybrid and native mobile, web, and desktop apps all with one shared code base and open web standards" %}
+{% set stickyNav = true %}
 
 {% block main %}
 <div id="slider" class="primary-row">
@@ -395,9 +396,6 @@
 {% block scripts %}
 <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script>
-
-// enable sticky nav
-stickyNav.init();
 
 // Grab fresh social data from GH and Twitter
 function digits(n){

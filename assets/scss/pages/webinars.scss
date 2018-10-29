@@ -216,6 +216,14 @@
       }
     }
 
+    ionic-newsletter-signup form {
+      max-width: 100%;
+
+      input {
+        min-width: 0;
+      }
+    }
+
     @media (max-width: $screen-sm-max) {
       flex: 0 0 100%;
     }

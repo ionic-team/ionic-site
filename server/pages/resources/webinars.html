@@ -2,6 +2,7 @@
 {% set id = 'webinars' %}
 {% set cssPath = 'webinars' %}
 {% import "_includes/macros.html" as macros %}
+{% set stickyNav = true %}
 
 {% block main %}
 <div class="sub-header">
@@ -58,7 +59,8 @@
       <div class="subscribe-cta">
         <h3>Never miss a webinar!</h3>
         <p>Subscribe to our newsletter for all the latest Ionic content.</p>
-        <a href="" class="btn sm lightblue">Subscribe now!</a>
+        {# <a href="" class="btn sm lightblue">Subscribe now!</a> #}
+        <ionic-newsletter-signup></ionic-newsletter-signup>
       </div>
     </aside>
   </main>

@@ -59,12 +59,21 @@
     margin-top: -32px;
     display: flex;
     margin-bottom: 128px;
+
+    @media (max-width: $screen-sm-max) {
+      flex-direction: column;
+    }
   }
 
   article {
     flex-grow: 1;
     padding: 42px 53px 66px;
     color: #596a89;
+
+    @media (max-width: 400px) {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
 
     h2 {
       font-weight: 400;
@@ -154,6 +163,7 @@
 
     .host {
       margin-top: 16px;
+      margin-bottom: 24px;
 
       img {
         border-radius: 50%;
@@ -205,6 +215,14 @@
         padding: 15px 10px 11px;
       }
     }
+
+    @media (max-width: $screen-sm-max) {
+      flex: 0 0 100%;
+    }
+  }
+
+  .resource-list {
+    margin-bottom: 64px;
   }
 
   .resource-list__header h4 {

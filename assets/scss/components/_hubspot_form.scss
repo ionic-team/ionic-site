@@ -56,6 +56,27 @@
   select.hs-input {
     height: 44px;
     width: calc(100% + 6px) !important;
+    appearance: none;
+  }
+
+  .hs-fieldtype-select {
+    position: relative;
+
+    label {
+      &::before, 
+      &::after {
+        content: '\25B2';
+        position: absolute;
+        right: 8px;
+        top: calc(50% - 14px);
+        font-size: .6em;
+      }
+
+      &::after {
+        content: '\25BC';
+        top: calc(50% - 6px);
+      }
+    }
   }
 
   textarea.hs-input {

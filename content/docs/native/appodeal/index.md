@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -215,7 +215,7 @@ hide ad of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(adType)</code></h3>
+<h3><a class="anchor" name="canShow" href="#canShow"></a><code>canShow(adType)</code></h3>
 
 
 confirm use of ads of specified type
@@ -240,7 +240,10 @@ confirm use of ads of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code></h3>
 
 
 check if ad of specified type has been loaded
@@ -356,7 +359,7 @@ forcefully cache an ad by type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setOnLoadedTriggerBoth" href="#setOnLoadedTriggerBoth"></a><code>setOnLoadedTriggerBoth(set)</code></h3>
+<h3><a class="anchor" name="setTriggerOnLoadedOnPrecache" href="#setTriggerOnLoadedOnPrecache"></a><code>setTriggerOnLoadedOnPrecache(set)</code></h3>
 
 
 
@@ -481,7 +484,7 @@ enable or disable banner animations
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setLogging" href="#setLogging"></a><code>setLogging(logging)</code></h3>
+<h3><a class="anchor" name="setLogLevel" href="#setLogLevel"></a><code>setLogLevel(logging)</code></h3>
 
 
 enable or disable logging
@@ -1334,6 +1337,47 @@ set Interests preference in Appodeal for current user
 <h3><a class="anchor" name="onBannerShown" href="#onBannerShown"></a><code>onBannerShown()</code></h3>
 
 
+
+
+
+
+
+<h3><a class="anchor" name="getRewardParametersForPlacement" href="#getRewardParametersForPlacement"></a><code>getRewardParametersForPlacement()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="getRewardParameters" href="#getRewardParameters"></a><code>getRewardParameters()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="canShowWithPlacement" href="#canShowWithPlacement"></a><code>canShowWithPlacement()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="showTestScreen" href="#showTestScreen"></a><code>showTestScreen()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
+
+
+
+<h3><a class="anchor" name="muteVideosIfCallsMuted" href="#muteVideosIfCallsMuted"></a><code>muteVideosIfCallsMuted()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="setChildDirectedTreatment" href="#setChildDirectedTreatment"></a><code>setChildDirectedTreatment()</code></h3>
 
 
 

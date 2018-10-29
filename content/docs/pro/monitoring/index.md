@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-monitoring
 id: pro-error-monitoring
-title: Runtime Error Monitoring - Ionic Pro Documentation
+title: Runtime Error Monitoring API | Ionic Pro
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
@@ -28,141 +28,9 @@ This lets you:
 
 ## Getting Started
 
-### NPM Install
+In order to use Ionic Monitoring you must set up the Pro Client inside of your app. Follow along with our [Pro Client Setup Guide](/docs/pro/basics/getting-started/#pro-client-setup). You should be on at least `1.0.19` of `@ionic/pro`.
 
-We recommend installing the Ionic Pro client from NPM. 
-
-```bash
-npm install --save @ionic/pro
-```
-
-And then make sure to import and initialize the Pro client (for example, in `app.module.ts`):
-
-```typescript
-import { Pro } from '@ionic/pro';
-
-const IonicPro = Pro.init('APP_ID', {
-  appVersion: "APP_VERSION"
-});
-```
-
-Where `APP_ID` is the Ionic Pro App ID Found on the dashboard for your app. `APP_VERSION` is the version of the code
-running for the purposes of tracking code changes. We strongly recommend that this mirrors the version in `package.json` or `config.xml`.
-
-Finally, make sure you are running `@ionic/app-scripts` version `3.1.0` or later, and `@ionic/pro` version `1.0.12` or later.
-
-### CDN Install
-
-The CDN install is for apps that aren't using a build step (for example, Ionic/Angular 1).
-
-First, in your app's `index.html` file, add the following script include *immediately following your app code. Replace `APP_ID` and `APP_VERSION` with
-the id of your app on https://app.ionicjs.com/, along with the version of your app as found in your `config.xml`.
-
-```html
-<script src="https://code.ionicframework.com/services/ionic-pro.min.js" data-app-id="APP_ID" data-app-version="APP_VERSION"></script>
-```
-
-<div class="callout danger" markdown="1">
-It's important to keep the app version up to date because that is how the Error tracking
-service will know when regressions have happened, as well as mapping your code to any
-Source Maps you've provided.
-</div>
-
-<div class="callout info" markdown="1">
-For Ionic 1/AngularJS apps, including the script tag is all you need to do. For Angular 2, follow instructions below to add the custom error handler.
-</div>
-
-## Angular 2.x+ Integration
-
-For Ionic-Angular apps (Ionic 2.x and Angular 2.x and above), to capture errors automatically from Angular, add this snippet in `app.module.ts`:
-
-```typescript
-import { Pro } from '@ionic/pro';
-
-// These are the imports required for the code below,
-// feel free to merge into existing imports.
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { IonicErrorHandler } from 'ionic-angular';
-
-const IonicPro = Pro.init('APP_ID', {
-  appVersion: "APP_VERSION"
-});
-
-@Injectable()
-export class MyErrorHandler implements ErrorHandler {
-  ionicErrorHandler: IonicErrorHandler;
-
-  constructor(injector: Injector) {
-    try {
-      this.ionicErrorHandler = injector.get(IonicErrorHandler);
-    } catch(e) {
-      // Unable to get the IonicErrorHandler provider, ensure 
-      // IonicErrorHandler has been added to the providers list below
-    }
-  }
-
-  handleError(err: any): void {
-    IonicPro.monitoring.handleNewError(err);
-    // Remove this if you want to disable Ionic's auto exception handling
-    // in development mode.
-    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
-  }
-}
-```
-
-Then add this entry to the `providers` in `NgModule`:
-
-```
-  providers: [
-    // ...,
-    IonicErrorHandler,
-    [{ provide: ErrorHandler, useClass: MyErrorHandler }] // This line
-  ]
-```
-
-## Manual capture
-
-Ionic Pro Monitoring supports manually capturing errors and also sending log messages. Additionally, an `extra` field
-takes key/value pairs for adding additional metadata for a call.
-
-#### `Pro.getApp().monitoring.exception(errorObject, extra)`
-
-Manually capture an error. For example
-
-```typescript
-Pro.getApp().monitoring.exception(new Error('error'))
-```
-
-`Pro.getApp().monitoring.log(msg, options, extra)`
-
-Capture and send a log message. Options takes a `level` (such as 'error' or 'info').
-
-Example:
-
-```typescript
-Pro.getApp().monitoring.log('This happens sometimes', { level: 'error' })
-```
-
-#### `Pro.getApp().monitoring.call(fn, extra)`
-
-Call a function and automatically capture any resulting errors. Example:
-
-```typescript
-Pro.getApp().monitoring.call(() => {
-  throw new Error('error');
-})
-```
-
-#### `Pro.getApp().monitoring.wrap(fn, extra)`
-
-Return a function that will automatically track any errors. Example:
-
-```typescript
-const newFn = Pro.getApp().monitoring.wrap(() => {
-  throw new Error('error');
-})
-newFn();
-```
+After the Pro Client is installed, you'll want to [Add a Source Map](#source-maps) You can also use the API below to manually capture errors and more.
 
 ## Source Maps
 
@@ -186,7 +54,7 @@ See the note about versions below, as keeping your Source Maps in sync with your
 
 #### Manually adding Source Maps
 
-To add a Source Map manually, navigate to your app on the [https://dashboard.ionicjs.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
+To add a Source Map manually, navigate to your app on the [https://dashboard.ionicframework.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
 then click "Source Maps" in the upper right.
 
 You can find your Source Maps after doing a dev or prod build in `YOUR_APP/.sourcemaps/`. Upload the `main.js.map` sourcemap for Angular/Ionic 2+, and any other sourcemaps that correspond to your code for other Ionic/Angular versions.
@@ -202,3 +70,46 @@ Version numbers _must_ follow [semver](http://semver.org/), which ensures that t
 Before doing a release, ensure you've synced Source Maps and make sure to not send new Source Maps for that version in the future.
 
 Note: we are working on automating the process to make it even easier.
+
+## Manual Capture using the Monitoring API
+
+Ionic Pro Monitoring supports manually capturing errors and also sending log messages.
+
+#### `Pro.monitoring.exception(errorObject)`
+
+Manually capture an error. For example
+
+```typescript
+Pro.monitoring.exception(new Error('error'))
+```
+
+#### `Pro.monitoring.log(msg, options)`
+
+Capture and send a log message. Options takes a `level` (such as 'error' or 'info').
+
+Example:
+
+```typescript
+Pro.monitoring.log('This happens sometimes', { level: 'error' })
+```
+
+#### `Pro.monitoring.call(fn)`
+
+Call a function and automatically capture any resulting errors. Example:
+
+```typescript
+Pro.monitoring.call(() => {
+  throw new Error('error');
+})
+```
+
+#### `Pro.monitoring.wrap(fn)`
+
+Return a function that will automatically track any errors. Example:
+
+```typescript
+const newFn = Pro.monitoring.wrap(() => {
+  throw new Error('error');
+})
+newFn();
+```

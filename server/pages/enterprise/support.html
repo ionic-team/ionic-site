@@ -3,6 +3,8 @@
 {% set mixpanelEnabled = true %}
 {% set bodyController = 'EnterpriseCtrl' %}
 {% import "../_includes/macros.html" as macros %}
+{% set meta_description = "Ionic provides expert help and guidance for your enterprise app development strategy when you need it most. Develop cross platform apps with enterprise grade support." %}
+{% set cssPath = 'enterprise/support' %}
 
 {% block main %}
 
@@ -41,7 +43,7 @@
     <li class="sla">
       <h4>Response SLAs</h4>
       <p>
-        Rest easy knowing you’ll get the attention and responsive you need to
+        Rest easy knowing you’ll get the attention and responsive attention you need to
         meet your goals.
       </p>
     </li>
@@ -84,43 +86,69 @@
           <thead>
             <tr>
               <td></td>
-              <th>Basic</th>
-              <th>Premiere</th>
+              <th>Standard</th>
+              <th>Premium</th>
+              <th>Business Critical</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>Email + Phone Support</th>
+              <th>Service requests</th>
+              <td>12/ mo</td>
+              <td>24/ mo</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <th>Bugs and feature requests</th>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <th>Support SLA</th>
+              <td>One business day</td>
+              <td>12 business hours</td>
+              <td>12 business hours</td>
+            </tr>
+            <tr>
+              <th>Hotfixes</th>
+              <td></td>
               <td>Yes</td>
               <td>Yes</td>
             </tr>
             <tr>
-              <th>Response SLA</th>
-              <td>&lt; 24 hrs</td>
-              <td>&lt; 12 hrs</td>
-            </tr>
-            <tr>
-              <th>Zendesk ticketing</th>
+              <th>Priority queuing</th>
+              <td></td>
               <td>Yes</td>
               <td>Yes</td>
             </tr>
             <tr>
-              <th>Private Insiders Updates + Q&amp;A</th>
+              <th>Architecture and code review consulting</th>
+              <td></td>
               <td>Yes</td>
               <td>Yes</td>
             </tr>
             <tr>
-              <th>Dedicated Account Manager</th>
-              <td>Yes</td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <th>Private Slack Access</th>
+              <th>Private Slack Channel</th>
+              <td></td>
               <td></td>
               <td>Yes</td>
             </tr>
             <tr>
-              <th>Long-term Framework support</th>
+              <th>Designated Solutions Architect</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Prioritized Feature Requests</th>
+              <td></td>
+              <td></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th>Private Insiders Updates</th>
+              <td></td>
               <td></td>
               <td>Yes</td>
             </tr>
@@ -134,6 +162,10 @@
                      data-toggle="modal"
                      data-target="#contactForm"
                      id="btn-enterprise-support-premiere">Contact us</a></td>
+              <td><a class="btn sm btn-default"
+                     data-toggle="modal"
+                     data-target="#contactForm"
+                     id="btn-enterprise-support-critical">Contact us</a></td>
             </tr>
           </tbody>
         </table>
@@ -150,7 +182,7 @@
     </hgroup>
 
     <div class="btn-group">
-      <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
          class="btn white sm"
          id="btn-enterprise-create-account">Create an account</a>
       <a class="btn btn-default sm"
@@ -202,5 +234,8 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

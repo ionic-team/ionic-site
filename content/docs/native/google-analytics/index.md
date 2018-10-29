@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -71,7 +71,7 @@ constructor(private ga: GoogleAnalytics) { }
 this.ga.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
    .then(() =&gt; {
      console.log(&#39;Google analytics is ready now&#39;);
-        this.ga.trackView(&#39;test&#39;);
+      this.ga.trackView(&#39;test&#39;);
      // Tracker is ready
      // You can now track pages or set additional information such as AppVersion or UserId
    })
@@ -219,7 +219,7 @@ Set a anonymize Ip address
 </div><h3><a class="anchor" name="setAppVersion" href="#setAppVersion"></a><code>setAppVersion(appVersion)</code></h3>
 
 
-Sets the app version
+Set the app version
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -237,6 +237,75 @@ Sets the app version
     </td>
     <td>
       <p>App version</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getVar" href="#getVar"></a><code>getVar(key)</code></h3>
+
+
+Get a variable
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Variable</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setVar" href="#setVar"></a><code>setVar(key,&nbsp;value)</code></h3>
+
+
+Set a variable
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      key</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Variable</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      value</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Parameter</p>
 </td>
   </tr>
   </tbody>
@@ -776,6 +845,20 @@ Enable/disable automatic reporting of uncaught exceptions
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="dispatch" href="#dispatch"></a><code>dispatch()</code></h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
+
+
+Manually dispatch any data
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

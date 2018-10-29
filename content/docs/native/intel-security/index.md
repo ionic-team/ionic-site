@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -688,8 +688,7 @@ This writes the data contained in a secure data instance into secure storage.
       <code>String</code>
     </td>
     <td>
-      <p>Non-empty string. *</p>
-
+      
       
     </td>
   </tr>

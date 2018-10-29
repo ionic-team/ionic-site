@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -91,7 +91,7 @@ let beaconRegion = this.ibeacon.BeaconRegion(&#39;deskBeacon&#39;,&#39;F7826DA6-
 
 this.ibeacon.startMonitoringForRegion(beaconRegion)
   .then(
-    () =&gt; console.log(&#39;Native layer recieved the request to monitoring&#39;),
+    () =&gt; console.log(&#39;Native layer received the request to monitoring&#39;),
     error =&gt; console.error(&#39;Native layer failed to begin monitoring: &#39;, error)
   );
 </code></pre>

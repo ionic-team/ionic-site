@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -90,7 +90,7 @@ upload() {
      // error
    })
 }
-*
+
 download() {
   const url = &#39;http://www.example.com/file.pdf&#39;;
   fileTransfer.download(url, this.file.dataDirectory + &#39;file.pdf&#39;).then((entry) =&gt; {
@@ -287,7 +287,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
     <td>
       listener</td>
     <td>
-      <code>function</code>
+      <code>Function</code>
     </td>
     <td>
       <p>Listener that takes a progress event.</p>
@@ -387,7 +387,7 @@ Defaults to image/jpeg.</p>
       params
     </td>
     <td>
-      <code>{ [s: string]: any; }</code>
+      <code>{ [s: string]: any }</code>
     </td>
     <td>
       <p>A set of optional key/value pairs to pass in the HTTP request.</p>
@@ -416,7 +416,7 @@ Defaults to true.</p>
       headers
     </td>
     <td>
-      <code>{ [s: string]: any; }</code>
+      <code>{ [s: string]: any }</code>
     </td>
     <td>
       <p>A map of header name/header values. Use an array to specify more
@@ -490,7 +490,7 @@ Content-Type is present, multipart form data will NOT be used.</p>
       headers
     </td>
     <td>
-      <code>{ [s: string]: any; }</code>
+      <code>{ [s: string]: any }</code>
     </td>
     <td>
       <p>The HTTP response headers by the server.</p>

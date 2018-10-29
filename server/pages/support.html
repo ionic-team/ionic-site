@@ -1,12 +1,13 @@
 {% extends '_layouts/base.html' %}
-{% set title = "Getting Support with Ionic" %}
+{% set title = "Ionic Framework Community and Premium Support" %}
 {% set id = "support" %}
+{% set cssPath = 'support' %}
 
 {% block main %}
 <div class="cta gradient">
   <hgroup class="container center">
     <h1>How can we help?</h1>
-    <h4>From community help to premium support, we’re here to help.</h4>
+    <p>From community help to premium support, we’re here to help.</p>
   </hgroup>
 </div>
 
@@ -157,5 +158,8 @@
 
 
 {% block scripts %}
-
+<script>
+  // enable sticky nav
+  stickyNav.init();
+</script>
 {% endblock %}

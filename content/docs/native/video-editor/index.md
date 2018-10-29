@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Video Editor</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/video-editor/index.ts#L119">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/video-editor/index.ts#L110">
   Improve this doc
 </a>
 
@@ -410,8 +410,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
       <code>number</code>
     </td>
     <td>
-      <p>Sample rate for the audio. iOS only. Defaults to 44100</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>

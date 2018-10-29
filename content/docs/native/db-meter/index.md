@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -70,7 +70,7 @@ let subscription = this.dbMeter.start().subscribe(
 
 // Check if we are listening
 this.dbMeter.isListening().then(
-  (isListening: boolean) =&gt; console.log(isListening)
+  isListening =&gt; console.log(isListening)
 );
 
 // Stop listening

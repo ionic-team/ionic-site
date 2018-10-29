@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L150">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L197">
   Improve this doc
 </a>
 
@@ -67,7 +67,12 @@ constructor(private iab: InAppBrowser) { }
 const browser = this.iab.create(&#39;https://ionicframework.com/&#39;);
 
 browser.executeScript(...);
+
 browser.insertCSS(...);
+browser.on(&#39;loadstop&#39;).subscribe(event =&gt; {
+   browser.insertCSS({ code: &quot;body{color: red;&quot; });
+});
+
 browser.close();
 </code></pre>
 
@@ -365,9 +370,7 @@ A method that allows you to listen to events happening in the browser.
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>Set to yes to create the browser and load the page, but not show it. The loadstop event fires when loading is complete.
-Omit or set to no (default) to have the browser open and load normally.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -394,8 +397,33 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>&#39;yes&#39;</code>
     </td>
     <td>
-      <p>Set to yes to have the session cookie cache cleared before the new window is opened.</p>
-
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closebuttoncaption
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closebuttoncolor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -408,7 +436,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(Android Only) set to yes to show Android browser&#39;s zoom controls, set to no to hide them. Default value is yes.</p>
+      <p>(Android Only) Set to yes to show Android browser&#39;s zoom controls, set to no to hide them. Default value is yes.</p>
 
       <em>(optional)</em>
     </td>
@@ -422,9 +450,7 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>Set to yes to use the hardware back button to navigate backwards through the InAppBrowser&#39;s history.
-If there is no previous page, the InAppBrowser will close. The default value is yes, so you must set it to no if you want the back button to simply close the InAppBrowser.</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -445,6 +471,58 @@ If there is no previous page, the InAppBrowser will close. The default value is 
   
   <tr>
     <td>
+      hidenavigationbuttons
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hideurlbar
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      navigationbuttoncolor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      toolbarcolor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       shouldPauseOnSuspend
     </td>
     <td>
@@ -459,13 +537,27 @@ If there is no previous page, the InAppBrowser will close. The default value is 
   
   <tr>
     <td>
-      closebuttoncaption
+      footer
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(Android Only) Set to yes to show a close button in the footer similar to the iOS Done button. The close button will appear the same as for the header hence use closebuttoncaption and closebuttoncolor to set its properties</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      footercolor
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
-      <p>(iOS Only) Set to a string to use as the Done button&#39;s caption. Note that you need to localize this value yourself.</p>
+      <p>(Android Only) Set to a valid hex color string, for example #00ff00 or #CC00ff00 (#aarrggbb), and it will change the footer color from default. Only has effect if user has footer set to yes</p>
 
       <em>(optional)</em>
     </td>
@@ -501,6 +593,20 @@ If there is no previous page, the InAppBrowser will close. The default value is 
   
   <tr>
     <td>
+      toolbartranslucent
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(iOS Only) Set to yes or no to make the toolbar translucent(semi-transparent) (defaults to yes). Only applicable if toolbar is not disabled.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       enableViewportScale
     </td>
     <td>
@@ -521,9 +627,7 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>(iOS Only) Set to yes or no to allow in-line HTML5 media playback, displaying within the browser window rather than a device-specific playback interface.
-The HTML&#39;s video element must also include the webkit-playsinline attribute (defaults to no)</p>
-
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -600,14 +704,40 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
   
   <tr>
     <td>
+      hidespinner
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(iOS Only) Set to yes or no to change the visibility of the loading indicator (defaults to no).</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       fullscreen
     </td>
     <td>
       <code>&#39;yes&#39;</code>
     </td>
     <td>
-      <p>(Windows only) Set to yes to create the browser control without a border around it.
-Please note that if location=no is also specified, there will be no control presented to user to close IAB window.</p>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      useWideViewPort
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;no&#39;</code>
+    </td>
+    <td>
+      <p>(Android Only) Sets whether the WebView should enable support for the &quot;viewport&quot; HTML meta tag or should use a wide viewport. When the value of the setting is no, the layout width is always set to the width of the WebView control in device-independent (CSS) pixels. When the value is yes and the page contains the viewport meta tag, the value of the width specified in the tag is used. If the page does not contain the tag or does not provide a width, then a wide viewport will be used. (defaults to yes).</p>
 
       <em>(optional)</em>
     </td>

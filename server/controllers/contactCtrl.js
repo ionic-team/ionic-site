@@ -6,16 +6,24 @@ const jsforce = require('jsforce');
 var sfConn = new jsforce.Connection()
 
 module.exports = function(req, res) {
+  var cleanForm = {}
+  for (var p in req.body) {
+    if (req.body.hasOwnProperty(p)) {
+      clean[req.sanitize(p)] = req.sanitize(
+        req.body[p].value ? req.body[p].value : req.body[p]
+      );
+    }
+  }
 
   var promises = [];
-  var form = req.body;
+  var form = cleanForm;
 
   var m = {
     to: [
-      'brody@ionic.io', 
-      'joe@ionic.io', 
-      'matt@ionic.io', 
-      'swami@ionic.io', 
+      'brody@ionic.io',
+      'joe@ionic.io',
+      'matt@ionic.io',
+      'swami@ionic.io',
       'andrew@ionic.io',
       'ryan@ionic.io',
       'perry@ionic.io',

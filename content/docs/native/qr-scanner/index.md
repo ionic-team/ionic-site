@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>A fast, energy efficient, highly-configurable QR code scanner for Cordova apps.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-qrscanner</code>. For more info, please see the <a href="https://github.com/bitpay/cordova-plugin-qrscanner">QR Scanner plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -76,11 +78,6 @@ this.qrScanner.prepare()
          this.qrScanner.hide(); // hide camera preview
          scanSub.unsubscribe(); // stop scanning
        });
-
-       // show camera preview
-       this.qrScanner.show();
-
-       // wait for user to scan something, then the observable callback will be called
 
      } else if (status.denied) {
        // camera permission was permanently denied

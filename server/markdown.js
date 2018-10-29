@@ -5,9 +5,9 @@ module.exports = function(res, filename) {
 
   filename += '.md';
 
-  fs.readFile('./server/markdown/' + filename, 'utf8', function(err, data) {
+  return fs.readFile('./server/markdown/' + filename, 'utf8', function(err, data) {
     if (err) {
-      res.render('_layouts/base', {
+      res.status(500).render('_layouts/base', {
         markdown: '<h1>Unable to load ' + filename + '</h1>'
       });
       return;

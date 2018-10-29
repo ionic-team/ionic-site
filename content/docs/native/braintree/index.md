@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Braintree</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/braintree/index.ts#L135">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/braintree/index.ts#L134">
   Improve this doc
 </a>
 
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>This plugin enables the use of the Braintree Drop-In Payments UI in your Ionic applications on Android and iOS, using the native Drop-In UI for each platform (not the Javascript SDK).</p>
-<p> Ionic Native utilizes <a href="https://github.com/taracque/cordova-plugin-braintree">a maintaned fork</a> of the original <code>cordova-plugin-braintree</code></p>
+<p> Ionic Native utilizes <a href="https://github.com/taracque/cordova-plugin-braintree">a maintained fork</a> of the original <code>cordova-plugin-braintree</code></p>
 <p> For information on how to use Apple Pay with this plugin, please refer to the <a href="https://github.com/Taracque/cordova-plugin-braintree#apple-pay-ios-only">plugin documentation</a></p>
 <p><strong>NOTE</strong>: This is not a complete payments solution. All of the Braintree client-side UIs simply generate a payment nonce that must then be processed by your server to complete the payment.
 See the <a href="https://developers.braintreepayments.com/start/hello-server/node">Braintree Node server documentation</a> for details and a <a href="https://github.com/braintree/braintree_express_example">sample Express server</a> that implements the required functionality.</p>
@@ -465,8 +465,7 @@ completing the payment.</p>
       applePaycard
     </td>
     <td>
-      <code>{
-  }</code>
+      <code>{}</code>
     </td>
     <td>
       <p>Information about the Apple Pay card used to complete a payment (if Apple Pay was used).</p>

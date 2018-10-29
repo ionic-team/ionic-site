@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -116,7 +116,7 @@ Use this to indicate success/failure/warning to the user.
     <td>
       options.type</td>
     <td>
-      <code>string</code>
+      <code>&#39;success&#39;</code>|<code>&#39;warning&#39;</code>|<code>&#39;error&#39;</code>
     </td>
     <td>
       </td>
@@ -155,7 +155,7 @@ Use this to indicate success/failure/warning to the user.
     <td>
       options.type</td>
     <td>
-      <code>string</code>
+      <code>&#39;light&#39;</code>|<code>&#39;medium&#39;</code>|<code>&#39;heavy&#39;</code>
     </td>
     <td>
       </td>
@@ -166,6 +166,33 @@ Use this to indicate success/failure/warning to the user.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects on error
+</div><h3><a class="anchor" name="gestureSelectionStart" href="#gestureSelectionStart"></a><code>gestureSelectionStart()</code></h3>
+
+
+Tell the taptic engine that a gesture for a selection change is starting.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="gestureSelectionChanged" href="#gestureSelectionChanged"></a><code>gestureSelectionChanged()</code></h3>
+
+
+Tell the taptic engine that a selection changed during a gesture.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="gestureSelectionEnd" href="#gestureSelectionEnd"></a><code>gestureSelectionEnd()</code></h3>
+
+
+Tell the taptic engine we are done with a gesture. This needs to be called lest resources are not properly recycled.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 

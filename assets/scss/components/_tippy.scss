@@ -1,5 +1,5 @@
 tippy {
-  // position: relative;
+  position: relative;
 
   .tip {
     position: absolute;
@@ -38,9 +38,64 @@ tippy {
     a {
       cursor: pointer;
 
-  &:hover {
-    color: white;
-  }
+      &:hover {
+        color: white;
+      }
+    }
+
+    &.right,
+    &.left {
+      left: 28px;
+      right: auto;
+      width: 257px;
+      top: -76px;
+      background: #3b434f;
+      padding: 14px 20px 6px;
+      font-size: 11px;
+      line-height: 20px;
+      letter-spacing: .07px;
+
+      &::after {
+        width: 12px;
+        height: 12px;
+        border-radius: 0 0 4px 0;
+        transform: rotate(135deg);
+        border: none;
+	      background: linear-gradient(-45deg, #3b434f 50%, transparent 50%);
+        top: calc(50% + 7px);
+        left: -6px;
+        right: auto;
+      }
+    }
+
+    &.left {
+      left: auto;
+      right: 28px;
+
+      &::after {
+        left: auto;
+        right: -6px
+      }
+    }
+
+    &.bottom {
+      left: -170px;
+    }
+
+    &.top {
+      left: -170px;
+      bottom: 23px;
+
+      &::after {
+        transform: rotate(180deg);
+        top: auto;
+        bottom: -5px;
+        right: 18px;
+      }
+    }
+
+    p {
+      margin-bottom: 8px;
     }
   }
 

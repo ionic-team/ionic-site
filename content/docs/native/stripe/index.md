@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -458,7 +458,7 @@ Get a card type from card number
   
   <tr>
     <td>
-      postal_code
+      postalCode
     </td>
     <td>
       <code>string</code>

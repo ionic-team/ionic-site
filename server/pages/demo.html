@@ -1,6 +1,8 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'demo' %}
+{% set title = 'Ionic Developer Documentation - Ionic Framework Components and Resources' %}
 {% import "_includes/macros.html" as macros %}
+{% set meta_description = "Connect with one of our app strategists and get a walkthrough of the Ionic mobile app development platform. We are here to help you build your mobile app strategy." %}
 
 {% block main %}
 <div class="cta demo-cta gradient" ng-init="period = 'monthly'">
@@ -13,7 +15,7 @@
   </div>
 </div>
 
-<main class="container demo-form">
+<main class="container demo-form hubspot-override">
   <script charset="utf-8"
           type="text/javascript"
           src="https://js.hsforms.net/forms/v2.js"></script>
@@ -26,7 +28,8 @@
 
   <aside class="demo-form__aside">
     <p>Powering apps at some of the world&rsquo;s smartest companies</p>
-    <img src="/img/demo/demo-logos.png">
+    <img src="/img/demo/demo-logos.png"
+         alt="POWERING APPS AT SOME OF THE WORLD’S SMARTEST COMPANIES">
   </aside>
 </main>
 {% endblock %}

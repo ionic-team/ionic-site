@@ -1,18 +1,19 @@
 #snap-bar {
-  background: #171629;
-  color: #CCCAEA;
-  text-align: center;
-  padding: 9px 10px 7px;
+  background: linear-gradient(to right, #07090e, #2f4562);
+  color: rgba(255, 255, 255, .5);
+  padding: 13px 10px 9px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   position: relative;
   z-index: 10;
+  text-align: center;
+  letter-spacing: .004em;
 
   strong {
-    text-transform: uppercase;
-    margin-right: 0px;
-    font-size: 16px;
-    font-weight: 700;
+    margin-right: 3px;
+    font-size: 13px;
+    letter-spacing: .004em;
+    font-weight: 600;
     color: white;
   }
 
@@ -23,18 +24,27 @@
   }
 
   a {
-    color: white;
+    margin-left: 15px;
+    background: #0a0f16;
+    color: #6ab0ff;
+    font-weight: 600;
+    padding: 6px 7px 5px 12px;
+    font-size: 10px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    text-decoration: none;
     transition: .2s color;
 
     &:hover {
-      color: #fd4935;
+      color: white;
       text-decoration: none;
     }
   }
 
   i {
-    font-size: 18px;
-    vertical-align: -7%;
+    font-size: 13px;
+    vertical-align: -1px;
   }
 
   + .navbar {
@@ -51,7 +61,7 @@
 body.docs #snap-bar {
   + .navbar {
     margin-top: 0;
-  
+
     @media (max-width: $screen-xs-max) {
       padding-top: 0;
     }
@@ -72,4 +82,14 @@ body.has-snap {
 
 body.docs #snap-bar ~ .docs-container .side-nav {
   padding-top: 36px;
+}
+
+ionic-snap-bar {
+  &:not(.hydrated) {
+    display: none;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
 }

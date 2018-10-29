@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L50">
   Improve this doc
 </a>
 
@@ -146,7 +146,10 @@ Available only for Android platform.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
 
 
@@ -172,7 +175,7 @@ Available only for Android platform.
       <code>BackgroundModeConfiguration</code>
     </td>
     <td>
-      <p>Any options you want to update. See table below.</p>
+      <p>Any options you want to update. See table below.<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -280,8 +283,10 @@ Exclude the app from the recent task list. Works on Android 5.0+.
 The method works async instead of isActive() or isEnabled().
 
 
-
-<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
 
 
 
@@ -328,7 +333,7 @@ Turn screen on and show app even locked
       title
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Title of the background task</p>
@@ -342,7 +347,7 @@ Turn screen on and show app even locked
       text
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Description of background task</p>
@@ -373,7 +378,8 @@ Turn screen on and show app even locked
       <code>string</code>
     </td>
     <td>
-      
+      <p>Set the background color of the notification circle</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -386,7 +392,7 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      <p>By default the app will come to foreground when taping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
+      <p>By default the app will come to foreground when tapping on the notification. If false, plugin won&#39;t come to foreground when tapped.</p>
 
       <em>(optional)</em>
     </td>
@@ -400,7 +406,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>When set to false makes the notifications visible on lock screen (Android 5.0+)</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -413,7 +420,8 @@ Turn screen on and show app even locked
       <code>boolean</code>
     </td>
     <td>
-      
+      <p>Big text</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -423,7 +431,7 @@ Turn screen on and show app even locked
       ticker
     </td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>The text that scrolls itself on statusbar</p>

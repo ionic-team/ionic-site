@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -78,7 +78,7 @@ this.mixpanel.init(token)
 <h3><a class="anchor" name="alias" href="#alias"></a><code>alias(aliasId,&nbsp;originalId)</code></h3>
 
 
-
+If originalId is omitted, aliasId will be used as originalId.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -131,10 +131,10 @@ this.mixpanel.init(token)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId)</code></h3>
+</div><h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId,&nbsp;usePeople)</code></h3>
 
 
-
+The usePeople parameter is used for the iOS Mixpanel SDK.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -149,6 +149,16 @@ this.mixpanel.init(token)
       distinctId</td>
     <td>
       <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      usePeople</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
       </td>
@@ -187,6 +197,15 @@ this.mixpanel.init(token)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSuperProperties" href="#getSuperProperties"></a><code>getSuperProperties()</code></h3>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div><h3><a class="anchor" name="registerSuperProperties" href="#registerSuperProperties"></a><code>registerSuperProperties(superProperties)</code></h3>
 
 
@@ -205,6 +224,62 @@ this.mixpanel.init(token)
       superProperties</td>
     <td>
       <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="registerSuperPropertiesOnce" href="#registerSuperPropertiesOnce"></a><code>registerSuperPropertiesOnce(superProperties)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      superProperties</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unregisterSuperProperty" href="#unregisterSuperProperty"></a><code>unregisterSuperProperty(superPropertyName)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      superPropertyName</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -301,7 +376,44 @@ this.mixpanel.init(token)
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId)</code></h3>
+<h3><a class="anchor" name="append" href="#append"></a><code>append(appendObject)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      appendObject</td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="deleteUser" href="#deleteUser"></a><code>deleteUser()</code></h3>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId)</code></h3>
 
 
 
@@ -430,7 +542,101 @@ this.mixpanel.init(token)
     <td>
       peopleProperties</td>
     <td>
+      <code>any</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="trackCharge" href="#trackCharge"></a><code>trackCharge(amount,&nbsp;chargeProperties)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      amount</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      chargeProperties</td>
+    <td>
       
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unset" href="#unset"></a><code>unset(propertiesArray)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      propertiesArray</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="union" href="#union"></a><code>union(unionObject)</code></h3>
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      unionObject</td>
+    <td>
+      <code>any</code>
     </td>
     <td>
       </td>

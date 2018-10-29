@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-eina;
+  letter-spacing: -0.02em;
+}
+
 a {
   transition: color .2s;
 

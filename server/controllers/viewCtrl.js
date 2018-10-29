@@ -2,13 +2,13 @@ const config    = require('../config');
 const tools     = require('../tools');
 const sg = require('sendgrid')(config.SENDGRID_APIKEY);
 if(config.TWILIO_SID && config.TWILIO_AUTH_TOKEN) {
-  var twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH_TOKEN); 
+  var twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH_TOKEN);
 }
 
 module.exports = function(req, res) {
 
   var promises = [];
-  var form = req.body;
+  var phone = req.sanitize(req.body.phone);
 
 //   promises.push(new Promise((resolve, reject) => {
 //     // server doesn't have API keys in local env, ignore
@@ -29,12 +29,12 @@ module.exports = function(req, res) {
 //           email: form.email
 //         }],
 //         from: {
-//           email: 'no-reply@ionicframework.com', 
+//           email: 'no-reply@ionicframework.com',
 //           name: 'Ionic'
 //         },
 //         content: [{
 //           type: 'text/html',
-//           value: `Click the link below on your mobile device to open Ionic View or direct you to the app store appropriate for your device.          
+//           value: `Click the link below on your mobile device to open Ionic View or direct you to the app store appropriate for your device.
 // https://ionicview.app.link/mORHDUyIMG
 // Cheers,
 // The Ionic Team`
@@ -57,17 +57,17 @@ module.exports = function(req, res) {
       return resolve(null);
     }
 
-    if (!(/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/.test(form.phone))) {
+    if (!(/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/.test(phone))) {
       console.error('Invalid phone number detected.');
       res.json({ ok: false, message: 'Invalid Phone Number' });
       return reject(null);
     }
 
-    twilio.messages.create({ 
-      to: form.phone, 
-      from: config.TWILIO_NUMBER, 
-      body: "Download Ionic View at https://ionicview.app.link/mORHDUyIMG", 
-    }, function(err, message) { 
+    twilio.messages.create({
+      to: phone,
+      from: config.TWILIO_NUMBER,
+      body: "Download Ionic View at https://ionicview.app.link/mORHDUyIMG",
+    }, function(err, message) {
       if (err) {
         console.error(err)
         return reject(err);

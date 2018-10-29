@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -82,7 +82,7 @@ this.pinCheck.isPinSetup()
 <h3><a class="anchor" name="isPinSetup" href="#isPinSetup"></a><code>isPinSetup()</code></h3>
 
 
-check whether pin/keyguard or passcode is setup    
+check whether pin/keyguard or passcode is setup
 
 
 <div class="return-value" markdown="1">

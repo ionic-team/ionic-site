@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-package
 id: pro-native-builds
-title: Native Binary Builds - Ionic Pro Documentation
+title: Native App Binary Builds for IOS and Android - Ionic Pro Packages
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

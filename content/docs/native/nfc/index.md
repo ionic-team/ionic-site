@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">NFC</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L29">
   Improve this doc
 </a>
 
@@ -91,6 +91,11 @@ this.nfc.addNdefListener(() =&gt; {
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="FLAG_READER" href="#FLAG_READER"></a><code>FLAG_READER</code></h3>
+
+
+
+
 <h3><a class="anchor" name="beginSession" href="#beginSession"></a><code>beginSession(onSuccess,&nbsp;onFailure)</code></h3>
 
 
@@ -530,7 +535,16 @@ Convert byte array to hex string
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div>
+</div><h3><a class="anchor" name="readerMode" href="#readerMode"></a><code>readerMode()</code></h3>
+
+
+
+
+Read NFC tags sending the tag data to the success callback.
+
+
+
+
 
 
 

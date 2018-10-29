@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 category: components
 id: components
-title: Ionic Component Documentation
+title: Ionic UI Components and API Customization
 show_preview_device: true
 angular_controller: ComponentsCtrl
 next_page_title: API Docs

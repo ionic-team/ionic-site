@@ -1,12 +1,7 @@
 .page-home {
   .banner {
-    background: linear-gradient(
-      60deg,
-      #3d7afd 0%,
-      #4c6df9 50%,
-      #4a68ef 50%,
-      #5b5ef4 100%
-    );
+    background-image: linear-gradient( 90deg, rgb(56,128,255) 15%, rgb(103,167,255) 100%);
+
     margin-top: -80px;
     font-family: $font-family-eina;
 
@@ -14,28 +9,37 @@
       position: relative;
       overflow: hidden;
       padding-bottom: 166px;
-      padding-top: 124px;
+      padding-top: 144px;
       clear: left;
     }
 
     h1 {
       max-width: calc(50% - 71px);
       color: white;
-      font-weight: 700;
-      line-height: 1.35em;
-      font-size: 48px;
+      font-weight: 600;
+      line-height: 56px;
+      font-size: 44px;
       letter-spacing: -.039em;
+
+      @media (min-width: $screen-lg-min) {
+        height: 172px;
+      }
     }
 
     p {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.6em;
+      font-family: $font-family-graphik;
+      font-size: 21px;
+      line-height: 36px;
+      font-weight: 400;
       margin-top: 20px;
       margin-bottom: 35px;
       letter-spacing: -.03em;
       max-width: calc(50% - 72px);
-      color: rgba(white, 0.75);
+      color: #f0f4fe;
+
+      @media (min-width: $screen-lg-min) {
+        height: 74px;
+      }
 
       a {
         color: white;
@@ -47,12 +51,72 @@
       text-align: left;
     }
 
+    .btns {
+      font-family: $font-family-graphik;
+      color: #dde6ff;
+    }
+
     .btn {
-      padding: 15px 15px 11px;
-      font-size: 16px;
+      font-family: $font-family-eina;
+      padding: 17px 20px 17px;
+      font-size: 15px;
       letter-spacing: 0;
+      font-weight: 700;
+      margin-right: 10px;
+      color: #3880ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+
+      &:after {
+        font-family: Ionicons;
+        content: '\f3d1';
+        font-size: 24px;
+        margin-left: 5px;
+        font-weight: 400;
+        line-height: 1;
+        display: inline-block;
+        transform: translateY(-1px);
+        transition: .3s transform;
+      }
+      &:hover:after {
+        transform: translate(2px, -1px);
+      }
+
+      @media (min-width: $screen-lg-min) {
+        height: 54px;
+      }
+    }
+
+    .text-link {
+      transition: border 0.2s;
+      color: #fff;
+      border-bottom: 1px solid #fff;
       font-weight: 600;
-      margin-right: 7px;
+
+      &:hover {
+        border-bottom: 1px solid rgba(#fff, 0);
+      }
+    }
+
+    .target {
+      margin-top: 12px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ccdfff;
+
+      i {
+        display: inline-block;
+        width: 143px;
+        height: 13px;
+        background: url('/img/homepage/hero-target-icons.png') 0 0 no-repeat;
+        background-size: 100%;
+        margin-left: 6px;
+        transform: translateY(2px);
+      }
     }
 
     .graphics {
@@ -102,7 +166,7 @@
 
       .layer-1 {
         position: absolute;
-        background: url('/img/homepage/hero-img-android.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-android-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 410px;
         height: 870px;
@@ -112,7 +176,7 @@
 
       .layer-2 {
         position: absolute;
-        background: url('/img/homepage/hero-img-components-android.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-components-android-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 316px;
         height: 571px;
@@ -124,7 +188,7 @@
 
       .layer-3 {
         position: absolute;
-        background: url('/img/homepage/hero-img-iphone.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-iphone-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 420px;
         height: 830px;
@@ -134,7 +198,7 @@
 
       .layer-4 {
         position: absolute;
-        background: url('/img/homepage/hero-img-components.png') 0 0 no-repeat;
+        background: url('/img/homepage/hero-img-components-blue.png') 0 0 no-repeat;
         background-size: 100%;
         width: 286px;
         height: 612px;
@@ -148,6 +212,7 @@
     @media (max-width: $screen-sm-max) {
 
       .container {
+        padding-top: 84px;
         padding-bottom: 64px;
       }
 
@@ -159,7 +224,9 @@
 
       h1,
       p {
-        max-width: 100%;
+        max-width: 528px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .graphics {
@@ -168,6 +235,12 @@
         animation-name: fadeInUpSmall;
         left: calc(50% - 270px);
         opacity: .5;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .container {
+        padding-top: 124px;
       }
     }
   }
@@ -180,7 +253,7 @@
   }
 
 	.paths {
-    margin-top: 64px;
+    margin-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -194,135 +267,49 @@
 			display: none;
     }
 
-    .card {
-      transition: 0s transform, .3s box-shadow
-    }
-
     .layer-1,
     .layer-2 {
-      transition: .1s;
-    }
-
-		li {
-      flex: 0 0 370px;
-      max-width: 100%;
-      height: 308px;
-      margin-bottom: 16px;
-      list-style: none;
-      position: relative;
-      transform: scale(.98);
-      will-change: transform;        
-      transform: .1s;
+      -webkit-font-smoothing: antialiased;
       will-change: transform;
-
-      .card {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-image:
-        url('https://ionicframework.com/img/homepage/feature-card-bg-framework.png'),
-        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
-        background-repeat: no-repeat;
-        background-size: cover;
-  	    border-radius: 18px;
-        box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
-
-
-        &:hover {
-          box-shadow:
-            0 16px 32px rgba(black, .08),
-            0 6px 12px rgba(black, .08);
-        }
-      }
-
-      &::before {
-        background: url('/img/homepage/feature-card-icons.png') 0 0 no-repeat;
-        background-size: 80px;
-        width: 80px;
-        height: 80px;
-        content: '';
-        position: absolute;
-        top: 30px;
-      }
-
-      .layer-1 {
-        padding: 122px 40px 31px 30px;
-        will-change: transform;
-      }
-
-      .layer-2 {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: 232px 40px 31px 30px;
-        will-change: transform;
-
-
-
-      @media (max-width: 380px) {
-        padding-top: 246px;
-      }
-
-        &::before {
-          background: url('https://ionicframework.com/img/homepage/feature-card-icons.png') 0 0 no-repeat;
-          background-size: 80px;
-          width: 80px;
-          height: 80px;
-          content: '';
-          position: absolute;
-          top: 30px;
-        }
-      }
-
-      &.pro .card {
-        background-image:
-          url('https://ionicframework.com/img/homepage/feature-card-bg-pro.png'),
-          linear-gradient(60deg, #050a14 0%, #062456 100%);
-
-        .layer-2::before { background-position: 0 -80px; }
-        .btn { color: #000f2a; }
-      }
-
-      &.enterprise .card {
-        background-image:
-          url('https://ionicframework.com/img/homepage/feature-card-bg-entrps-support.png'),
-          linear-gradient(60deg, #fcc14e 0%, #fed4d1 100%);
-
-        .layer-2::before { background-position: 0 -160px; }
-        .btn { color: #faa218; }
-      }
     }
 
-		h4 {
+    .layer-1 {
+      transform: translate3d(0, 0, 10px);
+    }
+
+    .layer-2 {
+      transform: translate3d(0, 0, 20px);
+    }
+
+    h4 {
       text-transform: uppercase;
       letter-spacing: .13em;
       color: rgba(255, 255, 255, 0.7);
       font-weight: 700;
-      font-size: 11px;
-		}
+      font-size: 12px;
+      margin-top: 0;
 
-		h2 {
-			color: white;
-			text-shadow: 0 2px 4px rgba(white, .1);
-			font-weight: 700;
-      font-size: 23px;
-      margin-top: 13px;
-      line-height: 1.24em;
+      em {
+        font-style: normal;
+        color: #fff !important;
+      }
     }
 
-    .btn {
+    h2 {
+      color: white;
       font-weight: 700;
-      letter-spacing: 0;
-      text-transform: none;
-      padding: 13px 15px 10px;
+      font-size: 24px;
+      margin-top: 20px;
+      line-height: 32px;
+    }
+
+    .card-link {
+      color: #fff;
       font-size: 14px;
-      margin-top: 0;
-      border-radius: 4px;
-      color: #418bff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      line-height: 1;
 
       &::after {
         font-family: Ionicons;
@@ -336,15 +323,111 @@
         display: inline-block;
         transition: .3s transform;
       }
+    }
 
-      &:hover::after {
-        transform: translate3d(3px,0,0);
+    li {
+      flex: 0 0 370px;
+      max-width: 100%;
+      height: 308px;
+      margin-bottom: 16px;
+      list-style: none;
+      position: relative;
+      perspective: 600px;
+
+      .card-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .5s transform cubic-bezier(0.215, 0.61, 0.355, 1);
+        will-change: transform;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+
+        &:hover {
+          transform: translateZ(10px);
+        }
+      }
+
+      .card {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        will-change: transform, box-shadow;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: box-shadow 0.3s ease;
+        background-image:
+          url('/img/homepage/feature-card-enterprise.png'),
+          linear-gradient(60deg, #273350 0%, #364d78 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 18px;
+        box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
+
+        h4 {
+          color: #a8bcd3;
+        }
+
+        &:hover {
+          box-shadow:
+            0 16px 32px rgba(black, .08),
+            0 6px 12px rgba(black, .08);
+        }
+      }
+
+      .layer-1 {
+        padding: 38px;
+        will-change: transform;
+      }
+
+      .layer-2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 38px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        will-change: transform;
+
+        @media (max-width: 380px) {
+          padding-top: 246px;
+        }
+
+      }
+
+      &.teams .card {
+        background-image:
+          url('/img/homepage/feature-card-teams.png'),
+          linear-gradient(60deg, #666feb 0%, #7eaef3 100%);
+
+        h4 {
+          color: #d3e5ff;
+        }
+      }
+
+      &.startups .card {
+        background-image:
+          url('/img/homepage/feature-card-startups.png'),
+          linear-gradient(60deg, #3f9b7b 0%, #80d19d 100%);
+
+        h4 {
+          color: #ccede9;
+        }
       }
     }
+
   }
 
   .company {
-    margin: 77px auto 68px;
+    margin: 100px auto;
 
     h2 {
       color: #7f8fab;
@@ -362,38 +445,93 @@
       }
     }
 
+    h3 {
+      color: #7f8fab;
+      font-weight: 600;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      text-align: center;
+      font-size: 16px;
+    }
+
     .logos {
       display: flex;
       flex-wrap: wrap;
       margin-top: 51px;
-      justify-content: space-evenly;
+      justify-content: space-between;
+      max-width: 1138px;
+      margin-left: auto;
+      margin-right: auto;
 
-      &::before,
-      &::after {
-        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
-        background-size: 494px;
-        width: 494px;
-        height: 42px;
-        content: '';
-        max-width: 100%;
-        margin-bottom: 32px;
-        display: inline-block;
+      .logo {
+        background-image: url('/img/homepage/enterprise-logos-dark-sprite.png');
+        background-repeat: no-repeat;
+        background-size: 110px 210px;
+
+        &--cat {
+          width: 44px;
+          height: 26px;
+          background-position: -1px -2px;
+        }
+        &--comcast {
+          width: 90px;
+          height: 24px;
+          background-position: -1px -33px;
+        }
+        &--ge {
+          width: 31px;
+          height: 30px;
+          background-position: -1px -60px;
+        }
+        &--ibm {
+          width: 61px;
+          height: 24px;
+          background-position: -1px -93px;
+        }
+        &--target {
+          width: 103px;
+          height: 22px;
+          background-position: -1px -124px;
+        }
+        &--mcdonalds {
+          width: 26px;
+          height: 22px;
+          background-position: -1px -152px;
+        }
+        &--microsoft {
+          width: 92px;
+          height: 22px;
+          background-position: -1px -183px;
+        }
       }
 
-      &::after {
-        background-position: 0 bottom;
+
+    }
+
+    @media (max-width: $screen-sm-min) {
+      margin: 60px 0 40px;
+
+      .logos {
+        justify-content: center;
+        max-width: 420px;
+      }
+
+      .logo {
+        margin-bottom: 32px;
+        margin-left: 20px;
+        margin-right: 20px;
       }
     }
   }
 
   .newsletter {
-    border-top: 1px solid #edf2f7;
+    // border-top: 1px solid #edf2f7;
     border-bottom: 1px solid #edf2f7;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding: 55px 0 63px;
+    padding: 55px 0 57px;
 
     hgroup {
       flex: 1 1 50%;
@@ -468,7 +606,7 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         height: 48px;
-        font-weight: 500;
+        font-weight: 600;
         min-width: 148px;
       }
     }

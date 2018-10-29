@@ -1,6 +1,8 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products-deploy' %}
+{% set title = 'Fast App Update Deployment and Easy Code Changes with Ionic Pro' %}
 {% set header_style = 'transparent light products-page' %}
+{% set meta_description = "With Ionic deploy you can provide live app updates in real time. Push hot code updates, content changes, A/B tests, and bug fixes for hybrid and native apps in realtime before and after your app is in the app stores." %}
 
 {% block body_attributes %}
 
@@ -24,13 +26,6 @@
 
 <div class="top">
   <div class="container">
-    <div class="btns">
-      <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
-         class="btn purple" id="btn-products-deploy-activate" target="_blank">
-        Activate Deploy</a>
-      <a href="/sales" class="btn white" id="btn-products-deploy-get-in-touch">
-        Get in touch</a>
-    </div>
     <hgroup>
       <h1>Live app updates, in realtime.</h1>
       <p>
@@ -38,6 +33,13 @@
         realtime before and after your app is in the App Stores.
       </p>
     </hgroup>
+    <div class="btns">
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+         class="btn purple" id="btn-products-deploy-activate" target="_blank">
+        Activate Deploy</a>
+      <a href="/sales" class="btn white" id="btn-products-deploy-get-in-touch">
+        Get in touch</a>
+    </div>
   </div>
 </div>
 
@@ -159,7 +161,7 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn white" id="btn-products-deploy-create-account">
           Create an account</a>
         <a class="btn purple" id="btn-products-deploy-see-pricing"
@@ -175,5 +177,10 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script>
+// enable sticky nav
+stickyNav.init();
+</script>
 
 {% endblock %}

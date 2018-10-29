@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Geolocation</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L110">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L104">
   Improve this doc
 </a>
 
@@ -25,6 +25,11 @@ docType: "class"
 
 <p>This plugin provides information about the device&#39;s location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs.</p>
 <p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
+<p>For iOS you have to add this configuration to your configuration.xml file</p>
+<pre><code class="lang-xml">&lt;edit-config file=&quot;*-Info.plist&quot; mode=&quot;merge&quot; target=&quot;NSLocationWhenInUseUsageDescription&quot;&gt;
+   &lt;string&gt;We use your location for full functionality of certain app features.&lt;/string&gt;
+&lt;/edit-config&gt;
+</code></pre>
 
 
 <p>Repo:

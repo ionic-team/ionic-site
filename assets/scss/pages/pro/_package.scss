@@ -1,10 +1,14 @@
 #page-products-package {
+  .sub-header > .container {
+    z-index: 2;
+  }
+
   .top {
     clear: both;
     position: relative;
     top: -144px;
     overflow: hidden;
-    padding-top: 237px;
+    padding-top: 178px;
     background: #e7a2dd;
     background: linear-gradient(to right, #c696f8 0%, #fca5a7 100%);
 
@@ -13,6 +17,7 @@
       padding-bottom: 148px;
       text-align: left;
       position: relative;
+      z-index: 5;
 
       &::before {
         background: url('/img/pro/package/package-hero-icon.png') no-repeat 0 0;
@@ -23,25 +28,23 @@
         position: absolute;
         top: 0;
         left: 15px;
-
-        @media (max-width: $screen-xs-max)  {
-          left: calc(50% - 40px);
-        }
       }
 
       h1,
       p {
         color: white;
-        max-width: 425px;
       }
 
       h1 {
-        font-family: $font-family-eina;
+        max-width: 350px;
       }
 
       p {
-        font-size: 16px;
         color: rgba(white, .9);
+        max-width: 475px;
+        letter-spacing: -.03em;
+        line-height: 1.5em;
+        font-size: 20px;
 
         strong {
           color: rgba(white, 1);
@@ -53,18 +56,35 @@
 
         .btn {
           font-size: 16px;
+          font-weight: 700;
 
           &.pink {
             background: #e33766;
-            padding: 14px 17px 12px;
             margin-right: 9px;
+            padding: 12px 19px 12px;
           }
 
           &.white  {
             color: #e33766;
-            padding: 14px 14px 12px;
+            padding: 12px 19px 12px;
           }
         }
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      hgroup:before {
+        left: 50%;
+        transform: translateX(-40px);
+      }
+      hgroup,
+      .btns {
+        text-align: center;
+      }
+      hgroup,
+      hgroup h1 {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -74,6 +94,7 @@
       right: 0;
       bottom: 0;
       width: 50%;
+      z-index: 1;
     }
 
     .cloud {
@@ -218,6 +239,9 @@
         background-image: url('/img/pro/package/feature-icons-sm.png');
         background-size: 48px;
       }
+
+      &.zero::before { background-position: 0 -48px; }
+      &.peace::before { background-position: 0 -96px; }
     }
 
     p {
@@ -228,16 +252,20 @@
   }
 
   main {
-    margin-top: -138px;
+    margin-top: -144px;
   }
 
   .turn {
     background: #f8f5fb;
 
     hgroup {
-      max-width: 624px;
-      padding-top: 77px;
+      max-width: 740px;
+      padding-top: 100px;
       padding-bottom: 423px;
+
+      @media (max-width: $screen-md-max)  {
+        padding-bottom: 314px;
+      }
     }
 
     p {
@@ -249,8 +277,6 @@
     }
 
     .graphics {
-      // background: no-repeat center center url('/img/pro/package/ionic-package-diagram.jpg');
-      // background-size: 1056px;
       width: 1056px;
       height: 401px;
       position: absolute;
@@ -393,8 +419,8 @@
   .leave {
     hgroup {
       width: calc(50% - 130px);
-      padding-top: 72px;
-      padding-bottom: 62px;
+      padding-top: 100px;
+      padding-bottom: 100px;
 
       @media (max-width: $screen-xs-max)  {
         width: 100%;
@@ -408,10 +434,11 @@
     }
 
     p {
-      font-size: 15px;
-      letter-spacing: -.004em;
-      line-height: 28px;
-      margin-bottom: 29px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.8em;
+      margin-bottom: 18px;
+      color: #5e6777;
 
       strong {
         font-weight: 600;
@@ -464,19 +491,19 @@
     }
 
     .btn {
+      padding: 12px 19px 10px;
+      font-size: 16px;
+      letter-spacing: -.02em;
+      font-weight: 700;
+
       &.pink {
         background: #f34971;
-        padding: 15px 17px;
-        font-size: 18px;
         margin-right: 2px;
       }
 
       &.white {
         background: white;
         color: #e93677;
-        padding: 15px 22px;
-        font-size: 18px;
-        letter-spacing: -.02em;
       }
     }
   }

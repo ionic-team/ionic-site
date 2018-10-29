@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L28">
   Improve this doc
 </a>
 
@@ -90,7 +90,14 @@ this.musicControls.create({
 
   // Android only, optional
   // text displayed in the status bar when the notification (and the ticker) are updated, optional
-  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;
+  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;,
+  // All icons default to their built-in android equivalents
+  playIcon: &#39;media_play&#39;,
+  pauseIcon: &#39;media_pause&#39;,
+  prevIcon: &#39;media_prev&#39;,
+  nextIcon: &#39;media_next&#39;,
+  closeIcon: &#39;media_close&#39;,
+  notificationIcon: &#39;notification&#39;
  });
 
  this.musicControls.subscribe().subscribe(action =&gt; {
@@ -528,6 +535,84 @@ Toggle dismissable:
   <tr>
     <td>
       ticker
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      playIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pauseIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      prevIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      nextIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closeIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIcon
     </td>
     <td>
       <code>string</code>

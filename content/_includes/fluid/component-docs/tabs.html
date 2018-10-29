@@ -33,9 +33,9 @@ To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a chi
 
 ```typescript
 import { Component } from '@angular/core';
-import { ionicBootstrap } from 'ionic-angular';
 import { Tab1 } from './tab1-page';
 import { Tab2 } from './tab2-page';
+  
 @Component({
   template: `
     <ion-tabs>
@@ -69,7 +69,7 @@ import { Component } from '@angular/core';
   </ion-header>
   <ion-content>Tab 1</ion-content>`
 })
-export class Tab1 {}
+export class Tab1 { }
 
 @Component({
   template: `
@@ -80,7 +80,7 @@ export class Tab1 {}
   </ion-header>
   <ion-content>Tab 2</ion-content>`
 })
-export class Tab2 {}
+export class Tab2 { }
 ```
 
 Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Components` of each tab will be unique to each tab:
@@ -93,6 +93,7 @@ import { NavController } from 'ionic-angular';
 ...
 })
 class Tab1 {
+  
   constructor(public navCtrl: NavController) {
     // Id is 1, nav refers to Tab1
     console.log(this.nav.id)
@@ -103,6 +104,7 @@ class Tab1 {
 ...
 })
 class Tab2 {
+  
   constructor(public navCtrl: NavController) {
     // Id is 2, nav refers to Tab2
     console.log(this.nav.id)
@@ -136,7 +138,9 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
   `
 })
 class TabContentPage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -149,11 +153,13 @@ class TabContentPage {
   </ion-tabs>`
 })
 export class TabsIconPage {
+  
   constructor() {
     this.tab1 = TabContentPage;
     this.tab2 = TabContentPage;
     ...
   }
+  
 }
 ```
 
@@ -183,7 +189,9 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   `
 })
 class TabsTextContentPage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -196,11 +204,13 @@ class TabsTextContentPage {
   </ion-tabs>`
 })
 export class TabsTextPage {
+  
   constructor() {
     this.tab1 = TabsTextContentPage;
     this.tab2 = TabsTextContentPage;
     ...
   }
+  
 }
 ```
 
@@ -231,7 +241,9 @@ To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The 
   `
 })
 class TabBadgePage {
-  constructor() {}
+  
+  constructor() { }
+  
 }
 
 @Component({
@@ -244,10 +256,12 @@ class TabBadgePage {
     `
 })
 export class BadgesPage {
+  
   constructor() {
     this.tabOne = TabBadgePage;
     this.tabTwo = TabBadgePage;
   }
+  
 }
 ```
 

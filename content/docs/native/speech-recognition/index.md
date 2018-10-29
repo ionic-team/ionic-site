@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Speech Recognition</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L50">
   Improve this doc
 </a>
 
@@ -126,11 +126,6 @@ Start the recognition process
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt; Array&lt;string&gt; &gt;</code> list of recognized terms
 </div><h3><a class="anchor" name="stopListening" href="#stopListening"></a><code>stopListening()</code></h3>
-
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
 
 Stop the recognition process

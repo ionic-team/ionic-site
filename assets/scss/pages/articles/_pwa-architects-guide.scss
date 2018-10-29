@@ -1,0 +1,329 @@
+#page-articles-pwa-architects-guide,
+#page-articles-why-hybrid {
+  font-family: $font-family-eina;
+
+  .cta {
+    background-color: #f6f8fc;
+    border-bottom: 1px solid #e5e7eb;
+    margin-top: -138px;
+    padding-top: 78px;
+
+    hgroup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 114px;
+      padding-bottom: 114px;
+    }
+
+    h5 {
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      font-size: 12px;
+      color: #8e9aab;
+    }
+
+    h1 {
+      color: #24282e;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 12px 0 24px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #626c7d;
+      max-width: 800px;
+    }
+  }
+
+  .signup-form {
+    padding-top: 110px;
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .left-col,
+    .right-col {
+      width: 100%;
+      max-width: 472px;
+    }
+
+    .left-col {
+      padding-right: 30px;
+      font-family: $font-family-system;
+      font-size: 14px;
+      color: #4e545e;
+      letter-spacing: -0.02em;
+
+      .p-large {
+        color: #6e7f99;
+        font-size: 18px;
+        line-height: 28px;
+      }
+
+      h5 {
+        font-size: 14px;
+        color: #4e545e;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+            margin-top: 13px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 16px 0 32px;
+        line-height: 20px;
+      }
+
+      li {
+        display: flex;
+
+        &:before {
+          content: '•';
+          margin-right: 10px;
+          opacity: 0.8;
+        }
+
+        & + li {
+          margin-top: 12px;
+        }
+      }
+
+      .p-bold {
+        font-weight: 600;
+      }
+    }
+
+
+    .right-col {
+      padding-left: 30px;
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: -0.03em;
+      }
+    }
+
+
+
+    .illustration {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      // height: 560px;
+      padding-top: 130%;
+      margin-bottom: 30px;
+      transform: translateZ(0);
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      will-change: transform, box-shadow;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: box-shadow 0.3s ease;
+      background-image: url('/img/articles/pwa-cover-bg.png'),
+        linear-gradient(60deg, #73c5ff 0%, #3880ff 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(black, .08), 0 2px 4px rgba(black, .08);
+
+      &:hover {
+        box-shadow:
+          0 16px 32px rgba(black, .08),
+          0 6px 12px rgba(black, .08);
+      }
+    }
+
+    .layer-1 {
+      padding: 122px 40px 31px 30px;
+      will-change: transform;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url('/img/articles/pwa-cover-title.png');
+      background-repeat: no-repeat;
+      background-size: 63%;
+      background-position: 20% 13%;
+    }
+    //
+    // .layer-2 {
+    //   width: 430px;
+    //   height: 560px;
+    //   padding: 122px 40px 31px 30px;
+    //   will-change: transform;
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   background-image: url('/img/articles/pwa-cover-bg.png');
+    //   background-repeat: no-repeat;
+    //   background-size: 430px 560px;
+    // }
+  }
+
+  @media (max-width: $screen-sm)  {
+    .cta hgroup {
+      padding-bottom: 60px;
+    }
+
+    .signup-form {
+      padding-top: 60px;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    .signup-form .left-col,
+    .signup-form .right-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .signup-form .left-col {
+      margin-top: -80px;
+    }
+    .signup-form .right-col {
+      margin-top: 50px;
+    }
+
+    .signup-form .illustration {
+      margin-left: auto;
+      margin-right: auto
+    }
+  }
+
+  @media (max-width: $screen-sm)  {
+
+  }
+
+  .company {
+    margin: 77px auto 68px;
+
+    h2 {
+      color: #7f8fab;
+      margin: 0 auto;
+      font-size: 28px;
+      max-width: 760px;
+      text-align: center;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      font-weight: 600;
+
+      strong {
+        color: #131924;
+        font-weight: 600;
+      }
+    }
+
+    h3 {
+      color: #7f8fab;
+      font-weight: 600;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 51px;
+      justify-content: space-evenly;
+
+      &::before,
+      &::after {
+        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background-size: 494px;
+        width: 494px;
+        height: 42px;
+        content: '';
+        max-width: 100%;
+        margin-bottom: 32px;
+        display: inline-block;
+      }
+
+      &::after {
+        background-position: 0 bottom;
+      }
+    }
+  }
+
+  .get-started {
+    background: #f1f4f8;
+    overflow: auto;
+
+    .container {
+      align-items: center;
+      display: flex;
+      margin-bottom: 110px;
+      margin-top: 110px;
+    }
+
+    hgroup {
+      letter-spacing: -.025em;
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: $blue;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: inherit;
+      margin: 0 0 5px;
+    }
+
+    p {
+      color: #24282e;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .btn {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      .container {
+        display: block;
+        text-align: center
+      }
+
+      hgroup {
+        padding-bottom: 16px;
+      }
+
+      .btn-group {
+        padding-bottom: 96px;
+      }
+    }
+  }
+
+}

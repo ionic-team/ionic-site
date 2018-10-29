@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Spinner Dialog</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L23">
   Improve this doc
 </a>
 
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>Cordova plugin for showing a native spinner based on Paldom/SpinnerDialog.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-native-spinner</code>. For more info, please see the <a href="https://github.com/greybax/cordova-plugin-native-spinner">Spinner Dialog plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -170,7 +172,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Opacity of the overlay, between 0 (transparent) and 1 (opaque). Default: 0.35</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -183,7 +186,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Red component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -196,7 +200,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Green component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>
@@ -209,7 +214,8 @@ Hides the spinner dialog if visible
       <code>number</code>
     </td>
     <td>
-      
+      <p>Blue component of the text color, between 0 and 1. Default: 1</p>
+
       <em>(optional)</em>
     </td>
   </tr>

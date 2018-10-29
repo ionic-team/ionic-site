@@ -1,0 +1,91 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'webinars' %}
+{% set cssPath = 'webinars' %}
+{% import "_includes/macros.html" as macros %}
+
+{% block main %}
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/webinars">Webinars</a></li>
+      <li>Watch</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <strong>Ionic Webinar</strong>
+    <h1>{{data.title}}</h1>
+    <p>
+      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST &nbsp;| 
+      &nbsp;Hosted by
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}" 
+           href="{{host.profile_link.url}}">
+          {{host.name}}
+        </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
+      {% endfor %} 
+      
+    </p>
+    <div class="cta-buttons">
+      <a class="btn sm white" href="{{data.watch_now_link.url}}">Watch Now</a>
+    </div>
+  </hgroup>
+</div>
+
+<div class="container">
+  <main class="card">
+    <article>
+      {{PrismicDOM.RichText.asHtml(data.description)}}
+      <a class="btn sm" href="{{data.watch_now_link.url}}">Watch Now</a>
+    </article>
+    <aside>
+      <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}" 
+           href="{{host.profile_link.url}}"
+           class="host">
+          <img src="{{host.photo.url}}" 
+               srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
+               atl="{{host.name}}">
+          <strong>{{host.name}}</strong>
+          <span>{{host.title}}</span>
+        </a>
+      {% endfor %} 
+  
+      <div class="subscribe-cta">
+        <h3>Never miss a webinar!</h3>
+        <p>Subscribe to our newsletter for all the latest Ionic content.</p>
+        <a href="" class="btn sm lightblue">Subscribe now!</a>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div class="container">
+  <div class="transitionBody">
+    <div class="transitionBody">
+      <section class="resource-list">
+        <div class="resource-list__header">
+          <a class="scrollTopLink" href="/resources/articles">
+            See all <ion-icon name="arrow-round-forward"></ion-icon>
+          </a>
+          <h4>Other Resources you might like</h4>
+        </div>
+        <div class="resource-card-list resource-card-list--quarter">
+          {% for r in resources.sectionFeatured['webinars'] %}
+            <div class="resource-card">
+              <div class="resource-card__inner">
+              {{ macros.resource(r) }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+{% endblock %}

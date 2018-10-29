@@ -1,6 +1,8 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'team' %}
+{% set title = 'Get to Know the Team Behind Ionic' %}
 {% import "_includes/macros.html" as macros %}
+{% set cssPath = 'team' %}
 
 {% block main %}
 <div class="cta banner">
@@ -34,18 +36,13 @@
   {% for e in employees %}
     {{ macros.employee(e) }}
   {% endfor  %}
-  {% if employees.length % 3 != 0 %}
+  {% if employees.length % 4 != 0 %}
     <a class="employee apply" href="/jobs">
-      <div class="avatar" style="background-position: center bottom"></div>
+      <img class="avatar" src="/img/team/apply.jpg"/>
       <hgroup>
         <h4>You?</h4>
         <p class="blue">Check openings</p>
       </hgroup>
-      <div class="description">
-        <p>
-          {{ e.description|safe }}
-        </p>
-      </div>
     </a>
   {% endif %}
 </section>

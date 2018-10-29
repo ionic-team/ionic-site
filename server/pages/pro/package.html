@@ -1,6 +1,8 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products-package' %}
+{% set title = 'Native App Development with No Platform Dependencies - Ionic Pro' %}
 {% set header_style = 'transparent products-page' %}
+{% set meta_description = "Start developing native apps in the cloud as part of your mobile strategy with Ionic package and build cross platform apps for mobile, desktop and more without platform dependencies or complicated build steps." %}
 
 {% block body_attributes %}
 
@@ -32,7 +34,7 @@
         build steps.
       </p>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn pink" id="btn-products-package-activate" target="_blank">
           Activate Package</a>
         <a class="btn white" id="btn-products-package-get-in-touch"
@@ -153,7 +155,7 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
            class="btn white" id="btn-products-package-create-account">
           Create an account</a>
         <a id="btn-products-package-see-pricing" class="btn pink"
@@ -169,5 +171,8 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+// enable sticky nav
+stickyNav.init();
+</script>
 {% endblock %}

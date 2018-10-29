@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Take a photo or capture video.</p>
-<p>Requires and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>Requires the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 
 <p>Repo:
@@ -66,14 +66,14 @@ constructor(private camera: Camera) { }
 
 const options: CameraOptions = {
   quality: 100,
-  destinationType: this.camera.DestinationType.DATA_URL,
+  destinationType: this.camera.DestinationType.FILE_URI,
   encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
 }
 
 this.camera.getPicture(options).then((imageData) =&gt; {
  // imageData is either a base64 encoded string or a file URI
- // If it&#39;s base64:
+ // If it&#39;s base64 (DATA_URL):
  let base64Image = &#39;data:image/jpeg;base64,&#39; + imageData;
 }, (err) =&gt; {
  // Handle error
@@ -212,7 +212,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
     <td>
       <p>Choose the format of the return value.
 Defined in Camera.DestinationType. Default is FILE_URI.
-     DATA_URL : 0,   Return image as base64-encoded string,
+     DATA_URL : 0,   Return image as base64-encoded string (DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible),
      FILE_URI : 1,   Return image file URI,
      NATIVE_URI : 2  Return image native URI
          (e.g., assets-library:// on iOS or content:// on Android)</p>

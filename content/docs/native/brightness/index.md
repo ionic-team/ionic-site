@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -63,7 +63,7 @@ constructor(private brightness: Brightness) { }
 
 ...
 
-let brightnessValue: number = 0.8;
+let brightnessValue = 0.8;
 this.brightness.setBrightness(brightnessValue);
 </code></pre>
 
@@ -75,7 +75,7 @@ this.brightness.setBrightness(brightnessValue);
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="setBrightness" href="#setBrightness"></a><code>setBrightness(Floating)</code></h3>
+<h3><a class="anchor" name="setBrightness" href="#setBrightness"></a><code>setBrightness(value)</code></h3>
 
 
 Sets the brightness of the display.
@@ -91,12 +91,12 @@ Sets the brightness of the display.
   <tbody>
   <tr>
     <td>
-      Floating</td>
+      value</td>
     <td>
-      <code>value</code>
+      <code>number</code>
     </td>
     <td>
-      <p>number between 0 and 1 in which case 1 means 100% brightness and 0 means 0% brightness.</p>
+      <p>Floating number between 0 and 1 in which case 1 means 100% brightness and 0 means 0% brightness.</p>
 </td>
   </tr>
   </tbody>
@@ -116,12 +116,30 @@ Reads the current brightness of the device display.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
-</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn()</code></h3>
+</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn(value)</code></h3>
 
 
 Keeps the screen on. Prevents the device from setting the screen to sleep.
-
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      value</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
 
 
 

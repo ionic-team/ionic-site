@@ -1,0 +1,70 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'go-pwa-architects-guide' %}
+{% set title = 'The Architects Guide to PWAs - Ionic Framework' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ionic-framework-og.png'%}
+{% set meta_description = "Progressive Web Apps take advantage of major advances in modern web browsers, web APIs, and front-end frameworks to deliver great app experiences to mobile and desktop users. This brief guide provides enterprise architects and app dev leaders with essential insights and how to build a production-ready PWA today." %}
+
+{% set header_style = 'transparent light' %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+<div class="banner">
+  <hgroup class="container thank-you">
+    <a href="/" title="home">
+      {% include '../../_includes/logo_svg.html' %}
+    </a>
+  </hgroup>
+</div>
+
+<main class="container thank-you">
+  <aside class="content">
+    <h1>
+      Thank you for downloading<br>
+      <strong>Why Hybrid</strong>
+    </h1>
+    <p class="lg">It should be in your inbox waiting for you!</p>
+    <p class="also">
+      <small>
+        You can also download the guide <a target="_blank"
+        href="https://cdn2.hubspot.net/hubfs/3776657/Ionic-HybridAppDev-white-paper.pdf">
+        here</a>.
+      </small>
+    </p>
+    <p>
+      Have questions on how hybrid fits into your app strategy or How to get
+      started building for your organization? One of our app strategist would
+      love to work with you.
+    </p>
+    <a class="btn" href="/strategysession">Book a Strategy Session</a>
+  </aside>
+
+  <div class="company">
+    <h2>
+      <strong>You’re in good company.</strong> Ionic powers millions of apps
+      at some of the smartest companies around the world.
+    </h2>
+    <div class="logos"></div>
+  </div>
+</main>
+<section class="bar get-started">
+  <div class="container">
+    <hgroup>
+      <h2>Get your team started with Ionic Pro today. </h2>
+      <p class="lg">
+        Start building better apps faster with Ionic Pro.
+      </p>
+    </hgroup>
+    <div>
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+         class="btn sm"
+         id="btn-products-create-account">Create a Pro account</a>
+      <a class="btn sm white"
+         id="btn-products-see-pricing"
+         href="/pro/pricing">See pricing</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

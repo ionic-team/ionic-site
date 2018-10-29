@@ -1,0 +1,861 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'community' %}
+{% set pre_footer = false %}
+{% set title = "Ionic Developer Community" %}
+{% set meta_image = 'https://ionicframework.com/img/meta/community-og.png'%}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+<div class="banner">
+  <hgroup class="container">
+    <h1>Join the global Ionic Community.</h1>
+    <p>
+      Join the Ionic Community to share ideas, ask questions and build new
+      connections. Find or start a meetup, discover the latest resources from
+      top community contributors, or simply connect with other Ionic Developers.
+    </p>
+    <ul class="links">
+      <li>
+        <a target="_blank" href="https://ionicworldwide.herokuapp.com/">
+          Slack<ion-icon name="ios-arrow-forward"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://forum.ionicframework.com/">
+          Forum<ion-icon name="ios-arrow-forward"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="//www.meetup.com/topics/ionic-framework/">
+          Meetups<ion-icon name="ios-arrow-forward"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="/docs/developer-resources">
+          Tutorials &amp; Videos<ion-icon name="ios-arrow-forward"></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </hgroup>
+  <ul class="container features">
+    <li><strong>5 M +</strong><span>Apps created</span></li>
+    <li><strong>30 K +</strong><span>SO Questions</span></li>
+    <li><strong>100 +</strong><span>Meetups</span></li>
+    <li><strong>5 M +</strong><span>Developers</span></li>
+  </ul>
+</div>
+<main>
+  <section class="meetups">
+    <div class="container">
+      <div class="split">
+        <hgroup>
+          <h2>Join or start an Ionic Meetup</h2>
+          <p>
+            Ionic meetups are all around the world. They’re a great way to meet
+            other Ionic developers and share ideas. Find one near you, or start
+            your own and we’ll send our starter kit and help you promote it.
+          </p>
+        </hgroup>
+        <div class="btns">
+          <a href="https://www.meetup.com/topics/ionic-framework/"
+             class="btn sm">Find a meetup</a>
+          <a href="mailto:meetup@ionic.io" class="btn sm white">Start your own</a>
+        </div>
+      </div>
+      <ul id="countries">
+        <li>
+          <a class="ch"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Zurich/">
+            <strong>Ionic Zürich</strong><span>Zürich, Switzerland</span>
+          </a>
+        </li>
+        <li>
+          <a class="de"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Berlin/">
+            <strong>Ionic Berlin</strong><span>Berlin, Germany</span>
+          </a>
+        </li>
+        <li>
+          <a class="il"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Israel/">
+            <strong>Ionic Israel</strong><span>Tel Aviv-Yafo, Israel</span>
+          </a>
+        </li>
+        <li>
+          <a class="uk"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-UK">
+            <strong>Ionic UK</strong><span>London, UK</span>
+          </a>
+        </li>
+        {# <li>
+          <a class="br"
+             target="_blank"
+             href="https://www.meetup.com/IonicRio/">
+            <strong>Ionic Rio</strong><span>Rio de Janeiro</span>
+          </a>
+        </li> #}
+        <li>
+          <a class="us"
+             target="_blank"
+             href="http://www.meetup.com/Ionic-Utah-The-future-of-hybrid-app-dev/">
+            <strong>Ionic Utah</strong><span>Salt Lake City, US</span>
+          </a>
+        </li>
+        <li>
+          <a class="nl"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Nederland/">
+            <strong>Ionic Nederland</strong><span>Utrecht, Netherlands</span>
+          </a>
+        </li>
+        <li>
+          <a class="es"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Madrid/">
+            <strong>Ionic Madrid</strong><span>Madrid, Spain</span>
+          </a>
+        </li>
+        <li>
+          <a class="ams"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Amsterdam/">
+            <strong>Ionic Amsterdam</strong><span>Amsterdam, Netherlands</span>
+          </a>
+        </li>
+        <li>
+          <a class="in"
+             target="_blank"
+             href="">
+            <strong>Ionic Mumbai</strong><span>Mumbai, India</span>
+          </a>
+        </li>
+        <li>
+          <a class="yvr"
+             target="_blank"
+             href="https://www.meetup.com/ion-van/">
+            <strong>Ionic Vancouver</strong><span>Vancouver, Canada</span>
+          </a>
+        </li>
+        {# <li>
+          <a class="tr"
+             target="_blank"
+             href="https://www.meetup.com/Istanbul-Ionic-Meetup/">
+            <strong>Ionic Istanbul</strong><span>Istanbul, Turkey</span>
+          </a>
+        </li> #}
+        {# <li>
+          <a class="au"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Australia/">
+            <strong>Ionic Australia</strong><span>Sydney, Australia</span>
+          </a>
+        </li> #}
+        <li>
+          <a class="dk"
+             target="_blank"
+             href="https://www.meetup.com/ionicdenmark/">
+            <strong>Ionic Denmark</strong><span>Århus, Denmark</span>
+          </a>
+        </li>
+        {# <li>
+          <a class="hu"
+             target="_blank"
+             href="https://www.meetup.com/IonicFramework-Budapest/">
+            <strong>Ionic Hungary</strong><span>Budapest, Hungary</span>
+          </a>
+        </li> #}
+        <li>
+          <a class="co"
+             target="_blank"
+             href="https://www.meetup.com/topics/ionic-framework/co/">
+            <strong>Ionic Colombia</strong><span>Colombia</span>
+          </a>
+        </li>
+        <li>
+          <a class="jp"
+             target="_blank"
+             href="https://ionic-jp.connpass.com/">
+            <strong>Ionic Japan</strong><span>Tokyo, Japan</span>
+          </a>
+        </li>
+        <li>
+          <a class="hk"
+             target="_blank"
+             href="https://www.meetup.com/Ionic-Hong-Kong/">
+            <strong>Ionic Hong Kong</strong><span>Hong Kong</span>
+          </a>
+        </li>
+        <li>
+          <a class="ng"
+             target="_blank"
+             href="">
+            <strong>Ionic Lagos</strong><span>Lagos, Nigeria</span>
+          </a>
+        </li>
+        <li>
+          <a class="us"
+             target="_blank"
+             href="http://www.meetup.com/Atlanta-Ionic-Developers/">
+            <strong>Ionic Atlanta</strong><span>Atlanta, US</span>
+          </a>
+        </li>
+        <li>
+          <a class="tz"
+             target="_blank"
+             href="https://www.meetup.com/IonicTanzania/">
+            <strong>Ionic Tanzania</strong><span>Dar es Salaam, Tanzania</span>
+          </a>
+        </li>
+        <li>
+          <a class="th"
+             target="_blank"
+             href="https://www.facebook.com/groups/CrossDevTh/">
+            <strong>Ionic Thailand</strong><span>Bangkok, Thailand</span>
+          </a>
+        </li>
+      </ul>
+      <div class="image-wall">
+        <img src="/img/community/img-lg-1.png" alt="Ionic London">
+        <img src="/img/community/img-sm-1.png" alt="Ionic Utah">
+        <img src="/img/community/img-lg-2.png" alt="Ionic Beers">
+        <img src="/img/community/img-sm-2.png" alt="Ionic Madrid">
+        <img src="/img/community/img-lg-3.png" alt="Ionic Madison">
+        <img src="/img/community/img-lg-4.png" alt="Ionic Israel">
+        <img src="/img/community/img-lg-5.png" alt="Angular Camp">
+        <img src="/img/community/img-lg-6.png" alt="Sani Yusuf">
+        <img src="/img/community/img-sm-3.png" alt="Ionic Philladelphia">
+      </div>
+    </div>
+  </section>
+  <section class="leaders">
+    <hgroup class="container">
+      <h2>Ionic Community Leaders</h2>
+      <p>
+        Here are just a few of the awesome people who make the Ionic Community
+        better through the expert content they create, and the knowledge they
+        share.
+      </p>
+    </hgroup>
+    <ul class="container">
+      <li class="simon">
+        <strong>Simon Grimm</strong>
+        <p>
+          Ionic expert, educator, consultant, speaker. Creator of <a
+          href="https://ionicacademy.com/" target="_blank">Ionic Academy</a>.
+        </p>
+        <a href="https://twitter.com/schlimmson" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="josh">
+        <strong>Josh Morony</strong>
+        <p>
+          Author of<a target="_blank"
+          href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">
+          Building Mobile Apps with Ionic</a>. Creator of <a
+          href="https://www.joshmorony.com/elite/" target="_blank">Elite
+          Ionic</a>.
+        </p>
+        <a href="https://twitter.com/joshuamorony" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="jorge">
+        <strong>Jorge Vergara</strong>
+        <p>
+          Mobile Dev. Author of <a target="_blank"
+          href="https://javebratt.com/ionic-firebase-book/">Building Firebase
+          powered Ionic apps</a>.
+        </p>
+        <a href="https://twitter.com/javebratt" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="veni">
+        <strong>Veni Kunche</strong>
+        <p>
+          Curator of Code With Veni. Working on <a target="_blank"
+          href="http://www.ionickits.com/" >Ionic Kits</a>.
+        </p>
+        <a href="https://twitter.com/venikunche" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="ashteya">
+        <strong>Ashteya Biharisingh</strong>
+        <p>
+          Writer on Ionic Framework and Angular. Creator of <a target="_blank"
+          href="https://gonehybrid.com/">Gone Hybrid</a>.
+        </p>
+        <a href="https://twitter.com/ashteya" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="paul">
+        <strong>Paul Halliday</strong>
+        <p>
+          Author. Developer Advocate. Instructor at <a target="_blank"
+          href="https://paulhalliday.io/">paulhalliday.io</a>.
+        </p>
+        <a href="https://twitter.com/paulhalliday_io" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="sani">
+        <strong>Sani Yusuf</strong>
+        <p>
+          GDE, author, speaker, trainer for Ionic. Founder of <a target="_blank"
+          href="http://www.haibrid.com/">Haibrid Co</a>.
+        </p>
+        <a href="https://twitter.com/saniyusuf" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="leif">
+        <strong>Leif Wells</strong>
+        <p>
+          Presenter, author, web &amp; mobile developer based in Atlanta.
+        </p>
+        <a href="https://twitter.com/leifwells" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="david">
+        <strong>David Dal Busco</strong>
+        <p>
+          Ionic Developer. Organizer of the <a target="_blank"
+          href="https://www.meetup.com/Ionic-Zurich/">Ionic Zürich Meetup</a>
+        </p>
+        <a href="https://twitter.com/daviddalbusco" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="chris">
+        <strong>Chris Griffith</strong>
+        <p>
+          Presenter and author of <a target="_blank"
+          href="https://www.amazon.com/Mobile-Development-Ionic-Revised-Cross-Platform/dp/1491998121">
+          Mobile App Development with Ionic</a>.
+        </p>
+        <a href="https://twitter.com/ChrisGriffith" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="dayana">
+        <strong>Dayana Jabif</strong>
+        <p>
+          Full stack developer and JS lover. Running <a target="_blank"
+          href="https://ionicthemes.com/">Ionic Themes</a>.
+        </p>
+        <a href="https://twitter.com/dayujabif" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+      <li class="aaron">
+        <strong>Aaron Saunders</strong>
+        <p>
+          Author, instructor, community builder, CEO of <a target="_blank"
+          href="http://www.clearlyinnovative.com/">Clearly Innovative</a>.
+        </p>
+        <a href="https://twitter.com/aaronksaunders" class="twitter" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="container join">
+    <div class="split">
+      <hgroup>
+        <h2>Join the Ionic Community</h2>
+        <p>
+          Connect and engage with a worldwide community of Ionic developers,
+          teachers, educators, and experts all around the world.
+        </p>
+      </hgroup>
+      <aside>
+        <h3>Get the Ionic Community Digest</h3>
+        <ionic-newsletter-signup arrow-mode="true" lg="true"></ionic-newsletter-signup>
+      </aside>
+    </div>
+    <ul>
+      <li class="slack">
+        <a href="http://ionicworldwide.herokuapp.com" target="_blank">
+          <strong>Worldwide Slack</strong>
+          <span>Connect and chat with other Ionic devs</span>
+        </a>
+      </li>
+      <li class="forum">
+        <a href="https://forum.ionicframework.com" target="_blank">
+          <strong>Ionic Forum</strong>
+          <span>One of the best places to get help</span>
+        </a>
+      </li>
+      <li class="twitter">
+        <a href="https://twitter.com/IonicFramework" target="_blank">
+          <strong>Twitter</strong>
+          <span>The latest updates, news, and content</span>
+        </a>
+      </li>
+      <li class="github">
+        <a href="https://github.com/ionic-team/ionic" target="_blank">
+          <strong>GitHub</strong>
+          <span>Official Ionic Framework GitHub repo’s</span>
+        </a>
+      </li>
+      <li class="so">
+        <a href="https://stackoverflow.com/questions/tagged/ionic-framework" target="_blank">
+          <strong>Stack Overflow</strong>
+          <span>Find answers to the hardest questions</span>
+        </a>
+      </li>
+      <li class="facebook">
+        <a href="https://www.facebook.com/ionicframework" target="_blank">
+          <strong>Facebook</strong>
+          <span>Official Facebook page for Ionic news</span>
+        </a>
+      </li>
+      <li class="youtube">
+        <a href="https://www.youtube.com/c/Ionicframework" target="_blank">
+          <strong>YouTube</strong>
+          <span>The official Ionic YouTube channel</span>
+        </a>
+      </li>
+      <li class="blog">
+        <a href="https://blog.ionicframework.com" target="_blank">
+          <strong>Ionic Blog</strong>
+          <span>Official Blog for Ionic Framework news</span>
+        </a>
+      </li>
+      <li class="medium">
+        <a href="https://medium.com/ionic-and-the-mobile-web" target="_blank">
+          <strong>Medium</strong>
+          <span>Official Medium blog for Ionic posts</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="latest">
+    <div class="container">
+      <hgroup>
+        <h2>The Latest from the Community</h2>
+        <p>
+          Get the latest blog posts, articles, tutorials, and videos from some
+          of Ionic’s biggest community contributors and educators.
+        </p>
+      </hgroup>
+      <div class="tutorials">
+        <h3>Tutorials</h3>
+        {# <a href="" class="subscribe">
+          <ion-icon name="logo-rss"></ion-icon> Subscribe
+        </a> #}
+        <ul>
+          <li>
+            <a target="_blank"
+               href="https://ionicthemes.com/tutorials/about/building-a-complete-mobile-app-with-ionic-3">
+              <strong>
+                Ionic Tutorial: Building a complete mobile app with Ionic 3
+              </strong>
+              <p>
+                In this Ionic tutorial we will build an example...
+              </p>
+              <span>Dayana Jabif &nbsp; June 17, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://devdactic.com/10-simple-ionic-hacks/">
+              <strong>10 Simple Ionic Hacks</strong>
+              <p>
+                Even years after starting with Ionic we can learn something new
+                that can safe us time or just...
+              </p>
+              <span>Simon Grimm &nbsp; June 26, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://gonehybrid.com/how-to-build-an-ionic-app-with-a-graphcool-backend-part-1/">
+              <strong>
+                How To Build An Ionic App With A Graphcool Backend - Part 5
+              </strong>
+              <p>In the previous parts of this tutorial, we created...</p>
+              <span>Ashteya Biharisingh &nbsp; February 20, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://javebratt.com/ionic-firebase-tutorial-intro/">
+              <strong>
+                Building Your First Firebase Powered Ionic Framework App
+              </strong>
+              <p>A 7 post series that will teach you how to bui...</p>
+              <span>Jorge Vergara &nbsp; July 2, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.joshmorony.com/creating-a-custom-scroll-vanish-directive-with-ionic-web-components/">
+              <strong>
+                Creating a Custom Scroll Vanish Directive with Ionic Web
+                Components
+              </strong>
+              <p>As I was scrolling through Twitter’s PWA...</p>
+              <span>Josh Morony &nbsp; July 11, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://ionicthemes.com/tutorials/about/ionic-wordpress-integration">
+              <strong>
+                Ionic and Wordpress Integration using Wordpress REST API
+              </strong>
+              <p>Let's build an Ionic app for your Wordpress site...</p>
+              <span>Dayana Jabif &nbsp; December 31, 2017</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.joshmorony.com/the-ionic-4-migration-survival-guide/">
+              <strong>The Ionic 4 Migration Survival Guide</strong>
+              <p>
+                In the most recent Ionic Dev Newsletter, the Ionic team stated
+                that they are fast...
+              </p>
+              <span>Josh Morony &nbsp; July 10, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://devdactic.com/ionic-datatable-ngx-datatable/">
+              <strong>Creating Ionic Datatable With ngx-datatable</strong>
+              <p>
+                If you are working with a lot of data you might have encountered
+                the problem of presenting...
+              </p>
+              <span>Simon Grimm &nbsp; July 10, 2018</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://leifwells.github.io/2017/09/05/testing-in-ionic-code-coverage/">
+              <strong>Testing in Ionic: Code Coverage</strong>
+              <p>
+                Today, an update made to the ionic-unit-testing-example project
+                that will be...
+              </p>
+              <span>Leif Wells &nbsp; September 5, 2017</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="videos">
+        <h3>Videos</h3>
+        {# <a href="" class="subscribe">
+          <ion-icon name="logo-rss"></ion-icon> Subscribe
+        </a> #}
+        <ul>
+          <li>
+            <a target="_blank"
+               href="https://egghead.io/courses/style-and-theme-ionic-applications">
+              <strong>Style and Theme Ionic Applications</strong>
+              <p>
+                Theming Ionic applications is a topic that is often left
+                undiscussed. Ionic has a robust API...
+              </p>
+              <span>Chris Griffith &nbsp; Egghead.io</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=E0aTpYTFhDk">
+              <strong>Saving Data in Ionic</strong>
+              <p>
+                In order to persist data throughout different sessions, there
+                are multiple different methods...
+              </p>
+              <span>Josh Morony &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://devdactic.com/ionic-image-gallery-zoom/">
+              <strong>Building an Ionic Image Gallery</strong>
+              <p>
+                Easily integrate a Gallery preview of your Images within your
+                Ionic app!
+              </p>
+              <span>Simon Grimm &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=YT47ZEIk1zc">
+              <strong>Component and Template Interaction in Ionic</strong>
+              <p>
+                In this video tutorial, I introduce the concepts of Property
+                Binding, Event Binding, Interpolation...
+              </p>
+              <span>Josh Morony &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=Ji52_xdxkDg">
+              <strong>Creating Ionic Datatable With ngx-datatable</strong>
+              <p>
+                Video Courses, Project Templates, Community &amp; the Support
+                you deserve to learn Ionic!
+              </p>
+              <span>Simon Grimm &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=a4o1534RhC8">
+              <strong>
+                Ionic 3 and AngularFire v5 - Creating a Project and Installing
+                Dependencies
+              </strong>
+              <p>Welcome to the newly updated AngularFire...</p>
+              <span></span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=nQSpMO6N0tc">
+              <strong>Ionic 4 and Capacitor</strong>
+              <p>
+                In this video we look at integrating Capacitor with our Ionic
+                projects...
+              </p>
+              <span>Paul Halliday &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=YIw-bXm_70s">
+              <strong>
+                Setting up your dev environment to start building Ionic Apps
+              </strong>
+              <p>Learn how to set up your development...</p>
+              <span>IonicThemes &nbsp; YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank"
+               href="https://www.youtube.com/watch?v=6VA9Qsq8gfE">
+              <strong>Ionic Form Handling &amp; Validation</strong>
+              <p>
+                You can find the step by step tutorial and download the code for
+                free in...
+              </p>
+              <span>IonicThemes &nbsp; YouTube</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="education">
+    <div class="container">
+      <hgroup>
+        <h2>Community Education</h2>
+        <p>
+          Extend your knowledge of Ionic from premium educational material made
+          by community members.
+        </p>
+      </hgroup>
+      <ul>
+        <li class="">
+          <a target="_blank" href="https://www.joshmorony.com/elite/">
+            <h4>Course</h4>
+            <h3>Elite Ionic</h3>
+            <p>
+              A course for building complex, well tested, high performing,
+              beautiful, and useable mobile applications.
+            </p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank" href="https://ionicacademy.com/">
+            <h4>Course</h4>
+            <h3>Ionic Academy</h3>
+            <p>
+              Learn Ionic through step-by-step expert screencasts.  Build for
+              the Web and Mobile with JS, HTML and CSS.
+            </p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank"
+             href="https://www.amazon.com/Ionic-Cookbook-Recipes-cutting-edge-real-time-ebook/dp/B07CVW4JXW">
+            <h4>Book</h4>
+            <h3>Ionic Cookbook</h3>
+            <p>
+              Recipes for creating cutting edge, real time hybrid mobile apps
+              with Ionic.
+            </p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank"
+             href="https://www.amazon.com/Mobile-Development-Ionic-Revised-Cross-Platform/dp/1491998121">
+            <h4>Book</h4>
+            <h3>Mobile App Development with Ionic</h3>
+            <p>Cross-platform apps with Ionic, Angular, and Cordova.</p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank" href="https://javebratt.com/ionic-firebase-book/">
+            <h4>Book</h4>
+            <h3>Building Firebase Powered Ionic Apps</h3>
+            <p>Everything you need to build Ionic apps using Firebase.</p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank"
+             href="https://www.lynda.com/Ionic-tutorials/Ionic-3-0-Mobile-App-Developers/562260-2.html">
+            <h4>Course</h4>
+            <h3>Ionic 3 for Mobile App Developers</h3>
+            <p>
+              Develop highly performant mobile apps targeting iOS, Android, and
+              Windows with a single code base.
+            </p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank"
+             href="https://www.udemy.com/ionic-2-the-practical-guide-to-building-ios-android-apps/">
+            <h4>Course</h4>
+            <h3>Build iOS &amp; Android Apps with Angular &amp; Ionic</h3>
+            <p>
+              Build Native iOS and Android Apps with Angular 2+, Cordova and the
+              Ionic 3 Framework. Build 4 Complete Apps!
+            </p>
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank"
+             href="https://ionicthemes.com/tutorials/about/building-a-complete-mobile-app-with-ionic-3">
+            <h4>Tutorial</h4>
+            <h3>Building a complete mobile app with Ionic</h3>
+            <p>
+              Build an example app with a Q&amp;A format similar to
+              StackOverflow.
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+{% include '_includes/promos/newsletter-signup.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+<script>
+// enable sticky nav
+stickyNav.init();
+
+// header parallax
+window.parallax = {
+  $banner: document.querySelector('.banner'),
+  $bannerHeading: document.querySelector('.banner hgroup'),
+  $bannerFeatures: document.querySelector('.banner .features'),
+  lastScroll: 0,
+  ticking: false,
+
+  update: function() {
+    this.$banner.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,' + (this.lastScroll/5) + ',0,1)';
+    this.$bannerHeading.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,'+ (this.lastScroll/10)+',0,1)';
+    this.$bannerFeatures.style.transform =
+      'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,'+ (this.lastScroll/20 * 1)+',0,1)';
+    this.ticking = false;
+  },
+
+  // RAF Debounce
+  onScroll: function() {
+    this.lastScroll = window.scrollY;
+
+    if (!this.ticking) {
+      window.requestAnimationFrame(this.update.bind(this));
+      ticking = true;
+    }
+  },
+
+  init: function() {
+    window.addEventListener('scroll', this.onScroll.bind(this));
+  }
+}
+
+parallax.init();
+
+
+// meetup carousel
+window.carousel = {
+  $countries: document.getElementById('countries'),
+  totalWidth: 0,
+  rightMargin: 80,
+  speed: 150,
+
+  init: function() {
+    this.originalLength = this.$countries.children.length;
+
+    for (var i = 0; i < this.originalLength; i++) {
+      this.totalWidth +=
+        this.$countries.children[i].offsetWidth + this.rightMargin;
+      this.$countries.appendChild(this.$countries.children[i].cloneNode(true));
+    }
+    this.originalWidth = this.totalWidth;
+
+    this.$countries.addEventListener('mouseover', this.pause.bind(this))
+    this.$countries.addEventListener('mouseleave', this.resume.bind(this))
+
+    this.scroll();
+  },
+
+  pause: function() {
+    TweenLite.to(this.scrollRef, 1, {timeScale: 0.2});
+  },
+
+  resume: function() {
+    TweenLite.to(this.scrollRef, 1, {timeScale: 1});
+  },
+
+  scroll: function() {
+    this.scrollRef = TweenLite.to(this.$countries, this.speed, {
+      x: this.originalWidth * -1,
+      ease: Linear.easeNone,
+      force3D: true,
+      onCompleteScope: this,
+      onComplete: function() {
+        // jump back to starting position and restart the scroll in 1 frame
+        TweenLite.to(this.$countries, 0, {
+          x: 0,
+          lazy:true,
+          onCompleteScope: this,
+          onComplete: function() {
+            this.scroll();
+          }
+        })
+      }
+    })
+  },
+}
+
+carousel.init();
+
+</script>
+{% endblock %}

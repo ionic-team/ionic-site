@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -333,7 +333,19 @@ Re-initializes the plugin to clean service & browser state.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="registerAddressFamily" href="#registerAddressFamily"></a><code>registerAddressFamily</code></h3>
+
+Family of addresses to register: ipv4, ipv6 or any.
+
+
+
+<h3><a class="anchor" name="watchAddressFamily" href="#watchAddressFamily"></a><code>watchAddressFamily</code></h3>
+
+Family of addresses to watch for: ipv4, ipv6 or any.
+
+
+
+
 
 
 

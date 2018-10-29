@@ -27,7 +27,7 @@ Taking a look at `src/app/app.html`, we see this line near the bottom:
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
 
-In `src/app/app.component.ts`, the `MyApp` component specifies this in its constructor:
+In `src/app/app.component.ts`, the `MyApp` component specifies `HelloIonicPage` as the root page by assigning it to the `rootPage` variable:
 
 ```ts
 ...
@@ -107,7 +107,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar>` is a template for the [navigation bar](/docs//api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs//api/components/toolbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 
@@ -124,6 +124,7 @@ import {ItemDetailsPage} from '../item-details/item-details';
 
 
 @Component({
+  selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
@@ -132,9 +133,6 @@ export class ListPage {
   items: Array<{ title: string, note: string, icon: string }>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
-
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
       'american-football', 'boat', 'bluetooth', 'build'];
 

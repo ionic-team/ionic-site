@@ -189,42 +189,42 @@
 
 @keyframes floatingCloud {
   0% {
-    transform: scale3d(.6,.6,1); 
+    transform: scale3d(.6,.6,1);
     opacity: 0;
   }
   5% {opacity: .9}
   10% {opacity: 1}
   95% {opacity: 1}
-  100% { 
-    transform: translate3d(150%, 100%, 0);  
+  100% {
+    transform: translate3d(150%, 100%, 0);
     opacity: 0;
   }
 }
 
 @keyframes floatingCloud-2 {
   0% {
-    transform: scale3d(.2,.2,1); 
+    transform: scale3d(.2,.2,1);
     opacity: 0;
   }
   5% {opacity: .9}
   20% {opacity: 1}
   95% {opacity: 1}
-  100% { 
-    transform: translate3d(110%, 30%, 0) scale3d(.4,.4,1);  
+  100% {
+    transform: translate3d(110%, 30%, 0) scale3d(.4,.4,1);
     opacity: 0;
   }
 }
 
 @keyframes floatingCloud-3 {
-  0% { 
-    transform: translate3d(150%, 70%, 0) scale3d(.8,.8,1);  
+  0% {
+    transform: translate3d(150%, 70%, 0) scale3d(.8,.8,1);
     opacity: 0;
   }
   5% {opacity: 1}
   20% {opacity: 1}
   90% {opacity: .9}
   100% {
-    transform: scale3d(.4,.4,1); 
+    transform: scale3d(.4,.4,1);
     opacity: 0;
   }
 }
@@ -232,34 +232,34 @@
 @keyframes floatingCloud-4 {
   0% {
     transform: scale3d(1.2,1.2,1);
-    transform: translate3d(110%, 150%, 0);  
+    transform: translate3d(110%, 150%, 0);
     opacity: 0;
   }
   5% {opacity: 1}
   90% {opacity: 1}
   95% {opacity: .9}
-  100% { 
-    transform: scale3d(.8,.8,1); 
+  100% {
+    transform: scale3d(.8,.8,1);
     opacity: 0;
   }
 }
 
 @keyframes rainDrop {
   0% {
-    transform: translate3d(0, 0, 0); 
+    transform: translate3d(0, 0, 0);
     opacity: 0;
   }
   5% {opacity: .9}
   10% {opacity: 1}
   95% {opacity: 1}
-  100% { 
-    transform: translate3d(0, 800%, 0);  
+  100% {
+    transform: translate3d(0, 800%, 0);
     opacity: 0;
   }
 }
 
 @keyframes screenPop-1 {
-  0% { 
+  0% {
     opacity: 1;
     z-index: 0;
   }
@@ -269,8 +269,8 @@
     opacity: 0;
   }
   96% {  transform: scale3d(1.1, 1.1, 1); }
-  100% { 
-    opacity: 1; 
+  100% {
+    opacity: 1;
     transform: scale3d(1,1,1);
   }
 }
@@ -283,7 +283,7 @@
     opacity: 0;
   }
   31% {  transform: scale3d(1.1, 1.1, 1); }
-  35% { 
+  35% {
     transform: scale3d(1,1,1);
     opacity: 1;
   }
@@ -299,7 +299,7 @@
     opacity: 0;
   }
   64% {  transform: scale3d(1.1, 1.1, 1); }
-  68% { 
+  68% {
     transform: scale3d(1,1,1);
     opacity: 1;
   }
@@ -325,4 +325,9 @@
 @keyframes home-app-android {
   0% { transform: translate3d(10px, -4px, 0); }
   100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes carousel {
+  0% {  transform: translateX(0) }
+  100% {  transform: translateX(-50%) }
 }

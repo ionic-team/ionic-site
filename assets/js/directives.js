@@ -44,8 +44,13 @@ IonicSiteModule
   return {
     restrict: 'E',
     transclude: true,
+    scope: {
+      pos: '@'
+    },
     template: '<i class="ion-md-help"></i>' +
-              '<div class="tip"><ng-transclude></ng-transclude></div>',
+              '<div class="tip" ng-class="pos">' +
+                '<ng-transclude></ng-transclude>' +
+              '</div>',
   };
 })
 .directive('ngEnter', function() {

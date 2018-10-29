@@ -8,6 +8,9 @@ const twitter = require('twitter')({
   access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET
 });
 
+const Hubspot = require('hubspot');
+const hs = new Hubspot({ apiKey: config.HUBSPOT_API_KEY });
+
 const jsforce = require('jsforce');
 var sfConn = new jsforce.Connection()
 
@@ -106,7 +109,7 @@ module.exports = {
     return sg.API(requestParams)
   },
 
-  saveEmail: (opts) => {
+  saveEmailSendGrid: (opts) => {
     if (!config.SENDGRID_APIKEY) {
       console.warn('Sendgrid API keys not found, ignoring add contact request');
       return Promise.resolve()
@@ -218,5 +221,41 @@ module.exports = {
         })
       })
     })
+  },
+
+  // HubSpot
+  saveEmailHubSpot: (opts) => {
+    return hs.contacts.createOrUpdate(opts.email, {
+      "properties": [
+        {
+          "property": "email",
+          "value": opts.email
+        },
+        {
+          "property": "firstname",
+          "value": opts.first_name || null
+        },
+        {
+          "property": "lastname",
+          "value": opts.last_name || null
+        }
+      ]
+    }).catch(err => {
+      console.warn(err)
+    })
+  },
+
+  // tools tied to multiple or no 3rd party service
+  saveEmail: (opts) => {
+    // Save to HubSpot and SendGrid
+    return Promise.all([
+      module.exports.saveEmailSendGrid(opts),
+      module.exports.saveEmailHubSpot(opts)
+    ].map(tools.reflect));
+  },
+
+  reflect: promise => {
+    return promise.then(function(v) { return {v: v, status: 'resolved'};},
+                        function(e) { return {e: e, status: 'rejected'};});
   }
 };

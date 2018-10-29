@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,7 +23,13 @@ docType: "class"
 
 
 
-<p>Retrieves additional device information that is not provided by other plugins</p>
+<p>Retrieves additional device information from the Device Hardware</p>
+<ul>
+<li>memory</li>
+<li>cpumhz</li>
+<li>totalstorage</li>
+<li>freestorage</li>
+</ul>
 
 
 <p>Repo:
@@ -89,6 +95,13 @@ Get the device's CPU mhz
 
 
 <h3><a class="anchor" name="totalstorage" href="#totalstorage"></a><code>totalstorage</code></h3>
+
+
+Get the total storage
+
+
+
+<h3><a class="anchor" name="freestorage" href="#freestorage"></a><code>freestorage</code></h3>
 
 
 Get the total storage

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -57,7 +57,7 @@ $ npm install --save @ionic-native/mobile-accessibility
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { MobileAccessibility } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { MobileAccessibility } from &#39;@ionic-native/mobile-accessibility&#39;;
 
 
 constructor(private mobileAccessibility: MobileAccessibility) { }

@@ -5,65 +5,65 @@
 footer {
   padding-top: 70px;
   padding-bottom: 20px;
+  font-weight: 500;
+  font-family: $font-family-eina;
 
-  .logo {
-    background: url('/img/ionic-logo.png') no-repeat 0 0;
-    background-size: 90px;
-    height: 32px;
-    width: 90px;
-    display: block;
-    width: 13.5%;
-    margin-top: 5px;
-  }
+  nav  {
+    display: flex;
+    justify-content: space-between;
 
-  .logo,
-  ul {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  ul {
-    width: 16.3%;
-    list-style: none;
-    font-weight: 500;
-
-    strong {
-      color: #545a64;
-      display: block;
-      font-weight: 500;
-      font-size: 16px;
-      padding-bottom: 10px;
+    &.container {
+      &::before,
+      &::after {
+        display: none;
+      }
     }
 
-    a {
-      color: #a1a9b6;
-      font-size: 14px;
-      padding: 7px 0;
-      display: inline-block;
+    ul {
+      list-style: none;
+      font-weight: 500;
+      padding-left: 0;
+      flex: 0 0 160px;
 
-      &:hover {
-        text-decoration: none;
-        color: #478aff;
+      &:first-child {
+        margin-left: 1px;
+      }
+
+      strong {
+        color: #545a64;
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        padding-bottom: 4px;
+        letter-spacing: -.02em;
+      }
+
+      a {
+        color: #a1a9b6;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 7px 0;
+        display: inline-block;
+        letter-spacing: -.02em;
+
+        &:hover {
+          text-decoration: none;
+          color: $blue;
+        }
       }
     }
   }
 
   @media (max-width: $screen-sm-max) {
     nav {
-      display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    }
 
-    .logo,
-    ul {
-      flex: 0 0 160px;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      padding-left: 0;
-      padding-right: 40px;
+      ul {
+        margin-bottom: 20px;
+        padding-left: 0;
+        padding-right: 40px;
+      }
     }
   }
 
@@ -72,8 +72,10 @@ footer {
 
     form {
       float: right;
-      width: 40%;
+      width: 44.5%;
       display: flex;
+      padding-top: 6px;
+      height: 50px;
 
       @media (max-width: $screen-xs-max) {
         float: none;
@@ -81,43 +83,15 @@ footer {
         margin-bottom: 40px;
       }
 
-      .form-control,
-      .btn {
-        height: 44px;
-        font-size: 14px;
-        display: inline-block;
-        padding: 12px 20px 11px;
-      }
-
-      .form-control {
-        flex: 1 0 150px;
-        border: none;
-        border-radius: 3px 0 0 3px;
-        box-shadow: 0 1px 4px rgba(#222f45, .2);
-        transition: .2s box-shadow;
-
-        &::placeholder {
-          color: rgba(#a1a9b6, .6);
-          font-size: 14px;
-        }
-
-        &:focus {
-          box-shadow: 0 1px 4px rgba(#222f45, .4);
-        }
-      }
-
-      .btn {
-        width: 110px;
-        font-weight: 500;
-        text-align: center;
-        border-radius: 0 3px 3px 0;
+      button {
+        padding: 11px 17px 13px;
       }
     }
 
     hgroup {
-      background: url('/img/home/footer-ionitron-logo.png') no-repeat 0 0;
-      background-size: 47px;
-      padding-left: 65px;
+      background: url('/img/footer/footer-newsletter-icon.png') no-repeat 1px 8px;
+      background-size: 40px;
+      padding-left: 63px;
       min-height: 50px;
       width: 50%;
 
@@ -128,43 +102,115 @@ footer {
       h3 {
         font-size: 16px;
         margin-top: 0;
-        margin-bottom: 15px;
+        margin-bottom: 6px;
+        padding-top: 11px;
+        font-weight: 600;
+        letter-spacing: -.02em;
       }
 
       p {
-        font-size: 14px;
+        font-size: 13px;
         color: #a1a9b6;
+        letter-spacing: -.016em;
       }
     }
   }
 
-  .copyright {
+  .sub-footer {
     font-size: 12px;
-    color: rgba(#bac2cf, .7);
+    color: #bcc5d5;
     border-top: 1px solid #eff1f5;
     margin-top: 40px;
-    padding-top: 27px;
+    padding-top: 29px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
 
-    a {
-      color: rgba($blue, .7);
+    .license {
+      margin-left: auto;
+      margin-right: -3px;
+      padding-left: 15px;
+      text-align: right;
 
-      &:hover {
-        color: $blue;
-        text-decoration: none;
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        padding-left: 0;
       }
     }
 
-    &::after {
-      clear: both;
+    a {
+      color: $grey;
     }
 
-    .left {
-      float: left;
+    .privacy {
+      height: 1em;
+      margin-left: 12px;
     }
 
-    .right {
-      float: right;
+    .spacer {
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+
+    .copyright {
+      flex: 0 0 77px;
+    }
+
+    a[id^=btn-footer] {
+      position: relative;
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+      margin-left: 15px;
+
+      &::before,
+      &::after {
+        background: url('/img/footer/footer-social-icons.png') no-repeat 0 0;
+        background-size: 16px;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::after {
+        transition: .2s opacity;
+        opacity: 0;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+
+    #btn-footer-twitter::after { background-position: 0 -16px; }
+    #btn-footer-slack {
+      &::before { background-position: 0 -32px; }
+      &::after  { background-position: 0 -48px; }
+    }
+    #btn-footer-github {
+      &::before { background-position: 0 -64px; }
+      &::after  { background-position: 0 -80px; }
+    }
+    #btn-footer-facebook {
+      &::before { background-position: 0 -96px; }
+      &::after  { background-position: 0 -112px; }
+    }
+    #btn-footer-medium {
+      &::before { background-position: 0 -128px; }
+      &::after  { background-position: 0 -144px; }
+    }
+    #btn-footer-youtube {
+      &::before { background-position: 0 -160px; }
+      &::after  { background-position: 0 -176px; }
+    }
+    #btn-footer-stack-overflow {
+      &::before { background-position: 0 -192px; }
+      &::after  { background-position: 0 -208px; }
     }
   }
 }

@@ -1,6 +1,7 @@
 {% extends '_layouts/base.html' %}
-{% set title = "Build Amazing Native Apps and Progressive Web Apps with Ionic Framework and Angular" %}
+{% set title = 'Open Source Framework for Building Amazing Mobile Apps - Ionic Pro' %}
 {% set id = "framework" %}
+{% set meta_description = "Ionic is the top open source framework for app platform for web developers. Build amazing hybrid and native mobile, web, and desktop apps all with one shared code base and open web standards" %}
 
 {% block main %}
 <div id="slider" class="primary-row">
@@ -17,7 +18,7 @@
         <p class="btn-row">
           <a id="repo-download"
              class="btn white btn-download desktop-btn"
-             href="/getting-started/">Get started</a>
+             href="/getting-started#cli">Get started</a>
           <a class="btn btn-primary btn-get-started hide-sm"
              href="/docs/"
              alt="Docs for v{{frameworkInfo.version}}"
@@ -35,12 +36,12 @@
         </p>
       </div>
       <div class="col-sm-6 feature-img one">
-        <img class="device pixel two" src="/img/framework/cta-pixel-2.png">
-        <img class="device iphone one" src="/img/framework/cta-iphone-2.png">
-        <a href="http://view.ionic.io/" target="_blank">
-          <img class="app-icon three" src="/img/homepage/ionicview-icon_2x.png">
-          <span class="demo-link">Ionic View App</span>
-        </a>
+        <img class="device pixel two" 
+             src="/img/framework/cta-pixel-2.png"
+             alt="Phone with Ionic framework app running">
+        <img class="device iphone one" 
+             src="/img/framework/cta-iphone-2.png"
+             alt="Phone with list of ionic apps">
       </div>
     </div>
   </div>
@@ -385,14 +386,18 @@
       <span>Dev Advocate, <a href="http://www.adobe.com">Adobe</a></span>
     </li>
   </ul>
-  <img class="companies" src="/img/framework/testimonial-logos.png?1"/>
+  <img class="companies" 
+       src="/img/framework/testimonial-logos.png?1" 
+       alt="Apps built on Ionic framework"/>
 </section>
 {% endblock %}
 
 {% block scripts %}
-<!--
-<script type="text/javascript" src="/js/slick.js"></script> -->
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script>
+
+// enable sticky nav
+stickyNav.init();
 
 // Grab fresh social data from GH and Twitter
 function digits(n){

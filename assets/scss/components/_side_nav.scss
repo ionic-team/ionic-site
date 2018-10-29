@@ -171,6 +171,7 @@
       text-transform: uppercase;
       font-size: 10px;
       font-weight: 700;
+      font-family: $font-family-eina;
       letter-spacing: 2px;
       text-decoration: none;
       display: block;
@@ -265,6 +266,70 @@
     border-radius: 3px;
     position: relative;
     top: -2px;
+  }
+
+  .v4-beta {
+    margin-top: 7px;
+    display: block;
+    margin-bottom: 14px;
+
+    a {
+      display: block;
+      position: relative;
+      color: #596c8c;
+      padding: 15px 15px 15px 39px;
+      margin-right: 20px;
+
+      > strong,
+      > i,
+      > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        background: white url('/img/docs/ionic-side-icon.png') no-repeat 0 50%;
+        background-size: 28px;
+        border-radius: 6px;
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        box-shadow: 0 2px 8px rgba(black, 0.2);
+        transition: .3s box-shadow ease-out;
+      }
+
+      &:hover::before {
+        box-shadow: 0 4px 16px rgba(black, 0.16);
+      }
+    }
+
+    strong {
+      display: block;
+      font-size: 14px;
+      color: #0f1622;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: .01em;
+    }
+
+    span {
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: .01em;
+    }
+
+    a > i {
+      position: absolute;
+      right: 5px;
+      font-size: 18px;
+      color: #d2d6dd;
+      top: calc(50% - 10px);
+    }
   }
 }
 

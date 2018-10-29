@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">OneSignal</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L295">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L300">
   Improve this doc
 </a>
 
@@ -30,53 +30,63 @@ for more information.</p>
 <h4 id="icons">Icons</h4>
 <p>If you want to use generated icons with command <code>ionic cordova resources</code>:</p>
 <ol>
-<li><p>Add a file to your <code>hooks</code> directory inside the <code>after_prepare</code> folder called <code>030_copy_android_notification_icons.js</code></p>
+<li><p>Add a file to your <code>hooks</code> directory called <code>copy_android_notification_icons.js</code></p>
+</li>
+<li><p>Configure the hook in your config.xml</p>
+<pre><code>&lt;platform name=&quot;android&quot;&gt;
+    &lt;hook type=&quot;after_prepare&quot; src=&quot;hooks/copy_android_notification_icons.js&quot; /&gt;
+&lt;/platform&gt;
+</code></pre>
 </li>
 <li><p>Put the following code in it:</p>
 </li>
 </ol>
 <pre><code>#!/usr/bin/env node
 
-var filestocopy = [{
-    &quot;resources/android/icon/drawable-hdpi-icon.png&quot;:
-        &quot;platforms/android/res/drawable-hdpi/ic_stat_onesignal_default.png&quot;
-}, {
-    &quot;resources/android/icon/drawable-mdpi-icon.png&quot;:
-        &quot;platforms/android/res/drawable-mdpi/ic_stat_onesignal_default.png&quot;
-}, {
-    &quot;resources/android/icon/drawable-xhdpi-icon.png&quot;:
-        &quot;platforms/android/res/drawable-xhdpi/ic_stat_onesignal_default.png&quot;
-}, {
-    &quot;resources/android/icon/drawable-xxhdpi-icon.png&quot;:
-        &quot;platforms/android/res/drawable-xxhdpi/ic_stat_onesignal_default.png&quot;
-}, {
-    &quot;resources/android/icon/drawable-xxxhdpi-icon.png&quot;:
-        &quot;platforms/android/res/drawable-xxxhdpi/ic_stat_onesignal_default.png&quot;
-} ];
-
 var fs = require(&#39;fs&#39;);
 var path = require(&#39;path&#39;);
 
-// no need to configure below
-var rootdir = process.argv[2];
+var filestocopy = [{
+    &quot;resources/android/icon/drawable-hdpi-icon.png&quot;:
+        &quot;platforms/android/app/src/main/res/drawable-hdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-mdpi-icon.png&quot;:
+        &quot;platforms/android/app/src/main/res/drawable-mdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xhdpi-icon.png&quot;:
+        &quot;platforms/android/app/src/main/res/drawable-xhdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xxhdpi-icon.png&quot;:
+        &quot;platforms/android/app/src/main/res/drawable-xxhdpi/ic_stat_onesignal_default.png&quot;
+}, {
+    &quot;resources/android/icon/drawable-xxxhdpi-icon.png&quot;:
+        &quot;platforms/android/app/src/main/res/drawable-xxxhdpi/ic_stat_onesignal_default.png&quot;
+} ];
 
-filestocopy.forEach(function(obj) {
-    Object.keys(obj).forEach(function(key) {
-        var val = obj[key];
-        var srcfile = path.join(rootdir, key);
-        var destfile = path.join(rootdir, val);
-        //console.log(&quot;copying &quot;+srcfile+&quot; to &quot;+destfile);
-        var destdir = path.dirname(destfile);
-        if (fs.existsSync(srcfile) &amp;&amp; fs.existsSync(destdir)) {
-            fs.createReadStream(srcfile).pipe(
-                fs.createWriteStream(destfile));
-        }
+module.exports = function(context) {
+
+    // no need to configure below
+    var rootdir = context.opts.projectRoot;
+
+    filestocopy.forEach(function(obj) {
+        Object.keys(obj).forEach(function(key) {
+            var val = obj[key];
+            var srcfile = path.join(rootdir, key);
+            var destfile = path.join(rootdir, val);
+            console.log(&quot;copying &quot;+srcfile+&quot; to &quot;+destfile);
+            var destdir = path.dirname(destfile);
+            if (fs.existsSync(srcfile) &amp;&amp; fs.existsSync(destdir)) {
+                fs.createReadStream(srcfile).pipe(
+                    fs.createWriteStream(destfile));
+            }
+        });
     });
-});
+
+};
 </code></pre>
 <ol>
 <li>From the root of your project make the file executable:
-<code>$ chmod +x hooks/after_prepare/030_copy_android_notification_icons.js</code></li>
+<code>$ chmod +x hooks/copy_android_notification_icons.js</code></li>
 </ol>
 
 
@@ -139,12 +149,6 @@ this.oneSignal.endInit();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="OSInFocusDisplayOption" href="#OSInFocusDisplayOption"></a><code>OSInFocusDisplayOption</code></h3>
-
-constants to use in inFocusDisplaying()
-
-
-
 <h3><a class="anchor" name="startInit" href="#startInit"></a><code>startInit(appId,&nbsp;googleProjectNumber)</code></h3>
 
 
@@ -704,6 +708,33 @@ The higher the value the more information is shown.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="setLocationShared" href="#setLocationShared"></a><code>setLocationShared(shared)</code></h3>
+
+
+
+
+Disable or enable location collection (Defaults to enabled) if your app has location permission.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      shared</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
 <h3><a class="anchor" name="addPermissionObserver" href="#addPermissionObserver"></a><code>addPermissionObserver()</code></h3>
 
 
@@ -735,7 +766,153 @@ This includes the following events:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="setEmail" href="#setEmail"></a><code>setEmail(email,&nbsp;emailAuthToken)</code></h3>
+
+
+Allows you to set the user's email address with the OneSignal SDK.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      email</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Email address</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      emailAuthToken</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Email auth token<strong class="tag">Optional</strong></p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="logoutEmail" href="#logoutEmail"></a><code>logoutEmail()</code></h3>
+
+
+If your app implements logout functionality, you can call logoutEmail to dissociate the email from the device
+
+
+
+<h3><a class="anchor" name="addEmailSubscriptionObserver" href="#addEmailSubscriptionObserver"></a><code>addEmailSubscriptionObserver()</code></h3>
+
+
+
+
+The passed in function will be fired when a notification subscription property changes.
+This includes the following events:
+- Getting a push token from Apple / Google.
+- Getting a player / user id from OneSignal
+- OneSignal.setSubscription is called
+- User disables or enables notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="clearOneSignalNotifications" href="#clearOneSignalNotifications"></a><code>clearOneSignalNotifications()</code></h3>
+
+
+
+
+Clears all OneSignal notifications
+
+
+
+<h3><a class="anchor" name="setRequiresUserPrivacyConsent" href="#setRequiresUserPrivacyConsent"></a><code>setRequiresUserPrivacyConsent(required)</code></h3>
+
+
+Allows you to delay the initialization of the SDK until the user provides privacy consent.
+The SDK will not be fully initialized until the provideUserConsent(true) method is called.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      required</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="provideUserConsent" href="#provideUserConsent"></a><code>provideUserConsent(granted)</code></h3>
+
+
+If your application is set to require the user's privacy consent, you can provide this consent using this method.
+Until you call provideUserConsent(true), the SDK will not fully initialize and will not send any data to OneSignal.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      granted</td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="userProvidedPrivacyConsent" href="#userProvidedPrivacyConsent"></a><code>userProvidedPrivacyConsent(callback)</code></h3>
+
+
+Accepts a callback, which returns a boolean variable indicating if the user has given privacy consent yet.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      callback</td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 
 
@@ -763,7 +940,7 @@ This includes the following events:
     <td>
       <p>Was app in focus.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -777,7 +954,7 @@ This includes the following events:
     <td>
       <p>Was notification shown to the user. Will be false for silent notifications.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -805,7 +982,7 @@ This includes the following events:
     <td>
       <p>Payload received from OneSignal.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -819,7 +996,7 @@ This includes the following events:
     <td>
       <p>How the notification was displayed to the user. Can be set to <code>Notification</code>, <code>InAppAlert</code>, or <code>None</code> if it was not displayed.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -859,7 +1036,7 @@ This includes the following events:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1259,6 +1436,19 @@ This includes the following events:
     </td>
     <td>
       <code>any</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      collapse_id
+    </td>
+    <td>
+      <code>string</code>
     </td>
     <td>
       

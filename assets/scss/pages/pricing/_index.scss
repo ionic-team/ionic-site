@@ -5,24 +5,24 @@
       background: white;
 
       hgroup {
-        padding-bottom: 402px;
-        padding-top: 40px;
+        padding-bottom: 417px;
+        padding-top: 48px;
         color: #272a2f;
         text-align: center;
-        max-width: 780px;
+        max-width: 720px;
 
         h1 {
           padding-bottom: 10px;
           margin: 0 0 8px;
-          font-size: 40px;
+          font-size: 36px;
           font-weight: 700;
-          letter-spacing: -.015em;
+          letter-spacing: -.03em;
           font-family: $font-family-eina;
         }
 
         p {
           color: #4c576c;
-          letter-spacing: -.001em;
+          letter-spacing: -.03em;
           font-size: 18px;
           font-weight: 600;
           line-height: 1.8em;
@@ -43,7 +43,7 @@
   }
 
   .plans {
-    margin: -335px auto 50px;
+    margin: -335px auto 58px;
     display: flex;
     flex-wrap: wrap;
     border-radius: 6px;
@@ -64,11 +64,12 @@
 
       > h3 {
         color: #97a4ba;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 32px;
+        margin-bottom: 36px;
         margin-top: 0;
+        letter-spacing: .01em;
 
         strong {
           color: #272a2f;
@@ -78,6 +79,7 @@
 
     .plan-container {
       display: flex;
+      flex-wrap: wrap;
       border-radius: 4px;
       background: white;
       box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
@@ -87,7 +89,7 @@
       position: relative;
       vertical-align: top;
       flex: 1 0 278px;
-      padding: 40px 33px 112px;
+      padding: 34px 42px 102px;
 
       + .plan {
         border-left: 1px solid #eee;
@@ -99,9 +101,9 @@
         box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
         content: '';
         position: absolute;
-        top: -10px;
+        top: -13px;
         right: 0;
-        bottom: -10px;
+        bottom: -12px;
         left: 0;
       }
 
@@ -114,7 +116,7 @@
         text-transform: uppercase;
         font-size: 10px;
         font-weight: 500;
-        top: -10px;
+        top: -13px;
         right: 0;
         left: 0;
         text-align: center;
@@ -130,9 +132,10 @@
         position: relative;
         text-transform: uppercase;
         z-index: 1;
-        font-size: 20px;
+        font-size: 22px;
         text-transform: none;
         margin-bottom: 0;
+        letter-spacing: .01em;
       }
 
       &.starter {
@@ -175,7 +178,7 @@
         }
 
         .cta {
-          bottom: 20px;
+          bottom: 12px;
         }
       }
 
@@ -191,14 +194,14 @@
       &.enterprise {
         border-radius: 4px;
         box-shadow: 0 8px 32px rgba(0,0,0,.1), 0 2px 8px rgba(0,0,0,.1);
-        padding: 30px calc(50% + 60px) 30px 30px;
+        padding: 22px calc(50% + 20px) 30px 30px;
 
         &::before {
           content: '';
           background: url('/img/pricing/enterprise-logos.png') no-repeat 100% 50%;
           background-size: 100%;
           position: absolute;
-          left: calc(50% + 60px);
+          left: calc(50% + 34px);
           top: 20px;
           right: 40px;
           bottom: 20px;
@@ -216,12 +219,14 @@
           margin-top: 0;
           width: auto;
           display: inline-block;
-          padding: 14px 18px 13px;
+          padding: 12px 18px 11px;
         }
 
         p {
           font-weight: 600;
-          line-height: 1.8em;
+          font-size: 15px;
+          line-height: 23px;
+          margin: 5px 0 19px;
         }
       }
 
@@ -264,7 +269,7 @@
       }
 
       ul {
-        padding: 18px 0 0 7px;
+        padding: 28px 0 0;
         text-align: left;
         margin: 0 auto;
         max-width: 220px;
@@ -273,9 +278,10 @@
       li {
         color: #404349;
         font-size: 13px;
+        line-height: 22px;
         list-style: none;
         font-weight: 600;
-        padding: 14px 0 0 0;
+        padding: 14px 0 0;
         position: relative;
 
         b,
@@ -289,12 +295,12 @@
         font-weight: 600;
         position: absolute;
         text-decoration: none;
-        padding: 14px 8px 13px;
-        bottom: 28px;
+        padding: 12px 8px 11px;
+        bottom: 26px;
         display: block;
         z-index: 1;
-        left: 32px;
-        right: 32px;
+        left: 28px;
+        right: 28px;
         font-size: 15px;
       }
 
@@ -317,6 +323,12 @@
         padding-right: 5px;
         padding-left: 5px;
 
+        h3,
+        .price,
+        .type {
+          text-align: center;
+        }
+
         &:nth-child(2) {
           border-top: 1px solid #eee;
         }
@@ -334,44 +346,84 @@
             }
           }
         }
+
+        &.team {
+          &::before {
+            top: 0;
+            bottom: 0;
+          }
+
+          .cta {
+            bottom: 26px;
+          }
+        }
+
+        &.enterprise {
+          padding: 22px 30px 160px 30px;
+          text-align: center;
+
+          &::before {
+            width: 300px;
+            left: calc(50% - 150px);
+            bottom: -30px;
+          }
+
+          .btn {
+            margin: 0 auto;
+            position: absolute;
+            left: 25px;
+            right: 25px;
+          }
+        }
       }
     }
   }
 
   .conditions {
-    color: rgba(#8b94a2, .7);
-    text-align: center;
-    font-size: 12px;
-    font-size: 11px;
     line-height: 2em;
-    padding-bottom: 60px;
+    padding-bottom: 88px;
+    margin-bottom: 75px;
     border-bottom: 1px solid rgba(#8b94a2, .2);
+
+    p {
+      font-size: 14px;
+      max-width: 700px;
+      padding-left: 65px;
+      padding-right: 0;
+      text-align: left;
+      line-height: 21px;
+      letter-spacing: -.004em;
+    }
+
+    strong {
+      font-weight: 600;
+    }
   }
 
   .also {
     border-left: 0;
     border-right: 0;
-    margin-top: 48px;
+    padding: 44px 0;
     border-bottom: 1px solid rgba(#8b94a2, .2);
 
     h3 {
-      font-size: 23.5px;
+      font-size: 28px;
       font-weight: 600;
+      letter-spacing: -.016em;
     }
 
     .items {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      padding: 80px 0 0;
+      padding: 49px 16px 0 7px;
     }
 
     .item {
-      flex: 1 0 325px;
+      flex: 0 1 325px;
       list-style: none;
-      margin-bottom: 80px;
-      margin-right: 16px;
-      padding-left: 48px;
+      margin-bottom: 32px;
+      padding-left: 47px;
       position: relative;
 
       &::before {
@@ -395,17 +447,19 @@
       &.lab::before { background-position: center -256px; }
 
       h4 {
-        font-size: 16px;
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 12px;
       }
 
       p {
         font-size: 14px;
-        line-height: 28px;
+        line-height: 24px;
       }
 
-      // @media (max-width: $screen-xs-max)  {
-      //   flex-grow: 1;
-      // }
+      @media (max-width: $screen-xs-max)  {
+        flex: 1 1 100%;
+      }
     }
   }
 
@@ -421,6 +475,7 @@
       @media (max-width: $screen-xs-max)  {
         float: none;
         width: 100%;
+        padding-left: 0;
       }
     }
 

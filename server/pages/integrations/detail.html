@@ -1,0 +1,7 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'integrations-detail' %}
+{% set header_style = 'transparent light' %}
+
+{% block main %}
+  <pre><code>{{ integration|dump(2) }}</code></pre>
+{% endblock %}

@@ -7,9 +7,6 @@ navbar_id: 'pro-header'
 plain_header: true
 is_responsive: true
 header_style: transparent
-title: "Ionic Pro - {{id | title}}"
-meta_description: "The Ionic Pro platform helps you build better apps on ionic framework with Pro's integrated suite of tools and services designed for the entire app lifecycle."
-meta_keywords: "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs, ionic pro, ionic pro apps, ionic pro suite, ionic pro product, ionic pro tools"
 ---
 
 <div class="sub-header">
@@ -20,16 +17,20 @@ meta_keywords: "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,nat
     </ul>
     <ul class="right">
       <li><a href="/docs/pro/" class="active">Documentation</a></li>
-      <li><a href="http://support.ionicjs.com/">Support</a></li>
-      <li><a href="https://dashboard.ionicjs.com/">Dashboard</a></li>
+      <li><a href="https://ionic.zendesk.com/">Support</a></li>
+      <li><a href="https://dashboard.ionicframework.com/">Dashboard</a></li>
     </ul>
   </div>
 </div>
 
-<div id="pro-docs" class="responsive-docs-container docs-container" ng-controller="ProDocsCtrl as vm">
+<div id="pro-docs"
+     class="responsive-docs-container docs-container"
+     ng-controller="ProDocsCtrl as vm">
   <div class="container">
     <div class="row">
-      <nav class="side-nav responsive-side-nav col-md-4" data-spy="affix" data-offset="193">
+      <nav class="side-nav responsive-side-nav col-md-4"
+           data-spy="affix"
+           data-offset="193">
         {% include fluid/pro_docs_side_nav_main.html %}
       </nav>
       <main class="col-md-8">

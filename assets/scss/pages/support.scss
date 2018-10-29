@@ -1,0 +1,186 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
+#page-support {
+  .cta {
+    background: #4192fe no-repeat center top;
+    background-image: url('/img/support/cta-bg.jpg');
+    background-size: cover;
+  }
+
+  main {
+    padding-top: 30px;
+
+    hgroup {
+      h2 {
+        font-size: 22px;
+        margin-top: 30px;
+      }
+
+      p {
+        font-size: 16px;
+        color: $darkish-grey;
+        font-weight: 400;
+      }
+    }
+
+    .container {
+      margin-top: 40px;
+    }
+  }
+
+  .items {
+    list-style: none;
+    margin-top: 28px;
+
+    @media (max-width: $screen-md-max) {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      display: block;
+    }
+
+    a {
+      padding: 14px 23px 18px 95px;
+      margin-right: 13px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      width: 365px;
+      margin-bottom: 30px;
+      vertical-align: top;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        display: block;
+        margin: 18px auto;
+
+        &:last-child {
+          margin-right: auto;
+        }
+      }
+
+      &::before {
+        border-radius: 4px;
+        background: white;
+        box-shadow: 0 1px 4px rgba(0,0,0,.15);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: '';
+        display: block;
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),
+                    .3s box-shadow;
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        &::before {
+          box-shadow: 0 4px 10px rgba(0,0,0,.15);
+          transform: scale(1.05);
+        }
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+
+        &:hover {
+          text-decoration: none;
+
+          &::before {
+            transform: scale(1);
+          }
+        }
+      }
+
+      &::after {
+        background-repeat: no-repeat;
+        background-image: url('/img/support/support-thumbnails.png');
+        background-size: 48px;
+        width: 48px;
+        height: 48px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 29px;
+        top: 34px;
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12);
+      }
+
+      &.slack::after {           background-position: 0 -48px; }
+      &.so::after {              background-position: 0 -96px; }
+      &.account::after {         background-position: 0 -144px; }
+      &.bug::after {             background-position: 0 -192px; }
+      &.troubleshooting::after { background-position: 0 -240px; }
+      &.resources::after {       background-position: 0 -288px; }
+      &.github::after {          background-position: 0 -336px; }
+      &.faq::after {             background-position: 0 -384px; }
+
+      h3 {
+        color: #272a2f;
+        font-size: 16px;
+        position: relative;
+        letter-spacing: -.02em;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: $darkish-grey;
+        font-size: 14px;
+        font-weight: 400;
+        position: relative;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .banner {
+    background: #2a262c;
+    background: url('/img/support/tp-banner.jpg'),
+                linear-gradient(to right, #222530 0%, #35363e 50%, #2a2932 100%);
+    background-size: cover, 100%;
+
+    hgroup {
+      margin-top: 75px;
+      padding-top: 100px;
+      padding-bottom: 105px;
+      text-align: center;
+      color: rgba(white, .95);
+
+      strong {
+        color: white;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 18px;
+        max-width: 650px;
+        margin: 0 auto;
+        color: rgba(white, .7);
+
+        &.sm {
+          font-size: 14px;
+        }
+      }
+
+      .btn.white {
+        color: $blue;
+        margin: 44px auto 5px;
+        font-weight: 700;
+        font-family: $font-family-eina;
+      }
+    }
+  }
+}

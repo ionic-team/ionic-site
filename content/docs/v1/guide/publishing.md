@@ -62,11 +62,11 @@ To start, you'll need to visit the [Google Play Store Developer Console](https:/
 
 Once you have a developer account, you can go ahead and click "Publish an Android App on Google Play" as in the screenshot below:
 
-![New google play app](https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play.png)
+![New google play app](https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/5-play.png)
 
 Then, you can go ahead and click the button to edit the store listing (We will upload an APK later). You'll want to fill out the description for the app. Here is a little preview from when we filled out the application with the Ionic Todo app:
 
-![Ionic Todo](https://ionicframework.com.s3.amazonaws.com/guide/0.1.0/5-play2.png)
+![Ionic Todo](https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/5-play2.png)
 
 When you are ready, upload the APK for the release build and publish the listing. Be patient and your hard work should be live in the wild!
 

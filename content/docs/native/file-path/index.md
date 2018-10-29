@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -92,7 +92,7 @@ Resolve native path for given content URL/path.
     <td>
       path</td>
     <td>
-      <code>String</code>
+      <code>string</code>
     </td>
     <td>
       <p>Content URL/path.</p>

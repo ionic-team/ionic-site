@@ -2,18 +2,11 @@
 layout: fluid/cli_docs_base
 category: cli
 id: cli-index
-title: Ionic CLI Documentation
+title: Ionic App CLI Development
+header_sub_title: Command Line Interface Tool
 hide_header_search: true
 dark_header: true
 ---
-
-
-{% comment %}
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-{% endcomment %}
-
 
 # Ionic CLI
 
@@ -72,8 +65,6 @@ The `ionic cordova` commands (aside from `ionic cordova resources`) wrap the Cor
 ## Ionic Pro
 
 [Ionic Pro](/pro) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. Ionic Pro is fully supported in the Ionic CLI. See the [Pro Docs](/docs/pro//basics/getting-started/) to get started.
-
-Ionic Cloud (legacy) will be supported until its end-of-life on January 31st, 2018. Until then, you can switch between Ionic Cloud and Ionic Pro with `ionic config set -g backend legacy` and `ionic config set -g backend pro`. Unfortunately, you'll need to re-authenticate with `ionic login` each time the backend mode is switched.
 
 ## Troubleshooting
 

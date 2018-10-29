@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -73,6 +73,8 @@ this.clipboard.paste().then(
       alert(&#39;Error: &#39; + reject);
     }
   );
+
+this.clipboard.clear();
 </code></pre>
 
 
@@ -121,6 +123,15 @@ Pastes the text stored in clipboard
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been pasted
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
+
+
+Clear the text stored in clipboard
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been cleaned
 </div>
 
 

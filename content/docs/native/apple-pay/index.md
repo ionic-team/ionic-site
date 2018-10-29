@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Apple Pay</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/apple-pay/index.ts#L77">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/apple-pay/index.ts#L92">
   Improve this doc
 </a>
 
@@ -148,7 +148,7 @@ Stops listening for shipping contact selection changes
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise</code> whether stop listening was successful. This should
   really only fail if this is called without starting listening
-</div><h3><a class="anchor" name="updateItemsAndShippingMethods" href="#updateItemsAndShippingMethods"></a><code>updateItemsAndShippingMethods(including)</code></h3>
+</div><h3><a class="anchor" name="updateItemsAndShippingMethods" href="#updateItemsAndShippingMethods"></a><code>updateItemsAndShippingMethods(list)</code></h3>
 
 
 
@@ -158,6 +158,7 @@ a shipping contact selection event. This *must* be called in response to
 any shipping contact selection event or else the user will not be able
 to complete a transaction on the pay sheet. Do not call without
 subscribing to shipping contact selection events first
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -169,9 +170,9 @@ subscribing to shipping contact selection events first
   <tbody>
   <tr>
     <td>
-      including</td>
+      list</td>
     <td>
-      <code>Object</code>
+      <code>IOrderItemsAndShippingMethods</code>
     </td>
     <td>
       <p><code>items</code> and <code>shippingMethods</code> properties.</p>
@@ -182,13 +183,14 @@ subscribing to shipping contact selection events first
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise</code> 
+  <b>Returns:</b> <code>Promise&lt;IUpdateItemsAndShippingStatus&gt;</code> 
 </div><h3><a class="anchor" name="makePaymentRequest" href="#makePaymentRequest"></a><code>makePaymentRequest(order)</code></h3>
 
 
 
 
 Request a payment with Apple Pay
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -219,8 +221,9 @@ Request a payment with Apple Pay
 
 
 Once the makePaymentRequest has been resolved successfully, the device will be waiting for a completion event.
-This means, that the application must proceed with the token authorisation and return a success, failure,
+This means, that the application must proceed with the token authorization and return a success, failure,
 or other validation error. Once this has been passed back, the Apple Pay sheet will be dismissed via an animation.
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

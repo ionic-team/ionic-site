@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -592,10 +592,7 @@ Unregister a callback. Works for callbacks registered with ready, when, once and
 
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves when the store is ready
-</div><h3><a class="anchor" name="refresh" href="#refresh"></a><code>refresh()</code></h3>
+<h3><a class="anchor" name="refresh" href="#refresh"></a><code>refresh()</code></h3>
 
 
 

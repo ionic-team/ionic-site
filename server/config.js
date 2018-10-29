@@ -31,7 +31,12 @@ module.exports = {
   TWITTER_CONSUMER_KEY: process.env.TWITTER_CONSUMER_KEY || null,
   TWITTER_CONSUMER_SECRET: process.env.TWITTER_CONSUMER_SECRET || null,
   TWITTER_ACCESS_TOKEN_KEY: process.env.TWITTER_ACCESS_TOKEN_KEY || null,
-  TWITTER_ACCESS_TOKEN_SECRET: process.env.TWITTER_ACCESS_TOKEN_SECRET || null
+  TWITTER_ACCESS_TOKEN_SECRET: process.env.TWITTER_ACCESS_TOKEN_SECRET || null,
+
+  HUBSPOT_API_KEY: process.env.HUBSPOT_API_KEY || null,
+
+  PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT || 
+    'http://ionicframeworkcom.prismic.io/api/v2'
 };
 
 function bool(str) {

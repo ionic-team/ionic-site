@@ -3,7 +3,7 @@ layout: fluid/docs_base
 category: ionicons
 id: ionicons
 title: Ionicons
-header_sub_title: Ionic Resources
+header_sub_title: App Design and Development Icons
 ---
 
 <div class="docs-ionicons" ng-controller="IoniconDocsCtrl">

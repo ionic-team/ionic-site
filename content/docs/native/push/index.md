@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.5.1"
+version: "4.16.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Push</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L223">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L234">
   Improve this doc
 </a>
 
@@ -163,6 +163,8 @@ Check whether the push notification permission has been granted.
 </div><h3><a class="anchor" name="createChannel" href="#createChannel"></a><code>createChannel(channel)</code></h3>
 
 
+
+
 Create a new notification channel for Android O and above.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -188,6 +190,8 @@ Create a new notification channel for Android O and above.
 <h3><a class="anchor" name="deleteChannel" href="#deleteChannel"></a><code>deleteChannel(id)</code></h3>
 
 
+
+
 Delete a notification channel for Android O and above.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -202,7 +206,7 @@ Delete a notification channel for Android O and above.
     <td>
       id</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
       </td>
@@ -563,6 +567,22 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     </td>
   </tr>
   
+  <tr>
+    <td>
+      voip
+    </td>
+    <td>
+      <code>boolean | string</code>
+    </td>
+    <td>
+      <p>If true the device will be set up to receive VoIP Push notifications and the
+other options will be ignored since VoIP notifications are silent
+notifications that should be handled in the &quot;notification&quot; event.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -589,7 +609,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     <td>
       <p>Maps to the project number in the Google Developer Console.</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

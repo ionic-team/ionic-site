@@ -2,6 +2,7 @@
 {% set title = "Build Amazing Native Apps and Progressive Web Apps with Ionic Framework and Angular" %}
 {% set id = "home" %}
 {% set pre_footer = false %}
+{% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 
 {% block main %}
 <div class="banner">
@@ -11,18 +12,14 @@
         Build amazing apps in one codebase, for any platform, with the web.
       </h1>
       <p>
-        From <a href="/framework" id="link-home-open-source">open source</a> to
-        <a href="/pro" id="link-home-pro-services">pro
-        services</a>, Ionic helps you build, deploy, test, and monitor apps
-        easier than ever before.
+        Ionic lets web developers build, test, and deploy cross-platform hybrid mobile apps easier than ever.
       </p>
       <div class="btns">
-        <a href="/getting-started"
-           class="btn white"
-           id="btn-home-start-building">Start building apps</a>
-        <a href="/pro"
-           class="btn navy"
-           id="btn-home-explore-ionic">Explore Ionic Pro</a>
+        <a href="/getting-started" class="btn white" id="btn-home-get-started">Get Started</a>
+        <!-- or <a class="text-link" href="/sales" id="btn-home-contact-sales">contact sales</a> -->
+      </div>
+      <div class="target">
+        Target <i></i>
       </div>
     </hgroup>
 
@@ -40,56 +37,70 @@
 </div>
 <main>
   <div class="container">
+    <div class="company">
+      <div class="logos">
+        <div class="logo logo--cat"></div>
+        <div class="logo logo--comcast"></div>
+        <div class="logo logo--ge"></div>
+        <div class="logo logo--ibm"></div>
+        <div class="logo logo--target"></div>
+        <div class="logo logo--mcdonalds"></div>
+        <div class="logo logo--microsoft"></div>
+      </div>
+    </div>
+
     <ul class="paths">
-      <li class="framework">
-        <div class="card">
-          <div class="layer-1">
-            <h4>Ionic Framework</h4>
-            <h2>Get up and running with the open source UI kit.</h2>
-          </div>
-          <div class="layer-2">
-            <a href="/getting-started"
-               class="btn white sm"
-               id="btn-home-framework-module">Get started</a>
-          </div>
-        </div>
-      </li>
-      <li class="pro">
-        <div class="card">
-          <div class="layer-1">
-            <h4>Ionic Pro</h4>
-            <h2>Boost your app workflow with powerful services.</h2>
-          </div>
-          <div class="layer-2">
-            <a href="/pro"
-               class="btn white sm"
-               id="btn-home-pro-module">Learn about Pro</a>
-          </div>
-        </div>
-      </li>
       <li class="enterprise">
-        <div class="card">
-          <div class="layer-1">
-            <h4>Ionic Enterprise</h4>
-            <h2>An easier way to build secure apps, better.</h2>
+        <div class="card-wrapper">
+          <div class="card">
+            <a href="/enterprise" id="btn-home-enterprise-card">
+              <div class="layer-1">
+                <h4>Ionic For <em>Enterprise</em></h4>
+                <h2>The enterprise-ready platform for powerful, secure apps at scale.</h2>
+              </div>
+              <div class="layer-2">
+                <span class="card-link">Learn more</span>
+              </div>
+            </a>
           </div>
-          <div class="layer-2">
-            <a href="/enterprise"
-              class="btn white sm"
-              id="btn-home-enterprise-module">Ionic for Enterprise</a>
+        </div>
+      </li>
+      <li class="teams">
+        <div class="card-wrapper">
+          <div class="card">
+            <a href="/pro/teams" id="btn-home-teams-card">
+              <div class="layer-1">
+                <h4>Ionic for <em>Teams</em></h4>
+                <h2>Boost your team’s workflow with mobile DevOps tools.</h2>
+              </div>
+              <div class="layer-2">
+                <span class="card-link">Get started</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="startups">
+        <div class="card-wrapper">
+          <div class="card">
+            <a href="/startups" id="btn-home-startups-card">
+              <div class="layer-1">
+                <h4>Ionic for <em>Startups</em></h4>
+                <h2>Get up and running with the Ionic open source framework.</h2>
+              </div>
+              <div class="layer-2">
+                <span class="card-link">Get started</span>
+              </div>
+            </a>
           </div>
         </div>
       </li>
     </ul>
 
-    <div class="company">
-      <h2>
-        <strong>You’re in good company.</strong> Ionic powers millions of apps at
-        some of the smartest companies around the world.
-      </h2>
-      <div class="logos"></div>
-    </div>
 
+  </div>
+    {% include '_includes/promos/hybrid-vs-native.html' %}
+  <div class="container">
     <div class="newsletter">
       <hgroup>
         <h3>Start building better apps today.</h3>
@@ -98,7 +109,7 @@
           full Ionic experience.
         </p>
       </hgroup>
-      <form action="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      <form action="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
             method="get"
             id="form-home-get-started-now">
         <input type="text" name="email" placeholder="Your email address">
@@ -111,6 +122,9 @@
 
 {% block scripts %}
 <script>
+// enable sticky nav
+stickyNav.init();
+
 // paralax effect
 var $banner = document.querySelector('.banner')
 window.addEventListener('scroll', function(e) {
@@ -120,112 +134,81 @@ window.addEventListener('scroll', function(e) {
 // apple tv style card tilt
 var tilt = {
   init: function() {
-    var $card = document.querySelector('.paths li:first-child')
+    this.draw = this.draw.bind(this);
+    this.activateElement = this.activateElement.bind(this);
+    this.queueDraw = this.queueDraw.bind(this);
+    this.letGo = this.letGo.bind(this);
+
+    const $card = document.querySelector('.paths li:first-child .card');
     this.halfW = $card.clientWidth / 2;
     this.halfH = $card.clientHeight / 2;
-    this.$cards = document.querySelectorAll('.paths li');
+    this.$cards = Array.prototype.slice.call(document.querySelectorAll('.paths .card'));
     this.$container = document.querySelector('.paths');
-    this.$banner = document.querySelector('.banner');
+    this.bannerHeight = $banner.offsetHeight;
+    this.event = {};
+
     this.$cards.forEach(function(el) {
       // set listeners for each card
-      el.addEventListener('mouseenter',this.activateElement.bind(this))
-      el.addEventListener('mousemove',this.markPositions.bind(this))
-      el.addEventListener('mouseleave',this.letGo.bind(this))
+      el.addEventListener('mouseenter', this.activateElement)
+      el.addEventListener('mousemove', this.queueDraw)
+      el.addEventListener('mouseleave', this.letGo.bind(this))
     }, this)
-
     this.$container.addEventListener('mouseleave',this.letGo.bind(this))
 
     return this;
   },
 
   activateElement: function(event) {
-    if (this.$el) {
-      // var alreadySet = true;
-      this.letGo();
-    }
     this.$el = event.target;
     this.$layer1 = event.target.querySelector('.layer-1');
     this.$layer2 = event.target.querySelector('.layer-2');
+    this.$li = this.$el.parentElement.parentElement;
+    this.offsetLeft = this.$li.offsetLeft;
+    this.offsetTop = this.$li.offsetTop + this.bannerHeight;
     this.coorX = this.coorY = 0;
-
-    this.$el.style['transition-duration'] = '.2s';
-    // this.$layer1.style['transition-duration'] = 
-    // this.$layer2.style['transition-duration'] = '.0s';
-    this.stage = 1;
-    setTimeout(function(tilt){
-      tilt.stage = 3;
-      tilt.$el.style['transition-duration'] = '';
-    }, 100,this)
-
-
-    // if (alreadySet) {
-    //   this.$el.style['transition-duration'] = '';
-    //   this.$layer1.style['transition-duration'] = '';
-    //   this.$layer2.style['transition-duration'] = '';
-    // }
+    this.queued = false;
+    // console.log(this.offsetTop,this.$li.offsetTop, this.bannerHeight);
   },
 
-  markPositions: function(event) {
-    if (! event ) return;
-    this.coorX = (this.coorX, this.halfW - ( event.pageX - this.$el.offsetLeft) );
-    this.coorY = (this.coorY, this.halfH - ( event.pageY - this.$el.offsetTop - this.$banner.offsetHeight ) );
-    if (! this.queued) {
+  queueDraw: function(event) {
+    if(event.pageX === this.event.pageX && event.pageX === this.event.pageX) {
+      return;
+    }
+
+    if (!this.queued) {
+      this.event = event;
       this.queued = true;
-      requestAnimationFrame(this.draw.bind(this))
+      requestAnimationFrame(this.draw)
       // this.draw()
     }
   },
 
   letGo: function() {
-    this.$el.style['transition-duration'] =
-    this.$layer1.style['transition-duration'] =
-    this.$layer2.style['transition-duration'] = '.3s';
-
+    this.queued = true;
     this.$el.style['transform'] =
     this.$layer1.style['transform'] =
     this.$layer2.style['transform'] = '';
-
-    this.stage = null;
-
-    setTimeout(function(el, layer1, layer2) {
-      el.style['transition-duration'] = '';
-      layer1.style['transition-duration'] =
-      layer2.style['transition-duration'] = '';
-    },320, this.$el, this.$layer1, this.$layer2)
   },
 
   draw: function() {
-    if (this.stage == 2) {
-      // console.log('returning');
-      this.queued = false;
-      return;
-    }
-    this.degX  = degX = (this.degX, Math.round( this.coorY / this.halfH * 500 ) / 1000);
-    this.degY  = degY = (this.degY, Math.round( this.coorX / this.halfW * -500) / 1000);
-    // console.log(this);
-    // this.$el.style['transition-duration'] = '.15s'
-    // this.$layer1.style['transition-duration'] = '0'
-    // this.$layer2.style['transition-duration'] = '0';
 
-    this.$el.style['transform'] = function() {
-      let transform = 'perspective( 200px ) scale(1)';
-      transform += 'translate3d(' + degY*2+ 'px, ' + degX*-2+ 'px, 0 )';
-      transform += 'rotateX('+ degX*-.5 +'deg) rotateY('+ degY*-.5 +'deg)';
-      return transform;
-    }()
+    var Y = ( Math.round(( this.halfH - (this.event.pageY - this.offsetTop))
+      / this.halfH * 50 ) / 100);
+    var X = ( Math.round((this.halfW - (this.event.pageX - this.offsetLeft))
+      / this.halfW * -50) / 100);
+
+    this.$el.style['transform'] =
+      'rotateX(' + (Y * -1) + 'deg) rotateY(' + (X * -1) + 'deg)';
     this.$layer1.style['transform'] = function() {
-       let transform = 'perspective( 200px )';
-       transform += 'translate3d(' + degY*-2.5+ 'px, ' + degX*2.5+ 'px, 0 )';
-       return transform;
+      let transform = 'translate3d(' + (X * -1) + 'px, ' + (Y * 1) + 'px, 12px)';
+      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+      return transform;
     }();
     this.$layer2.style['transform'] = function() {
-       let transform = 'perspective( 200px )';
-       transform += 'translate3d(' + degY*-2+ 'px, ' + degX*2+ 'px, 0 )';
-       return transform;
+      let transform = 'translate3d(' + (X * -.5) + 'px, ' + (Y * .5) + 'px, 25px)';
+      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
+      return transform;
     }();
-    if (this.stage == 1) {
-      this.stage = 2;
-    }
     this.queued = false;
   }
 }

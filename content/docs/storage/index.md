@@ -1,6 +1,6 @@
 ---
 layout: fluid/docs_base
-version: "2.1.3"
+version: "2.2.0"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -20,7 +20,7 @@ Storage
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/ionic-team/ionic/edit/master/src/storage.ts#L4">
+<a class="improve-docs" href="http://github.com/ionic-team/ionic/edit/master/src/storage.ts#L">
 Improve this doc
 </a>
 
@@ -126,7 +126,7 @@ Get the name of the driver being used.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>string</code>|<code>null</code> <p>Name of the driver</p>
+   <p>Name of the driver</p>
 
 
 </div>
@@ -142,7 +142,7 @@ Reflect the readiness of the store.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise&lt;LocalForage&gt;</code> <p>Returns a promise that resolves when the store is ready</p>
+   <p>Returns a promise that resolves when the store is ready</p>
 
 
 </div>
@@ -171,7 +171,7 @@ Get the value associated with the given key.
       </td>
       <td>
         
-  <code>any</code>
+  
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -186,7 +186,7 @@ Get the value associated with the given key.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise with the value of the given key</p>
+   <p>Returns a promise with the value of the given key</p>
 
 
 </div>
@@ -215,7 +215,7 @@ Set the value for the given key.
       </td>
       <td>
         
-  <code>any</code>
+  
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -232,7 +232,7 @@ Set the value for the given key.
       </td>
       <td>
         
-  <code>any</code>
+  
       </td>
       <td>
         <p>the value for this key</p>
@@ -247,7 +247,7 @@ Set the value for the given key.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves when the key and value are set</p>
+   <p>Returns a promise that resolves when the key and value are set</p>
 
 
 </div>
@@ -276,7 +276,7 @@ Remove any value associated with this key.
       </td>
       <td>
         
-  <code>any</code>
+  
       </td>
       <td>
         <p>the key to identify this value</p>
@@ -291,7 +291,7 @@ Remove any value associated with this key.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves when the value is removed</p>
+   <p>Returns a promise that resolves when the value is removed</p>
 
 
 </div>
@@ -307,7 +307,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves when the store is cleared</p>
+   <p>Returns a promise that resolves when the store is cleared</p>
 
 
 </div>
@@ -323,7 +323,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves with the number of keys stored.</p>
+   <p>Returns a promise that resolves with the number of keys stored.</p>
 
 
 </div>
@@ -339,7 +339,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves with the keys in the store.</p>
+   <p>Returns a promise that resolves with the keys in the store.</p>
 
 
 </div>
@@ -368,7 +368,7 @@ Iterate through each key,value pair.
       </td>
       <td>
         
-  <code>any</code>
+  
       </td>
       <td>
         <p>a callback of the form (value, key, iterationNumber)</p>
@@ -383,7 +383,7 @@ Iterate through each key,value pair.
 
 <div class="return-value">
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise that resolves when the iteration has finished.</p>
+   <p>Returns a promise that resolves when the iteration has finished.</p>
 
 
 </div>

@@ -2,8 +2,8 @@
 {% set id = 'products' %}
 {% set mixpanelEnabled = true %}
 {% set bodyController = "ProductsPageCtrl" %}
-{% set title = "Ionic Framework - Ionic Pro" %}
-{% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-link-img.jpg'%}
+{% set title = 'Ionic Pro Mobile Development Toolkit - Mobile App Platform' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png'%}
 {% set meta_description = 'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards.'%}
 
 {% block header_style %}transparent{% endblock %}
@@ -16,127 +16,74 @@
 
 {% block main %}
 
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li>Pro</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/pro" class="active">Overview</a></li>
+      <li><a href="/pro/teams">For teams</a></li>
+      <li><a href="/pro/pricing">Pricing</a></li>
+      <li><a href="/docs/pro">Docs</a></li>
+    </ul>
+  </div>
+</div>
+
 <div class="cta gradient">
   <hgroup class="container">
     <h1>Your mobile development toolkit.</h1>
-    <p>
-      The power platform built for delivering incredible Ionic apps. Build
-      better apps with Pro's integrated suite of tools and services designed for
-      the entire app lifecycle.
-    </p>
+    <p>A powerful platform built for shipping incredible Ionic apps. Build better apps with Ionic Pro’s integrated suite of tools and services designed for the entire app lifecycle.</p>
     <div class="cta-buttons">
-      <a class="btn orange"
-      href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
+      <a class="btn"
+      href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
       alt="Sign up for Ionic Pro"
       id="btn-products-create-pro-account">Create a Pro account</a><br>
       {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
     </div>
   </hgroup>
-  <div class="bar" data-spy="affix" data-offset-top="460">
-    <div class="container" id="platform-nav">
-      <a class="pro-logo anchor" href="#">
-        <img src="/img/pro/pro-logo.png"/>
-      </a>
-      <ul class="categories nav">
-        <li><a class="anchor prototyping"
-               href="#prototyping"
-               data-offset="64"
-               ng-class="{hover: prototypingHover}"
-               ng-mouseenter="prototypingHover = true"
-               ng-mouseleave="prototypingHover = false"
-               id="btn-products-icons-creator"></a></li>
-        <li><a class="anchor testing"
-               href="#testing"
-               data-offset="64"
-               ng-class="{hover: testingHover}"
-               ng-mouseenter="testingHover = true"
-               ng-mouseleave="testingHover = false"
-               id="btn-products-icons-view"></a></li>
-        <li><a class="anchor updates"
-               href="#updates"
-               data-offset="64"
-               ng-class="{hover: updatesHover}"
-               ng-mouseenter="updatesHover = true"
-               ng-mouseleave="updatesHover = false"
-               id="btn-products-icons-deploy"></a></li>
-        <li><a class="anchor build"
-               href="#build"
-               data-offset="64"
-               ng-class="{hover: buildHover}"
-               ng-mouseenter="buildHover = true"
-               ng-mouseleave="buildHover = false"
-               id="btn-products-icons-package"></a></li>
-        <li><a class="anchor reporting"
-               href="#reporting"
-               data-offset="64"
-               ng-class="{hover: reportingHover}"
-               ng-mouseenter="reportingHover = true"
-               ng-mouseleave="reportingHover = false"
-               id="btn-products-icons-monitor"></a></li>
-      </ul>
-      <a href="/pro/pricing" class="btn">See Pricing</a>
+</div>
+
+<nav class="pro-nav pro-nav--upper">
+  <div class="container">
+    <div class="pro-logo">
+      <a href="/pro"><img src="/img/pro/pro-logo.png"/></a>
+    </div>
+    <ul class="pro-nav-icons">
+      <li><a class="prototyping anchor" href="#prototyping" title="Creator"></a></li>
+      <li><a class="updates anchor" href="#updates" title="Deploy"></a></li>
+      <li><a class="build anchor" href="#build" title="Package"></a></li>
+      <li><a class="reporting anchor" href="#reporting" title="Monitor"></a></li>
+    </ul>
+    <div class="pro-pricing-btn">
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+         class="btn">Sign up</a>
     </div>
   </div>
+</nav>
 
-  <div class="bar">
-    <div class="container">
-      <ul class="categories nav">
-        <li>
-          <a class="anchor prototyping"
-             href="#prototyping"
-             ng-class="{hover: prototypingHover}"
-             ng-mouseenter="prototypingHover = true"
-             ng-mouseleave="prototypingHover = false"
-             id="btn-products-icons-creator-2">
-            <strong>Creator</strong>
-            <span class="lg">Rapid app prototyping</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor testing"
-             href="#testing"
-             ng-class="{hover: testingHover}"
-             ng-mouseenter="testingHover = true"
-             ng-mouseleave="testingHover = false"
-             id="btn-products-icons-view-2">
-            <strong>View App</strong>
-            <span class="lg">Remote app testing</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor updates"
-             href="#updates"
-             ng-class="{hover: updatesHover}"
-             ng-mouseenter="updatesHover = true"
-             ng-mouseleave="updatesHover = false"
-             id="btn-products-icons-deploy-2">
-            <strong>Deploy</strong>
-            <span class="lg">Live app updating</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor build"
-             href="#build"
-             ng-class="{hover: buildHover}"
-             ng-mouseenter="buildHover = true"
-             ng-mouseleave="buildHover = false"
-             id="btn-products-icons-package-2">
-            <strong>Package</strong>
-            <span class="lg">Native cloud builds</span>
-          </a>
-        </li>
-        <li>
-          <a class="anchor reporting"
-             href="#reporting"
-             ng-class="{hover: reportingHover}"
-             ng-mouseenter="reportingHover = true"
-             ng-mouseleave="reportingHover = false"
-             id="btn-products-icons-monitor-2">
-            <strong>Monitor</strong>
-            <span class="lg">Error / crash reporting</span>
-          </a>
-        </li>
-      </ul>
+<div class="pro-nav pro-nav--lower">
+  <div class="container">
+    <ul class="pro-nav-text">
+      <li><a href="#prototyping"><strong>Creator</strong>Rapid app prototyping</a></li>
+      <li><a href="#updates"><strong>Deploy</strong>Live app updating</a></li>
+      <li><a href="#build"><strong>Package</strong>Native cloud builds</a></li>
+      <li><a href="#reporting"><strong>Monitor</strong>Error / crash reporting</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="pro-video">
+  <div class="video-player">
+    <svg class="video-player-button" viewBox="0 0 278 278">
+      <title>Play Video</title>
+      <g fill="none" fill-rule="evenodd">
+        <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
+        <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
+      </g>
+    </svg>
+    <div class="video-player-frame">
+      <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
     </div>
   </div>
 </div>
@@ -145,34 +92,21 @@
   <section class="overview hero" id="overview">
     <div class="container">
       <hgroup class="text-center">
-        <h3>Everything you need, in one experience.</h3>
-        <p>
-          Spend more time on what matters. <strong>Ionic Pro</strong> takes care
-          of the rest, with a suite of powerful mobile development tools and
-          services for apps of all shapes and sizes.
-        </p>
+        <h3>Everything in one experience.</h3>
+        <p>Spend more time on what matters. <strong>Ionic Pro</strong> takes care of the rest, with a suite of powerful mobile development tools and services for apps of all shapes and sizes.</p>
       </hgroup>
       <ul class="features">
         <li class="better">
           <h4>Better apps</h4>
-          <p>
-            Build apps your users will love, with simple app sharing, feedback
-            and monitoring to craft the perfect experience.
-          </p>
+          <p>Build apps your users will love, with simple app sharing, feedback and monitoring to craft the perfect app experience.</p>
         </li>
         <li class="faster">
           <h4>Faster development</h4>
-          <p>
-            Quickly prototype and test new concepts, and speed up development to
-            bring more ideas to market in less time.
-          </p>
+          <p>Quickly prototype and test new concepts, and speed up development to bring more ideas to market in less time.</p>
         </li>
         <li class="happier">
           <h4>Happier devs &amp; teams</h4>
-          <p>
-            Keep it simple with developer-friendly tools, easy collaboration,
-            and everything you need in one place.
-          </p>
+          <p>Keep it simple with developer-friendly tools, easy collaboration, and everything you need in one place.</p>
         </li>
       </ul>
     </div>
@@ -182,85 +116,146 @@
     <div class="container">
       <div class="content">
         <h4>Ionic Creator</h4>
-        <h2>Rapid app prototyping.</h2>
-        <p>
-          Visually build high-fidelity apps in minutes. Drag and drop core Ionic
-          UI components, add themes, animations, design files, and even custom
-          code to create real, interactive Ionic mobile apps.
-        </p>
-        <a class="btn white" target="_blank" href="/pro/creator"
-          id="btn-products-learn-more-creator">Learn more about <strong>Creator
-          </strong></a>
+        <h2>Rapid app prototyping</h2>
+        <p>Visually build high-fidelity apps in minutes. Drag and drop core Ionic UI components, add themes, animations, design files, and even custom code to create real, interactive Ionic mobile apps.</p>
+        <a class="hero__cta" href="/pro/creator" target="_blank" id="btn-products-learn-more-creator">Learn about Creator</a>
       </div>
     </div>
   </section>
 
-  <section class="testing right hero activateOnScroll" id="testing">
-    <div class="container">
-      <div class="content">
-        <h4>Ionic View app</h4>
-        <h2>Remote sharing &amp; app testing.</h2>
-        <p>
-          Use the Ionic View app for live app testing and to get your app in the
-          hands of clients, testers, or collaborators as quickly as you make
-          changes.
-        </p>
-        <p>
-          <a href="/pro/view" id="btn-products-learn-more-view"
-            class="btn white">Learn more about the <strong>View app</strong></a>
-          <a target="_blank" class="google-play" href=""></a>
-          <a target="_blank" class="app-store" href=""></a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="updates left hero activateOnScroll" id="updates">
+  <section class="updates left hero" id="updates">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Deploy</h4>
-        <h2>Realtime app updates.</h2>
-        <p>
-          Push hot code updates, content changes, A/B tests, and bug fixes in
-          real time before and after your app is in the app stores, with Ionic
-          Deploy.
-        </p>
-        <a href="/pro/deploy" id="btn-products-learn-more-deploy"
-          class="btn white">Learn more about <strong>deploy</strong></a>
+        <h2>Realtime app updates</h2>
+        <p>Deliver hot code updates, content changes, A/B tests, and bug fixes in real time before and after your app is in the app stores, with LiveDeploy.</p>
+        <a class="hero__cta" href="/pro/deploy" id="btn-products-learn-more-deploy">Learn about Deploy</a>
       </div>
+    </div>
+    <div class="anim-updates">
+      <div class="anim-updates__root">
+        <div class="anim-updates__foreground"></div>
+        <div class="anim-updates__device"></div>
+        <div class="anim-updates__background"></div>
+      <div>
     </div>
   </section>
 
-  <section class="build right hero activateOnScroll" id="build">
+  <section class="build right hero" id="build">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Package</h4>
-        <h2>Native builds in the cloud.</h2>
-        <p>
-          Create native apps in the cloud with Ionic Package to get from code to
-          app store with no platform dependencies or complicated build steps.
-        </p>
-        <a href="/pro/package" id="btn-products-learn-more-package"
-          class="btn white">Learn more about <strong>package</strong></a>
+        <h2>Continuous native builds</h2>
+        <p>Create native apps binaries in the cloud with Ionic Package to get from code to app store with no platform dependencies or complicated build steps.</p>
+        <a class="hero__cta" href="/pro/package" id="btn-products-learn-more-package">Learn about Package</a>
+      </div>
+
+      <div class="anim-build">
+        <svg id="anim-build__svg" width="464px" height="495px" viewBox="0 0 464 495" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="build-chart" transform="translate(1.000000, 0.000000)">
+                    <g id="lines-bg" transform="translate(0.000000, 4.504559)" stroke="#F3B8D3" stroke-width="2">
+                        <path d="M227.07,0 L344.25,0 C352.5345,0 359.25,6.72305471 359.25,15.0151976 L359.25,111.863222 C359.25,120.156116 352.5345,126.878419 344.25,126.878419 L15,126.878419 C6.7155,126.878419 0,120.156116 0,111.863222 L0,15.0151976 C0,6.72305471 6.7155,0 15,0 L131.76,0" id="Stroke-1"></path>
+                        <path d="M279.54,180.933131 L285,180.933131 C293.2845,180.933131 300,187.655435 300,195.948328 L300,292.796353 C300,301.089246 293.2845,307.81155 285,307.81155 L157.5,307.81155 C149.2155,307.81155 142.5,301.089246 142.5,292.796353 L142.5,195.948328 C142.5,187.655435 149.2155,180.933131 157.5,180.933131 L164.505,180.933131" id="Stroke-3"></path>
+                        <path d="M417.8325,362.617021 L447,362.617021 C455.2845,362.617021 462,369.339325 462,377.632219 L462,474.480243 C462,482.773137 455.2845,489.495441 447,489.495441 L261,489.495441 C252.7155,489.495441 246,482.773137 246,474.480243 L246,377.632219 C246,369.339325 252.7155,362.617021 261,362.617021 L291.5175,362.617021" id="Stroke-5"></path>
+                        <path d="M300,243.99696 L418.5,243.99696 C426.7845,243.99696 433.5,250.719264 433.5,259.012158 L433.5,362.617021" id="Stroke-7"></path>
+                        <path d="M142.5,244.74772 L43.5,244.74772 C35.2155,244.74772 28.5,238.025416 28.5,229.732523 L28.5,126.12766" id="Stroke-9"></path>
+                    </g>
+                    <g id="lines-animate" transform="translate(0.000000, 4.504559)" stroke="#EB295E" stroke-width="2">
+                      <path d="M291.5195,362.6396 L260.9995,362.6396 C252.7155,362.6396 245.9995,369.3556 245.9995,377.6396 L245.9995,474.4996 C245.9995,482.7846 252.7155,489.4996 260.9995,489.4996 L353.9995,489.4996" id="line-5-B"></path>
+                      <path d="M417.8301,362.6201 L447.0001,362.6201 C455.2841,362.6201 462.0001,369.3361 462.0001,377.6201 L462.0001,474.5001 C462.0001,482.7841 455.2841,489.5001 447.0001,489.5001 L354.0001,489.5001" id="line-5-A"></path>
+                      <path d="M300,244 L418.5,244 C426.784,244 433.5,250.716 433.5,259 L433.5,362.6" id="line-4"></path>
+                      <path d="M279.54,180.9399 L285,180.9399 C293.284,180.9399 300,187.6559 300,195.9399 L300,292.7999 C300,301.0839 293.284,307.7999 285,307.7999 L221.25,307.7999" id="line-3-B"></path>
+                      <path d="M164.5,180.9502 L157.5,180.9502 C149.216,180.9502 142.5,187.6652 142.5,195.9502 L142.5,292.8202 C142.5,301.1042 149.216,307.8202 157.5,307.8202 L221.25,307.8202" id="line-3-A"></path>
+                      <path d="M28.5,126.1299 L28.5,229.7499 C28.5,238.0339 35.216,244.7499 43.5,244.7499 L142.5,244.7499" id="line-2"></path>
+                      <path d="M226.7002,0 L343.8802,0 C352.1642,0 358.8802,6.716 358.8802,15 L358.8802,111.85 C358.8802,120.134 352.1642,126.85 343.8802,126.85 L179.2502,126.85" id="line-1-B"></path>
+                      <path d="M131.7598,0.02 L14.9998,0.02 C6.7158,0.02 -0.0002,6.736 -0.0002,15.02 L-0.0002,111.88 C-0.0002,120.165 6.7158,126.88 14.9998,126.88 L179.6198,126.88" id="line-1-A"></path>
+                    </g>
+                    <text id="title-1" class="anim-build__text" textLength="82" transform="translate(139, 9)"> Web Assets </text>
+                    <text id="title-2" class="anim-build__text" textLength="104" transform="translate(170, 190)"> Ionic Package </text>
+                    <text id="title-3" class="anim-build__text" textLength="112" transform="translate(299, 372)"> Native Binaries </text>
+                    <g id="icons-1" transform="translate(31.000000, 28.000000)">
+                        <g class="icon">
+                            <circle id="Oval" fill="#FA704B" cx="40" cy="40" r="40"></circle>
+                            <path d="M21,20 L24.4572083,59.7472274 L39.9771406,64.1621622 L55.5378438,59.7406228 L59,20 L21,20 Z M51.4788698,33.0120656 L33.2705365,33.0120656 L33.6654792,38.0394546 L51.0829375,38.0394546 L49.7465052,52.9625195 L39.9991094,55.7319208 L30.2337031,52.9741515 L29.564349,45.3340975 L34.3394844,45.3340975 L34.6782187,49.2068628 L39.9991094,50.6639184 L45.2856615,49.1936536 L45.8372552,42.8696911 L29.3111146,42.8696911 L28.0671094,28.1237677 L51.8951875,28.125345 L51.4788698,33.0120656 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                        <g class="icon" transform="translate(72.000000, 0.000000)">
+                            <circle id="Oval-Copy" fill="#4EA5FF" cx="40" cy="40" r="40"></circle>
+                            <path d="M21,20 L24.4581979,59.9018802 L39.9769427,64.3333333 L55.5390312,59.8950521 L59,20 L21,20 Z M49.7648125,53.1409479 L40.0068281,55.924151 L30.2635885,53.128776 L29.5959167,45.4322917 L34.3709531,45.4322917 L34.7106771,49.3472813 L40.0134583,50.8477865 L40.0265208,50.8748021 L40.0298854,50.8748021 L45.3208906,49.4050729 L45.8762448,43.0572917 L34.7552083,43.0572917 L34.359375,38.109375 L46.2983021,38.109375 L46.7333229,33.0625 L28.5208333,33.0625 L28.125,28.2135417 L51.9323958,28.2135417 L49.7648125,53.1409479 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                        <g class="icon" transform="translate(145.000000, 0.000000)">
+                            <circle id="Oval-Copy-2" fill="#FFCB2C" cx="39.5" cy="39.5" r="39.5"></circle>
+                            <path d="M43.7905778,45.5949659 C45.0131506,47.563011 46.6037477,49.0096001 49.4169176,49.0096001 C51.7801729,49.0096001 53.2898432,47.8451101 53.2898432,46.2361003 C53.2898432,44.307948 51.7387461,43.6250212 49.1375274,42.5032735 L47.7116742,41.9001323 C43.5959681,40.1714441 40.8617982,38.0058347 40.8617982,33.4276604 C40.8617982,29.210421 44.1210289,26 49.2146005,26 C52.8408921,26 55.4478913,27.2442756 57.3265493,30.502188 L52.8852092,33.3136809 C51.9073436,31.5849927 50.8524049,30.9039655 49.2146005,30.9039655 C47.5440401,30.9039655 46.4852477,31.9487771 46.4852477,33.3136809 C46.4852477,35.0005767 47.5450035,35.6835035 49.9920759,36.7283151 L51.4179291,37.3305065 C56.2639033,39.379287 59,41.4679602 59,46.1639133 C59,51.2265002 54.9661842,54 49.5489053,54 C44.2520533,54 40.8300055,51.5114488 39.1555914,48.2497371 L43.7905778,45.5949659 Z M23.6426937,46.082228 C24.538669,47.6494454 25.3537176,48.9744564 27.3133023,48.9744564 C29.1871432,48.9744564 30.3692526,48.2516368 30.3692526,45.4410937 L30.3692526,26.3210421 L36.0726655,26.3210421 L36.0726655,45.51708 C36.0726655,51.3395298 32.6101544,53.9895519 27.5560828,53.9895519 C22.9894988,53.9895519 20.3449264,51.6596221 19,48.8533532 L23.6426937,46.082228 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                        <g class="icon" transform="translate(217.000000, 0.000000)">
+                            <circle id="Oval-Copy-3" fill="#3880FF" cx="39.5" cy="39.5" r="39.5"></circle>
+                            <path d="M40,31 C35.0348101,31 31,35.0348101 31,40 C31,44.9651899 35.0348101,49 40,49 C44.9651899,49 49,44.9651899 49,40 C49,35.0348101 44.9651899,31 40,31 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="53" cy="27" r="4"></circle>
+                            <path d="M58.2019231,31.7115385 L58.0288462,31.3269231 L57.75,31.6442308 C57.0673077,32.4134615 56.2019231,33.0096154 55.2403846,33.3653846 L54.9711538,33.4615385 L55.0769231,33.7211538 C55.9038462,35.7115385 56.3269231,37.8269231 56.3269231,39.9903846 C56.3269231,49 49,56.3269231 39.9903846,56.3269231 C30.9807692,56.3269231 23.6634615,49.0096154 23.6634615,40 C23.6634615,30.9903846 30.9903846,23.6634615 40,23.6634615 C42.4423077,23.6634615 44.7980769,24.1923077 47,25.2403846 L47.2596154,25.3653846 L47.375,25.1057692 C47.7788462,24.1634615 48.4134615,23.3269231 49.2211538,22.6826923 L49.5480769,22.4230769 L49.1730769,22.2307692 C46.3076923,20.75 43.2211538,20 40,20 C28.9711538,20 20,28.9711538 20,40 C20,51.0288462 28.9711538,60 40,60 C51.0288462,60 60,51.0288462 60,40 C60,37.1153846 59.3942308,34.3269231 58.2019231,31.7115385 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                    <g id="icons-2" transform="translate(181.000000, 209.000000)">
+                      <g class="icon">
+                          <circle id="Oval" fill="#F44278" cx="40" cy="40" r="40"></circle>
+                          <g transform="translate(20.000000, 8.000000)">
+                              <path d="M17.3234034,11.834097 L33.1803799,6.2712803 L27.0821465,26.4184271 L6.5212803,32.9303799 L12.4550367,16.6443874 C13.2754291,14.3927101 15.0620431,12.6274092 17.3234034,11.834097 Z" id="Rectangle-3" fill="#FFF8FB" transform="translate(19.850830, 19.600830) rotate(-315.000000) translate(-19.850830, -19.600830) "></path>
+                              <path d="M10.8236886,22.3809789 C11.0973023,22.3991076 17.9256008,20.2788641 31.3085839,16.0202484 L31.0893509,17.0528476 L10.4158851,23.5013919 C10.6213059,22.9371342 10.7572404,22.5636632 10.8236886,22.3809789 Z" id="Rectangle-3" fill="#FFBFD8" opacity="0.900000036" transform="translate(20.862235, 19.760820) rotate(-315.000000) translate(-20.862235, -19.760820) "></path>
+                              <path d="M19.8499756,28.2211914 L36.8108024,19.4988972 C37.7930924,18.9937436 38.9989037,19.3805391 39.5040572,20.3628291 C39.6495606,20.6457657 39.7254639,20.9593328 39.7254639,21.2774905 L39.7254639,39.1693311 C39.7254639,40.2933979 39.097085,41.3231508 38.0974561,41.8372212 L19.8499756,51.2211914 L19.8499756,28.2211914 Z" id="Rectangle-2" fill="#FF89B8"></path>
+                              <path d="M0,28.2211914 L16.9608268,19.4988972 C17.9431168,18.9937436 19.1489281,19.3805391 19.6540817,20.3628291 C19.799585,20.6457657 19.8754883,20.9593328 19.8754883,21.2774905 L19.8754883,39.1693311 C19.8754883,40.2933979 19.2471094,41.3231508 18.2474805,41.8372212 L0,51.2211914 L0,28.2211914 Z" id="Rectangle-2-Copy" fill="#FFBFD8" transform="translate(9.937744, 34.610596) scale(-1, 1) translate(-9.937744, -34.610596) "></path>
+                          </g>
+                      </g>
+                    </g>
+                    <g id="icons-3" transform="translate(278.000000, 392.000000)">
+                        <g class="icon">
+                            <rect id="Rectangle" fill="#727983" x="0" y="0" width="80" height="80" rx="25"></rect>
+                            <path d="M50.4432761,25.0588235 C46.1385925,25.0588235 44.3193513,27.1553865 41.3214467,27.1553865 C38.2466727,27.1553865 35.9021575,25.07153 32.1739941,25.07153 C28.5227,25.07153 24.6279864,27.3459831 22.1553556,31.221448 C18.6834234,36.6852181 19.272755,46.9774363 24.8970291,55.7448814 C26.9084437,58.8833727 29.5988709,62.4030571 33.1220494,62.4411765 C33.1476725,62.4411765 33.1604841,62.4411765 33.1861072,62.4411765 C36.2480696,62.4411765 37.1576902,60.3954393 41.3726929,60.3700264 C41.398316,60.3700264 41.4111276,60.3700264 41.4367507,60.3700264 C45.5876955,60.3700264 46.4204468,62.42847 49.4695976,62.42847 C49.4952208,62.42847 49.5080323,62.42847 49.5336554,62.42847 C53.0568339,62.3903507 55.8881883,58.4894729 57.8996029,55.3636882 C59.347309,53.1146479 59.8853944,51.9837745 61,49.4424861 C52.8646606,46.2912884 51.5578816,34.525123 59.6035402,30.014336 C57.143721,26.8758448 53.6974118,25.0588235 50.4432761,25.0588235 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <path d="M48.8527002,13 C46.3531364,13.1827094 43.4411446,14.8923478 41.7289435,17.1240132 C40.1792139,19.1468678 38.9044364,22.148523 39.4043492,25.0588235 C39.4668383,25.0588235 39.5293274,25.0588235 39.6043143,25.0588235 C42.2663497,25.0588235 44.9908742,23.3361345 46.5780972,21.1305704 C48.1153289,19.0294118 49.277626,16.0538579 48.8527002,13 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                        <g class="icon" transform="translate(72.000000, 0.000000)">
+                            <rect id="Rectangle" fill="#8FEBAD" x="0" y="0" width="80" height="80" rx="25"></rect>
+                            <path d="M26,41.527105 L26,52.8950404 C26,53.7704729 26.5625,54.6712803 27.425,54.6712803 L31,54.6712803 L31,61.2687428 C31,62.9561707 32.3375,64.3137255 34,64.3137255 C35.6625,64.3137255 37,62.9561707 37,61.2687428 L37,54.6712803 L43.125,54.6712803 L43.125,61.2687428 C43.125,62.2202999 43.55,63.0703576 44.225,63.6286044 C44.7125,64.0599769 45.3625,64.3137255 46.0625,64.3137255 C46.075,64.3137255 46.0875,64.3137255 46.1,64.3137255 C46.1125,64.3137255 46.1125,64.3137255 46.125,64.3137255 C47.7875,64.3137255 49.125,62.9561707 49.125,61.2687428 L49.125,54.6712803 L52.575,54.6712803 C53.45,54.6712803 54,53.7704729 54,52.9077278 L54,41.5397924 L54,31.83391 L26,31.83391 L26,41.527105 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <path d="M59,29.8039216 C57.3375,29.8039216 56,31.1614764 56,32.8489043 L56,45.0288351 C56,46.716263 57.3375,48.0738178 59,48.0738178 C60.6625,48.0738178 62,46.716263 62,45.0288351 L62,32.8489043 C62,31.1614764 60.6625,29.8039216 59,29.8039216 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <path d="M21,29.8039216 C19.3375,29.8039216 18,31.1614764 18,32.8489043 L18,45.0288351 C18,46.716263 19.3375,48.0738178 21,48.0738178 C22.6625,48.0738178 24,46.716263 24,45.0288351 L24,32.8489043 C24,31.1614764 22.6625,29.8039216 21,29.8039216 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <path d="M47.053983,19.0954658 L49.4095549,16.399889 C49.4604862,16.3383462 49.3840892,16.2029519 49.2440282,16.0921748 C49.1039672,15.9937062 48.9384405,15.9690891 48.900242,16.0429405 L46.4555404,18.8492944 C44.7238767,18.1846316 42.6102283,17.7661403 40.0127328,17.7661403 C37.4025045,17.7538317 35.2761233,18.1600145 33.5444596,18.8123687 L31.1252236,16.0552491 C31.0742923,15.9937062 30.9214985,16.0060148 30.7814374,16.1044833 C30.6413764,16.2029519 30.5649795,16.3260376 30.6159108,16.4121976 L32.946017,19.0708487 C26.8087972,21.6433398 25.8920341,27.9576361 25.7647059,29.8039216 L54.2352941,29.8039216 C54.1206987,27.9453275 53.2166684,21.7171912 47.053983,19.0954658 Z M33.7609176,25.2251336 C32.8186888,25.2251336 32.0419867,24.4866194 32.0419867,23.5880938 C32.0419867,22.6895682 32.805956,21.951054 33.7609176,21.951054 C34.7031464,21.951054 35.4798485,22.6895682 35.4798485,23.5880938 C35.4798485,24.4866194 34.7158792,25.2251336 33.7609176,25.2251336 Z M46.2900137,25.2251336 C45.3477849,25.2251336 44.5710828,24.4866194 44.5710828,23.5880938 C44.5710828,22.6895682 45.3350521,21.951054 46.2900137,21.951054 C47.2322424,21.951054 48.0089445,22.6895682 48.0089445,23.5880938 C48.0089445,24.4866194 47.2322424,25.2251336 46.2900137,25.2251336 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
       </div>
     </div>
   </section>
 
-  <section class="reporting left hero activateOnScroll" id="reporting">
+  <section class="reporting left hero" id="reporting">
     <div class="container">
       <div class="content dark">
         <h4>Ionic Monitor</h4>
-        <h2>Real-time error reporting.</h2>
-        <p>
-          Track issues in development and catch bugs before they ship. Quickly
-          pinpoint and resolve runtime errors by drilling into your core
-          codebase, down to the TypesSript level.
-        </p>
-        <a href="/pro/monitor" id="btn-products-learn-more-monitor"
-          class="btn white">Learn more about <strong>monitor</strong></a>
+        <h2>Runtime error monitoring</h2>
+        <p>Track issues in development and catch bugs before they ship. Pinpoint and resolve runtime errors by drilling into your core codebase, down to the Typescript level.</p>
+        <a class="hero__cta" href="/pro/monitor" id="btn-products-learn-more-monitor">Learn about Monitor</a>
       </div>
     </div>
+
+    <div class="anim-reporting">
+      <svg id="anim-reporting__svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="scanGradient" x1="0" x2="0" y1="0" y2="1">
+            <stop stop-color="white" stop-opacity="0.35" offset="0%"/>
+            <stop stop-color="white" stop-opacity="0.07" offset="50%"/>
+            <stop stop-color="white" stop-opacity="0.0" offset="100%"/>
+          </linearGradient>
+          <clipPath id="mask" class="anim-reporting__mask"></clipPath>
+        </defs>
+
+        <g class="anim-reporting__clipped" clip-path="url(#mask)">
+          <rect class="anim-reporting__bg" x="0" y="0" width="100%" height="100%" />
+          <g class="back"></g>
+        </g>
+      </svg>
+    </div>
   </section>
+
+  {% include '_includes/promos/hybrid-vs-native.html' %}
 
   <section class="bar get-started">
     <div class="container">
@@ -270,11 +265,11 @@
           Create a free account, or check out our plans and pricing.
         </p>
       </hgroup>
-      <div class="btn-group">
-        <a href="https://dashboard.ionicjs.com/signup?source=framework-{{id}}"
-          class="btn white" id="btn-products-create-account">Create an account
+      <div>
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+          class="btn sm" id="btn-products-create-account">Create a Pro account
           </a>
-        <a class="btn btn-default" id="btn-products-see-pricing"
+        <a class="btn sm white" id="btn-products-see-pricing"
           href="/pro/pricing">See pricing</a>
       </div>
     </div>
@@ -283,5 +278,535 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script async src="https://www.youtube.com/iframe_api"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
+
+<script>
+  (function() {
+    const videoPlayer = document.querySelector('.video-player');
+    const iframeTarget = document.querySelector('.js-video-target');
+
+    function onYouTubeReady() {
+      videoPlayer.classList.add('is-ready');
+      videoPlayer.addEventListener('click', onPlayerClick);
+    }
+
+    function onPlayerClick() {
+      videoPlayer.classList.add('is-playing');
+      new YT.Player(iframeTarget, {
+        height: '1164',
+        width: '1800',
+        videoId: 'ZB5lQTP987s',
+        events: {
+          'onReady': onPlayerReady
+        },
+        playerParams: {
+          color: 'white',
+          enablejsapi: 1,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
+
+    function onPlayerReady(e) {
+      e.target.playVideo();
+    }
+
+    function initStickyNav(nav) {
+      function check() {
+        if (nav.getBoundingClientRect().top < 1) {
+          nav.classList.add('is-stuck');
+        } else {
+          nav.classList.remove('is-stuck');
+        }
+      }
+
+      return function() {
+        requestAnimationFrame(check);
+      };
+    }
+
+    if (window.IntersectionObserver) {
+      const anchorMap = new Map();
+      document.querySelectorAll('.pro-nav-icons a').forEach(anchor => {
+        anchorMap.set(document.querySelector(anchor.getAttribute('href')), anchor);
+      });
+
+      const observer = new IntersectionObserver(handleIntersectionChange, { threshold: 0.5 });
+
+      for (section of anchorMap.keys()) {
+        observer.observe(section);
+      }
+
+      function getActiveSection(entries) {
+        return entries
+          .filter(entry => entry.intersectionRatio > 0.5)
+          .sort((a,b) => a.intersectionRatio > b.intersectionRatio ? -1 : 1)[0];
+      }
+
+      function handleIntersectionChange(entries) {
+        for (anchor of anchorMap.values()) anchor.classList.remove('is-active');
+        const activeSection = getActiveSection(entries);
+        if (activeSection) anchorMap.get(activeSection.target).classList.add('is-active');
+      }
+    }
+
+    window.onYouTubeIframeAPIReady = onYouTubeReady;
+    window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
+
+    // // TESTING ANIMATION
+    // function setupTestingAnimation() {
+    //   const testingStage = document.querySelector('#testing');
+    //   const device1 = document.querySelector('.anim-testing__device--one');
+    //   const device2 = document.querySelector('.anim-testing__device--two');
+    //   const testingTl = new TimelineLite();
+    //
+    //   TweenLite.set([device1, device2], {
+    //     opacity: 0,
+    //     y: -40
+    //   })
+    //   testingTl.to(device1, 0.1, {
+    //     opacity: 1
+    //   }, 0.4);
+    //   testingTl.to(device1, 0.8, {
+    //     y: 0,
+    //     ease: Expo.easeOut
+    //   }, 0.4);
+    //   testingTl.to(device2, 0.1, {
+    //     opacity: 1,
+    //   }, 0.7);
+    //   testingTl.to(device2, 0.8, {
+    //     y: 0,
+    //     ease: Expo.easeOut
+    //   }, 0.7);
+    //   testingTl.pause();
+    //
+    //   initAnimation(testingStage, testingTl, {
+    //     once: true,
+    //     playWhenInView: true
+    //   });
+    // }
+    // setupTestingAnimation();
+
+    // UPDATES ANIMATION
+    function setupUpdatesAnimation() {
+      const updatesStage = document.querySelector('#updates');
+      const foreground = document.querySelector('.anim-updates__foreground');
+      const background = document.querySelector('.anim-updates__background');
+      const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#ffffff' ];
+      const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
+      const spacing = 170;
+      let foregroundScreens = [];
+      let backgroundScreens = [];
+      let updatesTl;
+
+      // create foreground screens
+      for (let i=0; i < 4; i++) {
+        let screen = document.createElement('div');
+        screen.className = 'anim-updates__screen';
+        foreground.appendChild(screen);
+        TweenLite.set(screen, {
+          backgroundColor: foregroundColors[i],
+          y: -i * spacing + 'px',
+          boxShadow: (i == 0) ? 0 :'24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+        });
+        foregroundScreens.push(screen);
+      }
+
+      // create background screens
+      for (let j=0; j < 4; j++) {
+        let screen = document.createElement('div');
+        screen.className = 'anim-updates__screen';
+        background.insertBefore(screen, background.firstChild);
+        TweenLite.set(screen, {
+          backgroundColor: backgroundColors[j],
+          y: (j) * spacing + 'px',
+          boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+        });
+        backgroundScreens.push(screen);
+      }
+
+      updatesTl = new TimelineLite();
+      createTimeline();
+      updatesTl.pause();
+
+      function createTimeline () {
+        updatesTl.add(function(){
+          for (let f=foregroundScreens.length - 1; f > 0; f--) {
+            let screen = foregroundScreens[f];
+            TweenLite.to(screen, 1, {
+              backgroundColor: foregroundColors[f-1],
+              y: - (f - 1) * spacing  + 'px',
+              ease: Power3.easeInOut
+            });
+          }
+          for (let b = 0; b < backgroundScreens.length - 1; b++) {
+            let screen = backgroundScreens[b];
+            TweenLite.to(screen, 1, {
+              backgroundColor: backgroundColors[b+1],
+              y: (b + 1) * spacing  + 'px',
+              ease: Power3.easeInOut
+            });
+          }
+        }, 0)
+
+        updatesTl.to(foregroundScreens[0], 1, {
+          backgroundColor: '#4d4668',
+        }, 0.3)
+
+        updatesTl.to(foregroundScreens[1], 0.5, {
+          boxShadow: '0px 0px 0px 0 #5d37ff',
+        }, 0.3)
+
+        updatesTl.add(function(){
+          let screen;
+
+          // cleanup foreground
+          foregroundScreens[0].remove();
+          foregroundScreens.shift();
+          screen = document.createElement('div');
+          screen.className = 'anim-updates__screen new';
+          foreground.appendChild(screen);
+          TweenLite.set(screen, {
+            backgroundColor: foregroundColors[3],
+            y: -(3) * spacing + 'px',
+            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          });
+          foregroundScreens.push(screen);
+
+          // cleanup background
+          backgroundScreens[backgroundScreens.length - 1].remove();
+          backgroundScreens.pop();
+          screen = document.createElement('div');
+          screen.className = 'anim-updates__screen new';
+          background.appendChild(screen);
+          TweenLite.set(screen, {
+            backgroundColor: backgroundColors[3],
+            y: 0,
+            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          });
+          backgroundScreens.unshift(screen);
+        }, 1.2)
+
+        updatesTl.add(()=>{
+          updatesTl.clear();
+          createTimeline();
+        }, 2.4);
+      }
+
+      initAnimation(updatesStage, updatesTl, {
+        playWhenInView: true,
+        breakpoint: 991
+      });
+    }
+
+    let hasUpdatesAnimIntialized = false;
+    function checkForUpdatesReady() {
+      if (!hasUpdatesAnimIntialized && window.innerWidth > 991) {
+          setupUpdatesAnimation();
+          hasUpdatesAnimIntialized = true;
+      }
+    }
+    checkForUpdatesReady();
+    window.addEventListener('resize', () => requestAnimationFrame(checkForUpdatesReady));
+
+    // BUILD ANIMATION
+    function setupBuildAnimation() {
+      const buildStage = document.getElementById('anim-build__svg');
+      const title1 = buildStage.querySelector('#title-1');
+      const title2 = buildStage.querySelector('#title-2');
+      const title3 = buildStage.querySelector('#title-3');
+      const line1A = buildStage.querySelector('#line-1-A');
+      const line1B = buildStage.querySelector('#line-1-B');
+      const line2 = buildStage.querySelector('#line-2');
+      const line3A = buildStage.querySelector('#line-3-A');
+      const line3B = buildStage.querySelector('#line-3-B');
+      const line4 = buildStage.querySelector('#line-4');
+      const line5A = buildStage.querySelector('#line-5-A');
+      const line5B = buildStage.querySelector('#line-5-B');
+      const icons = buildStage.querySelectorAll('.icon');
+
+      function setupDashOffset(el, direction) {
+        const len = el.getTotalLength();
+        el.setAttribute('stroke-dasharray', len);
+        el.setAttribute('stroke-dashoffset', len * direction);
+      }
+
+      setupDashOffset(line1A, 1);
+      setupDashOffset(line1B, 1);
+      setupDashOffset(line2, 1);
+      setupDashOffset(line3A, 1);
+      setupDashOffset(line3B, 1);
+      setupDashOffset(line4, 1);
+      setupDashOffset(line5A, 1);
+      setupDashOffset(line5B, 1);
+
+      const stepDuration = 0.65;
+
+      TweenLite.set([title1, title2, title3], { opacity: 0.4 });
+      for (icon of icons) {
+        TweenLite.set(icon, {
+          opacity: 0,
+          scale: 0.8,
+          transformOrigin:"center center",
+        });
+      }
+      TweenLite.set(buildStage, { opacity: 1 });
+
+      const buildTl = new TimelineLite();
+      TweenLite.defaultEase = Linear.easeNone;
+      buildTl.pause();
+
+      function animateIconsIn (selector) {
+        let icons = buildStage.querySelectorAll(selector);
+        for (let i = 0; i < icons.length; i++) {
+          TweenLite.to(icons[i], 0.1, {
+            opacity: 1,
+            delay: i * 0.15
+          })
+          TweenLite.to(icons[i], 1.4, {
+            scale: 1,
+            ease: Elastic.easeOut.config(1, 0.3),
+            delay: i * 0.15
+          })
+        }
+      }
+
+      buildTl.to(title1, 0.3, { opacity: 1 }, 0)
+      buildTl.fromTo( title1, 1.4, {
+        scale: 1.1,
+        transformOrigin:"center center"
+      },{
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3)
+      }, 0)
+
+      buildTl.to(line1A, stepDuration, { 'stroke-dashoffset': 0 }, 0)
+      buildTl.to(line1B, stepDuration, { 'stroke-dashoffset': 0 }, 0)
+      buildTl.add(() => animateIconsIn('#icons-1 .icon'), 0.8)
+      buildTl.to(line2, stepDuration, { 'stroke-dashoffset': 0, }, 1 * stepDuration)
+
+      buildTl.to(title2, 0.1, {
+        scale: 1.1,
+        opacity: 1,
+        transformOrigin:"center center",
+      }, 2 * stepDuration)
+      buildTl.to(title2, 1.4, {
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3),
+      }, 2 * stepDuration + 0.1)
+
+      buildTl.to(line3A, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
+      buildTl.to(line3B, stepDuration, { 'stroke-dashoffset': 0 }, 2 * stepDuration)
+      buildTl.add(() => animateIconsIn('#icons-2 .icon'), 2 * stepDuration + 0.2)
+      buildTl.to(line4, stepDuration, { 'stroke-dashoffset': 0 }, 3 * stepDuration)
+
+      buildTl.to(title3, 0.1, {
+        scale: 1.1,
+        opacity: 1,
+        transformOrigin:"center center",
+      }, 4 * stepDuration)
+      buildTl.to(title3, 1.4, {
+        scale: 1,
+        ease: Elastic.easeOut.config(1, 0.3),
+      }, 4 * stepDuration + 0.1)
+
+      buildTl.to(line5A, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
+      buildTl.to(line5B, stepDuration, { 'stroke-dashoffset': 0 }, 4 * stepDuration)
+      buildTl.add(() => animateIconsIn('#icons-3 .icon'), 4 * stepDuration + 0.2);
+
+      initAnimation(buildStage, buildTl, {
+        once: true,
+        playWhenInView: true
+      });
+    }
+    setupBuildAnimation();
+
+    // REPORTING ANIMATION
+    function setupReportingAnimation () {
+      const reportingStage = document.getElementById('anim-reporting__svg');
+      const svgNS = reportingStage.namespaceURI;
+      const svgBBox = reportingStage.getBBox();
+      const clippingMask = reportingStage.querySelector('.anim-reporting__mask');
+      const clippedGroup = reportingStage.querySelector('.anim-reporting__clipped');
+      const clippedGroupBack = clippedGroup.querySelector('.back');
+      const numCols = 5;
+      const numRows = 4;
+      const screenPadding = 20;
+      const screenBorderRadius = 35;
+      const screenWidth = svgBBox.width / numCols;
+      const screenHeight = screenWidth * 1.75;
+      const yStart = -screenHeight;
+      const yEnd = screenHeight * (numRows - 1);
+      const columnSpeeds = [0.3, 0.5, 0.35, 0.4, 0.25];
+      const columnColors = ['#091e1a', '#0b2620', '#0d2b25', '#0a221d', '#091e1a'];
+      let bugs = [];
+      let screens = [];
+      let scanners = [];
+
+      for (let i = 0; i < numCols; i++) {
+        //set up column background
+        let colBG = document.createElementNS(svgNS,'rect');
+        colBG.setAttribute('x', i * screenWidth);
+        colBG.setAttribute('y', 0);
+        colBG.setAttribute('width', screenWidth);
+        colBG.setAttribute('height', '150%');
+        colBG.setAttribute('fill', columnColors[i]);
+        clippedGroupBack.appendChild(colBG);
+
+        //set up scanner bars
+        if (i != 0 && i != 4 ) {
+          let xPos = i * screenWidth + (screenPadding / 2);
+          let yPos = i * (screenHeight * 0.45);
+          let elHeight = 300;
+
+          let scan = document.createElementNS(svgNS,'rect');
+          scan.setAttribute('x', xPos);
+          scan.setAttribute('y', yPos);
+          scan.setAttribute('width', screenWidth - screenPadding);
+          scan.setAttribute('height', elHeight);
+          scan.setAttribute('fill', "url(#scanGradient)");
+          scan.setAttribute('class', 'anim-reporting__scan');
+          clippedGroup.appendChild(scan);
+
+          let scannerBar = document.createElementNS(svgNS,'rect');
+          scannerBar.setAttribute('x', xPos);
+          scannerBar.setAttribute('y', yPos);
+          scannerBar.setAttribute('width', screenWidth - screenPadding);
+          scannerBar.setAttribute('height', '2px');
+          scannerBar.setAttribute('fill', '#fff');
+          scannerBar.setAttribute('class', 'anim-reporting__scanner-bar');
+          clippedGroup.appendChild(scannerBar);
+
+          scanners.push({
+            col: i,
+            yPos: yPos
+          });
+        }
+
+        // set up screens
+        let yOffset = (i % 2 == 0) ? 0 : -screenHeight/2;
+        for (let j = 0; j < numRows; j++) {
+          let rect = document.createElementNS(svgNS,'rect');
+          let yPos = yStart + (j * screenHeight + (screenPadding / 2)) + yOffset;
+
+          rect.setAttribute('x', i * screenWidth + (screenPadding / 2));
+          rect.setAttribute('y', yPos);
+          rect.setAttribute('width', screenWidth - screenPadding);
+          rect.setAttribute('height', screenHeight - screenPadding);
+          rect.setAttribute('rx', screenBorderRadius);
+          rect.setAttribute('ry', screenBorderRadius);
+
+          clippingMask.appendChild(rect);
+          screens.push({
+            el: rect,
+            yPos: yPos,
+            col: i
+          });
+        }
+      }
+
+      function createBug(col, offset) {
+        let bug = document.createElementNS(svgNS,'circle');
+        let xMin = (screenWidth * col) + 60;
+        let xMax = (screenWidth * col) + screenWidth - 60;
+        let xPos = getRandomInt(xMin, xMax)
+        let radius = 3;
+        let origin = -50;
+        let yPos = origin;
+        if (offset) {
+          yPos += offset;
+          bug.style.transform = `translateY(${ yPos }px)`;
+        }
+        bug.setAttribute('cx', xPos);
+        bug.setAttribute('cy', origin);
+        bug.setAttribute('r', radius);
+        bug.setAttribute('class', 'anim-reporting__bug');
+        clippedGroupBack.appendChild(bug);
+
+        bugs.push({
+          el: bug,
+          yPos: yPos,
+          xPos: xPos,
+          col: col,
+          origin: origin,
+          scannerPos: scanners.find(function(o) {
+            return o.col === col;
+          }).yPos
+        })
+      }
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // set up a few intial bugs that are in view
+      createBug(1, 150);
+      createBug(2, 310);
+
+      //animation loop
+      let tick = 0;
+      let reportingCtx = rafContext(() => {
+
+        // generate bug
+        if (tick % 250 == 0) {
+          let randCol = getRandomInt(1, 3);
+          createBug(randCol, -50);
+        }
+
+        //animate screens
+        for (let i = 0; i < screens.length; i++) {
+          let screen = screens[i];
+          let yLocation = screen.yPos + columnSpeeds[screen.col];
+          if (yLocation >= yEnd) {
+            yLocation = yStart;
+          }
+          TweenLite.set(screen.el, {
+            attr: { y: yLocation }
+          });
+          // screen.el.style.transform = `translateY(${ yLocation }px)`;
+          screen.yPos = yLocation;
+        }
+
+        // animate bugs
+        for (let k = 0; k < bugs.length; k++) {
+          let bug = bugs[k];
+          bug.yPos += columnSpeeds[bug.col];
+
+          // test it bug has crossed scanner line
+          // remove bug if true
+          if (bug.yPos + bug.origin - 1.5 >= bug.scannerPos) {
+            TweenLite.set(bug.el, {
+              y : bug.yPos,
+              transformOrigin: 'center center'
+            })
+            TweenLite.to(bug.el, 0.8, {
+              opacity: 0,
+              scale: 8,
+              onComplete: function() {
+                bug.el.remove();
+              }
+            });
+            bugs.splice(k, 1);
+          } else {
+            bug.el.style.transform = `translateY(${ bug.yPos }px)`;
+          }
+        }
+
+        tick++;
+      })
+
+      initAnimation(reportingStage, reportingCtx);
+    }
+    setupReportingAnimation();
+  })();
+</script>
 
 {% endblock %}

@@ -223,11 +223,11 @@
 
   .resource-list {
     margin-bottom: 64px;
-  }
 
-  .resource-list__header h4 {
-    font-size: 24px;
-    margin-bottom: 1px;
+    &__header h4 {
+      font-size: 24px;
+      margin-bottom: 1px;
+    }
   }
 
   .scrollTopLink {

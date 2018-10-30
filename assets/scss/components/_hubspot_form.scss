@@ -56,27 +56,6 @@
   select.hs-input {
     height: 44px;
     width: calc(100% + 6px) !important;
-    appearance: none;
-  }
-
-  .hs-fieldtype-select {
-    position: relative;
-
-    label {
-      &::before, 
-      &::after {
-        content: '\25B2';
-        position: absolute;
-        right: 8px;
-        top: calc(50% - 14px);
-        font-size: .6em;
-      }
-
-      &::after {
-        content: '\25BC';
-        top: calc(50% - 6px);
-      }
-    }
   }
 
   textarea.hs-input {
@@ -210,6 +189,22 @@
 
   select.hs-input {
     height: 44px;
+
+
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) 50%,
+      calc(100% - 15px) 50%,
+      calc(100% - 2.5em) 50%;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
   }
 
   form fieldset.form-columns-2 .input {

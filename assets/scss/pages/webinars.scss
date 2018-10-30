@@ -243,5 +243,17 @@
     font-size: 15px;
     font-weight: 600;
   }
+
+  .modal-body {
+    padding: 32px 48px;
+
+    @media (max-width: $screen-xs-max) {
+      padding: 16px;
+    }
+
+    form {
+      max-width: 100%;
+    }
+  }
 }
 

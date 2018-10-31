@@ -3,6 +3,7 @@
 {% set title = 'App Monitoring with the Ionic Pro Monitor' %}
 {% set header_style = 'transparent products-page' %}
 {% set meta_description = "Have better visibility into your hybrid app and native development. Ionic monitor identifies and tracks errors at the web layer, with detailed source maps all the way down to the typescript level." %}
+{% set stickyNav = true %}
 
 {% block body_attributes %}
 
@@ -249,8 +250,6 @@
 
 {% block scripts %}
 <script>
-// enable sticky nav
-stickyNav.init();
 
 var gradient = document.getElementById('gradient');
 var gradient2 = document.getElementById('gradient-2');

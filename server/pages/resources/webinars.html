@@ -2,6 +2,7 @@
 {% set id = 'webinars' %}
 {% set cssPath = 'webinars' %}
 {% import "_includes/macros.html" as macros %}
+{% set stickyNav = true %}
 
 {% block main %}
 <div class="sub-header">
@@ -19,8 +20,8 @@
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST | 
-      Hosted by
+      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST &nbsp;| 
+      &nbsp;Hosted by
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}" 
            href="{{host.profile_link.url}}">
@@ -30,45 +31,54 @@
       
     </p>
     <div class="cta-buttons">
-      <a class="btn sm white" href="{{data.watch_now_link.url}}">Watch Now</a>
+      {# <a class="btn sm white" href="{{data.watch_now_link.url}}">
+        Watch Now</a> #}
+      <a class="btn sm white"
+         data-toggle="modal"
+         data-target="#contactForm">Watch Now</a>
     </div>
   </hgroup>
 </div>
 
-<main class="card container">
-  <article>
-    {{PrismicDOM.RichText.asHtml(data.description)}}
-  </article>
-  <aside>
-    <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
-    {% for host in data.hosts %}
-      <a target="{{host.profile_link.target}}" 
-         href="{{host.profile_link.url}}">
-        <img src="{{host.photo.url}}" 
-             srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
-             atl="{{host.name}}">
-        <strong>{{host.name}}</strong>
-        <span>{{host.title}}</span>
-      </a>
-    {% endfor %} 
-
-    <div class="subscribe-cta">
-      <h3>Never miss a webinar!</h3>
-      <p>Subscribe to our newsletter for all the latest Ionic content.</p>
-      <a href="" class="btn lightblue">Subscribe now!</a>
-    </div>
-  </aside>
-</main>
+<div class="container">
+  <main class="card">
+    <article>
+      {{PrismicDOM.RichText.asHtml(data.description)}}
+      <a class="btn sm" href="{{data.watch_now_link.url}}">Watch Now</a>
+    </article>
+    <aside>
+      <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}" 
+           href="{{host.profile_link.url}}"
+           class="host">
+          <img src="{{host.photo.url}}" 
+               srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
+               atl="{{host.name}}">
+          <strong>{{host.name}}</strong>
+          <span>{{host.title}}</span>
+        </a>
+      {% endfor %} 
+  
+      <div class="subscribe-cta">
+        <h3>Never miss a webinar!</h3>
+        <p>Subscribe to our newsletter for all the latest Ionic content.</p>
+        {# <a href="" class="btn sm lightblue">Subscribe now!</a> #}
+        <ionic-newsletter-signup></ionic-newsletter-signup>
+      </div>
+    </aside>
+  </main>
+</div>
 
 <div class="container">
   <div class="transitionBody">
     <div class="transitionBody">
       <section class="resource-list">
         <div class="resource-list__header">
-          <h4>Other Resources you might like</h4>
           <a class="scrollTopLink" href="/resources/articles">
             See all <ion-icon name="arrow-round-forward"></ion-icon>
           </a>
+          <h4>Other Resources you might like</h4>
         </div>
         <div class="resource-card-list resource-card-list--quarter">
           {% for r in resources.sectionFeatured['webinars'] %}
@@ -83,5 +93,47 @@
     </div>
   </div>
 </div>
-<pre><code>{{ data | dump(2) }}</code></pre>
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="text-center">
+          <h3>Stream {{data.title}}</h3>
+          <p class="lg">You're just a few clicks away from our free webinar.</p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" 
+                type="text/javascript" 
+                src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" 
+                type="text/javascript" 
+                src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          	portalId: '3776657',
+          	formId: '6d8534e1-7d35-445d-9f63-3420b6d37243',
+          	css: ''
+          });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

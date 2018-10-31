@@ -3,5 +3,10 @@
 {% else %}
 <script src="/js/ionic-site.min.js"></script>
 {% endif %}
+{% if stickyNav %}
+<script>
+  stickyNav && stickyNav.init();
+</script>
+{% endif %}
 
 {% if page.footer_includes %}{{ page.footer_includes }}{% endif %}

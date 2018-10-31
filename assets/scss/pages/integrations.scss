@@ -283,9 +283,13 @@
       line-height: 30px;
       color: #000;
     }
-    
+
     &.show {
       display: flex;
+    }
+
+    .hs_submit {
+      text-align: center;
     }
   }
 
@@ -540,7 +544,7 @@
       text-align: center;
     }
 
-    p {
+    & > p {
       line-height: 28px;
       font-size: 18px;
       letter-spacing: -0.02em;
@@ -548,6 +552,11 @@
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    .hs_submit {
       text-align: center;
     }
   }

@@ -102,16 +102,19 @@
       <!-- The form is shown when there are no integrations matching the filter -->
       <div class="integrations-list__results-form {% if hasCategoryFilter and categoryFiltered.length === 0%} show {% endif %}">
         <h3>Not seeing what you're looking for? Suggest an integration.</h3>
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7"
-        });
-        </script>
+        <div class="hubspot-override">
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+          	portalId: "3776657",
+          	formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
+            css: ""
+          });
+          </script>
+        </div>
       </div>
     </div>
 

@@ -12,7 +12,7 @@ const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
 const tools           = require('./server/tools');
 
-const prismicMiddleware = require('./server/prismic');
+const prismicUtil = require('./server/prismic');
 
 const { PORT, PROD, REDIS_URL } = require('./server/config');
 
@@ -40,7 +40,7 @@ app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
-app.use(prismicMiddleware);
+app.use(prismicUtil.middleware);
 app.use(processRequest);
 
 app.set('views', __dirname + '/server/pages');

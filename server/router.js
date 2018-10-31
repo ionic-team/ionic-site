@@ -1,35 +1,19 @@
-const express              = require('express');
-const ab                   = require('express-ab');
-const bp                   = require('body-parser');
-const { PRISMIC_ENDPOINT } = require('./config');
-const markdown             = require('./markdown');
-const es                   = require('express-sanitizer');
-const { join }             = require('path');
-const Prismic              = require('prismic-javascript');
+const express  = require('express');
+const ab       = require('express-ab');
+const bp       = require('body-parser');
+const markdown = require('./markdown');
+const es       = require('express-sanitizer');
+const { join } = require('path');
+const { previewController, getPrismic } = require('./prismic');
 
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
-const contactCtrl = require('./controllers/contactCtrl');
-const newsletterCtrl    = require('./controllers/newsletterCtrl');
-const viewCtrl    = require('./controllers/viewCtrl');
-const integrations = require('./data/integrations');
+const contactCtrl         = require('./controllers/contactCtrl');
+const newsletterCtrl      = require('./controllers/newsletterCtrl');
+const viewCtrl            = require('./controllers/viewCtrl');
+const integrations        = require('./data/integrations');
 
 function send404(res) {
   res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
-}
-
-function getPrismic (req, res, type, uid, template) {
-  return new Promise((resolve, reject) => {
-    Prismic.getApi(PRISMIC_ENDPOINT, {
-      req: req
-    })
-    .then(api => api.getByUID(type, uid))
-    .then(response => res.render(template, {data: response.data}))
-    .then(resolve)
-    .catch(e => {
-      send404(res);
-      reject(e);
-    });
-  });
 }
 
 module.exports = function router(app) {
@@ -118,6 +102,9 @@ module.exports = function router(app) {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) => 
     res.render('resources/category', {currentCategory: req.params.category}))
+  .get('/resources/case-studies/:caseStudy', (req, res) => 
+    getPrismic(req, res, 'case_study', req.params['caseStudy'], 
+      'resources/case-studies'))
   .get('/resources/webinars/:webinar', (req, res) => 
     getPrismic(req, res, 'webinar', req.params.webinar, 'resources/webinars'))
 
@@ -147,4 +134,7 @@ module.exports = function router(app) {
   .post('/contact', bp.json(), es(), contactCtrl)
   .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
+
+  // Prismic Preview
+  .get('/preview', previewController)
 };

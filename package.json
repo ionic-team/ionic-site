@@ -43,6 +43,7 @@
     "c3": "^0.5.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
+    "cookies": "^0.7.2",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "event-stream": "^3.3.1",

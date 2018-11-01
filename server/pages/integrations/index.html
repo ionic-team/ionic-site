@@ -4,8 +4,6 @@
 {% set cssPath = 'integrations' %}
 
 {% block main %}
-<script>console.log(JSON.parse('{{ categoryFiltered | dump }}'))</script>
-
 <section class="container">
   <div class="integrations-hero">
     <h1>Integrations</h1>
@@ -37,8 +35,26 @@
 
   <div class="integrations-list">
     <div class="integrations-list__filter">
+
+      <div class="integrations-searchbox">
+        <ion-icon name="search"></ion-icon>
+        <input type="text" placeholder="Search"/>
+        <ion-icon name="close"></ion-icon>
+      </div>
+
+      <div class="integrations-toggles">
+        <div class="integrations-check">
+          <input class="integrations-check__input" type="checkbox" id="premier" value="premier" checked>
+          <label class="integrations-check__label" for="premier">Premier</label>
+        </div>
+        <div class="integrations-check">
+          <input class="integrations-check__input" type="checkbox" id="community" value="community" checked>
+          <label class="integrations-check__label" for="community">Community</label>
+        </div>
+      </div>
+
       <h4>Categories</h4>
-      <ul>
+      <ul class="integrations-category-filter">
         {% for filter in filters %}
           <li class="{% if categoryFilter.slug === filter.slug %}active{% endif %}">
             <a href="/integrations{% if filter.slug !== 'all' %}/category/{{filter.slug}}{% endif %}">
@@ -50,54 +66,63 @@
     </div>
 
     <div class="integrations-list__results">
-      {% if hasCategoryFilter %}
-        {% if categoryFiltered.length %}
-        <!-- Show integrations for a single category -->
-          <div class="integrations-list__results-header">
-            <h4>
-              {{ categoryFilter.name }}
-            </h4>
-          </div>
-          <div class="integrations-list__results-grid">
-            {% for i in categoryFiltered %}
-              <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %}">
-                <div class="integrations-card__image">
-                  <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
-                </div>
-                <h2>{{ i.data.name }}</h2>
-              </a>
-            {% endfor %}
-          </div>
-
-        {% endif %}
-      {% else %}
-        <!-- Show all categories -->
-        {% for category, array in categoryFeatured %}
-          {% if array.length %}
+      <div class="integrations-list__results-main">
+        {% if hasCategoryFilter %}
+          {% if categoryFiltered.length %}
+          <!-- Show integrations for a single category -->
             <div class="integrations-list__results-header">
-              <h4>{{ category }}</h4>
-              <a href="/integrations/category/{{category | lower | replace(" ", "-")}}">
-                View all <ion-icon name="arrow-forward"></ion-icon>
-              </a>
+              <h4>
+                {{ categoryFilter.name }}
+              </h4>
             </div>
-            <div class="integrations-list__results-row">
-              {% for i in array %}
-
-                  <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %}">
-                    <div class="integrations-card__image">
-                      <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
-                    </div>
-                    <h2>{{ i.data.name }}</h2>
-                  </a>
-
+            <div class="integrations-list__results-grid">
+              {% for i in categoryFiltered %}
+                <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
+                  <div class="integrations-card__image">
+                    <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
+                  </div>
+                  <h2>{{ i.data.name }}</h2>
+                </a>
               {% endfor %}
             </div>
+
           {% endif %}
-        {% endfor %}
-      {% endif %}
+        {% else %}
+          <!-- Show all categories -->
+          {% for featured in categoryFeatured %}
+            {% if featured.integrations.length %}
+              <div class="integrations-list__results-category" data-category={{ featured.category.name }}>
+                <div class="integrations-list__results-header">
+                  <h4>{{ featured.category.name }}</h4>
+                  <a href="/integrations/category/{{category | lower | replace(" ", "-")}}">
+                    View all <ion-icon name="arrow-forward"></ion-icon>
+                  </a>
+                </div>
+                <div class="integrations-list__results-row">
+                  {% for i in featured.integrations %}
+
+                      <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
+                        <div class="integrations-card__image">
+                          <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
+                        </div>
+                        <h2>{{ i.data.name }}</h2>
+                      </a>
+
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
 
       <!-- Empty node that'll be filled with client side search results -->
-      <div class="integrations-list__results-search"></div>
+      <div class="integrations-list__results-search">
+        <div class="integrations-list__results-grid">
+        </div>
+        <div class="integrations-list__empty-message">
+        </div>
+      </div>
 
       <!-- The form is shown when there are no integrations matching the filter -->
       <div class="integrations-list__results-form {% if hasCategoryFilter and categoryFiltered.length === 0%} show {% endif %}">
@@ -109,15 +134,252 @@
           <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
           <script>
             hbspt.forms.create({
-          	portalId: "3776657",
-          	formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
+            portalId: "3776657",
+            formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
             css: ""
           });
           </script>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function(){
+    var data = JSON.parse('{{ data | dump }}');
+
+    console.log(data)
+
+    // state
+    var hasCategoryFilter = {{ hasCategoryFilter }};
+    var categoryFilter = {{ categoryFilter | dump}};
+    var isSearchActive = false;
+    var currentQuery = '';
+    var selectedTypes = {
+      'premier': true,
+      'community': true
+    };
+
+    // dom
+    var searchBoxWrap = document.querySelector('.integrations-searchbox');
+    var searchBoxInput = searchBoxWrap.querySelector('input');
+    var searchBoxClose = searchBoxWrap.querySelector('ion-icon[name="close"]');
+    var categoryFilter = document.querySelector('.integrations-category-filter');
+    var typeFilters = document.querySelectorAll('.integrations-check__input');
+    var mainResultsContainer = document.querySelector('.integrations-list__results-main');
+    var searchResultsContainer = document.querySelector('.integrations-list__results-search');
+    var emptyStateMessage = document.querySelector('.integrations-list__empty-message');
+    var form = document.querySelector('.integrations-list__results-form');
+
+    // events
+    searchBoxInput.addEventListener('keyup', function() {
+      var query = searchBoxInput.value;
+      if (query.length) {
+        doSearch();
+        queryData(query);
+        filterByType();
+      } else {
+        cancelSearch();
+      }
+      checkForEmptyStates();
+    });
+
+    searchBoxClose.addEventListener('click', function(){
+      cancelSearch();
+      checkForEmptyStates();
+    });
+
+    document.addEventListener('keyup', function(ev) {
+      if (ev.key === "Escape") {
+        cancelSearch();
+        checkForEmptyStates();
+      }
+    });
+
+    for (var filter of typeFilters){
+      filter.addEventListener('change', function(ev){
+        selectedTypes[ev.target.value] = ev.target.checked;
+        filterByType();
+        checkForEmptyStates();
+      });
+    }
+
+    // actions
+    function doSearch() {
+      if (isSearchActive) return;
+      isSearchActive = true;
+      searchBoxWrap.classList.add('active');
+      categoryFilter.classList.add('disable');
+    }
+
+    function cancelSearch() {
+      if (!isSearchActive) return;
+      isSearchActive = false;
+      searchBoxWrap.classList.remove('active');
+      categoryFilter.classList.remove('disable');
+      searchResultsContainer.classList.remove('show');
+      mainResultsContainer.classList.remove('hide');
+      searchBoxInput.value = "";
+      currentQuery = "";
+    }
+
+    function queryData(query) {
+      var query = query.toLowerCase();
+      currentQuery = query;
+      var results = data.filter(function(o){
+        var name = o.name.toLowerCase();
+        return ( name.startsWith(query) || name.indexOf(' ' + query) !== -1);
+      });
+      var inner = searchResultsContainer.querySelector('.integrations-list__results-grid');
+
+      mainResultsContainer.classList.add('hide');
+      emptyStateMessage.classList.add('hide');
+      inner.innerHTML = "";
+      searchResultsContainer.classList.add('show');
+
+      if (results.length) {
+        results.map(function(o){
+          inner.appendChild(renderCard(o));
+        });
+        form.classList.remove('show');
+      }
+    }
+
+    function filterByType() {
+      var cards = document.querySelectorAll('.integrations-list .integrations-card');
+      var communityCards = document.querySelectorAll('.integrations-card--community');
+
+      for (var card of cards) {
+        card.classList.remove('hide');
+        if (!selectedTypes.premier && card.classList.contains('integrations-card--premier')) {
+          card.classList.add('hide');
+        }
+        if (!selectedTypes.community && card.classList.contains('integrations-card--community')) {
+          card.classList.add('hide');
+        }
+      }
+    }
+
+    function checkForEmptyStates() {
+      form.classList.remove('show');
+
+      // first try to pull in next cards for featured categories view
+      if (!isSearchActive && !hasCategoryFilter) {
+        var resultsRows = document.querySelectorAll('.integrations-list__results-category');
+        for (var row of resultsRows) {
+          row.classList.remove('hide');
+          categoryName = row.dataset.category;
+
+          var cardCount = checkForVisibleCards(row);
+
+          // hide category row if there are no cards
+          if (cardCount == 0) {
+            row.classList.add('hide');
+          } else if (cardCount < 4) {
+
+          // if there are less than 4 cards, add next cards i category
+            var nextCards = getNonFeaturedCards(categoryName);
+            nextCards.map(function(o){
+              // check to make sure next card doesn't already exist in row
+              var cards = row.querySelectorAll('.integrations-card');
+              var cardExists = false;
+              for (var card of cards) {
+                if (card.dataset.name === o.name) cardExists = true;
+              }
+              // add card to category row
+              if (!cardExists) {
+                var newCard = renderCard(o);
+                row.querySelector('.integrations-list__results-row').appendChild(newCard);
+              }
+            });
+          // if filters change and there are more than 4 cards in a row, remove extra cards
+          } else if (cardCount > 4) {
+            var extraCardCount = cardCount - 4;
+            while (extraCardCount > 0) {
+              row.querySelector('.integrations-list__results-row').lastChild.remove();
+              extraCardCount--;
+            }
+          }
+        }
+      }
+
+      // check for empty search results
+      emptyStateMessage.innerHTML = '';
+
+      if (isSearchActive) {
+        cardCount = checkForVisibleCards(searchResultsContainer);
+        if (cardCount) return;
+        emptyStateMessage.classList.remove('hide');
+        emptyStateMessage.innerHTML = 'No results for <b>' + currentQuery + '</b>';
+        form.classList.add('show');
+      }
+
+      // check for all other results
+      var cardCount = checkForVisibleCards(mainResultsContainer);
+      if (cardCount) return;
+      form.classList.add('show');
+
+    }
+
+    function checkForVisibleCards(wrapperEl) {
+      var cardCount = 0;
+      var cards = wrapperEl.querySelectorAll('.integrations-card');
+      for (var card of cards) {
+        if (cards.length && !card.classList.contains('hide')) cardCount++;
+      }
+      return cardCount;
+    }
+
+    function getNonFeaturedCards(categoryName) {
+      var cardsInCategory = [].concat(
+        data.filter(o => o['category-primary'] === categoryName),
+        data.filter(o => o['category-secondary'] === categoryName),
+        data.filter(o => o['category-tertiary'] === categoryName)
+      );
+
+      var matches = cardsInCategory.filter(function(o){
+        var isNotFeatured = (o['featured-category'] === 'None') ? true : false;
+        var isPremier = (o['premier'] === 'Yes') ? true : false;
+        var isCommunity = (o['community'] === 'Yes') ? true : false;
+
+        var matchesPremierFilter = false;
+        if (selectedTypes.premier == true && isPremier) matchesPremierFilter = true;
+        if (selectedTypes.premier == false && !isPremier) matchesPremierFilter = true;
+
+        var matchesCommunityFilter = false;
+        if (selectedTypes.community == true && isCommunity) matchesCommunityFilter = true;
+        if (selectedTypes.community == false && !isCommunity) matchesCommunityFilter = true;
+
+        if (isNotFeatured && matchesPremierFilter && matchesCommunityFilter) return o;
+      });
+
+      return matches;
+    }
+
+    function renderCard(data) {
+      var newCard = document.createElement('a');
+      newCard.className = 'integrations-card integrations-card--small ' + ( data.premier === 'Yes' ? 'integrations-card--premier' : '' );
+      newCard.href = '/integrations/' + data.uid;
+
+      var cardImageWrap = document.createElement('div');
+      cardImageWrap.className = 'integrations-card__image';
+
+      var cardImage = document.createElement('img');
+      cardImage.src = data.logoUrl;
+
+      var cardLabel = document.createElement('h2');
+      cardLabel.innerHTML = data.name;
+
+      cardImageWrap.appendChild(cardImage);
+      newCard.appendChild(cardImageWrap);
+      newCard.appendChild(cardLabel);
+
+      return newCard;
+    }
+  })()
+</script>
 {% endblock %}

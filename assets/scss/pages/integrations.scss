@@ -134,6 +134,10 @@
 }
 
 #page-integrations {
+  background: url('/img/integrations/integrations-hero-bg.png');
+  background-repeat: repeat-x;
+  background-size: 1680px;
+  background-position: center -20px;
 
   &.show {
     display: block;
@@ -408,6 +412,10 @@
 }
 
 #page-integrations-detail {
+  background: url('/img/integrations/integrations-hero-bg.png');
+  background-repeat: repeat-x;
+  background-size: 1680px;
+  background-position: center -300px;
 
   .integrations-detail__nav {
     margin-top: 20px;

@@ -8,6 +8,8 @@ const { join }             = require('path');
 const Prismic              = require('prismic-javascript');
 const PrismicDOM           = require('prismic-dom');
 
+const { previewController, getPrismic } = require('./prismic');
+
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
@@ -16,22 +18,6 @@ const viewCtrl    = require('./controllers/viewCtrl');
 
 function send404(res) {
   res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
-}
-
-function getPrismic (req, res, type, uid, template) {
-  return new Promise((resolve, reject) => {
-    Prismic.getApi(PRISMIC_ENDPOINT, {
-      req: req
-    })
-    .then(api => api.getByUID(type, uid))
-    .then(response =>
-      res.render(template, {data: response.data}))
-    .then(resolve)
-    .catch(e => {
-      send404(res);
-      reject(e);
-    });
-  });
 }
 
 function handleIntegrationsRequest(req, res, categoryFilter){
@@ -284,14 +270,11 @@ module.exports = function router(app) {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
-<<<<<<< HEAD
-  .get('/resources/webinars/:webinar', (req, res) =>
-=======
   .get('/resources/case-studies/:caseStudy', (req, res) =>
     getPrismic(req, res, 'case_study', req.params['caseStudy'],
       'resources/case-studies'))
   .get('/resources/webinars/:webinar', (req, res) =>
->>>>>>> master
+
     getPrismic(req, res, 'webinar', req.params.webinar, 'resources/webinars'))
 
   .get('/sales', (_, res) => res.render('sales'))

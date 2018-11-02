@@ -10,6 +10,8 @@ function linkResolver(doc) {
     return '/resources/webinars/' + doc.uid;
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
+  } else if (doc.type === 'integration') {
+    return '/integrations/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
 }
@@ -26,7 +28,7 @@ module.exports = {
     };
     // add PrismicDOM in locals to access them in templates.
     res.locals.PrismicDOM = PrismicDOM;
-  
+
     // get Prismic API instance
     Prismic.api(PRISMIC_ENDPOINT, {
       req,
@@ -36,17 +38,17 @@ module.exports = {
     }).catch((error) => {
       next(error.message);
     });
-  
+
   },
-  
+
   previewController: (req, res) => {
     const { token } = req.query;
     if (token) {
       req.prismic.api.previewSession(token, linkResolver, '/').then((url) => {
         const cookies = new Cookies(req, res);
         cookies.set(
-          Prismic.previewCookie, 
-          token, 
+          Prismic.previewCookie,
+          token,
           { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false }
         );
         res.redirect(302, url);
@@ -71,4 +73,3 @@ module.exports = {
     });
   }
 }
-

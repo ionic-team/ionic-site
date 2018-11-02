@@ -20,15 +20,15 @@
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST &nbsp;| 
+      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST &nbsp;|
       &nbsp;Hosted by
       {% for host in data.hosts %}
-        <a target="{{host.profile_link.target}}" 
+        <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">
           {{host.name}}
         </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
-      {% endfor %} 
-      
+      {% endfor %}
+
     </p>
     <div class="cta-buttons">
       {# <a class="btn sm white" href="{{data.watch_now_link.url}}">
@@ -49,17 +49,17 @@
     <aside>
       <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
       {% for host in data.hosts %}
-        <a target="{{host.profile_link.target}}" 
+        <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}"
            class="host">
-          <img src="{{host.photo.url}}" 
+          <img src="{{host.photo.url}}"
                srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
                atl="{{host.name}}">
           <strong>{{host.name}}</strong>
           <span>{{host.title}}</span>
         </a>
-      {% endfor %} 
-  
+      {% endfor %}
+
       <div class="subscribe-cta">
         <h3>Never miss a webinar!</h3>
         <p>Subscribe to our newsletter for all the latest Ionic content.</p>
@@ -71,26 +71,24 @@
 </div>
 
 <div class="container">
-  <div class="transitionBody">
-    <div class="transitionBody">
-      <section class="resource-list">
-        <div class="resource-list__header">
-          <a class="scrollTopLink" href="/resources/webinars">
-            See all <ion-icon name="arrow-round-forward"></ion-icon>
-          </a>
-          <h4>Other Resources you might like</h4>
-        </div>
-        <div class="resource-card-list resource-card-list--quarter">
-          {% for r in resources.sectionFeatured['webinars'] %}
-            <div class="resource-card">
-              <div class="resource-card__inner">
-              {{ macros.resource(r) }}
-              </div>
+  <div class="pjxTransitionBody">
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <a class="scrollTopLink" href="/resources/articles">
+          See all <ion-icon name="arrow-round-forward"></ion-icon>
+        </a>
+        <h4>Other Resources you might like</h4>
+      </div>
+      <div class="resource-card-list resource-card-list--quarter">
+        {% for r in resources.sectionFeatured['webinars'] %}
+          <div class="resource-card">
+            <div class="resource-card__inner">
+            {{ macros.resource(r) }}
             </div>
-          {% endfor %}
-        </div>
-      </section>
-    </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
   </div>
 </div>
 {# <pre><code>{{ data | dump(2) }}</code></pre> #}
@@ -117,12 +115,12 @@
         </hgroup>
 
         <!--[if lte IE 8]>
-        <script charset="utf-8" 
-                type="text/javascript" 
+        <script charset="utf-8"
+                type="text/javascript"
                 src="//js.hsforms.net/forms/v2-legacy.js"></script>
         <![endif]-->
-        <script charset="utf-8" 
-                type="text/javascript" 
+        <script charset="utf-8"
+                type="text/javascript"
                 src="//js.hsforms.net/forms/v2.js"></script>
         <script>
           hbspt.forms.create({

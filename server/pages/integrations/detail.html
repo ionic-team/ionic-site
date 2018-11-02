@@ -1,7 +1,102 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'integrations-detail' %}
 {% set header_style = 'transparent light' %}
+{% set cssPath = 'integrations' %}
 
 {% block main %}
-  <pre><code>{{ integration|dump(2) }}</code></pre>
+<script>console.log(JSON.parse('{{ data | dump }}'))</script>
+  <section class="container">
+
+    <section class="integrations-detail__nav">
+      <a href="/integrations"><ion-icon name="arrow-back"></ion-icon> All integrations</a>
+    </section>
+
+    <div class="integrations-detail__wrapper">
+
+      <section class="integrations-detail__header">
+        <div class="integrations-detail__logo">
+            <img src="{{data.logo.url}}" alt="{{ data.name }} logo">
+        </div>
+        <div>
+          <h1>{{ data.name }}</h1>
+          <p>{{ data['short-description'] }}</p>
+          <ul>
+            {% if data['category-premier'] !== 'None' %}
+              <li class="integrations-tag integrations-tag--premier"> <ion-icon name="star"></ion-icon> Premier </li>
+            {% endif %}
+            {% if data['category-primary'] !== 'None' %}
+              <li class="integrations-tag"> {{data['category-primary']}} </li>
+            {% endif %}
+            {% if data['category-secondary'] !== 'None' %}
+              <li class="integrations-tag"> {{data['category-secondary']}} </li>
+            {% endif %}
+            {% if data['category-tertiary'] !== 'None' %}
+              <li class="integrations-tag"> {{data['category-tertiary']}} </li>
+            {% endif %}
+          </ul>
+        </div>
+      </section>
+
+      <section class="integrations-detail__body">
+        <div class="integrations-detail__content">
+          {{ data.descriptionHTML }}
+        </div>
+        <div class="integrations-detail__actions">
+          <div class="integrations-detail__actions-inner">
+            <div class="integrations-detail__cta">
+              {% if data['cta_type'] === 'Free' or data['cta_type'] === 'Support' %}
+                <span>Ionic makes it easy to get Started with {{data.name}}</span>
+                <a class="btn" href="{{data['cta_link'].url}}">Get started</a>
+              {% endif %}
+
+              {% if data['cta_type'] === 'Sales' %}
+                <span>Reach out to purchase a  plan or request a demo</span>
+                <a class="btn" href="#cta-form">Contact Sales</a>
+              {% endif %}
+
+            </div>
+
+            {% if data.links.length %}
+            <h5>Helpful resources:</h5>
+            <ul>
+              {% for resource in data.links %}
+                <li><a href="{{resource.link.url}}">{{resource['link-text']}}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if data['cta_type'] === 'Support' %}
+            <div class="integrations-detail__cta-secondary">
+              <p>Interested in getting official support for {{data.name}}?</p>
+              <a class="btn white " href="#cta-form">Contact Sales</a>
+            </div>
+            {% endif %}
+          </div>
+
+        </div>
+      </section>
+      {% if data['cta_type'] === 'Sales' or data['cta_type'] === 'Support' %}
+        <section class="integrations-detail__form" id="cta-form">
+          <h1>Contact sales</h1>
+          {% if data['cta_type'] === 'Sales' %}<p>Reach out to purchase a plan or request a demo</p>{% endif %}
+          {% if data['cta_type'] === 'Support' %}<p>Reach out to find out how we can help you integrate with {{data.name}}</p>{% endif %}
+
+          <div class="hubspot-override">
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+            	portalId: "3776657",
+            	formId: "9476f1a2-5457-4344-bcce-e35ad70c966a",
+              css: ""
+            });
+            </script>
+          </div>
+        </section>
+      {% endif %}
+    </div>
+
+  </section>
 {% endblock %}

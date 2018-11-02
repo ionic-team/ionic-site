@@ -394,11 +394,12 @@ window.pjx = {
   isAnimating: false,
   navLinks: null,
 
-  init: function() {
+  init: function(urlRoot, delegatorID, hooks) {
     var self = this;
+    this.urlRoot = urlRoot;
     this.navLinks = document.querySelectorAll('.pjxNavLink');
+    this.hooks = hooks || {};
 
-    var delegatorID = '#page-resource-center';
     document.querySelector(delegatorID).addEventListener('click', function(ev){
       var el = ev.target;
       while (el && !el.matches('a.pjxLink')) {
@@ -433,10 +434,9 @@ window.pjx = {
   },
 
   handleTransition: function (url, doPushState) {
-
     var self = this;
-    var urlSplit = url.split('/')
-    var slug ='/resources' + (urlSplit[urlSplit.indexOf('resources') + 1] ?  '/' + urlSplit[urlSplit.indexOf('resources') + 1] : '');
+    var urlSplit = url.split('/');
+    var slug ='/' + this.urlRoot + (urlSplit[urlSplit.indexOf(this.urlRoot) + 1] ?  '/' + urlSplit.slice(urlSplit.indexOf(this.urlRoot) + 1).join('/') : '');
 
     this.each(function(el) {
       el.parentElement.classList.remove('active');
@@ -447,39 +447,45 @@ window.pjx = {
 
     this.fetchContent(url , function(content){
       if (doPushState) self.updateHistory(slug);
-      self.transition(content);
+      self.transition(content, slug);
     });
   },
 
-  transition: function(content) {
+  transition: function(content, slug) {
     this.isAnimating = true;
 
     var self = this;
     var parser = new DOMParser();
     var nextDoc = parser.parseFromString(content, "text/html");
 
-    var nextBodyCards = nextDoc.querySelector('.transitionBody');
-    var currBodyCards = document.querySelector('.transitionBody' );
-    var currBody = currBodyCards.parentElement;
-    TweenLite.to(currBodyCards, 0.3, {
+    var nextBody = nextDoc.querySelector('.pjxTransitionBody');
+    var currBody = document.querySelector('.pjxTransitionBody' );
+    var currBodyWrapper = currBody.parentElement;
+    TweenLite.to(currBody, 0.3, {
       y: 10,
       opacity: 0,
       onComplete: function () {
-        currBody.removeChild(currBodyCards)
-        currBody.appendChild(nextBodyCards)
-        TweenLite.set(nextBodyCards, {
+        currBodyWrapper.removeChild(currBody);
+        currBodyWrapper.appendChild(nextBody);
+        if (self.hooks.willLoad) {
+          self.hooks.willLoad(slug);
+        }
+        TweenLite.set(nextBody, {
           opacity: 0,
           y: -10
-        })
-        TweenLite.to(nextBodyCards, 0.6, {
+        });
+        TweenLite.to(nextBody, 0.6, {
           opacity: 1,
           y: 0,
           ease: Expo.easeOut,
           // delay: 0.125,
           onComplete: function () {
             self.isAnimating = false;
+            if (self.hooks.didLoad) {
+              self.hooks.didLoad(slug);
+            }
           }
-        })
+        });
       }
     });
   },

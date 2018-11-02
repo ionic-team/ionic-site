@@ -1,33 +1,60 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'case-studies' %}
-{# {% set cssPath = 'case-studies' %} #}
+{% set cssPath = 'case-studies' %}
+{% set header_style = 'transparent light' %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
 
 {% block main %}
 <div class="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="left breadcrumbs sm">
       <li><a href="/resources">Resources</a></li>
-      <li><a href="/resources/case-studies">Customer Stories</a></li>
+      <li><a href="/resources/case-studies">Case Study</a></li>
       <li>{{data.title}}</li>
+    </ul>
+    <ul class="right">
+      <li>
+        <a href="{{data.download_link.url}}" 
+           class="download"
+           target="_blank">
+          <ion-icon name="arrow-down"></ion-icon> Download PDF
+        </a>
+      </li>
     </ul>
   </div>
 </div>
 
-<div class="cta gradient">
-  <hgroup class="container">
-    <strong>Customer Story</strong>
-    <h1>{{data.title}}</h1>
-    <div class="cta-buttons">
-      {# <a class="btn sm white" href="{{data.watch_now_link.url}}">
-        Watch Now</a> #}
-      <a class="btn sm white"
-         data-toggle="modal"
-         data-target="#contactForm">Watch Now</a>
-    </div>
-  </hgroup>
-</div>
+<hgroup class="container text-center">
+  <strong>Case Study</strong>
+  <h1>{{data.title}}</h1>
+  <p class="lg">{{data.tagline}}</p>
+  <img src="{{data.hero_image.url}}"
+       srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
+       alt="{{data.hero_image.alt}}">
+</hgroup>
+
+<main class="container">
+  <aside>
+    <h4>Contents</h4>
+    <ul>
+      {% for section in data.body %}
+        {% 
+          if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 
+          and section.spans.length == 0  
+        %}
+          <li><a>{{section.text}}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <a href="{{data.download_link.url}}" 
+       class="btn sm lightblue"
+       target="_blank">
+      <ion-icon name="arrow-down"></ion-icon> Download PDF
+    </a>
+  </aside>
+  {# <article>{{PrismicDOM.RichText.asHtml(data.body)}}</article> #}
+</main>
 
 <div class="container">
   <div class="transitionBody">
@@ -52,5 +79,5 @@
     </div>
   </div>
 </div>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}

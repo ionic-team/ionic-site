@@ -1,0 +1,132 @@
+@import '../vars';
+@import '../mixins';
+
+#page-case-studies {
+  .sub-header .download {
+    padding-right: 0;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-size: 12px;
+  }
+
+  hgroup,
+  main {
+    max-width: 978px;
+  }
+
+  hgroup {
+    margin-top: 43px;
+    margin-bottom: 53px;
+
+    strong {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      color: #9cabc4;
+      font-family: $font-family-eina;
+    }
+
+    h1 {
+      font-size: 46px;
+    }
+
+    p {
+      font-weight: 400;
+      color: #898989;
+      width: 750px;
+      margin: 13px auto;
+      font-size: 20px;
+      line-height: 1.8em;
+      letter-spacing: .01em;
+    }
+
+    img {
+      margin: 58px auto;
+    }
+  }
+
+  main {
+    display: flex;
+  }
+
+  aside {
+    flex: 0 1 190px;
+
+    h4 {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #a4b3cc;
+      font-weight: 600;
+      letter-spacing: .16em;
+    }
+
+    ul {
+      padding: 0;
+      font-size: 14px;
+      margin: 9px 0 30px;
+      list-style: none;
+      line-height: 1.4em;
+    }
+
+    li {
+      margin: 12px 0 13px;
+    }
+
+    a {
+      color: #52678c;
+      display: block;
+      transition: .2s transform ease, .2s color;
+
+      &:hover,
+      .active {
+        color: $blue;
+      }
+
+      .active {
+        transform: translateX(8px);
+      }
+    }
+
+    .lightblue {
+      background: #e6f0f8;
+      color: $blue;
+      border-radius: 4px;
+      padding: 9px 16px;
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .07em;
+
+      ion-icon {
+        font-size: 18px;
+        vertical-align: -5px;
+      }
+    }
+  }
+
+  article {
+    flex: 0 1 663px;
+    margin-left: auto;
+    max-width: 663px;
+
+    h2 {
+      margin-top: 7px;
+      font-size: 32px;
+      margin-bottom: .85em;
+    }
+
+    p {
+      font-size: 16px;
+      letter-spacing: -.011em;
+      line-height: 1.75em;
+      margin-bottom: 1.8em;
+    }
+
+    h3 {
+      margin-top: 2.3em;
+      margin-bottom: .6em;
+      letter-spacing: -.014em;
+    }
+  }
+}

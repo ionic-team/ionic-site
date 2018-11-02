@@ -20,13 +20,25 @@
         <p>{{ i.data['short-description'] }}</p>
         <ul>
           {% if i.data['category-primary'] !== 'None' %}
-            <li class="integrations-tag"> {{i.data['category-primary']}} </li>
+            <li>
+              <div class="integrations-tag">
+                {{i.data['category-primary']}}
+              </div>
+            </li>
           {% endif %}
           {% if i.data['category-secondary'] !== 'None' %}
-            <li class="integrations-tag"> {{i.data['category-secondary']}} </li>
+            <li>
+              <div class="integrations-tag">
+                {{i.data['category-secondary']}}
+              </div>
+            </li>
           {% endif %}
           {% if i.data['category-tertiary'] !== 'None' %}
-            <li class="integrations-tag"> {{i.data['category-tertiary']}} </li>
+            <li>
+              <div class="integrations-tag">
+                {{i.data['category-tertiary']}}
+              </div>
+            </li>
           {% endif %}
         </ul>
     </a>
@@ -57,7 +69,7 @@
       <ul class="integrations-category-filter">
         {% for filter in filters %}
           <li class="{% if categoryFilter.slug === filter.slug %}active{% endif %}">
-            <a href="/integrations{% if filter.slug !== 'all' %}/category/{{filter.slug}}{% endif %}">
+            <a class="pjxLink pjxNavLink" href="/integrations{% if filter.slug !== 'all' %}/category/{{filter.slug}}{% endif %}">
               {{filter.name}}
             </a>
           </li>
@@ -94,7 +106,7 @@
               <div class="integrations-list__results-category" data-category={{ featured.category.name }}>
                 <div class="integrations-list__results-header">
                   <h4>{{ featured.category.name }}</h4>
-                  <a href="/integrations/category/{{category | lower | replace(" ", "-")}}">
+                  <a href="/integrations/category/{{featured.category.slug}}">
                     View all <ion-icon name="arrow-forward"></ion-icon>
                   </a>
                 </div>

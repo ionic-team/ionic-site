@@ -394,11 +394,11 @@ window.pjx = {
   isAnimating: false,
   navLinks: null,
 
-  init: function() {
+  init: function(urlRoot, delegatorID) {
     var self = this;
+    this.urlRoot = urlRoot;
     this.navLinks = document.querySelectorAll('.pjxNavLink');
 
-    var delegatorID = '#page-resource-center';
     document.querySelector(delegatorID).addEventListener('click', function(ev){
       var el = ev.target;
       while (el && !el.matches('a.pjxLink')) {
@@ -436,7 +436,7 @@ window.pjx = {
 
     var self = this;
     var urlSplit = url.split('/')
-    var slug ='/resources' + (urlSplit[urlSplit.indexOf('resources') + 1] ?  '/' + urlSplit[urlSplit.indexOf('resources') + 1] : '');
+    var slug ='/' + this.urlRoot + (urlSplit[urlSplit.indexOf(this.urlRoot) + 1] ?  '/' + urlSplit[urlSplit.indexOf(this.urlRoot) + 1] : '');
 
     this.each(function(el) {
       el.parentElement.classList.remove('active');
@@ -458,20 +458,20 @@ window.pjx = {
     var parser = new DOMParser();
     var nextDoc = parser.parseFromString(content, "text/html");
 
-    var nextBodyCards = nextDoc.querySelector('.transitionBody');
-    var currBodyCards = document.querySelector('.transitionBody' );
-    var currBody = currBodyCards.parentElement;
-    TweenLite.to(currBodyCards, 0.3, {
+    var nextBody = nextDoc.querySelector('.pjxTransitionBody');
+    var currBody = document.querySelector('.pjxTransitionBody' );
+    var currBodyWrapper = currBody.parentElement;
+    TweenLite.to(currBody, 0.3, {
       y: 10,
       opacity: 0,
       onComplete: function () {
-        currBody.removeChild(currBodyCards)
-        currBody.appendChild(nextBodyCards)
-        TweenLite.set(nextBodyCards, {
+        currBodyWrapper.removeChild(currBody);
+        currBodyWrapper.appendChild(nextBody);
+        TweenLite.set(nextBody, {
           opacity: 0,
           y: -10
-        })
-        TweenLite.to(nextBodyCards, 0.6, {
+        });
+        TweenLite.to(nextBody, 0.6, {
           opacity: 1,
           y: 0,
           ease: Expo.easeOut,
@@ -479,7 +479,7 @@ window.pjx = {
           onComplete: function () {
             self.isAnimating = false;
           }
-        })
+        });
       }
     });
   },

@@ -14,19 +14,17 @@
 
 <div class="banner">
   <div class="container">
-    <div class="transitionTitle">
-      <!-- <hgroup>
-        <h1 class="f-1">{{ resources.resources[currentCategory].title }}</h1>
-        <p>{{ resources.resources[currentCategory].description }}</p>
-      </hgroup> -->
-      <hgroup>
-        <h1>Resource Center</h1>
-        <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
-      </hgroup>
-    </div>
+    <!-- <hgroup>
+      <h1 class="f-1">{{ resources.resources[currentCategory].title }}</h1>
+      <p>{{ resources.resources[currentCategory].description }}</p>
+    </hgroup> -->
+    <hgroup>
+      <h1>Resource Center</h1>
+      <p>Learn about everything from customer success stories, product info, to viewpoints from the core team.</p>
+    </hgroup>
 
     <div class="hero-content">
-      <div class="resource-card-list resource-card-list--third transitionHero">
+      <div class="resource-card-list resource-card-list--third">
       {% for r in resources.heroFeatured %}
         <div class="resource-card resource-card-large">
           <div class="resource-card__inner">
@@ -43,7 +41,7 @@
 </div>
 
 <div class="container">
-  <div class="transitionBody">
+  <div class="pjxTransitionBody">
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Recent {{ resources.resources[currentCategory].title }}</h4>
@@ -73,7 +71,7 @@
 (function(){
 
   // enable page transitions
-  pjx.init();
+  pjx.init('resources', '#page-resource-center');
 
   var tabs = document.querySelector('.tabs');
   ['scroll','touchmove'].forEach( function(evt) {

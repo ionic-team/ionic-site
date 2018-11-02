@@ -5,7 +5,7 @@
   transition: all 0.3s;
   display: block;
   position: relative;
-  flex: 0 0 calc(25% - 12px);
+  flex: 0 0 calc(25% - 16px);
   margin: 0 8px;
   background: #FFFFFF;
   box-shadow: 0 3px 13px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -29,7 +29,7 @@
   }
 
   &--featured {
-    flex: 0 0 calc(33% - 12px);
+    flex: 0 0 calc(33% - 10px);
     padding: 24px;
 
     h1 {
@@ -54,10 +54,11 @@
       position: absolute;
       top: 26px;
       right: 26px;
+      text-align: right;
     }
 
     .integrations-tag {
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .integrations-card__image {
@@ -110,7 +111,7 @@
   border: 1px solid #E2E9F3;
   border-radius: 100px;
   padding: 3px 6px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   &--premier {
@@ -267,6 +268,7 @@
       height: 20px;
       display: flex;
       align-items: center;
+      outline: none;
 
       &:hover {
         color: #3880FF;
@@ -343,9 +345,10 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: -8px;
+    margin-right: -8px;
 
     .integrations-card {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
   }
 

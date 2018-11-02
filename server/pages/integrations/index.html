@@ -3,6 +3,8 @@
 {% set header_style = 'transparent light' %}
 {% set cssPath = 'integrations' %}
 
+
+
 {% block main %}
 <section class="container">
   <div class="integrations-hero">
@@ -69,7 +71,7 @@
       <ul class="integrations-category-filter">
         {% for filter in filters %}
           <li class="{% if categoryFilter.slug === filter.slug %}active{% endif %}">
-            <a class="pjxLink pjxNavLink" href="/integrations{% if filter.slug !== 'all' %}/category/{{filter.slug}}{% endif %}">
+            <a class="pjxLink pjxNavLink " href="/integrations{% if filter.slug !== 'all' %}/category/{{filter.slug}}{% endif %}">
               {{filter.name}}
             </a>
           </li>
@@ -77,7 +79,7 @@
       </ul>
     </div>
 
-    <div class="integrations-list__results">
+    <div class="integrations-list__results pjxTransitionBody">
       <div class="integrations-list__results-main">
         {% if hasCategoryFilter %}
           {% if categoryFiltered.length %}
@@ -106,7 +108,7 @@
               <div class="integrations-list__results-category" data-category={{ featured.category.name }}>
                 <div class="integrations-list__results-header">
                   <h4>{{ featured.category.name }}</h4>
-                  <a href="/integrations/category/{{featured.category.slug}}">
+                  <a href="/integrations/category/{{featured.category.slug}}" class="pjxLink">
                     View all <ion-icon name="arrow-forward"></ion-icon>
                   </a>
                 </div>
@@ -145,11 +147,12 @@
           <![endif]-->
           <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
           <script>
+            // make sure to also update in pjx script below
             hbspt.forms.create({
-            portalId: "3776657",
-            formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
-            css: ""
-          });
+              portalId: "3776657",
+              formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
+              css: ""
+            });
           </script>
         </div>
       </div>
@@ -160,10 +163,14 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
   (function(){
     var data = JSON.parse('{{ data | dump }}');
-
     console.log(data)
 
     // state
@@ -171,53 +178,86 @@
     var categoryFilter = {{ categoryFilter | dump}};
     var isSearchActive = false;
     var currentQuery = '';
-    var selectedTypes = {
-      'premier': true,
-      'community': true
-    };
+    var selectedTypes;
 
     // dom
-    var searchBoxWrap = document.querySelector('.integrations-searchbox');
-    var searchBoxInput = searchBoxWrap.querySelector('input');
-    var searchBoxClose = searchBoxWrap.querySelector('ion-icon[name="close"]');
-    var categoryFilter = document.querySelector('.integrations-category-filter');
-    var typeFilters = document.querySelectorAll('.integrations-check__input');
-    var mainResultsContainer = document.querySelector('.integrations-list__results-main');
-    var searchResultsContainer = document.querySelector('.integrations-list__results-search');
-    var emptyStateMessage = document.querySelector('.integrations-list__empty-message');
-    var form = document.querySelector('.integrations-list__results-form');
+    var searchBoxWrap;
+    var searchBoxInput;
+    var searchBoxClose;
+    var categoryFilter;
+    var typeFilters;
+    var mainResultsContainer;
+    var searchResultsContainer;
+    var emptyStateMessage;
+    var form;
 
-    // events
-    searchBoxInput.addEventListener('keyup', function() {
-      var query = searchBoxInput.value;
-      if (query.length) {
-        doSearch();
-        queryData(query);
-        filterByType();
-      } else {
-        cancelSearch();
-      }
-      checkForEmptyStates();
+    initialize({
+      'premier': true,
+      'community': true
     });
 
-    searchBoxClose.addEventListener('click', function(){
-      cancelSearch();
-      checkForEmptyStates();
-    });
+    pjx.init('integrations', '#page-integrations', {
+      'willLoad': function(){
+        initialize(selectedTypes);
 
-    document.addEventListener('keyup', function(ev) {
-      if (ev.key === "Escape") {
-        cancelSearch();
-        checkForEmptyStates();
+        var form = document.querySelector('.hubspot-override');
+        if (form) {
+          hbspt.forms.create({
+            portalId: "3776657",
+            formId: "86c849f0-afd3-42d2-b2af-c3f8d71f21c7",
+            css: ""
+          });
+        }
       }
     });
 
-    for (var filter of typeFilters){
-      filter.addEventListener('change', function(ev){
-        selectedTypes[ev.target.value] = ev.target.checked;
-        filterByType();
+    function initialize(state) {
+      selectedTypes = state;
+      searchBoxWrap = document.querySelector('.integrations-searchbox');
+      searchBoxInput = searchBoxWrap.querySelector('input');
+      searchBoxClose = searchBoxWrap.querySelector('ion-icon[name="close"]');
+      categoryFilter = document.querySelector('.integrations-category-filter');
+      typeFilters = document.querySelectorAll('.integrations-check__input');
+      mainResultsContainer = document.querySelector('.integrations-list__results-main');
+      searchResultsContainer = document.querySelector('.integrations-list__results-search');
+      emptyStateMessage = document.querySelector('.integrations-list__empty-message');
+      form = document.querySelector('.integrations-list__results-form');
+
+      // events
+      searchBoxInput.addEventListener('keyup', function() {
+        var query = searchBoxInput.value;
+        if (query.length) {
+          doSearch();
+          queryData(query);
+          filterByType();
+        } else {
+          cancelSearch();
+        }
         checkForEmptyStates();
       });
+
+      searchBoxClose.addEventListener('click', function(){
+        cancelSearch();
+        checkForEmptyStates();
+      });
+
+      document.addEventListener('keyup', function(ev) {
+        if (ev.key === "Escape") {
+          cancelSearch();
+          checkForEmptyStates();
+        }
+      });
+
+      for (var filter of typeFilters){
+        filter.addEventListener('change', function(ev){
+          selectedTypes[ev.target.value] = ev.target.checked;
+          filterByType();
+          checkForEmptyStates();
+        });
+      }
+
+      filterByType();
+      checkForEmptyStates();
     }
 
     // actions
@@ -315,6 +355,12 @@
               row.querySelector('.integrations-list__results-row').lastChild.remove();
               extraCardCount--;
             }
+          }
+
+          // one more empty check
+          var cardCount = checkForVisibleCards(row);
+          if (cardCount == 0) {
+            row.classList.add('hide');
           }
         }
       }

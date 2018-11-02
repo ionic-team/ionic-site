@@ -394,10 +394,11 @@ window.pjx = {
   isAnimating: false,
   navLinks: null,
 
-  init: function(urlRoot, delegatorID) {
+  init: function(urlRoot, delegatorID, hooks) {
     var self = this;
     this.urlRoot = urlRoot;
     this.navLinks = document.querySelectorAll('.pjxNavLink');
+    this.hooks = hooks || {};
 
     document.querySelector(delegatorID).addEventListener('click', function(ev){
       var el = ev.target;
@@ -433,10 +434,9 @@ window.pjx = {
   },
 
   handleTransition: function (url, doPushState) {
-
     var self = this;
-    var urlSplit = url.split('/')
-    var slug ='/' + this.urlRoot + (urlSplit[urlSplit.indexOf(this.urlRoot) + 1] ?  '/' + urlSplit[urlSplit.indexOf(this.urlRoot) + 1] : '');
+    var urlSplit = url.split('/');
+    var slug ='/' + this.urlRoot + (urlSplit[urlSplit.indexOf(this.urlRoot) + 1] ?  '/' + urlSplit.slice(urlSplit.indexOf(this.urlRoot) + 1).join('/') : '');
 
     this.each(function(el) {
       el.parentElement.classList.remove('active');
@@ -467,6 +467,9 @@ window.pjx = {
       onComplete: function () {
         currBodyWrapper.removeChild(currBody);
         currBodyWrapper.appendChild(nextBody);
+        if (self.hooks.willLoad) {
+          self.hooks.willLoad();
+        }
         TweenLite.set(nextBody, {
           opacity: 0,
           y: -10
@@ -478,6 +481,9 @@ window.pjx = {
           // delay: 0.125,
           onComplete: function () {
             self.isAnimating = false;
+            if (self.hooks.didLoad) {
+              self.hooks.didLoad();
+            }
           }
         });
       }

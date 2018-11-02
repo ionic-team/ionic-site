@@ -171,7 +171,6 @@
 <script>
   (function(){
     var data = JSON.parse('{{ data | dump }}');
-    console.log(data)
 
     // state
     var hasCategoryFilter = {{ hasCategoryFilter }};
@@ -197,7 +196,8 @@
     });
 
     pjx.init('integrations', '#page-integrations', {
-      'willLoad': function(){
+      'willLoad': function(url){
+        hasCategoryFilter = ( url === "/integrations") ? false : true;
         initialize(selectedTypes);
 
         var form = document.querySelector('.hubspot-override');

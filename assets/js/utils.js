@@ -447,11 +447,11 @@ window.pjx = {
 
     this.fetchContent(url , function(content){
       if (doPushState) self.updateHistory(slug);
-      self.transition(content);
+      self.transition(content, slug);
     });
   },
 
-  transition: function(content) {
+  transition: function(content, slug) {
     this.isAnimating = true;
 
     var self = this;
@@ -468,7 +468,7 @@ window.pjx = {
         currBodyWrapper.removeChild(currBody);
         currBodyWrapper.appendChild(nextBody);
         if (self.hooks.willLoad) {
-          self.hooks.willLoad();
+          self.hooks.willLoad(slug);
         }
         TweenLite.set(nextBody, {
           opacity: 0,
@@ -482,7 +482,7 @@ window.pjx = {
           onComplete: function () {
             self.isAnimating = false;
             if (self.hooks.didLoad) {
-              self.hooks.didLoad();
+              self.hooks.didLoad(slug);
             }
           }
         });

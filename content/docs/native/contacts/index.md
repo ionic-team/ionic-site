@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Contacts</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L301">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L305">
   Improve this doc
 </a>
 
@@ -149,6 +149,12 @@ Select a single Contact.
 
 
 
+<h3><a class="anchor" name="rawId" href="#rawId"></a><code>rawId()</code></h3>
+
+
+
+
+
 <h3><a class="anchor" name="displayName" href="#displayName"></a><code>displayName()</code></h3>
 
 
@@ -270,6 +276,20 @@ Select a single Contact.
     </td>
     <td>
       <p>A globally unique identifier.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      rawId
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A globally unique identifier on Android.</p>
 
       <em>(optional)</em>
     </td>

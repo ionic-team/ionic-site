@@ -1,5 +1,11 @@
 {% if dev %}
 <script src="/js/ionic-site.js"></script>
+<script>
+  window.prismic = {
+    endpoint: 'https://ionicframeworkcom.prismic.io/api/v2'
+  };
+</script>
+<script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
 {% else %}
 <script src="/js/ionic-site.min.js"></script>
 {% endif %}

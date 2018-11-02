@@ -1,0 +1,56 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'case-studies' %}
+{# {% set cssPath = 'case-studies' %} #}
+{% import "_includes/macros.html" as macros %}
+{% set stickyNav = true %}
+
+{% block main %}
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/case-studies">Customer Stories</a></li>
+      <li>{{data.title}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <strong>Customer Story</strong>
+    <h1>{{data.title}}</h1>
+    <div class="cta-buttons">
+      {# <a class="btn sm white" href="{{data.watch_now_link.url}}">
+        Watch Now</a> #}
+      <a class="btn sm white"
+         data-toggle="modal"
+         data-target="#contactForm">Watch Now</a>
+    </div>
+  </hgroup>
+</div>
+
+<div class="container">
+  <div class="transitionBody">
+    <div class="transitionBody">
+      <section class="resource-list">
+        <div class="resource-list__header">
+          <a class="scrollTopLink" href="/resources/case-studies">
+            See all <ion-icon name="arrow-round-forward"></ion-icon>
+          </a>
+          <h4>Other Resources you might like</h4>
+        </div>
+        <div class="resource-card-list resource-card-list--quarter">
+          {% for r in resources.sectionFeatured['case-studies'] %}
+            <div class="resource-card">
+              <div class="resource-card__inner">
+                {{ macros.resource(r) }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+{% endblock %}

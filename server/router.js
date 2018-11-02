@@ -284,7 +284,14 @@ module.exports = function router(app) {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
+<<<<<<< HEAD
   .get('/resources/webinars/:webinar', (req, res) =>
+=======
+  .get('/resources/case-studies/:caseStudy', (req, res) =>
+    getPrismic(req, res, 'case_study', req.params['caseStudy'],
+      'resources/case-studies'))
+  .get('/resources/webinars/:webinar', (req, res) =>
+>>>>>>> master
     getPrismic(req, res, 'webinar', req.params.webinar, 'resources/webinars'))
 
   .get('/sales', (_, res) => res.render('sales'))
@@ -313,4 +320,7 @@ module.exports = function router(app) {
   .post('/contact', bp.json(), es(), contactCtrl)
   .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
+
+  // Prismic Preview
+  .get('/preview', previewController)
 };

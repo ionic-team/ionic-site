@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.16.0"
+version: "4.17.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -655,7 +655,7 @@ Removes a file from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code></h3>
+</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;whether)</code></h3>
 
 
 Write a new file to the desired location.
@@ -703,12 +703,12 @@ Write a new file to the desired location.
   
   <tr>
     <td>
-      options</td>
+      whether</td>
     <td>
       <code>IWriteOptions</code>
     </td>
     <td>
-      <p>replace file if set to true. See WriteOptions for more information.</p>
+      <p>to replace/append to an existing file. See IWriteOptions for more information.</p>
 </td>
   </tr>
   </tbody>

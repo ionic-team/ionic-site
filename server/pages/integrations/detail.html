@@ -21,7 +21,7 @@
           <h1>{{ data.name }}</h1>
           <p>{{ data['short-description'] }}</p>
           <ul>
-            {% if data['category-premier'] !== 'None' %}
+            {% if data['category-premier'] == 'Yes' %}
               <li class="integrations-tag integrations-tag--premier"> <ion-icon name="star"></ion-icon> Premier </li>
             {% endif %}
             {% if data['category-primary'] !== 'None' %}

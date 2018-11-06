@@ -11,7 +11,7 @@
     <ul class="left breadcrumbs sm">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/case-studies">Case Study</a></li>
-      <li>{{data.title}}</li>
+      <li>{{ data.title }}</li>
     </ul>
     <ul class="right">
       <li>
@@ -27,8 +27,8 @@
 
 <hgroup class="container text-center">
   <strong>Case Study</strong>
-  <h1>{{data.title}}</h1>
-  <p class="lg">{{data.tagline}}</p>
+  <h1>{{ data.title }}</h1>
+  <p class="lg">{{ data.tagline }}</p>
   <img src="{{data.hero_image.url}}"
        srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
        alt="{{data.hero_image.alt}}">
@@ -38,12 +38,13 @@
   <aside>
     <h4>Contents</h4>
     <ul>
-      {% for section in data.body %}
-        {% 
-          if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 
-          and section.spans.length == 0  
-        %}
-          <li><a>{{section.text}}</a></li>
+      {% for group in data.body %}
+        {% if group.slice_type == 'normal_text' %}
+          {% for section in group.primary.content %}
+            {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
+              <li><a>{{ section.text }}</a></li>
+            {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     </ul>
@@ -53,7 +54,35 @@
       <ion-icon name="arrow-down"></ion-icon> Download PDF
     </a>
   </aside>
-  {# <article>{{PrismicDOM.RichText.asHtml(data.body)}}</article> #}
+  <article>
+    {% for group in data.body %}
+      {% if group.slice_type == 'normal_text' %}
+        {{ PrismicDOM.RichText.asHtml(group.primary.content) }}
+      {% endif %}
+
+      {% if group.slice_type == 'quote' %}
+        <aside class="quote">
+          {{ PrismicDOM.RichText.asHtml(group.primary.quote) }}
+          {% if group.primary.name  %}
+            <h4>
+              <strong>{{ group.primary.name }}</strong> 
+              {{ group.primary.description }}
+            </h4>
+          {% endif %}
+        </aside>
+      {% endif %}
+
+      {% if group.slice_type == 'floating_image' %}
+        <figure class="floating-image {{ group.primary.side }}">
+          <img src="{{ group.primary.illustration.url }}"
+               alt="{{ group.primary.illustration.alt }}">
+          {% if group.primary.caption.length != 0 %}
+            <figcaption>{{ group.primary.caption[0].text }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+    {% endfor %}
+  </article>
 </main>
 
 <div class="container">
@@ -79,5 +108,5 @@
     </div>
   </div>
 </div>
-<pre><code>{{ data | dump(2) }}</code></pre>
+<pre><code>{{ data.body | dump(2) }}</code></pre>
 {% endblock %}

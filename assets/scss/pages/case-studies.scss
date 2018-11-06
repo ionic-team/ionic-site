@@ -128,5 +128,22 @@
       margin-bottom: .6em;
       letter-spacing: -.014em;
     }
+
+    .quote {
+      background: #f2f5f8;
+      border-radius: 4px;
+      position: relative;
+      padding: 60px 80px;
+      color: #5e749a;
+      font-family: $font-family-serif;
+
+      &::before {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 30px;
+        content: '\201C';
+      }
+    }
   }
 }

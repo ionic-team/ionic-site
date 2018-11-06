@@ -58,6 +58,10 @@ module.exports = {
         slug: 'social'
       },
       {
+        name: 'Testing',
+        slug: 'testing'
+      },
+      {
         name: 'UI',
         slug: 'ui'
       }

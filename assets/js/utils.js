@@ -445,6 +445,8 @@ window.pjx = {
       }
     });
 
+    self.hooks.willTransition(slug);
+
     this.fetchContent(url , function(content){
       if (doPushState) self.updateHistory(slug);
       self.transition(content, slug);
@@ -461,14 +463,15 @@ window.pjx = {
     var nextBody = nextDoc.querySelector('.pjxTransitionBody');
     var currBody = document.querySelector('.pjxTransitionBody' );
     var currBodyWrapper = currBody.parentElement;
+
     TweenLite.to(currBody, 0.3, {
       y: 10,
       opacity: 0,
       onComplete: function () {
         currBodyWrapper.removeChild(currBody);
         currBodyWrapper.appendChild(nextBody);
-        if (self.hooks.willLoad) {
-          self.hooks.willLoad(slug);
+        if (self.hooks.inTransition) {
+          self.hooks.inTransition(slug);
         }
         TweenLite.set(nextBody, {
           opacity: 0,
@@ -481,8 +484,8 @@ window.pjx = {
           // delay: 0.125,
           onComplete: function () {
             self.isAnimating = false;
-            if (self.hooks.didLoad) {
-              self.hooks.didLoad(slug);
+            if (self.hooks.didTransition) {
+              self.hooks.didTransition(slug);
             }
           }
         });

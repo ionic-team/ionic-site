@@ -1,12 +1,10 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'integrations-detail' %}
 {% set header_style = 'transparent light' %}
-{% set cssPath = 'integrations' %}
+{% set cssPath = 'integrations/index' %}
 
 {% block main %}
-<script>console.log(JSON.parse('{{ data | dump }}'))</script>
   <section class="container">
-
     <section class="integrations-detail__nav">
       <a href="/integrations"><ion-icon name="arrow-back"></ion-icon> All integrations</a>
     </section>
@@ -53,10 +51,9 @@
                 <span>Reach out to purchase a  plan or request a demo</span>
                 <a class="btn" href="#cta-form">Contact Sales</a>
               {% endif %}
-
             </div>
 
-            {% if data.links.length %}
+            {% if data.links.length and data.links[0]['link-text'] !== null %}
             <h5>Helpful resources:</h5>
             <ul>
               {% for resource in data.links %}

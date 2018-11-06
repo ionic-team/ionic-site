@@ -350,7 +350,7 @@
       var scrollTop = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
       var offset = (window.innerWidth < 768) ? 156 : 40;
       var target = document.querySelector('.integrations-list').getBoundingClientRect().top + window.scrollY - offset;
-      if (scrollTop < target) return;
+      if ( (window.innerWidth > 768) && scrollTop < target) return;
       window.scrollTo({
         top: document.querySelector('.integrations-list').getBoundingClientRect().top + window.scrollY - offset,
         behavior: "smooth"

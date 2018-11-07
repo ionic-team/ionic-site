@@ -47,6 +47,7 @@
 
   main {
     display: flex;
+    overflow: visible;
   }
 
   aside {
@@ -129,20 +130,69 @@
       letter-spacing: -.014em;
     }
 
-    .quote {
+    blockquote {
       background: #f2f5f8;
       border-radius: 4px;
       position: relative;
-      padding: 60px 80px;
+      padding: 64px 80px 68px 111px;
       color: #5e749a;
       font-family: $font-family-serif;
+      font-style: italic;
+      border: none;
+      margin: 77px -16px 54px;
 
       &::before {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        font-size: 30px;
+        top: -6px;
+        left: 54px;
+        font-size: 180px;
         content: '\201C';
+        color: #e3e7ec;
+      }
+
+      p {
+        font-size: 18px;
+        position: relative;
+        z-index: 1;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      cite {
+        font-size: 15px;
+        letter-spacing: .02em;
+
+        span {
+          color: #9da9bd;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    figure {
+      width: 295px;
+      float: right;
+      margin-right: -20px;
+      margin-top: -4px;
+      margin-left: 74px;
+
+      &.left {
+        float: left;
+        margin-right: 74px;
+        margin-left: -20px;
+      }
+
+      img {
+        max-width: 100%;
+        box-shadow: 0 4px 48px rgba(0,0,0,.2);
+      }
+
+      figcaption {
+        color: #a8b0be;
+        font-size: 11px;
+        margin-top: 13px;
       }
     }
   }

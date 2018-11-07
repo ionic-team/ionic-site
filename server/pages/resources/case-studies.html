@@ -61,19 +61,19 @@
       {% endif %}
 
       {% if group.slice_type == 'quote' %}
-        <aside class="quote">
+        <blockquote>
           {{ PrismicDOM.RichText.asHtml(group.primary.quote) }}
           {% if group.primary.name  %}
-            <h4>
-              <strong>{{ group.primary.name }}</strong> 
-              {{ group.primary.description }}
-            </h4>
+            <cite>
+              {{ group.primary.name }}
+              <span>{{ group.primary.description }}</span>
+            </cite>
           {% endif %}
-        </aside>
+        </blockquote>
       {% endif %}
 
       {% if group.slice_type == 'floating_image' %}
-        <figure class="floating-image {{ group.primary.side }}">
+        <figure class="floating-image {{ group.primary.side | lower}}">
           <img src="{{ group.primary.illustration.url }}"
                alt="{{ group.primary.illustration.alt }}">
           {% if group.primary.caption.length != 0 %}

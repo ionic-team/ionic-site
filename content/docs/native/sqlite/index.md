@@ -69,7 +69,7 @@ this.sqlite.create({
   .then((db: SQLiteObject) =&gt; {
 
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {})
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, [])
       .then(() =&gt; console.log(&#39;Executed SQL&#39;))
       .catch(e =&gt; console.log(e));
 

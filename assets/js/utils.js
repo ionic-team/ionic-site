@@ -444,9 +444,9 @@ window.pjx = {
         el.parentElement.classList.add('active');
       }
     });
-
-    self.hooks.willTransition(slug);
-
+    if (self.hooks.willTransition) {
+      self.hooks.willTransition(slug);
+    }
     this.fetchContent(url , function(content){
       if (doPushState) self.updateHistory(slug);
       self.transition(content, slug);

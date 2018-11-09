@@ -52,7 +52,7 @@ module.exports = {
     };
     // add PrismicDOM in locals to access them in templates.
     res.locals.PrismicDOM = PrismicDOM;
-    req.locals.PRISMIC_PREVIEW = PRISMIC_PREVIEW;
+    res.locals.PRISMIC_PREVIEW = PRISMIC_PREVIEW;
 
     // get Prismic API instance
     Prismic.api(PRISMIC_ENDPOINT, {

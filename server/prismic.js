@@ -14,17 +14,41 @@ function linkResolver(doc) {
     return '/integrations/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
+  }
+
+  // Default to homepage
+  return '/';
 }
 
-// Default to homepage
-return '/';
+function htmlSerializer (type, element, content, children) {
+  const Elements = PrismicDOM.RichText.Elements;
+  // give headings an ID
+  switch(type) {
+    case Elements.heading1:
+    case Elements.heading2:
+    case Elements.heading3:
+    case Elements.heading4:
+    case Elements.heading5:
+    case Elements.heading6:
+      const level = type[type.length -1]
+      const id = children.join('')
+                         .replace(/\s+/g, '-')
+                         .replace(/\,+/g, '')
+                         .toLowerCase();
+      return `<h${level} id="${id}">${children.join('')}</h${level}>`;
+ 
+    // Return null to stick with the default behavior for all other elements
+    default:
+      return null;
+  }
 }
 
 module.exports = {
   middleware: (req, res, next) => {
     res.locals.ctx = {
       endpoint: PRISMIC_ENDPOINT,
-      linkResolver
+      linkResolver,
+      htmlSerializer
     };
     // add PrismicDOM in locals to access them in templates.
     res.locals.PrismicDOM = PrismicDOM;

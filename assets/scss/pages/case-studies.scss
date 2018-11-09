@@ -2,6 +2,8 @@
 @import '../mixins';
 
 #page-case-studies {
+  position: relative;
+
   .sub-header .download {
     padding-right: 0;
     text-transform: uppercase;
@@ -18,6 +20,10 @@
     margin-top: 43px;
     margin-bottom: 53px;
 
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 0;
+    }
+
     strong {
       text-transform: uppercase;
       font-size: 11px;
@@ -33,7 +39,7 @@
     p {
       font-weight: 400;
       color: #898989;
-      width: 750px;
+      max-width: 750px;
       margin: 13px auto;
       font-size: 20px;
       line-height: 1.8em;
@@ -42,16 +48,28 @@
 
     img {
       margin: 58px auto;
+      max-width: 100%;
     }
   }
 
   main {
     display: flex;
     overflow: visible;
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+    }
+  }
+
+  .sticky-wrapper {
+    position: sticky;
+    top: 100px;
   }
 
   aside {
-    flex: 0 1 190px;
+    flex: 0 1 210px;
+    padding-right: 20px;
+    margin-bottom: 36px;
 
     h4 {
       font-size: 10px;
@@ -106,13 +124,26 @@
     }
   }
 
-  article {
+  .main-col {
     flex: 0 1 663px;
     margin-left: auto;
     max-width: 663px;
+  }
+
+  article {
+    padding-bottom: 58px;
+    border-bottom: 1px solid #edf0f6;
+    margin-bottom: 37px;
+
+    h2,
+    h3,
+    h4 {
+      margin-top: -60px;
+      padding-top: 60px;
+    }
 
     h2 {
-      margin-top: 7px;
+      padding-top: 67px;
       font-size: 32px;
       margin-bottom: .85em;
     }
@@ -125,7 +156,8 @@
     }
 
     h3 {
-      margin-top: 2.3em;
+      // margin-top: 2.3em;
+      padding-top: 88px;
       margin-bottom: .6em;
       letter-spacing: -.014em;
     }
@@ -154,6 +186,8 @@
         font-size: 18px;
         position: relative;
         z-index: 1;
+        letter-spacing: .042em;
+        line-height: 1.8em;
 
         &:last-child {
           margin-bottom: 0;
@@ -174,9 +208,7 @@
     figure {
       width: 295px;
       float: right;
-      margin-right: -20px;
-      margin-top: -4px;
-      margin-left: 74px;
+      margin: 8px -20px 16px 74px;
 
       &.left {
         float: left;
@@ -194,6 +226,47 @@
         font-size: 11px;
         margin-top: 13px;
       }
+
+      @media (max-width: $screen-xs-max) {
+        margin-right: 0;
+        margin-left: 32px;
+
+        &.left {
+          margin-left: 0;
+          margin-right: 32px;
+        }
+      }
+
+      @media (max-width: $screen-xs-min) {
+        width: 100%;
+      }
+    }
+  }
+
+  .resource-list {
+    &__header {
+      .all {
+        float: right;
+  
+        ion-icon {
+          display: inline-block;
+          transition: .2s transform ease;
+        }
+  
+        &:hover ion-icon {
+          transform: translateX(2px);
+        }
+      }
+
+      h4 {
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: .12em;
+      }
+    }
+
+    .resource-card-list--third .resource-card a .title {
+      font-size: 18px;
     }
   }
 }

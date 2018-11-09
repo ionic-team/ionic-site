@@ -4,6 +4,7 @@
 {% set header_style = 'transparent light' %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
+{% block body_attributes %}data-spy="scroll" data-target="#sidenav" data-offset="50"{% endblock %}
 
 {% block main %}
 <div class="sub-header">
@@ -36,77 +37,86 @@
 
 <main class="container">
   <aside>
-    <h4>Contents</h4>
-    <ul>
+    <div class="sticky-wrapper">
+      <h4>Contents</h4>
+      <ul id="sidenav">
+        {% for group in data.body %}
+          {% if group.slice_type == 'normal_text' %}
+            {% for section in group.primary.content %}
+              {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
+                <li>
+                  <a href="#{{ section.text | lower | replace(' ', '-' ) | replace(',', '' )  }}">
+                    {{ section.text }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <a href="{{data.download_link.url}}" 
+         class="btn sm lightblue"
+         target="_blank">
+        <ion-icon name="arrow-down"></ion-icon> Download PDF
+      </a>
+    </div>
+  </aside>
+  <div class="main-col">
+    {# {{ ctx.htmlSerializer }} #}
+    <article>
       {% for group in data.body %}
         {% if group.slice_type == 'normal_text' %}
-          {% for section in group.primary.content %}
-            {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
-              <li><a>{{ section.text }}</a></li>
+          {{ PrismicDOM.RichText.asHtml(group.primary.content, null, ctx.htmlSerializer) }}
+        {% endif %}
+  
+        {% if group.slice_type == 'quote' %}
+          <blockquote>
+            {{ PrismicDOM.RichText.asHtml(group.primary.quote) }}
+            {% if group.primary.name  %}
+              <cite>
+                {{ group.primary.name }}
+                <span>{{ group.primary.description }}</span>
+              </cite>
             {% endif %}
-          {% endfor %}
+          </blockquote>
+        {% endif %}
+  
+        {% if group.slice_type == 'floating_image' %}
+          <figure class="floating-image {{ group.primary.side | lower}}">
+            <img src="{{ group.primary.illustration.url }}"
+                 alt="{{ group.primary.illustration.alt }}">
+            {% if group.primary.caption.length != 0 %}
+              <figcaption>{{ group.primary.caption[0].text }}</figcaption>
+            {% endif %}
+          </figure>
         {% endif %}
       {% endfor %}
-    </ul>
-    <a href="{{data.download_link.url}}" 
-       class="btn sm lightblue"
-       target="_blank">
-      <ion-icon name="arrow-down"></ion-icon> Download PDF
-    </a>
-  </aside>
-  <article>
-    {% for group in data.body %}
-      {% if group.slice_type == 'normal_text' %}
-        {{ PrismicDOM.RichText.asHtml(group.primary.content) }}
-      {% endif %}
-
-      {% if group.slice_type == 'quote' %}
-        <blockquote>
-          {{ PrismicDOM.RichText.asHtml(group.primary.quote) }}
-          {% if group.primary.name  %}
-            <cite>
-              {{ group.primary.name }}
-              <span>{{ group.primary.description }}</span>
-            </cite>
-          {% endif %}
-        </blockquote>
-      {% endif %}
-
-      {% if group.slice_type == 'floating_image' %}
-        <figure class="floating-image {{ group.primary.side | lower}}">
-          <img src="{{ group.primary.illustration.url }}"
-               alt="{{ group.primary.illustration.alt }}">
-          {% if group.primary.caption.length != 0 %}
-            <figcaption>{{ group.primary.caption[0].text }}</figcaption>
-          {% endif %}
-        </figure>
-      {% endif %}
-    {% endfor %}
-  </article>
-</main>
-
-<div class="container">
-  <div class="transitionBody">
-    <div class="transitionBody">
-      <section class="resource-list">
-        <div class="resource-list__header">
-          <a class="scrollTopLink" href="/resources/case-studies">
-            See all <ion-icon name="arrow-round-forward"></ion-icon>
-          </a>
-          <h4>Other Resources you might like</h4>
-        </div>
-        <div class="resource-card-list resource-card-list--quarter">
-          {% for r in resources.sectionFeatured['case-studies'] %}
+    </article>
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <a class="all" href="/resources/case-studies">
+          See all <ion-icon name="arrow-round-forward"></ion-icon>
+        </a>
+        <h4>Up Next</h4>
+      </div>
+      <div class="resource-card-list resource-card-list--third">
+        {% for r in resources.sectionFeatured['case-studies'] %}
+          {% if loop.index0 < 3 %}
             <div class="resource-card">
               <div class="resource-card__inner">
                 {{ macros.resource(r) }}
               </div>
             </div>
-          {% endfor %}
-        </div>
-      </section>
-    </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
   </div>
-</div>
-<pre><code>{{ data.body | dump(2) }}</code></pre>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('body').scrollspy({target: "#sidenav"})
+</script>
 {% endblock %}

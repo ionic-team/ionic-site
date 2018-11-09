@@ -4,7 +4,6 @@
 {% set header_style = 'transparent light' %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
-{% block body_attributes %}data-spy="scroll" data-target="#sidenav" data-offset="50"{% endblock %}
 
 {% block main %}
 <div class="sub-header">
@@ -37,29 +36,31 @@
 
 <main class="container">
   <aside>
-    <div class="sticky-wrapper">
+    <nav class="sticky-wrapper" id="sidenav">
       <h4>Contents</h4>
-      <ul id="sidenav">
+      <ul>
         {% for group in data.body %}
           {% if group.slice_type == 'normal_text' %}
             {% for section in group.primary.content %}
               {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
                 <li>
-                  <a href="#{{ section.text | lower | replace(' ', '-' ) | replace(',', '' )  }}">
-                    {{ section.text }}
-                  </a>
+                  <a href="#{{ section.text | lower | replace(' ', '-' ) | replace(',', '' )  }}"
+                     class="anchor nav-link"
+                     data-offset="100">{{ section.text }}</a>
                 </li>
               {% endif %}
             {% endfor %}
           {% endif %}
         {% endfor %}
       </ul>
-      <a href="{{data.download_link.url}}" 
-         class="btn sm lightblue"
-         target="_blank">
-        <ion-icon name="arrow-down"></ion-icon> Download PDF
-      </a>
-    </div>
+      {% if data.download_link.url.length %}
+        <a href="{{data.download_link.url}}" 
+           class="btn sm lightblue"
+           target="_blank">
+          <ion-icon name="arrow-down"></ion-icon> Download PDF
+        </a>
+      {% endif %}
+    </nav>
   </aside>
   <div class="main-col">
     {# {{ ctx.htmlSerializer }} #}
@@ -116,7 +117,10 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+  crossorigin="anonymous"></script>
 <script>
-$('body').scrollspy({target: "#sidenav"})
+$('body').scrollspy({target: "#sidenav", offset: 150})
 </script>
 {% endblock %}

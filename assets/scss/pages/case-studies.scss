@@ -2,8 +2,6 @@
 @import '../mixins';
 
 #page-case-studies {
-  position: relative;
-
   .sub-header .download {
     padding-right: 0;
     text-transform: uppercase;
@@ -97,11 +95,14 @@
       transition: .2s transform ease, .2s color;
 
       &:hover,
-      .active {
+      &:active,
+      &:focus,
+      &.active {
         color: $blue;
+        text-decoration: none;
       }
 
-      .active {
+      &.active {
         transform: translateX(8px);
       }
     }
@@ -135,15 +136,8 @@
     border-bottom: 1px solid #edf0f6;
     margin-bottom: 37px;
 
-    h2,
-    h3,
-    h4 {
-      margin-top: -60px;
-      padding-top: 60px;
-    }
-
     h2 {
-      padding-top: 67px;
+      margin-top: 7px;
       font-size: 32px;
       margin-bottom: .85em;
     }
@@ -156,8 +150,7 @@
     }
 
     h3 {
-      // margin-top: 2.3em;
-      padding-top: 88px;
+      margin-top: 2.3em;
       margin-bottom: .6em;
       letter-spacing: -.014em;
     }
@@ -186,7 +179,7 @@
         font-size: 18px;
         position: relative;
         z-index: 1;
-        letter-spacing: .042em;
+        letter-spacing: .022em;
         line-height: 1.8em;
 
         &:last-child {
@@ -244,6 +237,8 @@
   }
 
   .resource-list {
+    margin-bottom: 64px;
+
     &__header {
       .all {
         float: right;

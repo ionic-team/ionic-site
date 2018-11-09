@@ -2,7 +2,7 @@ const Cookies    = require('cookies');
 const PrismicDOM = require('prismic-dom');
 const Prismic    = require('prismic-javascript');
 
-const { PRISMIC_ENDPOINT } = require('./config');
+const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
 function linkResolver(doc) {
   // Define the url depending on the document type
@@ -52,6 +52,7 @@ module.exports = {
     };
     // add PrismicDOM in locals to access them in templates.
     res.locals.PrismicDOM = PrismicDOM;
+    req.locals.PRISMIC_PREVIEW = PRISMIC_PREVIEW;
 
     // get Prismic API instance
     Prismic.api(PRISMIC_ENDPOINT, {

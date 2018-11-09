@@ -13,15 +13,17 @@
       <li><a href="/resources/case-studies">Case Study</a></li>
       <li>{{ data.title }}</li>
     </ul>
-    <ul class="right">
-      <li>
-        <a href="{{data.download_link.url}}" 
-           class="download"
-           target="_blank">
-          <ion-icon name="arrow-down"></ion-icon> Download PDF
-        </a>
-      </li>
-    </ul>
+    {% if data.download_link.url.length %}
+      <ul class="right">
+        <li>
+          <a href="{{data.download_link.url}}" 
+             class="download"
+             target="_blank">
+            <ion-icon name="arrow-down"></ion-icon> Download PDF
+          </a>
+        </li>
+      </ul>
+    {% endif %}
   </div>
 </div>
 

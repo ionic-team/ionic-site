@@ -81,6 +81,15 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "MRA builds its first app in just two months",
+        "url": "/resources/case-studies/mauritius-revenue-authority-mra",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-mra.jpg",
+        "bgColor": "#182435"
+      },
+      {
+        "type": "Case Study",
         "title": "Building the new Marketwatch app",
         "url": "/case-studies/MarketWatch.pdf",
         "action": "Read",

@@ -88,7 +88,9 @@ module.exports = {
   getPrismic: (req, res, type, uid, template) => {
     return new Promise((resolve, reject) => {
       req.prismic.api.getByUID(type, uid)
-      .then(response => res.render(template, {data: response.data}))
+      .then(response => res.render(template, {
+        data: response ? response.data : null
+      }))
       .then(resolve)
       .catch(e => {
         console.log(e)

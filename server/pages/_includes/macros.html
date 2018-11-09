@@ -89,7 +89,10 @@
 {% endmacro %}
 
 {% macro resource(e, isLarge) %}
-<a href="{{ e.url }}" target="_blank" style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %} background-color: {{ e.bgColor }};">
+<a href="{{ e.url }}" 
+   target="{% if e.target %}{{ e.target }}{% else %}_blank{% endif %}" 
+   style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %} 
+          background-color: {{ e.bgColor }};">
   <div>
     <span class="eyebrow">{{ e.type }}</span>
     <div class="title">{{ e.title }}</div>

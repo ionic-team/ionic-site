@@ -134,7 +134,7 @@
   //   margin-top: 26px;
   // }
    .hs-form-field {
-     margin-top: 26px;
+     margin-top: 16px;
    }
 
   label {
@@ -162,6 +162,7 @@
     border-radius: 4px;
     padding: 11px 15px;
     font-size: 15px;
+    margin-bottom: 0;
     color: #505863;
   }
 
@@ -170,7 +171,6 @@
   input.hs-input[type="tel"]  {
     height: auto;
     width: 100%;
-
 
     &:focus {
       border-color: #629eff;

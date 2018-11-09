@@ -10,7 +10,7 @@
     <ul class="left breadcrumbs">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/webinars">Webinars</a></li>
-      <li>Watch</li>
+      <li>{{data.title}}</li>
     </ul>
   </div>
 </div>
@@ -44,7 +44,9 @@
   <main class="card">
     <article>
       {{PrismicDOM.RichText.asHtml(data.description)}}
-      <a class="btn sm" href="{{data.watch_now_link.url}}">Watch Now</a>
+      <a class="btn sm"
+         data-toggle="modal"
+         data-target="#contactForm">Watch Now</a>
     </article>
     <aside>
       <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
@@ -125,7 +127,7 @@
         <script>
           hbspt.forms.create({
           	portalId: '3776657',
-          	formId: '6d8534e1-7d35-445d-9f63-3420b6d37243',
+          	formId: '{{data.hubspot_form_id}}',
           	css: ''
           });
         </script>

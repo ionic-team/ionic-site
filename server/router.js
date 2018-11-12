@@ -94,8 +94,8 @@ module.exports = function router(app) {
   .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
-  .get('/pro/teams', (_, res) => res.render('pro/teams'))
   .get('/products/studio', (_, res) => res.render('products/studio'))
+  // .get('/pro/teams', (_, res) => res.render('pro/teams'))
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 

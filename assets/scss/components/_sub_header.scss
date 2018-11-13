@@ -35,7 +35,38 @@
 
   li {
     display: inline-block;
-    font-weight: 500;
+    font-weight: 600;
+  }
+
+  ul:not(.breadcrumbs) {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+
+    li {
+      padding: 18px 15px;
+    }
+
+    a {
+      transition: color 0.3s;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 0 0 4px;
+    }
+
+    a:not(.active):hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    a.active {
+      color: rgba(255, 255, 255, 1);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: $screen-sm-min)  {
+      li {
+        padding: 18px 8px;
+      }
+    }
   }
 
   .breadcrumbs {

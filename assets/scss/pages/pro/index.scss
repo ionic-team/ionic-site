@@ -1075,7 +1075,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-sm-max)  {
       padding: 0;
 
       .anim-reporting {
@@ -1149,7 +1149,7 @@
 
     background-size: 100%;
     position: relative;
-    padding-bottom: 100px;
+    padding-bottom: 160px;
 
     h4 {
       &::before { background-position: 0 -128px; }
@@ -1157,9 +1157,10 @@
 
     .anim-automate {
       position: absolute;
-      top: 150px;
+      top: 220px;
       left: 50%;
       margin-left: -400px;
+
 
       svg {
         .connector {
@@ -1185,6 +1186,189 @@
 
       svg > g {
         transform: translateY(50px);
+      }
+
+
+    }
+
+    @media (max-width: $screen-md-max)  {
+      padding-bottom: 390px;
+
+      .content {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .content h4::before {
+        left: calc(50% - 32px);
+      }
+      .anim-automate {
+        transform: scale(0.8);
+        top: 470px;
+        margin-left: -670px;
+      }
+    }
+
+    @media (max-width: $screen-sm-min)  {
+      padding: 0;
+
+      .anim-automate {
+        display: none;
+      }
+
+      .content {
+        min-height: 0;
+        padding-top: 64px;
+        padding-bottom: 64px;
+        width: 100%;
+        text-align: center;
+
+        h4::before {
+          left: calc(50% - 32px);
+        }
+      }
+    }
+
+    .anim-automate_ui {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      > div {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        max-width: 114px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+
+        p {
+          font-family: $font-family-graphik;
+          margin: 0;
+          color: #fff;
+          font-size: 13px;
+          line-height: 17px
+        }
+
+        span {
+          display: block;
+          opacity: 0.6;
+          font-family: 12px;
+        }
+
+        &:before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 50px;
+          margin-bottom: 12px;
+          background-repeat: no-repeat;
+          background-size: 100%;
+        }
+      }
+
+      .master:before {
+        background-image: url('/img/pro/pro-automate-animation/master.png');
+        width: 100px;
+        height: 30px;
+        background-size: 100px 30px;
+      }
+
+      .staging:before {
+        background-image: url('/img/pro/pro-automate-animation/staging.png');
+        width: 110px;
+        height: 30px;
+        background-size: 110px 30px;
+      }
+
+      .qa:before {
+        background-image: url('/img/pro/pro-automate-animation/qa.png');
+        width: 61px;
+        height: 30px;
+        background-size: 61px 30px;
+      }
+
+      .android:before,
+      .ios:before,
+      .web:before {
+        width: 62px;
+        height: 62px;
+        background-size: 62px 62px;
+      }
+
+      .android:before {
+        background-image: url('/img/pro/pro-automate-animation/android.png');
+      }
+
+      .ios:before {
+        background-image: url('/img/pro/pro-automate-animation/ios.png');
+      }
+
+      .web:before {
+        background-image: url('/img/pro/pro-automate-animation/js.png');
+      }
+
+      .testflight:before {
+        background-image: url('/img/pro/pro-automate-animation/testflight.png');
+        width: 53px;
+        height: 53px;
+        background-size: 53px 53px;
+      }
+
+      .playstore:before {
+        background-image: url('/img/pro/pro-automate-animation/playstore.png');
+        width: 50px;
+        height: 55px;
+        background-size: 50px 55px;
+      }
+
+      .webhook:before {
+        background-image: url('/img/pro/pro-automate-animation/webhook.png');
+        width: 58px;
+        height: 54px;
+        background-size: 58px 54px;
+      }
+
+      .master,
+      .staging,
+      .qa {
+        left: 50%;
+        top: 195px;
+      }
+
+      .android,
+      .ios,
+      .web {
+        left: 50%;
+        top: 368px;
+      }
+
+      .android,
+      .web {
+        margin-left: 174px;
+      }
+
+      .ios {
+        margin-left: -178px;
+      }
+
+      .testflight,
+      .playstore,
+      .webhook {
+        left: 50%;
+        top: 540px;
+      }
+
+      .testflight {
+        margin-left: -352px;
+      }
+
+      .playstore {
+        margin-left: 352px;
       }
     }
   }

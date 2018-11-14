@@ -55,8 +55,10 @@
   </hgroup>
 </div>
 
-<div class="container">
   <section class="cta-overlay">
+    <div class="app-screenshot">
+      <img src="/img/pro/pro-app-screenshot.png"/>
+    </div>
     <div class="customer-logos">
       <div class="customer-logo--lendingclub"></div>
       <div class="customer-logo--mcdonalds"></div>
@@ -71,7 +73,7 @@
       <div class="customer-logo--usaa"></div>
       <div class="customer-logo--ing"></div>
     </div>
-    <div>
+    <!-- <div>
       <div class="pro-video">
         <div class="video-player">
           <svg class="video-player-button" viewBox="0 0 278 278">
@@ -102,9 +104,8 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </section>
-</div>
 
 
 <main>
@@ -355,38 +356,38 @@
 
 <script>
   (function() {
-    const videoPlayer = document.querySelector('.video-player');
-    const iframeTarget = document.querySelector('.js-video-target');
-
-    function onYouTubeReady() {
-      videoPlayer.classList.add('is-ready');
-      videoPlayer.addEventListener('click', onPlayerClick);
-    }
-
-    function onPlayerClick() {
-      videoPlayer.classList.add('is-playing');
-      new YT.Player(iframeTarget, {
-        height: '1164',
-        width: '1800',
-        videoId: 'ZB5lQTP987s',
-        events: {
-          'onReady': onPlayerReady
-        },
-        playerParams: {
-          color: 'white',
-          enablejsapi: 1,
-          modestbranding: 1,
-          rel: 0,
-          showinfo: 0
-        }
-      });
-    }
-
-    function onPlayerReady(e) {
-      e.target.playVideo();
-    }
-
-    window.onYouTubeIframeAPIReady = onYouTubeReady;
+    // const videoPlayer = document.querySelector('.video-player');
+    // const iframeTarget = document.querySelector('.js-video-target');
+    //
+    // function onYouTubeReady() {
+    //   videoPlayer.classList.add('is-ready');
+    //   videoPlayer.addEventListener('click', onPlayerClick);
+    // }
+    //
+    // function onPlayerClick() {
+    //   videoPlayer.classList.add('is-playing');
+    //   new YT.Player(iframeTarget, {
+    //     height: '1164',
+    //     width: '1800',
+    //     videoId: 'ZB5lQTP987s',
+    //     events: {
+    //       'onReady': onPlayerReady
+    //     },
+    //     playerParams: {
+    //       color: 'white',
+    //       enablejsapi: 1,
+    //       modestbranding: 1,
+    //       rel: 0,
+    //       showinfo: 0
+    //     }
+    //   });
+    // }
+    //
+    // function onPlayerReady(e) {
+    //   e.target.playVideo();
+    // }
+    //
+    // window.onYouTubeIframeAPIReady = onYouTubeReady;
 
     // UPDATES ANIMATION
     function setupUpdatesAnimation() {

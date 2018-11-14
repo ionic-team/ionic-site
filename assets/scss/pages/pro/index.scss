@@ -5,7 +5,7 @@
   background-color: #fff;
 
   .pre-header {
-    margin-bottom: -1px;
+    margin-bottom: 0px;
   }
 
   .cta,
@@ -27,8 +27,8 @@
   > .cta {
     position: relative;
     background-image: linear-gradient( 90deg, rgb(101,33,252) 0%, rgb(56,159,255) 100%);
-    margin-top: -138px;
-    padding-top: 138px;
+    margin-top: -140px;
+    padding-top: 140px;
 
     // &:before {
     //   content: '';
@@ -87,12 +87,13 @@
       height: 100%;
       position: absolute;
       z-index: 0;
-      top: 0;
+      top: -4px;
       left: 0;
       background-image: linear-gradient(90deg, rgb(96,48,252) 0%, rgb(95,162,254) 100%);
       // background-image: url("/img/pro/pro-hero-bg.png");
       background-size: cover;
       opacity: 0.5;
+      overflow: hidden;
 
       & > div {
         width: 100%;
@@ -743,8 +744,8 @@
   #overview {
     background-color: #fff;
     color: #272a2f;
-    padding-bottom: 160px;
-    padding-top: 120px;
+    padding-bottom: 180px;
+    padding-top: 140px;
 
     hgroup {
       max-width: 740px;
@@ -762,18 +763,14 @@
         color: #43546f;
         font-weight: 400;
       }
-
-
     }
-
-
 
     .features {
       padding: 0;
       list-style: none;
       display: flex;
       justify-content: space-between;
-      max-width: 1056px;
+      max-width: 960px;
       margin: 0 auto;
 
       h4 {
@@ -812,11 +809,8 @@
 
       &.faster::before { background-position: 0 -48px; }
       &.happier::before { background-position: 0 -96px; }
-
-      @media (max-width: $screen-md-max)  {
-        + li {
-          margin-left: 24px;
-        }
+      & + li {
+        margin-left: 24px;
       }
     }
 
@@ -1188,7 +1182,7 @@
       svg {
         .connector {
           opacity: 0;
-          stroke-dasharray: 80;
+          stroke-dasharray: 80px;
         }
 
         rect.four {

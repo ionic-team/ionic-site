@@ -7,6 +7,7 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png'%}
 {% set meta_description = 'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards.'%}
 {% set cssPath = 'pro/index' %}
+{% set stickyNav = true %}
 
 {% block header_style %}transparent{% endblock %}
 
@@ -228,6 +229,49 @@
             </g>
         </svg>
       </div>
+    </div>
+  </section>
+
+  <section class="automate left hero" id="automate">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Automation</h4>
+        <h2>Automate your app flow</h2>
+        <p>Fully automate your delivery pipeline—from native binary builds to QA—in minutes using our preconfigured, smart defaults and powerful workflows, with customizability to fit your team’s unique needs.</p>
+      </div>
+    </div>
+    <div class="anim-automate">
+      <div class="anim-automate_ui"></div>
+      <svg width="1316" height="790" xmlns="http://www.w3.org/2000/svg">
+        <g id="tiles" transform="translate(-14 -14)">
+          <path d="M920.4007 393.1937l28.9914 28.9914" class="connector" id="twoB_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M774.3242 394.6079l-28.9913 28.9914" class="connector" id="twoB_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M568.9392 395.3445l28.9914 28.9914" class="connector" id="twoA_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M422.9216 393.9303l-28.9913 28.9913" class="connector" id="twoA_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M745.0088 219.2749l28.9914 28.9914" class="connector" id="one_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M598.2841 218.5678l-28.9914 28.9914" class="connector" id="one_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <g id="bottom">
+            <rect class="threeC" fill="#F5F7FD" transform="rotate(135 1022.725 496.6375)" x="919.725" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeB" fill="#F5F7FD" transform="rotate(135 672 496.6375)" x="569" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeA" fill="#F5F7FD" transform="rotate(135 321.275 496.6375)" x="218.275" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="twoA" fill="#F5F7FD" transform="rotate(135 496.6375 321.275)" x="393.6375" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="twoB" fill="#F5F7FD" transform="rotate(135 847.3625 321.275)" x="744.3625" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="one" fill="#DDE6F7" transform="rotate(135 672 145.9126)" x="569" y="42.9126" width="206" height="206" rx="34"/>
+          </g>
+          <g id="top">
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 1198.0874 672)" x="1095.0874" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 145.9126 672)" x="42.9126" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 496.6375 672)" x="393.6375" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 847.3625 672)" x="744.3625" y="569" width="206" height="206" rx="34"/>
+            <rect class="threeC" fill="#F5F7FD" transform="rotate(135 1022.725 496.6375)" x="919.725" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeB" fill="#F5F7FD" transform="rotate(135 672 496.6375)" x="569" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeA" fill="#F5F7FD" transform="rotate(135 321.275 496.6375)" x="218.275" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="twoA" fill="#F5F7FD" transform="rotate(135 496.6375 321.275)" x="393.6375" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="twoB" fill="#F5F7FD" transform="rotate(135 847.3625 321.275)" x="744.3625" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="one" fill="#DDE6F7" transform="rotate(135 672 145.9126)" x="569" y="42.9126" width="206" height="206" rx="34"/>
+          </g>
+        </g>
+      </svg>
     </div>
   </section>
 
@@ -562,6 +606,217 @@
       });
     }
     setupBuildAnimation();
+
+
+    // AUTOMATE ANIMATION
+    function setupAutomateAnimation() {
+      const tileConfig = {
+        master: {
+          location: 'one',
+          color: {
+            top: '#22216A',
+            bottom: '#5C59EE'
+          }
+        },
+        staging: {
+          location: 'one',
+          color: {
+            top: '#6D0D3D',
+            bottom: '#F24199'
+          }
+        },
+        qa: {
+          location: 'one',
+          color: {
+            top: '#023C47',
+            bottom: '#00BCDF'
+          }
+        },
+        android: {
+          location: 'twoB',
+          color: {
+            top: '#0F5134',
+            bottom: '#7EC951'
+          }
+        },
+        ios: {
+          location: 'twoA',
+          color: {
+            top: '#484F5E',
+            bottom: '#A9AEB7'
+          }
+        },
+        web: {
+          location: 'twoB',
+          color: {
+            top: '#5F5200',
+            bottom: '#F6D500'
+          }
+        },
+        playstore: {
+          location: 'threeC',
+          color: {
+            top: '#1D5169',
+            bottom: '#00F9FF'
+          }
+        },
+        testflight: {
+          location: 'threeA',
+          color: {
+            top: '#183F74',
+            bottom: '#1AC1FA'
+          }
+        },
+        webhook: {
+          location: 'threeB',
+          color: {
+            top: '#4E0057',
+            bottom: '#C600DC'
+          }
+        }
+      };
+
+      const automateStage = document.querySelector('.anim-automate');
+      const topTiles = automateStage.querySelector('#top');
+      const bottomTiles = automateStage.querySelector('#bottom');
+
+      function animateTileIn(tile){
+        var elTop = topTiles.querySelector('.' + tile.location);
+        var elBottom = bottomTiles.querySelector('.' + tile.location);
+
+        TweenLite.to(elTop, 0.2, {
+          fill: tile.color.top
+        });
+        TweenLite.set(elBottom, {
+          fill: tile.color.bottom,
+          alpha: 1
+        });
+        TweenLite.to(elBottom, 1.8, {
+          alpha: 0,
+          scale: 1.15,
+          transformOrigin:"center center",
+          ease: Expo.easeOut
+        });
+      }
+
+      function animateTileOut(tile, _delay){
+        var elTop = topTiles.querySelector('.' + tile.location);
+        var elBottom = bottomTiles.querySelector('.' + tile.location);
+        var delay = _delay || 0;
+        var defaultColor = tile.location === 'one' ? '#DDE6F7' : '#F5F7FD';
+
+        TweenLite.set(elBottom, {
+          alpha: 0,
+          scale: 1
+        });
+        TweenLite.to(elTop, 0.2, {
+          fill: defaultColor,
+          delay: delay
+        });
+      }
+
+      function animateConnector(tile, direction){
+        var el = automateStage.querySelector('#' + tile.location + '_' + direction);
+
+        TweenLite.set(el, {
+          stroke: tile.color.top,
+          alpha: 1,
+          'stroke-dashoffset': 80
+        });
+        TweenLite.to(el, 0.8, {
+          'stroke-dashoffset': -80,
+          delay: 0.3
+        });
+      }
+
+      const automateTl = new TimelineLite({
+        onComplete: function(){
+          automateTl.restart();
+        }
+      });
+      TweenLite.defaultEase = Linear.easeNone;
+      automateTl.pause();
+
+      const sequence1 = new TimelineLite();
+      sequence1
+      .add(function(){
+        animateTileIn(tileConfig.staging);
+        animateConnector(tileConfig.staging, 'L')
+        }, 1)
+      .add(function(){
+        animateTileIn(tileConfig.ios);
+        animateConnector(tileConfig.ios, 'L')
+        animateConnector(tileConfig.ios, 'R')
+        }, 1.5)
+      .add(function(){
+        animateTileIn(tileConfig.testflight)
+        animateTileIn(tileConfig.webhook);
+        }, 2)
+      .add(function(){
+        animateTileOut(tileConfig.staging);
+        animateTileOut(tileConfig.ios, 0.15);
+        animateTileOut(tileConfig.testflight, 0.3);
+        animateTileOut(tileConfig.webhook, 0.3);
+        }, 5);
+
+      automateTl.add(sequence1, 0);
+
+
+      const sequence2 = new TimelineLite();
+      sequence2
+      .add(function(){
+        animateTileIn(tileConfig.qa);
+        animateConnector(tileConfig.qa, 'R')
+        }, 1)
+      .add(function(){
+        animateTileIn(tileConfig.web);
+        animateConnector(tileConfig.web, 'L')
+        }, 1.5)
+      .add(function(){
+        animateTileIn(tileConfig.webhook);
+        }, 2)
+      .add(function(){
+        animateTileOut(tileConfig.qa);
+        animateTileOut(tileConfig.web, 0.15);
+        animateTileOut(tileConfig.webhook, 0.3);
+        }, 5);
+
+      automateTl.add(sequence2, 5);
+
+
+      const sequence3 = new TimelineLite()
+      .add(function(){
+        animateTileIn(tileConfig.master);
+        animateConnector(tileConfig.master, 'R')
+        }, 1)
+      .add(function(){
+        animateTileIn(tileConfig.android);
+        animateConnector(tileConfig.android, 'R')
+        animateConnector(tileConfig.android, 'L')
+        }, 1.5)
+      .add(function(){
+        animateTileIn(tileConfig.playstore);
+        animateTileIn(tileConfig.webhook);
+        }, 2)
+      .add(function(){
+        animateTileOut(tileConfig.master);
+        animateTileOut(tileConfig.android, 0.15);
+        animateTileOut(tileConfig.playstore, 0.3);
+        animateTileOut(tileConfig.webhook, 0.3);
+        }, 5);
+
+      automateTl.add(sequence3, 10);
+
+
+
+      initAnimation(automateStage, automateTl, {
+        once: false,
+        playWhenInView: true
+      });
+
+    }
+
+    setupAutomateAnimation();
 
   })();
 </script>

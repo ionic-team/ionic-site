@@ -37,6 +37,7 @@
     border-color: $blue;
     background: transparent;
     color: $blue;
+    border-width: 1px;
   }
 
   &.btn-primary,
@@ -142,6 +143,14 @@
         background: transparent;
       }
     }
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.dark {
+    color: white;
   }
 
   &.dark-pink {

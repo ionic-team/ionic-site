@@ -1,0 +1,91 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+
+#page-products-studio {
+  .top {
+    margin-top: -140px;
+    padding-top: 180px;
+    text-align: center;
+    background: linear-gradient(180deg, #121417 0%, #06090D 100%);
+
+    h4 {
+      font-family: $font-family-monospace;
+      font-weight: bold;
+      line-height: 23px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #92A1B3;
+    }
+
+    h1,
+    h3,
+    hgroup p {
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 56px;
+      letter-spacing: -0.02em;
+    }
+
+    hgroup p {
+      line-height: 39px;
+      font-size: 22px;
+      font-weight: 400;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    h3 {
+      font-size: 36px;
+      letter-spacing: -0.01em;
+    }
+
+    section li {
+      padding-top: 20px;
+    }
+  }
+
+  video {
+    max-width: 100%;
+  }
+
+  section {
+    letter-spacing: -0.01em;
+
+    h2 {
+      color: #fff;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding-top: 0;
+    }
+
+    strong {
+      font-size: 20px;
+      color: #fff;
+    }
+
+    p {
+      font-family: $font-family-graphik;
+      line-height: 29px;
+      font-size: 16px;
+      color: #B2BECD;
+      font-weight: 400;
+    }
+  }
+
+  main section {
+    background: linear-gradient(180deg, #121417 0%, #06090D 100%);
+  }
+}

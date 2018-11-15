@@ -119,6 +119,18 @@ Login
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;LineLoginProfile&gt;</code> 
+</div><h3><a class="anchor" name="loginWeb" href="#loginWeb"></a><code>loginWeb()</code></h3>
+
+
+
+
+Login with Web
+(iOS only)
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;LineLoginProfile&gt;</code> 
 </div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code></h3>
 
 

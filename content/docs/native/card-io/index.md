@@ -318,7 +318,7 @@ Retrieve the version of the card.io library. Useful when contacting support.
       guideColor
     </td>
     <td>
-      <code>string</code>
+      <code>string | number</code>
     </td>
     <td>
       <p>Changes the color of the guide overlay on the camera. The color is provided in hexadecimal format (e.g. <code>#FFFFFF</code>)</p>

@@ -23,6 +23,27 @@ Below are example webhook json payloads:
 {
     "state": "success",
     "automationId": 777,
+    "automation": {
+        "id": 777,
+        "buidType": "debug",
+        "environmentName": "staging",
+        "nativeConfigName": "staging",
+        "created": "2018-08-24T14:49:01.462549+00:00",
+        "creatorId": 10000023,
+        "name": "my-awesome-automation",
+        "creator": {
+            "name": "Ionitron",
+            "picture": "https://www.ionicjs.com/picture",
+            "avatars": {
+                "small": "https://www.ionicjs.com/picture-sm",
+                "medium": "https://www.ionicjs.com/picture-md",
+                "large": "https://www.ionicjs.com/picture-lg"
+            },
+            "username": "ionic"
+        },
+        "platform": "android",
+        "profile": "debug"
+    },
     "environmentName": "staging",
     "id": "2216322b-35be-4af2-aaad-2b4e57354f88",
     "type": "debug",
@@ -91,6 +112,29 @@ Below are example webhook json payloads:
     "started": "2018-08-24T14:49:08.556804+00:00",
     "state": "success",
     "automationId": 777,
+    "automation": {
+        "id": 777,
+        "created": "2018-08-24T14:49:01.462549+00:00",
+        "creatorId": 10000023,
+        "environmentName": "staging",
+        "name": "my-awesome-automation",
+        "channel": {
+            "name": "threeve",
+            "updated": "2018-02-13T20:35:46.486541Z+00:00",
+            "id": "24464de6-6684-46f4-831b-f66c379db096",
+            "created": "2018-02-09T21:38:19.086808Z+00:00"
+        },
+        "creator": {
+            "name": "Ionitron",
+            "picture": "https://www.ionicjs.com/picture",
+            "avatars": {
+                "small": "https://www.ionicjs.com/picture-sm",
+                "medium": "https://www.ionicjs.com/picture-md",
+                "large": "https://www.ionicjs.com/picture-lg"
+            },
+            "username": "ionic"
+        }
+    },
     "environmentName": "staging",
     "id": "2216322b-35be-4af2-aaad-2b4e57354f88",
     "created": "2018-08-24T14:49:01.462549+00:00",

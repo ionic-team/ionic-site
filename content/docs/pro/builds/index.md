@@ -39,19 +39,23 @@ If you have a Teams or Business plan, please [contact us](https://ionic.zendesk.
 
 ## Deploy Builds
 
-A deploy build is a build of your application that includes only the web assets (JavaScript, HTML, fonts, and images) which
-can be shipped out to customer via [Deploy](/docs/pro/deploy/). Deploy builds are currently automatically triggered when
-you push code to the Ionic Pro Remote or any branch that is connected to your app via the GitHub or Bitbucket integration.
-The basic steps of the deploy build are as follows:
+<div class="alert alert-warning" role="alert">Recently, the builds service moved to using manual build triggers. If you were previously using automatically 
+generated builds they have been preserved with an automation that can be seeing in the <strong>Settings</strong> tab for a channel.</div>
+
+A deploy build is a build of your application that includes only the web assets (JavaScript, HTML, fonts, and images) 
+which can be shipped out to customer via [Deploy](/docs/pro/deploy/). Deploy builds can be created from the Ionic 
+Dashboard, the **Builds** section under **Deploy** in the sidebar.
+
+<div style="text-align: center">
+  <img style="width: 950px" src="/img/pro/deploy-builds-create-location.png">
+</div>
+
+A deploy build will do the following:
 
 * `npm install` will run to install any dependencies you have.
 * `npm run build` will run if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.
 * The `www` directory with your built application will be stored and made available for live updates via [Deploy](/docs/pro/deploy/)
 * You can find the history and status of your deploy builds in the side menu under `Builds` in the `Deploy` tab.
-
-<div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/deploy-builds-img.png">
-</div>
 
 ## Package Builds
 
@@ -66,10 +70,6 @@ The basic steps of the package build are as follows:
 * `cordova build [ios|android]` will run with the platform and options you have configured and generate the `ipa` or `apk` file
 * The generated `ipa` or `apk` will be stored and available for you to download from the dashboard
 * You can find the history and status of your package builds as well as download successful builds in the side menu under `Builds` in the `Package` tab.
-
-<div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/package-builds-img.png">
-</div>
 
 
 ## Build Environments

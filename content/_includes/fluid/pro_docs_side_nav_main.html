@@ -49,6 +49,16 @@
           </li>
         </ul>
       </li>
+      <li class="{% if page.category == 'pro-automate' %}active{% endif %}">
+        <a ng-click="toggle('automation')" class="pro-automation-link">Automation</a>
+        <ul ng-show="sections.automation" ng-cloak {% if page.category == 'pro-automation' %}ng-init="sections.automation = true"{% endif %}>
+          <li>
+            <a href="/docs/pro/automation">Introduction</a>
+            <a href="/docs/pro/automation/create">Create Automations</a>
+            <a href="/docs/pro/automation/webhooks">Webhooks</a>
+          </li>
+        </ul>
+      </li>
       <li class="{% if page.category == 'pro-builds' %}active{% endif %}">
         <a ng-click="toggle('builds')" class="pro-builds-link">Builds</a>
         <ul ng-show="sections.builds" ng-cloak {% if page.category == 'pro-builds' %}ng-init="sections.builds = true"{% endif %}>

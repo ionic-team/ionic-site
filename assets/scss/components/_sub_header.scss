@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     color: #697384;
     font-size: 13px;
     font-weight: 600;
@@ -97,12 +98,12 @@
 
       a,
       &::after {
-        font-weight: 300;
+        font-weight: 600;
       }
     }
 
     a {
-      color: rgba(white, .5);
+      color: rgba(white, 1);
       transition: .2s color;
       padding: 0;
       display: inline-block;

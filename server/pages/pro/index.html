@@ -2,9 +2,12 @@
 {% set id = 'products' %}
 {% set mixpanelEnabled = true %}
 {% set bodyController = "ProductsPageCtrl" %}
+{% set pre_footer = false %}
 {% set title = 'Ionic Pro Mobile Development Toolkit - Mobile App Platform' %}
 {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png'%}
 {% set meta_description = 'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards.'%}
+{% set cssPath = 'pro/index' %}
+{% set stickyNav = true %}
 
 {% block header_style %}transparent{% endblock %}
 
@@ -19,11 +22,10 @@
 <div class="sub-header">
   <div class="container">
     <ul class="left breadcrumbs">
-      <li>Pro</li>
+      <li>Appflow</li>
     </ul>
     <ul class="right">
       <li><a href="/pro" class="active">Overview</a></li>
-      <li><a href="/pro/teams">For teams</a></li>
       <li><a href="/pro/pricing">Pricing</a></li>
       <li><a href="/docs/pro">Docs</a></li>
     </ul>
@@ -31,95 +33,102 @@
 </div>
 
 <div class="cta gradient">
+  <div class="cta__background">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <hgroup class="container">
-    <h1>Your mobile development toolkit.</h1>
-    <p>A powerful platform built for shipping incredible Ionic apps. Build better apps with Ionic Pro’s integrated suite of tools and services designed for the entire app lifecycle.</p>
+    <h3>Continuously build, deploy & ship apps</h3>
+    <h1>Continuous mobile devops.</h1>
+    <p>Focus on building apps while we automate the rest—from the moment code is checked in to the moment it lands in the hands of your users.</p>
     <div class="cta-buttons">
-      <a class="btn"
+      <a class="btn btn--primary"
       href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-      alt="Sign up for Ionic Pro"
-      id="btn-products-create-pro-account">Create a Pro account</a><br>
-      {# <a class="sales" href="/demo" alt="Get a demo">Or contact sales</a> #}
+      alt="Sign up for Ionic Appflow"
+      id="btn-products-create-pro-account">Try it free</a>
+      <a class="btn" href="/pricing">See pricing</a>
     </div>
   </hgroup>
 </div>
 
-<nav class="pro-nav pro-nav--upper">
-  <div class="container">
-    <div class="pro-logo">
-      <a href="/pro"><img src="/img/pro/pro-logo.png"/></a>
+  <section class="cta-overlay">
+    <div class="app-screenshot">
+      <img src="/img/pro/pro-app-screenshot.png"/>
     </div>
-    <ul class="pro-nav-icons">
-      <li><a class="prototyping anchor" href="#prototyping" title="Creator"></a></li>
-      <li><a class="updates anchor" href="#updates" title="Deploy"></a></li>
-      <li><a class="build anchor" href="#build" title="Package"></a></li>
-      <li><a class="reporting anchor" href="#reporting" title="Monitor"></a></li>
-    </ul>
-    <div class="pro-pricing-btn">
-      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-         class="btn">Sign up</a>
+    <div class="customer-logos">
+      <div class="customer-logo--lendingclub"></div>
+      <div class="customer-logo--mcdonalds"></div>
+      <div class="customer-logo--study"></div>
+      <div class="customer-logo--cat"></div>
+      <div class="customer-logo--ge"></div>
+      <div class="customer-logo--comcast"></div>
+      <div class="customer-logo--amtrak"></div>
+      <div class="customer-logo--airbus"></div>
+      <div class="customer-logo--aaa"></div>
+      <div class="customer-logo--deloitte"></div>
+      <div class="customer-logo--usaa"></div>
+      <div class="customer-logo--ing"></div>
     </div>
-  </div>
-</nav>
+    <!-- <div>
+      <div class="pro-video">
+        <div class="video-player">
+          <svg class="video-player-button" viewBox="0 0 278 278">
+            <title>Play Video</title>
+            <g fill="none" fill-rule="evenodd">
+              <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
+              <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
+            </g>
+          </svg>
+          <div class="video-player-frame">
+            <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pro-benefits">
+        <ul>
+          <li>
+            <h4>Continuous delivery</h4>
+            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
+          </li>
+          <li>
+            <h4>Package apps in the cloud</h4>
+            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
+          </li>
+          <li>
+            <h4>Deploy live updates</h4>
+            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+  </section>
 
-<div class="pro-nav pro-nav--lower">
-  <div class="container">
-    <ul class="pro-nav-text">
-      <li><a href="#prototyping"><strong>Creator</strong>Rapid app prototyping</a></li>
-      <li><a href="#updates"><strong>Deploy</strong>Live app updating</a></li>
-      <li><a href="#build"><strong>Package</strong>Native cloud builds</a></li>
-      <li><a href="#reporting"><strong>Monitor</strong>Error / crash reporting</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="pro-video">
-  <div class="video-player">
-    <svg class="video-player-button" viewBox="0 0 278 278">
-      <title>Play Video</title>
-      <g fill="none" fill-rule="evenodd">
-        <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
-        <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
-      </g>
-    </svg>
-    <div class="video-player-frame">
-      <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
-    </div>
-  </div>
-</div>
 
 <main>
   <section class="overview hero" id="overview">
     <div class="container">
       <hgroup class="text-center">
-        <h3>Everything in one experience.</h3>
-        <p>Spend more time on what matters. <strong>Ionic Pro</strong> takes care of the rest, with a suite of powerful mobile development tools and services for apps of all shapes and sizes.</p>
+        <h3>Ship at the speed of development.</h3>
+        <p>Spend more time on what matters. Appflow takes care of the rest, with a suite of powerful mobile DevOps tools and services for every type of app.</p>
       </hgroup>
       <ul class="features">
         <li class="better">
-          <h4>Better apps</h4>
-          <p>Build apps your users will love, with simple app sharing, feedback and monitoring to craft the perfect app experience.</p>
+          <h4>Ship stable apps, faster</h4>
+          <p>Deliver a better mobile experience for your users by sending updates directly to them in real-time, without waiting for app store or MDM approval.</p>
         </li>
         <li class="faster">
-          <h4>Faster development</h4>
-          <p>Quickly prototype and test new concepts, and speed up development to bring more ideas to market in less time.</p>
+          <h4>Unlock continuous delivery</h4>
+          <p>Automate app delivery, without being a DevOps expert. Our preconfigured, customizable best practices automate your delivery pipeline in minutes.</p>
         </li>
         <li class="happier">
-          <h4>Happier devs &amp; teams</h4>
-          <p>Keep it simple with developer-friendly tools, easy collaboration, and everything you need in one place.</p>
+          <h4>Empower the entire team</h4>
+          <p>Leverage automation to help your team move faster and iterate quickly to deploy features and fixes at the speed of development.</p>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <section class="prototyping hero left activateOnScroll" id="prototyping">
-    <div class="container">
-      <div class="content">
-        <h4>Ionic Creator</h4>
-        <h2>Rapid app prototyping</h2>
-        <p>Visually build high-fidelity apps in minutes. Drag and drop core Ionic UI components, add themes, animations, design files, and even custom code to create real, interactive Ionic mobile apps.</p>
-        <a class="hero__cta" href="/pro/creator" target="_blank" id="btn-products-learn-more-creator">Learn about Creator</a>
-      </div>
     </div>
   </section>
 
@@ -127,9 +136,8 @@
     <div class="container">
       <div class="content dark">
         <h4>Ionic Deploy</h4>
-        <h2>Realtime app updates</h2>
-        <p>Deliver hot code updates, content changes, A/B tests, and bug fixes in real time before and after your app is in the app stores, with LiveDeploy.</p>
-        <a class="hero__cta" href="/pro/deploy" id="btn-products-learn-more-deploy">Learn about Deploy</a>
+        <h2>Live hot code updates</h2>
+        <p>Deliver live app updates, content changes, A/B tests, bug fixes, and more—before or after your app is in the store. No lines, no waiting, no slowdowns.</p>
       </div>
     </div>
     <div class="anim-updates">
@@ -147,21 +155,20 @@
         <h4>Ionic Package</h4>
         <h2>Continuous native builds</h2>
         <p>Create native apps binaries in the cloud with Ionic Package to get from code to app store with no platform dependencies or complicated build steps.</p>
-        <a class="hero__cta" href="/pro/package" id="btn-products-learn-more-package">Learn about Package</a>
       </div>
 
       <div class="anim-build">
         <svg id="anim-build__svg" width="464px" height="495px" viewBox="0 0 464 495" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="build-chart" transform="translate(1.000000, 0.000000)">
-                    <g id="lines-bg" transform="translate(0.000000, 4.504559)" stroke="#F3B8D3" stroke-width="2">
+                    <g id="lines-bg" transform="translate(0.000000, 4.504559)" stroke="#99bbff" stroke-width="2">
                         <path d="M227.07,0 L344.25,0 C352.5345,0 359.25,6.72305471 359.25,15.0151976 L359.25,111.863222 C359.25,120.156116 352.5345,126.878419 344.25,126.878419 L15,126.878419 C6.7155,126.878419 0,120.156116 0,111.863222 L0,15.0151976 C0,6.72305471 6.7155,0 15,0 L131.76,0" id="Stroke-1"></path>
                         <path d="M279.54,180.933131 L285,180.933131 C293.2845,180.933131 300,187.655435 300,195.948328 L300,292.796353 C300,301.089246 293.2845,307.81155 285,307.81155 L157.5,307.81155 C149.2155,307.81155 142.5,301.089246 142.5,292.796353 L142.5,195.948328 C142.5,187.655435 149.2155,180.933131 157.5,180.933131 L164.505,180.933131" id="Stroke-3"></path>
                         <path d="M417.8325,362.617021 L447,362.617021 C455.2845,362.617021 462,369.339325 462,377.632219 L462,474.480243 C462,482.773137 455.2845,489.495441 447,489.495441 L261,489.495441 C252.7155,489.495441 246,482.773137 246,474.480243 L246,377.632219 C246,369.339325 252.7155,362.617021 261,362.617021 L291.5175,362.617021" id="Stroke-5"></path>
                         <path d="M300,243.99696 L418.5,243.99696 C426.7845,243.99696 433.5,250.719264 433.5,259.012158 L433.5,362.617021" id="Stroke-7"></path>
                         <path d="M142.5,244.74772 L43.5,244.74772 C35.2155,244.74772 28.5,238.025416 28.5,229.732523 L28.5,126.12766" id="Stroke-9"></path>
                     </g>
-                    <g id="lines-animate" transform="translate(0.000000, 4.504559)" stroke="#EB295E" stroke-width="2">
+                    <g id="lines-animate" transform="translate(0.000000, 4.504559)" stroke="#5d37ff" stroke-width="2">
                       <path d="M291.5195,362.6396 L260.9995,362.6396 C252.7155,362.6396 245.9995,369.3556 245.9995,377.6396 L245.9995,474.4996 C245.9995,482.7846 252.7155,489.4996 260.9995,489.4996 L353.9995,489.4996" id="line-5-B"></path>
                       <path d="M417.8301,362.6201 L447.0001,362.6201 C455.2841,362.6201 462.0001,369.3361 462.0001,377.6201 L462.0001,474.5001 C462.0001,482.7841 455.2841,489.5001 447.0001,489.5001 L354.0001,489.5001" id="line-5-A"></path>
                       <path d="M300,244 L418.5,244 C426.784,244 433.5,250.716 433.5,259 L433.5,362.6" id="line-4"></path>
@@ -226,51 +233,112 @@
     </div>
   </section>
 
-  <section class="reporting left hero" id="reporting">
+  <section class="automate left hero" id="automate">
     <div class="container">
       <div class="content dark">
-        <h4>Ionic Monitor</h4>
-        <h2>Runtime error monitoring</h2>
-        <p>Track issues in development and catch bugs before they ship. Pinpoint and resolve runtime errors by drilling into your core codebase, down to the Typescript level.</p>
-        <a class="hero__cta" href="/pro/monitor" id="btn-products-learn-more-monitor">Learn about Monitor</a>
+        <h4>Ionic Automation</h4>
+        <h2>Automate your workflow</h2>
+        <p>Fully automate your delivery pipeline—from native binary builds to QA—in minutes using our preconfigured, smart defaults and powerful workflows, with customizability to fit your team’s unique needs.</p>
       </div>
     </div>
+    <div class="anim-automate">
+      <div class="anim-automate_ui">
+        <div class="master"><p>Push code</p></div>
+        <div class="staging"><p>Push code</p></div>
+        <div class="qa"><p>Push code</p></div>
+        <div class="android"><p>Trigger Android build</p></div>
+        <div class="ios"><p>Trigger iOS build</p></div>
+        <div class="web"><p>Trigger Web build</p></div>
+        <div class="testflight"><p>Distribute to TestFlight<span>(coming soon)</span></p></div>
+        <div class="playstore"><p>Distribute to Google Play <span>(coming soon)</span></p></div>
+        <div class="webhook"><p>Trigger webhook</p></div>
+      </div>
+      <svg width="1346" height="790" xmlns="http://www.w3.org/2000/svg">
+        <g id="tiles" transform="translate(-14 -14)">
+          <g id="bottom">
+            <rect class="threeC" fill="#F5F7FD" transform="rotate(135 1022.725 496.6375)" x="919.725" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeB" fill="#F5F7FD" transform="rotate(135 672 496.6375)" x="569" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeA" fill="#F5F7FD" transform="rotate(135 321.275 496.6375)" x="218.275" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="twoA" fill="#F5F7FD" transform="rotate(135 496.6375 321.275)" x="393.6375" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="twoB" fill="#F5F7FD" transform="rotate(135 847.3625 321.275)" x="744.3625" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="one" fill="#DDE6F7" transform="rotate(135 672 145.9126)" x="569" y="42.9126" width="206" height="206" rx="34"/>
+          </g>
 
-    <div class="anim-reporting">
-      <svg id="anim-reporting__svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="scanGradient" x1="0" x2="0" y1="0" y2="1">
-            <stop stop-color="white" stop-opacity="0.35" offset="0%"/>
-            <stop stop-color="white" stop-opacity="0.07" offset="50%"/>
-            <stop stop-color="white" stop-opacity="0.0" offset="100%"/>
-          </linearGradient>
-          <clipPath id="mask" class="anim-reporting__mask"></clipPath>
-        </defs>
+          <path d="M920.4007 393.1937l28.9914 28.9914" class="connector" id="twoB_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M774.3242 394.6079l-28.9913 28.9914" class="connector" id="twoB_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M568.9392 395.3445l28.9914 28.9914" class="connector" id="twoA_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M422.9216 393.9303l-28.9913 28.9913" class="connector" id="twoA_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M745.0088 219.2749l28.9914 28.9914" class="connector" id="one_R" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
+          <path d="M598.2841 218.5678l-28.9914 28.9914" class="connector" id="one_L" stroke="#F2F6FF" stroke-width="5" stroke-linecap="square"/>
 
-        <g class="anim-reporting__clipped" clip-path="url(#mask)">
-          <rect class="anim-reporting__bg" x="0" y="0" width="100%" height="100%" />
-          <g class="back"></g>
+          <g id="top">
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 1198.0874 672)" x="1095.0874" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 145.9126 672)" x="42.9126" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 496.6375 672)" x="393.6375" y="569" width="206" height="206" rx="34"/>
+            <rect class="four" fill="#F5F7FD" transform="rotate(135 847.3625 672)" x="744.3625" y="569" width="206" height="206" rx="34"/>
+            <rect class="threeC" fill="#F5F7FD" transform="rotate(135 1022.725 496.6375)" x="919.725" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeB" fill="#F5F7FD" transform="rotate(135 672 496.6375)" x="569" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="threeA" fill="#F5F7FD" transform="rotate(135 321.275 496.6375)" x="218.275" y="393.6375" width="206" height="206" rx="34"/>
+            <rect class="twoA" fill="#F5F7FD" transform="rotate(135 496.6375 321.275)" x="393.6375" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="twoB" fill="#F5F7FD" transform="rotate(135 847.3625 321.275)" x="744.3625" y="218.275" width="206" height="206" rx="34"/>
+            <rect class="one" fill="#DDE6F7" transform="rotate(135 672 145.9126)" x="569" y="42.9126" width="206" height="206" rx="34"/>
+          </g>
         </g>
       </svg>
     </div>
   </section>
 
-  {% include '_includes/promos/hybrid-vs-native.html' %}
+  <section class="pro-features">
+    <div class="container">
+      <hgroup>
+        <h3>Appflow features</h3>
+        <p>With Appflow, you can fully automate your team’s app development workflow, and go from idea to production.</p>
+      </hgroup>
+      <ul>
+        <li class="pro-feature--app-dashboard">
+          <h5>App dashboard</h5>
+          <p>View and manage all of your Ionic apps in a central, shared dashboard with live activity feeds to see how your development projects are progressing.</p>
+        </li>
+        <li class="pro-feature--configurable">
+          <h5>Configurable</h5>
+          <p>Get up and running in minutes with industry-based defaults and pre-built workflows to enable full automation of your delivery pipeline with additional customization capabilities every step of the way.</p>
+        </li>
+        <li class="pro-feature--clean-builds">
+          <h5>Clean builds</h5>
+          <p>Simplify your team’s build process and eliminate local dependencies for native iOS and Android binaries with a stable, consistantly shared cloud-based environment.</p>
+        </li>
+        <li class="pro-feature--mobile-ci-cd">
+          <h5>Mobile CI/CD</h5>
+          <p>Automate every phase of your app delivery pipeline to deliver continuous integration and delivery. Initiate multiple concurrent builds automatically without any manual assistance.</p>
+        </li>
+        <li class="pro-feature--git-integrations">
+          <h5>Git integrations</h5>
+          <p>Connect Appflow to your existing git repository with pre-built integrations for GitHub, GitLab, BitBucket, and more.</p>
+        </li>
+        <li class="pro-feature--connected-services">
+          <h5>Connected services</h5>
+          <p>Connect with any third-party app using webhooks. Get Slack notifications when a build is ready, send the latest app version to AWS Device Farm, automate app store submission processes, and more.</p>
+        </li>
+        <li class="pro-feature--live-app-updating">
+          <h5>Live app updating</h5>
+          <p>Immediately push new features and code changes live, directly to end-user devices—without being dependent on app store approvals or internal MDM restrictions.</p>
+        </li>
+        <li class="pro-feature--role-based-controls">
+          <h5>Role-based controls</h5>
+          <p>Assign specific team members who are allowed to promote or deny the progress of packages from one environment to another.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <section class="bar get-started">
     <div class="container">
       <hgroup>
-        <h2>Get started with Ionic Pro today.</h2>
-        <p class="lg">
-          Create a free account, or check out our plans and pricing.
-        </p>
+        <h2><strong>Appflow</strong> is a fully integrated mobile DevOps solution, and part of the Ionic Development Platform.</h2>
+        <h3>Ready to make life easier?</h3>
       </hgroup>
       <div>
-        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-          class="btn sm" id="btn-products-create-account">Create a Pro account
-          </a>
-        <a class="btn sm white" id="btn-products-see-pricing"
-          href="/pro/pricing">See pricing</a>
+        <a class="btn" id="btn-products-see-pricing" href="/pro/pricing">See pricing</a>
       </div>
     </div>
   </section>
@@ -288,121 +356,48 @@
 
 <script>
   (function() {
-    const videoPlayer = document.querySelector('.video-player');
-    const iframeTarget = document.querySelector('.js-video-target');
-
-    function onYouTubeReady() {
-      videoPlayer.classList.add('is-ready');
-      videoPlayer.addEventListener('click', onPlayerClick);
-    }
-
-    function onPlayerClick() {
-      videoPlayer.classList.add('is-playing');
-      new YT.Player(iframeTarget, {
-        height: '1164',
-        width: '1800',
-        videoId: 'ZB5lQTP987s',
-        events: {
-          'onReady': onPlayerReady
-        },
-        playerParams: {
-          color: 'white',
-          enablejsapi: 1,
-          modestbranding: 1,
-          rel: 0,
-          showinfo: 0
-        }
-      });
-    }
-
-    function onPlayerReady(e) {
-      e.target.playVideo();
-    }
-
-    function initStickyNav(nav) {
-      function check() {
-        if (nav.getBoundingClientRect().top < 1) {
-          nav.classList.add('is-stuck');
-        } else {
-          nav.classList.remove('is-stuck');
-        }
-      }
-
-      return function() {
-        requestAnimationFrame(check);
-      };
-    }
-
-    if (window.IntersectionObserver) {
-      const anchorMap = new Map();
-      document.querySelectorAll('.pro-nav-icons a').forEach(anchor => {
-        anchorMap.set(document.querySelector(anchor.getAttribute('href')), anchor);
-      });
-
-      const observer = new IntersectionObserver(handleIntersectionChange, { threshold: 0.5 });
-
-      for (section of anchorMap.keys()) {
-        observer.observe(section);
-      }
-
-      function getActiveSection(entries) {
-        return entries
-          .filter(entry => entry.intersectionRatio > 0.5)
-          .sort((a,b) => a.intersectionRatio > b.intersectionRatio ? -1 : 1)[0];
-      }
-
-      function handleIntersectionChange(entries) {
-        for (anchor of anchorMap.values()) anchor.classList.remove('is-active');
-        const activeSection = getActiveSection(entries);
-        if (activeSection) anchorMap.get(activeSection.target).classList.add('is-active');
-      }
-    }
-
-    window.onYouTubeIframeAPIReady = onYouTubeReady;
-    window.addEventListener('scroll', initStickyNav(document.querySelector('.pro-nav--upper')));
-
-    // // TESTING ANIMATION
-    // function setupTestingAnimation() {
-    //   const testingStage = document.querySelector('#testing');
-    //   const device1 = document.querySelector('.anim-testing__device--one');
-    //   const device2 = document.querySelector('.anim-testing__device--two');
-    //   const testingTl = new TimelineLite();
+    // const videoPlayer = document.querySelector('.video-player');
+    // const iframeTarget = document.querySelector('.js-video-target');
     //
-    //   TweenLite.set([device1, device2], {
-    //     opacity: 0,
-    //     y: -40
-    //   })
-    //   testingTl.to(device1, 0.1, {
-    //     opacity: 1
-    //   }, 0.4);
-    //   testingTl.to(device1, 0.8, {
-    //     y: 0,
-    //     ease: Expo.easeOut
-    //   }, 0.4);
-    //   testingTl.to(device2, 0.1, {
-    //     opacity: 1,
-    //   }, 0.7);
-    //   testingTl.to(device2, 0.8, {
-    //     y: 0,
-    //     ease: Expo.easeOut
-    //   }, 0.7);
-    //   testingTl.pause();
+    // function onYouTubeReady() {
+    //   videoPlayer.classList.add('is-ready');
+    //   videoPlayer.addEventListener('click', onPlayerClick);
+    // }
     //
-    //   initAnimation(testingStage, testingTl, {
-    //     once: true,
-    //     playWhenInView: true
+    // function onPlayerClick() {
+    //   videoPlayer.classList.add('is-playing');
+    //   new YT.Player(iframeTarget, {
+    //     height: '1164',
+    //     width: '1800',
+    //     videoId: 'ZB5lQTP987s',
+    //     events: {
+    //       'onReady': onPlayerReady
+    //     },
+    //     playerParams: {
+    //       color: 'white',
+    //       enablejsapi: 1,
+    //       modestbranding: 1,
+    //       rel: 0,
+    //       showinfo: 0
+    //     }
     //   });
     // }
-    // setupTestingAnimation();
+    //
+    // function onPlayerReady(e) {
+    //   e.target.playVideo();
+    // }
+    //
+    // window.onYouTubeIframeAPIReady = onYouTubeReady;
 
     // UPDATES ANIMATION
     function setupUpdatesAnimation() {
       const updatesStage = document.querySelector('#updates');
       const foreground = document.querySelector('.anim-updates__foreground');
       const background = document.querySelector('.anim-updates__background');
-      const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#ffffff' ];
-      const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
-      const spacing = 170;
+      const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#f9fafc' ];
+      const backgroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#f9fafc' ];
+      // const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
+      const spacing = 190;
       let foregroundScreens = [];
       let backgroundScreens = [];
       let updatesTl;
@@ -414,8 +409,7 @@
         foreground.appendChild(screen);
         TweenLite.set(screen, {
           backgroundColor: foregroundColors[i],
-          y: -i * spacing + 'px',
-          boxShadow: (i == 0) ? 0 :'24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          y: -i * spacing + 'px'
         });
         foregroundScreens.push(screen);
       }
@@ -427,8 +421,7 @@
         background.insertBefore(screen, background.firstChild);
         TweenLite.set(screen, {
           backgroundColor: backgroundColors[j],
-          y: (j) * spacing + 'px',
-          boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+          y: (j) * spacing + 'px'
         });
         backgroundScreens.push(screen);
       }
@@ -476,8 +469,7 @@
           foreground.appendChild(screen);
           TweenLite.set(screen, {
             backgroundColor: foregroundColors[3],
-            y: -(3) * spacing + 'px',
-            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+            y: -(3) * spacing + 'px'
           });
           foregroundScreens.push(screen);
 
@@ -488,9 +480,8 @@
           screen.className = 'anim-updates__screen new';
           background.appendChild(screen);
           TweenLite.set(screen, {
-            backgroundColor: backgroundColors[3],
-            y: 0,
-            boxShadow: '24px 28px 88px 0 rgba(0, 0, 0, 0.3)'
+            backgroundColor: backgroundColors[0],
+            y: 0
           });
           backgroundScreens.unshift(screen);
         }, 1.2)
@@ -550,7 +541,7 @@
 
       const stepDuration = 0.65;
 
-      TweenLite.set([title1, title2, title3], { opacity: 0.4 });
+      TweenLite.set([title1, title2, title3], { fill: "#99bbff"});
       for (icon of icons) {
         TweenLite.set(icon, {
           opacity: 0,
@@ -579,7 +570,7 @@
         }
       }
 
-      buildTl.to(title1, 0.3, { opacity: 1 }, 0)
+      buildTl.to(title1, 0.3, { fill: "#5d37ff" }, 0)
       buildTl.fromTo( title1, 1.4, {
         scale: 1.1,
         transformOrigin:"center center"
@@ -595,7 +586,7 @@
 
       buildTl.to(title2, 0.1, {
         scale: 1.1,
-        opacity: 1,
+        fill: "#5d37ff",
         transformOrigin:"center center",
       }, 2 * stepDuration)
       buildTl.to(title2, 1.4, {
@@ -610,7 +601,7 @@
 
       buildTl.to(title3, 0.1, {
         scale: 1.1,
-        opacity: 1,
+        fill: "#5d37ff",
         transformOrigin:"center center",
       }, 4 * stepDuration)
       buildTl.to(title3, 1.4, {
@@ -629,183 +620,241 @@
     }
     setupBuildAnimation();
 
-    // REPORTING ANIMATION
-    function setupReportingAnimation () {
-      const reportingStage = document.getElementById('anim-reporting__svg');
-      const svgNS = reportingStage.namespaceURI;
-      const svgBBox = reportingStage.getBBox();
-      const clippingMask = reportingStage.querySelector('.anim-reporting__mask');
-      const clippedGroup = reportingStage.querySelector('.anim-reporting__clipped');
-      const clippedGroupBack = clippedGroup.querySelector('.back');
-      const numCols = 5;
-      const numRows = 4;
-      const screenPadding = 20;
-      const screenBorderRadius = 35;
-      const screenWidth = svgBBox.width / numCols;
-      const screenHeight = screenWidth * 1.75;
-      const yStart = -screenHeight;
-      const yEnd = screenHeight * (numRows - 1);
-      const columnSpeeds = [0.3, 0.5, 0.35, 0.4, 0.25];
-      const columnColors = ['#091e1a', '#0b2620', '#0d2b25', '#0a221d', '#091e1a'];
-      let bugs = [];
-      let screens = [];
-      let scanners = [];
 
-      for (let i = 0; i < numCols; i++) {
-        //set up column background
-        let colBG = document.createElementNS(svgNS,'rect');
-        colBG.setAttribute('x', i * screenWidth);
-        colBG.setAttribute('y', 0);
-        colBG.setAttribute('width', screenWidth);
-        colBG.setAttribute('height', '150%');
-        colBG.setAttribute('fill', columnColors[i]);
-        clippedGroupBack.appendChild(colBG);
-
-        //set up scanner bars
-        if (i != 0 && i != 4 ) {
-          let xPos = i * screenWidth + (screenPadding / 2);
-          let yPos = i * (screenHeight * 0.45);
-          let elHeight = 300;
-
-          let scan = document.createElementNS(svgNS,'rect');
-          scan.setAttribute('x', xPos);
-          scan.setAttribute('y', yPos);
-          scan.setAttribute('width', screenWidth - screenPadding);
-          scan.setAttribute('height', elHeight);
-          scan.setAttribute('fill', "url(#scanGradient)");
-          scan.setAttribute('class', 'anim-reporting__scan');
-          clippedGroup.appendChild(scan);
-
-          let scannerBar = document.createElementNS(svgNS,'rect');
-          scannerBar.setAttribute('x', xPos);
-          scannerBar.setAttribute('y', yPos);
-          scannerBar.setAttribute('width', screenWidth - screenPadding);
-          scannerBar.setAttribute('height', '2px');
-          scannerBar.setAttribute('fill', '#fff');
-          scannerBar.setAttribute('class', 'anim-reporting__scanner-bar');
-          clippedGroup.appendChild(scannerBar);
-
-          scanners.push({
-            col: i,
-            yPos: yPos
-          });
-        }
-
-        // set up screens
-        let yOffset = (i % 2 == 0) ? 0 : -screenHeight/2;
-        for (let j = 0; j < numRows; j++) {
-          let rect = document.createElementNS(svgNS,'rect');
-          let yPos = yStart + (j * screenHeight + (screenPadding / 2)) + yOffset;
-
-          rect.setAttribute('x', i * screenWidth + (screenPadding / 2));
-          rect.setAttribute('y', yPos);
-          rect.setAttribute('width', screenWidth - screenPadding);
-          rect.setAttribute('height', screenHeight - screenPadding);
-          rect.setAttribute('rx', screenBorderRadius);
-          rect.setAttribute('ry', screenBorderRadius);
-
-          clippingMask.appendChild(rect);
-          screens.push({
-            el: rect,
-            yPos: yPos,
-            col: i
-          });
-        }
-      }
-
-      function createBug(col, offset) {
-        let bug = document.createElementNS(svgNS,'circle');
-        let xMin = (screenWidth * col) + 60;
-        let xMax = (screenWidth * col) + screenWidth - 60;
-        let xPos = getRandomInt(xMin, xMax)
-        let radius = 3;
-        let origin = -50;
-        let yPos = origin;
-        if (offset) {
-          yPos += offset;
-          bug.style.transform = `translateY(${ yPos }px)`;
-        }
-        bug.setAttribute('cx', xPos);
-        bug.setAttribute('cy', origin);
-        bug.setAttribute('r', radius);
-        bug.setAttribute('class', 'anim-reporting__bug');
-        clippedGroupBack.appendChild(bug);
-
-        bugs.push({
-          el: bug,
-          yPos: yPos,
-          xPos: xPos,
-          col: col,
-          origin: origin,
-          scannerPos: scanners.find(function(o) {
-            return o.col === col;
-          }).yPos
-        })
-      }
-
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-
-      // set up a few intial bugs that are in view
-      createBug(1, 150);
-      createBug(2, 310);
-
-      //animation loop
-      let tick = 0;
-      let reportingCtx = rafContext(() => {
-
-        // generate bug
-        if (tick % 250 == 0) {
-          let randCol = getRandomInt(1, 3);
-          createBug(randCol, -50);
-        }
-
-        //animate screens
-        for (let i = 0; i < screens.length; i++) {
-          let screen = screens[i];
-          let yLocation = screen.yPos + columnSpeeds[screen.col];
-          if (yLocation >= yEnd) {
-            yLocation = yStart;
+    // AUTOMATE ANIMATION
+    function setupAutomateAnimation() {
+      const tileConfig = {
+        master: {
+          location: 'one',
+          color: {
+            top: '#22216A',
+            bottom: '#5C59EE'
           }
-          TweenLite.set(screen.el, {
-            attr: { y: yLocation }
-          });
-          // screen.el.style.transform = `translateY(${ yLocation }px)`;
-          screen.yPos = yLocation;
-        }
-
-        // animate bugs
-        for (let k = 0; k < bugs.length; k++) {
-          let bug = bugs[k];
-          bug.yPos += columnSpeeds[bug.col];
-
-          // test it bug has crossed scanner line
-          // remove bug if true
-          if (bug.yPos + bug.origin - 1.5 >= bug.scannerPos) {
-            TweenLite.set(bug.el, {
-              y : bug.yPos,
-              transformOrigin: 'center center'
-            })
-            TweenLite.to(bug.el, 0.8, {
-              opacity: 0,
-              scale: 8,
-              onComplete: function() {
-                bug.el.remove();
-              }
-            });
-            bugs.splice(k, 1);
-          } else {
-            bug.el.style.transform = `translateY(${ bug.yPos }px)`;
+        },
+        staging: {
+          location: 'one',
+          color: {
+            top: '#6D0D3D',
+            bottom: '#F24199'
+          }
+        },
+        qa: {
+          location: 'one',
+          color: {
+            top: '#023C47',
+            bottom: '#00BCDF'
+          }
+        },
+        android: {
+          location: 'twoB',
+          color: {
+            top: '#0F5134',
+            bottom: '#7EC951'
+          }
+        },
+        ios: {
+          location: 'twoA',
+          color: {
+            top: '#484F5E',
+            bottom: '#A9AEB7'
+          }
+        },
+        web: {
+          location: 'twoB',
+          color: {
+            top: '#5F5200',
+            bottom: '#F6D500'
+          }
+        },
+        playstore: {
+          location: 'threeC',
+          color: {
+            top: '#1D5169',
+            bottom: '#00F9FF'
+          }
+        },
+        testflight: {
+          location: 'threeA',
+          color: {
+            top: '#183F74',
+            bottom: '#1AC1FA'
+          }
+        },
+        webhook: {
+          location: 'threeB',
+          color: {
+            top: '#4E0057',
+            bottom: '#C600DC'
           }
         }
+      };
 
-        tick++;
-      })
+      const automateStage = document.querySelector('.anim-automate');
+      const topTiles = automateStage.querySelector('#top');
+      const bottomTiles = automateStage.querySelector('#bottom');
 
-      initAnimation(reportingStage, reportingCtx);
+      function animateTileIn(name){
+        var tile = tileConfig[name];
+        var elTop = topTiles.querySelector('.' + tile.location);
+        var elBottom = bottomTiles.querySelector('.' + tile.location);
+        var uiEl = automateStage.querySelector('.' + name);
+
+        TweenLite.to(elTop, 0.2, {
+          fill: tile.color.top
+        });
+
+        TweenLite.set(elBottom, {
+          fill: tile.color.bottom,
+          alpha: 1
+        });
+        TweenLite.to(elBottom, 1.4, {
+          // alpha: 0,
+          scale: 1.07,
+          transformOrigin:"center center",
+          ease: Expo.easeOut
+        });
+
+        TweenLite.set(uiEl, {
+          alpha: 0,
+          y: '-40%',
+          transformOrigin:"center center",
+        });
+
+        TweenLite.to(uiEl, 0.6, {
+          alpha: 1,
+          y: '-50%',
+          ease: Expo.easeOut
+        });
+      }
+
+      function animateTileOut(name, _delay){
+        var tile = tileConfig[name];
+        var elTop = topTiles.querySelector('.' + tile.location);
+        var elBottom = bottomTiles.querySelector('.' + tile.location);
+        var uiEl = automateStage.querySelector('.' + name);
+        var delay = _delay || 0;
+        var defaultColor = tile.location === 'one' ? '#DDE6F7' : '#F5F7FD';
+
+        TweenLite.to(elBottom, 0.3, {
+          alpha: 0,
+          scale: 1
+        });
+        TweenLite.to(elTop, 0.2, {
+          fill: defaultColor,
+          delay: delay
+        });
+
+        TweenLite.to(uiEl, 0.3, {
+          alpha: 0,
+          y: '-40%',
+          delay: delay
+        });
+      }
+
+      function animateConnector(name, direction){
+        var tile = tileConfig[name];
+        var el = automateStage.querySelector('#' + tile.location + '_' + direction);
+
+        TweenLite.set(el, {
+          stroke: tile.color.top,
+          alpha: 1,
+          'stroke-dashoffset': '240px'
+        });
+        TweenLite.to(el, 0.8, {
+          'stroke-dashoffset': '100px',
+          delay: 0.3
+        });
+      }
+
+      const automateTl = new TimelineLite({
+        onComplete: function(){
+          automateTl.restart();
+        }
+      });
+      TweenLite.defaultEase = Linear.easeNone;
+      automateTl.pause();
+
+      const sequence1 = new TimelineLite();
+      sequence1
+      .add(function(){
+        animateTileIn('staging');
+        animateConnector('staging', 'L')
+        }, 1)
+      .add(function(){
+        animateTileIn('ios');
+        animateConnector('ios', 'L')
+        animateConnector('ios', 'R')
+        }, 1.5)
+      .add(function(){
+        animateTileIn('testflight')
+        animateTileIn('webhook');
+        }, 2)
+      .add(function(){
+        animateTileOut('staging');
+        animateTileOut('ios', 0.15);
+        animateTileOut('testflight', 0.3);
+        animateTileOut('webhook', 0.3);
+      }, 6);
+
+      automateTl.add(sequence1, 0);
+
+
+      const sequence2 = new TimelineLite();
+      sequence2
+      .add(function(){
+        animateTileIn('qa');
+        animateConnector('qa', 'R')
+        }, 1)
+      .add(function(){
+        animateTileIn('web');
+        animateConnector('web', 'L')
+        }, 1.5)
+      .add(function(){
+        animateTileIn('webhook');
+        }, 2)
+      .add(function(){
+        animateTileOut('qa');
+        animateTileOut('web', 0.15);
+        animateTileOut('webhook', 0.3);
+      }, 6);
+
+      automateTl.add(sequence2, 6);
+
+
+      const sequence3 = new TimelineLite()
+      .add(function(){
+        animateTileIn('master');
+        animateConnector('master', 'R')
+        }, 1)
+      .add(function(){
+        animateTileIn('android');
+        animateConnector('android', 'R')
+        animateConnector('android', 'L')
+        }, 1.5)
+      .add(function(){
+        animateTileIn('playstore');
+        animateTileIn('webhook');
+        }, 2)
+      .add(function(){
+        animateTileOut('master');
+        animateTileOut('android', 0.15);
+        animateTileOut('playstore', 0.3);
+        animateTileOut('webhook', 0.3);
+      }, 6);
+
+      automateTl.add(sequence3, 12);
+
+
+
+      initAnimation(automateStage, automateTl, {
+        once: false,
+        playWhenInView: true
+      });
+
     }
-    setupReportingAnimation();
+
+    setupAutomateAnimation();
+
   })();
 </script>
 

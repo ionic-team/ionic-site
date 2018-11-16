@@ -54,7 +54,7 @@ Package automations create native builds which can be downloaded and run on devi
 
 Web automations build the javascript portion of an application and interface with the [Deploy](/docs/pro/deploy) service to enable live app updates.
 
-<img src="/img/pro/ss-automation-create-package.png" class="browser" />
+<img src="/img/pro/ss-automation-create-web.png" class="browser" />
 
 #### Fields
 

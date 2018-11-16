@@ -39,10 +39,14 @@ If you have a Teams or Business plan, please [contact us](https://ionic.zendesk.
 
 ## Deploy Builds
 
-A deploy build is a build of your application that includes only the web assets (JavaScript, HTML, fonts, and images) which
-can be shipped out to customer via [Deploy](/docs/pro/deploy/). Deploy builds are currently automatically triggered when
-you push code to the Ionic Pro Remote or any branch that is connected to your app via the GitHub or Bitbucket integration.
-The basic steps of the deploy build are as follows:
+<div class="alert alert-warning" role="alert">Recently, the builds service moved to using manual build triggers. If you were previously using automatically 
+generated builds they have been preserved with an automation that can be seeing in the <strong>Settings</strong> tab for a channel.</div>
+
+A deploy build is a build of your application that includes only the web assets (JavaScript, HTML, fonts, and images) 
+which can be shipped out to customer via [Deploy](/docs/pro/deploy/). Deploy builds can be created from the Ionic 
+Dashboard, the **Builds** section under **Deploy** in the sidebar.
+
+A deploy build will do the following:
 
 * `npm install` will run to install any dependencies you have.
 * `npm run build` will run if a `build` script is detected in the `scripts` section of your `package.json` in order to build the web assets for your application.

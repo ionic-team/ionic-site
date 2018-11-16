@@ -1,0 +1,518 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+
+#page-products-enterprise-core {
+  .sub-header .btn {
+    color: #1A232F;
+    background-color: #FF9982;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &:hover {
+      background-color: lighten(#FF9982, 8%);
+    }
+  }
+
+  h3,
+  h2,
+  p.large {
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-weight: 400;
+
+    &:not(.large) {
+      font-family: $font-family-graphik;
+    }
+  }
+
+  main ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .top {
+    margin-top: -140px;
+    padding-top: 260px;
+    padding-bottom: 180px;
+    background: #182434;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+      content: '';
+      display: block;
+      background-image: url('/img/products/enterprise-core/enterprise-core-hero-bg.png');
+      background-repeat: no-repeat;
+      background-size: 1096px 760px;
+      width: 1096px;
+      height: 760px;
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      margin-right: -820px;
+      z-index: 1;
+    }
+
+    hgroup {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 624px;
+
+      h4 {
+        line-height: 25px;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #CED6E0;
+        font-family: $font-family-monospace;
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -0.03em;
+      }
+
+      p {
+        line-height: 39px;
+        font-size: 22px;
+        color: #CED6E0;
+      }
+    }
+  }
+
+  main {
+    section {
+      padding-top: 200px;
+      padding-bottom: 200px;
+
+      &:first-child {
+        padding-bottom: 50px;
+      }
+
+      &.offwhite {
+        background-color: #F6F8FB;
+      }
+    }
+
+    .container + .container {
+      margin-top: 260px;
+    }
+
+    hgroup {
+      margin-bottom: 100px;
+    }
+
+    .measure {
+      max-width: 600px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    h3 {
+      color: #FF9982;
+      font-size: 32px;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      color: #020814;
+      font-size: 36px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    p.large {
+      line-height: 39px;
+      font-size: 22px;
+      color: #5B708B;
+
+      em {
+        font-style: normal;
+        color: #2F3A48;
+      }
+    }
+  }
+
+  .feature-table {
+    tr td {
+      border-top: 2px solid #F2F5FA;
+    }
+
+    tr:first-child td {
+      border-top: 0;
+    }
+
+    tr td:nth-child(1) {
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: flex;
+
+      svg {
+        margin-right: 16px
+      }
+    }
+
+    tr td:nth-child(2) {
+      font-size: 18px;
+      color: #5B708B;
+    }
+
+    tr td:nth-child(3) {
+      color: #5B708B;
+    }
+
+    tr td {
+      padding: 32px 48px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .checkmark-list {
+    margin-bottom: -26px;
+
+    li {
+      position: relative;
+      display: flex;
+    }
+
+    li:before {
+      position: relative;
+      display: block;
+      content: '';
+
+    }
+
+    & > li {
+      margin-bottom: 26px;
+    }
+
+    & > li:before {
+      background-image: url('/img/checkmark-salmon.svg');
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      flex: 0 0 20px;
+      margin-right: 16px;
+    }
+
+    li ul {
+      margin-top: 20px;
+    }
+
+    li ul > li {
+      line-height: 17px;
+      font-size: 12px;
+      position: relative;
+
+      &:before {
+        background-image: url('/img/checkmark.svg');
+        background-size: 10px 8px;
+        height: 8px;
+        width: 10px;
+        flex: 0 0 10px;
+        top: 2px;
+        margin-right: 8px;
+      }
+
+      & + li {
+        margin-top: 14px;
+      }
+    }
+
+    &.large {
+      line-height: 33px;
+      font-size: 20px;
+      color: #5B708B;
+    }
+
+    &.large li:before{
+      top: 4px;
+    }
+
+    &--large li:before {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      background-size: 24px 24px;
+      margin-right: 20px;
+    }
+
+    &.two-col {
+      display: flex;
+      flex-wrap: wrap;
+
+      margin-left: -30px;
+      margin-right: -30px;
+
+       li {
+         flex: 0 0 50%;
+         padding-left: 30px;
+         padding-right: 30px;
+       }
+    }
+
+    hgroup {
+      margin: 0 0 16px;
+
+      h5 {
+        margin: 0;
+        font-weight: 600;
+        line-height: 20px;
+        font-size: 16px;
+        color: #3C536F;
+      }
+
+      p {
+        line-height: 23px;
+        font-size: 14px;
+        color: #92A1B3;
+      }
+    }
+  }
+
+  .two-col {
+    display: flex;
+
+    & > div {
+      flex: 0 0 50%;
+    }
+
+    .feature-list {
+      flex: 0 0 55%;
+      padding-right: 50px;
+    }
+
+    .checkmark-list {
+      flex: 0 0 45%;
+      padding-left: 50px;
+    }
+  }
+
+  .feature-list {
+    li {
+      display: flex;
+    }
+
+    svg {
+      flex: 0 0 48px;
+      margin-right: 36px;
+    }
+
+    hgroup {
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    p {
+      margin: 0 0 6px;
+      line-height: 32px;
+      font-size: 18px;
+      color: #5B708B;
+    }
+
+    li + li {
+      margin-top: 68px;
+    }
+  }
+
+  .feature-list--small {
+    li {
+      flex-direction: column;
+    }
+
+    svg {
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      font-size: 20px;
+      color: #020814;
+    }
+
+    p {
+      line-height: 26px;
+      font-size: 16px;
+      color: #5B708B;
+    }
+  }
+
+  .three-col {
+    display: flex;
+
+    li {
+      flex: 0 0 33%;
+      margin: 0;
+      padding: 0 32px;
+    }
+
+    li + li {
+      margin-top: 0;
+    }
+
+    li:first-child {
+      padding-left: 0;
+    }
+    li:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .integrations {
+    position: relative;
+  }
+
+  .integrations__identity-vault,
+  .integrations__aws-amplify,
+  .integrations__couchbase,
+  .integrations__active-directory {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+    color: #5B708B;
+
+    i {
+      border-radius: 999px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1), 0px 8px 16px rgba(2, 8, 20, 0.08);
+      background-color: #fff;
+      margin-bottom: 14px;
+    }
+
+    i::before {
+      content: '';
+      display: block;
+      background-image: url('/img/products/enterprise-core/enterprise-core-integrations-sprite.png');
+      background-repeat: no-repeat;
+      background-size: 112px 294px;
+      background-position: center center;
+    }
+  }
+
+  .integrations__identity-vault {
+    top: 0;
+    left: 242px;
+
+    i {
+      width: 124px;
+      height: 124px;
+    }
+    i::before {
+      width: 56px;
+      height: 56px;
+      background-position: 0 -151px;
+    }
+  }
+
+  .integrations__aws-amplify {
+    top: 172px;
+    left: 0;
+
+     i {
+       width: 192px;
+       height: 192px;
+     }
+    i::before {
+      width: 112px;
+    	height: 84px;
+      background-position: 0 0;
+    }
+  }
+
+  .integrations__couchbase {
+    top: 290px;
+    left: 354px;
+
+    i {
+      width: 124px;
+      height: 124px;
+    }
+    i::before {
+      width: 64px;
+      height: 65px;
+      background-position: 0 -85px;
+    }
+  }
+
+  .integrations__active-directory {
+    top: 500px;
+    left: 172px;
+
+    i {
+      width: 160px;
+      height: 160px;
+    }
+    i::before {
+      width: 83px;
+      height: 84px;
+      background-position: 0 -210px;
+    }
+  }
+
+  .call-to-action {
+    padding-top: 140px;
+
+    .container {
+      max-width: 748px;
+    }
+
+    hgroup {
+      margin: 0;
+      padding: 0;
+
+      p {
+        font-weight: 400;
+        font-size: 28px;
+        text-align: center;
+        color: #5B708B;
+      }
+
+      strong {
+        color: #2F3A48;
+        font-weight: 600;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 24px;
+        color: #FF9982;
+        margin: 60px 0;
+      }
+    }
+  }
+}

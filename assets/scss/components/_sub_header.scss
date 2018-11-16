@@ -48,17 +48,21 @@
       padding: 18px 15px;
     }
 
-    a {
+    li:last-child {
+      padding-right: 0;
+    }
+
+    a:not(.btn) {
       transition: color 0.3s;
       color: rgba(255, 255, 255, 0.6);
       padding: 0 0 4px;
     }
 
-    a:not(.active):hover {
+    a:not(.btn):not(.active):hover {
       color: rgba(255, 255, 255, 1);
     }
 
-    a.active {
+    a:not(.btn).active {
       color: rgba(255, 255, 255, 1);
       border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }

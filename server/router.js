@@ -86,6 +86,11 @@ module.exports = function router(app) {
   // .get('/pro/pricing/table', (_, res) => { res.render('pro/pricing/table'); })
   // .get('/pricing/trial', (_, res) => { res.render('pricing/trial'); })
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
+
+  .get('/appflow', (_, res) => res.render('products/appflow'))
+  .get('/studio', (_, res) => res.render('products/studio'))
+  .get('/enterprise-core', (_, res) => res.render('products/enterprise-core'))
+
   .get('/pro', (_, res) => res.render('pro/index'))
   .get('/pro/contact', (_, res) => res.render('pro/contact'))
   .get('/pro/creator', (_, res) => res.render('pro/creator/index'))

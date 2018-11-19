@@ -4,7 +4,7 @@
 #page-products-studio {
   .top {
     margin-top: -148px;
-    padding-top: 180px;
+    padding-top: 235px;
     text-align: center;
     background: linear-gradient(180deg, #121417 0%, #06090D 100%);
 
@@ -27,16 +27,23 @@
 
     h1 {
       font-size: 56px;
+      margin-top: 41px;
+      margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
 
-    hgroup p {
-      line-height: 39px;
-      font-size: 22px;
-      font-weight: 400;
+    hgroup {
+      max-width: 800px;
 
-      strong {
-        font-weight: 600;
+      p {
+        line-height: 39px;
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 36px;
+  
+        strong {
+          font-weight: 600;
+        }
       }
     }
 
@@ -47,6 +54,16 @@
 
     section li {
       padding-top: 20px;
+    }
+  }
+
+  .btns .btn {
+    padding: 16px 24px 14px;
+    font-size: 15px;
+    margin-right: 6px;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 

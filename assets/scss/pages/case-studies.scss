@@ -15,7 +15,7 @@
   }
 
   hgroup {
-    margin-top: 43px;
+    margin-top: 24px;
     margin-bottom: 53px;
 
     @media (max-width: $screen-xs-max) {
@@ -32,6 +32,7 @@
 
     h1 {
       font-size: 46px;
+      margin-top: 16px;
     }
 
     p {
@@ -45,7 +46,7 @@
     }
 
     img {
-      margin: 58px auto;
+      margin: 24px auto;
       max-width: 100%;
     }
   }

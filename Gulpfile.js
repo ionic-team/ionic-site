@@ -182,7 +182,7 @@ gulp.task('jekyll-build', [], function(done) {
     {stdio: 'inherit'})
   .on('close', function() {
     done();
-  }).on('error', function(err) {throw err; });
+  }).on('error', function(err) { throw err; });
 });
 
 gulp.task('jekyll-build.clean', [], function(done) {
@@ -243,9 +243,9 @@ gulp.task('server:js', ['js'], bustCacheAndReload);
 gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], 
+  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', 
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
     '!assets/scss/**/_*.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
@@ -257,13 +257,13 @@ gulp.task('watch.max', ['server'], function() {
 gulp.task('watch', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], 
+  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', 
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
     '!assets/scss/**/_*.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
-  gulp.watch(['content/_layouts/*/*','content/_includes/**/*', 
+  gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
     'content/img/**/*', 'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
 });
 

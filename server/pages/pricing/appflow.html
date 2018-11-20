@@ -14,7 +14,16 @@
           <div class="plan-content">
             <div class="plan-header">
               <h3>Starter</h3>
-              <div class="price"><strong>$0</strong>/mo</div>
+              <div class="price">
+                <strong>
+                  <span data="starter-cost">
+                    $0
+                  </span>
+                </strong>
+                <span data="term-type">
+                  /mo
+                </span>
+              </div>
               <div class="type">For individuals just getting started</div>
             </div>
             <div class="plan-body">
@@ -25,7 +34,8 @@
                 <li>Ionic DevApp</li>
                 <li>Live app deploys (100 MLU)</li>
               </ul>
-              <div class="addon">
+
+              <label class="addon">
                 <div class="addon-header">
                   <div class="checkbox-group">
                     <input type="checkbox" name="addon" value=""> Add-on
@@ -37,15 +47,16 @@
                   <li>Cloud native builds</li>
                   <li>Live app deploys (10K MLU)</li>
                 </ul>
-              </div>
+              </label>
+
             </div>
           </div>
           <div class="plan-cta">
-            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-              class="plan-btn addon-cta-toggle addon-cta-toggle--active" id="btn-pricing-starter">Get started free</a>
+            <a href="https://dashboard.ionicframework.com/account-setup?source=framework-{{id}}"
+              class="plan-btn addon-cta-toggle addon-cta-toggle--active addon-cta-toggle--starter" id="btn-pricing-starter">Get started free</a>
 
-            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=developer"
-               class="plan-btn addon-cta-toggle" id="btn-pricing-developer">Get started</a>
+            <a href="https://dashboard.ionicframework.com/account-setup?source=framework-{{id}}&plan=developer"
+               class="plan-btn addon-cta-toggle addon-cta-toggle--addon" id="btn-pricing-developer">Get started</a>
           </div>
         </div>
 
@@ -56,7 +67,16 @@
             </div>
             <div class="plan-header">
               <h3>Growth</h3>
-              <div class="price"><strong>$120</strong>/mo</div>
+              <div class="price">
+                <strong>
+                  <span data="growth-cost">
+                    $120
+                  </span>
+                </strong>
+                <span data="term-type">
+                  /mo
+                </span>
+              </div>
               <div class="type">For growing teams creating what’s next</div>
             </div>
             <div class="plan-body">
@@ -70,7 +90,7 @@
             </div>
           </div>
           <div class="plan-cta">
-            <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
+            <a href="https://dashboard.ionicframework.com/account-setup?source=framework-{{id}}&plan=teams"
               class="plan-btn plan-btn--primary" id="btn-pricing-starter">Get started</a>
           </div>
         </div>
@@ -105,6 +125,16 @@
     </div>
   </div>
 
+  <div class="container logos">
+    <div class="logo--ge"></div>
+    <div class="logo--verizon"></div>
+    <div class="logo--comcast"></div>
+    <div class="logo--panera"></div>
+    <div class="logo--mastercard"></div>
+    <div class="logo--usaa"></div>
+    <div class="logo--amtrak"></div>
+  </div>
+
   <div class="container container-wide comparison">
     <h3 class="text-center">Choose a plan that's right for you</h3>
     <div class="box">
@@ -115,32 +145,38 @@
               <td>
                 <h2>Features</h2>
               </td>
-              <th class="starter">
-                <h3>Starter</h3>
-                <div class="price"><strong>$0</strong>/mo</div>
-                <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-                  class="btn micro" id="btn-pricing-starter">Choose plan</a>
+              <th>
+                <div class="plan-wrap">
+                  <h2>Starter</h2>
+                  <div class="price"><strong>$0</strong>/mo</div>
+                  <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+                    class="btn micro" id="btn-pricing-starter">Choose plan</a>
+                </div>
               </th>
-              <th class="team">
-                <h3>Growth</h3>
-                <div class="price" data-toggle="billing-team"><strong>$120</strong>/mo</div>
-                <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
-                  class="btn micro" id="btn-pricing-team">Choose plan</a>
+              <th>
+                <div class="plan-wrap">
+                  <h2>Growth</h2>
+                  <div class="price" data-toggle="billing-team"><strong>$120</strong>/mo</div>
+                  <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
+                    class="btn micro btn--primary" id="btn-pricing-team">Choose plan</a>
+                </div>
               </th>
-              <th class="business">
-                <h3>Scale</h3>
-                <div class="price"><strong>Custom</strong></div>
-                <a href="#"
-                  class="btn micro"
-                  data-toggle="modal"
-                  data-target="#contactForm">Contact us</a>
+              <th>
+                <div class="plan-wrap">
+                  <h2>Scale</h2>
+                  <div class="price"><strong>Custom</strong></div>
+                  <a href="#"
+                    class="btn micro btn--dark"
+                    data-toggle="modal"
+                    data-target="#contactForm">Contact us</a>
+                </div>
               </th>
             </tr>
           </thead>
           <tbody>
 
             <tr>
-              <th colspan="5"><span>Developer tools</span></th>
+              <th colspan="4"><span>Developer tools</span></th>
             </tr>
             <tr class="stripe">
               <th>
@@ -169,13 +205,13 @@
 
 
             <tr>
-              <th colspan="5"><span>DevOps Services</span></th>
+              <th colspan="4"><span>DevOps Services</span></th>
             </tr>
             <tr class="stripe">
               <th>
                 Native App Builds
               </th>
-              <td><span class="pill">Add-on available</span></td>
+              <td><span class="pill pill--blue">Add-on available</span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
             </tr>
@@ -191,8 +227,8 @@
               <th>
                 Live App Updates
               </th>
-              <td>100/mo<span class="pill">Add-on available</span></td>
-              <td>25,000/mo</td>
+              <td>100 / mo<span class="pill pill--blue">Add-on available</span></td>
+              <td>25,000 / mo</td>
               <td>Custom MLU volume</td>
             </tr>
             <tr>
@@ -213,10 +249,11 @@
             </tr>
 
             <tr>
-              <th colspan="5">
+              <th colspan="4">
                 Connected Services
               </th>
             </tr>
+
             <tr class="small">
               <th>
                 GitHub, BitBucket
@@ -244,7 +281,7 @@
 
 
             <tr>
-              <th colspan="5"><span>Security &amp; Collaboration</span></th>
+              <th colspan="4"><span>Security &amp; Collaboration</span></th>
             </tr>
             <tr class="stripe">
               <th>
@@ -271,9 +308,8 @@
               <td><span class="check"></span></td>
             </tr>
 
-
             <tr>
-              <th colspan="5"><span>Support &amp; Services</span></th>
+              <th colspan="4"><span>Support &amp; Services</span></th>
             </tr>
             <tr class="stripe">
               <th>
@@ -319,9 +355,11 @@
                 <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&plan=team"
                   class="btn sm" id="btn-pricing-team">Choose Plan</a>
               </td>
-              <td><a class="btn sm"
+              <td>
+                <a class="btn sm dark"
                     data-toggle="modal"
-                    data-target="#contactForm">Contact Us</a></td>
+                    data-target="#contactForm">Contact Us</a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -334,103 +372,77 @@
 
 <div class="also">
   <div class="container">
-    <h3 class="text-center">Every Pro plan comes with</h3>
-    <ul class="items">
-      <li class="item framework">
-        <h4>Ionic Framework</h4>
+    <h3>Every plan comes with...</h3>
+    <ul>
+      <li>
+        <h4>Ionic Framework <span class="pill">OSS</span></h4>
         <p>
           The forever-free, open source Ionic Framework and UI Kit for building beautiful cross-platform apps for mobile, web, and desktop alike.
         </p>
       </li>
-      <li class="item unlimited">
+      <li>
         <h4>Unlimited apps</h4>
         <p>
-          Build as many Ionic apps as your heart desires. We’ll store them in the Pro Dashboard for easy access to sharing, live testing, and more.
+          Build as many Ionic apps as your heart desires. We’ll store them in your Ionic app Dashboard for easy access to sharing, live testing, and more.
         </p>
       </li>
-      <li class="item templates">
+      <li>
         <h4>Ionic DevApp</h4>
         <p>
-          Start with one of our pre-made, ready-to-go starter templates to hit the ground running each time you start a new project.
+          Skip dealing with frustrating Native SDK installation issues, just open the DevApp, connect to the same network, and it will automatically load and run your app.
         </p>
       </li>
-      <li class="item dashboard">
-        <h4>Pro dashboard</h4>
+      <li>
+        <h4>App Dashboard</h4>
         <p>
-          A unified Dashboard to house and organize all your Ionic apps, accessible in one place. Track activity and builds from anywhere.
+          Get access to a unified Dashboard to house and organize all your Ionic apps, accessible in one place. Track activity and builds from anywhere.
         </p>
       </li>
-      <li class="item git">
+      <li>
         <h4>Git-based workflow</h4>
         <p>
-          Starting and deploying apps is as simple as <code>git push ionic</code> and we handle the rest. Connect to your favorite git host.
+          With Ionic’s developer platform, starting and deploying apps is as simple as <code>git push ionic</code> and we handle the rest. Connect to your favorite git host.
         </p>
       </li>
-      <li class="item forum">
+      <li>
         <h4>Access to Forum</h4>
         <p>
-          All Ionic accounts unlock access to post and comment on the Ionic Forum, the single most active community hub for Ionic developers.
-        </p>
-      </li>
-      <li class="item market">
-        <h4>Access to Market</h4>
-        <p>
-          Having an Ionic account allows you to buy, sell, and rate Ionic Market starter apps, templates, and themes.
-        </p>
-      </li>
-      <li class="item lab">
-        <h4>Ionic Lab</h4>
-        <p>
-          Open up and preview your app directly in the browser with Ionic Lab. Preview your app across multiple platform design modes.
+          Having an Ionic account unlocks access to post and comment on the Ionic Forum, the single most active community hub for Ionic developers.
         </p>
       </li>
     </ul>
   </div>
 </div>
 
-<div class="faq container">
-  <h3 class="text-center">Have a Question?</h3>
-  <ul class="items left">
-    <li class="item">
-      <h4>What is a live deploy?</h4>
-      <p>
-        Using the Ionic Deploy service allows you to push hot code updates
-        directly to your users’ devices, all from the Ionic Pro dashboard,
-        without having to go through the App Stores. A single Live Deploy is one
-        code update to one device. If you send one update to 200 devices, that
-        counts as 200 Live Deploys. If you send two updates to 200 devices, that
-        counts as 400 Live Deploys. The Deploy limits associated with each plan
-        are monthly. Your quota will refresh at the beginning of each calendar
-        month. If you exceed your quota for a given month, you will have to
-        upgrade to a higher plan, or wait until the next calendar month to send
-        more updates. If you need more than 50,000 Live Deploys (our highest
-        self-service plan limit associated with the Business tier), contact our
-        <a href="/sales">sales team</a> for an Enterprise plan that will scale
-        to meet your needs. <a target="_blank"
-        href="https://ionic.zendesk.com/hc/en-us/articles/360001657093">Learn
-        more about Deploy Support.</a>
-      </p>
-    </li>
-    <li class="item">
-      <h4>What is error monitoring?</h4>
-      <p>
-        Ionic Monitor provides error catching and stack trace capabilities so you can identify errors and pinpoint the portions of your code that require updates. The Kickstarter plan offers limited error monitoring with 100 events per month included for free. Starting with the Developer plan, we offer advanced error monitoring with unlimited event tracking.
-      </p>
-    </li>
+<div class="faq">
+  <div class="container">
+    <h3>Have a Question?</h3>
+    <div class="items">
 
-  </ul>
-  <ul class="items right">
-    <li class="item">
-      <h4>What is a channel?</h4>
-      <p>
-        A Channel points to a specific build of your app that will be shared with specific testers and users. You can change which build a Channel points to whenever you'd like, and can rollback changes as well. Channels are used for Ionic Deploy. See below for more detail.
-      </p>
-    </li>
-    <li class="item">
-      <h4>How do Channels work with Deploy?</h4>
-      <p>
-        When using Deploy to push live updates to your users’ devices, you first select the associated Channel and build version. Developer plans are restricted to a single channel for live updating with Deploy. Starting with the Business plan, you can set up multiple channels and use the Deploy service to push live updates of different versions to each channel.
-      </p>
-    </li>
-  </ul>
+      <ul class="left">
+        <li class="item">
+          <h4>What does MLU stand for?</h4>
+          <p>Using the Ionic Deploy service allows you to push hot code updates directly to your users’ devices, all from the Ionic App Dashboard, without having to go through the App Stores.</p>
+          <p>A single Live Update is one code update to one device. If you send one update to 200 devices, that counts as 200 Live Updates. If you send two updates to 200 devices, that counts as 400 Live Updates.</p>
+          <p>The number of Live Updates that come with each plan is referred to as Monthly Live Updates, or MLUs. Your MLU quota will refresh at the beginning of each calendar month. If you exceed your quota for a given month, you will have to upgrade to a higher plan, or wait until the next calendar month to send more updates. If you need more than 25,000 MLUs (our highest self-service plan limit associated with the Startup tier), contact our sales team for an Enterprise plan that will scale to meet your needs. Learn more about Deploy Support.</p>
+        </li>
+        <li class="item">
+          <h4>Do I have to create an Ionic account to use the Framework?</h4>
+          <p>No! Ionic Framework is totally open source and free to download and install without an Ionic account. We invite all Ionic developers to create an account so they can take advantage of free developer tools to help you build better apps and go faster, with tools such as DevApp, Deploy, connected services, and a single App Dashboard to manage all of your projects. But if you just want to download the Framework and start building, freel free!</p>
+        </li>
+      </ul>
+
+      <ul class="right">
+        <li class="item">
+          <h4>What’s included in the Live Onboarding?</h4>
+          <p>For new Pipeline customers on the Scale plan, your dedicated Customer Success Manager will give you a live, guided tour of the App Dashboard and key features such as Deploy, Package, and Automation. They’ll discuss your goals and set you on the path to getting the most out of Pipeline and the rest of the Ionic Development Platform.</p>
+        </li>
+        <li class="item">
+          <h4>What do Concurrency Limits refer to?</h4>
+          <p>Concurrency Limits refers to the number of app builds that can occur at the same time. Once you have hit your limit, additional builds will be queued until the existing builds in process are completed. When you upgrade to the Scale plan, you’ll be able to set a customized concurrency limit that matches your team’s needs.</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </div>

@@ -3,6 +3,7 @@
 
 #page-pricing {
   font-family: $font-family-eina;
+  padding-top: 0;
 
   .navbar {
     position: relative;
@@ -40,7 +41,7 @@
     }
 
     p {
-      line-height: 39px;
+      line-height: 32px;
       font-size: 22px;
       color: #5B708B;
       font-weight: 400;
@@ -69,14 +70,31 @@
     }
   }
 
+  @media (max-width: $screen-xs-max) {
+    .rounded-tabs__tab--active {
+      border-bottom-color: rgba(#2E4C73, 0.6);
+    }
+  }
+
   .section-header {
     font-size: 28px;
+    line-height: 38px;
     text-align: center;
     letter-spacing: -0.01em;
     font-weight: 400;
     color: #5B708B;
     text-align: center;
     margin: 74px 0 74px;
+
+    @media (max-width: $screen-sm) {
+      margin: 60px auto 60px;
+      max-width: 500px;
+    }
+  }
+
+  .container {
+    max-width: 1110px;
+    width: 100% !important;
   }
 
   main {
@@ -126,11 +144,6 @@
         color: #639CFF;
       }
     }
-
-    .container {
-      max-width: 1170px;
-      width: 100% !important;
-    }
   }
 
   .plans {
@@ -139,10 +152,31 @@
     .plan + .plan {
       margin-left: 26px;
     }
+
+    @media (max-width: $screen-lg) {
+      .plan + .plan {
+        margin-left: 14px;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+      align-items: center;
+
+      .plan {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .plan + .plan {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
   }
 
   .plan {
-    flex: 0 0 33%;
+    flex: 1;
     border-radius: 12px;
     background: white;
     box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.1);
@@ -158,6 +192,10 @@
 
     &:not(.plan--emphasize) {
       margin: 20px 0;
+
+      @media (max-width: $screen-sm) {
+        margin: 0;
+      }
     }
 
     .plan-header,
@@ -186,6 +224,12 @@
         font-size: 48px;
         color: #020814;
         font-weight: 400;
+        margin-right: -4px;
+      }
+
+      .price strong,
+      .price span {
+        display: inline-block;
       }
 
       .type {
@@ -230,27 +274,44 @@
           background-size: 100%;
           width: 24px;
           height: 24px;
+          flex: 0 0 24px;
           margin-right: 12px;
+        }
+
+        @media (max-width: $screen-md) {
+          &::before {
+            position: relative;
+            top: 2px;
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+          }
         }
       }
     }
 
     .addon {
+      transition: 0.2s background,
+                  0.2s border;
+      display: block;
       border: 1px solid #DEE3EA;
       border-radius: 6px;
       padding: 16px;
       margin-top: 32px;
+      cursor: pointer;
 
       li {
         display: flex;
         align-items: center;
         color: #73849A;
+        font-weight: 400;
+        font-familt: $font-family-graphik;
 
         & + li {
           margin-top: 6px;
         }
 
-        &:before {
+        &::before {
           content: '';
           display: block;
           background-image: url('/img/checkmark.svg');
@@ -258,10 +319,17 @@
           background-size: 100%;
           width: 10px;
           height: 8px;
+          flex: 0 0 10px;
           margin-right: 8px;
           opacity: 0.5;
         }
       }
+
+      &.selected {
+        background-color: #F0F6FF;
+        border: 1px solid #CDDFFF;
+      }
+
     }
 
     .addon-header {
@@ -383,6 +451,76 @@
 
   }
 
+
+
+  .logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+
+    [class^="logo"] {
+      background-image: url('/img/pricing/enterprise-logos-v3.png');
+      background-size: 76px 198px;
+      background-repeat: no-repeat;
+      background-color: rgba(#000, 0.1);
+      flex: 0 0 auto;
+    }
+
+    .logo--ge {
+      background-position: -1px -1px;
+      width: 34px;
+      height: 34px;
+    }
+
+    .logo--verizon {
+      background-position: 0 -37px;
+      width: 74px;
+      height: 16px;
+    }
+
+    .logo--comcast {
+      background-position: 0 -55px;
+      width: 76px;
+      height: 20px;
+    }
+
+    .logo--panera {
+      background-position: 0 -77px;
+      width: 76px;
+      height: 26px;
+    }
+
+    .logo--mastercard {
+      background-position: 0 -105px;
+      width: 76px;
+      height: 26px;
+    }
+
+    .logo--usaa {
+      background-position: 0 -137px;
+      width: 30px;
+      height: 34px;
+    }
+
+    .logo--amtrak {
+      background-position: 0 -173px;
+      width: 62px;
+      height: 25px;
+    }
+
+    @media (max-width: $screen-sm) {
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      margin-bottom: -20px;
+
+      [class^="logo"] {
+        margin: 20px;
+      }
+    }
+  }
+
   .soon {
     margin-bottom: 6px;
     text-align: center;
@@ -396,6 +534,27 @@
     }
   }
 
+  .pill {
+    font-family: $font-family-graphik;
+    font-weight: 600;
+    border: 1px solid #DEE3EA;
+    border-radius: 24px;
+    font-size: 8px !important;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 5px 3px;
+    background: #FAFBFD;
+    color: #B2BECD;
+
+    &--blue {
+      background: none;
+      color: #7CABFF;
+      border: 1px solid #B2CEFF;
+      padding: 4px 7px 3px;
+    }
+  }
+
   .badge {
     background: $blue;
     color: white;
@@ -406,7 +565,7 @@
   }
 
   .box {
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 16px;
     background-color: rgb(255, 255, 255);
     font-family: $font-family-eina;
@@ -471,7 +630,7 @@
 
   thead th,
   tbody td {
-    width: 18%;
+    width: 20%;
   }
 
   thead {
@@ -485,11 +644,13 @@
     }
 
     th {
-      &.starter h3 { color: #00c674; }
-      &.developer h3 { color: #37a8ff; }
-      &.team h3 { color: #6058ff; }
-      &.business h3 { color: #f3375f; }
+      text-align: center;
+
+      h2 {
+        margin-bottom: 3px;
+      }
     }
+
 
     .eyebrow {
       font-size: 10px;
@@ -505,29 +666,49 @@
       font-size: 20px;
       font-weight: 700;
       margin: 0;
-    }
-
-    h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 3px;
-      letter-spacing: 0;
+      letter-spacing: -0.01em;
+      color: #020814;
     }
 
     .price {
       font-weight: 600;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 20px;
+      color: #5B708B;
 
       strong {
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 600;
       }
     }
 
     .btn {
       margin-top: 8px;
+    }
+
+    .btn--primary {
+      background: #3880FF;
+      color: #fff;
+
+      &:hover {
+        background: lighten(#3880FF, 3%);
+      }
+    }
+
+    .btn--dark {
+      background: #213049;
+      color: #CDDFFF;
+      border: 0;
+
+      &:hover {
+        background: lighten(#213049, 10%);
+      }
+    }
+
+    .plan-wrap {
+      display: inline-block;
+      text-align: left;
+      border: 0;
     }
   }
 
@@ -538,6 +719,17 @@
       padding-bottom: 14px;
       padding-left: 16px;
       padding-right: 16px;
+
+    }
+
+    .pill {
+      margin-top: -2px;
+      margin-left: 2px;
+      background: none;
+
+      &--blue {
+        margin-left: 8px;
+      }
     }
 
     tr.combined {
@@ -554,20 +746,24 @@
     }
 
     th {
-      color: #333;
-      font-weight: 600;
+      font-weight: 400;
       vertical-align: middle;
       border: 0;
 
-      &[colspan="5"] span {
+      &[colspan="4"] span {
         display: inline-block;
         font-size: 16px;
         line-height: 22px;
-        font-weight: 700;
-        color: #333;
+        font-weight: 600;
+        color: #020814;;
         border-top: none;
         padding-top: 30px;
         padding-bottom: 8px;
+      }
+
+      &:not([colspan="4"]) {
+        font-family: $font-family-graphik;
+        color: #4E5B6A;
       }
 
       strong {
@@ -618,13 +814,32 @@
       }
     }
 
+    .small {
+      td,
+      th {
+        border-bottom: 1px solid #E9EDF3;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      th:first-child {
+        color: #73849A;
+        position: relative;
+      }
+
+      .check:before {
+        font-size: 12px;
+      }
+    }
+
     td {
       vertical-align: middle;
-      text-align: left;
-      font-weight: 600;
+      text-align: center;
+      font-weight: 400;
       border: 0;
       font-size: 13px;
-      color: #757e8e;
+      color: #4E5B6A;
+      font-family: $font-family-graphik;
     }
 
     .dash:before {
@@ -647,6 +862,20 @@
 
     .btn {
       width: 100%;
+    }
+
+    .btn.sm {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    .btn.dark {
+      background-color: #213049;
+      color: #CDDFFF;
+
+      &:hover {
+        background-color: lighten(#213049, 5%);
+      }
     }
   }
 
@@ -682,7 +911,7 @@
       tr {
         display: flex;
         width: 100%;
-        max-width: 1170px;
+        max-width: 1110px;
         margin: 0 auto;
         padding: 0 15px;
         position: relative;
@@ -748,7 +977,7 @@
         padding-bottom: 18px;
       }
     }
-    tbody th[colspan="5"] span {
+    tbody th[colspan="4"] span {
       padding-top: 8px;
       padding-bottom: 0;
     }
@@ -787,7 +1016,7 @@
       height: calc(100vh - 100px - 118px);
       position: relative;
       display: block; /*seperates the tbody from the header*/
-      width: calc(100vw - 30px);
+      width: calc(100vw);
       overflow: scroll;
       -webkit-overflow-scrolling: touch;
     }
@@ -799,7 +1028,7 @@
 
     thead th,
     tbody td {
-      flex: 0 0 180px;
+      flex: 0 0 204px;
     }
 
     thead td,
@@ -809,7 +1038,7 @@
       border-right: 1px solid rgba(232, 235, 241, 0.6);
     }
 
-    tbody th[colspan="5"] span,
+    tbody th[colspan="4"] span,
     tbody th strong,
     tbody tr.combined th{
       font-size: 13px;
@@ -898,51 +1127,64 @@
   }
 
   .comparison {
-    padding-top: 112px;
+    padding-top: 115px;
     @media (max-width: $screen-sm) {
-      padding-top: 50px;
+      padding-top: 100px;
+    }
+    @media (max-width: 830px){
+      padding-left: 0;
+      padding-right: 0;
+
+      h3 {
+        padding: 0 16px;
+      }
     }
   }
 
-  .comparison,
-  .also .container,
-  .faq {
-    & > h3 {
-      font-weight: 700;
+  .faq .container > h3,
+  .comparison > h3 {
+      font-weight: 600;
       letter-spacing: -0.03em;
-      font-size: 36px;
-    }
+      font-size: 28px;
+  }
+
+  .also .container > h3 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-size: 36px;
   }
 
   .also,
   .faq {
     h4 {
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    h4 {
-      font-size: 18px;
-      line-height: 24px;
-      margin-top: 5px;
-      margin-bottom: 12px;
-    }
-    p {
       font-weight: 600;
-      color: #818893;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: -0.02em;
+      line-height: 28px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    p {
+      font-family: $font-family-graphik;
+      line-height: 26px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: #73849A;
+      font-weight: 400;
 
       strong {
         color: $blacker;
       }
 
       code {
+        font-family: $font-family-monospace;
         background: none;
-        color: #253145;
+        color: #8582FB;
         padding: 0;
         font-size: 14px;
         border-radius: 0;
+        font-weight: 700;
       }
     }
   }
@@ -950,74 +1192,79 @@
   .also {
     border-left: 0;
     border-right: 0;
-    padding: 0;
+    padding: 0 0 200px;
 
-    .items {
+    ul {
+      padding: 0;
+      list-style-type: none;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 49px 16px 0 7px;
+
+      margin: 48px -48px -48px;
     }
 
-    .item {
-      flex: 0 1 325px;
-      list-style: none;
-      margin-bottom: 32px;
-      padding-left: 47px;
-      position: relative;
+    li {
+      flex: 0 0 33%;
+      padding: 0 48px 48px;
+    }
 
-      &::before {
-        background: no-repeat center top url('/img/pricing/pro-feature-icons-v2.png');
-        background-size: 32px;
-        position: absolute;
-        height: 32px;
-        width: 32px;
-        content: '';
-        left: 0;
-        top: 0;
+    .pill {
+      position: relative;
+      top: -3px;
+      margin-left: 5px;
+    }
+    @media (max-width: $screen-md)  {
+      padding-bottom: 100px;
+
+      li {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media (max-width: $screen-sm)  {
+      ul {
+        margin: 24px -24px -24px;
       }
 
-      &.unlimited::before { background-position: center -32px; }
-      &.templates::before { background-position: center -64px; }
-      &.dev::before { background-position: center -96px; }
-      &.dashboard::before { background-position: center -128px; }
-      &.git::before { background-position: center -160px; }
-      &.forum::before { background-position: center -192px; }
-      &.market::before { background-position: center -224px; }
-      &.lab::before { background-position: center -256px; }
+      li {
+        padding: 0 24px 24px;
+      }
+    }
 
-      @media (max-width: $screen-xs-max)  {
-        flex: 1 1 100%;
+    @media (max-width: $screen-xs)  {
+      li {
+        flex: 0 0 100%;
       }
     }
   }
 
   .faq {
-    padding-top: 96px;
-    padding-bottom: 164px;
+    background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    .items {
+      display: flex;
+    }
 
     ul {
-      float: left;
+      flex: 1;
       margin: 0 auto;
-      width: 50%;
       padding-top: 49px;
+      padding-left: 0;
+    }
 
-      @media (max-width: $screen-xs-max)  {
-        float: none;
-        width: 100%;
-        padding-left: 0;
-      }
+    ul + ul {
+      padding-left: 100px;
     }
 
     li {
       display: block;
       list-style: none;
-      padding: 0 20px 0;
-      width: 100%;
     }
 
     li + li {
-      padding-top: 80px;
+      padding-top: 40px;
     }
 
     h4 {
@@ -1028,12 +1275,29 @@
       line-height: 28px;
     }
 
-    @media (max-width: $screen-sm) {
-      padding-top: 26px;
-      padding-bottom: 74px;
+    @media (max-width: $screen-md) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
 
+    @media (max-width: $screen-sm) {
       li + li {
         padding-top: 40px;
+      }
+    }
+
+    @media (max-width: $screen-sm)  {
+      .items {
+        flex-direction: column;
+      }
+
+      ul + ul {
+        padding-left: 0;
+      }
+
+      ul,
+      li + li {
+        padding-top: 24px;
       }
     }
   }

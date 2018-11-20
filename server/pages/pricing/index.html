@@ -5,6 +5,7 @@
 {% set bodyController = 'pricingCtrl' %}
 {% set meta_description = "" %}
 {% set cssPath = 'pricing/index' %}
+{% set pre_footer = false %}
 
 {% block main %}
 
@@ -110,6 +111,7 @@
 
   (function(){
 
+
     // content tabs
     var tabs = document.querySelectorAll('.rounded-tabs__tab');
     for (var i = 0; i < tabs.length; i++) {
@@ -128,10 +130,46 @@
       document.getElementById('content-' + contentId).classList.add('tab-content--active');
     }
 
-    // billing toggle
+    // billing values
+    var isAddonSelected = false;
     var isBillingMonthly = true;
-    var monthlyValues = ['<strong>$29</strong>/mo', '<strong>$49</strong>/mo/seat'];
-    var yearlyValues = ['<strong>$299</strong>/yr', '<strong>$499</strong>/yr/seat'];
+    var planCosts = {
+      starter: {
+        monthly: 0,
+        yearly: 0
+      },
+      addon: {
+        monthly: 29,
+        yearly: 299
+      },
+      growth: {
+        monthly: 120,
+        yearly: 1200
+      }
+    }
+
+    // add-on toggle
+    var toggle = document.querySelector('.addon');
+    var toggleCheckbox = toggle.querySelector('input[type="checkbox"]');
+
+    var starterCTA = document.querySelector('.addon-cta-toggle--starter');
+    var addonCTA = document.querySelector('.addon-cta-toggle--addon');
+
+    toggleCheckbox.addEventListener('change', function(ev){
+      if (ev.target.checked) {
+        isAddonSelected = true;
+        toggle.classList.add('selected');
+        starterCTA.classList.remove('addon-cta-toggle--active');
+        addonCTA.classList.add('addon-cta-toggle--active');
+      } else {
+        isAddonSelected = false;
+        toggle.classList.remove('selected');
+        starterCTA.classList.add('addon-cta-toggle--active');
+        addonCTA.classList.remove('addon-cta-toggle--active');
+      }
+
+      swapValues();
+    });
 
     $('.toggle span').click(function(e){
       var $span = $(e.target);
@@ -141,21 +179,33 @@
       $span.addClass('active');
 
       if (isBillingMonthly) {
-        swapValues(yearlyValues);
         isBillingMonthly = false;
       } else {
-        swapValues(monthlyValues);
         isBillingMonthly = true;
       }
+
+      swapValues();
     });
 
     function swapValues(vals) {
-      $('[data-toggle="billing-dev"]').each(function(i, o){
-        $(o).html(vals[0]);
-      });
-      $('[data-toggle="billing-team"]').each(function(i, o){
-        $(o).html(vals[1]);
-      });
+      var termTypeNodes = document.querySelectorAll('[data="term-type"]');
+      for (var i = 0; i < termTypeNodes.length; i++) {
+        var node = termTypeNodes[i];
+        node.innerHTML = (isBillingMonthly) ? '/mo' : '/yr';
+      }
+
+      var starterNode = document.querySelector('[data="starter-cost"]');
+      var starterCost;
+      if (isAddonSelected) {
+        starterCost = (isBillingMonthly) ? planCosts.addon.monthly : planCosts.addon.yearly;
+      } else {
+        starterCost = (isBillingMonthly) ? planCosts.starter.monthly : planCosts.starter.yearly;
+      }
+      starterNode.innerHTML = '$' + starterCost;
+
+      var growthNode = document.querySelector('[data="growth-cost"]');
+      var growthCost = (isBillingMonthly) ? planCosts.growth.monthly : planCosts.growth.yearly;
+      growthNode.innerHTML = '$' + growthCost;
     }
 
     // Sticky table header

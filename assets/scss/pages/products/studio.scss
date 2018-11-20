@@ -1,4 +1,5 @@
 @import '../../vars';
+@import '../../mixins';
 @import '../../bootstrap/variables';
 
 #page-products-studio {
@@ -28,12 +29,18 @@
     h1 {
       font-size: 56px;
       margin-top: 41px;
-      margin-bottom: 6px;
+      margin-bottom: 22px;
       letter-spacing: -0.02em;
     }
 
     hgroup {
       max-width: 800px;
+      margin-bottom: 27px;
+
+      h3 {
+        font-size: 36px;
+        letter-spacing: -0.01em;
+      }
 
       p {
         line-height: 39px;
@@ -47,50 +54,187 @@
       }
     }
 
-    h3 {
-      font-size: 36px;
-      letter-spacing: -0.01em;
+    .btns {
+      .btn {
+        padding: 16px 20px 14px;
+        font-size: 15px;
+        margin-right: 6px;
+        letter-spacing: .1em;
+      }
+  
+      ion-icon {
+        vertical-align: -3px;
+      }
+      
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    section li {
-      padding-top: 20px;
+    section {
+      video {
+        margin: 98px -78px;
+        max-width: calc(100% + 155px);
+      }
+
+      li {
+        position: relative;
+
+        strong {
+          padding-top: 75px;
+          padding-left: 0;
+
+          &::before {
+            background: url('/img/products/studio/ico-features-lg.png') no-repeat 0 0;
+            background-size: 48px;
+            width: 48px;
+            height: 48px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        @include sprite('create' 'tackle' 'ship', 48, ' strong::before');
+      }
     }
   }
 
-  .btns .btn {
-    padding: 16px 24px 14px;
-    font-size: 15px;
-    margin-right: 6px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  video {
-    max-width: 100%;
-  }
-
-  section {
+  main section {
+    padding-top: 178px;
     letter-spacing: -0.01em;
+
+    &.blues {
+      background: linear-gradient(90deg, #1B63E2 0%, #3880FF 100%);
+
+      p {
+        color: #E9EDF3;
+        line-height: 27px;
+        margin-top: 31px;
+      }
+    }
+
+    hgroup {
+      max-width: 786px;
+
+      h2 {
+        line-height: normal;
+        font-size: 48px;
+        letter-spacing: -0.03em;
+        margin-bottom: 22px;
+      }
+
+      p {
+        font-family: $font-family-eina;
+        font-size: 22px;
+        line-height: 39px;
+
+        strong {
+          padding-left: 0;
+        }
+      }
+
+      &.centered {
+        text-align: center;
+        margin: 0 auto 92px;
+        max-width: 800px;
+
+        hgroup {
+          max-width: 814px;
+
+          p {
+            line-height: 26px;
+            margin-top: 32px;
+          }
+        }
+      }
+    }
+
+    video {
+      max-width: 100%;
+      margin: 70px auto 88px;
+    }
 
     h2 {
       color: #fff;
+    }
+  }
+
+  main section,
+  .top section {
+    h3 {
+      line-height: normal;
+      font-size: 36px;
+      letter-spacing: -0.014em;
+      color: #fff;
+      margin-bottom: 80px;
     }
 
     ul {
       display: flex;
       list-style: none;
       padding: 0;
-    }
+      justify-content: space-between;
+      margin-bottom: 182px;
+      &.quatro {
+        li  {
+          flex: 0 1 244px;
+        }
 
-    li {
-      padding-top: 0;
+        strong {
+          padding: 0;
+          padding-top: 51px;
+        }
+
+        p {
+          margin-top: 0;
+          line-height: 29px;
+        }
+      }
     }
 
     strong {
+      font-family: $font-family-eina;
       font-size: 20px;
       color: #fff;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-block;
+      padding-left: 39px;
+
+
+      &::before {
+        background: url('/img/products/studio/ico-features-sm.png') no-repeat 0 0;
+        background-size: 26px;
+        width: 26px;
+        height: 26px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    li {
+      position: relative;
+      padding-top: 0;
+      text-align: left;
+      flex: 0 1 326px;
+      @include sprite(
+        'ui' 
+        'no-docs' 
+        'secure' 
+        'drag' 
+        'properties' 
+        'backend' 
+        'live' 
+        'native' 
+        'device' 
+        'assets' 
+        'theme' 
+        'cordova' 
+        'ci', 26, ' strong::before');
     }
 
     p {

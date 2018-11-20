@@ -82,7 +82,7 @@ module.exports = function router(app) {
 
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/press', (_, res) => res.render('press'))
-  .get('/pro/pricing', (_, res) => res.render('pro/pricing'))
+  .get('/pro/pricing', (_, res) => res.render('pricing/index'))
   // .get('/pro/pricing/table', (_, res) => { res.render('pro/pricing/table'); })
   // .get('/pricing/trial', (_, res) => { res.render('pricing/trial'); })
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))

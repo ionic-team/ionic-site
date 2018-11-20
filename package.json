@@ -14,7 +14,7 @@
     "stencil-prepublish": "npm run build"
   },
   "engines": {
-    "node": "6.11.1"
+    "node": "10.x"
   },
   "cacheDirectories": [
     "node_modules",

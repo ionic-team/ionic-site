@@ -263,7 +263,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
-    'content/img/**/*', 'content/docs/pro/**/*.{md,html}'], ['jekyll-rebuild']);
+    'content/img/**/*', 'content/docs/appflow/**/*.{md,html}'], ['jekyll-rebuild']);
 });
 
 gulp.task('sitemap', function () {

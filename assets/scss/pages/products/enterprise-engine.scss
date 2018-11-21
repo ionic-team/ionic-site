@@ -1,7 +1,7 @@
 @import '../../vars';
 @import '../../bootstrap/variables';
 
-#page-products-enterprise-core {
+#page-products-enterprise-engine {
   .sub-header .btn {
     color: #1A232F;
     background-color: #FF9982;
@@ -50,7 +50,7 @@
     &:before {
       content: '';
       display: block;
-      background-image: url('/img/products/enterprise-core/enterprise-core-hero-bg.png');
+      background-image: url('/img/products/enterprise-engine/enterprise-engine-hero-bg.png');
       background-repeat: no-repeat;
       background-size: 1096px 760px;
       width: 1096px;
@@ -625,7 +625,7 @@
     i::before {
       content: '';
       display: block;
-      background-image: url('/img/products/enterprise-core/enterprise-core-integrations-sprite.png');
+      background-image: url('/img/products/enterprise-engine/enterprise-engine-integrations-sprite.png');
       background-repeat: no-repeat;
       background-size: 112px 294px;
       background-position: center center;

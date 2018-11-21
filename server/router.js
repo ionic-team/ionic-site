@@ -87,7 +87,7 @@ module.exports = function router(app) {
 
   .get('/appflow', (_, res) => res.render('products/appflow'))
   .get('/studio', (_, res) => res.render('products/studio'))
-  .get('/enterprise-core', (_, res) => res.render('products/enterprise-core'))
+  .get('/enterprise-engine', (_, res) => res.render('products/enterprise-engine'))
 
   .get('/pro/contact', (_, res) => res.render('pro/contact'))
   .get('/pro/creator', (_, res) => res.render('pro/creator/index'))

@@ -64,9 +64,12 @@
       transition: color 0.2s;
     }
 
-    .rounded-tabs__tab:hover .rounded-tabs__tab-inner,
-    .rounded-tabs__tab--active  .rounded-tabs__tab-inner {
+    .rounded-tabs__tab:hover .rounded-tabs__tab-inner {
       color: #2E4C73;
+    }
+
+    .rounded-tabs__tab--active  .rounded-tabs__tab-inner {
+      color: #4D8DFF;
     }
   }
 
@@ -463,7 +466,6 @@
       background-image: url('/img/pricing/enterprise-logos-v3.png');
       background-size: 76px 198px;
       background-repeat: no-repeat;
-      background-color: rgba(#000, 0.1);
       flex: 0 0 auto;
     }
 
@@ -493,8 +495,8 @@
 
     .logo--mastercard {
       background-position: 0 -105px;
-      width: 76px;
-      height: 26px;
+      width: 52px;
+      height: 30px;
     }
 
     .logo--usaa {
@@ -587,7 +589,7 @@
     min-width: 800px;
   }
 
-  hgroup {
+  main hgroup {
     text-align: center;
 
     h4 {

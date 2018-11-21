@@ -60,6 +60,10 @@
         font-size: 15px;
         margin-right: 6px;
         letter-spacing: .1em;
+
+        @media (max-width: $screen-sm) {
+          margin-bottom: 16px;
+        }
       }
   
       ion-icon {
@@ -177,9 +181,18 @@
       padding: 0;
       justify-content: space-between;
       margin-bottom: 182px;
+      
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+      }
+
       &.quatro {
         li  {
           flex: 0 1 244px;
+
+          @media (max-width: $screen-lg) {
+            flex: 0 0 210px;
+          }
         }
 
         strong {
@@ -220,7 +233,7 @@
       position: relative;
       padding-top: 0;
       text-align: left;
-      flex: 0 1 326px;
+      flex: 0 0 326px;
       @include sprite(
         'ui' 
         'no-docs' 
@@ -234,7 +247,17 @@
         'assets' 
         'theme' 
         'cordova' 
-        'ci', 26, ' strong::before');
+        'ci', 
+       26, ' strong::before');
+
+      @media (max-width: $screen-lg) {
+        flex-basis: calc(33% - 24px);
+      }
+
+      @media (max-width: $screen-sm) {
+        flex-basis: 100%;
+        margin-bottom: 32px;
+      }
     }
 
     p {

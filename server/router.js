@@ -34,7 +34,9 @@ module.exports = function router(app) {
   // normal pages
   .get('/', (_, res) => res.render('index'))
   .get('/home', (_, res) => res.render('index'))
+
   .get('/about', (_, res) => res.render('about'))
+  .get('/appflow', (_, res) => res.render('products/appflow'))
 
   .get('/articles/pwa-architects-guide', (_, res) =>
     res.render('articles/pwa-architects-guide'))
@@ -58,6 +60,7 @@ module.exports = function router(app) {
     res.render('enterprise/identity-vault'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
+  .get('/enterprise-engine', (_, res) => res.render('products/enterprise-engine'))
   .get('/framework', (_, res) => res.render('framework'))
   .get('/getting-started', (_, res) => res.render('getting-started'))
 
@@ -85,10 +88,7 @@ module.exports = function router(app) {
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
 
-  .get('/appflow', (_, res) => res.render('products/appflow'))
-  .get('/studio', (_, res) => res.render('products/studio'))
-  .get('/enterprise-engine', (_, res) => res.render('products/enterprise-engine'))
-
+  .get('/pro', (_, res) => res.render('pro/index'))
   .get('/pro/contact', (_, res) => res.render('pro/contact'))
   .get('/pro/creator', (_, res) => res.render('pro/creator/index'))
   .get('/pro/creator/pricing', (_, res) => res.render('pro/creator/pricing'))
@@ -97,8 +97,6 @@ module.exports = function router(app) {
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
   // .get('/pro/teams', (_, res) => res.render('pro/teams'))
-  .get('/products/studio', (_, res) => res.render('products/studio'))
-  .get('/products/enterprise-core', (_, res) => res.render('products/enterprise-core'))
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 
@@ -116,6 +114,7 @@ module.exports = function router(app) {
   .get('/sales', (_, res) => res.render('sales'))
   .get('/startups', (_, res) => res.render('startups'))
   .get('/strategysession', (_, res) => res.render('strategysession'))
+  .get('/studio', (_, res) => res.render('products/studio'))
   .get('/support', (_, res) => res.render('support'))
   .get('/survey/2017', (_, res) => res.render('survey/2017'))
   .get('/team', (_, res) => res.render('team'))

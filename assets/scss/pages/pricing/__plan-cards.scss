@@ -1,14 +1,14 @@
 #page-pricing {
 
-  .plans {
+  .plan-cards {
     display: flex;
 
-    .plan + .plan {
+    .plan-card + .plan-card {
       margin-left: 26px;
     }
 
     @media (max-width: $screen-lg) {
-      .plan + .plan {
+      .plan-card + .plan-card {
         margin-left: 14px;
       }
     }
@@ -17,19 +17,19 @@
       flex-direction: column;
       align-items: center;
 
-      .plan {
+      .plan-card {
         width: 100%;
         max-width: 500px;
       }
 
-      .plan + .plan {
+      .plan-card + .plan-card {
         margin-left: 0;
         margin-top: 20px;
       }
     }
   }
 
-  .plan {
+  .plan-card {
     flex: 1;
     border-radius: 12px;
     background: white;
@@ -40,11 +40,11 @@
     justify-content: space-between;
 
 
-    + .plan {
+    + .plan-card {
       border-left: 1px solid #eee;
     }
 
-    &:not(.plan--emphasize) {
+    &:not(.plan-card--emphasize) {
       margin: 20px 0;
 
       @media (max-width: $screen-sm) {
@@ -52,12 +52,12 @@
       }
     }
 
-    .plan-header,
-    .plan-body {
+    .plan-card-header,
+    .plan-card-body {
       padding: 32px 28px;
     }
 
-    .plan-header {
+    .plan-card-header {
       letter-spacing: -0.02em;
 
       h3 {
@@ -93,7 +93,7 @@
       }
     }
 
-    .plan-body {
+    .plan-card-body {
       border-top: 2px solid #F3F5F9;
 
       ul {
@@ -217,7 +217,7 @@
       }
     }
 
-    .plan-btn {
+    .plan-card-btn {
       transition: background 0.2s;
       display: block;
       width: 100%;
@@ -262,7 +262,7 @@
       display: block;
     }
 
-    .plan-highlight {
+    .plan-card-highlight {
       background: #FFE5DC;
       border-radius: 8px 8px 0px 0px;
       font-size: 10px;
@@ -277,28 +277,28 @@
     &--dark {
       background: linear-gradient(180deg, #2B3C5A 0%, #1B2A45 100%);
 
-      .plan-header h3 {
+      .plan-card-header h3 {
         color: #fff;
       }
 
-      .plan-header .price strong,
-      .plan-body h4 {
+      .plan-card-header .price strong,
+      .plan-card-body h4 {
         color: #f6f8fb;
       }
 
-      .plan-body .features li {
+      .plan-card-body .features li {
         color: #E9EDF3;
       }
 
-      .plan-header .type {
+      .plan-card-header .type {
         color: #CED6E0;
       }
 
-      .plan-body .features li::before {
+      .plan-card-body .features li::before {
         background-image: url('/img/checkmark-dark-gray.svg');
       }
 
-      .plan-body {
+      .plan-card-body {
         border-top-color: #334666;
       }
     }

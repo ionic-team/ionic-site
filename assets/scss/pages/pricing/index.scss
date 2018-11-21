@@ -244,10 +244,17 @@
     background: #FAFBFD;
     color: #B2BECD;
 
-    &--blue {
+    &--indigo {
       background: none;
       color: #7CABFF;
       border: 1px solid #B2CEFF;
+      padding: 4px 7px 3px;
+    }
+
+    &--aqua {
+      background: none;
+      color: #ACD8FB;
+      border: 1px solid #78B8F8;
       padding: 4px 7px 3px;
     }
   }
@@ -278,7 +285,46 @@
     }
   }
 
+  .features  {
+    h5 {
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
 
+    li {
+      font-family: $font-family-graphik;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: #414D5C;
+      padding: 10px 0;
+      display: flex;
+
+      &:before {
+        content: '';
+        display: block;
+        background-image: url('/img/checkmark-light-gray.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+        margin-right: 12px;
+      }
+
+      @media (max-width: $screen-md) {
+        &::before {
+          position: relative;
+          top: 2px;
+          width: 18px;
+          height: 18px;
+          flex: 0 0 18px;
+        }
+      }
+    }
+  }
 
   main hgroup {
     text-align: center;

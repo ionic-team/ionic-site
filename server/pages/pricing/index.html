@@ -108,8 +108,6 @@
 
 
   (function(){
-
-
     // content tabs
     var tabs = document.querySelectorAll('.rounded-tabs__tab');
     for (var i = 0; i < tabs.length; i++) {
@@ -126,6 +124,12 @@
       document.querySelector('.tab-content--active').classList.remove('tab-content--active');
       tab.classList.add('rounded-tabs__tab--active');
       document.getElementById('content-' + contentId).classList.add('tab-content--active');
+    }
+
+    if (window.location.hash && ['#appflow', '#studio', '#enterprise-engine'].includes(window.location.hash)) {
+      var content = window.location.hash.replace('#', '');
+      var tab = document.querySelector('[data-tab-content="' + content + '"]')
+      selectTab(tab);
     }
 
     // billing values

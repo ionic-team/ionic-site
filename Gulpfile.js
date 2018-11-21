@@ -259,8 +259,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
-    '!assets/scss/**/_*.scss'], ['server:others']);
+  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['styles:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',

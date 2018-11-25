@@ -383,8 +383,13 @@
     font-size: 36px;
   }
 
+  .offwhite-bg {
+    background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
+  }
+
   .also,
-  .faq {
+  .faq,
+  .benefits {
     h4 {
       font-weight: 600;
       line-height: 28px;
@@ -468,7 +473,7 @@
   }
 
   .faq {
-    background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
+
     padding-top: 200px;
     padding-bottom: 200px;
 
@@ -528,6 +533,82 @@
       li + li {
         padding-top: 24px;
       }
+    }
+  }
+
+  .benefits {
+    margin: 100px 0 160px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    li {
+      flex: 1;
+    }
+
+    li + li {
+      margin-left: 76px;
+    }
+
+    svg {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: $screen-sm) {
+      margin: 80px 0 80px;
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      li {
+        text-align: center;
+        max-width: 540px;
+      }
+
+      li + li {
+        margin-left: 0;
+        margin-top: 36px;
+      }
+    }
+  }
+
+  .form-wrapper {
+    padding-top: 160px;
+
+    .container {
+      max-width: 756px;
+    }
+
+    hgroup {
+      margin-bottom: 20px;
+
+      h2 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 28px;
+        letter-spacing: -0.01em;
+        color: #000000;
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 6px;
+        line-height: 28px;
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: -0.01em;
+        font-weight: 400;
+        color: #5B708B;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      padding-top: 80px;
     }
   }
 

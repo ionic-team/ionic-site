@@ -101,12 +101,25 @@
   }
 
   .submitted-message {
-    color: $green;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 86px 0 128px;
+    &:before {
+      content: '';
+      display: block;
+      background-image: url('/img/checkmark-light-green.svg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 12px;
+    }
+
+    font-size: 18px;
+    padding: 34px 0 78px;
     text-align: center;
-    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 400;
+    color: #35af55;
     max-width: 410px;
     background-color: white;
     margin: 0 auto;
@@ -330,7 +343,7 @@
   }
 
   .hs-richtext {
-    p span, 
+    p span,
     p a {
       font-size: 15px;
     }

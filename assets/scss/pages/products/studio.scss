@@ -47,7 +47,7 @@
         font-size: 22px;
         font-weight: 400;
         margin-bottom: 36px;
-  
+
         strong {
           font-weight: 600;
         }
@@ -65,11 +65,11 @@
           margin-bottom: 16px;
         }
       }
-  
+
       ion-icon {
         vertical-align: -3px;
       }
-      
+
       &:last-child {
         margin-right: 0;
       }
@@ -181,7 +181,7 @@
       padding: 0;
       justify-content: space-between;
       margin-bottom: 182px;
-      
+
       @media (max-width: $screen-sm) {
         flex-direction: column;
       }
@@ -235,19 +235,19 @@
       text-align: left;
       flex: 0 0 326px;
       @include sprite(
-        'ui' 
-        'no-docs' 
-        'secure' 
-        'drag' 
-        'properties' 
-        'backend' 
-        'live' 
-        'native' 
-        'device' 
-        'assets' 
-        'theme' 
-        'cordova' 
-        'ci', 
+        'ui'
+        'no-docs'
+        'secure'
+        'drag'
+        'properties'
+        'backend'
+        'live'
+        'native'
+        'device'
+        'assets'
+        'theme'
+        'cordova'
+        'ci',
        26, ' strong::before');
 
       @media (max-width: $screen-lg) {
@@ -271,5 +271,37 @@
 
   main section {
     background: linear-gradient(180deg, #121417 0%, #06090D 100%);
+  }
+
+  .modal {
+    hgroup {
+      padding-top: 18px;
+      padding-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 29px;
+      font-weight: 600;
+      color: #171a20;
+      margin: 18px 0 8px;
+      letter-spacing: -0.03em;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #4c576c;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    form {
+      max-width: 100%;
+      padding: 0 15px 15px;
+    }
+
+    .hs_submit {
+      text-align: center;
+      font-weight: 600;
+    }
   }
 }

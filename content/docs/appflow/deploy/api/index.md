@@ -284,7 +284,7 @@ ___
 | Param | Type | Description |
 | ------ | ------ | ------ |
 | `Optional` progress | [CallbackFunction](#callbackfunction)<`number`> |  A progress callback function which will be called with a number representing the percent of completion of the download and prepare. |
- 
+
 **Returns:** `Promise`<`boolean`> - `true` if the available update was successfully extracted.
 
 ```js
@@ -343,7 +343,7 @@ ___
 ```js
 const info = await Pro.deploy.getCurrentVersion()
 console.log(info)
-// { 
+// {
 //   'versionId': 'UUID_OF_ACTIVE_CODE',
 //   'channel': 'CHANNEL_NAME',
 //   'binaryVersion': 'X.X.X'
@@ -393,7 +393,7 @@ ___
 
 | Param | Type |
 | ------ | ------ |
-| versionId | `string` | 
+| versionId | `string` |
 
 **Returns:** `Promise`<`boolean`> - `true` if the version was successfully deleted.
 
@@ -675,7 +675,7 @@ ___
 
 | Param | Type |
 | ------ | ------ |
-| versionId | `string` | 
+| versionId | `string` |
 
 **Returns:** `Promise`<`string`>
 
@@ -717,7 +717,7 @@ ___
 `string`
 
 
-The [Ionic Pro](https://ionicframework.com/docs/pro/) app id.
+The [Ionic Appflow](https://ionicframework.com/docs/appflow/) app id.
 
 ___
 
@@ -920,7 +920,7 @@ A callback function to handle the result.
 
 | Param | Type |
 | ------ | ------ |
-| `Optional` result | [T]() | 
+| `Optional` result | [T]() |
 
 **Returns:** `void`
 

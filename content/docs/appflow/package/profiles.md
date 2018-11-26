@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-package
 id: pro-native-builds
-title: Keystores and Profiles - Ionic Pro Documentation
+title: Keystores and Profiles - Ionic Appflow Documentation
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
@@ -27,7 +27,7 @@ that you need for the desired platform below.
 
 ## Creating Security Profiles
 
-After you have generated your Security Profile, you must upload it to Ionic Pro. Navigate to your App, then click on Package Tab and choose Certificates on the left hand side.
+After you have generated your Security Profile, you must upload it to Ionic Appflow. Navigate to your App, then click on Package Tab and choose Certificates on the left hand side.
 
 Click the **Add Profile** button to create a new Profile. Both iOS and Android certifications can be used with one Profile, so we recommend making things like "Real App Store Profile", etc.
 

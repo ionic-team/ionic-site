@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-monitoring
 id: pro-error-monitoring
-title: Runtime Error Monitoring API | Ionic Pro
+title: Runtime Error Monitoring API | Ionic Appflow
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
@@ -10,7 +10,7 @@ dark_header: true
 
 # Error Monitoring
 
-Ionic Pro makes it easy to automatically track runtime errors in your Ionic app, and map it back to your original, non-transpiled source code (TypeScript, ES6, etc.).
+Ionic Appflow makes it easy to automatically track runtime errors in your Ionic app, and map it back to your original, non-transpiled source code (TypeScript, ES6, etc.).
 
 ## Summary
 
@@ -40,7 +40,7 @@ in your code, even through highly minified, production code.
 
 #### Automatically adding Source Maps
 
-New releases of Ionic CLI (3.9.0 and greater) come with a built-in command for syncing Source Maps with Ionic Pro. This feature requires Ionic 2 or above using `@ionic/app-scripts` 3.1.0 or greater.
+New releases of Ionic CLI (3.9.0 and greater) come with a built-in command for syncing Source Maps with Ionic Appflow. This feature requires Ionic 2 or above using `@ionic/app-scripts` 3.1.0 or greater.
 
 To sync Source Maps, run
 
@@ -54,7 +54,7 @@ See the note about versions below, as keeping your Source Maps in sync with your
 
 #### Manually adding Source Maps
 
-To add a Source Map manually, navigate to your app on the [https://dashboard.ionicframework.com/](Ionic Pro Dashboard), click the "Monitoring" tab,
+To add a Source Map manually, navigate to your app on the [https://dashboard.ionicframework.com/](Ionic Appflow Dashboard), click the "Monitoring" tab,
 then click "Source Maps" in the upper right.
 
 You can find your Source Maps after doing a dev or prod build in `YOUR_APP/.sourcemaps/`. Upload the `main.js.map` sourcemap for Angular/Ionic 2+, and any other sourcemaps that correspond to your code for other Ionic/Angular versions.
@@ -73,7 +73,7 @@ Note: we are working on automating the process to make it even easier.
 
 ## Manual Capture using the Monitoring API
 
-Ionic Pro Monitoring supports manually capturing errors and also sending log messages.
+Ionic Appflow Monitoring supports manually capturing errors and also sending log messages.
 
 #### `Pro.monitoring.exception(errorObject)`
 

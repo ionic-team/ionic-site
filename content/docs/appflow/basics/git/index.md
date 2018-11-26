@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-basics
 id: pro-git
-title: Working with Git - Ionic Pro Documentation
+title: Working with Git - Ionic Appflow Documentation
 body_class: 'pro-docs'
 ---
 
@@ -45,7 +45,7 @@ you'll need to click the `Connect` button. Then you can choose the repository to
 </div>
 
 When you link the repository a webhook will be created for the repository
-and events will be sent to Ionic Pro so that we can automatically trigger builds
+and events will be sent to Ionic Appflow so that we can automatically trigger builds
 for any of the branches you specify during the linking process.
 Be sure to specify all the branches you would like to trigger builds for.
 By default only pushes to the `master` branch will trigger builds.

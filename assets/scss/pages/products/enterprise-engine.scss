@@ -88,6 +88,20 @@
         color: #CED6E0;
       }
 
+      .btn {
+        margin-top: 24px;
+        color: #182434;
+        background-color: #FF9982;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.06em;
+        padding: 19px 25px 16px;
+
+        &:hover {
+          background-color: lighten(#FF9982, 8%);
+        }
+      }
+
       @media (max-width: $screen-sm) {
         text-align: center;
         margin-left: auto;
@@ -116,11 +130,11 @@
 
   main {
     section {
-      padding-top: 200px;
-      padding-bottom: 200px;
+      padding-top: 180px;
+      padding-bottom: 180px;
 
-      &:first-child {
-        padding-bottom: 50px;
+      &:nth-child(1) {
+        border-bottom: 2px solid #EEF2F7;
       }
 
       &.offwhite {
@@ -133,7 +147,7 @@
     }
 
     .container + .container {
-      margin-top: 260px;
+      margin-top: 240px;
     }
 
     hgroup {
@@ -141,7 +155,7 @@
     }
 
     .measure {
-      max-width: 600px;
+      max-width: 612px;
     }
 
     .center {
@@ -149,8 +163,8 @@
     }
 
     h3 {
-      color: #FF9982;
-      font-size: 32px;
+      color: #92A1B3;
+      font-size: 24px;
       margin-bottom: 0;
       margin-top: 0;
       font-weight: 600;
@@ -310,7 +324,7 @@
     }
 
     & > li:before {
-      background-image: url('/img/checkmark-salmon.svg');
+      background-image: url('/img/checkmark-medium-gray.svg');
       background-size: 20px 20px;
       height: 20px;
       width: 20px;
@@ -335,6 +349,7 @@
         flex: 0 0 10px;
         top: 2px;
         margin-right: 8px;
+        opacity: 0.6;
       }
 
       & + li {
@@ -474,7 +489,7 @@
       display: flex;
     }
 
-    svg {
+    .feature-icon {
       flex: 0 0 48px;
       margin-right: 36px;
     }
@@ -516,7 +531,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      svg {
+      .feature-icon {
         margin-right: 0;
         margin-bottom: 15px;
       }
@@ -545,7 +560,7 @@
       flex-direction: column;
     }
 
-    svg {
+    .feature-icon {
       margin-bottom: 20px;
     }
 
@@ -597,6 +612,7 @@
 
   .integrations {
     position: relative;
+    height: 660px;
   }
 
   .integrations__identity-vault,
@@ -797,6 +813,117 @@
 
     @media (max-width: $screen-xs) {
       padding-top: 82px;
+    }
+  }
+
+  $feature-icon-size: 48px;
+
+  .feature-icon {
+    width: $feature-icon-size;
+    height: $feature-icon-size;
+    display: block;
+    background-image: url('/img/products/enterprise-engine/enterprise-engine-icon-sprite.png');
+    background-repeat: no-repeat;
+    background-size: 48px 480px;
+
+    &--go-to-market {
+      background-position:  0 0;
+    }
+
+    &--cross-platform {
+      background-position:  0 $feature-icon-size * -1;
+    }
+
+    &--future-proofed {
+      background-position:  0 $feature-icon-size * -2;
+    }
+
+    &--native-power {
+      background-position:  0 $feature-icon-size * -3;
+    }
+
+    &--integrations {
+      background-position:  0 $feature-icon-size * -4;
+    }
+
+    &--advisory {
+      background-position:  0 $feature-icon-size * -5;
+    }
+
+    &--training {
+      background-position:  0 $feature-icon-size * -6;
+    }
+
+    &--stability {
+      background-position:  0 $feature-icon-size * -7;
+    }
+
+    &--complete-native {
+      background-position:  0 $feature-icon-size * -8;
+    }
+
+    &--help {
+      background-position:  0 $feature-icon-size * -9;
+    }
+  }
+
+  .logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 160px;
+    margin-left: -24px;
+    margin-right: -24px;
+
+    .logo {
+      flex: 0 0 auto;
+      margin: 0 24px 30px;
+      background-image: url('/img/products/enterprise-engine/enterprise-engine-logo-sprite.png');
+      background-repeat: no-repeat;
+      background-size: 176px 168px;
+
+      &--aaa {
+        background-position: 0 0;
+        width: 72px;
+        height: 42px;
+      }
+
+      &--amtrak {
+        background-position: 0 -44px;
+        width: 176px;
+        height: 20px;
+      }
+
+      &--ge {
+        background-position: 0 -66px;
+        width: 48px;
+        height: 48px;
+      }
+
+      &--worldpay {
+        background-position: 0 -116px;
+        width: 132px;
+        height: 30px;
+      }
+
+      &--mapfre {
+        background-position: 0 -148px;
+        width: 136px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      margin-top: 80px;
+      max-width: 570px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: $screen-xs) {
+      flex-direction: column;
     }
   }
 }

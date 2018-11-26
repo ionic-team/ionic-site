@@ -579,7 +579,10 @@
   }
 
   .form-wrapper {
-    padding-top: 160px;
+
+    &.offwhite-bg {
+      padding-top: 160px;
+    }
 
     .container {
       max-width: 756px;
@@ -608,7 +611,9 @@
     }
 
     @media (max-width: $screen-sm) {
-      padding-top: 80px;
+      &.offwhite-bg {
+        padding-top: 80px;
+      }
     }
   }
 

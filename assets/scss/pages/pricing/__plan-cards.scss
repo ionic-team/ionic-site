@@ -1,5 +1,4 @@
 #page-pricing {
-
   .plan-cards {
     display: flex;
 
@@ -16,7 +15,6 @@
         margin-left: 26px;
       }
     }
-
 
     @media (max-width: $screen-lg) {
       .plan-card + .plan-card {
@@ -127,6 +125,14 @@
         letter-spacing: -0.02em;
         font-weight: 400;
         color: #5B708B;
+      }
+
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+
+        .right {
+          margin-top: 8px;
+        }
       }
     }
 

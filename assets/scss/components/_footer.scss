@@ -192,7 +192,7 @@ footer {
       padding-left: 0;
     }
 
-    li + li {
+    ul:last-child li + li {
       margin-left: 15px;
     }
 
@@ -219,7 +219,7 @@ footer {
     .copyright,
     .privacy,
     .tos {
-      margin-right: 12px;
+      margin-right: 8px;
     }
 
     .copyright {

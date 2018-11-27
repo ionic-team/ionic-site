@@ -24,6 +24,7 @@
       top: 0;
       right: 15px;
       left: 15px;
+      flex: 0 0 100%
     }
     &::after { display: none; }
   }
@@ -31,7 +32,6 @@
   ul {
     padding: 0;
     list-style: none;
-    flex-shrink: 0;
   }
 
   li {

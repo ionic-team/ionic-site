@@ -8,6 +8,12 @@ footer {
   font-weight: 500;
   font-family: $font-family-eina;
 
+  .logo svg {
+    fill: #3880FF;
+    width: 78px;
+    height: 26px;
+  }
+
   nav  {
     display: flex;
     justify-content: space-between;
@@ -19,32 +25,38 @@ footer {
       }
     }
 
+    .logo,
+    ul {
+      flex: 1;
+    }
+
     ul {
       list-style: none;
       font-weight: 500;
       padding-left: 0;
-      flex: 0 0 160px;
 
       &:first-child {
         margin-left: 1px;
       }
 
       strong {
-        color: #545a64;
+        color: #000000;
         display: block;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 16px;
         padding-bottom: 4px;
-        letter-spacing: -.02em;
+        letter-spacing: -.01em;
       }
 
       a {
-        color: #a1a9b6;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 7px 0;
+        line-height: 1;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        color: #73849A;
+        font-weight: 400;
+        padding: 11px 0;
         display: inline-block;
-        letter-spacing: -.02em;
+        font-family: $font-family-graphik;
 
         &:hover {
           text-decoration: none;
@@ -54,38 +66,27 @@ footer {
     }
   }
 
-  @media (max-width: $screen-sm-max) {
-    nav {
-      flex-wrap: wrap;
-      justify-content: center;
-
-      ul {
-        margin-bottom: 20px;
-        padding-left: 0;
-        padding-right: 40px;
-      }
-    }
-  }
-
   .signup {
-    margin-top: 40px;
+    margin-top: 60px;
+    display: flex;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    hgroup {
+      flex: 0 0 auto;
+    }
+
+    ionic-newsletter-signup {
+      flex: 1;
+      margin-left: 60px;
+    }
 
     form {
-      float: right;
-      width: 44.5%;
       display: flex;
-      padding-top: 6px;
       height: 50px;
-
-      @media (max-width: $screen-xs-max) {
-        float: none;
-        width: 100%;
-        margin-bottom: 40px;
-      }
-
-      button {
-        padding: 11px 17px 13px;
-      }
     }
 
     hgroup {
@@ -93,40 +94,107 @@ footer {
       background-size: 40px;
       padding-left: 63px;
       min-height: 50px;
-      width: 50%;
-
-      @media (max-width: $screen-xs-max) {
-        width: 100%;
-      }
 
       h3 {
         font-size: 16px;
         margin-top: 0;
-        margin-bottom: 6px;
+        margin-bottom: 3px;
         padding-top: 11px;
         font-weight: 600;
         letter-spacing: -.02em;
       }
 
       p {
-        font-size: 13px;
-        color: #a1a9b6;
+        font-family: $font-family-graphik;
+        font-size: 14px;
+        color: #73849A;
         letter-spacing: -.016em;
+        font-weight: 400;
       }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    padding-top: 46px;
+
+    nav {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .logo {
+        flex: 0 0 100%;
+        margin-bottom: 40px;
+      }
+
+
+    }
+
+    .signup {
+      flex-direction: column;
+
+      hgroup,
+      ionic-newsletter-signup {
+        flex: 0 0 100%;
+      }
+
+      ionic-newsletter-signup {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-min) {
+    nav {
+      .logo {
+        display: none;
+      }
+
+      ul {
+        flex: 0 0 33%;
+        margin-bottom: 36px
+      }
+
+      ul li a {
+        padding: 9px 0;
+      }
+    }
+
+    .signup {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: $screen-xs-min) {
+    nav ul {
+      flex: 0 0 50%;
+    }
+
+    .signup ionic-newsletter-signup {
+      margin-left: 0;
     }
   }
 
   .sub-footer {
     font-size: 12px;
-    color: #bcc5d5;
+    color: $grey;
     border-top: 1px solid #eff1f5;
     margin-top: 40px;
     padding-top: 29px;
     text-align: center;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    list-style: none;
-    padding-left: 0;
+
+    ul {
+      display: flex;
+      flex: 0 0 auto;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li + li {
+      margin-left: 15px;
+    }
 
     .license {
       margin-left: auto;
@@ -141,21 +209,25 @@ footer {
     }
 
     a {
-      color: $grey;
+      color: #bcc5d5;
+
+      &:hover {
+        color: $grey;
+      }
     }
 
-    .privacy {
-      height: 1em;
-      margin-left: 12px;
-    }
-
-    .spacer {
-      margin-right: 2px;
-      margin-left: 2px;
+    .copyright,
+    .privacy,
+    .tos {
+      margin-right: 12px;
     }
 
     .copyright {
       flex: 0 0 77px;
+    }
+
+    .privacy {
+      height: 1em;
     }
 
     a[id^=btn-footer] {
@@ -163,7 +235,6 @@ footer {
       height: 16px;
       width: 16px;
       display: inline-block;
-      margin-left: 15px;
 
       &::before,
       &::after {

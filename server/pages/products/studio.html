@@ -20,7 +20,8 @@
     <ul class="right">
       <li>
         <a class="btn dark rounded xs uppercase outline"
-           href="#" data-toggle="modal" data-target="#requestDemo" id="btn-studio-subheader-request-demo">Request a Demo</a>
+           href="#" data-toggle="modal" data-target="#requestDemo" 
+           id="btn-studio-subheader-request-demo">Request a Demo</a>
       </li>
     </ul>
   </div>
@@ -38,11 +39,15 @@
     </p>
     <div class="btns">
       <a class="btn dark rounded sm uppercase outline"
-         href="#" data-toggle="modal" data-target="#requestDemo" id="btn-studio-hero-request-demo">Request a Demo</a>
+         href="#" 
+         data-toggle="modal" 
+         data-target="#requestDemo" 
+         id="btn-studio-hero-request-demo">Request a Demo</a>
       <a class="btn dark rounded sm uppercase outline faded"
-         href="https://ionicpro.wistia.com/medias/98kjfx3l5p" 
          id="btn-studio-hero-watch-overview"
-         target="_blank"><ion-icon name="play"></ion-icon> Watch Overview</a>
+         data-toggle="modal" 
+         data-target="#overviewVideo"
+         href="#"><ion-icon name="play"></ion-icon> Watch Overview</a>
     </div>
   </hgroup>
 
@@ -323,10 +328,47 @@
     </div>
   </div>
 </div>
+<div class="modal collapse fade"
+     id="overviewVideo"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Introducing Ionic Studio</h3>
+        </hgroup>
+
+        <script src="https://fast.wistia.com/embed/medias/98kjfx3l5p.jsonp" async></script>
+        <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+        <div class="wistia_responsive_padding" style="padding:62.5% 0 0 0;position:relative;">
+          <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+            <div class="wistia_embed wistia_async_98kjfx3l5p videoFoam=true" style="height:100%;position:relative;width:100%">
+              <div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;">
+                <img src="https://fast.wistia.com/embed/medias/98kjfx3l5p/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
+window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
+
 $(document).ready(function() {
   // Get media - with autoplay disabled (audio or video)
   var media = $('video').not("[autoplay='autoplay']");
@@ -356,11 +398,5 @@ $(document).ready(function() {
 window.showApp = function(el) {
   el.parentNode.classList.add('finished');
 }
-</script>
-
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<script>
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
-sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
 </script>
 {% endblock %}

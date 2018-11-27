@@ -82,7 +82,7 @@
   }
 
   .section-header {
-    font-size: 28px;
+    font-size: 26px;
     line-height: 38px;
     text-align: center;
     letter-spacing: -0.01em;
@@ -94,6 +94,17 @@
     @media (max-width: $screen-sm) {
       margin: 60px auto 60px;
       max-width: 500px;
+    }
+
+    a {
+      color: #4D8DFF;
+      transition: border 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: #4D8DFF;
+      border-bottom: 1px solid rgba(#4D8DFF, 0.5);
     }
   }
 

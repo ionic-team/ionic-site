@@ -24,8 +24,10 @@
   <title>Ionic Framework</title>
 {% endif %}
 
-{% if 'products-' in id %}
-  {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png' %}
+{% if 'products' in id %}
+  {% if not meta_image %}
+    {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png' %}
+  {% endif %}
   {% if not meta_description %}
     {% set meta_description = "The Ionic Appflow platform helps you build better apps on ionic framework with Appflow's integrated suite of tools and services designed for the entire app lifecycle." %}
   {% endif %}

@@ -1,0 +1,420 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'pricing' %}
+{% set title = 'Ionic Platform Pricing - Cross-Platform Web App Development Tools' %}
+{% set header_style = 'transparent light' %}
+{% set bodyController = 'pricingCtrl' %}
+{% set meta_description = "" %}
+{% set cssPath = 'pricing/index' %}
+{% set pre_footer = false %}
+
+{% block main %}
+
+  <div class="cta banner">
+    <hgroup class="container">
+      <h5>Ionic Development Platform Pricing</h5>
+      <h1>Grow faster with Ionic</h1>
+      <p>Powerful tools for every phase of the app lifecycle.</p>
+    </hgroup>
+
+    <ul class="rounded-tabs">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
+        <div class="rounded-tabs__tab-inner">
+          Appflow
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="studio">
+        <div class="rounded-tabs__tab-inner">
+          Studio
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="enterprise-engine">
+        <div class="rounded-tabs__tab-inner">
+          Enterprise Engine
+        <div>
+      </li>
+    </ul>
+  </div>
+
+  <section class="tab-content tab-content--active" id="content-appflow">
+    {% include './appflow.html' %}
+  </section>
+  <section class="tab-content" id="content-studio">
+    {% include './studio.html' %}
+  </section>
+  <section class="tab-content" id="content-enterprise-engine">
+    {% include './enterprise-engine.html' %}
+  </section>
+
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "3cbb2a81-0859-43ca-af75-47cb066e3b1e",
+        	css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="studioReserveSeat"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Reserve your seat</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+          formId: "541f87f4-ceb3-4501-9d95-4893bce088b6",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="eeAdvisoryAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+        	formId: "01d73ed0-929c-4dce-9fec-673c0e57c1b0",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="eeIntegrationsAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "f06b6615-1c49-4104-a5e1-79a04239c99b",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  /* Replace 'APP_ID' with your app ID */
+  window.intercomSettings = {
+    app_id: 'm0la1vjm'
+  };
+
+  /* Replace 'APP_ID' with your app ID */
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
+    ic('reattach_activator');ic('update',intercomSettings);}else{var
+    d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
+    {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+    s.type='text/javascript';s.async=true;
+    s.src='https://widget.intercom.io/widget/APP_ID';
+    var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
+    }if(w.attachEvent){w.attachEvent('onload',l);}else{
+      w.addEventListener('load',l,false);}}})();
+
+
+  (function(){
+    // scroll to animations
+    var scrollToLinks = document.querySelectorAll('.scroll-to-link');
+
+    for (var i = 0; i < scrollToLinks.length; i++) {
+      scrollToLinks[i].addEventListener('click', function(ev){
+        var cta = document.querySelector('#' + ev.target.dataset.target);
+        ev.preventDefault();
+        window.scrollTo({
+          top: cta.getBoundingClientRect().top + window.scrollY,
+          behavior: "smooth"
+        });
+      });
+    }
+
+
+    // content tabs
+    var tabs = document.querySelectorAll('.rounded-tabs__tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function() {
+        selectTab(this);
+      });
+    }
+
+    function selectTab(tab) {
+      var contentId = tab.dataset.tabContent;
+      window.location.hash = contentId;
+
+      document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
+      document.querySelector('.tab-content--active').classList.remove('tab-content--active');
+      tab.classList.add('rounded-tabs__tab--active');
+      document.getElementById('content-' + contentId).classList.add('tab-content--active');
+    }
+
+    if (window.location.hash && ['#appflow', '#studio', '#enterprise-engine'].includes(window.location.hash)) {
+      var content = window.location.hash.replace('#', '');
+      var tab = document.querySelector('[data-tab-content="' + content + '"]')
+      selectTab(tab);
+    }
+
+    // billing values
+    var isAddonSelected = false;
+    var isBillingMonthly = true;
+    var planCosts = {
+      starter: {
+        monthly: 0,
+        yearly: 0
+      },
+      addon: {
+        monthly: 29,
+        yearly: 299
+      },
+      growth: {
+        monthly: 120,
+        yearly: 1200
+      }
+    }
+
+    // add-on toggle
+    var toggle = document.querySelector('.addon');
+    var toggleCheckbox = toggle.querySelector('input[type="checkbox"]');
+
+    var starterCTA = document.querySelector('.addon-cta-toggle--starter');
+    var addonCTA = document.querySelector('.addon-cta-toggle--addon');
+
+    toggleCheckbox.addEventListener('change', function(ev){
+      if (ev.target.checked) {
+        isAddonSelected = true;
+        toggle.classList.add('selected');
+        starterCTA.classList.remove('addon-cta-toggle--active');
+        addonCTA.classList.add('addon-cta-toggle--active');
+      } else {
+        isAddonSelected = false;
+        toggle.classList.remove('selected');
+        starterCTA.classList.add('addon-cta-toggle--active');
+        addonCTA.classList.remove('addon-cta-toggle--active');
+      }
+
+      swapValues();
+    });
+
+    $('.toggle span').click(function(e){
+      var $span = $(e.target);
+      if ($span.hasClass('active')) return;
+
+      $('.toggle span.active').removeClass('active')
+      $span.addClass('active');
+
+      if (isBillingMonthly) {
+        isBillingMonthly = false;
+      } else {
+        isBillingMonthly = true;
+      }
+
+      swapValues();
+    });
+
+    function swapValues(vals) {
+      var termTypeNodes = document.querySelectorAll('[data="term-type"]');
+      for (var i = 0; i < termTypeNodes.length; i++) {
+        var node = termTypeNodes[i];
+        node.innerHTML = (isBillingMonthly) ? '/mo' : '/yr';
+      }
+
+      var starterNode = document.querySelector('[data="starter-cost"]');
+      var starterCost;
+      if (isAddonSelected) {
+        starterCost = (isBillingMonthly) ? planCosts.addon.monthly : planCosts.addon.yearly;
+      } else {
+        starterCost = (isBillingMonthly) ? planCosts.starter.monthly : planCosts.starter.yearly;
+      }
+      starterNode.innerHTML = '$' + starterCost;
+
+      var growthNode = document.querySelector('[data="growth-cost"]');
+      var growthCost = (isBillingMonthly) ? planCosts.growth.monthly : planCosts.growth.yearly;
+      growthNode.innerHTML = '$' + growthCost;
+    }
+
+    // Sticky table header
+    if (navigator.userAgent.match(/Trident\/7\./)) return;
+
+    var isPinned = false;
+    var isPinnedAtPoint = false;
+    var $tableWrap = document.querySelector('.table-wrap');
+    var $thead = $tableWrap.querySelector('thead');
+    var $tfoot = $tableWrap.querySelector('tbody tr:last-child');
+
+    window.addEventListener('scroll', function(){requestAnimationFrame(checkScroll)});
+    function checkScroll() {
+      if (window.innerWidth < 830){
+        if (isPinnedAtPoint) unpinAtPoint();
+        if (isPinned) unpin();
+        return;
+      }
+
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var tableTop = $tableWrap.offsetTop;
+
+      if (scrollTop > tableTop) {
+        pin();
+      }
+
+      if (scrollTop < tableTop) {
+        unpin();
+      }
+
+      if (scrollTop + $thead.scrollHeight  >= tableTop + ($tableWrap.scrollHeight - $tfoot.scrollHeight)) {
+        pinAtPoint($tableWrap.scrollHeight - $tfoot.scrollHeight - $thead.scrollHeight);
+      } else {
+        unpinAtPoint();
+      }
+    }
+
+    function pin() {
+      if (isPinned) return;
+      isPinned = true;
+      $tableWrap.classList.add('pinned')
+    }
+
+    function unpin() {
+      if (!isPinned) return;
+      isPinned = false;
+      $tableWrap.classList.remove('pinned')
+    }
+
+    function pinAtPoint(_scrollTop) {
+      if (isPinnedAtPoint) return;
+      isPinnedAtPoint = true;
+      $tableWrap.classList.add('pinned-at-point');
+      $thead.style.top = _scrollTop + 'px';
+      pin();
+    }
+
+    function unpinAtPoint () {
+      if (!isPinnedAtPoint) return;
+      isPinnedAtPoint = false;
+      $tableWrap.classList.remove('pinned-at-point');
+      $thead.style.top = '0';
+    }
+
+
+    // mobile table pinned first col
+    $('tbody').scroll(function(){ requestAnimationFrame(stickyTable) });
+    function stickyTable() {
+        if (window.innerWidth > 830) return;
+        $('thead').css("transform", "translate3d(" + -$("tbody").scrollLeft() +"px, 0, 0)"); //fix the thead relative to the body scrolling
+        $('thead td').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first cell of the header
+        $('tbody th').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first column of tdbody
+    }
+
+  })();
+
+</script>
+{% endblock %}

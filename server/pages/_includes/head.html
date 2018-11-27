@@ -15,7 +15,7 @@
 {% if title %}
   <title>{{title}}</title>
 {% elif 'products-' in id %}
-  <title>Ionic Pro - {{ id | replace('products-','') | title}}</title>
+  <title>Ionic Appflow - {{ id | replace('products-','') | title}}</title>
 {% elif name %}
   <title>Ionic Framework - {{name}}</title>
 {% elif id %}
@@ -27,7 +27,7 @@
 {% if 'products-' in id %}
   {% set meta_image = 'https://ionicframework.com/img/meta/ionic-pro-og.png' %}
   {% if not meta_description %}
-    {% set meta_description = "The Ionic Pro platform helps you build better apps on ionic framework with Pro's integrated suite of tools and services designed for the entire app lifecycle." %}
+    {% set meta_description = "The Ionic Appflow platform helps you build better apps on ionic framework with Appflow's integrated suite of tools and services designed for the entire app lifecycle." %}
   {% endif %}
   {% set meta_keywords = "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs, ionic pro, ionic pro apps, ionic pro suite, ionic pro product, ionic pro tools" %}
 {% endif %}

@@ -38,6 +38,24 @@
     background: transparent;
     color: $blue;
     border-width: 1px;
+
+    &:hover,
+    &:focus {
+      border-color: lighten($blue, 3);
+      background: rgba($blue, .05);
+    }
+
+    &.faded {
+      border: 1px solid rgba(54, 74, 110, 0.5);
+      color: #A1ABBC;
+
+      &:hover,
+      &:focus {
+        color: white;
+        border-color: lighten(#A1ABBC, 3);
+        background: rgba(#A1ABBC, .05);
+      }
+    }
   }
 
   &.btn-primary,
@@ -145,10 +163,6 @@
     }
   }
 
-  &.uppercase {
-    text-transform: uppercase;
-  }
-
   &.dark {
     color: white;
   }
@@ -198,6 +212,10 @@
       font-size: 14px;
       font-weight: 600;
     }
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
   }
 
   &.micro {

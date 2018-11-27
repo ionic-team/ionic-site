@@ -20,7 +20,7 @@
     <ul class="right">
       <li>
         <a class="btn dark rounded xs uppercase outline"
-           href="#" data-toggle="modal" data-target="#requestDemo">Request a Demo</a>
+           href="#" data-toggle="modal" data-target="#requestDemo" id="btn-studio-subheader-request-demo">Request a Demo</a>
       </li>
     </ul>
   </div>
@@ -38,9 +38,9 @@
     </p>
     <div class="btns">
       <a class="btn dark rounded sm uppercase outline"
-         href="#" data-toggle="modal" data-target="#requestDemo">Request a Demo</a>
+         href="#" data-toggle="modal" data-target="#requestDemo" id="btn-studio-hero-request-demo">Request a Demo</a>
       <a class="btn dark rounded sm uppercase outline faded"
-         href=""><ion-icon name="play"></ion-icon> Watch Overview</a>
+         href="" id="btn-studio-hero-watch-overview"><ion-icon name="play"></ion-icon> Watch Overview</a>
     </div>
   </hgroup>
 
@@ -177,10 +177,10 @@
         </p>
       </hgroup>
       <div class="video-container">
-        <video poster="/img/products/studio/studio-serving-start.jpg" 
-               muted 
+        <video poster="/img/products/studio/studio-serving-start.jpg"
+               muted
                onended="showApp(this)">
-          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-serving.mp4" 
+          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-serving.mp4"
                   type="video/mp4">
         </video>
         <img src="/img/products/studio/app-serve-window.png" class="preview">

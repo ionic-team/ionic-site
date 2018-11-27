@@ -46,7 +46,7 @@
 
   <section>
     <div class="container">
-      <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay 
+      <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay
              loop muted>
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-time-lapse.mp4" type="video/mp4">
       </video>
@@ -180,8 +180,8 @@
         </p>
       </hgroup>
       <div class="video-container fade-in">
-        <video poster="/img/products/studio/studio-serving-start.jpg" 
-               muted 
+        <video poster="/img/products/studio/studio-serving-start.jpg"
+               muted
                onended="showApp(this)">
           <source src="https://ionic-site-assets.s3.amazonaws.com/studio-serving.mp4"
                   type="video/mp4">
@@ -261,7 +261,7 @@
     <div class="container">
       <hgroup>
         <h2>
-          <strong>Ionic Studio</strong> is a developer-friendly IDE that 
+          <strong>Ionic Studio</strong> is a developer-friendly IDE that
           accelerates app creation for teams building with Ionic.
         </h2>
         <p>
@@ -269,10 +269,11 @@
         </p>
       </hgroup>
       <div class="btns">
-        <a class="btn dark rounded sm uppercase outline" 
+        <a class="btn dark rounded sm uppercase outline"
            href="#"
            data-toggle="modal"
-           data-target="#requestDemo">Request a Demo</a>
+           data-target="#requestDemo"
+           id="btn-studio-footer-request-demo">Request a Demo</a>
       </div>
     </div>
   </aside>
@@ -338,7 +339,7 @@ $(document).ready(function() {
       var yTopMedia = $(el).offset().top;
       var yBottomMedia = $(el).height() + yTopMedia;
       if (
-        scrollTop < yBottomMedia && scrollBottom > yTopMedia && 
+        scrollTop < yBottomMedia && scrollBottom > yTopMedia &&
         !el.dataset.played
       ) {
         el.play();

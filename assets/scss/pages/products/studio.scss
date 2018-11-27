@@ -3,6 +3,24 @@
 @import '../../bootstrap/variables';
 
 #page-products-studio {
+  .sub-header a.btn {
+    padding: 6px 8px 5px;
+    font-size: 11px;
+    font-weight: 600;
+    vertical-align: 0;
+    letter-spacing: .04em;
+    margin-right: 3px;
+    margin-left: 9px;
+    transition: .3s box-shadow,.3s background;
+
+    &:hover,
+    &:focus {
+      color: white;
+      border-color: lighten($blue, 3);
+      background: rgba($blue, .1);
+    }
+  }
+
   .top {
     margin-top: -148px;
     padding-top: 235px;
@@ -61,6 +79,7 @@
         font-size: 15px;
         margin-right: 6px;
         letter-spacing: .1em;
+        border-width: 2px;
 
         @media (max-width: $screen-sm) {
           margin-bottom: 16px;
@@ -125,14 +144,14 @@
       }
 
       h4 { animation-delay: .6s; }
-      h1 { animation-delay: 1.2s; }
-      p { animation-delay: 2s; }
-      .btn { animation-delay: 2.6s; }
-      .btn:last-child { animation-delay: 2.7s; }
+      h1 { animation-delay: 1s; }
+      p { animation-delay: 1.6s; }
+      .btn { animation-delay: 2s; }
+      .btn:last-child { animation-delay: 2.1s; }
     }
 
     video {
-      animation: 1s fadeIn forwards 4s;
+      animation: 1s fadeIn forwards 3.5s;
       opacity: 0;
     }
   }
@@ -196,6 +215,8 @@
 
   main section,
   .top section {
+    margin-top: -1px;
+
     h3 {
       line-height: normal;
       font-size: 36px;
@@ -286,6 +307,18 @@
       @media (max-width: $screen-sm) {
         flex-basis: 100%;
         margin-bottom: 32px;
+      }
+
+      &:nth-child(2) {
+        transition-delay: .1s !important;
+      }
+
+      &:nth-child(3) {
+        transition-delay: .2s !important;
+      }
+
+      &:nth-child(4) {
+        transition-delay: .3s !important;
       }
     }
 

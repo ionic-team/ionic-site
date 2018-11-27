@@ -46,7 +46,7 @@
     background: #182434;
     position: relative;
     z-index: 0;
-    overflow: hidden;
+
 
     &:before {
       content: '';
@@ -107,6 +107,7 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        overflow: hidden;
       }
 
       @media (max-width: $screen-xs) {

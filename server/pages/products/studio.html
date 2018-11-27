@@ -1,7 +1,6 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products-studio' %}
 {% set header_style = 'transparent' %}
-{% set stickyNav = true %}
 {% set cssPath = 'products/studio' %}
 {% set title = 'Ionic Studio: A Powerful Way to Build Hybrid Apps'%}
 {% set meta_image = 'https://ionicframework.com/img/meta/products-studio-og.png'%}
@@ -47,9 +46,8 @@
 
   <section>
     <div class="container">
-      <video poster="/img/products/studio/studio-screenshot.png" autoplay>
-        <source src="movie.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
+      <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay loop muted>
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-time-lapse.mp4" type="video/mp4">
       </video>
 
       <h3>Empower your team. Drive digital transformation.</h3>
@@ -96,9 +94,8 @@
           every dependency, so you can focus on development instead.
         </p>
       </hgroup>
-      <video poster="/img/products/studio/studio-screenshot.png" autoplay>
-        <source src="movie.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
+      <video poster="/img/products/studio/studio-code-editor-start.jpg" muted>
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-code-editor.mp4" type="video/mp4">
       </video>
 
       <ul>
@@ -138,9 +135,8 @@
         </p>
       </hgroup>
 
-      <video poster="/img/products/studio/studio-screenshot.png" autoplay>
-        <source src="movie.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
+      <video poster="/img/products/studio/studio-visual-editor-start.jpg" muted>
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-visual-editor.mp4" type="video/mp4">
       </video>
 
       <ul>
@@ -180,11 +176,15 @@
           button.
         </p>
       </hgroup>
-      <video poster="/img/products/studio/studio-screenshot.png" autoplay>
-        <source src="movie.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
-      </video>
-
+      <div class="video-container">
+        <video poster="/img/products/studio/studio-serving-start.jpg" 
+               muted 
+               onended="showApp(this)">
+          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-serving.mp4" 
+                  type="video/mp4">
+        </video>
+        <img src="/img/products/studio/app-serve-window.png" class="preview">
+      </div>
       <ul>
         <li class="live">
           <strong>Live Preview</strong>
@@ -299,5 +299,31 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+$(document).ready(function() {
+  // Get media - with autoplay disabled (audio or video)
+  var media = $('video').not("[autoplay='autoplay']");
+  var tolerancePixel = 40;
 
+  function checkMedia() {
+    // Get current browser top and bottom
+    var scrollTop = $(window).scrollTop() + tolerancePixel;
+    var scrollBottom = $(window).scrollTop() + $(window).height() - tolerancePixel;
+
+    media.each(function(index, el) {
+      var yTopMedia = $(this).offset().top;
+      var yBottomMedia = $(this).height() + yTopMedia;
+      if(!$(this).data('played')){
+          $(this).get(0).play();
+          $(this).data('played', true);
+      }
+    });
+  }
+  $(document).on('scroll', checkMedia);
+});
+
+window.showApp = function(el) {
+  el.parentNode.classList.add('finished');
+}
+</script>
 {% endblock %}

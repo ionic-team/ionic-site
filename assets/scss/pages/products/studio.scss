@@ -82,7 +82,8 @@
 
     section {
       video {
-        margin: 98px -78px;
+        border-radius: 4px;
+        margin: 98px -78px 140px;
         max-width: calc(100% + 155px);
       }
 
@@ -162,7 +163,8 @@
 
     video {
       max-width: 100%;
-      margin: 70px auto 88px;
+      margin: 70px auto 140px;
+      border-radius: 4px;
     }
 
     h2 {
@@ -271,6 +273,41 @@
       font-size: 16px;
       color: #B2BECD;
       font-weight: 400;
+    }
+  }
+
+  .video-container {
+    position: relative;
+
+    .preview {
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 50%;
+      width: 471px;
+      opacity: 0;
+      transition: .2s opacity, .6s transform ease;
+      // transition-delay: .1s;
+      transform-origin: -50% 50%;
+      transform: translateY(5px) scale3d(1.15, 1.15, 1);
+    }
+
+    video {
+      transform-origin: 0 50%;
+      transition: .6s filter ease, .6s transform ease, .6s opacity;
+    }
+
+    &.finished {
+      .preview {
+        opacity: 1;
+        transform: none;
+      }
+
+      video {
+        filter: blur(3px);
+        opacity: .5;
+        transform: scale3d(.9, .9, 1);
+      }
     }
   }
 

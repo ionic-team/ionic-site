@@ -84,18 +84,24 @@ window.c = function(cat, lbl, el, val) {
   if (typeof val === 'undefined') {
     var val = null;
   }
-  ga('send', {
-    hitType: 'event',
-    eventCategory: cat,
-    eventAction: 'Click',
-    eventLabel: lbl,
-    eventValue: val,
-    hitCallback: function() {
-      if (!!el) {
-        document.location = el.href;
-      };
+  if (window.ga && ga.loaded) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: cat,
+      eventAction: 'Click',
+      eventLabel: lbl,
+      eventValue: val,
+      hitCallback: function() {
+        if (!!el) {
+          document.location = el.href;
+        };
+      }
+    });
+  } else {
+    if (!!el) {
+      document.location = el.href;
     }
-  });
+  }
   // don't follow links until analytics is recieved
   if (!!el) {
     return false;

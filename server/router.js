@@ -76,12 +76,12 @@ module.exports = function router(app) {
   .get('/go/why-hybrid/thank-you', (_, res) =>
     res.render('go/why-hybrid/thank-you'))
 
-  // .get('/integrations', (req, res) =>
-  //   getIntegrations(req, res))
-  // .get('/integrations/category/:category', (req, res) =>
-  //   getIntegrations(req, res, req.params.category))
-  // .get('/integrations/:integration', (req, res) =>
-  //   getIntegration(req, res, req.params.integration))
+  .get('/integrations', (req, res) =>
+    getIntegrations(req, res))
+  .get('/integrations/category/:category', (req, res) =>
+    getIntegrations(req, res, req.params.category))
+  .get('/integrations/:integration', (req, res) =>
+    getIntegration(req, res, req.params.integration))
 
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/press', (_, res) => res.render('press'))

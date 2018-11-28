@@ -150,6 +150,10 @@
       .btn:last-child { animation-delay: 2.1s; }
     }
 
+    p a {
+      color: white;
+    }
+
     video {
       animation: 1s fadeIn forwards 3.5s;
       opacity: 0;
@@ -265,18 +269,6 @@
       margin-bottom: 12px;
       display: inline-block;
       padding-left: 39px;
-
-
-      &::before {
-        background: url('/img/products/studio/ico-features-sm.png') no-repeat 0 0;
-        background-size: 26px;
-        width: 26px;
-        height: 26px;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
     }
 
     li {
@@ -307,6 +299,17 @@
       @media (max-width: $screen-sm) {
         flex-basis: 100%;
         margin-bottom: 32px;
+      }
+
+      strong::before {
+        background: url('/img/products/studio/ico-features-sm.png') no-repeat 0 0;
+        background-size: 26px;
+        width: 26px;
+        height: 26px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
       }
 
       &:nth-child(2) {

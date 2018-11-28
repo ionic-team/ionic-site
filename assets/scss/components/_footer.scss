@@ -235,53 +235,20 @@ footer {
       height: 16px;
       width: 16px;
       display: inline-block;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      &::before,
-      &::after {
-        background: url('/img/footer/footer-social-icons.png') no-repeat 0 0;
-        background-size: 16px;
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+      svg {
+        fill: #CED6E0;
       }
 
-      &::after {
-        transition: .2s opacity;
-        opacity: 0;
+      &:hover svg {
+        fill: #B4BBC5;
       }
 
-      &:hover::after {
-        opacity: 1;
-      }
     }
 
-    #btn-footer-twitter::after { background-position: 0 -16px; }
-    #btn-footer-slack {
-      &::before { background-position: 0 -32px; }
-      &::after  { background-position: 0 -48px; }
-    }
-    #btn-footer-github {
-      &::before { background-position: 0 -64px; }
-      &::after  { background-position: 0 -80px; }
-    }
-    #btn-footer-facebook {
-      &::before { background-position: 0 -96px; }
-      &::after  { background-position: 0 -112px; }
-    }
-    #btn-footer-medium {
-      &::before { background-position: 0 -128px; }
-      &::after  { background-position: 0 -144px; }
-    }
-    #btn-footer-youtube {
-      &::before { background-position: 0 -160px; }
-      &::after  { background-position: 0 -176px; }
-    }
-    #btn-footer-stack-overflow {
-      &::before { background-position: 0 -192px; }
-      &::after  { background-position: 0 -208px; }
-    }
   }
 }

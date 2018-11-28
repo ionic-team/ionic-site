@@ -1,7 +1,54 @@
-<li class="{% if id.indexOf('products') == 0%} active{% endif %}">
-  <a href="/pro" id="btn-header-products">
-    Products
-  </a>
+<li class="dropdown products{% if id.indexOf('products') == 0%} active{% endif %}">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Products</a>
+  <ul class="dropdown-menu">
+    <li class="big">
+      <a href="/appflow" id="btn-header-products">
+        {% include '_includes/svg/ionic-purple.html' %}
+        <strong>Ionic Appflow</strong>
+        <span>Continuous mobile devops tools &amp; services</span>
+      </a>
+    </li>
+    <li class="big">
+      <a href="/studio">
+        {% include '_includes/svg/ionic-grey.html' %}
+        <strong>Ionic Studio</strong>
+        <span>Ionic integrated development environment</span>
+      </a>
+    </li>
+    <li class="big">
+      <a href="/enterprise-engine">
+        {% include '_includes/svg/ionic-salmon.html' %}
+        <strong>Ionic Enterprise Engine</strong>
+        <span>The trusted app foundation for enterprise</span>
+      </a>
+    </li>
+    <li class="divider"></li>
+    {# <li>
+      <a href="/integrations">
+        Integrations
+      </a>
+    </li> #}
+    <li>
+      <a href="/pricing">
+        Pricing
+      </a>
+    </li>
+    <li>
+      <a href="/demo">
+        Get a demo
+      </a>
+    </li>
+    <li>
+      <a href="/support">
+        Support options
+      </a>
+    </li>
+  </ul>
 </li>
 
 <li class="dropdown developers">
@@ -40,23 +87,23 @@
       <ul>
         <li><a href="/docs/appflow">Appflow Docs</a></li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-intro" href="/docs/pro/">
+          <a class="sm" id="btn-header-developers-pro-intro" href="/docs/appflow/">
             Introduction
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-package" href="/docs/pro/package/">
+          <a class="sm" id="btn-header-developers-pro-package" href="/docs/appflow/package/">
             Native Package
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-deploy" href="/docs/pro/deploy/">
+          <a class="sm" id="btn-header-developers-pro-deploy" href="/docs/appflow/deploy/">
             Live Deploy
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-monitoring" href="/docs/pro/monitoring/">
-            App Monitoring
+          <a class="sm" id="btn-header-developers-pro-monitoring" href="/docs/appflow/automations/">
+            Automations
           </a>
         </li>
       </ul>
@@ -88,39 +135,6 @@
   </ul>
 </li>
 
-<li class="dropdown businesses">
-  <a href="#"
-     class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
-     aria-haspopup="true"
-     aria-expanded="false">Businesses</a>
-  <ul class="dropdown-menu">
-    <li><span>Ionic for</span></li>
-    <li>
-      <a id="btn-header-businesses-enterprise" href="/enterprise">
-        Enterprise
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-businesses-startups" href="/startups">
-        Startups
-      </a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a id="btn-header-businesses-request-a-demo" href="/demo">
-        Request a demo
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-businesses-contact-sales" href="/sales">
-        Contact sales
-      </a>
-    </li>
-  </ul>
-</li>
-
 <li class="dropdown ecosystem">
   <a href="#"
      class="dropdown-toggle"
@@ -134,19 +148,48 @@
         Resource Center
       </a>
     </li>
-    <li>
-      <a href="/community">
-        Community
-      </a>
+    <li class="split">
+      <ul>
+        <li><span>Topics</span></li>
+        <li>
+          <a class="sm" href="/resources/articles">
+            Articles
+          </a>
+        </li>
+        <li>
+          <a class="sm" href="/resources/case-studies">
+            Case Studies
+          </a>
+        </li>
+        {# <li>
+          <a href="/resources/whitepapers">
+            Case Studies
+          </a>
+        </li> #}
+      </ul>
+      <ul>
+        <li><span>Media</span></li>
+        <li>
+          <a class="sm" href="/resources/webinars">
+            Webinars
+          </a>
+        </li>
+        <li>
+          <a class="sm" href="/resources/videos">
+            Videos
+          </a>
+        </li>
+        <li>
+          <a class="sm" href="https://betontheweb.ionicframework.com/episodes" target="_blank">
+            Podcast <icon-external></icon-external>
+          </a>
+        </li>
+      </ul>
     </li>
+    <li class="divider"></li>
     <li>
       <a href="/what-is-ionic">
-        What Is Ionic
-      </a>
-    </li>
-    <li>
-      <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com">
-        The Ionic Blog
+        What Is Ionic?
       </a>
     </li>
     <li>
@@ -155,51 +198,28 @@
       </a>
     </li>
     <li>
-      <a href="/resources/webinars">
-        Webinars
-      </a>
-    </li>
-    <li>
       <a id="btn-header-resources-pwas" href="/pwa">
         PWAs
       </a>
     </li>
-  </ul>
-</li>
-
-<li class="dropdown support">
-  <a href="#"
-     class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
-     aria-haspopup="true"
-     aria-expanded="false">Support</a>
-  <ul class="dropdown-menu">
     <li>
       <a href="https://ionic.zendesk.com/">
         Help Center
       </a>
     </li>
-    <li>
-      <a href="/enterprise/support">
-        Enterprise Support
-      </a>
-    </li>
-    <li>
-      <a href="/trusted-partners">
-        Trusted Partners
-      </a>
-    </li>
-    <li>
-      <a href="/contact">
-        Talk to us
-      </a>
-    </li>
   </ul>
 </li>
 
+<li><a href="/community">Community</a></li>
+
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
-  <a href="/pro/pricing" id="btn-header-pricing">
+  <a href="/pricing" id="btn-header-pricing">
     Pricing
+  </a>
+</li>
+
+<li>
+  <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com">
+    Blog
   </a>
 </li>

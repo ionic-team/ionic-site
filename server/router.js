@@ -7,8 +7,8 @@ const es                   = require('express-sanitizer');
 const { join }             = require('path');
 
 const { previewController, getPrismic } = require('./prismic');
-const { getIntegrations, getIntegration } = require('./integrations');
 
+const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');

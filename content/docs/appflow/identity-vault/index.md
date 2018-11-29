@@ -34,6 +34,15 @@ The Vault comes with a native Cordova plugin and a JavaScript library complete w
 
 To install Ionic Enterprise Identity Vault, find the zip file sent to you from the Ionic team, and unzip it.
 
+In case your distribution does not have the dist folder or you are building directly from sources, you need to first build the library. Please refer to lib Readme for more details.
+
+```bash
+cd ~/path/to/enterprise-auth/lib
+npm install
+
+npm run build
+```
+
 Next, navigate to the app you wish to install EIV into, and run
 
 ```bash

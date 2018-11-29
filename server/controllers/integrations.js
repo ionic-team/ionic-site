@@ -1,6 +1,6 @@
 const Prismic              = require('prismic-javascript');
 const PrismicDOM           = require('prismic-dom');
-const { PRISMIC_ENDPOINT } = require('./config');
+const { PRISMIC_ENDPOINT } = require('../config');
 
 module.exports = {
   getIntegrations:  function(req, res, categoryFilter) {

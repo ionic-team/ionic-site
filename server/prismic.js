@@ -53,7 +53,7 @@ async function getOne(key, value, size = 10) {
   })
 }
 
-const prismic = {
+module.exports = {
   middleware: (req, res, next) => {
     res.locals.ctx = {
       endpoint: PRISMIC_ENDPOINT,
@@ -125,5 +125,3 @@ const prismic = {
 
   getOne: getOne
 }
-
-module.exports = prismic

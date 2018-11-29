@@ -770,7 +770,7 @@
       list-style: none;
       display: flex;
       justify-content: space-between;
-      max-width: 960px;
+      // max-width: 960px;
       margin: 0 auto;
 
       h4 {
@@ -794,7 +794,7 @@
 
     li {
       padding-top: 68px;
-      flex: 0 1 320px;
+      flex: 0 1 340px;
       position: relative;
 
       &::before {

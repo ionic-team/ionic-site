@@ -6,10 +6,13 @@ const { PRISMIC_ENDPOINT } = require('../config');
 
 
 class IntegrationService {
-  lifeTime = 1000 * 60 * 15; // 15 mins in milliseconds
-  integrations = [];
-  lastRequest = null;
-  getAllIntegrations = async () => {
+  constructor() {
+    this.lifeTime = 1000 * 60 * 15; // 15 mins in milliseconds
+    this.integrations = [];
+    this.lastRequest = null;
+  }
+  
+  async getAllIntegrations() {
     const d = new Date();
     // if server was restarted or it's been a while, get new integrations
     if (

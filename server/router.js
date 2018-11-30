@@ -8,12 +8,11 @@ const { join }             = require('path');
 
 const { previewController, getPrismic } = require('./prismic');
 
-// const { getIntegrations, getIntegration } = require('./controllers/integrations');
+const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
-// const integrations = require('./data/integrations');
 
 function send404(res) {
   res.status(404).sendFile(join(__dirname, '/../_site/404.html'))

@@ -230,6 +230,21 @@
           margin-bottom: 8px;
         }
       }
+
+      // fadein animations
+      h3,
+      h1,
+      p,
+      .cta-buttons .btn {
+        animation: 1s fadeInUp forwards;
+        opacity: 0;
+      }
+
+      h3 { animation-delay: .4s; }
+      h1 { animation-delay: .6s; }
+      p { animation-delay: .9s; }
+      .cta-buttons .btn { animation-delay: 1.1s; }
+      .cta-buttons .btn:last-child { animation-delay: 1.2s; }
     }
   }
 
@@ -251,8 +266,11 @@
       background-color: #fff;
       background-repeat: no-repeat;
       background-size: cover;
-      border-radius: 16px;
+      border-radius: 12px;
       box-shadow: 0 8px 16px rgba(0,14,41,0.08), 0 30px 60px rgba(0,11,34,0.15);
+
+      opacity: 0;
+      animation: fadeIn 1s 1.8s forwards;
 
       img {
         width: 100%;
@@ -1428,6 +1446,7 @@
       flex: 0 0 25%;
       margin-top: 86px;
       padding: 0 24px;
+      // opacity: 0;
 
       h5 {
         color: #fff;
@@ -1445,6 +1464,14 @@
         font-size: 16px;
         line-height: 28px;
       }
+
+      &:nth-child(2) { transition-delay: .1s !important }
+      &:nth-child(3) { transition-delay: .2s !important }
+      &:nth-child(4) { transition-delay: .3s !important }
+      &:nth-child(5) { transition-delay: .4s !important }
+      &:nth-child(6) { transition-delay: .5s !important }
+      &:nth-child(7) { transition-delay: .6s !important }
+      &:nth-child(8) { transition-delay: .7s !important }
     }
 
     [class^="pro-feature--"] h5::before {

@@ -354,7 +354,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 <script>
+window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+sr.reveal(
+  '.customer-logos > div, main hgroup h3, main hgroup p, main .features li, ' +
+  '.content h4, .content h2, .content p, .pro-features li');
+
   (function() {
     // const videoPlayer = document.querySelector('.video-player');
     // const iframeTarget = document.querySelector('.js-video-target');

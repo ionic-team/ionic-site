@@ -296,7 +296,7 @@
         a,
         span,
         strong {
-          color: #131924;
+          color: #3D526D;
           display: block;
           font-size: 14px;
           line-height: 1.6;
@@ -306,13 +306,39 @@
           transition: 0.2s color;
         }
 
+        .big a {
+          padding-left: 52px;
+          position: relative;
+
+          svg {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+          }
+
+          span {
+            text-transform: none;
+            padding-top: 0;
+            font-weight: 500;
+          }
+
+          strong {
+            padding-bottom: 0;
+          }
+        }
+
         a:hover {
             background: transparent;
             color: $blue;
+
+            strong,
+            span {
+              color: $blue;
+            }
         }
 
         span {
-          color: #95a3bd;
+          color: #92A1B3;
           font-size: 11px;
           text-transform: uppercase;
           letter-spacing: .04em;
@@ -326,7 +352,7 @@
 
           ~ li a,
           ~ li span {
-            background: #f8f9fb;
+            background: #F6F8FB;
           }
 
           ~ li:last-child a {
@@ -344,18 +370,19 @@
           min-width: 360px;
           padding-bottom: 8px;
 
-          a {
+          a,
+          span {
             min-width: 0;
           }
 
           .sm {
-            color: #3b5073;
+            color: $blue;
             font-size: 12px;
             font-weight: 400;
             padding: 4px 28px;
 
             &:hover {
-              color: $blue;
+              color: lighten($blue, 10);
             }
           }
         }

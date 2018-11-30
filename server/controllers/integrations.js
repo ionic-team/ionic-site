@@ -1,6 +1,38 @@
+"use strict";
 const Prismic              = require('prismic-javascript');
 const PrismicDOM           = require('prismic-dom');
-const { PRISMIC_ENDPOINT } = require('./config');
+const { getAll }           = require('../prismic');
+const { PRISMIC_ENDPOINT } = require('../config');
+
+
+class IntegrationService {
+  constructor() {
+    this.lifeTime = 1000 * 60 * 15; // 15 mins in milliseconds
+    this.integrations = [];
+    this.lastRequest = null;
+  }
+  
+  async getAllIntegrations() {
+    const d = new Date();
+    // if server was restarted or it's been a while, get new integrations
+    if (
+      this.integrations.length < 0 || 
+      this.lastRequest + this.lifeTime < d.getTime()
+    ) {
+      // console.log('getting new!');
+      try {
+        this.integrations = await getAll('document.type', 'integration');
+        this.lastRequest = d.getTime();
+      } catch(e) {
+        console.error(e);
+      }
+    }
+    // either way, return what we got
+    return this.integrations;
+  }
+}
+
+const is = new IntegrationService();
 
 module.exports = {
   getIntegrations:  function(req, res, categoryFilter) {
@@ -79,16 +111,7 @@ module.exports = {
     }
 
     return new Promise((resolve, reject) => {
-      Prismic.getApi(PRISMIC_ENDPOINT, {
-        req: req
-      })
-      .then(api => {
-        return api.query([
-          Prismic.Predicates.at('document.type', 'integration')
-        ])
-      })
-      .then(response => {
-        const results = response.results;
+      is.getAllIntegrations().then(results => {
 
         // used to send down a full list of the integrations with abbreviated schema for client side search & filtering
         const data = results.map(o => {

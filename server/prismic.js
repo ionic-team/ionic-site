@@ -43,6 +43,16 @@ function htmlSerializer (type, element, content, children) {
   }
 }
 
+async function getOne(key, value, size = 10) {
+  return Prismic.getApi(PRISMIC_ENDPOINT)
+  .then(api => {
+    return api.query(
+      Prismic.Predicates.at(key, value),
+      { pageSize : size }
+    )
+  })
+}
+
 module.exports = {
   middleware: (req, res, next) => {
     res.locals.ctx = {
@@ -98,5 +108,20 @@ module.exports = {
         reject(e);
       });
     });
-  }
+  },
+
+  getAll: async (key, value) => {
+    let response = await getOne(key, value, 100);
+    const pages = response.total_pages;
+    let results = response.results;
+    if (pages && pages > 1) {
+      for(let i = 1; i < pages; i++) {
+        response = await fetch(response.next_page).then(res => res.json());
+        results = results.concat(response.results);
+      }
+    }
+    return results;
+  },
+
+  getOne: getOne
 }

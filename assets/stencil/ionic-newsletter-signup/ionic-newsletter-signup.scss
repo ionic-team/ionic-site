@@ -64,6 +64,8 @@ ionic-newsletter-signup {
         border-radius: 6px 0 0 6px;
         box-shadow: none;
 
+
+
         &::placeholder {
           color: #a8b0be;
           font-weight: 400;
@@ -74,7 +76,8 @@ ionic-newsletter-signup {
         background: #f0f5ff;
         color: #3880ff;
         font-size: 23px;
-
+        display: flex;
+        align-items: center;
         border-radius: 0 6px 6px 0;
 
         &:hover {

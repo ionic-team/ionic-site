@@ -13,7 +13,7 @@ Launched in 2013, the [Ionic Framework](https://ionicframework.com) has acquired
 ## Introducing Ionic Pro
 Ionic Pro is a powerful set of cloud-based services and features that bring a new level of app development agility to dev teams. Pro allows multiple developers to collaborate on projects using a single, shared dashboard and stay up-to-date on build activity and code changes, while using Pro’s core services to:
 
-* [Rapidly develop](https://ionicframework.com/pro/creator) apps using visual drag-and-drop design that exports working code
+* [Rapidly develop](https://ionicframework.com/creator) apps using visual drag-and-drop design that exports working code
 * [Easily share](https://ionicframework.com/pro/view) test versions with users, and view all tester feedback in a central dashboard
 * [Deliver different versions](https://ionicframework.com/pro/deploy) and releases to specific segments of users
 * [Track and analyze errors](https://ionicframework.com/pro/monitor) in your code to improve app quality

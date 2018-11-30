@@ -28,8 +28,6 @@ module.exports = function(req, res, next) {
     (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
   ) {
     return res.redirect(301, 'https://ionicframework.com/pwa');
-  } else if (parts.path.indexOf('/creator/') == 0) {
-    return res.redirect(301, '/pro/creator' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/docs/pro/') == 0) {
     return res.redirect(301, '/docs/appflow/' + req.url.replace(/\/docs\/pro\//, ''));
   } else if (parts.path.indexOf('/docs/pro') == 0) {

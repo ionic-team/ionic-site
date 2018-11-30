@@ -139,7 +139,7 @@
               </div>
               <div class="integrations-list__results-grid">
                 {% for i in categoryFiltered %}
-                  <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
+                  <a href="{% if i.data.show_detail === 'Yes' %}/integrations/{{i.uid}}{% else %}{{i.data['cta_link'].url}}{% endif %}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
                     <div class="integrations-card__image">
                       <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
                     </div>
@@ -163,7 +163,7 @@
                   <div class="integrations-list__results-row">
                     {% for i in featured.integrations %}
 
-                        <a href="/integrations/{{i.uid}}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
+                        <a href="{% if i.data.show_detail === 'Yes' %}/integrations/{{i.uid}}{% else %}{{i.data['cta_link'].url}}{% endif %}" class="integrations-card integrations-card--small {% if i.data.premier === 'Yes' %}integrations-card--premier{% endif %} {% if i.data.free === 'Yes' %}integrations-card--community{% endif %}">
                           <div class="integrations-card__image">
                             <img src="{{i.data.logo.url}}" alt="{{ i.data.name }} logo">
                           </div>
@@ -221,6 +221,8 @@
 <script>
   (function(){
     var data = JSON.parse('{{ data | dump }}');
+
+    console.log(data)
 
     // state
     var hasCategoryFilter = {{ hasCategoryFilter }};
@@ -517,7 +519,8 @@
     function renderCard(data) {
       var newCard = document.createElement('a');
       newCard.className = 'integrations-card integrations-card--small ' + ( data.premier === 'Yes' ? 'integrations-card--premier' : '' );
-      newCard.href = '/integrations/' + data.uid;
+
+      newCard.href = (data.showDetail === 'Yes') ? '/integrations/' + data.uid : data.ctaLink;
 
       var cardImageWrap = document.createElement('div');
       cardImageWrap.className = 'integrations-card__image';

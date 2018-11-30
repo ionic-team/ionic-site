@@ -36,19 +36,19 @@ function htmlSerializer (type, element, content, children) {
                          .replace(/\,+/g, '')
                          .toLowerCase();
       return `<h${level} id="${id}">${children.join('')}</h${level}>`;
- 
+
     // Return null to stick with the default behavior for all other elements
     default:
       return null;
   }
 }
 
-async function getOne(key, value, size = 10) {
+async function getOne(key, value, size = 10, ordering = '') {
   return Prismic.getApi(PRISMIC_ENDPOINT)
   .then(api => {
     return api.query(
       Prismic.Predicates.at(key, value),
-      { pageSize : size }
+      { pageSize : size, orderings: ordering}
     )
   })
 }
@@ -110,8 +110,8 @@ module.exports = {
     });
   },
 
-  getAll: async (key, value) => {
-    let response = await getOne(key, value, 100);
+  getAll: async (key, value, ordering) => {
+    let response = await getOne(key, value, 100, ordering);
     const pages = response.total_pages;
     let results = response.results;
     if (pages && pages > 1) {

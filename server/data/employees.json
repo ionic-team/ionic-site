@@ -11,7 +11,7 @@
     "dept":"VP of Marketing",
     "description":null,
     "twitter":"achaire",
-    "image": "andrew.jpg"
+    "image": "andrew.png"
   },
   {
     "name":"Ben Sperry",
@@ -60,7 +60,7 @@
     "dept":"Sales",
     "description":null,
     "twitter":"cwiseman1",
-    "image": "cody.jpg"
+    "image": "cody.png"
   },
   {
     "name":"Dan Imhoff",
@@ -102,7 +102,7 @@
     "dept":"Sales",
     "description":null,
     "twitter":"JakeSanterre",
-    "image": "jake.jpg"
+    "image": "jake.png"
   },
   {
     "name":"Josh Thomas",
@@ -171,14 +171,14 @@
     "dept":"Product Manager",
     "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
     "twitter":"matthewkremer",
-    "image": "matt.jpg"
+    "image": "matt.png"
   },
   {
     "name":"Matt Netkow",
     "dept":"Marketing",
     "description":"",
     "twitter":"dotNetkow",
-    "image": "matt-n.jpg"
+    "image": "netkow.png"
   },
   {
     "name":"Max Lynch",
@@ -220,14 +220,14 @@
     "dept":"Marketing",
     "description": null,
     "twitter": "rachelanjali",
-    "image": "rachel.jpg"
+    "image": "rachel.png"
   },
   {
     "name":"Rachel Ashton",
     "dept":"Marketing",
     "description": null,
     "twitter": "Rachel_Ellen31",
-    "image": "ashton.jpg"
+    "image": "ashton.png"
   },
   {
     "name":"Ryan Bowman",

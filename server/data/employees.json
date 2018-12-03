@@ -56,6 +56,13 @@
     "image": "cam.jpg"
   },
   {
+    "name":"Cody Wiseman",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"cwiseman1",
+    "image": "cody.jpg"
+  },
+  {
     "name":"Dan Imhoff",
     "dept":"Development",
     "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
@@ -89,6 +96,13 @@
     "description":"I am an Italian living in Boston, a Formula 1, basket and a football (the American one) fan. I like to run, try new food and beer. My secret mission is to teach people what a good Italian pizza is. While listening to '70s and 80's rock, I write code for Ionic PRO.",
     "twitter":"giocalitri",
     "image": "giovanni.jpg"
+  },
+  {
+    "name":"Jake Santerre",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"JakeSanterre",
+    "image": "jake.jpg"
   },
   {
     "name":"Josh Thomas",
@@ -188,6 +202,13 @@
     "image": "nick.jpg"
   },
   {
+    "name":"Noah Blank",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"noahblank",
+    "image": "noah.jpg"
+  },
+  {
     "name":"Perry Govier",
     "dept":"Frontend/Design",
     "description":"Be it code, places, gadgets, food, or conversation, Perry loves to explore it all. While AFK he's probably biking around Madison, spending time with his wife and son, \"refactoring\" his house, building something in his backyard, talking politics, or pretending to be an urban farmer.",
@@ -202,11 +223,11 @@
     "image": "rachel.jpg"
   },
   {
-    "name":"Rudy Pelrine",
-    "dept":"Development",
-    "description":"A musician, DJ, sound engineer, photographer, and self proclaimed fashion nerd, Rudy seems to find a new obsession daily.  At Ionic, you'll find him working on the Platform services, making sure everyone's notifications arrive safe and sound.",
-    "twitter":"Drawn_Closer",
-    "image": "rudy.jpg"
+    "name":"Rachel Ashton",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": "Rachel_Ellen31",
+    "image": "ashton.jpg"
   },
   {
     "name":"Ryan Bowman",

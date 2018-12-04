@@ -403,7 +403,7 @@
 
     .plan-card:first-child {
       max-width: 300px;
-      margin: 80px 0;
+      margin: 100px 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
 
@@ -413,6 +413,7 @@
 
       .plan-card-body {
         border-top: none;
+        padding-top: 0;
       }
 
       .plan-card-cta .btn {

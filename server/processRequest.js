@@ -68,6 +68,7 @@ module.exports = function(req, res, next) {
     res.setHeader('Content-Security-Policy', csp);
     res.setHeader('X-Content-Security-Policy', csp);
     res.setHeader('X-WebKit-CSP', csp);
+    res.setHeader('Access-Control-Allow-Origin', 'https://blog.ionicframework.com');
   }
 
   // cache static files

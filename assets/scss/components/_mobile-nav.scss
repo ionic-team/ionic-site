@@ -58,7 +58,7 @@
   list-style: none;
   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
   list-style-type: none;
-  max-width: 300px;
+  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 80px;
@@ -297,12 +297,16 @@
     margin-left: 12px;
   }
 
+  & > div {
+  }
+
   .btn {
     font-size: 15px;
     font-weight: 700;
     padding: 12px 14px 10px;
     vertical-align: middle;
     border-radius: 4px;
+    margin-right: 0;
   }
 
   .open & {

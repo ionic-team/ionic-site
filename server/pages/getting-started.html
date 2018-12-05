@@ -337,6 +337,10 @@
 
             window.c('Get started', 'btn-get-started-signup-submit');
             var _hsq = window._hsq = window._hsq || [];
+            _hsq.push(["identify", {
+              email: response.data.user.email,
+              id: response.data.user.id
+            }]);
             _hsq.push(["trackEvent", {
               id: "000006040735"
             }]);

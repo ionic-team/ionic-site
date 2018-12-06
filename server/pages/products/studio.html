@@ -68,7 +68,7 @@
             reusable UI components
           </p>
         </li>
-        <li class="tackle">
+        <li class="tackle delay-100">
           <strong>Tackle your development backlog</strong>
           <p>
             Give your team the tools they need to meet the demand for mobile and
@@ -77,7 +77,7 @@
             solutions.
           </p>
         </li>
-        <li class="ship">
+        <li class="ship delay-200">
           <strong>Ship with ease</strong>
           <p>
             As part of the Ionic Development Platform, Studio integrates with 
@@ -115,14 +115,14 @@
             project’s code. Then modify their properties live.
           </p>
         </li>
-        <li class="no-docs">
+        <li class="no-docs delay-100">
           <strong>No Docs Required</strong>
           <p>
             With Ionic’s components at your fingertips, ther’s no need to dig 
             through pages of documentation to learn Ionic.
           </p>
         </li>
-        <li class="secure">
+        <li class="secure delay-200">
           <strong>Secure Local Editor</strong>
           <p>
             Studio’s secure, local editor works off the file system and plays
@@ -157,14 +157,14 @@
             your project’s code. Then modify their properties live.
           </p>
         </li>
-        <li class="properties">
+        <li class="properties delay-100">
           <strong>Properties Editor</strong>
           <p>
             With Ionic’s components at your fingertips, no need to dig through
             pages of documentation just to learn Ionic.
           </p>
         </li>
-        <li class="backend">
+        <li class="backend delay-200">
           <strong>Backend Integrations</strong>
           <p>
             Studio’s secure, local editor works off the file system and plays
@@ -203,14 +203,14 @@
             with live reloading changes as you make them.
           </p>
         </li>
-        <li class="native">
+        <li class="native delay-100">
           <strong>Native Simulators</strong>
           <p>
             See how your app looks &amp; feels across any variety of devices by
             running your app in iOS and Android native simulators.
           </p>
         </li>
-        <li class="device">
+        <li class="device delay-200">
           <strong>On Device</strong>
           <p>
             Connect Studio locally to your physical devices to view and interact
@@ -240,21 +240,21 @@
             properties, app name and description, and more.
           </p>
         </li>
-        <li class="theme">
+        <li class="theme delay-100">
           <strong>Theme Editing</strong>
           <p>
             Easily change and customize the colors in your app with a graphical
             interface that sits on top of your CSS files.
           </p>
         </li>
-        <li class="cordova">
+        <li class="cordova delay-200">
           <strong>Cordova project control</strong>
           <p>
             Easily add and manage Cordova plugins and platforms for iOS &amp;
             Android. Use Studio’s one-click repair to fix Cordova projects.
           </p>
         </li>
-        <li class="ci">
+        <li class="ci delay-300">
           <strong>CI/CD integration</strong>
           <p>
             One-click integration with <a href="/appflow">Ionic Appflow</a>, a 
@@ -369,6 +369,10 @@
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
+
+for (i = 100; i < 300; i+=100){
+    sr.reveal('.delay-'+i, {delay: i});
+}
 
 $(document).ready(function() {
   // Get media - with autoplay disabled (audio or video)

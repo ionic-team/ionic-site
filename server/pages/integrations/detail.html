@@ -3,6 +3,11 @@
 {% set header_style = 'transparent light' %}
 {% set cssPath = 'integrations/index' %}
 
+{% set title = 'Ionic Integrations - ' + data.name %}
+{% if data['meta_description'].length %}
+  {% set meta_description = data['meta_description'] %}
+{% endif %}
+
 {% block main %}
   <section class="container">
     <section class="integrations-detail__nav">

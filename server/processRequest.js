@@ -88,6 +88,8 @@ module.exports = function(req, res, next) {
     resources: resources,
     followerCount: followerCount,
     pre_footer: true,
+    Date: Date,
+    now: new Date(),
     protocol: protocol,
     domain: req.get('host'),
     url: req.originalUrl,

@@ -15,12 +15,19 @@
   </div>
 </div>
 
-<div class="cta gradient">
+<div class="cta gradient"
+  {% if data.header_background %}
+     style="background-image:url('/img/resource-center/webinars/{{data.header_background|lower|replace(' ', '-')}}.jpg')"
+  {% endif %}>
   <hgroup class="container">
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST &nbsp;|
+      {% if Date.parse(data.when) - now <= 0 %}
+        On Demand
+      {% else %}
+        {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST 
+      {% endif %}&nbsp;|
       &nbsp;Hosted by
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
@@ -93,7 +100,7 @@
     </section>
   </div>
 </div>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}
 
 {% block modals %}

@@ -184,58 +184,65 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Introducing: Ionic Studio & Appflow A Better Way to Build Apps",
+        "url": "/resources/webinars/introducing-ionic-studio-appflow",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinars/developer-at-laptop.jpg",
+        "bgColor": "#7a86d1"
+      }, {
+        "type": "Webinar",
         "title": "Reimagining Cordova: Building Cross-Platform Web Apps with Capacitor",
         "url": "/resources/webinars/reimagining-cordova-building-with-capacitor",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinars/webinar-rethinking-cordova-capacitor.png",
         "bgColor": "#02192e"
       }, {
         "type": "Webinar",
         "title": "Device testing with DevApp and View",
         "url": "https://www.youtube.com/watch?v=7jTQYF5qE98",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-device-testing.jpg",
         "bgColor": "#f66b7b"
       }, {
         "type": "Webinar",
         "title": "Live app updates with Ionic Deploy",
         "url": "https://www.youtube.com/watch?v=I7PC3O4q1ug",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-deploy.jpg",
         "bgColor": "#272d63"
       }, {
         "type": "Webinar",
         "title": "Building iOS and Android binaries with Ionic Package",
         "url": "https://ionicpro.wistia.com/medias/7dboe4v9x8",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-ionicpackage.jpg",
         "bgColor": "#f8926b"
       }, {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
         "url": "https://www.youtube.com/watch?v=zuHkqGocOqE&feature=youtu.be",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"
       }, {
         "type": "Webinar",
         "title": "Livestream overview of PWAs",
         "url": "https://www.youtube.com/watch?v=ooWIY_bnwKs",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-livestream-pwa.jpg",
         "bgColor": "#3880ff"
       }, {
         "type": "Webinar",
         "title": "Live demo of the Ionic Pro platform",
         "url": "https://cdn.livestorm.co/uploads/video/file/10951/d39abc95-7382-43b4-ba5d-75dbb5d97fde.mp4?v=1518086083",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-pro-overview.jpg",
         "bgColor": "#667b9a"
       }, {
         "type": "Webinar",
         "title": "How SWORKIT is driving growth with PWAs and Ionic",
         "url": "https://ionicpro.wistia.com/medias/05b54g640s",
-        "action": "Listen",
+        "action": "Watch",
         "bgImage": "/img/resource-center/webinar-sworkit.jpg",
         "bgColor": "#b396ec"
       }

@@ -31,6 +31,9 @@ export class MyPage {
   presentModal() {
     const modal = this.modalCtrl.create(ModalPage);
     modal.present();
+    modal.onDidDismiss(data => {
+      // some action after close modal
+    });
   }
 }
 ```

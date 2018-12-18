@@ -116,6 +116,7 @@ module.exports = function router(app) {
   .get('/studio', (_, res) => res.render('products/studio'))
   .get('/support', (_, res) => res.render('support'))
   .get('/survey/2017', (_, res) => res.render('survey/2017'))
+  .get('/survey/2018', (_, res) => res.render('survey/2018'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
 

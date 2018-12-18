@@ -1,13 +1,14 @@
 {% extends "_layouts/base.html" %}
-{% set id = 'survey-2017' %}
+{% set id = 'survey-2018' %}
 {% set bodyController = 'SurveyCtrl' %}
-{% set name = '2017 Developer Survey' %}
+{% set name = '2018 Developer Survey' %}
 {% set meta_description = 'Insights, trends, and perspectives from the worldwide Ionic Community' %}
-{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2017.png' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2018.png' %}
 {% set header_style = 'transparent survey-layout' %}
+{% set cssPath = 'survey/2018' %}
 
 {% block body_attributes %}
-  data-spy="scroll" data-target="#survey-2017-nav" data-offset="400"
+  data-spy="scroll" data-target="#survey-2018-nav" data-offset="400"
 {% endblock %}
 
 {% block main %}
@@ -37,13 +38,13 @@
         	</g>
         </g>
       </svg>
-      <span>2017</span>
+      <span>2018</span>
       </h2>
     <h1>Developer Survey</h1>
-    <p>Insights, trends, and perspectives from the worldwide Ionic Community</p>
+    <p>This year’s biggest insights, trends, and perspectives from the world-wide Ionic dev community.</p>
   </hgroup>
   <div class="bar tabbed" data-spy="affix" data-offset-top="500">
-    <div class="container" id="survey-2017-nav">
+    <div class="container" id="survey-2018-nav">
       <ul class="categories nav">
         <li><a class="anchor" href="#trends">Trends</a></li>
         <li><a class="anchor" href="#tools">Tools</a></li>
@@ -65,19 +66,19 @@
   <h4>Share</h4>
   <ul>
     <li>
-      <a href="http://twitter.com/home?status=2017+Ionic+Developer+Survey+results+https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"
+      <a href="http://twitter.com/home?status=2018+Ionic+Developer+Survey+results+https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018"
          onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;"
          class="twitter"></a></li>
     <li>
-      <a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017&amp;title=2017+Ionic+Developer+Survey+results"
+      <a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018&amp;title=2018+Ionic+Developer+Survey+results"
          onclick="window.open(this.href, 'Share via Facebook', 'width=555, height=656'); return false;"
          class="facebook"></a></li>
     <li>
-      <a href="https://plus.google.com/share?url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"
+      <a href="https://plus.google.com/share?url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018"
          onclick="window.open(this.href, 'Share via Google+', 'width=400, height=450'); return false;"
          class="google-plus"></a></li>
     <li>
-      <a href="https://buffer.com/add?text=2017+Ionic+Developer+Survey+results&amp;url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"  
+      <a href="https://buffer.com/add?text=2018+Ionic+Developer+Survey+results&amp;url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018"  
          onclick="window.open(this.href, 'Share via Buffer', 'width=500, height=600'); return false;"
          class="buffer"></a></li>
   </ul>
@@ -411,276 +412,299 @@
       </div>
     </hgroup>
 
-    <section id="data-backend" class="data animate-in">
+    <section id="data-1" class="data animate-in">
       <div class="container">
         {% raw %}
-        <h3>Backend Technology</h3>
-        <h4>What services do you use to send Push Notifications?</h4>
-        <bar-chart data="{
-          'Firebase/GCM': 41.3,
-          'Amazon': 8.2,
-          'OneSignal': 10.6,
-          'Urban Airship': 1.1,
-          'Pushwoosh': 2.4,
-          'Ionic Push': 19.7,
-          'Custom push system': 12.3,
-          'I don\'t send push notifications': 27.7,
-          'Other': 4.7
-        }"></bar-chart>
-  
-        <h4>How do you manage user authentication?</h4>
-        <bar-chart data="{
-          'Firebase Auth': 30,
-          'GCP Auth': 2.3,
-          'Auth.io': 6,
-          'Auth0': 17.7,
-          'Stormpath': 0.7,
-          'Fabric Digits': 0.7,
-          'Amazon Cognito': 2.5,
-          'Azure Authentication': 2.9,
-          'Ionic Auth': 12.3,
-          'Custom oAuth': 43.7,
-          'Other': 14
-        }"></bar-chart>
+        <h3>Section #1</h3>
+        <h4>What types of apps are you building?</h4>
+        <ionic-bar-chart data="{
+          'Consumer focused apps (B2C)': 76,
+          'Employee and partner focused apps (B2E)': 43,
+          'Business to business (B2B)': 1,
+          'Other': 2
+        }"></ionic-bar-chart>
 
-        <h4>What database(s) do you use for your backend?</h4>
-        <bar-chart data="{
-          'Firebase':	32.4,
-          'Self-hosted SQL database':	57.4,
-          'AWS DynamoDB':	4.1,
-          'AWS RDS':	7.4,
-          'Heroku Postgres':	5,
-          'Self-hosted MongoDB':	17.6,
-          'Cloud hosted MongoDB':	11.8,
-          'Ionic DB (beta)':	3,
-          'I don\'t use a database':	3.1,
-          'Other':	9.6
-        }"></bar-chart>
-  
-        <h4>How do you host the server-side of your app?</h4>
-        <bar-chart data="{
-          'Client-side database': 21.4,
-          'AWS Lambda': 5.9,
-          'Amazon ECS': 16.8,
-          'AWS LightSail': 0.9,
-          'Google App Engine/GCP': 7.5,
-          'Heroku': 13.2,
-          'Azure': 9.8,
-          'Digital Ocean': 15.6,
-          'Classic VPS provider': 10,
-          'Self-hosted Virtual Server': 22.1,
-          'Self-hosted Docker': 7.5,
-          'Self-hosted Dedicated': 22.1,
-          'Other': 5.4
-        }"></bar-chart>
-  
-        <h4>What backend technology does your app run on?</h4>
-        <bar-chart data="{
-          'Node.js': 56.6,
-          'Python (Django, Flask, etc)': 11.7,
-          'Ruby (on rails or otherwise)': 5.5,
-          'Java': 18.6,
-          'C#/.NET': 16.4,
-          'Other': 27.6
-        }"></bar-chart>
-  
-        <h4>What service do you use for Analytics?</h4>
-        <bar-chart data="{
-          'Google Analytics': 68.3,
-          'Firebase Analytics': 24.9,
-          'Amazon Mobile Analytics': 2.6,
-          'Fabric Answers': 2.9,
-          'Mixpanel': 3.7,
-          'Keen': 0.6,
-          'Segment': 1,
-          'Amplitude': 0.5,
-          'Localytics': 0.6,
-          'Adobe': 0.9,
-          'Ionic Analytics': 6.8,
-          'Custom Analytics': 15.6,
-          'Other': 8.1
-        }"></bar-chart>
-  
-        <h4>How do you test your app in the cloud?</h4>
-        <bar-chart data="{
-          'AWS Device Farm': 4.5,
-          'Firebase Test Lab': 11.5,
-          'Browserstack': 6.1,
-          'Sauce Labs': 1.8,
-          'Custom device testing system': 17.6,
-          'I don\'t do cloud device testing': 65.1,
-          'Other': 1.9
-        }"></bar-chart>
-  
-        <h4>How do you track errors and crashes in your app?</h4>
-        <bar-chart data="{
-          'Fabric/Crashlytics': 9.6,
-          'Firebase crash reporting': 17.4,
-          'Sentry': 5.2,
-          'TrackJS': 3.8,
-          'Bugsnag': 1.7,
-          'Opbeat': 0.5,
-          'Rollbar': 2.2,
-          'Custom system': 23.1,
-          'I don\'t track errors or crashes': 44,
-          'Other': 4.4
-        }"></bar-chart>
-  
-        <h4>How do you update your apps remotely?</h4>
-        <bar-chart data="{
-          'Ionic Deploy': 23.9,
-          'Microsoft Code Push': 10.3,
-          'PhoneGap ContentSync': 2.1,
-          'PhoneGap Hydration': 1.8,
-          'Custom Update System': 14.9,
-          'I do not push updates to my app remotely': 53.2,
-          'Other': 2.9
-        }"></bar-chart>
+        <h4>Which of the following best describes the type of environment you work in?</h4>
+        <ionic-bar-chart data="{
+          'Startup': 32,
+          'Enterprise app dev team': 26,
+          'Indie developer': 20,
+          'External agency, building on behalf of clients': 19,
+          'Other': 2
+        }"></ionic-bar-chart>
+        
+        <h4>Which of the following best describes your current job role?</h4>
+        <ionic-bar-chart data="{
+          'Web Developer': 37,
+          'Entrepreneur (I do it all)': 16,
+          'Native Mobile Developer': 7,
+          'Team Lead': 7,
+          'Head of Application Development': 7,
+          'CTO': 6,
+          'Backend Developer': 6,
+          'Architect': 5,
+          'UX Designer': 1,
+          'CIO or VP of IT': 1,
+          'Other': 6
+        }"></ionic-bar-chart>
+        
+        <h4>About how many employees work at your company?</h4>
+        <ionic-bar-chart data="{
+          'Self-employed (me, myself, and I)': 36,
+          '1-10 employees': 45,
+          '11-50 employees': 25,
+          '51-500 employees': 16,
+          '501-1000 employees': 4,
+          '1001-5000 employees': 4,
+          '5,001+ employees': 6
+        }"></ionic-bar-chart>
+        
+        <h4>Which of the following JavaScript frameworks and libraries have you done extensive development work in over the past year?</h4>
+        <ionic-bar-chart data="{
+          'Angular': 86,
+          'React': 23,
+          'Vue': 17,
+          'Stencil': 4,
+          'EXT JS': 3,
+          'Backbone': 3,
+          'Meteor': 3,
+          'Polymer': 3,
+          'Ember': 2,
+          'DoJo': 1,
+          'Skate': 0,
+        }"></ionic-bar-chart>
+        
+        <h4>Which of the following *mobile development* tools, libraries, and frameworks have you done extensive development work in over the past year? [NativeScript]</h4>
+        <ionic-bar-chart data="{
+          'Ionic': 83,
+          'Cordova / PhoneGap': 49,
+          'Native Android': 22,
+          'React Native': 14,
+          'jQuery Mobile': 13,
+          'Native iOS': 13,
+          'Xamarin': 7,
+          'NativeScript': 6,
+          'Ext JS': 2
+        }"></ionic-bar-chart>
+        
+        <h4>Over the past year, what percentage of the apps you developed were built using a cross-platform approach (e.g. Ionic, Xamarin, React Native, etc.)?</h4>
+        <ionic-bar-chart data="{
+          '0% - Only develop with native tools': 14,
+          '25% or greater': 26,
+          '50% or greater': 24,
+          '75% or greater': 33,
+          '100% - Only use cross-platform tools': 109,
+        }"></ionic-bar-chart>
       </div>
     </section>
-    <section id="data-tools" class="data animate-in">
+    <section id="data-2" class="data animate-in">
       <div class="container">
-        <h3>Tools and Testing</h3>
+        <h3>Section #2</h3>
         <div class="container">
-        <h4>What Text Editor or IDE do you use?</h4>
-        <bar-chart data="{
-          'Visual Studio Code': 46.7,
-          'Visual Studio IDE': 12.7,
-          'Atom': 25.2,
-          'Webstorm': 21.6,
-          'Sublime Text': 31,
-          'TextMate': 1,
-          'Brackets': 6.1,
-          'Other': 13.1
-        }"></bar-chart>
-  
-        <h4>Use any App Prototyping tools?</h4>
-        <bar-chart data="{
-          'Ionic Creator': 22.8,
-          'Invision': 10.1,
-          'Marvel': 4,
-          'Baslamiq': 12,
-          'Sketch': 17.6,
-          'I don\'t use any app prototyping tools': 48.3,
-          'Other': 5.8
-        }"></bar-chart>
-  
-        <h4>How do you beta test and gather feedback?</h4>
-        <bar-chart data="{
-          'Ionic View': 36.2,
-          'Hockeyapp': 5.1,
-          'Testflight': 24.8,
-          'TestFairy': 2,
-          'I don\'t use any beta testing/feedback tools': 40.9,
-          'Other': 5.5
-        }"></bar-chart>
-  
-        <h4>How do you distribute your apps to users?</h4>
-        <bar-chart data="{
-          'App store (Apple, Google Play, etc)': 81.5,
-          'MobileIron': 1.1,
-          'Airwatch': 1.2,
-          'Microsoft Intune': 0.8,
-          'Ionic View (as an internal app store, etc)': 12.3,
-          'Hosted web apps or desktop downloads': 27.6,
-          'Other': 2.7
-        }"></bar-chart>
+        <h4>What is the *most* important factor when deciding on a mobile development approach?</h4>
+        <ionic-bar-chart data="{
+          'Cross-platform efficiency (ability to share code across platforms)': 30,
+          'Cost to develop and maintain': 16,
+          'Quality of user experience across platforms': 15,
+          'Speed and time to market': 13,
+          'Performance': 10,
+          'Skills match with development team': 8,
+          'Ease of updates and maintenance': 6,
+          'Other': 1
+        }"></ionic-bar-chart>
+
+        <h4>Native Only Devs: What is the *most* important factor when deciding on a mobile development approach?</h4>
+        <ionic-bar-chart data="{
+          'Quality of user experience across platforms': 20,
+          'Cross-platform efficiency (ability to share code across platforms)': 20,
+          'Performance': 16,
+          'Cost to develop and maintain': 13,
+          'Speed and time to market': 11,
+          'Skills match with development team': 10,
+          'Ease of updates and maintenance': 8,
+          'Other': 1
+        }"></ionic-bar-chart>
+
+        <h4>Cross-platform Only Devs: What is the *most* important factor when deciding on a mobile development approach?</h4>
+        <ionic-bar-chart data="{
+          'Cross-platform efficiency (ability to share code across platforms)': 34,
+          'Cost to develop and maintain': 17,
+          'Quality of user experience across platforms': 14,
+          'Speed and time to market': 13,
+          'Skills match with development team': 9,
+          'Performance': 7,
+          'Ease of updates and maintenance': 6,
+          'Other': 1
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following app lifecycle management tools are you currently using?</h4>
+        <ionic-bar-chart data="{
+          'Ionic Pro (Appflow)': 53,
+          'Adobe PhoneGap': 16,
+          'Microsoft Mobile App Center': 10,
+          'IBM Mobile Foundation': 2,
+          'None': 9,
+          'Other': 16
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following deployment targets have you developed apps for over the last year?</h4>
+        <ionic-bar-chart data="{
+          'Google Play': 78,
+          'iOS App Store': 64,
+          'Web Browser (including PWAs)': 51,
+          'Desktop Container (e.g. Electron)': 14,
+          'Microsoft Store': 4,
+          'Smart TVs': 2,
+          'Wearables': 2
+        }"></ionic-bar-chart>
+
+        <h4>How are you currently distributing apps to your users (check all that apply)?</h4>
+        <ionic-bar-chart data="{
+          'App Stores (Apple, Google Play, Microsoft Store, etc.)': 83,
+          'Hosted web apps (including PWAs)': 48,
+          'MDM (MobileIron, Airwatch, XenMobile, etc.)': 4,
+          'Other': 3
+        }"></ionic-bar-chart>
+
+        <h4>Have you published a Progressive Web App (PWA) in the last year?</h4>
+        <ionic-bar-chart data="{
+          'No': 39,
+          'Yes': 31,
+          'No, but we plan to next year': 30
+        }"></ionic-bar-chart>
       </div>
     </section>
-    <section id="data-meta" class="data animate-in">
+    <section id="data-3" class="data animate-in">
       <div class="container">
-        <h3>Meta Stuff</h3>
-        <h4>What platform do you develop your apps on?</h4>
-        <bar-chart data="{
-          'Mac': 57.9,
-          'Windows': 55.4,
-          'Linux': 28.9,
-          'Other': 0.8
-        }"></bar-chart>
-  
-        <h4>How big is your employer?</h4>
-        <bar-chart data="{
-          'Self-employed - me, myself, and I': 40.3,
-          '2-10': 31,
-          '11-50': 13.7,
-          '51-500': 8.2,
-          '500+': 6.8
-        }"></bar-chart>
-  
-        <h4>Who are you building apps for?</h4>
-        <bar-chart data="{
-          'App for my company': 33.3,
-          'App for a client': 41.9,
-          'Side project': 18.6,
-          'School': 4,
-          'Other': 2.2
-        }"></bar-chart>
-  
-        <h4>How many Ionic apps have you built?</h4>
-        <bar-chart data="{
-          '0': 9.6,
-          '1': 24.5,
-          '2-5': 52.2,
-          '6-10': 8.2,
-          '10+': 5.1,
-          'Other': 0.5
-        }"></bar-chart>
-  
-        <h4>What kind of apps are you building?</h4>
-        <bar-chart data="{
-          'Consumer social network': 24,
-          'Consumer chat': 12.2,
-          'Consumer general': 60.7,
-          'Enterprise internal app': 41.7,
-          'Progressive Web Apps': 25.1,
-          'Desktop apps (electron, etc)': 12.3,
-          'Desktop web apps': 18.5,
-          'Other': 4.5
-        }"></bar-chart>
-  
-        <h4>What platforms do you target?</h4>
-        <bar-chart data="{
-          'iOS': 83.2,
-          'Android': 94.3,
-          'Tablet (iPad, Android Tablets, etc)': 45.1,
-          'Universal Windows Platform': 10.7,
-          'Desktop Mac': 13.5,
-          'Desktop Windows': 20,
-          'Mobile Web/Progressive Web App': 31.5,
-          'Responsive web': 34.7,
-          'Smart watches': 3,
-          'TVs': 2.7,
-          'Other': 0.7
-        }"></bar-chart>
-  
-        <h4 style="animation-delay: 1.1s">What is your background?</h4>
-        <bar-chart data="{
-          'Newbie learning mobile dev': 10.8,
-          'Web developer new to mobile': 38.4,
-          'Web developer experienced with mobile': 39.1,
-          'Mobile developer born and bred': 8.4,
-          'Other': 3.3
-        }"></bar-chart>
-  
-        <h4 style="animation-delay: 1.3s">What version of Ionic are you using?</h4>
-        <bar-chart data="{
-          'Ionic 1': 41.3,
-          'Ionic 2+': 73.3,
-          'Other': 3.3
-        }"></bar-chart>
-  
-        <h4>
-          In the past two years, what percentage of your apps were hybrid (mix 
-          of web and native code)?<br>
-          What percentage do you expect in the next two years?
-        </h4>
-        <bar-chart data="{
-          categories: ['All Native Apps', 'Mix Hybrid & Native', 'All Hybrid'],
-          data: [
-            {name: '2015-2017', values: [20.1, 55.5, 24.4], color: '#4a8bfc'},
-            {name: '2017-2019', values: [2.9, 64.4, 32.7], color: '#4afcbb'}
-          ]
-        }"></bar-chart>
+        <h3>Section #3</h3>
+        <h4>Who are you building PWAs for?</h4>
+        <ionic-bar-chart data="{
+          'Consumers': 78,
+          'Employees': 32,
+          'Partners': 25,
+          'Other': 3
+        }"></ionic-bar-chart>
+
+        <h4>Are you updating an existing app or is this a new application?</h4>
+        <ionic-bar-chart data="{
+          'Building a brand-new app': 72,
+          'Updating an existing app': 28
+        }"></ionic-bar-chart>
+
+        <h4>Will the app also be available as a native binary in the app stores?</h4>
+        <ionic-bar-chart data="{
+          'Yes': 42,
+          'Maybe': 36,
+          'No': 22
+        }"></ionic-bar-chart>
+
+        <h4>What is the *primary* motivation for building a PWA?</h4>
+        <ionic-bar-chart data="{
+          'Cross-platform efficiency (easier to serve multiple platforms with one app)': 41,
+          'Improve mobile web experience': 20,
+          'Distribute the app directly to users, without having to rely on third-parties': 19,
+          'Make it easier to update the app whenever we want': 13,
+          'Acquire new users': 4,
+          'Everyone else is doing it': 3
+        }"></ionic-bar-chart>
+
+        <h4>If you have published a PWA already, what is the biggest impact you have observed so far?</h4>
+        <ionic-bar-chart data="{
+          'Simplified operations: Easier for our team to manage and maintain the app': 44,
+          'Better engagement: Increased usage compared to traditional web app': 20,
+          'No impact since publishing the PWA': 18,
+          'Increased user acquisition: More users trying the app': 13,
+          'More revenue: Increased in-app or ad-driven revenue': 4
+        }"></ionic-bar-chart>
+
+        <h4>Which tools, libraries, or frameworks are you using to build PWAs?</h4>
+        <ionic-bar-chart data="{
+          'Ionic': 76,
+          'Angular': 71,
+          'React': 17,
+          'Vue': 15,
+          'Stencil': 7,
+          'Polymer': 3,
+          'Preact': 1,
+          'Other': 1
+        }"></ionic-bar-chart>
+
+        <h4>How are you hosting the PWA(s)?</h4>
+        <ionic-bar-chart data="{
+          'Self-hosted': 38,
+          'Firebase': 28,
+          'AWS': 18,
+          'Azure': 7,
+          'Netlify': 2,
+          'Digital Ocean': 1,
+          'Heroku': 1,
+          'NextJS': 1,
+          'Google Cloud Platform': 1,
+          'Citrix': 0,
+          'Other': 4
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following services do you use to send Push Notifications?</h4>
+        <ionic-bar-chart data="{
+          'Firebase': 66,
+          'OneSignal': 24,
+          'GCM': 21,
+          'APNS': 19,
+          'IBM': 2,
+          'Urban Airship': 1,
+          'Pushwoosh': 3,
+          'Azure': 1,
+          'Other': 6
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following database technologies have you used extensively over the past year?</h4>
+        <ionic-bar-chart data="{
+          'MySQL': 59,
+          'Firebase': 42,
+          'MongoDB': 33,
+          'Postgres': 22,
+          'AWS RDS': 9,
+          'Microsoft SQL Server': 6,
+          'AWS Dynamo DB': 6,
+          'MariaDB': 0,
+          'Couch': 1,
+          'Oracle': 2,
+          'Other':3
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following technologies do you use to host the backend of your apps?</h4>
+        <ionic-bar-chart data="{
+          'Self-hosting': 40,
+          'Firebase': 35,
+          'Amazon ECS': 19,
+          'Digital Ocean': 15,
+          'Heroku': 14,
+          'Azure': 14,
+          'Google App Engine/ GCP Containers': 10,
+          'AWS Lambda': 10,
+          'VPS Provider': 8,
+          'AWS LightSail': 2,
+          'Microsoft': 2,
+          'IBM': 0,
+          'Kinvey': 0,
+          'Other': 3
+        }"></ionic-bar-chart>
+
+        <h4>Which of the following user authentication services have you used extensively over the past year?</h4>
+        <ionic-bar-chart data="{
+          'Firebase Auth': 44,
+          'Custom OAuth': 32,
+          'Auth0': 28,
+          'Auth.io': 9,
+          'OpenID Connect': 7,
+          'Azure Authentication': 6,
+          'Amazon Cognito': 5,
+          'Microsoft ADFS': 4,
+          'GCP Auth': 3,
+          'Fabric Digits': 1,
+          'Stormpath': 1,
+          'Other': 7
+        }"></ionic-bar-chart>
         {% endraw %}
       </div>
     </section>
@@ -706,6 +730,22 @@
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal('.animate-in p, .animate-in h4, .animate-in aside, ' +
-          '.animate-in .tools, .animate-in bar-chart');
+          '.animate-in .tools, .animate-in ionic-bar-chart');
+sr.reveal('.animate-in ionic-bar-chart', {duration: 500});
+
+
+          {# var gradient = d3.select('defs')
+            .append('linearGradient')
+            .attr('id', 'gradient')
+            .attr('x1', '-100%').attr('y1', '50%')
+            .attr('x2', '100%').attr('y2', '50%');
+
+          gradient.append('stop')
+            .attr('offset', '0%')
+            .attr('stop-color', '#00fcd5');
+          
+          gradient.append('stop')
+            .attr('offset', '100%')
+            .attr('stop-color', '#00c6ff'); #}
 </script>
 {% endblock %}

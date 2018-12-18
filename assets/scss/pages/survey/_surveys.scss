@@ -1,4 +1,4 @@
-#page-survey-2017 {
+.survey-layout {
   .navbar + .banner {
     background: linear-gradient(to right, #1e6fff 0%, #0499ff 100%);
     background-size: 100%;
@@ -87,8 +87,7 @@
         position: absolute;
       }
     }
-  }
-  
+  } 
 
   article {
     padding-top: 64px;

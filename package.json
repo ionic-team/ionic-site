@@ -97,6 +97,5 @@
   },
   "module": "content/js/stencil/esm/index.js",
   "main": "content/js/stencil/index.js",
-  "collection": "content/js/stencil/collection/collection-manifest.json",
   "types": "content/js/stencil/types/components.d.ts"
 }

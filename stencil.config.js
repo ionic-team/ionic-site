@@ -11,10 +11,6 @@ exports.config = {
   outputTargets: [
     {
       type: 'dist',
-      dir: '_site/js/stencil',
-    },
-    {
-      type: 'dist',
       dir: 'content/js/stencil',
     },
   ],

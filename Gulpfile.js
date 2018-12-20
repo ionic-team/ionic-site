@@ -451,12 +451,12 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
+    'stencil',
     'styles:v1',
     'styles:v2',
     'styles:others',
-    'js',
     'docs.index',
-    'stencil',
+    'js',
   ],
   bustCache
 );

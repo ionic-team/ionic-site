@@ -298,7 +298,6 @@ gulp.task('sitemap', function () {
 
 gulp.task('docs.index', function() {
   var lunr = require('lunr');
-  var gutil = require('gulp-util');
   var es = require('event-stream');
   var yaml = require('js-yaml');
   var htmlparser = require('htmlparser2');
@@ -322,7 +321,6 @@ gulp.task('docs.index', function() {
   }
 
   var docPath = 'content/docs/';
-  gutil.log('Reading docs from', gutil.colors.cyan(docPath));
 
   return gulp.src([
     docPath + '/{api,cli,components,faq,getting-started,native,resources,theming,utils}/**/*.{md,html,markdown}',

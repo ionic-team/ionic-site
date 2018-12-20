@@ -165,9 +165,9 @@ gulp.task('js', function() {
 
 
 
-gulp.task('stencil', function(done) {
-  return cp.spawn('npm',
-    ['run', 'stencil-build'],
+gulp.task('stencil:build', function(done) {
+  return cp.spawn('stencil',
+    ['build'],
     {
       cwd: process.cwd(),
       env: {
@@ -180,6 +180,10 @@ gulp.task('stencil', function(done) {
     done();
   }).on('error', function(err) {throw err; });
 });
+
+gulp.task('stencil', function() {
+  return runSequence('stencil:build', 'js');
+})
 
 /**
  * Build the Jekyll Site
@@ -456,7 +460,6 @@ gulp.task(
     'styles:v2',
     'styles:others',
     'docs.index',
-    'js',
   ],
   bustCache
 );

@@ -14,7 +14,8 @@ exports.config = {
       dir: 'content/js/stencil',
     },
   ],
-  srcDir: 'assets/stencil'
+  srcDir: 'assets/stencil',
+  enableCache: false
 };
 
 exports.devServer = {

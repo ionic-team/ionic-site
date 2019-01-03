@@ -1,9 +1,7 @@
-// import { verticalChart } from './c3-helper';
-
 import {
   Component,
   // Element,
-  // Prop,
+  Prop,
   // State
 } from '@stencil/core';
 
@@ -13,29 +11,61 @@ import {
   shadow: false
 })
 export class IonicBarChart {
-  // @Prop() data;
-
-  // @State() active = false;
-  // @Element() el;
-
-
+  @Prop() data:string;
+  @Prop() color:string;
 
   constructor() {
-    // console.log(this.data)
   }
 
   componentWillLoad() {
-    // console.log(this.data)
   }
 
   componentDidLoad() {
-    // console.log('gets here', this.el)
-    // verticalChart(JSON.parse(this.data), this.el);
+  }
+
+  prepareData() {
+    let max = 0;
+    const color = this.color ? this.color.split(',') : ['#92E1A7', '#51A7FF'];
+    const dataObj = JSON.parse(this.data.replace(/'/g, '"'));
+    return Object.keys(dataObj).map((key) => {
+      if (max < dataObj[key]) {
+        max = dataObj[key];
+      }
+      return {
+        name: key,
+        value: parseInt(dataObj[key], 10)
+      }
+    }).map((item, i) => { 
+      return {
+        ...item,
+        styles: {
+          bar: {
+            width:`${Math.round((item.value/max) * 100) }%`,
+            background: i > 1 ? '#5B708B' : 
+              `linear-gradient(to right, ${color.join(', ')})`
+          },
+          text: {
+            color: i > 1 ? '#5B708B' : color[color.length - 1]
+          }
+        }
+      }
+    });
+
   }
 
   render() {
     return [
-      <h1>Testing, yo</h1>
+      <figure>
+        {this.prepareData().map(item => { 
+          return [
+          <div class="bar-container">
+            <div class="bar" style={item.styles.bar}>
+              <span style={item.styles.text}>{item.value}%</span>
+            </div>
+          </div>,
+          <strong>{item.name}</strong>
+        ]})}
+      </figure>
     ];
   }
 }

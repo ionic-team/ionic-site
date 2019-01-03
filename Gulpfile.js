@@ -165,7 +165,7 @@ gulp.task('js', function() {
 
 
 
-gulp.task('stencil:build', function(done) {
+gulp.task('stencil', function(done) {
   return cp.spawn('stencil',
     ['build'],
     {
@@ -181,8 +181,8 @@ gulp.task('stencil:build', function(done) {
   }).on('error', function(err) {throw err; });
 });
 
-gulp.task('stencil', function() {
-  return runSequence('stencil:build', 'js');
+gulp.task('stencil:clean', function(done) {
+  return runSequence('stencil', 'js', done);
 })
 
 /**
@@ -262,12 +262,12 @@ gulp.task('watch.max', ['server'], function() {
 
 gulp.task('watch', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
-  gulp.watch(['assets/stencil/**/*'], ['server:stencil']);
+  gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], 
+    ['server:stencil']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
     'content/img/**/*', 'content/docs/appflow/**/*.{md,html}'], ['jekyll-rebuild']);
 });
@@ -453,7 +453,7 @@ gulp.task('slug.prep', function () {
 gulp.task(
   'build-prep',
   [
-    'stencil',
+    'stencil:clean',
     'styles:v1',
     'styles:v2',
     'styles:others',

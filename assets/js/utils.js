@@ -110,38 +110,44 @@ window.guid = function() {
 
 // add an .active class to elements w/ .activateOnScroll class on when they
 // scroll in to view
-window.activateOnScroll = Array.prototype.slice.call(
-  document.getElementsByClassName('activateOnScroll')
-);
-if (activateOnScroll.length) {
-  $(window).on('scroll', checkForActivateOnScroll);
-  checkForActivateOnScroll();
-}
-
-function checkForActivateOnScroll() {
-  if (!activateOnScroll.length) return;
-  var viewportHeight = window.innerHeight ||
-                       document.documentElement.clientHeight ||
-                       document.body.clientHeight;
-  for (var i = 0; i < activateOnScroll.length; i++) {
-    var elPos = activateOnScroll[i].getBoundingClientRect();
-    var offset = parseInt(activateOnScroll[i].dataset.offset || 0, 10);
-    if (
-      (
-        elPos.y - offset < 0 &&  // already past the item
-        elPos.y + (elPos.height / 2) - offset > 0
-      ) || (
-        elPos.y + offset > 0 && // item is yet below
-        elPos.y + (elPos.height / 2) + offset < viewportHeight
-      )
-    ) {
-      activateOnScroll[i].classList.add('active');
-      delete activateOnScroll[i];
+var activateOnScroll = function() {
+  var elems;
+  var windowHeight;
+  function init() {
+    elems = document.querySelectorAll( window.activateOnScrollSelector ? 
+      activateOnScrollSelector : '.activateOnScroll');
+    windowHeight = window.innerHeight ||
+                   document.documentElement.clientHeight ||
+                   document.body.clientHeight;;
+    addEventHandlers();
+    checkPosition();
+  }
+  function addEventHandlers() {
+    window.addEventListener('scroll', checkPosition);
+    window.addEventListener('resize', init);
+  }
+  function checkPosition() {
+    for (var i = 0; i < elems.length; i++) {
+      var elPos = elems[i].getBoundingClientRect();
+      var offset = parseInt(elems[i].dataset.offset || 0, 10);
+      if (
+        (
+          elPos.y - offset < 0 &&  // already past the item
+          elPos.y + (elPos.height / 2) - offset > 0
+        ) || (
+          elPos.y + offset > 0 && // item is yet below
+          elPos.y + (elPos.height / 2) + offset < windowHeight
+        )
+        ) {
+        elems[i].classList.add('active');
+      }
     }
   }
-  // reset indexes
-  activateOnScroll = activateOnScroll.filter(function(e){ return !!e; });
-}
+  return {
+    init: init
+  };
+};
+activateOnScroll().init();
 
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();

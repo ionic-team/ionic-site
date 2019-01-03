@@ -1,7 +1,7 @@
 @import '../../vars';
+@import 'surveys';
 
 #page-survey-2018 {
-
   .navbar + .banner {
     background: #709df0 no-repeat 50% 50%;
     background-image: 
@@ -11,4 +11,9 @@
       linear-gradient(135deg, #2a67ff 0%, #317ef0 10%, #5bb2e6 30%, #6fb2e4 36%, #996CC7 66%, #95a0fd 100%);
     background-size: cover, 100%;
   }
+}
+
+#big-picture {
+  background: #18212F;
+  color: white;
 }

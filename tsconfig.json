@@ -15,7 +15,6 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "experimentalDecorators": true
   },
   "include": [
     "src",

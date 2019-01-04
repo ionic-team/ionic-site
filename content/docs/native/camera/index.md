@@ -25,7 +25,12 @@ docType: "class"
 
 <p>Take a photo or capture video.</p>
 <p>Requires the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
-<p>[Warning] Since IOS 10 the camera requires permissions to be placed in your config.xml add &#39;<config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist"><string>You can take photos</string></config-file> inside of the &lt;platform name=&#39;ios&gt; section</p>
+<p>[Warning] Since IOS 10 the camera requires permissions to be placed in your config.xml add</p>
+<pre><code class="lang-xml">&lt;config-file parent=&quot;NSCameraUsageDescription&quot; platform=&quot;ios&quot; target=&quot;*-Info.plist&quot;&gt;
+ &lt;string&gt;You can take photos&lt;/string&gt;
+&lt;/config-file&gt;
+</code></pre>
+<p>inside of the &lt;platform name=&#39;ios&gt; section</p>
 
 
 <p>Repo:

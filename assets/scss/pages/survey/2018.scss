@@ -1,4 +1,5 @@
 @import '../../vars';
+@import '../../mixins';
 @import 'surveys';
 
 #page-survey-2018 {
@@ -11,9 +12,308 @@
       linear-gradient(135deg, #2a67ff 0%, #317ef0 10%, #5bb2e6 30%, #6fb2e4 36%, #996CC7 66%, #95a0fd 100%);
     background-size: cover, 100%;
   }
+
+  .cta hgroup {
+    max-width: 590px;
+    font-family: $font-family-eina;
+
+    h2 {
+      font-family: $font-family-monospace;
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 28px;
+      margin-bottom: 23px;
+
+      svg {
+        margin-bottom: 10px;
+      }
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: normal;
+      letter-spacing: -0.03em;
+      margin-top: 22px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      line-height: 40px;
+    }
+  }
+
+  .bar {
+    .nav a {
+      font-family: $font-family-eina;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 43px 26px 38px;
+    }
+  }
+
+  article {
+    h4,
+    p {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    h3 {
+      font-size: 48px;
+      letter-spacing: -0.03em;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    blockquote {
+      font-family: $font-family-graphik;
+      line-height: 34px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: #7C90F6;
+      border-left: none;
+      padding-left: 0;
+      margin-left: 0;
+      margin-bottom: 13px;
+      padding-top: 0;
+
+      a {
+        text-decoration: underline;
+        font-weight: 500;
+      }
+
+      &.pink {
+        color: #F37BAB;
+      }
+
+      &.orange {
+        color: #F5947E;
+      }
+    }
+
+    section {
+      background: linear-gradient(180deg, #F7F9FC 0%, rgba(247, 249, 252, 0) 100%);
+      padding-top: 106px;
+      padding-bottom: 170px;
+    }
+
+
+    section {
+      h3 {
+        margin-left: 19px;
+      }
+
+      .col-md-6 {
+        padding: 0 48px 0 35px;
+
+        + .col-md-6 {
+          padding: 0 35px 0 48px;
+        }
+      }
+
+      p {
+        font-family: $font-family-graphik;
+        line-height: 29px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        margin-bottom: 22px;
+      }
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 21px;
+      }
+
+      p + h4 {
+        margin-top: 66px;
+        margin-bottom: 19px;
+      }
+    }
+  }
+
+  #introduction {
+    font-family: $font-family-eina;
+  
+    .container {
+      max-width: 622px;
+      margin: 98px auto 158px;
+    }
+  
+    h3 {
+      font-size: 48px;
+      letter-spacing: -0.03em;
+      color: #0E151F;
+      margin-bottom: 8px;
+    }
+  
+    p {
+      font-size: 24px;
+      text-align: center;
+      line-height: normal;
+      margin-bottom: 33px;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  #big-three {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 0 24px;
+
+    li {
+      background: url('/img/survey/frameworks.png') 0 0 no-repeat;
+      height: 96px;
+      width: 96px;
+      list-style: none;
+      background-size: 96px;
+      margin-bottom: 16px;
+
+      @include sprite(
+        'angular'
+        'react'
+        'vue'
+      , 96, '');
+    }
+  }
+
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 24px;
+
+    li {
+      background: url('/img/survey/tools.png') 0 0 no-repeat;
+      height: 80px;
+      width: 80px;
+      list-style: none;
+      background-size: 80px;
+      margin-bottom: 16px;
+      margin-right: 15px;
+
+      @include sprite(
+        'ionic'
+        'react'
+        'xamarin'
+        'mysql'
+        'firebase'
+        'mongodb'
+        'postgres'
+      , 80, '');
+    }
+  }
+
+  img.pull-right {
+    margin: 24px -15px 10px 30px;
+  }
+
+  #tools .tools {
+    margin: -2px 0 25px -9px;
+  }
+
+  #backend .tools {
+    margin: 39px 0 1px;
+  }
+
+  #big-picture {
+    background: #18212F;
+    color: white;
+
+    .container {
+      max-width: 622px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-family: $font-family-eina;
+      line-height: normal;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      margin-bottom: 33px;
+      color: #DEE3EA;
+
+      &.blue {
+        color: #639CFF;
+        margin-bottom: 40px;
+      }
+
+      strong {
+        font-weight: 600;
+        color: white;
+      }
+    }
+  }
+
+  #results {
+    hgroup {    
+      max-width: 970px;
+      padding-top: 162px;
+
+      h2 {
+        line-height: normal;
+        font-size: 48px;
+        letter-spacing: -0.03em;
+      }
+
+      p {
+        line-height: normal;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+        color: #DEE3EA;
+        max-width: 640px;
+        font-family: $font-family-eina;
+      }
+    }
+
+    section {
+      background: transparent;
+      padding-bottom: 0px;
+      padding-top: 14px;
+    }
+
+    #demographics {
+      padding-top: 105px;
+    }
+
+    #backend {
+      padding-bottom: 105px;
+    }
+
+    h3 {
+      line-height: normal;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      margin: 33px -0 44px;
+      padding: 0;
+    }
+
+    h4 {
+      font-family: $font-family-monospace;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      font-size: 20px;
+      letter-spacing: -0.04em;
+      margin-bottom: 42px;
+    }
+
+    ionic-bar-chart {
+      font-family: $font-family-monospace;
+      margin-bottom: 111px;
+    }
+  }
 }
 
-#big-picture {
-  background: #18212F;
-  color: white;
-}
+
+

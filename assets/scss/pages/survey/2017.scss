@@ -38,6 +38,10 @@
       left: 24px;
       margin: 0;
     }
+
+    > hgroup .container {
+        font-family: $font-family-serif;
+    }
   }
 }
 

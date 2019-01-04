@@ -66,6 +66,9 @@ this.firebase.getToken()
   .then(token =&gt; console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
   .catch(error =&gt; console.error(&#39;Error getting token&#39;, error));
 
+this.firebase.onNotificationOpen()
+   .subscribe(data =&gt; console.log(`User opened a notification ${data}`));
+
 this.firebase.onTokenRefresh()
   .subscribe((token: string) =&gt; console.log(`Got a new token ${token}`));
 </code></pre>

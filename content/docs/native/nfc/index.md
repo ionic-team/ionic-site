@@ -334,7 +334,7 @@ Writes an NdefMessage(array of ndef records) to a NFC tag.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="makeReadyOnly" href="#makeReadyOnly"></a><code>makeReadyOnly()</code></h3>
+</div><h3><a class="anchor" name="makeReadOnly" href="#makeReadOnly"></a><code>makeReadOnly()</code></h3>
 
 
 Makes a NFC tag read only. **Warning** this is permanent.

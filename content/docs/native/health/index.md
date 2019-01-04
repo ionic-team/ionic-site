@@ -168,7 +168,7 @@ Check if the app has authorization to read/write a set of datatypes.
 
 Quirks of isAuthorized()
 
-In iOS, this function will only check authorization status for writeable data.
+In iOS, this function will only check authorization status for writable data.
 Read-only data will always be considered as not authorized. This is an intended behaviour of HealthKit.
 
 <table class="table param-table" style="margin:0;">

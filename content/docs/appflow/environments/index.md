@@ -54,7 +54,14 @@ To get started with custom environments, open the app you wish to work on and na
 
 <img src="/img/pro/ss-environments-create.png" class="browser" />
 
-The environments dashboard also lists available custom environments along with their configured key/value pairs
+As can be noticed, there are 2 different sets of environment variables sections that can be utilized: 
+* Secrets
+* Variables
+
+The only difference is that the secrets are hidden and never shown in the dashboard after they have been added, while 
+the variables are always available to be read.
+
+The environments dashboard also lists available custom environments along with their configured key/value pairs and secrets keys.
 
 <img src="/img/pro/ss-environments-list.png" class="browser" />
 

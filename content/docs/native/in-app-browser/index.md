@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">In App Browser</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L197">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L199">
   Improve this doc
 </a>
 
@@ -738,6 +738,20 @@ A method that allows you to listen to events happening in the browser.
     </td>
     <td>
       <p>(Android Only) Sets whether the WebView should enable support for the &quot;viewport&quot; HTML meta tag or should use a wide viewport. When the value of the setting is no, the layout width is always set to the width of the WebView control in device-independent (CSS) pixels. When the value is yes and the page contains the viewport meta tag, the value of the width specified in the tag is used. If the page does not contain the tag or does not provide a width, then a wide viewport will be used. (defaults to yes).</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      beforeload
+    </td>
+    <td>
+      <code>&#39;yes&#39; | &#39;post&#39; | &#39;get&#39;</code>
+    </td>
+    <td>
+      <p>Allows for latest &#39;beforeload&#39; feature of Cordova InAppBrowser to be registered as an option if using plugin&#39;s latest github master (1/4/2019) instead of npm. Post is currently not supported but will be.</p>
 
       <em>(optional)</em>
     </td>

@@ -13,6 +13,58 @@
     background-size: cover, 100%;
   }
 
+  #bars-and-cubes {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+
+    #bars {
+      position: absolute;
+      width: 100%;
+      bottom: -400px;
+      opacity: .8;
+
+      > g {
+        opacity: 0;
+        mix-blend-mode: overlay;
+        animation: fadeInUp 1s .5s forwards;
+
+        &:nth-child(16) { animation-delay: .6s; }
+        &:nth-child(15) { animation-delay: .65s; }
+        &:nth-child(14) { animation-delay: .7s; }
+        &:nth-child(13) { animation-delay: .75s; }
+        &:nth-child(12) { animation-delay: .8s; }
+        &:nth-child(11) { animation-delay: .85s; }
+        &:nth-child(10) { animation-delay: .9s; }
+        &:nth-child(9) { animation-delay: .95s; }
+        &:nth-child(8) { animation-delay: 1s; }
+        &:nth-child(7) { animation-delay: 1.05s; }
+        &:nth-child(6) { animation-delay: 1.1s; }
+        &:nth-child(5) { animation-delay: 1.15s; }
+        &:nth-child(4) { animation-delay: 1.2s; }
+        &:nth-child(3) { animation-delay: 1.25s; }
+        &:nth-child(2) { animation-delay: 1.3s; }
+      } 
+    }
+
+    #cubes {
+      position: absolute;
+      width: 100%;
+      top: -50px;
+      opacity: 0;
+      animation: fadeInUp 2s ease 3s forwards;
+
+      g g {
+        animation: hoverY 10s infinite;
+
+        &:nth-child(2) { animation-duration: 15s; }
+        &:nth-child(3) { animation-duration: 8s; }
+        &:nth-child(4) { animation-duration: 13s; }
+      }
+    }
+  }
+
   .cta hgroup {
     max-width: 590px;
     font-family: $font-family-eina;
@@ -129,13 +181,40 @@
 
       h4 {
         margin-top: 0;
-        margin-bottom: 21px;
+        margin-bottom: 28px;
+        line-height: normal;
       }
 
       p + h4 {
         margin-top: 66px;
         margin-bottom: 19px;
       }
+    }
+  }
+
+  .factoid {
+    padding: 5px 0 20px;
+
+    &:first-child {
+      margin-right: 56px;
+    }
+
+    strong {
+      font-family: $font-family-eina;
+      line-height: normal;
+      font-size: 56px;
+      letter-spacing: -0.03em;
+      color: #7C8FF6;
+    }
+
+    span {
+      font-family: $font-family-graphik;
+      line-height: normal;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: #4B537A;
+      display: block;
+      margin-top: -14px;
     }
   }
 
@@ -217,6 +296,11 @@
 
   #tools .tools {
     margin: -2px 0 25px -9px;
+  }
+
+  #habbits aside {
+    display: flex;
+    margin-bottom: 52px;
   }
 
   #backend .tools {

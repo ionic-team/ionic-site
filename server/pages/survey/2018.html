@@ -13,7 +13,11 @@
 
 {% block main %}
 <div class="cta banner" id="survey-banner">
-  <canvas id="statistical-suspension"></canvas>
+  {# <canvas id="statistical-suspension"></canvas> #}
+  <figure id="bars-and-cubes">
+    {% include '_includes/svg/survey-2018-bars.html' %}
+    {% include '_includes/svg/survey-2018-cubes.html' %}
+  </figure>
   <hgroup class="container">
     <h2>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -214,11 +218,11 @@
           </p>
           <aside>
             <div class="factoid">
-              <strong>71%</strong>
+              <strong>72%</strong>
               <span>brand new PWAs</span>
             </div>
             <div class="factoid">
-              <strong>29%</strong>
+              <strong>28%</strong>
               <span>update existing</span>
             </div>
           </aside>
@@ -387,13 +391,13 @@
           
           <h4>About how many employees work at your company?</h4>
           <ionic-bar-chart data="{
-            'Self-employed (me, myself, and I)': 36,
-            '1-10 employees': 45,
-            '11-50 employees': 25,
-            '51-500 employees': 16,
-            '501-1000 employees': 4,
-            '1001-5000 employees': 4,
-            '5,001+ employees': 6
+            'Self-employed (me, myself, and I)': 26,
+            '1-10 employees': 33,
+            '11-50 employees': 19,
+            '51-500 employees': 12,
+            '501-1000 employees': 3,
+            '1001-5000 employees': 3,
+            '5,001+ employees': 5
           }"></ionic-bar-chart>
         </div>
       </section>
@@ -415,9 +419,9 @@
             'Ember': 2,
             'DoJo': 1,
             'Skate': 0
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
           
-          <h4>Which of the following <i>mobile development</i> tools, libraries, and frameworks have you done extensive development work in over the past year? [NativeScript]</h4>
+          <h4>Which of the following <i>mobile development</i> tools, libraries, and frameworks have you done extensive development work in over the past year?</h4>
           <ionic-bar-chart data="{
             'Ionic': 83,
             'Cordova / PhoneGap': 49,
@@ -428,7 +432,7 @@
             'Xamarin': 7,
             'NativeScript': 6,
             'Ext JS': 2
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
           
           <h4>Over the past year, what percentage of the apps you developed were built using a cross-platform approach (e.g. Ionic, Xamarin, React Native, etc.)?</h4>
           <ionic-bar-chart data="{
@@ -437,7 +441,7 @@
             '50% or greater': 12,
             '75% or greater': 16,
             '100% - Only use cross-platform tools': 52
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4>What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
           <ionic-bar-chart data="{
@@ -449,7 +453,7 @@
             'Skills match with development team': 8,
             'Ease of updates and maintenance': 6,
             'Other': 1
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4><strong>Native Only Devs:</strong> What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
           <ionic-bar-chart data="{
@@ -461,7 +465,7 @@
             'Skills match with development team': 10,
             'Ease of updates and maintenance': 8,
             'Other': 1
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4><strong>Cross-platform Only Devs</strong>: What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
           <ionic-bar-chart data="{
@@ -473,7 +477,7 @@
             'Performance': 7,
             'Ease of updates and maintenance': 6,
             'Other': 1
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4>Which of the following app lifecycle management tools are you currently using?</h4>
           <ionic-bar-chart data="{
@@ -483,7 +487,7 @@
             'IBM Mobile Foundation': 2,
             'None': 9,
             'Other': 16
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4>Which of the following deployment targets have you developed apps for over the last year?</h4>
           <ionic-bar-chart data="{
@@ -494,7 +498,7 @@
             'Microsoft Store': 4,
             'Smart TVs': 2,
             'Wearables': 2
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
           <h4>How are you currently distributing apps to your users (check all that apply)?</h4>
           <ionic-bar-chart data="{
@@ -502,7 +506,7 @@
             'Hosted web apps (including PWAs)': 48,
             'MDM (MobileIron, Airwatch, XenMobile, etc.)': 4,
             'Other': 3
-          }"></ionic-bar-chart>
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
   
         </div>
       </section>
@@ -515,7 +519,7 @@
             'No': 39,
             'Yes': 31,
             'No, but we plan to next year': 30
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>Who are you building PWAs for?</h4>
           <ionic-bar-chart data="{
@@ -523,20 +527,20 @@
             'Employees': 32,
             'Partners': 25,
             'Other': 3
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>Are you updating an existing app or is this a new application?</h4>
           <ionic-bar-chart data="{
             'Building a brand-new app': 72,
             'Updating an existing app': 28
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>Will the app also be available as a native binary in the app stores?</h4>
           <ionic-bar-chart data="{
             'Yes': 42,
             'Maybe': 36,
             'No': 22
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>What is the <i>primary</i> motivation for building a PWA?</h4>
           <ionic-bar-chart data="{
@@ -546,7 +550,7 @@
             'Make it easier to update the app whenever we want': 13,
             'Acquire new users': 4,
             'Everyone else is doing it': 3
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>If you have published a PWA already, what is the biggest impact you have observed so far?</h4>
           <ionic-bar-chart data="{
@@ -555,7 +559,7 @@
             'No impact since publishing the PWA': 18,
             'Increased user acquisition: More users trying the app': 13,
             'More revenue: Increased in-app or ad-driven revenue': 4
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>Which tools, libraries, or frameworks are you using to build PWAs?</h4>
           <ionic-bar-chart data="{
@@ -567,7 +571,7 @@
             'Polymer': 3,
             'Preact': 1,
             'Other': 1
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
           <h4>How are you hosting the PWA(s)?</h4>
           <ionic-bar-chart data="{
@@ -582,7 +586,7 @@
             'Google Cloud Platform': 1,
             'Citrix': 0,
             'Other': 4
-          }"></ionic-bar-chart>
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
   
         </div>
       </section>
@@ -601,7 +605,7 @@
             'Pushwoosh': 3,
             'Azure': 1,
             'Other': 6
-          }"></ionic-bar-chart>
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
   
           <h4>Which of the following database technologies have you used extensively over the past year?</h4>
           <ionic-bar-chart data="{
@@ -616,7 +620,7 @@
             'Couch': 1,
             'Oracle': 2,
             'Other':3
-          }"></ionic-bar-chart>
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
   
           <h4>Which of the following technologies do you use to host the backend of your apps?</h4>
           <ionic-bar-chart data="{
@@ -634,7 +638,7 @@
             'IBM': 0,
             'Kinvey': 0,
             'Other': 3
-          }"></ionic-bar-chart>
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
   
           <h4>Which of the following user authentication services have you used extensively over the past year?</h4>
           <ionic-bar-chart data="{
@@ -650,7 +654,7 @@
             'Fabric Digits': 1,
             'Stormpath': 1,
             'Other': 7
-          }"></ionic-bar-chart>
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
           {% endraw %}
         </div>
       </section>
@@ -665,7 +669,7 @@
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal('.animate-in p, .animate-in h4, .animate-in blockquote, ' +
-          '.animate-in aside, .animate-in .tools, .animate-in ionic-bar-chart');
+          '.animate-in li, .animate-in img, .animate-in aside');
 sr.reveal('.animate-in ionic-bar-chart', {duration: 500});
 
 

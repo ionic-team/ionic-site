@@ -96,7 +96,7 @@
             <li class="react"></li>
             <li class="vue"></li>
           </ul>
-          <h4>The big three: Angular, React, and Vue.</h4>
+          <h4 class="h4">The big three: Angular, React, and Vue.</h4>
           <blockquote>
             JavaScript is without a doubt the <a target="_blank"
             href="https://insights.stackoverflow.com/survey/2018#technology">
@@ -121,7 +121,7 @@
             largely a reflection of the Ionic community as of this year, and 
             Ionic has historically been exclusively Angular-compatible.
           </p>
-          <h4>
+          <h4 class="h4">
             What to Expect in 2019.
           </h4>
           <p>
@@ -139,7 +139,7 @@
       <div class="container">
         <h3>Mobile Tools &amp; Approaches</h3>
         <div class="col-md-6">
-          <h4>The top mobile dev tools</h4>
+          <h4 class="h4">The top mobile dev tools</h4>
           <p>
             It’s also not surprising to find that Ionic and Cordova/PhoneGap are 
             the most popular mobile development stack among the developers we 
@@ -176,7 +176,7 @@
             <li class="react"></li>
             <li class="xamarin"></li>
           </ul>
-          <h4>Most important factors? Efficiency &amp; UX</h4>
+          <h4 class="h4">Most important factors? Efficiency &amp; UX</h4>
           <blockquote>
             The efficiency of sharing code across platforms was the <i>most</i> 
             important factor in selecting a development approach.
@@ -195,11 +195,11 @@
       </div>
     </section>
 
-    <section id="habbits" class="clearfix animate-in">
+    <section id="pwas" class="clearfix animate-in">
       <div class="container">
         <h3>Progressive Web Apps</h3>
         <div class="col-md-6">
-          <h4>Most building or planning PWAs in 2018</h4>
+          <h4 class="h4">Most building or planning PWAs in 2018</h4>
           <blockquote>
             Sixty-one percent of developers surveyed said they have built a <a
             href="/pwa">Progressive Web App (PWA)</a>, or plan to in the next 
@@ -226,7 +226,7 @@
               <span>update existing</span>
             </div>
           </aside>
-          <h4>PWAs Complementing, Not Replacing, Native Mobile Apps</h4>
+          <h4 class="h4">PWAs Complementing, Not Replacing, Native Mobile Apps</h4>
           <p>
             About 42 percent reported that the PWAs they’re building will also 
             exist as native apps available in the app stores. With another 36 
@@ -261,7 +261,7 @@
             to build PWAs for their ease-of-use and productivity are actually 
             seeing the desired results.
           </p>
-          <h4>Preferred tools for building PWAs</h4>
+          <h4 class="h4">Preferred tools for building PWAs</h4>
           <p>
             Ionic and Angular were the most popular tools for building PWAs, 
             followed by React and Vue. Though all three have support for PWAs, 
@@ -277,7 +277,7 @@
       <div class="container">
         <h3>Backend Tools &amp; Services</h3>
         <div class="col-md-6">
-          <h4>At the top: MySQL, Firebase, MongoDB</h4>
+          <h4 class="h4">At the top: MySQL, Firebase, MongoDB</h4>
           <p>
             In last year’s survey, we aggregated all self-hosted database 
             options (MySQL, Postgres, etc.) into one set of responses. This year 
@@ -295,13 +295,13 @@
             in the past year. Firebase was not far behind, followed by MongoDB. 
             Postgres was much further down the list.
           </p>
-          <h4>Firebase Dominates Hosting Platforms</h4>
+          <h4 class="h4">Firebase Dominates Hosting Platforms</h4>
           <p>
             No surprise here—Firebase continues to be the leading hosting platform and is by far the winner in push notifications with 66 percent of respondents using it.
           </p>
         </div>
         <div class="col-md-6">
-          <h4>Keeping An Eye On Serverless</h4>
+          <h4 class="h4">Keeping An Eye On Serverless</h4>
           <p>
             Worth a special mention is the growing “serverless” trend this past year.
           </p>
@@ -510,7 +510,7 @@
   
         </div>
       </section>
-      <section id="pwas" class="data animate-in">
+      <section id="results-pwas" class="data animate-in">
         <div class="container">
           <h3>Progressive Web Apps</h3>
   
@@ -668,11 +668,13 @@
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
-sr.reveal('.animate-in p, .animate-in h4, .animate-in blockquote, ' +
-          '.animate-in li, .animate-in img, .animate-in aside');
-sr.reveal('.animate-in ionic-bar-chart', {duration: 500});
+sr.reveal('.animate-in p, .animate-in aside, .animate-in blockquote, ' +
+          '.animate-in li, .animate-in img, .animate-in h4, .animate-in ionic-bar-chart');
+{# sr.reveal('.animate-in ionic-bar-chart', {duration: 500}); #}
+setTimeout(function() {
+  window.ScrollReveal().sync()
+}, 5000);
 
-
-window.activateOnScrollSelector = 'ionic-bar-chart';
+{# window.activateOnScrollSelector = 'ionic-bar-chart'; #}
 </script>
 {% endblock %}

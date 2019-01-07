@@ -18,12 +18,12 @@
     height: 100%;
     width: 100%;
     top: 0;
+    overflow: hidden;
 
     #bars {
       position: absolute;
       width: 100%;
       bottom: -400px;
-      opacity: .8;
 
       > g {
         opacity: 0;
@@ -104,6 +104,24 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 43px 26px 38px;
+      color: #B2BECD;
+    }
+
+    .active a,
+    a:hover {
+      color: #639CFF;
+    }
+
+    .active a {
+      border-color: #639CFF;
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      overflow-x: auto;
+
+      .nav a {
+        padding: 24px 6px 24px;
+      }
     }
   }
 
@@ -169,6 +187,13 @@
         + .col-md-6 {
           padding: 0 35px 0 48px;
         }
+
+        @media (max-width: $screen-xs-max)  {
+          &,
+          + .col-md-6 {
+            padding: 0 15px;
+          }
+        }
       }
 
       p {
@@ -194,6 +219,7 @@
 
   .factoid {
     padding: 5px 0 20px;
+    display: inline-block;
 
     &:first-child {
       margin-right: 56px;
@@ -395,6 +421,10 @@
     ionic-bar-chart {
       font-family: $font-family-monospace;
       margin-bottom: 111px;
+
+      &:not(.hydrated) {
+        min-height: 120px;
+      }
     }
   }
 }

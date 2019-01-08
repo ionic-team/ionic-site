@@ -8,4 +8,4 @@ hide_header_search: true
 dark_header: true
 ---
 
-### How to use private NPM modules
+# How to use private NPM modules

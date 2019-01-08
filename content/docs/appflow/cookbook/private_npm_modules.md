@@ -28,7 +28,7 @@ npm password:
 
 Configure an `NPM_TOKEN` secret in your Appflow environment using the generated token as value:
 
-<img src="/img/pro/npm-token-secret.png" class="browser" />
+<img src="/img/pro/cookbook/npm-token-secret.png" class="browser" />
 
 Check in a `.npmrc` file in the root of your project directory with the following line:
 

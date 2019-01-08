@@ -436,6 +436,34 @@
         min-height: 120px;
       }
     }
+
+    .bar {
+      background: #5b708b linear-gradient(to right, 
+        rgba(#92E1A7, 0.2), 
+        rgba(#51A7FF, 0.2)
+      );
+    }
+  }
+
+  #tools .bar {
+    background: #5b708b linear-gradient(to right, 
+      rgba(#E54385, 0.2), 
+      rgba(#786DF9, 0.2)
+    );
+  }
+
+  #results-pwas .bar {
+    background: #5b708b linear-gradient(to right, 
+      rgba(#FF7B5E, 0.2), 
+      rgba(#F37BAB, 0.2)
+    );
+  }
+
+  #backend .bar {
+    background: #5b708b linear-gradient(to right, 
+      rgba(#F2C526, 0.2), 
+      rgba(#92E1A7, 0.2)
+    );
   }
 }
 

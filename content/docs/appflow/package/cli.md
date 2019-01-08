@@ -14,6 +14,7 @@ It is possible to trigger package builds on Appflow directly from the CLI.
 This is extremely useful if you need to integrate the package build step inside an existing external CI/CD process.
 
 ### Prerequisites
+Upgrade the Ionic CLI to at least version `4.7.0`.
 
 To trigger package builds on Appflow from the Ionic CLI, a proper subscription to run package builds is needed. 
 

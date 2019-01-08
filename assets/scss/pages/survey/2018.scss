@@ -24,6 +24,7 @@
       position: absolute;
       width: 100%;
       bottom: -400px;
+      left: 0;
 
       > g {
         opacity: 0;
@@ -52,6 +53,7 @@
       position: absolute;
       width: 100%;
       top: -50px;
+      left: 0;
       opacity: 0;
       animation: fadeInUp 2s ease 3s forwards;
 
@@ -114,6 +116,13 @@
 
     .active a {
       border-color: #639CFF;
+    }
+
+
+    @media (max-width: $screen-sm-max)  {
+      .nav a {
+        padding: 24px 9px 24px;
+      }
     }
 
     @media (max-width: $screen-xs-max)  {

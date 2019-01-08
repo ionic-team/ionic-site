@@ -62,9 +62,10 @@ The `ionic cordova` commands (aside from `ionic cordova resources`) wrap the Cor
 * For iOS development, see the [iOS Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html).
 * For Android development, see the [Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
 
-## Ionic Pro
+## Ionic Appflow
 
-[Ionic Pro](/pro) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. Ionic Pro is fully supported in the Ionic CLI. See the [Pro Docs](/docs/pro//basics/getting-started/) to get started.
+[Ionic Appflow](/appflow) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. 
+Ionic Appflow is fully supported in the Ionic CLI. See the [Appflow Docs](/docs/appflow/basics/getting-started/) to get started.
 
 ## Troubleshooting
 

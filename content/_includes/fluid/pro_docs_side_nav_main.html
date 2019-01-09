@@ -164,6 +164,14 @@
           </li>
         </ul>
       </li>
+      <li class="{% if page.category == 'pro-cookbook' %}active{% endif %}">
+        <a ng-click="toggle('cookbook')" class="pro-cookbook-link">Cookbook</a>
+        <ul ng-show="sections.cookbook" ng-cloak {% if page.category == 'pro-cookbook' %}ng-init="sections.cookbook = true"{% endif %}>
+          <li>
+            <a href="/docs/appflow/cookbook">Recipes</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>

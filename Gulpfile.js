@@ -78,6 +78,15 @@ function bustCacheAndReload(done) {
   });
 }
 
+function restartAndReload(done) {
+  server.restart(function(err) {
+    if (!err) {
+      done();
+      browserSync.reload();
+    }
+  });
+}
+
 function justReload(done) {
   // server.restart(function(err) {
     // if (!err) {
@@ -238,7 +247,7 @@ gulp.task('server', ['build'], function() {
   return runSequence('server-listen');
 });
 
-gulp.task('server:server', justReload);
+gulp.task('server:server', restartAndReload);
 
 gulp.task('server:stylesv1', ['styles:v1'], justReload);
 gulp.task('server:stylesv2', ['styles:v2'], justReload);

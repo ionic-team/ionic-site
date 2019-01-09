@@ -191,6 +191,13 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Tackling Continuous Delivery with Appflow",
+        "url": "/resources/webinars/tackling-continuous-delivery-with-appflow",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-appflow.png",
+        "bgColor": "#5352fe"
+      }, {
+        "type": "Webinar",
         "title": "Introducing: Ionic Studio & Appflow A Better Way to Build Apps",
         "url": "/resources/webinars/introducing-ionic-studio-appflow",
         "action": "Watch",

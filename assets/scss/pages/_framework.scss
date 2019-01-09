@@ -347,30 +347,15 @@
     margin-bottom: -32px;
 
     .box {
-      background: #272a2f linear-gradient(66deg,
-      rgba(39,42,47,1) 0%,
-      rgba(39,42,47,1) 70%,
-      rgba(50,54,60,1) 70%,
-      rgba(39,42,47,1) 100%);
-      background-size: 100%;
+      background: url('/img/framework/2018-framework-card-bg.png') 50% 50% no-repeat;
+      background-size: cover;
       display: flex;
       align-items: center;
       border-radius: 8px;
       box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
-      padding: 33px 49px 28px 152px;
+      padding: 37px 69px 38px 54px;
       position: relative;
       min-height: 160px;
-
-      &::before {
-        background: url('/img/survey/survey-banner-icon.png') left 50% no-repeat;
-        background-size: contain;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        content: '';
-      }
 
       @media (max-width: $screen-xs-max) {
         display: block;
@@ -394,6 +379,7 @@
       color: white;
       position: relative;
       z-index: 1;
+      margin-top: 8px;
     }
 
     .orange {
@@ -407,23 +393,28 @@
     h2 {
       font-weight: 700;
       margin-top: 0;
-      font-size: 29px;
-      letter-spacing: -.05em;
-      margin-bottom: 6px;
+      font-size: 38px;
+      letter-spacing: -.045em;
+      margin-bottom: 5px;
     }
 
     .lg {
-      font-size: 23px;
-      letter-spacing: -.009em;
+      font-size: 22px;
+      letter-spacing: -.019em;
       margin-bottom: 0;
+      color: white;
+      font-family: $font-family-eina;
     }
 
     .btn {
       margin-left: 8px;
       font-size: 16px;
-      padding: 13px 18px 14px;
+      letter-spacing: .055em;
+      padding: 19px 21px 14px;
+      font-weight: 600;
       position: relative;
       z-index: 1;
+      text-transform: uppercase;
     }
   }
 

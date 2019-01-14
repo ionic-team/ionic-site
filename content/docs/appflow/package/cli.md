@@ -2,7 +2,7 @@
 layout: fluid/pro_docs_base
 category: pro-package
 id: pro-native-builds
-title: iOS Credentials - Ionic Appflow Documentation
+title: Package builds on Appflow using the Ionic CLI
 body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true

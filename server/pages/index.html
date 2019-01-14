@@ -4,216 +4,267 @@
 {% set pre_footer = false %}
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 {% set stickyNav = true %}
+{% set cssPath = 'home' %}
 
 {% block main %}
-<div class="banner">
-  <div class="container">
-    <hgroup>
-      <h1>
-        Build amazing apps in one codebase, for any platform, with the web.
-      </h1>
+<ionic-site-slider>
+  <div slot="slide-1" id="slide-limitless">
+    <hgroup class="container">
+      <h1>One codebase.<wbr>Limitless platforms.</h1>
       <p>
-        Ionic lets web developers build, test, and deploy cross-platform hybrid mobile apps easier than ever.
+        Ionic helps developers build and ship beautiful cross-platform hybrid 
+        apps powered by the web.
       </p>
-      <div class="btns">
-        <a href="/getting-started" class="btn white" id="btn-home-get-started">Get Started</a>
-        <!-- or <a class="text-link" href="/sales" id="btn-home-contact-sales">contact sales</a> -->
-      </div>
-      <div class="target">
-        Target <i></i>
-      </div>
+      <a href="" class="btn white rounded">
+        Get Started <ion-icon name="arrow-round-forward"></ion-icon>
+      </a>
+      <ul class="supported-platforms">
+        <li><img src="/img/homepage/platform-apple-ios.svg" alt="apple"></li>
+        <li><img src="/img/homepage/platform-android-google.svg" alt="android"></li>
+        <li><img src="/img/homepage/platform-windows.svg" alt="windows"></li>
+        <li><img src="/img/homepage/platform-electronjs-desktop.svg" alt="electron"></li>
+        <li><img src="/img/homepage/platform-javascript.svg" alt="js"></li>
+        <li><img src="/img/homepage/platform-pwa-progressive-web-app.svg" alt="pwa"></li>
+      </ul>
     </hgroup>
-
-    <div class="graphics">
-      <div class="android">
-        <div class="layer-1"></div>
-        <div class="layer-2"></div>
-      </div>
-      <div class="iphone">
-        <div class="layer-3"></div>
-        <div class="layer-4"></div>
-      </div>
-    </div>
   </div>
-</div>
-<main>
-  <div class="container">
-    <div class="company">
-      <div class="logos">
-        <div class="logo logo--cat"></div>
-        <div class="logo logo--comcast"></div>
-        <div class="logo logo--ge"></div>
-        <div class="logo logo--ibm"></div>
-        <div class="logo logo--target"></div>
-        <div class="logo logo--mcdonalds"></div>
-        <div class="logo logo--microsoft"></div>
-      </div>
-    </div>
 
-    <ul class="paths">
-      <li class="enterprise">
-        <div class="card-wrapper">
-          <div class="card">
-            <a href="/enterprise" id="btn-home-enterprise-card">
-              <div class="layer-1">
-                <h4>Ionic For <em>Enterprise</em></h4>
-                <h2>The enterprise-ready platform for powerful, secure apps at scale.</h2>
-              </div>
-              <div class="layer-2">
-                <span class="card-link">Learn more</span>
-              </div>
-            </a>
-          </div>
-        </div>
+  <div slot="slide-2">
+
+  </div>
+
+  <div slot="slide-3">
+
+  </div>
+</ionic-site-slider>
+
+<aside id="used-by">
+  <ul class="container">
+    <li><img src="" alt="Amtrak"></li>
+    <li><img src="" alt="Comcast"></li>
+    <li><img src="" alt="General Electric"></li>
+    <li><img src="" alt="IBM"></li>
+    <li><img src="" alt="Target"></li>
+    <li><img src="" alt="McDonalds"></li>
+    <li><img src="" alt="MasterCard"></li>
+  </ul>
+</aside>
+
+<main>
+  <section id="for-devs" class="center">
+    <hgroup class="container">
+      <h2>An app platform for developers</h2>
+      <p>
+        We help developers build and deploy cross-platform apps. From open 
+        source to premium services, Ionic makes app creation lightning fast.
+      </p>
+    </hgroup>
+    <ul class="container">
+      <li class="oss"><a href="#oss" class="anchor">OSS Framework</a></li>
+      <li class="devops"><a href="#devops" class="anchor">Mobile Devops</a></li>
+      <li class="ide"><a href="#ide" class="anchor">Local IDE</a></li>
+      <li class="integration"><a href="#integration" class="anchor">Integrations</a></li>
+    </ul>
+  </section>
+
+  <section id="oss" class="container left">
+    <div class="content">
+      <h4>Open Source UI Toolkit</h4>
+      <h2>Fast, beautiful apps</h2>
+      <p class="lg">
+        <strong>Ionic Framework</strong> is the free, open source mobile UI 
+        toolkit for developing high-quality cross-platform apps for native iOS, 
+        Android, and the web—all from a single codebase.
+      </p>
+      <p>
+        Build with intuitive UI components that accelerate app development, and 
+        can be deployed virtually anywhere. 
+      </p>
+      <ul class="frameworks">
+        <li class="frameworks__angular"></li>
+        <li class="frameworks__react"></li>
+        <li class="frameworks__vue"></li>
+        <li class="frameworks__js"></li>
+      </ul>
+      <a href="/framework" class="cta">Explore Framework</a>
+    </div>
+  </section>
+
+  <section id="devops" class="container right">
+    <div class="content">
+      <h4>Mobile Devops</h4>
+      <h2>Ship continuously</h2>
+      <p class="lg">
+        From automated native builds to live updating and CI/CD, Ionic Appflow 
+        addresses the entire mobile DevOps lifecycle. Continuously build and 
+        ship apps at the speed of development.
+      </p>
+      <p>Integrate seemlessly with your favorite git hosts and get shipping.</p>
+      <ul class="git-hosts">
+        <li class="git-hosts__github">Github</li>
+        <li class="git-hosts__gitlab">GitLab</li>
+        <li class="git-hosts__bitbucket">Bitbucket</li>
+      </ul>
+      <a href="/appflow" class="cta">Learn about Appflow</a>
+    </div>
+  </section>
+
+  <section id="studio" class="container center">
+    <div class="content">
+      <h4>Local IDE</h4>
+      <h2>Lightning fast development</h2>
+      <p class="lg">
+        <strong>Ionic Studio</strong> is a powerful local development 
+        environment that makes it easy to go from code to design to stunning 
+        Ionic apps in minutes. 
+      </p>
+      <a href="" class="cta">Explore Ionic Studio</a>
+    </div>
+    <video src=""></video>
+  </section>
+
+  <section id="integration" class="center container">
+    <div class="content">
+      <h4>Integrations</h4>
+      <h2>Yes, we integrate with that</h2>
+      <p class="lg">
+        From community plugins to premium supported integrations, Ionic works 
+        with it. Unlock unmatched native power, speed, and core functionality 
+        across all your apps.
+      </p>
+      <a href="" class="cta">See Integrations</a>
+      <ul class="integration-list">
+        <li class="integration-list__paypal"></li>
+        <li class="integration-list__heroku"></li>
+        <li class="integration-list__couchbase"></li>
+        <li class="integration-list__amplify"></li>
+        <li class="integration-list__touch-id"></li>
+        <li class="integration-list__face-id"></li>
+        <li class="integration-list__ad"></li>
+        <li class="integration-list__applePay"></li>
+        <li class="integration-list__firebase"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="why-build" class="container">
+    <hgroup>
+      <h3>Why build with Ionic?</h3>
+      <p>
+        Ionic is a dev platform for the entire app lifecycle that allows teams 
+        to build better apps, faster.
+      </p>
+    </hgroup>
+    <ul class="why">
+      <li class="why__future-proof">
+        <h5>As future-proof as the web</h5>
+        <p>
+          The apps you build with Ionic leverage the power and stability of the 
+          open web - the most time-tested universal runtime in the world. The 
+          web has been around over two decades, and we believe it will be there 
+          for the next two. Always bet on the web.
+        </p>
       </li>
-      <li class="teams">
-        <div class="card-wrapper">
-          <div class="card">
-            <a href="/appflow" id="btn-home-teams-card">
-              <div class="layer-1">
-                <h4>Ionic for <em>Teams</em></h4>
-                <h2>Boost your team’s workflow with mobile DevOps tools.</h2>
-              </div>
-              <div class="layer-2">
-                <span class="card-link">Get started</span>
-              </div>
-            </a>
-          </div>
-        </div>
+      <li class="why__community">
+        <h5>Backed by a global community</h5>
+        <p>
+          Ionic is backed by a <a href="/community">vibrant community</a> of 
+          more than 5M developers in over 200 countries. Join the thousands of 
+          global meetups, forums, and community driven events that make it easy 
+          to learn and grow with our platform.
+        </p>
       </li>
-      <li class="startups">
-        <div class="card-wrapper">
-          <div class="card">
-            <a href="/startups" id="btn-home-startups-card">
-              <div class="layer-1">
-                <h4>Ionic for <em>Startups</em></h4>
-                <h2>Get up and running with the Ionic open source framework.</h2>
-              </div>
-              <div class="layer-2">
-                <span class="card-link">Get started</span>
-              </div>
-            </a>
-          </div>
-        </div>
+      <li class="why__os">
+        <h5>Built on Open Source</h5>
+        <p>
+          We’re a company built on open source. It all began with <a 
+          href="/framework">Ionic Framework</a> - the world's most popular open 
+          source SDK for building cross-platform mobile and Progressive Web 
+          Apps. Our open source roots powers everything we do at Ionic.
+        </p>
       </li>
     </ul>
+  </section>
 
-
-  </div>
-    {% include '_includes/promos/hybrid-vs-native.html' %}
-  <div class="container">
-    <div class="newsletter">
+  <section id="difference">
+    <div class="container">
       <hgroup>
-        <h3>Start building better apps today.</h3>
+        <h5>Interested in the differences between hybrid and native apps?</h5>
         <p>
-          Sign up for <a href="/pro">Ionic Appflow</a> to get access to the
-          full Ionic experience.
+          Our new eBook breaks down everything you need to know—all the myths, 
+          lies, and misconceptions.
         </p>
+        <a href="/books/hybrid-vs-native" class="btn sm">Read the eBook</a>
       </hgroup>
-      <form action="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
-            method="get"
-            id="form-home-get-started-now">
-        <input type="text" name="email" placeholder="Your email address">
-        <ionic-button type="submit">Get started now</ionic-button>
-      </form>
     </div>
-  </div>
+  </section>
+
+  <section id="good-company" class="container center">
+    <h2>You’re in good company</h2>
+    <p class="lg">
+      Thousands of the best companies around the world build with Ionic.
+    </p>
+    <ul class="case-studies">
+      <li class="card case-studies__">
+        <img src="" alt="General Electric">
+        <p>
+          <strong>GE Transportation</strong> uses Ionic to build mission 
+          critical apps ensuring timely deliveries.
+        </p>
+        <a href="" class="cta">Learn More</a>
+      </li>
+      <li class="card case-studies__">
+        <img src="" alt="Market Watch">
+        <p>
+          The <strong>Marketwatch</strong> team built their flagship app in 
+          record time leveraging Ionic.
+        </p>
+        <a href="" class="cta">Learn More</a>
+      </li>
+      <li class="card case-studies__">
+        <img src="" alt="National Health Service">
+        <p>
+          The <strong>National Health Service</strong>, one of the UK’s top 
+          health providers went all in on Ionic.
+        </p>
+        <a href="" class="cta">Learn More</a>
+      </li>
+      <li class="card case-studies__">
+        <img src="" alt="Amtrak">
+        <p>
+          <strong>Amtrak</strong> did a complete overhaul of their existing app 
+          and converted it to Ionic. 
+        </p>
+        <a href="" class="cta">Learn More</a>
+      </li>
+    </ul>
+    <ul class="others">
+      <li class="others__mastercard"></li>
+      <li class="others__nationwide"></li>
+      <li class="others__uniqlo"></li>
+      <li class="others__ibm"></li>
+      <li class="others__ing"></li>
+      <li class="others__sap"></li>
+      <li class="others__nasa"></li>
+    </ul>
+    <a href="" class="cta">See all Customer Stories</a>
+  </section>
+
+  <section id="join">
+    <hgroup class="container center">
+      <h1>
+        Join the <strong>millions</strong> of developers using Ionic to build 
+        incredible apps.
+      </h1>
+      <div class="btns">
+        <a href="/getting-started" class="btn white rounded">Start Building</a>
+        <a href="/sales" class="btn light rounded">Talk to Sales</a>
+      </div>
+    </hgroup>
+  </section>
 </main>
 {% endblock %}
 
 {% block scripts %}
-<script>
 
-// paralax effect
-var $banner = document.querySelector('.banner')
-window.addEventListener('scroll', function(e) {
-  $banner.style.transform = 'matrix(1, 0, 0, 1, 0, '+ (window.scrollY/5)+')';
-})
-
-// apple tv style card tilt
-var tilt = {
-  init: function() {
-    this.draw = this.draw.bind(this);
-    this.activateElement = this.activateElement.bind(this);
-    this.queueDraw = this.queueDraw.bind(this);
-    this.letGo = this.letGo.bind(this);
-
-    const $card = document.querySelector('.paths li:first-child .card');
-    this.halfW = $card.clientWidth / 2;
-    this.halfH = $card.clientHeight / 2;
-    this.$cards = Array.prototype.slice.call(document.querySelectorAll('.paths .card'));
-    this.$container = document.querySelector('.paths');
-    this.bannerHeight = $banner.offsetHeight;
-    this.event = {};
-
-    this.$cards.forEach(function(el) {
-      // set listeners for each card
-      el.addEventListener('mouseenter', this.activateElement)
-      el.addEventListener('mousemove', this.queueDraw)
-      el.addEventListener('mouseleave', this.letGo.bind(this))
-    }, this)
-    this.$container.addEventListener('mouseleave',this.letGo.bind(this))
-
-    return this;
-  },
-
-  activateElement: function(event) {
-    this.$el = event.target;
-    this.$layer1 = event.target.querySelector('.layer-1');
-    this.$layer2 = event.target.querySelector('.layer-2');
-    this.$li = this.$el.parentElement.parentElement;
-    this.offsetLeft = this.$li.offsetLeft;
-    this.offsetTop = this.$li.offsetTop + this.bannerHeight;
-    this.coorX = this.coorY = 0;
-    this.queued = false;
-    // console.log(this.offsetTop,this.$li.offsetTop, this.bannerHeight);
-  },
-
-  queueDraw: function(event) {
-    if(event.pageX === this.event.pageX && event.pageX === this.event.pageX) {
-      return;
-    }
-
-    if (!this.queued) {
-      this.event = event;
-      this.queued = true;
-      requestAnimationFrame(this.draw)
-      // this.draw()
-    }
-  },
-
-  letGo: function() {
-    this.queued = true;
-    this.$el.style['transform'] =
-    this.$layer1.style['transform'] =
-    this.$layer2.style['transform'] = '';
-  },
-
-  draw: function() {
-
-    var Y = ( Math.round(( this.halfH - (this.event.pageY - this.offsetTop))
-      / this.halfH * 50 ) / 100);
-    var X = ( Math.round((this.halfW - (this.event.pageX - this.offsetLeft))
-      / this.halfW * -50) / 100);
-
-    this.$el.style['transform'] =
-      'rotateX(' + (Y * -1) + 'deg) rotateY(' + (X * -1) + 'deg)';
-    this.$layer1.style['transform'] = function() {
-      let transform = 'translate3d(' + (X * -1) + 'px, ' + (Y * 1) + 'px, 12px)';
-      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
-      return transform;
-    }();
-    this.$layer2.style['transform'] = function() {
-      let transform = 'translate3d(' + (X * -.5) + 'px, ' + (Y * .5) + 'px, 25px)';
-      transform += ' rotateX(' + (Y * -.25) + 'deg) rotateY(' + (X * -.25) + 'deg)';
-      return transform;
-    }();
-    this.queued = false;
-  }
-}
-
-tilt.init();
-
-
-</script>
 {% endblock %}

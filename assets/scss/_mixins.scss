@@ -6,12 +6,59 @@
               0 2px 8px  rgba(0,0,0,0.1);
 }
 
+@mixin flex-list {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding-left: 0;
+
+  li {
+    margin-right: 1em;
+    list-style: none;
+  }
+}
+
 @mixin sprite($items, $height: 64, $selector: '::before') {
   @each $icon in $items {
     $i: index($items, $icon);
 
     &.#{$icon}#{$selector} {
       background-position: 0 #{($height * ($i - 1) * -1)}px;
+    }
+  }
+}
+
+@mixin hoverSprite(
+  $items, $height: 64, $selector1: '::before', $selector2: '::after'
+) {
+  &#{$selector1}, 
+  &#{$selector2} {
+    transition: .2s opacity;
+  }
+
+  &#{$selector2} {
+    opacity: 0;
+  }
+
+  &:hover {
+    &#{$selector1} {
+      // opacity: 0;
+    }
+
+    &#{$selector2} {
+      opacity: 1;
+    }
+  }
+
+  @each $icon in $items {
+    $i: index($items, $icon);
+
+    &.#{$icon}#{$selector1} {
+      background-position: 0 #{($height * ($i - 1) * -2)}px;
+    }
+
+    &.#{$icon}#{$selector2} {
+      background-position: 0 #{($height * ($i - 1) * -2) - $height}px;
     }
   }
 }

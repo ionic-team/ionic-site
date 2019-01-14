@@ -29,7 +29,7 @@ more. Let's get started!
 
 ### Starting a New Ionic App
 
-To start a new app, open your terminal/command prompt and run:
+To start a new app, open your [terminal/command prompt](/docs/resources/what-is/#cli) and run:
 
 ```bash
 $ ionic start MyIonicProject tutorial

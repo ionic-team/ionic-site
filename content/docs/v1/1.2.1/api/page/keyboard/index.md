@@ -46,7 +46,7 @@ It will also attempt to prevent the native overflow scrolling on focus,
 which can cause layout issues such as pushing headers up and out of view.
 
 The keyboard fixes work best in conjunction with the
-[Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugins-keyboard),
+[Ionic Keyboard Plugin](https://github.com/ionic-team/ionic-plugin-keyboard),
 although it will perform reasonably well without.  However, if you are using
 Cordova there is no reason not to use the plugin.
 
@@ -77,7 +77,7 @@ animations on Android that occur when the keyboard opens (for example, scrolling
 
 ### Plugin Usage
 Information on using the plugin can be found at
-[https://github.com/ionic-team/ionic-plugins-keyboard](https://github.com/ionic-team/ionic-plugins-keyboard).
+[https://github.com/ionic-team/ionic-plugin-keyboard](https://github.com/ionic-team/ionic-plugin-keyboard).
 
 ----------
 

@@ -1,0 +1,287 @@
+.promo {
+  font-family: $font-family-eina;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: #f3f5f9;
+  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  hgroup {
+    width: 50%;
+    padding-left: 42px;
+  }
+
+  h2,
+  p {
+    max-width: 460px;
+  }
+
+  h2 {
+    font-size: 24px;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #788497;
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #2d79ff;
+
+    &:hover {
+      background-color: #4486fb;
+    }
+
+    &.white {
+      background: white;
+
+      &:hover {
+        background: white;
+      }
+    }
+  }
+
+  &--dark {
+    background-color: #112037;
+
+    h2 {
+      color: #fff;
+    }
+    p {
+      color: #a8b0be;
+    }
+  }
+
+  &__illustration {
+    width: 459px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-480px);
+    z-index: 3;
+  }
+
+  &.promo-reversed .container {
+    justify-content: flex-start;
+
+    hgroup {
+      flex: 1;
+    }
+  }
+
+  .promo__image {
+    max-width: 100%;
+    margin: 32px 15px;
+  }
+
+  &.promo-btns,
+  &.promo-newsletter {
+    hgroup {
+      flex: 1;
+      padding: 46px 0;
+    }
+
+    .container {
+      padding-top: 37px;
+    }
+
+    h2,
+    p {
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 20px;
+      letter-spacing: -.031em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: $blue;
+    }
+
+    .btns {
+      margin-left: 24px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-bottom: 64px;
+
+      .btns {
+        text-align: center;
+      }
+
+      .btn {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &.promo-newsletter {
+    background: white;
+
+    .container {
+      padding-top: 6px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .btns {
+      flex: 0 1 476px;
+
+      @media (max-width: $screen-sm-max) {
+        flex: 0;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        max-width: 476px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    &__illustration {
+      transform: translateX(-400px);
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 272px;
+
+    &.promo-inline {
+      padding-bottom: 64px;
+    }
+
+    .container {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    hgroup {
+      width: 100%;
+      padding: 0;
+      text-align: center;
+    }
+
+    h2,
+    p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__illustration {
+      width: 380px;
+      transform: translateX(-190px);
+    }
+  }
+
+  &--tri-cta {
+    background: #F6F8FB;
+
+    ul {
+      list-style: none;
+      letter-spacing: -.01em;
+    }
+
+    li {
+      margin: 24px 48px;
+      position: relative;
+      width: calc(33.3% - 64px);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        right: -48px;
+        top: calc(50% - 48px);
+        height: 96px;
+        border-left: 1px solid #DEE3EA;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      color: black;
+      font-weight: 600;
+    }
+
+    p {
+      font-family: $font-family-graphik;
+      line-height: 29px;
+      font-size: 16px;
+      color: #73849A;
+    }
+
+
+
+    @media (max-width: $screen-sm-max) {
+      padding-bottom: 64px;
+
+      li {
+        width: 100%;
+        margin: 0;
+        padding: 48px 16px;
+        text-align: center;
+
+        &::after {
+          display: none;
+        }
+
+        p {
+          margin: 0 0 1em;
+          display: inline-block;
+        }
+
+        .btn {
+          display: block;
+        }
+      }
+    }
+  }
+}

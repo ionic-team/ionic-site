@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">NFC</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L29">
   Improve this doc
 </a>
 
@@ -70,8 +70,17 @@ constructor(private nfc: NFC, private ndef: Ndef) { }
 
 ...
 
-let message = this.ndef.textRecord(&#39;Hello world&#39;);
-this.nfc.share([message]).then(onSuccess).catch(onError);
+this.nfc.addNdefListener(() =&gt; {
+  console.log(&#39;successfully attached ndef listener&#39;);
+}, (err) =&gt; {
+  console.log(&#39;error attaching ndef listener&#39;, err);
+}).subscribe((event) =&gt; {
+  console.log(&#39;received ndef message. the tag contains: &#39;, event.tag);
+  console.log(&#39;decoded tag id&#39;, this.nfc.bytesToHexString(event.tag.id));
+
+  let message = this.ndef.textRecord(&#39;Hello world&#39;);
+  this.nfc.share([message]).then(onSuccess).catch(onError);
+});
 </code></pre>
 
 
@@ -82,7 +91,52 @@ this.nfc.share([message]).then(onSuccess).catch(onError);
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="addNdefListener" href="#addNdefListener"></a><code>addNdefListener(onSuccess,&nbsp;onFailure)</code></h3>
+<h3><a class="anchor" name="FLAG_READER" href="#FLAG_READER"></a><code>FLAG_READER</code></h3>
+
+
+
+
+<h3><a class="anchor" name="beginSession" href="#beginSession"></a><code>beginSession(onSuccess,&nbsp;onFailure)</code></h3>
+
+
+
+
+Starts the NFCNDEFReaderSession allowing iOS to scan NFC tags.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      onSuccess</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  
+  <tr>
+    <td>
+      onFailure</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="addNdefListener" href="#addNdefListener"></a><code>addNdefListener(onSuccess,&nbsp;onFailure)</code></h3>
 
 
 
@@ -280,7 +334,7 @@ Writes an NdefMessage(array of ndef records) to a NFC tag.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="makeReadyOnly" href="#makeReadyOnly"></a><code>makeReadyOnly()</code></h3>
+</div><h3><a class="anchor" name="makeReadOnly" href="#makeReadOnly"></a><code>makeReadOnly()</code></h3>
 
 
 Makes a NFC tag read only. **Warning** this is permanent.
@@ -481,7 +535,16 @@ Convert byte array to hex string
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div>
+</div><h3><a class="anchor" name="readerMode" href="#readerMode"></a><code>readerMode()</code></h3>
+
+
+
+
+Read NFC tags sending the tag data to the success callback.
+
+
+
+
 
 
 

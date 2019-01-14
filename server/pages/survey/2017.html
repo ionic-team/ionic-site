@@ -1,9 +1,11 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'survey-2017' %}
-{% set bodyController = 'Survey2017Ctrl' %}
+{% set bodyController = 'SurveyCtrl' %}
 {% set name = '2017 Developer Survey' %}
 {% set meta_description = 'Insights, trends, and perspectives from the worldwide Ionic Community' %}
 {% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2017.png' %}
+{% set header_style = 'transparent survey-layout' %}
+{% set cssPath = 'survey/2017' %}
 
 {% block body_attributes %}
   data-spy="scroll" data-target="#survey-2017-nav" data-offset="400"
@@ -117,7 +119,7 @@
               The broader trend is that hybrid development is gaining traction, 
               while the native approach is waning.  We think that makes sense.  
               The benefits of hybrid are obvious. And as the <a target="_blank"
-              href="https://blog.ionic.io/the-amazing-evolution-of-the-web-on-mobile/">
+              href="https://blog.ionicframework.com/the-amazing-evolution-of-the-web-on-mobile/">
               web evolves</a>, there are fewer and fewer reasons not to adopt.
             </p>
           </div>
@@ -250,7 +252,7 @@
               looks like Microsoft has really won over developers with its code 
               editing and development toolsets.  Of course, it doesn’t hurt that 
               Microsoft is the reference editor for common tools like 
-              Typescript, which may have helped them become the defacto text 
+              TypeScript, which may have helped them become the defacto text 
               editor.
             </p>
           </div>

@@ -90,7 +90,7 @@ $(document).ready(function() {
         '<td><code>' + results[i].defaultValue + '</code></td>' +
         '<td><a href="https://github.com/ionic-team/ionic/blob/master/' +
           results[i].file.replace('content/','') + '" data-toggle="tooltip" ' +
-          'data-placement="right" title="' +
+          'data-placement="left" title="' +
           results[i].file.replace('content/','') + '" target="_blank"><icon '+
           'class="ion-ios-document"></icon></a></td>' +
         '</tr>'

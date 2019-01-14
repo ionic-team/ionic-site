@@ -1,9 +1,22 @@
-{% include '_includes/mixpanel.html' %}
-
 {% if dev %}
 <script src="/js/ionic-site.js"></script>
 {% else %}
 <script src="/js/ionic-site.min.js"></script>
+{% endif %}
+
+{% if dev or PRISMIC_PREVIEW %}
+<script>
+  window.prismic = {
+    endpoint: 'https://ionicframeworkcom.prismic.io/api/v2'
+  };
+</script>
+<script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
+{% endif %}
+
+{% if stickyNav %}
+<script>
+  stickyNav && stickyNav.init();
+</script>
 {% endif %}
 
 {% if page.footer_includes %}{{ page.footer_includes }}{% endif %}

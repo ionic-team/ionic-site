@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Device Feedback</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-feedback/index.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/device-feedback/index.ts#L9">
   Improve this doc
 </a>
 
@@ -67,8 +67,7 @@ this.deviceFeedback.acoustic();
 
 this.deviceFeedback.haptic(0);
 
-this.deviceFeedback.isFeedbackEnabled()
-  .then((feedback) =&gt; {
+this.deviceFeedback.isFeedbackEnabled().then(feedback =&gt; {
     console.log(feedback);
     // {
     //   acoustic: true,
@@ -113,7 +112,7 @@ Provide vibrate feedback to user, nevertheless respect user's tactile feedback s
     <td>
       type</td>
     <td>
-      <code>Number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Specify type of vibration feedback. 0 for long press, 1 for virtual key, or 3 for keyboard tap.</p>
@@ -130,7 +129,7 @@ Check if haptic and acoustic feedback is enabled by user settings.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;DeviceFeedbackEnabled&gt;</code> 
 </div>
 
 

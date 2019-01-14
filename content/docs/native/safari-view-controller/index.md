@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>For displaying read-only web content.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-safariviewcontroller</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">Safari View Controller plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -73,7 +75,7 @@ this.safariViewController.isAvailable()
           enterReaderModeIfAvailable: true,
           tintColor: &#39;#ff0000&#39;
         })
-        .then((result: any) =&gt; {
+        .subscribe((result: any) =&gt; {
             if(result.event === &#39;opened&#39;) console.log(&#39;Opened&#39;);
             else if(result.event === &#39;loaded&#39;) console.log(&#39;Loaded&#39;);
             else if(result.event === &#39;closed&#39;) console.log(&#39;Closed&#39;);

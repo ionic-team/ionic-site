@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "MenuClose"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/menu/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ MenuClose
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/menu/menu-close.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/menu/menu-close.ts#L2">
 Improve this doc
 </a>
 
@@ -74,29 +74,29 @@ directive a value.</p>
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -106,28 +106,28 @@ directive a value.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-width</code></td>
-        
+
           <td><code>304px</code></td>
-        
+
         <td><p>Width of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-small-width</code></td>
-        
+
           <td><code>$menu-width - 40px</code></td>
-        
+
         <td><p>Width of the menu on small devices (under 340px)</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -137,37 +137,37 @@ directive a value.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-ios-background</code></td>
-        
+
           <td><code>$background-ios-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-ios-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -177,37 +177,37 @@ directive a value.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-md-background</code></td>
-        
+
           <td><code>$background-md-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-md-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -217,19 +217,19 @@ directive a value.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-wp-background</code></td>
-        
+
           <td><code>#f2f2f2</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

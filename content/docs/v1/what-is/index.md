@@ -26,7 +26,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
-    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
+    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="https://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="/pro">Ionic services</a>.</p>
   </section>
 
   <section id="commonjs">
@@ -72,7 +72,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="hybrid-app">
     <h3><a href="#hybrid-app">Hybrid App</a></h3>
     <p>A hybrid app is a mobile app that is written using web technologies such as HTML, CSS, and JavaScript. Hybrid apps run in a WebView that contains your code. By using tools like <a href="#cordova">Cordova</a>, your code can access native device functionality such as the camera and accelerometer. Unlike <a href="#native-app">native apps</a> which typically only are built for a single platform, hybrid apps can run on iOS, Android, Windows Phone, and anywhere that has a WebView.
-    </p> 
+    </p>
   </section>
 
   <section id="ionicons">
@@ -93,37 +93,37 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="material-design">
     <h3><a href="#material-design">Material Design</a></h3>
     <p>Material Design is a design guideline created by Google. It includes a UI interaction standard, a colorscheme, layouts, components, and much more. Material Design is used for many default system interfaces on recent versions of Android. By default Ionic components will switch to a material design theme when on Android.
-    </p> 
+    </p>
   </section>
 
   <section id="minification">
     <h3><a href="#minification">Minification</a></h3>
     <p>JavaScript source code can be reduced in size through minification. This process does not change the functionality of the code, even though whitespace, newlines, and other characters are removed. Minified JavaScript files will often be written `.min.js` file extension so it is clear that the contents include minified code. In a typical Ionic project, <a href="#gulp">Gulp</a> is used for minification.
-    </p> 
+    </p>
   </section>
 
 
   <section id="module-loader">
     <h3><a href="#module-loader">Module Loader</a></h3>
-    <p>A module loader is a tool that takes <a href="#modules">modules</a> of a certian format, loads its dependencies, and makes the module available to your application. The Ionic community will often use this term to talk about module loaders like SystemJS or RequireJS.</p> 
+    <p>A module loader is a tool that takes <a href="#modules">modules</a> of a certian format, loads its dependencies, and makes the module available to your application. The Ionic community will often use this term to talk about module loaders like SystemJS or RequireJS.</p>
   </section>
 
   <section id="modules">
     <h3><a href="#modules">Modules</a></h3>
     <p>Modules are organized units of code that belong together. Often times modules will be grouped by functionality. Modules can use other modules, but they have to explicitly import them. In other words, you can't globally access a function you define inside a module. Aside, from code reuse and organization, this helps avoid namespace conflicts. For example, you could define an `alert()` function inside a module, and it wouldn't conflict with `alert()` function that the `window` object provides.</p>
-    <p>Prior to to <a href="#es2015-es6">ES6</a>, JavaScript had no built in standard for defining how to build and import a module. The JavaScript community subsequently came up with two different standards for modules &mdash; <a href="#amd">AMD</a> and <a href="#commonjs">CommonJS</a>. <a href="#es2015-es6">ES6</a> modules support both of these formats, so they are considered the "future" of how JavaScript modules will be written.</p> 
+    <p>Prior to to <a href="#es2015-es6">ES6</a>, JavaScript had no built in standard for defining how to build and import a module. The JavaScript community subsequently came up with two different standards for modules &mdash; <a href="#amd">AMD</a> and <a href="#commonjs">CommonJS</a>. <a href="#es2015-es6">ES6</a> modules support both of these formats, so they are considered the "future" of how JavaScript modules will be written.</p>
   </section>
 
   <section id="native-app">
     <h3><a href="#native-app">Native App</a></h3>
     <p>A native app is a mobile app that is written using low-level APIs provided by the platform it runs on. Native apps can typically only be run on a single platform (eg: iOS, Android, Windows Phone). The term "native" is often used to compare these types of applications with Ionic apps, which are considered <a href="#hybrid">"hybrid"</a>.
-    </p> 
+    </p>
   </section>
 
   <section id="native-app">
     <h3><a href="#native-app">Native Plugin</a></h3>
     <p>A native plugin is a piece of code that exposes an API that can be used to access native device functionality. For an Ionic app, this is typically accomplished through <a href="#cordova">Cordova</a>. These plugins expose a JavaScript API that may interact with numerous platform APIs under the hood.
-    </p> 
+    </p>
   </section>
 
   <section id="node">
@@ -174,7 +174,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="web-app">
     <h3><a href="#web-app">Web App</a></h3>
     <p>Like a hybrid app, a web app is written using web technologies such as HTML, CSS, and JavaScript. However, unlike a <a href="#hybrid-app">hybrid app</a>, a web app can only be loaded in a browser. Also, although a web app may use responsive design and could be used by a mobile browser, it cannot access native device functionality like camera and accelerometer.
-    </p> 
+    </p>
   </section>
 
 </div>

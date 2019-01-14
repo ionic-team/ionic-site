@@ -42,9 +42,9 @@ Now that we have our starting place, we need to figure out what the UI of the ap
 
 In the center content area, we will list the various tasks that we have to get completed for the current project. We can add new tasks, or edit existing ones. If we drag the center content over to the right, we expose the left side menu which lets us choose the current project we want to edit, or create new projects.  Take a look at the mockup below for an example of what we are trying to build:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup">
+<img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/3-mockup.png" alt="Mockup">
 
-To create side menus in Ionic, we can use [ion-side-menus](http://ionicframework.com/docs/v1/api/directive/ionSideMenus). Feel free to read up on it, but the markup needed is simple. Edit the `index.html` file and change the `<body>` content to look like this:
+To create side menus in Ionic, we can use [ion-side-menus](https://ionicframework.com/docs/v1/api/directive/ionSideMenus). Feel free to read up on it, but the markup needed is simple. Edit the `index.html` file and change the `<body>` content to look like this:
 
 ```html
 <body>

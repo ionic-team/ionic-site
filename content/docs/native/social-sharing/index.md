@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,7 @@ docType: "class"
 
 
 <p>Share text, files, images, and links via social networks, sms, and email.</p>
-<p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#web-share-api</a></p>
+<p>For Browser usage check out the Web Share API docs: <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api">https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api</a></p>
 
 
 <p>Repo:
@@ -840,7 +840,41 @@ defines the popup position before call the share method.
   </tbody>
 </table>
 
+<h3><a class="anchor" name="saveToPhotoAlbum" href="#saveToPhotoAlbum"></a><code>saveToPhotoAlbum(fileOrFileArray)</code></h3>
 
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
+Save an array of images to the camera roll
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      fileOrFileArray</td>
+    <td>
+      <code>string</code>|<code>Array.&lt;string&gt;</code>
+    </td>
+    <td>
+      <p>Single or multiple files</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

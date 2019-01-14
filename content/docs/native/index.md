@@ -10,7 +10,12 @@ searchable: false
 ---
 
 <h1 id="Overview" class="banner">Ionic Native</h1>
-Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](https://ionicframework.com/) mobile app easy.
+Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your 
+[Ionic](https://ionicframework.com/) mobile app easy.
+
+<blockquote>
+  Disclaimer: <p>Ionic Native is largely a set of <i>community maintained</i> plugins, and while the community is quick to find and fix issues, certain plugins may not function properly. For teams that require dedicated Native plugin support, the Ionic team has options available. Please <a href="mailto:sales@ionicframework.com">contact us</a> for more information.</p>
+</blockquote>
 
 <h3 id="Promises_and_Observables">Promises and Observables</h3>
 Ionic Native wraps plugin callbacks in a Promise or an [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular.

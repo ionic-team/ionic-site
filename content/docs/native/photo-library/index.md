@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Photo Library</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-library/index.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/photo-library/index.ts#L69">
   Improve this doc
 </a>
 
@@ -78,8 +78,8 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
         console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
       });
     },
-    error: err =&gt; {},
-    complete: () =&gt; { console.log(&#39;could not get photos&#39;); }
+    error: err =&gt; { console.log(&#39;could not get photos&#39;); },
+    complete: () =&gt; { console.log(&#39;done getting photos&#39;); }
   });
 })
 .catch(err =&gt; console.log(&#39;permissions weren\&#39;t granted&#39;));

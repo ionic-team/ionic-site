@@ -13,12 +13,13 @@ linkchecker.html
 /content/css/site.min.css
 /content/css/styles.css
 /content/css/styles.min.css
+/content/css/creator.css
+/content/css/creator.min.css
+/content/css/bootstrap/bootstrap.css
 /content/docs/data/index.json
-/content/docs/resources/ionicons/data/generic-icons.json
-/content/docs/resources/ionicons/data/mode-icons.json
-/content/docs/resources/ionicons/site_data.json
 /content/js/ionic-site.js
 /content/js/ionic-site.min.js
+/content/js/ionic-site-components/
 /.env
 /content/_includes/head_includes.prod.html
 /content/_includes/fluid/footer_tags.prod.html
@@ -26,3 +27,9 @@ linkchecker.html
 /server/pages/_includes/head.prod.html
 /server/pages/_includes/scripts.prod.html
 /.vscode
+/package-lock.json
+/null
+/content/sitemap.xml
+/content/js/stencil
+/.stencil
+content/css/p*

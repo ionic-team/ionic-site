@@ -27,24 +27,24 @@ You can find help here with anything ionic related.
 
 ### Framework issues
 
-The [Ionic](http://github.com/ionic-team/ionic) repository pertains to everything about how Ionic works on the users phone. Anything from 'the animations didnt work', to 'Ionic startup doesnt run', or other bug relating to the framework itself.  
+The [Ionic](http://github.com/ionic-team/ionic) repository pertains to everything about how Ionic works on the users phone. Anything from 'the animations didnt work', to 'Ionic startup doesnt run', or other bug relating to the framework itself.
 
-[Report a Framework issue](http://ionicframework.com/submit-issue/)  
-  
+[Report a Framework issue](https://github.com/ionic-team/ionic/issues)
+
 ### CLI issues
 
-The [Ionic CLI](http://github.com/ionic-team/ionic-cli) repository pertains to every about how Ionic works on the command line. Issues here are for when the CLI doesnt work right. Issues might be of the form 'ionic start didnt work right', or 'ionic serve doesnt serve addresses', and even 'the browser command is broken'.  
+The [Ionic CLI](http://github.com/ionic-team/ionic-cli) repository pertains to every about how Ionic works on the command line. Issues here are for when the CLI doesnt work right. Issues might be of the form 'ionic start didnt work right', or 'ionic serve doesnt serve addresses', and even 'the browser command is broken'.
 
-[Report a CLI issue](http://github.com/ionic-team/ionic-cli/issues)  
+[Report a CLI issue](http://github.com/ionic-team/ionic-cli/issues)
 
 ### ngCordova Issues
 
-The [ngCordova](https://github.com/ionic-team/ng-cordova) repository contains all of the AngularJS wrappers for Cordova plugins to make it easier for you to use the plugins. If you have any errors with the ngCordova wrappers, this is the best place to look for help.  
+The [ngCordova](https://github.com/ionic-team/ng-cordova) repository contains all of the AngularJS wrappers for Cordova plugins to make it easier for you to use the plugins. If you have any errors with the ngCordova wrappers, this is the best place to look for help.
 
-[Report a ngCordova Issue](https://github.com/ionic-team/ng-cordova/issues)  
+[Report a ngCordova Issue](https://github.com/ionic-team/ng-cordova/issues)
 
 ### Ionic View App
 
-The [Ionic View](https://github.com/ionic-team/ionic-view-issues) app lets you and your users view your ionic app directly on your phone just by logging into your Ionic account. If you have any errors with the app, this is the best place to look for help.  
+The [Ionic View](https://github.com/ionic-team/ionic-view-issues) app lets you and your users view your ionic app directly on your phone just by logging into your Ionic account. If you have any errors with the app, this is the best place to look for help.
 
-[Report an Ionic View App Issue](https://github.com/ionic-team/ionic-view-issues/issues)  
+[Report an Ionic View App Issue](https://github.com/ionic-team/ionic-view-issues/issues)

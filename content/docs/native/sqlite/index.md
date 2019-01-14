@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L108">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L140">
   Improve this doc
 </a>
 
@@ -69,7 +69,7 @@ this.sqlite.create({
   .then((db: SQLiteObject) =&gt; {
 
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {})
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, [])
       .then(() =&gt; console.log(&#39;Executed SQL&#39;))
       .catch(e =&gt; console.log(e));
 
@@ -123,6 +123,15 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 Verify that both the Javascript and native part of this plugin are installed in your application
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="selfTest" href="#selfTest"></a><code>selfTest()</code></h3>
+
+
+Automatically verify basic database access operations including opening a database
 
 
 <div class="return-value" markdown="1">
@@ -204,7 +213,7 @@ Deletes a database
     <td>
       fn</td>
     <td>
-      <code>any</code>
+      <code>Function</code>
     </td>
     <td>
       </td>
@@ -385,6 +394,20 @@ ensure it resolved and successfully opened the database.
     </td>
   </tr>
   
+  <tr>
+    <td>
+      key
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>support encrypted databases with <a href="https://github.com/litehelpers/Cordova-sqlcipher-adapter">https://github.com/litehelpers/Cordova-sqlcipher-adapter</a></p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -416,101 +439,10 @@ ensure it resolved and successfully opened the database.
   
   <tr>
     <td>
-      executeSql
-    </td>
-    <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       addStatement
     </td>
     <td>
-      <code>(sql: any, values: any, success: Function, error: Function) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementSuccess
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      handleStatementFailure
-    </td>
-    <td>
-      <code>(handler: Function, response: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      run
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abort
-    </td>
-    <td>
-      <code>(txFailure: any) =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      finish
-    </td>
-    <td>
-      <code>() =&gt; void</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      abortFromQ
-    </td>
-    <td>
-      <code>(sqlerror: any) =&gt; void</code>
+      <code>DbTransaction[</code>
     </td>
     <td>
       

@@ -1,15 +1,18 @@
 .alert,
 .docs-container main .alert {
-  background: #ffa82c;
-  border-radius: 3px;
+  border-radius: 4px;
   display: inline-block;
-  color: rgba(255,255,255,.8);
-  padding: 20px 30px 20px 65px;
+  padding: 20px 28px;
   position: relative;
   width: 100%;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0 0 20px;
+  background: rgba(253,200,69,.1);
+  border: 1px solid rgba(253,200,69,.3);
+  color: #353940;
+  font-size: 14px;
 
+  /*
   &::before {
     content: '\f137';
     font-family: 'Ionicons';
@@ -19,6 +22,7 @@
     font-weight: 300;
     color: rgba(255,255,255,.9);
   }
+  */
 
   a,
   a:not(.btn) {
@@ -28,5 +32,10 @@
     &:hover {
       color: #fff;
     }
+  }
+
+  &-success {
+    background-color: rgba($green, 0.1);
+    border-color: rgba($green, 0.3);
   }
 }

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -168,7 +168,7 @@ dimensions are measured correctly.</p>
 
 
 <p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
-<a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
+<a href="https://blog.ionicframework.com/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
 in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
 WKWebView is superior at scrolling efficiently in comparision to the older
 UIWebView.</p>
@@ -236,7 +236,7 @@ dataset, so please make sure they&#39;re performant.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>approxFooterHeight</td>
       <td><code>string</code></td>
@@ -249,7 +249,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxFooterWidth</td>
       <td><code>string</code></td>
@@ -262,7 +262,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderHeight</td>
       <td><code>string</code></td>
@@ -275,7 +275,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderWidth</td>
       <td><code>string</code></td>
@@ -288,7 +288,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
@@ -304,7 +304,7 @@ initial dimensions before the item has been rendered. Default is
 <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemWidth</td>
       <td><code>string</code></td>
@@ -318,7 +318,7 @@ initial dimensions before the item has been rendered. Default is
 <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>bufferRatio</td>
       <td><code>number</code></td>
@@ -332,7 +332,7 @@ better to have more cells than what are required to fill the
 viewable area. Default is <code>3</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>footerFn</td>
       <td><code>function</code></td>
@@ -343,7 +343,7 @@ should be used, and what data to give to the footer template. The function
 must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>headerFn</td>
       <td><code>function</code></td>
@@ -357,7 +357,7 @@ and what data to give to the header template. The function must return
 <code>null</code> if a header cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualScroll</td>
       <td><code>array</code></td>
@@ -367,14 +367,14 @@ that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualTrackBy</td>
       <td><code>function</code></td>
       <td><p> Same as <code>ngForTrackBy</code> which can be used on <code>ngFor</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

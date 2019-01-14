@@ -1,364 +1,205 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'pricing' %}
+{% set title = 'Ionic Platform Pricing - Cross-Platform Web App Development Tools' %}
+{% set header_style = 'transparent light' %}
 {% set bodyController = 'pricingCtrl' %}
+{% set meta_description = "" %}
+{% set cssPath = 'pricing/index' %}
+{% set pre_footer = false %}
 
 {% block main %}
-<div class="cta" ng-init="period = 'monthly'">
-  <hgroup class="container">
-    <h1>Ionic Pro pricing</h1>
-    <p>
-      Build, test, deploy, and monitor native &amp; web apps with one code base, 
-      on any platform. Choose from any of our pricing plans that work to fit you 
-      as you grow.
-    </p>
-    {% if notification %}
-      <h2 class="text-center {{notificationClass}}">{{ notification }}</h2>
-    {% endif %}
-  </hgroup>
-</div>
 
-<div class="container">
-  <div class="cards">
-    <div class="card community">
-      <h4 class="title">Kickstarter</h4>
-      <h2 class="free">Free</h2>
-      <h3>For beginners &amp; Hobbyists who want to get started with Pro.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li><b>Ionic</b> framework</li>
-        <li><b>Git-based</b> workflow</li>
-        <li><b>View App</b> public sharing</li>
-        <li><b>Development</b> builds</li>
-        <li><b>20 live deploys</b> / month</li>
-        <li><b>Limited</b> error monitoring</li>
-        <li><b>Community</b> support</li>
-      </ul>
-      <a class="cta btn white outline" 
-          data-toggle="modal" 
-          data-target="#contactForm"
-          ng-click="opening('community')">Sign Up</a>
-    </div>
+  <div class="cta banner">
+    <hgroup class="container">
+      <h5>Ionic Development Platform Pricing</h5>
+      <h1>Grow faster with Ionic</h1>
+      <p>Powerful tools for every phase of the app lifecycle.</p>
+    </hgroup>
 
-    <div class="card developer">
-      <h4 class="title">Developer</h4>
-      <h2>
-        <sup>$</sup>29<small>per month</small>
-      </h2>
-      <h3>Powerful tools &amp; features for serious Creators shipping apps.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Kickstarter +</li>
-        <li><b>View App</b> private sharing</li>
-        <li><b>Rapid prototyping with </b><a href="http://usecreator.com" 
-          target="_blank">Creator</a></li>
-        <li><b>Single-channel</b> live updating</li>
-        <li><b>1,000 live deploys</b> / month</li>
-        <li><b>50 native builds</b> / month</li>
-        <li><b>Advanced</b> error monitoring</li>
-        <li><b>Product</b> support</li>
-      </ul>
-      <a class="cta btn"
-         data-toggle="modal" 
-         data-target="#contactForm"
-         ng-click="opening('developer')">
-        Sign Up
-      </a>
-    </div>
-
-    <div class="card business">
-      <h4 class="title">Business</h4>
-      <h2>
-        <sup>$</sup>169<small>per team member / mo<sup>*</sup></small>
-      </h2>
-      <h3>complete app building Platform for teams &amp; organizations.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Developer +</li>
-        <li><b>Teams &amp; Organizations</b></li>
-        <li><b>View App</b> split testing &amp; groups</li>
-        <li><b>Multi-channel</b> live updating</li>
-        <li><b>50,000 live deploys</b> / month</li>
-        <li><b>500 native builds</b> / month</li>
-        <li><b>Business</b> email support</li>
-      </ul>
-      <a class="cta btn" 
-         data-toggle="modal" 
-         data-target="#contactForm"
-         ng-click="opening('business')">
-        Sign up your team
-      </a>
-      <small>* Billed Annually</small>
-    </div>
-
-    <div class="card enterprise">
-      <h4 class="title">Enterprise</h4>
-      <h2 class="contact">
-        Contact Us
-      </h2>
-      <h3>Advanced features & controls for companies operating at scale.</h3>
-      <div class="infinite">Unlimited apps</div>
-      <ul>
-        <li class="plus">Everything in Business +</li>
-        <li><b>Unlimited</b> platform usage</li>
-        <li><b>Granular</b> permissions control</li>
-        <li><b>On-prem</b> availability </li>
-        <li><b>Single sign-on</b> support</li>
-        <li><b>Training</b> and consultation</li>
-        <li><b>Premium Support</b> SLA</li>
-        <li><b>Customer success</b> manager</li>
-        <li><b>Customized</b> billing</li>
-      </ul>
-      <a class="cta btn dark-pink"
-         data-toggle="modal" 
-         data-target="#contactForm"
-         ng-click="opening('enterprise')">
-        Contact Us
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="also">
-  <div class="container">
-    <h3 class="text-center">Every plan comes with...</h3>
-    <ul class="items">
-      <li class="item framework">
-        <h4>Ionic Framework</h4>
-        <p>
-          The forever-free, open source Ionic Framework and UI Kit for building 
-          beautiful cross-platform apps for mobile, web, and desktop alike.
-        </p>
+    <ul class="rounded-tabs">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
+        <div class="rounded-tabs__tab-inner">
+          Appflow
+        </div>
       </li>
-      <li class="item unlimited">
-        <h4>Unlimited apps</h4>
-        <p>
-          Build as many Ionic apps as your heart desires. We’ll store them in 
-          the Pro Dashboard for easy access to sharing, live testing, and more.
-        </p>
+      <li class="rounded-tabs__tab" data-tab-content="studio">
+        <div class="rounded-tabs__tab-inner">
+          Studio
+        </div>
       </li>
-      <li class="item templates">
-        <h4>Starter templates</h4>
-        <p>
-          Start with one of our pre-made, ready-to-go starter templates to hit 
-          the ground running each time you start a new project.
-        </p>
-      </li>
-      <li class="item dev">
-        <h4>Ionic Dev app</h4>
-        <p>
-          The easiest way to let others preview your Ionic apps, directly on the 
-          device, as though they were natively deployed.
-        </p>
-      </li>
-      <li class="item dashboard">
-        <h4>Pro dashboard</h4>
-        <p>
-          A unified Dashboard to house and organize all your Ionic apps, 
-          accessible in one place. Track activity and builds from anywhere.
-        </p>
-      </li>
-      <li class="item git">
-        <h4>Git integration</h4>
-        <p>
-          Starting and deploying apps is as simple as <code>git push ionic
-          </code> and we handle the rest. Get up and running with Git and 
-          starting shipping.
-        </p>
-      </li>
-      <li class="item forum">
-        <h4>Access to Forum</h4>
-        <p>
-          All Ionic accounts unlock access to post and comment on the Ionic 
-          Forum, the single most active community hub for Ionic developers.
-        </p>
-      </li>
-      <li class="item market">
-        <h4>Access to Market</h4>
-        <p>
-          Having an Ionic account allows you to buy, sell, and rate Ionic Market 
-          starter apps, templates, and themes.
-        </p>
-      </li>
-      <li class="item lab">
-        <h4>Ionic Lab</h4>
-        <p>
-          Open up and preview your app directly in the browser with Ionic Lab. 
-          Preview your app across multiple platform design modes.
-        </p>
+      <li class="rounded-tabs__tab" data-tab-content="enterprise-engine">
+        <div class="rounded-tabs__tab-inner">
+          Enterprise Engine
+        <div>
       </li>
     </ul>
   </div>
-</div>
-<div class="faq container">
-  <h3 class="text-center">Frequently asked questions</h3>
-  <ul class="items left">
-    <li class="item">
-      <h4>What’s the difference between a development build and a release build?</h4>
-      <p>
-        The Ionic Package service takes your Ionic project files and converts 
-        them into native APK and IPA files that are ready to submit to the App 
-        Stores. Development builds are native builds that allow you to install 
-        your app on a device for test and dev purposes only. The app icon and 
-        splash screen are both Ionic branded.  Release builds are native builds 
-        that are meant to be deployed to the App Stores. With release builds, 
-        you can customize the app icon and splash screen with your own branding. 
-        Release builds also use a specific certification that is meant for 
-        production release to the App Stores; whereas, development builds use 
-        debug certs that cannot be used in the App Stores.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What is a live deploy?</h4>
-      <p>
-        Using the Ionic Deploy service, live deploys allow you to push hot code 
-        updates to devices running your apps directly from the Ionic Pro 
-        dashboard, without having to go through the App Stores. Each device 
-        updated once counts as a single live deploy. For the Kickstarter plan, 
-        you can have up to 20 updates sent to devices per month. All of our paid 
-        plans include a higher number of live deploys free with each plan, and 
-        the ability to scale to unlimited deploys as part of our metered billing
-        service.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What is error monitoring?</h4>
-      <p>
-        Ionic Monitor provides error catching and stack trace capabilities so 
-        you can identify errors and pinpoint the portions of your code that 
-        require updates. The Kickstarter plan offers limited error monitoring 
-        with 100 events per month included for free. Starting with the Developer 
-        plan, we offer advanced error monitoring with unlimited event tracking.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What is a channel?</h4>
-      <p>
-        A Channel points to a specific build of your app that will be shared 
-        with specific testers and users. You can change which build a Channel 
-        points to whenever you'd like, and can rollback changes as well. 
-        Channels are used for both Ionic View and Ionic Deploy. See below for 
-        more detail.
-      </p>
-    </li>
-    <li class="item">
-      <h4>How do Channels work with Deploy?</h4>
-      <p>
-        When using Deploy to push live updates to your users’ devices, you first 
-        select the associated Channel and build version. Developer plans are 
-        restricted to a single channel for live updating with Deploy. Starting 
-        with the Business plan, you can set up multiple channels and use the 
-        Deploy service to push live updates of different versions to each 
-        channel.
-      </p>
-    </li>
-  </ul>
-  <ul class="items right">
-    <li class="item">
-      <h4>How does public and private sharing with the View App work?</h4>
-      <p>
-        The Ionic View App is the easiest way to get your app in the hands of 
-        testers and collaborators. Starting with the Developer plan, apps are 
-        private by default and can be shared via a simple email invite. With the 
-        Kickstarter plan, apps are publicly accessible. You can invite testers 
-        simply by sharing the App Id and inviting them to download the View App.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What are Test Groups?</h4>
-      <p>
-        Test Groups allow for easy sharing of app versions through the View App. 
-        You can set up groups to target specific audiences, such as internal 
-        departments like Marketing and QA, or outside clients if you’re working 
-        as part of an agency. After sharing an app with View, Test Groups will 
-        get notified when new versions are available for them to check out and 
-        provide feedback on. Test Groups are offered as part of our Business and 
-        Enterprise plans.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What is split testing?</h4>
-      <p>
-        With Business and Enterprise plans, you can use multiple development 
-        channels to share different versions of your app with View. For example, 
-        you can share stable versions of your app with the Marketing department 
-        to get their feedback on new features, while allowing your QA team to 
-        test the latest bug fixes on a more recent version.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What’s included in the Teams & Organizations feature?</h4>
-      <p>
-        Teams and organizations allows you to invite development team members, 
-        testers, and other collaborators, to participate in app development and 
-        track the progress of your projects. Granular permissions allow Ionic 
-        Pro administrators to add and remove team members and control who has 
-        access to which projects.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What’s the difference between Developer, Business, and Enterprise?</h4>
-      <p>
-        Our paid plans offer varying levels of services and usage limits that 
-        are designed to meet the needs of different audiences. The Developer 
-        plan is ideal for serious app builders looking to accelerate development 
-        and build higher quality apps.  The Business plan offers a complete app 
-        building platform for teams and organizations working collaboratively or 
-        with larger scale apps.  Finally, the Enterprise plan is targeted at 
-        larger organizations that want the peace of mind of additional support 
-        services and training, simplified licensing and custom billing. 
-      </p>
-    </li>
-  </ul>
-</div>
+
+  <section class="tab-content tab-content--active" id="content-appflow">
+    {% include './appflow.html' %}
+  </section>
+  <section class="tab-content" id="content-studio">
+    {% include './studio.html' %}
+  </section>
+  <section class="tab-content" id="content-enterprise-engine">
+    {% include './enterprise-engine.html' %}
+  </section>
+  
+  {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade" 
-     id="contactForm" 
-     tabindex="-1" 
-     role="dialog" 
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
      aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body hubspot-override">
         <button type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <hgroup class="text-center">
-          <h3>Sign up for early access</h3>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
           <p class="lg">
-            Be the first to try out Ionic Pro.  We'll also share previews before 
-            it’s released.  
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
           </p>
         </hgroup>
-        <form ng-submit="submit($event)"
-               action="https://codiqa.createsend.com/t/t/s/quudik/" 
-              class="form-inline container"
-              method="post"
-              name="contact">
-          <input class="form-control"
-                 type="text"
-                 name="cm-name"
-                 placeholder="Your name"
-                 required>
-          <input class="form-control"
-                 type="email"
-                 name="cm-quudik-quudik"
-                 placeholder="and your email"
-                 required>
-          <textarea name="cm-f-fddiij"
-                    cols="30"
-                    rows="10"
-                    placeholder="Message"
-                    ></textarea>
-          <input type="hidden" name="cm-f-fhysu" ng-value="planOfInterest" />
-          <button type="submit" class="btn ionic" value="Send message">
-            Get Early Access
-          </button>
-        </form>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "3cbb2a81-0859-43ca-af75-47cb066e3b1e",
+        	css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="studioReserveSeat"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Reserve your seat</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+          formId: "541f87f4-ceb3-4501-9d95-4893bce088b6",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="eeAdvisoryAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+        	formId: "01d73ed0-929c-4dce-9fec-673c0e57c1b0",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="eeIntegrationsAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "f06b6615-1c49-4104-a5e1-79a04239c99b",
+          css: ""
+        });
+        </script>
+
       </div>
     </div>
   </div>
@@ -367,26 +208,214 @@
 
 {% block scripts %}
 <script>
-// Drift support Q/A chat
- !function() {
-  var t;
-  if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
-  t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-  t.factory = function(e) {
-    return function() {
-      var n;
-      return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
-    };
-  }, t.methods.forEach(function(e) {
-    t[e] = t.factory(e);
-  }), t.load = function(t) {
-    var e, n, o, i;
-    e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
-    o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
-    n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
-  });
-}();
-drift.SNIPPET_VERSION = '0.3.1';
-drift.load('yyr33dt5npxy'); 
+  /* Replace 'APP_ID' with your app ID */
+  window.intercomSettings = {
+    app_id: 'm0la1vjm'
+  };
+
+  /* Replace 'APP_ID' with your app ID */
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
+    ic('reattach_activator');ic('update',intercomSettings);}else{var
+    d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
+    {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+    s.type='text/javascript';s.async=true;
+    s.src='https://widget.intercom.io/widget/APP_ID';
+    var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
+    }if(w.attachEvent){w.attachEvent('onload',l);}else{
+      w.addEventListener('load',l,false);}}})();
+
+
+  (function(){
+    // scroll to animations
+    var scrollToLinks = document.querySelectorAll('.scroll-to-link');
+
+    for (var i = 0; i < scrollToLinks.length; i++) {
+      scrollToLinks[i].addEventListener('click', function(ev){
+        var cta = document.querySelector('#' + ev.target.dataset.target);
+        ev.preventDefault();
+        window.scrollTo({
+          top: cta.getBoundingClientRect().top + window.scrollY,
+          behavior: "smooth"
+        });
+      });
+    }
+
+
+    // content tabs
+    var tabs = document.querySelectorAll('.rounded-tabs__tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function() {
+        selectTab(this);
+      });
+    }
+
+    function selectTab(tab) {
+      var contentId = tab.dataset.tabContent;
+      window.location.hash = contentId;
+
+      document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
+      document.querySelector('.tab-content--active').classList.remove('tab-content--active');
+      tab.classList.add('rounded-tabs__tab--active');
+      document.getElementById('content-' + contentId).classList.add('tab-content--active');
+    }
+
+    if (window.location.hash && ['#appflow', '#studio', '#enterprise-engine'].includes(window.location.hash)) {
+      var content = window.location.hash.replace('#', '');
+      var tab = document.querySelector('[data-tab-content="' + content + '"]')
+      selectTab(tab);
+    }
+
+    // billing values
+    var isAddonSelected = false;
+    var isBillingMonthly = true;
+    var planCosts = {
+      starter: {
+        monthly: 0,
+        yearly: 0
+      },
+      addon: {
+        monthly: 29,
+        yearly: 299
+      },
+      growth: {
+        monthly: 120,
+        yearly: 1200
+      }
+    }
+
+    // add-on toggle
+    var toggle = document.querySelector('.addon');
+    var toggleCheckbox = toggle.querySelector('input[type="checkbox"]');
+
+    var starterCTA = document.querySelector('.addon-cta-toggle--starter');
+    var addonCTA = document.querySelector('.addon-cta-toggle--addon');
+
+    toggleCheckbox.addEventListener('change', function(ev){
+      if (ev.target.checked) {
+        isAddonSelected = true;
+        toggle.classList.add('selected');
+        starterCTA.classList.remove('addon-cta-toggle--active');
+        addonCTA.classList.add('addon-cta-toggle--active');
+      } else {
+        isAddonSelected = false;
+        toggle.classList.remove('selected');
+        starterCTA.classList.add('addon-cta-toggle--active');
+        addonCTA.classList.remove('addon-cta-toggle--active');
+      }
+
+      swapValues();
+    });
+
+    $('.toggle span').click(function(e){
+      var $span = $(e.target);
+      if ($span.hasClass('active')) return;
+
+      $('.toggle span.active').removeClass('active')
+      $span.addClass('active');
+
+      if (isBillingMonthly) {
+        isBillingMonthly = false;
+      } else {
+        isBillingMonthly = true;
+      }
+
+      swapValues();
+    });
+
+    function swapValues(vals) {
+      var termTypeNodes = document.querySelectorAll('[data="term-type"]');
+      for (var i = 0; i < termTypeNodes.length; i++) {
+        var node = termTypeNodes[i];
+        node.innerHTML = (isBillingMonthly) ? '/mo' : '/yr';
+      }
+
+      var starterNode = document.querySelector('[data="starter-cost"]');
+      var starterCost;
+      if (isAddonSelected) {
+        starterCost = (isBillingMonthly) ? planCosts.addon.monthly : planCosts.addon.yearly;
+      } else {
+        starterCost = (isBillingMonthly) ? planCosts.starter.monthly : planCosts.starter.yearly;
+      }
+      starterNode.innerHTML = '$' + starterCost;
+
+      var growthNode = document.querySelector('[data="growth-cost"]');
+      var growthCost = (isBillingMonthly) ? planCosts.growth.monthly : planCosts.growth.yearly;
+      growthNode.innerHTML = '$' + growthCost;
+    }
+
+    // Sticky table header
+    if (navigator.userAgent.match(/Trident\/7\./)) return;
+
+    var isPinned = false;
+    var isPinnedAtPoint = false;
+    var $tableWrap = document.querySelector('.table-wrap');
+    var $thead = $tableWrap.querySelector('thead');
+    var $tfoot = $tableWrap.querySelector('tbody tr:last-child');
+
+    window.addEventListener('scroll', function(){requestAnimationFrame(checkScroll)});
+    function checkScroll() {
+      if (window.innerWidth < 830){
+        if (isPinnedAtPoint) unpinAtPoint();
+        if (isPinned) unpin();
+        return;
+      }
+
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var tableTop = $tableWrap.offsetTop;
+
+      if (scrollTop > tableTop) {
+        pin();
+      }
+
+      if (scrollTop < tableTop) {
+        unpin();
+      }
+
+      if (scrollTop + $thead.scrollHeight  >= tableTop + ($tableWrap.scrollHeight - $tfoot.scrollHeight)) {
+        pinAtPoint($tableWrap.scrollHeight - $tfoot.scrollHeight - $thead.scrollHeight);
+      } else {
+        unpinAtPoint();
+      }
+    }
+
+    function pin() {
+      if (isPinned) return;
+      isPinned = true;
+      $tableWrap.classList.add('pinned')
+    }
+
+    function unpin() {
+      if (!isPinned) return;
+      isPinned = false;
+      $tableWrap.classList.remove('pinned')
+    }
+
+    function pinAtPoint(_scrollTop) {
+      if (isPinnedAtPoint) return;
+      isPinnedAtPoint = true;
+      $tableWrap.classList.add('pinned-at-point');
+      $thead.style.top = _scrollTop + 'px';
+      pin();
+    }
+
+    function unpinAtPoint () {
+      if (!isPinnedAtPoint) return;
+      isPinnedAtPoint = false;
+      $tableWrap.classList.remove('pinned-at-point');
+      $thead.style.top = '0';
+    }
+
+
+    // mobile table pinned first col
+    $('tbody').scroll(function(){ requestAnimationFrame(stickyTable) });
+    function stickyTable() {
+        if (window.innerWidth > 830) return;
+        $('thead').css("transform", "translate3d(" + -$("tbody").scrollLeft() +"px, 0, 0)"); //fix the thead relative to the body scrolling
+        $('thead td').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first cell of the header
+        $('tbody th').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first column of tdbody
+    }
+
+  })();
+
 </script>
 {% endblock %}

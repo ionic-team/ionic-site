@@ -1,0 +1,106 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'go-pwa-architects-guide' %}
+{% set title = 'The Architects Guide to PWAs - Ionic Framework' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ionic-framework-og.png'%}
+{% set meta_description = "Progressive Web Apps take advantage of major advances in modern web browsers, web APIs, and front-end frameworks to deliver great app experiences to mobile and desktop users. This brief guide provides enterprise architects and app dev leaders with essential insights and how to build a production-ready PWA today." %}
+
+{% set header_style = 'transparent light' %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+<div class="banner">
+  <hgroup class="container">
+    <a href="/" title="home">
+      {% include '../../_includes/logo_svg.html' %}
+    </a>
+    <h1>The Architect’s Guide to PWAs</h1>
+    <p>
+      By 2020, 50% of apps will be PWAs. See what’s behind the trend. Discover
+      when and how PWAs can help boost your app strategy by tapping into the
+      power of the web.
+    </p>
+  </hgroup>
+</div>
+
+<main class="container">
+  <section class="content">
+    <p class="lg">
+      Big brands like Twitter and Pinterest are demonstrating how Progressive
+      Web Apps (PWAs) can boost user acquisition, engagement, and ultimately,
+      revenue.
+    </p>
+    <p>
+      This guide provides enterprise architects and app dev leaders with
+      practical insights on which projects are right for PWAs, and how to
+      build a production-ready PWA today.
+    </p>
+    <p>In this guide, you’ll learn:</p>
+    <ul>
+      <li>
+        <strong>What makes a PWA.</strong> The key capabilities and features
+        that define PWAs
+      </li>
+      <li>
+        <strong>How PWAs work.</strong> An overview of the APIs and browser
+        standards that allow PWAs to provide reliable, fast, engaging
+        experiences with the web.
+      </li>
+      <li>
+        <strong>How PWAs fit into your app strategy.</strong> When and why to
+        use a PWA in favor of a traditional native mobile app.
+      </li>
+      <li>
+        <strong>How to get started.</strong> Everything you need to get
+        started with PWAs today.
+      </li>
+    </ul>
+  </section>
+  <aside class="signup-form hubspot-override">
+    <h3>Download now</h3>
+    <!--[if lte IE 8]>
+    <script charset="utf-8"
+            type="text/javascript"
+            src="//js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+    <script charset="utf-8"
+            type="text/javascript"
+            src="//js.hsforms.net/forms/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+      	portalId: "3776657",
+      	formId: "7edca57f-f3bd-452e-9719-be7043d582fc",
+      	css: ""
+      });
+    </script>
+  </aside>
+
+  <div class="company">
+    <h2>
+      <strong>You’re in good company.</strong> Ionic powers millions of apps at
+      some of the smartest companies around the world.
+    </h2>
+    <div class="logos"></div>
+  </div>
+</main>
+<section class="bar get-started">
+  <div class="container">
+    <hgroup>
+      <h2>Get your team started with Ionic Appflow today. </h2>
+      <p class="lg">
+        Start building better apps faster with Ionic Appflow.
+      </p>
+    </hgroup>
+    <div>
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+         class="btn sm"
+         id="btn-products-create-account">Create an Appflow account</a>
+      <a class="btn sm white"
+         id="btn-products-see-pricing"
+         href="/pricing">See pricing</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

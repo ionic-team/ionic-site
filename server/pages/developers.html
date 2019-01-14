@@ -1,32 +1,36 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'developers' %}
+{% set title = 'Devops: Ionic Framework Components and Ionic Appflow Suite' %}
+{% set meta_description = "Documentation for hybrid app development for cross platform deliverability while providing the native app experience. Our documentation helps you kick off your mobile development strategy." %}
+{% set cssPath = 'developers' %}
+{% set stickyNav = true %}
 
 {% block main %}
 
 <div class="cta gradient">
   <hgroup class="container center">
-    <h1>Developers</h1>
-    <h4>Choose an Ionic product below to view its documentation</h4>
+    <h1>Documentation</h1>
+    <p>Choose an Ionic product below to view documentation and resources</p>
   </hgroup>
 </div>
 
 <section class="container primary">
   <div class="items">
-    <a href="/docs/" class="framework">
+    <a href="/docs/v2/" class="framework">
       <hgroup>
-        <h2>Framework Docs</h2>
+        <h2>Ionic Framework</h2>
         <p>
           Browse Ionic Framework components, api, plugins, theming, and CLI
           documentation and guides.
         </p>
       </hgroup>
     </a>
-    <a href="https://docs.ionic.io/" class="platform">
+    <a href="/docs/appflow" class="platform">
       <hgroup>
-        <h2>Ionic Services</h2>
+        <h2>Ionic Appflow</h2>
         <p>
-          Browse service configuration, user admin, and troubleshooting docs and
-          guides for Ionic Services.
+          Get the most out of Ionic Appflow, Ionic's suite of powerful app development
+          features for professional developers.
         </p>
       </hgroup>
     </a>

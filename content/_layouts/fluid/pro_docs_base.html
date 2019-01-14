@@ -1,25 +1,41 @@
 ---
-layout: fluid/default
+layout: fluid/centered
 back_button_text_image: "/img/docs/docs-pro-text.png"
+body_class: 'responsive-docs light'
 hide_version_dropdown: true
+navbar_id: 'pro-header'
+plain_header: true
+is_responsive: true
+header_style: transparent
 ---
 
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/developers/">Documentation</a></li>
+      <li>Appflow docs</li>
+    </ul>
+    <ul class="right">
+      <li><a href="/docs/appflow/" class="active">Documentation</a></li>
+      <li><a href="https://ionic.zendesk.com/">Support</a></li>
+      <li><a href="https://dashboard.ionicframework.com/">Dashboard</a></li>
+    </ul>
+  </div>
+</div>
 
-<div class="docs-container"
-     {% if page.angular_controller %}
-       ng-controller="{{ page.angular_controller }}"
-     {% endif %}>
-  <nav class="side-nav" id="side-nav">
-    <form class="form-group search" role="search">
-      <input type="text"
-             class="form-control search-input"
-             placeholder="Search"
-             data-searchpos="sidebar"
-             ng-model="searchTerm">
-    </form>
-    {% include fluid/pro_docs_side_nav_main.html %}
-  </nav>
-  <main>
-    {{ content }}
-  </main>
+<div id="pro-docs"
+     class="responsive-docs-container docs-container"
+     ng-controller="ProDocsCtrl as vm">
+  <div class="container">
+    <div class="row">
+      <nav class="side-nav responsive-side-nav col-md-4"
+           data-spy="affix"
+           data-offset="193">
+        {% include fluid/pro_docs_side_nav_main.html %}
+      </nav>
+      <main class="col-md-8">
+        {{ content }}
+      </main>
+    </div>
+  </div>
 </div>

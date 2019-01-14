@@ -1,0 +1,347 @@
+#page-what-is-ionic {
+  .banner,
+  main {
+    font-family: $font-family-graphik;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: $font-family-eina;
+    }
+  }
+
+
+  .banner {
+    max-width: 800px;
+    padding-top: 72px;
+    padding-bottom: 150px;
+
+    h1 {
+      padding-top: 80px;
+      font-size: 40px;
+      line-height: 52px;
+      letter-spacing: -.008em;
+      font-weight: 700;
+      background: url('/img/what-is-ionic/ionic-icon.png') no-repeat 50% 0;
+      background-size: 48px;
+      color: #0f1622;
+    }
+  }
+
+  main {
+    a {
+      text-decoration: none;
+      transition: .2s opacity;
+
+      &:hover {
+        color: $blue;
+        opacity: .8;
+      }
+    }
+
+    section {
+      padding-top: 200px;
+      padding-bottom: 200px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      max-width: 980px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    .graphic {
+      display: block;
+    }
+
+    .left .graphic {  margin-left: 104px; }
+    .right .graphic {  margin-right: 104px; }
+
+    .content {
+      flex: 1;
+    }
+
+    .center .container {
+      flex-direction: column;
+      text-align: center;
+      max-width: 680px;
+    }
+
+    h2 {
+      font-size: 35px;
+      line-height: 47px;
+      font-weight: 700;
+      letter-spacing: -.008em;
+      margin-bottom: 20px;
+      margin-top: 0;
+      color: #0f1622;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 36px;
+      letter-spacing: -.02em;
+      margin-bottom: 32px;
+
+      &.sm {
+        font-size: 15px;
+        line-height: 32px;
+        letter-spacing: .01em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .what {
+      background: linear-gradient(to bottom, #f7f9fc, #fdfefe);
+      padding-bottom: 88px;
+
+      .content {
+        padding-bottom: 134px;
+
+        @media (max-width: $screen-sm-max) {
+          padding-bottom: 20px;
+        }
+      }
+
+      .graphic img {
+        margin-right: -50px;
+        margin-top: -20px;
+      }
+
+      ul {
+        padding: 0;
+        display: flex;
+        margin-top: 43px;
+        margin-bottom: 0;
+      }
+
+      li {
+        list-style: none;
+        background: url('/img/what-is-ionic/web-icons.png') no-repeat 0 0;
+        background-size: 40px;
+        width: 40px;
+        height: 40px;
+        margin-right: 22px;
+
+        &.css { background-position: 0 -40px; }
+        &.js { background-position: 0 -80px; }
+      }
+    }
+
+    .kit {
+      background: linear-gradient(to bottom, #f7f9fb, #fefefe);
+      padding-bottom: 190px;
+
+      .graphic {
+        margin-right: 68px;
+      }
+
+      .content {
+        margin-bottom: 8px;
+      }
+    }
+
+    .teams {
+      background: linear-gradient(to bottom, #f8f9fb, #fefefe);
+      padding-top: 183px;
+      padding-bottom: 176px;
+
+      .graphic {
+        margin-right: -65px;
+        padding-top: 34px;
+        padding-left: 1px;
+      }
+
+      ion-icon {
+        font-size: .9em;
+        vertical-align: -7%;
+        margin-left: -2px;
+      }
+    }
+
+    .global {
+      background-image:
+        url('/img/what-is-ionic/community-bg.png'),
+        linear-gradient(to bottom, #f7f9fc, #fefefe);
+      background-size: cover, 100%;
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      padding-top: 204px;
+      padding-bottom: 198px;
+
+      .content {
+        margin-top: -10px;
+      }
+
+      .graphic {
+        margin-left: -12px;
+        margin-right: 124px;
+
+        @media (max-width: $screen-sm-max) {
+          margin-right: 24px;
+        }
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        list-style: none;
+        position: relative;
+        display: block;
+        padding-left: 108px;
+        margin: 57px 0;
+
+        &::before {
+          background: url('/img/what-is-ionic/community-icons.png') no-repeat 0 0;
+          background-size: 88px;
+          height: 88px;
+          width: 88px;
+          content: '';
+          position: absolute;
+          top: calc(50% - 44px);
+          left: 0;
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        strong {
+          color: #3880ff;
+          font-size: 34px;
+          font-weight: 600;
+          display: block;
+          font-family: $font-family-eina;
+          line-height: 33px;
+        }
+
+        span {
+          color: #68b4ff;
+          font-size: 19px;
+        }
+
+        &:nth-child(2)::before { background-position: 0 -88px; }
+        &:nth-child(3)::before { background-position: 0 -176px; }
+        &:nth-child(4)::before { background-position: 0 -264px; }
+      }
+    }
+
+    .web {
+      background-image:
+        url('/img/what-is-ionic/philosophy-bg.png'),
+        linear-gradient(to bottom, #f7f9fc, #fefefe);
+      background-size: cover, 100%;
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      padding-bottom: 190px;
+
+      h4 {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        margin-top: 0;
+        margin-bottom: 24px;
+        color: #0f1622;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      img {
+        max-width: 320px;
+      }
+
+      .left .graphic {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .banner {
+      padding-bottom: 64px;
+    }
+
+    main {
+      .graphic {
+        margin: 0;
+      }
+
+      section {
+        padding-top: 96px;
+        padding-bottom: 96px;
+
+        .container {
+          flex-direction: column;
+
+        }
+
+        &.left .container {
+          flex-direction: column-reverse;
+        }
+      }
+
+      .container {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .what  {
+        .graphic {
+          margin: 0;
+        }
+
+        ul {
+          justify-content: center;
+        }
+      }
+
+      .kit {
+        padding-bottom: 96px;
+
+        .graphic {
+          margin: 0 0 42px;
+        }
+      }
+
+      .teams {
+        padding-top: 96px;
+        padding-bottom: 96px;
+
+        .graphic {
+          margin: 0;
+        }
+      }
+
+      .global {
+        padding-top: 96px;
+        padding-bottom: 96px;
+
+        .graphic {
+          margin-bottom: 64px;
+        }
+      }
+
+      .web {
+        padding-bottom: 64px;
+      }
+    }
+  }
+}

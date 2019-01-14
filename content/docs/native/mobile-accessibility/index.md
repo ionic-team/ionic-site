@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -57,7 +57,7 @@ $ npm install --save @ionic-native/mobile-accessibility
 
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { MobileAccessibility } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { MobileAccessibility } from &#39;@ionic-native/mobile-accessibility&#39;;
 
 
 constructor(private mobileAccessibility: MobileAccessibility) { }
@@ -89,7 +89,7 @@ Makes an asynchronous call to native MobileAccessibility to determine if a scree
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> A result method to receive the boolean result asynchronously from the native MobileAccessibility plugin.
-</div><h3><a class="anchor" name="isVoiceOverRunningCallback" href="#isVoiceOverRunningCallback"></a><code>isVoiceOverRunningCallback()</code></h3>
+</div><h3><a class="anchor" name="isVoiceOverRunning" href="#isVoiceOverRunning"></a><code>isVoiceOverRunning()</code></h3>
 
 
 
@@ -103,7 +103,7 @@ An iOS-specific proxy for the MobileAccessibility.isScreenReaderRunning method
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> A result method to receive the boolean result asynchronously from the native MobileAccessibility plugin.
-</div><h3><a class="anchor" name="isTalkBackRunningCallback" href="#isTalkBackRunningCallback"></a><code>isTalkBackRunningCallback()</code></h3>
+</div><h3><a class="anchor" name="isTalkBackRunning" href="#isTalkBackRunning"></a><code>isTalkBackRunning()</code></h3>
 
 
 
@@ -132,7 +132,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isBoldTextEnabledCallback" href="#isBoldTextEnabledCallback"></a><code>isBoldTextEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isBoldTextEnabled" href="#isBoldTextEnabled"></a><code>isBoldTextEnabled()</code></h3>
 
 
 
@@ -146,7 +146,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isClosedCaptioningEnabledCallback" href="#isClosedCaptioningEnabledCallback"></a><code>isClosedCaptioningEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isClosedCaptioningEnabled" href="#isClosedCaptioningEnabled"></a><code>isClosedCaptioningEnabled()</code></h3>
 
 
 
@@ -155,7 +155,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isDarkerSystemColorsEnabledCallback" href="#isDarkerSystemColorsEnabledCallback"></a><code>isDarkerSystemColorsEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isDarkerSystemColorsEnabled" href="#isDarkerSystemColorsEnabled"></a><code>isDarkerSystemColorsEnabled()</code></h3>
 
 
 
@@ -169,7 +169,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isGrayscaleEnabledCallback" href="#isGrayscaleEnabledCallback"></a><code>isGrayscaleEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isGrayscaleEnabled" href="#isGrayscaleEnabled"></a><code>isGrayscaleEnabled()</code></h3>
 
 
 
@@ -183,7 +183,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isGuidedAccessEnabledCallback" href="#isGuidedAccessEnabledCallback"></a><code>isGuidedAccessEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isGuidedAccessEnabled" href="#isGuidedAccessEnabled"></a><code>isGuidedAccessEnabled()</code></h3>
 
 
 
@@ -197,7 +197,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isInvertColorsEnabledCallback" href="#isInvertColorsEnabledCallback"></a><code>isInvertColorsEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isInvertColorsEnabled" href="#isInvertColorsEnabled"></a><code>isInvertColorsEnabled()</code></h3>
 
 
 
@@ -211,7 +211,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isMonoAudioEnabledCallback" href="#isMonoAudioEnabledCallback"></a><code>isMonoAudioEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isMonoAudioEnabled" href="#isMonoAudioEnabled"></a><code>isMonoAudioEnabled()</code></h3>
 
 
 
@@ -225,7 +225,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isReduceMotionEnabledCallback" href="#isReduceMotionEnabledCallback"></a><code>isReduceMotionEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isReduceMotionEnabled" href="#isReduceMotionEnabled"></a><code>isReduceMotionEnabled()</code></h3>
 
 
 
@@ -239,7 +239,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isReduceTransparencyEnabledCallback" href="#isReduceTransparencyEnabledCallback"></a><code>isReduceTransparencyEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isReduceTransparencyEnabled" href="#isReduceTransparencyEnabled"></a><code>isReduceTransparencyEnabled()</code></h3>
 
 
 
@@ -253,7 +253,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isSpeakScreenEnabledCallback" href="#isSpeakScreenEnabledCallback"></a><code>isSpeakScreenEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isSpeakScreenEnabled" href="#isSpeakScreenEnabled"></a><code>isSpeakScreenEnabled()</code></h3>
 
 
 
@@ -267,7 +267,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isSpeakSelectionEnabledCallback" href="#isSpeakSelectionEnabledCallback"></a><code>isSpeakSelectionEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isSpeakSelectionEnabled" href="#isSpeakSelectionEnabled"></a><code>isSpeakSelectionEnabled()</code></h3>
 
 
 
@@ -281,7 +281,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isSwitchControlRunningCallback" href="#isSwitchControlRunningCallback"></a><code>isSwitchControlRunningCallback()</code></h3>
+</div><h3><a class="anchor" name="isSwitchControlRunning" href="#isSwitchControlRunning"></a><code>isSwitchControlRunning()</code></h3>
 
 
 
@@ -295,7 +295,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="isTouchExplorationEnabledCallback" href="#isTouchExplorationEnabledCallback"></a><code>isTouchExplorationEnabledCallback()</code></h3>
+</div><h3><a class="anchor" name="isTouchExplorationEnabled" href="#isTouchExplorationEnabled"></a><code>isTouchExplorationEnabled()</code></h3>
 
 
 
@@ -309,7 +309,7 @@ If TalkBack is running but ChromeVox is not active, this method is useful to ale
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns the result
-</div><h3><a class="anchor" name="getTextZoomCallback" href="#getTextZoomCallback"></a><code>getTextZoomCallback()</code></h3>
+</div><h3><a class="anchor" name="getTextZoom" href="#getTextZoom"></a><code>getTextZoom()</code></h3>
 
 
 * @returns {Promise<number>} Returns the result

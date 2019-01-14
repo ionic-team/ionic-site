@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -50,8 +50,8 @@ this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 
 
 <p>Repo:
-  <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
-    https://github.com/ManifestWebDesign/twitter-connect-plugin
+  <a href="https://github.com/chroa/twitter-connect-plugin">
+    https://github.com/chroa/twitter-connect-plugin
   </a>
 </p>
 
@@ -59,7 +59,7 @@ this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=<Fabric API Key&gt; --variable TWITTER_KEY=<Twitter Consumer Key&gt; --variable TWITTER_SECRET=<Twitter Consumer Secret&gt;
 $ npm install --save @ionic-native/twitter-connect
 </code></pre>
   </li>

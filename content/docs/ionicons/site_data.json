@@ -1,11 +1,6 @@
 {
   "add": {
-    "tags": [
-      "add",
-      "include",
-      "invite",
-      "plus"
-    ],
+    "tags": ["add", "include", "invite", "plus"],
     "icons": [
       {
         "code": "0xf102",
@@ -22,10 +17,7 @@
     ]
   },
   "add-circle": {
-    "tags": [
-      "add",
-      "circle"
-    ],
+    "tags": ["add", "circle"],
     "icons": [
       {
         "code": "0xf101",
@@ -42,9 +34,7 @@
     ]
   },
   "alarm": {
-    "tags": [
-      "alarm"
-    ],
+    "tags": ["alarm"],
     "icons": [
       {
         "code": "0xf3c8",
@@ -61,12 +51,7 @@
     ]
   },
   "albums": {
-    "tags": [
-      "albums",
-      "boxes",
-      "slides",
-      "square"
-    ],
+    "tags": ["albums", "boxes", "slides", "square"],
     "icons": [
       {
         "code": "0xf3ca",
@@ -83,14 +68,7 @@
     ]
   },
   "alert": {
-    "tags": [
-      "!",
-      "alert",
-      "attention",
-      "exclamation",
-      "notice",
-      "warning"
-    ],
+    "tags": ["!", "alert", "attention", "exclamation", "notice", "warning"],
     "icons": [
       {
         "code": "0xf104",
@@ -107,10 +85,7 @@
     ]
   },
   "american-football": {
-    "tags": [
-      "american",
-      "football"
-    ],
+    "tags": ["american", "football"],
     "icons": [
       {
         "code": "0xf106",
@@ -127,12 +102,7 @@
     ]
   },
   "analytics": {
-    "tags": [
-      "analytics",
-      "data",
-      "metrics",
-      "track"
-    ],
+    "tags": ["analytics", "data", "metrics", "track"],
     "icons": [
       {
         "code": "0xf3ce",
@@ -148,13 +118,8 @@
       }
     ]
   },
-  "android": {
-    "tags": [
-      "android",
-      "google",
-      "mobile",
-      "logo"
-    ],
+  "logo-android": {
+    "tags": ["android", "google", "mobile", "logo"],
     "icons": [
       {
         "code": "0xf225",
@@ -162,11 +127,8 @@
       }
     ]
   },
-  "angular": {
-    "tags": [
-      "angular",
-      "logo"
-    ],
+  "logo-angular": {
+    "tags": ["angular", "logo"],
     "icons": [
       {
         "code": "0xf227",
@@ -175,14 +137,7 @@
     ]
   },
   "aperture": {
-    "tags": [
-      "aperture",
-      "dark",
-      "images",
-      "levels",
-      "light",
-      "settings"
-    ],
+    "tags": ["aperture", "dark", "images", "levels", "light", "settings"],
     "icons": [
       {
         "code": "0xf108",
@@ -198,13 +153,8 @@
       }
     ]
   },
-  "apple": {
-    "tags": [
-      "apple",
-      "mac",
-      "mobile",
-      "logo"
-    ],
+  "logo-apple": {
+    "tags": ["apple", "mac", "mobile", "logo"],
     "icons": [
       {
         "code": "0xf229",
@@ -213,10 +163,7 @@
     ]
   },
   "apps": {
-    "tags": [
-      "apps",
-      "applications"
-    ],
+    "tags": ["apps", "applications"],
     "icons": [
       {
         "code": "0xf10a",
@@ -233,10 +180,7 @@
     ]
   },
   "appstore": {
-    "tags": [
-      "appstore",
-      "store"
-    ],
+    "tags": ["appstore", "store"],
     "icons": [
       {
         "code": "0xf10c",
@@ -253,10 +197,7 @@
     ]
   },
   "archive": {
-    "tags": [
-      "archive",
-      "email"
-    ],
+    "tags": ["archive", "email"],
     "icons": [
       {
         "code": "0xf10e",
@@ -273,12 +214,7 @@
     ]
   },
   "arrow-back": {
-    "tags": [
-      "arrow",
-      "back",
-      "chevron",
-      "navigation"
-    ],
+    "tags": ["arrow", "back", "chevron", "navigation"],
     "icons": [
       {
         "code": "0xf3cf",
@@ -295,11 +231,7 @@
     ]
   },
   "arrow-down": {
-    "tags": [
-      "arrow",
-      "chevron",
-      "down"
-    ],
+    "tags": ["arrow", "chevron", "down"],
     "icons": [
       {
         "code": "0xf3d0",
@@ -316,10 +248,7 @@
     ]
   },
   "arrow-dropdown": {
-    "tags": [
-      "arrow",
-      "dropdown"
-    ],
+    "tags": ["arrow", "dropdown"],
     "icons": [
       {
         "code": "0xf110",
@@ -336,11 +265,7 @@
     ]
   },
   "arrow-dropdown-circle": {
-    "tags": [
-      "arrow",
-      "circle",
-      "dropdown"
-    ],
+    "tags": ["arrow", "circle", "dropdown"],
     "icons": [
       {
         "code": "0xf10f",
@@ -357,10 +282,7 @@
     ]
   },
   "arrow-dropleft": {
-    "tags": [
-      "arrow",
-      "dropleft"
-    ],
+    "tags": ["arrow", "dropleft"],
     "icons": [
       {
         "code": "0xf112",
@@ -377,11 +299,7 @@
     ]
   },
   "arrow-dropleft-circle": {
-    "tags": [
-      "arrow",
-      "circle",
-      "dropleft"
-    ],
+    "tags": ["arrow", "circle", "dropleft"],
     "icons": [
       {
         "code": "0xf111",
@@ -398,10 +316,7 @@
     ]
   },
   "arrow-dropright": {
-    "tags": [
-      "arrow",
-      "dropright"
-    ],
+    "tags": ["arrow", "dropright"],
     "icons": [
       {
         "code": "0xf114",
@@ -418,11 +333,7 @@
     ]
   },
   "arrow-dropright-circle": {
-    "tags": [
-      "arrow",
-      "circle",
-      "dropright"
-    ],
+    "tags": ["arrow", "circle", "dropright"],
     "icons": [
       {
         "code": "0xf113",
@@ -439,10 +350,7 @@
     ]
   },
   "arrow-dropup": {
-    "tags": [
-      "arrow",
-      "dropup"
-    ],
+    "tags": ["arrow", "dropup"],
     "icons": [
       {
         "code": "0xf116",
@@ -459,11 +367,7 @@
     ]
   },
   "arrow-dropup-circle": {
-    "tags": [
-      "arrow",
-      "circle",
-      "dropup"
-    ],
+    "tags": ["arrow", "circle", "dropup"],
     "icons": [
       {
         "code": "0xf115",
@@ -480,12 +384,7 @@
     ]
   },
   "arrow-forward": {
-    "tags": [
-      "arrow",
-      "chevron",
-      "forward",
-      "navigation"
-    ],
+    "tags": ["arrow", "chevron", "forward", "navigation"],
     "icons": [
       {
         "code": "0xf3d1",
@@ -502,11 +401,7 @@
     ]
   },
   "arrow-round-back": {
-    "tags": [
-      "arrow",
-      "back",
-      "round"
-    ],
+    "tags": ["arrow", "back", "round"],
     "icons": [
       {
         "code": "0xf117",
@@ -523,11 +418,7 @@
     ]
   },
   "arrow-round-down": {
-    "tags": [
-      "arrow",
-      "down",
-      "round"
-    ],
+    "tags": ["arrow", "down", "round"],
     "icons": [
       {
         "code": "0xf118",
@@ -544,11 +435,7 @@
     ]
   },
   "arrow-round-forward": {
-    "tags": [
-      "arrow",
-      "forward",
-      "round"
-    ],
+    "tags": ["arrow", "forward", "round"],
     "icons": [
       {
         "code": "0xf119",
@@ -565,11 +452,7 @@
     ]
   },
   "arrow-round-up": {
-    "tags": [
-      "arrow",
-      "round",
-      "up"
-    ],
+    "tags": ["arrow", "round", "up"],
     "icons": [
       {
         "code": "0xf11a",
@@ -586,11 +469,7 @@
     ]
   },
   "arrow-up": {
-    "tags": [
-      "arrow",
-      "chevron",
-      "up"
-    ],
+    "tags": ["arrow", "chevron", "up"],
     "icons": [
       {
         "code": "0xf3d8",
@@ -607,10 +486,7 @@
     ]
   },
   "at": {
-    "tags": [
-      "@",
-      "at"
-    ],
+    "tags": ["@", "at"],
     "icons": [
       {
         "code": "0xf3da",
@@ -627,9 +503,7 @@
     ]
   },
   "attach": {
-    "tags": [
-      "attach"
-    ],
+    "tags": ["attach"],
     "icons": [
       {
         "code": "0xf11b",
@@ -646,9 +520,7 @@
     ]
   },
   "backspace": {
-    "tags": [
-      "backspace"
-    ],
+    "tags": ["backspace"],
     "icons": [
       {
         "code": "0xf11d",
@@ -665,11 +537,7 @@
     ]
   },
   "barcode": {
-    "tags": [
-      "barcode",
-      "camera",
-      "reader"
-    ],
+    "tags": ["barcode", "camera", "reader"],
     "icons": [
       {
         "code": "0xf3dc",
@@ -686,9 +554,7 @@
     ]
   },
   "baseball": {
-    "tags": [
-      "baseball"
-    ],
+    "tags": ["baseball"],
     "icons": [
       {
         "code": "0xf3de",
@@ -705,9 +571,7 @@
     ]
   },
   "basket": {
-    "tags": [
-      "basket"
-    ],
+    "tags": ["basket"],
     "icons": [
       {
         "code": "0xf11f",
@@ -724,9 +588,7 @@
     ]
   },
   "basketball": {
-    "tags": [
-      "basketball"
-    ],
+    "tags": ["basketball"],
     "icons": [
       {
         "code": "0xf3e0",
@@ -743,10 +605,7 @@
     ]
   },
   "battery-charging": {
-    "tags": [
-      "battery",
-      "charging"
-    ],
+    "tags": ["battery", "charging"],
     "icons": [
       {
         "code": "0xf120",
@@ -763,10 +622,7 @@
     ]
   },
   "battery-dead": {
-    "tags": [
-      "battery",
-      "dead"
-    ],
+    "tags": ["battery", "dead"],
     "icons": [
       {
         "code": "0xf121",
@@ -783,10 +639,7 @@
     ]
   },
   "battery-full": {
-    "tags": [
-      "battery",
-      "full"
-    ],
+    "tags": ["battery", "full"],
     "icons": [
       {
         "code": "0xf122",
@@ -803,12 +656,7 @@
     ]
   },
   "beaker": {
-    "tags": [
-      "beaker",
-      "flask",
-      "mixture",
-      "potion"
-    ],
+    "tags": ["beaker", "flask", "mixture", "potion"],
     "icons": [
       {
         "code": "0xf124",
@@ -825,12 +673,7 @@
     ]
   },
   "beer": {
-    "tags": [
-      "beer",
-      "drink",
-      "eat",
-      "food"
-    ],
+    "tags": ["beer", "drink", "eat", "food"],
     "icons": [
       {
         "code": "0xf126",
@@ -847,9 +690,7 @@
     ]
   },
   "bicycle": {
-    "tags": [
-      "bicycle"
-    ],
+    "tags": ["bicycle"],
     "icons": [
       {
         "code": "0xf127",
@@ -865,14 +706,8 @@
       }
     ]
   },
-  "bitcoin": {
-    "tags": [
-      "bitcoin",
-      "currency",
-      "money",
-      "logo",
-      "trade"
-    ],
+  "logo-bitcoin": {
+    "tags": ["bitcoin", "currency", "money", "logo", "trade"],
     "icons": [
       {
         "code": "0xf22b",
@@ -881,11 +716,7 @@
     ]
   },
   "bluetooth": {
-    "tags": [
-      "bluetooth",
-      "cloud",
-      "connection"
-    ],
+    "tags": ["bluetooth", "cloud", "connection"],
     "icons": [
       {
         "code": "0xf128",
@@ -902,9 +733,7 @@
     ]
   },
   "boat": {
-    "tags": [
-      "boat"
-    ],
+    "tags": ["boat"],
     "icons": [
       {
         "code": "0xf12a",
@@ -921,9 +750,7 @@
     ]
   },
   "body": {
-    "tags": [
-      "body"
-    ],
+    "tags": ["body"],
     "icons": [
       {
         "code": "0xf3e4",
@@ -940,11 +767,7 @@
     ]
   },
   "bonfire": {
-    "tags": [
-      "bonfire",
-      "heat",
-      "hot"
-    ],
+    "tags": ["bonfire", "heat", "hot"],
     "icons": [
       {
         "code": "0xf12c",
@@ -961,10 +784,7 @@
     ]
   },
   "book": {
-    "tags": [
-      "book",
-      "read"
-    ],
+    "tags": ["book", "read"],
     "icons": [
       {
         "code": "0xf3e8",
@@ -981,12 +801,7 @@
     ]
   },
   "bookmark": {
-    "tags": [
-      "bookmark",
-      "favorite",
-      "save",
-      "tag"
-    ],
+    "tags": ["bookmark", "favorite", "save", "tag"],
     "icons": [
       {
         "code": "0xf12e",
@@ -1003,10 +818,7 @@
     ]
   },
   "bookmarks": {
-    "tags": [
-      "bookmarks",
-      "favorite"
-    ],
+    "tags": ["bookmarks", "favorite"],
     "icons": [
       {
         "code": "0xf3ea",
@@ -1023,9 +835,7 @@
     ]
   },
   "bowtie": {
-    "tags": [
-      "bowtie"
-    ],
+    "tags": ["bowtie"],
     "icons": [
       {
         "code": "0xf130",
@@ -1042,11 +852,7 @@
     ]
   },
   "briefcase": {
-    "tags": [
-      "briefcase",
-      "folder",
-      "organize"
-    ],
+    "tags": ["briefcase", "folder", "organize"],
     "icons": [
       {
         "code": "0xf3ee",
@@ -1063,10 +869,7 @@
     ]
   },
   "browsers": {
-    "tags": [
-      "browsers",
-      "square"
-    ],
+    "tags": ["browsers", "square"],
     "icons": [
       {
         "code": "0xf3f0",
@@ -1083,9 +886,7 @@
     ]
   },
   "brush": {
-    "tags": [
-      "brush"
-    ],
+    "tags": ["brush"],
     "icons": [
       {
         "code": "0xf132",
@@ -1101,12 +902,8 @@
       }
     ]
   },
-  "buffer": {
-    "tags": [
-      "buffer",
-      "share",
-      "logo"
-    ],
+  "logo-buffer": {
+    "tags": ["buffer", "share", "logo"],
     "icons": [
       {
         "code": "0xf22d",
@@ -1115,13 +912,7 @@
     ]
   },
   "bug": {
-    "tags": [
-      "bug",
-      "develop",
-      "error",
-      "hacker",
-      "program"
-    ],
+    "tags": ["bug", "develop", "error", "hacker", "program"],
     "icons": [
       {
         "code": "0xf134",
@@ -1138,9 +929,7 @@
     ]
   },
   "build": {
-    "tags": [
-      "build"
-    ],
+    "tags": ["build"],
     "icons": [
       {
         "code": "0xf136",
@@ -1157,9 +946,7 @@
     ]
   },
   "bulb": {
-    "tags": [
-      "bulb"
-    ],
+    "tags": ["bulb"],
     "icons": [
       {
         "code": "0xf138",
@@ -1176,9 +963,7 @@
     ]
   },
   "bus": {
-    "tags": [
-      "bus"
-    ],
+    "tags": ["bus"],
     "icons": [
       {
         "code": "0xf13a",
@@ -1195,9 +980,7 @@
     ]
   },
   "cafe": {
-    "tags": [
-      "cafe"
-    ],
+    "tags": ["cafe"],
     "icons": [
       {
         "code": "0xf13c",
@@ -1214,11 +997,7 @@
     ]
   },
   "calculator": {
-    "tags": [
-      "arithmatic",
-      "calculator",
-      "math"
-    ],
+    "tags": ["arithmatic", "calculator", "math"],
     "icons": [
       {
         "code": "0xf3f2",
@@ -1235,12 +1014,7 @@
     ]
   },
   "calendar": {
-    "tags": [
-      "calendar",
-      "date",
-      "month",
-      "week"
-    ],
+    "tags": ["calendar", "date", "month", "week"],
     "icons": [
       {
         "code": "0xf3f4",
@@ -1257,10 +1031,7 @@
     ]
   },
   "call": {
-    "tags": [
-      "call",
-      "telephone"
-    ],
+    "tags": ["call", "telephone"],
     "icons": [
       {
         "code": "0xf13e",
@@ -1277,11 +1048,7 @@
     ]
   },
   "camera": {
-    "tags": [
-      "camera",
-      "image",
-      "photo"
-    ],
+    "tags": ["camera", "image", "photo"],
     "icons": [
       {
         "code": "0xf3f6",
@@ -1298,9 +1065,7 @@
     ]
   },
   "car": {
-    "tags": [
-      "car"
-    ],
+    "tags": ["car"],
     "icons": [
       {
         "code": "0xf140",
@@ -1344,9 +1109,7 @@
     ]
   },
   "cart": {
-    "tags": [
-      "cart"
-    ],
+    "tags": ["cart"],
     "icons": [
       {
         "code": "0xf3f8",
@@ -1389,10 +1152,7 @@
     ]
   },
   "chatboxes": {
-    "tags": [
-      "chatboxes",
-      "talk"
-    ],
+    "tags": ["chatboxes", "talk"],
     "icons": [
       {
         "code": "0xf3fa",
@@ -1409,10 +1169,7 @@
     ]
   },
   "chatbubbles": {
-    "tags": [
-      "chatbubbles",
-      "talk"
-    ],
+    "tags": ["chatbubbles", "talk"],
     "icons": [
       {
         "code": "0xf146",
@@ -1429,9 +1186,7 @@
     ]
   },
   "checkbox": {
-    "tags": [
-      "checkbox"
-    ],
+    "tags": ["checkbox"],
     "icons": [
       {
         "code": "0xf148",
@@ -1448,10 +1203,7 @@
     ]
   },
   "checkbox-outline": {
-    "tags": [
-      "checkbox",
-      "outline"
-    ],
+    "tags": ["checkbox", "outline"],
     "icons": [
       {
         "code": "0xf147",
@@ -1468,9 +1220,7 @@
     ]
   },
   "checkmark": {
-    "tags": [
-      "checkmark"
-    ],
+    "tags": ["checkmark"],
     "icons": [
       {
         "code": "0xf3ff",
@@ -1487,10 +1237,7 @@
     ]
   },
   "checkmark-circle": {
-    "tags": [
-      "checkmark",
-      "circle"
-    ],
+    "tags": ["checkmark", "circle"],
     "icons": [
       {
         "code": "0xf14a",
@@ -1507,11 +1254,7 @@
     ]
   },
   "checkmark-circle-outline": {
-    "tags": [
-      "checkmark",
-      "circle",
-      "outline"
-    ],
+    "tags": ["checkmark", "circle", "outline"],
     "icons": [
       {
         "code": "0xf149",
@@ -1527,11 +1270,8 @@
       }
     ]
   },
-  "chrome": {
-    "tags": [
-      "chrome",
-      "logo"
-    ],
+  "logo-chrome": {
+    "tags": ["chrome", "logo"],
     "icons": [
       {
         "code": "0xf22f",
@@ -1540,10 +1280,7 @@
     ]
   },
   "clipboard": {
-    "tags": [
-      "clipboard",
-      "write"
-    ],
+    "tags": ["clipboard", "write"],
     "icons": [
       {
         "code": "0xf14c",
@@ -1560,10 +1297,7 @@
     ]
   },
   "clock": {
-    "tags": [
-      "clock",
-      "time"
-    ],
+    "tags": ["clock", "time"],
     "icons": [
       {
         "code": "0xf403",
@@ -1580,11 +1314,7 @@
     ]
   },
   "close": {
-    "tags": [
-      "close",
-      "delete",
-      "remove"
-    ],
+    "tags": ["close", "delete", "remove"],
     "icons": [
       {
         "code": "0xf406",
@@ -1601,10 +1331,7 @@
     ]
   },
   "close-circle": {
-    "tags": [
-      "circle",
-      "close"
-    ],
+    "tags": ["circle", "close"],
     "icons": [
       {
         "code": "0xf14e",
@@ -1621,13 +1348,7 @@
     ]
   },
   "closed-captioning": {
-    "tags": [
-      "captioning",
-      "closed",
-      "film",
-      "movie",
-      "television"
-    ],
+    "tags": ["captioning", "closed", "film", "movie", "television"],
     "icons": [
       {
         "code": "0xf150",
@@ -1644,12 +1365,7 @@
     ]
   },
   "cloud": {
-    "tags": [
-      "cloud",
-      "storage",
-      "weather",
-      "whether"
-    ],
+    "tags": ["cloud", "storage", "weather", "whether"],
     "icons": [
       {
         "code": "0xf40c",
@@ -1666,10 +1382,7 @@
     ]
   },
   "cloud-circle": {
-    "tags": [
-      "circle",
-      "cloud"
-    ],
+    "tags": ["circle", "cloud"],
     "icons": [
       {
         "code": "0xf152",
@@ -1686,10 +1399,7 @@
     ]
   },
   "cloud-done": {
-    "tags": [
-      "cloud",
-      "done"
-    ],
+    "tags": ["cloud", "done"],
     "icons": [
       {
         "code": "0xf154",
@@ -1706,11 +1416,7 @@
     ]
   },
   "cloud-download": {
-    "tags": [
-      "cloud",
-      "download",
-      "storage"
-    ],
+    "tags": ["cloud", "download", "storage"],
     "icons": [
       {
         "code": "0xf408",
@@ -1727,10 +1433,7 @@
     ]
   },
   "cloud-outline": {
-    "tags": [
-      "cloud",
-      "outline"
-    ],
+    "tags": ["cloud", "outline"],
     "icons": [
       {
         "code": "0xf409",
@@ -1747,11 +1450,7 @@
     ]
   },
   "cloud-upload": {
-    "tags": [
-      "cloud",
-      "storage",
-      "upload"
-    ],
+    "tags": ["cloud", "storage", "upload"],
     "icons": [
       {
         "code": "0xf40b",
@@ -1768,12 +1467,7 @@
     ]
   },
   "cloudy": {
-    "tags": [
-      "cloudy",
-      "overcast",
-      "weather",
-      "whether"
-    ],
+    "tags": ["cloudy", "overcast", "weather", "whether"],
     "icons": [
       {
         "code": "0xf410",
@@ -1790,13 +1484,7 @@
     ]
   },
   "cloudy-night": {
-    "tags": [
-      "cloudy",
-      "night",
-      "overcast",
-      "weather",
-      "whether"
-    ],
+    "tags": ["cloudy", "night", "overcast", "weather", "whether"],
     "icons": [
       {
         "code": "0xf40e",
@@ -1813,12 +1501,7 @@
     ]
   },
   "code": {
-    "tags": [
-      "code",
-      "develop",
-      "hacker",
-      "program"
-    ],
+    "tags": ["code", "develop", "hacker", "program"],
     "icons": [
       {
         "code": "0xf157",
@@ -1835,13 +1518,7 @@
     ]
   },
   "code-download": {
-    "tags": [
-      "code",
-      "develop",
-      "download",
-      "hacker",
-      "program"
-    ],
+    "tags": ["code", "develop", "download", "hacker", "program"],
     "icons": [
       {
         "code": "0xf155",
@@ -1858,13 +1535,7 @@
     ]
   },
   "code-working": {
-    "tags": [
-      "code",
-      "develop",
-      "hacker",
-      "program",
-      "working"
-    ],
+    "tags": ["code", "develop", "hacker", "program", "working"],
     "icons": [
       {
         "code": "0xf156",
@@ -1880,11 +1551,8 @@
       }
     ]
   },
-  "codepen": {
-    "tags": [
-      "codepen",
-      "logo"
-    ],
+  "logo-codepen": {
+    "tags": ["codepen", "logo"],
     "icons": [
       {
         "code": "0xf230",
@@ -1893,12 +1561,7 @@
     ]
   },
   "cog": {
-    "tags": [
-      "cog",
-      "gear",
-      "options",
-      "settings"
-    ],
+    "tags": ["cog", "gear", "options", "settings"],
     "icons": [
       {
         "code": "0xf412",
@@ -1915,10 +1578,7 @@
     ]
   },
   "color-fill": {
-    "tags": [
-      "color",
-      "fill"
-    ],
+    "tags": ["color", "fill"],
     "icons": [
       {
         "code": "0xf159",
@@ -1935,10 +1595,7 @@
     ]
   },
   "color-filter": {
-    "tags": [
-      "color",
-      "filter"
-    ],
+    "tags": ["color", "filter"],
     "icons": [
       {
         "code": "0xf414",
@@ -1955,10 +1612,7 @@
     ]
   },
   "color-palette": {
-    "tags": [
-      "color",
-      "palette"
-    ],
+    "tags": ["color", "palette"],
     "icons": [
       {
         "code": "0xf15b",
@@ -1975,10 +1629,7 @@
     ]
   },
   "color-wand": {
-    "tags": [
-      "color",
-      "wand"
-    ],
+    "tags": ["color", "wand"],
     "icons": [
       {
         "code": "0xf416",
@@ -1995,12 +1646,7 @@
     ]
   },
   "compass": {
-    "tags": [
-      "compass",
-      "directions",
-      "location",
-      "navigation"
-    ],
+    "tags": ["compass", "directions", "location", "navigation"],
     "icons": [
       {
         "code": "0xf15d",
@@ -2017,9 +1663,7 @@
     ]
   },
   "construct": {
-    "tags": [
-      "construct"
-    ],
+    "tags": ["construct"],
     "icons": [
       {
         "code": "0xf15f",
@@ -2036,11 +1680,7 @@
     ]
   },
   "contact": {
-    "tags": [
-      "contact",
-      "people",
-      "users"
-    ],
+    "tags": ["contact", "people", "users"],
     "icons": [
       {
         "code": "0xf41a",
@@ -2057,11 +1697,7 @@
     ]
   },
   "contacts": {
-    "tags": [
-      "contacts",
-      "people",
-      "users"
-    ],
+    "tags": ["contacts", "people", "users"],
     "icons": [
       {
         "code": "0xf161",
@@ -2078,9 +1714,7 @@
     ]
   },
   "contract": {
-    "tags": [
-      "contract"
-    ],
+    "tags": ["contract"],
     "icons": [
       {
         "code": "0xf162",
@@ -2097,14 +1731,7 @@
     ]
   },
   "contrast": {
-    "tags": [
-      "contrast",
-      "dark",
-      "images",
-      "levels",
-      "light",
-      "settings"
-    ],
+    "tags": ["contrast", "dark", "images", "levels", "light", "settings"],
     "icons": [
       {
         "code": "0xf163",
@@ -2121,11 +1748,7 @@
     ]
   },
   "copy": {
-    "tags": [
-      "copy",
-      "duplicate",
-      "paper"
-    ],
+    "tags": ["copy", "duplicate", "paper"],
     "icons": [
       {
         "code": "0xf41c",
@@ -2142,9 +1765,7 @@
     ]
   },
   "create": {
-    "tags": [
-      "create"
-    ],
+    "tags": ["create"],
     "icons": [
       {
         "code": "0xf165",
@@ -2161,9 +1782,7 @@
     ]
   },
   "crop": {
-    "tags": [
-      "crop"
-    ],
+    "tags": ["crop"],
     "icons": [
       {
         "code": "0xf41e",
@@ -2179,11 +1798,8 @@
       }
     ]
   },
-  "css3": {
-    "tags": [
-      "css3",
-      "logo"
-    ],
+  "logo-css3": {
+    "tags": ["css3", "logo"],
     "icons": [
       {
         "code": "0xf231",
@@ -2192,12 +1808,7 @@
     ]
   },
   "cube": {
-    "tags": [
-      "box",
-      "container",
-      "cube",
-      "square"
-    ],
+    "tags": ["box", "container", "cube", "square"],
     "icons": [
       {
         "code": "0xf168",
@@ -2214,9 +1825,7 @@
     ]
   },
   "cut": {
-    "tags": [
-      "cut"
-    ],
+    "tags": ["cut"],
     "icons": [
       {
         "code": "0xf16a",
@@ -2232,13 +1841,8 @@
       }
     ]
   },
-  "designernews": {
-    "tags": [
-      "design",
-      "designernews",
-      "post",
-      "logo"
-    ],
+  "logo-designernews": {
+    "tags": ["design", "designernews", "post", "logo"],
     "icons": [
       {
         "code": "0xf232",
@@ -2247,9 +1851,7 @@
     ]
   },
   "desktop": {
-    "tags": [
-      "desktop"
-    ],
+    "tags": ["desktop"],
     "icons": [
       {
         "code": "0xf16c",
@@ -2266,11 +1868,7 @@
     ]
   },
   "disc": {
-    "tags": [
-      "cd",
-      "disc",
-      "vinyl"
-    ],
+    "tags": ["cd", "disc", "vinyl"],
     "icons": [
       {
         "code": "0xf16e",
@@ -2287,11 +1885,7 @@
     ]
   },
   "document": {
-    "tags": [
-      "document",
-      "file",
-      "paper"
-    ],
+    "tags": ["document", "file", "paper"],
     "icons": [
       {
         "code": "0xf170",
@@ -2308,10 +1902,7 @@
     ]
   },
   "done-all": {
-    "tags": [
-      "all",
-      "done"
-    ],
+    "tags": ["all", "done"],
     "icons": [
       {
         "code": "0xf171",
@@ -2328,10 +1919,7 @@
     ]
   },
   "download": {
-    "tags": [
-      "download",
-      "export"
-    ],
+    "tags": ["download", "export"],
     "icons": [
       {
         "code": "0xf420",
@@ -2347,12 +1935,8 @@
       }
     ]
   },
-  "dribbble": {
-    "tags": [
-      "design",
-      "dribbble",
-      "logo"
-    ],
+  "logo-dribbble": {
+    "tags": ["design", "dribbble", "logo"],
     "icons": [
       {
         "code": "0xf233",
@@ -2360,12 +1944,8 @@
       }
     ]
   },
-  "dropbox": {
-    "tags": [
-      "dropbox",
-      "logo",
-      "upload"
-    ],
+  "logo-dropbox": {
+    "tags": ["dropbox", "logo", "upload"],
     "icons": [
       {
         "code": "0xf234",
@@ -2374,9 +1954,7 @@
     ]
   },
   "easel": {
-    "tags": [
-      "easel"
-    ],
+    "tags": ["easel"],
     "icons": [
       {
         "code": "0xf173",
@@ -2393,13 +1971,7 @@
     ]
   },
   "egg": {
-    "tags": [
-      "baby",
-      "bird",
-      "birth",
-      "egg",
-      "twitter"
-    ],
+    "tags": ["baby", "bird", "birth", "egg", "twitter"],
     "icons": [
       {
         "code": "0xf175",
@@ -2415,11 +1987,8 @@
       }
     ]
   },
-  "euro": {
-    "tags": [
-      "euro",
-      "logo"
-    ],
+  "logo-euro": {
+    "tags": ["euro", "logo"],
     "icons": [
       {
         "code": "0xf235",
@@ -2428,9 +1997,7 @@
     ]
   },
   "exit": {
-    "tags": [
-      "exit"
-    ],
+    "tags": ["exit"],
     "icons": [
       {
         "code": "0xf177",
@@ -2447,9 +2014,7 @@
     ]
   },
   "expand": {
-    "tags": [
-      "expand"
-    ],
+    "tags": ["expand"],
     "icons": [
       {
         "code": "0xf178",
@@ -2466,13 +2031,7 @@
     ]
   },
   "eye": {
-    "tags": [
-      "exposed",
-      "eye",
-      "look",
-      "see",
-      "view"
-    ],
+    "tags": ["exposed", "eye", "look", "see", "view"],
     "icons": [
       {
         "code": "0xf425",
@@ -2489,10 +2048,7 @@
     ]
   },
   "eye-off": {
-    "tags": [
-      "eye",
-      "off"
-    ],
+    "tags": ["eye", "off"],
     "icons": [
       {
         "code": "0xf17a",
@@ -2508,14 +2064,8 @@
       }
     ]
   },
-  "facebook": {
-    "tags": [
-      "facebook",
-      "like",
-      "post",
-      "share",
-      "logo"
-    ],
+  "logo-facebook": {
+    "tags": ["facebook", "like", "post", "share", "logo"],
     "icons": [
       {
         "code": "0xf236",
@@ -2524,12 +2074,7 @@
     ]
   },
   "fastforward": {
-    "tags": [
-      "fastforward",
-      "jump",
-      "next",
-      "skip"
-    ],
+    "tags": ["fastforward", "jump", "next", "skip"],
     "icons": [
       {
         "code": "0xf427",
@@ -2546,12 +2091,7 @@
     ]
   },
   "female": {
-    "tags": [
-      "dudette",
-      "female",
-      "girl",
-      "lady"
-    ],
+    "tags": ["dudette", "female", "girl", "lady"],
     "icons": [
       {
         "code": "0xf17b",
@@ -2568,10 +2108,7 @@
     ]
   },
   "filing": {
-    "tags": [
-      "archive",
-      "filing"
-    ],
+    "tags": ["archive", "filing"],
     "icons": [
       {
         "code": "0xf429",
@@ -2588,9 +2125,7 @@
     ]
   },
   "film": {
-    "tags": [
-      "film"
-    ],
+    "tags": ["film"],
     "icons": [
       {
         "code": "0xf42b",
@@ -2607,10 +2142,7 @@
     ]
   },
   "finger-print": {
-    "tags": [
-      "finger",
-      "print"
-    ],
+    "tags": ["finger", "print"],
     "icons": [
       {
         "code": "0xf17c",
@@ -2627,11 +2159,7 @@
     ]
   },
   "flag": {
-    "tags": [
-      "favorite",
-      "flag",
-      "marker"
-    ],
+    "tags": ["favorite", "flag", "marker"],
     "icons": [
       {
         "code": "0xf42d",
@@ -2648,12 +2176,7 @@
     ]
   },
   "flame": {
-    "tags": [
-      "fire",
-      "flame",
-      "heat",
-      "hot"
-    ],
+    "tags": ["fire", "flame", "heat", "hot"],
     "icons": [
       {
         "code": "0xf42f",
@@ -2670,12 +2193,7 @@
     ]
   },
   "flash": {
-    "tags": [
-      "flash",
-      "lightning",
-      "weather",
-      "whether"
-    ],
+    "tags": ["flash", "lightning", "weather", "whether"],
     "icons": [
       {
         "code": "0xf17e",
@@ -2692,12 +2210,7 @@
     ]
   },
   "flask": {
-    "tags": [
-      "bubbles",
-      "flask",
-      "mixture",
-      "potion"
-    ],
+    "tags": ["bubbles", "flask", "mixture", "potion"],
     "icons": [
       {
         "code": "0xf431",
@@ -2714,9 +2227,7 @@
     ]
   },
   "flower": {
-    "tags": [
-      "flower"
-    ],
+    "tags": ["flower"],
     "icons": [
       {
         "code": "0xf433",
@@ -2733,10 +2244,7 @@
     ]
   },
   "folder": {
-    "tags": [
-      "file",
-      "folder"
-    ],
+    "tags": ["file", "folder"],
     "icons": [
       {
         "code": "0xf435",
@@ -2753,10 +2261,7 @@
     ]
   },
   "folder-open": {
-    "tags": [
-      "folder",
-      "open"
-    ],
+    "tags": ["folder", "open"],
     "icons": [
       {
         "code": "0xf180",
@@ -2773,9 +2278,7 @@
     ]
   },
   "football": {
-    "tags": [
-      "football"
-    ],
+    "tags": ["football"],
     "icons": [
       {
         "code": "0xf437",
@@ -2791,12 +2294,8 @@
       }
     ]
   },
-  "foursquare": {
-    "tags": [
-      "checkin",
-      "foursquare",
-      "logo"
-    ],
+  "logo-foursquare": {
+    "tags": ["checkin", "foursquare", "logo"],
     "icons": [
       {
         "code": "0xf237",
@@ -2804,13 +2303,8 @@
       }
     ]
   },
-  "freebsd-devil": {
-    "tags": [
-      "devil",
-      "freebsd",
-      "logo",
-      "unix"
-    ],
+  "logo-freebsd-devil": {
+    "tags": ["devil", "freebsd", "logo", "unix"],
     "icons": [
       {
         "code": "0xf238",
@@ -2819,10 +2313,7 @@
     ]
   },
   "funnel": {
-    "tags": [
-      "funnel",
-      "sort"
-    ],
+    "tags": ["funnel", "sort"],
     "icons": [
       {
         "code": "0xf182",
@@ -2839,12 +2330,7 @@
     ]
   },
   "game-controller-a": {
-    "tags": [
-      "a",
-      "controller",
-      "fun",
-      "game"
-    ],
+    "tags": ["a", "controller", "fun", "game"],
     "icons": [
       {
         "code": "0xf439",
@@ -2861,12 +2347,7 @@
     ]
   },
   "game-controller-b": {
-    "tags": [
-      "b",
-      "controller",
-      "fun",
-      "game"
-    ],
+    "tags": ["b", "controller", "fun", "game"],
     "icons": [
       {
         "code": "0xf43b",
@@ -2883,10 +2364,7 @@
     ]
   },
   "git-branch": {
-    "tags": [
-      "branch",
-      "git"
-    ],
+    "tags": ["branch", "git"],
     "icons": [
       {
         "code": "0xf183",
@@ -2903,10 +2381,7 @@
     ]
   },
   "git-commit": {
-    "tags": [
-      "commit",
-      "git"
-    ],
+    "tags": ["commit", "git"],
     "icons": [
       {
         "code": "0xf184",
@@ -2923,10 +2398,7 @@
     ]
   },
   "git-compare": {
-    "tags": [
-      "compare",
-      "git"
-    ],
+    "tags": ["compare", "git"],
     "icons": [
       {
         "code": "0xf185",
@@ -2943,10 +2415,7 @@
     ]
   },
   "git-merge": {
-    "tags": [
-      "git",
-      "merge"
-    ],
+    "tags": ["git", "merge"],
     "icons": [
       {
         "code": "0xf186",
@@ -2963,10 +2432,7 @@
     ]
   },
   "git-network": {
-    "tags": [
-      "git",
-      "network"
-    ],
+    "tags": ["git", "network"],
     "icons": [
       {
         "code": "0xf187",
@@ -2983,11 +2449,7 @@
     ]
   },
   "git-pull-request": {
-    "tags": [
-      "git",
-      "pull",
-      "request"
-    ],
+    "tags": ["git", "pull", "request"],
     "icons": [
       {
         "code": "0xf188",
@@ -3003,12 +2465,8 @@
       }
     ]
   },
-  "github": {
-    "tags": [
-      "code",
-      "github",
-      "logo"
-    ],
+  "logo-github": {
+    "tags": ["code", "github", "logo"],
     "icons": [
       {
         "code": "0xf239",
@@ -3017,13 +2475,7 @@
     ]
   },
   "glasses": {
-    "tags": [
-      "glasses",
-      "look",
-      "reading",
-      "see",
-      "steve"
-    ],
+    "tags": ["glasses", "look", "reading", "see", "steve"],
     "icons": [
       {
         "code": "0xf43f",
@@ -3040,9 +2492,7 @@
     ]
   },
   "globe": {
-    "tags": [
-      "globe"
-    ],
+    "tags": ["globe"],
     "icons": [
       {
         "code": "0xf18a",
@@ -3058,14 +2508,8 @@
       }
     ]
   },
-  "google": {
-    "tags": [
-      "follow",
-      "google",
-      "post",
-      "share",
-      "logo"
-    ],
+  "logo-google": {
+    "tags": ["follow", "google", "post", "share", "logo"],
     "icons": [
       {
         "code": "0xf23a",
@@ -3073,14 +2517,8 @@
       }
     ]
   },
-  "googleplus": {
-    "tags": [
-      "follow",
-      "googleplus",
-      "post",
-      "share",
-      "logo"
-    ],
+  "logo-googleplus": {
+    "tags": ["follow", "googleplus", "post", "share", "logo"],
     "icons": [
       {
         "code": "0xf23b",
@@ -3089,10 +2527,7 @@
     ]
   },
   "grid": {
-    "tags": [
-      "grid",
-      "menu"
-    ],
+    "tags": ["grid", "menu"],
     "icons": [
       {
         "code": "0xf18c",
@@ -3108,14 +2543,8 @@
       }
     ]
   },
-  "hackernews": {
-    "tags": [
-      "discuss",
-      "hackernews",
-      "karma",
-      "logo",
-      "upvotes"
-    ],
+  "logo-hackernews": {
+    "tags": ["discuss", "hackernews", "karma", "logo", "upvotes"],
     "icons": [
       {
         "code": "0xf23c",
@@ -3124,12 +2553,7 @@
     ]
   },
   "hammer": {
-    "tags": [
-      "hammer",
-      "options",
-      "settings",
-      "tools"
-    ],
+    "tags": ["hammer", "options", "settings", "tools"],
     "icons": [
       {
         "code": "0xf18e",
@@ -3146,10 +2570,7 @@
     ]
   },
   "hand": {
-    "tags": [
-      "hand",
-      "stop"
-    ],
+    "tags": ["hand", "stop"],
     "icons": [
       {
         "code": "0xf190",
@@ -3166,13 +2587,7 @@
     ]
   },
   "happy": {
-    "tags": [
-      "fun",
-      "good",
-      "happy",
-      "like",
-      "yes"
-    ],
+    "tags": ["fun", "good", "happy", "like", "yes"],
     "icons": [
       {
         "code": "0xf192",
@@ -3189,9 +2604,7 @@
     ]
   },
   "headset": {
-    "tags": [
-      "headset"
-    ],
+    "tags": ["headset"],
     "icons": [
       {
         "code": "0xf194",
@@ -3208,10 +2621,7 @@
     ]
   },
   "heart": {
-    "tags": [
-      "heart",
-      "love"
-    ],
+    "tags": ["heart", "love"],
     "icons": [
       {
         "code": "0xf443",
@@ -3228,10 +2638,7 @@
     ]
   },
   "heart-outline": {
-    "tags": [
-      "heart",
-      "outline"
-    ],
+    "tags": ["heart", "outline"],
     "icons": [
       {
         "code": "0xf442",
@@ -3248,12 +2655,7 @@
     ]
   },
   "help": {
-    "tags": [
-      "?",
-      "help",
-      "information",
-      "question"
-    ],
+    "tags": ["?", "help", "information", "question"],
     "icons": [
       {
         "code": "0xf446",
@@ -3270,12 +2672,7 @@
     ]
   },
   "help-buoy": {
-    "tags": [
-      "?",
-      "buoy",
-      "help",
-      "question"
-    ],
+    "tags": ["?", "buoy", "help", "question"],
     "icons": [
       {
         "code": "0xf196",
@@ -3292,10 +2689,7 @@
     ]
   },
   "help-circle": {
-    "tags": [
-      "circle",
-      "help"
-    ],
+    "tags": ["circle", "help"],
     "icons": [
       {
         "code": "0xf198",
@@ -3312,10 +2706,7 @@
     ]
   },
   "home": {
-    "tags": [
-      "home",
-      "house"
-    ],
+    "tags": ["home", "house"],
     "icons": [
       {
         "code": "0xf448",
@@ -3331,11 +2722,8 @@
       }
     ]
   },
-  "html5": {
-    "tags": [
-      "html5",
-      "logo"
-    ],
+  "logo-html5": {
+    "tags": ["html5", "logo"],
     "icons": [
       {
         "code": "0xf23d",
@@ -3344,10 +2732,7 @@
     ]
   },
   "ice-cream": {
-    "tags": [
-      "cream",
-      "ice"
-    ],
+    "tags": ["cream", "ice"],
     "icons": [
       {
         "code": "0xf19a",
@@ -3364,11 +2749,7 @@
     ]
   },
   "image": {
-    "tags": [
-      "camera",
-      "image",
-      "photo"
-    ],
+    "tags": ["camera", "image", "photo"],
     "icons": [
       {
         "code": "0xf19c",
@@ -3385,10 +2766,7 @@
     ]
   },
   "images": {
-    "tags": [
-      "images",
-      "photo"
-    ],
+    "tags": ["images", "photo"],
     "icons": [
       {
         "code": "0xf19e",
@@ -3405,11 +2783,7 @@
     ]
   },
   "infinite": {
-    "tags": [
-      "forever",
-      "infinite",
-      "loop"
-    ],
+    "tags": ["forever", "infinite", "loop"],
     "icons": [
       {
         "code": "0xf44a",
@@ -3426,11 +2800,7 @@
     ]
   },
   "information": {
-    "tags": [
-      "help",
-      "information",
-      "knowledge"
-    ],
+    "tags": ["help", "information", "knowledge"],
     "icons": [
       {
         "code": "0xf44d",
@@ -3447,10 +2817,7 @@
     ]
   },
   "information-circle": {
-    "tags": [
-      "circle",
-      "information"
-    ],
+    "tags": ["circle", "information"],
     "icons": [
       {
         "code": "0xf1a0",
@@ -3466,13 +2833,8 @@
       }
     ]
   },
-  "instagram": {
-    "tags": [
-      "camera",
-      "instagram",
-      "photo",
-      "logo"
-    ],
+  "logo-instagram": {
+    "tags": ["camera", "instagram", "photo", "logo"],
     "icons": [
       {
         "code": "0xf23e",
@@ -3481,13 +2843,7 @@
     ]
   },
   "ionic": {
-    "tags": [
-      "badass",
-      "framework",
-      "hawt",
-      "ionic",
-      "sexy"
-    ],
+    "tags": ["badass", "framework", "hawt", "ionic", "sexy"],
     "icons": [
       {
         "code": "0xf1a1",
@@ -3504,9 +2860,7 @@
     ]
   },
   "ionitron": {
-    "tags": [
-      "ionitron"
-    ],
+    "tags": ["ionitron"],
     "icons": [
       {
         "code": "0xf1a3",
@@ -3522,11 +2876,8 @@
       }
     ]
   },
-  "javascript": {
-    "tags": [
-      "javascript",
-      "logo"
-    ],
+  "logo-javascript": {
+    "tags": ["javascript", "logo"],
     "icons": [
       {
         "code": "0xf23f",
@@ -3535,11 +2886,7 @@
     ]
   },
   "jet": {
-    "tags": [
-      "fly",
-      "jet",
-      "plane"
-    ],
+    "tags": ["fly", "jet", "plane"],
     "icons": [
       {
         "code": "0xf1a5",
@@ -3556,10 +2903,7 @@
     ]
   },
   "key": {
-    "tags": [
-      "access",
-      "key"
-    ],
+    "tags": ["access", "key"],
     "icons": [
       {
         "code": "0xf1a7",
@@ -3576,10 +2920,7 @@
     ]
   },
   "keypad": {
-    "tags": [
-      "keypad",
-      "type"
-    ],
+    "tags": ["keypad", "type"],
     "icons": [
       {
         "code": "0xf450",
@@ -3596,12 +2937,7 @@
     ]
   },
   "laptop": {
-    "tags": [
-      "apple",
-      "laptop",
-      "macbook",
-      "osx"
-    ],
+    "tags": ["apple", "laptop", "macbook", "osx"],
     "icons": [
       {
         "code": "0xf1a8",
@@ -3618,13 +2954,7 @@
     ]
   },
   "leaf": {
-    "tags": [
-      "green",
-      "leaf",
-      "nature",
-      "plant",
-      "recycle"
-    ],
+    "tags": ["green", "leaf", "nature", "plant", "recycle"],
     "icons": [
       {
         "code": "0xf1aa",
@@ -3641,13 +2971,7 @@
     ]
   },
   "link": {
-    "tags": [
-      "anchor",
-      "attach",
-      "chain",
-      "href",
-      "link"
-    ],
+    "tags": ["anchor", "attach", "chain", "href", "link"],
     "icons": [
       {
         "code": "0xf22a",
@@ -3663,12 +2987,8 @@
       }
     ]
   },
-  "linkedin": {
-    "tags": [
-      "connect",
-      "linkedin",
-      "logo"
-    ],
+  "logo-linkedin": {
+    "tags": ["connect", "linkedin", "logo"],
     "icons": [
       {
         "code": "0xf240",
@@ -3677,9 +2997,7 @@
     ]
   },
   "list": {
-    "tags": [
-      "list"
-    ],
+    "tags": ["list"],
     "icons": [
       {
         "code": "0xf454",
@@ -3696,10 +3014,7 @@
     ]
   },
   "list-box": {
-    "tags": [
-      "box",
-      "list"
-    ],
+    "tags": ["box", "list"],
     "icons": [
       {
         "code": "0xf1ac",
@@ -3716,12 +3031,7 @@
     ]
   },
   "locate": {
-    "tags": [
-      "gps",
-      "locate",
-      "maps",
-      "navigate"
-    ],
+    "tags": ["gps", "locate", "maps", "navigate"],
     "icons": [
       {
         "code": "0xf1ae",
@@ -3738,10 +3048,7 @@
     ]
   },
   "lock": {
-    "tags": [
-      "lock",
-      "privacy"
-    ],
+    "tags": ["lock", "privacy"],
     "icons": [
       {
         "code": "0xf1b0",
@@ -3758,11 +3065,7 @@
     ]
   },
   "log-in": {
-    "tags": [
-      "in",
-      "log",
-      "signin"
-    ],
+    "tags": ["in", "log", "signin"],
     "icons": [
       {
         "code": "0xf1b1",
@@ -3779,11 +3082,7 @@
     ]
   },
   "log-out": {
-    "tags": [
-      "log",
-      "out",
-      "signout"
-    ],
+    "tags": ["log", "out", "signout"],
     "icons": [
       {
         "code": "0xf1b2",
@@ -3800,11 +3099,7 @@
     ]
   },
   "magnet": {
-    "tags": [
-      "attraction",
-      "magnet",
-      "sticky"
-    ],
+    "tags": ["attraction", "magnet", "sticky"],
     "icons": [
       {
         "code": "0xf1b4",
@@ -3821,10 +3116,7 @@
     ]
   },
   "mail": {
-    "tags": [
-      "email",
-      "mail"
-    ],
+    "tags": ["email", "mail"],
     "icons": [
       {
         "code": "0xf1b8",
@@ -3841,10 +3133,7 @@
     ]
   },
   "mail-open": {
-    "tags": [
-      "mail",
-      "open"
-    ],
+    "tags": ["mail", "open"],
     "icons": [
       {
         "code": "0xf1b6",
@@ -3861,13 +3150,7 @@
     ]
   },
   "male": {
-    "tags": [
-      "boy",
-      "dude",
-      "guy",
-      "male",
-      "male"
-    ],
+    "tags": ["boy", "dude", "guy", "male", "male"],
     "icons": [
       {
         "code": "0xf1b9",
@@ -3884,13 +3167,7 @@
     ]
   },
   "man": {
-    "tags": [
-      "boy",
-      "dude",
-      "guy",
-      "male",
-      "man"
-    ],
+    "tags": ["boy", "dude", "guy", "male", "man"],
     "icons": [
       {
         "code": "0xf1bb",
@@ -3907,12 +3184,7 @@
     ]
   },
   "map": {
-    "tags": [
-      "gps",
-      "map",
-      "navigation",
-      "pin"
-    ],
+    "tags": ["gps", "map", "navigation", "pin"],
     "icons": [
       {
         "code": "0xf1bd",
@@ -3928,11 +3200,8 @@
       }
     ]
   },
-  "markdown": {
-    "tags": [
-      "markdown",
-      "logo"
-    ],
+  "logo-markdown": {
+    "tags": ["markdown", "logo"],
     "icons": [
       {
         "code": "0xf241",
@@ -3941,9 +3210,7 @@
     ]
   },
   "medal": {
-    "tags": [
-      "medal"
-    ],
+    "tags": ["medal"],
     "icons": [
       {
         "code": "0xf1bf",
@@ -3960,9 +3227,7 @@
     ]
   },
   "medical": {
-    "tags": [
-      "medical"
-    ],
+    "tags": ["medical"],
     "icons": [
       {
         "code": "0xf45c",
@@ -3979,14 +3244,7 @@
     ]
   },
   "medkit": {
-    "tags": [
-      "case",
-      "disease",
-      "firstaid",
-      "health",
-      "medkit",
-      "sick"
-    ],
+    "tags": ["case", "disease", "firstaid", "health", "medkit", "sick"],
     "icons": [
       {
         "code": "0xf45e",
@@ -4003,9 +3261,7 @@
     ]
   },
   "megaphone": {
-    "tags": [
-      "megaphone"
-    ],
+    "tags": ["megaphone"],
     "icons": [
       {
         "code": "0xf1c1",
@@ -4022,9 +3278,7 @@
     ]
   },
   "menu": {
-    "tags": [
-      "menu"
-    ],
+    "tags": ["menu"],
     "icons": [
       {
         "code": "0xf1c3",
@@ -4041,13 +3295,7 @@
     ]
   },
   "mic": {
-    "tags": [
-      "mic",
-      "noise",
-      "sound",
-      "speaker",
-      "talk"
-    ],
+    "tags": ["mic", "noise", "sound", "speaker", "talk"],
     "icons": [
       {
         "code": "0xf461",
@@ -4064,14 +3312,7 @@
     ]
   },
   "mic-off": {
-    "tags": [
-      "mic",
-      "noise",
-      "off",
-      "sound",
-      "speaker",
-      "talk"
-    ],
+    "tags": ["mic", "noise", "off", "sound", "speaker", "talk"],
     "icons": [
       {
         "code": "0xf45f",
@@ -4088,14 +3329,7 @@
     ]
   },
   "microphone": {
-    "tags": [
-      "microphone",
-      "music",
-      "noise",
-      "recorde",
-      "sound",
-      "speak"
-    ],
+    "tags": ["microphone", "music", "noise", "recorde", "sound", "speak"],
     "icons": [
       {
         "code": "0xf1c6",
@@ -4112,12 +3346,7 @@
     ]
   },
   "moon": {
-    "tags": [
-      "dark",
-      "moon",
-      "night",
-      "sky"
-    ],
+    "tags": ["dark", "moon", "night", "sky"],
     "icons": [
       {
         "code": "0xf468",
@@ -4134,10 +3363,7 @@
     ]
   },
   "more": {
-    "tags": [
-      "more",
-      "options"
-    ],
+    "tags": ["more", "options"],
     "icons": [
       {
         "code": "0xf1c8",
@@ -4154,9 +3380,7 @@
     ]
   },
   "move": {
-    "tags": [
-      "move"
-    ],
+    "tags": ["move"],
     "icons": [
       {
         "code": "0xf1cb",
@@ -4173,14 +3397,7 @@
     ]
   },
   "musical-note": {
-    "tags": [
-      "listening",
-      "musical",
-      "noise",
-      "note",
-      "play",
-      "sound"
-    ],
+    "tags": ["listening", "musical", "noise", "note", "play", "sound"],
     "icons": [
       {
         "code": "0xf46b",
@@ -4197,14 +3414,7 @@
     ]
   },
   "musical-notes": {
-    "tags": [
-      "listening",
-      "musical",
-      "noise",
-      "notes",
-      "play",
-      "sound"
-    ],
+    "tags": ["listening", "musical", "noise", "notes", "play", "sound"],
     "icons": [
       {
         "code": "0xf46c",
@@ -4221,13 +3431,7 @@
     ]
   },
   "navigate": {
-    "tags": [
-      "gps",
-      "location",
-      "map",
-      "navigate",
-      "pin"
-    ],
+    "tags": ["gps", "location", "map", "navigate", "pin"],
     "icons": [
       {
         "code": "0xf46e",
@@ -4244,14 +3448,7 @@
     ]
   },
   "no-smoking": {
-    "tags": [
-      "cancer",
-      "cigarette",
-      "danger",
-      "no",
-      "smoking",
-      "warning"
-    ],
+    "tags": ["cancer", "cigarette", "danger", "no", "smoking", "warning"],
     "icons": [
       {
         "code": "0xf1cf",
@@ -4267,11 +3464,8 @@
       }
     ]
   },
-  "nodejs": {
-    "tags": [
-      "nodejs",
-      "logo"
-    ],
+  "logo-nodejs": {
+    "tags": ["nodejs", "logo"],
     "icons": [
       {
         "code": "0xf242",
@@ -4280,10 +3474,7 @@
     ]
   },
   "notifications": {
-    "tags": [
-      "notifications",
-      "push"
-    ],
+    "tags": ["notifications", "push"],
     "icons": [
       {
         "code": "0xf1d3",
@@ -4300,11 +3491,7 @@
     ]
   },
   "notifications-off": {
-    "tags": [
-      "notifications",
-      "off",
-      "push"
-    ],
+    "tags": ["notifications", "off", "push"],
     "icons": [
       {
         "code": "0xf1d1",
@@ -4321,11 +3508,7 @@
     ]
   },
   "notifications-outline": {
-    "tags": [
-      "notifications",
-      "outline",
-      "push"
-    ],
+    "tags": ["notifications", "outline", "push"],
     "icons": [
       {
         "code": "0xf1d2",
@@ -4342,12 +3525,7 @@
     ]
   },
   "nuclear": {
-    "tags": [
-      "danger",
-      "hazard",
-      "nuclear",
-      "warning"
-    ],
+    "tags": ["danger", "hazard", "nuclear", "warning"],
     "icons": [
       {
         "code": "0xf1d5",
@@ -4364,9 +3542,7 @@
     ]
   },
   "nutrition": {
-    "tags": [
-      "nutrition"
-    ],
+    "tags": ["nutrition"],
     "icons": [
       {
         "code": "0xf470",
@@ -4382,11 +3558,8 @@
       }
     ]
   },
-  "octocat": {
-    "tags": [
-      "octocat",
-      "logo"
-    ],
+  "logo-octocat": {
+    "tags": ["octocat", "logo"],
     "icons": [
       {
         "code": "0xf243",
@@ -4395,9 +3568,7 @@
     ]
   },
   "open": {
-    "tags": [
-      "open"
-    ],
+    "tags": ["open"],
     "icons": [
       {
         "code": "0xf1d7",
@@ -4414,9 +3585,7 @@
     ]
   },
   "options": {
-    "tags": [
-      "options"
-    ],
+    "tags": ["options"],
     "icons": [
       {
         "code": "0xf1d9",
@@ -4433,12 +3602,7 @@
     ]
   },
   "outlet": {
-    "tags": [
-      "computer",
-      "digital",
-      "electricity",
-      "outlet"
-    ],
+    "tags": ["computer", "digital", "electricity", "outlet"],
     "icons": [
       {
         "code": "0xf1db",
@@ -4455,11 +3619,7 @@
     ]
   },
   "paper": {
-    "tags": [
-      "feed",
-      "paper",
-      "paper"
-    ],
+    "tags": ["feed", "paper", "paper"],
     "icons": [
       {
         "code": "0xf472",
@@ -4476,10 +3636,7 @@
     ]
   },
   "paper-plane": {
-    "tags": [
-      "paper",
-      "plane"
-    ],
+    "tags": ["paper", "plane"],
     "icons": [
       {
         "code": "0xf1dd",
@@ -4496,10 +3653,7 @@
     ]
   },
   "partly-sunny": {
-    "tags": [
-      "partly",
-      "sunny"
-    ],
+    "tags": ["partly", "sunny"],
     "icons": [
       {
         "code": "0xf1df",
@@ -4516,13 +3670,7 @@
     ]
   },
   "pause": {
-    "tags": [
-      "break",
-      "freeze",
-      "hold",
-      "music",
-      "pause"
-    ],
+    "tags": ["break", "freeze", "hold", "music", "pause"],
     "icons": [
       {
         "code": "0xf478",
@@ -4539,9 +3687,7 @@
     ]
   },
   "paw": {
-    "tags": [
-      "paw"
-    ],
+    "tags": ["paw"],
     "icons": [
       {
         "code": "0xf47a",
@@ -4558,14 +3704,7 @@
     ]
   },
   "people": {
-    "tags": [
-      "head",
-      "human",
-      "people",
-      "person",
-      "stalker",
-      "users"
-    ],
+    "tags": ["head", "human", "people", "person", "stalker", "users"],
     "icons": [
       {
         "code": "0xf47c",
@@ -4582,13 +3721,7 @@
     ]
   },
   "person": {
-    "tags": [
-      "head",
-      "human",
-      "person",
-      "staff",
-      "users"
-    ],
+    "tags": ["head", "human", "person", "staff", "users"],
     "icons": [
       {
         "code": "0xf47e",
@@ -4631,10 +3764,7 @@
     ]
   },
   "phone-landscape": {
-    "tags": [
-      "landscape",
-      "phone"
-    ],
+    "tags": ["landscape", "phone"],
     "icons": [
       {
         "code": "0xf1e2",
@@ -4651,10 +3781,7 @@
     ]
   },
   "phone-portrait": {
-    "tags": [
-      "phone",
-      "portrait"
-    ],
+    "tags": ["phone", "portrait"],
     "icons": [
       {
         "code": "0xf1e3",
@@ -4671,12 +3798,7 @@
     ]
   },
   "photos": {
-    "tags": [
-      "images",
-      "photos",
-      "square",
-      "stills"
-    ],
+    "tags": ["images", "photos", "square", "stills"],
     "icons": [
       {
         "code": "0xf482",
@@ -4693,12 +3815,7 @@
     ]
   },
   "pie": {
-    "tags": [
-      "cog",
-      "options",
-      "pie",
-      "settings"
-    ],
+    "tags": ["cog", "options", "pie", "settings"],
     "icons": [
       {
         "code": "0xf484",
@@ -4715,11 +3832,7 @@
     ]
   },
   "pin": {
-    "tags": [
-      "gps",
-      "navigation",
-      "pin"
-    ],
+    "tags": ["gps", "navigation", "pin"],
     "icons": [
       {
         "code": "0xf1e5",
@@ -4736,9 +3849,7 @@
     ]
   },
   "pint": {
-    "tags": [
-      "pint"
-    ],
+    "tags": ["pint"],
     "icons": [
       {
         "code": "0xf486",
@@ -4754,11 +3865,8 @@
       }
     ]
   },
-  "pinterest": {
-    "tags": [
-      "pinterest",
-      "logo"
-    ],
+  "logo-pinterest": {
+    "tags": ["pinterest", "logo"],
     "icons": [
       {
         "code": "0xf244",
@@ -4767,12 +3875,7 @@
     ]
   },
   "pizza": {
-    "tags": [
-      "drink",
-      "eat",
-      "food",
-      "pizza"
-    ],
+    "tags": ["drink", "eat", "food", "pizza"],
     "icons": [
       {
         "code": "0xf1e7",
@@ -4789,11 +3892,7 @@
     ]
   },
   "plane": {
-    "tags": [
-      "fly",
-      "jet",
-      "plane"
-    ],
+    "tags": ["fly", "jet", "plane"],
     "icons": [
       {
         "code": "0xf1e9",
@@ -4810,14 +3909,7 @@
     ]
   },
   "planet": {
-    "tags": [
-      "globe",
-      "home",
-      "nature",
-      "planet",
-      "planet",
-      "space"
-    ],
+    "tags": ["globe", "home", "nature", "planet", "planet", "space"],
     "icons": [
       {
         "code": "0xf1eb",
@@ -4834,13 +3926,7 @@
     ]
   },
   "play": {
-    "tags": [
-      "arrow",
-      "music",
-      "play",
-      "right",
-      "watch"
-    ],
+    "tags": ["arrow", "music", "play", "right", "watch"],
     "icons": [
       {
         "code": "0xf488",
@@ -4856,13 +3942,8 @@
       }
     ]
   },
-  "playstation": {
-    "tags": [
-      "fun",
-      "games",
-      "playstation",
-      "logo"
-    ],
+  "logo-playstation": {
+    "tags": ["fun", "games", "playstation", "logo"],
     "icons": [
       {
         "code": "0xf245",
@@ -4871,14 +3952,7 @@
     ]
   },
   "podium": {
-    "tags": [
-      "award",
-      "compete",
-      "competition",
-      "lose",
-      "podium",
-      "win"
-    ],
+    "tags": ["award", "compete", "competition", "lose", "podium", "win"],
     "icons": [
       {
         "code": "0xf1ed",
@@ -4895,11 +3969,7 @@
     ]
   },
   "power": {
-    "tags": [
-      "off",
-      "on",
-      "power"
-    ],
+    "tags": ["off", "on", "power"],
     "icons": [
       {
         "code": "0xf1ef",
@@ -4916,14 +3986,7 @@
     ]
   },
   "pricetag": {
-    "tags": [
-      "$",
-      "commerce",
-      "items",
-      "money",
-      "pricetag",
-      "shopping"
-    ],
+    "tags": ["$", "commerce", "items", "money", "pricetag", "shopping"],
     "icons": [
       {
         "code": "0xf48d",
@@ -4940,14 +4003,7 @@
     ]
   },
   "pricetags": {
-    "tags": [
-      "$",
-      "commerce",
-      "items",
-      "money",
-      "pricetags",
-      "shopping"
-    ],
+    "tags": ["$", "commerce", "items", "money", "pricetags", "shopping"],
     "icons": [
       {
         "code": "0xf48f",
@@ -4964,9 +4020,7 @@
     ]
   },
   "print": {
-    "tags": [
-      "print"
-    ],
+    "tags": ["print"],
     "icons": [
       {
         "code": "0xf1f1",
@@ -4983,12 +4037,7 @@
     ]
   },
   "pulse": {
-    "tags": [
-      "hot",
-      "live",
-      "pulse",
-      "rate"
-    ],
+    "tags": ["hot", "live", "pulse", "rate"],
     "icons": [
       {
         "code": "0xf493",
@@ -5004,11 +4053,8 @@
       }
     ]
   },
-  "python": {
-    "tags": [
-      "python",
-      "logo"
-    ],
+  "logo-python": {
+    "tags": ["python", "logo"],
     "icons": [
       {
         "code": "0xf246",
@@ -5017,11 +4063,7 @@
     ]
   },
   "qr-scanner": {
-    "tags": [
-      "qr",
-      "reader",
-      "scanner"
-    ],
+    "tags": ["qr", "reader", "scanner"],
     "icons": [
       {
         "code": "0xf1f3",
@@ -5038,11 +4080,7 @@
     ]
   },
   "quote": {
-    "tags": [
-      "chat",
-      "quotation",
-      "quote"
-    ],
+    "tags": ["chat", "quotation", "quote"],
     "icons": [
       {
         "code": "0xf1f5",
@@ -5059,9 +4097,7 @@
     ]
   },
   "radio": {
-    "tags": [
-      "radio"
-    ],
+    "tags": ["radio"],
     "icons": [
       {
         "code": "0xf1f9",
@@ -5078,11 +4114,7 @@
     ]
   },
   "radio-button-off": {
-    "tags": [
-      "button",
-      "off",
-      "radio"
-    ],
+    "tags": ["button", "off", "radio"],
     "icons": [
       {
         "code": "0xf1f6",
@@ -5099,11 +4131,7 @@
     ]
   },
   "radio-button-on": {
-    "tags": [
-      "button",
-      "on",
-      "radio"
-    ],
+    "tags": ["button", "on", "radio"],
     "icons": [
       {
         "code": "0xf1f7",
@@ -5120,13 +4148,7 @@
     ]
   },
   "rainy": {
-    "tags": [
-      "cloud",
-      "rainy",
-      "water",
-      "weather",
-      "whether"
-    ],
+    "tags": ["cloud", "rainy", "water", "weather", "whether"],
     "icons": [
       {
         "code": "0xf495",
@@ -5143,12 +4165,7 @@
     ]
   },
   "recording": {
-    "tags": [
-      "film",
-      "recording",
-      "tape",
-      "voicemail"
-    ],
+    "tags": ["film", "recording", "tape", "voicemail"],
     "icons": [
       {
         "code": "0xf497",
@@ -5164,14 +4181,8 @@
       }
     ]
   },
-  "reddit": {
-    "tags": [
-      "karma",
-      "news",
-      "reddit",
-      "logo",
-      "upvotes"
-    ],
+  "logo-reddit": {
+    "tags": ["karma", "news", "reddit", "logo", "upvotes"],
     "icons": [
       {
         "code": "0xf247",
@@ -5180,10 +4191,7 @@
     ]
   },
   "redo": {
-    "tags": [
-      "forward",
-      "redo"
-    ],
+    "tags": ["forward", "redo"],
     "icons": [
       {
         "code": "0xf499",
@@ -5200,12 +4208,7 @@
     ]
   },
   "refresh": {
-    "tags": [
-      "refresh",
-      "reload",
-      "renew",
-      "reset"
-    ],
+    "tags": ["refresh", "reload", "renew", "reset"],
     "icons": [
       {
         "code": "0xf49c",
@@ -5222,10 +4225,7 @@
     ]
   },
   "refresh-circle": {
-    "tags": [
-      "circle",
-      "refresh"
-    ],
+    "tags": ["circle", "refresh"],
     "icons": [
       {
         "code": "0xf226",
@@ -5242,11 +4242,7 @@
     ]
   },
   "remove": {
-    "tags": [
-      "minus",
-      "remove",
-      "subtract"
-    ],
+    "tags": ["minus", "remove", "subtract"],
     "icons": [
       {
         "code": "0xf1fc",
@@ -5263,10 +4259,7 @@
     ]
   },
   "remove-circle": {
-    "tags": [
-      "circle",
-      "remove"
-    ],
+    "tags": ["circle", "remove"],
     "icons": [
       {
         "code": "0xf1fb",
@@ -5283,9 +4276,7 @@
     ]
   },
   "reorder": {
-    "tags": [
-      "reorder"
-    ],
+    "tags": ["reorder"],
     "icons": [
       {
         "code": "0xf1fd",
@@ -5302,9 +4293,7 @@
     ]
   },
   "repeat": {
-    "tags": [
-      "repeat"
-    ],
+    "tags": ["repeat"],
     "icons": [
       {
         "code": "0xf1fe",
@@ -5321,9 +4310,7 @@
     ]
   },
   "resize": {
-    "tags": [
-      "resize"
-    ],
+    "tags": ["resize"],
     "icons": [
       {
         "code": "0xf1ff",
@@ -5340,9 +4327,7 @@
     ]
   },
   "restaurant": {
-    "tags": [
-      "restaurant"
-    ],
+    "tags": ["restaurant"],
     "icons": [
       {
         "code": "0xf201",
@@ -5359,10 +4344,7 @@
     ]
   },
   "return-left": {
-    "tags": [
-      "left",
-      "return"
-    ],
+    "tags": ["left", "return"],
     "icons": [
       {
         "code": "0xf202",
@@ -5379,10 +4361,7 @@
     ]
   },
   "return-right": {
-    "tags": [
-      "return",
-      "right"
-    ],
+    "tags": ["return", "right"],
     "icons": [
       {
         "code": "0xf203",
@@ -5399,11 +4378,7 @@
     ]
   },
   "reverse-camera": {
-    "tags": [
-      "camera",
-      "picture",
-      "reverse"
-    ],
+    "tags": ["camera", "picture", "reverse"],
     "icons": [
       {
         "code": "0xf49f",
@@ -5420,12 +4395,7 @@
     ]
   },
   "rewind": {
-    "tags": [
-      "back",
-      "music",
-      "previous",
-      "rewind"
-    ],
+    "tags": ["back", "music", "previous", "rewind"],
     "icons": [
       {
         "code": "0xf4a1",
@@ -5442,9 +4412,7 @@
     ]
   },
   "ribbon": {
-    "tags": [
-      "ribbon"
-    ],
+    "tags": ["ribbon"],
     "icons": [
       {
         "code": "0xf205",
@@ -5461,9 +4429,7 @@
     ]
   },
   "rose": {
-    "tags": [
-      "rose"
-    ],
+    "tags": ["rose"],
     "icons": [
       {
         "code": "0xf4a3",
@@ -5479,12 +4445,8 @@
       }
     ]
   },
-  "rss": {
-    "tags": [
-      "blogging",
-      "rss",
-      "logo"
-    ],
+  "logo-rss": {
+    "tags": ["blogging", "rss", "logo"],
     "icons": [
       {
         "code": "0xf248",
@@ -5493,12 +4455,7 @@
     ]
   },
   "sad": {
-    "tags": [
-      "bad",
-      "cry",
-      "no",
-      "sad"
-    ],
+    "tags": ["bad", "cry", "no", "sad"],
     "icons": [
       {
         "code": "0xf207",
@@ -5514,11 +4471,8 @@
       }
     ]
   },
-  "sass": {
-    "tags": [
-      "sass",
-      "logo"
-    ],
+  "logo-sass": {
+    "tags": ["sass", "logo"],
     "icons": [
       {
         "code": "0xf249",
@@ -5527,9 +4481,7 @@
     ]
   },
   "school": {
-    "tags": [
-      "school"
-    ],
+    "tags": ["school"],
     "icons": [
       {
         "code": "0xf209",
@@ -5546,10 +4498,7 @@
     ]
   },
   "search": {
-    "tags": [
-      "magnifyingglass",
-      "search"
-    ],
+    "tags": ["magnifyingglass", "search"],
     "icons": [
       {
         "code": "0xf4a5",
@@ -5566,12 +4515,7 @@
     ]
   },
   "send": {
-    "tags": [
-      "email",
-      "paper",
-      "send",
-      "push"
-    ],
+    "tags": ["email", "paper", "send", "push"],
     "icons": [
       {
         "code": "0xf20c",
@@ -5588,10 +4532,7 @@
     ]
   },
   "settings": {
-    "tags": [
-      "options",
-      "settings"
-    ],
+    "tags": ["options", "settings"],
     "icons": [
       {
         "code": "0xf4a7",
@@ -5608,9 +4549,7 @@
     ]
   },
   "share": {
-    "tags": [
-      "share"
-    ],
+    "tags": ["share"],
     "icons": [
       {
         "code": "0xf211",
@@ -5627,10 +4566,7 @@
     ]
   },
   "share-alt": {
-    "tags": [
-      "alt",
-      "share"
-    ],
+    "tags": ["alt", "share"],
     "icons": [
       {
         "code": "0xf20f",
@@ -5647,9 +4583,7 @@
     ]
   },
   "shirt": {
-    "tags": [
-      "shirt"
-    ],
+    "tags": ["shirt"],
     "icons": [
       {
         "code": "0xf213",
@@ -5666,10 +4600,7 @@
     ]
   },
   "shuffle": {
-    "tags": [
-      "random",
-      "shuffle"
-    ],
+    "tags": ["random", "shuffle"],
     "icons": [
       {
         "code": "0xf4a9",
@@ -5686,12 +4617,7 @@
     ]
   },
   "skip-backward": {
-    "tags": [
-      "backward",
-      "music",
-      "previous",
-      "skip"
-    ],
+    "tags": ["backward", "music", "previous", "skip"],
     "icons": [
       {
         "code": "0xf215",
@@ -5708,12 +4634,7 @@
     ]
   },
   "skip-forward": {
-    "tags": [
-      "forward",
-      "music",
-      "next",
-      "skip"
-    ],
+    "tags": ["forward", "music", "next", "skip"],
     "icons": [
       {
         "code": "0xf217",
@@ -5729,12 +4650,8 @@
       }
     ]
   },
-  "skype": {
-    "tags": [
-      "call",
-      "skype",
-      "logo"
-    ],
+  "logo-skype": {
+    "tags": ["call", "skype", "logo"],
     "icons": [
       {
         "code": "0xf24a",
@@ -5742,11 +4659,8 @@
       }
     ]
   },
-  "snapchat": {
-    "tags": [
-      "snapchat",
-      "logo"
-    ],
+  "logo-snapchat": {
+    "tags": ["snapchat", "logo"],
     "icons": [
       {
         "code": "0xf24b",
@@ -5755,9 +4669,7 @@
     ]
   },
   "snow": {
-    "tags": [
-      "snow"
-    ],
+    "tags": ["snow"],
     "icons": [
       {
         "code": "0xf218",
@@ -5774,12 +4686,7 @@
     ]
   },
   "speedometer": {
-    "tags": [
-      "drive",
-      "level",
-      "speed",
-      "speedometer"
-    ],
+    "tags": ["drive", "level", "speed", "speedometer"],
     "icons": [
       {
         "code": "0xf4b0",
@@ -5796,9 +4703,7 @@
     ]
   },
   "square": {
-    "tags": [
-      "square"
-    ],
+    "tags": ["square"],
     "icons": [
       {
         "code": "0xf21a",
@@ -5815,10 +4720,7 @@
     ]
   },
   "square-outline": {
-    "tags": [
-      "square",
-      "outline"
-    ],
+    "tags": ["square", "outline"],
     "icons": [
       {
         "code": "0xf219",
@@ -5835,10 +4737,7 @@
     ]
   },
   "star": {
-    "tags": [
-      "favorite",
-      "star"
-    ],
+    "tags": ["favorite", "star"],
     "icons": [
       {
         "code": "0xf4b3",
@@ -5855,12 +4754,7 @@
     ]
   },
   "star-half": {
-    "tags": [
-      "favorite",
-      "half",
-      "rate",
-      "star"
-    ],
+    "tags": ["favorite", "half", "rate", "star"],
     "icons": [
       {
         "code": "0xf4b1",
@@ -5877,10 +4771,7 @@
     ]
   },
   "star-outline": {
-    "tags": [
-      "star",
-      "outline"
-    ],
+    "tags": ["star", "outline"],
     "icons": [
       {
         "code": "0xf4b2",
@@ -5897,9 +4788,7 @@
     ]
   },
   "stats": {
-    "tags": [
-      "stats"
-    ],
+    "tags": ["stats"],
     "icons": [
       {
         "code": "0xf21c",
@@ -5915,13 +4804,8 @@
       }
     ]
   },
-  "steam": {
-    "tags": [
-      "fun",
-      "games",
-      "logo",
-      "steam"
-    ],
+  "logo-steam": {
+    "tags": ["fun", "games", "logo", "steam"],
     "icons": [
       {
         "code": "0xf24c",
@@ -5930,9 +4814,7 @@
     ]
   },
   "stopwatch": {
-    "tags": [
-      "stopwatch"
-    ],
+    "tags": ["stopwatch"],
     "icons": [
       {
         "code": "0xf4b5",
@@ -5949,9 +4831,7 @@
     ]
   },
   "subway": {
-    "tags": [
-      "subway"
-    ],
+    "tags": ["subway"],
     "icons": [
       {
         "code": "0xf21e",
@@ -5968,13 +4848,7 @@
     ]
   },
   "sunny": {
-    "tags": [
-      "light",
-      "sky",
-      "sunny",
-      "weather",
-      "whether"
-    ],
+    "tags": ["light", "sky", "sunny", "weather", "whether"],
     "icons": [
       {
         "code": "0xf4b7",
@@ -5991,9 +4865,7 @@
     ]
   },
   "swap": {
-    "tags": [
-      "swap"
-    ],
+    "tags": ["swap"],
     "icons": [
       {
         "code": "0xf21f",
@@ -6010,9 +4882,7 @@
     ]
   },
   "switch": {
-    "tags": [
-      "switch"
-    ],
+    "tags": ["switch"],
     "icons": [
       {
         "code": "0xf221",
@@ -6029,9 +4899,7 @@
     ]
   },
   "sync": {
-    "tags": [
-      "sync"
-    ],
+    "tags": ["sync"],
     "icons": [
       {
         "code": "0xf222",
@@ -6048,10 +4916,7 @@
     ]
   },
   "tablet-landscape": {
-    "tags": [
-      "landscape",
-      "tablet"
-    ],
+    "tags": ["landscape", "tablet"],
     "icons": [
       {
         "code": "0xf223",
@@ -6068,10 +4933,7 @@
     ]
   },
   "tablet-portrait": {
-    "tags": [
-      "portrait",
-      "tablet"
-    ],
+    "tags": ["portrait", "tablet"],
     "icons": [
       {
         "code": "0xf24e",
@@ -6088,9 +4950,7 @@
     ]
   },
   "tennisball": {
-    "tags": [
-      "tennisball"
-    ],
+    "tags": ["tennisball"],
     "icons": [
       {
         "code": "0xf4bb",
@@ -6107,9 +4967,7 @@
     ]
   },
   "text": {
-    "tags": [
-      "text"
-    ],
+    "tags": ["text"],
     "icons": [
       {
         "code": "0xf250",
@@ -6126,14 +4984,7 @@
     ]
   },
   "thermometer": {
-    "tags": [
-      "cold",
-      "heat",
-      "hot",
-      "mercury",
-      "temperature",
-      "thermometer"
-    ],
+    "tags": ["cold", "heat", "hot", "mercury", "temperature", "thermometer"],
     "icons": [
       {
         "code": "0xf252",
@@ -6150,10 +5001,7 @@
     ]
   },
   "thumbs-down": {
-    "tags": [
-      "down",
-      "thumbs"
-    ],
+    "tags": ["down", "thumbs"],
     "icons": [
       {
         "code": "0xf254",
@@ -6170,10 +5018,7 @@
     ]
   },
   "thumbs-up": {
-    "tags": [
-      "thumbs",
-      "up"
-    ],
+    "tags": ["thumbs", "up"],
     "icons": [
       {
         "code": "0xf256",
@@ -6217,14 +5062,7 @@
     ]
   },
   "time": {
-    "tags": [
-      "clock",
-      "hour",
-      "minute",
-      "second",
-      "time",
-      "watch"
-    ],
+    "tags": ["clock", "hour", "minute", "second", "time", "watch"],
     "icons": [
       {
         "code": "0xf4bf",
@@ -6241,10 +5079,7 @@
     ]
   },
   "timer": {
-    "tags": [
-      "clock",
-      "timer"
-    ],
+    "tags": ["clock", "timer"],
     "icons": [
       {
         "code": "0xf4c1",
@@ -6261,9 +5096,7 @@
     ]
   },
   "train": {
-    "tags": [
-      "train"
-    ],
+    "tags": ["train"],
     "icons": [
       {
         "code": "0xf258",
@@ -6280,9 +5113,7 @@
     ]
   },
   "transgender": {
-    "tags": [
-      "transgender"
-    ],
+    "tags": ["transgender"],
     "icons": [
       {
         "code": "0xf259",
@@ -6299,12 +5130,7 @@
     ]
   },
   "trash": {
-    "tags": [
-      "close",
-      "delete",
-      "remove",
-      "trash"
-    ],
+    "tags": ["close", "delete", "remove", "trash"],
     "icons": [
       {
         "code": "0xf4c5",
@@ -6321,10 +5147,7 @@
     ]
   },
   "trending-down": {
-    "tags": [
-      "down",
-      "trending"
-    ],
+    "tags": ["down", "trending"],
     "icons": [
       {
         "code": "0xf25a",
@@ -6341,10 +5164,7 @@
     ]
   },
   "trending-up": {
-    "tags": [
-      "trending",
-      "up"
-    ],
+    "tags": ["trending", "up"],
     "icons": [
       {
         "code": "0xf25b",
@@ -6361,14 +5181,7 @@
     ]
   },
   "trophy": {
-    "tags": [
-      "award",
-      "compete",
-      "competition",
-      "lose",
-      "trophy",
-      "win"
-    ],
+    "tags": ["award", "compete", "competition", "lose", "trophy", "win"],
     "icons": [
       {
         "code": "0xf25d",
@@ -6384,12 +5197,8 @@
       }
     ]
   },
-  "tumblr": {
-    "tags": [
-      "blogging",
-      "logo",
-      "tumblr"
-    ],
+  "logo-tumblr": {
+    "tags": ["blogging", "logo", "tumblr"],
     "icons": [
       {
         "code": "0xf24d",
@@ -6398,12 +5207,7 @@
     ]
   },
   "tux": {
-    "tags": [
-      "linux",
-      "opensource",
-      "logo",
-      "tux"
-    ],
+    "tags": ["linux", "opensource", "logo", "tux"],
     "icons": [
       {
         "code": "0xf2ae",
@@ -6411,11 +5215,8 @@
       }
     ]
   },
-  "twitch": {
-    "tags": [
-      "logo",
-      "twitch"
-    ],
+  "logo-twitch": {
+    "tags": ["logo", "twitch"],
     "icons": [
       {
         "code": "0xf2af",
@@ -6423,14 +5224,8 @@
       }
     ]
   },
-  "twitter": {
-    "tags": [
-      "follow",
-      "post",
-      "share",
-      "logo",
-      "twitter"
-    ],
+  "logo-twitter": {
+    "tags": ["follow", "post", "share", "logo", "twitter"],
     "icons": [
       {
         "code": "0xf2b0",
@@ -6439,13 +5234,7 @@
     ]
   },
   "umbrella": {
-    "tags": [
-      "dry",
-      "rain",
-      "shelter",
-      "umbrella",
-      "wet"
-    ],
+    "tags": ["dry", "rain", "shelter", "umbrella", "wet"],
     "icons": [
       {
         "code": "0xf25f",
@@ -6462,10 +5251,7 @@
     ]
   },
   "undo": {
-    "tags": [
-      "reply",
-      "undo"
-    ],
+    "tags": ["reply", "undo"],
     "icons": [
       {
         "code": "0xf4c7",
@@ -6482,9 +5268,7 @@
     ]
   },
   "unlock": {
-    "tags": [
-      "unlock"
-    ],
+    "tags": ["unlock"],
     "icons": [
       {
         "code": "0xf261",
@@ -6500,15 +5284,8 @@
       }
     ]
   },
-  "usd": {
-    "tags": [
-      "cash",
-      "currency",
-      "money",
-      "logo",
-      "trade",
-      "usd"
-    ],
+  "logo-usd": {
+    "tags": ["cash", "currency", "money", "logo", "trade", "usd"],
     "icons": [
       {
         "code": "0xf2b1",
@@ -6517,12 +5294,7 @@
     ]
   },
   "videocam": {
-    "tags": [
-      "camera",
-      "film",
-      "movie",
-      "videocam"
-    ],
+    "tags": ["camera", "film", "movie", "videocam"],
     "icons": [
       {
         "code": "0xf4cd",
@@ -6538,15 +5310,8 @@
       }
     ]
   },
-  "vimeo": {
-    "tags": [
-      "share",
-      "logo",
-      "video",
-      "view",
-      "vimeo",
-      "watch"
-    ],
+  "logo-vimeo": {
+    "tags": ["share", "logo", "video", "view", "vimeo", "watch"],
     "icons": [
       {
         "code": "0xf2c4",
@@ -6555,10 +5320,7 @@
     ]
   },
   "volume-down": {
-    "tags": [
-      "down",
-      "volume"
-    ],
+    "tags": ["down", "volume"],
     "icons": [
       {
         "code": "0xf262",
@@ -6575,11 +5337,7 @@
     ]
   },
   "volume-mute": {
-    "tags": [
-      "mute",
-      "sound",
-      "volume"
-    ],
+    "tags": ["mute", "sound", "volume"],
     "icons": [
       {
         "code": "0xf263",
@@ -6596,10 +5354,7 @@
     ]
   },
   "volume-off": {
-    "tags": [
-      "off",
-      "volume"
-    ],
+    "tags": ["off", "volume"],
     "icons": [
       {
         "code": "0xf264",
@@ -6616,10 +5371,7 @@
     ]
   },
   "volume-up": {
-    "tags": [
-      "up",
-      "volume"
-    ],
+    "tags": ["up", "volume"],
     "icons": [
       {
         "code": "0xf265",
@@ -6636,9 +5388,7 @@
     ]
   },
   "walk": {
-    "tags": [
-      "walk"
-    ],
+    "tags": ["walk"],
     "icons": [
       {
         "code": "0xf266",
@@ -6655,9 +5405,7 @@
     ]
   },
   "warning": {
-    "tags": [
-      "warning"
-    ],
+    "tags": ["warning"],
     "icons": [
       {
         "code": "0xf268",
@@ -6674,9 +5422,7 @@
     ]
   },
   "watch": {
-    "tags": [
-      "watch"
-    ],
+    "tags": ["watch"],
     "icons": [
       {
         "code": "0xf269",
@@ -6693,9 +5439,7 @@
     ]
   },
   "water": {
-    "tags": [
-      "water"
-    ],
+    "tags": ["water"],
     "icons": [
       {
         "code": "0xf26b",
@@ -6711,11 +5455,8 @@
       }
     ]
   },
-  "whatsapp": {
-    "tags": [
-      "logo",
-      "whatsapp"
-    ],
+  "logo-whatsapp": {
+    "tags": ["logo", "whatsapp"],
     "icons": [
       {
         "code": "0xf2c5",
@@ -6724,12 +5465,7 @@
     ]
   },
   "wifi": {
-    "tags": [
-      "bars",
-      "connection",
-      "internet",
-      "wifi"
-    ],
+    "tags": ["bars", "connection", "internet", "wifi"],
     "icons": [
       {
         "code": "0xf26d",
@@ -6745,12 +5481,8 @@
       }
     ]
   },
-  "windows": {
-    "tags": [
-      "pc",
-      "logo",
-      "windows"
-    ],
+  "logo-windows": {
+    "tags": ["pc", "logo", "windows"],
     "icons": [
       {
         "code": "0xf32f",
@@ -6759,9 +5491,7 @@
     ]
   },
   "wine": {
-    "tags": [
-      "wine"
-    ],
+    "tags": ["wine"],
     "icons": [
       {
         "code": "0xf26f",
@@ -6778,13 +5508,7 @@
     ]
   },
   "woman": {
-    "tags": [
-      "dudette",
-      "female",
-      "girl",
-      "lady",
-      "woman"
-    ],
+    "tags": ["dudette", "female", "girl", "lady", "woman"],
     "icons": [
       {
         "code": "0xf271",
@@ -6800,12 +5524,8 @@
       }
     ]
   },
-  "wordpress": {
-    "tags": [
-      "blogging",
-      "logo",
-      "wordpress"
-    ],
+  "logo-wordpress": {
+    "tags": ["blogging", "logo", "wordpress"],
     "icons": [
       {
         "code": "0xf330",
@@ -6813,13 +5533,8 @@
       }
     ]
   },
-  "xbox": {
-    "tags": [
-      "fun",
-      "games",
-      "logo",
-      "xbox"
-    ],
+  "logo-xbox": {
+    "tags": ["fun", "games", "logo", "xbox"],
     "icons": [
       {
         "code": "0xf34c",
@@ -6827,11 +5542,8 @@
       }
     ]
   },
-  "yahoo": {
-    "tags": [
-      "logo",
-      "yahoo"
-    ],
+  "logo-yahoo": {
+    "tags": ["logo", "yahoo"],
     "icons": [
       {
         "code": "0xf34d",
@@ -6839,11 +5551,8 @@
       }
     ]
   },
-  "yen": {
-    "tags": [
-      "logo",
-      "yen"
-    ],
+  "logo-yen": {
+    "tags": ["logo", "yen"],
     "icons": [
       {
         "code": "0xf34e",
@@ -6851,15 +5560,8 @@
       }
     ]
   },
-  "youtube": {
-    "tags": [
-      "share",
-      "logo",
-      "video",
-      "view",
-      "watch",
-      "youtube"
-    ],
+  "logo-youtube": {
+    "tags": ["share", "logo", "video", "view", "watch", "youtube"],
     "icons": [
       {
         "code": "0xf34f",

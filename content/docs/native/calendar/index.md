@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Calendar</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L50">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L56">
   Improve this doc
 </a>
 
@@ -82,7 +82,7 @@ this.calendar.createCalendar(&#39;MyCalendar&#39;).then(
 This function checks if we have permission to read/write from/to the calendar.
 The promise will resolve with `true` when:
 - You're running on iOS, or
-- You're targetting API level lower than 23, or
+- You're targeting API level lower than 23, or
 - You're using Android < 6, or
 - You've already granted permission
 
@@ -155,7 +155,7 @@ Create a calendar. (iOS only)
     <td>
       nameOrOptions</td>
     <td>
-      <code>string</code>|<code>Object</code>
+      <code>string</code>|<code>NameOrOptions</code>
     </td>
     <td>
       <p>either a string name or a options object. If string, provide the calendar name. IF an object, provide a calendar name as a string and a calendar color in hex format as a string</p>
@@ -208,6 +208,18 @@ Returns the default calendar options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>CalendarOptions</code> Returns an object with the default calendar options
+</div><h3><a class="anchor" name="getCreateCalendarOptions" href="#getCreateCalendarOptions"></a><code>getCreateCalendarOptions()</code></h3>
+
+
+
+
+Returns options for a custom calender with specific color
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>NameOrOptions</code> Returns an object with the default options
 </div><h3><a class="anchor" name="createEvent" href="#createEvent"></a><code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code></h3>
 
 
@@ -1375,6 +1387,50 @@ Open the calendar at the specified date.
     </td>
     <td>
       <p>URL</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+<h2><a class="anchor" name="NameOrOptions" href="#NameOrOptions"></a>NameOrOptions</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      calendarName
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Calendar name</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      calendarColor
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Calendar color as a HEX string</p>
 
       <em>(optional)</em>
     </td>

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Network</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L22">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/network
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Tizen</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Amazon Fire OS</li><li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -62,7 +62,7 @@ constructor(private network: Network) { }
 
 ...
 
-// watch network for a disconnect
+// watch network for a disconnection
 let disconnectSubscription = this.network.onDisconnect().subscribe(() =&gt; {
   console.log(&#39;network was disconnected :-(&#39;);
 });
@@ -96,6 +96,12 @@ connectSubscription.unsubscribe();
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="Connection" href="#Connection"></a><code>Connection</code></h3>
+
+Constants for possible connection types
+
+
+
 <h3><a class="anchor" name="type" href="#type"></a><code>type</code></h3>
 
 

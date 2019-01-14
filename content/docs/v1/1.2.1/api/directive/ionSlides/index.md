@@ -45,7 +45,7 @@ The Slides component is a powerful multi-page container where each page can be s
 Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://www.idangero.us/swiper/#.Vmc1J-ODFBc) widget from
 [idangerous](http://www.idangero.us/).
 
-![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
+![SlideBox](https://s3.amazonaws.com/ionicframework.com/docs/controllers/slideBox.gif)
 
 
 

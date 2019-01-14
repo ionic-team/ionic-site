@@ -1,0 +1,38 @@
+[
+  {
+    "pages": [ "index.html" ],
+    "changefreq": "weekly",
+    "priority": 1
+  },
+  {
+    "pages": [ "pro/*.html" ],
+    "changefreq": "monthly",
+    "priority": 0.9
+  },
+  {
+    "pages": [ "pro/pricing/index.html" ],
+    "changefreq": "monthly",
+    "priority": 0.9
+  },
+  {
+    "pages": [ "enterprise/*" ],
+    "changefreq": "monthly",
+    "priority": 0.8
+  },
+  {
+    "pages": [ "*.html" ],
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "pages": [ "docs/{api,native,cli,pro,developer-resources}/**/*" ],
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "pages": [ "docs/{v1,3.*,2.*}/**/*" ],
+    "changefreq": "yearly",
+    "priority": 0.4
+  }
+
+]

@@ -158,7 +158,7 @@ import { VirtualFooter, VirtualHeader, VirtualItem } from './virtual-item';
  * #### iOS Cordova WKWebView
  *
  * When deploying to iOS with Cordova, it's highly recommended to use the
- * [WKWebView plugin](http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/)
+ * [WKWebView plugin](https://blog.ionicframework.com/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/)
  * in order to take advantage of iOS's higher performimg webview. Additionally,
  * WKWebView is superior at scrolling efficiently in comparision to the older
  * UIWebView.

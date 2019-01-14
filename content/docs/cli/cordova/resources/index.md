@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-resources
-command_name: cordova resources
-title: Ionic CLI Documentation - cordova resources
+page_name: ionic cordova resources
+command_name: ionic cordova resources
+title: ionic cordova resources - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova resources`
 
@@ -22,7 +31,7 @@ Ionic can automatically generate perfectly sized icons and splash screens from s
 
 The source image for icons should ideally be at least **1024×1024px** and located at **resources/icon.png**. The source image for splash screens should ideally be at least **2732×2732px** and located at **resources/splash.png**. If you used `ionic start`, there should already be default Ionic resources in the **resources/** directory, which you can overwrite.
 
-You can also generate platform-specific icons and splash screens by placing them in the respective **resources/<platform>/** directory. For example, to generate an icon for Android, place your image at **resources/android/icon.png**.
+You can also generate platform-specific icons and splash screens by placing them in the respective **resources/&lt;platform&gt;/** directory. For example, to generate an icon for Android, place your image at **resources/android/icon.png**.
 
 By default, this command will not regenerate resources whose source image has not changed. To disable this functionality and always overwrite generated images, use `--force`.
 
@@ -39,12 +48,12 @@ This command uses Ionic servers, so we require you to be logged into your free I
 
 Input | Description
 ----- | ----------
-`platform` | The platform for which you would like to generate resources (e.g. `ios`, `android`)
+`platform` | The platform for which you would like to generate resources (`android`, `ios`)
 
 
 Option | Description
 ------ | ----------
-`--force`, `-f` | Force regeneration of all resources
+`--force`, `-f` | Force regeneration of resources
 `--icon`, `-i` | Generate icon resources
 `--splash`, `-s` | Generate splash screen resources
 

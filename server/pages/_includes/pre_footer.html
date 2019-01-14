@@ -2,7 +2,8 @@
   <ul class="container">
     {% if id == "home" %}
       <li class="getting-started">
-        <a href="/getting-started">Getting started</a>
+        <a href="/getting-started" id="btn-prefooter-getting-started">Getting
+          started</a>
         <p>
           Learn more about how to install Ionic Framework. We'll cover the basics
           and get you started from the ground up.
@@ -10,7 +11,8 @@
       </li>
     {% else %}
       <li class="forum">
-        <a href="https://forum.ionicframework.com">Community Forum</a>
+        <a href="https://forum.ionicframework.com" id="btn-prefooter-forum">
+          Community Forum</a>
         <p>
           Stop by and say hello. The Forum is the best place to connect, ask a
           question, or help out other Ionic developers!
@@ -19,7 +21,8 @@
     {% endif %}
     {% if id == "docs-home" %}
       <li class="blog">
-        <a href="https://blog.ionic.io">Check out our blog</a>
+        <a href="https://blog.ionicframework.com" id="btn-prefooter-blog">Check
+          out our blog</a>
         <p>
           Stay up to date on what's new. We post regular updates on Ionic,
           tutorials, Creator, and our Cloud Services.
@@ -27,7 +30,7 @@
       </li>
     {% else %}
       <li class="explor-docs">
-        <a href="/docs//">Explore the docs</a>
+        <a href="/docs/" id="btn-prefooter-docs">Explore the docs</a>
         <p>
           Take a look and get coding! Our documentation covers all you need to
           know to get an app up and running in minutes.

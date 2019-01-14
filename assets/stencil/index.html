@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet"/>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Avenir Next","Helvetica Neue",Helvetica,sans-serif;
+      background: #b8ceff;
+      padding: 0;
+    }
+
+    ionic-newsletter-signup {
+      margin: 64px auto;
+      display: block;
+    }
+
+    .content {
+      padding: 24px;
+    }
+  </style>
+  <script src="/build/ionic-site-components.js"></script>
+
+</head>
+<body>
+  <!--<ionic-snap-bar>
+    <strong>Ionic Pro.</strong>
+    <span>The powerful mobile development toolkit.</span>
+    <a href="">Explore ionic pro</a>
+  </ionic-snap-bar>-->
+
+  <div class="content">
+    <ionic-search>
+      <ul>
+        <li><a href="">Default</a></li>
+        <li><a href="">Content</a></li>
+      </ul>
+    </ionic-search>
+    <ionic-button>Blue button</ionic-button>
+    <ionic-button color="white">White button</ionic-button>
+    <br/>
+    <ionic-newsletter-signup/>
+    <br/>
+    <ionic-newsletter-signup
+      dark-mode="true"
+      placeholder="Get the latest ionic framework news and updates"
+      button-text="Email me!"/>
+  </div>
+
+
+</body>
+</html>

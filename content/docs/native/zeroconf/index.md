@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -324,7 +324,28 @@ Closes the service browser and stops watching.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div>
+</div><h3><a class="anchor" name="reInit" href="#reInit"></a><code>reInit()</code></h3>
+
+
+Re-initializes the plugin to clean service & browser state.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="registerAddressFamily" href="#registerAddressFamily"></a><code>registerAddressFamily</code></h3>
+
+Family of addresses to register: ipv4, ipv6 or any.
+
+
+
+<h3><a class="anchor" name="watchAddressFamily" href="#watchAddressFamily"></a><code>watchAddressFamily</code></h3>
+
+Family of addresses to watch for: ipv4, ipv6 or any.
+
+
+
+
 
 
 

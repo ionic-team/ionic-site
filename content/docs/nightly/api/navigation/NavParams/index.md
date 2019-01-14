@@ -53,11 +53,15 @@ option with a simple <code>get</code> method.</p>
 
 <h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
-<pre><code class="lang-ts">export class MyClass{
- constructor(public navParams: NavParams){
+<pre><code class="lang-ts">import { NavParams } from &#39;ionic-angular&#39;;
+
+export class MyClass{
+
+ constructor(navParams: NavParams){
    // userParams is an object we have in our nav-parameters
-   this.navParams.get(&#39;userParams&#39;);
+   navParams.get(&#39;userParams&#39;);
  }
+
 }
 </code></pre>
 
@@ -105,6 +109,8 @@ option with a simple <code>get</code> method.</p>
 Get the value of a nav-parameter for the current view
 
 ```ts
+import { NavParams } from 'ionic-angular';
+
 export class MyClass{
  constructor(public navParams: NavParams){
    // userParams is an object we have in our nav-parameters

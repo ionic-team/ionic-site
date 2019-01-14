@@ -1,0 +1,200 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
+#page-about {
+  .navbar.transparent {
+    + .banner {
+      background: #181830 no-repeat center top url('/img/about-us/about-us-cta-bg.jpg');
+      background-size: cover;
+      padding-top: 95px;
+
+      p {
+        max-width: 655px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .about-us {
+
+    .content p {
+      margin: 30px 0;
+
+      &.lg {
+        font-size: 18px;
+        line-height: 32px;
+
+        &.light {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .graphics {
+      background: no-repeat center top url('/img/about-us/story-graphic.png');
+      background-size: 139px;
+      float: right;
+      position: relative;
+      top: 30px;
+      width: 500px;
+
+      .period {
+        width: 190px;
+        position: relative;
+        margin-bottom: 40px;
+        opacity: 0;
+        // transform: scale3d(.1,.1,1);
+        transition: opacity .6s,
+                    transform .3s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+        transition-delay: .4s;
+        &:nth-child(2) { transition-delay: .8s; }
+        &:nth-child(3) { transition-delay: 1s; }
+        &:nth-child(4) { transition-delay: 1.2s; }
+        &:nth-child(5) { transition-delay: 1.4s; }
+        &:nth-child(6) { transition-delay: 1.6s; }
+        &:nth-child(7) { transition-delay: 1.8s; }
+        &:nth-child(8) { transition-delay: 2s; }
+        &.right {
+          left: 325px;
+        }
+
+        &:first-child {
+          margin-top: -5px;
+        }
+
+        h4 {
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 0;
+          color: #898989;
+        }
+
+        strong {
+          font-weight: 500;
+          color: #4f545c;
+        }
+      }
+
+      &.active .period {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      .graphics {
+        float: none;
+        margin: 0 auto;
+      }
+
+      .content { width: 100%;}
+    }
+
+    @media (max-width: 525px) {
+      .graphics {
+        transform: scale3d(.6, .6, 1);
+        width: 300px;
+        height: 720px;
+        margin-top: -180px;
+        left: -15px;
+
+        .left {
+          left: -75px;
+        }
+
+        .period.right {
+          left: 215px;
+        }
+      }
+    }
+  }
+
+  section.our {
+    background: linear-gradient(to right, #4a7dff 0%, #4fb3ff 100%);
+    padding: 90px 0 40px;
+
+    .mission {
+      margin-left: 4.999%;
+    }
+
+    .mission,
+    .philosophy {
+      margin-bottom: 50px;
+      width: 45%;
+      @media (max-width: $screen-xs-max)  {
+        width: 100%;
+        margin-left: auto;
+      }
+    }
+
+    h3 {
+      color: white;
+    }
+
+    p {
+      color: rgba(white, .7);
+      line-height: 1.8em;
+      font-size: 16px;
+      strong,
+      a {
+        color: white;
+        font-weight: 500;
+      }
+    }
+  }
+
+  section.our-neck {
+    background: #f8fafe no-repeat center top;
+    background-image: url('/img/about-us/madison-map.jpg'),
+                      linear-gradient(to right, #f8fafe 30%, #cad3e2 70%);
+    background-size: 1680px, 100%;
+
+    .container {
+      padding-top: 64px;
+      height: 470px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 28px;
+      font-size: 16px;
+    }
+  }
+
+  .hero.dark {
+    background: linear-gradient(to right, #31353d 0%, #404753 100%);
+    padding-top: 90px;
+    padding-bottom: 88px;
+
+    h3 {
+      color: white;
+      font-weight: 600;
+    }
+
+    p {
+      color: $blue;
+      font-weight: 500;
+      text-decoration: none;
+
+      a:hover {
+        color: lighten($blue, 15);
+        text-decoration: none;
+      }
+
+      span {
+        font-size: 1.4em;
+        top: 3px;
+        position: relative;
+        right: -5px;
+      }
+    }
+  }
+}

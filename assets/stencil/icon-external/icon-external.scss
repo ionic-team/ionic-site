@@ -1,0 +1,30 @@
+@import '../vars';
+
+icon-external {
+  color: #a6b8d2;
+  width: .8em;
+  height: .8em;
+  display: inline-block;
+
+  svg {
+    fill: currentColor;
+
+    .new-tab__box {
+      opacity: .5;
+    }
+
+    .new-tab__arrow {
+      transition: .2s transform ease-out, .2s fill ease;
+      will-change: trasnform, fill;
+    }
+  }
+}
+
+a:hover icon-external,
+icon-external:hover {
+  color: $blue;
+
+  .new-tab__arrow {
+    transform: translate(1px, -1px);
+  }
+}

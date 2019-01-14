@@ -1,0 +1,66 @@
+.responsive-docs-container.docs-container {
+  padding-top: 50px;
+
+  .responsive-side-nav {
+    width: 300px;
+    position: static;
+    overflow-y: auto;
+
+    &.affix-top {
+      position: static;
+      top: 182px;
+    }
+
+    &.affix {
+      position: fixed;
+      top: 15px;
+    }
+
+    &.affix-bottom {
+      position: fixed;
+      top: 15px !important;
+    }
+
+    //width: 100%;
+
+    .nested-menu {
+      padding-top: 0;
+      padding-left: 0;
+    }
+  }
+
+  main {
+    margin-left: 0;
+    padding-top: 0;
+
+    color: #353940;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+
+    p {
+      color: #353940;
+      margin: 1.2em 0 1.6em;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 26px;
+    }
+
+    h1 {
+      color: #24282e;
+      line-height: 1.4em;
+      margin: 2em 0 1em;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      padding-top: 0em;
+    }
+  }
+}

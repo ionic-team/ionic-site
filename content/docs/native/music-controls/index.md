@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Music Controls</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L28">
   Improve this doc
 </a>
 
@@ -79,13 +79,25 @@ this.musicControls.create({
   hasClose  : true,       // show close button, optional, default: false
 
 // iOS only, optional
-  album       : &#39;Absolution&#39;     // optional, default: &#39;&#39;
+  album       : &#39;Absolution&#39;,     // optional, default: &#39;&#39;
   duration : 60, // optional, default: 0
   elapsed : 10, // optional, default: 0
+  hasSkipForward : true,  // show skip forward button, optional, default: false
+  hasSkipBackward : true, // show skip backward button, optional, default: false
+  skipForwardInterval: 15, // display number for skip forward, optional, default: 0
+  skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
+  hasScrubbing: false, // enable scrubbing from control center and lockscreen progress bar, optional
 
   // Android only, optional
-  // text displayed in the status bar when the notification (and the ticker) are updated
-  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;
+  // text displayed in the status bar when the notification (and the ticker) are updated, optional
+  ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;,
+  // All icons default to their built-in android equivalents
+  playIcon: &#39;media_play&#39;,
+  pauseIcon: &#39;media_pause&#39;,
+  prevIcon: &#39;media_prev&#39;,
+  nextIcon: &#39;media_next&#39;,
+  closeIcon: &#39;media_close&#39;,
+  notificationIcon: &#39;notification&#39;
  });
 
  this.musicControls.subscribe().subscribe(action =&gt; {
@@ -115,10 +127,16 @@ this.musicControls.create({
                  break;
          case &#39;music-controls-seek-to&#39;:
            const seekToInSeconds = JSON.parse(action).position;
-           MusicControls.updateElapsed({
+           this.musicControls.updateElapsed({
              elapsed: seekToInSeconds,
              isPlaying: true
            });
+           // Do something
+           break;
+         case &#39;music-controls-skip-forward&#39;:
+           // Do something
+           break;
+         case &#39;music-controls-skip-backward&#39;:
            // Do something
            break;
 
@@ -315,7 +333,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -328,7 +346,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -341,7 +359,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -354,7 +372,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -367,7 +385,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -380,7 +398,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -393,7 +411,72 @@ Toggle dismissable:
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipForward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasSkipBackward
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipForwardInterval
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      skipBackwardInterval
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasScrubbing
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -406,7 +489,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -419,7 +502,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -432,7 +515,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -445,7 +528,7 @@ Toggle dismissable:
     </td>
     <td>
       
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -458,7 +541,85 @@ Toggle dismissable:
     </td>
     <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      playIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
       
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pauseIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      prevIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      nextIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closeIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIcon
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
     </td>
   </tr>
   

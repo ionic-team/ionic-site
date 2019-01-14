@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Local Notifications</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L96">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L477">
   Improve this doc
 </a>
 
@@ -36,7 +36,7 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add de.appplant.cordova.plugin.local-notification
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-local-notification
 $ npm install --save @ionic-native/local-notifications
 </code></pre>
   </li>
@@ -90,7 +90,7 @@ this.localNotifications.schedule([{
 // Schedule delayed notification
 this.localNotifications.schedule({
    text: &#39;Delayed ILocalNotification&#39;,
-   at: new Date(new Date().getTime() + 3600),
+   trigger: {at: new Date(new Date().getTime() + 3600)},
    led: &#39;FF0000&#39;,
    sound: null
 });
@@ -104,7 +104,25 @@ this.localNotifications.schedule({
 
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-<h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
+<h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+
+
+Informs if the app has the permission to show notifications.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
+
+
+Request permission to show notifications if not already granted.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
 
 
 
@@ -192,8 +210,6 @@ Clears single or multiple notifications
 </div><h3><a class="anchor" name="clearAll" href="#clearAll"></a><code>clearAll()</code></h3>
 
 
-
-
 Clears all notifications
 
 
@@ -230,8 +246,6 @@ Cancels single or multiple notifications
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled
 </div><h3><a class="anchor" name="cancelAll" href="#cancelAll"></a><code>cancelAll()</code></h3>
-
-
 
 
 Cancels all notifications
@@ -324,19 +338,76 @@ Checks if a notification is triggered
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getAllIds" href="#getAllIds"></a><code>getAllIds()</code></h3>
+</div><h3><a class="anchor" name="hasType" href="#hasType"></a><code>hasType(id,&nbsp;type)</code></h3>
 
 
-Get all the notification ids
-
+Check if a notification has a given type.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The ID of the notification.</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The type of the notification.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getTriggeredIds" href="#getTriggeredIds"></a><code>getTriggeredIds()</code></h3>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="getType" href="#getType"></a><code>getType(id)</code></h3>
 
 
-Get the ids of triggered notifications
+Get the type (triggered, scheduled) for the notification.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      id</td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The ID of the notification.</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="getIds" href="#getIds"></a><code>getIds()</code></h3>
+
+
+Get all the notification ids
 
 
 <div class="return-value" markdown="1">
@@ -351,6 +422,15 @@ Get the ids of scheduled notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="getTriggeredIds" href="#getTriggeredIds"></a><code>getTriggeredIds()</code></h3>
+
+
+Get the ids of triggered notifications
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
 </div><h3><a class="anchor" name="get" href="#get"></a><code>get(notificationId)</code></h3>
 
 
@@ -380,64 +460,6 @@ Get a notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled(notificationId)</code></h3>
-
-
-Get a scheduled notification object
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      notificationId</td>
-    <td>
-      <code>any</code>
-    </td>
-    <td>
-      <p>The id of the notification to get</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getTriggered" href="#getTriggered"></a><code>getTriggered(notificationId)</code></h3>
-
-
-Get a triggered notification object
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      notificationId</td>
-    <td>
-      
-    </td>
-    <td>
-      <p>The id of the notification to get</p>
-</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
 </div><h3><a class="anchor" name="getAll" href="#getAll"></a><code>getAll()</code></h3>
 
 
@@ -447,43 +469,145 @@ Get all notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllScheduled" href="#getAllScheduled"></a><code>getAllScheduled()</code></h3>
+</div><h3><a class="anchor" name="addActions" href="#addActions"></a><code>addActions(groupId,&nbsp;actions)</code></h3>
 
 
-Get all scheduled notification objects
+Adds a group of actions
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      groupId</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The id of the action group</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      actions</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The actions of this group</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="removeActions" href="#removeActions"></a><code>removeActions(groupId)</code></h3>
+
+
+Removes a group of actions
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      groupId</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The id of the action group</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="hasActions" href="#hasActions"></a><code>hasActions(groupId)</code></h3>
+
+
+Checks if a group of actions is defined
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      groupId</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The id of the action group</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Whether the group is defined
+</div><h3><a class="anchor" name="getDefaults" href="#getDefaults"></a><code>getDefaults()</code></h3>
+
+
+
+
+Gets the (platform specific) default settings.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> An object with all default settings
+</div><h3><a class="anchor" name="setDefaults" href="#setDefaults"></a><code>setDefaults()</code></h3>
+
+
+
+
+Overwrites the (platform specific) default settings.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled()</code></h3>
+
+
+List of all scheduled notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllTriggered" href="#getAllTriggered"></a><code>getAllTriggered()</code></h3>
+</div><h3><a class="anchor" name="getTriggered" href="#getTriggered"></a><code>getTriggered()</code></h3>
 
 
-Get all triggered notification objects
+List of all triggered notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code></h3>
-
-
-Register permission to show notifications if not already granted.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
-
-
-Informs if the app has the permission to show notifications.
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="on" href="#on"></a><code>on(eventName,&nbsp;callback)</code></h3>
+</div><h3><a class="anchor" name="on" href="#on"></a><code>on(eventName)</code></h3>
 
 
 
@@ -502,27 +626,67 @@ Sets a callback for a specific event
     <td>
       eventName</td>
     <td>
-      
+      <code>string</code>
     </td>
     <td>
-      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
-</td>
-  </tr>
-  
-  <tr>
-    <td>
-      callback</td>
-    <td>
-      
-    </td>
-    <td>
-      <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
+      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall. Custom event names are possible for actions</p>
 </td>
   </tr>
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Observable</code> 
+</div><h3><a class="anchor" name="fireEvent" href="#fireEvent"></a><code>fireEvent(eventName,&nbsp;args)</code></h3>
 
+
+
+
+Not an official interface, however its possible to manually fire events.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      eventName</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall. Custom event names are possible for actions</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      args</td>
+    <td>
+      
+    </td>
+    <td>
+      <p>Optional arguments</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="fireQueuedEvents" href="#fireQueuedEvents"></a><code>fireQueuedEvents()</code></h3>
+
+
+Fire queued events once the device is ready and all listeners are registered.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -575,55 +739,12 @@ Default: Empty string (iOS) or the app name (Android)</p>
       text
     </td>
     <td>
-      <code>string</code>
+      <code>string | string[]</code>
     </td>
     <td>
       <p>Second row of the notification
 Default: Empty string</p>
 
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      every
-    </td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      <p>The interval at which to reschedule the local notification. That can be a value of second, minute, hour, day, week, month or year
-Default: 0 (which means that the system triggers the local notification once)</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      at
-    </td>
-    <td>
-      <code>any</code>
-    </td>
-    <td>
-      <p>The date and time when the system should deliver the local notification. If the specified value is nil or is a date in the past, the local notification is delivered immediately.
-Default: now ~ new Date()</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      firstAt
-    </td>
-    <td>
-      <code>any</code>
-    </td>
-    <td>
-      
       <em>(optional)</em>
     </td>
   </tr>
@@ -723,19 +844,14 @@ Default: Androids COLOR_DEFAULT, which will vary based on Android version.</p>
   
   <tr>
     <td>
-      ongoing
+      vibrate
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       <p>ANDROID ONLY
-Ongoing notifications differ from regular notifications in the following ways:</p>
-<ul>
-<li>They are sorted above the regular notifications in the notification panel</li>
-<li>They do not have an &#39;X&#39; close button, and are not affected by the &quot;Clear all&quot; button
-Default: false</li>
-</ul>
+Use the default notification vibrate.</p>
 
       <em>(optional)</em>
     </td>
@@ -746,12 +862,18 @@ Default: false</li>
       led
     </td>
     <td>
-      <code>string</code>
+      <code>{ color: string; on: number; off: number } | any[] | boolean | string</code>
     </td>
     <td>
       <p>ANDROID ONLY
-ARGB value that you would like the LED on the device to blink
-Default: FFFFFF</p>
+Define the blinking of the LED on the device.
+If set to true, the LED will blink in the default color with
+timings for on and off set to 1000 ms.
+If set to a string, the LED will blink in this ARGB value with
+timings for on and off set to 1000 ms.
+If set to an array, the value of the key 0 will be used as the color,
+the value of the key 1 will be used as the &#39;on&#39; timing, the value of
+the key 2 will be used as the &#39;off&#39; timing</p>
 
       <em>(optional)</em>
     </td>
@@ -765,7 +887,328 @@ Default: FFFFFF</p>
       <code>number</code>
     </td>
     <td>
-      <p>Notification priority.</p>
+      <p>Notification priority.
+Integers between -2 and 2, whereas -2 is minimum and 2 is maximum priority</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      silent
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Is a silent notification</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      launch
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Specifies whether the a click on the notification causes the app
+to launch in the foreground</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      wakeup
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Wakeup the device. (default is true)</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeoutAfter
+    </td>
+    <td>
+      <code>number |</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Specifies a duration in milliseconds after which this notification should be canceled, if it is not already canceled.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      false
+    </td>
+    <td>
+      <code></code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      actions
+    </td>
+    <td>
+      <code>string | ILocalNotificationAction[]</code>
+    </td>
+    <td>
+      <p>Actions id or actions</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      trigger
+    </td>
+    <td>
+      <code>ILocalNotificationTrigger</code>
+    </td>
+    <td>
+      <p>When to trigger the notification</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      attachments
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>A list of image attachments</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      clock
+    </td>
+    <td>
+      <code>boolean | string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+If and how the notification shall show the when date.
+Possbile values:
+                 boolean: true equals &#39;clock&#39;, false disable a watch/counter
+                 &#39;clock&#39;: Show the when date in the content view
+                 &#39;chronometer&#39;: Show a stopwatch</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      progressBar
+    </td>
+    <td>
+      <code>ILocalNotificationProgressBar | boolean</code>
+    </td>
+    <td>
+      <p>Shows a progress bar
+Setting a boolean is a shortcut for {enabled: true/false} respectively</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      group
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+If multiple notifications have the same group your app can present
+them as a single group.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      groupSummary
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+If set to &#39;true&#39; this notification could use &#39;summary&#39; to summarize
+the contents of the whole group</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      summary
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Summary of the whole notification group. Should be used in conjuntion
+with &#39;groupSummary&#39; set to true</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      number
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Sets the number of items this notification represents.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      sticky
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Set whether this is an &quot;ongoing&quot; notification.
+Ongoing notifications cannot be dismissed by the user,
+so your application or service must take care of canceling them.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      autoClear
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Make this notification automatically dismissed when the user touches it.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      lockscreen
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+If set to true the notification will be show in its entirety on all lockscreens.
+If set to false it will not be revealed on a secure lockscreen.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      defaults
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Set the default notification options that will be used.
+The value should be one or more of the following fields combined with
+bitwise-or: DEFAULT_SOUND, DEFAULT_VIBRATE, DEFAULT_LIGHTS.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      channel
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Specifies the channel the notification should be delivered on.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mediaSession
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Set the token for the media session</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      foreground
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Make this notification show when app in foreground.</p>
 
       <em>(optional)</em>
     </td>

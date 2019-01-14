@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -29,6 +29,8 @@ docType: "class"
 
 
 
+<p>A Cordova plugin for managing Hotspot networks on Android.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-hotspot</code>. For more info, please see the <a href="https://github.com/hypery2k/cordova-hotspot-plugin">Hotspot plugin docs</a>.</p>
 
 
 <p>Repo:

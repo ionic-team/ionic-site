@@ -1,0 +1,58 @@
+{% set page = "support" %}
+{% extends "_layouts/creator.html" %}
+
+{% block title %}Ionic Creator - Support{% endblock %}
+
+{% block main %}
+<hgroup class="preserver">
+  <h1>Help and Support.</h1>
+  <p>Need some advice? Found a bug? We're here to help.</p>
+  <div class="btns">
+    <a href="mailto:help@usecreator.com?subject=Help with Creator" class="btn green fill">
+      <i class="icon ion-ios-paperplane-outline"></i>
+      Email us your questions
+    </a>
+    <a href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=633568" class="btn blue fill" target="_blank">
+      <i class="icon ion-help-buoy"></i>
+      Submit a request
+    </a>
+  </div>
+</hgroup>
+<div class="container brody">
+  <dl>
+    <dt>Documentation</dt>
+    <dd>
+      For specific questions about the Creator software, make sure to check out
+      our official <a href="http://docs.usecreator.com">Documentation</a> page. We
+      have plenty of walkthroughs, breakdowns, tutorials, and other information
+      there to help you better understand how to use the tool. If you feel
+      there’s something missing from the Docs, please submit an official
+      request for it <a href="">here</a>.
+    </dd>
+    <dt>Email support</dt>
+    <dd>
+      Have a question about our plans, or think you found a bug? Shoot us an
+      email at <a href="mailto:help@usecreator.com">help@usecreator.com</a>. We
+      typically respond within 48 hours.
+    </dd>
+    <dt>Get social with us</dt>
+    <dd>
+      We’re active on Twitter mainly, so if you feel inclined to tweet, get at
+      us <a href="https://twitter.com/IonicCreator" target="_blank"
+      >@IonicCreator</a>! We also have a community <a target="_blank"
+      href="http://forum.ionicframework.com/">Forum</a>, where you can interact
+      and ask questions with other Creator users.
+    </dd>
+  </dl>
+</div>
+
+<div class="tail ghost">
+  <hgroup class="container">
+    <h2>Remember to check out our Docs!</h2>
+    <p>
+      Offical Documentations can be found
+      <a href="http://docs.usecreator.com">here</a>.
+    </p>
+  </hgroup>
+</div>
+{% endblock %}

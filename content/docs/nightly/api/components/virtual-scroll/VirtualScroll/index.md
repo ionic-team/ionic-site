@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -104,7 +104,7 @@ returned data.</p>
 
 
 <p>If the height of items in the virtual scroll are not close to the
-default size of 40px, it is extremely important to provide an value for
+default size of 40px, it is extremely important to provide a value for
 approxItemHeight height. An exact pixel-perfect size is not necessary,
 but without an estimate the virtual scroll will not render correctly.</p>
 <p>The approximate width and height of each template is used to help
@@ -236,7 +236,7 @@ dataset, so please make sure they&#39;re performant.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>approxFooterHeight</td>
       <td><code>string</code></td>
@@ -249,7 +249,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxFooterWidth</td>
       <td><code>string</code></td>
@@ -262,7 +262,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderHeight</td>
       <td><code>string</code></td>
@@ -275,7 +275,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxHeaderWidth</td>
       <td><code>string</code></td>
@@ -288,7 +288,7 @@ app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions. Default is <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
@@ -304,7 +304,7 @@ initial dimensions before the item has been rendered. Default is
 <code>40px</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>approxItemWidth</td>
       <td><code>string</code></td>
@@ -318,7 +318,7 @@ initial dimensions before the item has been rendered. Default is
 <code>100%</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>bufferRatio</td>
       <td><code>number</code></td>
@@ -329,10 +329,14 @@ takes <code>20</code> cells to fill up the height of the viewable area, then
 with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
-viewable area. Default is <code>3</code>.</p>
+viewable area. Default is <code>3</code>.
+In case more than one items are rendered per row, bufferRatio
+has to account for that and a multiple number should be used.
+For example if a single item per row list used 3 as bufferRatio
+a 4 item per row list should use 3 * 4 = 12 as buffer ratio.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>footerFn</td>
       <td><code>function</code></td>
@@ -343,7 +347,7 @@ should be used, and what data to give to the footer template. The function
 must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>headerFn</td>
       <td><code>function</code></td>
@@ -357,7 +361,7 @@ and what data to give to the header template. The function must return
 <code>null</code> if a header cell shouldn&#39;t be created.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualScroll</td>
       <td><code>array</code></td>
@@ -367,14 +371,14 @@ that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>virtualTrackBy</td>
       <td><code>function</code></td>
       <td><p> Same as <code>ngForTrackBy</code> which can be used on <code>ngFor</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -145,6 +145,15 @@ This will clear the OAuth2 token.
 
 
 This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSigningCertificateFingerprint" href="#getSigningCertificateFingerprint"></a><code>getSigningCertificateFingerprint()</code></h3>
+
+
+This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
 
 
 <div class="return-value" markdown="1">

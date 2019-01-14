@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -73,12 +73,12 @@ let delegate = this.ibeacon.Delegate();
 delegate.didRangeBeaconsInRegion()
   .subscribe(
     data =&gt; console.log(&#39;didRangeBeaconsInRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didStartMonitoringForRegion()
   .subscribe(
     data =&gt; console.log(&#39;didStartMonitoringForRegion: &#39;, data),
-    error =&gt; console.error();
+    error =&gt; console.error()
   );
 delegate.didEnterRegion()
   .subscribe(
@@ -91,7 +91,7 @@ let beaconRegion = this.ibeacon.BeaconRegion(&#39;deskBeacon&#39;,&#39;F7826DA6-
 
 this.ibeacon.startMonitoringForRegion(beaconRegion)
   .then(
-    () =&gt; console.log(&#39;Native layer recieved the request to monitoring&#39;),
+    () =&gt; console.log(&#39;Native layer received the request to monitoring&#39;),
     error =&gt; console.error(&#39;Native layer failed to begin monitoring: &#39;, error)
   );
 </code></pre>

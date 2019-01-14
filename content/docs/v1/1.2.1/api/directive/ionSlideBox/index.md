@@ -42,7 +42,7 @@ Delegate: <a href="/docs/v1/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
 
 The Slide Box is a multi-page container where each page can be swiped or dragged between:
 
-![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
+![SlideBox](https://s3.amazonaws.com/ionicframework.com/docs/controllers/slideBox.gif)
 
 
 

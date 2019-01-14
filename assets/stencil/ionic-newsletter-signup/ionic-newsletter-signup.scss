@@ -1,0 +1,137 @@
+@import '../vars';
+
+ionic-newsletter-signup {
+
+  form {
+    position: relative;
+    display: flex;
+    border-collapse: separate;
+    width: 100%;
+    height: 40px;
+
+    @media (max-width: $screen-sm-max) {
+      max-width: calc(100% - 340px);
+    }
+
+    @media (max-width: $screen-xs-max) {
+      float: none;
+      max-width: 100%;
+      margin-top: 15px;
+    }
+
+    &.dark {
+      input {
+        color: white;
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+        }
+
+        &:focus {
+          box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+        }
+
+        &::placeholder {
+          color: #bbceef;
+        }
+      }
+    }
+
+    &.lg {
+      height: 48px;
+
+      input {
+        padding: 1px 17px 0;
+        font-size: 14px;
+      }
+
+      ionic-button button {
+        padding: 11px 12px;
+      }
+    }
+
+    &.arrow {
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,16,44,.08), 0 2px 4px rgba(0,16,44,.12);
+      transition: .15s box-shadow ease;
+
+      &:hover {
+        box-shadow: 0 7px 14px rgba(0,16,44,.12), 0 3px 6px rgba(0,16,44,.08);
+      }
+
+      input {
+        border-radius: 6px 0 0 6px;
+        box-shadow: none;
+
+
+
+        &::placeholder {
+          color: #a8b0be;
+          font-weight: 400;
+        }
+      }
+
+      ionic-button button {
+        background: #f0f5ff;
+        color: #3880ff;
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+        border-radius: 0 6px 6px 0;
+
+        &:hover {
+          background: darken(#f0f5ff, 1);
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  input {
+    border: none;
+    background: rgba(white, .2);
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+    color: $dark;
+    box-shadow: none;
+    font-weight: 500;
+    height: 100%;
+    outline: 0;
+    flex-grow: 1;
+    padding: 1px 16px 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    transition: .2s background, .2s box-shadow;
+
+    &:hover {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+    }
+
+    &:focus {
+      box-shadow: none;
+      background: rgba(white,.25);
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, .1);
+    }
+
+    &::placeholder {
+      padding-left: 0;
+      color: #a1a9b6;
+    }
+  }
+
+  ionic-button {
+    height: 100%;
+
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      font-weight: 500;
+      font-size: 14px;
+      height: 100%;
+      padding: 11px 13px 10px;
+    }
+  }
+}

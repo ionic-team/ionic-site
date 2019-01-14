@@ -11,7 +11,7 @@ doc: "ModalController"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/modal/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/modal/modal-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ itself in the root nav stack. It is added to the stack similar to how
 works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
-After the modal has been presented, from within the component instance The
+After the modal has been presented, from within the component instance, the
 modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
 on the root nav controller. Modals are not reusable. When a modal is dismissed
@@ -74,12 +74,10 @@ standard page.</p>
 @Component(...)
 class HomePage {
 
- constructor(public modalCtrl: ModalController) {
-
- }
+ constructor(public modalCtrl: ModalController) { }
 
  presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+   const profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
    profileModal.present();
  }
 
@@ -111,7 +109,7 @@ class Profile {
 <h3>
 <a class="anchor" name="config" href="#config">
 <code>config</code>
-  
+
 
 </a>
 </h3>
@@ -131,7 +129,7 @@ class Profile {
 <h3>
 <a class="anchor" name="create" href="#create">
 <code>create(component,&nbsp;data,&nbsp;opts)</code>
-  
+
 
 </a>
 </h3>
@@ -149,58 +147,58 @@ Create a modal to display. See below for options.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         component
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>The Modal view</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         data
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Any data to pass to the Modal view</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Modal options</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -279,35 +277,51 @@ class Profile {
 
 }
 </code></pre>
+<p>A common issue is that a developer may try to implement navigation in a modal, but when you try NavController.push(),
+you will notice that the status bar on iOS gets cut off. The proper way to implement navigation in a modal is to
+make the modal component a navigation container, and set the root page to the page you want to show in your modal.</p>
+<pre><code class="lang-ts">@Component({
+  template: &#39;&lt;ion-nav [root]=&quot;rootPage&quot; [rootParams]=&quot;rootParams&quot;&gt;&lt;/ion-nav&gt;&#39;
+})
+export class MyModalWrapper {
+  rootPage = &#39;MyModalContentPage&#39;; // This is the page you want your modal to display
+  rootParams;
+
+  constructor(navParams: NavParams, private viewCtrl: ViewController) {
+      this.rootParams = Object.assign({}, navParams.data, {viewCtrl: viewCtrl});
+      // This line will send the view controller into your child views, so you can dismiss the modals from there.
+  }
+}
+</code></pre>
 
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -317,64 +331,64 @@ class Profile {
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$modal-inset-min-width</code></td>
-        
+
           <td><code>768px</code></td>
-        
+
         <td><p>Min width of the modal inset</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-min-height-small</code></td>
-        
+
           <td><code>600px</code></td>
-        
+
         <td><p>Minimum height of the small modal inset</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-min-height-large</code></td>
-        
+
           <td><code>768px</code></td>
-        
+
         <td><p>Minimum height of the large modal inset</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-width</code></td>
-        
+
           <td><code>600px</code></td>
-        
+
         <td><p>Width of the large modal inset</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-height-small</code></td>
-        
+
           <td><code>500px</code></td>
-        
+
         <td><p>Height of the small modal inset</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-height-large</code></td>
-        
+
           <td><code>600px</code></td>
-        
+
         <td><p>Height of the large modal inset</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -384,28 +398,28 @@ class Profile {
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$modal-ios-background-color</code></td>
-        
+
           <td><code>$background-ios-color</code></td>
-        
+
         <td><p>Background color for the modal</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-ios-border-radius</code></td>
-        
+
           <td><code>10px</code></td>
-        
+
         <td><p>Border radius for the modal</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -415,37 +429,37 @@ class Profile {
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$modal-md-background-color</code></td>
-        
+
           <td><code>$background-md-color</code></td>
-        
+
         <td><p>Background color for the modal</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .4)</code></td>
-        
+
         <td><p>Box shadow color of the alert</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$modal-inset-box-shadow</code></td>
-        
+
           <td><code>0 28px 48px $modal-inset-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the alert</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -455,19 +469,19 @@ class Profile {
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$modal-wp-background-color</code></td>
-        
+
           <td><code>$background-wp-color</code></td>
-        
+
         <td><p>Background color for the modal</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

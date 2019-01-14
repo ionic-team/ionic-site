@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.6.0"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "Option"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/select/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/option/option.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/option/option.ts#L2">
 Improve this doc
 </a>
 
@@ -68,28 +68,28 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>selected</td>
       <td><code>boolean</code></td>
       <td><p> If true, the element is selected.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the option.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -102,13 +102,13 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionSelect</td>
       <td><p> Event to evaluate when option is selected.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 

@@ -55,7 +55,8 @@ events across your app.</p>
 <pre><code class="lang-ts">import { Events } from &#39;ionic-angular&#39;;
 
 // first page (publish an event when a user is created)
-constructor(public events: Events) {}
+constructor(public events: Events) { }
+
 createUser(user) {
   console.log(&#39;User created!&#39;)
   this.events.publish(&#39;user:created&#39;, user, Date.now());

@@ -6,6 +6,7 @@ body {
   text-rendering: optimizeLegibility;
 
   @media (max-width: $screen-xs-max) {
+    padding-top: 50px;
     width: 100%;
     min-width: 100%;
     background: #fff;
@@ -15,6 +16,20 @@ body {
     background: linear-gradient(90deg, $whiteish, $whiteish ($sidenav-width),
       white ($sidenav-width), white 100%);
   }
+
+  @media (max-width: $screen-sm-min) {
+    &#page-pricing-table {
+      padding-top: 0px;
+    }
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  overflow: hidden;
 }
 
 #components-index ul.nav > li > a {
@@ -84,7 +99,7 @@ body {
         margin-right: 0;
       }
     }
-    
+
     .component-doc-demo-mobile {
       display: inline-block;
     }
@@ -100,6 +115,7 @@ body {
 
     #side-nav {
       z-index: 1;
+      top: -4px;
       transform: translateX(-$sidenav-width);
       transition: transform .3s ease;
 
@@ -120,10 +136,10 @@ html {
 
 body {
   min-height: 100%;
-  margin: 20px 0 -130px; // bottom = footer height
+  margin: 0 0 -130px; // bottom = footer height
 
   @media (max-width: $screen-xs-max) {
-    margin-top: 50px;
+    // margin-top: 50px;
   }
 }
 
@@ -287,6 +303,17 @@ a.footer-link {
 @media (max-width: 1300px) and (min-width: $screen-xs) {
   #sass-variables {
     bottom: -10px;
+
+    .table.param-table {
+      td,
+      th {
+        white-space: normal;
+
+        &:nth-last-child(2) {
+          width: auto;
+        }
+      }
+    }
   }
 }
 
@@ -466,3 +493,5 @@ ul.docs-example {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+#hubspot-messages-iframe-container { z-index: 1 } //so hubspot messages button doesn't cover mpobile nav, modals, etc.

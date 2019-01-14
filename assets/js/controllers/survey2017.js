@@ -1,5 +1,5 @@
 IonicSiteModule
-.controller('Survey2017Ctrl', ['$scope', '$timeout', function($scope, $timeout) {
+.controller('SurveyCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var currentSection = window.location.hash;
 
   function scrollCheck() {

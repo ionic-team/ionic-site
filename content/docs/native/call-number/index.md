@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -65,8 +65,8 @@ constructor(private callNumber: CallNumber) { }
 
 
 this.callNumber.callNumber(&quot;18001010101&quot;, true)
-  .then(() =&gt; console.log(&#39;Launched dialer!&#39;))
-  .catch(() =&gt; console.log(&#39;Error launching dialer&#39;));
+  .then(res =&gt; console.log(&#39;Launched dialer!&#39;, res))
+  .catch(err =&gt; console.log(&#39;Error launching dialer&#39;, err));
 </code></pre>
 
 
@@ -115,6 +115,15 @@ Calls a phone number
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isCallSupported" href="#isCallSupported"></a><code>isCallSupported()</code></h3>
+
+
+Check if call feature is available
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

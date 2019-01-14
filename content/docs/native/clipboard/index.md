@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/clipboard
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
 
@@ -73,6 +73,8 @@ this.clipboard.paste().then(
       alert(&#39;Error: &#39; + reject);
     }
   );
+
+this.clipboard.clear();
 </code></pre>
 
 
@@ -121,6 +123,15 @@ Pastes the text stored in clipboard
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been pasted
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
+
+
+Clear the text stored in clipboard
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been cleaned
 </div>
 
 

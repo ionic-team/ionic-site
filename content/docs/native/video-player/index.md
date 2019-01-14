@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -169,7 +169,7 @@ For example: for a volume of 30% set the value to 0.3.</p>
       <code>number</code>
     </td>
     <td>
-      <p>There are to options for the scaling mode. SCALE_TO_FIT which is default and SCALE_TO_FIT_WITH_CROPPING.
+      <p>There are two options for the scaling mode. SCALE_TO_FIT which is default and SCALE_TO_FIT_WITH_CROPPING.
 These strings are the only ones which can be passed as option.</p>
 
       <em>(optional)</em>

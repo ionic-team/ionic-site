@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -24,7 +24,13 @@ docType: "class"
 
 
 <p>Take a photo or capture video.</p>
-<p>Requires and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>Requires the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>[Warning] Since IOS 10 the camera requires permissions to be placed in your config.xml add</p>
+<pre><code class="lang-xml">&lt;config-file parent=&quot;NSCameraUsageDescription&quot; platform=&quot;ios&quot; target=&quot;*-Info.plist&quot;&gt;
+ &lt;string&gt;You can take photos&lt;/string&gt;
+&lt;/config-file&gt;
+</code></pre>
+<p>inside of the &lt;platform name=&#39;ios&gt; section</p>
 
 
 <p>Repo:
@@ -48,7 +54,7 @@ $ npm install --save @ionic-native/camera
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 
@@ -66,14 +72,14 @@ constructor(private camera: Camera) { }
 
 const options: CameraOptions = {
   quality: 100,
-  destinationType: this.camera.DestinationType.DATA_URL,
+  destinationType: this.camera.DestinationType.FILE_URI,
   encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
 }
 
 this.camera.getPicture(options).then((imageData) =&gt; {
  // imageData is either a base64 encoded string or a file URI
- // If it&#39;s base64:
+ // If it&#39;s base64 (DATA_URL):
  let base64Image = &#39;data:image/jpeg;base64,&#39; + imageData;
 }, (err) =&gt; {
  // Handle error
@@ -212,7 +218,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
     <td>
       <p>Choose the format of the return value.
 Defined in Camera.DestinationType. Default is FILE_URI.
-     DATA_URL : 0,   Return image as base64-encoded string,
+     DATA_URL : 0,   Return image as base64-encoded string (DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible),
      FILE_URI : 1,   Return image file URI,
      NATIVE_URI : 2  Return image native URI
          (e.g., assets-library:// on iOS or content:// on Android)</p>

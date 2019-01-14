@@ -11,7 +11,7 @@ header_sub_title: Getting Started with Ionic
 
 <a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
-Ionic is built on top of Angular, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular, take a look at [Learn Angular](http://learnangular2.com/).
+Ionic is built on top of Angular, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular, take a look at [Learn Angular](https://angular.io/tutorial).
 
 In Ionic, things should feel quite familiar. All the concepts from Ionic v1 are still in the latest versions, though they may look slightly different. You still have views and controllers like you did in v1, but they have been merged into one instance.
 

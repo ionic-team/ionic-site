@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Note
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/note/note.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/note/note.ts#L3">
 Improve this doc
 </a>
 
@@ -49,7 +49,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-list&gt;
@@ -77,28 +77,28 @@ Improve this doc
 <!-- instance methods on the class -->
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -108,19 +108,19 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$note-ios-color</code></td>
-        
+
           <td><code>darken($list-ios-border-color, 10%)</code></td>
-        
+
         <td><p>Text color of the note</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -130,19 +130,19 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$note-md-color</code></td>
-        
+
           <td><code>darken($list-md-border-color, 10%)</code></td>
-        
+
         <td><p>Text color of the note</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -152,19 +152,19 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$note-wp-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Text color of the note</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

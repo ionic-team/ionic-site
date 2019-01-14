@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "NavPush"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/navigation/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/nav/nav-push.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/nav/nav-push.ts#L3">
 Improve this doc
 </a>
 
@@ -52,7 +52,7 @@ stack.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;button ion-button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
@@ -87,7 +87,7 @@ class MyPage {
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -97,21 +97,21 @@ class MyPage {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>navParams</td>
       <td><code>any</code></td>
       <td><p> Any NavParams you want to pass along to the next view.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>navPush</td>
       <td><code>Page | string</code></td>
       <td><p> The component class or deeplink name you want to push onto the navigation stack.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -120,7 +120,7 @@ class MyPage {
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#navigation">Navigation Component Docs</a>,
 <a href="../NavPop">NavPop API Docs</a><!-- end content block -->

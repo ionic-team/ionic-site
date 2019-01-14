@@ -3,13 +3,34 @@ require('dotenv').config({silent: true});
 const express         = require('express');
 const app             = express();
 const compress        = require('compression');
-const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
+const dateFilter      = require('nunjucks-date-filter');
 const expressNunjucks = require('express-nunjucks');
-const tools            = require('./server/tools');
+const helmet          = require('helmet');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
+const tools           = require('./server/tools');
+
+const prismicUtil = require('./server/prismic');
+
+const { PORT, PROD, REDIS_URL } = require('./server/config');
+
+// rate limit POST requests
+if (REDIS_URL) {
+  var redis   = require('redis').createClient(REDIS_URL);
+  var limiter = require('express-limiter')(app, redis);
+
+  // rate limit POST requests
+  limiter({
+    path: '*',
+    method: 'post',
+    lookup: ['headers.CF-Connecting-IP'],
+    // 10 requests per hour
+    total: 10,
+    expire: 1000 * 60 * 60
+  })
+}
 
 process.env.PWD = process.cwd();
 
@@ -18,12 +39,17 @@ console.log('PWD', process.env.PWD);
 app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
+app.use(helmet());
+app.use(prismicUtil.middleware);
 app.use(processRequest);
 
 app.set('views', __dirname + '/server/pages');
 expressNunjucks(app, {
-  noCache: !config.PROD,
-  autoescape: false
+  noCache: !PROD,
+  autoescape: false,
+  filters: {
+    date: dateFilter
+  }
 });
 app.enable('etag');
 
@@ -36,8 +62,8 @@ app.use(express.static(process.env.PWD + '/_site/', {
 app.use(pageNotFound);
 
 // bind the app to listen for connections on a specified port
-app.listen(config.PORT, function() {
+app.listen(PORT, function() {
   // Render some console log output
-  console.log('Listening on port ' + config.PORT);
+  console.log('Listening on port ' + PORT);
   tools.bustCloudflareCache();
 });

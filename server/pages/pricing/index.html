@@ -1,326 +1,51 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'pricing' %}
+{% set title = 'Ionic Platform Pricing - Cross-Platform Web App Development Tools' %}
+{% set header_style = 'transparent light' %}
 {% set bodyController = 'pricingCtrl' %}
+{% set meta_description = "" %}
+{% set cssPath = 'pricing/index' %}
+{% set pre_footer = false %}
 
 {% block main %}
-<div class="cta" ng-init="period = 'monthly'">
-  <hgroup class="container">
-    <h1>Clear and simple pricing.</h1>
-    <p>
-      Designed for developers, businesses and enterprise alike. We grow, as you
-      grow.
-    </p>
-    {% if notification %}
-      <h2 class="text-center {{notificationClass}}">{{ notification }}</h2>
-    {% endif %}
-  </hgroup>
-</div>
 
-<div class="container" >
-  <div class="cards">
-    <div class="card indie"
-         ng-click="indie = true"
-         ng-class="{active: indie}">
-      <h4 class="title">Indie</h4>
-      <h2 class="free">Free</h2>
-      <h3>For Apps in Development</h3>
-      <ul>
-        <li>Includes all Ionic Cloud services</li>
-        <li>No hidden fees or cost to use</li>
-      </ul>
-      <div class="cta">See Plan Details</div>
-      <a class="cta" href="https://apps.ionic.io/signup">
-        Get Started Free
-      </a>
-    </div>
-    <div class="card production active"
-         ng-click="indie = false"
-         ng-class="{active: !indie}">
-      <h4 class="title">Production</h4>
-      <h2>
-        <sup>$</sup>20 <sub>/ mo / app</sub>
-      </h2>
-      <h3>Predictable pricing that scales</h3>
-      <ul>
-        <li>Includes all Ionic Cloud services</li>
-        <li>Scaled usage as your app grows</li>
-        <li>Early access to new features</li>
-      </ul>
-      <div class="cta">See Plan Details</div>
-      <a  class="cta" href="https://apps.ionic.io/signup">
-        Get Started Free
-      </a>
-    </div>
-  </div>
-</div>
-  {% raw %}
-<div class="builder" ng-class="{indie: indie}">
-  <div class="head-wrapper" data-spy="affix" data-offset-top="703">
-    <div class="head container">
-      <div class="emc">
-        Estimated monthly cost<span class="cost">
-          <span ng-show="total < 1000" ng-cloak>
-            <sup>$</sup>{{ total | number:0 }}
-            <a href="https://apps.ionic.io/signup" class="btn sm ionic">
-              Create free account
-            </a>
-          </span>
-          <a ng-hide="total < 1000" href="/contact" ng-cloak>
-            Contact Sales
-          </a>
-        </span>
-      </div>
-      <div class="title">Cloud Services</div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="service push">
-      <div class="widget">
-        <h4>NOTIFICATIONS</h4>
-        <div class="qty" ng-cloak>
-          {{ sliders.push.displayVal | number:0 }}
-          <span ng-if="indie">/ mo</span>
-        </div>
-        <div class="cost" ng-cloak ng-hide="indie">
-          <em>+</em> ${{ sliders.push.cost | number : 0 }}
-        </div>
-        <div class="rate" ng-hide="indie">$0.08 / 1,000 extra push</div>
-        <rzslider rz-slider-model="sliders.push.val"
-                  rz-slider-options="sliders.push.options"
-                  ng-hide="indie"></rzslider>
-      </div>
-      <h3>Push</h3>
-      <p>
-        Send targeted cross-platform push notifications to all, or a select
-        number of your users.  Learn more about <a
-        href="https://docs.ionic.io/services/push/">Push</a>
-      </p>
-    </div>
+  <div class="cta banner">
+    <hgroup class="container">
+      <h5>Ionic Development Platform Pricing</h5>
+      <h1>Grow faster with Ionic</h1>
+      <p>Powerful tools for every phase of the app lifecycle.</p>
+    </hgroup>
 
-    <div class="service deploy">
-      <div class="widget">
-        <h4>deploys to device</h4>
-        <div class="qty" ng-cloak>
-          {{ sliders.deploy.displayVal | number:0 }}
-          <span ng-if="indie">/ mo</span>
+    <ul class="rounded-tabs">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
+        <div class="rounded-tabs__tab-inner">
+          Appflow
         </div>
-        <div class="cost" ng-cloak ng-hide="indie">
-          <em>+</em> ${{ sliders.deploy.cost | number : 0 }}
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="studio">
+        <div class="rounded-tabs__tab-inner">
+          Studio
         </div>
-        <div class="rate" ng-hide="indie">$0.25 / 1,000 extra deploy</div>
-        <rzslider rz-slider-model="sliders.deploy.val"
-                  rz-slider-options="sliders.deploy.options"
-                  ng-hide="indie"></rzslider>
-      </div>
-      <h3>Deploy</h3>
-      <p>
-        Push hot code live into production apps without ever going through the
-        app stores. Learn more about <a
-        href="https://docs.ionic.io/services/deploy/">Deploy</a>
-      </p>
-    </div>
-
-    <div class="service package">
-      <div class="widget">
-        <h4>Builds</h4>
-        <div class="qty" ng-cloak>
-          {{ sliders.package.displayVal | number:0 }}
-          <span ng-if="indie">/ mo</span>
-        </div>
-        <div class="cost" ng-cloak ng-hide="indie">
-          <em>+</em> ${{ sliders.package.cost | number : 0 }}
-        </div>
-        <div class="rate" ng-hide="indie">$0.40 / 100 extra build</div>
-        <rzslider rz-slider-model="sliders.package.val"
-                  rz-slider-options="sliders.package.options"
-                  ng-hide="indie"></rzslider>
-      </div>
-      <h3>Package</h3>
-      <p>
-        Turn your Ionic code into native app binaries for different platforms
-        with a single command. Learn more about <a
-        href="https://docs.ionic.io/services/package/">Package</a>
-      </p>
-    </div>
-
-    <div class="service users free">
-      <div class="widget free">
-        <div class="cost">FREE</div>
-        <div class="rate">Unlimited Users</div>
-      </div>
-      <h3>Auth</h3>
-      <p>
-        Traditional email and password user authentication, as well as popular
-        third-party social providers. Learn more about <a
-        href="https://docs.ionic.io/services/auth/">Auth</a>
-      </p>
-    </div>
-  </div>
-  {% endraw %}
-</div>
-
-<div class="also">
-  <div class="container">
-    <h3 class="text-center">Also included in Ionic Cloud</h3>
-    <ul class="items">
-      <li class="item">
-        <h4>Team support</h4>
-        <p>
-          Invite team members and collaborate efficiently with your whole team.
-        </p>
       </li>
-      <li class="item">
-        <h4>Security profile management</h4>
-        <p>
-          Ionic Cloud makes security profile management easy on iOS and
-          Android.
-        </p>
-      </li>
-      <li class="item">
-        <h4>App management</h4>
-        <p>
-          Keep all your apps in one place with the Ionic Cloud apps
-          dashboard.
-        </p>
-      </li>
-      <li class="item">
-        <h4>User management</h4>
-        <p>
-          All plans come with user auth and management in our simple dashboard.
-        </p>
-      </li>
-      <li class="item">
-        <h4>Access to Ionic View app</h4>
-        <p>
-          Preview, test, and interact with all your Ionic apps with the <a
-          href="http://view.ionic.io/" target="_blank">Ionic View</a> app.
-        </p>
-      </li>
-      <li class="item">
-        <h4>Easy app transfers</h4>
-        <p>
-          Easily transfer apps off to clients or customers, and let them handle
-          billing.
-        </p>
+      <li class="rounded-tabs__tab" data-tab-content="enterprise-engine">
+        <div class="rounded-tabs__tab-inner">
+          Enterprise Engine
+        <div>
       </li>
     </ul>
   </div>
-</div>
-<div class="faq container">
-  <h3 class="text-center">Frequently asked questions</h3>
-  <ul class="items left">
-    <li class="item">
-      <h4>How do you define a...</h4>
-      <p>
-        <strong>Push notification:</strong>
-        a push notification is one notification sent to one device.
-      </p>
-      <p>
-        <strong>App update:</strong>
-        an app update is an end-user app updating itself through a new Deploy.
-      </p>
-      <p>
-        <strong>Native build:</strong>
-        a native build is a package operation generating either an iOS or
-        Android app binary
-      </p>
-    </li>
-    <li class="item">
-      <h4>Am I charged per target mobile platform / OS?</h4>
-      <p>
-        Nope! Every plan allows for development to all supported mobile
-        platforms.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What forms of payment do you accept?</h4>
-      <p>
-        We accept Visa, MasterCard, American Express, and Discover cards. We
-        don't yet support PayPal.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What happens when my Ionic subscription expires?</h4>
-      <p>
-        Plans are setup for auto renewal but can be cancelled before your
-        renewal date with one month’s notice.  After your plan expires, we will
-        notify you to renew for a period of 30 days. Your data may be deleted
-        after a 60 day lapse in your app plan subscription.
-      </p>
-    </li>
-    <li class="item">
-      <h4>
-        Can I purchase a plan that enables me to use just one or two of the
-        Ionic Cloud tools?
-      </h4>
-      <p>
-        Ionic’s Cloud services are meant to be an end-to-end solution,
-        offering services integrate with each other to help scale your app.  At
-        this time, services are not offered separately, but we encourage you to
-        get in touch and let us know your thoughts!
-      </p>
-    </li>
-  </ul>
-  <ul class="items right">
-    <li class="item">
-      <h4>How can I upgrade my plan?</h4>
-      <p>
-        You can easily upgrade your plan through the dashboard for your app.
-        Plans are tied to apps to make them easier to administer and move
-        between teams, while keeping billing fair across a diverse set of apps.
-      </p>
-    </li>
-    <li class="item">
-      <h4>When will I be billed?</h4>
-      <p>
-        We automatically bill you at the beginning of each subscription month or
-        year, depending on the type of subscription you have.  You can manage
-        your auto-billing when you login to your Ionic Cloud account.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What kind of support is included in each plan?</h4>
-      <p>
-        We offer basic account-level email support to help with billing,
-        account, and service quality issues. For more advanced support, please
-        get in touch with us for custom support options.
-      </p>
-    </li>
-    <li class="item">
-      <h4>Where can I see what data limits I have reached?</h4>
-      <p>
-        Inside of your Ionic Dashboard, under the Subscription tab, in the
-        Overview section. Plan usage and overages will be clearly displayed.
-      </p>
-    </li>
-    <li class="item">
-      <h4>How secure is my payment info?</h4>
-      <p>
-        All payments are securely processed by industry leader, Stripe. Your
-        card information never even touches our servers.
-      </p>
-    </li>
-    <li class="item">
-      <h4>What happens when I reach a data limit?</h4>
-      <p>
-        Once you reach the limits of your plan, that service will no longer work
-        until you either upgrade your plan or the next monthly cycle begins.
-      </p>
-    </li>
-  </ul>
-</div>
 
-<div class="hero dark text-center">
-  <hgroup class="container">
-    <h3>Ready to supercharge your mobile apps?</h3>
-    <div class="btns">
-      <a class="btn white sm" href="https://apps.ionic.io/signup">
-        Create free Ionic account</a>
-      <a class="btn ionic sm" data-toggle="modal" data-target="#contactForm">
-        Contact sales</a>
-    </div>
-  </hgroup>
-</div>
+  <section class="tab-content tab-content--active" id="content-appflow">
+    {% include './appflow.html' %}
+  </section>
+  <section class="tab-content" id="content-studio">
+    {% include './studio.html' %}
+  </section>
+  <section class="tab-content" id="content-enterprise-engine">
+    {% include './enterprise-engine.html' %}
+  </section>
+  
+  {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 {% block modals %}
@@ -331,12 +56,12 @@
      aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body hubspot-override">
         <button type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close">
-          <span>&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="hero text-center">
           <h3>Contact us</h3>
@@ -345,77 +70,32 @@
             get back to you soon.
           </p>
         </hgroup>
-        <form action="/pricing"
-              class="form-inline container"
-              method="post"
-              name="contact">
-          <input class="form-control"
-                 type="text"
-                 name="first_name"
-                 placeholder="Your first name *"
-                 required>
-          <input class="form-control"
-                type="text"
-                name="last_name"
-                placeholder="Your last name *"
-                required>
-          <input class="form-control"
-                 type="email"
-                 name="email"
-                 placeholder="Email *"
-                 ng-model="email"
-                 ng-class="{ 'invalid': contact.email.$error.email }"
-                 required>
-          <input class="form-control"
-                 type="text"
-                 name="company"
-                 placeholder="Company name *"
-                 required>
-          <input class="form-control"
-                 type="text"
-                 name="title"
-                 placeholder="Job title *"
-                 required>
-          <input class="form-control"
-                 type="tel"
-                 name="phone"
-                 placeholder="Phone *"
-                 required>
-          <div class="select-wrapper full-width">
-            <select class="form-control select-helper" name="employees" required>
-              <option value="null" disabled selected>Employees *</option>
-              <option value="1-19">1-19</option>
-              <option value="20-99">20-99</option>
-              <option value="100-249">100-249</option>
-              <option value="250-499">250-499</option>
-              <option value="500+">500+</option>
-            </select><div class="up"></div><div class="dn"></div>
-          </div>
-          <textarea name="message"
-                    cols="30"
-                    rows="10"
-                    placeholder="Send us a message"
-                    required
-                    ></textarea>
-          <input type="hidden" name="form_name" value="pricing_enterprise_contact"/>
-          <input type="hidden" name="form" value="enterprise" />
-          <button type="submit" class="btn ionic" value="Send message">
-            Send message
-          </button>
-        </form>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "3cbb2a81-0859-43ca-af75-47cb066e3b1e",
+        	css: ""
+        });
+        </script>
+
       </div>
     </div>
   </div>
 </div>
 
 <div class="modal collapse fade"
-     id="opinionForm"
+     id="studioReserveSeat"
      tabindex="-1"
      role="dialog"
      aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body hubspot-override">
         <button type="button"
                 class="close"
                 data-dismiss="modal"
@@ -423,50 +103,319 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="hero text-center">
-          <h3>Feedback</h3>
+          <h3>Reserve your seat</h3>
           <p class="lg">
-            Let us know what you think of Ionic Cloud!
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
           </p>
         </hgroup>
-        <form action="/pricing"
-              class="form-inline container"
-              method="post"
-              name="contact">
-          <input class="form-control"
-                 type="text"
-                 name="first_name"
-                 placeholder="Your first name *"
-                 required>
-          <input class="form-control"
-                type="text"
-                name="last_name"
-                placeholder="Your last name *"
-                required>
-          <input class="form-control full-width"
-                 type="email"
-                 name="email"
-                 placeholder="Email *"
-                 ng-model="email"
-                 ng-class="{ 'invalid': contact.email.$error.email }"
-                 required>
-          <textarea name="message"
-                    cols="30"
-                    rows="10"
-                    placeholder="Send us a message"
-                    required
-                    ></textarea>
 
-          <input type="hidden"
-                 name="form_name"
-                 value="pricing_platform_feedback" />
-          <input type="hidden" name="form" value="beta" />
-          <button type="submit" class="btn ionic" value="Send message">
-            Send message
-          </button>
-        </form>
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+          formId: "541f87f4-ceb3-4501-9d95-4893bce088b6",
+          css: ""
+        });
+        </script>
+
       </div>
     </div>
   </div>
 </div>
 
+<div class="modal collapse fade"
+     id="eeAdvisoryAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+        	formId: "01d73ed0-929c-4dce-9fec-673c0e57c1b0",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal collapse fade"
+     id="eeIntegrationsAddon"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "f06b6615-1c49-4104-a5e1-79a04239c99b",
+          css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  /* Replace 'APP_ID' with your app ID */
+  window.intercomSettings = {
+    app_id: 'm0la1vjm'
+  };
+
+  /* Replace 'APP_ID' with your app ID */
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){
+    ic('reattach_activator');ic('update',intercomSettings);}else{var
+    d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
+    {i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+    s.type='text/javascript';s.async=true;
+    s.src='https://widget.intercom.io/widget/APP_ID';
+    var x=d.getElementsByTagName('script') [0];x.parentNode.insertBefore(s,x);
+    }if(w.attachEvent){w.attachEvent('onload',l);}else{
+      w.addEventListener('load',l,false);}}})();
+
+
+  (function(){
+    // scroll to animations
+    var scrollToLinks = document.querySelectorAll('.scroll-to-link');
+
+    for (var i = 0; i < scrollToLinks.length; i++) {
+      scrollToLinks[i].addEventListener('click', function(ev){
+        var cta = document.querySelector('#' + ev.target.dataset.target);
+        ev.preventDefault();
+        window.scrollTo({
+          top: cta.getBoundingClientRect().top + window.scrollY,
+          behavior: "smooth"
+        });
+      });
+    }
+
+
+    // content tabs
+    var tabs = document.querySelectorAll('.rounded-tabs__tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function() {
+        selectTab(this);
+      });
+    }
+
+    function selectTab(tab) {
+      var contentId = tab.dataset.tabContent;
+      window.location.hash = contentId;
+
+      document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
+      document.querySelector('.tab-content--active').classList.remove('tab-content--active');
+      tab.classList.add('rounded-tabs__tab--active');
+      document.getElementById('content-' + contentId).classList.add('tab-content--active');
+    }
+
+    if (window.location.hash && ['#appflow', '#studio', '#enterprise-engine'].includes(window.location.hash)) {
+      var content = window.location.hash.replace('#', '');
+      var tab = document.querySelector('[data-tab-content="' + content + '"]')
+      selectTab(tab);
+    }
+
+    // billing values
+    var isAddonSelected = false;
+    var isBillingMonthly = true;
+    var planCosts = {
+      starter: {
+        monthly: 0,
+        yearly: 0
+      },
+      addon: {
+        monthly: 29,
+        yearly: 299
+      },
+      growth: {
+        monthly: 120,
+        yearly: 1200
+      }
+    }
+
+    // add-on toggle
+    var toggle = document.querySelector('.addon');
+    var toggleCheckbox = toggle.querySelector('input[type="checkbox"]');
+
+    var starterCTA = document.querySelector('.addon-cta-toggle--starter');
+    var addonCTA = document.querySelector('.addon-cta-toggle--addon');
+
+    toggleCheckbox.addEventListener('change', function(ev){
+      if (ev.target.checked) {
+        isAddonSelected = true;
+        toggle.classList.add('selected');
+        starterCTA.classList.remove('addon-cta-toggle--active');
+        addonCTA.classList.add('addon-cta-toggle--active');
+      } else {
+        isAddonSelected = false;
+        toggle.classList.remove('selected');
+        starterCTA.classList.add('addon-cta-toggle--active');
+        addonCTA.classList.remove('addon-cta-toggle--active');
+      }
+
+      swapValues();
+    });
+
+    $('.toggle span').click(function(e){
+      var $span = $(e.target);
+      if ($span.hasClass('active')) return;
+
+      $('.toggle span.active').removeClass('active')
+      $span.addClass('active');
+
+      if (isBillingMonthly) {
+        isBillingMonthly = false;
+      } else {
+        isBillingMonthly = true;
+      }
+
+      swapValues();
+    });
+
+    function swapValues(vals) {
+      var termTypeNodes = document.querySelectorAll('[data="term-type"]');
+      for (var i = 0; i < termTypeNodes.length; i++) {
+        var node = termTypeNodes[i];
+        node.innerHTML = (isBillingMonthly) ? '/mo' : '/yr';
+      }
+
+      var starterNode = document.querySelector('[data="starter-cost"]');
+      var starterCost;
+      if (isAddonSelected) {
+        starterCost = (isBillingMonthly) ? planCosts.addon.monthly : planCosts.addon.yearly;
+      } else {
+        starterCost = (isBillingMonthly) ? planCosts.starter.monthly : planCosts.starter.yearly;
+      }
+      starterNode.innerHTML = '$' + starterCost;
+
+      var growthNode = document.querySelector('[data="growth-cost"]');
+      var growthCost = (isBillingMonthly) ? planCosts.growth.monthly : planCosts.growth.yearly;
+      growthNode.innerHTML = '$' + growthCost;
+    }
+
+    // Sticky table header
+    if (navigator.userAgent.match(/Trident\/7\./)) return;
+
+    var isPinned = false;
+    var isPinnedAtPoint = false;
+    var $tableWrap = document.querySelector('.table-wrap');
+    var $thead = $tableWrap.querySelector('thead');
+    var $tfoot = $tableWrap.querySelector('tbody tr:last-child');
+
+    window.addEventListener('scroll', function(){requestAnimationFrame(checkScroll)});
+    function checkScroll() {
+      if (window.innerWidth < 830){
+        if (isPinnedAtPoint) unpinAtPoint();
+        if (isPinned) unpin();
+        return;
+      }
+
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var tableTop = $tableWrap.offsetTop;
+
+      if (scrollTop > tableTop) {
+        pin();
+      }
+
+      if (scrollTop < tableTop) {
+        unpin();
+      }
+
+      if (scrollTop + $thead.scrollHeight  >= tableTop + ($tableWrap.scrollHeight - $tfoot.scrollHeight)) {
+        pinAtPoint($tableWrap.scrollHeight - $tfoot.scrollHeight - $thead.scrollHeight);
+      } else {
+        unpinAtPoint();
+      }
+    }
+
+    function pin() {
+      if (isPinned) return;
+      isPinned = true;
+      $tableWrap.classList.add('pinned')
+    }
+
+    function unpin() {
+      if (!isPinned) return;
+      isPinned = false;
+      $tableWrap.classList.remove('pinned')
+    }
+
+    function pinAtPoint(_scrollTop) {
+      if (isPinnedAtPoint) return;
+      isPinnedAtPoint = true;
+      $tableWrap.classList.add('pinned-at-point');
+      $thead.style.top = _scrollTop + 'px';
+      pin();
+    }
+
+    function unpinAtPoint () {
+      if (!isPinnedAtPoint) return;
+      isPinnedAtPoint = false;
+      $tableWrap.classList.remove('pinned-at-point');
+      $thead.style.top = '0';
+    }
+
+
+    // mobile table pinned first col
+    $('tbody').scroll(function(){ requestAnimationFrame(stickyTable) });
+    function stickyTable() {
+        if (window.innerWidth > 830) return;
+        $('thead').css("transform", "translate3d(" + -$("tbody").scrollLeft() +"px, 0, 0)"); //fix the thead relative to the body scrolling
+        $('thead td').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first cell of the header
+        $('tbody th').css("transform", "translate3d(" + $("tbody").scrollLeft() +"px, 0, 0)"); //fix the first column of tdbody
+    }
+
+  })();
+
+</script>
 {% endblock %}

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,7 +23,7 @@ docType: "class"
 
 
 
-<p>This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino.</p>
+<p>This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino (not Android to Android or iOS to iOS).</p>
 
 
 <p>Repo:

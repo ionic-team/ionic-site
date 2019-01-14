@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">File</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L585">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L607">
   Improve this doc
 </a>
 
@@ -32,7 +32,7 @@ constructor(private file: File) { }
 
 ...
 
-this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesnt exist&#39;));
+this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;Directory exists&#39;)).catch(err =&gt; console.log(&#39;Directory doesn\&#39;t exist&#39;));
 </code></pre>
 <p> This plugin is based on several specs, including : The HTML5 File API http: //www.w3.org/TR/FileAPI/
  The (now-defunct) Directories and System extensions Latest: http: //www.w3.org/TR/2012/WD-file-system-api-20120417/
@@ -61,7 +61,7 @@ $ npm install --save @ionic-native/file
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>macOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>macOS</li><li>Windows</li>
 </ul>
 
 
@@ -196,7 +196,7 @@ Check if a directory exists in a certain path, directory.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -239,7 +239,7 @@ If an existing directory exists and the replace value is false, the promise will
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -354,7 +354,7 @@ Move a directory to a given path.
       <code>string</code>
     </td>
     <td>
-      <p>The destionation path to the directory</p>
+      <p>The destination path to the directory</p>
 </td>
   </tr>
   
@@ -499,7 +499,7 @@ Removes all files and the directory from a desired location.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -540,7 +540,7 @@ Check if a file exists in a certain path, directory.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -583,7 +583,7 @@ If an existing file exists and the replace value is false, the promise will fail
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -635,7 +635,7 @@ Removes a file from a desired location.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -655,11 +655,10 @@ Removes a file from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code></h3>
+</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;whether)</code></h3>
 
 
 Write a new file to the desired location.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -676,7 +675,7 @@ Write a new file to the desired location.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -695,21 +694,21 @@ Write a new file to the desired location.
     <td>
       text</td>
     <td>
-      <code>string</code>|<code>Blob</code>
+      <code>string</code>|<code>Blob</code>|<code>ArrayBuffer</code>
     </td>
     <td>
-      <p>content or blob to write</p>
+      <p>content, blob or ArrayBuffer to write</p>
 </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      whether</td>
     <td>
       <code>IWriteOptions</code>
     </td>
     <td>
-      <p>replace file if set to true. See WriteOptions for more information.</p>
+      <p>to replace/append to an existing file. See IWriteOptions for more information.</p>
 </td>
   </tr>
   </tbody>
@@ -722,7 +721,6 @@ Write a new file to the desired location.
 
 
 Write to an existing file.
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -739,7 +737,7 @@ Write to an existing file.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -791,7 +789,7 @@ Read the contents of a file as text.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -834,7 +832,7 @@ A data url is of the form:
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -874,7 +872,7 @@ Read file and return data as a binary data.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -914,7 +912,7 @@ Read file and return data as an ArrayBuffer.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -955,7 +953,7 @@ Move a file to a given path.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   
@@ -1018,7 +1016,7 @@ Copy a file in various methods. If file exists, will fail to copy.
       <code>string</code>
     </td>
     <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystem above</p>
 </td>
   </tr>
   

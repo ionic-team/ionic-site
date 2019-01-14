@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-generate
-command_name: generate
-title: Ionic CLI Documentation - generate
+page_name: ionic generate
+command_name: ionic generate
+title: ionic generate - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic generate`
 
@@ -29,7 +38,10 @@ Input | Description
 `name` | The name of the component being generated
 
 
-
+Option | Description
+------ | ----------
+`--no-module` | Do not generate an NgModule for the component
+`--constants` | Generate a page constant file for lazy-loaded pages
 
 ## Examples
 
@@ -43,5 +55,7 @@ $ ionic generate provider
 $ ionic generate tabs
 $ ionic generate component foo
 $ ionic generate page Login
+$ ionic generate page Detail --no-module
+$ ionic generate page About --constants
 $ ionic generate pipe MyFilterPipe
 ```

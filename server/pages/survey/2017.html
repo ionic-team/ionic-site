@@ -1,0 +1,712 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'survey-2017' %}
+{% set bodyController = 'SurveyCtrl' %}
+{% set name = '2017 Developer Survey' %}
+{% set meta_description = 'Insights, trends, and perspectives from the worldwide Ionic Community' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2017.png' %}
+{% set header_style = 'transparent survey-layout' %}
+{% set cssPath = 'survey/2017' %}
+
+{% block body_attributes %}
+  data-spy="scroll" data-target="#survey-2017-nav" data-offset="400"
+{% endblock %}
+
+{% block main %}
+<div class="cta banner" id="survey-banner">
+  <canvas id="statistical-suspension"></canvas>
+  <hgroup class="container">
+    <h2>
+      <svg version="1.1" 
+           xmlns="http://www.w3.org/2000/svg" 
+           xmlns:xlink="http://www.w3.org/1999/xlink" 
+           x="0px" 
+           y="0px"
+           viewBox="0 0 512 512" 
+           enable-background="new 0 0 512 512" 
+           xml:space="preserve">
+        <g id="Layer_1">
+        	<g>
+        		<path d="M256,139.3c-64.3,0-116.7,52.3-116.7,116.7c0,64.3,52.3,116.7,116.7,116.7S372.7,320.3,372.7,256
+        			C372.7,191.7,320.3,139.3,256,139.3z"/>
+        		<g>
+        			<circle cx="423.5" cy="96.5" r="53.2"/>
+        		</g>
+        		<path d="M489,149.9l-2.2-4.9l-3.6,4c-8.7,9.9-19.8,17.5-32.1,22.1l-3.4,1.3l1.4,3.3c10.6,25.5,16,52.5,16,80.2
+        			c0,115.3-93.8,209.2-209.2,209.2S46.8,371.3,46.8,256S140.7,46.8,256,46.8c31.3,0,61.5,6.8,89.6,20.2l3.3,1.6l1.4-3.3
+        			c5.1-12,13.3-22.7,23.6-31l4.2-3.4l-4.8-2.5C336.8,9.6,297.3,0,256,0C114.8,0,0,114.8,0,256c0,141.2,114.8,256,256,256
+        			s256-114.8,256-256C512,219.1,504.3,183.4,489,149.9z"/>
+        	</g>
+        </g>
+      </svg>
+      <span>2017</span>
+      </h2>
+    <h1>Developer Survey</h1>
+    <p>Insights, trends, and perspectives from the worldwide Ionic Community</p>
+  </hgroup>
+  <div class="bar tabbed" data-spy="affix" data-offset-top="500">
+    <div class="container" id="survey-2017-nav">
+      <ul class="categories nav">
+        <li><a class="anchor" href="#trends">Trends</a></li>
+        <li><a class="anchor" href="#tools">Tools</a></li>
+        <li><a class="anchor" href="#habbits">Habits</a></li>
+        <li><a class="anchor" href="#profile">Profile</a></li>
+        <li><a class="anchor" href="#big-picture">Big Picture</a></li>
+        <li><a class="anchor" href="#results">Results</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <aside id="social-share-sidebar" 
+         class="meta activeOnLoad social-links active" 
+         role="complementary" 
+         data-spy="affix" 
+         data-offset-top="500">
+  <h4>Share</h4>
+  <ul>
+    <li>
+      <a href="http://twitter.com/home?status=2017+Ionic+Developer+Survey+results+https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"
+         onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;"
+         class="twitter"></a></li>
+    <li>
+      <a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017&amp;title=2017+Ionic+Developer+Survey+results"
+         onclick="window.open(this.href, 'Share via Facebook', 'width=555, height=656'); return false;"
+         class="facebook"></a></li>
+    <li>
+      <a href="https://plus.google.com/share?url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"
+         onclick="window.open(this.href, 'Share via Google+', 'width=400, height=450'); return false;"
+         class="google-plus"></a></li>
+    <li>
+      <a href="https://buffer.com/add?text=2017+Ionic+Developer+Survey+results&amp;url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2017"  
+         onclick="window.open(this.href, 'Share via Buffer', 'width=500, height=600'); return false;"
+         class="buffer"></a></li>
+  </ul>
+</aside>
+  <article>
+    <hgroup class="text-center intro" id="insights">
+      <div class="container">
+        <p class="lg">
+          This year, for the first time ever, we asked members of the Ionic 
+          community to tell us about the tools and technologies they use to 
+          develop Ionic apps, and what types of apps they’re building.  
+        </p><p class="lg">
+          <strong>More than 13,000 developers shared their story.</strong>
+        </p><p class="lg">
+          The results reveal some very interesting trends that, we hope, will 
+          serve Ionic community members and vendors alike. While we encourage 
+          you to check out the data yourself, here are the top insights and 
+          observations from our team at Ionic.
+        </p>
+      </div>
+    </hgroup>
+
+    <section id="trends" class="clearfix animate-in">
+      <div class="container">
+        <h3>App Trends</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Hybrid dev is taking over.</h4>
+            <p>
+              Two years ago, 20% of developers surveyed were building 
+              exclusively with native tools instead of hybrid. In the next two 
+              years, that number is only 2.9% - a nearly 7x decrease. Similarly, 
+              the number of hybrid-built apps is growing as a share of overall 
+              app development. In the next two years, 32.7% of developers 
+              surveyed expect to completely abandon native development in favor 
+              of hybrid.
+            </p><p>
+              The broader trend is that hybrid development is gaining traction, 
+              while the native approach is waning.  We think that makes sense.  
+              The benefits of hybrid are obvious. And as the <a target="_blank"
+              href="https://blog.ionicframework.com/the-amazing-evolution-of-the-web-on-mobile/">
+              web evolves</a>, there are fewer and fewer reasons not to adopt.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4>
+              More than just consumer apps.<br>
+              Many enterprises focused on B2E.
+            </h4>
+            <p>
+              The types of apps being built for commercial purposes aren't just 
+              consumer apps, althought that remains a dominant use case. A large 
+              percentage of apps being built with Ionic (41.7%) are actually for 
+              internal-use apps. This is consistent with a broader trend in the 
+              enterprise, where the value of mobile extends beyond the essential 
+              flagship consumer app. More and more, older legacy systems are 
+              steadily being replaced - or modernized - with mobile experiences 
+              that make employees happier, and more productive.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <h4>
+              PWAs? Yes.<br>
+              Wearables and smart devices?  No.
+            </h4>
+            <p>
+              There’s been a lot of talk about wearables and other smart 
+              devices, but the data shows that app development on these 
+              platforms is still very nascent. Only 3% of developers are 
+              building for  smartwatches, and even fewer (2.7%) for TVs.
+            </p><p>
+              And for all the talk about tablets taking over the world, they 
+              still accounted for less than half (45%) of responses - while 
+              Android was targeted by 94.3% of developers, and 83.2% for iOS.
+            </p><p>
+              Finally, 31.5% of developers are targeting progressive web apps.  
+              That’s a big jump for something the dev community just started 
+              talking about two years ago.  Meanwhile, responsive web apps were 
+              targeted by 34.7% of respondents. What’s driving this trend? Part 
+              of it could be app fatigue among consumers who care more about 
+              mobile experiences and less about installing yet another app, and 
+              developers who want their apps to run on mobile and desktop web 
+              environments, not just in the app stores. 
+            </p><p>
+              Overall, we see this as validation for two things that Ionic has 
+              been saying for awhile: mobile remains the killer platform, and 
+              web is the future.
+            </p>
+          </div>
+          <aside class="col-md-3 col-md-offset-1">
+            <figure>
+              <img src="/img/survey/watch-tv-icon.png" width="114" />
+              <figcaption>
+                <strong>3.0%</strong>
+                <p>
+                  Developers building for smart watches. Even fewer for TVs.
+                </p>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="/img/survey/pwa-icon.png" width="90" />
+              <figcaption>
+                <strong>31.5%</strong>
+                <p>Developers targeting progressive web apps.</p>
+              </figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="clearfix dark animate-in">
+      <div class="container">
+        <h3>Tools of the Trade</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Firebase tops hosted backend services.</h4>
+            <p>
+              Google’s Firebase is the clear winner in backend services. For 
+              push notifications, Firebase was used by 41.3% of Ionic devs, 
+              while AWS was used by just 8.2%.  There was a similar disparity 
+              between Firebase Auth and Amazon Cognito (30% vs. 2.5%). And 
+              Firebase topped the list of hosted backend databases, with 32.4% 
+              of developers using it compared to a combined 11.5% for Amazon 
+              DynamoDB and RDS.
+            </p><p>
+              <strong>Our take:</strong> 
+              The Firebase strategy of focusing on ease of use, and adding 
+              services on top of their free DB, appears to be working.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4>
+              Node dominates and Google owns analytics.
+            </h4>
+            <p>
+              The survey results confirmed some previously held beliefs. Node.js 
+              is the dominant choice (56.6% of devs) when it comes to backend 
+              technology. And Google owns the analytics space, with Google 
+              Analytics and Firebase Analytics emerging as clear winners (used 
+              by 68.3% and 24.9% of devs, respectively).
+            </p>
+            <ul class="tools">
+              <li class="firebase"></li>
+              <li class="node"></li>
+              <li class="analytics"></li>
+              <li class="vscode"></li>
+              <li class="aws"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4>
+              Microsoft winning over devs with VS Code.
+            </h4>
+            <p>
+              VS Code was launched two years ago at the 2015 Microsoft Build 
+              conference.  Aimed at cross-platform developers, Code was touted 
+              for its speed (fast), size (small), and advanced debugging 
+              features.
+            </p><p>
+              Fast-forward two years, and adoption of Code has grown to nearly 
+              half of  the developers we surveyed (46.7%) - by far the most 
+              widely adopted among Editors and IDEs on the list.  Sublime, Atom, 
+              and Webstorm trail as the next most popular code editors.
+            </p><p>
+              Add to that the 12.7% of devs using Visual Studio IDE, and it 
+              looks like Microsoft has really won over developers with its code 
+              editing and development toolsets.  Of course, it doesn’t hurt that 
+              Microsoft is the reference editor for common tools like 
+              TypeScript, which may have helped them become the defacto text 
+              editor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habbits" class="clearfix dark animate-in">
+      <div class="container">
+        <h3>Dev Habits</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Device testing in the cloud is still nascent.</h4>
+            <p>
+              Device testing is one of the most challenging aspects of mobile 
+              app development. Even in larger teams, no one has enough devices 
+              to cover every scenario.
+            </p><p>
+              With access to large device farms, AWS, Firebase, and others like 
+              Browserstack and Sauce Labs, have emerged as a way to move device 
+              testing to the cloud and gain much better test coverage in the 
+              process.
+            </p><p>
+              And yet, an overwhelming majority of devs we surveyed (65.1%) are 
+              not using any cloud device testing services. Time will tell if 
+              these services take off, or remain a niche offering.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4>
+              Real-time remote updates gaining traction.
+            </h4>
+            <p>
+              The survey results show that most developers (53.2%) are still 
+              pushing app updates the traditional way - through the App Stores.
+            </p><p>
+              Meanwhile, some are embracing rapid real-time updates that are 
+              made possible with hybrid apps. Using tools like Ionic Deploy and 
+              PhoneGap ContentSync, apps can be updated - at the web layer - 
+              remotely, outside of the App Store, though still in compliance 
+              with Apple and Android standards.
+            </p><p>
+              We expect to see adoption of real-time remote updates increasing 
+              over the next year.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>
+              Ionic Developers care about design.
+            </h4>
+            <p>
+              We were a bit surprised to see how many devs are using prototyping 
+              tools as part of their development flow. This is a good sign that 
+              developers care about design, and have embraced rapid prototyping 
+              tools that help them get their ideas out on paper, before engaging 
+              in costly development work.
+            </p><p styl>
+              Ionic Creator was cited as a popular prototyping tool of choice 
+              (used by 22.8% of respondents), followed by popular design 
+              solutions Sketch (17.6%), Balsamiq (12%), and Invision (10.1%).
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4>
+              Almost half of participants not tracking errors and crashes.
+            </h4>
+            <p>
+              A surprising percentage of developers surveyed (44%) reported that 
+              that they aren’t tracking errors or crashes in the apps they’re 
+              building. This sizable gap in adoption suggest there is some 
+              disillusionment in the tools that exist today.  One possible 
+              explanation is that native crash tools are less effective when it 
+              comes to understanding the web layer.  If true, the market for 
+              crash reporting in hybrid apps is still up for grabs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile" class="clearfix animate-in">
+      <div class="container">
+        <h3>Who’s building apps with Ionic</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Web developers are moving to mobile.</h4>
+            <p>
+              We asked respondents to tell us about their development 
+              background. Nearly 80% of 13,000+ Ionic developers who took the 
+              survey identify themselves as web developers.  An additional 10.8% 
+              identified as newbies learning to develop mobile apps for the 
+              first time, while a sizable percentage (8.4%) described themselves 
+              as “born-and-bred" mobile developers. 
+            </p><p>
+              Overall, the data suggests that Ionic serves a broad cross-section 
+              of the developer community - from newbies to hardcore devs.  It’s 
+              also clear that Ionic is fulfilling its mission to help web 
+              developers participate in the thriving mobile app economy. By 
+              embracing the power of open web technologies, Ionic is helping the 
+              vast web developer community build mobile experiences using tools 
+              they already know and love.  We’re excited to see that the 
+              approach seems to be working.
+            </p>
+          </div>
+
+          <div class="col-md-6">
+            <h4>Mostly building for commercial use.</h4>
+            <p>
+              The vast majority of Ionic devs (75.2%) are building apps for 
+              commercial use.  By far the biggest segment of developers we 
+              surveyed (41.9%) were contract developers and dev shops building 
+              on behalf of their clients, while many others (33.3%) were 
+              building apps for their company.  The companies they represent 
+              range from solo shops to large enterprises.
+            </p>
+            <aside>
+              <div class="factoid">
+                <strong>75.2%</strong>
+                <p>Developers bulding Ionic mobile apps for commercial use.</p>
+              </div>
+              <div class="factoid">
+                <strong>41.9%</strong>
+                <p>Contractors and dev shops building apps for clients.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hgroup id="big-picture" class="clearfix text-center animate-in">
+      <div class="container">
+        <h3>Big Picture</h3>
+        <p>The web is winning. 🎉</p>
+        <p>
+          Looking at the big picture from this year’s results, the broader trend 
+          is the web is winning. Hybrid apps are beginning to dominate. 
+          Progressive web apps are catching on faster than we anticipated. And 
+          more and more web developers are moving into the mobile space. Most 
+          importantly, “cross-platform” doesn’t just mean iOS and Android. It 
+          means a consistent experience across mobile and desktop, web and app 
+          store, phone and tablet.
+        </p><p>
+          Of course, we’re not too surprised. Developers building hybrid apps 
+          and PWAs are taking advantage of the single most adopted, tested, and 
+          dominant technology stack in the world: The Web. Ionic has always bet 
+          on the web, and it looks like we’re not alone.
+        </p>
+        <h2>&mdash;</h2>
+        <h2 id="results">Survey Results</h2>
+        <p class="lg">
+          Data from the survey is available below.  Feel free to interact, play, 
+          and form your own conclusions!
+        </p>
+      </div>
+    </hgroup>
+
+    <section id="data-backend" class="data animate-in">
+      <div class="container">
+        {% raw %}
+        <h3>Backend Technology</h3>
+        <h4>What services do you use to send Push Notifications?</h4>
+        <bar-chart data="{
+          'Firebase/GCM': 41.3,
+          'Amazon': 8.2,
+          'OneSignal': 10.6,
+          'Urban Airship': 1.1,
+          'Pushwoosh': 2.4,
+          'Ionic Push': 19.7,
+          'Custom push system': 12.3,
+          'I don\'t send push notifications': 27.7,
+          'Other': 4.7
+        }"></bar-chart>
+  
+        <h4>How do you manage user authentication?</h4>
+        <bar-chart data="{
+          'Firebase Auth': 30,
+          'GCP Auth': 2.3,
+          'Auth.io': 6,
+          'Auth0': 17.7,
+          'Stormpath': 0.7,
+          'Fabric Digits': 0.7,
+          'Amazon Cognito': 2.5,
+          'Azure Authentication': 2.9,
+          'Ionic Auth': 12.3,
+          'Custom oAuth': 43.7,
+          'Other': 14
+        }"></bar-chart>
+
+        <h4>What database(s) do you use for your backend?</h4>
+        <bar-chart data="{
+          'Firebase':	32.4,
+          'Self-hosted SQL database':	57.4,
+          'AWS DynamoDB':	4.1,
+          'AWS RDS':	7.4,
+          'Heroku Postgres':	5,
+          'Self-hosted MongoDB':	17.6,
+          'Cloud hosted MongoDB':	11.8,
+          'Ionic DB (beta)':	3,
+          'I don\'t use a database':	3.1,
+          'Other':	9.6
+        }"></bar-chart>
+  
+        <h4>How do you host the server-side of your app?</h4>
+        <bar-chart data="{
+          'Client-side database': 21.4,
+          'AWS Lambda': 5.9,
+          'Amazon ECS': 16.8,
+          'AWS LightSail': 0.9,
+          'Google App Engine/GCP': 7.5,
+          'Heroku': 13.2,
+          'Azure': 9.8,
+          'Digital Ocean': 15.6,
+          'Classic VPS provider': 10,
+          'Self-hosted Virtual Server': 22.1,
+          'Self-hosted Docker': 7.5,
+          'Self-hosted Dedicated': 22.1,
+          'Other': 5.4
+        }"></bar-chart>
+  
+        <h4>What backend technology does your app run on?</h4>
+        <bar-chart data="{
+          'Node.js': 56.6,
+          'Python (Django, Flask, etc)': 11.7,
+          'Ruby (on rails or otherwise)': 5.5,
+          'Java': 18.6,
+          'C#/.NET': 16.4,
+          'Other': 27.6
+        }"></bar-chart>
+  
+        <h4>What service do you use for Analytics?</h4>
+        <bar-chart data="{
+          'Google Analytics': 68.3,
+          'Firebase Analytics': 24.9,
+          'Amazon Mobile Analytics': 2.6,
+          'Fabric Answers': 2.9,
+          'Mixpanel': 3.7,
+          'Keen': 0.6,
+          'Segment': 1,
+          'Amplitude': 0.5,
+          'Localytics': 0.6,
+          'Adobe': 0.9,
+          'Ionic Analytics': 6.8,
+          'Custom Analytics': 15.6,
+          'Other': 8.1
+        }"></bar-chart>
+  
+        <h4>How do you test your app in the cloud?</h4>
+        <bar-chart data="{
+          'AWS Device Farm': 4.5,
+          'Firebase Test Lab': 11.5,
+          'Browserstack': 6.1,
+          'Sauce Labs': 1.8,
+          'Custom device testing system': 17.6,
+          'I don\'t do cloud device testing': 65.1,
+          'Other': 1.9
+        }"></bar-chart>
+  
+        <h4>How do you track errors and crashes in your app?</h4>
+        <bar-chart data="{
+          'Fabric/Crashlytics': 9.6,
+          'Firebase crash reporting': 17.4,
+          'Sentry': 5.2,
+          'TrackJS': 3.8,
+          'Bugsnag': 1.7,
+          'Opbeat': 0.5,
+          'Rollbar': 2.2,
+          'Custom system': 23.1,
+          'I don\'t track errors or crashes': 44,
+          'Other': 4.4
+        }"></bar-chart>
+  
+        <h4>How do you update your apps remotely?</h4>
+        <bar-chart data="{
+          'Ionic Deploy': 23.9,
+          'Microsoft Code Push': 10.3,
+          'PhoneGap ContentSync': 2.1,
+          'PhoneGap Hydration': 1.8,
+          'Custom Update System': 14.9,
+          'I do not push updates to my app remotely': 53.2,
+          'Other': 2.9
+        }"></bar-chart>
+      </div>
+    </section>
+    <section id="data-tools" class="data animate-in">
+      <div class="container">
+        <h3>Tools and Testing</h3>
+        <div class="container">
+        <h4>What Text Editor or IDE do you use?</h4>
+        <bar-chart data="{
+          'Visual Studio Code': 46.7,
+          'Visual Studio IDE': 12.7,
+          'Atom': 25.2,
+          'Webstorm': 21.6,
+          'Sublime Text': 31,
+          'TextMate': 1,
+          'Brackets': 6.1,
+          'Other': 13.1
+        }"></bar-chart>
+  
+        <h4>Use any App Prototyping tools?</h4>
+        <bar-chart data="{
+          'Ionic Creator': 22.8,
+          'Invision': 10.1,
+          'Marvel': 4,
+          'Baslamiq': 12,
+          'Sketch': 17.6,
+          'I don\'t use any app prototyping tools': 48.3,
+          'Other': 5.8
+        }"></bar-chart>
+  
+        <h4>How do you beta test and gather feedback?</h4>
+        <bar-chart data="{
+          'Ionic View': 36.2,
+          'Hockeyapp': 5.1,
+          'Testflight': 24.8,
+          'TestFairy': 2,
+          'I don\'t use any beta testing/feedback tools': 40.9,
+          'Other': 5.5
+        }"></bar-chart>
+  
+        <h4>How do you distribute your apps to users?</h4>
+        <bar-chart data="{
+          'App store (Apple, Google Play, etc)': 81.5,
+          'MobileIron': 1.1,
+          'Airwatch': 1.2,
+          'Microsoft Intune': 0.8,
+          'Ionic View (as an internal app store, etc)': 12.3,
+          'Hosted web apps or desktop downloads': 27.6,
+          'Other': 2.7
+        }"></bar-chart>
+      </div>
+    </section>
+    <section id="data-meta" class="data animate-in">
+      <div class="container">
+        <h3>Meta Stuff</h3>
+        <h4>What platform do you develop your apps on?</h4>
+        <bar-chart data="{
+          'Mac': 57.9,
+          'Windows': 55.4,
+          'Linux': 28.9,
+          'Other': 0.8
+        }"></bar-chart>
+  
+        <h4>How big is your employer?</h4>
+        <bar-chart data="{
+          'Self-employed - me, myself, and I': 40.3,
+          '2-10': 31,
+          '11-50': 13.7,
+          '51-500': 8.2,
+          '500+': 6.8
+        }"></bar-chart>
+  
+        <h4>Who are you building apps for?</h4>
+        <bar-chart data="{
+          'App for my company': 33.3,
+          'App for a client': 41.9,
+          'Side project': 18.6,
+          'School': 4,
+          'Other': 2.2
+        }"></bar-chart>
+  
+        <h4>How many Ionic apps have you built?</h4>
+        <bar-chart data="{
+          '0': 9.6,
+          '1': 24.5,
+          '2-5': 52.2,
+          '6-10': 8.2,
+          '10+': 5.1,
+          'Other': 0.5
+        }"></bar-chart>
+  
+        <h4>What kind of apps are you building?</h4>
+        <bar-chart data="{
+          'Consumer social network': 24,
+          'Consumer chat': 12.2,
+          'Consumer general': 60.7,
+          'Enterprise internal app': 41.7,
+          'Progressive Web Apps': 25.1,
+          'Desktop apps (electron, etc)': 12.3,
+          'Desktop web apps': 18.5,
+          'Other': 4.5
+        }"></bar-chart>
+  
+        <h4>What platforms do you target?</h4>
+        <bar-chart data="{
+          'iOS': 83.2,
+          'Android': 94.3,
+          'Tablet (iPad, Android Tablets, etc)': 45.1,
+          'Universal Windows Platform': 10.7,
+          'Desktop Mac': 13.5,
+          'Desktop Windows': 20,
+          'Mobile Web/Progressive Web App': 31.5,
+          'Responsive web': 34.7,
+          'Smart watches': 3,
+          'TVs': 2.7,
+          'Other': 0.7
+        }"></bar-chart>
+  
+        <h4 style="animation-delay: 1.1s">What is your background?</h4>
+        <bar-chart data="{
+          'Newbie learning mobile dev': 10.8,
+          'Web developer new to mobile': 38.4,
+          'Web developer experienced with mobile': 39.1,
+          'Mobile developer born and bred': 8.4,
+          'Other': 3.3
+        }"></bar-chart>
+  
+        <h4 style="animation-delay: 1.3s">What version of Ionic are you using?</h4>
+        <bar-chart data="{
+          'Ionic 1': 41.3,
+          'Ionic 2+': 73.3,
+          'Other': 3.3
+        }"></bar-chart>
+  
+        <h4>
+          In the past two years, what percentage of your apps were hybrid (mix 
+          of web and native code)?<br>
+          What percentage do you expect in the next two years?
+        </h4>
+        <bar-chart data="{
+          categories: ['All Native Apps', 'Mix Hybrid & Native', 'All Hybrid'],
+          data: [
+            {name: '2015-2017', values: [20.1, 55.5, 24.4], color: '#4a8bfc'},
+            {name: '2017-2019', values: [2.9, 64.4, 32.7], color: '#4afcbb'}
+          ]
+        }"></bar-chart>
+        {% endraw %}
+      </div>
+    </section>
+    <hgroup class="text-center data">
+      <div class="container">
+        <h2>Methodology</h2>
+        <p class="lg">
+          The Ionic Developer Survey was fielded from February 2017 to June 
+          2017. A total of 13,248 respondents completed the survey during that 
+          period. Responses were collected directly by Ionic using Google Forms. 
+          Analysis of the results was performed by Ionic following completion of 
+          the survey in June 2017.
+        </p>
+      </div>
+    </hgroup>
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+sr.reveal('.animate-in p, .animate-in h4, .animate-in aside, ' +
+          '.animate-in .tools, .animate-in bar-chart');
+</script>
+{% endblock %}

@@ -1,0 +1,216 @@
+@import '../../vars';
+@import 'surveys';
+
+
+
+.survey-layout {
+  .navbar + .banner {
+    h2 {
+      font-weight: 700;
+      color: rgba(0, 0, 0, .5);
+      font-size: 19px;
+      letter-spacing: .05em;
+  
+      svg {
+        fill-opacity: .5;
+        display: block;
+      }
+    }
+  }
+  
+  article {
+    > hgroup,
+    > section {
+      .container::before {
+        background: url('/img/survey/header-thumbnails.png');
+        background-size: 96px;
+        width: 96px;
+        height: 96px;
+        content: '';
+        display: block;
+        margin: 92px auto 36px;
+      }
+    }
+    
+    > section .container::before {
+      position: absolute;
+      top: -113px;
+      left: 24px;
+      margin: 0;
+    }
+
+    > hgroup .container {
+        font-family: $font-family-serif;
+    }
+  }
+}
+
+#insights .container {
+  &::before {
+    animation: 1s fadeInUp;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  p {
+    animation: 1s fadeInUp;
+    animation-delay: 3.75s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+}
+
+#profile {
+  .container::before {
+    background-position: 0 -96px;
+  }
+  
+  aside {
+    @media (max-width: $screen-sm-max)  {
+      text-align: center;
+    }
+  }
+
+  .factoid {
+    width: 200px;
+    background: #e9edf8;
+    border-radius: 32px;
+    display: inline-block;
+    margin: 34px -7px 0px 15px;
+    padding: 33px 19px 12px;
+
+    strong {
+      color: $blue;
+      font-weight: 500;
+      font-size: 48px;
+      text-align: center;
+      display: block;
+      letter-spacing: -.05em;
+      margin-bottom: -2px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+  }
+}
+
+#trends {
+  background: #f6f8fc;
+
+  .container::before {
+    background-position: 0 -192px;
+  }
+
+  figure {
+    display: block;
+    margin: 94px auto 33px;
+    padding-left: 35px;
+
+    &:first-child {
+      margin-top: 99px;
+    }
+
+    img {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      font-size: 48px;
+      color: $blue;
+      font-weight: 400;
+      letter-spacing: -.01em;
+    }
+
+    p {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      font-size: 14px;
+      font-weight: 500;
+      max-width: 142px;
+      margin-top: -4px;
+      line-height: 1.48em;
+    }
+
+    &:last-child img {
+      margin-left: 17px;
+    }
+  }
+     
+  aside {
+    @media (max-width: $screen-sm-max)  {
+      text-align: center;
+
+      figure,
+      figure:first-child {
+        display: inline-block;
+        margin-top: 50px;
+        vertical-align: top;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      display: flex;
+      justify-content: space-around;
+
+      figure {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+#tools {
+  background: #161920;
+
+  .container::before {
+    background-position: 0 -288px;
+  }
+
+  .tools {
+    text-align: center;
+    padding: 0 24px 0 0;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      background: no-repeat url('/img/survey/tools-icons.png');
+      background-size: 70px;
+      width: 70px;
+      height: 70px;
+      display: inline-block;
+
+      &.node {      background-position: 0 -70px; }
+      &.analytics { background-position: 0 -140px; }
+      &.vscode {    background-position: 0 -210px; }
+      &.aws {       background-position: 0 -280px; }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      padding-right: 0;
+    }
+  }
+}
+
+#habbits {
+  background: $blue;
+
+  .container::before {
+    background-position: 0 -384px;
+  }
+}
+
+#big-picture {
+  background: #f6f8fc;
+
+  .container::before {
+    background-position: 0 -480px;
+  }
+
+  p {
+    animation-delay: 2s;
+  }
+}

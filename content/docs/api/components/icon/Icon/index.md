@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -59,7 +59,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;!-- automatically uses the correct &quot;star&quot; icon depending on the mode --&gt;
 &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
@@ -81,7 +81,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -131,7 +131,7 @@ For more information, see <a href="/docs/ionicons/">Ionicons</a>.</p>
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components#icons">Icon Component Docs</a><!-- end content block -->
 

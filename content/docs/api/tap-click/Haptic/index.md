@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -50,7 +50,7 @@ welcome to get a bit crazy with it if you fancy.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(haptic: Haptic){
@@ -68,15 +68,16 @@ welcome to get a bit crazy with it if you fancy.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="available"></div>
 
 <h3>
-<a class="anchor" name="available" href="#available"></a>
+<a class="anchor" name="available" href="#available">
 <code>available()</code>
   
 
+</a>
 </h3>
 
 Check to see if the Haptic Plugin is available
@@ -100,10 +101,11 @@ Check to see if the Haptic Plugin is available
 <div id="gestureSelectionChanged"></div>
 
 <h3>
-<a class="anchor" name="gestureSelectionChanged" href="#gestureSelectionChanged"></a>
+<a class="anchor" name="gestureSelectionChanged" href="#gestureSelectionChanged">
 <code>gestureSelectionChanged()</code>
   
 
+</a>
 </h3>
 
 Tell the haptic engine that a selection changed during a gesture.
@@ -120,10 +122,11 @@ Tell the haptic engine that a selection changed during a gesture.
 <div id="gestureSelectionEnd"></div>
 
 <h3>
-<a class="anchor" name="gestureSelectionEnd" href="#gestureSelectionEnd"></a>
+<a class="anchor" name="gestureSelectionEnd" href="#gestureSelectionEnd">
 <code>gestureSelectionEnd()</code>
   
 
+</a>
 </h3>
 
 Tell the haptic engine we are done with a gesture. This needs to be
@@ -141,10 +144,11 @@ called lest resources are not properly recycled.
 <div id="gestureSelectionStart"></div>
 
 <h3>
-<a class="anchor" name="gestureSelectionStart" href="#gestureSelectionStart"></a>
+<a class="anchor" name="gestureSelectionStart" href="#gestureSelectionStart">
 <code>gestureSelectionStart()</code>
   
 
+</a>
 </h3>
 
 Tell the haptic engine that a gesture for a selection change is starting.
@@ -161,10 +165,11 @@ Tell the haptic engine that a gesture for a selection change is starting.
 <div id="impact"></div>
 
 <h3>
-<a class="anchor" name="impact" href="#impact"></a>
+<a class="anchor" name="impact" href="#impact">
 <code>impact()</code>
   
 
+</a>
 </h3>
 
 Use this to indicate success/failure/warning to the user.
@@ -182,10 +187,11 @@ options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
 <div id="notification"></div>
 
 <h3>
-<a class="anchor" name="notification" href="#notification"></a>
+<a class="anchor" name="notification" href="#notification">
 <code>notification()</code>
   
 
+</a>
 </h3>
 
 Use this to indicate success/failure/warning to the user.
@@ -203,10 +209,11 @@ options should be of the type `{ type: 'success' }` (or `warning`/`error`)
 <div id="selection"></div>
 
 <h3>
-<a class="anchor" name="selection" href="#selection"></a>
+<a class="anchor" name="selection" href="#selection">
 <code>selection()</code>
   
 
+</a>
 </h3>
 
 Trigger a selection changed haptic event. Good for one-time events

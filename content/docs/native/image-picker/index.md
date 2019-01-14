@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Image Picker</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L36">
   Improve this doc
 </a>
 
@@ -221,7 +221,10 @@ Request permission to read images
       <code>number</code>
     </td>
     <td>
-      <p>Output type, defaults to 0  (FILE_URI).</p>
+      <p>Choose the format of the return value.
+Defined in ImagePicker.OutputType. Default is FILE_URI.
+     FILE_URI : 0,   Return image file URI,
+     DATA_URL : 1,   Return image as base64-encoded string</p>
 
       <em>(optional)</em>
     </td>

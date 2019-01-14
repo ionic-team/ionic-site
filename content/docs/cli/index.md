@@ -1,21 +1,22 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
-id: cli-intro
-title: Ionic CLI Documentation
+id: cli-index
+title: Ionic App CLI Development
+header_sub_title: Command Line Interface Tool
+hide_header_search: true
+dark_header: true
 ---
 
-# ionic
+# Ionic CLI
 
+The Ionic Command Line Interface (CLI) is your go-to tool for developing Ionic apps. You can follow CLI development on [Github](https://github.com/ionic-team/ionic-cli).
 
-The Ionic CLI is your go-to tool for developing Ionic apps. You can follow CLI
-development on [Github](https://github.com/ionic-team/ionic-cli).
+{% include fluid/toc.html %}
 
 ## Installation
 
-Please make sure latest
-[Node](https://ionicframework.com/docs/resources/what-is/#node) 6 LTS and
-[NPM](https://ionicframework.com/docs/resources/what-is/#npm) 3+ are installed.
+Please make sure latest [Node](/docs/resources/what-is/#node) 6 LTS and [NPM](/docs/resources/what-is/#npm) 3+ are installed.
 
 Then, install the CLI globally (you may need sudo):
 
@@ -23,49 +24,52 @@ Then, install the CLI globally (you may need sudo):
 $ npm install -g ionic@latest
 ```
 
+You can verify your installation with the `ionic --version` command.
+
 ## Getting Started
 
 Start a new Ionic project using `ionic start`:
 
 ```bash
-ionic start myNewProject tabs
-cd ./myNewProject
+$ ionic start myNewProject
 ```
 
-This will create a new app named `myNewProject`. Once you `cd` into your
-project's directory, a few new commands become available to you, such as
-`serve`:
+`ionic start` will prompt you to select a "starter". We recommend using the `tutorial` starter for your first app. See [Starter Templates](/docs/cli/starters.html) for a full list.
+
+After selecting a starter, the CLI will create a new app named `myNewProject`. Once you `cd` into your project's directory, a few new commands become available to you, such as `ionic serve`:
 
 ```bash
-ionic serve
+$ cd ./myNewProject
+$ ionic serve
 ```
 
-## Commands
+While running `ionic serve`, changes you make to your app code will automatically refresh the browser. If you want to see your app on a device or emulator, you can [use Cordova](#using-cordova).
 
-Here is a full list of Ionic commands. You can also see the list on the command
-line with `ionic --help`.
+You can list available commands with the `ionic --help` command.
 
-Command | Description
-------- | -----------
-[docs](docs) | Open the Ionic documentation website
-[generate](generate) | Generate pipes, components, pages, directives, providers, and tabs (ionic-angular >= 3.0.0)
-[info](info) | Print system/environment info
-[link](link) | Connect your local app to Ionic
-[login](login) | Login with your Ionic ID
-[serve](serve) | Start a local dev server for app dev/testing
-[signup](signup) | Create an Ionic account
-[start](start) | Create a new project
-[telemetry](telemetry) | Opt in and out of telemetry
-[upload](upload) | Upload a new snapshot of your app
-[cordova build](cordova/build) | Build (prepare + compile) an Ionic project for a given platform
-[cordova compile](cordova/compile) | Compile native platform code
-[cordova emulate](cordova/emulate) | Emulate an Ionic project on a simulator or emulator
-[cordova platform](cordova/platform) | Manage Cordova platform targets
-[cordova plugin](cordova/plugin) | Manage Cordova plugins
-[cordova prepare](cordova/prepare) | Transform metadata to platform manifests and copies assets to Cordova platforms
-[cordova resources](cordova/resources) | Automatically create icon and splash screen resources
-[cordova run](cordova/run) | Run an Ionic project on a connected device
-[package build](package/build) | Start a package build
-[package download](package/download) | Download your packaged app
-[package info](package/info) | Get info about a build
-[package list](package/list) | List your cloud builds
+## Using Cordova
+
+Integrate Ionic with [Cordova](https://cordova.apache.org/) to bring native capabilities to your app.
+
+```bash
+$ npm install -g cordova
+$ ionic cordova --help
+$ ionic cordova run ios
+```
+
+The `ionic cordova` commands (aside from `ionic cordova resources`) wrap the Cordova CLI. You can read about the differences in each command's `--help` page. To learn more about the commands, see the [Cordova CLI Reference](https://cordova.apache.org/docs/en/latest/reference/cordova-cli/) documentation.
+
+* For iOS development, see the [iOS Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html).
+* For Android development, see the [Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
+
+## Ionic Appflow
+
+[Ionic Appflow](/appflow) is a powerful suite of tools and services designed for the entire app lifecycle, all in one integrated experience. 
+Ionic Appflow is fully supported in the Ionic CLI. See the [Appflow Docs](/docs/appflow/basics/getting-started/) to get started.
+
+## Troubleshooting
+
+If you're having trouble with the Ionic CLI, you can try the following:
+
+* Make sure you're on the latest version of the CLI. Update with `npm update -g ionic`.
+* Try running commands with the `--verbose` flag, which will print `DEBUG` messages.

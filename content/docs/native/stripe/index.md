@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Stripe</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L79">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L104">
   Improve this doc
 </a>
 
@@ -72,7 +72,7 @@ let card = {
 };
 
 this.stripe.createCardToken(card)
-   .then(token =&gt; console.log(token))
+   .then(token =&gt; console.log(token.id))
    .catch(error =&gt; console.error(error));
 </code></pre>
 
@@ -141,7 +141,7 @@ Create Credit Card Token
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> returns a promise that resolves with the token, or rejects with an error
+  <b>Returns:</b> <code>Promise&lt;StripeCardTokenRes&gt;</code> returns a promise that resolves with the token object, or rejects with an error
 </div><h3><a class="anchor" name="createBankAccountToken" href="#createBankAccountToken"></a><code>createBankAccountToken(params)</code></h3>
 
 
@@ -458,7 +458,7 @@ Get a card type from card number
   
   <tr>
     <td>
-      postal_code
+      postalCode
     </td>
     <td>
       <code>string</code>

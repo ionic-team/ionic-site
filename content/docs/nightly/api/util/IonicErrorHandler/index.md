@@ -45,13 +45,13 @@ and displays runtime errors as an overlay when using Ionic&#39;s Dev Build Serve
 <h3><a class="anchor" name="ionicerrorhandler-example" href="#ionicerrorhandler-example">IonicErrorHandler Example</a></h3>
 
 
-<pre><code class="lang-typescript">import { NgModule, ErrorHandler } from &#39;@angular/core&#39;;
+<pre><code class="lang-typescript">import { ErrorHandler, NgModule } from &#39;@angular/core&#39;;
 import { IonicErrorHandler } from &#39;ionic-angular&#39;;
 
 @NgModule({
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
-class AppModule {}
+class AppModule { }
 </code></pre>
 <h3><a class="anchor" name="custom-error-handlers" href="#custom-error-handlers">Custom Error Handlers</a></h3>
 
@@ -67,7 +67,7 @@ error handler.</p>
 @NgModule({
   providers: [{ provide: ErrorHandler, useClass: MyErrorHandler }]
 })
-class AppModule {}
+class AppModule { }
 </code></pre>
 <p>More information about Angular&#39;s <a href="https://angular.io/docs/ts/latest/api/core/index/ErrorHandler-class.html"><code>ErrorHandler</code></a>.</p>
 

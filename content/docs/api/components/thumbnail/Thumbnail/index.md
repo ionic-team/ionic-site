@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Thumbnail
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/thumbnail/thumbnail.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/thumbnail/thumbnail.ts#L0">
 Improve this doc
 </a>
 
@@ -62,7 +62,7 @@ Thumbnails can be place on the left or right side of an item with the <code>item
 
 <!-- related link -->
 
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related">Related</a></h2>
 
 <a href="/docs/components/#thumbnail-list">Thumbnail Component Docs</a><!-- end content block -->
 

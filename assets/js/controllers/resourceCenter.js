@@ -2,9 +2,9 @@ IonicSiteModule
 .controller('ResourcesCtrl', ['$scope', '$location',
   function($scope, $location) {
 
-  $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
-    $scope.$evalAsync(function() {
-      $scope.hash = window.location.hash.substr(2).split('?')[0];
-    });
+  $scope.hash = window.location.hash.replace(/[^\w\s]/gi, '');
+
+  $scope.$watch('hash', function(newVal, oldVal) {
+    window.history.pushState(null, null, '#' + newVal.replace(/[^\w\s]/gi, ''));
   });
 }]);

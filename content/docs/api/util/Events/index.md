@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -50,7 +50,7 @@ events across your app.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { Events } from &#39;ionic-angular&#39;;
 
@@ -80,15 +80,16 @@ constructor(public events: Events) {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="publish"></div>
 
 <h3>
-<a class="anchor" name="publish" href="#publish"></a>
+<a class="anchor" name="publish" href="#publish">
 <code>publish(topic,&nbsp;eventData)</code>
   
 
+</a>
 </h3>
 
 Publish an event to the given topic.
@@ -152,10 +153,11 @@ Publish an event to the given topic.
 <div id="subscribe"></div>
 
 <h3>
-<a class="anchor" name="subscribe" href="#subscribe"></a>
+<a class="anchor" name="subscribe" href="#subscribe">
 <code>subscribe(topic,&nbsp;handler)</code>
   
 
+</a>
 </h3>
 
 Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
@@ -219,10 +221,11 @@ Subscribe to an event topic. Events that get posted to that topic will trigger t
 <div id="unsubscribe"></div>
 
 <h3>
-<a class="anchor" name="unsubscribe" href="#unsubscribe"></a>
+<a class="anchor" name="unsubscribe" href="#unsubscribe">
 <code>unsubscribe(topic,&nbsp;handler)</code>
   
 
+</a>
 </h3>
 
 Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/spinner/spinner.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/spinner/spinner.ts#L4">
 Improve this doc
 </a>
 
@@ -104,7 +104,7 @@ the appropriate spinner for the platform on which it’s running.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <p>The following code would use the default spinner for the platform it&#39;s
 running from. If it&#39;s neither iOS or Android, it&#39;ll default to use <code>ios</code>.</p>
@@ -136,7 +136,7 @@ of <code>background-color</code>.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -146,54 +146,54 @@ of <code>background-color</code>.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>duration</td>
       <td><code>string</code></td>
       <td><p> How long it takes it to do one loop.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>name</td>
       <td><code>string</code></td>
       <td><p> SVG spinner name.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>paused</td>
       <td><code>boolean</code></td>
       <td><p> If true, pause the animation.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -203,55 +203,55 @@ of <code>background-color</code>.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$spinner-ios-ios-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the ios spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-ios-bubbles-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the bubbles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-ios-circles-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the circles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-ios-crescent-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the crescent spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-ios-dots-color</code></td>
-        
+
           <td><code>#444</code></td>
-        
+
         <td><p>Color of the dots spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -261,55 +261,55 @@ of <code>background-color</code>.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$spinner-md-ios-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the ios spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-md-bubbles-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the bubbles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-md-circles-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the circles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-md-crescent-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the crescent spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-md-dots-color</code></td>
-        
+
           <td><code>#444</code></td>
-        
+
         <td><p>Color of the dots spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -319,55 +319,55 @@ of <code>background-color</code>.</p>
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$spinner-wp-ios-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the ios spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-wp-bubbles-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the bubbles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-wp-circles-color</code></td>
-        
+
           <td><code>#69717d</code></td>
-        
+
         <td><p>Color of the circles spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-wp-crescent-color</code></td>
-        
+
           <td><code>#000</code></td>
-        
+
         <td><p>Color of the crescent spinner</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$spinner-wp-dots-color</code></td>
-        
+
           <td><code>#444</code></td>
-        
+
         <td><p>Color of the dots spinner</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

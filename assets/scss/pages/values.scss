@@ -1,0 +1,73 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
+#page-values {
+  .navbar + .banner {
+    background: #181830 no-repeat center top;
+    background-image: url('/img/values/values-cta-bg.jpg'),
+                      linear-gradient(to right, #f4f7fb 0%, #d9dfe8 100%);
+    background-size: cover, 100%;
+    height: 360px;
+
+    h1 {
+      color: $blackish;
+    }
+
+    p {
+      color: $dark-grey;
+      font-weight: 400;
+    }
+  }
+
+  dl {
+    max-width: 575px;
+    margin: 160px auto 0;
+    padding: 0 40px;
+
+    dt {
+      font-size: 24px;
+      font-weight: 700;
+      color: $blacker;
+      position: relative;
+      margin-bottom: 10px;
+      font-family: $font-family-eina;
+
+      span {
+        font-weight: 700;
+        color: #d2d6db;
+        position: absolute;
+        left: -30px;
+        top: 0px;
+      }
+    }
+
+    dd {
+      color: #5d636c;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+      margin-bottom: 90px;
+    }
+  }
+
+  .hero {
+    background: no-repeat center top url('/img/values/meet-team.jpg');
+    background-size: cover;
+    height: 260px;
+    padding-top: 87px;
+
+    h3 {
+      color: white;
+    }
+
+    .btn.white {
+      text-transform: none;
+      letter-spacing: .5px;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 3px;
+      padding: 16px 15px 14px;
+      margin-top: 15px;
+    }
+  }
+}

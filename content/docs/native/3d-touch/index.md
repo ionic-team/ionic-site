@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">3D Touch</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/three-dee-touch/index.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/three-dee-touch/index.ts#L55">
   Improve this doc
 </a>
 
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>The 3D Touch plugin adds 3D Touch capabilities to your Cordova app.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-3dtouch</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-3dtouch">3D Touch plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -212,6 +214,7 @@ setup the 3D-touch actions, takes an array of objects with the following
 </table>
 
 <h3><a class="anchor" name="onHomeIconPressed" href="#onHomeIconPressed"></a><code>onHomeIconPressed()</code></h3>
+
 
 When a home icon is pressed, your app launches and this JS callback is invoked.
 

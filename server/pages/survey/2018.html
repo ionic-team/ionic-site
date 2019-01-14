@@ -1,0 +1,679 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'survey-2018' %}
+{% set bodyController = 'SurveyCtrl' %}
+{% set name = '2018 Developer Survey' %}
+{% set meta_description = 'Insights, trends, and perspectives from the worldwide Ionic Community' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2018.png' %}
+{% set header_style = 'transparent survey-layout' %}
+{% set cssPath = 'survey/2018' %}
+
+{% block body_attributes %}
+  data-spy="scroll" data-target="#survey-2018-nav" data-offset="400"
+{% endblock %}
+
+{% block main %}
+<div class="cta banner" id="survey-banner">
+  {# <canvas id="statistical-suspension"></canvas> #}
+  <figure id="bars-and-cubes">
+    {% include '_includes/svg/survey-2018-bars.html' %}
+    {% include '_includes/svg/survey-2018-cubes.html' %}
+  </figure>
+  <hgroup class="container">
+    <h2>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.8516 7.01706C21.2288 7.01706 22.3453 5.90056 22.3453 4.5233C22.3453 3.14603 21.2288 2.02954 19.8516 2.02954C18.4743 2.02954 17.3578 3.14603 17.3578 4.5233C17.3578 5.90056 18.4743 7.01706 19.8516 7.01706Z" 
+              fill="white"/>
+        <path d="M22.9219 7.02656L22.8187 6.79688L22.65 6.98438C22.2422 7.44844 21.7219 7.80469 21.1453 8.02031L20.9859 8.08125L21.0516 8.23594C21.5484 9.43125 21.8016 10.6969 21.8016 11.9953C21.8016 17.4 17.4047 21.8016 11.9953 21.8016C6.58594 21.8016 2.19375 17.4047 2.19375 12C2.19375 6.59531 6.59531 2.19375 12 2.19375C13.4672 2.19375 14.8828 2.5125 16.2 3.14062L16.3547 3.21562L16.4203 3.06094C16.6594 2.49844 17.0437 1.99687 17.5266 1.60781L17.7234 1.44844L17.4984 1.33125C15.7875 0.45 13.9359 0 12 0C5.38125 0 0 5.38125 0 12C0 18.6187 5.38125 24 12 24C18.6187 24 24 18.6187 24 12C24 10.2703 23.6391 8.59687 22.9219 7.02656Z" 
+              fill="white"/>
+        <path d="M12.1828 6.53459C9.02342 6.43147 6.43122 9.02365 6.53435 12.183C6.6281 15.0471 8.95311 17.3768 11.8172 17.4658C14.9766 17.569 17.5688 14.9768 17.4657 11.8174C17.3719 8.95334 15.0469 6.62834 12.1828 6.53459Z" 
+              fill="white"/>
+      </svg>
+      <span>2018</span>
+    </h2>
+    <h1>Developer Survey</h1>
+    <p>2018's biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
+  </hgroup>
+  <div class="bar tabbed" data-spy="affix" data-offset-top="500">
+    <div class="container" id="survey-2018-nav">
+      <ul class="categories nav">
+        <li><a class="anchor" href="#introduction">introduction</a></li>
+        <li><a class="anchor" href="#trends">trends</a></li>
+        <li><a class="anchor" href="#tools">tools</a></li>
+        <li><a class="anchor" href="#pwas">pwas</a></li>
+        <li><a class="anchor" href="#backend">backend</a></li>
+        <li><a class="anchor" href="#results">results</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <aside id="social-share-sidebar" 
+         class="meta activeOnLoad social-links active" 
+         role="complementary" 
+         data-spy="affix" 
+         data-offset-top="550">
+    <h4>Share</h4>
+    <ul>
+      <li>
+        <a href="http://twitter.com/home?status=2018+Ionic+Developer+Survey+results+https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018"
+           onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;"
+           class="twitter"></a></li>
+      <li>
+        <a href="http://www.facebook.com/share.php?u=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018&amp;title=2018+Ionic+Developer+Survey+results"
+           onclick="window.open(this.href, 'Share via Facebook', 'width=555, height=656'); return false;"
+           class="facebook"></a></li>
+      <li>
+        <a href="https://buffer.com/add?text=2018+Ionic+Developer+Survey+results&amp;url=https%3A%2F%2Fionicframework.com%2Fsurvey%2F2018"  
+           onclick="window.open(this.href, 'Share via Buffer', 'width=500, height=600'); return false;"
+           class="buffer"></a></li>
+    </ul>
+  </aside>
+  <article>
+    <hgroup class="text-center intro" id="introduction">
+      <div class="container">
+        <h3>2018, a year of JS growth.</h3>
+        <p class="lg">
+          Welcome to Ionic’s second-annual Developer Survey. Over 10,000 members 
+          of the community shared their stories about the tools and technologies 
+          they use to develop apps, and what types of apps they’re building.
+        </p>
+        <p class="lg">
+          2018’s results reveal some very interesting trends that, we hope, 
+          will serve Ionic community members, customers, and vendors alike. 
+          While we encourage you to check out the data yourself, here are the 
+          top insights and observations from our team at Ionic.
+        </p>
+      </div>
+    </hgroup>
+
+    <section id="trends" class="clearfix animate-in">
+      <div class="container">
+        <h3>JS Trends</h3>
+        <div class="col-md-6">
+          <ul id="big-three">
+            <li class="angular"></li>
+            <li class="react"></li>
+            <li class="vue"></li>
+          </ul>
+          <h4 class="h4">The big three: Angular, React, and Vue.</h4>
+          <blockquote>
+            JavaScript is without a doubt the most commonly used programming 
+            language in the world. 
+          </blockquote>
+          <p>
+            While this excites those of us who have bet on the web, it’s 
+            popularity, unfortunately, led to the rise of framework fatigue in 
+            the mid-2010s. Many developers felt like it was impossible to keep 
+            up with the constant barrage of new frameworks, techniques, and 
+            ideas.
+          </p><p>
+            Fast forwarding to 2018, things have settled down a bit. Three top 
+            contenders have emerged: Angular, React, and Vue.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            Angular is by far the most popular JS framework among developers 
+            surveyed with React and Vue coming in as the second and third most 
+            popular frameworks. This is not surprising given the survey is 
+            largely a reflection of the Ionic community as of this year, and 
+            Ionic has historically been exclusively Angular-compatible.
+          </p>
+          <h4 class="h4">
+            What to Expect in 2019.
+          </h4>
+          <p>
+            As we introduce versions of Ionic that <a target="_blank" 
+            href="https://blog.ionicframework.com/a-vue-from-ionic/">support Vue 
+            </a>(currently in alpha) and React (coming in 2019), we expect to 
+            see the mix of Ionic developers surveyed shift more towards these 
+            Angular alternatives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="clearfix animate-in">
+      <div class="container">
+        <h3>Mobile Tools &amp; Approaches</h3>
+        <div class="col-md-6">
+          <h4 class="h4">The top mobile dev tools</h4>
+          <p>
+            It’s also not surprising to find that Ionic and Cordova/PhoneGap are 
+            the most popular mobile development stack among the developers we 
+            surveyed. React Native and jQuery Mobile came next on the list, 
+            though were much less popular by comparison.
+          </p><p>
+            What is surprising though, is that native Android and iOS 
+            development was more widely adopted among developers surveyed than 
+            cross-platform alternatives like NativeScript and Xamarin, 
+            suggesting that (at least among the developers we surveyed) these 
+            two cross-platform approaches are more niche players in the mobile 
+            development space.
+          </p>
+          <h4>Cross-platform vs. Native</h4>
+          <blockquote class="pink">
+            Only about 8 percent of survey takers reported exclusive use of native tools.
+          </blockquote>
+          <p>
+            Given our audience, it’s not too surprising that the results are 
+            heavily skewed towards cross-platform development. 
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            Traditionally, frameworks that have promised to deliver 
+            cross-platform functionality have been met with disbelief. However, 
+            the numbers don’t lie. Cross-platform solutions like Ionic, React 
+            Native, and Xamarin have had many years of active development, 
+            innovation, and adoption, proving that companies that pick them over 
+            native are seeing success.
+          </p>
+          <ul class="tools">
+            <li class="ionic"></li>
+            <li class="react"></li>
+            <li class="xamarin"></li>
+          </ul>
+          <h4 class="h4">Most important factors? Efficiency &amp; UX</h4>
+          <blockquote>
+            The efficiency of sharing code across platforms was the <i>most</i> 
+            important factor in selecting a development approach.
+          </blockquote>
+          <p>
+            But for those who develop strictly with native tools, quality of 
+            user experience was the number one most important factor.
+          </p>
+          <p>
+            And, for those who develop strictly with cross-platform tools, 
+            efficiency and cost savings were most important. Showcasing that the 
+            motivations for using these different technologies widely vary 
+            depending on the developer’s priorities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pwas" class="clearfix animate-in">
+      <div class="container">
+        <h3>Progressive Web Apps</h3>
+        <div class="col-md-6">
+          <h4 class="h4">Most building or planning PWAs in 2018</h4>
+          <blockquote>
+            Sixty-one percent of developers surveyed said they have built a <a
+            href="/pwa" target="_blank">Progressive Web App (PWA)</a>, or plan 
+            to in the next year.
+          </blockquote>
+          <p>
+            PWAs use modern web capabilities to deliver fast, native-app 
+            experiences with no app stores or downloads. They offer incredible 
+            mobile app experiences that are highly optimized, reliable, and 
+            accessible anywhere you find a web browser.
+          </p><p>
+            In most cases (72 percent) these PWA projects are for brand new 
+            apps, as opposed to just 28 percent that are updates to existing 
+            apps (PWA functionality can be incrementally added to an existing 
+            web app).
+          </p>
+          <aside>
+            <div class="factoid">
+              <strong>72%</strong>
+              <span>brand new PWAs</span>
+            </div>
+            <div class="factoid">
+              <strong>28%</strong>
+              <span>update existing</span>
+            </div>
+          </aside>
+          <h4 class="h4">PWAs Complementing, Not Replacing, Native Mobile Apps</h4>
+          <p>
+            About 42 percent reported that the PWAs they’re building will also 
+            exist as native apps available in the app stores. With another 36 
+            percent responding “Maybe” to the same question, and just 22 percent 
+            sharing that the PWAs they’re building will only exist on the web.
+          </p><p>
+            This suggests that PWAs will likely not replace native apps, at 
+            least not in the near term, but instead will be just one part of 
+            unified “digital experience” that spans across devices and across 
+            native and web.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h4>PWAs = Efficiency Above All</h4>
+          <p>
+            By far, the most popular reason for investing in PWAs is the desire 
+            for greater cross-platform efficiency. Improving the mobile web 
+            experience and distributing apps directly to users (without having 
+            to go through the app stores) were the next most popular.
+          </p><p>
+            A lot of the hype around PWAs is the improved ability to reach users 
+            outside of the app stores, creating a better mobile experience that 
+            translates into higher engagement and more revenue. See <a 
+            href="https://www.pinterest.com" target="_blank">Pinterest</a> and 
+            <a href="https://mobile.twitter.com" target="_blank">Twitter‘s</a> 
+            use of PWAs for example.
+          </p><p>
+            However, our survey shows that simplified operations, which make it 
+            easier for a development team to manage and maintain the app, is by 
+            far the most significant gain that teams have experienced after 
+            implementing a PWA. What this shows us is that for those that choose 
+            to build PWAs for their ease-of-use and productivity are actually 
+            seeing the desired results.
+          </p>
+          <h4 class="h4">Preferred tools for building PWAs</h4>
+          <p>
+            Ionic and Angular were the most popular tools for building PWAs, 
+            followed by React and Vue. Though all three have support for PWAs, 
+            Angular’s is the most mature.
+          </p><p>
+            Firebase and AWS are the leading players in PWA-hosting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="backend" class="clearfix animate-in">
+      <div class="container">
+        <h3>Backend Tools &amp; Services</h3>
+        <div class="col-md-6">
+          <h4 class="h4">At the top: MySQL, Firebase, MongoDB</h4>
+          <p>
+            In last year’s survey, we aggregated all self-hosted database 
+            options (MySQL, Postgres, etc.) into one set of responses. This year 
+            we split it out.
+          </p>
+          <ul class="tools">
+            <li class="mysql"></li>
+            <li class="firebase"></li>
+            <li class="mongodb"></li>
+            <li class="postgres"></li>
+          </ul>
+          <p>
+            The results showed that MySQL is by far the most popular database 
+            solution, with 59 percent of respondents having used it extensively 
+            in the past year. Firebase was not far behind, followed by MongoDB. 
+            Postgres was much further down the list.
+          </p>
+          <h4 class="h4">Firebase Dominates Hosting Platforms</h4>
+          <p>
+            No surprise here—Firebase continues to be the leading hosting platform and is by far the winner in push notifications with 66 percent of respondents using it.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h4 class="h4">Keeping An Eye On Serverless</h4>
+          <p>
+            Worth a special mention is the growing “serverless” trend this past year.
+          </p>
+          <p>
+            With serverless options like <a href="https://aws.amazon.com/lambda/"
+            target="_blank">AWS Lambda</a> (used by just 10 percent of 
+            respondents in 2018), web developers can use their frontend skills 
+            to do things that typically would be passed off to backend 
+            developers <img height="168" class="pull-right" alt="Amazon Lambda" 
+            width="168" src="/img/survey/lambda.png"/>to implement. 
+            Authentication, real-time databases, storage, and cloud functions 
+            are just the tip of the iceberg.
+          </p><p>
+            The most exciting part of this is not the lack of running your own 
+            infrastructure, but rather, that web developers’ skills becoming 
+            more valuable as technology evolves.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="big-picture" class="clearfix text-center dark animate-in">
+      <div class="container">
+        <h3>Big Picture</h3>
+        <p class="lg blue">Betting on the web has paid off. 💙</p>
+        <p class="lg">
+          The web framework ecosystem has stabilized. PWAs are becoming 
+          mainstream and delivering real-world results. Web developers are 
+          becoming more valuable each day as innovations in cloud technologies 
+          unlock the path to full-stack development.
+        </p><p class="lg">
+          More people than ever are confident that their investment in time, 
+          money, and skills as web developers will continue to bear fruit for 
+          years to come. Companies are investing capital into their web strategy 
+          and reaping big returns after realizing that “cross-platform” doesn’t 
+          only mean “mobile.”
+        </p><p class="lg">
+          <strong>Ionic has always bet on the web, and it looks like now more 
+          than ever, we’re not alone.</strong>
+        </p>
+      </div>
+    </section>
+
+    <div id="results" class="dark">
+      <hgroup class="container">
+        <h2>Survey Results</h2>
+        <p class="lg">
+          Data from the survey is available below.  Feel free to interact, play, 
+          and form your own conclusions!
+        </p>
+      </hgroup>
+      <section id="demographics" class="data animate-in">
+        <div class="container">
+          {% raw %}
+          <h3>Demographics</h3>
+          <h4>What types of apps are you building?</h4>
+          <ionic-bar-chart data="{
+            'Consumer focused apps (B2C)': 76,
+            'Employee and partner focused apps (B2E)': 43,
+            'Business to business (B2B)': 1,
+            'Other': 2
+          }"></ionic-bar-chart>
+  
+          <h4>Which of the following best describes the type of environment you work in?</h4>
+          <ionic-bar-chart data="{
+            'Startup': 32,
+            'Enterprise app dev team': 26,
+            'Indie developer': 20,
+            'External agency, building on behalf of clients': 19,
+            'Other': 2
+          }"></ionic-bar-chart>
+          
+          <h4>Which of the following best describes your current job role?</h4>
+          <ionic-bar-chart data="{
+            'Web Developer': 37,
+            'Entrepreneur (I do it all)': 16,
+            'Native Mobile Developer': 7,
+            'Team Lead': 7,
+            'Head of Application Development': 7,
+            'CTO': 6,
+            'Backend Developer': 6,
+            'Architect': 5,
+            'UX Designer': 1,
+            'CIO or VP of IT': 1,
+            'Other': 6
+          }"></ionic-bar-chart>
+          
+          <h4>About how many employees work at your company?</h4>
+          <ionic-bar-chart data="{
+            'Self-employed (me, myself, and I)': 26,
+            '1-10 employees': 33,
+            '11-50 employees': 19,
+            '51-500 employees': 12,
+            '501-1000 employees': 3,
+            '1001-5000 employees': 3,
+            '5,001+ employees': 5
+          }"></ionic-bar-chart>
+        </div>
+      </section>
+  
+      <section id="tools" class="data animate-in">
+        <div class="container">
+          <h3>Frameworks, Tools, and Approaches</h3>
+          
+          <h4>Which of the following JavaScript frameworks and libraries have you done extensive development work in over the past year?</h4>
+          <ionic-bar-chart data="{
+            'Angular': 86,
+            'React': 23,
+            'Vue': 17,
+            'Stencil': 4,
+            'EXT JS': 3,
+            'Backbone': 3,
+            'Meteor': 3,
+            'Polymer': 3,
+            'Ember': 2,
+            'DoJo': 1,
+            'Skate': 0
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+          
+          <h4>Which of the following <i>mobile development</i> tools, libraries, and frameworks have you done extensive development work in over the past year?</h4>
+          <ionic-bar-chart data="{
+            'Ionic': 83,
+            'Cordova / PhoneGap': 49,
+            'Native Android': 22,
+            'React Native': 14,
+            'jQuery Mobile': 13,
+            'Native iOS': 13,
+            'Xamarin': 7,
+            'NativeScript': 6,
+            'Ext JS': 2
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+          
+          <h4>Over the past year, what percentage of the apps you developed were built using a cross-platform approach (e.g. Ionic, Xamarin, React Native, etc.)?</h4>
+          <ionic-bar-chart data="{
+            '0% - Only develop with native tools': 8,
+            '25% or greater': 13,
+            '50% or greater': 12,
+            '75% or greater': 16,
+            '100% - Only use cross-platform tools': 52
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4>What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
+          <ionic-bar-chart data="{
+            'Cross-platform efficiency (ability to share code across platforms)': 30,
+            'Cost to develop and maintain': 16,
+            'Quality of user experience across platforms': 15,
+            'Speed and time to market': 13,
+            'Performance': 10,
+            'Skills match with development team': 8,
+            'Ease of updates and maintenance': 6,
+            'Other': 1
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4><strong>Native Only Devs:</strong> What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
+          <ionic-bar-chart data="{
+            'Quality of user experience across platforms': 20,
+            'Cross-platform efficiency (ability to share code across platforms)': 20,
+            'Performance': 16,
+            'Cost to develop and maintain': 13,
+            'Speed and time to market': 11,
+            'Skills match with development team': 10,
+            'Ease of updates and maintenance': 8,
+            'Other': 1
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4><strong>Cross-platform Only Devs</strong>: What is the <i>most</i> important factor when deciding on a mobile development approach?</h4>
+          <ionic-bar-chart data="{
+            'Cross-platform efficiency (ability to share code across platforms)': 34,
+            'Cost to develop and maintain': 17,
+            'Quality of user experience across platforms': 14,
+            'Speed and time to market': 13,
+            'Skills match with development team': 9,
+            'Performance': 7,
+            'Ease of updates and maintenance': 6,
+            'Other': 1
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4>Which of the following app lifecycle management tools are you currently using?</h4>
+          <ionic-bar-chart data="{
+            'Ionic Pro (Appflow)': 53,
+            'Adobe PhoneGap': 16,
+            'Microsoft Mobile App Center': 10,
+            'IBM Mobile Foundation': 2,
+            'None': 9,
+            'Other': 16
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4>Which of the following deployment targets have you developed apps for over the last year?</h4>
+          <ionic-bar-chart data="{
+            'Google Play': 78,
+            'iOS App Store': 64,
+            'Web Browser (including PWAs)': 51,
+            'Desktop Container (e.g. Electron)': 14,
+            'Microsoft Store': 4,
+            'Smart TVs': 2,
+            'Wearables': 2
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+          <h4>How are you currently distributing apps to your users (check all that apply)?</h4>
+          <ionic-bar-chart data="{
+            'App Stores (Apple, Google Play, Microsoft Store, etc.)': 83,
+            'Hosted web apps (including PWAs)': 48,
+            'MDM (MobileIron, Airwatch, XenMobile, etc.)': 4,
+            'Other': 3
+          }" color="#E54385, #786DF9"></ionic-bar-chart>
+  
+        </div>
+      </section>
+      <section id="results-pwas" class="data animate-in">
+        <div class="container">
+          <h3>Progressive Web Apps</h3>
+  
+          <h4>Have you published a Progressive Web App (PWA) in the last year?</h4>
+          <ionic-bar-chart data="{
+            'No': 39,
+            'Yes': 31,
+            'No, but we plan to next year': 30
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>Who are you building PWAs for?</h4>
+          <ionic-bar-chart data="{
+            'Consumers': 78,
+            'Employees': 32,
+            'Partners': 25,
+            'Other': 3
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>Are you updating an existing app or is this a new application?</h4>
+          <ionic-bar-chart data="{
+            'Building a brand-new app': 72,
+            'Updating an existing app': 28
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>Will the app also be available as a native binary in the app stores?</h4>
+          <ionic-bar-chart data="{
+            'Yes': 42,
+            'Maybe': 36,
+            'No': 22
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>What is the <i>primary</i> motivation for building a PWA?</h4>
+          <ionic-bar-chart data="{
+            'Cross-platform efficiency (easier to serve multiple platforms with one app)': 41,
+            'Improve mobile web experience': 20,
+            'Distribute the app directly to users, without having to rely on third-parties': 19,
+            'Make it easier to update the app whenever we want': 13,
+            'Acquire new users': 4,
+            'Everyone else is doing it': 3
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>If you have published a PWA already, what is the biggest impact you have observed so far?</h4>
+          <ionic-bar-chart data="{
+            'Simplified operations: Easier for our team to manage and maintain the app': 44,
+            'Better engagement: Increased usage compared to traditional web app': 20,
+            'No impact since publishing the PWA': 18,
+            'Increased user acquisition: More users trying the app': 13,
+            'More revenue: Increased in-app or ad-driven revenue': 4
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>Which tools, libraries, or frameworks are you using to build PWAs?</h4>
+          <ionic-bar-chart data="{
+            'Ionic': 76,
+            'Angular': 71,
+            'React': 17,
+            'Vue': 15,
+            'Stencil': 7,
+            'Polymer': 3,
+            'Preact': 1,
+            'Other': 1
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+          <h4>How are you hosting the PWA(s)?</h4>
+          <ionic-bar-chart data="{
+            'Self-hosted': 38,
+            'Firebase': 28,
+            'AWS': 18,
+            'Azure': 7,
+            'Netlify': 2,
+            'Digital Ocean': 1,
+            'Heroku': 1,
+            'NextJS': 1,
+            'Google Cloud Platform': 1,
+            'Citrix': 0,
+            'Other': 4
+          }" color="#FF7B5E, #F37BAB"></ionic-bar-chart>
+  
+        </div>
+      </section>
+      <section id="backend" class="data animate-in">
+        <div class="container">
+          <h3>Backend Technology</h3>
+  
+          <h4>Which of the following services do you use to send Push Notifications?</h4>
+          <ionic-bar-chart data="{
+            'Firebase': 66,
+            'OneSignal': 24,
+            'GCM': 21,
+            'APNS': 19,
+            'IBM': 2,
+            'Urban Airship': 1,
+            'Pushwoosh': 3,
+            'Azure': 1,
+            'Other': 6
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
+  
+          <h4>Which of the following database technologies have you used extensively over the past year?</h4>
+          <ionic-bar-chart data="{
+            'MySQL': 59,
+            'Firebase': 42,
+            'MongoDB': 33,
+            'Postgres': 22,
+            'AWS RDS': 9,
+            'Microsoft SQL Server': 6,
+            'AWS Dynamo DB': 6,
+            'MariaDB': 0,
+            'Couch': 1,
+            'Oracle': 2,
+            'Other':3
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
+  
+          <h4>Which of the following technologies do you use to host the backend of your apps?</h4>
+          <ionic-bar-chart data="{
+            'Self-hosting': 40,
+            'Firebase': 35,
+            'Amazon ECS': 19,
+            'Digital Ocean': 15,
+            'Heroku': 14,
+            'Azure': 14,
+            'Google App Engine/ GCP Containers': 10,
+            'AWS Lambda': 10,
+            'VPS Provider': 8,
+            'AWS LightSail': 2,
+            'Microsoft': 2,
+            'IBM': 0,
+            'Kinvey': 0,
+            'Other': 3
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
+  
+          <h4>Which of the following user authentication services have you used extensively over the past year?</h4>
+          <ionic-bar-chart data="{
+            'Firebase Auth': 44,
+            'Custom OAuth': 32,
+            'Auth0': 28,
+            'Auth.io': 9,
+            'OpenID Connect': 7,
+            'Azure Authentication': 6,
+            'Amazon Cognito': 5,
+            'Microsoft ADFS': 4,
+            'GCP Auth': 3,
+            'Fabric Digits': 1,
+            'Stormpath': 1,
+            'Other': 7
+          }" color="#F2C526, #92E1A7"></ionic-bar-chart>
+          {% endraw %}
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+sr.reveal('.animate-in p, .animate-in aside, .animate-in blockquote, ' +
+          '.animate-in li, .animate-in img, .animate-in h4, .animate-in ionic-bar-chart');
+{# sr.reveal('.animate-in ionic-bar-chart', {duration: 500}); #}
+setTimeout(function() {
+  window.ScrollReveal().sync()
+}, 5000);
+
+{# window.activateOnScrollSelector = 'ionic-bar-chart'; #}
+</script>
+{% endblock %}

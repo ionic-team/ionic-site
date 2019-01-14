@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -344,6 +344,13 @@ Optional text which will appear on the customer's credit card statement. (up to 
 <h3><a class="anchor" name="items" href="#items"></a><code>items()</code></h3>
 
 Optional array of PayPalItem objects.
+
+
+
+<h3><a class="anchor" name="payeeEmail" href="#payeeEmail"></a><code>payeeEmail()</code></h3>
+
+Optional payee email, if your app is paying a third-party merchant.
+The payee's email. It must be a valid PayPal email address.
 
 
 

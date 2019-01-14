@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 category: theming
 id: theming-intro
-title: Ionic Theming Documentation
+title: CSS Utilities for App Theming and Platform Style Configuration
 next_page_title: CSS Utilities
 next_page_link: /docs/theming/css-utilities/
 ---

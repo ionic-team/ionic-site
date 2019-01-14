@@ -40,6 +40,19 @@ IonicSiteModule
     }
   };
 })
+.directive('tippy', function() {
+  return {
+    restrict: 'E',
+    transclude: true,
+    scope: {
+      pos: '@'
+    },
+    template: '<i class="ion-md-help"></i>' +
+              '<div class="tip" ng-class="pos">' +
+                '<ng-transclude></ng-transclude>' +
+              '</div>',
+  };
+})
 .directive('ngEnter', function() {
   return function(scope, element, attrs) {
     element.bind("keydown keypress", function(event) {
@@ -70,14 +83,14 @@ IonicSiteModule
               if(a.value > b.value) return -1;
               return 0;
             });
-  
+
             var bars = ['data1'].concat(data.map(function(bar) {
               return bar.value;
             }));
             var labels = data.map(function(bar) {
               return bar.label;
             });
-  
+
             var chart = c3.generate({
               bindto: el[0],
               data: {

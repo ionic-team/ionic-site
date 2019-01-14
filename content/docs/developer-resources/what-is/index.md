@@ -47,7 +47,7 @@ header_sub_title: Ionic Resources
 
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
-    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
+    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="https://ionicframework.com/docs/v1/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="/pro/">Ionic services</a>.</p>
   </section>
 
   <section id="commonjs">
@@ -84,7 +84,7 @@ header_sub_title: Ionic Resources
 
   <section id="genymotion">
     <h3><a href="#genymotion">Genymotion</a></h3>
-    <p>Genymotion is a third-party Android emulator. It is extremely fast, and is useful for quickly testing your app on Android. Check out our <a href="/docs//resources/developer-tips/#using-genymotion-android">resource section</a> on Genymotion for more info.</p>
+    <p>Genymotion is a third-party Android emulator. It is extremely fast, and is useful for quickly testing your app on Android. Check out our <a href="/docs/resources/developer-tips/#using-genymotion-android">resource section</a> on Genymotion for more info.</p>
   </section>
 
   <section id="git">
@@ -142,7 +142,7 @@ header_sub_title: Ionic Resources
 
 <section id="polyfill">
     <h3><a href="#polyfill">Polyfill</a></h3>
-    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
+    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has its own API, a polyfill let's you use the expect API of the browser.</p>
     <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</a></p>
   </section>
 
@@ -158,7 +158,7 @@ header_sub_title: Ionic Resources
 
 <section id="shim">
     <h3><a href="#shim">Shim</a></h3>
-    <p>A shim is a piece of code that normailizes an APIs across browsers. A shim can have it's own API that hides the browser specific implimentation from the end user.</p>
+    <p>A shim is a piece of code that normailizes an APIs across browsers. A shim can have its own API that hides the browser specific implimentation from the end user.</p>
   </section>
 
 
@@ -177,7 +177,7 @@ header_sub_title: Ionic Resources
   <section id="typescript">
     <h3><a href="#typescript">TypeScript</a></h3>
     <p>
-    TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/Handbook#basic-types">type declarations</a> and <a href="http://www.typescriptlang.org/Handbook#interfaces">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
+    TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">type declarations</a> and <a href="http://www.typescriptlang.org/docs/handbook/interfaces.html">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
     </p>
   </section>
 

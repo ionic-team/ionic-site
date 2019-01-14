@@ -1,0 +1,289 @@
+// This is a collection of generics for the products pages
+.products-page {
+  font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
+  position: relative;
+
+  .top {
+    position: relative;
+
+    h1 {
+      letter-spacing: -.03em;
+      font-weight: 700;
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 17px;
+      display: inline-block;
+      letter-spacing: -.03em;
+      line-height: 1.5em;
+      color: #2f3744;
+    }
+
+    .graphics {
+      position: absolute;
+    }
+  }
+
+  .center {
+    hgroup {
+      padding-top: 100px;
+      text-align: center;
+      max-width: 748px;
+      margin: 0 auto 18px;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -.03em;
+        color: #161a1f;
+      }
+
+      p {
+        font-size: 18px;
+        color: #5e6777;
+        margin-top: 29px;
+        letter-spacing: -0.03em;
+        line-height: 1.8em;
+        font-weight: 600;
+      }
+
+      p strong {
+        color: #272a2f;
+        font-weight: 700;
+      }
+    }
+  }
+
+  ul.items {
+    padding: 48px 14px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    li {
+      list-style: none;
+      padding-top: 67px;
+      position: relative;
+
+      &::before {
+        background: 0 0 no-repeat;
+        background-size: 100%;
+        height: 48px;
+        width: 48px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+      }
+
+      strong {
+        letter-spacing: -.03em;
+        display: inline-block;
+        font-size: 17px;
+        text-transform: none;
+        letter-spacing: .001em;
+        margin-top: 4px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.026em;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+        color: #5e6777;
+      }
+
+      @media (max-width: $screen-xs-max)  {
+        display: block;
+        flex-basis: 100%;
+        text-align: center;
+
+        &::before {
+          left: calc(50% - 24px);
+        }
+      }
+    }
+  }
+
+  section.left,
+  section.right,
+  section.both  {
+    .container { position: relative; }
+
+    hgroup {
+      padding-top: 208px;
+      padding-bottom: 151px;
+      width: calc(50% - 147px);
+      position: relative;
+
+      @media (max-width: $screen-sm-max)  {
+        width: calc(50% - 48px);
+      }
+
+      &::before {
+        background: 0 0 no-repeat;
+        background-size: 100%;
+        height: 64px;
+        width: 64px;
+        content: '';
+        position: absolute;
+        top: 126px;
+        display: block;
+      }
+
+      &::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 42px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.026em;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+        color: #5e6777;
+
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .graphics {
+      background: 0 50% no-repeat;
+      background-size: 100%;
+      width: 470px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      opacity: 0;
+
+      &.activateOnScroll {
+        filter: blur(10px);
+        transition: .4s opacity, .4s filter;
+
+        &.active {
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        right: -20%;
+      }
+    }
+  }
+
+  section.right {
+    hgroup {
+      float: right;
+    }
+
+    .graphics {
+      right: auto;
+      left: 0;
+
+      @media (max-width: $screen-sm-max)  {
+        left: -20%;
+      }
+    }
+  }
+
+  section.both {
+    .container {
+      display: flex;
+      clear: both;
+      justify-content: space-between;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .get-started {
+    background: 0 0 no-repeat;
+    background-size: cover;
+
+    .container {
+      display: flex;
+      padding-top: 101px;
+      padding-bottom: 102px;
+      flex-wrap: wrap;
+      align-items: center;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        text-align: center;
+      }
+    }
+
+    hgroup,
+    .btns {
+      display: inline-block;
+    }
+
+    hgroup {
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: white;
+      font-size: 28px;
+      letter-spacing: -.03em;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: #003e82;
+    }
+
+    .btns {
+      .btn {
+        padding: 12px 19px 10px;
+        font-size: 16px;
+        font-weight: 700;
+
+        &:last-child {
+          margin-right: -5px;
+        }
+
+
+        @media (max-width: $screen-xs-max)  {
+          text-align: center;
+          display: block;
+          margin: 16px auto;
+        }
+      }
+      @media (max-width: $screen-sm-max)  {
+        width: 100%;
+      }
+    }
+  }
+}

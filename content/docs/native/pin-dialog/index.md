@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>PhoneGap numeric password dialog plugin for Android and iOS.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-pin-dialog</code>. For more info, please see the <a href="https://github.com/Paldom/PinDialog">Pin Dialog plugin docs</a>.</p>
 
 
 <p>Repo:

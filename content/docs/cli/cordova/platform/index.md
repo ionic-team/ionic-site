@@ -1,11 +1,20 @@
 ---
-layout: fluid/docs_base
+layout: fluid/cli_docs_base
 category: cli
 id: cli-cordova-platform
-command_name: cordova platform
-title: Ionic CLI Documentation - cordova platform
+page_name: ionic cordova platform
+command_name: ionic cordova platform
+title: ionic cordova platform - Ionic CLI Documentation
 header_sub_title: Ionic CLI
 ---
+
+
+{% comment %}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DO NOT MODIFY THIS FILE DIRECTLY -- IT IS GENERATED FROM THE CLI REPO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% endcomment %}
+
 
 # `$ ionic cordova platform`
 
@@ -24,12 +33,12 @@ Like running `cordova platform` directly, but adds default Ionic icons and splas
 Input | Description
 ----- | ----------
 `action` | `add`, `remove`, or `update` a platform; `ls`, `check`, or `save` all project platforms
-`platform` | The platform that you would like to add (e.g. `ios`, `android`)
+`platform` | The platform that you would like to add (`android`, `ios`)
 
 
 Option | Description
 ------ | ----------
-`--noresources`, `-r` | Do not add default Ionic icons and splash screen resources (corresponds to `add`)
+`--no-resources` | Do not pregenerate icons and splash screen resources (corresponds to `add`)
 
 ## Examples
 

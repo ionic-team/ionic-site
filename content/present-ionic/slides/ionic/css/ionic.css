@@ -4,7 +4,7 @@
  *
  * Ionic, v1.0.0-beta.11
  * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
+ * https://ionicframework.com/
  *
  * By @maxlynch, @benjsperry, @adamdbradley <3
  *

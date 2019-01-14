@@ -1,0 +1,261 @@
+{% set page = "pricing" %}
+{% set showBuildNowSignup = true %}
+{% extends "_layouts/creator.html" %}
+
+{% block title %}Ionic Creator - Pricing{% endblock %}
+
+{% block main %}
+<hgroup class="grey-top">
+  <h1>Simple and clear pricing for all.</h1>
+  <p>For individuals, all the way to large teams and businesses.</p>
+  <a href="https://creator.ionic.io/app/signup" class="btn btn-ionic">
+    Start building for free!</a>
+</hgroup>
+<div class="container" ng-controller="CreatorPricingCtrl">
+  <div class="row product-comparison billing-toggle">
+    <button type="button"
+            ng-class="{active:period == 'monthly'}"
+            ng-click="setPeriod('monthly')">
+      Monthly billing
+    </button>
+    <button type="button"
+            ng-class="{active:period == 'annually'}"
+            ng-click="setPeriod('annually')">
+      Annual billing
+    </button>
+  </div>
+  <div class="row product-comparison">
+    {% raw %}
+    <div class="plan free">
+      <hgroup>
+        <h2>Free</h2>
+        <h3>
+          <span ng-hide="period != 'annually'" class="fade">
+            <sup>$</sup><span>0</span><sub>/mo</sub>
+          </span>
+          <span ng-hide="period != 'monthly'" class="fade">
+            <sup>$</sup><span>0</span><sub>/mo</sub>
+          </span>
+        </h3>
+        <h4>for hobbyists</h4>
+      </hgroup>
+      <ul>
+        <li><strong>1</strong> Project</li>
+        <li><strong>Public</strong> Projects</li>
+        <li><strong>Ionic Project</strong> Export</li>
+      </ul>
+    </div>
+    <div class="plan dev">
+      <hgroup>
+        <h2>Basic</h2>
+        <h3>
+          <span ng-hide="period != 'annually'" class="fade">
+            <sup>$</sup><span>7</span><sub>/mo</sub>
+          </span>
+          <span ng-hide="period != 'monthly'" class="fade">
+            <sup>$</sup><span>9</span><sub>/mo</sub>
+          </span>
+        </h3>
+        <h4>for prototypers</h4>
+      </hgroup>
+      <ul>
+        <li><strong>Unlimited</strong> Projects</li>
+        <li><strong>Private</strong> Projects</li>
+        <li><strong>Creator Mobile</strong> App</li>
+        <li><strong>Ionic Project</strong> Export</li>
+      </ul>
+    </div>
+    <div class="plan pro">
+      <hgroup>
+        <h2>Pro</h2>
+        <h3>
+          <span ng-hide="period != 'annually'" class="fade">
+            <sup>$</sup><span>24</span><sub>/mo</sub></span>
+          <span ng-hide="period != 'monthly'" class="fade">
+            <sup>$</sup><span>29</span><sub>/mo</sub></span>
+        </h3>
+        <h4>for app builders</h4>
+      </hgroup>
+      <ul>
+        <li class="feature"><strong>Everything in Basic Plus</strong>&hellip;</li>
+        <li><strong>Native App</strong> Export (IPA/APK)</li>
+        <li>In-Tool <strong>Code Editing</strong></li>
+        <li><strong>Team</strong> Collaboration</li>
+      </ul>
+    </div>
+    <!--
+    <div class="plan agency">
+      <hgroup>
+        <h2>Team</h2>
+        <h3>
+          <span ng-hide="period != 'annually'" class="fade"><sup>$</sup><span
+            ng-bind="annually.agency"></span><sub>/mo</sub></span>
+          <span ng-hide="period != 'monthly'" class="fade"><sup>$</sup><span
+            ng-bind="monthly.agency"></span><sub>/mo</sub></span>
+        </h3>
+        <h4>for teams</h4>
+      </hgroup>
+      <ul>
+        <li class="feature"><strong>Team Features</strong></li>
+        <li class="feature"><strong>5</strong> Collaborators</li>
+        <li><strong>Unlimited</strong> Projects</li>
+        <li><strong>Private</strong> Projects</li>
+        <li><strong>Basic &amp; Native</strong> Exporting</li>
+        <li><strong>Creator</strong> Mobile App</li>
+        <li><strong>Premium</strong> Support</li>
+      </ul>
+    </div>
+    -->
+    <!--<div class="plan business">
+      <hgroup>
+        <h2>Enterprise</h2>
+        <h3><a href="mailto:help@usecreator.com?subject=Creator Enterprise Interest">Contact Us</a></h3>
+        <h4>for large organizations</h4>
+      </hgroup>
+      <ul>
+        <li class="feature"><strong>Pro Features</strong></li>
+        <li class="feature"><strong>Unlimited</strong> Collaborators</li>
+        <li><strong>Unlimited</strong> Projects</li>
+        <li><strong>Private</strong> Projects</li>
+        <li>In-Tool <strong>Code Editing</strong></li>
+        <li><strong>Basic &amp; Native</strong> Exporting</li>
+        <li><strong>Creator</strong> Mobile App</li>
+      </ul>
+    </div>-->
+    {% endraw %}
+  </div>
+  <div class="row product-comparison">
+    <div class="plan enterprise">
+      <h3>Need more?</h3>
+      <p>Try our <strong>Enterprise version</strong> of Creator! For more
+        information, <a href="/creator/support">contact us</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row also-included">
+    <h3>Also included in every plan:</h3>
+    <ul>
+      <li class="ssl">
+        <strong>SSL Security</strong>
+        <p>
+          All accounts are secured with industry leading 256-bit SSL encryption.
+        </p>
+      </li>
+      <li class="sharing">
+        <strong>Sharing</strong>
+        <p>
+          Every Creator plan lets you to share your projects with anyone, as
+          often as you like.
+        </p>
+      </li>
+      <li class="ionic">
+        <strong>Ionic</strong>
+        <p>
+          Creator uses Ionic under the hood, the industry’s leading hybrid
+          mobile Framework.
+        </p>
+      </li>
+      <li class="templates">
+        <strong>Premade Templates</strong>
+        <p>
+          All Creator projects come with pre-made starter templates to speed you
+          up.
+        </p>
+      </li>
+      <li class="exporting">
+        <strong>Exporting</strong>
+        <p>
+          Once you’re ready, you can export your app in real, clean HTML, CSS,
+          and JS.
+        </p>
+      </li>
+      <li class="preview">
+        <strong>Device Preview</strong>
+        <p>
+          Preview your projects right on your mobile device through the Share
+          feature.
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="faq">
+  <div class="container">
+    <hgroup class="row">
+      <h3>Questions?</h3>
+      <p>
+        ( If you need more help, just shoot us a
+        <a href="/creator/support">message</a> )
+      </p>
+    </hgroup>
+    <div class="row cols">
+      <div class="col">
+        <dt>Do I have to sign a long-term contract?</dt>
+        <dd>
+          No. Creator is a pay-as-you-go service, and subscriptions vary from
+          month-to-month or yearly billing cycles. You can upgrade, switch, or
+          cancel your plan at any time.
+        </dd>
+        <dt>When am I charged?</dt>
+        <dd>
+          Immediately after you upgrade, and then every month, or year,
+          depending on the plan you chose. We offer a money back guarantee if
+          you aren't happy within 30 days of signing up!
+        </dd>
+        <dt>Can I cancel at any time?</dt>
+        <dd>
+          Of course. There are no obligations or contracts. You can cancel at
+          any time in the billing section of the Dashboard. Once you cancel your
+          account, you will not be charged again.
+        </dd>
+        <dt>Can you explain private vs. public projects?</dt>
+        <dd>
+          By default, Creator projects can be accessed by anyone with the URL.
+          However, you can protect your projects by setting them to “private”
+          with password protected  permissions for better privacy while sharing
+          projects.
+        </dd>
+        <dt>What is the Creator App?</dt>
+        <dd>
+           The Creator mobile app lets you preview and interact with your
+           prototypes as if they were native, without having to compile or
+           download anything. It’s available through the <a target="_blank"
+           href="https://itunes.apple.com/us/app/ionic-creator/id1055373342?mt=8">
+           App Store</a> and <a target="_blank"
+          href="https://play.google.com/store/apps/details?id=io.ionic.creator"
+          >Google Play Store</a>.
+        </dd>
+      </div>
+      <div class="col">
+        <dt>How do I pay? </dt>
+        <dd>
+          We currently accept all major credit card processors: Visa, Master
+          Card, American Express, and Discover cards. However, at the moment we
+          do not accept PayPal.
+        </dd>
+        <dt>How secure is my payment information?</dt>
+        <dd>
+          Every single Creator account comes standard with SSL encryption. All
+          payments are securely processed by industry leader
+          <a href="https://stripe.com" target="_blank">Stripe</a>. Your card
+          info never even touches our servers.
+        </dd>
+        <dt>Can I pay yearly?</dt>
+        <dd>
+          Yes. We're happy to accommodate customers looking for annual billing.
+          Just choose the “Yearly” option when upgrading your account to any of
+          our paid plans.
+        </dd>
+        <dt>How does Basic and Native Exporting work?</dt>
+        <dd>
+          Basic Exporting comes standard with every Creator account, and
+          includes all the HTML, CSS, and JS of your projects. Native Exporting
+          is only offered in Pro plans, and includes the ability to export
+          native iOS and Android binaries.
+        </dd>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

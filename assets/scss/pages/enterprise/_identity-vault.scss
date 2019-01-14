@@ -1,0 +1,855 @@
+#page-identity-vault {
+  main {
+    font-family: $font-family-graphik;
+    overflow: visible;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .btn {
+      font-family: $font-family-eina;
+    }
+  }
+  .sub-header {
+    .vault-link {
+      font-size: 15px;
+      font-weight: 700;
+      padding-left: 1px;
+      padding-top: 17px;
+      letter-spacing: .03em;
+
+      &:before {
+        content: '';
+        background: url('/img/enterprise/identity-vault/vault-nav-logo.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        margin-right: 9px;
+        vertical-align: -11px;
+      }
+    }
+
+    .demo {
+      padding: 19px 1px 18px 15px;
+
+      &::after {
+        font-family: 'Ionicons';
+        content: "";
+        margin-left: 3px;
+        vertical-align: -1px;
+      }
+    }
+  }
+
+  .top {
+    margin-top: -150px;
+    padding-top: 276px;
+    background: #0c1c1c;
+    background: linear-gradient(to right, #0e1e2e 0%, #203e5a 100%);
+    min-height: 972px;
+
+    .container {
+      position: relative;
+
+      &::after {
+        background: url('/img/enterprise/identity-vault/hero-img.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 589px;
+        height: 760px;
+        content: '';
+        display: block;
+        position: absolute;
+        right: -82px;
+        top: -72px;
+      }
+    }
+
+    hgroup {
+      max-width: 540px;
+    }
+
+    h1 {
+      color: white;
+      letter-spacing: -.02em;
+    }
+
+    h3 {
+      color: #7bbfff;
+      font-size: 35px;
+      letter-spacing: -.016em;
+      line-height: 1.39em;
+      margin-top: 15px;
+      margin-bottom: 9px;
+    }
+
+    p {
+      color: #c3cedf;
+      font-size: 18px;
+      letter-spacing: -.02em;
+      margin-bottom: 1px;
+      font-weight: 400;
+      line-height: 1.5em;
+
+      strong {
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+
+    .btn {
+      margin-top: 51px;
+      padding: 14px 16px 12px 19px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 80px;
+
+      &::after {
+        font-family: 'Ionicons';
+        content: '';
+        font-size: 23px;
+        font-weight: 400;
+        vertical-align: -4px;
+        margin-left: 5px;
+      }
+    }
+
+    @media (max-width: $screen-md-max)  {
+      hgroup {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      hgroup {
+        max-width: 100%;
+      }
+
+      h1,
+      h3 {
+        max-width: 460px;
+      }
+
+      .container::after {
+        width: 294px;
+        height: 380px;
+        right: -31px;
+        top: -80px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      padding-top: 400px;
+
+      .container::after {
+        width: 147px;
+        height: 190px;
+        right: calc(50% - 95px);
+        top: -190px;
+      }
+
+      hgroup {
+        text-align: center;
+      }
+
+      h1,
+      h3 {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .gandalf {
+    padding-top: 104px;
+    margin-bottom: 80px;
+
+    .split {
+      display: flex;
+
+      > div {
+        flex: 0 1 520px;
+      }
+    }
+
+    h2 {
+      margin-top: 7px;
+    font-size: 36px;
+    margin-left: 1px;
+    letter-spacing: -.02em;
+    font-weight: 700;
+    line-height: 1.8em;
+    }
+
+    h3 {
+      margin-top: 68px;
+      font-size: 27px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 19px;
+      margin-top: 24px;
+      margin-left: 1px;
+      letter-spacing: .005em;
+      line-height: 1.92em;
+      color: #51657d;
+
+      strong {
+        font-weight: 500;
+      }
+    }
+
+    ul {
+      margin-left: auto;
+      flex: 0 1 514px;
+      margin-top: 34px;
+      padding-left: 0;
+
+      @media (max-width: $screen-md-max)  {
+        flex-basis: 392px;
+      }
+
+      li::before {
+        top: 0;
+      }
+    }
+
+    li {
+      padding-left: 55px;
+      font-size: 14px;
+      position: relative;
+      list-style: none;
+      letter-spacing: -.022em;
+      line-height: 1.78em;
+      margin-bottom: 36px;
+      color: #51657d;
+
+      &::before {
+        background: url('/img/enterprise/identity-vault/lock-checkmark.png') 0 0 no-repeat;
+        background-size: 32px;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        left: 0;
+        top: 7px;
+        content: '';
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      .split {
+        display: block;
+
+        > div {
+          text-align: center;
+        }
+      }
+
+      li {
+        top: 0;
+      }
+    }
+
+    figure {
+      background: #f3f5f8;
+      border-radius: 14px;
+      padding: 24px 30px;
+      margin-top: 59px;
+      position: relative;
+      min-height: 278px;
+
+      &::before,
+      &::after {
+        background: url('/img/enterprise/identity-vault/iv-diagram-states.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 1100px;
+        height: 242px;
+        position: absolute;
+        left: 21px;
+        top: 24px;
+        bottom: 0;
+        pointer-events: none;
+        content: '';
+        transition: .2s opacity, .2s transform ease-out;
+      }
+
+      &::after {
+        background-position: 0 100%;
+        opacity: 0;
+        transform: scale3d(1.05, 1.05, 1);
+      }
+
+      strong {
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      a {
+        background: #eee;
+        border-radius: 10px;
+        height: 18px;
+        width: 28px;
+        display: inline-block;
+        margin-left: 13px;
+        vertical-align: -4px;
+        box-shadow: 0 0 4px inset rgba(0, 0, 0, 0.1);
+        transition: .2s border-color;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+          background: white;
+          width: 16px;
+          height: 16px;
+          content: '';
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+          position: absolute;
+          top: 1px;
+          left: 2px;
+          border-radius: 9px;
+          transition: .2s transform ease;
+        }
+      }
+
+      &.active {
+        &::before {
+          opacity: 0;
+          transform: scale3d(1.05, 1.05, 1);
+        }
+
+        &::after {
+          opacity: 1;
+          transform: none;
+        }
+
+        a {
+          background-color: #5daffe;
+
+          &::before {
+            transform: translate3d(9px, 0, 0);
+          }
+        }
+      }
+
+      @media (max-width: $screen-md-max)  {
+        min-height: 244px;
+
+        &::before,
+        &::after {
+          width: 896px;
+          height: 196px;
+        }
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        min-height: 194px;
+
+        &::before,
+        &::after {
+          width: 678px;
+          height: 149px;
+        }
+      }
+
+      @media (max-width: $screen-xs-max)  {
+        display: none;
+      }
+    }
+  }
+
+  .points {
+    margin-bottom: 100px;
+
+    h2 {
+      letter-spacing: -.02em;
+    }
+
+    p {
+      margin-top: 17px;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: -.02em;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      list-style: none;
+      padding-top: 68px;
+      justify-content: space-between;
+    }
+
+    li {
+      flex: 0 0 320px;
+      padding-left: 0;
+      padding-top: 69px;
+      margin-left: 1px;
+      position: relative;
+      margin-bottom: 61px;
+
+      @media (max-width: $screen-md-max)  {
+        flex-basis: 256px;
+      }
+
+      &::before {
+        background: url('/img/enterprise/identity-vault/benefits-icons.png') 0 0 no-repeat;
+        background-size: 48px;
+        width: 48px;
+        height: 48px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &.protection::before { background-position: 0 -48px;  }
+      &.code::before { background-position: 0 -96px;  }
+      &.backend::before { background-position: 0 -144px;  }
+      &.tokens::before { background-position: 0 -192px;  }
+      &.support::before { background-position: 0 -240px;  }
+
+      strong {
+        font-size: 20px;
+        font-weight: 600;
+        font-family: $font-family-eina;
+      }
+
+      p {
+        font-size: 16px;
+        margin-top: 15px;
+        font-weight: 400;
+        line-height: 1.8em;
+        letter-spacing: -.01em;
+        color: #51657d;
+      }
+    }
+
+
+
+    @media (max-width: $screen-sm-max)  {
+      hgroup {
+        padding-top: 0;
+      }
+
+      li {
+        flex-basis: 340px;
+      }
+    }
+
+
+
+    @media (max-width: $screen-xs-max)  {
+      li {
+        flex-basis: 100%;
+        text-align: center;
+
+        &::before {
+          left: calc(50% - 24px);
+        }
+      }
+    }
+  }
+
+  .protect,
+  .integrations {
+    position: relative;
+
+    &::before {
+      background: url('/img/enterprise/identity-vault/protection-img.png') 0 0 no-repeat;
+      background-size: 100%;
+      width: 560px;
+      height: 560px;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -10px;
+
+      @media (max-width: $screen-sm-max)  {
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    hgroup {
+      width: calc(50% - 46px);
+      padding-top: 0;
+
+      @media (max-width: $screen-md-max)  {
+        width: calc(50% - 66px);
+        padding-bottom: 0;
+
+        h3 {
+          padding-top: 40px;
+        }
+      }
+
+      @media (max-width: $screen-sm-max)  {
+        width: 460px;
+      }
+    }
+
+    h3 {
+      padding-top: 115px;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: #51657d;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      line-height: 1.8em;
+
+      &.lg {
+        font-size: 19px;
+        letter-spacing: .004em;
+        line-height: 1.9em;
+        font-weight: 400;
+        margin-bottom: 17px;
+      }
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-top: 39px;
+
+      @media (max-width: $screen-md-max)  {
+        display: block;
+      }
+    }
+
+    li {
+      flex: 0 0 50%;
+      padding-left: 31px;
+      font-size: 16px;
+      color: #3880ff;
+      position: relative;
+      margin-bottom: 22px;
+
+      &::before {
+        background: url('/img/enterprise/identity-vault/checkmark.png') 0 0 no-repeat;
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 1px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      padding-top: 200px;
+
+      &::before {
+        top: -30px;
+        right: calc(50% - 140px);
+      }
+
+      hgroup {
+        width: 100%;
+        text-align: center;
+      }
+
+      li {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .integrations {
+    padding-bottom: 99px;
+
+    &::before {
+      background: url('/img/enterprise/identity-vault/integration-img.png') 0 0 no-repeat;
+      background-size: 100%;
+      width: 560px;
+      height: 560px;
+      top: 101px;
+      left: -11px;
+      right: auto;
+    }
+
+    hgroup {
+      padding-top: 56px;
+      width: calc(50% - 59px);
+
+      @media (max-width: $screen-md-max)  {
+        padding-top: 0px;
+        width: calc(50% - 100px);
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      &::before {
+        width: 280px;
+        height: 280px;
+      }
+
+      hgroup {
+        width: 440px;
+      }
+
+      h3 {
+        padding-top: 50px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      padding-top: 330px;
+
+      &::before {
+        top: 80px;
+        left: calc(50% - 140px);
+      }
+
+      hgroup {
+        width: 100%;
+        text-align: center;
+      }
+
+      h3 {
+        padding-top: 50px;
+      }
+
+      li {
+        text-align: left;
+      }
+    }
+  }
+
+  .what-you-got {
+    background: #101928 url('/img/enterprise/identity-vault/bg-panes.png') 50% 0 no-repeat;
+    background-size: 1000px;
+
+    .container {
+      position: relative;
+      padding-bottom: 150px;
+    }
+
+
+    hgroup {
+      padding-top: 178px;
+      max-width: 712px;
+    }
+
+    h3 {
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    p {
+      color: #b6c3d6;
+      font-weight: 400;
+      margin-top: 17px;
+      line-height: 1.8em;
+      font-size: 20px;
+      letter-spacing: -.02em;
+
+      strong {
+        color: white;
+        font-weight: 400;
+      }
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-top: 69px;
+      justify-content: space-between;
+    }
+
+    li {
+      flex: 0 0 518px;
+      padding-left: 56px;
+      font-size: 16px;
+      color: white;
+      position: relative;
+      margin-bottom: 45px;
+      padding-top: 5px;
+      letter-spacing: -.02em;
+
+      @media (max-width: $screen-md-max)  {
+        flex-basis: calc(50% - 50px);
+      }
+
+      &::before {
+        background: url('/img/enterprise/identity-vault/lock-checkmark.png') 0 100% no-repeat;
+        background-size: 32px;
+        width: 32px;
+        height: 32px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      // padding-bottom: 100px;
+
+      hgroup {
+        padding-top: 92px;
+        max-width: 712px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      background-size: cover;
+
+      li {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .demo {
+    padding-top: 97px;
+    padding-bottom: 110px;
+
+    hgroup {
+      strong {
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        font-family: $font-family-eina;
+      }
+
+      h2 {
+        margin-top: 39px;
+        letter-spacing: -.01em;
+      }
+
+      p {
+        margin-top: 16px;
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: -.02em;
+
+        strong {
+          font-weight: 400;
+          text-transform: none;
+          letter-spacing: inherit;
+        }
+      }
+    }
+
+    .form {
+      margin-top: 50px;
+      max-width: 930px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: $screen-sm-max)  {
+      padding-top: 0;
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      .form textarea.hs-input {
+        width: calc(100% - 18px) !important;
+      }
+    }
+  }
+
+  .watch {
+    background: #f6f8fb;
+
+    .card {
+      position: absolute;
+      left: 85px;
+      top: 68px;
+    }
+
+    img {
+      width: 460px;
+    }
+
+    hgroup {
+      padding-top: 119px;
+      width: calc(50% - 50px);
+      padding-bottom: 140px;
+
+      @media (max-width: $screen-md-max)  {
+        padding-top: 100px;
+        width: calc(50% - 100px);
+        padding-bottom: 120px;
+
+        p {
+          padding-right: 0;
+        }
+      }
+    }
+
+    h3 {
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    p {
+      margin-top: 24px;
+      font-weight: 400;
+      font-size: 18px;
+      padding-right: 80px;
+      display: block;
+      margin-bottom: 22px;
+      letter-spacing: -.02em;
+    }
+
+    .btn {
+      padding: 14px 16px 10px;
+      font-size: 14px;
+
+      img {
+        width: 16px;
+        margin-right: 5px;
+      }
+    }
+
+    @media (max-width: $screen-md-max)  {
+      .card {
+        left: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm-max)  {
+
+      img {
+        width: 230px;
+      }
+
+      hgroup {
+        padding-top: 50px;
+        width: calc(100% - 260px);
+        padding-bottom: 60px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      .container {
+        padding-top: 200px;
+      }
+
+      .card {
+        left: calc(50% - 115px);
+      }
+
+      hgroup  {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}

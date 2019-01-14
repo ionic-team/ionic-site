@@ -157,7 +157,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
 <p>To push a new view onto the navigation stack, use the <code>push</code> method.
-If the page has an <a href="../../navbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
+If the page has an <a href="../../components/toolbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
 The pushed view can then receive the data by accessing it via the <code>NavParams</code>
@@ -305,6 +305,7 @@ class HelloWorld {
 </tr>
 </tbody>
 </table>
+<p>Those events are only fired on IonicPage, for classic Angular Component, use <a href="https://angular.io/guide/lifecycle-hooks">Angular Lifecycle Hooks</a>.</p>
 <h2 id="nav-guards">Nav Guards</h2>
 <p>In some cases, a developer should be able to control views leaving and entering. To allow for this, NavController has the <code>ionViewCanEnter</code> and <code>ionViewCanLeave</code> methods.
 Similar to Angular route guards, but are more integrated with NavController. For example, if you wanted to prevent a user from leaving a view:</p>
@@ -347,7 +348,7 @@ export class DetailPage(){
   ){}
   ionViewCanEnter(): boolean{
    // here we can either return true or false
-   // depending on if we want to leave this view
+   // depending on if we want to enter this view
    if(isValid(randomValue)){
       return true;
     } else {
@@ -558,6 +559,27 @@ Returns the active child navigation.
 </h3>
 
 Returns a list of the active child navigation.
+
+
+
+
+
+
+
+
+
+
+<div id="getAllChildNavs"></div>
+
+<h3>
+<a class="anchor" name="getAllChildNavs" href="#getAllChildNavs">
+<code>getAllChildNavs()</code>
+  
+
+</a>
+</h3>
+
+Returns a list of all child navigation containers
 
 
 

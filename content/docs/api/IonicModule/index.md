@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -51,7 +51,7 @@ valid property from the <a href="/docs/api/config/Config/">Config</a>.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-ts">import { NgModule } from &#39;@angular/core&#39;;
 
@@ -85,11 +85,11 @@ export class AppModule {}
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
+<h2><a class="anchor" name="static-members" href="#static-members">Static Members</a></h2>
 <div id="forRoot"></div>
-<h3><a class="anchor" name="forRoot" href="#forRoot"></a><code>forRoot(appRoot,&nbsp;config,&nbsp;deepLinkConfig)</code>
+<h3><a class="anchor" name="forRoot" href="#forRoot"><code>forRoot(appRoot,&nbsp;config,&nbsp;deepLinkConfig)</code>
   
-</h3>
+</a></h3>
 
 Set the root app component for you IonicModule
 

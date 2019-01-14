@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Contacts</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L256">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L305">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ $ npm install --save @ionic-native/contacts
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone 8</li>
+  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows 8</li><li>Windows Phone</li>
 </ul>
 
 
@@ -117,7 +117,7 @@ Search for contacts in the Contacts list.
       <code>IContactFindOptions</code>
     </td>
     <td>
-      <p>Optional options for the query</p>
+      <p>Optional options for the query<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -144,6 +144,12 @@ Select a single Contact.
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 <h3><a class="anchor" name="id" href="#id"></a><code>id()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="rawId" href="#rawId"></a><code>rawId()</code></h3>
 
 
 
@@ -270,6 +276,20 @@ Select a single Contact.
     </td>
     <td>
       <p>A globally unique identifier.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      rawId
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A globally unique identifier on Android.</p>
 
       <em>(optional)</em>
     </td>

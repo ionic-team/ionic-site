@@ -1,7 +1,6 @@
 {
   "css": [
-    "node_modules/c3/c3.css",
-    "node_modules/ionicate/ionicate.css"
+    "node_modules/c3/c3.css"
   ],
   "js": [
     "node_modules/jquery/dist/jquery.min.js",
@@ -9,9 +8,10 @@
     "node_modules/angular/angular.min.js",
     "node_modules/angular-animate/angular-animate.min.js",
     "node_modules/angular-sanitize/angular-sanitize.min.js",
-    "node_modules/d3/d3.js",
+    "node_modules/angular-cookies/angular-cookies.min.js",
+    "node_modules/d3/build/d3.min.js",
     "node_modules/c3/c3.js",
-    "node_modules/ionicate/ionicate.js",
-    "node_mdules/scrollreveal/dist/scrollreveal.js"
+    "node_modules/scrollreveal/dist/scrollreveal.js",
+    "node_modules/typed.js/lib/typed.min.js"
   ]
 }

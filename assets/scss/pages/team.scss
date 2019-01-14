@@ -1,0 +1,183 @@
+@import '../vars';
+
+#page-team {
+  .navbar + .banner {
+    background: #393e49 no-repeat center top;
+    background-image: url('/img/team/team-cta-bg.jpg'),
+                      linear-gradient(to right, #1a2538 0%, #1f2b40 100%);
+    background-size: cover, 100%;
+    height: 360px;
+  }
+
+  .made-of {
+    max-width: 680px;
+    width: 100%;
+    margin: 80px auto 90px;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #5d636c;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+  }
+
+  .cofounders {
+
+    .img {
+      background: #f9f9fa no-repeat center top;
+      background-image: url('/img/team/max-ben.jpg');
+      background-size: cover;
+      height: 436px;
+      width: 100%;
+
+      @media (max-width: $screen-xs-max)  {
+        height: 290px;
+      }
+    }
+
+    .bar {
+      background: #f9f9fa repeat-y center top;
+      background-image: url('/img/team/max-ben-bar.jpg');
+      background-size: cover;
+      padding-top: 30px;
+
+      h4 {
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+
+      p {
+        color: $dark-grey;
+      }
+    }
+
+    .max,
+    .ben {
+      width: 49%;
+      float: left;
+    }
+
+    .max {
+      padding-left: 15%;
+      @media (max-width: $screen-xs-max)  {
+        padding-left: 0;
+      }
+    }
+
+    .ben {
+      padding-left: 6%;
+    }
+  }
+
+  .employees {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 60px;
+
+    .employee {
+      flex: 0 1 260px;
+      padding: 0 50px 50px;
+      position: relative;
+      margin: 0 auto;
+      text-decoration: none;
+
+      .avatar {
+        height: 160px;
+        width: 160px;
+        -webkit-clip-path: circle(80px at center);
+        clip-path: circle(80px at center);
+        transition: transform .2s ease;
+      }
+
+      &[href]:hover .avatar {
+        transform: scale(1.05, 1.05);
+      }
+
+      hgroup {
+        margin-top: 16px;
+
+        h4 {
+          font-size: 16px;
+          margin-bottom: 4px;
+          font-weight: 600;
+          color: $blackish;
+        }
+
+        .twitter {
+          &::before {
+            float: right;
+            color: $blackish;
+            content: "\f2b0";
+            font-family: "Ionicons";
+            transition: .2s color ease;
+          }
+
+          &:hover::before {
+            color: $blue;
+          }
+        }
+
+
+        p {
+          font-size: 10px;
+          color: #aaa;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: .03em;
+
+          &.blue {
+            color: $blue;
+
+          }
+        }
+      }
+
+      .description {
+        position: absolute;
+        width: 250px;
+        height: 260px;
+        top: 0;
+        line-height: 260px;
+        opacity: 0;
+        transition: opacity .5s;
+
+        p {
+          display: inline-block;
+          vertical-align: middle;
+          color: $blackish;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  .hero {
+    background: no-repeat center top url('/img/team/see-openings-bg.jpg');
+    background-size: cover;
+    height: 260px;
+    padding-top: 65px;
+
+    h3 {
+      color: white;
+    }
+
+    .btn.white {
+      text-transform: none;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 3px;
+      padding: 16px 15px 14px;
+      margin-top: 15px;
+    }
+  }
+}

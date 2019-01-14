@@ -1,13 +1,12 @@
 [
   {
-    "slug":"arctic-empire",
-    "name":"Arctic Empire",
+    "slug":"arctic-leaf",
+    "name":"Arctic Leaf",
     "short-description":"specializes in cross-platform Ionic apps with an emphasis on user-experience, long-term engagement & fluid design for startups and enterprises.",
-    "long-description":"<p>With our grassroots in game development and user-interface design, Arctic Empire is no stranger to producing original, cutting-edge mobile products for a variety of local and international clients.</p><p>Since our inception in 2010, Arctic Empire has gone on to build over 50 amazing cross-platform mobile applications with a share of those apps developed in Ionic Frameworks.</p><p>From tax filing to crowdfunding, including integrations with push notifications, analytics, social media authentication and more, our dedicated team of developers have the insight and know-how to produce expertly crafted mobile experiences that will resonate with your audience!</p><p>We pride ourselves on bringing businesses from start-up to enterprise with our expertise in design, development, and digital marketing.",
-    "address":"75 Albert St #207<br>Ottawa, ON, K1P 5E7",
+    "long-description":"<p>With our grassroots in game development and user-interface design, Arctic Empire is no stranger to producing original, cutting-edge mobile products for a variety of local and international clients.</p><p>Since our inception in 2010, Arctic Leaf has gone on to build over 50 amazing cross-platform mobile applications with a share of those apps developed in Ionic Frameworks.</p><p>From tax filing to crowdfunding, including integrations with push notifications, analytics, social media authentication and more, our dedicated team of developers have the insight and know-how to produce expertly crafted mobile experiences that will resonate with your audience!</p><p>We pride ourselves on bringing businesses from start-up to enterprise with our expertise in design, development, and digital marketing.",
+    "address":"400 Cooper #501<br>Ottawa, ON, K2P 2H8",
     "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
     "coordinates":[27,34],
-    "email":["info@arcticempire.ca"],
     "company-size": "11-50"
   },
   {
@@ -28,7 +27,6 @@
     "address":"Castlewood,77-91 New Oxford Street<br>London, WC1A 1DG, UK",
     "features":null,
     "coordinates":[47.7,31.6],
-    "email":["info@inviqa.com"],
     "company-size": "50-200"
   },
   {
@@ -39,7 +37,6 @@
     "address":"21 S Main St<br>Alpharetta, GA 30009",
     "features": ["Ionic 1 & 2", "App design", "App development", "Product development", "Solution architecture"],
     "coordinates":[24.9,40.3],
-    "email": ["hello@digitalscientists.com"],
     "company-size": "10-30"
   },
   {
@@ -50,7 +47,6 @@
     "address":"153 Armada Way<br>Plymouth, PL1 1HY, UK",
     "features":null,
     "coordinates":[46.8,32.2],
-    "email": ["contact@elixel.co.uk"],
     "company-size": "10-20"
   },
   {
@@ -61,7 +57,6 @@
     "address":"Tanta Qism 2<br>Tanta, Gharbia Governorate, Egypt",
     "features":["Angular","Ionic","Node.js","MEAN","App design","App development","Development consulting"],
     "coordinates":[56.5,42],
-    "email":["sales@hybapps.com"],
     "company-size": "11-50"
   },
   {
@@ -69,10 +64,9 @@
     "name":"Hybrid Heroes",
     "short-description":"specializes in hybrid app development with Ionic. The team provides design, consulting and development of innovative mobile apps for startups and enterprises",
     "long-description":"<p>Hybrid Heroes is a Berlin-based app development team that specializes in hybrid app development with web technologies. Our team handles strategy, design and product management and develops innovative mobile user concepts for each client.</p><p>We use an Ionic framework to build hybrid apps for most diverse requirements. It provides us with state-of-the-art mobile components and architecture as the foundation for our projects. This allows us to iterate quickly from prototype to release candidate.</p><p>Our experience lies in the development of mobile and web applications for clients from a variety of industries such as media, commerce, entertainment and hardware engineering. Among our references are mobile monitoring tools for complex data evaluation, tools for internal working processes, as well as social and news applications.</p>",
-    "address":"Urbanstraße 116<br>10967 Berlin, Germany",
+    "address":"Reichenberger Straße 113a<br>10999 Berlin, Germany",
     "features":null,
     "coordinates":[51.9,31.7],
-    "email": ["hello@hybridheroes.de"],
     "company-size": "1-10"
   },
   {
@@ -103,7 +97,6 @@
     "address":"Nueva Providencia 1860 Of. 182, Providencia<br>Santiago de Chile",
     "features":null,
     "coordinates":[28.7,73],
-    "email":["contacto@kunder.cl"],
     "company-size": "11-50"
   },
   {
@@ -120,7 +113,7 @@
     "slug":"modus-create",
     "name":"Modus Create",
     "short-description":"designs and builds Ionic mobile apps that stand the test of time, specializing in cross-platform mobile UI/UX.",
-    "long-description":"<p>Modus Create helps firms transform software development capability into a competitive advantage. We use Ionic framework to build hybrid mobile apps and MVPs for Fortune 1000 clients, SaaS providers, and startups.  The overall performance, flexibility, speed, and architecture of the framework allows us to iterate quickly and get apps into production faster.</p>",
+    "long-description":"<p>Modus Create is a digital product agency that accelerates digital transformation. We use Ionic to build hybrid mobile apps and MVPs for Fortune 100 clients, SaaS providers, and startups. The overall performance, flexibility, speed, and architecture of Ionic allow us to iterate quickly and get apps into production faster.</p>",
     "address":"11480 Commerce Park Dr #350<br> Reston, VA 20191",
     "features":null,
     "coordinates":[26.5,38.7],
@@ -134,8 +127,17 @@
     "address":"Avenida 18 Julio 1077<br>Montevideo, Uruguay, 11100",
     "features":null,
     "coordinates":[32.8,73],
-    "email":["carlosa@onetree.com"],
     "company-size": "50-200"
+  },
+  {
+    "slug":"openforge",
+    "name":"OpenForge",
+    "short-description":"is a Philadelphia based company that specializes in user experience, design, and application development. We embrace our collective knowledge in design thinking, psychology, and software engineering to find creative solutions for real-world problems.",
+    "long-description":"<p>There’s nothing worse than throwing all your money and energy into building a product that no one wants. We believe that a collaborative and user-centered approach to design is key to creating a product that meets market expectations, that’s why we combine cutting-edge Web & Mobile technologies to bring your products to life.</p><p>Plain and simple — we believe that your success is our success and will stand by our values every step of the way. We’re here to challenge your assumptions and help you discover the full potential of your web and mobile applications. From discovery to deployment you can consider OpenForge as an extension of your own team.</p>",
+    "address":"1040 N 2nd St #301<br>Philadelphia, PA 19123 US",
+    "features":null,
+    "coordinates":[27.3,37.5],
+    "company-size": "10-50"
   },
   {
     "slug":"ordina",
@@ -176,47 +178,34 @@
     "address":"575 Bourke St<br>Melbourne Australia",
     "features":null,
     "coordinates":[88,74.3],
-    "email":["info@spatialvision.com.au"],
     "company-size": "11-50"
   },
   {
-    "slug":"tepee",
-    "name":"tepee",
-    "short-description":"design and build apps for mobile, web and embedded software distribution. They specialise in IoT, BLE and integrated hardware projects with complex management systems",
-    "long-description":"<p>Tepee is a Northern Ireland based multi-disciplinary studio specialising in software development covering both web / app and machine-based software design and development in a variety of languages. We have been delivering Ionic based solutions since 2014 and offer development in both Ionic 1 and Ionic 2.</p><p>We have a wealth of experience in app development within the IoT (Internet of Things) sector including development for internet enabled devices. We have completed projects that incorporate integration with sensors via cable accessories and via wireless protocols such as Bluetooth and Bluetooth Low Energy (BLE).</p><p>We excel in delivering solutions to challenging problems and have a proven record in delivering award winning applications alongside robust systems and infrastructure for industries including manufacturing, education, automotive, health care and multimedia.</p><p>We are a team of developers, designers and thinkers that will ensure you get the best solution for you, your projects and your business.</p>﻿",
+    "slug":"scaffold",
+    "name":"Scaffold",
+    "short-description":"builds apps for mobile, web and embedded software distribution. They specialise in IoT, BLE and integrated hardware projects with complex management systems.",
+    "long-description":"<p>Scaffold is a Northern Ireland based multi-disciplinary studio specialising in software development covering both web / app and machine-based software design and development in a variety of languages. We have been delivering Ionic based solutions since 2014 and offer development in both Ionic 1 and Ionic 2.</p><p>We have a wealth of experience in app development within the IoT (Internet of Things) sector including development for internet enabled devices. We have completed projects that incorporate integration with sensors via cable accessories and via wireless protocols such as Bluetooth and Bluetooth Low Energy (BLE).</p><p>We excel in delivering solutions to challenging problems and have a proven record in delivering award winning applications alongside robust systems and infrastructure for industries including manufacturing, education, automotive, health care and multimedia.</p><p>We are a team of developers, designers and thinkers that will ensure you get the best solution for you, your projects and your business.</p>",
     "address":"Moira Road<br>Lisburn BT28 2RF, UK",
     "features":null,
     "coordinates":[46,30.8],
-    "email":["hello@tepee.digital"],
     "company-size": null
   },
   {
     "slug":"warpdev",
     "name":"Warp Development",
     "short-description":"is an innovative IT company that offers an umbrella solution to the design and development of high-end Ionic apps.",
-    "long-description":"<p>Warp Development utilises the Ionic Framework to create applications that perform and behave exceptionally on the latest mobile devices.  We create hybrid applications with all the best web technologies that we love and our creative design team can craft applications suitable for all devices. We are obsessed with performance and we always make sure that our applications perform at top speed.</p><p>Our team has extensive experience in creating a wide variety of applications, anything from e-commerce mobile apps to news apps. We place our users at the top of our list and make sure our applications are easy to use and understand.</p><p>If you need a customized backend with integrations into third party systems or an application to solve a specific business need, you have come to the right place. We create custom apps that will help your business succeed!</p>﻿",
+    "long-description":"<p>Warp Development utilises the Ionic Framework to create applications that perform and behave exceptionally on the latest mobile devices.  We create hybrid applications with all the best web technologies that we love and our creative design team can craft applications suitable for all devices. We are obsessed with performance and we always make sure that our applications perform at top speed.</p><p>Our team has extensive experience in creating a wide variety of applications, anything from e-commerce mobile apps to news apps. We place our users at the top of our list and make sure our applications are easy to use and understand.</p><p>If you need a customized backend with integrations into third party systems or an application to solve a specific business need, you have come to the right place. We create custom apps that will help your business succeed!</p>",
     "address":"8, B, Cotillion Place Techno Park, 22 Techno Ave<br>Stellenbosch, 7600, South Africa",
     "features":null,
     "coordinates":[55.7,69.7],
-    "email":["sales@warpdevelopment.co.za"],
     "company-size": "50-200"
   },
   {
-    "slug":"webjunto",
-    "name":"Webjunto",
-    "short-description":"Webjunto offers professional services in user experience, application design, and software development for visionaries across the globe.",
-    "long-description":"<p>Webjunto is a Philadelphia based company that specializes in user experience, design, and application development. We embrace our collective knowledge in design thinking, psychology, and software engineering to find creative solutions for real-world problems.</p><p>There’s nothing worse than throwing all your money and energy into building a product that no one wants. We believe that a collaborative and user-centered approach to design is key to creating a product that meets market expectations, that’s why we combine cutting-edge Web & Mobile technologies to bring your products to life.</p><p>Plain and simple — we believe that your success is our success and will stand by our values every step of the way. We’re here to challenge your assumptions and help you discover the full potential of your web and mobile applications. From discovery to deployment you can consider Webjunto as an extension of your own team.</p>",
-    "address":"1040 N 2nd St #301<br>Philadelphia, PA 19123 US",
-    "features":null,
-    "coordinates":[27.3,37.5],
-    "company-size": "10-50"
-  },
-  {
     "slug":"yuxi",
-    "name":"Yuxi Pacific",
-    "short-description":"has a running relationship with Ionic framework. We’re Ionic 2 beta testers and have worked on several projects with its first version. Amongst these we highlight Cordova plugins for device support, apps compiled for apk’s and ipk’s and the use of build systems like Gulp to speed up different processes.",
-    "long-description":"<p>Yuxi Global has a running relationship with Ionic frameworks. We’re Ionic 2 beta testers and have worked on several projects with its first version. Amongst these we highlight Cordova plugins for device support, apps compiled for apk’s and ipk’s and the use of build systems like Gulp to speed up different processes. </p><p>Additionally, we like Ionic because it’s easier to use than other frameworks and it has a great community, which lets us solve problems easily and rapidly. Our applications impact different verticals, from gaming to IoT. In this last field, we’ve developed mobile apps that allow users to interact with smart lockers for online shopping pickup through their mobile devices. They can create, restock and pick up orders, manage their profiles and get real time updates and device alerts. One of the apps our team has been working on lately is called SeeMe, which was created under this framework and works like a TV-guide for streaming services. We’re really happy to be Trusted Partners, and hope to keep growing next to Ionic!</p>﻿",
-    "address":"Cra. 48 2034<br>Medellín, Antioquia, Colombia",
+    "name":"Yuxi Global",
+    "short-description":"is a contemporary software development boutique HQ in Cincinnati and with operations in LATAM. We are technological enablers with an obsessive focus and desire to delighting our customer.",
+    "long-description":"<p>Yuxi Global is a contemporary software development boutique HQ in Cincinnati and with operations in LATAM. We are technological enablers with an obsessive focus and desire to delighting our customer.</p><p>We accomplish this by giving our customers, colleagues and contributors a seat at the table. By fostering an environment of continuous learning, knowledge dissemination, collaboration, and diversity, we are able to organically consolidate our core competences, and develop a culture of innovation and forward-looking individuals.</p><p>Our diverse and multicultural team located I. our two offices in Colombia with 150+ individuals, are the core of Nearshoring and Digital Solutions service offer, that impacts every stage of our client’s product lifecycle, from concept validation to product releases with quick and measurable wins.</p><p>Our experience in building Omni-channel experiences paired with our subject matter expertise in Ionic has enabled us to deliver solutions that go from allowing customers to interact with smart lockers and click-and-collect systems, to enabling Airports to interact, inform and chaperon visitors with real time information directly to their mobile devices, and FinTech solutions that are configurable for some largest banks in LATAM.</p><p>We combine all these solutions to our Data Analytics, UX/UI and our Frontend capabilities and we create a recopied that is exploited to our client’s benefit in their conquest of creating products and services that are exploited to their maximum potential and add value to their end-costumers digital journey.</p>",
+    "address":"Cra. 48 N 20-34<br>Ciudad del Río, Medellín, Colombia",
     "features":null,
     "coordinates":[27.4,54],
     "company-size": "50-200"

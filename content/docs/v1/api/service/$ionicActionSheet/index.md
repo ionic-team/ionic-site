@@ -41,7 +41,7 @@ Dangerous options are highlighted in red and made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
 hitting escape on the keyboard for desktop testing.
 
-![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif)
+![Action Sheet](https://s3.amazonaws.com/ionicframework.com/docs/controllers/actionSheet.gif)
 
 
 

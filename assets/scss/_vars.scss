@@ -1,9 +1,11 @@
+$font-family-eina: 'Eina', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-graphik: 'Graphik', 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-system: apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 
-$font-family-avenir: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-monospace: 'Roboto Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-serif: 'Adobe Caslon', Georgia, Times, 'Times New Roman', serif;
 
-$font-family-monospace: 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
-
-$font-family-default: $font-family-avenir;
+$font-family-default: $font-family-graphik;
 
 $blue:          #4a8bfc;
 $light-blue:    #529eff;
@@ -20,7 +22,7 @@ $grey:          #9da5b3;
 $darkish-grey:  #898989;
 $dark-grey:     #576070;
 $blackish:      #4C555A;
-$blacker:       #26292e;
+$blacker:       #24282e;
 
 $sidenav-width: 230px;
 $platform-preview-width: 467px;
@@ -42,3 +44,7 @@ $navbar-default-link-active-bg: transparent;
 // $navbar-default-toggle-border-color;
 // $navbar-default-toggle-hover-bg;
 // $navbar-default-toggle-icon-bar-bg;
+
+// bootstrap variables and mixins
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';

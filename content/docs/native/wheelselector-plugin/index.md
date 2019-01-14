@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -69,7 +69,7 @@ constructor(private selector: WheelSelector) { }
 
 ...
 
-let jsonData = {
+const jsonData = {
   numbers: [
    { description: &quot;1&quot; },
     { description: &quot;2&quot; },
@@ -98,7 +98,7 @@ let jsonData = {
 
 ...
 
-//basic number selection, index is always returned in the result
+// basic number selection, index is always returned in the result
  selectANumber() {
    this.selector.show({
      title: &quot;How Many?&quot;,
@@ -115,7 +115,7 @@ let jsonData = {
 
  ...
 
- //basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
+ // basic selection, setting initial displayed default values: &#39;3&#39; &#39;Banana&#39;
  selectFruit() {
    this.selector.show({
      title: &quot;How Much?&quot;,
@@ -138,8 +138,8 @@ let jsonData = {
 
  ...
 
- //more complex as overrides which key to display
- //then retrieve properties from original data
+ // more complex as overrides which key to display
+ // then retrieve properties from original data
  selectNamesUsingDisplayKey() {
    this.selector.show({
      title: &quot;Who?&quot;,
@@ -148,7 +148,7 @@ let jsonData = {
      ],
      displayKey: &#39;name&#39;,
      defaultItems: [
-       {index:0, value: this.jsonData.firstNames[2].name}, 
+       {index:0, value: this.jsonData.firstNames[2].name},
        {index: 0, value: this.jsonData.lastNames[3].name}
      ]
    }).then(
@@ -249,7 +249,7 @@ Hide the selector
       items
     </td>
     <td>
-      <code>Array&lt;Array&lt;WheelSelectorItem&gt;&gt;</code>
+      <code>WheelSelectorItem[][]</code>
     </td>
     <td>
       <p>The items to display (array of items).</p>
@@ -263,7 +263,7 @@ Hide the selector
       defaultItems
     </td>
     <td>
-      <code>Array&lt;DefaultItem&gt;</code>
+      <code>DefaultItem[]</code>
     </td>
     <td>
       <p>Which items to display by default.</p>
@@ -307,7 +307,7 @@ Default: Cancel</p>
       theme
     </td>
     <td>
-      <code>string</code>
+      <code>&#39;light&#39; | &#39;dark&#39;</code>
     </td>
     <td>
       <p>Android only - theme color, &#39;light&#39; or &#39;dark&#39;.

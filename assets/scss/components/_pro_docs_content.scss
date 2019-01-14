@@ -1,0 +1,146 @@
+body.docs #snap-bar + #pro-header.navbar {
+  margin-top: 22px;
+}
+
+#pro-header {
+  background: white;
+
+  .container {
+    border-bottom: 1px solid #EEF0F3;
+    padding-bottom: 15px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  a {
+    color: #737B88;
+  }
+}
+
+#pro-docs {
+  h1, h2, h3, h4, h5 {
+    font-weight: 700;
+  }
+
+  td:not(:first-child), th:not(:first-child) {
+    white-space: inherit;
+  }
+
+  .responsive-side-nav.affix + main,
+  .responsive-side-nav.affix-bottom + main {
+    // The nav bar's width minus it's negative left margin
+    margin-left: 300px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-left: 0;
+    }
+  }
+
+  .responsive-side-nav {
+    background: transparent;
+    //margin-left: -26px;
+
+    &.side-nav ul ul a, &.side-nav ul .capitalize a {
+      height: 28px;
+    }
+
+    ul a::after {
+      border: none !important;
+    }
+
+    a {
+      letter-spacing: -0.01em;
+
+      padding: 0px 0;
+
+      &.active {
+        color: #4a8bfc !important;
+        font-weight: 600 !important;
+      }
+
+      &:hover {
+        color: #3b3f44 !important;
+        font-weight: 600 !important;
+      }
+    }
+
+    & > ul.nested-menu > li > ul > li {
+      margin-bottom: 8px;
+    }
+
+    & > ul.nested-menu > li > ul > li > ul {
+      // Margin in from the icon to the label start of the heading link
+      margin-left: 27px;
+
+      & > li > a {
+        font-size: 13px;
+        color: #50565e;
+        font-weight: 500;
+
+      }
+    }
+
+    & > ul.nested-menu > li > ul > li > ul > li > ul {
+      margin-left: 15px;
+    }
+
+    & > ul#pro-nav.nested-menu > li > ul > li > a {
+      &::before {
+        background-image: url('/img/pro/sidebar-icon-sprite.png');
+        background-repeat: no-repeat;
+        background-color: transparent;
+      }
+    }
+
+    & > ul.nested-menu > li > ul > li > a {
+      &::before {
+        width: 16px;
+        height: 16px;
+        background-size: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        margin-top: -2px;
+        content: '';
+      }
+
+      margin-top: 0;
+      text-transform: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #24282e;
+      letter-spacing: 0px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      position: static !important;
+
+      margin-left: 20px;
+      & > ul.nested-menu > li > ul > li > a {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .pro-intro-link::before { background-position: 0px 0px }
+  .pro-view-link::before { background-position: 0px -48px }
+  .pro-deploy-link::before { background-position: 0px -64px }
+  .pro-package-link::before { background-position: 0px -80px }
+  .pro-monitoring-link::before { background-position: 0px -96px }
+  .pro-devapp-link::before { background-position: 0px -128px }
+  .pro-advanced-link::before { background-position: 0px -160px }
+}
+
+#branch-sms-box {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 20px;
+
+  .btn {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}

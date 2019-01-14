@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Serial</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/serial/index.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/serial/index.ts#L20">
   Improve this doc
 </a>
 
@@ -64,7 +64,13 @@ constructor(private serial: Serial) { }
 
 this.serial.requestPermission().then(() =&gt; {
   this.serial.open({
-    baudRate: 9800
+    baudRate: 9800,
+    dataBits: 4,
+    stopBits: 1,
+    parity: 0,
+    dtr: true,
+    rts: true,
+    sleepOnPause: false
   }).then(() =&gt; {
     console.log(&#39;Serial connection opened&#39;);
   });

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "4.1.0"
+version: "4.19.0"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -23,6 +23,8 @@ docType: "class"
 
 
 
+<p>This plugin provides access to the device&#39;s audio, image, and video capture capabilities.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-media-capture</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-media-capture">Media Capture plugin docs</a>.</p>
 
 
 <p>Repo:
@@ -46,7 +48,7 @@ $ npm install --save @ionic-native/media-capture
 
 <h2><a class="anchor" name="platforms" href="#platforms"></a>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+  <li>Android</li><li>Browser</li><li>iOS</li><li>Windows</li>
 </ul>
 
 

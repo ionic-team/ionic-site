@@ -1,149 +1,267 @@
 [
   {
     "name":"Adam Bradley",
-    "title":"Framework Lead",
+    "dept":"Dir of Open Source Technology",
     "description":"Adam was once Marty McFly in another life, but is now back to the future of open source heading up all things Ionic Framework. When not slinging code, he can be found hanging out with his wife and kids, befriending dogs, and traveling space and time in his Delorean.",
     "twitter":"adamdbradley",
-    "spritePosition":0
-  },
-  {
-    "name":"Ben Sperry",
-    "title":"Co-founder, CDO",
-    "description":"",
-    "twitter":"benjsperry",
-    "spritePosition": 250
-  },
-  {
-    "name":"Eric Bobbitt",
-    "title":"Platform Lead",
-    "description":"When he's not arguing semantics, dancing at all the wrong times, or drawing randomly on the office whiteboards, you'll find him working on the Ionic Platform, planning new features, and not-so-silently cursing at his laptop. Otherwise he's probably feeding his gaming addiction with a glass of whiskey or a good Belgian beer.",
-    "twitter":"ericbobbitt",
-    "spritePosition":500
-  },
-  {
-    "name":"Liz Maves",
-    "title":"Admin Coordinator",
-    "description":"With keen attention to detail Liz works behind the scenes, providing support to Ionic employees. From onboarding new hires, stocking the lounge with healthy snacks, walking any office dog that will let her, or planning the next Ionic Bonding event; she’s almost magical. When not at Ionic HQ, you’re most likely to find Liz on the disc golf course, trying to get her first ace, or in the kitchen, preparing a delicious meal.",
-    "twitter":"Liz_ionic",
-    "spritePosition":750
-  },
-  {
-    "name":"Brody Kidd",
-    "title":"Business Development &amp; Support",
-    "description":"If you can’t find him on call, shuffling through email, poking around on a new CRM, in our live chat support, or white boarding new business development… Odds are he is surfing lake Michigan, fly fishing the gin clear streams of the driftless region, camping in the north woods, or milking his goats.",
-    "twitter":"brodymkidd",
-    "spritePosition":1000
-  },
-  {
-    "name":"Dan Imhoff",
-    "title":"Platform Developer",
-    "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
-    "twitter":"dwieeb",
-    "spritePosition":1250
-  },
-  {
-    "name":"Matt Kremer",
-    "title":"Creator Lead",
-    "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
-    "twitter":"matthewkremer",
-    "spritePosition":1500
-  },
-  {
-    "name":"Perry Govier",
-    "title":"Frontend Engineer",
-    "description":"Be it code, places, gadgets, food, or conversation, Perry loves to explore it all. While AFK he's probably biking around Madison, spending time with his wife and son, \"refactoring\" his house, building something in his backyard, talking politics, or pretending to be an urban farmer.",
-    "twitter":"perrygovier",
-    "spritePosition":1750
-  },
-  {
-    "name":"Brandy Carney",
-    "title":"Framework Developer",
-    "description":"When she isn't busy keeping her two chihuahuas from killing each other, Brandy can be found making the Ionic Framework pretty by means of Sass. She loves helping people while continuing to expand her own knowledge. After hours she can be found on her patio shopping online with a glass of wine in hand. Give her a glass and she'll write some Sass.",
-    "twitter":"brandyscarney",
-    "spritePosition":2000
-  },
-  {
-    "name":"Mike Hartington",
-    "title":"Community Support",
-    "description":"Deep in the frozen North, just before the great wall, a man sits with a laptop, surrounded by several cups of coffee and a glass of whiskey. Traveling across this great kingdom, he enlightens other devs and shares his knowledge through the written and spoken word. When the laptop is not near, he often finds solace in music with his guitar.",
-    "twitter":"mhartington",
-    "spritePosition":2250
-  },
-  {
-    "name":"Rudy Pelrine",
-    "title":"Platform Developer",
-    "description":"A musician, DJ, sound engineer, photographer, and self proclaimed fashion nerd, Rudy seems to find a new obsession daily.  At Ionic, you'll find him working on the Platform services, making sure everyone's notifications arrive safe and sound.",
-    "twitter":"Drawn_Closer",
-    "spritePosition":2500
-  },
-  {
-    "name":"Nick Hyatt",
-    "title":"Platform Developer",
-    "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic Platform.",
-    "twitter":"NicholasPHyatt",
-    "spritePosition": 2750
-  },
-  {
-    "name":"Tim Lancina",
-    "title":"Tools Developer",
-    "description":"A temporarily embarrassed pro soccer player, Tim is fond of traveling the world and trying to convince his coworkers to eat bugs.  When not doing either of those, he is usually breaking things related to Ionic tooling, the platform, or the framework.",
-    "twitter":"timlancina",
-    "spritePosition":3000
-  },
-  {
-    "name":"Max Lynch",
-    "title":"Co-founder, CEO",
-    "description":"",
-    "twitter":"maxlynch",
-    "spritePosition": 3250
+    "image":"adam.jpg"
   },
   {
     "name":"Andrew Haire",
-    "title":"Marketing Director",
-    "description":"",
+    "dept":"VP of Marketing",
+    "description":null,
     "twitter":"achaire",
-    "spritePosition": 3500
+    "image": "andrew.png"
   },
   {
-    "name":"Lee Schmidt",
-    "title":"Creator Developer",
-    "description":"At Ionic, Lee’s main quest is working on Creator, wielding a MacBook and a cup of coffee (he gains +1 intelligence for each additional cup). When he’s not writing code, he likes to swim, bike, run, and compete in triathlons.",
-    "twitter":"lee_schmidt",
-    "spritePosition": 3750
+    "name":"Ben Sperry",
+    "dept":"Co-Founder & CDO",
+    "description":null,
+    "twitter":"benjsperry",
+    "image": "ben.jpg"
   },
   {
-    "name":"Dan Bucholtz",
-    "title":"Framework Developer",
-    "description":"Family, code, and the Wisconsin Badgers. That's what Dan is all about. When not hacking on Ionic or other open source projects, Dan enjoys watching sports and hanging out with his wife, son, and dog.",
-    "twitter":"danbucholtz",
-    "spritePosition": 4000
+    "name":"Brandy Carney",
+    "dept":"Development",
+    "description":"When she isn't busy keeping her two chihuahuas from killing each other, Brandy can be found making the Ionic Framework pretty by means of Sass. She loves helping people while continuing to expand her own knowledge. After hours she can be found on her patio shopping online with a glass of wine in hand. Give her a glass and she'll write some Sass.",
+    "twitter":"brandyscarney",
+    "image": "brandy.jpg"
   },
   {
-    "name":"Swami Kumaresan",
-    "title":"COO",
+    "name":"Brian Manning",
+    "dept":"Customer Success",
+    "description":"Let’s be honest, Brian isn’t terribly interesting. He has some dogs, likes to read horror and sci-fi, and loves pistachios. When he’s not quietly abiding Brian is answering your support requests and troubleshooting your native builds.",
+    "twitter":null,
+    "image": "brian.jpg"
+  },
+  {
+    "name":"Brody Kidd",
+    "dept":"Sales",
+    "description":"If you can’t find him on call, shuffling through email, poking around on a new CRM, in our live chat support, or white boarding new business development… Odds are he is surfing lake Michigan, fly fishing the gin clear streams of the driftless region, camping in the north woods, or milking his goats.",
+    "twitter":"brodymkidd",
+    "image": "brody.jpg"
+  },
+  {
+    "name":"Bryant Plano",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"bryantplano",
+    "image": "bryant.jpg"
+  },
+  {
+    "name":"Cam Wiegert",
+    "dept":"Frontend/Design",
     "description":"",
-    "twitter":"swami78",
-    "spritePosition": 4250
+    "twitter":"camwiegert",
+    "image": "cam.jpg"
+  },
+  {
+    "name":"Cody Wiseman",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"cwiseman1",
+    "image": "cody.png"
+  },
+  {
+    "name":"Dan Imhoff",
+    "dept":"Development",
+    "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
+    "twitter":"dwieeb",
+    "image": "dan.jpg"
+  },
+  {
+    "name":"Danielle Jensen",
+    "dept":"Customer Success",
+    "description":"A member of the Customer Success team, Danielle can be found answering questions in Support tickets, writing up Help Center articles, or collaborating with customers to create their best solutions with Ionic Pro. In her free time, Danielle tries to balance her eclectic mix of hobbies: continuing her martial arts practice, learning new languages, attending EDM festivals, fostering animals through the local pet-rescue, going on week-long kayak trips, or (most likely) marathoning Avatar the Last Airbender for the 100th time. It may or may not be an obsession. We're working on it.",
+    "twitter":"keineaanung",
+    "image": "danielle.jpg"
+  },
+  {
+    "name":"Derek Wilson",
+    "dept":"Sales",
+    "description": null,
+    "twitter": null,
+    "image": "derek.jpg"
+  },
+  {
+    "name":"Ely Lucas",
+    "dept":"Development",
+    "description":"Nestled at the base of the Colorado mountains, Ely is a software developer that fell in love with the web ${years} years ago and never looked back.  Most of his “off” time is spent enjoying time with his four kids, wife, and dog, but in that off chance he gets a free moment, he loves learning new tech and sharing at local meet ups and tech conferences.  And in the rarest of free moments, he tries to get outdoors and enjoy that great Colorado sunshine.",
+    "twitter":"elylucas",
+    "image": "ely.jpg"
+  },
+  {
+    "name":"Giovanni Di Milia",
+    "dept":"Development",
+    "description":"I am an Italian living in Boston, a Formula 1, basket and a football (the American one) fan. I like to run, try new food and beer. My secret mission is to teach people what a good Italian pizza is. While listening to '70s and 80's rock, I write code for Ionic PRO.",
+    "twitter":"giocalitri",
+    "image": "giovanni.jpg"
+  },
+  {
+    "name":"Jake Santerre",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"JakeSanterre",
+    "image": "jake.png"
   },
   {
     "name":"Josh Thomas",
-    "title":"Framework Developer",
+    "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
     "twitter":"jthomas1",
-    "spritePosition": 4500
+    "image": "josh.jpg"
   },
   {
-    "name":"Justin Willis",
-    "title":"Support Engineer",
-    "description":"Musician turned programmer, when not responding to the awesome Ionic community on Github, talking all things Ionic on Twitter or generally helping with Ionic development, you can probably find Justin spending time with his girlfriend, playing Assassins Creed, drinking unhealthy amounts of Mountain Dew, sharing food with his dog and developing Ionic apps!",
-    "twitter":"justinwillis96",
-    "spritePosition": 5000
+    "name":"Julio Cesar Sanchez",
+    "dept":"Development",
+    "description":"A boy has no bio",
+    "twitter":"jcesarmobile",
+    "image": "julio.jpg"
   },
   {
-    "name":"Zach Hanes",
-    "title":"Support Lead",
-    "description":"A Wisconsinite by birth but a citizen of the universe, Zach specializes in supporting you and finding new ways to support you without you even realizing you’re being supported. Outside of Ionic, Zach reads a lot of sci-fi and ancient history, dabbles in writing comic books, and every now on then stands up on a stage to do some comedy. He doesn’t like humidity.",
-    "twitter":"zacharyhanes",
-    "spritePosition": 5500
+    "name":"Ken Sodemann",
+    "dept":"Customer Success",
+    "description":"I started my coding career in 1993 working on the Boeing 777 auto-pilot system. Since then I have worked on several different types of project, including avionics systems, sat-com systems, backend server applications, and front end web and mobile applications. When not coding, I enjoy hanging out with my wife and our cats, biking, cooking, and working on my 1960 VW Bug.",
+    "twitter":"KenSodemann",
+    "image": "ken.jpg"
+  },
+  {
+    "name":"Kevin Ports",
+    "dept":"Frontend/Design",
+    "description":"Kevin is a pixel wranglin man, helping out with design and front-end development at Ionic. When he’s not in the office he can probably be found playing a guitar or calling for Sasquatch deep in the Wisconsin Northwoods.",
+    "image": "kevin.jpg"
+  },
+  {
+    "name":"Lars Mikkelsen",
+    "dept":"Development",
+    "description":"Lars works on the Ionic Platform and it’s his passion to make it as fast, secure, and reliable as humanly possible. His perseverance and attention to detail ensures that the toughest of bugs never stand a chance. Outside work he enjoys exploring the Boston food scene and “hygge” with his girlfriend and their pug.",
+    "twitter":null,
+    "image": "lars.jpg"
+  },
+  {
+    "name":"Lee Schmidt",
+    "dept":"Development",
+    "description":"At Ionic, Lee’s main quest is working on Creator, wielding a MacBook and a cup of coffee (he gains +1 intelligence for each additional cup). When he’s not writing code, he likes to swim, bike, run, and compete in triathlons.",
+    "twitter":"lee_schmidt",
+    "image": "lee.jpg"
+  },
+  {
+    "name":"Liz Maves",
+    "dept":"Administration",
+    "description":"With keen attention to detail Liz works behind the scenes, providing support to Ionic employees. From onboarding new hires, stocking the lounge with healthy snacks, walking any office dog that will let her, or planning the next Ionic Bonding event; she’s almost magical. When not at Ionic HQ, you’re most likely to find Liz on the disc golf course, trying to get her first ace, or in the kitchen, preparing a delicious meal.",
+    "twitter":"Liz_ionic",
+    "image": "liz.jpg"
+  },
+  {
+    "name":"Mano",
+    "dept":"Development",
+    "description":"",
+    "twitter":"techmano",
+    "image": "mano.jpg"
+  },
+  {
+    "name":"Manu Mtz.Almeida",
+    "dept":"Development",
+    "description":"From “sunny” Spain, Manu spends most of his time building high quality components for the framework. When he’s not getting his hands dirty with performance optimizations, you can find him training for a half marathon or experimenting with hardware. He’s powered by the most bitter IPAs that can be found.",
+    "twitter":"manucorporat",
+    "image": "manu.jpg"
+  },
+  {
+    "name":"Matt Kremer",
+    "dept":"Product Manager",
+    "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
+    "twitter":"matthewkremer",
+    "image": "matt.png"
+  },
+  {
+    "name":"Matt Netkow",
+    "dept":"Marketing",
+    "description":"",
+    "twitter":"dotNetkow",
+    "image": "netkow.png"
+  },
+  {
+    "name":"Max Lynch",
+    "dept":"Co-Founder & CEO",
+    "description":null,
+    "twitter":"maxlynch",
+    "image": "max.jpg"
+  },
+  {
+    "name":"Mike Hartington",
+    "dept":"Dev Relations",
+    "description":"Deep in the frozen North, just before the great wall, a man sits with a laptop, surrounded by several cups of coffee and a glass of whiskey. Traveling across this great kingdom, he enlightens other devs and shares his knowledge through the written and spoken word. When the laptop is not near, he often finds solace in music with his guitar.",
+    "twitter":"mhartington",
+    "image": "mike.jpg"
+  },
+  {
+    "name":"Nick Hyatt",
+    "dept":"Development",
+    "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic Platform.",
+    "twitter":"NicholasPHyatt",
+    "image": "nick.jpg"
+  },
+  {
+    "name":"Noah Blank",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"noahblank",
+    "image": "noah.jpg"
+  },
+  {
+    "name":"Perry Govier",
+    "dept":"Frontend/Design",
+    "description":"Be it code, places, gadgets, food, or conversation, Perry loves to explore it all. While AFK he's probably biking around Madison, spending time with his wife and son, \"refactoring\" his house, building something in his backyard, talking politics, or pretending to be an urban farmer.",
+    "twitter":"perrygovier",
+    "image": "perry.jpg"
+  },
+  {
+    "name":"Rachel Brown",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": "rachelanjali",
+    "image": "rachel.png"
+  },
+  {
+    "name":"Rachel Ashton",
+    "dept":"Marketing",
+    "description": null,
+    "twitter": "Rachel_Ellen31",
+    "image": "ashton.png"
+  },
+  {
+    "name":"Ryan Bowman",
+    "dept":"VP of Sales",
+    "description":null,
+    "twitter":"TheRyanBowman",
+    "image": "ryan.jpg"
+  },
+  {
+    "name":"Sam Bevan",
+    "dept":"Sales",
+    "description":"At Ionic,  Sam is busy sending emails, chatting on calls, and creating partnerships with some amazing companies. On weekends, you're likely to find Sam in downtown Boston playing some pickup basketball, grabbing brunch in Brookline, or hanging with some friends on Lansdowne St. in Fenway.",
+    "twitter":null,
+    "image": "sam.jpg"
+  },
+  {
+    "name":"Stephen Ochs",
+    "dept":"Marketing",
+    "description":"There are few things in Stephen's life that he loves more than the Boston Celtics, From October to Hopefully June you can find him at the Garden when there is a Game. Avid Tennis player, always hitting the courts. Stephen is a seasoned Digital Marketing and Demand Generation leader, who has helped many companies grow through innovative marketing strategies.",
+    "twitter":"stochsmarketing",
+    "image": "stephen.jpg"
+  },
+  {
+    "name":"Swami Kumaresan",
+    "dept":"President & COO",
+    "description":null,
+    "twitter":"swami78",
+    "image": "swami.jpg"
+  },
+  {
+    "name":"Tim Lancina",
+    "dept":"Development",
+    "description":"A temporarily embarrassed pro soccer player, Tim is fond of traveling the world and trying to convince his coworkers to eat bugs.  When not doing either of those, he is usually breaking things related to Ionic tooling, the platform, or the framework.",
+    "twitter":"timlancina",
+    "image": "tim.jpg"
   }
 ]

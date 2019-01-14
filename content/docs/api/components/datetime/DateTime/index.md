@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.5.3"
+version: "3.9.2"
 versionHref: "/docs"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "DateTime"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/demos/src/datetime/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/datetime/datetime.ts#L26">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/v3/src/components/datetime/datetime.ts#L26">
 Improve this doc
 </a>
 
@@ -179,7 +179,9 @@ The following chart lists all of the formats that can be used.</p>
 </table>
 <p><strong>Important</strong>: See the <a href="#month-names-and-day-of-the-week-names">Month Names and Day of the Week Names</a>
 section below on how to use different names for the month and day.</p>
-<h3 id="display-format">Display Format</h3>
+<h3><a class="anchor" name="display-format" href="#display-format">Display Format</a></h3>
+
+
 <p>The <code>displayFormat</code> input property specifies how a datetime&#39;s value should be
 printed, as formatted text, within the <code>ion-datetime</code> component.</p>
 <p>In the following example, the display in the <code>&lt;ion-datetime&gt;</code> will use the
@@ -192,7 +194,9 @@ An example display using this format is: <code>Jun 17, 2005 11:06</code>.</p>
   &lt;ion-datetime displayFormat=&quot;MMM DD, YYYY HH:mm&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="picker-format">Picker Format</h3>
+<h3><a class="anchor" name="picker-format" href="#picker-format">Picker Format</a></h3>
+
+
 <p>The <code>pickerFormat</code> input property determines which columns should be shown in the
 interface, the order of the columns, and which format to use within each column.
 If the <code>pickerFormat</code> input is not provided then it will default to the <code>displayFormat</code>.</p>
@@ -204,7 +208,9 @@ will display two columns with the month&#39;s long name, and the four-digit year
   &lt;ion-datetime displayFormat=&quot;MM/YYYY&quot; pickerFormat=&quot;MMMM YYYY&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="datetime-data">Datetime Data</h3>
+<h3><a class="anchor" name="datetime-data" href="#datetime-data">Datetime Data</a></h3>
+
+
 <p>Historically, handling datetime values within JavaScript, or even within HTML
 inputs, has always been a challenge. Specifically, JavaScript&#39;s <code>Date</code> object is
 notoriously difficult to correctly parse apart datetime strings or to format
@@ -214,7 +220,9 @@ parse various datetime strings differently, especially per locale.</p>
 developers can avoid the common pitfalls, allowing developers to easily format
 datetime values within the input, and give the user a simple datetime picker for a
 great user experience.</p>
-<h5 id="iso-8601-datetime-format-yyyy-mm-ddthh-mmz">ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ</h5>
+<h3><a class="anchor" name="iso-8601-datetime-format-yyyy-mm-ddthh-mmz" href="#iso-8601-datetime-format-yyyy-mm-ddthh-mmz">ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ</a></h3>
+
+
 <p>Ionic uses the <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>
 for its value. The value is simply a string, rather than using JavaScript&#39;s <code>Date</code>
 object. Additionally, when using the ISO datetime format, it makes it easier
@@ -315,7 +323,9 @@ is still under heavy development so Ionic does not depend on it at this time.</p
 if the app needs to use names other than the default English version of month and day
 names. The month names and day names can be either configured at the app level, or
 individual <code>ion-datetime</code> level.</p>
-<h3 id="app-config-level">App Config Level</h3>
+<h3><a class="anchor" name="app-config-level" href="#app-config-level">App Config Level</a></h3>
+
+
 <pre><code class="lang-ts">//app.module.ts
 @NgModule({
 ...,
@@ -330,7 +340,9 @@ imports: [
 ...
 })
 </code></pre>
-<h3 id="component-input-level">Component Input Level</h3>
+<h3><a class="anchor" name="component-input-level" href="#component-input-level">Component Input Level</a></h3>
+
+
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Período&lt;/ion-label&gt;
   &lt;ion-datetime displayFormat=&quot;DDDD MMM D, YYYY&quot; [(ngModel)]=&quot;myDate&quot;
@@ -340,7 +352,9 @@ imports: [
     dayShortNames=&quot;dom, seg, ter, ...&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="advanced-datetime-validation-and-manipulation">Advanced Datetime Validation and Manipulation</h3>
+<h3><a class="anchor" name="advanced-datetime-validation-and-manipulation" href="#advanced-datetime-validation-and-manipulation">Advanced Datetime Validation and Manipulation</a></h3>
+
+
 <p>The datetime picker provides the simplicity of selecting an exact format, and persists
 the datetime values as a string using the standardized
 <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>.
@@ -359,7 +373,7 @@ configuration should be decided by the end-developer.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage">Usage</a></h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Date&lt;/ion-label&gt;
@@ -377,15 +391,16 @@ configuration should be decided by the end-developer.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members">Instance Members</a></h2>
 
 <div id="validate"></div>
 
 <h3>
-<a class="anchor" name="validate" href="#validate"></a>
+<a class="anchor" name="validate" href="#validate">
 <code>validate()</code>
-  
 
+
+</a>
 </h3>
 
 
@@ -398,7 +413,7 @@ configuration should be decided by the end-developer.</p>
 
 
 <!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties">Input Properties</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -408,14 +423,14 @@ configuration should be decided by the end-developer.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the picker&#39;s cancel button. Default: <code>Cancel</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>dayNames</td>
       <td><code>array</code></td>
@@ -423,7 +438,7 @@ configuration should be decided by the end-developer.</p>
 locale names for each day in the week. Defaults to English.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>dayShortNames</td>
       <td><code>array</code></td>
@@ -431,7 +446,7 @@ locale names for each day in the week. Defaults to English.</p>
 locale names for each day in the week. Defaults to English.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>dayValues</td>
       <td><code>array | string</code></td>
@@ -443,7 +458,7 @@ number for the selected month, like <code>31</code> in February, it will correct
 days which are not valid for the selected month.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>displayFormat</td>
       <td><code>string</code></td>
@@ -454,14 +469,14 @@ the datetime picker&#39;s columns. See the <code>pickerFormat</code> input descr
 more info. Defaults to <code>MMM D, YYYY</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>doneText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the picker&#39;s &quot;Done&quot; button. Default: <code>Done</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>hourValues</td>
       <td><code>array | string</code></td>
@@ -471,7 +486,7 @@ to control exactly which hours to display, the <code>hourValues</code> input can
 array of numbers, or string of comma separated numbers.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>max</td>
       <td><code>string</code></td>
@@ -483,7 +498,7 @@ datetime. For example, the maximum could just be the year, such as <code>1994</c
 Defaults to the end of this year.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>min</td>
       <td><code>string</code></td>
@@ -495,7 +510,7 @@ datetime. For example, the minimum could just be the year, such as <code>1994</c
 Defaults to the beginning of the year, 100 years ago from today.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>minuteValues</td>
       <td><code>array | string</code></td>
@@ -506,7 +521,7 @@ numbers. For example, if the minute selections should only be every 15 minutes, 
 this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>monthNames</td>
       <td><code>array</code></td>
@@ -514,7 +529,7 @@ this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>
 locale month names. Defaults to English.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>monthShortNames</td>
       <td><code>array</code></td>
@@ -522,7 +537,7 @@ locale month names. Defaults to English.</p>
 locale month names. Defaults to English.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>monthValues</td>
       <td><code>array | string</code></td>
@@ -534,7 +549,7 @@ input value would be <code>monthValues=&quot;6,7,8&quot;</code>. Note that month
 zero-based index, meaning January&#39;s value is <code>1</code>, and December&#39;s is <code>12</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pickerFormat</td>
       <td><code>string</code></td>
@@ -546,7 +561,7 @@ choose an exact date from the datetime picker. Each column follows the string
 parse format. Defaults to use <code>displayFormat</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>pickerOptions</td>
       <td><code>any</code></td>
@@ -554,7 +569,7 @@ parse format. Defaults to use <code>displayFormat</code>.</p>
 See the <a href="../../picker/Picker">Picker API docs</a> for the picker options.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>placeholder</td>
       <td><code>string</code></td>
@@ -562,7 +577,7 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
 Using lowercase to match the input attribute</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>yearValues</td>
       <td><code>array | string</code></td>
@@ -573,11 +588,11 @@ of numbers, or string of comma separated numbers. For example, to show upcoming 
 recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2024,2020,2016,2012,2008&quot;</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events">Output Events</a></h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -586,39 +601,39 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the datetime selection was cancelled.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
 
-  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables">Sass Variables</a></h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -628,55 +643,55 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$datetime-ios-padding-top</code></td>
-        
+
           <td><code>$item-ios-padding-top</code></td>
-        
+
         <td><p>Padding top of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-ios-padding-end</code></td>
-        
+
           <td><code>$datetime-ios-padding-right</code></td>
-        
+
         <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-ios-padding-bottom</code></td>
-        
+
           <td><code>$item-ios-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-ios-padding-start</code></td>
-        
+
           <td><code>$datetime-ios-padding-left</code></td>
-        
+
         <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-ios-placeholder-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the DateTime placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -686,55 +701,55 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$datetime-md-padding-top</code></td>
-        
+
           <td><code>$item-md-padding-top</code></td>
-        
+
         <td><p>Padding top of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-md-padding-end</code></td>
-        
+
           <td><code>$datetime-md-padding-right</code></td>
-        
+
         <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-md-padding-bottom</code></td>
-        
+
           <td><code>$item-md-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-md-padding-start</code></td>
-        
+
           <td><code>$datetime-md-padding-left</code></td>
-        
+
         <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-md-placeholder-color</code></td>
-        
+
           <td><code>#999</code></td>
-        
+
         <td><p>Color of the DateTime placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -744,82 +759,82 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$datetime-wp-min-width</code></td>
-        
+
           <td><code>45%</code></td>
-        
+
         <td><p>Min width of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-padding-top</code></td>
-        
+
           <td><code>$item-wp-padding-top</code></td>
-        
+
         <td><p>Padding top of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-padding-end</code></td>
-        
+
           <td><code>$datetime-wp-padding-right</code></td>
-        
+
         <td><p>Padding end of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-padding-bottom</code></td>
-        
+
           <td><code>$item-wp-padding-bottom</code></td>
-        
+
         <td><p>Padding bottom of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-padding-start</code></td>
-        
+
           <td><code>$datetime-wp-padding-left</code></td>
-        
+
         <td><p>Padding start of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-border-width</code></td>
-        
+
           <td><code>2px</code></td>
-        
+
         <td><p>Border width of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-border-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Border color of the DateTime component</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$datetime-wp-placeholder-color</code></td>
-        
+
           <td><code>$input-wp-border-color</code></td>
-        
+
         <td><p>Color of the DateTime placeholder</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 

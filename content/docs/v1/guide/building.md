@@ -12,7 +12,7 @@ Now that we know everything there is to know about testing our Ionic apps, and w
 
 So, let's take another look at our mockup:
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/3-mockup.png" alt="Mockup">
+<img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/3-mockup.png" alt="Mockup">
 
 We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native apps. Luckily, adding them is really simple.
 
@@ -81,7 +81,7 @@ angular.module('todo', ['ionic'])
 
 Run the example again, and we should see our list of very important tasks!
 
-<img src="http://ionicframework.com.s3.amazonaws.com/guide/0.1.0/4-list.png" alt="List" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
+<img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/4-list.png" alt="List" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running">
 
 ## Creating tasks
 

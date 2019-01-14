@@ -1,0 +1,342 @@
+@import '../vars';
+@import '../mixins';
+
+ionic-site-slider {
+  position: relative;
+  margin-top: -72px;
+  display: block;
+  min-height: 860px;
+
+  [slot^="slide-"] {
+    padding-top: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  #slide-limitless {
+    background: #548fff linear-gradient(to right, #4278ff, #67a7ff);
+    background-size: 100%;
+
+    hgroup {
+      color: white;
+      max-width: 600px;
+      margin-top: 13px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 74px;
+      margin-bottom: 16px;
+      letter-spacing: -.03em;
+    }
+
+    p {
+      font-size: 23px;
+      line-height: 37px;
+      font-family: $font-family-eina;
+    }
+
+    .btn {
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 18px;
+      padding: 20px 22px;
+      margin-right: -4px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+
+      ion-icon {
+        font-size: 16px;
+        margin-left: -4px;
+        vertical-align: -2px;
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin-top: 5px;
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+
+        img {
+          height: 23px;
+          vertical-align: -8px;
+        }
+      }
+
+      img {
+        height: 15px;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+#page-home {
+  #used-by {
+    padding-top: 60px;
+    padding-bottom: 58px;
+    border-bottom: 1px solid #f2f5f9;
+
+    ul {
+      display: block;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    li {
+      margin: 0 34px;
+      list-style: none;
+      min-height: 34px;
+      display: inline-block;
+    }
+  }
+
+  section {
+    padding-top: 138px;
+    line-height: 1.75em;
+    padding-bottom: 138px;
+
+    &.center {
+      text-align: center;
+    }
+
+    &.left,
+    &.right {
+      display: flex;
+
+      .content {
+        width: 475px;
+      }
+    }
+
+    &.right .content {
+      margin-left: auto;
+    }
+
+    h2 {
+      font-size: 47px;
+      margin-bottom: 15px;
+      letter-spacing: -.02em;
+      color: #0d121c;
+    }
+
+    h4 {
+      font-size: 12px;
+      color: #808fa7;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-family: $font-family-monospace;
+    }
+
+    p {
+      font-size: 14px;
+      color: #7484a3;
+    }
+
+    hgroup p,
+    p.lg {
+      color: #596a89;
+      font-size: 21px;
+      line-height: 36px;
+      font-family: $font-family-eina;
+    }
+
+    .cta {
+      font-size: 16px;
+      margin-top: 32px;
+      padding-top: 0;
+      color: #5a98ff;
+      display: inline-block;
+      position: relative;
+      background: none;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        border-bottom: 2px solid #5a98ff;
+      }
+    }
+  }
+
+  #for-devs {
+    hgroup {
+      max-width: 740px;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 170px;
+      justify-content: space-around;
+      max-width: 1062px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    li {
+      list-style: none;
+
+      a {
+        color: #798fb8;
+        font-weight: 600;
+        padding-top: 73px;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        width: 130px;
+        letter-spacing: .03em;
+        transition: .2s color;
+
+        &::before,
+        &::after {
+          background: url('/img/homepage/offering-icons.png') 0 0 no-repeat;
+          background-size: 56px;
+          height: 56px;
+          width: 56px;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: calc(50% - 28px);
+        }
+
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      @include hoverSprite(
+        'oss'  
+        'devops'
+        'ide'
+        'integration'
+      , 56, ' a::before', ' a::after');
+    }
+  }
+
+  #oss {
+    .frameworks {
+      @include flex-list(); 
+
+      li {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+
+  #devops {
+    .git-hosts {
+      @include flex-list(); 
+    }
+  }
+
+  #why-build {
+    .why {
+      @include flex-list();
+
+      justify-content: space-between;
+
+      li {
+        padding-top: 80px;
+        max-width: 320px;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 64px;
+          width: 64px;
+          content: '';
+        }
+      }
+    }
+  }
+
+  #difference {
+    background: #e0f1fd;
+    display: flex;
+
+    hgroup {
+      max-width: 550px;
+      margin-right: 50px;
+      margin-left: auto;
+    }
+  }
+
+  #good-company {
+
+    .case-studies {
+      @include flex-list();
+  
+      justify-content: space-between;
+  
+      li {
+        flex: 1 0 200px;
+        margin-right: 20px;
+        padding-top: 208px;
+        text-align: left;
+        
+        &:last-child {
+          margin-right: 0;
+        }
+
+        strong {
+          font-weight: 500;
+          color: #253950;
+        }
+
+        .cta {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .others {
+      @include flex-list();
+
+      justify-content: center;
+    }
+
+    .cta::after {
+      color: #dbe6ff;
+    }
+  }
+
+  #join {
+    background: linear-gradient(to right, #4f74fe, #70aafb);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: white;
+    text-align: center;
+
+    hgroup {
+      max-width: 760px;
+    }
+
+    h1 {
+      font-weight: 400;
+      color: white;
+    }
+  }
+}

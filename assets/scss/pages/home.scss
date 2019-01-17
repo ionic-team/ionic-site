@@ -58,7 +58,7 @@ ionic-site-slider {
 
     ul {
       padding: 0;
-      margin-top: 5px;
+      margin-top: 8px;
       list-style: none;
     }
 
@@ -104,9 +104,10 @@ ionic-site-slider {
   }
 
   section {
-    padding-top: 138px;
+    padding-top: 170px;
     line-height: 1.75em;
-    padding-bottom: 138px;
+    padding-bottom: 170px;
+    position: relative;
 
     &.center {
       text-align: center;
@@ -117,7 +118,7 @@ ionic-site-slider {
       display: flex;
 
       .content {
-        width: 475px;
+        width: 472px;
       }
     }
 
@@ -132,17 +133,35 @@ ionic-site-slider {
       color: #0d121c;
     }
 
+    h3 {
+      font-size: 35px;
+      letter-spacing: -0.016em;
+    }
+
     h4 {
       font-size: 12px;
       color: #808fa7;
-      letter-spacing: .1em;
+      letter-spacing: .14em;
       text-transform: uppercase;
       font-family: $font-family-monospace;
+
+      + h2 {
+        margin-top: 36px;
+      }
+    }
+
+    h5 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      font-weight: 600;
     }
 
     p {
-      font-size: 14px;
+      font-size: 16px;
       color: #7484a3;
+      margin-bottom: 7px;
+      line-height: 1.78em;
+      letter-spacing: -.02em;
     }
 
     hgroup p,
@@ -150,22 +169,27 @@ ionic-site-slider {
       color: #596a89;
       font-size: 21px;
       line-height: 36px;
+      margin-bottom: 23px;
+      letter-spacing: .002em;
       font-family: $font-family-eina;
     }
 
     .cta {
-      font-size: 16px;
-      margin-top: 32px;
+      font-size: 20px;
+      margin-top: 11px;
       padding-top: 0;
       color: #5a98ff;
       display: inline-block;
       position: relative;
       background: none;
+      letter-spacing: -.02em;
+      font-weight: 600;
+      font-family: $font-family-eina;
 
       &::after {
         content: '';
         position: absolute;
-        bottom: -4px;
+        bottom: -1px;
         left: 0;
         right: 0;
         border-bottom: 2px solid #5a98ff;
@@ -174,6 +198,8 @@ ionic-site-slider {
   }
 
   #for-devs {
+    padding-bottom: 87px;
+    
     hgroup {
       max-width: 740px;
     }
@@ -181,9 +207,10 @@ ionic-site-slider {
     ul {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 170px;
+      margin-top: 46px;
       justify-content: space-around;
-      max-width: 1062px;
+      max-width: 1064px;
+      font-family: $font-family-eina;
 
       &::before,
       &::after {
@@ -202,6 +229,7 @@ ionic-site-slider {
         text-transform: uppercase;
         position: relative;
         width: 130px;
+        display: block;
         letter-spacing: .03em;
         transition: .2s color;
 
@@ -232,40 +260,210 @@ ionic-site-slider {
   }
 
   #oss {
-    .frameworks {
+    padding-top: 276px;
+    padding-bottom: 400px;
+
+    .frameworks {    
+      margin-bottom: 33px;
+
       @include flex-list(); 
 
       li {
-        height: 40px;
-        width: 40px;
+        height: 32px;
+        width: 32px;
+        background-size: 100%;
+        display: inline-block;
+        margin-right: 12px;
+        
+        &.frameworks__angular { 
+          background-image: url('/img/homepage/framework-support-angular.png')
+        }
+
+        &.frameworks__react { 
+          background-image: url('/img/homepage/framework-support-react.png')
+        }
+
+        &.frameworks__vue { 
+          background-image: url('/img/homepage/framework-support-vue.png')
+        }
+
+        &.frameworks__js { 
+          background-image: url('/img/homepage/framework-support-javascript.png')
+        }
+      }
+    }
+
+    .graphics {
+      position: absolute;
+      top: 125px;
+      right: 15px;
+
+      &.active {
+        &::before,
+        &::after {
+          animation: fadeInUp 1s ease forwards;
+        }
+
+        &::after { animation-delay: .5s; }
+        .shadow { 
+          animation: fadeIn 2s ease .1s forwards;
+        }
+      }
+
+      &::before,
+      &::after,
+      .shadow {
+        position: absolute;
+        content: '';
+        opacity: 0;
+
+        background: url('/img/homepage/framework-device-android.jpg') 0 0 no-repeat;
+        background-size: 100%;
+        top: 78px;
+        right: 99px;
+        width: 470px;
+        height: 624px;
+      }
+
+      &::after {
+        background-image: url('/img/homepage/framework-device-iphone.png');
+        background-size: 100%;
+        width: 490px;
+        height: 790px;
+        top: 0px;
+        right: 0px;
+      }
+
+      .shadow {
+        background-image: url('/img/homepage/framework-devices-shadow.png');
+        background-size: 100%;
+        width: 1266px;
+        height: 214px;
+        top: 654px;
+        right: -200px;
       }
     }
   }
 
   #devops {
+    padding-top: 204px;
+    padding-bottom: 252px;
+
+    .content {
+      position: relative;
+    }
+
     .git-hosts {
+      margin-bottom: 42px; 
+
       @include flex-list(); 
+
+      li {
+        margin-right: 19px;
+      }
+      
+      img {
+        height: 20px;
+      }
+    }
+
+    .graphics {
+      background: url('/img/homepage/devops-appflow-preview.png') 0 0 no-repeat;
+      background-size: 100%;
+      width: 1324px;
+      height: 812px;
+      position: absolute;
+      top: 14px;
+      left: -227px;
+      opacity: 0;
+
+      &.active {
+        animation: fadeInUp 1s ease forwards;
+      }
+    }
+  }
+
+  #studio {
+    padding-bottom: 54px;
+
+    .content {
+      max-width: 720px;
+    }
+
+    .graphics {
+      background: url('/img/homepage/studio-desktop-bg.jpg') 50% 0 no-repeat;
+      background-size: cover;
+      width: 100%;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      margin-top: 58px;
+      
+      video {
+        min-height: 738px;
+      }
+    }
+  }
+
+  #integration {
+    padding-bottom: 4px;
+
+    .content {
+      max-width: 894px;
+    }
+
+    .integration-list {
+      position: relative;
+      height: 360px;
+      margin-top: 32px;
+
+      li {
+        list-style: none;
+        position: absolute;
+      }
+
+      img {
+        width: 128px;
+        border-radius: 50%;
+        box-shadow: 0 6px 24px rgba(black, .1);
+        // opacity: 0;
+      }
     }
   }
 
   #why-build {
+    padding-bottom: 90px;
+
     .why {
       @include flex-list();
 
       justify-content: space-between;
+      margin-top: 75px;
+      margin-bottom: 75px;
 
       li {
-        padding-top: 80px;
-        max-width: 320px;
+        padding-top: 61px;
+        max-width: 310px;
         position: relative;
 
+        @include sprite(
+          'why__future-proof'
+          'why__community'
+          'why__os'
+        , 48);
+
         &::before {
+          background: url('/img/homepage/why-build-icons.png') 0 0 no-repeat;
+          background-size: 100%;
           position: absolute;
           top: 0;
           left: 0;
-          height: 64px;
-          width: 64px;
+          height: 48px;
+          width: 48px;
           content: '';
+        }
+
+        p {
+          letter-spacing: -.01em;
         }
       }
     }
@@ -274,37 +472,105 @@ ionic-site-slider {
   #difference {
     background: #e0f1fd;
     display: flex;
+    padding-top: 60px;
+    padding-bottom: 69px;
+
+    .container{
+      position: relative;
+    
+      &::before {
+        background: url('/img/homepage/hybrid-vs-native-ionic-ebook.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 424px;
+        height: 310px;
+        content: '';
+        position: absolute;
+        bottom: -69px;
+        left: 52px;
+      }
+    }
 
     hgroup {
       max-width: 550px;
       margin-right: 50px;
       margin-left: auto;
     }
+
+    h5 {
+      font-size: 18px;
+      margin-bottom: 11px;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6em;
+      letter-spacing: .01em;
+    }
+
+    .btn {
+      padding: 12px 13px 10px;
+      font-size: 14px;
+    }
   }
 
   #good-company {
+    padding-top: 159px;
+
+    hgroup {
+      max-width: 732px;
+      margin: 0 auto;
+
+      p {
+        line-height: 32px;
+        margin-top: 15px;
+      }
+    }
 
     .case-studies {
       @include flex-list();
   
       justify-content: space-between;
+      margin-top: 54px;
   
       li {
-        flex: 1 0 200px;
-        margin-right: 20px;
-        padding-top: 208px;
+        flex: 0 0 270px;
+        padding: 236px 27px 23px;
         text-align: left;
-        
-        &:last-child {
-          margin-right: 0;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 
+          0 2px 4px rgba(0, 0, 0, .08),
+          0 4px 8px rgba(0, 0, 0, .1);
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          display: block;
+          border-top-right-radius: 8px;
+          border-top-left-radius: 8px;
         }
 
         strong {
-          font-weight: 500;
+          font-weight: 600;
           color: #253950;
         }
 
+        p {
+          font-size: 14px;
+          letter-spacing: -.01em;
+        }
+
         .cta {
+          font-size: 15px;
+          font-family: Eina;
+          font-weight: 600;
+          margin-top: 10px;
+          letter-spacing: .03em;
+
           &::after {
             display: none;
           }

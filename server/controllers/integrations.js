@@ -11,24 +11,29 @@ class IntegrationService {
     this.integrations = [];
     this.lastRequest = null;
   }
-  
+
   async getAllIntegrations() {
     const d = new Date();
     // if server was restarted or it's been a while, get new integrations
     if (
-      this.integrations.length < 0 || 
+      this.integrations.length <= 0 ||
       this.lastRequest + this.lifeTime < d.getTime()
     ) {
       // console.log('getting new!');
       try {
-        this.integrations = await getAll('document.type', 'integration');
+        this.integrations = await getAll('document.type', 'integration', '[my.integration.uid]');
         this.lastRequest = d.getTime();
       } catch(e) {
         console.error(e);
       }
     }
+
     // either way, return what we got
     return this.integrations;
+  }
+
+  clear() {
+    this.integrations = [];
   }
 }
 
@@ -99,6 +104,10 @@ module.exports = {
       }
     ];
 
+    if (req.query.clearCache === 'true') {
+      is.clear();
+    }
+
     function getIntegrationsInCategory (categorySlug, results) {
       const category = categories.find(o => o.slug === categorySlug);
       if (!category) return;
@@ -113,6 +122,8 @@ module.exports = {
     return new Promise((resolve, reject) => {
       is.getAllIntegrations().then(results => {
 
+        // console.log(results)
+
         // used to send down a full list of the integrations with abbreviated schema for client side search & filtering
         const data = results.map(o => {
           return {
@@ -125,7 +136,9 @@ module.exports = {
             'category-primary': o.data['category-primary'],
             'category-secondary': o.data['category-secondary'],
             'category-tertiary': o.data['category-tertiary'],
-            'logoUrl': o.data.logo.url
+            'logoUrl': o.data.logo.url,
+            'showDetail': o.data['show_detail'],
+            'ctaLink': o.data['cta_link'].url
           }
         })
 
@@ -159,6 +172,12 @@ module.exports = {
         let categoryFiltered = [];
         if (categoryFilter) {
           categoryFiltered = getIntegrationsInCategory(categoryFilter, results);
+
+          categoryFiltered.sort(function(a, b){
+            if(a.uid < b.uid) { return -1; }
+            if(a.uid > b.uid) { return 1; }
+            return 0;
+          })
         }
 
         res.render('integrations/index', {

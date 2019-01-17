@@ -35,19 +35,22 @@ ionic-site-slider {
     }
 
     p {
-      font-size: 23px;
-      line-height: 37px;
+      font-size: 24px;
+      line-height: 36px;
       font-family: $font-family-eina;
+      letter-spacing: -0.03em;
+      color: #e4f1ff;
     }
 
     .btn {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 18px;
       padding: 20px 22px;
       margin-right: -4px;
       letter-spacing: .1em;
       text-transform: uppercase;
+      color: #3880ff;
 
       ion-icon {
         font-size: 16px;
@@ -76,8 +79,8 @@ ionic-site-slider {
       }
 
       img {
-        height: 15px;
-        opacity: .5;
+        height: 13px;
+        opacity: .6;
       }
     }
   }
@@ -118,7 +121,7 @@ ionic-site-slider {
       display: flex;
 
       .content {
-        width: 472px;
+        width: 465px;
       }
     }
 
@@ -167,10 +170,10 @@ ionic-site-slider {
     hgroup p,
     p.lg {
       color: #596a89;
-      font-size: 21px;
+      font-size: 22px;
       line-height: 36px;
       margin-bottom: 23px;
-      letter-spacing: .002em;
+      letter-spacing: -.02em;
       font-family: $font-family-eina;
     }
 
@@ -192,7 +195,8 @@ ionic-site-slider {
         bottom: -1px;
         left: 0;
         right: 0;
-        border-bottom: 2px solid #5a98ff;
+        border-bottom: 2px solid #dbe6ff;
+        border-radius: 2px;
       }
     }
   }
@@ -223,15 +227,16 @@ ionic-site-slider {
 
       a {
         color: #798fb8;
-        font-weight: 600;
+        font-weight: 700;
         padding-top: 73px;
         text-align: center;
         text-transform: uppercase;
         position: relative;
         width: 130px;
         display: block;
-        letter-spacing: .03em;
+        letter-spacing: .08em;
         transition: .2s color;
+        font-size: 13px;
 
         &::before,
         &::after {
@@ -470,7 +475,7 @@ ionic-site-slider {
   }
 
   #difference {
-    background: #e0f1fd;
+    background: linear-gradient(to right, #d1ebff, #f3f8fb);
     display: flex;
     padding-top: 60px;
     padding-bottom: 69px;
@@ -499,18 +504,21 @@ ionic-site-slider {
     h5 {
       font-size: 18px;
       margin-bottom: 11px;
+      color: #1f3256;
     }
 
     p {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 400;
       line-height: 1.6em;
-      letter-spacing: .01em;
+      letter-spacing: -.01em;
+      color: #6c81a6;
     }
 
     .btn {
       padding: 12px 13px 10px;
       font-size: 14px;
+      background-color: #668bff;
     }
   }
 

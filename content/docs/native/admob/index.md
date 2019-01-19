@@ -5,15 +5,15 @@ versionHref: "/docs/native"
 path: ""
 category: native
 id: "admob"
-title: "Admob"
+title: "AdMob"
 header_sub_title: "Class in module "
-doc: "Admob"
+doc: "AdMob"
 docType: "class"
 ---
 
-<h1 class="api-title">Admob</h1>
+<h1 class="api-title">AdMob</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L79">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/admob-plus/index.ts#L66">
   Improve this doc
 </a>
 
@@ -23,20 +23,11 @@ docType: "class"
 
 
 
-<p>Most complete Admob plugin with support for <a href="http://www.tappx.com/?h=dec334d63287772de859bdb4e977fce6">Tappx</a> ads.
-Monetize your apps and games with AdMob ads, using latest Google AdMob SDK. With this plugin you can show AdMob ads easily!</p>
-<p><strong>Supports:</strong></p>
-<ul>
-<li>Banner ads (top and bottom)</li>
-<li>Interstitial ads</li>
-<li>Rewarded ads</li>
-<li><a href="http://www.tappx.com/?h=dec334d63287772de859bdb4e977fce6">Tappx</a> ads</li>
-</ul>
 
 
 <p>Repo:
-  <a href="https://github.com/appfeel/admob-google-cordova">
-    https://github.com/appfeel/admob-google-cordova
+  <a href="https://github.com/admob-plus/admob-plus">
+    https://github.com/admob-plus/admob-plus
   </a>
 </p>
 
@@ -44,8 +35,8 @@ Monetize your apps and games with AdMob ads, using latest Google AdMob SDK. With
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-admob
-$ npm install --save @ionic-native/admob
+    <pre><code class="nohighlight">$ ionic cordova plugin add cordova-admob-plus
+$ npm install --save @ionic-native/admob-plus
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>
@@ -63,11 +54,56 @@ $ npm install --save @ionic-native/admob
 
 
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-<pre><code class="lang-typescript">import { Admob, AdmobOptions } from &#39;@ionic-native/admob&#39;;
 
 
-constructor(private admob: Admob) {
+
+
+
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<h3><a class="anchor" name="banner" href="#banner"></a><code>banner</code></h3>
+
+
+
+
+<h3><a class="anchor" name="interstitial" href="#interstitial"></a><code>interstitial</code></h3>
+
+
+
+
+<h3><a class="anchor" name="rewardVideo" href="#rewardVideo"></a><code>rewardVideo</code></h3>
+
+
+
+
+<h3><a class="anchor" name="setAppMuted" href="#setAppMuted"></a><code>setAppMuted()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="setAppVolume" href="#setAppVolume"></a><code>setAppVolume()</code></h3>
+
+
+
+
+
+
+
+<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
+
+
+
+
+
+
+
+
+
+
+
     // Admob options config
     const admobOptions: AdmobOptions = {
       publisherId: &#39;XXX-XXXX-XXXX&#39;,

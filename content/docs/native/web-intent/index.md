@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Web Intent</h1>
 
-<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L21">
+<a class="improve-v2-docs" href="http://github.com/ionic-team/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L42">
   Improve this doc
 </a>
 
@@ -283,7 +283,7 @@ Returns the content of the intent used whenever the application activity is laun
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;string&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;Intent&gt;</code> 
 </div><h3><a class="anchor" name="sendBroadcast" href="#sendBroadcast"></a><code>sendBroadcast(options)</code></h3>
 
 
@@ -359,7 +359,7 @@ Registers a broadcast receiver for the specified filters
     <td>
       filters</td>
     <td>
-      <code>any</code>
+      <code>RegisterBroadcastReceiverOptions</code>
     </td>
     <td>
       </td>
@@ -387,7 +387,7 @@ Unregisters a broadcast receiver
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;Intent&gt;</code> 
 </div><h3><a class="anchor" name="sendResult" href="#sendResult"></a><code>sendResult()</code></h3>
 
 

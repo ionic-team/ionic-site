@@ -946,6 +946,10 @@
 
   &.navbar-sticky {
     z-index: 999;
+    padding: 20px 0px;
+    box-shadow: 
+      0px 2px 6px 0px rgba(0, 0, 0, 0.04), 
+      0px 6px 12px rgba(0, 0, 0, 0.02);
   }
 
   ionic-search:not(.hydrated) {

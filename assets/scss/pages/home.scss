@@ -22,7 +22,7 @@ ionic-site-slider {
 
     hgroup {
       color: white;
-      max-width: 600px;
+      max-width: 500px;
       margin-top: 13px;
       text-align: center;
     }
@@ -56,6 +56,10 @@ ionic-site-slider {
         font-size: 16px;
         margin-left: -4px;
         vertical-align: -2px;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+
       }
     }
 
@@ -84,6 +88,11 @@ ionic-site-slider {
       }
     }
   }
+
+  [slot="slide-2"],
+  [slot="slide-3"] {
+    display: none;
+  }
 }
 
 #page-home {
@@ -92,17 +101,12 @@ ionic-site-slider {
     padding-bottom: 58px;
     border-bottom: 1px solid #f2f5f9;
 
-    ul {
+    .container {
       display: block;
-      margin-bottom: 0;
-      text-align: center;
+      max-width: 950px;
     }
-
-    li {
-      margin: 0 34px;
-      list-style: none;
-      min-height: 34px;
-      display: inline-block;
+    @media (max-width: $screen-sm-max) {
+      width: 100%;
     }
   }
 
@@ -199,6 +203,13 @@ ionic-site-slider {
         border-radius: 2px;
       }
     }
+
+    @media (max-width: $screen-sm-max) {
+      .content {
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
 
   #for-devs {
@@ -265,8 +276,9 @@ ionic-site-slider {
   }
 
   #oss {
-    padding-top: 276px;
+    padding-top: 176px;
     padding-bottom: 400px;
+    margin-top: 100px;
 
     .frameworks {    
       margin-bottom: 33px;
@@ -300,7 +312,7 @@ ionic-site-slider {
 
     .graphics {
       position: absolute;
-      top: 125px;
+      top: 25px;
       right: 15px;
 
       &.active {
@@ -348,6 +360,61 @@ ionic-site-slider {
         right: -200px;
       }
     }
+
+
+
+    @media (max-width: $screen-md-max) {
+      padding-top: 120px;
+
+      .content {
+        width: 380px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .graphics {
+        transform: scale(.5,.5);
+        top: 200px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 240px;
+      padding-bottom: 128px;
+
+      .content {
+        width: 100%;
+        text-align: center;
+
+        .frameworks {
+          justify-content: center;
+        }
+      }
+
+      .graphics {
+        right: calc(50% - 60px);
+        top: 0;
+
+        &::before {
+          top: 39px;
+          right: 50px;
+          width: 235px;
+          height: 312px;
+        }
+
+        &::after {
+          width: 245px;
+          height: 395px;
+        }
+
+        .shadow {
+          width: 633px;
+          height: 107px;
+          top: 327px;
+          right: -100px;
+        }
+      }
+    }
   }
 
   #devops {
@@ -386,10 +453,47 @@ ionic-site-slider {
         animation: fadeInUp 1s ease forwards;
       }
     }
+
+    @media (max-width: $screen-md-max) {
+      padding-top: 60px;
+
+      .graphics {
+        width: 933px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .graphics {
+        width: 662px;
+        top: 180px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 220px;
+
+      .content {
+        width: 100%;
+      }
+
+      .git-hosts {
+        justify-content: center;
+      }
+
+      .graphics {
+        left: calc(50% - 150px);
+        width: 331px;
+        top: 0;
+        height: 203px;
+      }
+    }
   }
 
   #studio {
     padding-bottom: 54px;
+    margin-bottom: 150px;
+    padding-top: 20px;
+    margin-top: 150px;
 
     .content {
       max-width: 720px;
@@ -404,12 +508,27 @@ ionic-site-slider {
       margin-top: 58px;
       
       video {
-        min-height: 738px;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 6px;
+        box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 0;
+      margin-top: 0;
+
+      .graphics {
+        video {
+          width: 100%;
+        }
       }
     }
   }
 
-  #integration {
+  #integrations {
+    padding-top: 20px;
     padding-bottom: 4px;
 
     .content {
@@ -419,7 +538,12 @@ ionic-site-slider {
     .integration-list {
       position: relative;
       height: 360px;
-      margin-top: 32px;
+      display:block;
+	    margin: 0 0 48px;
+	    padding: 0;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s 1s forwards;
 
       li {
         list-style: none;
@@ -427,10 +551,18 @@ ionic-site-slider {
       }
 
       img {
-        width: 128px;
-        border-radius: 50%;
+        position: absolute;
+		    width: 128px;
+		    border-radius: 50%;
         box-shadow: 0 6px 24px rgba(black, .1);
-        // opacity: 0;
+
+        &.m {
+          width: 64px;
+        }
+        
+        &.m {
+          width: 96px;
+        }
       }
     }
   }
@@ -469,6 +601,34 @@ ionic-site-slider {
 
         p {
           letter-spacing: -.01em;
+        }
+      }
+    }
+
+    @media (max-width: $screen-md-max) {
+      .why li {
+        max-width: 280px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .why li {
+        max-width: 210px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      text-align: center;
+
+      .why {
+        justify-content: space-around;
+
+        li {
+          max-width: 100%;
+  
+          &::before {
+            left: calc(50% - 24px);
+          }
         }
       }
     }
@@ -520,10 +680,41 @@ ionic-site-slider {
       font-size: 14px;
       background-color: #668bff;
     }
+
+    @media (max-width: $screen-md-max) {
+      .container::before {
+        left: 0;
+      }
+
+      hgroup {
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      hgroup {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+
+      .container::before {
+        width: 212px;
+        height: 155px;
+        right: 0;
+        left: auto;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .container::before {
+        display: none;
+      }
+    }
   }
 
   #good-company {
     padding-top: 159px;
+    padding-bottom: 202px;
 
     hgroup {
       max-width: 732px;
@@ -543,74 +734,131 @@ ionic-site-slider {
   
       li {
         flex: 0 0 270px;
-        padding: 236px 27px 23px;
+        margin-right: 0;
+        margin-bottom: 32px;
+      }
+
+      a {
         text-align: left;
         position: relative;
+        display: block;
         border-radius: 8px;
+        padding: 236px 27px 23px;
         box-shadow: 
-          0 2px 4px rgba(0, 0, 0, .08),
-          0 4px 8px rgba(0, 0, 0, .1);
+          0 4px 8px rgba(0,30,84,.12), 
+          0 1px 3px rgba(0,30,84,.08);
+        transition: 
+          .15s box-shadow ease,
+          .15s color,
+          .15s transform;
 
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          display: block;
-          border-top-right-radius: 8px;
-          border-top-left-radius: 8px;
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 
+            0 8px 16px rgba(0,30,84,.1), 
+            0 3px 6px rgba(0,30,84,.08);
         }
+      }
 
-        strong {
-          font-weight: 600;
-          color: #253950;
-        }
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: block;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+      }
 
-        p {
-          font-size: 14px;
-          letter-spacing: -.01em;
-        }
+      strong {
+        font-weight: 400;
+        color: #253950;
+      }
 
-        .cta {
-          font-size: 15px;
-          font-family: Eina;
-          font-weight: 600;
-          margin-top: 10px;
-          letter-spacing: .03em;
+      p {
+        font-size: 14px;
+        letter-spacing: -.01em;
+      }
 
-          &::after {
-            display: none;
-          }
+      .cta {
+        font-size: 15px;
+        font-family: Eina;
+        font-weight: 600;
+        margin-top: 10px;
+        letter-spacing: .03em;
+
+        &::after {
+          display: none;
         }
       }
     }
 
     .others {
-      @include flex-list();
-
-      justify-content: center;
+      width: 807px;
+      display: block;
+      margin: 49px auto 35px;
     }
 
     .cta::after {
       color: #dbe6ff;
     }
+
+    @media (max-width: $screen-md-max) {
+      .case-studies li {
+        flex: 0 0 220px;
+      }
+    }
+
+    @media (max-width: $screen-md-max) {
+      justify-content: space-around;
+
+      .case-studies {
+        li {
+          flex: 0 0 280px;
+        }
+      }
+
+      .others {
+        width: 100%;
+      }
+    }
   }
 
   #join {
     background: linear-gradient(to right, #4f74fe, #70aafb);
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 132px;
+    padding-bottom: 160px;
     color: white;
     text-align: center;
 
     hgroup {
-      max-width: 760px;
+      font-size: 23px;
+      max-width: 790px;
     }
 
     h1 {
       font-weight: 400;
       color: white;
+      font-size: 46px;
+      line-height: 64px;
+    }
+
+    .btns {
+      margin-top: 44px;
+    }
+
+    .btn {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 21px 24px 19px;
+      letter-spacing: .096em;
+      margin-bottom: 16px;
+      
+      ion-icon {
+        vertical-align: -2px;
+      }
     }
   }
 }

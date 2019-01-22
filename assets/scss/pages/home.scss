@@ -14,6 +14,7 @@ ionic-site-slider {
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: hidden;
   }
 
   #slide-limitless {
@@ -85,6 +86,81 @@ ionic-site-slider {
       img {
         height: 13px;
         opacity: .6;
+      }
+    }
+
+    .graphics {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: absolute;
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards;
+
+        &.iphone-x {
+          background: url('/img/homepage/hero-iphone-x.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -63px;
+          left: -191px;
+          width: 400px;
+          height: 306px;
+          animation-delay: .5s;
+        }
+
+        &.iphone-xs-max {
+          background: url('/img/homepage/hero-iphone-xs-max.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -39px;
+          left: 170px;
+          width: 490px;
+          height: 378px;
+          animation-delay: .6s;
+        }
+
+        &.pixel-3 {
+          background: url('/img/homepage/hero-google-pixel3.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -40px;
+          left: 607px;
+          width: 490px;
+          height: 400px;
+          animation-delay: .7s;
+        }
+
+        &.galaxy {
+          background: url('/img/homepage/hero-android-galaxy.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -41px;
+          left: 1063px;
+          width: 450px;
+          height: 356px;
+          animation-delay: .8s;
+        }
+
+        &.ipad {
+          background: url('/img/homepage/hero-ipad.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -44px;
+          left: 1484px;
+          width: 610px;
+          height: 524px;
+          animation-delay: .9s;
+        }
+
+        &.macbook {
+          background: url('/img/homepage/hero-macbook.png') 0 0 no-repeat;
+          background-size: 100%;
+          bottom: -63px;
+          left: 2221px;
+          width: 1470px;
+          height: 570px;
+          animation-delay: 1s;
+        }
       }
     }
   }

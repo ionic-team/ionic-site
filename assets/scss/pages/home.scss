@@ -26,6 +26,7 @@ ionic-site-slider {
       max-width: 500px;
       margin-top: 13px;
       text-align: center;
+      position: relative;
     }
 
     h1 {
@@ -156,7 +157,7 @@ ionic-site-slider {
           background: url('/img/homepage/hero-macbook.png') 0 0 no-repeat;
           background-size: 100%;
           bottom: -63px;
-          left: 2221px;
+          left: 2061px;
           width: 1470px;
           height: 570px;
           animation-delay: 1s;
@@ -255,6 +256,10 @@ ionic-site-slider {
       margin-bottom: 23px;
       letter-spacing: -.02em;
       font-family: $font-family-eina;
+
+      strong {
+        font-weight: 600;
+      }
     }
 
     .cta {
@@ -390,16 +395,17 @@ ionic-site-slider {
       position: absolute;
       top: 25px;
       right: 15px;
+      height: 500px;
 
       &.active {
         &::before,
         &::after {
-          animation: fadeInUp 1s ease forwards;
+          animation: fadeInUp 1s 1s ease forwards;
         }
 
         &::after { animation-delay: .5s; }
         .shadow { 
-          animation: fadeIn 2s ease .1s forwards;
+          animation: fadeIn 2s 1s ease .1s forwards;
         }
       }
 
@@ -934,6 +940,14 @@ ionic-site-slider {
       
       ion-icon {
         vertical-align: -2px;
+      }
+
+      &.light {
+        background: #7bb3ff;
+
+        &:hover {
+          background: lighten(#7bb3ff, 5);
+        }
       }
     }
   }

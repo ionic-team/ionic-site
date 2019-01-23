@@ -6,6 +6,7 @@ const compress        = require('compression');
 const cookieParser    = require('cookie-parser');
 const dateFilter      = require('nunjucks-date-filter');
 const expressNunjucks = require('express-nunjucks');
+const proxy           = require('http-proxy-middleware');
 const helmet          = require('helmet');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
@@ -36,12 +37,19 @@ process.env.PWD = process.cwd();
 
 console.log('PWD', process.env.PWD);
 
+const docsPath = /^\/docs(?!\/(v2|v3)).*$/;
+const docsProxy = proxy({
+  target: 'https://ionic-documentation.netlify.com',
+  changeOrigin: true
+});
+
 app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
 app.use(prismicUtil.middleware);
 app.use(processRequest);
+app.use(docsPath, docsProxy);
 
 app.set('views', __dirname + '/server/pages');
 expressNunjucks(app, {

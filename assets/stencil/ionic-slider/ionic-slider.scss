@@ -47,14 +47,15 @@ ionic-slider {
       height: 8px;
       width: 8px;
       border-radius: 50%;
-      border: 1px solid white;
+      border: 1px solid rgba(255,255,255, .5);
       margin-bottom: 4px;
       list-style: none;
       cursor: pointer;
-      transition: .5s background-color ease;
+      transition: .5s background-color ease, .5s border-color ease;
 
       &.active {
         background-color: white;
+        border-color: white;
       }
     }
   }

@@ -143,7 +143,7 @@ ionic-slider {
           left: 607px;
           width: 490px;
           height: 400px;
-          animation-delay: .6s;
+          animation-delay: .7s;
         }
 
         &.galaxy {
@@ -153,7 +153,7 @@ ionic-slider {
           left: 1063px;
           width: 450px;
           height: 356px;
-          animation-delay: .7s;
+          animation-delay: .8s;
         }
 
         &.ipad {
@@ -163,7 +163,7 @@ ionic-slider {
           left: 1484px;
           width: 610px;
           height: 524px;
-          animation-delay: .8s;
+          animation-delay: .9s;
         }
 
         &.macbook {
@@ -173,7 +173,7 @@ ionic-slider {
           left: 2061px;
           width: 1470px;
           height: 570px;
-          animation-delay: .9s;
+          animation-delay: 1s;
         }
       }
     }
@@ -237,7 +237,7 @@ ionic-slider {
           background: #343d4d;
 
           &:hover {
-            background: darken(#343d4d, 5);
+            background: lighten(#343d4d, 5);
           }
         }
 
@@ -342,6 +342,10 @@ ionic-slider {
       @media (max-width: $screen-sm-max) {
         width: 100%;
       }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      display: none;
     }
   }
 
@@ -515,6 +519,13 @@ ionic-slider {
         &:hover {
           color: $blue;
         }
+
+        @media (max-width: 560px) {
+          font-size: 10px;
+          width: 72px;
+          letter-spacing: 0;
+          line-height: 1.6em;
+        }
       }
 
       @include hoverSprite(
@@ -570,10 +581,10 @@ ionic-slider {
       &.active {
         &::before,
         &::after {
-          animation: fadeInUp 1s 1s ease forwards;
+          animation: fadeInUp 1s .8s ease forwards;
         }
 
-        &::after { animation-delay: .5s; }
+        &::after { animation-delay: .4s; }
         .shadow { 
           animation: fadeIn 2s .2s ease forwards;
         }
@@ -631,8 +642,8 @@ ionic-slider {
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 240px;
-      padding-bottom: 128px;
+      padding-top: 0px;
+      padding-bottom: 328px;
 
       .content {
         width: 100%;
@@ -645,7 +656,8 @@ ionic-slider {
 
       .graphics {
         right: calc(50% - 60px);
-        top: 0;
+        bottom: -101px;
+        top: auto;
 
         &::before {
           top: 39px;
@@ -722,7 +734,8 @@ ionic-slider {
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 220px;
+      padding-top: 60px;
+      padding-bottom: 420px;
 
       .content {
         width: 100%;
@@ -735,8 +748,9 @@ ionic-slider {
       .graphics {
         left: calc(50% - 150px);
         width: 331px;
-        top: 0;
+        top: auto;
         height: 203px;
+        bottom: 170px;
       }
     }
   }
@@ -1062,10 +1076,11 @@ ionic-slider {
       }
     }
 
-    @media (max-width: $screen-md-max) {
-      justify-content: space-around;
+    @media (max-width: $screen-xs-max) {
 
       .case-studies {
+        justify-content: space-around;
+
         li {
           flex: 0 0 280px;
         }

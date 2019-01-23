@@ -133,6 +133,10 @@ module.exports = function router(app) {
     (_, res) => markdown(res, 'pr-170725-dev-survey-says-the-web-is-wi'))
   .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
     (_, res) => markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'))
+  .get('/press/release/2019/latest-version-of-ionic-provides-universal-design-system-for-enterprises',
+    (_, res) => markdown(res, 'pr-1704222-latest-version-of-ionic-provides-universal-design-system-for-enterprises'))
+  .get('/press/release/2019/ionic-framework-4-release',
+    (_, res) => markdown(res, 'pr-ionic-framework-4-release'))
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

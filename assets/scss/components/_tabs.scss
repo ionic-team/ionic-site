@@ -171,10 +171,13 @@
   }
 }
 
-.tab-content {
-  display: none;
-
-  &--active {
-    display: block;
+#page-pricing,
+#page-getting-started {
+  .tab-content {
+    display: none;
+  
+    &--active {
+      display: block;
+    }
   }
 }

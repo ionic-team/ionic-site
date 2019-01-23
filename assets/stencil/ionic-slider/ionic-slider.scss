@@ -1,0 +1,64 @@
+@import '../vars';
+
+ionic-slider {
+  position: relative;
+
+  [slot^="slide-"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+    animation: fadeIn .5s ease;
+
+    &.visible {
+      display: block;
+
+      &.new {
+        z-index: 1;
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    z-index: 2;
+
+    li {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      border: 1px solid white;
+      margin-bottom: 4px;
+      list-style: none;
+      cursor: pointer;
+      transition: .5s background-color ease;
+
+      &.active {
+        background-color: white;
+      }
+    }
+  }
+}
+
+
+

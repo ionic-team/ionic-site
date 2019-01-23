@@ -7,7 +7,34 @@
 {% set cssPath = 'home' %}
 
 {% block main %}
-<ionic-site-slider>
+<ionic-slider>
+  <div slot="slide-0" id="slide-v4" class="activateOnScroll">
+    <hgroup class="container">
+      <img src="/img/homepage/ionic-for-everyone-icon.png" alt="Ionic Framework 4">
+      <h4>Ionic Framework 4</h4>
+      <h1>Ionic for everyone.</h1>
+      <p>
+        Introducing the next generation of Ionic Framework, the fastest, 
+        smallest, and most extensible version yet.
+      </p>
+      <div class="btns">
+        <a href="https://blog.ionicframework.com/?p=2521" class="btn rounded white">
+          Announcement Blog<ion-icon name="arrow-forward">
+        </a>
+        <a href="/docs" class="btn rounded dark">Get Started</a>
+      </div>
+    </hgroup>
+    <div class="features">
+      <ul class="container">
+        <li class="performance">Performance boosts across the board</li>
+        <li class="theming">Powerful theming for high customizability</li>
+        <li class="standards">Web-standards, future-proofed code</li>
+        <li class="compatible">JavaScript framework cross-compatibility</li>
+        <li class="docs">Completely redesigned Docs and Guides</li>
+      </ul>
+    </div>
+  </div>
+
   <div slot="slide-1" id="slide-limitless">
     <ul class="graphics">
       <li class="iphone-x"></li>
@@ -36,15 +63,7 @@
       </ul>
     </hgroup>
   </div>
-
-  <div slot="slide-2">
-
-  </div>
-
-  <div slot="slide-3">
-
-  </div>
-</ionic-site-slider>
+</ionic-slider>
 
 <aside id="used-by">
   <img class="container" src="/img/homepage/logos-a.png">
@@ -106,7 +125,7 @@
       <p>Integrate seemlessly with your favorite git hosts and get shipping.</p>
       <ul class="git-hosts">
         <li><img src="/img/homepage/devops-support-github.png" alt="GitHub" /></li>
-        <li><img src="/img/homepage/devops-support-gitlab.png" alt="Gitlab" /></li>
+        {# <li><img src="/img/homepage/devops-support-gitlab.png" alt="Gitlab" /></li> #}
         <li><img src="/img/homepage/devops-support-bitbucket.png" alt="Bitbucket" /></li>
       </ul>
       <a href="/appflow" class="cta">Learn about Appflow</a>

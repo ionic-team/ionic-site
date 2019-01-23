@@ -521,10 +521,8 @@ ionic-slider {
         }
 
         @media (max-width: 560px) {
-          font-size: 10px;
-          width: 72px;
-          letter-spacing: 0;
           line-height: 1.6em;
+          margin-bottom: 48px;
         }
       }
 
@@ -734,7 +732,7 @@ ionic-slider {
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 60px;
+      padding-top: 160px;
       padding-bottom: 420px;
 
       .content {
@@ -782,7 +780,7 @@ ionic-slider {
     }
 
     @media (max-width: $screen-xs-max) {
-      padding-top: 0;
+      padding-top: 80px;
       margin-top: 0;
 
       .graphics {

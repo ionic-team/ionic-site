@@ -19,7 +19,7 @@ $(document).ready(function() {
     } catch (e) {}
 
     if (!usingLocal) {
-      $.getJSON('/docs/data/index.json', function(requestData) {
+      $.getJSON('/docs/v3/data/index.json', function(requestData) {
         searchReady(requestData);
         setTimeout(function() {
           try {

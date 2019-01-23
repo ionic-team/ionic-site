@@ -10,9 +10,9 @@
 <url><loc>https://ionicframework.com/docs/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
 <url><loc>https://ionicframework.com/docs/api/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
 <url><loc>https://ionicframework.com/docs/cli/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
-<url><loc>https://ionicframework.com/docs/components/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
+<url><loc>https://ionicframework.com/docs/v3/components/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
 <url><loc>https://ionicframework.com/docs/developer-resources/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
-<url><loc>https://ionicframework.com/docs/intro/installation/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
+<url><loc>https://ionicframework.com/docs/v3/intro/installation/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
 <url><loc>https://ionicframework.com/docs/ionicons/</loc><changefreq>weekly</changefreq><priority>0.96</priority></url>
 <url><loc>https://ionicframework.com/docs/appflow/</loc><changefreq>weekly</changefreq><priority>0.98</priority></url>
 <url><loc>https://ionicframework.com/docs/appflow/deploy/</loc><changefreq>weekly</changefreq><priority>0.98</priority></url>

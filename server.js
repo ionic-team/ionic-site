@@ -37,7 +37,7 @@ process.env.PWD = process.cwd();
 
 console.log('PWD', process.env.PWD);
 
-const docsPath = /^\/docs(?!\/(v2|v3)).*$/;
+const docsPath = /^\/docs(?!\/(v1|v3)).*$/;
 const docsProxy = proxy({
   target: 'https://ionic-documentation.netlify.com',
   changeOrigin: true

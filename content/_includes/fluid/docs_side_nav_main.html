@@ -21,22 +21,22 @@
           ng-init="showIntro = true"
         {% endif %}>
       <li class="{% if page.id == 'installation' %}active{% endif %}">
-        <a href="/docs/intro/installation">Installation</a>
+        <a href="/docs/v3/intro/installation">Installation</a>
       </li>
       <li class="{% if page.id == 'tutorial' %}active{% endif %}">
-        <a href="/docs/intro/tutorial">Tutorial</a>
+        <a href="/docs/v3/intro/tutorial">Tutorial</a>
       </li>
       <li class="{% if page.id == 'deploying' %}active{% endif %}">
-        <a href="/docs/intro/deploying">Deploying</a>
+        <a href="/docs/v3/intro/deploying">Deploying</a>
       </li>
       <li class="{% if page.id == 'migration' %}active{% endif %}">
-        <a href="/docs/intro/migration">Migration</a>
+        <a href="/docs/v3/intro/migration">Migration</a>
       </li>
       <li class="{% if page.id == 'concepts' %}active{% endif %}">
-        <a href="/docs/intro/concepts">Concepts</a>
+        <a href="/docs/v3/intro/concepts">Concepts</a>
       </li>
       <li class="{% if page.id == 'browser-support' %}active{% endif %}">
-        <a href="/docs/intro/browser-support">Browser Support</a>
+        <a href="/docs/v3/intro/browser-support">Browser Support</a>
       </li>
     </ul>
   </li>
@@ -44,7 +44,7 @@
   {% comment %} Components {% endcomment %}
 
  {% if page.category != 'components' %}
-   {% assign components_link = '/docs/components/' %}
+   {% assign components_link = '/docs/v3/components/' %}
  {% endif %}
   <li id="components-index"
       class="{% if page.category == 'components' %}active{% endif %}">
@@ -164,17 +164,17 @@
 
     {% comment %} ### API ### {% endcomment %}
     <li>
-      <a href="/docs/api">API</a>
+      <a href="/docs/v3/api">API</a>
     </li>
 
   {% comment %} ### Native ### {% endcomment %}
    <li>
-     <a href="/docs/native/">Native</a>
+     <a href="/docs/v3/native/">Native</a>
    </li>
 
    {% comment %} ### Native ### {% endcomment %}
     <li class="{% if page.category == 'storage' %}top-level active{% endif %}">
-      <a href="/docs/storage/">Storage</a>
+      <a href="/docs/v3/storage/">Storage</a>
     </li>
 
   {% comment %} ### Theming ### {% endcomment %}
@@ -186,35 +186,35 @@
           ng-init="showTheming = true"
         {% endif %}>
       <li class="{% if page.id == 'theming-intro' %}active{% endif %}">
-        <a href="/docs/theming/">Intro</a>
+        <a href="/docs/v3/theming/">Intro</a>
       </li>
       <li class="{% if page.id == 'responsive-utilities' %}active{% endif %}">
-        <a href="/docs/theming/css-utilities/">CSS Utilities</a>
+        <a href="/docs/v3/theming/css-utilities/">CSS Utilities</a>
       </li>
       <li class="{% if page.id == 'responsive-grid' %}active{% endif %}">
-        <a href="/docs/theming/responsive-grid/">Responsive Grid</a>
+        <a href="/docs/v3/theming/responsive-grid/">Responsive Grid</a>
       </li>
       <li class="{% if page.id == 'theming-your-app' %}active{% endif %}">
-        <a href="/docs/theming/theming-your-app/">Theming your App</a>
+        <a href="/docs/v3/theming/theming-your-app/">Theming your App</a>
       </li>
       <li class="{% if page.id == 'sass-variables' %}active{% endif %}">
-        <a href="/docs/theming/sass-variables/">Sass Variables</a>
+        <a href="/docs/v3/theming/sass-variables/">Sass Variables</a>
       </li>
       <li class="{% if page.id == 'platform-specific-styles' %}active
                  {% endif %}">
-        <a href="/docs/theming/platform-specific-styles/">
+        <a href="/docs/v3/theming/platform-specific-styles/">
           Platform Styles
         </a>
       </li>
       <li class="{% if page.id == 'overriding-ionic-variables' %}active
                 {% endif %}">
-        <a href="/docs/theming/overriding-ionic-variables/">
+        <a href="/docs/v3/theming/overriding-ionic-variables/">
           Overriding Ionic Variables
         </a>
       </li>
       <li class="{% if page.id == 'rtl-support' %}active
                 {% endif %}">
-        <a href="/docs/theming/rtl-support/">
+        <a href="/docs/v3/theming/rtl-support/">
          RTL Support
         </a>
       </li>
@@ -223,27 +223,27 @@
 
   {% comment %} ### Ionicons ### {% endcomment %}
   <li class="{% if page.category == 'ionicons' %}top-level active{% endif %}">
-    <a href="/docs/ionicons/">Ionicons</a>
+    <a href="/docs/v3/ionicons/">Ionicons</a>
   </li>
 
   {% comment %} ### CLI ### {% endcomment %}
   <li>
-    <a href="/docs/cli">CLI</a>
+    <a href="/docs/v3/cli">CLI</a>
   </li>
 
   {% comment %} ### WkWebview ### {% endcomment %}
   <li class="{% if page.category == 'wkwebview' %}active{% endif %}">
-    <a href="/docs/wkwebview/">WKWebview</a>
+    <a href="/docs/v3/wkwebview/">WKWebview</a>
   </li>
 
   {% comment %} ### Troubleshooting ### {% endcomment %}
   <li class="{% if page.category == 'troubleshooting' %}top-level active{% endif %}">
-    <a href="/docs/troubleshooting/">Troubleshooting</a>
+    <a href="/docs/v3/troubleshooting/">Troubleshooting</a>
   </li>
 
   {% comment %} ### Resources ### {% endcomment %}
   <li class="{% if page.category == 'resources' %}active{% endif %}">
-    <a href="/docs/developer-resources">Developer Resources</a>
+    <a href="/docs/v3/developer-resources">Developer Resources</a>
     {% if page.id == 'resources-index' %}
       <ul>
         <li ng-class="{active:hash == 'guides'}">

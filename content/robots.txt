@@ -1,5 +1,5 @@
 User-Agent: *
-Disallow: /docs/demos/
+Disallow: /docs/v3/demos/
 Disallow: /docs/dist/
 Disallow: /present-ionic/slides/
 

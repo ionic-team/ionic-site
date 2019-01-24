@@ -108,6 +108,7 @@
   "/docs/cli/telemetry": "/docs/cli/commands/telemetry",
   "/docs/cli/upload": "/docs/v3/cli/upload/",
   "/docs/faq": "/docs/v3/troubleshooting",
+  "/docs/ionicons": "https://ionicons.com",
   "/docs/troubleshooting": "/docs/v3/troubleshooting",
   "/docs/getting-started": "/getting-started",
   "/docs/getting-started/concepts": "/docs/v3/intro/concepts",

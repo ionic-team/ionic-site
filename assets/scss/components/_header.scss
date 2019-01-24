@@ -409,47 +409,6 @@
         }
       }
 
-      #v4 {
-        background: linear-gradient(to right, #7ea9ff, #a0d1ff);
-        margin-top: 14px;
-        padding: 12px 28px 8px;
-        position: relative;
-        color: white;
-
-        i {
-          font-size: 25px;
-          vertical-align: middle;
-          margin-right: 7px;
-        }
-
-        &::before {
-          position: absolute;
-          width: 100%;
-          height: 14px;
-          top: -14px;
-          left: 0;
-          content: '';
-          background: #f8f9fb;
-        }
-
-        ion-icon {
-          position: absolute;
-          right: 22px;
-          font-weight: 400;
-          font-size: 18px;
-          top: 23px;
-          transition: .2s transform ease-out;
-        }
-
-        &:hover {
-          color: #eee;
-
-          ion-icon {
-            transform: translateX(2px);
-          }
-        }
-      }
-
       &.open .dropdown-menu,
       &:hover .dropdown-menu {
         opacity: 1;

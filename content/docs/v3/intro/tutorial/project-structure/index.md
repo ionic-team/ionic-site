@@ -6,9 +6,9 @@ subid: tutorial
 title: Project Structure - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Learn the basics
-prev_page_link: /docs//intro/tutorial/
+prev_page_link: /docs/v3/intro/tutorial/
 next_page_title: Adding Pages
-next_page_link: /docs//intro/tutorial/adding-pages
+next_page_link: /docs/v3/intro/tutorial/adding-pages
 ---
 
 # Project Structure

@@ -232,6 +232,7 @@
   "/docs/theming/sass-variables": "/docs/v3/theming/sass-variables",
   "/docs/theming/theming-your-app": "/docs/v3/theming/theming-your-app",
   "/docs/troubleshooting": "/docs/v3/troubleshooting",
+  "/docs/v2": "/docs/v3",
   "/docs/wkwebview": "/docs/v3/wkwebview",
   "/examples": "/docs/components",
   "/html5-input-types": "/docs/components",

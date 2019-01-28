@@ -41,7 +41,7 @@ $ npm install -g ionic cordova
 Once that's done, create your first Ionic app:
 
 ```bash
-$ ionic start helloWorld blank
+$ ionic start helloWorld blank --type=ionic-angular
 ```
 
 To run your app, `cd` into the directory that was created and then run the

@@ -1,6 +1,7 @@
 .pre-header {
   font-family: $font-family-eina;
-  background: linear-gradient(to right, #17203d, #1f2c53);
+  background: #efa65e;
+  // background: linear-gradient(to right, #17203d, #1f2c53);
   box-shadow: 0px 1px 2px 0px rgba(0, 20, 56, 0.06);
   position: relative;
   z-index: 999;
@@ -30,7 +31,8 @@
   }
 
   a {
-    background-color: #30427e;
+    background-color: #e67316;
+    // background-color: #30427e;
     color: white;
     border-radius: 16px;
     margin-left: 21px;
@@ -50,7 +52,8 @@
     }
 
     &:hover {
-      background-color: lighten(#30427e, 5);
+      background-color: #ee7818;
+      // background-color: lighten(#30427e, 5);
       box-shadow: 0 1px 2px rgba(black, .1);
     }
   }

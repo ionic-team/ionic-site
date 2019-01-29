@@ -38,7 +38,7 @@ It should be used for applications which keep running for a long time without an
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-powermanagement-orig
-$ npm install --save @ionic-native/power-management
+$ npm install --save @ionic-native/power-management@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

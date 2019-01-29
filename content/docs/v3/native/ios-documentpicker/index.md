@@ -38,7 +38,7 @@ Allows the user to upload files from iCloud</p>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-documentpicker.DocumentPicker
-$ npm install --save @ionic-native/document-picker
+$ npm install --save @ionic-native/document-picker@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

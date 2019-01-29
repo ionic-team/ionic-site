@@ -57,7 +57,7 @@ Spent way too long diagnosing an issue only to realize a plugin wasn't firing or
 <h3 id="Installation">Installation</h3>
 To add Ionic Native to your app, run following command to install the core package:
 ```
-npm install @ionic-native/core --save
+npm install @ionic-native/core@4 --save
 ```
 Note that Ionic Native core package is included by default with every Ionic app.
 
@@ -69,7 +69,7 @@ Install the Ionic Native package for each plugin you want to add.
 
 For example, if you want to install the Camera plugin, you will need to run the following command:
 ```
-npm install @ionic-native/camera --save
+npm install @ionic-native/camera@4 --save
 ```
 Then install the plugin using Cordova or Ionic CLI.
 

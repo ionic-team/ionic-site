@@ -39,7 +39,7 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-telerik-imagepicker --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
-$ npm install --save @ionic-native/image-picker
+$ npm install --save @ionic-native/image-picker@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

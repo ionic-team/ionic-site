@@ -59,8 +59,8 @@ this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=<Fabric API Key&gt; --variable TWITTER_KEY=<Twitter Consumer Key&gt; --variable TWITTER_SECRET=<Twitter Consumer Secret&gt;
-$ npm install --save @ionic-native/twitter-connect
+    <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=&lt;Fabric API Key&gt; --variable TWITTER_KEY=<Twitter Consumer Key&gt; --variable TWITTER_SECRET=<Twitter Consumer Secret&gt;
+$ npm install --save @ionic-native/twitter-connect@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

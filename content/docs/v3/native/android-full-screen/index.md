@@ -39,7 +39,7 @@ In Android 4.4+, however, you can now enter true full screen, fully interactive 
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-fullscreen
-$ npm install --save @ionic-native/android-full-screen
+$ npm install --save @ionic-native/android-full-screen@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

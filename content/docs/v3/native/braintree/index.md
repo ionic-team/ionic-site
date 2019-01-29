@@ -41,7 +41,7 @@ See the <a href="https://developers.braintreepayments.com/start/hello-server/nod
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add https://github.com/taracque/cordova-plugin-braintree
-$ npm install --save @ionic-native/braintree
+$ npm install --save @ionic-native/braintree@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

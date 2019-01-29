@@ -39,7 +39,7 @@ For more detail, please see <a href="https://github.com/transistorsoft/cordova-p
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-fetch
-$ npm install --save @ionic-native/background-fetch
+$ npm install --save @ionic-native/background-fetch@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

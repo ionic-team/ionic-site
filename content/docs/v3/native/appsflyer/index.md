@@ -37,7 +37,7 @@ docType: "class"
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ Add to config.xml like stated on github and then start
-$ npm install --save @ionic-native/appsflyer
+$ npm install --save @ionic-native/appsflyer@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

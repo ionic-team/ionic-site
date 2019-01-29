@@ -35,8 +35,8 @@ docType: "class"
 <h2><a class="anchor" name="installation" href="#installation"></a>Installation</h2>
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
-    <pre><code class="nohighlight">$ ionic cordova plugin add cc.fovea.cordova.purchase --variable BILLING_KEY="<ANDROID_BILLING_KEY&gt;"
-$ npm install --save @ionic-native/in-app-purchase-2
+    <pre><code class="nohighlight">$ ionic cordova plugin add cc.fovea.cordova.purchase --variable BILLING_KEY="&lt;ANDROID_BILLING_KEY&gt;"
+$ npm install --save @ionic-native/in-app-purchase-2@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

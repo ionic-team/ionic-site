@@ -39,7 +39,7 @@ It supports peripheral <strong>and</strong> central modes and covers most of the
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-bluetoothle
-$ npm install --save @ionic-native/bluetooth-le
+$ npm install --save @ionic-native/bluetooth-le@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

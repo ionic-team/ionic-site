@@ -38,7 +38,7 @@ Requires Cordova plugin: cordova-plugin-background-mode. For more info about plu
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-background-mode
-$ npm install --save @ionic-native/background-mode
+$ npm install --save @ionic-native/background-mode@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

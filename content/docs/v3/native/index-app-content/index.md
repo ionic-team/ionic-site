@@ -39,7 +39,7 @@ Spotlight Search will include these items in the result list. You can deep-link 
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-indexappcontent
-$ npm install --save @ionic-native/index-app-content
+$ npm install --save @ionic-native/index-app-content@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

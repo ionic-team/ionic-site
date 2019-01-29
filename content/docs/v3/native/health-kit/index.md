@@ -38,7 +38,7 @@ Any data saved shows up in the iOS Health app and is available for other iOS app
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add com.telerik.plugins.healthkit
-$ npm install --save @ionic-native/health-kit
+$ npm install --save @ionic-native/health-kit@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

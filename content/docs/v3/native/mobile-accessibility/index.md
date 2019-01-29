@@ -38,7 +38,7 @@ It also allows an application to send a string to be spoken by the screen reader
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add phonegap-plugin-mobile-accessibility
-$ npm install --save @ionic-native/mobile-accessibility
+$ npm install --save @ionic-native/mobile-accessibility@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

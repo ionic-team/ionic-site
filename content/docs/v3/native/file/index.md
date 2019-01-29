@@ -51,7 +51,7 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-file
-$ npm install --save @ionic-native/file
+$ npm install --save @ionic-native/file@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

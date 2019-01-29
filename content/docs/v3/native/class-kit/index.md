@@ -40,7 +40,7 @@ Also note that you can’t test ClassKit behavior in Simulator because Schoolwor
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-classkit
-$ npm install --save @ionic-native/class-kit
+$ npm install --save @ionic-native/class-kit@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

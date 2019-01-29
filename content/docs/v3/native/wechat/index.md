@@ -37,7 +37,7 @@ docType: "class"
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPID
-$ npm install --save @ionic-native/wechat
+$ npm install --save @ionic-native/wechat@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

@@ -47,7 +47,7 @@ if it has not been launched by Siri, and if it did, it will return an object wit
 <ol class="installation">
   <li>Install the Cordova and Ionic Native plugins:<br>
     <pre><code class="nohighlight">$ ionic cordova plugin add cordova-plugin-siri-shortcuts
-$ npm install --save @ionic-native/siri-shortcuts
+$ npm install --save @ionic-native/siri-shortcuts@4
 </code></pre>
   </li>
   <li><a href="https://ionicframework.com/docs/native/#Add_Plugins_to_Your_App_Module">Add this plugin to your app's module</a></li>

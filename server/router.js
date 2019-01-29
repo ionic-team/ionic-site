@@ -103,11 +103,11 @@ module.exports = function router(app) {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
+  .get('/resources/articles/:article', (req, res) =>
+    getPrismic(req, res, 'articles', req.params['article'], 'resources/articles'))
   .get('/resources/case-studies/:caseStudy', (req, res) =>
-    getPrismic(req, res, 'case_study', req.params['caseStudy'],
-      'resources/case-studies'))
+    getPrismic(req, res, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
   .get('/resources/webinars/:webinar', (req, res) =>
-
     getPrismic(req, res, 'webinar', req.params.webinar, 'resources/webinars'))
 
   .get('/sales', (_, res) => res.render('sales'))

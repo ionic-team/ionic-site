@@ -8,6 +8,7 @@ const dateFilter      = require('nunjucks-date-filter');
 const expressNunjucks = require('express-nunjucks');
 const proxy           = require('http-proxy-middleware');
 const helmet          = require('helmet');
+const Sentry          = require('@sentry/node');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
 const { router }      = require('./server/router');
@@ -15,7 +16,11 @@ const tools           = require('./server/tools');
 
 const prismicUtil = require('./server/prismic');
 
-const { DOCS_URL, PORT, PROD, REDIS_URL } = require('./server/config');
+const { DOCS_URL, PORT, PROD, REDIS_URL, SENTRY_DSN, SENTRY_ENVIRONMENT } = require('./server/config');
+
+if (SENTRY_DSN) {
+  Sentry.init({ dsn: SENTRY_DSN, environment: SENTRY_ENVIRONMENT });
+}
 
 // rate limit POST requests
 if (REDIS_URL) {
@@ -50,6 +55,8 @@ const docsProxy = proxy({
 });
 
 app.set('trust proxy', true);
+// The Sentry request handler must be the first middleware on the app
+app.use(Sentry.Handlers.requestHandler());
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
@@ -73,6 +80,8 @@ app.use(express.static(process.env.PWD + '/_site/', {
   etag: true
 }));
 
+// The Sentry error handler must be before any other error middleware
+app.use(Sentry.Handlers.errorHandler());
 app.use(pageNotFound);
 
 // bind the app to listen for connections on a specified port

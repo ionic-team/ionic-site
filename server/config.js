@@ -24,6 +24,10 @@ module.exports = {
   SALESFORCE_USER: process.env.SALESFORCE_USER || null,
   SALESFORCE_PASSWORD_TOKEN: process.env.SALESFORCE_PASSWORD_TOKEN || null,
 
+  // Sentry error tracking
+  SENTRY_DSN: process.env.SENTRY_DSN || null,
+  SENTRY_ENVIRONMENT: process.env.SENTRY_ENVIRONMENT || null,
+
   // Twilio text messaging
   TWILIO_SID: process.env.TWILIO_SID || null,
   TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN || null,

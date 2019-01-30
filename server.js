@@ -43,7 +43,8 @@ const docsProxy = proxy({
   changeOrigin: true,
   onProxyRes: (proxyRes, req, res) => {
     if(proxyRes.statusCode === 404) {
-      pageNotFound(req, res)
+      res.locals.proxy404 = true;
+      pageNotFound(req, res);
     }
   }
 });

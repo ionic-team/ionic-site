@@ -4,6 +4,8 @@ module.exports = {
   PORT: int(process.env.PORT) || 3000,
   PROD: bool(process.env.PROD) || false,
 
+  DOCS_URL: process.env.DOCS_URL || 'https://ionic-docs.herokuapp.com',
+
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,

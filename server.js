@@ -15,7 +15,7 @@ const tools           = require('./server/tools');
 
 const prismicUtil = require('./server/prismic');
 
-const { PORT, PROD, REDIS_URL } = require('./server/config');
+const { DOCS_URL, PORT, PROD, REDIS_URL } = require('./server/config');
 
 // rate limit POST requests
 if (REDIS_URL) {
@@ -39,8 +39,13 @@ console.log('PWD', process.env.PWD);
 
 const docsPath = /^\/docs(?!\/(v1|v3)).*$/;
 const docsProxy = proxy({
-  target: 'https://ionic-documentation.netlify.com',
-  changeOrigin: true
+  target: DOCS_URL,
+  changeOrigin: true,
+  onProxyRes: (proxyRes, req, res) => {
+    if(proxyRes.statusCode === 404) {
+      pageNotFound(req, res)
+    }
+  }
 });
 
 app.set('trust proxy', true);

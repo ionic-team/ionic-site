@@ -1,6 +1,7 @@
-const Cookies    = require('cookies');
-const PrismicDOM = require('prismic-dom');
-const Prismic    = require('prismic-javascript');
+const Cookies     = require('cookies');
+const PrismicDOM  = require('prismic-dom');
+const Prismic     = require('prismic-javascript');
+const { send404 } = require('./router');
 
 const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
@@ -95,17 +96,16 @@ module.exports = {
     }
   },
 
-  getPrismic: (req, res, type, uid, template) => {
-    return new Promise((resolve, reject) => {
-      req.prismic.api.getByUID(type, uid)
+  getPrismic: (req, res, next, type, uid, template) => {
+    return new Promise(resolve => {
+      return req.prismic.api.getByUID(type, uid)
       .then(response => res.render(template, {
         data: response ? response.data : null
       }))
       .then(resolve)
       .catch(e => {
-        console.log(e)
-        send404(res);
-        reject(e);
+        console.log(e);
+        next();
       });
     });
   },

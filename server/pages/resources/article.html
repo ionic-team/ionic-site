@@ -30,12 +30,21 @@
   <h1>{{ data.title }}</h1>
   <p class="lg">{{ data.tagline }}</p>
   <p class="byline">
-    <img class="avatar" src=""/>
-    By <a href="" class="name">Nick</a> on October 25, 2018
-    <ul>
-      <li class="tags">Article</li>
-      <li class="tags">Devops</li>
-      <li class="tags">Cloud</li>
+    {% for author in data.author %}
+      <img class="avatar" 
+           src="{{ author.photo.url }}" 
+           alt="{{ author.photo.alt }}"/>
+    {% endfor %}
+    By 
+    {% for author in data.author %}
+      <a href="{{ author.author_url.url }}" class="name" target="_blank">
+      {{ author.name }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %} 
+    on {{ data.author.published_date|date('MMMM D, YYYY') }}
+    <ul class="tags">
+      {% for tag in data.tags %}
+        <li>{{ tag.tag }}</li>
+      {% endfor %}
     </ul>
   </p>
   <img src="{{data.hero_image.url}}"
@@ -123,6 +132,7 @@
     </section>
   </div>
 </main>
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
 {% endblock %}
 
 {% block scripts %}

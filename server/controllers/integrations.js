@@ -3,6 +3,7 @@ const Prismic              = require('prismic-javascript');
 const PrismicDOM           = require('prismic-dom');
 const { getAll }           = require('../prismic');
 const { PRISMIC_ENDPOINT } = require('../config');
+const { send404 }          = require('../router');
 
 
 class IntegrationService {

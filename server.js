@@ -10,7 +10,7 @@ const proxy           = require('http-proxy-middleware');
 const helmet          = require('helmet');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
-const router          = require('./server/router');
+const { router }      = require('./server/router');
 const tools           = require('./server/tools');
 
 const prismicUtil = require('./server/prismic');

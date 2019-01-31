@@ -18,7 +18,8 @@ function send404(res) {
   res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
 }
 
-module.exports = function router(app) {
+module.exports = {
+router: app => {
 
   var abTestTest = ab.test('pricing-test', {id: 'MRClmJX_QEakg3kJs2jH9g'});
 
@@ -103,12 +104,12 @@ module.exports = function router(app) {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
-  .get('/resources/articles/:article', (req, res) =>
-    getPrismic(req, res, 'articles', req.params['article'], 'resources/articles'))
-  .get('/resources/case-studies/:caseStudy', (req, res) =>
-    getPrismic(req, res, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
-  .get('/resources/webinars/:webinar', (req, res) =>
-    getPrismic(req, res, 'webinar', req.params.webinar, 'resources/webinars'))
+  .get('/resources/articles/:article', (req, res, next) =>
+    getPrismic(req, res, next, 'article', req.params['article'], 'resources/article'))
+  .get('/resources/case-studies/:caseStudy', (req, res, next) =>
+    getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
+  .get('/resources/webinars/:webinar', (req, res, next) =>
+    getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
 
   .get('/sales', (_, res) => res.render('sales'))
   .get('/startups', (_, res) => res.render('startups'))
@@ -145,4 +146,6 @@ module.exports = function router(app) {
 
   // Prismic Preview
   .get('/preview', previewController)
+},
+send404: send404
 };

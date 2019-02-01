@@ -30,6 +30,14 @@
       font-family: $font-family-eina;
     }
 
+    h4 {
+      margin-top: 62px;
+      font-size: 12px;
+      color: #92A1B3;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
     h1 {
       font-size: 46px;
       margin-top: 16px;
@@ -43,6 +51,45 @@
       font-size: 20px;
       line-height: 1.8em;
       letter-spacing: .01em;
+    }
+
+    .byline {
+      font-style: normal;
+      font-weight: normal;
+      line-height: 29px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: #92A1B3;
+      margin-bottom: 64px;
+
+      .avatar {
+        width: 28px;
+        height: 28px;
+        margin: 0;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .tags {
+        padding: 0;
+        list-style: none;
+        vertical-align: 1px;
+        display: inline-block;
+
+        li {
+          display: inline-block;
+          font-weight: 600;
+          padding: 2px 4px;
+          line-height: normal;
+          font-size: 10px;
+          text-align: center;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #CED6E0;
+          border: 1px solid #E9EDF3;
+          border-radius: 4px;
+        }
+      }
     }
 
     img {

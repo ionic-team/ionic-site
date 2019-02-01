@@ -29,7 +29,7 @@
   <h4>Article</h4>
   <h1>{{ data.title }}</h1>
   <p class="lg">{{ data.tagline }}</p>
-  <p class="byline">
+  <div class="byline">
     {% for author in data.author %}
       <img class="avatar" 
            src="{{ author.photo.url }}" 
@@ -46,7 +46,7 @@
         <li>{{ tag.tag }}</li>
       {% endfor %}
     </ul>
-  </p>
+  </div>
   <img src="{{data.hero_image.url}}"
        srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
        alt="{{data.hero_image.alt}}">

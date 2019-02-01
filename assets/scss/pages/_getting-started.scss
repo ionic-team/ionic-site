@@ -121,7 +121,7 @@
 
     h1 {
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
 
@@ -136,6 +136,10 @@
       font-size: 20px;
       font-weight: 600;
       letter-spacing: -0.02em;
+
+      &.thin {
+        font-weight: 400;
+      }
     }
 
     h4 {

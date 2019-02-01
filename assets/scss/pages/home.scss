@@ -899,12 +899,13 @@ ionic-slider {
   }
 
   #difference {
-    background: linear-gradient(to right, #d1ebff, #f3f8fb);
     display: flex;
     padding-top: 60px;
     padding-bottom: 69px;
+    margin-top: 16px;
+    border-bottom: 1px solid #eee;
 
-    .container{
+    .container {
       position: relative;
     
       &::before {

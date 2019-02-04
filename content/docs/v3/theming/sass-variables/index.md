@@ -5,9 +5,9 @@ id: sass-variables
 title: Sass Variables
 header_sub_title: Ionic Theming
 prev_page_title: Theming your app
-prev_page_link: /docs/theming/theming-your-app/
+prev_page_link: /docs/v3/theming/theming-your-app/
 next_page_title: Platform Specific Styles
-next_page_link: /docs/theming/platform-specific-styles/
+next_page_link: /docs/v3/theming/platform-specific-styles/
 ---
 
 <h1 class="title">Sass Variables</h1>

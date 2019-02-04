@@ -7,13 +7,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 $(function() {
-  var KMCheckCount = 0;
+  var hsqCount = 0;
 
   function linker() {
-    // Append Kissmetrics IDs to dashboard links
-    if (KMCheckCount < 10 && !window.KM) {
-      KMCheckCount++;
-      //console.log('no KM yet')
+    // Append Hubspot IDs to dashboard links
+    var hsutk = window.getCookie('hubspotutk');
+    if(hsqCount > 10) {
+      // Hubspot is disabled or down
+      console.log('failing', hsutk)
+      return;
+    } else if (!window._hsq && !hsutk) {
+      hsqCount++;
+      // console.log('no hubspot ID yet')
       setTimeout(linker, 300);
       return;
     }
@@ -23,8 +28,6 @@ $(function() {
       //console.log('no dash links')
       return;
     }
-
-    var hsutk = window.getCookie('hubspotutk');
 
     // console.log(els)
     els.forEach(function(el) {
@@ -49,11 +52,10 @@ $(function() {
       } else {
         href += '?'
       }
-      href += 'kmid=' + encodeURIComponent(window.KM.i());
 
       // Add Hubspot UTK ID as HSID if present
       if (hsutk) {
-        href += '&hsid=' + encodeURIComponent(hsutk);
+        href += 'hsid=' + encodeURIComponent(hsutk);
       }
       el.setAttribute('href', href );
     })

@@ -8,9 +8,9 @@ header_includes: |
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 prev_page_title: CSS Utilities
-prev_page_link: /docs/theming/css-utilities/
+prev_page_link: /docs/v3/theming/css-utilities/
 next_page_title: Theming your App
-next_page_link: /docs/theming/theming-your-app/
+next_page_link: /docs/v3/theming/theming-your-app/
 ---
 
 <h1 class="title">Responsive Grid</h1>

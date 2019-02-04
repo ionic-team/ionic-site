@@ -49,7 +49,10 @@ const docsProxy = proxy({
   onProxyRes: (proxyRes, req, res) => {
     if(proxyRes.statusCode === 404) {
       res.locals.proxy404 = true;
-      pageNotFound(req, res);
+      if (pageNotFound(req, res)) {
+        proxyRes.destroy();
+        delete proxyRes;
+      }
     }
   }
 });

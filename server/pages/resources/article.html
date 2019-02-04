@@ -25,32 +25,6 @@
   </div>
 </div>
 
-<hgroup class="container text-center">
-  <h4>Article</h4>
-  <h1>{{ data.title }}</h1>
-  <p class="lg">{{ data.tagline }}</p>
-  <div class="byline">
-    {% for author in data.author %}
-      <img class="avatar" 
-           src="{{ author.photo.url }}" 
-           alt="{{ author.photo.alt }}"/>
-    {% endfor %}
-    By 
-    {% for author in data.author %}
-      <a href="{{ author.author_url.url }}" class="name" target="_blank">
-      {{ author.name }}</a>{% if not loop.last %}, {% endif %}
-    {% endfor %} 
-    on {{ data.author.published_date|date('MMMM D, YYYY') }}
-    <ul class="tags">
-      {% for tag in data.tags %}
-        <li>{{ tag.tag }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-  <img src="{{data.hero_image.url}}"
-       srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
-       alt="{{data.hero_image.alt}}">
-</hgroup>
 
 <main class="container">
   <aside>
@@ -78,10 +52,57 @@
           <ion-icon name="arrow-down"></ion-icon> Download PDF
         </a>
       {% endif %}
+      <ul class="sharing">
+        <li>
+          <a href="http://twitter.com/home?status={{data.title | urlencode}}+{{'https://ionicframework.com'+url | urlencode}}" 
+             onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.facebook.com/share.php?u={{'https://ionicframework.com'+url | urlencode}}&amp;title={{data.title | urlencode}}" 
+          onclick="window.open(this.href, 'Share via Facebook', 'width=555, height=656'); return false;">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{'https://ionicframework.com'+url | urlencode}}&amp;title={{data.title | urlencode}}&amp;source={{'https://ionicframework.com' | urlencode}}"
+             onclick="window.open(this.href, 'Share via LinkedIn', 'width=500, height=600'); return false;">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+      </ul>
     </nav>
   </aside>
+
   <div class="main-col">
-    {# {{ ctx.htmlSerializer }} #}
+    
+    <hgroup>
+      <h1>{{ data.title }}</h1>
+      <p class="lg">{{ data.tagline }}</p>
+      <div class="byline">
+        {% for author in data.author %}
+          <img class="avatar" 
+               src="{{ author.photo.url }}" 
+               alt="{{ author.photo.alt }}"/>
+        {% endfor %}
+        By 
+        {% for author in data.author %}
+          <a href="{{ author.author_url.url }}" class="name" target="_blank">
+          {{ author.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %} 
+        on {{ data.author.published_date|date('MMMM D, YYYY') }}
+        <ul class="tags">
+          {% for tag in data.tags %}
+            <li>{{ tag.tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <img src="{{data.hero_image.url}}"
+           srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
+           alt="{{data.hero_image.alt}}">
+    </hgroup>
+
     <article>
       {% for group in data.body %}
         {% if group.slice_type == 'normal_text' %}
@@ -113,13 +134,13 @@
     </article>
     <section class="resource-list">
       <div class="resource-list__header">
-        <a class="all" href="/resources/case-studies">
+        <a class="all" href="/resources/articles">
           See all <ion-icon name="arrow-round-forward"></ion-icon>
         </a>
         <h4>Up Next</h4>
       </div>
       <div class="resource-card-list resource-card-list--third">
-        {% for r in resources.sectionFeatured['case-studies'] %}
+        {% for r in resources.sectionFeatured['articles'] %}
           {% if loop.index0 < 3 %}
             <div class="resource-card">
               <div class="resource-card__inner">
@@ -132,7 +153,7 @@
     </section>
   </div>
 </main>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+<pre><code>{{ domain | dump(2) }}</code></pre>
 {% endblock %}
 
 {% block scripts %}

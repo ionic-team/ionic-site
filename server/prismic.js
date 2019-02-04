@@ -100,7 +100,7 @@ module.exports = {
     return new Promise(resolve => {
       return req.prismic.api.getByUID(type, uid)
       .then(response => res.render(template, {
-        data: response ? response.data : null
+        data: response ? {...response.data, uid: uid} : null
       }))
       .then(resolve)
       .catch(e => {

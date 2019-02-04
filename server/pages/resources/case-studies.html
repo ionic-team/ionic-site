@@ -27,14 +27,6 @@
   </div>
 </div>
 
-<hgroup class="container text-center">
-  <h1>{{ data.title }}</h1>
-  <p class="lg">{{ data.tagline }}</p>
-  <img src="{{data.hero_image.url}}"
-       srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
-       alt="{{data.hero_image.alt}}">
-</hgroup>
-
 <main class="container">
   <aside>
     <nav class="sticky-wrapper" id="sidenav">
@@ -61,10 +53,39 @@
           <ion-icon name="arrow-down"></ion-icon> Download PDF
         </a>
       {% endif %}
+      <ul class="sharing">
+        <li>
+          <a href="http://twitter.com/home?status={{data.title | urlencode}}+{{'https://ionicframework.com'+url | urlencode}}" 
+             onclick="window.open(this.href, 'Share via Twitter', 'width=400, height=300'); return false;">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.facebook.com/share.php?u={{'https://ionicframework.com'+url | urlencode}}&amp;title={{data.title | urlencode}}" 
+          onclick="window.open(this.href, 'Share via Facebook', 'width=555, height=656'); return false;">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{'https://ionicframework.com'+url | urlencode}}&amp;title={{data.title | urlencode}}&amp;source={{'https://ionicframework.com' | urlencode}}"
+             onclick="window.open(this.href, 'Share via LinkedIn', 'width=500, height=600'); return false;">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+      </ul>
     </nav>
   </aside>
   <div class="main-col">
     {# {{ ctx.htmlSerializer }} #}
+
+    <hgroup>
+      <h1>{{ data.title }}</h1>
+      <p class="lg">{{ data.tagline }}</p>
+      <img src="{{data.hero_image.url}}"
+           srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
+           alt="{{data.hero_image.alt}}">
+    </hgroup>
+
     <article>
       {% for group in data.body %}
         {% if group.slice_type == 'normal_text' %}

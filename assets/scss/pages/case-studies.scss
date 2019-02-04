@@ -40,7 +40,7 @@
 
     h1 {
       font-size: 46px;
-      margin-top: 16px;
+      margin-top: 64px;
     }
 
     p {
@@ -72,22 +72,26 @@
 
       .tags {
         padding: 0;
+        margin-left: 4px;
         list-style: none;
-        vertical-align: 1px;
+        vertical-align: 2px;
         display: inline-block;
 
         li {
-          display: inline-block;
-          font-weight: 600;
-          padding: 2px 4px;
-          line-height: normal;
           font-size: 10px;
-          text-align: center;
-          letter-spacing: 0.08em;
+          color: #ced6e0;
+          background: transparent;
+          padding: 3px 5px 4px;
+          line-height: 1em;
+          margin-right: 2px;
+          font-weight: 600;
           text-transform: uppercase;
-          color: #CED6E0;
-          border: 1px solid #E9EDF3;
           border-radius: 4px;
+          letter-spacing: 0.08em;
+          vertical-align: 1px;
+          display: inline-block;
+          border: 1px solid #E9EDF3;
+          // transition: color 0.2s, border-color 0.2s, background-color 0.2s;
         }
       }
     }
@@ -109,13 +113,14 @@
 
   .sticky-wrapper {
     position: sticky;
-    top: 100px;
+    top: 128px;
   }
 
   aside {
     flex: 0 1 210px;
     padding-right: 20px;
     margin-bottom: 36px;
+    margin-top: 52px;
 
     h4 {
       font-size: 10px;
@@ -171,6 +176,27 @@
         vertical-align: -5px;
       }
     }
+
+    .sharing {
+      margin: 0;
+      border-top: 2px solid #f3f5f9;
+      padding-top: 26px;
+
+      li {
+        margin: 0;
+        margin-right: 6px;
+        display: inline-block;
+      }
+
+      a {
+        color: #CBD2DD;
+        font-size: 20px;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
   }
 
   .main-col {
@@ -185,9 +211,8 @@
     margin-bottom: 37px;
 
     h2 {
-      margin-top: 7px;
       font-size: 32px;
-      margin-bottom: .85em;
+      margin-top: 1.65em;
     }
 
     p {

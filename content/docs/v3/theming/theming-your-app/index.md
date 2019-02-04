@@ -5,9 +5,9 @@ id: theming-your-app
 title: Theming your Ionic App
 header_sub_title: Ionic Theming
 prev_page_title: Intro
-prev_page_link: /docs/theming/
+prev_page_link: /docs/v3/theming/
 next_page_title: Sass Variables
-next_page_link: /docs/theming/sass-variables/
+next_page_link: /docs/v3/theming/sass-variables/
 ---
 
 <h1 class="title">Theming your Ionic App</h1>

@@ -8,9 +8,9 @@ header_includes: |
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
 prev_page_title: Intro
-prev_page_link: /docs/theming/
+prev_page_link: /docs/v3/theming/
 next_page_title: Responsive Grid
-next_page_link: /docs/theming/responsive-grid/
+next_page_link: /docs/v3/theming/responsive-grid/
 ---
 
 

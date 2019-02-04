@@ -2,6 +2,9 @@
 {% set id = 'case-studies' %}
 {% set cssPath = 'case-studies' %}
 {% set header_style = 'transparent light' %}
+{% set title = 'Ionic Article: ' + data.title %}
+{% set description = data.description %}
+{% set meta_image = data.hero_image['1x'].url %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
 
@@ -71,6 +74,7 @@
             <ion-icon name="logo-linkedin"></ion-icon>
           </a>
         </li>
+        <li id="web-share"><a><ion-icon name="share"></ion-icon></a></li>
       </ul>
     </nav>
   </aside>
@@ -161,6 +165,19 @@
   integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
   crossorigin="anonymous"></script>
 <script>
-$('body').scrollspy({target: "#sidenav", offset: 150})
+$('body').scrollspy({target: "#sidenav", offset: 150});
+
+{# if ( true ) { #}
+if(navigator.share) {
+  const webShare = document.getElementById('web-share');
+  webShare.style.display = 'inline-block';
+  webShare.addEventListener("click", () => {
+    navigator.share({
+      title: '{{ data.title }}',
+      text: 'Check out this article by Ionic Framework: {{ data.title }}',
+      url: '{{ "https://ionicframework.com"+url }}',
+    });
+  });
+}
 </script>
 {% endblock %}

@@ -12,30 +12,30 @@ module.exports = function(req, res, next) {
   if (urlParts[1] === 'docs') {
     // redirect v1 docs
     if (v3Directories.indexOf(urlParts[2]) != -1) {
-      return res.redirect(301, req.path.replace('/docs', '/docs/v3'));
+      return res.redirect(301, req.path.replace('/docs', '/docs/v3')) || true;
     } else if (v1Directories.indexOf(urlParts[2]) != -1) {
-      return res.redirect(301, req.path.replace('/docs', '/docs/v1'));
+      return res.redirect(301, req.path.replace('/docs', '/docs/v1')) || true;
     } else if (urlParts[2].charAt(0) === '1') {
       // if v1 version is pruned, redirect to v1 latest
       urlParts[2] = '1.3.2';
-      return res.redirect(301, urlParts.join('/'));
+      return res.redirect(301, urlParts.join('/')) || true;
     } else if (urlParts[2] === 'v2') {
       // update to new v2 location
-      return res.redirect(301, req.path.replace('/docs/v2', '/docs'));
+      return res.redirect(301, req.path.replace('/docs/v2', '/docs')) || true;
     } else if (urlParts[2].charAt(0) === '2') {
       // if version is pruned, redirect to latest release
       urlParts[2] = '';
-      return res.redirect(301, urlParts.join('/').replace('//', '/'));
+      return res.redirect(301, urlParts.join('/').replace('//', '/')) || true;
     } else if (urlParts[2] == 'resources') {
       // resources is now developer-resources
       return res.redirect(301, 
-        req.path.replace('/resources', '/developer-resources'));
+        req.path.replace('/resources', '/developer-resources')) || true;
     }
   }
 
   if(!res.locals.proxy404) {
     res.status(404);
-    res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
+    return res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
   }
 };
 

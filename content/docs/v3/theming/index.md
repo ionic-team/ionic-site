@@ -4,7 +4,7 @@ category: theming
 id: theming-intro
 title: CSS Utilities for App Theming and Platform Style Configuration
 next_page_title: CSS Utilities
-next_page_link: /docs/theming/css-utilities/
+next_page_link: /docs/v3/theming/css-utilities/
 ---
 
 <h1 class="title">Theming Ionic Apps</h1>

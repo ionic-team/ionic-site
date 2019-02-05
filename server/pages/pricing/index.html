@@ -44,7 +44,7 @@
   <section class="tab-content" id="content-enterprise-engine">
     {% include './enterprise-engine.html' %}
   </section>
-  
+
   {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
@@ -341,6 +341,15 @@
       var growthNode = document.querySelector('[data="growth-cost"]');
       var growthCost = (isBillingMonthly) ? planCosts.growth.monthly : planCosts.growth.yearly;
       growthNode.innerHTML = '$' + growthCost;
+
+      var clauseNode = document.querySelector('[data="eligibility-clause"]');
+      if (isAddonSelected) {
+        clauseNode.classList.add('highlight');
+        clauseNode.querySelector('p').innerHTML = "I or my company generate annual revenue or funds raised of $200k or less"
+      } else {
+        clauseNode.classList.remove('highlight');
+        clauseNode.querySelector('p').innerHTML = "No limits on revenue or funding"
+      }
     }
 
     // Sticky table header

@@ -14,10 +14,6 @@ const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
 
-function send404(res) {
-  res.status(404).sendFile(join(__dirname, '/../_site/404.html'))
-}
-
 module.exports = {
 router: app => {
 
@@ -79,12 +75,12 @@ router: app => {
   .get('/go/why-hybrid/thank-you', (_, res) =>
     res.render('go/why-hybrid/thank-you'))
 
-  .get('/integrations', (req, res) =>
-    getIntegrations(req, res))
-  .get('/integrations/category/:category', (req, res) =>
-    getIntegrations(req, res, req.params.category))
-  .get('/integrations/:integration', (req, res) =>
-    getIntegration(req, res, req.params.integration))
+  .get('/integrations', (req, res, next) =>
+    getIntegrations(req, res, next))
+  .get('/integrations/category/:category', (req, res, next) =>
+    getIntegrations(req, res, next, req.params.category))
+  .get('/integrations/:integration', (req, res, next) =>
+    getIntegration(req, res, next, req.params.integration))
 
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/press', (_, res) => res.render('press'))
@@ -146,6 +142,5 @@ router: app => {
 
   // Prismic Preview
   .get('/preview', previewController)
-},
-send404: send404
+}
 };

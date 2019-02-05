@@ -3,8 +3,6 @@ const Prismic              = require('prismic-javascript');
 const PrismicDOM           = require('prismic-dom');
 const { getAll }           = require('../prismic');
 const { PRISMIC_ENDPOINT } = require('../config');
-const { send404 }          = require('../router');
-
 
 class IntegrationService {
   constructor() {
@@ -22,7 +20,9 @@ class IntegrationService {
     ) {
       // console.log('getting new!');
       try {
-        this.integrations = await getAll('document.type', 'integration', '[my.integration.uid]');
+        this.integrations = await getAll(
+          'document.type', 'integration', '[my.integration.uid]'
+        );
         this.lastRequest = d.getTime();
       } catch(e) {
         console.error(e);
@@ -41,7 +41,7 @@ class IntegrationService {
 const is = new IntegrationService();
 
 module.exports = {
-  getIntegrations:  function(req, res, categoryFilter) {
+  getIntegrations:  function(req, res, next, categoryFilter) {
     const categories = [
       {
         name: 'All',
@@ -193,25 +193,27 @@ module.exports = {
       })
       .then(resolve)
       .catch(e => {
-        send404(res);
-        reject(e);
+        console.log(e)
+        next()
       });
     });
   },
-  getIntegration: function (req, res, uid) {
+  getIntegration: function (req, res, next, uid) {
+    const sender = send404;
     return new Promise((resolve, reject) => {
       Prismic.getApi(PRISMIC_ENDPOINT, {
         req: req
       })
       .then(api => api.getByUID('integration', uid))
       .then(response => {
+        if ( !response ) throw('Integration not found');
         response.data.descriptionHTML = PrismicDOM.RichText.asHtml(response.data.description)
         return res.render('integrations/detail', {data: response.data})
       })
       .then(resolve)
       .catch(e => {
-        send404(res);
-        reject(e);
+        console.log(e)
+        next();
       });
     });
   }

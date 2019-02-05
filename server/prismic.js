@@ -100,6 +100,7 @@ module.exports = {
     return new Promise(resolve => {
       return req.prismic.api.getByUID(type, uid)
       .then(response => {
+        delete req;
         // console.log(response)
         return res.render(template, response)
       })

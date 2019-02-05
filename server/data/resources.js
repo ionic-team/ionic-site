@@ -275,13 +275,6 @@ const resources = {
         "bgColor": "#12120f"
       }, {
         "type": "Video",
-        "title": "Why we built Ionic Pro",
-        "url": "https://ionicpro.wistia.com/medias/o67kvtatg7",
-        "action": "Watch",
-        "bgImage": "/img/resource-center/video-whywebuiltpro.jpg",
-        "bgColor": "#96d1f4"
-      }, {
-        "type": "Video",
         "title": "Why PWAs are exciting",
         "url": "https://ionicpro.wistia.com/medias/en8y8dgxth",
         "action": "Watch",

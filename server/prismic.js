@@ -99,9 +99,10 @@ module.exports = {
   getPrismic: (req, res, next, type, uid, template) => {
     return new Promise(resolve => {
       return req.prismic.api.getByUID(type, uid)
-      .then(response => res.render(template, {
-        data: response ? {...response.data, uid: uid} : null
-      }))
+      .then(response => {
+        console.log(response)
+        return res.render(template, response)
+      })
       .then(resolve)
       .catch(e => {
         console.log(e);

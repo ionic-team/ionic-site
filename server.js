@@ -63,9 +63,9 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
-app.use(prismicUtil.middleware);
 app.use(processRequest);
 app.use(docsPath, docsProxy);
+app.use(prismicUtil.middleware);
 
 app.set('views', __dirname + '/server/pages');
 expressNunjucks(app, {

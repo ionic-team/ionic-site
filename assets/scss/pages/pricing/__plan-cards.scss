@@ -58,6 +58,10 @@
       padding: 32px 28px;
     }
 
+    .plan-card-body {
+      padding-bottom: 6px;
+    }
+
     .plan-card-header {
       letter-spacing: -0.02em;
 
@@ -226,6 +230,39 @@
         letter-spacing: -0.01em;
         color: #2F3A48;
       }
+    }
+
+    .plan-card-clause {
+      padding: 0 28px 28px;
+      color: #73849a;
+      font-size: 13px;
+      letter-spacing: -.01em;
+      margin-top: 20px;
+
+      h5 {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 2px;
+        margin-top: 0;
+      }
+      p {
+        margin: 0;
+      }
+
+      &.highlight {
+        margin-top: 0px;
+      }
+
+      &.highlight .plan-card-clause__inner {
+        background: #FFF8E2;
+        color: #977300;
+        padding: 17px 18px 14px;
+        border-radius: 8px;
+      }
+    }
+
+    &--dark .plan-card-clause {
+      color: #ced6e0;
     }
 
     .plan-card-btn {

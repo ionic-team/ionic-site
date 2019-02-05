@@ -1,7 +1,6 @@
 const Cookies     = require('cookies');
 const PrismicDOM  = require('prismic-dom');
 const Prismic     = require('prismic-javascript');
-const { send404 } = require('./router');
 
 const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
@@ -9,6 +8,8 @@ function linkResolver(doc) {
   // Define the url depending on the document type
   if (doc.type === 'webinar') {
     return '/resources/webinars/' + doc.uid;
+  } else if (doc.type === 'article') {
+    return '/resources/articles/' + doc.uid;
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
   } else if (doc.type === 'integration') {

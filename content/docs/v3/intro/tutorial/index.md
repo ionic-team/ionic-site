@@ -32,7 +32,7 @@ more. Let's get started!
 To start a new app, open your [terminal/command prompt](/docs/resources/what-is/#cli) and run:
 
 ```bash
-$ ionic start MyIonicProject tutorial
+$ ionic start MyIonicProject tutorial --type=ionic-angular
 ```
 
 * `start` will tell the CLI create a new app.

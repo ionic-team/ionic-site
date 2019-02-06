@@ -667,7 +667,7 @@ export var Slides = (function (_super) {
  * See the [Slides API Docs](../Slides) for more usage information.
  *
  * @demo /docs//demos/src/slides/
- * @see {@link /docs//api/components/slides/Slides/ Slides API Docs}
+ * @see {@link /docs/api/components/slides/Slides/ Slides API Docs}
  */
 export var Slide = (function () {
     function Slide(elementRef, 

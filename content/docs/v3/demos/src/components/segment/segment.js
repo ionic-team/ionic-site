@@ -42,7 +42,7 @@ import { isPresent, isTrueProperty } from '../../util/util';
  *
  * @demo /docs//demos/src/segment/
  * @see {@link /docs//components#segment Segment Component Docs}
- * @see {@link /docs//api/components/segment/Segment/ Segment API Docs}
+ * @see {@link /docs/api/components/segment/Segment/ Segment API Docs}
  */
 export var SegmentButton = (function () {
     function SegmentButton(_renderer, _elementRef) {

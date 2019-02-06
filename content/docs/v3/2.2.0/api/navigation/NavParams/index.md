@@ -161,8 +161,8 @@ export class MyClass{
 
 <a href='/docs//components#navigation'>Navigation Component Docs</a>,
 <a href='../NavController/'>NavController API Docs</a>,
-<a href='/docs//api/components/nav/Nav/'>Nav API Docs</a>,
-<a href='/docs//api/components/nav/NavPush/'>NavPush API Docs</a><!-- end content block -->
+<a href='/docs/api/components/nav/Nav/'>Nav API Docs</a>,
+<a href='/docs/api/components/nav/NavPush/'>NavPush API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

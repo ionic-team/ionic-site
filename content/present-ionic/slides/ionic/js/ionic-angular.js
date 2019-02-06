@@ -6033,7 +6033,7 @@ IonicModule
  * @description
  * keyboard-attach is an attribute directive which will cause an element to float above
  * the keyboard when the keyboard shows. Currently only supports the
- * [ion-footer-bar]({{ page.versionHref }}/api/directive/ionFooterBar/) directive.
+ * [ion-footer-bar](/docs/v1/{{ page.versionHref }}/api/directive/ionFooterBar/) directive.
  *
  * ### Notes
  * - This directive requires the

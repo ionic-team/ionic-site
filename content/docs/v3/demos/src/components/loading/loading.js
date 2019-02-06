@@ -158,7 +158,7 @@ export var Loading = (function (_super) {
  * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
  *
  * @demo /docs//demos/src/loading/
- * @see {@link /docs//api/components/spinner/Spinner Spinner API Docs}
+ * @see {@link /docs/api/components/spinner/Spinner Spinner API Docs}
  */
 export var LoadingController = (function () {
     function LoadingController(_app) {

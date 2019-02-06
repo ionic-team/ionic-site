@@ -45,9 +45,9 @@ Improve this doc
 <p>A Modal is a content pane that goes over the user&#39;s current page.
 Usually it is used for making a choice or editing an item. A modal uses the
 <code>NavController</code> to
-<a href='/docs//api/components/nav/NavController/#present'>present</a>
+<a href='/docs/api/components/nav/NavController/#present'>present</a>
 itself in the root nav stack. It is added to the stack similar to how
-<a href='/docs//api/components/nav/NavController/#push'>NavController.push</a>
+<a href='/docs/api/components/nav/NavController/#push'>NavController.push</a>
 works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.

@@ -667,7 +667,7 @@ Create a loading indicator. See below for options.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//api/components/spinner/Spinner'>Spinner API Docs</a><!-- end content block -->
+<a href='/docs/api/components/spinner/Spinner'>Spinner API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

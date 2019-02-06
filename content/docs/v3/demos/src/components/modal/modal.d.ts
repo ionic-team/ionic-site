@@ -28,9 +28,9 @@ export declare class Modal extends ViewController {
  * A Modal is a content pane that goes over the user's current page.
  * Usually it is used for making a choice or editing an item. A modal uses the
  * `NavController` to
- * {@link /docs//api/components/nav/NavController/#present present}
+ * {@link /docs/api/components/nav/NavController/#present present}
  * itself in the root nav stack. It is added to the stack similar to how
- * {@link /docs//api/components/nav/NavController/#push NavController.push}
+ * {@link /docs/api/components/nav/NavController/#push NavController.push}
  * works.
  *
  * When a modal (or any other overlay such as an alert or actionsheet) is

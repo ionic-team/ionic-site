@@ -58142,7 +58142,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
              * </form>
              * ```
              * @see {@link /docs//components#segment Segment Component Docs}
-             * @see {@link /docs//api/components/segment/Segment/ Segment API Docs}
+             * @see {@link /docs/api/components/segment/Segment/ Segment API Docs}
              */
 
             SegmentButton = (function () {

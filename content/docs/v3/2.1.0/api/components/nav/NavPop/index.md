@@ -60,7 +60,7 @@ navigation stack.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<p>Similar to <a href='/docs//api/components/nav/NavPush/'><code>NavPush</code></a></p>
+<p>Similar to <a href='/docs/api/components/nav/NavPush/'><code>NavPush</code></a></p>
 
 
 

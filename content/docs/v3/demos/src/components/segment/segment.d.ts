@@ -36,7 +36,7 @@ import { Ion } from '../ion';
  *
  * @demo /docs//demos/src/segment/
  * @see {@link /docs//components#segment Segment Component Docs}
- * @see {@link /docs//api/components/segment/Segment/ Segment API Docs}
+ * @see {@link /docs/api/components/segment/Segment/ Segment API Docs}
  */
 export declare class SegmentButton {
     private _renderer;

@@ -132,7 +132,7 @@
   "/docs/developer-resources/ng2-translate": "/docs/v3/developer-resources/ng2-translate",
   "/docs/developer-resources/platform-setup/mac-setup.html": "/docs/v3/developer-resources/platform-setup/mac-setup.html",
   "/docs/developer-resources/platform-setup/windows-setup.html": "/docs/v3/developer-resources/platform-setup/windows-setup.html",
-  "/docs/developer-resources/progressive-web-apps": "docs/v3/developer-resources/progressive-web-apps",
+  "/docs/developer-resources/progressive-web-apps": "/docs/v3/developer-resources/progressive-web-apps/",
   "/docs/developer-resources/third-party-libs": "/docs/v3/developer-resources/third-party-libs",
   "/docs/developer-resources/using-npm": "/docs/v3/developer-resources/using-npm",
   "/docs/faq": "/docs/v3/troubleshooting",

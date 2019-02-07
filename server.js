@@ -63,6 +63,8 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(compress());
 app.use(cookieParser());
 app.use(helmet());
+app.enable('etag');
+
 app.use(processRequest);
 app.use(docsPath, docsProxy);
 app.use(prismicUtil.middleware);
@@ -75,7 +77,6 @@ expressNunjucks(app, {
     date: dateFilter
   }
 });
-app.enable('etag');
 
 app.use(router(app));
 

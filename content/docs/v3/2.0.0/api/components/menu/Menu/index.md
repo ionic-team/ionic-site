@@ -11,7 +11,7 @@ doc: "Menu"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v3/demos/src/menu/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -84,7 +84,7 @@ programmatically, inject the <a href="../MenuController">MenuController</a> prov
 <p>The menu supports several display types: <code>overlay</code>, <code>reveal</code> and <code>push</code>. By default,
 it will use the correct type based on the mode, but this can be changed. The default
 type for both Material Design and Windows mode is <code>overlay</code>, and <code>reveal</code> is the default
-type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../config/Config">config</a>
+type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../../config/Config">config</a>
 via the <code>menuType</code> property, or passed in the <code>type</code> property on the <code>&lt;ion-menu&gt;</code> element.
 See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
 <h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
@@ -181,58 +181,58 @@ and usage information.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>content</td>
       <td><code>any</code></td>
       <td><p> A reference to the content element the menu should use.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>id</td>
       <td><code>string</code></td>
       <td><p> An id for the menu.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>side</td>
       <td><code>string</code></td>
       <td><p> Which side of the view the menu should be placed. Default <code>&quot;left&quot;</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The display type of the menu. Default varies based on the mode,
-see the <code>menuType</code> in the <a href="../../config/Config">config</a>. Available options:
+see the <code>menuType</code> in the <a href="../../../config/Config">config</a>. Available options:
 <code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
       <td><p> Whether or not the menu should be enabled. Default <code>true</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>swipeEnabled</td>
       <td><code>boolean</code></td>
       <td><p> Whether or not swiping the menu should be enabled. Default <code>true</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>persistent</td>
       <td><code>string</code></td>
       <td><p> Whether or not the menu should persist on child pages. Default <code>false</code>.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -245,25 +245,25 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>ionDrag</td>
       <td><p> When the menu is being dragged open.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionOpen</td>
       <td><p> When the menu has been opened.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ionClose</td>
       <td><p> When the menu has been closed.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -271,25 +271,25 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-    
-      
-      
+
+
+
       <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
+
+
+
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
+
+
+
   </div>
 
 
-  
+
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -299,37 +299,37 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-ios-background</code></td>
-        
+
           <td><code>$background-ios-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-ios-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-ios-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -339,37 +339,37 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-md-background</code></td>
-        
+
           <td><code>$background-md-color</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow-color</code></td>
-        
+
           <td><code>rgba(0, 0, 0, .25)</code></td>
-        
+
         <td><p>Box shadow color of the menu</p>
 </td>
       </tr>
-      
+
       <tr>
         <td><code>$menu-md-box-shadow</code></td>
-        
+
           <td><code>0 0 10px $menu-md-box-shadow-color</code></td>
-        
+
         <td><p>Box shadow of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -379,19 +379,19 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
       </tr>
     </thead>
     <tbody>
-      
+
       <tr>
         <td><code>$menu-wp-background</code></td>
-        
+
           <td><code>#f2f2f2</code></td>
-        
+
         <td><p>Background of the menu</p>
 </td>
       </tr>
-      
+
     </tbody>
   </table>
-  
+
 </div>
 
 
@@ -407,4 +407,3 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 
 
 <!-- end body block -->
-

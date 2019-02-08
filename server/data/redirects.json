@@ -164,6 +164,8 @@
   "/docs/intro/tutorial": "/docs/v3/intro/tutorial",
   "/docs//intro/tutorial/project-structure/": "/docs/v3/intro/tutorial/project-structure",
   "/docs/ionicons": "https://ionicons.com",
+  "/docs//ionicons": "https://ionicons.com",
+  "/docs//ionicons/animation.html": "https://ionicons.com",
   "/docs/native/3dtouch": "/docs/native/three-dee-touch",
   "/docs/native/adbmob": "/docs/native/admob-free",
   "/docs/native/admob": "/docs/native/admob-pro",

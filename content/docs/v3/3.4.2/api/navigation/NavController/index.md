@@ -154,7 +154,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
 <p>To push a new view onto the navigation stack, use the <code>push</code> method.
-If the page has an <a href="../../toolbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
+If the page has an <a href="../../components/toolbar/Navbar"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
 The pushed view can then receive the data by accessing it via the <code>NavParams</code>

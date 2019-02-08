@@ -88,7 +88,7 @@ type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../
 via the <code>menuType</code> property, or passed in the <code>type</code> property on the <code>&lt;ion-menu&gt;</code> element.
 See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
 <h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
-<p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../navbar/Navbar">Navbar</a> of
+<p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../toolbar/Navbar">Navbar</a> of
 a page, the button will only appear when the page it&#39;s in is currently a root page. The
 root page is the initial page loaded in the app, or a page that has been set as the root
 using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <a href="../../nav/NavController">NavController</a>.</p>
@@ -97,7 +97,7 @@ using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <
 is <code>Page1</code>, making it the root page. <code>Page1</code> will display the <code>MenuToggle</code> button, but once
 <code>Page2</code> is pushed onto the navigation stack, the <code>MenuToggle</code> will not be displayed.</p>
 <h3 id="persistent-menus">Persistent Menus</h3>
-<p>Persistent menus display the <a href="../MenuToggle">MenuToggle</a> button in the <a href="../../navbar/Navbar">Navbar</a>
+<p>Persistent menus display the <a href="../MenuToggle">MenuToggle</a> button in the <a href="../../toolbar/Navbar">Navbar</a>
 on all pages in the navigation stack. To make a menu persistent set <code>persistent</code> to <code>true</code> on the
 <code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>Navbar</code> attached
 to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>

@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p>A Toolbar is a generic bar that is positioned above or below content.
-Unlike a <a href="../../navbar/Navbar">Navbar</a>, a toolbar can be used as a subheader.
+Unlike a <a href="../../toolbar/Navbar">Navbar</a>, a toolbar can be used as a subheader.
 When toolbars are placed within an <code>&lt;ion-header&gt;</code> or <code>&lt;ion-footer&gt;</code>,
 the toolbars stay fixed in their respective location. When placed within
 <code>&lt;ion-content&gt;</code>, toolbars will scroll with the content.</p>
@@ -482,7 +482,7 @@ attribute to the element.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="../../navbar/Navbar/">Navbar API Docs</a><!-- end content block -->
+<a href="../../toolbar/Navbar/">Navbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

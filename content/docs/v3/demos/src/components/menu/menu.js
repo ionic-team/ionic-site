@@ -46,7 +46,7 @@ import { DomController } from '../../util/dom-controller';
  * If a [MenuToggle](../MenuToggle) button is added to the [Navbar](../../navbar/Navbar) of
  * a page, the button will only appear when the page it's in is currently a root page. The
  * root page is the initial page loaded in the app, or a page that has been set as the root
- * using the [setRoot](../../nav/NavController/#setRoot) method on the [NavController](../../nav/NavController).
+ * using the [setRoot](../../../navigation/NavController/#setRoot) method on the [NavController](../../../navigation/NavController).
  *
  * For example, say the application has two pages, `Page1` and `Page2`, and both have a
  * `MenuToggle` button in their navigation bars. Assume the initial page loaded into the app
@@ -174,7 +174,7 @@ import { DomController } from '../../util/dom-controller';
  * @see {@link /docs//components#menus Menu Component Docs}
  * @see {@link ../MenuController MenuController API Docs}
  * @see {@link ../../nav/Nav Nav API Docs}
- * @see {@link ../../nav/NavController NavController API Docs}
+ * @see {@link ../../../navigation/NavController NavController API Docs}
  */
 export var Menu = (function () {
     function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, _gestureCtrl, _domCtrl, _app) {

@@ -267,7 +267,7 @@ to another page depending on the handler&#39;s logic. However, because multiple
 transitions were fired at roughly the same time, it&#39;s difficult for the
 nav controller to cleanly animate multiple transitions that may
 have been kicked off asynchronously. This is further described in the
-<a href="../../nav/NavController/#nav-transition-promises"><code>Nav Transition Promises</code></a> section. For action sheets,
+<a href="../../../navigation/NavController/#nav-transition-promises"><code>Nav Transition Promises</code></a> section. For action sheets,
 this means it&#39;s best to wait for the action sheet to finish its transition
 out before starting a new transition on the same nav controller.</p>
 <p>In the example below, after the button has been clicked, its handler

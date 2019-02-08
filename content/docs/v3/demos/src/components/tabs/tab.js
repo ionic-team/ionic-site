@@ -119,7 +119,7 @@ import { DomController } from '../../util/dom-controller';
  * @see {@link /docs//components#tabs Tabs Component Docs}
  * @see {@link ../../tabs/Tabs Tabs API Docs}
  * @see {@link ../../nav/Nav Nav API Docs}
- * @see {@link ../../nav/NavController NavController API Docs}
+ * @see {@link ../../../navigation/NavController NavController API Docs}
  */
 export var Tab = (function (_super) {
     __extends(Tab, _super);

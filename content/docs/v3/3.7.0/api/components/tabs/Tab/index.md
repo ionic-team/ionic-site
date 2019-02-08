@@ -983,7 +983,7 @@ tabbar. Default: <code>true</code>.</p>
 <a href="/docs/v3/components#tabs">Tabs Component Docs</a>,
 <a href="../../tabs/Tabs">Tabs API Docs</a>,
 <a href="../../nav/Nav">Nav API Docs</a>,
-<a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
+<a href="../../../navigation/NavController">NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -30,7 +30,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 news-col">
-              <div class="picker">
+              <div class="picker" {% if page.path contains 'docs/v1/' %}style="display: none;"{% endif %}>
                 {% include api_version_select.html %}
               </div>
             </div>

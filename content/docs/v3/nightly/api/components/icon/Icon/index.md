@@ -46,7 +46,7 @@ Improve this doc
 
 <p>Icons can be used on their own, or inside of a number of Ionic components.
 For a full list of available icons, check out the
-<a href="../../../../ionicons">Ionicons docs</a>.</p>
+<a href="../../../../../ionicons">Ionicons docs</a>.</p>
 <p>One feature of Ionicons in Ionic is when icon names are set, the actual icon
 which is rendered can change slightly depending on the mode the app is
 running from. For example, by setting the icon name of <code>alarm</code>, on iOS the

@@ -11,7 +11,7 @@ doc: "Icon"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v3/demos/src/icon/www/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -46,7 +46,7 @@ Improve this doc
 
 <p>Icons can be used on their own, or inside of a number of Ionic components.
 For a full list of available icons, check out the
-<a href="../../../../ionicons">Ionicons docs</a>.</p>
+<a href="../../../../../ionicons">Ionicons docs</a>.</p>
 <p>One feature of Ionicons in Ionic is when icon names are set, the actual icon
 which is rendered can change slightly depending on the mode the app is
 running from. For example, by setting the icon name of <code>alarm</code>, on iOS the
@@ -91,49 +91,49 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>name</td>
       <td><code>string</code></td>
       <td><p> Icon to use. Will load the appropriate icon for each mode</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>ios</td>
       <td><code>string</code></td>
       <td><p> Explicitly set the icon to use on iOS</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>md</td>
       <td><code>string</code></td>
       <td><p> Explicitly set the icon to use on MD</p>
 </td>
     </tr>
-    
+
     <tr>
       <td>isActive</td>
       <td><code>bool</code></td>
       <td><p> Whether or not the icon has an &quot;active&quot; appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they&#39;re active or not. The <code>isActive</code> property is largely used by the tabbar.</p>
 </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -148,4 +148,3 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
 <!-- end body block -->
-

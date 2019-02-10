@@ -6,9 +6,9 @@ subid: tutorial
 title: Adding Pages - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Project Structure
-prev_page_link: /docs//intro/tutorial/project-structure
+prev_page_link: /docs/v3/intro/tutorial/project-structure
 next_page_title: Navigating to Pages
-next_page_link: /docs//intro/tutorial/navigation
+next_page_link: /docs/v3/intro/tutorial/navigation
 ---
 
 <h1 class="title">Adding Pages</h1>

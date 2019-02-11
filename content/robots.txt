@@ -1,6 +1,8 @@
 User-Agent: *
+Disallow: /docs//demos
 Disallow: /docs/v3/demos/
-Disallow: /docs/dist/
+Disallow: /docs/v3/dist/
 Disallow: /present-ionic/slides/
+Disallow: /dist/
 
 Sitemap: https://ionicframework.com/sitemap.xml

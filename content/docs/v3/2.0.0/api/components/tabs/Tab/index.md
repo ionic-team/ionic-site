@@ -754,7 +754,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#tabs'>Tabs Component Docs</a>,
+<a href='/docs/components#tabs'>Tabs Component Docs</a>,
 <a href='../../tabs/Tabs'>Tabs API Docs</a>,
 <a href='../../nav/Nav'>Nav API Docs</a>,
 <a href='../../../navigation/NavController'>NavController API Docs</a><!-- end content block -->

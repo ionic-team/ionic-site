@@ -191,7 +191,7 @@ export var RangeKnob = (function () {
  * ```
  *
  *
- * @demo /docs//demos/src/range/
+ * @demo /docs/demos/src/range/
  */
 export var Range = (function (_super) {
     __extends(Range, _super);

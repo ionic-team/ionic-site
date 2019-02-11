@@ -127,8 +127,8 @@ export declare class Modal extends ViewController {
  *
  * }
  * ```
- * @demo /docs//demos/src/modal/
- * @see {@link /docs//components#modals Modal Component Docs}
+ * @demo /docs/demos/src/modal/
+ * @see {@link /docs/components#modals Modal Component Docs}
  */
 export declare class ModalController {
     private _app;

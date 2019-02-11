@@ -6,7 +6,7 @@ title: Customizing Styles - Tutorial
 header_sub_title: Getting Started with Ionic
 ---
 
-<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/ionic2/docs//guide/adding-pages/index.md'>
+<a class="improve-v2-docs" href='https://github.com/ionic-team/ionic-site/edit/ionic2/docs/guide/adding-pages/index.md'>
 Improve this doc
 </a>
 

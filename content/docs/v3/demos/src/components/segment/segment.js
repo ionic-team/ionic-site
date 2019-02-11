@@ -40,8 +40,8 @@ import { isPresent, isTrueProperty } from '../../util/util';
  * ```
  *
  *
- * @demo /docs//demos/src/segment/
- * @see {@link /docs//components#segment Segment Component Docs}
+ * @demo /docs/demos/src/segment/
+ * @see {@link /docs/components#segment Segment Component Docs}
  * @see {@link /docs/api/components/segment/Segment/ Segment API Docs}
  */
 export var SegmentButton = (function () {
@@ -179,8 +179,8 @@ export var SegmentButton = (function () {
  * ```
  *
  *
- * @demo /docs//demos/src/segment/
- * @see {@link /docs//components#segment Segment Component Docs}
+ * @demo /docs/demos/src/segment/
+ * @see {@link /docs/components#segment Segment Component Docs}
  * @see [Angular 2 Forms](http://learnangular2.com/forms/)
  */
 export var Segment = (function (_super) {

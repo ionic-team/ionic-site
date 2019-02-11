@@ -49896,7 +49896,7 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
              * }
              * ```
              *
-             * @see {@link /docs//components#action-sheets ActionSheet Component Docs}
+             * @see {@link /docs/components#action-sheets ActionSheet Component Docs}
              */
 
             ActionSheet = (function () {
@@ -50249,7 +50249,7 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
      * no matter where in the UI heirarchy you are. For example, this makes toggling
      * a global side menu feasible from any place in the application.
      *
-     * See the [Menu section](https://ionicframework.com/docs//components/#menus) of
+     * See the [Menu section](https://ionicframework.com/docs/components/#menus) of
      * the Component docs for an example of how Menus rely on ID's.
      *
      * To give any component an ID, simply set its `id` property:
@@ -50468,8 +50468,8 @@ System.register("ionic/components/button/button", ["angular2/angular2", "../../c
       * @property [fab-bottom] - position a fab button towards the bottom
       * @description
       * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-      * @demo /docs//demos/buttons/
-      * @see {@link /docs//components#buttons Button Component Docs}
+      * @demo /docs/demos/buttons/
+      * @see {@link /docs/components#buttons Button Component Docs}
     
      */
     "use strict";
@@ -50587,7 +50587,7 @@ System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../
      *   HTML5
      * </ion-checkbox>
      * ```
-     * @see {@link /docs//components#checkbox Checkbox Component Docs}
+     * @see {@link /docs/components#checkbox Checkbox Component Docs}
      */
     "use strict";
 
@@ -51025,7 +51025,7 @@ System.register("ionic/components/icon/icon", ["angular2/angular2", "../../confi
      * If there is not an outlined version for the particular icon, it will use the default (full) version.
      * @property {string} [ios] - Explicitly set the icon to use on iOS.
      * @property {string} [md] - Explicitly set the icon to use on Android.
-     * @see {@link /docs//components#icons Icon Component Docs}
+     * @see {@link /docs/components#icons Icon Component Docs}
      *
      */
     "use strict";
@@ -51542,7 +51542,7 @@ System.register("ionic/components/item/item", ["angular2/angular2"], function (_
      * </ion-list>
      *
      *  ```
-     * @see {@link /docs//components#lists List Component Docs}
+     * @see {@link /docs/components#lists List Component Docs}
      * @see {@link ../../list/List List API Docs}
      */
     "use strict";
@@ -51604,8 +51604,8 @@ System.register("ionic/components/list/list", ["angular2/angular2", "../ion", ".
      *
      * Using the List and Item components make it easy to support various
      * interaction modes such as swipe to edit, drag to reorder, and removing items.
-     * @demo /docs//demos/list/
-     * @see {@link /docs//components#lists List Component Docs}
+     * @demo /docs/demos/list/
+     * @see {@link /docs/components#lists List Component Docs}
      *
      *
      */
@@ -51905,7 +51905,7 @@ System.register('ionic/components/list/virtual', [], function (_export) {
 System.register("ionic/components/menu/menu-close", ["angular2/angular2", "../ion", "../app/app"], function (_export) {
     /**
     * TODO
-    * @see {@link /docs//components#menus Menu Component Docs}
+    * @see {@link /docs/components#menus Menu Component Docs}
     * @see {@link ../../menu/Menu Menu API Docs}
     */
     "use strict";
@@ -52136,7 +52136,7 @@ System.register('ionic/components/menu/menu-gestures', ['../../gestures/slide-ed
 System.register("ionic/components/menu/menu-toggle", ["angular2/angular2", "../ion", "../app/app", "../nav/view-controller", "../navbar/navbar"], function (_export) {
     /**
     * TODO
-    * @see {@link /docs//components#menus Menu Component Docs}
+    * @see {@link /docs/components#menus Menu Component Docs}
     * @see {@link ../../menu/Menu Menu API Docs}
     */
     "use strict";
@@ -52514,8 +52514,8 @@ System.register("ionic/components/menu/menu", ["angular2/angular2", "../ion", ".
      * ```html
      * <ion-menu [content]="contentRef" type="overlay"></ion-menu>
      * ```
-     * @see {@link /docs//components#menus Menu Component Docs}
-     * @see {@link /docs//components#navigation Navigation Component Docs}
+     * @see {@link /docs/components#menus Menu Component Docs}
+     * @see {@link /docs/components#navigation Navigation Component Docs}
      * @see {@link ../../nav/Nav Nav API Docs}
      *
      */
@@ -52986,8 +52986,8 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
      *
      * }
      * ```
-     * @demo /docs//demos/modal/
-     * @see {@link /docs//components#modals Modal Component Docs}
+     * @demo /docs/demos/modal/
+     * @see {@link /docs/components#modals Modal Component Docs}
      */
     "use strict";
 
@@ -53258,7 +53258,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
      * - `onPageWillUnload` - Runs when the page is about to be destroyed and have its elements removed.
      * - `onPageDidUnload` - Runs after the page has been destroyed and its elements have been removed.
      *
-     * @see {@link /docs//components#navigation Navigation Component Docs}
+     * @see {@link /docs/components#navigation Navigation Component Docs}
      */
     'use strict';
 
@@ -54653,8 +54653,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
              *  }
              * }
              * ```
-             * @demo /docs//demos/nav-params/
-             * @see {@link /docs//components#navigation Navigation Component Docs}
+             * @demo /docs/demos/nav-params/
+             * @see {@link /docs/components#navigation Navigation Component Docs}
              * @see {@link ../NavController/ NavController API Docs}
              * @see {@link ../Nav/ Nav API Docs}
              * @see {@link ../NavPush/ NavPush API Docs}
@@ -54738,8 +54738,8 @@ System.register("ionic/components/nav/nav-push", ["angular2/angular2", "./nav-co
      * ```html
      * <button [nav-push]="[pushPage, params]"></button>
      * ```
-     * @demo /docs//demos/nav-push-pop/
-     * @see {@link /docs//components#navigation Navigation Component Docs}
+     * @demo /docs/demos/nav-push-pop/
+     * @see {@link /docs/components#navigation Navigation Component Docs}
      * @see {@link ../NavPop NavPop API Docs}
      */
     "use strict";
@@ -54841,8 +54841,8 @@ System.register("ionic/components/nav/nav-push", ["angular2/angular2", "./nav-co
             }), __param(0, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof NavRegistry !== 'undefined' && NavRegistry) === 'function' && _b || Object])], NavPush));
             /**
              * TODO
-             * @demo /docs//demos/nav-push-pop/
-             * @see {@link /docs//components#navigation Navigation Component Docs}
+             * @demo /docs/demos/nav-push-pop/
+             * @see {@link /docs/components#navigation Navigation Component Docs}
              * @see {@link ../NavPush NavPush API Docs}
              */
 
@@ -55184,7 +55184,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
      *   </pre>
      * </div>
      *
-     * @see {@link /docs//components#navigation Navigation Component Docs}
+     * @see {@link /docs/components#navigation Navigation Component Docs}
      */
     "use strict";
 
@@ -56333,7 +56333,7 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
      *   }
      * }
      * ```
-     * @see {@link /docs//components#popups Popup Component Docs}
+     * @see {@link /docs/components#popups Popup Component Docs}
      */
     "use strict";
 
@@ -56796,7 +56796,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
      *
      * </ion-list>
      * ```
-     * @see {@link /docs//components#radio Radio Component Docs}
+     * @see {@link /docs/components#radio Radio Component Docs}
     */
     "use strict";
 
@@ -57035,7 +57035,7 @@ System.register("ionic/components/radio/radio", ["angular2/angular2", "../../con
              * </ion-radio>
              * ```
              *
-             * @see {@link /docs//components#radio Radio Component Docs}
+             * @see {@link /docs/components#radio Radio Component Docs}
              */
 
             RadioButton = (function (_Ion2) {
@@ -57710,7 +57710,7 @@ System.register("ionic/components/searchbar/searchbar", ["angular2/angular2", ".
      * @property [show-cancel] - shows the cancel button based on boolean value passed in
      * @property [cancel-text] - sets the cancel button text to the value passed in
      * @property [cancel-action] - the function that gets called by clicking the cancel button
-     * @see {@link /docs//components#search Search Component Docs}
+     * @see {@link /docs/components#search Search Component Docs}
      */
     "use strict";
 
@@ -57946,7 +57946,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
      * </form>
      * ```
      *
-     * @see {@link /docs//components#segment Segment Component Docs}
+     * @see {@link /docs/components#segment Segment Component Docs}
      * @see [Angular 2 Forms](http://learnangular2.com/forms/)
      */
     "use strict";
@@ -58141,7 +58141,7 @@ System.register("ionic/components/segment/segment", ["angular2/angular2", "../io
              *   </ion-segment>
              * </form>
              * ```
-             * @see {@link /docs//components#segment Segment Component Docs}
+             * @see {@link /docs/components#segment Segment Component Docs}
              * @see {@link /docs/api/components/segment/Segment/ Segment API Docs}
              */
 
@@ -58426,7 +58426,7 @@ System.register("ionic/components/slides/slides", ["angular2/angular2", "../ion"
      * @property {Number} [index] - The slide index to start on
      * @property [pager] - add this property to enable the slide pager
      * @property {Any} [slideChanged] - expression to evaluate when a slide has been changed
-     * @see {@link /docs//components#slides Slides Component Docs}
+     * @see {@link /docs/components#slides Slides Component Docs}
      */
     "use strict";
 
@@ -59400,7 +59400,7 @@ System.register("ionic/components/switch/switch", ["angular2/angular2", "../../u
              *  </ion-list>
              * ```
              *
-             * @see {@link /docs//components#switch Switch Component Docs}
+             * @see {@link /docs/components#switch Switch Component Docs}
              */
 
             Switch = (function () {
@@ -59846,7 +59846,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
      * individual Tab components. On iOS, the TabBar is placed on the bottom of
      * the screen, while on Android it is at the top.
      *
-     * @see {@link /docs//components#tabs Tabs Component Docs}
+     * @see {@link /docs/components#tabs Tabs Component Docs}
      * @see {@link ../Tab Tab API Docs}
      */
     "use strict";
@@ -62157,8 +62157,8 @@ System.register('ionic/platform/storage/local-storage', ['./storage'], function 
      * by the operating system (iOS).
      *
      * For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.
-     * @demo /docs//demos/local-storage/
-     * @see {@link /docs//platform/storage/ Storage Platform Docs}
+     * @demo /docs/demos/local-storage/
+     * @see {@link /docs/platform/storage/ Storage Platform Docs}
      */
     'use strict';
 

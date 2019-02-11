@@ -54,8 +54,8 @@ export var TOGGLE_VALUE_ACCESSOR = {
  *  </ion-list>
  * ```
  *
- * @demo /docs//demos/src/toggle/
- * @see {@link /docs//components#toggle Toggle Component Docs}
+ * @demo /docs/demos/src/toggle/
+ * @see {@link /docs/components#toggle Toggle Component Docs}
  */
 export var Toggle = (function (_super) {
     __extends(Toggle, _super);

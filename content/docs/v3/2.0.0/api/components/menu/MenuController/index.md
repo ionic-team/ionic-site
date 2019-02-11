@@ -809,7 +809,7 @@ property. If a menu is not found then it'll return `null`.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#menus'>Menu Component Docs</a>,
+<a href='/docs/components#menus'>Menu Component Docs</a>,
 <a href='../Menu'>Menu API Docs</a><!-- end content block -->
 
 

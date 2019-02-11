@@ -15,8 +15,8 @@ import { DomController } from '../../util/dom-controller';
  * interaction modes such as swipe to edit, drag to reorder, and
  * removing items.
  *
- * @demo /docs//demos/src/list/
- * @see {@link /docs//components#lists List Component Docs}
+ * @demo /docs/demos/src/list/
+ * @see {@link /docs/components#lists List Component Docs}
  * @advanced
  *
  * Enable the sliding items.

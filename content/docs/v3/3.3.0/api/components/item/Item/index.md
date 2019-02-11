@@ -148,7 +148,7 @@ following components are all placed in the same position as the <code>item-conte
 attributes and isn&#39;t one of the above elements will be placed inside of a <a href="../../label/Label">Label</a>.</p>
 <h3 id="text-alignment">Text Alignment</h3>
 <p>By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
-See the <a href="../../../../theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
+See the <a href="../../../../../theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
 be added to <code>ion-item</code> to transform the text.</p>
 
 

@@ -43,7 +43,7 @@ the Apache 2 license.
 
 ### What is the Ionic CLI?
 
-The [CLI](../../resources/what-is/#cli), or command line interface, is a tool
+The [CLI](../../developer-resources/what-is/#cli), or command line interface, is a tool
 that provides a number of helpful commands to Ionic developers. In addition to
 installing and updating Ionic, the CLI comes with a built-in development server,
 build and debugging tools, and much more. If you are using [Ionic Appflow](/appflow),

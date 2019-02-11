@@ -77,8 +77,8 @@ import { ViewController } from '../../navigation/view-controller';
  * See the [Toolbar API docs](../../toolbar/Toolbar) for more information
  * on the different positions.
  *
- * @demo /docs//demos/src/menu/
- * @see {@link /docs//components#menus Menu Component Docs}
+ * @demo /docs/demos/src/menu/
+ * @see {@link /docs/components#menus Menu Component Docs}
  * @see {@link ../../menu/Menu Menu API Docs}
  */
 export declare class MenuToggle {

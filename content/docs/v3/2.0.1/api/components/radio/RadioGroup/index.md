@@ -490,7 +490,7 @@ for more information on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#radio'>Radio Component Docs</a>,
+<a href='/docs/components#radio'>Radio Component Docs</a>,
 <a href='../RadioButton'>RadioButton API Docs</a><!-- end content block -->
 
 

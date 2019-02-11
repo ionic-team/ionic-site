@@ -400,7 +400,7 @@ see the <code>menuType</code> in the <a href="../../../config/Config">config</a>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#menus'>Menu Component Docs</a>,
+<a href='/docs/components#menus'>Menu Component Docs</a>,
 <a href='../MenuController'>MenuController API Docs</a>,
 <a href='../../nav/Nav'>Nav API Docs</a>,
 <a href='../../../navigation/NavController'>NavController API Docs</a><!-- end content block -->

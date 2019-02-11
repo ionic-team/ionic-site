@@ -646,7 +646,7 @@ Close an active FAB list container
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#fabs'>FAB Component Docs</a><!-- end content block -->
+<a href='/docs/components#fabs'>FAB Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

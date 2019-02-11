@@ -39,7 +39,7 @@ header_sub_title: Ionic Resources
 
   <section id="using-ios-simulator">
     <h3><a href="#using-ios-simulator">Using the iOS Simulator</a></h3>
-    <p>The iOS simulator allows you to test and debug your app before running it on an actual device. Before it can be used, we need to install <a href="https://developer.apple.com/xcode/download/">Xcode</a>, Apple's IDE. The Ionic <a href="../resources/what-is/#cli">CLI</a> can then be used to run the app in the current directory on the simulator:</p>
+    <p>The iOS simulator allows you to test and debug your app before running it on an actual device. Before it can be used, we need to install <a href="https://developer.apple.com/xcode/download/">Xcode</a>, Apple's IDE. The Ionic <a href="../developer-resources/what-is/#cli">CLI</a> can then be used to run the app in the current directory on the simulator:</p>
 
     {% highlight bash %}
     $ ionic cordova emulate ios -lc

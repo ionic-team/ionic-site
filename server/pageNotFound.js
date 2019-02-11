@@ -17,11 +17,22 @@ module.exports = {
 
     // we don't need to worry about non-docs pages, just 404 it
     if (urlParts[1] === 'docs') {
-      // redirect v1 docs
+      // v2/v3 redirects
       if (v3Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v3')) || true;
+
+      // v1 pages
       } else if (v1Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v1')) || true;
+
+      // native links might erroneosly contain capital letters
+      } else if (req.path.indexOf('/native/') && /[A-Z]/.test(req.path)) {
+        return res.redirect(301, req.path.toLowerCase() ) || true;
+
+      // native links might erroneosly contain dashes
+      } else if (req.path.indexOf('/native/') && req.path.indexOf('%20')) {
+        return res.redirect(301, req.path.replace('%20', '-') ) || true;
+
       } else if (urlParts[2].charAt(0) === '1') {
         // if v1 version is pruned, redirect to v1 latest
         urlParts[2] = '1.3.2';

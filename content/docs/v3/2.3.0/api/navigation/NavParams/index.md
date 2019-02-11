@@ -159,7 +159,7 @@ export class MyClass{
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a>,
+<a href='/docs/components#navigation'>Navigation Component Docs</a>,
 <a href='../NavController/'>NavController API Docs</a>,
 <a href='/docs/api/components/nav/Nav/'>Nav API Docs</a>,
 <a href='/docs/api/components/nav/NavPush/'>NavPush API Docs</a><!-- end content block -->

@@ -152,7 +152,7 @@ export declare class ToolbarBase extends Ion {
  * </ion-footer>
  *  ```
  *
- * @demo /docs//demos/src/toolbar/
+ * @demo /docs/demos/src/toolbar/
  * @see {@link ../../navbar/Navbar/ Navbar API Docs}
  */
 export declare class Toolbar extends ToolbarBase {

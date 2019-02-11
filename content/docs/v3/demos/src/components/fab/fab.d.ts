@@ -44,8 +44,8 @@ import { UIEventManager } from '../../util/ui-event-manager';
   * </ion-fab>
   * ```
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fabs FAB Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fabs FAB Component Docs}
  */
 export declare class FabButton extends Ion {
     /**
@@ -83,8 +83,8 @@ export declare class FabButton extends Ion {
   * ```
   * @module ionic
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fab Fab Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fab Fab Component Docs}
  */
 export declare class FabList {
     private _elementRef;
@@ -181,8 +181,8 @@ export declare class FabList {
   * }
   * ```
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fabs FAB Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fabs FAB Component Docs}
  */
 export declare class FabContainer {
     private _elementRef;

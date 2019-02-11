@@ -81,7 +81,7 @@ Tab) and adds the injector to its own providers.  For more information on
 providers and dependency injection, see <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">Dependency Injection</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
-<a href="../../menu/Menu/">Menu</a> and <a href="../../tab/Tab/">Tab</a>).</p>
+<a href="../../menu/Menu/">Menu</a> and <a href="../../components/tabs/Tab/">Tab</a>).</p>
 <pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
 
 class MyComponent {
@@ -1814,7 +1814,7 @@ back to. Otherwise returns `false`.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href='/docs/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

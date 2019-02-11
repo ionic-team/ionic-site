@@ -144,7 +144,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#icons'>Icon Component Docs</a><!-- end content block -->
+<a href='/docs/components#icons'>Icon Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

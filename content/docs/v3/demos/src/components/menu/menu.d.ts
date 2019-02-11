@@ -166,9 +166,9 @@ import { DomController } from '../../util/dom-controller';
  * and usage information.
  *
  *
- * @demo /docs//demos/src/menu/
+ * @demo /docs/demos/src/menu/
  *
- * @see {@link /docs//components#menus Menu Component Docs}
+ * @see {@link /docs/components#menus Menu Component Docs}
  * @see {@link ../MenuController MenuController API Docs}
  * @see {@link ../../nav/Nav Nav API Docs}
  * @see {@link ../../../navigation/NavController NavController API Docs}

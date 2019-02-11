@@ -197,7 +197,7 @@ export var ToolbarBase = (function (_super) {
  * </ion-footer>
  *  ```
  *
- * @demo /docs//demos/src/toolbar/
+ * @demo /docs/demos/src/toolbar/
  * @see {@link ../../navbar/Navbar/ Navbar API Docs}
  */
 export var Toolbar = (function (_super) {

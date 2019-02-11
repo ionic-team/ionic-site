@@ -6,9 +6,9 @@ subid: tutorial
 title: Project Structure - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Learn the basics
-prev_page_link: /docs//intro/tutorial/
+prev_page_link: /docs/intro/tutorial/
 next_page_title: Adding Pages
-next_page_link: /docs//intro/tutorial/adding-pages
+next_page_link: /docs/intro/tutorial/adding-pages
 ---
 
 # Project Structure
@@ -59,9 +59,9 @@ them.
 
 Inside of the `src` directory we find our code. This is where most of
 the work for an Ionic app will take place. When we run `ionic serve`, our code
-inside of `src/` is [transpiled](/docs/resources/what-is/#transpiler) into the
+inside of `src/` is [transpiled](/docs/developer-resources/what-is/#transpiler) into the
 correct JavaScript version that the browser understands (currently
-[ES5](/docs/resources/what-is/#es5)). That means we can work at a higher level
+[ES5](/docs/developer-resources/what-is/#es5)). That means we can work at a higher level
 using TypeScript, but compile down to the older form of JavaScript the browser
 needs.
 
@@ -116,10 +116,10 @@ Here's the main template for the app in `src/app/app.html`:
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 ```
 
-In this template, we set up an [`ion-menu`](/docs//components/#menus) to
+In this template, we set up an [`ion-menu`](/docs/components/#menus) to
 function as a side menu, and then an [`ion-nav`](/docs/api/components/nav/Nav/)
 component to act as the main content area. The
-[`ion-menu`](/docs//components/#menus)'s `[content]` property is bound to the
+[`ion-menu`](/docs/components/#menus)'s `[content]` property is bound to the
 local variable `content` from our [`ion-nav`](/docs/api/components/nav/Nav/), so it
 knows where it should animate around.
 

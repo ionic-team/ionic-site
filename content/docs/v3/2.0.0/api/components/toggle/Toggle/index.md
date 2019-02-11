@@ -704,7 +704,7 @@ for more info on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#toggle'>Toggle Component Docs</a><!-- end content block -->
+<a href='/docs/components#toggle'>Toggle Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

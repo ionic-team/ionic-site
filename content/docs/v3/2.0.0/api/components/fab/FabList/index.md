@@ -468,7 +468,7 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#fab'>Fab Component Docs</a><!-- end content block -->
+<a href='/docs/components#fab'>Fab Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

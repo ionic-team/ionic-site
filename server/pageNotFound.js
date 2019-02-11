@@ -33,6 +33,10 @@ module.exports = {
       } else if (req.path.indexOf('/native/') && req.path.indexOf('%20')) {
         return res.redirect(301, req.path.replace('%20', '-') ) || true;
 
+        // remove erroneous double slashes 
+        } else if (req.path.indexOf('//')) {
+          return res.redirect(301, req.path.replace('//', '/') ) || true;
+
       } else if (urlParts[2].charAt(0) === '1') {
         // if v1 version is pruned, redirect to v1 latest
         urlParts[2] = '1.3.2';

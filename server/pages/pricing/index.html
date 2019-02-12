@@ -27,9 +27,9 @@
           Studio
         </div>
       </li>
-      <li class="rounded-tabs__tab" data-tab-content="enterprise-engine">
+      <li class="rounded-tabs__tab" data-tab-content="enterprise-edition">
         <div class="rounded-tabs__tab-inner">
-          Enterprise Engine
+          Enterprise Edition
         <div>
       </li>
     </ul>
@@ -41,8 +41,8 @@
   <section class="tab-content" id="content-studio">
     {% include './studio.html' %}
   </section>
-  <section class="tab-content" id="content-enterprise-engine">
-    {% include './enterprise-engine.html' %}
+  <section class="tab-content" id="content-enterprise-edition">
+    {% include './enterprise-edition.html' %}
   </section>
 
   {% include '../_includes/promos/tri-cta.html' %}
@@ -259,7 +259,10 @@
       document.getElementById('content-' + contentId).classList.add('tab-content--active');
     }
 
-    if (window.location.hash && ['#appflow', '#studio', '#enterprise-engine'].includes(window.location.hash)) {
+    if (window.location.hash && ['#appflow', '#studio', '#enterprise-edition', '#enterprise-engine'].includes(window.location.hash)) {
+      if (window.location.hash === '#enterprise-engine') { // redirect -engine to -edition
+        window.location.hash = '#enterprise-edition';
+      }
       var content = window.location.hash.replace('#', '');
       var tab = document.querySelector('[data-tab-content="' + content + '"]')
       selectTab(tab);

@@ -59,7 +59,7 @@ router: app => {
     res.render('enterprise/identity-vault'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
-  .get('/enterprise-engine', (_, res) => res.render('products/enterprise-engine'))
+  .get('/enterprise-edition', (_, res) => res.render('products/enterprise-edition'))
   .get('/framework', (_, res) => res.render('framework'))
   .get('/getting-started', (_, res) => res.render('getting-started'))
 

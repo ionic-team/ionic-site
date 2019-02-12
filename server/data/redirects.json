@@ -281,6 +281,7 @@
   "/docs/v2": "/docs/v3",
   "/docs/v3/developer-resources/progressive-web-apps/docs/v3/developer-resources/progressive-web-apps": "/docs/v3/developer-resources/progressive-web-apps",
   "/docs/wkwebview": "/docs/v3/wkwebview",
+  "/enterprise-engine": "/enterprise-edition",
   "/examples": "/docs/components",
   "/html5-input-types": "/docs/components",
   "/pricing/index.html": "/pricing",

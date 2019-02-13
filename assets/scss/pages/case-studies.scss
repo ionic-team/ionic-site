@@ -291,6 +291,12 @@
       max-width: 100%;
     }
 
+    pre, 
+    code {
+      border: none;
+      background: rgb(245, 247, 250);
+    }
+
     figure {
       width: 295px;
       float: right;

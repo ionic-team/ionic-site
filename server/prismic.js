@@ -38,6 +38,9 @@ function htmlSerializer (type, element, content, children) {
                          .replace(/\,+/g, '')
                          .toLowerCase();
       return `<h${level} id="${id}">${children.join('')}</h${level}>`;
+    
+    case Elements.preformatted: 
+      return `<pre><code>${children.join('')}</code></pre>`;
 
     // Return null to stick with the default behavior for all other elements
     default:

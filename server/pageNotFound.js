@@ -20,21 +20,20 @@ module.exports = {
       // v2/v3 redirects
       if (v3Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v3')) || true;
-
       // v1 pages
       } else if (v1Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v1')) || true;
 
       // native links might erroneosly contain capital letters
-      } else if (req.path.indexOf('/native/') && /[A-Z]/.test(req.path)) {
+      } else if (req.path.includes('/native/') && /[A-Z]/.test(req.path)) {
         return res.redirect(301, req.path.toLowerCase() ) || true;
 
       // native links might erroneosly contain dashes
-      } else if (req.path.indexOf('/native/') && req.path.indexOf('%20')) {
+      } else if (req.path.includes('/native/') && req.path.includes('%20')) {
         return res.redirect(301, req.path.replace('%20', '-') ) || true;
 
         // remove erroneous double slashes 
-        } else if (req.path.indexOf('//')) {
+        } else if (req.path.includes('//')) {
           return res.redirect(301, req.path.replace('//', '/') ) || true;
 
       } else if (urlParts[2].charAt(0) === '1') {

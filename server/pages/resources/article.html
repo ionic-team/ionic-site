@@ -81,19 +81,26 @@
 
   <div class="main-col">
     <div class="main-col__inner">
-      <hgroup>
-        <h1>{{ data.title }}</h1>
-        <p class="lg">{{ data.tagline }}</p>
-        <div class="byline">
-          {% for author in data.author %}
-            <img class="avatar"
-                 src="{{ author.photo.url }}"
-                 alt="{{ author.photo.alt }}"/>
-          {% endfor %}
-          By
-          {% for author in data.author %}
-            <a href="{{ author.author_url.url }}" class="name" target="_blank">
-            {{ author.name }}</a>{% if not loop.last %}, {% endif %}
+    <hgroup>
+      <h1>{{ data.title }}</h1>
+      <p class="lg">{{ data.tagline }}</p>
+      <div class="byline">
+        {% for author in data.author %}
+          <img class="avatar"
+               src="{{ author.photo.url }}"
+               alt="{{ author.photo.alt }}"/>
+        {% endfor %}
+        By
+        {% for author in data.author %}
+          <a href="{{ author.author_url.url }}" class="name" target="_blank">
+          {{ author.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        {% if data.published_date %}
+          on {{ data.published_date|date('MMMM D, YYYY') }}
+        {% endif %}
+        <ul class="tags">
+          {% for tag in data.tags %}
+            <li>{{ tag.tag }}</li>
           {% endfor %}
           on {{ data.author.published_date|date('MMMM D, YYYY') }}
           <ul class="tags">

@@ -1,5 +1,6 @@
 User-Agent: *
 Disallow: /docs//demos
+Disallow: /docs/pages/theming/color-generator
 Disallow: /docs/v3/demos/
 Disallow: /docs/v3/dist/
 Disallow: /present-ionic/slides/

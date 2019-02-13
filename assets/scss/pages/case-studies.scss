@@ -9,11 +9,6 @@
     font-size: 12px;
   }
 
-  hgroup,
-  main {
-    max-width: 978px;
-  }
-
   hgroup {
     margin-top: 24px;
     margin-bottom: 53px;
@@ -60,7 +55,7 @@
       font-size: 16px;
       letter-spacing: -0.02em;
       color: #92A1B3;
-      margin-bottom: 64px;
+      margin-bottom: 42px;
 
       .avatar {
         width: 28px;
@@ -105,7 +100,7 @@
   main {
     display: flex;
     overflow: visible;
-
+    padding-bottom: 100px;
     @media (max-width: $screen-xs-max) {
       flex-direction: column;
     }
@@ -119,7 +114,7 @@
   aside {
     flex: 0 1 210px;
     padding-right: 20px;
-    margin-bottom: 36px;
+    margin-bottom: 0;
     margin-top: 52px;
 
     h4 {
@@ -205,9 +200,25 @@
   }
 
   .main-col {
-    flex: 0 1 663px;
-    margin-left: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-col__inner {
     max-width: 663px;
+    margin-left: 40px;
+  }
+
+  @media (max-width: $screen-md-max) {
+    .main-col {
+      align-items: flex-end;
+    }
+
+    .main-col__inner {
+      margin-left: 0;
+    }
   }
 
   article {
@@ -318,17 +329,17 @@
   }
 
   .resource-list {
-    margin-bottom: 64px;
+    margin-bottom: 0;
 
     &__header {
       .all {
         float: right;
-  
+
         ion-icon {
           display: inline-block;
           transition: .2s transform ease;
         }
-  
+
         &:hover ion-icon {
           transform: translateX(2px);
         }
@@ -339,6 +350,16 @@
         font-size: 14px;
         letter-spacing: .12em;
       }
+    }
+
+    .resource-card-list {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .resource-card-list--third .resource-card {
+      padding: 5px;
+      height: 214px;
     }
 
     .resource-card-list--third .resource-card a .title {

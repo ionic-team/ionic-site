@@ -59,7 +59,7 @@ async function getOne(key, value, size = 10, ordering = '') {
 }
 
 module.exports = {
-  middleware: (req, res, next) => {
+  prismicMiddleware: (req, res, next) => {
     res.locals.ctx = {
       endpoint: PRISMIC_ENDPOINT,
       linkResolver,

@@ -95,7 +95,9 @@
           <a href="{{ author.author_url.url }}" class="name" target="_blank">
           {{ author.name }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %} 
-        on {{ data.author.published_date|date('MMMM D, YYYY') }}
+        {% if data.published_date %}
+          on {{ data.published_date|date('MMMM D, YYYY') }}
+        {% endif %}
         <ul class="tags">
           {% for tag in data.tags %}
             <li>{{ tag.tag }}</li>
@@ -157,7 +159,7 @@
     </section>
   </div>
 </main>
-{# <pre><code>{{ domain | dump(2) }}</code></pre> #}
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}
 
 {% block scripts %}

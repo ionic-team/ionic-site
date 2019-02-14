@@ -1,10 +1,10 @@
 const heroFeatured = [
   {
     category: "articles",
-    title: "Hybrid Vs. Native ebook",
+    title: "Hybrid vs. Native Ebook",
   }, {
-    category: "case-studies",
-    title: "Building the new Marketwatch app",
+    category: "articles",
+    title: "Why Hybrid",
   }, {
     category: "articles",
     title: "PWA Architects Guide",
@@ -18,13 +18,37 @@ const resources = {
     items: [
       {
         "type": "Article",
-        "title": "Hybrid Vs. Native ebook",
+        "title": "What is a UI Component Library",
+        "url": "/resources/articles/what-is-a-ui-component-library",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
+        "bgColor": "#F78760"
+      },{
+        "type": "Article",
+        "title": "What is Hybrid App Development",
+        "url": "/resources/articles/what-is-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatishybrid.png",
+        "bgColor": "#E85B6A"
+      },{
+        "type": "Article",
+        "title": "Ionic vs. React Native: A Comparison Guide",
+        "url": "/resources/articles/ionic-vs-react-native-a-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionicvsreactnative.png",
+        "bgColor": "#72B8FF"
+      },{
+        "type": "Whitepaper",
+        "title": "Hybrid vs. Native Ebook",
         "url": "/books/hybrid-vs-native",
         "action": "Read",
         "bgImage": "/img/resource-center/article-hybrid-native.jpg",
         "bgColor": "#3b69f1"
       }, {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "PWA Architects Guide",
         "url": "/articles/pwa-architects-guide",
         "action": "Read",
@@ -38,7 +62,7 @@ const resources = {
         "bgImage": "/img/resource-center/dev-survey-19-card.png",
         "bgColor": "#67a6eb"
       }, {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "Why Hybrid",
         "url": "/articles/why-hybrid",
         "action": "Read",
@@ -51,27 +75,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-mobile-gap.jpg",
         "bgColor": "#56d995"
-      }, {
-        "type": "Article",
-        "title": "The Amazing Evolution of the Web on Mobile",
-        "url": "https://blog.ionicframework.com/the-amazing-evolution-of-the-web-on-mobile/",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-amazing-evolution.jpg",
-        "bgColor": "#1a2c48"
-      }, {
-        "type": "Article",
-        "title": "Ionic Native: Native Powers for Your App",
-        "url": "https://blog.ionicframework.com/ionic-native-native-powers-for-your-app/",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-native-powers.jpg",
-        "bgColor": "#3c286d"
-      }, {
-        "type": "Article",
-        "title": "Ionic for Enterprise",
-        "url": "https://ionicframework.com/files/Ionic_Enterprise_SB_2018.pdf",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-ionicforenterprise.jpg",
-        "bgColor": "#f8926b"
       }, {
         "type": "Article",
         "title": "2017 Developer Survey",

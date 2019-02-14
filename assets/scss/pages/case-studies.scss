@@ -222,6 +222,7 @@
   }
 
   .main-col__inner {
+    width: 100%;
     max-width: 663px;
     margin-left: 40px;
   }
@@ -400,6 +401,8 @@
         margin-top: 13px;
       }
 
+
+
       @media (max-width: $screen-xs-max) {
         margin-right: 0;
         margin-left: 32px;
@@ -412,6 +415,28 @@
 
       @media (max-width: $screen-xs-min) {
         width: 100%;
+      }
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-right: -15px;
+      padding-right: 15px;
+      box-sizing: content-box;
+      font-size: 13px;
+
+      td,
+      th {
+        min-width: 120px;
+        padding-right: 12px;
+      }
+
+      table tbody tr td {
+        border-top-color: #DEE3EA;
+      }
+      table > thead > tr > th {
+        border-bottom-color: #E9EDF3;
+        font-weight: 600;
       }
     }
   }

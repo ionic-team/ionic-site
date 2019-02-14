@@ -86,6 +86,14 @@
             {{ PrismicDOM.RichText.asHtml(group.primary.content, null, ctx.htmlSerializer) }}
           {% endif %}
 
+          {% if group.slice_type == 'raw_html' %}
+            <div class="table-wrap">
+              {% for c in group.primary['html_content'] %}
+                {{ c.text }}
+              {% endfor %}
+            </div>
+          {% endif %}
+
           {% if group.slice_type == 'quote' %}
             <blockquote>
               {{ PrismicDOM.RichText.asHtml(group.primary.quote) }}

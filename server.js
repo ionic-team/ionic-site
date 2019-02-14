@@ -14,7 +14,7 @@ const { handleNotFound } = require('./server/pageNotFound');
 const processRequest     = require('./server/processRequest');
 const { router }         = require('./server/router');
 const tools              = require('./server/tools');
-const prismicUtil        = require('./server/prismic');
+const { prismicMiddleware }     = require('./server/prismic');
 
 const { 
   DOCS_URL, 
@@ -82,7 +82,7 @@ function start() {
   
   app.use(processRequest);
   app.use(docsPath, docsProxy);
-  app.use(prismicUtil.middleware);
+  app.use(prismicMiddleware);
   
   app.set('views', __dirname + '/server/pages');
   expressNunjucks(app, {

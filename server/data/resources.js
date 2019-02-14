@@ -231,21 +231,24 @@ const resources = {
       }, {
         "type": "Webinar",
         "title": "Live app updates with Ionic Deploy",
-        "url": "https://www.youtube.com/watch?v=I7PC3O4q1ug",
+        "target": "_self",
+        "url": "/resources/webinars/continuous-deployment-live-updates-with-ionic-deploy",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-deploy.jpg",
         "bgColor": "#272d63"
       }, {
         "type": "Webinar",
         "title": "Building iOS and Android binaries with Ionic Package",
-        "url": "https://ionicpro.wistia.com/medias/7dboe4v9x8",
+        "target": "_self",
+        "url": "/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-ionicpackage.jpg",
         "bgColor": "#f8926b"
       }, {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
-        "url": "https://www.youtube.com/watch?v=zuHkqGocOqE&feature=youtu.be",
+        "target": "_self",
+        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"
@@ -266,7 +269,8 @@ const resources = {
       }, {
         "type": "Webinar",
         "title": "How SWORKIT is driving growth with PWAs and Ionic",
-        "url": "https://ionicpro.wistia.com/medias/05b54g640s",
+        "target": "_self",
+        "url": "/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-sworkit.jpg",
         "bgColor": "#b396ec"

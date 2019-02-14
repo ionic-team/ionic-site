@@ -3,8 +3,8 @@
 {% set cssPath = 'case-studies' %}
 {% set header_style = 'transparent light' %}
 {% set title = 'Ionic Article: ' + data.title %}
-{% set meta_description = data.description %}
-{% set meta_image = data.hero_image['1x'].url %}
+{% set meta_description = data.meta_description.url or data.description %}
+{% set meta_image = data.meta_image.url or data.hero_image['1x'].url %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
 

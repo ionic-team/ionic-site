@@ -102,12 +102,7 @@
           {% for tag in data.tags %}
             <li>{{ tag.tag }}</li>
           {% endfor %}
-          on {{ data.author.published_date|date('MMMM D, YYYY') }}
-          <ul class="tags">
-            {% for tag in data.tags %}
-              <li>{{ tag.tag }}</li>
-            {% endfor %}
-          </ul>
+        </ul>
         </div>
         <img src="{{data.hero_image.url}}"
              srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"

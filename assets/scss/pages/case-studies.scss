@@ -60,7 +60,7 @@
       .avatar {
         width: 28px;
         height: 28px;
-        margin: 0;
+        margin: 0 8px 0 0;
         border-radius: 50%;
         display: inline-block;
       }
@@ -248,7 +248,7 @@
 
     h2 {
       font-size: 30px;
-      margin-top: 1.65em;
+      margin-top: 2.65em;
       font-weight: 600;
     }
 
@@ -363,7 +363,7 @@
       max-width: 100%;
     }
 
-    pre, 
+    pre,
     code {
       border: none;
       background: rgb(245, 247, 250);

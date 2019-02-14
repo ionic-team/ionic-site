@@ -98,35 +98,40 @@ const resources = {
       {
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
-        "url": "/case-studies/MarketWatch.pdf",
+        "url": "/resources/case-studies/marketwatch",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
         "bgColor": "#000000"
       }, {
         "type": "Case Study",
         "title": "Napa Group speeds up development",
-        "url": "/files/NapaGroup_CS_05.pdf",
+        "url": "/resources/case-studies/napa-group-llc",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-napa.jpg",
         "bgColor": "#7479e4"
       }, {
         "type": "Case Study",
         "title": "Why the world's largest healthcare provider chose Ionic",
-        "url": "/files/Ionic_NHS_Case_Study.pdf",
+        "url": "/resources/case-studies/national-health-service",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-nhs.jpg",
         "bgColor": "#0163ac"
       }, {
         "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",
-        "url": "/case-studies/Sworkit.pdf",
+        "url": "/resources/case-studies/sworkit",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sworkit.jpg",
         "bgColor": "#fbb363"
       }, {
         "type": "Case Study",
         "title": "Airbus takes to the skies with Ionic",
-        "url": "/files/Airbus_Case_Study.pdf",
+        "url": "/resources/case-studies/airbus-helicopter",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-airbus-helicopter.jpg",
         "bgColor": "#4466d6"
@@ -142,21 +147,24 @@ const resources = {
       {
         "type": "Case Study",
         "title": "Sense Corp accelerates the app lifecycle with Ionic",
-        "url": "https://ionicframework.com/files/SenseCorp_CS_04.pdf",
+        "url": "/resources/case-studies/sense-corp",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sensecorp.jpg",
         "bgColor": "#394a6f"
       }, {
         "type": "Case Study",
         "title": "Interactive Gaming Company removes development roadblocks with Ionic",
-        "url": "https://ionicframework.com/files/Anonymous_CS_02.pdf",
+        "url": "/resources/case-studies/interactive-gaming-company",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-interactivegaming.jpg",
         "bgColor": "#535582"
       }, {
         "type": "Case Study",
         "title": "Pacifica dives into hybrid development with Ionic",
-        "url": "https://ionicframework.com/case-studies/Pacifica.pdf",
+        "url": "/resources/case-studies/pacifica",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-pacifica.jpg",
         "bgColor": "#044d63"

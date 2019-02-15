@@ -29,7 +29,7 @@
             {% for section in group.primary.content %}
               {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
                 <li>
-                  <a href="#{{ section.text | lower | replace(' ', '-' ) | replace(',', '' )  }}"
+                  <a href="#{{ section.text | lower | replace(r/ /g, '-') | replace(r/([^a-z\-])/g, '') }}"
                      class="anchor nav-link"
                      data-offset="100">{{ section.text }}</a>
                 </li>

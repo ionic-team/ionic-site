@@ -18,6 +18,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Evaluating Ionic for Enterprise Development",
+        "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
+        "bgColor": "#4570E7"
+      },{
+        "type": "Article",
         "title": "What is a UI Component Library",
         "url": "/resources/articles/what-is-a-ui-component-library",
         "target": "_self",

@@ -1,0 +1,36 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'thank-you' %}
+{% set cssPath = 'thank-you' %}
+
+{% set header_style = 'transparent light' %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+
+<main class="container">
+  <div class="content">
+    <h1>
+      Thank you for downloading <strong>Why Hybrid</strong>
+    </h1>
+    <p class="lg">It should be in your inbox waiting for you!</p>
+    <p>
+      Have questions on how hybrid fits into your app strategy or How to get
+      started building for your organization? One of our app strategist would
+      love to work with you.
+    </p>
+    <a class="btn" href="/strategysession">Book a Strategy Session</a>
+  </div>
+</main>
+
+<div class="company">
+  <h2>
+    <strong>You’re in good company.</strong> Ionic powers millions of apps
+    at some of the smartest companies around the world.
+  </h2>
+  <div class="logos"></div>
+</div>
+
+{% endblock %}

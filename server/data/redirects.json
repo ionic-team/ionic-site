@@ -292,6 +292,7 @@
   "/pro/creator": "/creator",
   "/pro/creator/pricing": "/creator/pricing",
   "/pro/creator/support": "/creator/support",
+  "/pro/monitor": "/appflow",
   "/pro/monitoring": "/appflow",
   "/pro/pricing": "/pricing",
   "/pro/view": "https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/",

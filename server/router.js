@@ -116,7 +116,8 @@ router: app => {
   .get('/survey/2018', (_, res) => res.render('survey/2018'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
-  .get('/thank-you', (_, res) => res.render('thank-you'))
+  .get('/thank-you/:thankYou', (req, res, next) =>
+    getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 
   .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
   .post('/trusted-partners',

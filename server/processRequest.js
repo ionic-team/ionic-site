@@ -57,6 +57,8 @@ module.exports = {
       return res.redirect(301, redirects[requrl]);
     }
 
+    res.locals.requrl = requrl;
+
     // don't index non production URLs, but favor HTTPS
     res.locals.protocol = 'https';
     if (req.hostname.indexOf('ionicframework.com') == -1) {

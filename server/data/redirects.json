@@ -307,6 +307,7 @@
   "/pro/teams": "/pricing",
   "/resource-center": "/resources",
   "/search": "/",
+  "/showcase": "https://showcase.ionicframework.com",
   "/submit-issue": "https://github.com/ionic-team/ionic/issues",
   "/support/request": "https://ionic.zendesk.com/hc/en-us/requests/new",
   "/unsubscribe": "https://hs-3776657.s.hubspotemail.net/hs/manage-preferences/unsubscribe"

@@ -29,7 +29,6 @@ router: app => {
 
   // normal pages
   .get('/', (_, res) => res.render('index'))
-  .get('/home', (_, res) => res.render('index'))
 
   .get('/about', (_, res) => res.render('about'))
   .get('/appflow', (_, res) => res.render('products/appflow'))

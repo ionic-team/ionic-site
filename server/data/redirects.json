@@ -283,6 +283,7 @@
   "/docs/wkwebview": "/docs/v3/wkwebview",
   "/enterprise-engine": "/enterprise-edition",
   "/examples": "/docs/components",
+  "/home": "/",
   "/html5-input-types": "/docs/components",
   "/pricing/index.html": "/pricing",
   "/pricing/index2.html": "/pricing",

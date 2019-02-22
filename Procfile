@@ -1,1 +1,1 @@
-web: node server.js
+web: bin/start-nginx node server.js

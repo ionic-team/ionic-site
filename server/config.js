@@ -1,11 +1,9 @@
 module.exports = {
 
   // Services
-  PORT: int(process.env.PORT) || 3000,
+  PORT: process.env.DYNO ? '/tmp/nginx.socket' : int(process.env.PORT) || 3000,
   PROD: bool(process.env.PROD) || false,
   WEB_CONCURRENCY: int(process.env.WEB_CONCURRENCY) || 1,
-
-  DOCS_URL: process.env.DOCS_URL || 'https://ionic-docs.herokuapp.com',
 
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,

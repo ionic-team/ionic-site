@@ -18,6 +18,8 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
 3. Run `gulp watch` (after the first run, this is the only step needed)
 
+It is also possible to run a production-like Nginx server which includes additional redirects and a reverse proxy of [Ionic Docs](https://github.com/ionic-team/ionic-docs) using `npm run server`.
+
 
 ## CI Explanation
 

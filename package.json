@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp build.clean",
     "dev": "gulp watch",
+    "server": "./scripts/server.sh",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
     "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep",
     "stencil-build": "stencil build",

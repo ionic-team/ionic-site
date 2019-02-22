@@ -113,9 +113,10 @@ function start() {
   app.use(handleNotFound);
   
   // bind the app to listen for connections on a specified port
-  app.listen(PORT, function() {
+  const server = app.listen(PORT, function() {
     // Render some console log output
     console.log('Listening on port ' + PORT);
     tools.bustCloudflareCache();
   });
+  server.setTimeout(25) // timeout after 25 seconds
 } // end start()

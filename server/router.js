@@ -29,7 +29,6 @@ router: app => {
 
   // normal pages
   .get('/', (_, res) => res.render('index'))
-  .get('/home', (_, res) => res.render('index'))
 
   .get('/about', (_, res) => res.render('about'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
@@ -116,6 +115,8 @@ router: app => {
   .get('/survey/2018', (_, res) => res.render('survey/2018'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
+  .get('/thank-you/:thankYou', (req, res, next) =>
+    getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 
   .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
   .post('/trusted-partners',

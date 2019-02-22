@@ -11,10 +11,15 @@ const Sentry             = require('@sentry/node');
 const throng             = require('throng');
 
 const { handleNotFound } = require('./server/pageNotFound');
-const processRequest     = require('./server/processRequest');
 const { router }         = require('./server/router');
 const tools              = require('./server/tools');
-const { prismicMiddleware }     = require('./server/prismic');
+const { 
+  checkForRedirects, 
+  loadLocalVars
+}                        = require('./server/processRequest');
+const { 
+  prismicMiddleware 
+}                        = require('./server/prismic');
 
 const { 
   DOCS_URL, 
@@ -80,9 +85,16 @@ function start() {
   app.use(helmet());
   app.enable('etag');
   
-  app.use(processRequest);
+  app.use(checkForRedirects);
   app.use(docsPath, docsProxy);
   app.use(prismicMiddleware);
+
+  // check if this is a valid static file
+  app.use(express.static(process.env.PWD + '/_site/', {
+    etag: true
+  }));
+
+  app.use(loadLocalVars);
   
   app.set('views', __dirname + '/server/pages');
   expressNunjucks(app, {
@@ -94,10 +106,6 @@ function start() {
   });
   
   app.use(router(app));
-  
-  app.use(express.static(process.env.PWD + '/_site/', {
-    etag: true
-  }));
   
   // The Sentry error handler must be before any other error middleware
   app.use(Sentry.Handlers.errorHandler());

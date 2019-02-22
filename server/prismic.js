@@ -6,17 +6,19 @@ const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
 function linkResolver(doc) {
   // Define the url depending on the document type
-  if (doc.type === 'webinar') {
-    return '/resources/webinars/' + doc.uid;
-  } else if (doc.type === 'article') {
+  if (doc.type === 'article') {
     return '/resources/articles/' + doc.uid;
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
-  } else if (doc.type === 'integration') {
-    return '/integrations/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
-  }
+  } else if (doc.type === 'integration') {
+    return '/integrations/' + doc.uid;
+  } else if (doc.type === 'thank_you') {
+    return '/thank-you/' + doc.uid;
+  }else if (doc.type === 'webinar') {
+    return '/resources/webinars/' + doc.uid;
+  }  
 
   // Default to homepage
   return '/';

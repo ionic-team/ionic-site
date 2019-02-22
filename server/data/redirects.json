@@ -283,6 +283,7 @@
   "/docs/wkwebview": "/docs/v3/wkwebview",
   "/enterprise-engine": "/enterprise-edition",
   "/examples": "/docs/components",
+  "/home": "/",
   "/html5-input-types": "/docs/components",
   "/pricing/index.html": "/pricing",
   "/pricing/index2.html": "/pricing",
@@ -292,6 +293,7 @@
   "/pro/creator": "/creator",
   "/pro/creator/pricing": "/creator/pricing",
   "/pro/creator/support": "/creator/support",
+  "/pro/monitor": "/appflow",
   "/pro/monitoring": "/appflow",
   "/pro/pricing": "/pricing",
   "/pro/view": "https://blog.ionicframework.com/ionic-view-sunsetting-on-9-1-18/",
@@ -305,6 +307,7 @@
   "/pro/teams": "/pricing",
   "/resource-center": "/resources",
   "/search": "/",
+  "/showcase": "https://showcase.ionicframework.com",
   "/submit-issue": "https://github.com/ionic-team/ionic/issues",
   "/support/request": "https://ionic.zendesk.com/hc/en-us/requests/new",
   "/unsubscribe": "https://hs-3776657.s.hubspotemail.net/hs/manage-preferences/unsubscribe"

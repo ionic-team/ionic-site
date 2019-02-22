@@ -1,0 +1,33 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'thank-you' %}
+{% set cssPath = 'thank-you' %}
+
+{% set header_style = 'transparent light' %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+
+<main class="container">
+  <div class="content">
+    <h1> {{data.title}} </h1>
+    {{ PrismicDOM.RichText.asHtml(data.paragraph_text) }}
+    <a class="btn" 
+       href="{{data.link_url.url}}" 
+       target="{{data.link_url.target}}">
+      {{data.link_text}}</a>
+  </div>
+</main>
+
+<div class="company">
+  <h2>
+    <strong>You’re in good company.</strong> Ionic powers millions of apps
+    at some of the smartest companies around the world.
+  </h2>
+  <div class="logos"></div>
+</div>
+
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+{% endblock %}

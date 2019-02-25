@@ -33,73 +33,175 @@
     }
   }
 
+  main {
+    overflow: visible;
+    position: relative;
+  }
+
   main ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
 
-  .top {
-    margin-top: -148px;
-    padding-top: 260px;
-    padding-bottom: 180px;
-    background: #182434;
-    position: relative;
-    z-index: 0;
+  .page-nav {
+    display: flex;
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    margin-top: -40px;
+    padding-top: 8px;
+    z-index: 999999;
 
+    &__inner {
+      background: #fff;
+      box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.03), 0px 8px 16px rgba(2, 8, 20, 0.04);
+      border-radius: 8px;
+      max-width: 972px;
+      width: 100%;
 
-    &:before {
+      ul {
+        display: flex;
+      }
+
+      li {
+        flex: 1;
+        display: inline-block;
+      }
+
+      li + li {
+        border-left: 1px solid #E9EDF3;
+      }
+
+      a {
+        transition: 0.3s all;
+        width: 100%;
+        height: 100%;
+        transition: color 0.2s;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 40px 16px;
+        color: #4E5B6A;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-family: $font-family-eina;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+      }
+
+      a:hover,
+      a.active {
+        color: #000;
+      }
+
+      a.active {
+        border-bottom: 2px solid #FF9982;
+      }
+    }
+
+    &.active .page-nav__inner a:not(.active) {
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .page-nav__icon {
+    display: inline-flex;
+
+    &::before {
       content: '';
       display: block;
-      background-image: url('/img/products/enterprise-engine/enterprise-engine-hero-bg.png');
+      flex: 0 0 29px;
+      height: 29px;
+      background-image: url('/img/products/enterprise-engine/enterprise-engine-nav-sprite.png');
       background-repeat: no-repeat;
-      background-size: 1096px 760px;
-      width: 1096px;
-      height: 760px;
-      position: absolute;
-      bottom: 0;
-      right: 50%;
-      margin-right: -820px;
-      z-index: 1;
+      background-size: 29px 116px;
+      margin-right: 16px;
+      position: relative;
+      top: -3px;
     }
+
+    &--framework::before {
+      background-position: 0 0;
+    }
+    &--native::before {
+      background-position: 0 -29px;
+    }
+    &--solutions::before {
+      background-position: 0 -58px;
+    }
+    &--services::before {
+      background-position: 0 -87px;
+    }
+  }
+
+  .top {
+    margin-top: -218px;
+    padding-top: 272px;
+    padding-bottom: 138px;
+    background: #F8FAFD;
+    position: relative;
+    z-index: 0;
+    background-image: url('/img/products/enterprise-engine/enterprise-engine-hero-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
 
     hgroup {
       position: relative;
       z-index: 2;
-      color: #fff;
-      max-width: 624px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       h4 {
         line-height: 25px;
         font-size: 12px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #CED6E0;
+        color: #5B708B;
         font-family: $font-family-monospace;
+        margin-bottom: 0;
       }
 
       h1 {
-        font-size: 48px;
+        line-height: 60px;
+        font-size: 54px;
         letter-spacing: -0.03em;
+        color: #000000;
+        max-width: 420px;
+        margin-top: 14px;
       }
 
       p {
-        line-height: 39px;
-        font-size: 22px;
-        color: #CED6E0;
+        font-size: 20px;
+        color: #5B708B;
+        line-height: 30px;
+        margin: 0;
+        max-width: 520px;
       }
 
       .btn {
         margin-top: 24px;
-        color: #182434;
-        background-color: #FF9982;
+        color: #fff;
+        background: #3880FF;
+        box-shadow: 0px 0px 2px rgba(0, 20, 56, 0.14), 0px 2px 3px rgba(0, 20, 56, 0.08);
+        border-radius: 84px;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 0.06em;
         padding: 19px 25px 16px;
 
         &:hover {
-          background-color: lighten(#FF9982, 8%);
+          background-color: lighten(#3880FF, 2%);
         }
       }
 

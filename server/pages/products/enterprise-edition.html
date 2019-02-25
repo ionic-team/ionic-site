@@ -3,358 +3,401 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/products-ee-og.png' %}
 {% set meta_description = "Ionic Enterprise Edition is a trusted foundation and full-stack solution to build and power your company's mission-critical, enterprise apps that impact digital transformation." %}
 {% set id = 'products-enterprise-engine' %}
-{% set header_style = 'transparent products-page' %}
-{% set stickyNav = true %}
-{% set cssPath = 'products/enterprise-engine' %}
+{% set header_style = 'transparent light' %}
+{% set stickyNav = false %}
+{% set cssPath = 'products/enterprise-edition' %}
 {% set pre_footer = false %}
 
 {% block main %}
 
 <svg style="display: none;"></svg>
 
-<div class="sub-header">
-  <div class="container">
-    <ul class="left breadcrumbs">
-      <li>Ionic Enterprise Edition</li>
-    </ul>
-    <ul class="right">
-      <li>
-        <a class="btn dark rounded xs uppercase cta-link" id="btn-enterprise-engine-subheader-buy">Get Started</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
 <div class="top">
   <div class="container">
     <hgroup class="measure">
       <h4>Ionic Enterprise Edition</h4>
-      <h1>A trusted foundation for enterprise app development.</h1>
-      <p>
-        Ionic Enterprise Edition is the leading open source-based alternative to proprietary mobile development. Fully stable, and backed by Ionic’s world-class support and engineering teams.      </p>
-      <a href="#" class="btn uppercase rounded cta-link" id="btn-enterprise-engine-hero-buy">Get Started</a>
+      <h1>The best way to build with Ionic.</h1>
+      <p>Accelerate your app development efforts to power through your toughest delivery challenges. Optimized for the enterprise. Backed by Ionic Experts.</p>
+      <a href="#" class="btn uppercase rounded cta-link" id="btn-enterprise-engine-hero-buy">Chat with us</a>
     </hgroup>
   </div>
 </div>
 
 <main>
-  <section>
-    <div class="container">
-      <ul class="feature-list feature-list--small three-col">
-        <li>
-          <i class="feature-icon feature-icon--go-to-market"></i>
-          <hgroup>
-            <h4>Go to market faster with beautiful, lightning fast apps.</h4>
-            <p>Dramatically speed up the development cycle by enabling your development team to build apps once using web components across any platform, mobile and desktop.</p>
-          </hgroup>
-        </li>
-        <li>
-          <i class="feature-icon feature-icon--cross-platform"></i>
-          <hgroup>
-            <h4>Built once, optimized everywhere. Native & web. Mobile & desktop.</h4>
-            <p>Give users the best of mobile and desktop with cross-platform apps that run and look beautiful on any platform or device—all from a single, shared codebase.</p>
-          </hgroup>
-        </li>
-        <li>
-          <i class="feature-icon feature-icon--future-proofed"></i>
-          <hgroup>
-            <h4>Future-proofed apps, backed by world-class support</h4>
-            <p>Keep the apps you build today, tomorrow, and for years ahead. Ionic helps you navigate the future at every level of the stack, from front-end UI to backend.</p>
-          </hgroup>
-        </li>
-      </ul>
-
-      <div class="logos">
-        <div class="logo logo--aaa"></div>
-        <div class="logo logo--amtrak"></div>
-        <div class="logo logo--ge"></div>
-        <div class="logo logo--worldpay"></div>
-        <div class="logo logo--mapfre"></div>
+  <div class="page-nav-wrap">
+    <div class="page-nav">
+      <div class="page-nav__inner">
+        <ul>
+          <li>
+            <a href="#front-end-framework" class="page-nav__link page-nav__icon page-nav__icon--framework">
+              Front-end <br/> Framework
+            </a>
+          </li>
+          <li>
+            <a href="#native-device-features" class="page-nav__link page-nav__icon page-nav__icon--native">
+              Native Device <br/> Features
+            </a>
+          </li>
+          <li>
+            <a href="#pre-built-solutions" class="page-nav__link page-nav__icon page-nav__icon--solutions">
+              Pre-built <br/> Solutions
+            </a>
+          </li>
+          <li>
+            <a href="#expert-services" class="page-nav__link page-nav__icon page-nav__icon--services">
+              Expert <br/> Services
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <section>
-    <div class="container">
-      <hgroup class="measure">
-        <h3>Everything you need.</h3>
-        <h2>From front to back.</h2>
-        <p class="large"><em>Ionic Enterprise Edition</em> is a full-stack solution, powering the mission-critical apps that keep your business running.</p>
-      </hgroup>
-      <table class="feature-table">
-
-        <tr>
-          <td>
-            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 29.0002C13 29.0002 25 23.4002 25 15.0002V5.20024L13 1.00024L1 5.20024V15.0002C1 23.4002 13 29.0002 13 29.0002Z" fill="#E9EDF3"/>
-              <path d="M13 21.3C13 21.3 19 18.5 19 14.3V9.40005L13 7.30005L7 9.40005V14.3C7 18.5 13 21.3 13 21.3Z" stroke="#92A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M13 29.0002C13 29.0002 25 23.4002 25 15.0002V5.20024L13 1.00024L1 5.20024V15.0002C1 23.4002 13 29.0002 13 29.0002Z" stroke="#5B708B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Security
-          </td>
-          <td>A stable, consistent core for front-end app development.</td>
-          <td>
-            <ul class="checkmark-list">
-              <li>Active, ongoing maintenance for the latest stable version of Ionic Framework Enterprise Core.</li>
-              <li>Long-term support for previous versions for up to 5 years.</li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12.0002" r="7" fill="#E9EDF3"/>
-              <path d="M21.6 12.0002C21.6 17.2801 17.2798 21.6002 12 21.6002C6.72017 21.6002 2.4 17.2801 2.4 12.0002C2.4 6.72036 6.72012 2.40024 12 2.40024C12.9 2.40024 13.8 2.52036 14.6402 2.7603L16.5 0.900244C15.1201 0.300244 13.6201 0.000244141 12 0.000244141C5.4 0.000244141 0 5.40024 0 12.0002C0 18.6002 5.4 24.0002 12 24.0002C18.6 24.0002 24 18.6002 24 12.0002H21.6Z" fill="#73849A"/>
-              <path d="M7.45529 11.0964L9.00001 9.5L11.9655 12.3703L20.2407 4.34834C20.4391 4.15601 20.7559 4.16107 20.948 4.35965L22.1447 5.59639L12.3196 15.2718C12.1237 15.4647 11.8088 15.4632 11.6147 15.2685L7.45529 11.0964Z" fill="#92A1B3"/>
-            </svg>
-            Reliability
-          </td>
-          <td>The native features you need, on the platforms you care about.</td>
-          <td>
-            <ul class="checkmark-list">
-              <li>A complete ecosystem of stable, supported Cordova native plugins, tooling, and platforms.</li>
-              <li>Guaranteed compatibility with OS versions, devices, browsers, and tooling.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.3333 1.00024L1 17.8002H13L11.6667 29.0002L25 12.2002H13L14.3333 1.00024Z" fill="#E9EDF3"/>
-              <path d="M14.3333 1.00024L1 17.8002H13L11.6667 29.0002L25 12.2002H13L14.3333 1.00024Z" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.28935 24.6142C9.62842 24.1782 9.54989 23.55 9.11394 23.2109C8.67799 22.8718 8.04972 22.9504 7.71065 23.3863L9.28935 24.6142ZM4.21065 27.8863C3.87158 28.3223 3.95011 28.9505 4.38606 29.2896C4.82201 29.6287 5.45028 29.5501 5.78935 29.1142L4.21065 27.8863ZM7.71065 23.3863L4.21065 27.8863L5.78935 29.1142L9.28935 24.6142L7.71065 23.3863Z" fill="#B2BECD"/>
-              <path d="M4.24254 22.9704C4.77833 22.8364 5.10409 22.2935 4.97014 21.7577C4.83619 21.2219 4.29326 20.8962 3.75746 21.0301L4.24254 22.9704ZM1.75746 21.5301C1.22167 21.6641 0.895909 22.207 1.02986 22.7428C1.16381 23.2786 1.70674 23.6043 2.24254 23.4704L1.75746 21.5301ZM3.75746 21.0301L1.75746 21.5301L2.24254 23.4704L4.24254 22.9704L3.75746 21.0301Z" fill="#B2BECD"/>
-              <path d="M19 7.00024L23 3.50024" stroke="#B2BECD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Power
-          </td>
-          <td>Powerful native add-ons, from biometric authentication to offline storage solutions.</td>
-          <td>
-            <ul class="checkmark-list">
-              <li>
-                <div>
-                  Premier native experiences and integrations built and supported by Ionic, including:
-                  <ul>
-                    <li>
-                      <span>Secure biometrics with <a href="/enterprise/identity-vault">Identity Vault</a></span>
-                    </li>
-                    <li>
-                      Offline storage with Couchbase
-                    </li>
-                    <li>
-                      Authentication with Active Directory
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 1.00024L1 7.00024L13 13.0002L25 7.00024L13 1.00024Z" fill="#E9EDF3"/>
-              <path d="M13 1.00024L1 7.00024L13 13.0002L25 7.00024L13 1.00024Z" stroke="#5B708B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M1 19.0002L13 25.0002L25 19.0002" stroke="#CED6E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M1 13.0002L13 19.0002L25 13.0002" stroke="#92A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Flexibility
-          </td>
-          <td>Freedom to build and deploy when and how you want.</td>
-          <td>
-            <ul class="checkmark-list">
-              <li>Based on open web standards—no lock in.</li>
-              <li>Native feature support for iOS, Android, Electron, PWAs, and more.</li>
-              <li>Integrates with tools and frameworks you already use, from Angular to React and beyond.</li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" fill="#E9EDF3"/>
-              <path d="M4.51599 4.51587L9.60399 9.60387" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16.396 16.3962L21.484 21.4842" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16.396 9.60387L21.484 4.51587" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16.396 9.60416L20.632 5.36816" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4.51599 21.4842L9.60399 16.3962" stroke="#73849A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke="#5B708B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M13 17.8C15.651 17.8 17.8 15.6509 17.8 13C17.8 10.349 15.651 8.19995 13 8.19995C10.349 8.19995 8.20001 10.349 8.20001 13C8.20001 15.6509 10.349 17.8 13 17.8Z" fill="white" stroke="#92A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Support
-          </td>
-          <td>Backed by world-class support and engineering teams.</td>
-          <td>
-            <ul class="checkmark-list">
-              <li>A single point of contact for any questions or issues related to Ionic.</li>
-              <li>Self-service ticketing access portal.</li>
-              <li>Guaranteed next business day response SLA.</li>
-              <li>Access to custom Training and Advisory Services.</li>
-            </ul>
-          </td>
-        </tr>
-
-      </table>
-    </div>
-  </section>
-
-  <section class="offwhite">
-    <div class="container">
-      <hgroup class="center">
-        <h3>Peace of mind.</h3>
-        <h2>Support that lets you build confidently.</h2>
-      </hgroup>
-      <ul class="checkmark-list large two-col">
-        <li>Guaranteed backwards-compatible bug fixes and critical security patches</li>
-        <li>Reliable, next business day response time guaranteed for critical issues</li>
-        <li>Option to purchase extended license for 3+ years beyond basic offering</li>
-        <li>Guaranteed support for major EE version for 3 years from release, with options to extend to 5</li>
-        <li>Options to upgrade to newer Enterprise Edition versions at any time</li>
-        <li>Available add-on support for custom and non-supported EE native plugins</li>
-        <li>Optimizations and integrations for enterprise-specific use cases and stability</li>
-        <li>Full documentation, tutorials, and videos for learning and training support</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="two-col">
-        <div class="integrations">
-          <a class="integrations__identity-vault">
-            <i></i>
-            Identity Vault
-          </a>
-          <a class="integrations__aws-amplify">
-            <i></i>
-            AWS Amplify
-          </a>
-          <a class="integrations__couchbase">
-            <i></i>
-            Couchbase
-          </a>
-          <a class="integrations__active-directory">
-            <i></i>
-            Active Directory
-          </a>
+    <section>
+      <div class="container">
+        <div class="col">
+          <h3>Ionic Enterprise Edition empowers your app development teams with everything they need to deliver the mission-critical apps that keep your business running.</h3>
+          <ul>
+            <li>Panera</li>
+            <li>GE</li>
+            <li>IBM</li>
+            <li>Target</li>
+            <li>Mastercard</li>
+          </ul>
         </div>
-        <div>
-          <hgroup>
-            <h3>Unleashed native potential.</h3>
-            <h2>Integrations to take you further.</h2>
-          </hgroup>
-          <ul class="feature-list">
+        <div class="col">
+          <div class="chart">
+            <h5>What you get</h5>
+            <div class="box">
+              <ul>
+                <li class="chart__card">
+                  Enterprise Framework
+                </li>
+                <li class="chart__card">
+                  Advanced Native Solutions
+                </li>
+                <li class="chart__card">
+                  Customer Success & Advisory
+                </li>
+              </ul>
+
+              <h6>Pre-built Mobile Solutions</h6>
+              <ul>
+                <li>Authentication</li>
+                <li>Payments</li>
+                <li>Media</li>
+                <li>Printing & Scanning</li>
+                <li>Biometrics</li>
+                <li>Notifications</li>
+                <li>Communications</li>
+                <li>Offline Data</li>
+              </ul>
+            </div>
+            <h5>For Cross platorm Development across</h5>
+            <ul>
+              <li>Native iOS</li>
+              <li>Native Android</li>
+              <li>Electron</li>
+              <li>PWA</li>
+              <li>Browser</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="front-end-framework" class="nav-section">
+      <div class="container">
+        <hgroup class="measure">
+          <h3>Front-end framework</h3>
+          <h2>One UI library for all  your team’s projects and applications.</h2>
+          <p class="large">Develop award-winning mobile and desktop apps, with one shared codebase across projects and a single design language for your entire organization. Ionic Enterprise Edition comes with an enterprise-ready version of the open source Framework, backed by long-term support and migration assistance to keep you moving forward.</p>
+          <ul>
+            <li>Timely support and troubleshooting for issues with Ionic Framework.</li>
+            <li>Long-term support for previous versions for up to 5 years.</li>
+            <li>Priority fixes to keep your development on track.</li>
+          </ul>
+        </hgroup>
+      </div>
+    </section>
+
+    <section id="native-device-features" class="nav-section">
+      <div class="container">
+        <hgroup class="measure">
+          <h3>Native Device Features</h3>
+          <h2>Easy access to device features</h2>
+          <p class="large">Need access to native mobile device features like Camera and GPS? Ionic Enterprise Edition provides a core library of native functionality that you can easily add to any Ionic app, with active maintenance and security patching to keep your projects running smoothly.</p>
+          <h5>Your native library comes with: </h5>
+          <ul>
             <li>
-              <i class="feature-icon feature-icon--native-power"></i>
               <hgroup>
-                <h4>Premier Native Power</h4>
-                <p>Choose from a growing collection of Premier native plugins and capabilities, including <a href="/enterprise/identity-vault">Identity Vault</a>, Ionic’s powerful front-end security solution for enabling secure biometrics authentication.</p>
+                <h4>Timely support and troubleshooting for issues with Ionic Framework.</h4>
+                <p>A release timeline you can count on, as opposed to a community maintainers schedule. Think days instead of months or years.</p>
               </hgroup>
             </li>
             <li>
-              <i class="feature-icon feature-icon--integrations"></i>
               <hgroup>
-                <h4>Officially Supported Integrations</h4>
-                <p>Deliver full-stack apps with Premier backend and third-party integrations that are built and supported by the Ionic team. {#See the full list.#}</p>
+                <h4>Guaranteed Support SLA & Ticketing</h4>
+                <p>Ability to communicate directly with the Ionic team with guaranteed response times, so you can be sure you will get answers & fixes ASAP.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h4>Access to Advisory & Implementation Guidance</h4>
+                <p>Ensuring your team is utilizing best practices and  functionality from both the framework & native side with ease, enabling you to meet your deadlines while avoiding costly tech debt.</p>
+              </hgroup>
+            </li>
+
+            <li>
+              <hgroup>
+                <h4>Critical Security & Hot Bug Fixes</h4>
+                <p>The plugins that Ionic maintains will be guaranteed to work with future OS releases, patches, continued development, and more. There’s no fear of community plugin abandonement.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h4>Issues & Feature Prioritization</h4>
+                <p>An Open Source plugin may have many open issues that will impact your team's ability to use the plugin, delaying your ability to ship new features. Ensure that your team remains agile by having Ionic fix the issues most important to you.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h4>Guaranteed Product Lifespan</h4>
+                <p>The plugins that Ionic maintains will be guaranteed to work with future operating system releases, patches, continued development, and more. There’s no fear of a plugin being abandoned by its original author.</p>
+              </hgroup>
+            </li>
+
+            <li>
+              <hgroup>
+                <h4>Influence & Improvement Discussions</h4>
+                <p>If a plugin doesn’t do what you need it to do, Ionic is always open to chat about modifications and how the plugin can work better for you.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h4>Protection Against Changing Ecosystem</h4>
+                <p>The frontend and mobile app ecosystems are always changing, and you’re not in control of them like you would be with your backend choices. Ionic will ensure that future software releases are supported by our maintained.</p>
+              </hgroup>
+            </li>
+          </ul>
+        </hgroup>
+      </div>
+    </section>
+
+    <section id="pre-built-solutions" class="nav-section">
+      <div class="container" >
+        <div class="two-col">
+          <div class="integrations">
+            <a class="integrations__identity-vault">
+              <i></i>
+              Identity Vault
+            </a>
+            <a class="integrations__aws-amplify">
+              <i></i>
+              AWS Amplify
+            </a>
+            <a class="integrations__couchbase">
+              <i></i>
+              Couchbase
+            </a>
+            <a class="integrations__active-directory">
+              <i></i>
+              Active Directory
+            </a>
+          </div>
+          <div>
+            <hgroup >
+              <h3>Pre-built Solutions</h3>
+              <h2>Lightning-fast development with pre-built solutions</h2>
+              <p class="large">Accelerate development with powerful solutions to common enterprise use cases - all built and supported by the Ionic team. Ionic’s growing library of solutions are ready to deploy in any of the apps you build with Enterprise Edition.</p>
+              <ul>
+                <li>Biometrics & user authentication</li>
+                <li>Secure offline storage</li>
+                <li>Mobile payment</li>
+                <li>Notifications</li>
+                <li>Barcode scanning</li>
+                <li>Cross-app communications</li>
+                <li>And more</li>
+              </ul>
+            </hgroup>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expert-services" class="nav-section">
+      <div class="container">
+        <hgroup>
+          <h3>Advisory & Training</h3>
+          <h2>Your trusted development partner</h2>
+          <p class="large">Ionic Enterprise Edition customers get exclusive access to Ionic’s Advisory Services and Trainings.</p>
+        </hgroup>
+        <div class="two-col">
+          <ul class="feature-list">
+            <li>
+              <i class="feature-icon feature-icon--advisory"></i>
+              <hgroup>
+                <h4>Ionic Advisory Services</h4>
+                <p>Our mobile experts become your development partner to ensure on-time app delivery, avoid technical debt, and eliminate risk. Examples include code reviews, architecture reviews, security audits, custom development solutions, and more.</p>
+              </hgroup>
+            </li>
+            <li>
+              <i class="feature-icon feature-icon--training"></i>
+              <hgroup>
+                <h4>Customized Team Training</h4>
+                <p>Our dedicated advisors are available for on-site or remote training to help your team get up-to-speed quickly on Ionic and provide our recommended best practices for building and delivering stellar mobile apps.</p>
+              </hgroup>
+            </li>
+          </ul>
+          <ul class="checkmark-list checkmark-list--large">
+            <li>
+              <hgroup>
+                <h5>Private Slack</h5>
+                <p>Unlock realtime access to Ionic engineers and native mobile experts via a dedicated Slack channel.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h5>Code Reviews</h5>
+                <p>Go line-by-line with our experts as they share coding best practices and advice.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h5>Custom Training</h5>
+                <p>Give your team the skills and tools they need to be successful building apps on day one.</p>
+              </hgroup>
+            </li>
+            <li>
+              <hgroup>
+                <h5>Expert Advisory</h5>
+                <p>Our mobile experts are on-hand to help your development team tackle any aspect of app development.</p>
               </hgroup>
             </li>
           </ul>
         </div>
       </div>
-    </div>
+    </section>
+  </div>
 
+  <section>
     <div class="container">
       <hgroup>
-        <h3>Exclusive education.</h3>
-        <h2>Custom Advisory & Training.</h2>
+        <h2>Everything you need. From front to back.</h2>
       </hgroup>
-      <div class="two-col">
-        <ul class="feature-list">
-          <li>
-            <i class="feature-icon feature-icon--advisory"></i>
-            <hgroup>
-              <h4>Ionic Advisory Services</h4>
-              <p>Our mobile experts become your development partner to ensure on-time app delivery, avoid technical debt, and eliminate risk. Examples include code reviews, architecture reviews, security audits, custom development solutions, and more.</p>
-            </hgroup>
-          </li>
-          <li>
-            <i class="feature-icon feature-icon--training"></i>
-            <hgroup>
-              <h4>Customized Team Training</h4>
-              <p>Our dedicated advisors are available for on-site or remote training to help your team get up-to-speed quickly on Ionic and provide our recommended best practices for building and delivering stellar mobile apps.</p>
-            </hgroup>
-          </li>
-        </ul>
-        <ul class="checkmark-list checkmark-list--large">
-          <li>
-            <hgroup>
-              <h5>Private Slack</h5>
-              <p>Unlock realtime access to Ionic engineers and native mobile experts via a dedicated Slack channel.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup>
-              <h5>Code Reviews</h5>
-              <p>Go line-by-line with our experts as they share coding best practices and advice.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup>
-              <h5>Custom Training</h5>
-              <p>Give your team the skills and tools they need to be successful building apps on day one.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup>
-              <h5>Expert Advisory</h5>
-              <p>Our mobile experts are on-hand to help your development team tackle any aspect of app development.</p>
-            </hgroup>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="container">
-      <hgroup class="center">
-        <h3>Why Choose Enterprise Edition?</h3>
-        <h2>Stability. Security. Power. Support.</h2>
-      </hgroup>
-      <ul class="feature-list feature-list--small three-col">
-        <li>
-          <i class="feature-icon feature-icon--stability"></i>
-          <hgroup>
-            <h4>Long-term stability &amp; peace of mind</h4>
-            <p>Surprise releases? Breaking changes? Relax. Enjoy long-term investment protection and stability with LTS and maintenance for previous versions of Ionic Framework.</p>
-          </hgroup>
-        </li>
-        <li>
-          <i class="feature-icon feature-icon--complete-native"></i>
-          <hgroup>
-            <h4>Complete native power &amp; security</h4>
-            <p>Give users the most advanced on-device features, performance, and security. Enjoy peace of mind knowing that the native plugins you depend on are backed by mission-critical support and expert services.</p>
-          </hgroup>
-        </li>
-        <li>
-          <i class="feature-icon feature-icon--help"></i>
-          <hgroup>
-            <h4>Help at every level of the stack</h4>
-            <p>Get exclusive access to Ionic experts providing guidance and support at every level of the stack, from front-end UI components to backend services. We’ve got you covered.</p>
-          </hgroup>
-        </li>
-      </ul>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Ionic Community Edition</th>
+            <th>Ionic Enterprise Edition</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="comp-table__section">
+            <td>Frontend Framework</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Cross-Platform UI Library</td>
+            <td><i class="checkmark"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+          <tr>
+            <td>Long-Term Support</td>
+            <td><i class="dash"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+          <tr>
+            <td>Version Migration Assistance</td>
+            <td><i class="dash"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+          <tr>
+            <td>Priority Fixes</td>
+            <td><i class="dash"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+
+          <tr class="comp-table__section">
+            <td>Core Device Functionality</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Native Feature Library that includes GPS, Camera, InAppBrowser, Accelerometer, and more.</td>
+            <td>Community Plugins</td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+          <tr>
+            <td>Active Maintenance & Support</td>
+            <td><i class="dash"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+
+
+          <tr class="comp-table__section">
+            <td>Pre-Built Mobile Solutions</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Security & Authentication </td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+          <tr>
+            <td>Mobile Payments </td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+          <tr>
+            <td>Offline Data</td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+          <tr>
+            <td>Media</td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+          <tr>
+            <td>Notifications</td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+          <tr>
+            <td>Printing & Scanning</td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+
+          <tr class="comp-table__section">
+            <td>Enterprise Customer Success</td>
+            <td><i class="dash"></i></td>
+            <td><i class="checkmark"></i></td>
+          </tr>
+
+          <tr class="comp-table__section">
+            <td>Advisory Services</td>
+            <td><i class="dash"></i></td>
+            <td><span class="pill">Add-on available</span></td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </section>
 
   <section class="offwhite call-to-action">
     <div class="container">
       <hgroup class="center">
-        <p class="large">
-          <strong>Ionic Enterprise Edition</strong> is a complete development stack for building powerful, feature-rich apps with Ionic, backed by a world-class team of experts.
+        <h3>Ready to get started?</h3>
+        <p>
+          Connect with us today to see how you can get started with <b>Ionic Enterprise Edition</b>.
         </p>
-        <h4>Ready to get started?</h4>
       </hgroup>
       <div class="hubspot-override hubspot-override--large">
         <!--[if lte IE 8]>
@@ -382,17 +425,71 @@
 
 {% block scripts %}
 <script>
-  var cta = document.querySelector('.call-to-action');
-  var scrollToLinks = document.querySelectorAll('.cta-link');
+  function scrollToSelector(selector){
+    window.scrollTo({
+      top: document.querySelector(selector).getBoundingClientRect().top + window.scrollY,
+      behavior: "smooth"
+    });
+  }
 
-  for (var i = 0; i < scrollToLinks.length; i++) {
-    scrollToLinks[i].addEventListener('click', function(ev){
+  // main cta scroll to
+  document.querySelectorAll('.cta-link').forEach(function(ctaLink){
+    ctaLink.addEventListener('click', function(ev){
       ev.preventDefault();
-      window.scrollTo({
-        top: cta.getBoundingClientRect().top + window.scrollY,
-        behavior: "smooth"
+      scrollToSelector('.call-to-action');
+    });
+  });
+
+  // page nav scroll to
+  document.querySelectorAll('.page-nav__link').forEach(function(navLink){
+    navLink.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var anchorId = ev.target.getAttribute("href");
+      scrollToSelector(anchorId);
+    });
+  })
+
+  // nav highlighting
+  var threshold = window.innerHeight * 0.33;
+  var sectionOffsets = [];
+
+  function updateSectionOffsets(){
+    requestAnimationFrame(function(){
+      document.querySelectorAll('.nav-section').forEach(function(section){
+        sectionOffsets.push({
+          id: section.id,
+          top: section.getBoundingClientRect().top + window.scrollY,
+          bottom: section.getBoundingClientRect().bottom + window.scrollY,
+          anchor: document.querySelector('[href="#' + section.id + '"]'),
+          isActive: false
+        })
       });
     });
   }
+
+  function checkOffsets(){
+    var scroll = window.scrollY + threshold;
+    sectionOffsets.forEach(function(section){
+      if (section.top < scroll && section.bottom > scroll) {
+        section.anchor.classList.add('active');
+        section.isActive = true;
+      } else {
+        section.anchor.classList.remove('active');
+        section.isActive = false;
+      }
+    });
+
+    if (sectionOffsets.filter(function(o){return o.isActive === true}).length) {
+      document.querySelector('.page-nav').classList.add('active');
+    } else {
+      document.querySelector('.page-nav').classList.remove('active');
+    }
+  }
+
+  updateSectionOffsets();
+  checkOffsets();
+  window.addEventListener('scroll', checkOffsets);
+  window.addEventListener('resize', updateSectionOffsets);
+
 </script>
 {% endblock %}

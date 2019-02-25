@@ -45,6 +45,7 @@ router: app => {
   .get('/books/hybrid-vs-native/preview', (_, res) =>
     res.render('books/hybrid-vs-native-preview'))
 
+  .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
   .get('/community', (_, res) => res.render('community'))
   .get('/contact', (_, res) => res.render('contact'))
   .get('/contributors', (_, res) => res.render('contributors'))

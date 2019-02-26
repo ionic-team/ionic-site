@@ -24,11 +24,6 @@ module.exports = {
 
     if (parts.path.indexOf('/blog') == 0) {
       return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
-    } else if (
-      req.headers.host.indexOf('pwasftw.com') !== -1 ||
-      (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
-    ) {
-      return res.redirect(301, 'https://ionicframework.com/pwa');
     } else if (parts.path.indexOf('/docs/pro/') == 0) {
       return res.redirect(301, '/docs/appflow/' + req.url.replace(/\/docs\/pro\//, ''));
     } else if (parts.path.indexOf('/docs/pro') == 0) {
@@ -37,10 +32,6 @@ module.exports = {
       return res.redirect(301, '/getting-started');
     } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
       return res.redirect(301, '/docs/cli/');
-    // } else if (parts.path.indexOf('/docs/pro') == 0) {
-    //   return res.redirect(301, 'http://support.ionicjs.com');
-    } else if (req.headers.host.indexOf('learn.') == 0) {
-      return res.redirect(301, '/docs/');
     }
 
     // handle redirects

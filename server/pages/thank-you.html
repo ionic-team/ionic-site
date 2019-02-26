@@ -13,7 +13,7 @@
 <main class="container">
   <div class="content">
     <h1> {{data.title}} </h1>
-    {{ PrismicDOM.RichText.asHtml(data.paragraph_text) }}
+    {{ PrismicDOM.RichText.asHtml(data.paragraph_text || '') }}
     <a class="btn" 
        href="{{data.link_url.url}}" 
        target="{{data.link_url.target}}">

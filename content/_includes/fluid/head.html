@@ -29,7 +29,7 @@
 <meta name="author" content="Drifty">
 <meta name="description" content="{% if page.meta_description %}{{ meta_description }}{% elsif meta_description %}{{meta_description}}{% else %}Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards{% endif %}">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="{{site.url}}{{page.url}}">
+<link rel="canonical" href="{{site.url}}{{page.url | replace: page.version, '' | replace: '//', '/'}}">
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">

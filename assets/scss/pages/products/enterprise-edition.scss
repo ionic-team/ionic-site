@@ -55,10 +55,12 @@
 
     &__inner {
       background: #fff;
-      box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.03), 0px 8px 16px rgba(2, 8, 20, 0.04);
+      // box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.03), 0px 8px 16px rgba(2, 8, 20, 0.04);
+      box-shadow: 0px 8px 16px rgba(2, 8, 20, 0.1), 0px 8px 32px rgba(2, 8, 20, 0.08);
       border-radius: 8px;
-      max-width: 960px;
+      max-width: 1000px;
       width: 100%;
+      overflow: hidden;
 
       ul {
         display: flex;
@@ -74,7 +76,7 @@
       }
 
       a {
-        transition: 0.3s all;
+        transition: 0.3s border;
         width: 100%;
         height: 100%;
         transition: color 0.2s;
@@ -89,7 +91,7 @@
         font-weight: 600;
         font-family: $font-family-eina;
         text-decoration: none;
-        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
       }
 
       a:hover,
@@ -98,18 +100,37 @@
       }
 
       a.active {
-        border-top: 2px solid #FF9982;
+        border-bottom: 2px solid #FF9982;
       }
     }
 
     &.active .page-nav__inner a:not(.active) {
-      opacity: 0.8;
+      opacity: 0.7;
 
       &:hover {
         opacity: 1;
       }
     }
+
+    @media (max-width: 1000px) {
+      padding-top: 0;
+      &__inner {
+        border-radius: 0;
+      }
+    }
+
+    @media (max-width: $screen-md) {
+      &__inner a {
+        padding: 14px 20px 12px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
   }
+
   .page-nav__icon {
     display: inline-flex;
 
@@ -142,8 +163,8 @@
 
   .top {
     margin-top: -218px;
-    padding-top: 262px;
-    padding-bottom: 118px;
+    padding-top: 280px;
+    padding-bottom: 152px;
     background: #F8FAFD;
     position: relative;
     z-index: 0;
@@ -203,16 +224,10 @@
         }
       }
 
-      @media (max-width: $screen-sm) {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-      }
-
       @media (max-width: $screen-xs) {
         h1 {
           font-size: 40px;
+          line-height: 44px;
         }
 
         p {
@@ -223,14 +238,14 @@
     }
 
     @media (max-width: $screen-sm) {
-      padding-top: 190px;
-      padding-bottom: 94px;
+      padding-top: 264px;
+      padding-bottom: 78px;
     }
-
-
   }
 
   main {
+    overflow: hidden;
+
     section {
       padding-top: 100px;
       padding-bottom: 140px;
@@ -295,6 +310,58 @@
       }
     }
 
+    @media (max-width: $screen-md) {
+      h2 {
+        line-height: 52px;
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      h3,
+      h2,
+      p.large {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h3 {
+        margin-bottom: 16px;
+      }
+
+      h3.large {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      h2 {
+        line-height: 48px;
+        font-size: 42px;
+        max-width: 100% !important;
+        margin-bottom: 16px;
+      }
+
+      .two-col {
+        flex-direction: column;
+        & > * {
+          flex: 0 0 100%;
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      h3.large {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+
   }
 
   .overview {
@@ -317,6 +384,7 @@
         width: 100%;
         height: auto;
         margin-top: 40px;
+        max-width: 420px;
       }
 
       & > div:first-child {
@@ -398,7 +466,6 @@
 
     h6 {
       font-weight: 600;
-      // text-align: center;
       margin-top: 18px;
       font-size: 13px;
       color: #414D5C;
@@ -421,6 +488,12 @@
         flex: 0 0 50%;
       }
     }
+
+    @media (max-width: $screen-lg) {
+      h5 {
+        font-size: 11px;
+      }
+    }
   }
 
   .chart__box {
@@ -436,6 +509,10 @@
     margin-left: -8px;
     margin-right: -8px;
     margin-top: -8px;
+
+    @media (max-width: $screen-xs) {
+      flex-direction: column;
+    }
   }
 
   .chart__card {
@@ -456,6 +533,10 @@
     line-height: 17px;
     font-size: 14px;
     font-family: $font-family-eina;
+
+    @media (max-width: $screen-xs) {
+      min-height: 0;
+    }
   }
 
   .platform-list {
@@ -540,15 +621,15 @@
         align-items: center;
         justify-content: center;
         border-radius: 100%;
-        background-color: #DEE3EA;
+        background-color: #73849A;;
         z-index: -1;
         margin-right: 16px;
         transform: translateY(2px);
       }
 
       ion-icon {
-        font-size: 15px;
-        color: #5B708B;
+        font-size: 16px;
+        color: #fff;
       }
 
       hgroup {
@@ -588,10 +669,12 @@
   }
 
   .graphics--framework {
-    position: absolute;
+    // position: absolute;
+    position: relative;
     top: 0;
-    right: -20px;
+    right: -40px;
     height: 500px;
+    z-index: 0;
 
     &.active {
       &::before,
@@ -637,6 +720,40 @@
       top: 654px;
       right: -200px;
     }
+
+    @media (max-width: $screen-lg) {
+      transform: scale(0.75, 0.75);
+      top: -60px;
+      right: -80px;
+    }
+
+    @media (max-width: $screen-md) {
+      transform: scale(0.6, 0.6);
+      right: -100px;
+    }
+
+    @media (max-width: $screen-sm) {
+      height: 440px;
+      transform: scale(0.4, 0.4);
+      right: -40px;
+      top: -90px;
+    }
+
+  }
+
+  @media (max-width: $screen-sm) {
+    #front-end-framework {
+      padding-top: 0;
+
+      .two-col {
+        flex-direction: column-reverse;
+      }
+
+        .checkmark-list {
+          margin-left: auto;
+          margin-right: auto;
+        }
+    }
   }
 
   #native-device-features {
@@ -645,6 +762,12 @@
     }
     hgroup h2 {
       max-width: 382px;
+    }
+
+    @media (max-width: $screen-sm) {
+      hgroup.two-col {
+        margin-bottom: 60px;
+      }
     }
   }
 
@@ -705,6 +828,43 @@
 
        i {
          margin-right: 24px;
+         margin-bottom: 18px;
+       }
+     }
+
+     @media (max-width: $screen-md) {
+       li {
+         flex: 0 0 33%;
+       }
+
+        &--large li {
+          flex: none;
+        }
+     }
+     @media (max-width: $screen-sm) {
+       li {
+         flex: 0 0 50%;
+       }
+     }
+     @media (max-width: $screen-xs) {
+       li {
+         flex: 0 0 100%;
+       }
+
+       li,
+       li hgroup {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+       }
+
+       &--large i {
+         margin-right: 0;
+       }
+
+      h4 {
+         padding-right: 0;
        }
      }
   }
@@ -782,6 +942,21 @@
       columns: 2 auto;
       column-gap: 8px;
       width: 108%;
+    }
+
+    @media (max-width: $screen-md) {
+      .two-col {
+        display: block;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      .checkmark-list {
+        max-width: none;
+        columns: 1 auto;
+        column-gap: 8px;
+        width: 100%;
+      }
     }
   }
 
@@ -927,25 +1102,20 @@
   @media (max-width: $screen-sm) {
     .integrations {
       position: absolute;
-      top: -70px;
+      top: -90px;
       left: 50%;
       transform-origin: center center;
-      transform: translateX(-50%) scale(0.8);
-    }
-
-    .integrations + div {
-      margin-top: 300px;
-    }
-  }
-
-  @media (max-width: $screen-sm) {
-    .integrations {
-      top: -90px;
-      transform: translateX(-50%) scale(0.6);
+      transform: translateX(-50%) scale(0.7);
     }
 
     .integrations + div {
       margin-top: 260px;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    .integrations {
+      transform: translateX(-50%) scale(0.6);
     }
   }
 
@@ -954,10 +1124,24 @@
     hgroup + .two-col {
       margin-top: 80px;
     }
+
     .checkmark-list--large {
       max-width: none;
       padding-left: 116px;
       margin-top: 0;
+    }
+
+    @media (max-width: $screen-sm) {
+      .feature-list,
+      .checkmark-list {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 420px;
+      }
+      .checkmark-list--large {
+        padding-left: 0;
+        margin-top: 30px;
+      }
     }
   }
 
@@ -981,11 +1165,37 @@
           color: #020814;
         }
       }
+    }
 
+    @media (max-width: $screen-sm) {
+      padding-top: 100px;
+
+      hgroup {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      h2 {
+        line-height: 38px;
+        font-size: 32px;
+      }
     }
   }
 
+  .comp-table-wrapper {
+    overflow-x: auto;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+
   .comp-table {
+    min-width: 546px;
+
     th, td {
       width: 33%;
 
@@ -1048,7 +1258,8 @@
        }
 
        .pill {
-         line-height: 1;
+         display: inline-block;
+         line-height: 1.2;
          font-size: 8px;
          text-align: center;
          letter-spacing: 0.1em;
@@ -1059,8 +1270,6 @@
          border-radius: 20px;
          padding: 5px 10px;
        }
-
-
      }
 
     .stripe td {

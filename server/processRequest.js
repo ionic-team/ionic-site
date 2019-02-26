@@ -1,9 +1,7 @@
 var employees       = require('./data/employees');
 var resources       = require('./data/resources');
 var frameworkInfo   = require('./data/framework-info');
-var redirects       = require('./data/redirects');
 var trustedPartners = require('./data/trusted-partners');
-var url             = require('url');
 var followerCount   = null;
 var tools           = require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
@@ -18,46 +16,14 @@ module.exports = {
       return res.redirect(301, 'https://' + newHost + req.originalUrl);
     }
 
-    // redirect entire old sections
-    var parts = url.parse(req.url);
-
-
-    if (parts.path.indexOf('/blog') == 0) {
-      return res.redirect(301, 'https://blog.ionicframework.com' + req.url.replace(/^\/blog/, ''));
-    } else if (
+    if (
       req.headers.host.indexOf('pwasftw.com') !== -1 ||
       (req.headers.referer && req.headers.referer.indexOf('pwasftw.com') !== -1)
     ) {
       return res.redirect(301, 'https://ionicframework.com/pwa');
-    } else if (parts.path.indexOf('/docs/pro/') == 0) {
-      return res.redirect(301, '/docs/appflow/' + req.url.replace(/\/docs\/pro\//, ''));
-    } else if (parts.path.indexOf('/docs/pro') == 0) {
-      return res.redirect(301, '/docs/appflow');
-    } else if (parts.path.indexOf('/tutorials') == 0) {
-      return res.redirect(301, '/getting-started');
-    } else if (parts.path.indexOf('/docs/v1/cli') == 0) {
-      return res.redirect(301, '/docs/cli/');
-    // } else if (parts.path.indexOf('/docs/pro') == 0) {
-    //   return res.redirect(301, 'http://support.ionicjs.com');
     } else if (req.headers.host.indexOf('learn.') == 0) {
       return res.redirect(301, '/docs/');
     }
-
-    // handle redirects
-    var uri = req.url.split(/[\?|#]/g);
-    var requrl = uri[0];
-    if (requrl.endsWith('/')) {
-      requrl = requrl.slice(0, -1);
-    }
-
-    if (redirects[requrl]) {
-      if (uri[1]) {
-        return res.redirect(301, redirects[requrl] + '?' + uri[1]);
-      }
-      return res.redirect(301, redirects[requrl]);
-    }
-
-    res.locals.requrl = requrl;
 
     // don't index non production URLs, but favor HTTPS
     res.locals.protocol = 'https';

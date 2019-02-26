@@ -53,5 +53,7 @@ http {
         location /docs/v3 {
             proxy_pass http://app_server;
         }
+
+        include redirects.conf;
     }
 }

@@ -92,6 +92,7 @@
         font-family: $font-family-eina;
         text-decoration: none;
         border-bottom: 2px solid transparent;
+        outline: none;
       }
 
       a:hover,
@@ -1322,7 +1323,7 @@
         font-size: 28px;
         text-align: center;
         letter-spacing: -0.01em;
-        color: #2F3A48;
+        color: #1A232F;
         margin-bottom: 4px;
       }
       p {

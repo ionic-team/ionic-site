@@ -50,7 +50,7 @@
 <div class="container">
   <main class="card">
     <article>
-      {{PrismicDOM.RichText.asHtml(data.description || '')}}
+      {{PrismicDOM.RichText.asHtml(data.paragraph_text if data.paragraph_text else '')}}
       <a class="btn sm"
          data-toggle="modal"
          data-target="#contactForm">Watch Now</a>

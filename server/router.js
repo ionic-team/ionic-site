@@ -60,6 +60,7 @@ router: app => {
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
   .get('/enterprise-edition', (_, res) => res.render('products/enterprise-edition'))
+  .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
   .get('/framework', (_, res) => res.render('framework'))
   .get('/getting-started', (_, res) => res.render('getting-started'))
 

@@ -1188,6 +1188,7 @@
 
   .comp-table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin-right: -15px;
     padding-right: 15px;
   }

@@ -41,7 +41,7 @@ Ionic Appflow dashboard choose the tab of the correct integration. If this is yo
 you'll need to click the `Connect` button. Then you can choose the repository to link from the list of available repos.
 
 <div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/github-connect-app.png?1">
+  <img style="width: 950px" src="/img/docs/pro/github-connect-app.png?1">
 </div>
 
 When you link the repository a webhook will be created for the repository

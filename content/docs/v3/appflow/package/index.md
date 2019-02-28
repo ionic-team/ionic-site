@@ -37,4 +37,4 @@ Deploy Channels so that you can install all the environments on a single device 
 one make sure you've upgrade to a plan that includes them and go to the *Package* > *Native Configs* tab in the sidebar
 and click `New native config`.
 
-<img src="/img/pro/ss-native-configs.png" class="browser" />
+<img src="/img/docs/pro/ss-native-configs.png" class="browser" />

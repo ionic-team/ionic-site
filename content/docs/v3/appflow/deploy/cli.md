@@ -108,5 +108,5 @@ Apart from the `--commit` options, all the others require the full name setup wi
 
 For the Environments and Channels it is the Name
 
-<img src="/img/pro/cli/cli-environments-list.png" class="browser" />
-<img src="/img/pro/cli/cli-channels-list.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-environments-list.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-channels-list.png" class="browser" />

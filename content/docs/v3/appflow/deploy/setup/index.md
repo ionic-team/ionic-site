@@ -58,7 +58,7 @@ You can set the build to automatically be deployed to a channel when it is done 
 [manually assign the build to a channel](/docs/appflow/deploy/channels/#assigning-a-build-to-a-channel) later.
 
 <div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/deploy-builds-create-location.png">
+  <img style="width: 950px" src="/img/docs/pro/deploy-builds-create-location.png">
 </div>
 
 ## Advanced Usage

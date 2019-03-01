@@ -127,11 +127,11 @@ Apart from the `--commit` options, all the others require the full name setup wi
 
 For the Security Profiles, Environments and Native Configs it is the Name
 
-<img src="/img/pro/cli/cli-security-profile-list.png" class="browser" />
-<img src="/img/pro/cli/cli-environments-list.png" class="browser" />
-<img src="/img/pro/cli/cli-native-config-list.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-security-profile-list.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-environments-list.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-native-config-list.png" class="browser" />
 
 
 For the Target Platform, it is one of the strings identifying the platform in the Applflow Package Build Form.
 
-<img src="/img/pro/cli/cli-target-platform.png" class="browser" />
+<img src="/img/docs/pro/cli/cli-target-platform.png" class="browser" />

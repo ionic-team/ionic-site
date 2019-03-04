@@ -52,7 +52,10 @@ module.exports = {
 
     // don't index non production URLs, but favor HTTPS
     res.locals.protocol = 'https';
-    if (req.hostname.indexOf('ionicframework.com') == -1) {
+    if (
+      req.hostname.indexOf('ionicframework.com') == -1 &&
+      req.hostname.indexOf('ionic-site.herokuapp.com') == -1
+    ) {
       res.setHeader('X-Robots-Tag', 'noindex, nofollow');
       res.locals.protocol = 'http';
     } else {

@@ -55,10 +55,7 @@ module.exports = {
     }
 
     console.error(`404 on request: ${req.path}`);
-    
-    if(!res.locals.proxy404) { 
-      send404(res);
-    }
+    send404(res);
   }
 }
 

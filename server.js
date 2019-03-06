@@ -5,7 +5,6 @@ const compress           = require('compression');
 const cookieParser       = require('cookie-parser');
 const dateFilter         = require('nunjucks-date-filter');
 const expressNunjucks    = require('express-nunjucks');
-const proxy              = require('http-proxy-middleware');
 const helmet             = require('helmet');
 const Sentry             = require('@sentry/node');
 const throng             = require('throng');
@@ -22,7 +21,6 @@ const {
 }                        = require('./server/prismic');
 
 const { 
-  DOCS_URL, 
   PORT, 
   PROD, 
   REDIS_URL, 
@@ -61,22 +59,6 @@ function start() {
     })
   }
   
-  const docsPath = /^\/docs(?!\/(v1|v3)).*$/;
-  const docsProxy = proxy({
-    target: DOCS_URL,
-    changeOrigin: true,
-    logLevel: 'warn',
-    onProxyRes: (proxyRes, req, res) => {
-      if(proxyRes.statusCode === 404) {
-        res.locals.proxy404 = true;
-        if (handleNotFound(req, res)) {
-          proxyRes.destroy();
-          delete proxyRes;
-        }
-      }
-    }
-  });
-  
   app.set('trust proxy', true);
   // The Sentry request handler must be the first middleware on the app
   app.use(Sentry.Handlers.requestHandler());
@@ -86,7 +68,6 @@ function start() {
   app.enable('etag');
   
   app.use(checkForRedirects);
-  app.use(docsPath, docsProxy);
   app.use(prismicMiddleware);
 
   // check if this is a valid static file

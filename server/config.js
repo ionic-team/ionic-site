@@ -5,8 +5,6 @@ module.exports = {
   PROD: bool(process.env.PROD) || false,
   WEB_CONCURRENCY: int(process.env.WEB_CONCURRENCY) || 1,
 
-  DOCS_URL: process.env.DOCS_URL || 'https://ionic-docs.herokuapp.com',
-
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,

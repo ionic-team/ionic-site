@@ -107,12 +107,14 @@ module.exports = {
       return req.prismic.api.getByUID(type, uid)
       .then(response => {
         delete req;
-        // console.log(response)
+        if (response === undefined) {
+          throw(new Error(`Prisimic ${type} ${uid} not found`)); 
+        }
         return res.render(template, response)
       })
       .then(resolve)
       .catch(e => {
-        console.log(e);
+        console.error(e);
         next();
       });
     });

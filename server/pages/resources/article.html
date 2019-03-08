@@ -1,6 +1,6 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'case-studies' %}
-{% set cssPath = 'case-studies' %}
+{% set cssPath = 'resources/case-studies' %}
 {% set header_style = 'transparent light' %}
 {% set title = 'Ionic Article: ' + data.title %}
 {% set meta_description = data.meta_description.url or data.description %}
@@ -27,7 +27,7 @@
         {% for group in data.body %}
           {% if group.slice_type == 'normal_text' %}
             {% for section in group.primary.content %}
-              {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
+              {% if ['heading2', 'heading3'].indexOf(section.type) != -1 %}
                 <li>
                   <a href="#{{ section.text | lower | replace(r/ /g, '-') | replace(r/([^a-z\-])/g, '') }}"
                      class="anchor nav-link"

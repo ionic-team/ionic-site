@@ -1,5 +1,5 @@
-@import '../vars';
-@import '../mixins';
+@import '../../vars';
+@import '../../mixins';
 
 #page-case-studies {
   .sub-header .download {
@@ -296,7 +296,8 @@
     }
 
     p,
-    ul {
+    ul,
+    ol {
       font-size: 16px;
       letter-spacing: -.011em;
       line-height: 1.75em;
@@ -304,29 +305,32 @@
       color: #5B708B;
     }
 
-    ul {
-      padding-left: 0;
+    ul, 
+    ol {
+      li + li {
+        margin-top: 8px;
+      }
     }
 
-    ul li {
-      list-style-type: none;
-      position: relative;
-      padding-left: 18px;
+    ul {
+      padding-left: 0;
 
-      &:before {
-        content: '';
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: #B2BECD;
-        position: absolute;
-        top: 12px;
-        left: 0;
-        border-radius: 8px;
-      }
-
-      & + li {
-        margin-top: 8px;
+      li {
+        list-style-type: none;
+        position: relative;
+        padding-left: 18px;
+  
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          background: #B2BECD;
+          position: absolute;
+          top: 12px;
+          left: 0;
+          border-radius: 8px;
+        }
       }
     }
 

@@ -22,7 +22,7 @@
       {% else %}
         <h4>Explore Ionic Pricing Plans</h4>
         <p>Explore our pricing options to find a plan that best suits your needs</p>
-        <a href="/pricing"
+        <a href="/pricing{% if id == 'products-studio' %}#studio{% if id == 'products-enterprise-engine' %}#enterprise-edition{% endif %}"
            class="btn sm">See Pricing</a>
       {% endif %}
     </li>

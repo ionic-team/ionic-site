@@ -16,9 +16,11 @@ function linkResolver(doc) {
     return '/integrations/' + doc.uid;
   } else if (doc.type === 'thank_you') {
     return '/thank-you/' + doc.uid;
-  }else if (doc.type === 'webinar') {
+  } else if (doc.type === 'webinar') {
     return '/resources/webinars/' + doc.uid;
-  }  
+  } else if (doc.type === 'whitepaper') {
+    return '/resources/whitepapers/' + doc.uid;
+  }
 
   // Default to homepage
   return '/';

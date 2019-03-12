@@ -23,14 +23,15 @@
     <strong>Bet on the Web</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST 
+      {{data.when | date('add', -5, 'hours') | date('dddd, MMM D @ ha')}} CST 
       &nbsp;|
       &nbsp;Hosted by
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">
-          {{host.name}}
-        </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
+          {{host.name}}{#
+      #}</a>{#
+      #}{% if loop.length > 1 and not loop.last %}, {% endif %}
       {% endfor %}
     </p>
   </hgroup>
@@ -44,8 +45,8 @@
               height='180' 
               frameborder='0' 
               scrolling='no' 
-              seamless='true' 
-              style='width:100%; height:180px; margin-bottom:48px'></iframe>
+              seamless='true'
+              id="podcast-player"></iframe>
       {{PrismicDOM.RichText.asHtml(data.description)}}
     </article>
     <aside>

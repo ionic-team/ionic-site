@@ -361,14 +361,14 @@ const resources = {
     description: "Whitepappers showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Whitepapers for developers and architects",
     items: [
-      {
-        "type": "Whitepaper",
-        "title": "Testing",
-        "url": "/resources/whitepapers/testing",
-        "action": "Download",
-        "bgImage": "/img/resource-center/webinar-appflow.png",
-        "bgColor": "#5352fe"
-      }
+      // {
+      //   "type": "Whitepaper",
+      //   "title": "Testing",
+      //   "url": "/resources/whitepapers/testing",
+      //   "action": "Download",
+      //   "bgImage": "/img/resource-center/webinar-appflow.png",
+      //   "bgColor": "#5352fe"
+      // }
     ]
   }
 }

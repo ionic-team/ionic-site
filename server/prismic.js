@@ -14,8 +14,12 @@ function linkResolver(doc) {
     return '/enterprise/blog/' + doc.uid;
   } else if (doc.type === 'integration') {
     return '/integrations/' + doc.uid;
+  } else if (doc.type === 'podcast') {
+    return '/resources/podcasts/' + doc.uid;
   } else if (doc.type === 'thank_you') {
     return '/thank-you/' + doc.uid;
+  } else if (doc.type === 'video') {
+    return '/resources/videos/' + doc.uid;
   } else if (doc.type === 'webinar') {
     return '/resources/webinars/' + doc.uid;
   } else if (doc.type === 'whitepaper') {

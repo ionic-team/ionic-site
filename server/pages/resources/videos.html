@@ -18,7 +18,10 @@
   </div>
 </div>
 
-<div class="cta gradient">
+<div class="cta gradient"
+  {% if data.header_background %}
+     style="background-image:url('/img/resource-center/webinars/{{data.header_background|lower|replace(' ', '-')}}.jpg')"
+  {% endif %}>
   <hgroup class="container">
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>

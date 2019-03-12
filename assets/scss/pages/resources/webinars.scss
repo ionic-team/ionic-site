@@ -10,6 +10,10 @@
     font-family: $font-family-eina;
   }
 
+  .sub-header.dark .breadcrumbs li::after {
+    color: rgba(white, .3);
+  }
+
   .cta {
     background-color: #12223a;
     background-image:
@@ -19,6 +23,15 @@
     background-position: 50% 50%;
     margin-top: -138px;
     padding-top: 138px;
+
+    &.podcasts {
+      
+      background-image:
+        url('/img/resource-center/bg-header-podcasts.jpg?3'),
+        linear-gradient(to bottom, #010c29, #02133c);
+      background-size: cover, 100%;
+      background-position: 50% 50%;
+    }
 
     hgroup {
       padding-top: 76px;
@@ -176,7 +189,7 @@
         margin-left: 63px;
         margin-top: 6px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         color: #151d2b;
         font-family: $font-family-eina;
       }

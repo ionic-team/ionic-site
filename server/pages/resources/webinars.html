@@ -32,8 +32,9 @@
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">
-          {{host.name}}
-        </a>{% if loop.length > 1 and not loop.last %}, {% endif %}
+          {{host.name}}{#
+      #}</a>{#
+      #}{% if loop.length > 1 and not loop.last %}, {% endif %}
       {% endfor %}
 
     </p>
@@ -46,7 +47,7 @@
         {% if Date.parse(data.when) - now <= 0 %}
           Watch Now
         {% else %}
-          RSVP Now
+          Register Now
         {% endif %}
       </a>
     </div>
@@ -63,7 +64,7 @@
         {% if Date.parse(data.when) - now <= 0 %}
           Watch Now
         {% else %}
-          RSVP Now
+          Register Now
         {% endif %}
       </a>
     </article>
@@ -131,7 +132,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="text-center">
-          <h3>Stream {{data.title}}</h3>
+          <h3>
+            {% if Date.parse(data.when) - now <= 0 %}
+              Stream
+            {% else %}
+              Registered for
+            {% endif %}
+            {{data.title}}
+          </h3>
           <p class="lg">You're just a few clicks away from our free webinar.</p>
         </hgroup>
 

@@ -23,7 +23,7 @@
     <strong>Bet on the Web</strong>
     <h1>{{data.title}}</h1>
     <p>
-      {{data.when | date('add', -5, 'hours') | date('dddd, MMM D @ ha')}} CST 
+      {{data.when | date('add', -5, 'hours') | date('dddd, MMM D')}}
       &nbsp;|
       &nbsp;Hosted by
       {% for host in data.hosts %}

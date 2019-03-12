@@ -42,7 +42,13 @@
         Watch Now</a> #}
       <a class="btn sm white"
          data-toggle="modal"
-         data-target="#contactForm">Watch Now</a>
+         data-target="#contactForm">
+        {% if Date.parse(data.when) - now <= 0 %}
+          Watch Now
+        {% else %}
+          RSVP Now
+        {% endif %}
+      </a>
     </div>
   </hgroup>
 </div>
@@ -53,7 +59,13 @@
       {{PrismicDOM.RichText.asHtml(data.description)}}
       <a class="btn sm"
          data-toggle="modal"
-         data-target="#contactForm">Watch Now</a>
+         data-target="#contactForm">
+        {% if Date.parse(data.when) - now <= 0 %}
+          Watch Now
+        {% else %}
+          RSVP Now
+        {% endif %}
+      </a>
     </article>
     <aside>
       <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>

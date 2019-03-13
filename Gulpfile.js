@@ -185,7 +185,10 @@ gulp.task('stencil', function(done) {
       stdio: 'inherit'
     }
   )
-  .on('close', function() {
+  .on('close', async function() {
+    await gulp
+      .src('content/js/stencil/*')
+      .pipe(gulp.dest('_site/js/stencil/'))
     done();
   }).on('error', function(err) {throw err; });
 });

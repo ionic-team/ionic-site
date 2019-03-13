@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ionic Framework main site - IonicFramework.com",
   "scripts": {
-    "build": "gulp build.clean",
+    "build": "stencil build && gulp build.clean",
     "dev": "gulp watch",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
     "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep",
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
     "@sentry/node": "^4.6.4",
-    "@stencil/core": "0.11.4",
+    "@stencil/core": "0.18.0",
     "@stencil/sass": "0.1.1",
     "@stencil/utils": "latest",
     "@types/node": "10.12.27",

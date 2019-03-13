@@ -281,5 +281,59 @@
     height: 180px;
     margin: 23px 0 48px;
   }
+
+  #youtube-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    margin: 23px 0 48px;
+
+    iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
+
+  #wistia_responsive_padding {
+    padding: 56.25% 0 0 0;
+    position: relative;
+    margin: 23px 0 48px;
+
+    .wistia_responsive_wrapper {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .wistia_embed {
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
+
+    .wistia_swatch {
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transition: opacity 200ms;
+      width: 100%;
+
+      img {
+        filter: blur(5px);
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
 }
 

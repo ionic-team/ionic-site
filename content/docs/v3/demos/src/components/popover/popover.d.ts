@@ -117,7 +117,7 @@ export declare class Popover extends ViewController {
  *
  *
  *
- * @demo /docs//demos/src/popover/
+ * @demo /docs/demos/src/popover/
  */
 export declare class PopoverController {
     private _app;

@@ -6,7 +6,7 @@ var v3Directories = getDirectories('_site/docs/v3');
 
 send404 = res => {
     res.status(404);
-    return res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
+    return res.render('404');
 
 }
 
@@ -17,11 +17,25 @@ module.exports = {
 
     // we don't need to worry about non-docs pages, just 404 it
     if (urlParts[1] === 'docs') {
-      // redirect v1 docs
+      // v2/v3 redirects
       if (v3Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v3')) || true;
+      // v1 pages
       } else if (v1Directories.indexOf(urlParts[2]) != -1) {
         return res.redirect(301, req.path.replace('/docs', '/docs/v1')) || true;
+
+      // native links might erroneosly contain capital letters
+      } else if (req.path.includes('/native/') && /[A-Z]/.test(req.path)) {
+        return res.redirect(301, req.path.toLowerCase() ) || true;
+
+      // native links might erroneosly contain dashes
+      } else if (req.path.includes('/native/') && req.path.includes('%20')) {
+        return res.redirect(301, req.path.replace('%20', '-') ) || true;
+
+        // remove erroneous double slashes 
+        } else if (req.path.includes('//')) {
+          return res.redirect(301, req.path.replace('//', '/') ) || true;
+
       } else if (urlParts[2].charAt(0) === '1') {
         // if v1 version is pruned, redirect to v1 latest
         urlParts[2] = '1.3.2';
@@ -41,10 +55,7 @@ module.exports = {
     }
 
     console.error(`404 on request: ${req.path}`);
-    
-    if(!res.locals.proxy404) { 
-      send404(res);
-    }
+    send404(res);
   }
 }
 

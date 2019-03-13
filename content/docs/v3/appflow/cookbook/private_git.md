@@ -38,7 +38,7 @@ where the `username` is the username of the account used to generate the token.
 Finally add a secret inside an [environment](/docs/appflow/environments/#custom-environments)
 with key called `GIT_CREDENTIALS` and for the value use the url created before.
 
-<img src="/img/pro/cookbook/git-credentials-token-secret.png" class="browser" />
+<img src="/img/docs/pro/cookbook/git-credentials-token-secret.png" class="browser" />
 
 At this point, if you use this environment during a build, you can access your repository specifying the `https`
 clone url without any token.

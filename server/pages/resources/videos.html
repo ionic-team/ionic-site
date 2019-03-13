@@ -1,0 +1,116 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'webinars' %}
+{% set cssPath = 'resources/webinars' %}
+{% set title = 'Ionic Videos: ' + data.title %}
+{% set meta_description = data.meta_description.url or meta_description %}
+{% set meta_image = data.meta_image.url or meta_image %}
+{% import "_includes/macros.html" as macros %}
+{% set stickyNav = true %}
+
+{% block main %}
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/podcasts">Videos</a></li>
+      <li>{{data.title}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta gradient videos">
+  <hgroup class="container">
+    <strong>Ionic Videos</strong>
+    <h1>{{data.title}}</h1>
+    <p>
+      {{data.when | date('add', -5, 'hours') | date('dddd, MMM D')}}
+      &nbsp;|
+      &nbsp;Hosted by
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}"
+           href="{{host.profile_link.url}}">
+          {{host.name}}{#
+      #}</a>{#
+      #}{% if loop.length > 1 and not loop.last %}, {% endif %}
+      {% endfor %}
+    </p>
+  </hgroup>
+</div>
+
+<div class="container">
+  <main class="card">
+    <article>
+      <script src="https://fast.wistia.com/embed/medias/en8y8dgxth.jsonp" async></script>
+      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+      <div class="wistia_responsive_padding" 
+           style="padding:56.25% 0 0 0;position:relative;">
+        <div class="wistia_responsive_wrapper" 
+             style="height:100%;left:0;position:absolute;top:0;width:100%;">
+          <div class="wistia_embed wistia_async_en8y8dgxth videoFoam=true" 
+               style="height:100%;position:relative;width:100%">
+            <div class="wistia_swatch" 
+                 style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;">
+              <img src="https://fast.wistia.com/embed/medias/en8y8dgxth/swatch" 
+                   style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" 
+                   alt="" 
+                   onload="this.parentNode.style.opacity=1;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/5n5j9l6WFhk" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe> #}
+      {{PrismicDOM.RichText.asHtml(data.description)}}
+    </article>
+    <aside>
+      <h4>Your Host{% if data.hosts.length > 1 %}s{% endif %}:</h4>
+      {% for host in data.hosts %}
+        <a target="{{host.profile_link.target}}"
+           href="{{host.profile_link.url}}"
+           class="host">
+          <img src="{{host.photo.url}}"
+               srcset="{{host.photo['1x'].url}} 1x, {{host.photo.url}} 2x"
+               atl="{{host.name}}">
+          <strong>{{host.name}}</strong>
+          <span>{{host.title}}</span>
+        </a>
+      {% endfor %}
+
+      <div class="subscribe-cta">
+        <h3>Never miss a video!</h3>
+        <p>Subscribe to always stay up to date.</p>
+        {# <a href="" class="btn sm lightblue">Subscribe now!</a> #}
+        <ionic-newsletter-signup kind="podcast"></ionic-newsletter-signup>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div class="container">
+  <div class="pjxTransitionBody">
+    <section class="resource-list">
+      <div class="resource-list__header">
+        <a class="scrollTopLink" href="/resources/podcasts">
+          See all <ion-icon name="arrow-round-forward"></ion-icon>
+        </a>
+        <h4>Other Resources you might like</h4>
+      </div>
+      <div class="resource-card-list resource-card-list--quarter">
+        {% for r in resources.sectionFeatured['videos'] %}
+          <div class="resource-card">
+            <div class="resource-card__inner">
+              {{ macros.resource(r) }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+{% endblock %}

@@ -686,7 +686,7 @@ It reports the relative position.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#lists'>List Component Docs</a>,
+<a href='/docs/components#lists'>List Component Docs</a>,
 <a href='../Item'>Item API Docs</a>,
 <a href='../../list/List'>List API Docs</a><!-- end content block -->
 

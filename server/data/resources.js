@@ -1,10 +1,10 @@
 const heroFeatured = [
   {
     category: "articles",
-    title: "Hybrid Vs. Native ebook",
+    title: "Hybrid vs. Native Ebook",
   }, {
-    category: "case-studies",
-    title: "Building the new Marketwatch app",
+    category: "articles",
+    title: "Why Hybrid",
   }, {
     category: "articles",
     title: "PWA Architects Guide",
@@ -18,13 +18,53 @@ const resources = {
     items: [
       {
         "type": "Article",
-        "title": "Hybrid Vs. Native ebook",
+        "title": "What is a Progressive Web App and Why You Need One",
+        "url": "/resources/articles/what-is-a-progressive-web-app-and-why-you-need-one",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatisapwa.png",
+        "bgColor": "#F95E6F"
+      },{
+        "type": "Article",
+        "title": "Evaluating Ionic for Enterprise Development",
+        "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
+        "bgColor": "#4570E7"
+      },{
+        "type": "Article",
+        "title": "What is a UI Component Library",
+        "url": "/resources/articles/what-is-a-ui-component-library",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
+        "bgColor": "#F78760"
+      },{
+        "type": "Article",
+        "title": "What is Hybrid App Development",
+        "url": "/resources/articles/what-is-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatishybrid.png",
+        "bgColor": "#E85B6A"
+      },{
+        "type": "Article",
+        "title": "Ionic vs. React Native: A Comparison Guide",
+        "url": "/resources/articles/ionic-vs-react-native-a-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionicvsreactnative.png",
+        "bgColor": "#72B8FF"
+      },{
+        "type": "Whitepaper",
+        "title": "Hybrid vs. Native Ebook",
         "url": "/books/hybrid-vs-native",
         "action": "Read",
         "bgImage": "/img/resource-center/article-hybrid-native.jpg",
         "bgColor": "#3b69f1"
       }, {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "PWA Architects Guide",
         "url": "/articles/pwa-architects-guide",
         "action": "Read",
@@ -38,7 +78,7 @@ const resources = {
         "bgImage": "/img/resource-center/dev-survey-19-card.png",
         "bgColor": "#67a6eb"
       }, {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "Why Hybrid",
         "url": "/articles/why-hybrid",
         "action": "Read",
@@ -51,27 +91,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-mobile-gap.jpg",
         "bgColor": "#56d995"
-      }, {
-        "type": "Article",
-        "title": "The Amazing Evolution of the Web on Mobile",
-        "url": "https://blog.ionicframework.com/the-amazing-evolution-of-the-web-on-mobile/",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-amazing-evolution.jpg",
-        "bgColor": "#1a2c48"
-      }, {
-        "type": "Article",
-        "title": "Ionic Native: Native Powers for Your App",
-        "url": "https://blog.ionicframework.com/ionic-native-native-powers-for-your-app/",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-native-powers.jpg",
-        "bgColor": "#3c286d"
-      }, {
-        "type": "Article",
-        "title": "Ionic for Enterprise",
-        "url": "https://ionicframework.com/files/Ionic_Enterprise_SB_2018.pdf",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-ionicforenterprise.jpg",
-        "bgColor": "#f8926b"
       }, {
         "type": "Article",
         "title": "2017 Developer Survey",
@@ -98,35 +117,40 @@ const resources = {
       {
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
-        "url": "/case-studies/MarketWatch.pdf",
+        "url": "/resources/case-studies/marketwatch",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
         "bgColor": "#000000"
       }, {
         "type": "Case Study",
         "title": "Napa Group speeds up development",
-        "url": "/files/NapaGroup_CS_05.pdf",
+        "url": "/resources/case-studies/napa-group-llc",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-napa.jpg",
         "bgColor": "#7479e4"
       }, {
         "type": "Case Study",
         "title": "Why the world's largest healthcare provider chose Ionic",
-        "url": "/files/Ionic_NHS_Case_Study.pdf",
+        "url": "/resources/case-studies/national-health-service",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-nhs.jpg",
         "bgColor": "#0163ac"
       }, {
         "type": "Case Study",
         "title": "Sworkit goes cross platform with Ionic",
-        "url": "/case-studies/Sworkit.pdf",
+        "url": "/resources/case-studies/sworkit",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sworkit.jpg",
         "bgColor": "#fbb363"
       }, {
         "type": "Case Study",
         "title": "Airbus takes to the skies with Ionic",
-        "url": "/files/Airbus_Case_Study.pdf",
+        "url": "/resources/case-studies/airbus-helicopter",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-airbus-helicopter.jpg",
         "bgColor": "#4466d6"
@@ -142,21 +166,24 @@ const resources = {
       {
         "type": "Case Study",
         "title": "Sense Corp accelerates the app lifecycle with Ionic",
-        "url": "https://ionicframework.com/files/SenseCorp_CS_04.pdf",
+        "url": "/resources/case-studies/sense-corp",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-sensecorp.jpg",
         "bgColor": "#394a6f"
       }, {
         "type": "Case Study",
         "title": "Interactive Gaming Company removes development roadblocks with Ionic",
-        "url": "https://ionicframework.com/files/Anonymous_CS_02.pdf",
+        "url": "/resources/case-studies/interactive-gaming-company",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-interactivegaming.jpg",
         "bgColor": "#535582"
       }, {
         "type": "Case Study",
         "title": "Pacifica dives into hybrid development with Ionic",
-        "url": "https://ionicframework.com/case-studies/Pacifica.pdf",
+        "url": "/resources/case-studies/pacifica",
+        "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-pacifica.jpg",
         "bgColor": "#044d63"
@@ -220,21 +247,24 @@ const resources = {
       }, {
         "type": "Webinar",
         "title": "Live app updates with Ionic Deploy",
-        "url": "https://www.youtube.com/watch?v=I7PC3O4q1ug",
+        "target": "_self",
+        "url": "/resources/webinars/continuous-deployment-live-updates-with-ionic-deploy",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-deploy.jpg",
         "bgColor": "#272d63"
       }, {
         "type": "Webinar",
         "title": "Building iOS and Android binaries with Ionic Package",
-        "url": "https://ionicpro.wistia.com/medias/7dboe4v9x8",
+        "target": "_self",
+        "url": "/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-ionicpackage.jpg",
         "bgColor": "#f8926b"
       }, {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
-        "url": "https://www.youtube.com/watch?v=zuHkqGocOqE&feature=youtu.be",
+        "target": "_self",
+        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"
@@ -255,7 +285,8 @@ const resources = {
       }, {
         "type": "Webinar",
         "title": "How SWORKIT is driving growth with PWAs and Ionic",
-        "url": "https://ionicpro.wistia.com/medias/05b54g640s",
+        "target": "_self",
+        "url": "/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-sworkit.jpg",
         "bgColor": "#b396ec"
@@ -323,6 +354,21 @@ const resources = {
         "bgImage": "/img/resource-center/presentation-production-pwas.jpg",
         "bgColor": "#57db95"
       }
+    ]
+  },
+  "whitepapers": {
+    title: "Whitepapers",
+    description: "Whitepappers showcasing best in class Ionic-built apps from some of the best companies in the world.",
+    meta: "Ionic Resources: Whitepapers for developers and architects",
+    items: [
+      // {
+      //   "type": "Whitepaper",
+      //   "title": "Testing",
+      //   "url": "/resources/whitepapers/testing",
+      //   "action": "Download",
+      //   "bgImage": "/img/resource-center/webinar-appflow.png",
+      //   "bgColor": "#5352fe"
+      // }
     ]
   }
 }

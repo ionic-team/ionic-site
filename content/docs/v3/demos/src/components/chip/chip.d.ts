@@ -86,7 +86,7 @@ import { Ion } from '../ion';
   * }
   * ```
   *
-  * @demo /docs//demos/src/chip/
+  * @demo /docs/demos/src/chip/
  **/
 export declare class Chip extends Ion {
     /**

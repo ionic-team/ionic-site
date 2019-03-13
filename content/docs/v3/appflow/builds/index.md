@@ -25,7 +25,7 @@ knows about. If there are know available commits you will need to push a new com
 it to show up in Appflow.
 
 <div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/deploy-builds-create-location.png">
+  <img style="width: 950px" src="/img/docs/pro/deploy-builds-create-location.png">
 </div>
 
 A deploy build will do the following:

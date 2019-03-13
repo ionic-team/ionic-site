@@ -81,7 +81,7 @@ Tab) and adds the injector to its own providers.  For more information on
 providers and dependency injection, see <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">Dependency Injection</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
-<a href="../../menu/Menu/">Menu</a> and <a href="../../tab/Tab/">Tab</a>).</p>
+<a href="../../menu/Menu/">Menu</a> and <a href="../../components/tabs/Tab/">Tab</a>).</p>
 <pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
 
 class MyComponent {
@@ -154,7 +154,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
 <p>To push a new view onto the navigation stack, use the <code>push</code> method.
-If the page has an <a href="../../navbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
+If the page has an <a href="../../components/navbar/Navbar"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
 The pushed view can then receive the data by accessing it via the <code>NavParams</code>

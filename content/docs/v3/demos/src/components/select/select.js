@@ -120,7 +120,7 @@ export var SELECT_VALUE_ACCESSOR = {
  * };
  * ```
  *
- * @demo /docs//demos/src/select/
+ * @demo /docs/demos/src/select/
  */
 export var Select = (function (_super) {
     __extends(Select, _super);

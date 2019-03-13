@@ -50,8 +50,8 @@ export var CHECKBOX_VALUE_ACCESSOR = {
  *  </ion-list>
  * ```
  *
- * @demo /docs//demos/src/checkbox/
- * @see {@link /docs//components#checkbox Checkbox Component Docs}
+ * @demo /docs/demos/src/checkbox/
+ * @see {@link /docs/components#checkbox Checkbox Component Docs}
  */
 export var Checkbox = (function (_super) {
     __extends(Checkbox, _super);

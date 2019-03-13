@@ -3,8 +3,7 @@ module.exports = {
   // Services
   PORT: int(process.env.PORT) || 3000,
   PROD: bool(process.env.PROD) || false,
-
-  DOCS_URL: process.env.DOCS_URL || 'https://ionic-docs.herokuapp.com',
+  WEB_CONCURRENCY: int(process.env.WEB_CONCURRENCY) || 1,
 
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,

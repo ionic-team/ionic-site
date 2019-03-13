@@ -18,8 +18,8 @@ import { ViewController } from '../../navigation/view-controller';
  * ```
  *
  * Similar to {@link /docs/api/components/nav/NavPush/ `NavPush` }
- * @demo /docs//demos/src/navigation/
- * @see {@link /docs//components#navigation Navigation Component Docs}
+ * @demo /docs/demos/src/navigation/
+ * @see {@link /docs/components#navigation Navigation Component Docs}
  * @see {@link ../NavPush NavPush API Docs}
  */
 export var NavPop = (function () {

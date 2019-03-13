@@ -44,8 +44,8 @@ import { DomController } from '../../util/dom-controller';
  * }
  * ```
  *
- * @demo /docs//demos/src/navigation/
- * @see {@link /docs//components#navigation Navigation Component Docs}
+ * @demo /docs/demos/src/navigation/
+ * @see {@link /docs/components#navigation Navigation Component Docs}
  */
 export var Nav = (function (_super) {
     __extends(Nav, _super);

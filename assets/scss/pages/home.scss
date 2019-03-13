@@ -256,7 +256,7 @@ ionic-slider {
       left: 0;
 
       ul {
-        @include flex-list(); 
+        @include flex-list();
         justify-content: space-between;
         padding: 0;
 
@@ -338,7 +338,7 @@ ionic-slider {
     .container {
       display: block;
       max-width: 950px;
-    
+
       @media (max-width: $screen-sm-max) {
         width: 100%;
       }
@@ -364,7 +364,7 @@ ionic-slider {
       display: flex;
 
       .content {
-        width: 465px;
+        width: 470px;
       }
     }
 
@@ -436,7 +436,7 @@ ionic-slider {
       font-weight: 600;
       font-family: $font-family-eina;
       position: relative;
-      transition: .3s opacity; 
+      transition: .3s opacity;
 
       &:hover {
         opacity: .6;
@@ -469,7 +469,7 @@ ionic-slider {
 
   #for-devs {
     padding-bottom: 87px;
-    
+
     hgroup {
       max-width: 740px;
     }
@@ -527,7 +527,7 @@ ionic-slider {
       }
 
       @include hoverSprite(
-        'oss'  
+        'oss'
         'devops'
         'ide'
         'integration'
@@ -540,10 +540,10 @@ ionic-slider {
     padding-bottom: 400px;
     margin-top: 100px;
 
-    .frameworks {    
+    .frameworks {
       margin-bottom: 33px;
 
-      @include flex-list(); 
+      @include flex-list();
 
       li {
         height: 32px;
@@ -551,20 +551,20 @@ ionic-slider {
         background-size: 100%;
         display: inline-block;
         margin-right: 12px;
-        
-        &.frameworks__angular { 
+
+        &.frameworks__angular {
           background-image: url('/img/homepage/framework-support-angular.png')
         }
 
-        &.frameworks__react { 
+        &.frameworks__react {
           background-image: url('/img/homepage/framework-support-react.png')
         }
 
-        &.frameworks__vue { 
+        &.frameworks__vue {
           background-image: url('/img/homepage/framework-support-vue.png')
         }
 
-        &.frameworks__js { 
+        &.frameworks__js {
           background-image: url('/img/homepage/framework-support-javascript.png')
         }
       }
@@ -583,7 +583,7 @@ ionic-slider {
         }
 
         &::after { animation-delay: .4s; }
-        .shadow { 
+        .shadow {
           animation: fadeIn 2s .2s ease forwards;
         }
       }
@@ -688,14 +688,14 @@ ionic-slider {
     }
 
     .git-hosts {
-      margin-bottom: 42px; 
+      margin-bottom: 42px;
 
-      @include flex-list(); 
+      @include flex-list();
 
       li {
         margin-right: 19px;
       }
-      
+
       img {
         height: 20px;
       }
@@ -770,7 +770,7 @@ ionic-slider {
       padding-top: 100px;
       padding-bottom: 100px;
       margin-top: 58px;
-      
+
       video {
         margin: 0 auto;
         padding: 0;
@@ -823,7 +823,7 @@ ionic-slider {
         &.m {
           width: 64px;
         }
-        
+
         &.m {
           width: 96px;
         }
@@ -889,7 +889,7 @@ ionic-slider {
 
         li {
           max-width: 100%;
-  
+
           &::before {
             left: calc(50% - 24px);
           }
@@ -907,7 +907,7 @@ ionic-slider {
 
     .container {
       position: relative;
-    
+
       &::before {
         background: url('/img/homepage/hybrid-vs-native-ionic-ebook.png') 0 0 no-repeat;
         background-size: 100%;
@@ -993,10 +993,10 @@ ionic-slider {
 
     .case-studies {
       @include flex-list();
-  
+
       justify-content: space-between;
       margin-top: 54px;
-  
+
       li {
         flex: 0 0 270px;
         margin-right: 0;
@@ -1009,18 +1009,18 @@ ionic-slider {
         display: block;
         border-radius: 8px;
         padding: 236px 27px 23px;
-        box-shadow: 
-          0 4px 8px rgba(0,30,84,.12), 
+        box-shadow:
+          0 4px 8px rgba(0,30,84,.12),
           0 1px 3px rgba(0,30,84,.08);
-        transition: 
+        transition:
           .15s box-shadow ease,
           .15s color,
           .15s transform;
 
         &:hover {
           transform: translateY(-1px);
-          box-shadow: 
-            0 8px 16px rgba(0,30,84,.1), 
+          box-shadow:
+            0 8px 16px rgba(0,30,84,.1),
             0 3px 6px rgba(0,30,84,.08);
         }
       }
@@ -1121,7 +1121,7 @@ ionic-slider {
       padding: 21px 24px 19px;
       letter-spacing: .096em;
       margin-bottom: 16px;
-      
+
       ion-icon {
         vertical-align: -2px;
         display: inline-block;

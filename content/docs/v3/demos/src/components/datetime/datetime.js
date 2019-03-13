@@ -247,7 +247,7 @@ export var DATETIME_VALUE_ACCESSOR = {
  * ```
  *
  *
- * @demo /docs//demos/src/datetime/
+ * @demo /docs/demos/src/datetime/
  */
 export var DateTime = (function (_super) {
     __extends(DateTime, _super);

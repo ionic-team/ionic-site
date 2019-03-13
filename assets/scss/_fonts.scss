@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
+$cdn: 'https://code.ionicframework.com/assets/fonts/';
 $fontsDir: '/fonts/';
 $einaDir: $fontsDir + 'eina/';
 $graphikDir: $fontsDir + 'graphik/';
@@ -45,203 +46,123 @@ $graphikDir: $fontsDir + 'graphik/';
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-SuperItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-SuperItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-SuperItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  900;
-  font-style:   italic;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-Regular.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-Italic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-Italic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Super-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Super-Web.woff') format('woff')
-       url($graphikDir + 'Graphik-Super-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  900;
-  font-style:   normal;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 500;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-Medium.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 500;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-MediumItalic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-MediumItalic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-BlackItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-BlackItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-BlackItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  800;
-  font-style:   italic;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 600;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-SemiBold.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-SemiBold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 600;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-SemiBoldItalic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-SemiBoldItalic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Black-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Black-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Black-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  800;
-  font-style:   normal;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-Bold.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-BoldItalic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-BoldItalic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-BoldItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-BoldItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-BoldItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  700;
-  font-style:   italic;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 800;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-ExtraBold.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-ExtraBold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 800;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-ExtraBoldItalic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-ExtraBoldItalic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Bold-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Bold-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Bold-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  700;
-  font-style:   normal;
-  font-stretch: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 900;
   unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-Black.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-Black.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 900;
+  unicode-range: U+000-5FF;
+  src: url($cdn + 'inter/Inter-BlackItalic.woff2') format('woff2'),
+       url($cdn + 'inter/Inter-BlackItalic.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-SemiboldItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-SemiboldItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-SemiboldItalic-Web.eot?#iefix') format('embedded-opentype');
-
-  font-weight:  600;
-  font-style:   italic;
-  font-stretch: normal;
+  font-family: 'FreightTextPro';
+  font-weight: 400;
   unicode-range: U+000-5FF;
+  src: url($cdn + '29D26A_0_0.eot');
+  src: url($cdn + '29D26A_0_0.eot?#iefix') format('embedded-opentype'),
+       url($cdn + '29D26A_0_0.woff') format('woff'),
+       url($cdn + '29D26A_0_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Semibold-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Semibold-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Semibold-Web.eot?#iefix') format('embedded-opentype');
-
-  font-weight:  600;
-  font-style:   normal;
-  font-stretch: normal;
+  font-family: 'FreightTextPro';
+  font-weight: 500;
   unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-MediumItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-MediumItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-MediumItalic-Web.eot?#iefix') format('embedded-opentype');
-
-  font-weight:  500;
-  font-style:   italic;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Medium-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Medium-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Medium-Web.eot?#iefix') format('embedded-opentype');
-
-  font-weight:  500;
-  font-style:   normal;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-RegularItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-RegularItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-RegularItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  400;
-  font-style:   italic;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Regular-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Regular-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Regular-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  400;
-  font-style:   normal;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-LightItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-LightItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-LightItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  300;
-  font-style:   italic;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Light-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Light-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Light-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  300;
-  font-style:   normal;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-ExtralightItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-ExtralightItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-ExtralightItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  200;
-  font-style:   italic;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Extralight-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Extralight-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Extralight-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  200;
-  font-style:   normal;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-ThinItalic-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-ThinItalic-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-ThinItalic-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  100;
-  font-style:   italic;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url($graphikDir + 'Graphik-Thin-Web.woff2') format('woff2'),
-       url($graphikDir + 'Graphik-Thin-Web.woff') format('woff'),
-       url($graphikDir + 'Graphik-Thin-Web.eot?#iefix') format('embedded-opentype');
-  font-weight:  100;
-  font-style:   normal;
-  font-stretch: normal;
-  unicode-range: U+000-5FF;
+  src: url($cdn + '29D26A_1_0.eot');
+  src: url($cdn + '29D26A_1_0.eot?#iefix') format('embedded-opentype'),
+       url($cdn + '29D26A_1_0.woff') format('woff'),
+       url($cdn + '29D26A_1_0.ttf') format('truetype');
 }

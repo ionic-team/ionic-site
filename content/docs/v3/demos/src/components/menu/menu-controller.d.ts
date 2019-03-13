@@ -107,9 +107,9 @@ import { Platform } from '../../platform/platform';
  * Note: if an app only has one menu, there is no reason to pass an `id`.
  *
  *
- * @demo /docs//demos/src/menu/
+ * @demo /docs/demos/src/menu/
  *
- * @see {@link /docs//components#menus Menu Component Docs}
+ * @see {@link /docs/components#menus Menu Component Docs}
  * @see {@link ../Menu Menu API Docs}
  *
  */

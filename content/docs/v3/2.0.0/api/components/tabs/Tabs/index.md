@@ -946,7 +946,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#tabs'>Tabs Component Docs</a>,
+<a href='/docs/components#tabs'>Tabs Component Docs</a>,
 <a href='../Tab'>Tab API Docs</a>,
 <a href='../../../config/Config'>Config API Docs</a><!-- end content block -->
 

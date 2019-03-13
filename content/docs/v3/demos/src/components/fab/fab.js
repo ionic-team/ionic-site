@@ -51,8 +51,8 @@ import { nativeTimeout } from '../../util/dom';
   * </ion-fab>
   * ```
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fabs FAB Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fabs FAB Component Docs}
  */
 export var FabButton = (function (_super) {
     __extends(FabButton, _super);
@@ -130,8 +130,8 @@ export var FabButton = (function (_super) {
   * ```
   * @module ionic
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fab Fab Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fab Fab Component Docs}
  */
 export var FabList = (function () {
     function FabList(_elementRef, _renderer, config) {
@@ -276,8 +276,8 @@ export var FabList = (function () {
   * }
   * ```
   *
-  * @demo /docs//demos/src/fab/
-  * @see {@link /docs//components#fabs FAB Component Docs}
+  * @demo /docs/demos/src/fab/
+  * @see {@link /docs/components#fabs FAB Component Docs}
  */
 export var FabContainer = (function () {
     function FabContainer(_elementRef) {

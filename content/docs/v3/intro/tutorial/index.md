@@ -25,11 +25,11 @@ more. Let's get started!
 > Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, don't
 > worry, it's very similar to regular JavaScript. But if you want to read up on
 > it, take a look at [this resource
-> page](https://ionicframework.com/docs/resources/what-is/#typescript).
+> page](https://ionicframework.com/docs/developer-resources/what-is/#typescript).
 
 ### Starting a New Ionic App
 
-To start a new app, open your [terminal/command prompt](/docs/resources/what-is/#cli) and run:
+To start a new app, open your [terminal/command prompt](/docs/developer-resources/what-is/#cli) and run:
 
 ```bash
 $ ionic start MyIonicProject tutorial --type=ionic-angular
@@ -41,8 +41,8 @@ $ ionic start MyIonicProject tutorial --type=ionic-angular
 * `tutorial` will be the starter template for your project.
 
 Along with creating your project, this will also install [node
-modules](../../resources/what-is/#npm) for the application, and prompt you if
-you want [Cordova](../../resources/what-is/#cordova) set up.
+modules](../../developer-resources/what-is/#npm) for the application, and prompt you if
+you want [Cordova](../../developer-resources/what-is/#cordova) set up.
 
 Along with the tutorial template, Ionic also provides the following official
 templates:

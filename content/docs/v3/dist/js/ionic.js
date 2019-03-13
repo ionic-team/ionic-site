@@ -7592,7 +7592,7 @@ System.register("ionic/components/app/id", ["angular2/angular2", "./app"], funct
      * no matter where in the UI heirarchy you are. For example, this makes toggling
      * a global side menu feasible from any place in the application.
      *
-     * See the [Menu section](http://localhost:4000/docs//components/#menus) of
+     * See the [Menu section](http://localhost:4000/docs/components/#menus) of
      * the Component docs for an example of how Menus rely on ID's.
      *
      * To give any component an ID, simply set its `id` property:

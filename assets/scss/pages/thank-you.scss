@@ -1,0 +1,156 @@
+@import '../vars';
+#page-thank-you {
+  font-family: $font-family-inter;
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-family-eina;
+  }
+
+  main {
+    padding-bottom: 0px;
+    overflow: visible;
+    margin-top: 40px;
+    padding-top: 64px;
+    padding-right: 30px;
+    font-size: 14px;
+    color: #4e545e;
+    letter-spacing: -0.02em;
+    max-width: 526px;
+
+    &::before {
+      background-color: #f6f8fc;
+      border-bottom: 1px solid #e5e7eb;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 450px;
+      display: block;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    h1 {
+      color: $blacker;
+
+      + p {
+        color: #6e7f99;
+        font-size: 18px;
+        line-height: 36px;
+        perspective: 600px;
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      letter-spacing: -.02em;
+      line-height: 2em;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .content {
+    padding: 42px 48px 48px;
+    background: white;
+    box-shadow: 0 8px 48px 0px rgba(black, 0.2);
+    max-width: 536px;
+    border-radius: 10px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    word-break: break-word;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: -0.03em;
+    }
+
+    .btn {
+      display: block;
+      font-weight: 600;
+      white-space: normal;
+    }
+  }
+
+  .company {
+    margin: 128px 0 68px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      color: #7f8fab;
+      margin: 0 auto;
+      font-size: 28px;
+      max-width: 790px;
+      text-align: center;
+      line-height: 1.4em;
+      letter-spacing: -.04em;
+      font-weight: 600;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    strong {
+      color: #131924;
+      font-weight: 700;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 51px;
+      justify-content: space-evenly;
+
+      &::before,
+      &::after {
+        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background-size: 100%;
+        width: 494px;
+        height: 42px;
+        content: '';
+        max-width: 100%;
+        margin-bottom: 32px;
+        display: inline-block;
+      }
+
+      &::after {
+        background-position: 0 bottom;
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .banner hgroup {
+      padding-right: 15px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    p.lg {
+      margin-right: 24px;
+    }
+
+    main {
+      display: block;
+    }
+
+    .company {
+      margin-top: 128px;
+    }
+  }
+}

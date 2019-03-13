@@ -49,7 +49,7 @@ view. By default, it slides in from the left, but the side can be overridden. Th
 will be displayed differently based on the mode, however the display type can be changed
 to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
 to the app&#39;s content element. There can be any number of menus attached to the content.
-These can be controlled from the templates, or programmatically using the <a href="../app/MenuController">MenuController</a>.</p>
+These can be controlled from the templates, or programmatically using the <a href="../../app/MenuController">MenuController</a>.</p>
 
 
 

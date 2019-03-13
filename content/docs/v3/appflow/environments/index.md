@@ -52,7 +52,7 @@ or to build different white labeled versions of your application.
 To get started with custom environments, open the app you wish to work on and navigate in the sidebar to
 **Automate -> Environments**, then click **New Environment** on the top right. You should see a form like this:
 
-<img src="/img/pro/ss-environments-create.png" class="browser" />
+<img src="/img/docs/pro/ss-environments-create.png" class="browser" />
 
 As can be noticed, there are 2 different sets of environment variables sections that can be utilized: 
 * Secrets
@@ -63,7 +63,7 @@ the variables are always available to be read.
 
 The environments dashboard also lists available custom environments along with their configured key/value pairs and secrets keys.
 
-<img src="/img/pro/ss-environments-list.png" class="browser" />
+<img src="/img/docs/pro/ss-environments-list.png" class="browser" />
 
 
 ## Usage

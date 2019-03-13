@@ -168,8 +168,8 @@ import { Swiper } from './swiper-widget';
  * For all of the methods you can call on the `Slider` instance, see the
  * [Instance Members](#instance-members).
  *
- * @demo /docs//demos/src/slides/
- * @see {@link /docs//components#slides Slides Component Docs}
+ * @demo /docs/demos/src/slides/
+ * @see {@link /docs/components#slides Slides Component Docs}
  *
  * Swiper.js:
  * The most modern mobile touch slider and framework with hardware accelerated transitions
@@ -666,7 +666,7 @@ export var Slides = (function (_super) {
  *
  * See the [Slides API Docs](../Slides) for more usage information.
  *
- * @demo /docs//demos/src/slides/
+ * @demo /docs/demos/src/slides/
  * @see {@link /docs/api/components/slides/Slides/ Slides API Docs}
  */
 export var Slide = (function () {

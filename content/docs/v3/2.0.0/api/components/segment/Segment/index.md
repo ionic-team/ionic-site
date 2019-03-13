@@ -668,7 +668,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#segment'>Segment Component Docs</a>,
+<a href='/docs/components#segment'>Segment Component Docs</a>,
 [Angular 2 Forms](http://learnangular2.com/forms/)<!-- end content block -->
 
 

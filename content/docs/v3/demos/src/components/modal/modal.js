@@ -162,8 +162,8 @@ export var Modal = (function (_super) {
  *
  * }
  * ```
- * @demo /docs//demos/src/modal/
- * @see {@link /docs//components#modals Modal Component Docs}
+ * @demo /docs/demos/src/modal/
+ * @see {@link /docs/components#modals Modal Component Docs}
  */
 export var ModalController = (function () {
     function ModalController(_app) {

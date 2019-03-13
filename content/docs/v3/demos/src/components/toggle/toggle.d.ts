@@ -43,8 +43,8 @@ export declare const TOGGLE_VALUE_ACCESSOR: any;
  *  </ion-list>
  * ```
  *
- * @demo /docs//demos/src/toggle/
- * @see {@link /docs//components#toggle Toggle Component Docs}
+ * @demo /docs/demos/src/toggle/
+ * @see {@link /docs/components#toggle Toggle Component Docs}
  */
 export declare class Toggle extends Ion implements IonicTapInput, AfterContentInit, ControlValueAccessor, OnDestroy {
     _form: Form;

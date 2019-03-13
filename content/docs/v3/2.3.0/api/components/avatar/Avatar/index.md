@@ -64,7 +64,7 @@ Avatar&#39;s can be placed on the left or right side of an item with the <code>i
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components/#avatar-list'>Avatar Component Docs</a><!-- end content block -->
+<a href='/docs/components/#avatar-list'>Avatar Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

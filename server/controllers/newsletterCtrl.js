@@ -20,6 +20,7 @@ module.exports = function(req, res) {
 
   // relfect because we want to show the page even if one of the tasks error
   Promise.all(promises.map(tools.reflect)).then(values => {
+    res.header('Access-Control-Allow-Origin', '*');
     res.json({ ok: true, message: `${email} added to newsletter` });
   });
 }

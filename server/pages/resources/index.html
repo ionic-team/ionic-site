@@ -20,7 +20,7 @@
       {% for r in resources.heroFeatured %}
         <div class="resource-card resource-card-large">
           <div class="resource-card__inner">
-          {{ macros.resource(r, true) }}
+          {{ macros.resource(r) }}
           </div>
         </div>
       {% endfor %}
@@ -117,7 +117,7 @@
   </div>
 
 </section>
-  
+
 {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 

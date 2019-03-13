@@ -36,7 +36,7 @@ import { Toolbar } from './toolbar';
  * </ion-header>
  * ```
  *
- * @demo /docs//demos/src/title/
+ * @demo /docs/demos/src/title/
  */
 export declare class ToolbarTitle extends Ion {
     constructor(config: Config, elementRef: ElementRef, renderer: Renderer, toolbar: Toolbar, navbar: Navbar);

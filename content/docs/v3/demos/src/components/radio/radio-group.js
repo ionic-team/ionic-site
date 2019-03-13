@@ -54,8 +54,8 @@ export var RADIO_VALUE_ACCESSOR = {
  * </ion-list>
  * ```
  *
- * @demo /docs//demos/src/radio/
- * @see {@link /docs//components#radio Radio Component Docs}
+ * @demo /docs/demos/src/radio/
+ * @see {@link /docs/components#radio Radio Component Docs}
  * @see {@link ../RadioButton RadioButton API Docs}
 */
 export var RadioGroup = (function () {

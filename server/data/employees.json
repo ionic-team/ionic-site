@@ -7,6 +7,13 @@
     "image":"adam.jpg"
   },
   {
+    "name": "Amanda Beaudry",
+    "dept": "Sales",
+    "description": null,
+    "twitter": "amanda_ionic",
+    "image": "amanda.jpg"
+  },
+  {
     "name":"Andrew Haire",
     "dept":"VP of Marketing",
     "description":null,
@@ -53,7 +60,7 @@
     "dept":"Frontend/Design",
     "description":"",
     "twitter":"camwiegert",
-    "image": "cam.jpg"
+    "image": "cam.png"
   },
   {
     "name":"Cody Wiseman",
@@ -129,7 +136,7 @@
     "name":"Kevin Ports",
     "dept":"Frontend/Design",
     "description":"Kevin is a pixel wranglin man, helping out with design and front-end development at Ionic. When he’s not in the office he can probably be found playing a guitar or calling for Sasquatch deep in the Wisconsin Northwoods.",
-    "image": "kevin.jpg"
+    "image": "kevin.png"
   },
   {
     "name":"Lars Mikkelsen",
@@ -223,6 +230,20 @@
     "image": "ashton.png"
   },
   {
+    "name": "Roelf Kuitse",
+    "dept": "VP of Customer Success",
+    "description": null,
+    "twitter": "Roelf",
+    "image": "roelf.png"
+  },
+  {
+    "name": "Ryan Baranowski",
+    "dept": "Sales",
+    "description": null,
+    "twitter": "IonicRyan",
+    "image": "ryan.png"
+  },
+  {
     "name":"Ryan Bowman",
     "dept":"VP of Sales",
     "description":null,
@@ -242,6 +263,13 @@
     "description":"There are few things in Stephen's life that he loves more than the Boston Celtics, From October to Hopefully June you can find him at the Garden when there is a Game. Avid Tennis player, always hitting the courts. Stephen is a seasoned Digital Marketing and Demand Generation leader, who has helped many companies grow through innovative marketing strategies.",
     "twitter":"stochsmarketing",
     "image": "stephen.jpg"
+  },
+  {
+    "name": "Steve Breese",
+    "dept": "Sales",
+    "description": null,
+    "twitter": "IonicSteve",
+    "image": "steve.jpg"
   },
   {
     "name":"Swami Kumaresan",

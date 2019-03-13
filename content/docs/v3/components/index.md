@@ -6,7 +6,7 @@ title: Ionic UI Components and API Customization
 show_preview_device: true
 angular_controller: ComponentsCtrl
 next_page_title: API Docs
-next_page_link: /docs//api
+next_page_link: /docs/api
 ---
 
 <h1 id="overview">Components</h1>

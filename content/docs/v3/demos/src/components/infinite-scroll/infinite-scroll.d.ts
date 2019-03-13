@@ -86,7 +86,7 @@ import { DomController } from '../../util/dom-controller';
  * developers to create their own infinite scroll content components.
  * You could replace our default content with custom SVG or CSS animations.
  *
- * @demo /docs//demos/src/infinite-scroll/
+ * @demo /docs/demos/src/infinite-scroll/
  *
  */
 export declare class InfiniteScroll {

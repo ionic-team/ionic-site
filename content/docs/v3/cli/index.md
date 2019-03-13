@@ -16,7 +16,7 @@ The Ionic Command Line Interface (CLI) is your go-to tool for developing Ionic a
 
 ## Installation
 
-Please make sure latest [Node](/docs/resources/what-is/#node) 6 LTS and [NPM](/docs/resources/what-is/#npm) 3+ are installed.
+Please make sure latest [Node](/docs/developer-resources/what-is/#node) 6 LTS and [NPM](/docs/developer-resources/what-is/#npm) 3+ are installed.
 
 Then, install the CLI globally (you may need sudo):
 

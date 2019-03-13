@@ -34,11 +34,11 @@ Enter your phone number below to text yourself an install link, or find the app 
 
 <div id="badges">
   <a href="https://itunes.apple.com/us/app/ionic-devapp/id1233447133?ls=1&mt=8">
-    <img style="width: 148px" src="/img/pro/appstore.png" id="appstore-image">
+    <img style="width: 148px" src="/img/docs/pro/appstore.png" id="appstore-image">
   </a>
 
   <a href="https://play.google.com/store/apps/details?id=io.ionic.devapp&hl=en">
-    <img style="width: 180px" alt="Get it on Google Play" src="/img/pro/playstore.png" id="playstore-image">
+    <img style="width: 180px" alt="Get it on Google Play" src="/img/docs/pro/playstore.png" id="playstore-image">
   </a>
 </div>  
 

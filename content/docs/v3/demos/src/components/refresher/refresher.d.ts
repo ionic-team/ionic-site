@@ -79,7 +79,7 @@ import { PointerEvents, UIEventManager } from '../../util/ui-event-manager';
  * components. You could replace our default content with
  * custom SVG or CSS animations.
  *
- * @demo /docs//demos/src/refresher/
+ * @demo /docs/demos/src/refresher/
  *
  */
 export declare class Refresher {

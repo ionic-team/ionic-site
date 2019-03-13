@@ -65,7 +65,7 @@ import { Platform } from '../../platform/platform';
  * </ion-list>
  * ```
  *
- * @demo /docs//demos/src/input/
+ * @demo /docs/demos/src/input/
  */
 export declare class TextInput extends InputBase {
     constructor(config: Config, form: Form, item: Item, app: App, platform: Platform, elementRef: ElementRef, renderer: Renderer, scrollView: Content, nav: NavController, ngControl: NgControl, dom: DomController);
@@ -182,7 +182,7 @@ export declare class TextInput extends InputBase {
  *  </ion-item>
  * ```
  *
- * @demo /docs//demos/src/textarea/
+ * @demo /docs/demos/src/textarea/
  */
 export declare class TextArea extends InputBase {
     constructor(config: Config, form: Form, item: Item, app: App, platform: Platform, elementRef: ElementRef, renderer: Renderer, scrollView: Content, nav: NavController, ngControl: NgControl, dom: DomController);

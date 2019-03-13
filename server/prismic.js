@@ -6,16 +6,24 @@ const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
 function linkResolver(doc) {
   // Define the url depending on the document type
-  if (doc.type === 'webinar') {
-    return '/resources/webinars/' + doc.uid;
-  } else if (doc.type === 'article') {
+  if (doc.type === 'article') {
     return '/resources/articles/' + doc.uid;
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
-  } else if (doc.type === 'integration') {
-    return '/integrations/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
+  } else if (doc.type === 'integration') {
+    return '/integrations/' + doc.uid;
+  } else if (doc.type === 'podcast') {
+    return '/resources/podcasts/' + doc.uid;
+  } else if (doc.type === 'thank_you') {
+    return '/thank-you/' + doc.uid;
+  } else if (doc.type === 'video') {
+    return '/resources/videos/' + doc.uid;
+  } else if (doc.type === 'webinar') {
+    return '/resources/webinars/' + doc.uid;
+  } else if (doc.type === 'whitepaper') {
+    return '/resources/whitepapers/' + doc.uid;
   }
 
   // Default to homepage
@@ -34,10 +42,13 @@ function htmlSerializer (type, element, content, children) {
     case Elements.heading6:
       const level = type[type.length -1]
       const id = children.join('')
-                         .replace(/\s+/g, '-')
-                         .replace(/\,+/g, '')
-                         .toLowerCase();
+                         .toLowerCase()
+                         .replace(/ /g, '-')
+                         .replace(/([^a-z\-])/g, '');
       return `<h${level} id="${id}">${children.join('')}</h${level}>`;
+    
+    case Elements.preformatted: 
+      return `<pre><code>${children.join('')}</code></pre>`;
 
     // Return null to stick with the default behavior for all other elements
     default:
@@ -56,7 +67,7 @@ async function getOne(key, value, size = 10, ordering = '') {
 }
 
 module.exports = {
-  middleware: (req, res, next) => {
+  prismicMiddleware: (req, res, next) => {
     res.locals.ctx = {
       endpoint: PRISMIC_ENDPOINT,
       linkResolver,
@@ -102,12 +113,14 @@ module.exports = {
       return req.prismic.api.getByUID(type, uid)
       .then(response => {
         delete req;
-        // console.log(response)
+        if (response === undefined) {
+          throw(new Error(`Prisimic ${type} ${uid} not found`)); 
+        }
         return res.render(template, response)
       })
       .then(resolve)
       .catch(e => {
-        console.log(e);
+        console.error(e);
         next();
       });
     });

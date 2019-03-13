@@ -191,7 +191,7 @@ Open the select interface.
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
+For more information, see <a href="/docs/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     

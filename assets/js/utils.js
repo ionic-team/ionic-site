@@ -114,7 +114,7 @@ var activateOnScroll = function() {
   var elems;
   var windowHeight;
   function init() {
-    elems = document.querySelectorAll( window.activateOnScrollSelector ? 
+    elems = document.querySelectorAll( window.activateOnScrollSelector ?
       activateOnScrollSelector : '.activateOnScroll');
     windowHeight = window.innerHeight ||
                    document.documentElement.clientHeight ||
@@ -254,6 +254,9 @@ window.scrollToY = function(scrollTargetY, speed, easing) {
                     return 0.5 * Math.pow(pos, 5);
                 }
                 return 0.5 * (Math.pow((pos - 2), 5) + 2);
+            },
+            easeOutExpo: function(pos) {
+              return (pos===1) ? 1 : -Math.pow(2, -10 * pos) + 1;
             }
         };
 

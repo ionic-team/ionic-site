@@ -41,7 +41,7 @@ import { Toolbar } from './toolbar';
  * </ion-header>
  * ```
  *
- * @demo /docs//demos/src/title/
+ * @demo /docs/demos/src/title/
  */
 export var ToolbarTitle = (function (_super) {
     __extends(ToolbarTitle, _super);

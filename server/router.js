@@ -29,7 +29,6 @@ router: app => {
 
   // normal pages
   .get('/', (_, res) => res.render('index'))
-  .get('/home', (_, res) => res.render('index'))
 
   .get('/about', (_, res) => res.render('about'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
@@ -46,6 +45,7 @@ router: app => {
   .get('/books/hybrid-vs-native/preview', (_, res) =>
     res.render('books/hybrid-vs-native-preview'))
 
+  .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
   .get('/community', (_, res) => res.render('community'))
   .get('/contact', (_, res) => res.render('contact'))
   .get('/contributors', (_, res) => res.render('contributors'))
@@ -59,7 +59,8 @@ router: app => {
     res.render('enterprise/identity-vault'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
-  .get('/enterprise-engine', (_, res) => res.render('products/enterprise-engine'))
+  .get('/enterprise-edition', (_, res) => res.render('products/enterprise-edition'))
+  .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
   .get('/framework', (_, res) => res.render('framework'))
   .get('/getting-started', (_, res) => res.render('getting-started'))
 
@@ -101,11 +102,17 @@ router: app => {
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
   .get('/resources/articles/:article', (req, res, next) =>
-    getPrismic(req, res, next, 'article', req.params['article'], 'resources/article'))
+    getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
   .get('/resources/case-studies/:caseStudy', (req, res, next) =>
     getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
+  .get('/resources/podcasts/:podcast', (req, res, next) =>
+    getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
+  .get('/resources/videos/:video', (req, res, next) =>
+    getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
   .get('/resources/webinars/:webinar', (req, res, next) =>
     getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
+  .get('/resources/whitepapers/:whitepaper', (req, res, next) =>
+    getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
   .get('/sales', (_, res) => res.render('sales'))
   .get('/startups', (_, res) => res.render('startups'))
@@ -116,6 +123,8 @@ router: app => {
   .get('/survey/2018', (_, res) => res.render('survey/2018'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
+  .get('/thank-you/:thankYou', (req, res, next) =>
+    getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 
   .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
   .post('/trusted-partners',

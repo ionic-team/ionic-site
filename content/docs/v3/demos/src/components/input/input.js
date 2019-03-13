@@ -71,7 +71,7 @@ import { Platform } from '../../platform/platform';
  * </ion-list>
  * ```
  *
- * @demo /docs//demos/src/input/
+ * @demo /docs/demos/src/input/
  */
 export var TextInput = (function (_super) {
     __extends(TextInput, _super);
@@ -320,7 +320,7 @@ export var TextInput = (function (_super) {
  *  </ion-item>
  * ```
  *
- * @demo /docs//demos/src/textarea/
+ * @demo /docs/demos/src/textarea/
  */
 export var TextArea = (function (_super) {
     __extends(TextArea, _super);

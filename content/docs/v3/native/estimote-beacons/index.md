@@ -481,9 +481,9 @@ Stop ranging beacons. Available on iOS and Android.
 
 Start ranging secure beacons. Available on iOS.
 This function has the same parameters/behavior as
-<a href="undefined"><code>startRangingBeaconsInRegion</code></a>.
+<a><code>startRangingBeaconsInRegion</code></a>.
 To use secure beacons set the App ID and App Token using
-<a href="undefined"><code>setupAppIDAndAppToken</code></a>.
+<a><code>setupAppIDAndAppToken</code></a>.
 
 
 <div class="return-value" markdown="1">
@@ -494,7 +494,7 @@ To use secure beacons set the App ID and App Token using
 
 Stop ranging secure beacons. Available on iOS.
 This function has the same parameters/behavior as
-<a href="undefined"><code>stopRangingBeaconsInRegion</code></a>.
+<a><code>stopRangingBeaconsInRegion</code></a>.
 
 
 <div class="return-value" markdown="1">
@@ -585,7 +585,7 @@ Start monitoring secure beacons. Available on iOS.
 This function has the same parameters/behavior as
 EstimoteBeacons.startMonitoringForRegion.
 To use secure beacons set the App ID and App Token using
-<a href="undefined"><code>setupAppIDAndAppToken</code></a>.
+<a><code>setupAppIDAndAppToken</code></a>.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -626,7 +626,7 @@ To use secure beacons set the App ID and App Token using
 
 Stop monitoring secure beacons. Available on iOS.
 This function has the same parameters/behavior as
-<a href="undefined"><code>stopMonitoringForRegion</code></a>.
+<a><code>stopMonitoringForRegion</code></a>.
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>

@@ -37,7 +37,7 @@ Once you have created a Channel, go back to the **Builds** section of your app.
 On the right side of each Build, you'll see a "Assign to Channel" icon.
 
 <div style="text-align: center">
-  <img style="width: 950px" src="/img/pro/assign-to-channel.png">
+  <img style="width: 950px" src="/img/docs/pro/assign-to-channel.png">
 </div>
 
 Click this to set the Build as active for a Channel.

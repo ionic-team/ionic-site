@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ionic Framework main site - IonicFramework.com",
   "scripts": {
-    "build": "stencil build && gulp build.clean",
+    "build": "gulp build.clean",
     "dev": "gulp watch",
     "bundle-install": "echo Gemfile.lock > .git/info/exclude && rm -f Gemfile.lock && bundle exec bundle install && git update-index --assume-unchanged Gemfile.lock",
     "heroku-postbuild": "gulp build.clean && gulp sitemap && gulp slug.prep",
@@ -11,7 +11,7 @@
     "stencil-dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "stencil-serve": "stencil-dev-server",
     "stencil-start": "npm run dev",
-    "stencil-prepublish": "npm run build"
+    "stencil-prepublish": "stencil build && npm run build"
   },
   "engines": {
     "node": "10.x.x"

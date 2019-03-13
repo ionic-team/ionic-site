@@ -214,6 +214,10 @@
       @include box;
       padding: 8px 28px 28px;
 
+      @media (min-width: $screen-md-min) {
+        width: 327px;
+      }
+
       h3 {
         font-weight: 600;
         font-size: 18px;

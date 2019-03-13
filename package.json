@@ -11,7 +11,7 @@
     "stencil-dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "stencil-serve": "stencil-dev-server",
     "stencil-start": "npm run dev",
-    "stencil-prepublish": "stencil build && npm run build"
+    "stencil-prepublish": "npm run build"
   },
   "engines": {
     "node": "10.x.x"

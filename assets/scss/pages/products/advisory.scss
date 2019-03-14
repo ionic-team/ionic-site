@@ -1,0 +1,510 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+
+#page-products-advisory {
+
+  .top {
+    text-align: center;
+    background-color: #171E2A;
+    margin-top: -148px;
+    padding-top: 235px;
+    padding-bottom: 140px;
+    background-image: url('/img/products/advisory/advisory-hero-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    hgroup {
+      color: #fff;
+
+      h4 {
+        line-height: 25px;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #B2BECD;
+        font-family: $font-family-monospace;
+        margin-bottom: 0;
+      }
+
+      h1,
+      p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h1 {
+        line-height: 63px;
+        font-size: 56px;
+        letter-spacing: -0.02em;
+        margin-top: 14px;
+        max-width: 600px;
+      }
+
+      p {
+        font-family: $font-family-eina;
+        font-size: 22px;
+        line-height: 30px;
+        max-width: 540px;
+        color: #DEE3EA;
+      }
+
+      .btn {
+        margin-top: 24px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+      }
+    }
+  }
+
+  main section {
+    padding: 72px 0;
+
+    h2 {
+      font-size: 32px;
+      line-height: 42px;
+      letter-spacing: -0.03em;
+      color: #1A232F;
+      margin-bottom: 20px;
+    }
+
+
+    h4 {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: #1A232F;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      color: #4E5B6A;
+      line-height: 26px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      font-family: $font-family-inter;
+    }
+
+    p.large {
+      color: #27323F;
+      line-height: 39px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      font-family: $font-family-eina;
+      margin-bottom: 24px;
+    }
+
+    p.small {
+      line-height: 22px;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      color: #5B708B;
+    }
+
+    .btn {
+      color: #fff;
+      background: #3880FF;
+      box-shadow: 0px 0px 2px rgba(0, 20, 56, 0.14), 0px 2px 3px rgba(0, 20, 56, 0.08);
+      border-radius: 84px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      padding: 19px 25px 19px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+
+      ion-icon {
+        font-size: 18px;
+        margin-left: 4px;
+        transform: translate(0, -1px);
+      }
+
+      &:hover {
+        background-color: lighten(#3880FF, 2%);
+        ion-icon {
+          transform: translate(1px, -1px);
+        }
+      }
+    }
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .measure {
+    max-width: 560px;
+
+    &-lg {
+      max-width: 720px;
+    }
+  }
+
+  .checkmark-list {
+    &--large {
+      max-width: 380px;
+
+      li {
+        line-height: 26px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        color: #616E7E;
+        display: flex;
+      }
+
+      li + li {
+          margin-top: 20px;
+      }
+
+      i {
+        margin-right: 6px;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        background-color: #73849A;;
+        z-index: -1;
+        margin-right: 16px;
+        transform: translateY(2px);
+      }
+
+      ion-icon {
+        font-size: 16px;
+        color: #fff;
+      }
+
+      hgroup {
+        h5 {
+          margin-top: -2px;
+          margin-bottom: 0;
+          line-height: 33px;
+          font-size: 16px;
+          letter-spacing: -0.01em;
+          color: #3C536F;
+          font-weight: 600;
+        }
+        p {
+          line-height: 23px;
+          font-size: 14px;
+          letter-spacing: -0.01em;
+          color: #92A1B3;
+        }
+      }
+    }
+
+    &--small {
+      margin: 0;
+      padding: 0;
+
+      li {
+        line-height: 13px;
+        font-size: 12px;
+        color: #5B708B;
+        display: flex;
+      }
+
+      ion-icon {
+        font-size: 15px;
+        color: #92A1B3;
+        flex: 0 0 15px;
+        margin-right: 6px;
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  .customer-logos {
+    padding: 0;
+
+    ul {
+      padding: 32px 0;
+      list-style-type: none;
+    }
+
+    [class^='cutomer-logo'] {
+      display: block;
+      background-image: url('/img/products/advisory/advisory-hero-bg.png');
+      width: 30px;
+      height: 30px;
+    }
+
+    img {
+      height: 48px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .lifecycle {
+    .flex {
+      width: 100%;
+    }
+    .illustration,
+    hgroup {
+      flex: 0 0 50%;
+    }
+
+    .illustration img {
+      width: 100%;
+      max-width: 430px;
+      margin-top: 44px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li {
+      flex: 0 0 50%;
+      padding-right: 20px;
+      margin-bottom: 12px;
+    }
+
+    h5 {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+
+      &.blue {
+        color: #3880FF;
+      }
+      &.purple {
+        color: #6030FF;
+      }
+      &.green {
+        color: #43C465;
+      }
+      &.gray {
+        color: #5B708B;
+      }
+    }
+  }
+
+  .book-a-session {
+    .well {
+      padding: 54px 54px 48px;
+      border-radius: 8px;
+      background-color: #F4F6FC;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      color: #020814;
+      font-weight: 600;
+    }
+
+    p.large {
+      line-height: 32px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: #73849A;
+      margin-bottom: 0;
+
+      strong {
+        font-weight: 400;
+        color: #020814;
+      }
+    }
+  }
+
+  .what-you-get {
+    .checkmark-list--large {
+      max-width: 100%;
+      padding: 0;
+      margin: 38px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .checkmark-list--large li {
+      flex-direction: column;
+      flex: 0 0 25%;
+      padding-right: 24px;
+      margin-bottom: 24px;
+
+      & + li {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .use-cases {
+    hgroup h2 {
+      margin-bottom: 4px;
+    }
+
+    hgroup p.large {
+      margin-bottom: 28px;
+    }
+
+    .row-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      & > li {
+        display: block;
+        border-top: 1px solid #DEE3EA;
+        display: flex;
+        padding-top: 32px;
+      }
+
+      h4 {
+        margin-top: 4px;
+        font-size: 20px;
+      }
+
+      h5 {
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      & > li + li {
+        margin-top: 32px;
+      }
+
+      .col {
+        flex: 0 0 50%;
+      }
+
+      .measure {
+        max-width: 440px;
+      }
+    }
+  }
+
+  .resources {
+    padding-bottom: 120px;
+
+    .cards {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+
+    hgroup {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      h3 {
+        font-weight: 600;
+        line-height: normal;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+        color: #1A232F;
+        margin-bottom: 0;
+      }
+
+      h5 {
+        font-weight: 700;
+        line-height: 1;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        color: #3880FF;
+        text-transform: uppercase;
+      }
+
+      ion-icon {
+        transform: translateY(2px);
+      }
+    }
+
+    .cards li {
+      display: block;
+      flex: 0 0 33.33%;
+      padding: 24px;
+
+      a {
+        display: block;
+        width: 100%;
+      }
+
+      .img-wrapper {
+        overflow: hidden;
+        border-radius: 6px;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      h6 {
+        line-height: 23px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #B2BECD;
+        margin-bottom: 0;
+        margin-top: 16px;
+      }
+
+      h4 {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .call-to-action {
+    background-color: #F6F8FB;
+    padding-top: 140px;
+    padding-bottom: 100px;
+
+    .container {
+      max-width: 768px;
+    }
+
+    hgroup {
+      text-align: center;
+      margin-bottom: 40px;
+
+      h3 {
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #616E7E;
+        margin-bottom: 4px;
+
+        em {
+          font-style: normal;
+          color: #1A232F;
+        }
+      }
+      p {
+        line-height: 32px;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: -0.01em;
+        color: #5B708B;
+
+        b {
+          font-weight: 500;
+        }
+      }
+    }
+
+  }
+}

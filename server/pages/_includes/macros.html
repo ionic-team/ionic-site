@@ -5,12 +5,11 @@
 
       <li class="tabs__item {% if currentCategory === 'featured' %} active{% endif %}">
         <a href="/resources"class="pjxLink pjxNavLink">
-          <svg width="17px" height="20px" viewBox="0 0 17 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g id="featured">
-              <path d="M14.4242424,5 L15.5,5 C16.3284271,5 17,5.67157288 17,6.5 L17,18.5 C17,19.3284271 16.3284271,20 15.5,20 L12.9242424,20 L1.5,20 C0.671572875,20 1.01453063e-16,19.3284271 0,18.5 L0,1.5 C-1.01453063e-16,0.671572875 0.671572875,1.52179594e-16 1.5,0 L12.9242424,0 C13.7526695,-1.52179594e-16 14.4242424,0.671572875 14.4242424,1.5 L14.4242424,5 Z" class="bg"></path>
-              <path d="M14.4242424,5 L15.5,5 C16.3284271,5 17,5.67157288 17,6.5 L17,18.7121212 C17,19.423397 16.423397,20 15.7121212,20 L15.7121212,20 C15.0008454,20 14.4242424,19.423397 14.4242424,18.7121212 L14.4242424,5 Z" id="shadow" fill="#000000" opacity="0.322576993"></path>
-              <path d="M2.06060606,2.5 L12.3636364,2.5 L12.3636364,7 L2.06060606,7 L2.06060606,2.5 Z M2.06060606,8.5 L12.3636364,8.5 L12.3636364,10.5 L2.06060606,10.5 L2.06060606,8.5 Z M2.06060606,12 L12.3636364,12 L12.3636364,14 L2.06060606,14 L2.06060606,12 Z M2.06060606,15.5 L12.3636364,15.5 L12.3636364,17.5 L3.06060606,17.5 C2.50832131,17.5 2.06060606,17.0522847 2.06060606,16.5 L2.06060606,15.5 Z" class="highlight"></path>
-            </g>
+          <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.4577 9.12016L24.6216 13.7588L19.7714 24.1159C19.3013 25.1198 18.0642 25.6454 17.0142 25.2874L6.71213 21.7741L5.58364 18.9313L22.4577 9.12016Z" class="highlight"/>
+          <path d="M5.40625 18.6784L6.62023 22.1691L17.4687 26.0146C18.4405 26.3591 19.515 25.9083 19.9501 24.9736L25.1717 13.7571" class="shadow" stroke-width="1.5"/>
+          <path d="M11.5814 3.95623L22.8664 7.685C23.9235 8.03429 24.3962 9.13849 23.9185 10.1428L18.5928 21.3394C18.1236 22.3258 16.9117 22.8469 15.8706 22.5099L4.53387 18.8401L11.5814 3.95623Z" class="bg"/>
+          <path d="M13.1276 7.95404L19.919 10.2701L17.8748 14.5679L11.0833 12.2518L13.1276 7.95404Z" class="highlight"/>
           </svg>
           <span>Featured</span>
         </a>
@@ -89,9 +88,9 @@
 {% endmacro %}
 
 {% macro resource(e, isLarge) %}
-<a href="{{ e.url }}" 
-   target="{% if e.target %}{{ e.target }}{% else %}_blank{% endif %}" 
-   style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %} 
+<a href="{{ e.url }}"
+   target="{% if e.target %}{{ e.target }}{% else %}_blank{% endif %}"
+   style="{% if e.bgImage %} background-image: url('{{ e.bgImage }}');{% endif %}
           background-color: {{ e.bgColor }};">
   <div>
     <span class="eyebrow">{{ e.type }}</span>

@@ -31,6 +31,7 @@ router: app => {
   .get('/', (_, res) => res.render('index'))
 
   .get('/about', (_, res) => res.render('about'))
+  .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
 
   .get('/articles/pwa-architects-guide', (_, res) =>

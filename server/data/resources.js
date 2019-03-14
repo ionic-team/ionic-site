@@ -18,6 +18,30 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "What is Cross-Platform App Development?",
+        "url": "/resources/articles/what-is-cross-platform-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-what-is-cross-platform-development.png",
+        "bgColor": "#FFBD00"
+      },{
+        "type": "Article",
+        "title": "How to Pick the Right Mobile Development Approach",
+        "url": "/resources/articles/how-to-pick-the-right-mobile-development-approach",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-questions-to-ask.png",
+        "bgColor": "#5244E"
+      },{
+        "type": "Article",
+        "title": "How Hybrid App Development Helps Deliver Great UX",
+        "url": "/resources/articles/how-hybrid-app-development-helps-deliver-great-ux",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-how-hybrid-app-development-delivers-great-ux.png",
+        "bgColor": "#9273FF"
+      },{
+        "type": "Article",
         "title": "What is a Progressive Web App and Why You Need One",
         "url": "/resources/articles/what-is-a-progressive-web-app-and-why-you-need-one",
         "target": "_self",
@@ -217,6 +241,13 @@ const resources = {
     meta: "Ionic Resources: Webinars for developers and architects",
     items: [
       {
+        "type": "Webinar",
+        "title": "Introducing Ionic Enterprise Edition",
+        "url": "/resources/webinars/introducing-ionic-enterprise-edition",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-introducing-ionic-enterprise-edition.png",
+        "bgColor": "#3E527B"
+      }, {
         "type": "Webinar",
         "title": "Tackling Continuous Delivery with Appflow",
         "url": "/resources/webinars/tackling-continuous-delivery-with-appflow",

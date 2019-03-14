@@ -1,7 +1,7 @@
 {% extends '_layouts/base.html' %}
-{% set title = 'Ionic Advisory: Trusted Solution for Building Enterprise Apps' %}
-{% set meta_image = 'https://ionicframework.com/img/meta/products-ee-og.png' %}
-{% set meta_description = "Ionic Enterprise Edition is a trusted foundation and full-stack solution to build and power your company's mission-critical, enterprise apps that impact digital transformation." %}
+{% set title = 'Ionic Mobile Development Advisory Services - Ionic Framework' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/products-advisory-og.png' %}
+{% set meta_description = "Ionic's mobile development advisory services helps you build apps more efficiently and effectively. Whether you are undergoing digital transformation or building new enterprise apps we have you covered." %}
 {% set id = 'products-advisory' %}
 {% set header_style = 'transparent' %}
 {% set stickyNav = true %}
@@ -28,11 +28,11 @@
   <section class="customer-logos">
     <div class="container">
       <ul>
-        <li class="cutomer-logo--aaa"></li>
-        <li class="cutomer-logo--amtrak"></li>
-        <li class="cutomer-logo--panera"></li>
-        <li class="cutomer-logo--ge"></li>
-        <li class="cutomer-logo--rbi"></li>
+        <li class="customer-logo--aaa"></li>
+        <li class="customer-logo--amtrak"></li>
+        <li class="customer-logo--panera"></li>
+        <li class="customer-logo--ge"></li>
+        <li class="customer-logo--rbi"></li>
       </ul>
     </div>
   </section>
@@ -122,7 +122,13 @@
           <p class="large">Schedule your free <strong>Strategy Session</strong> with one of our Solutions Engineers, to see how we can help you meet your development goals.</p>
         </hgroup>
 
-        <a href="#" class="btn uppercase rounded cta-link">Book a time <ion-icon name="arrow-forward"></ion-icon></a>
+        <a
+          href="#"
+          class="btn uppercase rounded"
+          data-toggle="modal"
+          data-target="#contactForm">
+          Book a time <ion-icon name="arrow-forward"></ion-icon>
+        </a>
       </div>
     </div>
   </section>
@@ -312,9 +318,9 @@
 
       <ul class="cards">
         <li>
-          <a href="#">
+          <a href="/books/hybrid-vs-native">
             <div class="img-wrapper">
-              <img src="/img/resource-center/article-hybrid-native.jpg" alt="">
+              <img src="/img/products/advisory/resource-hybrid-vs-native.png" alt="">
             </div>
             <h6>Ebook</h6>
             <h4>Hybrid vs Native</h4>
@@ -322,9 +328,9 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/resources/articles/evaluating-ionic-for-enterprise-development">
             <div class="img-wrapper">
-              <img src="/img/resource-center/article-evaluating-for-enterprise.png" alt="">
+              <img src="/img/products/advisory/resource-evaluating-for-the-enterprise.png" alt="">
             </div>
             <h6>Article</h6>
             <h4>Evaluating Ionic for the Enterprise</h4>
@@ -332,9 +338,9 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/articles/why-hybrid">
             <div class="img-wrapper">
-              <img src="/img/resource-center/article-why-hybrid.jpg" alt="">
+              <img src="/img/products/advisory/resource-why-hybrid.png" alt="">
             </div>
             <h6>White paper</h6>
             <h4>Why Hybrid?</h4>
@@ -357,9 +363,9 @@
         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
         <script>
           hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "1d517034-0dcd-4e0d-bbf3-554e8c919701",
-          css: ""
+            portalId: "3776657",
+            formId: "79207bfe-5ad1-4bcf-9f02-efbd2ace702f",
+            css: ""
         });
         </script>
       </div>
@@ -372,74 +378,63 @@
 {% endblock %}
 
 {% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="text-center">
+          <h3>
+            Book a free Strategy Session
+          </h3>
+          <p class="lg">Send us a detailed message and an Ionic solutions engineer will get back to you soon.</p>
+        </hgroup>
 
+        <!--[if lte IE 8]>
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "6eab0d83-fa5f-46c1-be64-afdd0e4a51a6",
+            css: ""
+          });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  // function scrollToSelector(selector, offset){
-  //   var offset = offset || 0;
-  //   window.scrollToY(document.querySelector(selector).getBoundingClientRect().top + window.scrollY + offset, 200, 'easeOutExpo');
-  // }
-  //
-  // // main cta scroll to
-  // document.querySelectorAll('.cta-link').forEach(function(ctaLink){
-  //   ctaLink.addEventListener('click', function(ev){
-  //     ev.preventDefault();
-  //     scrollToSelector('.call-to-action');
-  //   });
-  // });
-  //
-  // // page nav scroll to
-  // document.querySelectorAll('.page-nav__link').forEach(function(navLink){
-  //   navLink.addEventListener('click', function(ev){
-  //     ev.preventDefault();
-  //     var anchorId = ev.target.getAttribute("href");
-  //     scrollToSelector(anchorId, -60);
-  //   });
-  // })
-  //
-  // // nav highlighting
-  // var threshold = window.innerHeight * 0.33;
-  // var sectionOffsets = [];
-  //
-  // function updateSectionOffsets(){
-  //   requestAnimationFrame(function(){
-  //     document.querySelectorAll('.nav-section').forEach(function(section){
-  //       sectionOffsets.push({
-  //         id: section.id,
-  //         top: section.getBoundingClientRect().top + window.scrollY,
-  //         bottom: section.getBoundingClientRect().bottom + window.scrollY,
-  //         anchor: document.querySelector('[href="#' + section.id + '"]'),
-  //         isActive: false
-  //       })
-  //     });
-  //   });
-  // }
-  //
-  // function checkOffsets(){
-  //   var scroll = window.scrollY + threshold;
-  //   sectionOffsets.forEach(function(section){
-  //     if (section.top < scroll && section.bottom > scroll) {
-  //       section.anchor.classList.add('active');
-  //       section.isActive = true;
-  //     } else {
-  //       section.anchor.classList.remove('active');
-  //       section.isActive = false;
-  //     }
-  //   });
-  //
-  //   if (sectionOffsets.filter(function(o){return o.isActive === true}).length) {
-  //     document.querySelector('.page-nav').classList.add('active');
-  //   } else {
-  //     document.querySelector('.page-nav').classList.remove('active');
-  //   }
-  // }
-  //
-  // updateSectionOffsets();
-  // checkOffsets();
-  // window.addEventListener('scroll', checkOffsets);
-  // window.addEventListener('resize', updateSectionOffsets);
+  function scrollToSelector(selector, offset){
+    var offset = offset || 0;
+    window.scrollToY(document.querySelector(selector).getBoundingClientRect().top + window.scrollY + offset, 200, 'easeOutExpo');
+  }
+
+  // main cta scroll to
+  document.querySelectorAll('.cta-link').forEach(function(ctaLink){
+    ctaLink.addEventListener('click', function(ev){
+      ev.preventDefault();
+      scrollToSelector('.call-to-action');
+    });
+  });
 
 </script>
 {% endblock %}

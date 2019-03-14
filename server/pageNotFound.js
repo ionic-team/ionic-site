@@ -6,7 +6,7 @@ var v3Directories = getDirectories('_site/docs/v3');
 
 send404 = res => {
     res.status(404);
-    return res.sendFile(__dirname.replace('/server', '') + '/_site/404.html');
+    return res.render('404');
 
 }
 

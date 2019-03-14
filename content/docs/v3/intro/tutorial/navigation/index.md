@@ -6,9 +6,9 @@ subid: tutorial
 title: Navigating - Tutorial
 header_sub_title: Getting Started with Ionic
 next_page_title: Component Docs
-next_page_link: /docs/components
+next_page_link: /docs/v3/components
 prev_page_title: Adding Pages
-prev_page_link: /docs/intro/tutorial/adding-pages/
+prev_page_link: /docs/v3/intro/tutorial/adding-pages/
 ---
 
 <h1 class="title">Navigating to Pages</h1>

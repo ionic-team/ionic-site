@@ -95,8 +95,8 @@ function start() {
   
   // bind the app to listen for connections on a specified port
   app.listen(PORT, function() {
-    // Render some console log output
     console.log('Listening on port ' + PORT);
-    tools.bustCloudflareCache();
+    // 5 min delay for heroku rolling start to complete
+    setTimeout(tools.bustCloudflareCache, 1000 * 60 * 5); 
   });
 } // end start()

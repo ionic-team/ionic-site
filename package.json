@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
     "@sentry/node": "^4.6.4",
-    "@stencil/core": "0.11.4",
+    "@stencil/core": "0.18.0",
     "@stencil/sass": "0.1.1",
     "@stencil/utils": "latest",
     "@types/node": "10.12.27",
@@ -99,5 +99,6 @@
   },
   "module": "content/js/stencil/esm/index.js",
   "main": "content/js/stencil/index.js",
-  "types": "content/js/stencil/types/components.d.ts"
+  "types": "content/js/stencil/types/components.d.ts",
+  "collection": "content/js/stencil/collection/collection-manifest.json"
 }

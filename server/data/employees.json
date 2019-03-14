@@ -105,6 +105,13 @@
     "image": "giovanni.jpg"
   },
   {
+    "name":"Jack Brin",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"johnsarcher",
+    "image": "jack.png"
+  },
+  {
     "name":"Jake Santerre",
     "dept":"Sales",
     "description":null,
@@ -153,11 +160,25 @@
     "image": "lee.jpg"
   },
   {
+    "name":"Liam DeBeasi",
+    "dept":"Development",
+    "description": null,
+    "twitter":"LiamDeBeasi",
+    "image": "liam.png"
+  },
+  {
     "name":"Liz Maves",
     "dept":"Administration",
     "description":"With keen attention to detail Liz works behind the scenes, providing support to Ionic employees. From onboarding new hires, stocking the lounge with healthy snacks, walking any office dog that will let her, or planning the next Ionic Bonding event; she’s almost magical. When not at Ionic HQ, you’re most likely to find Liz on the disc golf course, trying to get her first ace, or in the kitchen, preparing a delicious meal.",
     "twitter":"Liz_ionic",
     "image": "liz.jpg"
+  },
+  {
+    "name":"Luke McCullough",
+    "dept":"Development",
+    "description": null,
+    "twitter":"lm3m",
+    "image": "luke.png"
   },
   {
     "name":"Mano",

@@ -103,9 +103,13 @@ router: app => {
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
   .get('/resources/articles/:article', (req, res, next) =>
-    getPrismic(req, res, next, 'article', req.params['article'], 'resources/article'))
+    getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
   .get('/resources/case-studies/:caseStudy', (req, res, next) =>
     getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
+  .get('/resources/podcasts/:podcast', (req, res, next) =>
+    getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
+  .get('/resources/videos/:video', (req, res, next) =>
+    getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
   .get('/resources/webinars/:webinar', (req, res, next) =>
     getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
   .get('/resources/whitepapers/:whitepaper', (req, res, next) =>

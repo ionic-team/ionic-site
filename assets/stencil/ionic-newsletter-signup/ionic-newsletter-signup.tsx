@@ -12,10 +12,16 @@ export class IonicNewsletterSignup {
   @Prop() darkMode: boolean = false;
   @Prop() arrowMode: boolean = false;
   @Prop() lg: boolean = false;
+  @Prop() kind: string = 'default';
 
   @State() isLoading: boolean = false;
   @State() hasSubmitted: boolean = false;
   @State() email: string = null;
+
+  hsFormIds = {
+    default: '76e5f69f-85fd-4579-afce-a1892d48bb32',
+    podcast: ''
+  }
 
   handleEmailChange(event) {
     this.email = event.target.value;

@@ -175,7 +175,7 @@ gulp.task('js', function() {
 
 
 gulp.task('stencil', function(done) {
-  return cp.spawn('stencil',
+  return cp.spawn('node_modules/.bin/stencil',
     ['build'],
     {
       cwd: process.cwd(),
@@ -190,7 +190,10 @@ gulp.task('stencil', function(done) {
       .src('content/js/stencil/*')
       .pipe(gulp.dest('_site/js/stencil/'))
     done();
-  }).on('error', function(err) {throw err; });
+  }).on('error', function(err) {
+    console.log(err)
+    throw err; 
+  });
 });
 
 gulp.task('stencil:clean', function(done) {

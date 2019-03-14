@@ -245,6 +245,15 @@ module.exports = {
     })
   },
 
+  addEmailToPodcastList: (email) => {
+    const podcastListID = '1297';
+    return hs.lists.addContacts(podcastListID, {
+      "emails": [email]
+    }).catch(err => {
+      console.warn(err)
+    })
+  },
+
   // tools tied to multiple or no 3rd party service
   saveEmail: (opts) => {
     // Save to HubSpot and SendGrid

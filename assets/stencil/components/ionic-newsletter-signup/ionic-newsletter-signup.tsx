@@ -42,7 +42,7 @@ export class IonicNewsletterSignup {
         this.hubspotIdentify(email);
       }
     };
-    xhr.send(JSON.stringify({ email: this.email}));
+    xhr.send(JSON.stringify({ email: this.email, podcast: this.kind === 'podcast'}));
   }
 
   hubspotIdentify(email: string) {

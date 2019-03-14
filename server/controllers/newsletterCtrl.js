@@ -1,27 +1,35 @@
 const config    = require('../config');
-const tools     = require('../tools');
+const {
+  saveEmailSendGrid,
+  saveEmailHubSpot,
+  addEmailToPodcastList,
+  reflect
+}     = require('../tools');
 
 module.exports = function(req, res) {
 
-  var promises = [];
-  var email = req.sanitize(req.body.email);
+  const email = req.sanitize(req.body.email);
+  const podcast = req.sanitize(req.body.podcast);
 
-  promises.push(new Promise((resolve, reject) => {
-    tools.saveEmail({
-      email: email,
-      newsletter_subscriber: 'true'
-    }).then((data, error) => {
-      if (data.body.errors) {
-        return reject(data.body.errors);
-      }
-      resolve(data.body);
-    })
-  }));
+  const opts = {
+    email: email,
+    newsletter_subscriber: 'true'
+  }
+
+  const promises = [
+    saveEmailSendGrid(opts),
+    saveEmailHubSpot(opts)
+  ]
+
+  if (podcast) {
+    promises.push(addEmailToPodcastList(email))
+  }
 
   // relfect because we want to show the page even if one of the tasks error
-  Promise.all(promises.map(tools.reflect)).then(values => {
+  Promise.all(promises.map(reflect)).then(values => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.json({ ok: true, message: `${email} added to newsletter` });
+    res.json({ ok: true, message: `${email} added to newsletter${podcast ? 
+      ' and podcast list' : ''}` });
   });
 }
 

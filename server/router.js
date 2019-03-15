@@ -118,6 +118,7 @@ router: app => {
   .get('/startups', (_, res) => res.render('startups'))
   .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))
+  .get('/subscribe', (_, res) => res.render('subscribe'))
   .get('/support', (_, res) => res.render('support'))
   .get('/survey/2017', (_, res) => res.render('survey/2017'))
   .get('/survey/2018', (_, res) => res.render('survey/2018'))

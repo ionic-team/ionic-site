@@ -18,7 +18,16 @@
   </div>
 </div>
 
-<div class="cta gradient">
+<div class="cta gradient"
+  {% if data.header_background %}
+     style="
+      background-image:
+        url('/img/resource-center/webinars/webinar-bg-img-{{data.header_background}}.jpg'),
+        linear-gradient(120deg, #4864ec, #84aff4);
+      background-size: cover, 100%;
+      background-position: 50% 50%;"
+  {% endif %}>
+
   <hgroup class="container">
     <strong>Ionic Webinar</strong>
     <h1>{{data.title}}</h1>

@@ -1,8 +1,4 @@
 const url         = require('url');
-const fs          = require('fs');
-const path        = require('path');
-var v1Directories = getDirectories('_site/docs/v1');
-var v3Directories = getDirectories('_site/docs/v3');
 
 send404 = res => {
     res.status(404);
@@ -17,15 +13,8 @@ module.exports = {
 
     // we don't need to worry about non-docs pages, just 404 it
     if (urlParts[1] === 'docs') {
-      // v2/v3 redirects
-      if (v3Directories.indexOf(urlParts[2]) != -1) {
-        return res.redirect(301, req.path.replace('/docs', '/docs/v3')) || true;
-      // v1 pages
-      } else if (v1Directories.indexOf(urlParts[2]) != -1) {
-        return res.redirect(301, req.path.replace('/docs', '/docs/v1')) || true;
-
       // native links might erroneosly contain capital letters
-      } else if (req.path.includes('/native/') && /[A-Z]/.test(req.path)) {
+      if (req.path.includes('/native/') && /[A-Z]/.test(req.path)) {
         return res.redirect(301, req.path.toLowerCase() ) || true;
 
       // native links might erroneosly contain dashes
@@ -57,9 +46,4 @@ module.exports = {
     console.error(`404 on request: ${req.path}`);
     send404(res);
   }
-}
-
-function getDirectories(srcpath) {
-  return fs.readdirSync(srcpath)
-  .filter(file => fs.statSync(path.join(srcpath, file)).isDirectory());
 }

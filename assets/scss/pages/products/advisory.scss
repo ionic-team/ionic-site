@@ -160,6 +160,9 @@
     @media (max-width: $screen-sm) {
       padding: 60px 0;
     }
+    @media (max-width: $screen-xs) {
+      padding: 40px 0;
+    }
   }
 
   .flex {
@@ -328,7 +331,7 @@
       }
       [class^='customer-logo']{
         transform: scale(0.70);
-        margin: 10px;
+        margin: 3px;
       }
     }
   }
@@ -373,7 +376,7 @@
 
     li {
       flex: 0 0 50%;
-      padding-right: 20px;
+      padding-right: 50px;
       margin-bottom: 12px;
     }
 
@@ -478,6 +481,12 @@
       .btn {
         margin-left: 0px;
         margin-top: 18px;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      .well {
+        padding: 32px;
       }
     }
   }

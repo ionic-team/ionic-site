@@ -323,8 +323,21 @@
           }
 
           strong {
+            padding-top: 11px;
             padding-bottom: 0;
           }
+        }
+
+        &--withbigs {
+           padding-top: 0;
+
+           .big:first-child {
+             margin-top: 6px !important;
+           }
+
+           .big + .divider {
+             margin-top: 12px;
+           }
         }
 
         a:hover {
@@ -906,8 +919,8 @@
   &.navbar-sticky {
     z-index: 999;
     padding: 20px 0px;
-    box-shadow: 
-      0px 2px 6px 0px rgba(0, 0, 0, 0.04), 
+    box-shadow:
+      0px 2px 6px 0px rgba(0, 0, 0, 0.04),
       0px 6px 12px rgba(0, 0, 0, 0.02);
   }
 

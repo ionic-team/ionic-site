@@ -89,12 +89,11 @@ router: app => {
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
 
-  .get('/pro', (_, res) => res.render('pro/index'))
   .get('/pro/contact', (_, res) => res.render('pro/contact'))
   .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
-  // .get('/pro/teams', (_, res) => res.render('pro/teams'))
+  
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 

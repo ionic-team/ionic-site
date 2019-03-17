@@ -1,2 +1,0 @@
-/*! Built with http://stenciljs.com */
-const{h:t}=window.IonicSiteComponents;class e{constructor(){this.active=!1}componentDidLoad(){}close(){this.active=!1}render(){return[t("div",null)]}static get is(){return"ionic-search"}static get properties(){return{active:{state:!0}}}static get style(){return""}}export{e as IonicSearch};

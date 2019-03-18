@@ -16,19 +16,19 @@ if (sidebarToggleEl) {
   };
 }
 
-$(document).ready(function() {
-  // activate dropdowns
-  $('.dropdown-toggle').dropdown();
-
-  $(".navbar.transparent .dropdown, .pre-header .dropdown").hover(
-    function(){ $(this).addClass('open') },
-    function(){ $(this).removeClass('open') }
-  );
-	$(".navbar.transparent .dropdown, .pre-header .dropdown").click()
-
-  // Generic helper class for on-load animations
-  $('.active-on-load').addClass('active');
-});
+// $(document).ready(function() {
+//   // activate dropdowns
+//   $('.dropdown-toggle').dropdown();
+//
+//   $(".navbar.transparent .dropdown, .pre-header .dropdown").hover(
+//     function(){ $(this).addClass('open') },
+//     function(){ $(this).removeClass('open') }
+//   );
+// 	$(".navbar.transparent .dropdown, .pre-header .dropdown").click()
+//
+//   // Generic helper class for on-load animations
+//   $('.active-on-load').addClass('active');
+// });
 
 (function () {
   // pre-header announcement animation

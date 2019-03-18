@@ -9,50 +9,50 @@
     <li class="big">
       <a href="/enterprise-edition">
         {% include '_includes/svg/enterprise-edition-icon.html' %}
-        <strong>Ionic Enterprise Edition</strong>
-        <span>The trusted app foundation for enterprise</span>
+        <strong class="dropdown-menu__text--l1">Ionic Enterprise Edition</strong>
+        <span class="dropdown-menu__text--l3">The trusted app foundation for Enterprise</span>
       </a>
     </li>
     <li class="big">
       <a href="/studio">
         {% include '_includes/svg/studio-icon.html' %}
-        <strong>Ionic Studio</strong>
-        <span>Ionic integrated development environment</span>
+        <strong class="dropdown-menu__text--l1">Ionic Studio</strong>
+        <span class="dropdown-menu__text--l3">Ionic integrated development environment</span>
       </a>
     </li>
     <li class="big">
       <a href="/appflow">
         {% include '_includes/svg/appflow-icon.html' %}
-        <strong>Ionic Appflow</strong>
-        <span>Continuous mobile devops tools &amp; services</span>
+        <strong class="dropdown-menu__text--l1">Ionic Appflow</strong>
+        <span class="dropdown-menu__text--l3">Continuous mobile devops tools &amp; services</span>
       </a>
     </li>
     <li class="big">
       <a href="/advisory">
         {% include '_includes/svg/advisory-icon.html' %}
-        <strong>Ionic Advisory</strong>
-        <span>Expert help for enterprise development</span>
+        <strong class="dropdown-menu__text--l1">Ionic Advisory</strong>
+        <span class="dropdown-menu__text--l3">Expert help for enterprise development</span>
       </a>
     </li>
 
     <li class="divider"></li>
     <li>
-      <a href="/integrations">
+      <a href="/integrations" class="dropdown-menu__text--l2">
         Integrations
       </a>
     </li>
     <li>
-      <a href="/pricing">
+      <a href="/pricing" class="dropdown-menu__text--l2">
         Pricing
       </a>
     </li>
     <li>
-      <a href="/demo">
+      <a href="/demo" class="dropdown-menu__text--l2">
         Get a demo
       </a>
     </li>
     <li>
-      <a href="/support">
+      <a href="/support" class="dropdown-menu__text--l2">
         Support options
       </a>
     </li>
@@ -67,69 +67,80 @@
      aria-haspopup="true"
      aria-expanded="false">Developers</a>
   <ul class="dropdown-menu">
-    <li><span>Documentation</span></li>
+    <li>
+      <a href="/docs" class="dropdown-menu__text--l1">
+        Documentation <ion-icon name="ios-arrow-forward"></ion-icon>
+      </a>
+    </li>
     <li class="split">
       <ul>
-        <li><a href="/docs">Framework Docs</a></li>
         <li>
-          <a class="sm" id="btn-header-developers-setup-installation" href="/docs/installation/cli">
+          <span class="dropdown-menu__text--l4">
+            Framework Docs
+          </span>
+        </li>
+        <li>
+          <a class="dropdown-menu__text--l3" href="/docs/introduction">
+            Introduction
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation" href="/docs/installation/cli">
             Installation
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-ui-components" href="/docs/components/">
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-ui-components" href="/docs/components/">
             UI Components
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-api-reference" href="/docs/api/">
-            API Reference
-          </a>
-        </li>
-        <li>
-          <a class="sm" id="btn-header-developers-native-plugins" href="/docs/native/">
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-native-plugins" href="/docs/native/">
             Native APIs
           </a>
         </li>
       </ul>
       <ul>
-        <li><a href="/docs/appflow">Appflow Docs</a></li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-intro" href="/docs/appflow/">
-            Introduction
+          <span class="dropdown-menu__text--l4">
+            Appflow Docs
+          </span>
+        </li>
+        <li>
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-intro" href="/docs/appflow/quickstart">
+            Quickstart
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-package" href="/docs/appflow/package/intro">
-            Native Package
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-package" href="/docs/appflow/package/intro">
+            Native builds
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-deploy" href="/docs/appflow/deploy/">
-            Live Deploy
+          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-deploy" href="/docs/appflow/deploy/intro">
+            Live updating
           </a>
         </li>
         <li>
-          <a class="sm" id="btn-header-developers-pro-monitoring" href="/docs/appflow/automation/">
+          <a class="dropdown-menu__text--l3" href="/docs/appflow/automation/intro">
             Automations
           </a>
         </li>
       </ul>
     </li>
     <li class="divider"></li>
-    <li><span>Open Source</span></li>
     <li>
-      <a href="/framework">
+      <a href="/framework" class="dropdown-menu__text--l2">
         Ionic Framework
       </a>
     </li>
     <li>
-      <a href="https://stenciljs.com/" target="_blank">
+      <a href="https://stenciljs.com/" target="_blank" class="dropdown-menu__text--l2">
         Stencil <icon-external></icon-external>
       </a>
     </li>
     <li>
-      <a href="https://capacitor.ionicframework.com/" target="_blank">
+      <a href="https://capacitor.ionicframework.com/" target="_blank" class="dropdown-menu__text--l2">
         Capacitor <icon-external></icon-external>
       </a>
     </li>
@@ -142,46 +153,57 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Resources</a>
+     aria-expanded="false">
+     Resources
+
+  </a>
   <ul class="dropdown-menu">
     <li>
-      <a id="btn-header-businesses-resource-center" href="/resources">
-        Resource Center
+      <a id="btn-header-businesses-resource-center" href="/resources" class="dropdown-menu__text--l1">
+        Resource Center <ion-icon name="ios-arrow-forward"></ion-icon>
       </a>
     </li>
     <li class="split">
       <ul>
-        <li><span>Assets</span></li>
         <li>
-          <a class="sm" href="/resources/articles">
+          <span class="dropdown-menu__text--l4">
+            Topics
+          </span>
+        </li>
+        <li>
+          <a class="dropdown-menu__text--l3" href="/resources/articles">
             Articles
           </a>
         </li>
         <li>
-          <a class="sm" href="/resources/case-studies">
+          <a class="dropdown-menu__text--l3" href="/resources/case-studies">
             Case Studies
           </a>
         </li>
-        {# <li>
+        {# <li class="dropdown-menu__text--l3">
           <a href="/resources/whitepapers">
-            Case Studies
+            Whitepapers
           </a>
         </li> #}
       </ul>
       <ul>
-        <li><span>Media</span></li>
         <li>
-          <a class="sm" href="/resources/webinars">
+          <span class="dropdown-menu__text--l4">
+            Media
+          </span>
+        </li>
+        <li>
+          <a class="dropdown-menu__text--l3" href="/resources/webinars">
             Webinars
           </a>
         </li>
         <li>
-          <a class="sm" href="/resources/videos">
+          <a class="dropdown-menu__text--l3" href="/resources/videos">
             Videos
           </a>
         </li>
         <li>
-          <a class="sm" href="https://betontheweb.ionicframework.com/episodes" target="_blank">
+          <a class="dropdown-menu__text--l3" href="https://betontheweb.ionicframework.com/episodes" target="_blank">
             Podcast <icon-external></icon-external>
           </a>
         </li>
@@ -189,22 +211,22 @@
     </li>
     <li class="divider"></li>
     <li>
-      <a href="/what-is-ionic">
+      <a href="/what-is-ionic" class="dropdown-menu__text--l2">
         What Is Ionic?
       </a>
     </li>
     <li>
-      <a href="https://forum.ionicframework.com">
+      <a href="https://forum.ionicframework.com" class="dropdown-menu__text--l2">
         Ionic Forum
       </a>
     </li>
     <li>
-      <a id="btn-header-resources-pwas" href="/pwa">
+      <a id="btn-header-resources-pwas" href="/pwa" class="dropdown-menu__text--l2">
         PWAs
       </a>
     </li>
     <li>
-      <a href="https://ionic.zendesk.com/">
+      <a href="https://ionic.zendesk.com/" class="dropdown-menu__text--l2">
         Help Center
       </a>
     </li>

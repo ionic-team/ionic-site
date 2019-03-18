@@ -35,3 +35,133 @@
     opacity: 0.9;
   }
 }
+
+#sticky-bar {
+  box-shadow: 0px 1px 0px #E9EDF3, 0px -1px 0px #E9EDF3;
+  background: white;
+  position: sticky;
+  top: 0;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    flex-wrap: wrap;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .anchor {
+    color: #92A1B3;
+    font-weight: 500;
+
+    &.active,
+    &:hover {
+      color: #4D8DFF;
+    }
+  }
+}
+
+main {
+  letter-spacing: -0.02em;
+  color: #2F3A48;
+
+  h2 {
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: -0.03em;
+    color: #020814;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 31px;
+    margin-bottom: 46px;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 23px;
+    color: #1A232F;
+    margin-bottom: 38px;
+    position: relative;
+    list-style: none;
+
+    &::before {
+      content: url('data:image/svg+xml,
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"/>
+        </svg>');
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 13px;
+      width: 13px;
+      
+      fill: #1A232F;
+      display: block;
+    }
+  }
+
+  section {
+    display: flex;
+
+    &.container {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &.right {
+      flex-direction: row-reverse;
+    }
+
+    &.center {
+      justify-content: center;
+      
+      .content {
+        max-width: 798px;
+        
+        h2,
+        p {
+          margin-right: 140px;
+          margin-left: 140px;
+        };
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        li {
+          width: 376px;
+        }
+      }
+    }
+  }
+
+  .content {
+    max-width: 480px;
+    margin: 250px 0;
+  }
+}

@@ -115,6 +115,7 @@ router: app => {
     getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
   .get('/sales', (_, res) => res.render('sales'))
+  .get('/solutions/design-systems', (_, res) => res.render('solutions/design-systems'))
   .get('/startups', (_, res) => res.render('startups'))
   .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))

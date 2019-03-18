@@ -1,0 +1,37 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../bootstrap/variables';
+
+.cta.banner {
+  background: #F6F8FB;
+  text-align: left;
+
+  hgroup {
+    max-width: 480px;
+  }
+
+  h4 {
+    font-family: $font-family-monospace;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #92A1B3;
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 71px;
+    letter-spacing: -0.03em;
+    color: #020814;
+  }
+  
+  p {
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.04em;
+    color: #27323F;
+    opacity: 0.9;
+  }
+}

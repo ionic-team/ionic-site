@@ -50,7 +50,7 @@ function bustCache() {
   function cacheBust(path, fileName) {
     return gulp.src(path + fileName)
       .pipe(cachebust({
-        basePath: 'content'
+        basePath: 'dist'
       }))
       .pipe(rename({extname: '.prod.html'}))
       .pipe(gulp.dest('./' + path));
@@ -109,13 +109,11 @@ gulp.task('styles:others', function() {
     }))
     .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'))
+    .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'))
+    .pipe(gulp.dest('dist/css/'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -131,13 +129,11 @@ gulp.task('styles:v2', function() {
     .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(concat('styles.css'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'))
+    .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'))
+    .pipe(gulp.dest('dist/css/'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -145,14 +141,12 @@ gulp.task('styles:v1', function() {
   return gulp.src('content/scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
     .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'))
+    .pipe(gulp.dest('dist/css/'))
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
     .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('content/css/'))
-    .pipe(gulp.dest('_site/css/'));
+    .pipe(gulp.dest('dist/css/'));
 });
 
 // compress and concat JS
@@ -163,12 +157,10 @@ gulp.task('js', function() {
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('content/js'))
-    .pipe(gulp.dest('_site/js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(uglify())
     .pipe(rename({extname: '.min.js'}))
-    .pipe(gulp.dest('content/js'))
-    .pipe(gulp.dest('_site/js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe($.size({title: 'js'}));
 });
 
@@ -186,9 +178,6 @@ gulp.task('stencil', function(done) {
     }
   )
   .on('close', async function() {
-    await gulp
-      .src('content/js/stencil/*')
-      .pipe(gulp.dest('_site/js/stencil/'))
     done();
   }).on('error', function(err) {
     console.log(err)
@@ -307,8 +296,7 @@ gulp.task('sitemap', function () {
     // verbose: true,
     lastmod: false
   }))
-  .pipe(gulp.dest('content/'))
-  .pipe(gulp.dest('_site/'));
+  .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('docs.index', function() {

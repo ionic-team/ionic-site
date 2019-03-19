@@ -15,7 +15,7 @@ exports.config = {
     // },
     {
       type: 'dist',
-      dir: 'content/js/stencil',
+      dir: 'dist/js/stencil',
     },
   ],
   srcDir: 'assets/stencil'

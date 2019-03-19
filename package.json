@@ -97,8 +97,8 @@
     "twitter": "^1.7.1",
     "typed.js": "^2.0.6"
   },
-  "module": "content/js/stencil/esm/index.js",
-  "main": "content/js/stencil/index.js",
-  "types": "content/js/stencil/types/components.d.ts",
-  "collection": "content/js/stencil/collection/collection-manifest.json"
+  "module": "dist/js/stencil/esm/index.js",
+  "main": "dist/js/stencil/index.js",
+  "types": "dist/js/stencil/types/components.d.ts",
+  "collection": "dist/js/stencil/collection/collection-manifest.json"
 }

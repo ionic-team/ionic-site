@@ -12,6 +12,10 @@
     margin-bottom: 80px;
   }
 
+  .container {
+    position: relative;
+  }
+
   h4 {
     font-family: $font-family-monospace;
     font-weight: bold;
@@ -62,6 +66,10 @@
 
   li {
     list-style: none;
+
+    &.active a:not(.btn) {
+      color: $blue;
+    }
   }
 
   a {
@@ -73,10 +81,26 @@
     text-transform: uppercase;
     display: block;
 
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+      text-decoration: none;
+    }
+
     &.btn {
       padding: 11px 14px 8px;
       margin-right: 3px;
       border-radius: 10px;
+      color: white;
+      font-weight: 600;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: white;
+        background: darken($blue, 5);
+      }
     }
   }
 
@@ -211,4 +235,10 @@ main {
       display: block;
     }
   }
+
+  .get-started {
+    max-width: 700px;
+  }
 }
+
+@import '../../components/resources_read_more';

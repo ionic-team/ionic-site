@@ -4,5 +4,55 @@
 
 @import './shared';
 
+.cta.banner hgroup::after {
+  background: url('/img/solutions/design-systems-banner.svg');
+  background-size: cover;
+  width: 755px;
+  height: 593px;
+  position: absolute;
+  right: -10px;
+  top: 184px;
+  content: '';
+}
 
+#build-and-share .content::after {
+    background: url('/img/solutions/components.png');
+    background-size: cover;
+    width: 881px;
+    height: 727px;
+    position: absolute;
+    right: -315px;
+    top: 112px;
+    content: '';
+}
 
+#one-design .content::after {
+  background: url('/img/solutions/everywhere.png');
+  background-size: cover;
+  width: 762px;
+  height: 512px;
+  position: absolute;
+  left: -182px;
+  top: 214px;
+  content: '';
+}
+
+#developer-adoption {
+  border-bottom: 1px solid rgba(#92A1B3, .3);
+
+  .content {
+    margin-top: 222px;
+    margin-bottom: 198px;
+  
+    &::after {
+      background: url('/img/solutions/design-system-dashboard.png');
+      background-size: cover;
+      width: 942px;
+      height: 742px;
+      position: absolute;
+      right: calc(50% - 899px);
+      bottom: 0;
+      content: '';
+    }
+  }
+}

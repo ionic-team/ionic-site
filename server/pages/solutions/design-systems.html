@@ -22,17 +22,17 @@
 </div>
 
 <nav id="sticky-bar">
-  <ul class="container">
-    <li><a class="anchor" href="">Code-based components</a></li>
-    <li><a class="anchor" href="">Works everywhere</a></li>
-    <li><a class="anchor" href="">Developer tools</a></li>
-    <li><a class="anchor" href="">Expert help</a></li>
-    <li><a class="btn sm" href="" class="btn">Get started</a></li>
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="60" href="#build-and-share">Code-based components</a></li>
+    <li><a class="anchor" data-offset="60" href="#one-design">Works everywhere</a></li>
+    <li><a class="anchor" data-offset="60" href="#developer-adoption">Developer tools</a></li>
+    <li><a class="anchor" data-offset="60" href="#help">Expert help</a></li>
+    <li><a class="btn sm anchor" href="#get-started">Get started</a></li>
   </ul>
 </nav>
 
 <main>
-  <section class="container left">
+  <section id="build-and-share" class="container left">
     <div class="content">
       <h2>Build and share real code-based components</h2>
       <p>
@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <section class="container right">
+  <section id="one-design" class="container right">
     <div class="content">
       <h2>Implement one design library that works everywhere</h2>
       <p>
@@ -64,23 +64,25 @@
     </div>
   </section>
 
-  <section class="container left">
-    <div class="content">
-      <h2>Drive developer adoption company-wide</h2>
-      <p>
-        Design systems are only valuable if they’re actually adopted. Ionic 
-        provides powerful tools that make it easy for developers to discover and 
-        use the components you build.
-      </p>
-      <ul>
-        <li>Always up-to-date developer docs</li>
-        <li>Automated testing to assist front-end development</li>
-        <li>Distribute new components &amp; changes to any project</li>
-      </ul>
+  <section id="developer-adoption">
+    <div class="container left">
+      <div class="content">
+        <h2>Drive developer adoption company-wide</h2>
+        <p>
+          Design systems are only valuable if they’re actually adopted. Ionic 
+          provides powerful tools that make it easy for developers to discover 
+          and use the components you build.
+        </p>
+        <ul>
+          <li>Always up-to-date developer docs</li>
+          <li>Automated testing to assist front-end development</li>
+          <li>Distribute new components &amp; changes to any project</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="container center">
+  <section id="help" class="container center">
     <div class="content">
       <h2>Our team of design experts are here to help you succeed</h2>
       <p>
@@ -97,19 +99,26 @@
       </ul>
     </div>
   </section>
+
+  <aside id="get-started" >
+    <div class="container get-started center">
+      <hgroup class="content">
+        <h3>Get started with</h3>
+        <h2>Ionic Design Systems</h2>
+        <p>
+          Let us help you develop a design systems strategy that’s tailored to 
+          your needs.
+        </p>
+      </hgroup>
+    </div>
+  </aside>
 </main>
 
-<aside>
-  <div class="container get-started center">
-    <hgroup class="content">
-      <h3>Get started with</h3>
-      <h2>Ionic Design Systems</h2>
-      <p>
-        Let us help you develop a design systems strategy that’s tailored to 
-        your needs.
-      </p>
-    </hgroup>
-  </div>
-</aside>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('body').scrollspy({ target: '#sticky-bar' })
+</script>
 {% endblock %}

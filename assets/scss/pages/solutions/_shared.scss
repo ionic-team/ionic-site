@@ -8,6 +8,8 @@
 
   hgroup {
     max-width: 480px;
+    margin-top: 86px;
+    margin-bottom: 80px;
   }
 
   h4 {
@@ -18,6 +20,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #92A1B3;
+    margin-bottom: 29px;
   }
 
   h1 {
@@ -25,6 +28,7 @@
     line-height: 71px;
     letter-spacing: -0.03em;
     color: #020814;
+    margin-bottom: 14px;
   }
   
   p {
@@ -41,12 +45,13 @@
   background: white;
   position: sticky;
   top: 0;
+  z-index: 1;
 
   ul {
     display: flex;
     justify-content: space-between;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     flex-wrap: wrap;
 
     &::before,
@@ -60,13 +65,19 @@
   }
 
   a {
-    padding: 12px;
+    padding: 10px 0;
     font-size: 14px;
     line-height: 22px;
     text-align: center;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: block;
+
+    &.btn {
+      padding: 11px 14px 8px;
+      margin-right: 3px;
+      border-radius: 10px;
+    }
   }
 
   .anchor {
@@ -81,7 +92,7 @@
 }
 
 main {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.028em;
   color: #2F3A48;
 
   h2 {
@@ -89,21 +100,39 @@ main {
     line-height: 50px;
     letter-spacing: -0.03em;
     color: #020814;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    color: #414D5C;
+    font-weight: 600;
+    margin-bottom: 4px;
+
+    + h2 {
+      margin-top: 0;
+    }
   }
 
   p {
     font-size: 20px;
     line-height: 31px;
-    margin-bottom: 46px;
+    margin-bottom: 40px;
+  }
+
+  ul {
+    padding-left: 0;
   }
 
   li {
     font-size: 16px;
     line-height: 23px;
     color: #1A232F;
-    margin-bottom: 38px;
+    margin-bottom: 32px;
     position: relative;
     list-style: none;
+    padding-left: 30px;
+    letter-spacing: -.016em;
+
 
     &::before {
       content: url('data:image/svg+xml,
@@ -112,10 +141,9 @@ main {
         </svg>');
       position: absolute;
       left: 0;
-      top: 0;
-      height: 13px;
-      width: 13px;
-      
+      top: 1px;
+      height: 15px;
+      width: 15px;
       fill: #1A232F;
       display: block;
     }
@@ -123,8 +151,10 @@ main {
 
   section {
     display: flex;
+    position: relative;
 
     &.container {
+
       &::before,
       &::after {
         display: none;
@@ -161,7 +191,24 @@ main {
   }
 
   .content {
-    max-width: 480px;
-    margin: 250px 0;
+    max-width: 482px;
+    margin: 232px 0 184px;
+  }
+
+  aside {
+    background: #F6F8FB;
+    padding-top: 114px;
+    padding-bottom: 120px;
+
+    p {
+      color: #414D5C;
+    }
+
+    .content {
+      max-width: 432px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
   }
 }

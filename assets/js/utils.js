@@ -186,7 +186,6 @@ hljs.initHighlightingOnLoad();
 
 // Smooth Scroll To anchor links with the .anchor class
 $('a.anchor[href*="#"]').click(function(event) {
-  console.log(event)
   // On-page links
   if (
     location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')

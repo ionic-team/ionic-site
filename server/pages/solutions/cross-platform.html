@@ -1,0 +1,171 @@
+{% extends '_layouts/base.html' %}
+{% set title = "Cross Platform Solutions from Ionic" %}
+{% set id = "solutions-cross-platform" %}
+{% set header_style = 'transparent light' %}
+{% set pre_footer = false %}
+{% set cssPath = 'solutions/cross-platform' %}
+
+{% block main %}
+
+<div class="cta banner">
+  <div class="container">
+    <hgroup>
+      <h4>Cross-Platform Development</h4>
+      <h1>One app.<br>One codebase.<br>Any platform.</h1>
+      <p>
+        Empower your web teams to build award-winning mobile and desktop 
+        applications - with 100% code sharing across projects.
+      </p>
+    </hgroup>
+  </div>
+</div>
+
+<nav id="sticky-bar">
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="0" href="#">More Than Mobile</a></li>
+    <li><a class="anchor" data-offset="0" href="#">Full Native Power</a></li>
+    <li><a class="anchor" data-offset="0" href="#">Future Proof</a></li>
+    <li><a class="btn sm anchor" href="#get-started">Get started</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="build-and-share" class="container left">
+    <div class="content">
+      <h2>More than just mobile</h2>
+      <p>
+        Build progressive web and native mobile apps for every major app store, 
+        with one codebase. Ionic works and looks beautiful wherever it runs.
+      </p>
+      <ul>
+        <li>One codebase for iOS, Android, Electron, PWAs, and more</li>
+        <li>Work seamlessly across desktop and mobile, native and web</li>
+        <li>Apps that look and feel at home on every device</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="" class="container right">
+    <div class="content">
+      <h2>Full native power and performance</h2>
+      <p>
+        There’s no limit to what you can do with Ionic. Give your users the most 
+        advanced on-device features and hardware-accelerated performance.
+      </p>
+      <ul>
+        <li>Access to device features with a core library of native APIs</li>
+        <li>Get full access to the native SDK when you need it</li>
+        <li>Ship mission-critical apps with confidence, backed by Ionic</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="" class="container left">
+    <div class="content">
+      <h2>As future-proof as the web</h2>
+      <p>
+        Empower your web teams to build native mobile apps, using the tools they 
+        know and love - today, tomorrow, and whatever the future brings.
+      </p>
+      <ul>
+        <li>Build with common web skills: HTML, CSS, and Javascript</li>
+        <li>Based on open web standards, not proprietary languages</li>
+        <li>Framework agnostic: works across any Angular, React, Vue…</li>
+      </ul>
+    </div>
+  </section>
+
+  <section  class="container">
+    <div class="cards">
+      <div class="card">
+        <h3>Start building today</h3>
+        <p>
+          Ready to start building apps with Ionic? Get started for free today.
+        </p>
+        <a href="" class="btn">Get started</a>
+      </div>
+      <div class="card">
+        <h3>Schedule a strategy session</h3>
+        <p>
+          Interested in chatting with one of our Solutions Engineers? Schedule a 
+          free session.
+        </p>
+        <a href="" class="btn">Book a time</a>
+      </div>
+    </div>
+  </section>
+
+  <aside id="get-started" >
+    <div class="container get-started center hubspot-override hubspot-override--large">
+      <hgroup class="content">
+        <h3>Get started with</h3>
+        <h2>Cross-platform Development</h2>
+      </hgroup>
+      <!--[if lte IE 8]>
+      <script charset="utf-8"
+              type="text/javascript"
+              src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8"
+              type="text/javascript"
+              src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "3776657",
+        	formId: "99543816-7a22-4891-b785-cc926a51172e",
+          css: ""
+        });
+      </script>
+    </div>
+  </aside>
+</main>
+
+<section class="resources">
+  <div class="container">
+    <hgroup>
+      <h3>Resources</h3>
+      <h5><a href="/resources">See all resources <ion-icon name="ios-arrow-forward"></ion-icon></a></h5>
+    </hgroup>
+    <ul class="cards">
+      <li>
+        <a href="/books/hybrid-vs-native">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-hybrid-vs-native.png" alt="">
+          </div>
+          <h6>Ebook</h6>
+          <h4>Hybrid vs Native</h4>
+          <p class="small">Understand the essential elements of hybrid development, and what it could mean for your next project.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/resources/articles/evaluating-ionic-for-enterprise-development">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-evaluating-for-the-enterprise.png" alt="">
+          </div>
+          <h6>Article</h6>
+          <h4>Evaluating Ionic for the Enterprise</h4>
+          <p class="small">If you're an Architect, Senior Developer, or Executive charged with identifying the right application development solution for your business, this article is for you.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/articles/why-hybrid">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-why-hybrid.png" alt="">
+          </div>
+          <h6>White paper</h6>
+          <h4>Why Hybrid?</h4>
+          <p class="small">Get the real-world answers to frequently asked questions about hybrid mobile app development and how to build with confidence.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('body').scrollspy({ target: '#sticky-bar' })
+</script>
+{% endblock %}

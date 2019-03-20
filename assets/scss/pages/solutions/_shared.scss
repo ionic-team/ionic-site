@@ -16,6 +16,13 @@
     position: relative;
   }
 
+  h4,
+  h1,
+  p {
+    position: relative;
+    z-index: 1;
+  }
+
   h4 {
     font-family: $font-family-monospace;
     font-weight: bold;
@@ -57,6 +64,10 @@
     padding-top: 17px;
     padding-bottom: 17px;
     flex-wrap: wrap;
+
+    @media (max-width: $screen-sm-max) {
+      justify-content: space-around;
+    }
 
     &::before,
     &::after {
@@ -178,7 +189,6 @@ main {
     position: relative;
 
     &.container {
-
       &::before,
       &::after {
         display: none;
@@ -199,16 +209,26 @@ main {
         p {
           margin-right: 140px;
           margin-left: 140px;
+
+          @media (max-width: $screen-sm-max) {
+            margin-right: 0;
+            margin-left: 0;
+          }
         };
 
         ul {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
+
+          @media (max-width: $screen-sm-max) {
+            justify-content: flex-start;
+          }
         }
 
         li {
-          width: 376px;
+          max-width: 376px;
+          width: 100%;
         }
       }
     }
@@ -217,6 +237,11 @@ main {
   .content {
     max-width: 482px;
     margin: 232px 0 184px;
+
+    @media (max-width: $screen-sm-max) {
+      max-width: 100%;
+      margin: 60px auto;
+    }
   }
 
   aside {

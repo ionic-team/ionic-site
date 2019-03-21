@@ -24,8 +24,6 @@
   right: calc(50% - 900px);
   top: 112px;
   content: '';
-
-  
 }
 
 @media (max-width: $screen-sm-max) {
@@ -119,6 +117,23 @@
   @media (min-width: 1794px) {
     .content::after {
       right: 0;
+    }
+  }
+}
+
+#help {
+  .content {
+    text-align: left;
+  }
+
+  h2,
+  p {
+    margin-right: 140px;
+    margin-left: 140px;
+
+    @media (max-width: $screen-sm-max) {
+      margin-right: 0;
+      margin-left: 0;
     }
   }
 }

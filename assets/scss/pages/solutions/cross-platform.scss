@@ -4,3 +4,67 @@
 
 @import './shared';
 
+.cta.banner hgroup::after {
+  background: url('/img/solutions/bg-cross-platform-header.svg');
+  background-size: cover;
+  width: 850px;
+  height: 431px;
+  position: absolute;
+  right: calc(50% - 796px);
+  top: 138px;
+  content: '';
+}
+
+#more-than-mobile .content {
+  margin-top: 316px;
+
+  &::after {
+    background: url('/img/solutions/apple-devices.png');
+    background-size: cover;
+    width: 982px;
+    height: 696px;
+    position: absolute;
+    right: calc(50% - 898px);
+    top: 174px;
+    content: '';
+  }
+}
+
+#full-native-power .content {
+  margin-top: 373px;
+
+  &::after {
+    background: url('/img/solutions/iphone-parts.jpg');
+    background-size: cover;
+    width: 594px;
+    height: 772px;
+    position: absolute;
+    left: -4px;
+    top: 207px;
+    content: '';
+  }
+}
+
+#future-proof .content {
+  margin-top: 431px;
+
+  &::after {
+    background: url('/img/solutions/ionic-platforms.svg');
+    background-size: cover;
+    width: 606px;
+    height: 672px;
+    position: absolute;
+    right: calc(50% - 632px);
+    top: 282px;
+    content: '';
+  }
+}
+
+#how-to .content {
+  margin-top: 146px;
+  max-width: 100%;;
+
+  h2 {
+    text-align: center;
+  }
+}

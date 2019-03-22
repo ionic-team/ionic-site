@@ -41,7 +41,6 @@ function htmlSerializer (type, element, content, children) {
     case Elements.heading5:
     case Elements.heading6:
       const level = type[type.length -1]
-      console.log('test:',children.join(''))
       const id = children.join('')
                          .trim()
                          .toLowerCase()

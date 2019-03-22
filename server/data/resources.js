@@ -18,6 +18,22 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "3 Common Pitfalls on the Path to Digital Transformation",
+        "url": "/resources/articles/digital-transformation-pitfalls",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-digitaltransformation.png",
+        "bgColor": "#786DF9"
+      },{
+        "type": "Article",
+        "title": "Why Every Company Needs a Design System",
+        "url": "/resources/articles/why-every-company-needs-a-design-system",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-every-company-needs-a-design-system.png",
+        "bgColor": "#31466D"
+      },{
+        "type": "Article",
         "title": "What is Cross-Platform App Development?",
         "url": "/resources/articles/what-is-cross-platform-app-development",
         "target": "_self",
@@ -31,7 +47,7 @@ const resources = {
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-questions-to-ask.png",
-        "bgColor": "#5244E"
+        "bgColor": "#5147F0"
       },{
         "type": "Article",
         "title": "How Hybrid App Development Helps Deliver Great UX",

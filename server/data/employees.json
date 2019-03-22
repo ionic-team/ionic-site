@@ -49,6 +49,13 @@
     "image": "brody.jpg"
   },
   {
+    "name":"Bryant Feld",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"bkfwebdev",
+    "image": "bryant-feld.png"
+  },
+  {
     "name":"Bryant Plano",
     "dept":"Customer Success",
     "description":null,
@@ -179,13 +186,6 @@
     "description": null,
     "twitter":"lm3m",
     "image": "luke.png"
-  },
-  {
-    "name":"Mano",
-    "dept":"Development",
-    "description":"",
-    "twitter":"techmano",
-    "image": "mano.jpg"
   },
   {
     "name":"Manu Mtz.Almeida",

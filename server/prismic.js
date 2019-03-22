@@ -42,9 +42,12 @@ function htmlSerializer (type, element, content, children) {
     case Elements.heading6:
       const level = type[type.length -1]
       const id = children.join('')
+                         .trim()
                          .toLowerCase()
+                         .replace(/(&\w+;)/g, '')
+                         .replace(/([^a-z\-\ ])/g, '')
                          .replace(/ /g, '-')
-                         .replace(/([^a-z\-])/g, '');
+                         .replace(/--/g, '-');
       return `<h${level} id="${id}">${children.join('')}</h${level}>`;
     
     case Elements.preformatted: 

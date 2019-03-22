@@ -1,5 +1,5 @@
 {% extends '_layouts/base.html' %}
-{% set title = "Subscribe to the Ionic Newsletter" %}
+{% set title = "Design System Solutions from Ionic" %}
 {% set id = "solutions-design" %}
 {% set header_style = 'transparent light' %}
 {% set pre_footer = false %}
@@ -22,17 +22,17 @@
 </div>
 
 <nav id="sticky-bar">
-  <ul class="container">
-    <li><a href="">Code-based components</a></li>
-    <li><a href="">Works everywhere</a></li>
-    <li><a href="">Developer tools</a></li>
-    <li><a href="">Expert help</a></li>
-    <li><a href="" class="btn">Get started</a></li>
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="0" href="#build-and-share">Code-based components</a></li>
+    <li><a class="anchor" data-offset="0" href="#one-design">Works everywhere</a></li>
+    <li><a class="anchor" data-offset="0" href="#developer-adoption">Developer tools</a></li>
+    <li><a class="anchor" data-offset="0" href="#help">Expert help</a></li>
+    <li><a class="btn sm anchor" href="#get-started">Get started</a></li>
   </ul>
 </nav>
 
 <main>
-  <section class="container left">
+  <section id="build-and-share" class="container left">
     <div class="content">
       <h2>Build and share real code-based components</h2>
       <p>
@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <section class="container right">
+  <section id="one-design" class="container right">
     <div class="content">
       <h2>Implement one design library that works everywhere</h2>
       <p>
@@ -64,23 +64,25 @@
     </div>
   </section>
 
-  <section class="container left">
-    <div class="content">
-      <h2>Drive developer adoption company-wide</h2>
-      <p>
-        Design systems are only valuable if they’re actually adopted. Ionic 
-        provides powerful tools that make it easy for developers to discover and 
-        use the components you build.
-      </p>
-      <ul>
-        <li>Always up-to-date developer docs</li>
-        <li>Automated testing to assist front-end development</li>
-        <li>Distribute new components &amp; changes to any project</li>
-      </ul>
+  <section id="developer-adoption">
+    <div class="container left">
+      <div class="content">
+        <h2>Drive developer adoption company-wide</h2>
+        <p>
+          Design systems are only valuable if they’re actually adopted. Ionic 
+          provides powerful tools that make it easy for developers to discover 
+          and use the components you build.
+        </p>
+        <ul>
+          <li>Always up-to-date developer docs</li>
+          <li>Automated testing to assist front-end development</li>
+          <li>Distribute new components &amp; changes to any project</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="container center">
+  <section id="help" class="container center">
     <div class="content">
       <h2>Our team of design experts are here to help you succeed</h2>
       <p>
@@ -89,7 +91,7 @@
       </p>
       <ul>
         <li>Component design and development checklist</li>
-        <li>Private Slack channel for instant assistence</li>
+        <li>Private Slack channel for instant assistance</li>
         <li>Code analysis &amp; architecture reviews</li>
         <li>Usability challenges &amp; troubleshooting</li>
         <li>Best practices and design API analysis</li>
@@ -97,19 +99,85 @@
       </ul>
     </div>
   </section>
+
+  <aside id="get-started" >
+    <div class="container get-started center hubspot-override hubspot-override--large">
+      <hgroup class="content">
+        <h3>Get started with</h3>
+        <h2>Ionic Design Systems</h2>
+        <p>
+          Let us help you develop a design systems strategy that’s tailored to 
+          your needs.
+        </p>
+      </hgroup>
+      <!--[if lte IE 8]>
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "99543816-7a22-4891-b785-cc926a51172e",
+            css: ""
+          });
+        </script>
+    </div>
+  </aside>
 </main>
 
-<aside>
-  <div class="container get-started center">
-    <hgroup class="content">
-      <h3>Get started with</h3>
-      <h2>Ionic Design Systems</h2>
-      <p>
-        Let us help you develop a design systems strategy that’s tailored to 
-        your needs.
-      </p>
+<section class="resources">
+  <div class="container">
+    <hgroup>
+      <h3>Resources</h3>
+      <h5><a href="/resources">See all resources <ion-icon name="ios-arrow-forward"></ion-icon></a></h5>
     </hgroup>
+    <ul class="cards">
+      <li>
+        <a href="/resources/articles/what-is-a-ui-component-library">
+          <div class="img-wrapper">
+            <img src="/img/solutions/card-what-is-a-ui-component.jpg" 
+                 alt="What is a UI Component Library?">
+          </div>
+          <h6>Article</h6>
+          <h4>What is a UI Component Library</h4>
+          <p class="small">Today, mobile developers typically need to deliver their application to both iOS and Android devices, among others...</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://blog.ionicframework.com/5-reasons-web-components-are-perfect-for-design-systems/">
+          <div class="img-wrapper">
+            <img src="/img/solutions/card-5-reason-web-components.png" 
+                 alt="5 Reasons Web Components Are Perfect for Design Systems">
+          </div>
+          <h6>Blog</h6>
+          <h4>5 Reasons Web Components Are Perfect for Design Systems</h4>
+          <p class="small">If you’re building a handful of apps in a startup or small business, delivering a consistent user experience across teams and projects is...</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://blog.ionicframework.com/build-your-next-design-system-with-web-components/">
+          <div class="img-wrapper">
+            <img src="/img/solutions/card-design-systems.png" 
+                 alt="Build Your Next Design System with Web Components">
+          </div>
+          <h6>White paper</h6>
+          <h4>Build Your Next Design System with Web Components</h4>
+          <p class="small">Few things in the frontend world are as hot as Design Systems, the idea of building a design spec or library of reusable components that can...</p>
+        </a>
+      </li>
+    </ul>
   </div>
-</aside>
+</section>
 
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('body').scrollspy({ target: '#sticky-bar' })
+</script>
 {% endblock %}

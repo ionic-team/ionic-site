@@ -1,0 +1,120 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../bootstrap/variables';
+
+@import './shared';
+
+.cta.banner hgroup::after {
+  background: url('/img/solutions/bg-cross-platform-header.svg');
+  background-size: cover;
+  width: 850px;
+  height: 431px;
+  position: absolute;
+  right: calc(50% - 796px);
+  top: 138px;
+  content: '';
+}
+
+#more-than-mobile .content {
+  margin-top: 316px;
+
+  &::after {
+    background: url('/img/solutions/apple-devices.png');
+    background-size: cover;
+    width: 982px;
+    height: 696px;
+    position: absolute;
+    right: calc(50% - 898px);
+    top: 174px;
+    content: '';
+  }
+
+  @media (max-width: $screen-sm-max) {
+    margin-bottom: 200px;
+
+    &::after {
+      right: calc(100% - 906px);
+      width: 491px;
+      height: 348px;
+      top: auto;
+      bottom: 50px;
+    }
+  }
+}
+
+#full-native-power .content {
+  margin-top: 373px;
+
+  &::after {
+    background: url('/img/solutions/iphone-parts.jpg');
+    background-size: cover;
+    width: 594px;
+    height: 772px;
+    position: absolute;
+    left: -4px;
+    top: 207px;
+    content: '';
+  }
+
+  @media (max-width: $screen-md-max) {
+    &::after {
+      width: 396px;
+      height: 515px;
+      top: 328px;
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    margin-top: 400px;
+
+    &::after {
+      width: 297px;
+      height: 386px;
+      top: 0;
+      left: calc(50% - 150px);
+    }
+  }
+}
+
+#future-proof .content {
+  margin-top: 431px;
+
+  &::after {
+    background: url('/img/solutions/ionic-platforms.svg');
+    background-size: cover;
+    width: 606px;
+    height: 672px;
+    position: absolute;
+    right: calc(50% - 632px);
+    top: 282px;
+    content: '';
+  }
+
+  @media (max-width: $screen-md-max) {
+    &::after {
+      width: 303px;
+      height: 336px;
+      right: calc(50% - 150px);
+      top: 80px;
+    }
+  }
+}
+
+#how-to .content {
+  margin-top: 146px;
+  max-width: 100%;;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+#get-started {
+  margin-top: -225px;
+  padding-top: 134px;
+
+  @media (max-width: $screen-md-max) {
+    padding-top: 300px;
+    margin-top: -200px;
+  }
+}

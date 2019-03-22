@@ -4,5 +4,136 @@
 
 @import './shared';
 
+.cta.banner hgroup::after {
+  background: url('/img/solutions/design-systems-banner.svg');
+  background-size: cover;
+  width: 755px;
+  height: 593px;
+  position: absolute;
+  right: -72px;
+  top: 74px;
+  content: '';
+}
 
+#build-and-share .content::after {
+  background: url('/img/solutions/components.png');
+  background-size: cover;
+  width: 881px;
+  height: 727px;
+  position: absolute;
+  right: calc(50% - 900px);
+  top: 112px;
+  content: '';
+}
 
+@media (max-width: $screen-sm-max) {
+  #build-and-share {
+    margin-bottom: 100px;
+
+    .content::after {
+      width: 387px;
+      height: 363px;
+      top: auto;
+      right: calc(100% - 870px);
+      bottom: -95px;
+    }
+  }
+}
+
+#one-design .content::after {
+  background: url('/img/solutions/everywhere.png');
+  background-size: cover;
+  width: 762px;
+  height: 512px;
+  position: absolute;
+  left: -182px;
+  top: 214px;
+  content: '';
+
+  @media (max-width: $screen-md-max) {
+    width: 508px;
+    height: 341px;
+    left: -70px;
+    top: 250px;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  #one-design .content {
+    margin-bottom: 250px;
+
+    &::after {
+      width: 381px;
+      height: 256px;
+      left: calc(50% - 190px);
+      bottom: 0;
+      top: auto;
+    }
+  }
+}
+
+#developer-adoption {
+  border-bottom: 1px solid rgba(#92A1B3, .3);
+  position: relative;
+
+  .content {
+    margin-top: 222px;
+    margin-bottom: 198px;
+    position: static;
+  
+    &::after {
+      background: url('/img/solutions/design-system-dashboard.png');
+      background-size: cover;
+      width: 942px;
+      height: 742px;
+      position: absolute;
+      right: calc(50% - 899px);
+      bottom: 0;
+      content: '';
+
+      @media (max-width: $screen-md-max) {
+        right: calc(50% - 950px);
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 100px;
+      margin-bottom: 180px;
+
+      &::after {
+        right: calc(50% - 540px);
+        width: 471px;
+        height: 371px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      &::after {
+        right: calc(100% - 920px);
+      }
+    }
+  }
+
+  @media (min-width: 1794px) {
+    .content::after {
+      right: 0;
+    }
+  }
+}
+
+#help {
+  .content {
+    text-align: left;
+  }
+
+  h2,
+  p {
+    margin-right: 140px;
+    margin-left: 140px;
+
+    @media (max-width: $screen-sm-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}

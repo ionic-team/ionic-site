@@ -28,6 +28,18 @@
     top: 174px;
     content: '';
   }
+
+  @media (max-width: $screen-sm-max) {
+    margin-bottom: 200px;
+
+    &::after {
+      right: calc(100% - 906px);
+      width: 491px;
+      height: 348px;
+      top: auto;
+      bottom: 50px;
+    }
+  }
 }
 
 #full-native-power .content {
@@ -42,6 +54,25 @@
     left: -4px;
     top: 207px;
     content: '';
+  }
+
+  @media (max-width: $screen-md-max) {
+    &::after {
+      width: 396px;
+      height: 515px;
+      top: 328px;
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    margin-top: 400px;
+
+    &::after {
+      width: 297px;
+      height: 386px;
+      top: 0;
+      left: calc(50% - 150px);
+    }
   }
 }
 
@@ -58,6 +89,15 @@
     top: 282px;
     content: '';
   }
+
+  @media (max-width: $screen-md-max) {
+    &::after {
+      width: 303px;
+      height: 336px;
+      right: calc(50% - 150px);
+      top: 80px;
+    }
+  }
 }
 
 #how-to .content {
@@ -66,5 +106,15 @@
 
   h2 {
     text-align: center;
+  }
+}
+
+#get-started {
+  margin-top: -225px;
+  padding-top: 134px;
+
+  @media (max-width: $screen-md-max) {
+    padding-top: 300px;
+    margin-top: -200px;
   }
 }

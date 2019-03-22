@@ -261,11 +261,12 @@ main {
     display: flex;
     text-align: left;
     justify-content: center;
+    margin-top: 38px;
 
     .card {
       background: #7CABFF;
       border-radius: 8px;
-      padding: 36px 40px;
+      padding: 40px 40px 34px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -275,6 +276,14 @@ main {
 
       &:last-child {
         margin-right: 0;
+      }
+      
+      &:nth-child(2) {
+        background: #F88D8D;
+
+        .btn {
+          background: rgba(#F45454, .5);
+        }
       }
     }
 
@@ -297,10 +306,11 @@ main {
       margin-top: auto;
       font-size: 14px;
       line-height: 22px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      padding: 12px 14px;
+      padding: 10px 14px;
       font-weight: 600;
+      border-radius: 8px;
       background: rgba(#3880FF, .5);
 
       ion-icon {
@@ -308,6 +318,16 @@ main {
         height: 14px;
         width: 14px;
         vertical-align: -2px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+
+      .card {
+        flex: auto;
+        margin-right: 0;
+        margin-top: 20px;
       }
     }
   }

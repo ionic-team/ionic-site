@@ -221,8 +221,8 @@
       </a>
     </li>
     <li>
-      <a id="btn-header-resources-pwas" href="/pwa" class="dropdown-menu__text--l2">
-        PWAs
+      <a href="/community" class="dropdown-menu__text--l2">
+        Community
       </a>
     </li>
     <li>
@@ -233,7 +233,31 @@
   </ul>
 </li>
 
-<li><a href="/community">Community</a></li>
+<li class="dropdown">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Solutions</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/solutions/cross-platform" class="dropdown-menu__text--l2">
+        Cross Platform
+      </a>
+    </li>
+    <li>
+      <a href="/solutions/design-systems" class="dropdown-menu__text--l2">
+        Design Systems
+      </a>
+    </li>
+    <li>
+      <a href="/pwa/toolkit" class="dropdown-menu__text--l2">
+        PWA Toolkit
+      </a>
+    </li>
+  </ul>
+</li>
 
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
   <a href="/pricing" id="btn-header-pricing">

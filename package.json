@@ -54,6 +54,7 @@
     "express-limiter": "^1.6.1",
     "express-nunjucks": "^2.2.3",
     "express-sanitizer": "^1.0.5",
+    "front-matter": "^3.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "3.1.1",
     "gulp-cache-bust": "perrygovier/gulp-cache-bust",

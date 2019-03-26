@@ -15,6 +15,7 @@ const resources = {
   "articles": {
     title: "Articles",
     description: "Articles showcasing best in class Ionic-built apps from some of the best companies in the world.",
+    meta_description: 'Get the latest insights on mobile app development technology and trends for enterprise app development. Ionic articles provide insights into mobile strategy for enteprises and businesses alike.',
     items: [
       {
         "type": "Article",
@@ -144,6 +145,7 @@ const resources = {
   "case-studies": {
     title: "Case Studies",
     description: "Case Studies showcasing best in class Ionic-built apps from some of the best companies in the world.",
+    meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
     items: [
       {
         "type": "Case Study",
@@ -255,6 +257,7 @@ const resources = {
     title: "Webinars",
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Webinars for developers and architects",
+    meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
       {
         "type": "Webinar",
@@ -343,6 +346,7 @@ const resources = {
   "videos": {
     title: "Videos",
     description: "Videos showcasing best in class Ionic-built apps from some of the best companies in the world.",
+    meta_description: 'Get the latest videos and tutorials on how to build apps using Ionic. Build amazing cross platform apps with the web.',
     items: [
       {
         "type": "Video",

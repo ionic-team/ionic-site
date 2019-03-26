@@ -2,7 +2,9 @@
 {% set id = 'webinars' %}
 {% set cssPath = 'resources/webinars' %}
 {% set title = 'Ionic Webinar: ' + data.title %}
-{% set meta_description = 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.' %}
+{% if data.meta_description %}
+  {% set meta_description = data.meta_description %}
+{% endif %}
 {% set meta_image = data.meta_image.url or meta_image %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}

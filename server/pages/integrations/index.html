@@ -2,8 +2,15 @@
 {% set id = 'integrations' %}
 {% set header_style = 'transparent light' %}
 {% set cssPath = 'integrations/index' %}
-{% set title = 'Integrations - Ionic'%}
-{% set meta_description = "Ionic integrates with your favorite developer tools. Check out all the options Ionic provides for native integration with SOAP and REST APIs, ERPs so you can connect your favorite tools with Ionic." %}
+{% if categoryFilter.name == 'All' %}
+  {% set title = 'Integrations - Ionic'%}
+{% else %}
+  {% set title = categoryFilter.name + ' - Integrations - Ionic'%}
+{% endif %}
+
+{% if categoryFilter.description %}
+  {% set meta_description = categoryFilter.description %}
+{% endif %}
 
 {% block main %}
 <section class="container">

@@ -49,59 +49,73 @@ module.exports = {
       },
       {
         name: 'Analytics',
-        slug: 'analytics'
+        slug: 'analytics',
+        description: 'Ionic provides integrations with your favorite app analytics solutions. View all the analytics solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Authentication',
-        slug: 'authentication'
+        slug: 'authentication',
+        description: 'Ionic provides integrations with authentication technology. View all the authentication solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Databases',
-        slug: 'databases'
+        slug: 'databases',
+        description: 'Ionic provides integrations with your favorite database development solutions. View all the database solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Device Plugins',
-        slug: 'device-plugins'
+        slug: 'device-plugins',
+        description: 'Ionic provides integrations with your favorite device plug ins. View all the plugins you can integrate in your Ionic development projects.'
       },
       {
         name: 'Development',
-        slug: 'development'
+        slug: 'development',
+        description: 'Ionic Integrates with your favorite development tools you know and love. View all the development platforms you can integrate in your Ionic development projects.'
       },
       {
         name: 'DevOps',
-        slug: 'devops'
+        slug: 'devops',
+        description: 'Ionic provides integrations with your favorite devops solutions. View all the devops solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Hardware',
-        slug: 'hardware'
+        slug: 'hardware',
+        description: 'Ionic provides integrations with any mobile hardware technology you need. View all the hardware solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Messaging',
-        slug: 'messaging'
+        slug: 'messaging',
+        description: 'Ionic provides integrations with your favorite messing plug ins. View all the messaging solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Marketing',
-        slug: 'marketing'
+        slug: 'marketing',
+        description: 'Ionic provides integrations with your favorite mobile marketing solutions. View all the marketing solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Payments',
-        slug: 'payments'
+        slug: 'payments',
+        description: 'Ionic provides integrations with your favorite mobile payment solutions. View all the payment solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Security',
-        slug: 'security'
+        slug: 'security',
+        description: 'Ionic provides integrations with your favorite security plug ins. View all the security solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Social',
-        slug: 'social'
+        slug: 'social',
+        description: 'Ionic provides integrations with your favorite social plug ins. View all the social plug ins you can integrate in your Ionic development projects.'
       },
       {
         name: 'Testing',
-        slug: 'testing'
+        slug: 'testing',
+        description: 'Ionic provides integrations with your favorite app testing solutions. View all the app testing solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'UI',
-        slug: 'ui'
+        slug: 'ui',
+        description: 'Ionic provides integrations with your favorite User Interface solutions. View all the User Interface solutions you can integrate in your Ionic development projects.'
       }
     ];
 

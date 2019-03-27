@@ -550,6 +550,10 @@ section.newsletter-signup {
     ionic-newsletter-signup {
       height: 50px;
       flex: 1;
+
+      input {
+        background: #fff;
+      }
     }
 
     @media (max-width: $screen-sm) {

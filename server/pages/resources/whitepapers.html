@@ -2,7 +2,9 @@
 {% set id = 'webinars' %}
 {% set cssPath = 'resources/webinars' %}
 {% set title = 'Ionic Article: ' + data.title %}
-{% set meta_description = data.meta_description.url or meta_description %}
+{% if data.meta_description %}
+  {% set meta_description = data.meta_description %}
+{% endif %}
 {% set meta_image = data.meta_image.url or data.header_background or meta_image %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}

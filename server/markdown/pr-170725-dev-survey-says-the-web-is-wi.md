@@ -1,3 +1,7 @@
+---
+meta_description: New research from Ionic shows hybrid and Progressive Web Apps are dominating development, enterprise mobile is surging.
+---
+
 # Survey Says: The Web is Winning in Mobile Dev
 
 ### New research from Ionic shows hybrid and progressive web apps are dominating development, enterprise mobile is surging, and while Google Firebase is hot – wearables are not

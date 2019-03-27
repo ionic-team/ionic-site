@@ -3,7 +3,9 @@
 {% set cssPath = 'resources/case-studies' %}
 {% set header_style = 'transparent light' %}
 {% set title = 'Ionic Case Study: ' + data.title %}
-{% set meta_description = data.description %}
+{% if data.meta_description %}
+  {% set meta_description = data.meta_description %}
+{% endif %}
 {% set meta_image = data.hero_image['1x'].url %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}

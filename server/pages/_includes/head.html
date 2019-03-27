@@ -34,6 +34,10 @@
   {% set meta_keywords = "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs, ionic pro, ionic pro apps, ionic pro suite, ionic pro product, ionic pro tools" %}
 {% endif %}
 
+{% if meta_description %}
+  <meta name="description" content="{{ meta_description }}">
+{% endif %}
+
 <meta name="author" content="Ionic">
 <meta name="keywords" content="{% if meta_keywords %}{{ meta_keywords }}{% else %}html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs{% endif %}">
 <link rel="canonical" href="https://ionicframework.com{{requrl}}">

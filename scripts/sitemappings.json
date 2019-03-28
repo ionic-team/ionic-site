@@ -23,16 +23,5 @@
     "pages": [ "*.html" ],
     "changefreq": "monthly",
     "priority": 0.7
-  },
-  {
-    "pages": [ "docs/{api,native,cli,pro,developer-resources}/**/*" ],
-    "changefreq": "monthly",
-    "priority": 0.6
-  },
-  {
-    "pages": [ "docs/{v1,3.*,2.*}/**/*" ],
-    "changefreq": "yearly",
-    "priority": 0.4
   }
-
 ]

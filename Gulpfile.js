@@ -290,11 +290,7 @@ gulp.task('watch', ['server'], function() {
 gulp.task('sitemap', function () {
   gulp.src([
     'server/pages/**/*.html',
-    '!server/pages/_*/**/*',
-    'content/**/*.{html,md}',
-    '!content/docs/{demos,dist}/**/*',
-    '!content/{_includes,_layouts}/**/*',
-    '!content/present-ionic/slides/**/*'
+    '!server/pages/_*/**/*'
   ], {
     read: false
   })

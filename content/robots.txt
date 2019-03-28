@@ -7,3 +7,5 @@ Disallow: /present-ionic/slides/
 Disallow: /dist/
 
 Sitemap: https://ionicframework.com/sitemap.xml
+Sitemap: https://ionicframework.com/docs/v1/sitemap.xml
+Sitemap: https://ionicframework.com/docs/v3/sitemap.xml

@@ -71,7 +71,7 @@ function start() {
   app.use(prismicMiddleware);
 
   // check if this is a valid static file
-  app.use(express.static(process.env.PWD + '/_site/', {
+  app.use(express.static(process.env.PWD + '/content/', {
     etag: true
   }));
 

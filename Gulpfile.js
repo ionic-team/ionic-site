@@ -267,7 +267,7 @@ gulp.task('build.clean', ['build-prep'], function(done) {
 });
 
 gulp.task('slug.prep', function () {
-  return del(['assets', 'content']);
+  return del(['assets']);
 });
 
 gulp.task(

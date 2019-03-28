@@ -17,8 +17,7 @@
     "node": "10.x.x"
   },
   "cacheDirectories": [
-    "node_modules",
-    "_site"
+    "node_modules"
   ],
   "repository": {
     "type": "git",

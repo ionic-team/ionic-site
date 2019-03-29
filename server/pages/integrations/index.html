@@ -222,16 +222,34 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 <script>
+
+angular.module('IonicSite', [])
+.directive('tippy', function() {
+  return {
+    restrict: 'E',
+    transclude: true,
+    scope: {
+      pos: '@'
+    },
+    template: '<i class="ion-md-help"></i>' +
+              '<div class="tip" ng-class="pos">' +
+                '<ng-transclude></ng-transclude>' +
+              '</div>',
+  };
+});
+
   (function(){
     var data = JSON.parse('{{ data | dump }}');
 
-    console.log(data)
+    {# console.log(data) #}
 
     // state
     var hasCategoryFilter = {{ hasCategoryFilter }};

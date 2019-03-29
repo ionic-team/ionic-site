@@ -258,3 +258,33 @@
 </div>
 
 {% endblock %}
+
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-sanitize.min.js"></script>
+<script>
+var IonicSiteModule = angular.module('IonicSite',
+  ['ngAnimate', 'ngSanitize', 'ngCookies']);
+
+IonicSiteModule
+.controller('CreatorPricingCtrl', ['$scope', function($scope) {
+  $scope.monthly = {
+    pro: 29,
+    agency: 99,
+    business: 399
+  };
+  $scope.annually = {
+    pro: 24,
+    agency: 89,
+    business: 359
+  };
+  $scope.setPeriod = function(period) {
+    $scope.period = period;
+  };
+  $scope.setPeriod('annually');
+}]);
+</script>
+{% endblock %}

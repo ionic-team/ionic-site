@@ -1,7 +1,6 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products' %}
 {% set mixpanelEnabled = true %}
-{% set bodyController = "ProductsPageCtrl" %}
 {% set pre_footer = false %}
 {% set title = 'Ionic Appflow: Accessible DevOps for All'%}
 {% set meta_image = 'https://ionicframework.com/img/meta/products-appflow-og.png'%}
@@ -362,8 +361,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
 <script>
+
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal(
   '.customer-logos > div, main hgroup h3, main hgroup p, main .features li, ' +

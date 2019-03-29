@@ -43,7 +43,7 @@ module.exports = {
       }
     }
 
-    console.error(`404 on request: ${req.path}`);
+    console.error(`404 on request: path=${req.path} referer=${req.headers.referer}`);
     send404(res);
   }
 }

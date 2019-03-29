@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "What is Apache Cordova?",
+        "url": "/resources/articles/what-is-apache-cordova",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
+        "bgColor": "#51A7FF"
+      },{
+        "type": "Article",
         "title": "3 Common Pitfalls on the Path to Digital Transformation",
         "url": "/resources/articles/digital-transformation-pitfalls",
         "target": "_self",

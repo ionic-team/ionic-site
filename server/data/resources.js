@@ -269,6 +269,13 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Top Cordova Challenges and How to Tackle Them",
+        "url": "/resources/webinars/top-cordova-challenges-and-how-to-tackle-them",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-top-5-cordova-challenges.png",
+        "bgColor": "#3FDBC6"
+      }, {
+        "type": "Webinar",
         "title": "Introducing Ionic Enterprise Edition",
         "url": "/resources/webinars/introducing-ionic-enterprise-edition",
         "action": "Watch",

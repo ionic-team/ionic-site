@@ -1,4 +1,8 @@
-import { Component, Prop, State } from '@stencil/core';
+import { 
+  Component, 
+  // Prop, 
+  // State 
+} from '@stencil/core';
 
 @Component({
   tag: 'ionic-section-activator',

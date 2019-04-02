@@ -9,7 +9,7 @@ export class IonicSectionActivator {
 
   render() {
     return (
-      
+      <div></div>
     );
   }
 }

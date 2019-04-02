@@ -8,7 +8,7 @@ import { Component, State } from '@stencil/core';
 export class IonicSlider {
 
   
-  slideCount = 2;
+  slideCount = 1;
   timer = null;
   old = null;
   upcoming = null;

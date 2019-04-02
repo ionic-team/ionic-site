@@ -330,6 +330,21 @@ ionic-slider {
 }
 
 #page-home {
+  #quick-signup-form {
+    margin-bottom: -15px;
+    input {
+      padding: 0 14px;
+      height: 45px;
+      background-color: #F2F2F2;
+      max-width: 250px;
+      &::placeholder {
+        color: #757575;
+        font-weight: bold;
+      }
+      margin: auto;
+    }
+  }
+
   #used-by {
     padding-top: 60px;
     padding-bottom: 58px;

@@ -59,6 +59,9 @@ export namespace Components {
     'mobile'?: boolean;
   }
 
+  interface IonicSectionActivator {}
+  interface IonicSectionActivatorAttributes extends StencilHTMLAttributes {}
+
   interface IonicSlider {}
   interface IonicSliderAttributes extends StencilHTMLAttributes {}
 
@@ -73,6 +76,7 @@ declare global {
     'IonicButton': Components.IonicButton;
     'IonicNewsletterSignup': Components.IonicNewsletterSignup;
     'IonicSearch': Components.IonicSearch;
+    'IonicSectionActivator': Components.IonicSectionActivator;
     'IonicSlider': Components.IonicSlider;
     'IonicSnapBar': Components.IonicSnapBar;
   }
@@ -83,6 +87,7 @@ declare global {
     'ionic-button': Components.IonicButtonAttributes;
     'ionic-newsletter-signup': Components.IonicNewsletterSignupAttributes;
     'ionic-search': Components.IonicSearchAttributes;
+    'ionic-section-activator': Components.IonicSectionActivatorAttributes;
     'ionic-slider': Components.IonicSliderAttributes;
     'ionic-snap-bar': Components.IonicSnapBarAttributes;
   }
@@ -118,6 +123,12 @@ declare global {
     new (): HTMLIonicSearchElement;
   };
 
+  interface HTMLIonicSectionActivatorElement extends Components.IonicSectionActivator, HTMLStencilElement {}
+  var HTMLIonicSectionActivatorElement: {
+    prototype: HTMLIonicSectionActivatorElement;
+    new (): HTMLIonicSectionActivatorElement;
+  };
+
   interface HTMLIonicSliderElement extends Components.IonicSlider, HTMLStencilElement {}
   var HTMLIonicSliderElement: {
     prototype: HTMLIonicSliderElement;
@@ -136,6 +147,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
     'ionic-search': HTMLIonicSearchElement
+    'ionic-section-activator': HTMLIonicSectionActivatorElement
     'ionic-slider': HTMLIonicSliderElement
     'ionic-snap-bar': HTMLIonicSnapBarElement
   }
@@ -146,6 +158,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-search': HTMLIonicSearchElement;
+    'ionic-section-activator': HTMLIonicSectionActivatorElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
   }

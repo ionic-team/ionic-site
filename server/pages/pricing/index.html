@@ -11,38 +11,95 @@
 
   <div class="cta banner">
     <hgroup class="container">
-      <h5>Ionic Development Platform Pricing</h5>
-      <h1>Grow faster with Ionic</h1>
-      <p>Powerful tools for every phase of the app lifecycle.</p>
+      <h1>Free for everyone</h1>
+      <p>Additional products and services available for mission-critical apps</p>
     </hgroup>
-
-    <ul class="rounded-tabs">
-      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
-        <div class="rounded-tabs__tab-inner">
-          Appflow
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="studio">
-        <div class="rounded-tabs__tab-inner">
-          Studio
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="enterprise-edition">
-        <div class="rounded-tabs__tab-inner">
-          Enterprise Edition
-        <div>
-      </li>
-    </ul>
   </div>
 
-  <section class="tab-content tab-content--active" id="content-appflow">
-    {% include './appflow.html' %}
-  </section>
-  <section class="tab-content" id="content-studio">
-    {% include './studio.html' %}
-  </section>
-  <section class="tab-content" id="content-enterprise-edition">
-    {% include './enterprise-edition.html' %}
+  <section class="tab-content tab-content--active" id="content-enterprise-edition">
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="plan-card plan-card--community">
+              <div class="plan-card-header plan-card-header--double">
+                <div class="left">
+                  <h4>Ionic Community Edition</h4>
+                  <h3>Overview</h3>
+                </div>
+                <div class="right">
+                  <div class="price">Free Forever!</div>
+                </div>
+              </div>
+
+              <div class="plan-card-body">
+                <ul class="features">
+                  <h5>Ionic Framework</h5>
+                  <li>Secure & stable UI Framework for front-end app development</li>
+                  <li>Open design standards &amp; customizations</li>
+                  <li>Supported on all major mobile OS and devices</li>
+                  <li>Code once, run on every platform</li>
+                  <li>100+ UI components</li>
+                  <li>Forum Support</li>
+                </ul>
+              </div>
+
+              <div class="plan-card-cta">
+                <a class="btn scroll-to-link" href="#" data-target="ee-contact-form" id="btn-pricing-enterprise-engine-overview-contact">Contact us</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="plan-card plan-card--enterprise">
+              <div class="plan-card-header plan-card-header--double">
+                <div class="left">
+                  <h4>Ionic Enterprise Edition</h4>
+                  <h3>Overview</h3>
+                </div>
+                <div class="right">
+                  <div class="price">Custom Pricing</div>
+                </div>
+              </div>
+
+              <div class="plan-card-body">
+                <ul class="features">
+                  <h5>Enterprise Framework</h5>
+                  <li>Secure & stable UI Framework for front-end app development</li>
+                  <li>Open design standards & customizations</li>
+                  <li>Supported on all major mobile OS and devices</li>
+                  <li>Future-proof app dev strategy</li>
+                  <li>Code once, run on every platform</li>
+                  <li>100+ Customizable Enterprise-ready UI components</li>
+                  <li>Custom components for use across multiple apps</li>
+                </ul>
+                <!--
+                <ul class="features">
+                  <h5>Enterprise Native</h5>
+                  <li>Stable & reliable native ecosystem</li>
+                  <li>Management of Cordova platforms & plugins by Ionic’s team</li>
+                  <li>Immediate access to security & bug fixes for platforms and plugins</li>
+                  <li>Protection from untested updates & breaking changes</li>
+                  <li>Supported on all major mobile OS and devices</li>
+                </ul>
+                <ul class="features">
+                  <h5>Enterprise Support</h5>
+                  <li>Professional assurances for Framework & Native</li>
+                  <li>Guaranteed Long Term Support</li>
+                  <li>Immediate hotfixes for your issues</li>
+                  <li>Service Level Agreements (SLAs)</li>
+                  <li>Dedicated Customer Success Manager</li>
+                </ul>
+              -->
+              </div>
+
+              <div class="plan-card-cta">
+                <a class="btn scroll-to-link" href="#" data-target="ee-contact-form" id="btn-pricing-enterprise-engine-overview-contact">Contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </section>
 
   {% include '../_includes/promos/tri-cta.html' %}

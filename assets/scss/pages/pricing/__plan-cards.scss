@@ -554,6 +554,7 @@
   }
 
   .plan-card--enterprise,
+  .plan-card--community,
   .plan-cards-addons .plan-card > div:first-child {
     position: relative;
     overflow: hidden;
@@ -568,11 +569,19 @@
     }
   }
 
+  .plan-card--community {
+    &::before {
+      background-color: #4B80F7;
+    }
+  }
+
   .plan-card--enterprise {
     &::before {
       background-color: #FF9982;
     }
+  }
 
+  .plan-card--enterprise, .plan-card--community {
     .plan-card-header,
     .plan-card-body {
       padding: 36px 54px;

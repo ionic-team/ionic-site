@@ -130,7 +130,7 @@
         font-size: 13px;
         font-weight: 600;
         margin-top: 0;
-        padding: 6px 12px;
+        padding: 6px 8px;
         letter-spacing: -.01em;
         margin-left: 14px;
         margin-right: 14px;
@@ -184,7 +184,7 @@
           color: $blue;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
-          margin-left: 0;
+          margin-left: 24px;
           transition: 0.3s box-shadow, 0.3s background;
 
           &:hover {
@@ -947,8 +947,8 @@
 
   .navbar-right > li > a {
     font-weight: 700;
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 0px;
+    margin-left: 8px;
   }
 
   &.navbar-sticky {

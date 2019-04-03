@@ -7,6 +7,7 @@
 {% set cssPath = 'home' %}
 
 {% block main %}
+<!--
 <ionic-slider>
   <div slot="slide-0" id="slide-limitless">
     <ul class="graphics">
@@ -19,37 +20,12 @@
     </ul>
     <hgroup class="container">
       <h1>One codebase.<br>Any platform.</h1>
-      <p>
+    <p>
         Ionic helps developers build and ship beautiful cross-platform hybrid
         apps.
       </p>
       <div class="">
-        <form class="form" role="form" id="quick-signup-form" action="https://dashboard.ionicframework.com/signup" method="GET">
-          <div class="form-group" id="field-email">
-            <input
-              class="form-control"
-              type="email"
-              placeholder="Enter your email address"
-              id="id_email"
-              name="email"
-              spellcheck="false"
-              required>
-          </div>
-          <button type="submit" class="btn white rounded">
-            Get started <ion-icon name="arrow-forward"></ion-icon>
-          </button>
-        </form>
       </div>
-      <!--
-      <ul class="supported-platforms">
-        <li><img src="/img/homepage/platform-apple-ios.svg" alt="apple"></li>
-        <li><img src="/img/homepage/platform-android-google.svg" alt="android"></li>
-        <li><img src="/img/homepage/platform-windows.svg" alt="windows"></li>
-        <li><img src="/img/homepage/platform-electronjs-desktop.svg" alt="electron"></li>
-        <li><img src="/img/homepage/platform-javascript.svg" alt="js"></li>
-        <li><img src="/img/homepage/platform-pwa-progressive-web-app.svg" alt="pwa"></li>
-      </ul>
-      -->
     </hgroup>
   </div>
 
@@ -81,6 +57,52 @@
     </div>
   </div>
 </ionic-slider>
+-->
+
+<div class="banner">
+  <div class="container">
+    <hgroup>
+      <h1>
+        Build awesome apps with your web dev skills.
+      </h1>
+      <p>
+        Ionic lets web developers build quality cross-platform hybrid apps faster than ever before.
+      </p>
+      <form class="form" role="form" id="quick-signup-form" action="https://dashboard.ionicframework.com/signup" method="GET">
+        <div class="form-group" id="field-email">
+          <div class="row">
+            <div class="col-sm-8">
+              <input
+                class="form-control"
+                type="email"
+                placeholder="Enter your email address"
+                id="id_email"
+                name="email"
+                spellcheck="false"
+                required>
+            </div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn white">
+                Get started
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </hgroup>
+
+    <div class="graphics">
+      <div class="android">
+        <div class="layer-1"></div>
+        <div class="layer-2"></div>
+      </div>
+      <div class="iphone">
+        <div class="layer-3"></div>
+        <div class="layer-4"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <aside id="used-by">
   <img class="container" src="/img/homepage/logos-a.png">
@@ -102,7 +124,7 @@
 
   <section id="for-devs" class="center">
     <hgroup class="container">
-      <h2>An app development platform</h2>
+      <h2>Dedicated app development platform</h2>
       <p>
         We help developers build and deploy cross-platform apps. From open
         source to premium services, Ionic makes app creation lightning fast.

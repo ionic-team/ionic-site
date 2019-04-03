@@ -4,33 +4,33 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Products</a>
+     aria-expanded="false">Product</a>
   <ul class="dropdown-menu dropdown-menu--withbigs">
     <li class="big">
       <a href="/enterprise-edition">
         {% include '_includes/svg/enterprise-edition-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Enterprise Edition</strong>
+        <strong class="dropdown-menu__text--l1">Enterprise</strong>
         <span class="dropdown-menu__text--l3">The trusted app foundation for Enterprise</span>
       </a>
     </li>
     <li class="big">
       <a href="/studio">
         {% include '_includes/svg/studio-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Studio</strong>
+        <strong class="dropdown-menu__text--l1">Studio</strong>
         <span class="dropdown-menu__text--l3">Ionic integrated development environment</span>
       </a>
     </li>
     <li class="big">
       <a href="/appflow">
         {% include '_includes/svg/appflow-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Appflow</strong>
+        <strong class="dropdown-menu__text--l1">Mobile DevOps</strong>
         <span class="dropdown-menu__text--l3">Continuous mobile devops tools &amp; services</span>
       </a>
     </li>
     <li class="big">
       <a href="/advisory">
         {% include '_includes/svg/advisory-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Advisory</strong>
+        <strong class="dropdown-menu__text--l1">Advisory Services</strong>
         <span class="dropdown-menu__text--l3">Expert help for enterprise development</span>
       </a>
     </li>
@@ -59,6 +59,7 @@
   </ul>
 </li>
 
+<!--
 <li class="dropdown">
   <a href="#"
      class="dropdown-toggle"
@@ -85,9 +86,20 @@
     <li>
       <a href="/enterprise/identity-vault" class="dropdown-menu__text--l2">
         Mobile Security &amp; Authentication
+    </li>
+    <li>
+      <a href="/resources" class="dropdown-menu__text--l2">
+        Resource Center <ion-icon name="ios-arrow-forward"></ion-icon>
       </a>
     </li>
   </ul>
+</li>
+-->
+
+<li>
+  <a id="btn-header-ecosystem-blog" href="/integrations">
+    Integrations
+  </a>
 </li>
 
 <li class="dropdown developers">
@@ -96,7 +108,7 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Developers</a>
+     aria-expanded="false">Documentation</a>
   <ul class="dropdown-menu">
     <li>
       <a href="/docs" class="dropdown-menu__text--l1">
@@ -178,6 +190,7 @@
   </ul>
 </li>
 
+<!--
 <li class="dropdown ecosystem">
   <a href="#"
      class="dropdown-toggle"
@@ -263,6 +276,7 @@
     </li>
   </ul>
 </li>
+-->
 
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
   <a href="/pricing" id="btn-header-pricing">

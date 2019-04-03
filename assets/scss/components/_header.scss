@@ -90,8 +90,8 @@
 
   .navbar-nav {
     &.navbar-center {
-      float: none;
-      margin: 0 auto;
+      float: right;
+      // margin: 0 auto;
       display: inline-block;
     }
     @media (min-width: $screen-md-min) {

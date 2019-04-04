@@ -1,5 +1,38 @@
 @import '../../vars';
 
-ionic-section-activator {
+$circleColor: #E94E3D;
 
+ionic-section-activator {
+  background: #ccc;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+  }
+
+  li {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    list-style: none;
+  }
+
+  .progress-ring {
+    &__circle {
+      // transition: 0.35s stroke-dashoffset ease;
+      // axis compensation
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      // animation: 5s full-circle infinite;
+    }
+
+    &:hover .progress-ring__circle {
+      // stroke-dashoffset: 0 !important;
+    }
+  }
+}
+
+
+@keyframes full-circle {
+  to  { stroke-dashoffset: 0; }
 }

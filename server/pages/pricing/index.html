@@ -11,12 +11,12 @@
 
   <div class="cta banner">
     <hgroup class="container">
-      <h1>Free for everyone</h1>
-      <p>Additional products and services available for mission-critical apps</p>
+      <h1>For every app developer</h1>
+      <p>From indies and students up to mission-critical enterprise app devs</p>
     </hgroup>
   </div>
 
-  <section class="tab-content tab-content--active" id="content-enterprise-edition">
+  <section class="tab-content tab-content--active">
     <main>
       <div class="container">
         <div class="row">
@@ -25,7 +25,7 @@
               <div class="plan-card-header plan-card-header--double">
                 <div class="left">
                   <h4>Ionic Community Edition</h4>
-                  <h3>Overview</h3>
+                  <h3>For individuals &amp; hobbyists</h3>
                 </div>
                 <div class="right">
                   <div class="price">Free Forever!</div>
@@ -34,18 +34,18 @@
 
               <div class="plan-card-body">
                 <ul class="features">
-                  <h5>Ionic Framework</h5>
-                  <li>Secure & stable UI Framework for front-end app development</li>
-                  <li>Open design standards &amp; customizations</li>
-                  <li>Supported on all major mobile OS and devices</li>
-                  <li>Code once, run on every platform</li>
+                  <li>Cross-platform UI framework for front-end app development</li>
                   <li>100+ UI components</li>
-                  <li>Forum Support</li>
+                  <li>Theming tools</li>
+                  <li>Supported on all major mobile OS's and devices</li>
+                  <li>Code once, run on every platform</li>
+                  <li>Community Support Forum</li>
+                  <li>Access to <a href="/appflow">Mobile DevOps</a> services for native builds and realtime app updates</li>
                 </ul>
               </div>
 
               <div class="plan-card-cta">
-                <a class="btn scroll-to-link" href="#" data-target="ee-contact-form" id="btn-pricing-enterprise-engine-overview-contact">Contact us</a>
+                <a class="btn scroll-to-link" href="#" data-autofocus="true" data-target="quick-signup" id="btn-pricing-enterprise-engine-overview-contact">Get Started</a>
               </div>
             </div>
           </div>
@@ -54,7 +54,7 @@
               <div class="plan-card-header plan-card-header--double">
                 <div class="left">
                   <h4>Ionic Enterprise Edition</h4>
-                  <h3>Overview</h3>
+                  <h3>For teams and professionals</h3>
                 </div>
                 <div class="right">
                   <div class="price">Custom Pricing</div>
@@ -63,14 +63,13 @@
 
               <div class="plan-card-body">
                 <ul class="features">
-                  <h5>Enterprise Framework</h5>
-                  <li>Secure & stable UI Framework for front-end app development</li>
-                  <li>Open design standards & customizations</li>
-                  <li>Supported on all major mobile OS and devices</li>
-                  <li>Future-proof app dev strategy</li>
-                  <li>Code once, run on every platform</li>
-                  <li>100+ Customizable Enterprise-ready UI components</li>
-                  <li>Custom components for use across multiple apps</li>
+                  <i>Everything in Community Edition plus:</i>
+                  <li><a href="/studio">Studio</a> rapid app builder to accelerate development</li>
+                  <li>Premium, supported Native API library for accessing native device functionality</li>
+                  <li><a href="/enterprise/identity-vault">Secure biometrics</a> and authentication solution</li>
+                  <li>Custom components and UI library for teams implementing <a href="/solutions/design-systems">Design Systems</a></li>
+                  <li>Next business-day support SLA and dedicated Customer Success team</li>
+                  <li>Access to <a href="/advisory">Ionic Advisory</a> services for help reaching your development goals</li>
                 </ul>
                 <!--
                 <ul class="features">
@@ -93,7 +92,7 @@
               </div>
 
               <div class="plan-card-cta">
-                <a class="btn scroll-to-link" href="#" data-target="ee-contact-form" id="btn-pricing-enterprise-engine-overview-contact">Contact us</a>
+                <a class="btn scroll-to-link" href="#" data-autofocus="true" data-target="quick-signup" id="btn-pricing-enterprise-engine-overview-contact">Get Started</a>
               </div>
             </div>
           </div>
@@ -102,7 +101,14 @@
     </main>
   </section>
 
-  {% include '../_includes/promos/tri-cta.html' %}
+  <section class="promo-simple" id="quick-signup">
+    <div class="container">
+      <div>
+        <h1>Get Started</h1>
+        <ionic-quick-signup show-pricing-notice="true" button-color="primary"></ionic-quick-signup>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block modals %}
@@ -289,11 +295,17 @@
     for (var i = 0; i < scrollToLinks.length; i++) {
       scrollToLinks[i].addEventListener('click', function(ev){
         var cta = document.querySelector('#' + ev.target.dataset.target);
+        const autoFocus = !!ev.target.dataset.autofocus;
         ev.preventDefault();
         window.scrollTo({
           top: cta.getBoundingClientRect().top + window.scrollY,
           behavior: "smooth"
         });
+
+        if (autoFocus) {
+          const ti = cta.querySelector('input[type="text"],input[type="email"]');
+          ti && ti.focus();
+        }
       });
     }
 

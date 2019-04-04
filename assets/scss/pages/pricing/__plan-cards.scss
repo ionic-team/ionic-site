@@ -570,6 +570,9 @@
   }
 
   .plan-card--community {
+    .plan-card-cta {
+      margin-top: 21px;
+    }
     &::before {
       background-color: #4B80F7;
     }

@@ -341,7 +341,7 @@ ionic-slider {
       position: relative;
       overflow: hidden;
       padding-bottom: 166px;
-      padding-top: 144px;
+      padding-top: 120px;
       clear: both;
     }
 
@@ -356,6 +356,11 @@ ionic-slider {
       @media (min-width: $screen-lg-min) {
         height: 100px;
       }
+    }
+
+    ionic-quick-signup {
+      margin-top: 50px;
+      max-width: calc(50% - 105px);
     }
 
     p {
@@ -544,11 +549,6 @@ ionic-slider {
     }
 
     @media (max-width: $screen-sm-max) {
-      #quick-signup-form {
-        max-width: 60%;
-        margin: auto;
-      }
-
       .container {
         padding-top: 84px;
         padding-bottom: 64px;
@@ -578,39 +578,9 @@ ionic-slider {
     }
 
     @media (max-width: $screen-xs-max) {
-      #quick-signup-form {
-        .btn {
-          margin-top: 20px;
-        }
-      }
       .container {
         padding-top: 124px;
       }
-    }
-  }
-
-  #quick-signup-form {
-    max-width: calc(50% - 105px);
-
-    margin-bottom: -15px;
-    input {
-      padding: 0 14px;
-      height: 54px;
-      background-color: #fff;
-      box-shadow: none;
-      border: 2px solid transparent;
-      margin: 0;
-      width: 100%;
-      &::placeholder {
-        color: #757575;
-        font-weight: bold;
-      }
-      &:focus {
-        border: 2px solid #757575;
-      }
-    }
-    button {
-      margin-top: 0;
     }
   }
 

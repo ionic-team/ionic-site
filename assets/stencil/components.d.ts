@@ -52,6 +52,15 @@ export namespace Components {
     'placeholder'?: string;
   }
 
+  interface IonicQuickSignup {
+    'buttonColor': string;
+    'showPricingNotice': boolean;
+  }
+  interface IonicQuickSignupAttributes extends StencilHTMLAttributes {
+    'buttonColor'?: string;
+    'showPricingNotice'?: boolean;
+  }
+
   interface IonicSearch {
     'mobile': boolean;
   }
@@ -75,6 +84,7 @@ declare global {
     'IonicBarChart': Components.IonicBarChart;
     'IonicButton': Components.IonicButton;
     'IonicNewsletterSignup': Components.IonicNewsletterSignup;
+    'IonicQuickSignup': Components.IonicQuickSignup;
     'IonicSearch': Components.IonicSearch;
     'IonicSectionActivator': Components.IonicSectionActivator;
     'IonicSlider': Components.IonicSlider;
@@ -86,6 +96,7 @@ declare global {
     'ionic-bar-chart': Components.IonicBarChartAttributes;
     'ionic-button': Components.IonicButtonAttributes;
     'ionic-newsletter-signup': Components.IonicNewsletterSignupAttributes;
+    'ionic-quick-signup': Components.IonicQuickSignupAttributes;
     'ionic-search': Components.IonicSearchAttributes;
     'ionic-section-activator': Components.IonicSectionActivatorAttributes;
     'ionic-slider': Components.IonicSliderAttributes;
@@ -117,6 +128,12 @@ declare global {
     new (): HTMLIonicNewsletterSignupElement;
   };
 
+  interface HTMLIonicQuickSignupElement extends Components.IonicQuickSignup, HTMLStencilElement {}
+  var HTMLIonicQuickSignupElement: {
+    prototype: HTMLIonicQuickSignupElement;
+    new (): HTMLIonicQuickSignupElement;
+  };
+
   interface HTMLIonicSearchElement extends Components.IonicSearch, HTMLStencilElement {}
   var HTMLIonicSearchElement: {
     prototype: HTMLIonicSearchElement;
@@ -146,6 +163,7 @@ declare global {
     'ionic-bar-chart': HTMLIonicBarChartElement
     'ionic-button': HTMLIonicButtonElement
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
+    'ionic-quick-signup': HTMLIonicQuickSignupElement
     'ionic-search': HTMLIonicSearchElement
     'ionic-section-activator': HTMLIonicSectionActivatorElement
     'ionic-slider': HTMLIonicSliderElement
@@ -157,6 +175,7 @@ declare global {
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
+    'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-search': HTMLIonicSearchElement;
     'ionic-section-activator': HTMLIonicSectionActivatorElement;
     'ionic-slider': HTMLIonicSliderElement;

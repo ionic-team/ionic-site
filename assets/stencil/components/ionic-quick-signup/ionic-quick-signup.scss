@@ -1,0 +1,44 @@
+@import '../../vars';
+
+ionic-quick-signup {
+  display: block;
+}
+
+.quick-signup-form {
+  width: 100%;
+  margin-bottom: -15px;
+  input {
+    padding: 0 14px;
+    height: 54px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 2px solid transparent;
+    margin: 0;
+    width: 100%;
+    &::placeholder {
+      color: #757575;
+      font-weight: bold;
+    }
+    &:focus {
+      border: 2px solid #757575;
+    }
+  }
+  button {
+    margin-top: 0;
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .quick-signup-form {
+    max-width: 60%;
+    margin: auto;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .quick-signup-form {
+    .btn {
+      margin-top: 20px;
+    }
+  }
+}
+

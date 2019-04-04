@@ -2,6 +2,7 @@ body {
   font-family: $font-family-default;
   position: relative;
   overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 

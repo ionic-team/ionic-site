@@ -22,7 +22,7 @@
 
 <div class="cta gradient"
   {% if data.header_background %}
-     style="background-image:url('/img/resource-center/webinars/{{data.header_background|lower|replace(' ', '-')}}.jpg')"
+     style="background-image:url('{{data.header_background.url}}')"
   {% endif %}>
   <hgroup class="container">
     <strong>Ionic Whitepaper</strong>
@@ -69,7 +69,7 @@
     </section>
   </div>
 </div>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}
 
 {% block modals %}

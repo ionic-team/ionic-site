@@ -86,7 +86,7 @@
     "long-description":"<p>JNESIS offers a complete set of solutions, including cross-platform mobile development based on the Ionic framework, business specific back-ends in Node.js, Java or other technologies in France, Switzerland and New-Zealand.</p><p>We have extensive experience in creating business centric applications, from the ideation to the deployment in the app stores. In addition, we provide expertise in interfacing our applications with any existing information system or software.</p><p>We also have strong knowledge in UI/UX, performance optimization, distribution to large teams and complex applications. Working on a wide range of devices, we develop cutting edge applications with snappy interfaces.</p><p>Our teams in Mulhouse (FR), Paris (FR) and Hawkes Bay (NZ) can assist you locally in your mobile success.</p>",
     "address":"68, Rue Jacques Mugnier<br>68200 Mulhouse, France",
     "features":["Angular 1 to 7", "Ionic 1 to 4", "App design", "App development", "Consulting", "Training", "Java & Node.js back-end"],
-    "coordinates":[47.7,31.6],
+    "coordinates":[48.5,34.4],
     "company-size": "50-200"
   },
   {

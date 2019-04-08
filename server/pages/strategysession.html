@@ -2,40 +2,133 @@
 {% set id = 'strategy-session' %}
 {% set meta_description = "Book a strategy session with one of Ionic's solution architects to help kickstarter your organizations mobile development." %}
 {% import "_includes/macros.html" as macros %}
+{% set cssPath = 'strategy-session' %}
+{% set pre_footer = false %}
 
 {% block main %}
-<div class="cta demo-cta gradient" ng-init="period = 'monthly'">
+<div class="cta">
   <div class="container">
-    <img class="demo-cta__icon" src="/img/demo/demo-icon.png">
     <hgroup>
       <h1>Let's Talk Strategy</h1>
-      <p>Connect with one of our app strategists for a tailored discussion on how Ionic can jumpstart your app dev strategy.</p>
+      <p>Connect with an Ionic Solutions Engineer for a tailored discussion on how Ionic can jumpstart your app dev strategy.</p>
     </hgroup>
   </div>
 </div>
 
-<main class="container demo-form">
-  <div class="demo-form__box hubspot-override">
-    <script charset="utf-8"
-            type="text/javascript"
-            src="https://js.hsforms.net/forms/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-        portalId: '3776657',
-        formId: '4e2c7c3c-626a-45d6-9ec8-927a41f6fc68'
-      });
-    </script>
+<main class="container">
+  <div class="content-row">
+    <section class="content">
+      <h2>Strategy sessions are tailored to your needs. Here are some example topics you might cover:</h2>
+      <ul class="checkmark-list--large">
+        <li>
+          <i>
+            <ion-icon name="checkmark"></ion-icon>
+          </i>
+          Architecture and tech stack review
+        </li>
+        <li>
+          <i>
+            <ion-icon name="checkmark"></ion-icon>
+          </i>
+          Your development goals & challenges
+        </li>
+        <li>
+          <i>
+            <ion-icon name="checkmark"></ion-icon>
+          </i>
+          Mobile and cross-platform development strategies
+        </li>
+        <li>
+          <i>
+            <ion-icon name="checkmark"></ion-icon>
+          </i>
+          How to get the most from your current team
+        </li>
+        <li>
+          <i>
+            <ion-icon name="checkmark"></ion-icon>
+          </i>
+          Questions about Ionic: How it works, when and why to use Ionic
+        </li>
+      </ul>
+    </section>
 
+    <div class="signup-form hubspot-override">
+      <h3>Sign up for your strategy session</h3>
+      <script charset="utf-8"
+              type="text/javascript"
+              src="https://js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: '3776657',
+          formId: '4e2c7c3c-626a-45d6-9ec8-927a41f6fc68',
+          css: ''
+        });
+      </script>
+    </div>
   </div>
-  <aside class="demo-form__aside">
-    <p>See how Ionic has helped the world's smartest companies</p>
-    <ul>
-      <li>It has never been easier: one codebase, one user experience, running everywhere</li>
-      <li>Empower teams with web tech they already know and love</li>
-      <li>Build for the future, where the web is the platform</li>
-    </ul>
-  </aside>
 </main>
+
+<section class="customer-callout">
+  <div class="container">
+    <hgroup>
+      <h3>You’re in good company.</h3>
+      <p>Thousands of companies around the world build with Ionic. Join the ranks with <a href="/enterprise-edition">Ionic Enterprise</a> for the stability and world-class support needed to build apps with confidence.</p>
+    </hgroup>
+  </div>
+  <ul class="customer-callout__logos">
+    <li class="mastercard"></li>
+    <li class="nationwide"></li>
+    <li class="uniqlo"></li>
+    <li class="ibm"></li>
+    <li class="ing"></li>
+    <li class="sap"></li>
+    <li class="nasa"></li>
+  </ul>
+</section>
+
+<section class="resources">
+  <div class="container">
+    <hgroup>
+      <h4>Resources for you</h4>
+      <h5><a href="/resources">See all resources <ion-icon name="ios-arrow-forward"></ion-icon></a></h5>
+    </hgroup>
+
+    <ul class="cards">
+      <li>
+        <a href="/books/hybrid-vs-native">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-hybrid-vs-native.png" alt="">
+          </div>
+          <h6>Ebook</h6>
+          <h4>Hybrid vs Native</h4>
+          <p class="small">Understand the essential elements of hybrid development, and what it could mean for your next project.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/resources/articles/evaluating-ionic-for-enterprise-development">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-evaluating-for-the-enterprise.png" alt="">
+          </div>
+          <h6>Article</h6>
+          <h4>Evaluating Ionic for the Enterprise</h4>
+          <p class="small">If you're an Architect, Senior Developer, or Executive charged with identifying the right application development solution for your business, this article is for you.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/articles/why-hybrid">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-why-hybrid.png" alt="">
+          </div>
+          <h6>White paper</h6>
+          <h4>Why Hybrid?</h4>
+          <p class="small">Get the real-world answers to frequently asked questions about hybrid mobile app development and how to build with confidence.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
 {% endblock %}
 
 {% block modals %}

@@ -1,0 +1,89 @@
+@import '../vars';
+@import '../bootstrap/variables';
+
+#page-strategy-session {
+  .cta {
+    background-color: #243c54;
+    background-image: url('/img/strategy-session/strategy-session-hero.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .cta hgroup {
+    padding-top: 54px;
+    padding-bottom: 80px;
+    max-width: 510px;
+
+    h1 {
+      font-size: 48px;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      font-family: $font-family-eina;
+      font-size: 22px;
+      line-height: 36px;
+      letter-spacing: -0.02em;
+      color: #F6F8FB;
+      opacity: 0.8;
+    }
+  }
+
+  main {
+    overflow: visible;
+  }
+
+  .content-row {
+    display: flex;
+  }
+
+  .content,
+  .signup-form {
+    flex: 0 0 50%;
+  }
+
+  .content {
+    padding-right: 100px;
+    margin-top: 80px;
+
+    h2 {
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 39px;
+      letter-spacing: -0.02em;
+      color: #1A232F;
+    }
+
+    ul {
+      margin: 40px 0 0;
+      padding: 0;
+      max-width: 100% !important;
+    }
+  }
+
+  .signup-form {
+    position: relative;
+    z-index: 100;
+    margin-top: -26px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1), 0px 8px 16px rgba(2, 8, 20, 0.08);
+    border-radius: 8px;
+    padding: 48px 56px 56px;
+    box-sizing: border-box;
+
+    h3 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.02em;
+      color: #020814;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+}
+
+@import '../components/customer-callout';
+@import '../components/resources_read_more';

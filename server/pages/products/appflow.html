@@ -55,11 +55,35 @@
 </div>
 
   <section class="cta-overlay">
-    {# <ionic-section-activator>
-      <a href="">Live Updates</a>
-      <a href="">Native Builds</a>
-      <a href="">Automations</a>
-    </ionic-section-activator> #}
+    {#<ionic-section-activator>
+      <a slot="1" class="updates" href="">
+        <div class="icon">
+          {% include '../_includes/svg/appflow/live-updates.svg' %}
+        </div>
+        <div class="icon-active">
+          {% include '../_includes/svg/appflow/live-updates-active.svg' %}
+        </div>
+        <span>Live Updates</span>
+      </a>
+      <a slot="2" class="native" href="">
+        <div class="icon">
+          {% include '../_includes/svg/appflow/native-builds.svg' %}
+        </div>
+        <div class="icon-active">
+          {% include '../_includes/svg/appflow/native-builds-active.svg' %}
+        </div>
+        <span>Native Builds</span>
+      </a>
+      <a slot="3" class="automation" href="">
+        <div class="icon">
+          {% include '../_includes/svg/appflow/automations.svg' %}
+        </div>
+        <div class="icon-active">
+          {% include '../_includes/svg/appflow/automations-active.svg' %}
+        </div>
+        <span>Automations</span>
+      </a>
+    </ionic-section-activator>#}
     <div class="app-screenshot">
       <img src="/img/pro/pro-app-screenshot-2.png"/>
     </div>

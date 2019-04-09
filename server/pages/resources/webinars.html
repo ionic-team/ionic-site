@@ -39,7 +39,7 @@
       {% else %}
         {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST 
       {% endif %}&nbsp;|
-      &nbsp;Hosted by
+      &nbsp;Speakers: 
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">
@@ -47,7 +47,6 @@
       #}</a>{#
       #}{% if loop.length > 1 and not loop.last %}, {% endif %}
       {% endfor %}
-
     </p>
     <div class="cta-buttons">
       {# <a class="btn sm white" href="{{data.watch_now_link.url}}">

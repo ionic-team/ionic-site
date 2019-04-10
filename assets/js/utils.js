@@ -222,7 +222,7 @@ window.scrollToEl = function(selector) {
   if(typeof selector === 'string') {
     selector = document.querySelector(selector);
   }
-  scrollToY(selector.offsetTop - 100)
+  scrollToY(selector.offsetTop)
 }
 
 window.scrollToY = function(scrollTargetY, speed, easing) {

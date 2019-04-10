@@ -10,13 +10,15 @@ import {
 } from "gsap/TweenLite";
 
 @Component({
-  tag: 'ionic-section-activator',
-  styleUrl: 'ionic-section-activator.scss',
+  tag: 'ionic-appflow-activator',
+  styleUrl: 'ionic-appflow-activator.scss',
   shadow: false
 })
-export class IonicSectionActivator {
+export class IonicAppflowActivator {
   @State() $circles = [];
   @State() $lis = [];
+  @State() screenshots = [];
+  @State() active = null;
   @Element() el;
 
   duration = 6//seconds
@@ -24,6 +26,7 @@ export class IonicSectionActivator {
   r = 31; // radius
   circumference: number;
   gsRefs = [];
+  scrollPause = null
 
   constructor()  {
     this.circumference = this.r * 2 * Math.PI;
@@ -40,17 +43,25 @@ export class IonicSectionActivator {
     const addCircle = (li, i) => {
       this.$lis[i] = li;
       this.$circles[i] = li.querySelector('.progress-ring__circle');
+      this.screenshots[i] = li.querySelector('a').dataset.screenshot;
       if (li.nextElementSibling && li.nextElementSibling.nodeName === 'LI') {
         addCircle(li.nextElementSibling, i + 1);
       }
     }
 
     addCircle(this.el.querySelector('li:nth-child(1)'), 0);
+    this.active = 0;
   }
 
   animationStart(index) {
+    console.log('starting')
+    if(window.pageYOffset > 1000) {
+      console.log('pausing')
+      this.scrollPause = setTimeout(this.animationStart, 5000, 0)
+      return;
+    }
+    this.active = index;
     this.$lis[index].classList.add('active');
-
     TweenLite.to(this.$circles[index], .4, {
       opacity: 1
     });
@@ -81,30 +92,38 @@ export class IonicSectionActivator {
 
   animationSelect(index) {
     this.$lis[index].classList.add('active');
+    this.active = index;
+
+    if (this.scrollPause) {
+      clearTimeout(this.scrollPause);
+    }
 
     this.animationStopOthers(index)
     TweenLite.to(this.$circles[index], this.quickDuration, {
       strokeDashoffset: 0,
       opacity: 1,
       onCompleteScope: this,
-      onComplete: function() {
+      onComplete: () => {
+        this.animationStopOthers(index);
         // this.animationStart(index);
       }}
     )
   }
 
   animationRestart(index) {
-    TweenLite.to(this.$circles[index], .8, {
+
+    this.animationStopOthers(index);
+    TweenLite.to(this.$circles[index], .5, {
       strokeDashoffset: this.circumference * -1,
       lazy: true,
       onCompleteScope: this,
-      onComplete: function() {
+      onComplete: () => {
         TweenLite.to(this.$circles[index], 0, {
           strokeDashoffset: this.circumference,
           opacity: 0,
           lazy: true,
           onCompleteScope: this,
-          onComplete: function() {
+          onComplete: () => {
             this.animationStart(index);
           }
         })
@@ -124,7 +143,7 @@ export class IonicSectionActivator {
       opacity: 0,
       lazy: true,
       onCompleteScope: this,
-      onComplete: function() {
+      onComplete: () => {
         TweenLite.to(circles, 0, {
           strokeDashoffset: this.circumference,
           opacity: 0,
@@ -155,7 +174,13 @@ export class IonicSectionActivator {
   }
 
   render() {
-    return (
+    return ([
+      <div class="app-screenshot">
+        {this.screenshots.map((screenshot, i) => 
+          <img class={i === this.active ? 'active' : 'inactive'} 
+               src={screenshot}/>
+        )}
+      </div>,
       <nav>
         <ul>
           <li onMouseEnter={() => this.animationSelect(0)}
@@ -175,6 +200,6 @@ export class IonicSectionActivator {
           </li>
         </ul>
       </nav>
-    );
+    ]);
   }
 }

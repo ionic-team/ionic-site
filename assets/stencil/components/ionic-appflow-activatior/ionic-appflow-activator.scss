@@ -1,20 +1,28 @@
 @import '../../vars';
 
-ionic-section-activator {
-  background: white;
+ionic-appflow-activator {
+  nav {
+    background: white;
+    position: sticky;
+    top: 100px;
+    width: 100%;
+    margin-top: 100px;
+  }
+
   ul {
     display: flex;
     justify-content: space-between;
     max-width: 100%;
     width: 600px;
-    margin-top: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -44px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   li {
-    height: 60px;
-    width: 60px;
+    width: 120px;
     position: relative;
     list-style: none;
   }
@@ -22,7 +30,7 @@ ionic-section-activator {
   .progress-ring {
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: calc(50% - 32px);
     pointer-events: none;
 
     &__circle {
@@ -43,6 +51,7 @@ ionic-section-activator {
     text-align: center;
     display: block;
     padding-top: 64px;
+    cursor: pointer;
 
     .icon,
     .icon-active {
@@ -51,16 +60,14 @@ ionic-section-activator {
       height: 56px;
       width: 56px;
       top: 4px;
-      left: 4px;
+      left: calc(50% - 28px);
+      transition: .2s opacity ease, .2s transform ease;
     }
 
     .icon-active {
       opacity: 0;
-      transition: .2s opacity ease;
-    }
-
-    svg {
-      
+      transform: scale(1.1, 1.1);
+      transition: .2s opacity ease, .2s transform ease;
     }
 
     span {
@@ -76,12 +83,38 @@ ionic-section-activator {
   }
 
   .active {
+    .icon {
+      transform: scale(1.1, 1.1);
+      opacity: 0;
+    }
+
     .icon-active {
       opacity: 1;
+      transform: scale(1, 1);
     }
 
     span  {
       color: #6C89F7;
+    }
+  }
+
+  .app-screenshot {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: scale(1.01, 1.01);
+      transition: .2s opacity ease, .2s transform ease;
+
+      &.active {
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 }

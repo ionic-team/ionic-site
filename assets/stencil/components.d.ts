@@ -15,6 +15,9 @@ export namespace Components {
   interface IconExternal {}
   interface IconExternalAttributes extends StencilHTMLAttributes {}
 
+  interface IonicAppflowActivator {}
+  interface IonicAppflowActivatorAttributes extends StencilHTMLAttributes {}
+
   interface IonicBarChart {
     'color': string;
     'data': string;
@@ -68,9 +71,6 @@ export namespace Components {
     'mobile'?: boolean;
   }
 
-  interface IonicSectionActivator {}
-  interface IonicSectionActivatorAttributes extends StencilHTMLAttributes {}
-
   interface IonicSlider {}
   interface IonicSliderAttributes extends StencilHTMLAttributes {}
 
@@ -81,24 +81,24 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'IconExternal': Components.IconExternal;
+    'IonicAppflowActivator': Components.IonicAppflowActivator;
     'IonicBarChart': Components.IonicBarChart;
     'IonicButton': Components.IonicButton;
     'IonicNewsletterSignup': Components.IonicNewsletterSignup;
     'IonicQuickSignup': Components.IonicQuickSignup;
     'IonicSearch': Components.IonicSearch;
-    'IonicSectionActivator': Components.IonicSectionActivator;
     'IonicSlider': Components.IonicSlider;
     'IonicSnapBar': Components.IonicSnapBar;
   }
 
   interface StencilIntrinsicElements {
     'icon-external': Components.IconExternalAttributes;
+    'ionic-appflow-activator': Components.IonicAppflowActivatorAttributes;
     'ionic-bar-chart': Components.IonicBarChartAttributes;
     'ionic-button': Components.IonicButtonAttributes;
     'ionic-newsletter-signup': Components.IonicNewsletterSignupAttributes;
     'ionic-quick-signup': Components.IonicQuickSignupAttributes;
     'ionic-search': Components.IonicSearchAttributes;
-    'ionic-section-activator': Components.IonicSectionActivatorAttributes;
     'ionic-slider': Components.IonicSliderAttributes;
     'ionic-snap-bar': Components.IonicSnapBarAttributes;
   }
@@ -108,6 +108,12 @@ declare global {
   var HTMLIconExternalElement: {
     prototype: HTMLIconExternalElement;
     new (): HTMLIconExternalElement;
+  };
+
+  interface HTMLIonicAppflowActivatorElement extends Components.IonicAppflowActivator, HTMLStencilElement {}
+  var HTMLIonicAppflowActivatorElement: {
+    prototype: HTMLIonicAppflowActivatorElement;
+    new (): HTMLIonicAppflowActivatorElement;
   };
 
   interface HTMLIonicBarChartElement extends Components.IonicBarChart, HTMLStencilElement {}
@@ -140,12 +146,6 @@ declare global {
     new (): HTMLIonicSearchElement;
   };
 
-  interface HTMLIonicSectionActivatorElement extends Components.IonicSectionActivator, HTMLStencilElement {}
-  var HTMLIonicSectionActivatorElement: {
-    prototype: HTMLIonicSectionActivatorElement;
-    new (): HTMLIonicSectionActivatorElement;
-  };
-
   interface HTMLIonicSliderElement extends Components.IonicSlider, HTMLStencilElement {}
   var HTMLIonicSliderElement: {
     prototype: HTMLIonicSliderElement;
@@ -160,24 +160,24 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'icon-external': HTMLIconExternalElement
+    'ionic-appflow-activator': HTMLIonicAppflowActivatorElement
     'ionic-bar-chart': HTMLIonicBarChartElement
     'ionic-button': HTMLIonicButtonElement
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
     'ionic-quick-signup': HTMLIonicQuickSignupElement
     'ionic-search': HTMLIonicSearchElement
-    'ionic-section-activator': HTMLIonicSectionActivatorElement
     'ionic-slider': HTMLIonicSliderElement
     'ionic-snap-bar': HTMLIonicSnapBarElement
   }
 
   interface ElementTagNameMap {
     'icon-external': HTMLIconExternalElement;
+    'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-search': HTMLIonicSearchElement;
-    'ionic-section-activator': HTMLIonicSectionActivatorElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
   }

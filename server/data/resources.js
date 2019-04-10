@@ -269,6 +269,13 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
+        "url": "/resources/webinars/three-trends-that-will-impact-your-mobile-dev-strategy",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-forrester-3-trends.png",
+        "bgColor": "#0E2C62"
+      }, {
+        "type": "Webinar",
         "title": "Top Cordova Challenges and How to Tackle Them",
         "url": "/resources/webinars/top-cordova-challenges-and-how-to-tackle-them",
         "action": "Watch",

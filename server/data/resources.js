@@ -3,8 +3,8 @@ const heroFeatured = [
     category: "articles",
     title: "Hybrid vs. Native Ebook",
   }, {
-    category: "articles",
-    title: "Why Hybrid",
+    category: "webinars",
+    title: "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
   }, {
     category: "articles",
     title: "PWA Architects Guide",

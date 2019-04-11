@@ -1,3 +1,54 @@
-h1 {
-  text-align: center
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 71px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #020814;
+    max-width: 560px;
+    margin-bottom: 28px;
+  }
+
+  p {
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #5B708B;
+    max-width: 400px;
+  }
+
+  .btn {
+    font-size: 16px;
+    margin-top: 36px;
+    line-height: normal;
+    letter-spacing: 0.08em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: #3880FF;
+    box-shadow: 0px 2px 4px rgba(2, 8, 20, 0.1), 0px 1px 2px rgba(2, 8, 20, 0.08);
+    border-radius: 210px;
+    min-width: 200px;
+
+    &::after {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 512 512"><path d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"/></svg>');
+      background-size: 100%;
+      content: '';
+      height: 20px;
+      width: 20px;
+      float: right;
+      display: block;
+    }
+  }
 }

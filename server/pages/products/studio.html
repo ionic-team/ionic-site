@@ -41,8 +41,8 @@
       <a class="btn dark rounded sm uppercase outline"
          href="#" 
          data-toggle="modal" 
-         data-target="#requestDemo" 
-         id="btn-studio-hero-request-demo">Join Waitlist</a>
+         data-target="#joinWaitlist" 
+         id="btn-studio-hero-request-demo">Join Waitlist ($99/mo)</a>
       <!--
       <a class="btn dark rounded sm uppercase outline faded"
          id="btn-studio-hero-watch-overview"
@@ -267,17 +267,6 @@
       </ul>
     </div>
   </section>
-  <section class="solid">
-    <div class="container">
-      <hgroup class="centered">
-        <h2>Starting at $99/mo</h2>
-        <p>
-          <strong>Ionic Studio</strong> is almost here. Join the 
-          waitlist to reserve your spot on launch.
-        </p>
-      </hgroup>
-    </div>
-  </section>
   <!--
   <aside class="promo promo-btns promo-studio">
     <div class="container">
@@ -336,6 +325,44 @@
           hbspt.forms.create({
           portalId: "3776657",
           formId: "086f208b-9948-443b-9f89-5feb05414c5b",
+        	css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal collapse fade"
+     id="joinWaitlist"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Starting at $99/mo</h3>
+          <p class="lg">
+            Enter your email to join the Studio waitlist and be
+            first in line when Studio launches.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+          formId: "5bfe4aaf-4b74-49e1-8f8f-22a435c7861f",
         	css: ""
         });
         </script>

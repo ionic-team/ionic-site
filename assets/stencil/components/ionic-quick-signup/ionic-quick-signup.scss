@@ -7,6 +7,41 @@ ionic-quick-signup {
 .quick-signup-form {
   width: 100%;
   margin-bottom: -15px;
+
+  .input-col {
+    padding-right: 0px;
+  }
+
+  &.transparent-input {
+    input {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      border: none;
+
+      border-radius: 8px;
+
+      color: #fff;
+
+      &:focus {
+        border: none;
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: normal;
+      }
+    }
+
+    button.btn.white {
+      font-family: $font-family-eina;
+      border-radius: 8px;
+      text-transform: none;
+      font-weight: 600;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
   input {
     padding: 0 14px;
     height: 54px;

@@ -58,10 +58,12 @@ export namespace Components {
   interface IonicQuickSignup {
     'buttonColor': string;
     'showPricingNotice': boolean;
+    'transparentInput': boolean;
   }
   interface IonicQuickSignupAttributes extends StencilHTMLAttributes {
     'buttonColor'?: string;
     'showPricingNotice'?: boolean;
+    'transparentInput'?: boolean;
   }
 
   interface IonicSearch {

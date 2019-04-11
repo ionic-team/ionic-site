@@ -330,12 +330,20 @@ ionic-slider {
 }
 
 #page-home {
+  @media (max-width: $screen-sm-max) {
+    .banner {
+      height: auto !important;
+    }
+  }
 
   .banner {
     background-image: linear-gradient( 90deg, rgb(56,128,255) 15%, rgb(103,167,255) 100%);
 
     margin-top: -80px;
     font-family: $font-family-eina;
+
+    height: 578px;
+
 
     .container {
       position: relative;

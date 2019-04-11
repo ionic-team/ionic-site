@@ -6,9 +6,13 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/products-studio-og.png'%}
 {% set meta_description = 'Ionic Studio is a powerful App Builder, built with developers in mind, to empower your team to create cross-platform apps at lighting speed.'%}
 
-{% block header_includes %}
+{% block body_attributes %}
+
+{% endblock %}
+
+{% block main %}
 <script>
-var price = '99';
+var price = window.STUDIO_PRICE || '29';
 const hubsFormIds = {
   '29': '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f',
   '49': 'a2dda6ac-b4b8-4d9d-a03e-f0bad9caaa44',
@@ -16,13 +20,6 @@ const hubsFormIds = {
 };
 window.STUDIO_PRICE_FORM_ID = hubsFormIds[price];
 </script>
-{% endblock %}
-
-{% block body_attributes %}
-
-{% endblock %}
-
-{% block main %}
 
 <div class="sub-header">
   <div class="container">

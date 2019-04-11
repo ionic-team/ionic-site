@@ -943,6 +943,39 @@
         color: #c7d0e0;
       }
     }
+
+    &.enterprise {
+      background: none;
+
+      #ionic-io-logo {
+        fill: #3880FF;
+      }
+
+      #for-enterprise {
+        vertical-align: 3px;
+      }
+
+      .navbar-nav > li:not(.header-btn-white) > a,
+      .navbar-nav ionic-search ion-icon {
+        color: #73849A;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      .navbar-nav > li.active > a {
+        color: #B2BECD;
+      }
+    }
+
+    #header-btn-outline {
+      color: #3880FF;
+      border-radius: 16px;
+      border: 2px solid rgba(#3880FF, .2);
+      box-sizing: border-box;
+      box-shadow: 0px 2px 3px rgba(0, 20, 56, 0.08);
+    }
   }
 
   .navbar-right > li > a {

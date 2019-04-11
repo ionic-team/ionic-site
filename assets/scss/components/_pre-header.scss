@@ -61,5 +61,47 @@
   @media (max-width: $screen-xs-max) {
     display: none;
   }
+
+  &.back {
+    background: #F6F8FB;
+    text-align: left;
+    box-shadow: none;
+
+    a {
+      line-height: normal;
+      letter-spacing: 0.01em;
+      color: #3880FF;
+      background: none;
+      margin: 0;
+      padding: 10px 0;
+
+      &::after {
+        display: none;
+      }
+
+      ion-icon {
+        color: rgba(56, 128, 255, 0.29);
+        font-size: 12px;
+        height: 12px;
+        width: 12px;
+        display: inline-block;
+        vertical-align: -2px;
+        opacity: 0;
+        transition: .2s transform ease, .2s opacity;
+
+        &.hydrated {
+          opacity: 1;
+        }
+      }
+
+      &:hover {
+        box-shadow: none;
+
+        ion-icon {
+          transform: translateX(-2px);
+        }
+      }
+    }
+  }
 }
 

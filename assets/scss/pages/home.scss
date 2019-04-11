@@ -461,7 +461,7 @@ ionic-slider {
       bottom: -90px;
       right: 0;
       width: 550px;
-      animation: 1s cubic-bezier(0, 0, 0.25, 1) 1s backwards fadeInUp;
+      // animation: 1s cubic-bezier(0, 0, 0.25, 1) 1s backwards fadeInUp;
       transition: .3s bottom, .3s transform, .3s left;
 
       @media (max-width: $screen-md-max) {
@@ -475,31 +475,30 @@ ionic-slider {
         transition: 1.9s transform;
       }
 
-      &:hover {
-        .android {
-          transform: translateX(-3px) rotateY(0deg);
+      // &:hover {
+      //   .android {
+      //     transform: translateX(-3px) rotateY(0deg);
 
-          .layer-2 {
-            transform: translateX(5px);
-          }
-        }
+      //     .layer-2 {
+      //       transform: translateX(5px);
+      //     }
+      //   }
 
-        .iphone {
-          transform: translateX(3px) rotateY(0deg);
+      //   .iphone {
+      //     transform: translateX(3px) rotateY(0deg);
 
-          .layer-4 {
-            transform: translateX(5px);
-          }
-        }
-
-      }
+      //     .layer-4 {
+      //       transform: translateX(5px);
+      //     }
+      //   }
+      // }
 
       .android {
-        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-android;
+        // animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-android;
       }
 
       .iphone {
-        animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-iphone;
+        // animation: 1.4s cubic-bezier(0, 0, 0.25, 1) 1.4s backwards home-app-group-iphone;
       }
 
       .layer-1 {
@@ -521,7 +520,7 @@ ionic-slider {
         bottom: -147px;
         right: 52px;
         transition: 2s transform;
-        animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-android;
+        // animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-android;
       }
 
       .layer-3 {
@@ -543,7 +542,7 @@ ionic-slider {
         bottom: -157px;
         right: 247px;
         transition: 2s transform;
-        animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-iphone;
+        // animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-iphone;
       }
     }
 

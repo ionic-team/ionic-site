@@ -1,7 +1,8 @@
-@import '../../vars';
-@import '../../mixins';
-@import '../../bootstrap/variables';
+@import '../../../vars';
+@import '../../../mixins';
+@import '../../../bootstrap/variables';
 
+@import '../shared';
 @import './shared';
 
 .cta.banner hgroup::after {

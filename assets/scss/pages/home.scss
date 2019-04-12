@@ -353,6 +353,7 @@ ionic-slider {
       padding-bottom: 120px;
       padding-top: 80px;
       clear: both;
+      max-height: 100%;
     }
 
     h1 {
@@ -445,6 +446,7 @@ ionic-slider {
       @media (max-width: $screen-md-max) {
         bottom: 8px;
         right: -42px;
+        transform: scale(0.8);
       }
 
       .iphone,
@@ -521,6 +523,13 @@ ionic-slider {
         right: 247px;
         transition: 2s transform;
         // animation: 1s cubic-bezier(0, 0, 0.25, 1.25) 2s backwards home-app-iphone;
+      }
+    }
+
+    @media (max-width: $screen-lg-min) {
+      .container {
+        padding-top: 40px;
+        padding-bottom: 58px;
       }
     }
 

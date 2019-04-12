@@ -12,13 +12,21 @@
 
 {% block main %}
 <script>
-var price = window.STUDIO_PRICE || '29';
-const hubsFormIds = {
-  '29': '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f',
-  '49': 'a2dda6ac-b4b8-4d9d-a03e-f0bad9caaa44',
-  '99': '5d3de1c6-5225-43f4-b0bb-e19513d59735'
+function getQuerystringParameter(name) {
+  var querystring = window.location.search;
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(querystring);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
-window.STUDIO_PRICE_FORM_ID = hubsFormIds[price];
+const hubsFormIds = {
+  '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f': '29',
+  'a2dda6ac-b4b8-4d9d-a03e-f0bad9caaa44': '49',
+  '5d3de1c6-5225-43f4-b0bb-e19513d59735': '99'
+};
+const formId = getQuerystringParameter('fid') || '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f';
+var price = hubsFormIds[formId];
+console.log('Page loaded with form id', formId, price);
 </script>
 
 <div class="sub-header">
@@ -369,7 +377,7 @@ window.STUDIO_PRICE_FORM_ID = hubsFormIds[price];
         <script>
           hbspt.forms.create({
           portalId: "3776657",
-          formId: STUDIO_PRICE_FORM_ID,
+          formId: formId,
         	css: ""
         });
         </script>

@@ -1,5 +1,7 @@
-{% extends "_layouts/base.html" %}
-{% set id = 'resource-center' %}
+{% extends "_layouts/enterprise.html" %}
+{% set id = 'enterprise-resource-center' %}
+{% set cssPath = 'enterprise/resources/index' %}
+
 {% import "_includes/macros.html" as macros %}
 {% set header_style = 'transparent light' %}
 {% if resources.resources[currentCategory].meta %}

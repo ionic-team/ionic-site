@@ -10,12 +10,12 @@
   }
 
   h1 {
-    font-size: 64px;
-    line-height: 71px;
+    font-size: 62px;
+    line-height: 69px;
     text-align: center;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     color: #020814;
-    max-width: 560px;
+    max-width: 632px;
     margin-bottom: 28px;
   }
 
@@ -24,8 +24,8 @@
     line-height: 36px;
     text-align: center;
     letter-spacing: -0.04em;
-    color: #5B708B;
-    max-width: 400px;
+    color: rgba(#27323F, .8);
+    max-width: 458px;
   }
 
   .btn {
@@ -49,6 +49,90 @@
       width: 20px;
       float: right;
       display: block;
+    }
+  }
+}
+
+main {
+  margin-top: 128px;
+
+  section {
+    margin-bottom: 200px;
+  }
+  
+  .left,
+  .right,
+  .center {
+    display: flex;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .left,
+  .right {
+    .content {
+      max-width: 480px;
+    }
+  }
+
+  .left {
+    flex-direction: row;
+  }
+
+  .right {
+    flex-direction: row-reverse;
+    margin-left: auto;
+  }
+
+  .center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .content {
+      width: 800px;
+    }
+  }
+
+  .graphics {
+    justify-content: flex-end;
+  }
+
+  h2 {
+    font-size: 44px;
+    line-height: 51px;
+    letter-spacing: -0.03em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 31px;
+    letter-spacing: -0.02em;
+    color: #5B708B;
+    margin-bottom: 54px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+    grid-column-gap: 64px;
+    grid-row-gap: 64px;
+    padding: 0;
+
+    li {
+      list-style: none;
+      min-width: 320px;
+    }
+
+    svg {
+      margin-bottom: 24px;
     }
   }
 }

@@ -11,7 +11,7 @@
     letter-spacing: .04em;
     margin-right: 3px;
     margin-left: 9px;
-    transition: .3s box-shadow,.3s background;
+    transition: .2s box-shadow,.2s background;
 
     &:hover,
     &:focus {
@@ -119,15 +119,15 @@
       h1,
       p,
       .btn {
-        animation: 1s fadeInUp forwards;
+        animation: .2s fadeInUp ease-out forwards;
         opacity: 0;
       }
 
-      h4 { animation-delay: .1s; }
+      h4 { animation-delay: .3s; }
       h1 { animation-delay: 0.4s; }
-      p { animation-delay: 0.8s; }
-      .btn { animation-delay: 1.2s; }
-      .btn:last-child { animation-delay: 1.4s; }
+      p { animation-delay: 0.5s; }
+      .btn { animation-delay: .6s; }
+      .btn:last-child { animation-delay: .7s; }
     }
 
     p a {
@@ -135,7 +135,7 @@
     }
 
     video {
-      animation: 1s fadeIn forwards 3.5s;
+      animation: .5s fadeIn forwards 1s;
       opacity: 0;
     }
   }

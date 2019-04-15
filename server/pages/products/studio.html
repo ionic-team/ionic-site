@@ -429,11 +429,11 @@ Array.prototype.slice.call(document.querySelectorAll('.studio-price')).forEach(f
   e.innerText = '$' + price;
 });
 
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+window.sr = ScrollReveal({ duration: 500, scale: 1, distance: '10px' });
 sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
 
 for (i = 100; i < 300; i+=100){
-    sr.reveal('.delay-'+i, {delay: i});
+    sr.reveal('.delay-'+i, {delay: i / 2});
 }
 
 $(document).ready(function() {

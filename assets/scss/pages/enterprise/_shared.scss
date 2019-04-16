@@ -97,6 +97,12 @@ main {
     }
   }
 
+  .full {
+    .content {
+      max-width: 568px;
+    }
+  }
+
   .graphics {
     justify-content: flex-end;
   }
@@ -123,7 +129,7 @@ main {
     display: grid;
     grid-template-columns: 320px 320px 320px;
     grid-column-gap: 64px;
-    grid-row-gap: 64px;
+    grid-row-gap: 10px;
     padding: 0;
 
     li {
@@ -131,8 +137,9 @@ main {
       min-width: 320px;
     }
 
-    svg {
+    .icon {
       margin-bottom: 24px;
+      width: 48px;
     }
   }
 }

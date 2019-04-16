@@ -27,11 +27,35 @@
     max-width: 800px;
   }
 
+  figcaption {
+    font-size: 13px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    color: #73849A;
+  }
+
   ul {
     padding: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    padding-bottom: 50px;
+    margin-bottom: 16px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      border: 2px solid #E3EDFF;
+      border-top: none;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: 9px;
+    }
   }
 
   li {

@@ -75,6 +75,11 @@ main {
   .right {
     .content {
       max-width: 480px;
+
+      @media (max-width: $screen-xs-max) {
+        max-width: 100%;
+        text-align: center;
+      }
     }
   }
 
@@ -94,12 +99,29 @@ main {
 
     .content {
       width: 800px;
+      max-width: 100%;
     }
   }
 
   .full {
     .content {
       max-width: 568px;
+    }
+  }
+
+
+  @media (max-width: $screen-xs-max) {
+    .right,
+    .left {
+      flex-direction: column-reverse;
+
+      .graphics {
+        margin-bottom: 24px;
+      }
+    }
+
+    section {
+      margin-bottom: 100px;
     }
   }
 
@@ -127,46 +149,65 @@ main {
 
   .features {
     display: grid;
-    grid-template-columns: 320px 320px 320px;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 64px;
     grid-row-gap: 10px;
     padding: 0;
 
     li {
       list-style: none;
-      min-width: 320px;
     }
 
     .icon {
       margin-bottom: 24px;
       width: 48px;
     }
+
+    @media (max-width: $screen-sm-max) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
 @import '../../components/resources_read_more';
 
-.resources .cards {
-  text-align: left;
-  margin-left: -40px;
-  margin-right: -40px;
+.resources {
+  .cards {
+    text-align: left;
 
-  li {
-    padding: 40px;
+    li {
+      p {
+        font-size: 16px;
+        line-height: 29px;
+        letter-spacing: -0.01em;
+        color: #73849A;
+      }
+    }
 
-    p {
-      font-size: 16px;
-      line-height: 29px;
-      letter-spacing: -0.01em;
-      color: #73849A;
+    .img-wrapper {
+      border-radius: 6px;
+
+      + h4 {
+        margin-top: 24px;
+      }
+    }
+
+    // a little extra spacing between cards on the largest width
+    @media (min-width: $screen-lg-min) {
+      margin-left: -40px;
+      margin-right: -40px;
+    
+      li {
+        padding: 40px;
+      }
     }
   }
 
-  .img-wrapper {
-    border-radius: 6px;
-
-    + h4 {
-      margin-top: 24px;
-    }
+  img {
+    max-width: 100%;
   }
 }

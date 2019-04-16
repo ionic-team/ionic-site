@@ -143,3 +143,30 @@ main {
     }
   }
 }
+
+@import '../../components/resources_read_more';
+
+.resources .cards {
+  text-align: left;
+  margin-left: -40px;
+  margin-right: -40px;
+
+  li {
+    padding: 40px;
+
+    p {
+      font-size: 16px;
+      line-height: 29px;
+      letter-spacing: -0.01em;
+      color: #73849A;
+    }
+  }
+
+  .img-wrapper {
+    border-radius: 6px;
+
+    + h4 {
+      margin-top: 24px;
+    }
+  }
+}

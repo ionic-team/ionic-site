@@ -269,6 +269,13 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Submitting Production-ready Apps to App Stores",
+        "url": "/resources/webinars/submitting-production-ready-apps-to-app-stores",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-submitting-production-ready-apps.png",
+        "bgColor": "#8481FE"
+      }, {
+        "type": "Webinar",
         "title": "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
         "url": "/resources/webinars/three-trends-that-will-impact-your-mobile-dev-strategy",
         "action": "Watch",

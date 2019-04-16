@@ -342,8 +342,8 @@ ionic-slider {
     background-image:
       url('/img/homepage/bg-home-min.png'),
       linear-gradient( 90deg, rgb(56,128,255) 15%, rgb(103,167,255) 100%);
-    background-size: 737px, 100%;
-    background-position: right calc(50% - 300px) bottom -1px, center center;
+    background-size: 624px, 100%;
+    background-position: right calc(50% - 300px) bottom -30px, center center;
     background-repeat: no-repeat, repeat;
     margin-top: -80px;
     font-family: $font-family-eina;
@@ -589,6 +589,7 @@ ionic-slider {
       box-shadow: 0px 16px 24px rgba(0, 14, 41, 0.15), 0px 4px 8px rgba(0, 15, 43, 0.1);
       border-radius: 8px;
       display: flex;
+      flex-direction: row-reverse;
       overflow: hidden;
     }
 

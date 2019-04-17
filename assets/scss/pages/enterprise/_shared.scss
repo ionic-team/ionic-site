@@ -209,6 +209,106 @@ main {
   }
 }
 
+.cards--red-v-blue {
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  margin-top: 38px;
+
+  &__card {
+    background: #7CABFF;
+    border-radius: 8px;
+    padding: 40px 40px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 24px;
+    flex: 0 1 460px;
+    border-radius: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:nth-child(2) {
+      background: #F88D8D;
+
+      .btn {
+        background: rgba(#F45454, .5);
+      }
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: rgba(white, .7);
+  }
+
+  .btn {
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: rgba(#3880FF, .5);
+
+    ion-icon {
+      display: inline-block;
+      height: 14px;
+      width: 14px;
+      vertical-align: -2px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    flex-direction: column;
+
+    .card {
+      flex: auto;
+      margin-right: 0;
+      margin-top: 20px;
+    }
+  }
+}
+
+aside {
+  background: #F6F8FB;
+  padding-top: 114px;
+  padding-bottom: 120px;
+
+  p {
+    color: #414D5C;
+  }
+
+  .content {
+    max-width: 432px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+}
+
+.ee-get-started {
+  max-width: 700px;
+
+  h3 {
+    color: #414D5C;
+  }
+}
+
 @import '../../components/resources_read_more';
 
 .resources {

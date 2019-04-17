@@ -3,7 +3,7 @@
 @import '../../../bootstrap/variables';
 
 .cta.banner {
-  background: #F6F8FB;
+  background: #fff;
   text-align: left;
 
   hgroup {
@@ -26,7 +26,7 @@
   h4 {
     font-family: $font-family-monospace;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 26px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -35,14 +35,16 @@
   }
 
   h1 {
-    font-size: 64px;
-    line-height: 71px;
+    font-size: 52px;
+    line-height: 62px;
     letter-spacing: -0.03em;
     color: #020814;
     margin-bottom: 14px;
+    max-width: 420px;
   }
-  
+
   p {
+    font-family: $font-family-eina;
     font-size: 24px;
     line-height: 36px;
     letter-spacing: -0.04em;
@@ -63,6 +65,7 @@
     justify-content: space-between;
     padding-top: 17px;
     padding-bottom: 17px;
+    padding-left: 15px;
     flex-wrap: wrap;
 
     @media (max-width: $screen-sm-max) {
@@ -203,7 +206,7 @@ main {
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      
+
       .content {
         max-width: 798px;
         text-align: center;
@@ -277,7 +280,7 @@ main {
       &:last-child {
         margin-right: 0;
       }
-      
+
       &:nth-child(2) {
         background: #F88D8D;
 

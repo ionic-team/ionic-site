@@ -63,13 +63,15 @@
   }
 
   &.back {
-    background: #F6F8FB;
+    background: #F9F9F9;
     text-align: left;
     box-shadow: none;
 
     a {
       line-height: normal;
-      letter-spacing: 0.01em;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.05em;
       color: #3880FF;
       background: none;
       margin: 0;
@@ -80,7 +82,7 @@
       }
 
       ion-icon {
-        color: rgba(56, 128, 255, 0.29);
+        color: rgba(56, 128, 255, 0.7);
         font-size: 12px;
         height: 12px;
         width: 12px;
@@ -88,6 +90,7 @@
         vertical-align: -2px;
         opacity: 0;
         transition: .2s transform ease, .2s opacity;
+        margin-right: 4px;
 
         &.hydrated {
           opacity: 1;
@@ -104,4 +107,3 @@
     }
   }
 }
-

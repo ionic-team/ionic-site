@@ -90,8 +90,8 @@
 
   .navbar-nav {
     &.navbar-center {
-      float: right;
-      // margin: 0 auto;
+      float: none;
+      margin: 0 auto;
       display: inline-block;
     }
     @media (min-width: $screen-md-min) {
@@ -946,35 +946,54 @@
 
     &.enterprise {
       background: none;
-
-      #ionic-io-logo {
-        fill: #3880FF;
-      }
-
-      #for-enterprise {
-        vertical-align: 3px;
-      }
+      padding-top:  36px;
 
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #73849A;
+        color: #5B708B;
 
         &:hover {
           color: $blue;
         }
       }
 
+      .navbar-nav > li:not(.header-btn-white) > a {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 14px;
+        font-family: $font-family-inter;
+        font-weight: 500;
+      }
+
       .navbar-nav > li.active > a {
         color: #B2BECD;
+      }
+
+      .navbar-right {
+        margin-top: 3px;
+      }
+
+      .navbar-center {
+        margin-top: 6px;
+        float: right;
       }
     }
 
     #header-btn-outline {
+      transition: 0.2s border;
+      padding: 2px 10px 4px;
+      margin-left: 14px;
       color: #3880FF;
       border-radius: 16px;
-      border: 2px solid rgba(#3880FF, .2);
+      border: 1px solid rgba(#3880FF, 0.4);
       box-sizing: border-box;
-      box-shadow: 0px 2px 3px rgba(0, 20, 56, 0.08);
+      box-shadow: none;
+      font-weight: 600;
+
+
+      &:hover {
+        border: 1px solid rgba(#3880FF, 0.8);
+      }
     }
   }
 

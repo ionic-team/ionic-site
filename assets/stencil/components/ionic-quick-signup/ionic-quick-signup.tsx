@@ -16,6 +16,7 @@ export class IonicQuickSignup {
 
   @Prop() showPricingNotice = false;
   @Prop() buttonColor = 'white';
+  @Prop() transparentInput = false;
 
   handleSubmit(_: Event) {
     var hsutk = window.getCookie('hubspotutk');
@@ -26,7 +27,7 @@ export class IonicQuickSignup {
   render() {
     return (
       <form
-        class="form quick-signup-form"
+        class={`form quick-signup-form ${this.transparentInput ? 'transparent-input' : ''}`}
         role="form"
         action="https://dashboard.ionicframework.com/signup"
         method="GET"
@@ -36,7 +37,7 @@ export class IonicQuickSignup {
         <input type="hidden" name="source" value="homepage-quick" />
         <div class="form-group" id="field-email">
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8 input-col">
               <input
                 class="form-control"
                 type="email"

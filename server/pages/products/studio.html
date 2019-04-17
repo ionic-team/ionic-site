@@ -11,6 +11,23 @@
 {% endblock %}
 
 {% block main %}
+<script>
+function getQuerystringParameter(name) {
+  var querystring = window.location.search;
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(querystring);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+const hubsFormIds = {
+  '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f': '29',
+  'a2dda6ac-b4b8-4d9d-a03e-f0bad9caaa44': '49',
+  '5d3de1c6-5225-43f4-b0bb-e19513d59735': '99'
+};
+const formId = getQuerystringParameter('fid') || '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f';
+var price = hubsFormIds[formId];
+console.log('Page loaded with form id', formId, price);
+</script>
 
 <div class="sub-header">
   <div class="container">
@@ -29,7 +46,7 @@
 
 <div class="top">
   <hgroup class="container">
-    <h4>Ionic App Builder</h4>
+    <!--<h4>Ionic App Builder</h4>-->
     <h1>Lightning fast app creation.</h1>
     <p>
       <strong>Ionic Studio</strong> is a powerful app builder that delivers a smooth
@@ -38,11 +55,11 @@
       a single tool.
     </p>
     <div class="btns">
-      <a class="btn dark rounded sm uppercase outline"
+      <a class="btn rounded sm uppercase"
          href="#" 
          data-toggle="modal" 
-         data-target="#requestDemo" 
-         id="btn-studio-hero-request-demo">Request a Demo</a>
+         data-target="#joinWaitlist" 
+         id="btn-studio-hero-request-demo">Join Waitlist (<span class="studio-price"></span>/mo)</a>
       <a class="btn dark rounded sm uppercase outline faded"
          id="btn-studio-hero-watch-overview"
          data-toggle="modal" 
@@ -265,6 +282,7 @@
       </ul>
     </div>
   </section>
+  <!--
   <aside class="promo promo-btns promo-studio">
     <div class="container">
       <hgroup>
@@ -285,6 +303,7 @@
       </div>
     </div>
   </aside>
+-->
 </main>
 {% include '../_includes/promos/tri-cta.html' %}
 
@@ -321,6 +340,44 @@
           hbspt.forms.create({
           portalId: "3776657",
           formId: "086f208b-9948-443b-9f89-5feb05414c5b",
+        	css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal collapse fade"
+     id="joinWaitlist"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Starting at <span class="studio-price"></span>/mo at launch</h3>
+          <p class="lg">
+            Enter your email to join the Studio waitlist and be
+            first in line when Studio launches.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+          portalId: "3776657",
+          formId: formId,
         	css: ""
         });
         </script>
@@ -367,11 +424,16 @@
 {% block scripts %}
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+// Update the price text
+Array.prototype.slice.call(document.querySelectorAll('.studio-price')).forEach(function(e) {
+  e.innerText = '$' + price;
+});
+
+window.sr = ScrollReveal({ duration: 500, scale: 1, distance: '10px' });
 sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
 
 for (i = 100; i < 300; i+=100){
-    sr.reveal('.delay-'+i, {delay: i});
+    sr.reveal('.delay-'+i, {delay: i / 2});
 }
 
 $(document).ready(function() {

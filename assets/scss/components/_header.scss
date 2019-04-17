@@ -950,11 +950,15 @@
 
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #5B708B;
+        color: #4E5B6A;
 
         &:hover {
-          color: $blue;
+          color: #73849A;
         }
+      }
+
+      .navbar-nav > li.open > a {
+        color: #73849A !important;
       }
 
       .navbar-nav > li:not(.header-btn-white) > a {
@@ -962,11 +966,12 @@
         margin-right: 0;
         padding: 0 14px;
         font-family: $font-family-inter;
-        font-weight: 500;
+        font-weight: 400;
+        font-size: 14px;
       }
 
       .navbar-nav > li.active > a {
-        color: #B2BECD;
+        color: #4E5B6A;
       }
 
       .navbar-right {
@@ -977,8 +982,6 @@
         margin-top: 6px;
         float: right;
       }
-
-
     }
 
     #header-btn-outline {
@@ -990,8 +993,8 @@
       border: 1px solid rgba(#3880FF, 0.4);
       box-sizing: border-box;
       box-shadow: none;
+      font-size: 13px;
       font-weight: 600;
-
 
       &:hover {
         border: 1px solid rgba(#3880FF, 0.8);

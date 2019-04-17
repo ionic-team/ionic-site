@@ -15,20 +15,37 @@
       width: 757px;
       float: right;
     }
+
+    @media (max-width: $screen-md-max) {
+      width: 320px;
+      padding-right: 20px;
+    }
   }
+}
+
+#streamline .graphics {
+  padding-left: 20px;
 }
 
 #talent .graphics {
   width: 560px;
+
+  @media (max-width: $screen-md-max) {
+    width: calc(100% - 520px);
+  }
 }
 
 #create .graphics {
   width: 593px;
+  padding-left: 20px;
 }
 
 #developers {
-
   margin-bottom: 140px;
+
+  .graphics {
+    padding-right: 20px
+  }
 }
 
 #how-to {

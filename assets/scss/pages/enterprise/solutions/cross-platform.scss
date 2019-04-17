@@ -5,7 +5,7 @@
 @import '../shared';
 @import './shared';
 
-.cta.banner hgroup::after {
+.ee-hero::after {
   background: url('/img/solutions/bg-cross-platform-header.svg');
   background-size: cover;
   width: 850px;
@@ -14,6 +14,7 @@
   right: calc(50% - 796px);
   top: 138px;
   content: '';
+  display: block;
 }
 
 #more-than-mobile .content {

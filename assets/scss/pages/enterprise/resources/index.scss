@@ -7,6 +7,10 @@ body {
   letter-spacing: -0.015em;
 }
 
+.ee-hero {
+  padding-bottom: 24px;
+}
+
 .banner {
   text-align: left;
   // background-color: #f6f8fc;
@@ -14,19 +18,6 @@ body {
   margin-top: -100px;
   border-bottom: 1px solid #e3e8f1;
 
-  h1 {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: #24282e;
-    margin-bottom: 5px;
-  }
-
-  p {
-    font-size: 18px;
-    color: #626c7d;
-    font-weight: 600;
-  }
 
   .transitionTitle {
     margin-bottom: 60px;
@@ -38,7 +29,7 @@ body {
   }
 
   .resource-card-list {
-    margin-bottom: 70px;
+    margin-bottom: 42px;
   }
 
   @media (max-width: $screen-md-min) {

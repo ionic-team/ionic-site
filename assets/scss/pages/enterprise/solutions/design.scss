@@ -5,7 +5,7 @@
 @import '../shared';
 @import './shared';
 
-.cta.banner hgroup::after {
+.ee-hero::after {
   background: url('/img/solutions/design-systems-banner.svg');
   background-size: cover;
   width: 755px;
@@ -14,6 +14,7 @@
   right: -72px;
   top: 74px;
   content: '';
+  display: block;
 }
 
 #build-and-share .content::after {
@@ -81,7 +82,7 @@
     margin-top: 222px;
     margin-bottom: 198px;
     position: static;
-  
+
     &::after {
       background: url('/img/solutions/design-system-dashboard.png');
       background-size: cover;

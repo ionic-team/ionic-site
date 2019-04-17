@@ -2,11 +2,8 @@
 @import '../../bootstrap/variables';
 @import 'shared';
 
-.hreo h1 {
-  font-size: 62px;
-  max-width: 632px;
-  line-height: 69px;
-  letter-spacing: -0.04em;
+.ee-hero p {
+  max-width: 458px;
 }
 
 #best-way .graphics {
@@ -122,7 +119,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 11px;
-    
+
     img {
       margin: 0 auto;
     }

@@ -2,3 +2,36 @@
 @import '../../bootstrap/variables';
 @import 'shared';
 
+#experiences {
+  .content {
+    width: 500px;
+  }
+
+  .graphics {
+    width: 480px;
+    margin-right: auto;
+  
+    img {
+      width: 757px;
+      float: right;
+    }
+  }
+}
+
+#streamline {
+  .graphics {
+    width: 480px;
+  }
+}
+
+#talent {
+  .graphics {
+    width: 560px;
+  }
+}
+
+#create {
+  .graphics {
+    width: 593px;
+  }
+}

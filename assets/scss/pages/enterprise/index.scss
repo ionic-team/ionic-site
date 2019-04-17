@@ -2,6 +2,13 @@
 @import '../../bootstrap/variables';
 @import 'shared';
 
+.hreo h1 {
+  font-size: 62px;
+  max-width: 632px;
+  line-height: 69px;
+  letter-spacing: -0.04em;
+}
+
 #best-way .graphics {
   width: 640px;
   min-height: 532px;

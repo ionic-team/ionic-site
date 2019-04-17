@@ -10,12 +10,12 @@
   }
 
   h1 {
-    font-size: 62px;
-    line-height: 69px;
+    font-size: 52px;
+    line-height: 62px;
+    max-width: 930px;
+    letter-spacing: -0.03em;
     text-align: center;
-    letter-spacing: -0.04em;
     color: #020814;
-    max-width: 632px;
     margin-bottom: 28px;
   }
 
@@ -85,11 +85,19 @@ main {
 
   .left {
     flex-direction: row;
+
+    .graphics {
+      margin-left: auto;
+    }
   }
 
   .right {
     flex-direction: row-reverse;
     margin-left: auto;
+
+    .graphics {
+      margin-right: auto;
+    }
   }
 
   .center {
@@ -127,6 +135,10 @@ main {
 
   .graphics {
     justify-content: flex-end;
+
+    img {
+      width: 100%;
+    }
   }
 
   h2 {
@@ -145,6 +157,30 @@ main {
     letter-spacing: -0.02em;
     color: #5B708B;
     margin-bottom: 54px;
+  }
+
+  .content {
+    li {
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: -0.02em;
+      color: #1A232F;
+      margin-bottom: 40px;
+      padding-left: 30px;
+      list-style: none;
+      position: relative;
+
+      &::before {
+        background-image: url('/img/enterprise/check.svg');
+        background-size: 100%;
+        content: '';
+        height: 10px;
+        width: 13px;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
   }
 
   .features {

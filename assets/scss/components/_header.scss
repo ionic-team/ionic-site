@@ -22,6 +22,19 @@
     }
   }
 
+
+  &.enterprise {
+    background: #fff;
+
+    .navbar-toggle i {
+      color: #000;
+    }
+
+    .navbar-toggle:hover i {
+      color: rgba(#000, 0.6);
+    }
+  }
+
   .navbar-header {
     // width: 132px;
     @media (max-width: $screen-sm-max) {
@@ -658,7 +671,6 @@
 
       i {
         color: #fff;
-        transform: scale(1.05);
       }
     }
 

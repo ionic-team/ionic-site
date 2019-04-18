@@ -1035,24 +1035,7 @@
     display: block;
   }
 
-  .external-icon {
 
-    .external-icon__background {
-      fill: #97BDFF;
-    }
-    .external-icon__foreground {
-      fill: #fff;
-    }
-  }
-
-  &.light .external-icon {
-    .external-icon__background {
-      fill: #e5e7ea;
-    }
-    .external-icon__foreground {
-      fill: #7a8496;
-    }
-  }
 }
 
 .docs .navbar-default .navbar-nav {
@@ -1074,4 +1057,23 @@ body.page-header {
 
 .navbar-dark {
   background: #11192a;
+}
+
+.external-icon {
+  .external-icon__background {
+    fill: #97BDFF;
+  }
+  .external-icon__foreground {
+    fill: #fff;
+  }
+}
+
+.light .external-icon,
+.external-icon--light {
+  .external-icon__background {
+    fill: #e5e7ea;
+  }
+  .external-icon__foreground {
+    fill: #7a8496;
+  }
 }

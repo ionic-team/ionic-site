@@ -198,6 +198,10 @@ main {
   }
 
   .content {
+    ul {
+      padding-left: 0;
+    }
+
     li {
       font-size: 16px;
       line-height: 23px;
@@ -313,11 +317,13 @@ main {
 
   @media (max-width: $screen-xs-max) {
     flex-direction: column;
+    align-items: center;
 
-    .card {
+    &__card {
       flex: auto;
       margin-right: 0;
       margin-top: 20px;
+      max-width: 460px;
     }
   }
 }

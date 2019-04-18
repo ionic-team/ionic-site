@@ -44,11 +44,18 @@
   @media (max-width: $screen-md-max) {
     width: calc(100% - 520px);
   }
+
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 20px;
+  }
 }
 
 #create .graphics {
   width: 593px;
   padding-left: 20px;
+  max-width: 100%;
 }
 
 #developers {

@@ -1,6 +1,7 @@
 .ee-hero {
   max-width: 640px;
-  padding: 130px 0 80px;
+  padding-top: 130px;
+  padding-bottom: 80px;
 
   &::before,
   &::after {
@@ -8,8 +9,8 @@
   }
 
   h1 {
-    font-size: 62px;
-    line-height: 69px;
+    font-size: 52px;
+    line-height: 62px;
     max-width: 930px;
     letter-spacing: -0.03em;
 
@@ -62,10 +63,10 @@
     }
   }
 
-  &--secondary {
+  &--large {
     h1 {
-      font-size: 52px;
-      line-height: 62px;
+      font-size: 62px;
+      line-height: 69px;
     }
   }
 
@@ -81,6 +82,38 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-top: 70px;
+    padding-bottom: 0;
+
+    h1 {
+      font-size: 44px;
+      line-height: 52px;
+    }
+
+    &--large h1 {
+      font-size: 50px;
+      line-height: 60px;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    h1 {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 6px;
+    }
+
+    &--large h1 {
+      font-size: 42px;
+      line-height: 52px;
+    }
+
+    .btn {
+      margin-top: 8px;
+    }
   }
 }
 

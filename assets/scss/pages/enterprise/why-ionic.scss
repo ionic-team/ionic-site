@@ -4,13 +4,13 @@
 
 #experiences {
   .content {
-    width: 500px;
+    max-width: 500px;
   }
 
   .graphics {
     width: 580px;
-    margin-right: auto;
-  
+    margin-right: 28px;
+
     img {
       width: 757px;
       float: right;
@@ -63,4 +63,5 @@
   .graphics {
     padding-right: 20px
   }
+
 }

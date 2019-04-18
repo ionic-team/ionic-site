@@ -121,7 +121,7 @@ main {
     line-height: 31px;
     letter-spacing: -0.02em;
     color: #5B708B;
-    margin-bottom: 29px;
+    margin-top: 18px;
 
     &.sm {
       font-size: 16px;
@@ -132,8 +132,11 @@ main {
     &:last-child {
       margin-bottom: 54px;
     }
-  }
 
+    p + ul {
+      margin-top: 54px;
+    }
+  }
   .content {
     ul {
       padding-left: 0;

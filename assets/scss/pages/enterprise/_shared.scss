@@ -132,8 +132,11 @@ main {
     &:last-child {
       margin-bottom: 54px;
     }
-  }
 
+    p + ul {
+      margin-top: 54px;
+    }
+  }
   .content {
     ul {
       padding-left: 0;

@@ -110,6 +110,10 @@ main {
       @media (max-width: $screen-xs-max) {
         max-width: 100%;
         text-align: center;
+
+        li {
+          text-align: left;
+        }
       }
     }
   }
@@ -153,9 +157,12 @@ main {
     .right,
     .left {
       flex-direction: column-reverse;
+      align-items: center;
 
       .graphics {
         margin-bottom: 24px;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 

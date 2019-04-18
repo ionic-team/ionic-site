@@ -8,7 +8,7 @@
   }
 
   .graphics {
-    width: 480px;
+    width: 580px;
     margin-right: auto;
   
     img {
@@ -19,6 +19,17 @@
     @media (max-width: $screen-md-max) {
       width: 320px;
       padding-right: 20px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      margin-right: 0;
+
+      img {
+        width: 100%;
+        float: none;
+        max-width: 757px;
+      }
     }
   }
 }

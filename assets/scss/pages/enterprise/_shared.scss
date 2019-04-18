@@ -105,16 +105,33 @@ main {
     }
   }
 
+  h4 {
+    font-family: $font-family-monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 23px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5B708B;
+  }
+
   p {
     font-size: 20px;
     line-height: 31px;
     letter-spacing: -0.02em;
     color: #5B708B;
-    margin-top: 16px;
-  }
+    margin-top: 18px;
 
-  p:last-of-type {
-    margin-bottom: 42px;
+    &.sm {
+      font-size: 16px;
+      line-height: 29px;
+      letter-spacing: -0.01em;
+    }
+
+    &:last-child {
+      margin-bottom: 54px;
+    }
   }
 
   .content {
@@ -169,6 +186,21 @@ main {
       grid-template-columns: 1fr;
     }
   }
+}
+
+#how-to {
+  margin-bottom: 0;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: -100px;
+    width: 100vw;
+    border-top: 1px solid rgba(#92A1B3, .3);
+    content: '';
+    display: block;
+  }
+
 }
 
 .cards--red-v-blue {
@@ -250,7 +282,8 @@ main {
 
 aside {
   background: #F6F8FB;
-  padding-top: 114px;
+  margin-top: -60px;
+  padding-top: 200px;
   padding-bottom: 120px;
 
   p {

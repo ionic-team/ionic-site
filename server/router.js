@@ -57,6 +57,7 @@ router: app => {
   .get('/developers', (_, res) => res.render('developers'))
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
   .get('/enterprise/customers', (_, res) => res.render('enterprise/customers'))
+  .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
   .get('/enterprise/identity-vault', (_, res) =>
     res.render('enterprise/identity-vault'))
   .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
@@ -115,7 +116,7 @@ router: app => {
   .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
-  
+
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 

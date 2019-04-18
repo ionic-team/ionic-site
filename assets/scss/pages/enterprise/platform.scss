@@ -12,6 +12,12 @@ section {
   padding-left: 0;
   margin-right: -40px;
   width: 897px;
+
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: -60px;
+  }
 }
 
 #oss {
@@ -47,12 +53,28 @@ section {
         display: none;
       }
     }
+
+    @media (max-width: $screen-xs-max) {
+      justify-content: space-around;
+      width: 260px;
+      margin: 0 auto;
+
+      li {
+        margin-right: 0;
+      }
+    }
   }
 
   .graphics {
     padding-right: 0;
     margin-left: -130px;
     width: 789px;
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      max-width: 400px;
+      margin-left: -60px;
+    }
   }
 }
 

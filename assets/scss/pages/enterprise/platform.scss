@@ -63,13 +63,15 @@ section {
 
   img {
     width: 1035px;
-    float: right;
+    position: relative;
+    left: -380px;
   }
 }
 
 #integrations {
   .content {
-    max-width: 894px;
+    width: 894px;
+    max-width: 100%;
   }
 
   .integration-list {

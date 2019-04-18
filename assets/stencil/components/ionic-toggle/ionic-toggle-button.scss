@@ -1,0 +1,21 @@
+:host {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #eee;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+div {
+  flex: 1;
+}
+:host(:last-child) {
+  border-left: none;
+}
+:host(.selected) {
+  background-color: #4F8EF7;
+  color: white;
+  font-weight: bold;
+}

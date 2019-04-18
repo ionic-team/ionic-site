@@ -11,104 +11,41 @@
 
   <div class="cta banner">
     <hgroup class="container">
-      <h1>For every app developer</h1>
-      <p>From indies and students up to mission-critical enterprise app devs</p>
+      <h5>Ionic Development Platform Pricing</h5>
+      <h1>Grow faster with Ionic</h1>
+      <p>Powerful tools for every phase of the app lifecycle.</p>
     </hgroup>
+
+    <ul class="rounded-tabs">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
+        <div class="rounded-tabs__tab-inner">
+          Appflow
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="studio">
+        <div class="rounded-tabs__tab-inner">
+          Studio
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="enterprise-edition">
+        <div class="rounded-tabs__tab-inner">
+          Enterprise Edition
+        <div>
+      </li>
+    </ul>
   </div>
 
-  <section class="tab-content tab-content--active">
-    <main>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="plan-card plan-card--community">
-              <div class="plan-card-header plan-card-header--double">
-                <div class="left">
-                  <h4>Ionic Community Edition</h4>
-                  <h3>For individuals &amp; hobbyists</h3>
-                </div>
-                <div class="right">
-                  <div class="price">Free Forever!</div>
-                </div>
-              </div>
-
-              <div class="plan-card-body">
-                <ul class="features">
-                  <li>Cross-platform UI framework for front-end app development</li>
-                  <li>100+ UI components</li>
-                  <li>Theming tools</li>
-                  <li>Supported on all major mobile OS's and devices</li>
-                  <li>Code once, run on every platform</li>
-                  <li>Community Support <a href="http://forum.ionicframework.com/">Forum</a></li>
-                  <li>Access to <a href="/appflow">Mobile DevOps</a> services for native builds and realtime app updates</li>
-                </ul>
-              </div>
-
-              <div class="plan-card-cta">
-                <a class="btn scroll-to-link" href="#" data-autofocus="true" data-target="quick-signup" id="btn-pricing-enterprise-engine-overview-contact">Get Started</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="plan-card plan-card--enterprise">
-              <div class="plan-card-header plan-card-header--double">
-                <div class="left">
-                  <h4>Ionic Enterprise Edition</h4>
-                  <h3>For teams and professionals</h3>
-                </div>
-                <div class="right">
-                  <div class="price">Custom Pricing</div>
-                </div>
-              </div>
-
-              <div class="plan-card-body">
-                <ul class="features">
-                  <i>Everything in Community Edition plus:</i>
-                  <li><a href="/studio">Studio</a> rapid app builder to accelerate development</li>
-                  <li>Premium, supported Native API library for accessing native device functionality</li>
-                  <li><a href="/enterprise/identity-vault">Secure biometrics</a> and authentication solution</li>
-                  <li>Custom components and UI library for teams implementing <a href="/solutions/design-systems">Design Systems</a></li>
-                  <li>Next business-day support SLA and dedicated Customer Success team</li>
-                  <li>Access to <a href="/advisory">Ionic Advisory</a> services for help reaching your development goals</li>
-                </ul>
-                <!--
-                <ul class="features">
-                  <h5>Enterprise Native</h5>
-                  <li>Stable & reliable native ecosystem</li>
-                  <li>Management of Cordova platforms & plugins by Ionic’s team</li>
-                  <li>Immediate access to security & bug fixes for platforms and plugins</li>
-                  <li>Protection from untested updates & breaking changes</li>
-                  <li>Supported on all major mobile OS and devices</li>
-                </ul>
-                <ul class="features">
-                  <h5>Enterprise Support</h5>
-                  <li>Professional assurances for Framework & Native</li>
-                  <li>Guaranteed Long Term Support</li>
-                  <li>Immediate hotfixes for your issues</li>
-                  <li>Service Level Agreements (SLAs)</li>
-                  <li>Dedicated Customer Success Manager</li>
-                </ul>
-              -->
-              </div>
-
-              <div class="plan-card-cta">
-                <a class="btn scroll-to-link" href="#" data-autofocus="true" data-target="quick-signup" id="btn-pricing-enterprise-engine-overview-contact">Get Started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+  <section class="tab-content tab-content--active" id="content-appflow">
+    {% include './appflow.html' %}
+  </section>
+  <section class="tab-content" id="content-studio">
+    {% include './studio.html' %}
+  </section>
+  <section class="tab-content" id="content-enterprise-edition">
+    {% include './enterprise-edition.html' %}
   </section>
 
-  <section class="promo-simple" id="quick-signup">
-    <div class="container">
-      <div>
-        <h1>Get Started</h1>
-        <ionic-quick-signup show-pricing-notice="true" button-color="primary"></ionic-quick-signup>
-      </div>
-    </div>
-  </section>
+  {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 {% block modals %}
@@ -295,17 +232,11 @@
     for (var i = 0; i < scrollToLinks.length; i++) {
       scrollToLinks[i].addEventListener('click', function(ev){
         var cta = document.querySelector('#' + ev.target.dataset.target);
-        const autoFocus = !!ev.target.dataset.autofocus;
         ev.preventDefault();
         window.scrollTo({
           top: cta.getBoundingClientRect().top + window.scrollY,
           behavior: "smooth"
         });
-
-        if (autoFocus) {
-          const ti = cta.querySelector('input[type="text"],input[type="email"]');
-          ti && ti.focus();
-        }
       });
     }
 

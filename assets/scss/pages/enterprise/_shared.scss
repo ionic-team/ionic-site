@@ -331,11 +331,10 @@ aside {
 
 @import '../../components/resources_read_more';
 
+.ee-main,
 .resources {
+  .features,
   .cards {
-    margin-top: 0 !important;
-    text-align: left;
-
     li {
       p {
         font-size: 16px;
@@ -343,7 +342,22 @@ aside {
         letter-spacing: -0.01em;
         color: #73849A;
       }
+  
+      h4 {
+        font-size: 20px;
+        line-height: normal;
+        letter-spacing: -0.02em;
+        color: #020814;
+      }
     }
+  }
+}
+
+.resources {
+  .cards {
+    margin-top: 0 !important;
+    text-align: left;
+    flex-wrap: wrap;
 
     .img-wrapper {
       border-radius: 6px;

@@ -33,6 +33,10 @@
     margin-right: 6px;
     font-size: 14px;
   }
+
+  @media (max-width: $screen-sm) {
+    display: none;
+  }
 }
 
 

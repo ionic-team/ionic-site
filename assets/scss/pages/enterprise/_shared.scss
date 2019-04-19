@@ -189,6 +189,19 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .cta-card {
+    background: $blue;
+    border-radius: 12px;
+    padding: 72px 87px;
+    background-size: cover;
+    color: white;
+
+    .ee-section__title,
+    p {
+      color: #CED6E0;
+    }
+  }
 }
 
 #how-to {

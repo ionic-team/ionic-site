@@ -965,12 +965,13 @@
         color: #4E5B6A;
 
         &:hover {
-          color: #73849A;
+          color: #92A1B3;
         }
       }
 
+      .navbar-nav > li.active > a,
       .navbar-nav > li.open > a {
-        color: #73849A !important;
+        color: #92A1B3 !important;
       }
 
       .navbar-nav > li:not(.header-btn-white) > a {

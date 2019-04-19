@@ -1,17 +1,18 @@
 
 
-<li>
+<li class="{% if id.indexOf('why-ionic') == 0%} active{% endif %}">
   <a href="/enterprise/why-ionic">
     Why Ionic?
   </a>
 </li>
-<li>
+
+<li class="{% if id.indexOf('platform') == 0%} active{% endif %}">
   <a href="/enterprise/platform">
     Platform
   </a>
 </li>
 
-<li class="dropdown">
+<li class="dropdown {% if id.indexOf('solutions') == 0%} active{% endif %}">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
@@ -37,13 +38,13 @@
   </ul>
 </li>
 
-<li class="{% if id.indexOf('enterprise-customers') == 0%} active{% endif %}">
+<li class="{% if id.indexOf('customers') == 0%} active{% endif %}">
   <a href="/enterprise/customers">
     Customers
   </a>
 </li>
 
-<li class="dropdown ecosystem">
+<li class="dropdown ecosystem {% if id.indexOf('resources') == 0%} active{% endif %}">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
@@ -51,7 +52,6 @@
      aria-haspopup="true"
      aria-expanded="false">
      Resources
-
   </a>
   <ul class="dropdown-menu">
     <li>

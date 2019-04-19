@@ -104,6 +104,8 @@ router: app => {
   .get('/go/why-hybrid/thank-you', (_, res) =>
     res.render('go/why-hybrid/thank-you'))
 
+  .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
+
   .get('/integrations', (req, res, next) =>
     getIntegrations(req, res, next))
   .get('/integrations/category/:category', (req, res, next) =>

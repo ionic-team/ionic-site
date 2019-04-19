@@ -6,6 +6,35 @@
   .left,
   .right {
     align-items: center;
+
+    .graphics {
+      width: calc(100% - 520px);
+      max-width: 560px;
+
+      img {
+        max-width: 100%;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 320px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.ee-main .ee-section-wrapper--gradient {
+  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+
+  section {
+    padding-top: 150px;
+    margin-bottom: 120px;
+  }
+
+  aside {
+    padding-top: 150px;
+    background: none;
+    padding-bottom: 0px;
   }
 }
 

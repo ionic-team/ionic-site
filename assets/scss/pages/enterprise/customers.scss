@@ -2,3 +2,75 @@
 @import '../../bootstrap/variables';
 @import 'shared';
 
+.ee-main {
+  .left,
+  .right {
+    align-items: center;
+  }
+}
+
+#marketwatch {
+  .logo {
+    width: 214px;
+    height: 32px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#sworkit {
+  .logo {
+    width: 200px;
+    height: 34px;
+  }
+
+  .graphics {
+    img {
+      width: 560px;
+    }
+  }
+}
+
+#instant-pot {
+  .logo {
+    width: 193px;
+    height: 36px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#shipt {
+  .logo {
+    width: 192px;
+    height: 72px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#untappd {
+  .logo {
+    width: 192px;
+    height: 32px;
+  }
+
+  .graphics {
+    img {
+      width: 560px;
+    }
+  }
+}
+

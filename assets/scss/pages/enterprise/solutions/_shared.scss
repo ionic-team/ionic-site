@@ -18,15 +18,31 @@
   .ee-hero h1,
   .ee-hero p {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
 }
 
+@media (max-width: $screen-xs-max) {
+  .ee-hero {
+    padding-bottom: 80px;
+  }
+}
+
+
 .solution-hero {
+  h4,
+  h2,
+  p,
+  a {
+    position: relative;
+    z-index: 2;
+  }
+
   &::after {
     background-size: cover;
     position: absolute;
+    z-index: 1;
     content: '';
     display: block;
   }

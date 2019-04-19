@@ -298,7 +298,7 @@
 }
 
 aside {
-  background: #F6F8FB;
+  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
   margin-top: -60px;
   padding-top: 200px;
   padding-bottom: 120px;
@@ -358,7 +358,59 @@ aside {
     }
   }
 
-  img {
-    max-width: 100%;
+  .resources__customer-logos {
+    display: flex;
+    margin: 26px auto 0;
+    padding: 0;
+    justify-content: space-between;
+    max-width: 780px;
+    width: 100%;
+
+    li {
+      background: url('/img/enterprise/customer-logos.jpg');
+      background-size: 428px 46px;
+      background-repeat: no-repeat;
+      display: block;
+      height: 46px;
+    }
+
+    @media (max-width: $screen-sm) {
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 460px;
+
+      li {
+        margin: 20px;
+      }
+    }
+
+    .mastercard {
+      width: 58px;
+    }
+    .nationwide {
+      background-position: -58px 0;
+      width: 33px;
+    }
+    .uniqlo {
+      background-position: -91px 0;
+      width: 65px;
+    }
+    .ibm {
+      background-position: -156px 0;
+      width: 64px;
+    }
+    .ing {
+      background-position: -222px 0;
+      width: 103px;
+    }
+    .sap {
+      background-position: -326px 0;
+      width: 56px;
+    }
+    .nasa {
+      background-position: -380px 0;
+      width: 50px;
+    }
+
   }
 }

@@ -23,6 +23,38 @@
 
 }
 
+.solution-hero {
+
+  &::after {
+    background-size: cover;
+    position: absolute;
+    content: '';
+    display: block;
+  }
+
+  &--cross-platform::after {
+    background: url('/img/solutions/bg-cross-platform-header.svg');
+    width: 850px;
+    height: 431px;
+    right: calc(50% - 796px);
+    top: 138px;
+  }
+
+  &--design-system::after {
+    background: url('/img/solutions/design-systems-banner.svg');
+    width: 755px;
+    height: 593px;
+    right: -72px;
+    top: 74px;
+  }
+}
+
+.right .solution-hero--design-system::after {
+  right: auto;
+  left: -72px;
+}
+
+
 #sticky-bar {
   box-shadow: 0px 1px 0px #E9EDF3, 0px -1px 0px #E9EDF3;
   background: white;

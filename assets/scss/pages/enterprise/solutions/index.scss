@@ -1,0 +1,22 @@
+@import '../../../vars';
+@import '../../../mixins';
+@import '../../../bootstrap/variables';
+
+@import '../shared';
+@import './shared';
+
+.ee-hero {
+  padding-bottom: 0;
+}
+
+.ee-main section {
+  margin-bottom: 0;
+}
+
+main {
+  margin-bottom: 180px;
+
+  .content {
+   margin: 163px 0 184px;
+ }
+}

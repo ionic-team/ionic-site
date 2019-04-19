@@ -55,6 +55,7 @@ router: app => {
   .get('/creator/support', (_, res) => res.render('creator/support'))
   .get('/demo', (_, res) => res.render('demo'))
   .get('/developers', (_, res) => res.render('developers'))
+
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
   .get('/enterprise/customers', (_, res) => res.render('enterprise/customers'))
   .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
@@ -77,9 +78,12 @@ router: app => {
     getPrismic(req, res, next, 'webinar', req.params.webinar, 'enterprise/resources/webinars'))
   .get('/enterprise/resources/whitepapers/:whitepaper', (req, res, next) =>
     getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'enterprise/resources/whitepapers'))
+
+  .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
   .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
   .get('/enterprise/solutions/design-systems', (_, res) => res.render('enterprise/solutions/design-systems'))
   .get('/enterprise/solutions/pwa', (_, res) => res.render('enterprise/solutions/pwa'))
+
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
   .get('/enterprise/why-ionic', (_, res) => res.render('enterprise/why-ionic'))

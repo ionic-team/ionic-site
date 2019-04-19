@@ -5,17 +5,6 @@
 @import '../shared';
 @import './shared';
 
-.ee-hero::after {
-  background: url('/img/solutions/bg-cross-platform-header.svg');
-  background-size: cover;
-  width: 850px;
-  height: 431px;
-  position: absolute;
-  right: calc(50% - 796px);
-  top: 138px;
-  content: '';
-  display: block;
-}
 
 #more-than-mobile .content {
   margin-top: 316px;

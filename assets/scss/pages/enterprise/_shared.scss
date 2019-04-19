@@ -2,6 +2,7 @@
 
 .ee-main {
   margin-top: 0;
+  overflow: visible;
 
   section {
     margin-bottom: 200px;
@@ -114,6 +115,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #5B708B;
+    margin-top: 0;
   }
 
   p {
@@ -129,11 +131,7 @@
       letter-spacing: -0.01em;
     }
 
-    &:last-child {
-      margin-bottom: 54px;
-    }
-
-    & + ul {
+    & + ul:not(.frameworks) {
       margin-top: 54px;
     }
   }
@@ -193,7 +191,7 @@
   .cta-card {
     background: $blue;
     border-radius: 12px;
-    padding: 72px 87px;
+    padding: 72px 72px 60px;
     background-size: cover;
     color: white;
 
@@ -207,16 +205,16 @@
 #how-to {
   margin-bottom: 0;
   position: relative;
+  padding-top: 140px;
 
   &::before {
     position: absolute;
-    top: -100px;
+    top: 0;
     width: 100vw;
     border-top: 1px solid rgba(#92A1B3, .3);
     content: '';
     display: block;
   }
-
 }
 
 .cards--red-v-blue {
@@ -262,6 +260,8 @@
     line-height: 26px;
     letter-spacing: -0.02em;
     color: rgba(white, .7);
+    margin-top: 0;
+    margin-bottom: 22px;
   }
 
   .btn {

@@ -10,8 +10,10 @@ section {
 #app-builder .graphics {
   margin-left: -86px;
   padding-left: 0;
-  margin-right: -40px;
+  margin-right: -120px;
   width: 897px;
+  margin-top: -60px;
+
 
   @media (max-width: $screen-xs-max) {
     width: 100%;

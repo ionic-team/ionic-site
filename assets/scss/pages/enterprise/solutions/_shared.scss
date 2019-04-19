@@ -24,7 +24,6 @@
 }
 
 .solution-hero {
-
   &::after {
     background-size: cover;
     position: absolute;
@@ -47,13 +46,21 @@
     right: -72px;
     top: 74px;
   }
+
+  &--pwa::after {
+    background: url('/img/enterprise/pwa.png');
+    width: 513px;
+    height: 520px;
+    background-size: 513px 520px;
+    right: 50px;
+    top: 74px;
+  }
 }
 
 .right .solution-hero--design-system::after {
   right: auto;
   left: -72px;
 }
-
 
 #sticky-bar {
   box-shadow: 0px 1px 0px #E9EDF3, 0px -1px 0px #E9EDF3;

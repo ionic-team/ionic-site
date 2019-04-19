@@ -39,8 +39,13 @@ export class IonicToggle {
 
   render() {
     return (
-      <div class="toggle">
-        <slot />
+      <div class="toggle-content">
+        <div class="toggle-buttons">
+          <slot name="buttons"/>
+        </div>
+        <div class="toggle-tabs">
+          <slot name="tabs"></slot>
+        </div>
       </div>
     );
   }

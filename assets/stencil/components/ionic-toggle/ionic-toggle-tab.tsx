@@ -21,10 +21,15 @@ export class IonicToggleTab {
     this.hidden = false;
   }
 
-  render() {
-    if (this.hidden) {
-      return null;
+  hostData() {
+    return {
+      style: {
+        display: this.hidden ? 'none' : 'block'
+      }
     }
+  }
+
+  render() {
     return (
       <slot />
     );

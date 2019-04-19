@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="cta gradient"
+<div class="cta"
   {% if data.header_background %}
      style="
       background-image:
@@ -38,9 +38,9 @@
       {% if Date.parse(data.when) - now <= 0 %}
         On Demand
       {% else %}
-        {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST 
+        {{data.when|date('add', -5, 'hours')|date('dddd, MMM D @ ha')}} CST
       {% endif %}&nbsp;|
-      &nbsp;Speaker{% if data.hosts.length > 1 %}s{% endif %}: 
+      &nbsp;Speaker{% if data.hosts.length > 1 %}s{% endif %}:
       {% for host in data.hosts %}
         <a target="{{host.profile_link.target}}"
            href="{{host.profile_link.url}}">

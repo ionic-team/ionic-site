@@ -270,7 +270,7 @@ const resources = {
       {
         "type": "Webinar",
         "title": "Submitting Production-ready Apps to App Stores",
-        "url": "/resources/webinars/submitting-production-ready-apps-to-app-stores",
+        "url": "/enterprise/resources/webinars/submitting-production-ready-apps-to-app-stores",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-submitting-production-ready-apps.png",
         "bgColor": "#8481FE"

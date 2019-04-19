@@ -26,6 +26,10 @@
   &.enterprise {
     background: #fff;
 
+    .navbar-brand svg {
+      fill: #000;
+    }
+
     .navbar-toggle i {
       color: #000;
     }

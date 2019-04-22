@@ -78,6 +78,30 @@ export namespace Components {
 
   interface IonicSnapBar {}
   interface IonicSnapBarAttributes extends StencilHTMLAttributes {}
+
+  interface IonicToggleButton {
+    'deselect': () => void;
+    'select': () => void;
+    'tab': string;
+    'title': string;
+  }
+  interface IonicToggleButtonAttributes extends StencilHTMLAttributes {
+    'onToggleSelected'?: (event: CustomEvent) => void;
+    'tab'?: string;
+    'title'?: string;
+  }
+
+  interface IonicToggleTab {
+    'hide': () => void;
+    'show': () => void;
+    'tab': string;
+  }
+  interface IonicToggleTabAttributes extends StencilHTMLAttributes {
+    'tab'?: string;
+  }
+
+  interface IonicToggle {}
+  interface IonicToggleAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -91,6 +115,9 @@ declare global {
     'IonicSearch': Components.IonicSearch;
     'IonicSlider': Components.IonicSlider;
     'IonicSnapBar': Components.IonicSnapBar;
+    'IonicToggleButton': Components.IonicToggleButton;
+    'IonicToggleTab': Components.IonicToggleTab;
+    'IonicToggle': Components.IonicToggle;
   }
 
   interface StencilIntrinsicElements {
@@ -103,6 +130,9 @@ declare global {
     'ionic-search': Components.IonicSearchAttributes;
     'ionic-slider': Components.IonicSliderAttributes;
     'ionic-snap-bar': Components.IonicSnapBarAttributes;
+    'ionic-toggle-button': Components.IonicToggleButtonAttributes;
+    'ionic-toggle-tab': Components.IonicToggleTabAttributes;
+    'ionic-toggle': Components.IonicToggleAttributes;
   }
 
 
@@ -160,6 +190,24 @@ declare global {
     new (): HTMLIonicSnapBarElement;
   };
 
+  interface HTMLIonicToggleButtonElement extends Components.IonicToggleButton, HTMLStencilElement {}
+  var HTMLIonicToggleButtonElement: {
+    prototype: HTMLIonicToggleButtonElement;
+    new (): HTMLIonicToggleButtonElement;
+  };
+
+  interface HTMLIonicToggleTabElement extends Components.IonicToggleTab, HTMLStencilElement {}
+  var HTMLIonicToggleTabElement: {
+    prototype: HTMLIonicToggleTabElement;
+    new (): HTMLIonicToggleTabElement;
+  };
+
+  interface HTMLIonicToggleElement extends Components.IonicToggle, HTMLStencilElement {}
+  var HTMLIonicToggleElement: {
+    prototype: HTMLIonicToggleElement;
+    new (): HTMLIonicToggleElement;
+  };
+
   interface HTMLElementTagNameMap {
     'icon-external': HTMLIconExternalElement
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement
@@ -170,6 +218,9 @@ declare global {
     'ionic-search': HTMLIonicSearchElement
     'ionic-slider': HTMLIonicSliderElement
     'ionic-snap-bar': HTMLIonicSnapBarElement
+    'ionic-toggle-button': HTMLIonicToggleButtonElement
+    'ionic-toggle-tab': HTMLIonicToggleTabElement
+    'ionic-toggle': HTMLIonicToggleElement
   }
 
   interface ElementTagNameMap {
@@ -182,6 +233,9 @@ declare global {
     'ionic-search': HTMLIonicSearchElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
+    'ionic-toggle-button': HTMLIonicToggleButtonElement;
+    'ionic-toggle-tab': HTMLIonicToggleTabElement;
+    'ionic-toggle': HTMLIonicToggleElement;
   }
 
 

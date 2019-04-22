@@ -400,6 +400,12 @@
       color: #4c576c;
       max-width: 400px;
       margin: 0 auto;
+
+      &.sm {
+        font-size: 13px;
+        line-height: 22px;
+        color: #6f7786;
+      }
     }
 
     form {

@@ -184,6 +184,7 @@
   input.hs-input[type="tel"]  {
     height: auto;
     width: 100%;
+    float: none;
 
     &:focus {
       border-color: #629eff;

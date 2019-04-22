@@ -47,7 +47,6 @@ module.exports = {
   },
 
   loadLocalVars: (req, res, next) => {
-
     // Setting default Page Vars
     res.locals = Object.assign({}, res.locals, {
       header_style: 'transparent',
@@ -55,6 +54,7 @@ module.exports = {
       employees: shuffle(employees),
       resources: resources,
       followerCount: followerCount,
+      isEnterprise: req.originalUrl.split('/')[1] == 'enterprise',
       pre_footer: true,
       Date: Date,
       now: new Date(),

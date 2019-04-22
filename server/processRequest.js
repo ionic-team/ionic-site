@@ -54,7 +54,6 @@ module.exports = {
       employees: shuffle(employees),
       resources: resources,
       followerCount: followerCount,
-      isEnterprise: req.originalUrl.split('/')[1] == 'enterprise',
       pre_footer: true,
       Date: Date,
       now: new Date(),

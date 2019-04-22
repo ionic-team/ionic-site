@@ -174,7 +174,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 64px;
-    grid-row-gap: 10px;
+    grid-row-gap: 24px;
     padding: 0;
 
     li {
@@ -182,7 +182,7 @@
     }
 
     .icon {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       width: 48px;
     }
 
@@ -341,13 +341,15 @@ aside {
         line-height: 29px;
         letter-spacing: -0.01em;
         color: #73849A;
+        margin-top: 0;
       }
-  
+
       h4 {
         font-size: 20px;
         line-height: normal;
         letter-spacing: -0.02em;
         color: #020814;
+        font-weight: 600;
       }
     }
   }
@@ -387,7 +389,7 @@ aside {
     width: 100%;
 
     li {
-      background: url('/img/enterprise/customer-logos.jpg');
+      background: url('/img/enterprise/customer-logos.png');
       background-size: 428px 46px;
       background-repeat: no-repeat;
       display: block;

@@ -55,11 +55,38 @@ router: app => {
   .get('/creator/support', (_, res) => res.render('creator/support'))
   .get('/demo', (_, res) => res.render('demo'))
   .get('/developers', (_, res) => res.render('developers'))
+
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
+  .get('/enterprise/customers', (_, res) => res.render('enterprise/customers'))
+  .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
   .get('/enterprise/identity-vault', (_, res) =>
     res.render('enterprise/identity-vault'))
+  .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
+  .get('/enterprise/resources', (_, res) =>
+    res.render('enterprise/resources/index', {currentCategory: 'featured'}))
+  .get('/enterprise/resources/:category', (req, res) =>
+    res.render('enterprise/resources/category', {currentCategory: req.params.category}))
+  .get('/enterprise/resources/articles/:article', (req, res, next) =>
+    getPrismic(req, res, next, 'article', req.params.article, 'enterprise/resources/article'))
+  .get('/enterprise/resources/case-studies/:caseStudy', (req, res, next) =>
+    getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'enterprise/resources/case-studies'))
+  .get('/enterprise/resources/podcasts/:podcast', (req, res, next) =>
+    getPrismic(req, res, next, 'podcast', req.params.podcast, 'enterprise/resources/podcasts'))
+  .get('/enterprise/resources/videos/:video', (req, res, next) =>
+    getPrismic(req, res, next, 'video', req.params.video, 'enterprise/resources/videos'))
+  .get('/enterprise/resources/webinars/:webinar', (req, res, next) =>
+    getPrismic(req, res, next, 'webinar', req.params.webinar, 'enterprise/resources/webinars'))
+  .get('/enterprise/resources/whitepapers/:whitepaper', (req, res, next) =>
+    getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'enterprise/resources/whitepapers'))
+
+  .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
+  .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
+  .get('/enterprise/solutions/design-systems', (_, res) => res.render('enterprise/solutions/design-systems'))
+  .get('/enterprise/solutions/pwa', (_, res) => res.render('enterprise/solutions/pwa'))
+
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
+  .get('/enterprise/why-ionic', (_, res) => res.render('enterprise/why-ionic'))
   .get('/enterprise-edition', (_, res) => res.render('products/enterprise-edition'))
   .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
   .get('/framework', (_, res) => res.render('framework'))
@@ -95,30 +122,11 @@ router: app => {
   .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
   .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
   .get('/pro/package', (_, res) => res.render('pro/package'))
-  
+
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 
-  .get('/resources', (_, res) =>
-    res.render('resources/index', {currentCategory: 'featured'}))
-  .get('/resources/:category', (req, res) =>
-    res.render('resources/category', {currentCategory: req.params.category}))
-  .get('/resources/articles/:article', (req, res, next) =>
-    getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
-  .get('/resources/case-studies/:caseStudy', (req, res, next) =>
-    getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
-  .get('/resources/podcasts/:podcast', (req, res, next) =>
-    getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
-  .get('/resources/videos/:video', (req, res, next) =>
-    getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
-  .get('/resources/webinars/:webinar', (req, res, next) =>
-    getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
-  .get('/resources/whitepapers/:whitepaper', (req, res, next) =>
-    getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
-
   .get('/sales', (_, res) => res.render('sales'))
-  .get('/solutions/cross-platform', (_, res) => res.render('solutions/cross-platform'))
-  .get('/solutions/design-systems', (_, res) => res.render('solutions/design-systems'))
   .get('/startups', (_, res) => res.render('startups'))
   .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))

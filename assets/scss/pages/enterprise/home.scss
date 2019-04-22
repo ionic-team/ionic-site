@@ -1,0 +1,139 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+@import 'shared';
+
+.ee-hero p {
+  max-width: 458px;
+}
+
+#best-way h2 {
+  max-width: 320px;
+}
+
+#best-way .graphics {
+  width: 640px;
+  min-height: 532px;
+  margin-left: auto;
+
+  img {
+    width: 945px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    width: calc(100% - 300px);
+  }
+
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+  }
+}
+
+#friendly .graphics {
+  width: 560px;
+  margin-right: auto;
+
+  img {
+    max-width: 560px;
+  }
+
+  @media (max-width: $screen-md-max) {
+    width: calc(100% - 300px);
+
+    img {
+      max-width: calc(100% - 20px);
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    width: 373px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+#supercharged {
+  figure {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  figcaption {
+    font-size: 13px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    color: #73849A;
+  }
+
+  ul {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+
+    @media (max-width: $screen-md-max) {
+      justify-content: space-around;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      border: 2px solid #E3EDFF;
+      border-top: none;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: 9px;
+    }
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+
+    font-family: $font-family-monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    padding-bottom: 50px;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5B708B;
+  }
+
+  .icon {
+    background: #F0F6FF;
+    border-radius: 50%;
+    height: 172px;
+    width: 172px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 11px;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  caption {
+    font-size: 13px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #73849A;
+  }
+}

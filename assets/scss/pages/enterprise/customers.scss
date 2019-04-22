@@ -1,0 +1,105 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+@import 'shared';
+
+.ee-main {
+  .left,
+  .right {
+    align-items: center;
+
+    .graphics {
+      width: calc(100% - 520px);
+      max-width: 560px;
+
+      img {
+        max-width: 100%;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 320px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.ee-main .ee-section-wrapper--gradient {
+  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+
+  section {
+    padding-top: 150px;
+    margin-bottom: 120px;
+  }
+
+  aside {
+    padding-top: 150px;
+    background: none;
+    padding-bottom: 0px;
+  }
+}
+
+#marketwatch {
+  .logo {
+    width: 214px;
+    height: 32px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#sworkit {
+  .logo {
+    width: 200px;
+    height: 34px;
+  }
+
+  .graphics {
+    img {
+      width: 560px;
+    }
+  }
+}
+
+#instant-pot {
+  .logo {
+    width: 193px;
+    height: 36px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#shipt {
+  .logo {
+    width: 192px;
+    height: 72px;
+  }
+
+  .graphics {
+    img {
+      width: 546px;
+    }
+  }
+}
+
+#untappd {
+  .logo {
+    width: 192px;
+    height: 32px;
+  }
+
+  .graphics {
+    img {
+      width: 560px;
+    }
+  }
+}
+

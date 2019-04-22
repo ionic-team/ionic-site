@@ -1,0 +1,368 @@
+@import '../../../vars';
+@import '../../../mixins';
+@import '../../../bootstrap/variables';
+
+.banner {
+  background: #fff;
+  text-align: left;
+
+  .container {
+    position: relative;
+  }
+
+  .ee-hero {
+    max-width: 480px;
+  }
+
+  .ee-hero h4,
+  .ee-hero h1,
+  .ee-hero p {
+    position: relative;
+    z-index: 2;
+  }
+
+}
+
+@media (max-width: $screen-xs-max) {
+  .ee-hero {
+    padding-bottom: 80px;
+  }
+}
+
+
+.solution-hero {
+  h4,
+  h2,
+  p,
+  a {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::after {
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    content: '';
+    display: block;
+  }
+
+  &--cross-platform::after {
+    background: url('/img/solutions/bg-cross-platform-header.svg');
+    width: 850px;
+    height: 431px;
+    right: calc(50% - 796px);
+    top: 138px;
+  }
+
+  &--design-system::after {
+    background: url('/img/solutions/design-systems-banner.svg');
+    width: 755px;
+    height: 593px;
+    right: -72px;
+    top: 74px;
+  }
+
+  &--pwa::after {
+    background: url('/img/enterprise/pwa.png');
+    width: 513px;
+    height: 520px;
+    background-size: 513px 520px;
+    right: 50px;
+    top: 74px;
+  }
+}
+
+.right .solution-hero--design-system::after {
+  right: auto;
+  left: -72px;
+}
+
+#sticky-bar {
+  box-shadow: 0px 1px 0px #E9EDF3, 0px -1px 0px #E9EDF3;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 15px;
+    flex-wrap: wrap;
+
+    @media (max-width: $screen-sm-max) {
+      justify-content: space-around;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  li {
+    list-style: none;
+
+    &.active a:not(.btn) {
+      color: $blue;
+    }
+  }
+
+  a {
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+      text-decoration: none;
+    }
+
+    &.btn {
+      padding: 11px 14px 8px;
+      margin-right: 3px;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: white;
+        background: darken($blue, 5);
+      }
+    }
+  }
+
+  .anchor {
+    color: #92A1B3;
+    font-weight: 500;
+
+    &.active,
+    &:hover {
+      color: #4D8DFF;
+    }
+  }
+}
+
+main {
+  letter-spacing: -0.028em;
+  color: #2F3A48;
+
+  h2 {
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: -0.03em;
+    color: #020814;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    color: #414D5C;
+    font-weight: 600;
+    margin-bottom: 4px;
+
+    + h2 {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 31px;
+    margin-bottom: 40px;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 23px;
+    color: #1A232F;
+    margin-bottom: 32px;
+    position: relative;
+    list-style: none;
+    padding-left: 30px;
+    letter-spacing: -.016em;
+
+
+    &::before {
+      content: url('data:image/svg+xml,
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"/>
+        </svg>');
+      position: absolute;
+      left: 0;
+      top: 1px;
+      height: 15px;
+      width: 15px;
+      fill: #1A232F;
+      display: block;
+    }
+  }
+
+  section {
+    display: flex;
+    position: relative;
+
+    &.container {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &.right {
+      flex-direction: row-reverse;
+    }
+
+    &.center {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .content {
+        max-width: 798px;
+        text-align: center;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          @media (max-width: $screen-sm-max) {
+            justify-content: flex-start;
+          }
+        }
+
+        li {
+          max-width: 376px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .content {
+    max-width: 482px;
+    margin: 232px 0 184px;
+
+    @media (max-width: $screen-sm-max) {
+      max-width: 100%;
+      margin: 60px auto;
+    }
+  }
+
+  aside {
+    background: #F6F8FB;
+    padding-top: 114px;
+    padding-bottom: 120px;
+
+    p {
+      color: #414D5C;
+    }
+
+    .content {
+      max-width: 432px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+  }
+
+  .get-started {
+    max-width: 700px;
+  }
+
+  .cards {
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    margin-top: 38px;
+
+    .card {
+      background: #7CABFF;
+      border-radius: 8px;
+      padding: 40px 40px 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 24px;
+      flex: 0 1 460px;
+      border-radius: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:nth-child(2) {
+        background: #F88D8D;
+
+        .btn {
+          background: rgba(#F45454, .5);
+        }
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: normal;
+      letter-spacing: -0.02em;
+      color: white;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: -0.02em;
+      color: rgba(white, .7);
+    }
+
+    .btn {
+      margin-top: auto;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      background: rgba(#3880FF, .5);
+
+      ion-icon {
+        display: inline-block;
+        height: 14px;
+        width: 14px;
+        vertical-align: -2px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+
+      .card {
+        flex: auto;
+        margin-right: 0;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.resources {
+  margin-top: 96px;
+}
+
+@import '../../../components/resources_read_more';

@@ -16,6 +16,8 @@
   <title>{{title}}</title>
 {% elif 'products-' in id %}
   <title>Ionic Appflow - {{ id | replace('products-','') | title}}</title>
+{% elif isEnterprise %}
+  <title>Ionic for Enterprise - {{ id | replace('enterprise-','') | replace("-", " ") | title}}</title>
 {% elif name %}
   <title>Ionic Framework - {{name}}</title>
 {% elif id %}

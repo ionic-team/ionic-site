@@ -47,7 +47,6 @@ module.exports = {
   },
 
   loadLocalVars: (req, res, next) => {
-
     // Setting default Page Vars
     res.locals = Object.assign({}, res.locals, {
       header_style: 'transparent',

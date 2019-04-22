@@ -1,0 +1,130 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../bootstrap/variables';
+@import 'shared';
+
+section {
+  position: relative;
+}
+
+#app-builder .graphics {
+  margin-left: -86px;
+  padding-left: 0;
+  margin-right: -120px;
+  width: 897px;
+
+
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: -60px;
+  }
+}
+
+#oss {
+  .frameworks {
+    margin-bottom: 33px;
+
+    @include flex-list();
+
+    li {
+      height: 32px;
+      width: 32px;
+      background-size: 100%;
+      display: inline-block;
+      margin-right: 12px;
+
+      &.frameworks__angular {
+        background-image: url('/img/homepage/framework-support-angular.png')
+      }
+
+      &.frameworks__react {
+        background-image: url('/img/homepage/framework-support-react.png')
+      }
+
+      &.frameworks__vue {
+        background-image: url('/img/homepage/framework-support-vue.png')
+      }
+
+      &.frameworks__js {
+        background-image: url('/img/homepage/framework-support-javascript.png')
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      justify-content: space-around;
+      width: 260px;
+      margin: 0 auto;
+
+      li {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .graphics {
+    padding-right: 0;
+    margin-left: -130px;
+    width: 789px;
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      max-width: 400px;
+      margin-left: -60px;
+    }
+  }
+}
+
+#devops .graphics {
+  width: calc(100% - 480px);
+  margin-right: -20px;
+  margin-top: -40px;
+
+  img {
+    width: 1035px;
+    position: relative;
+    left: -380px;
+  }
+}
+
+#integrations {
+  .integration-list {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    display:block;
+    margin: 0 0 48px;
+    padding: 0;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+
+    li {
+      list-style: none;
+      position: absolute;
+    }
+
+    img {
+      position: absolute;
+      width: 128px;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(black, .1);
+
+      &.m {
+        width: 64px;
+      }
+
+      &.m {
+        width: 96px;
+      }
+    }
+  }
+}
+
+#advisory {
+  background-image: url('/img/enterprise/platform/card-advisory.jpg');
+}

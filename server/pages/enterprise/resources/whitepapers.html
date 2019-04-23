@@ -15,7 +15,7 @@
   <div class="container">
     <ul class="left breadcrumbs">
       <li><a href="/enterprise/resources">Resources</a></li>
-      <li><a href="/enterprise/resources/whitepapers">Whitepapers</a></li>
+      <li><a>Whitepapers</a></li>
       <li>{{data.title}}</li>
     </ul>
   </div>
@@ -59,7 +59,7 @@
         <h4>Other Resources you might like</h4>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
-        {% for r in resources.sectionFeatured['whitepapers'] %}
+        {% for r in resources.sectionFeatured['articles'] %}
           <div class="resource-card">
             <div class="resource-card__inner">
             {{ macros.resource(r) }}

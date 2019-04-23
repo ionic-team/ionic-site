@@ -286,6 +286,9 @@ window.stickyNav = {
     this.navBar = document.querySelector('.navbar');
     this.stickyNavBar = document.createElement("div");
     this.stickyNavBar.classList.add('navbar','navbar-default', 'light', 'navbar-sticky', 'navbar-sticky--hide');
+    if (this.navBar.className.indexOf('enterprise') > -1) {
+      this.stickyNavBar.classList.add('enterprise');
+    }
     this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);

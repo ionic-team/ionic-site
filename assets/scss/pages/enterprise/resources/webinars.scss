@@ -57,7 +57,7 @@ h4,
   }
 }
 
-.navbar-default.enterprise {
+.navbar-default.enterprise:not(.navbar-sticky) {
   .navbar-brand svg {
     fill: #fff;
 

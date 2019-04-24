@@ -179,6 +179,10 @@
     color: #505863;
   }
 
+  input.hs-input[type="number"] {
+    float: none;
+  }
+
   input.hs-input[type="text"],
   input.hs-input[type="email"],
   input.hs-input[type="tel"]  {

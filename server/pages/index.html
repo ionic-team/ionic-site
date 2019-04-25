@@ -7,7 +7,6 @@
 {% set cssPath = 'home' %}
 
 {% block main %}
-{#
 <ionic-slider>
   <div slot="slide-0" id="slide-limitless">
     <ul class="graphics">
@@ -20,16 +19,25 @@
     </ul>
     <hgroup class="container">
       <h1>One codebase.<br>Any platform.</h1>
-    <p>
+      <p>
         Ionic helps developers build and ship beautiful cross-platform hybrid
         apps.
       </p>
-      <div class="">
-      </div>
+      <a href="/getting-started" class="btn white rounded">
+        Get Started <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <ul class="supported-platforms">
+        <li><img src="/img/homepage/platform-apple-ios.svg" alt="apple"></li>
+        <li><img src="/img/homepage/platform-android-google.svg" alt="android"></li>
+        <li><img src="/img/homepage/platform-windows.svg" alt="windows"></li>
+        <li><img src="/img/homepage/platform-electronjs-desktop.svg" alt="electron"></li>
+        <li><img src="/img/homepage/platform-javascript.svg" alt="js"></li>
+        <li><img src="/img/homepage/platform-pwa-progressive-web-app.svg" alt="pwa"></li>
+      </ul>
     </hgroup>
   </div>
 
-  <div slot="slide-1" id="slide-v4" class="activateOnScroll">
+  {# <div slot="slide-1" id="slide-v4" class="activateOnScroll">
     <hgroup class="container">
       <img src="/img/homepage/ionic-for-everyone-icon.png" alt="Ionic Framework 4">
       <h4>Ionic Framework 4</h4>
@@ -55,56 +63,30 @@
         <li class="docs">Completely redesigned Docs and Guides</li>
       </ul>
     </div>
-  </div>
+  </div> #}
 </ionic-slider>
-#}
 
-<div class="banner">
-  <div class="container">
-    <hgroup>
-      <h1>
-        One codebase.<br>
-        Any platform.
-      </h1>
-      <h2>
-        Ionic helps developers build and ship beautiful cross-platform hybrid and Progressive Web Apps.
-      </h2>
-      <ionic-quick-signup transparent-input="true"></ionic-quick-signup>
-    </hgroup>
-
-    {# <div class="graphics">
-      <div class="android">
-        <div class="layer-1"></div>
-        <div class="layer-2"></div>
-      </div>
-      <div class="iphone">
-        <div class="layer-3"></div>
-        <div class="layer-4"></div>
-      </div>
-    </div> #}
-  </div>
-</div>
-
-<aside id="customer-logos">
+<aside id="used-by">
   <img class="container" src="/img/homepage/logos-a.png">
 </aside>
 
 <main>
   <section id="difference">
-      <div class="container">
-        <hgroup>
-          <h5>Interested in the differences between hybrid and native apps?</h5>
-          <p>
-            Our new eBook breaks down everything you need to know—all the myths,
-            lies, and misconceptions.
-          </p>
-          <a href="/books/hybrid-vs-native" class="btn sm">Read the eBook</a>
-        </hgroup>
-      </div>
-    </section>
+    <div class="container">
+      <hgroup>
+        <h5>Interested in the differences between hybrid and native apps?</h5>
+        <p>
+          Our new eBook breaks down everything you need to know—all the myths,
+          lies, and misconceptions.
+        </p>
+        <a href="/books/hybrid-vs-native" class="btn sm">Read the eBook</a>
+      </hgroup>
+    </div>
+  </section>
+
   <section id="for-devs" class="center">
     <hgroup class="container">
-      <h2>Dedicated app development platform</h2>
+      <h2>An app development platform</h2>
       <p>
         We help developers build and deploy cross-platform apps. From open
         source to premium services, Ionic makes app creation lightning fast.
@@ -227,7 +209,7 @@
         <h5>As future-proof as the web</h5>
         <p>
           The apps you build with Ionic leverage the power and stability of the
-          open web &mdash; the most time-tested universal runtime in the world. The
+          open web - the most time-tested universal runtime in the world. The
           web has been around over two decades, and we believe it will be there
           for the next two. Always bet on the web.
         </p>
@@ -276,7 +258,7 @@
         </a>
       </li>
       <li>
-        <a href="/enterprise/resources/case-studies/marketwatch">
+        <a href="/resources/case-studies/marketwatch">
           <img src="/img/homepage/customer-marketwatch.jpg" alt="Market Watch">
           <p>
             The <strong>Marketwatch</strong> team built their flagship app in
@@ -285,7 +267,7 @@
         </a>
       </li>
       <li>
-        <a href="/enterprise/resources/case-studies/national-health-service">
+        <a href="/resources/case-studies/national-health-service">
           <img src="/img/homepage/customer-nhs-national-health-service.jpg"
                alt="National Health Service">
           <p>
@@ -305,7 +287,7 @@
       </li>
     </ul>
     <img class="others" src="/img/homepage/logos-b.png">
-    <a href="/enterprise/resources/case-studies" class="cta">See all Customer Stories</a>
+    <a href="/resources/case-studies" class="cta">See all Customer Stories</a>
   </section>
 
   <section id="join">
@@ -335,19 +317,15 @@ window.flow = function() {
 			icons = document.querySelectorAll("#integration-list img"),
 			resizeTimer,
 		  w, h;
-
 	// debounce the re-init so it doesn't totally freak out while draging
 	window.addEventListener('resize', resizeDebounce);
-
 	function resizeDebounce() {
 		clearTimeout(resizeTimer);
   	resizeTimer = setTimeout(init, 250);
 	}
-
 	function init() {
 		w = container.offsetWidth;
 		h = container.offsetHeight;
-
 		icons.forEach(function(icon, i) {
 			var size = sizes[Math.ceil(Math.random() * 3) -1];
 			TweenMax.set(
@@ -360,7 +338,6 @@ window.flow = function() {
 			animate(icon, i);
 		});
 	}
-
 	// animate x and y values at different rates
 	function animate(element, i) {
 		 TweenMax.to(
@@ -373,7 +350,6 @@ window.flow = function() {
 				 delay: -115 / icons.length * i
 			 }
 		 );
-
 		 TweenMax.to(
 			 element,
 			 R(6,16),
@@ -386,11 +362,9 @@ window.flow = function() {
 			 }
 		 );
 	};
-
 	function R(min,max) {
 		return min + Math.random() * (max-min)
 	};
-
 	return {
 		init: init
 	}

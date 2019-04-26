@@ -3,6 +3,11 @@
   100% { opacity: 1; }
 }
 
+@keyframes crossFadeInOut {
+  0%, 40%, 100% { opacity: 0;}
+  50%, 90% { opacity: 1; }
+}
+
 @keyframes fadeInUpSmall {
   0% {
     opacity: 0;

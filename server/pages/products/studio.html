@@ -60,20 +60,27 @@ console.log('Page loaded with form id', formId, price);
          data-toggle="modal" 
          data-target="#joinWaitlist" 
          id="btn-studio-hero-request-demo">Join Waitlist</a>
-      <a class="btn dark rounded sm uppercase outline faded"
+      {# <a class="btn dark rounded sm uppercase outline faded"
          id="btn-studio-hero-watch-overview"
          data-toggle="modal" 
          data-target="#overviewVideo"
-         href="#"><ion-icon name="play"></ion-icon> Watch Overview</a>
+         href="#"><ion-icon name="play"></ion-icon> Watch Overview</a> #}
     </div>
   </hgroup>
 
   <section>
     <div class="container">
-      <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay
+      {# <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay
              loop muted>
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-time-lapse.mp4" type="video/mp4">
-      </video>
+      </video> #}
+      
+      <div class="screenshot-group">
+        <img src="/img/products/studio/screenshot-main.png" 
+             alt="Ionic Studio Screenshot">
+        <img src="/img/products/studio/screenshot-main-2.png" 
+             alt="Ionic Studio Screenshot">
+      </div>
 
       <h3>Empower your team. Drive digital transformation.</h3>
       <ul>
@@ -109,6 +116,53 @@ console.log('Page loaded with form id', formId, price);
 </div>
 
 <main>
+
+  <section>
+    <div class="container">
+      <hgroup>
+        <h2>Superpowers for creating</h2>
+        <p>
+          Drag and drop components directly into your app, which automatically 
+          adds logic and code as you build. Move seamlessly between design and 
+          code to create apps, more visually, with live previews.
+        </p>
+      </hgroup>
+
+      {# <video poster="/img/products/studio/studio-visual-editor-start.jpg" muted
+             class="fade-in">
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-visual-editor.mp4" type="video/mp4">
+      </video> #}
+
+      <img class="screenshot"
+           src="/img/products/studio/screenshot-wysiwyg.png" 
+           alt="Ionic Studio Code Editor">
+
+      <ul>
+        <li class="drag">
+          <strong>Drag &amp; Drop Components</strong>
+          <p>
+            Drag &amp; drop 100+ pre-built Ionic UI components directly into
+            your project’s code. Then modify their properties live.
+          </p>
+        </li>
+        <li class="properties delay-100">
+          <strong>Properties Editor</strong>
+          <p>
+            With Ionic’s components at your fingertips, no need to dig through
+            pages of documentation just to learn Ionic.
+          </p>
+        </li>
+        <li class="backend delay-200">
+          <strong>Works with Local Tools</strong>
+          <p>
+            Studio’s secure, local editor works off the file system and plays
+            nicely with other  tools, and with new or existing projects.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <hgroup>
@@ -119,10 +173,13 @@ console.log('Page loaded with form id', formId, price);
           every dependency, so you can focus on development instead.
         </p>
       </hgroup>
-      <video poster="/img/products/studio/studio-code-editor-start.jpg" muted
+      {# <video poster="/img/products/studio/studio-code-editor-start.jpg" muted
              class="fade-in">
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-code-editor.mp4" type="video/mp4">
-      </video>
+      </video> #}
+      <img class="screenshot"
+           src="/img/products/studio/screenshot-code.png" 
+           alt="Ionic Studio Screenshot">
 
       <ul>
         <li class="ui">
@@ -141,48 +198,6 @@ console.log('Page loaded with form id', formId, price);
         </li>
         <li class="secure delay-200">
           <strong>Secure Local Editor</strong>
-          <p>
-            Studio’s secure, local editor works off the file system and plays
-            nicely with other  tools, and with new or existing projects.
-          </p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <hgroup>
-        <h2>Superpowers for creating</h2>
-        <p>
-          Drag and drop components directly into your app, which automatically 
-          adds logic and code as you build. Move seamlessly between design and 
-          code to create apps, more visually, with live previews.
-        </p>
-      </hgroup>
-
-      <video poster="/img/products/studio/studio-visual-editor-start.jpg" muted
-             class="fade-in">
-        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-visual-editor.mp4" type="video/mp4">
-      </video>
-
-      <ul>
-        <li class="drag">
-          <strong>Drag &amp; Drop Components</strong>
-          <p>
-            Drag &amp; drop 100+ pre-built Ionic UI components directly into
-            your project’s code. Then modify their properties live.
-          </p>
-        </li>
-        <li class="properties delay-100">
-          <strong>Properties Editor</strong>
-          <p>
-            With Ionic’s components at your fingertips, no need to dig through
-            pages of documentation just to learn Ionic.
-          </p>
-        </li>
-        <li class="backend delay-200">
-          <strong>Backend Integrations</strong>
           <p>
             Studio’s secure, local editor works off the file system and plays
             nicely with other  tools, and with new or existing projects.
@@ -272,6 +287,7 @@ console.log('Page loaded with form id', formId, price);
           </p>
         </li>
         <li class="ci delay-300">
+          <span class="pill">coming soon</span>
           <strong>CI/CD integration</strong>
           <p>
             One-click integration with <a href="/appflow">Ionic Appflow</a>, a 

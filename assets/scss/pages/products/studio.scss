@@ -107,10 +107,30 @@
 
     section {
       video {
+        box-shadow: 0px 16px 64px rgba(0,0,0,1);
+      }
+
+      video,
+      .screenshot,
+      .screenshot-group {
         border-radius: 8px;
         margin: 96px -78px 128px;
         max-width: calc(100% + 155px);
-        box-shadow: 0px 16px 64px rgba(0,0,0,1);
+      }
+
+      .screenshot-group {
+        position: relative;
+
+        img {
+          max-width: 100%;
+        }
+
+        img:not(:first-child) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: 10s crossFadeInOut infinite;
+        }
       }
     }
 
@@ -134,7 +154,8 @@
       color: white;
     }
 
-    video {
+    video,
+    .screenshot {
       animation: .5s fadeIn forwards 1s;
       opacity: 0;
     }
@@ -187,10 +208,14 @@
     }
 
     video {
+      box-shadow: 0px 16px 64px rgba(0,0,0,1);
+    }
+
+    video,
+    .screenshot {
       max-width: 100%;
       margin: 72px auto 140px;
       border-radius: 8px;
-      box-shadow: 0px 16px 64px rgba(0,0,0,1);
     }
 
     h2 {
@@ -304,6 +329,21 @@
       &:nth-child(4) {
         // transition-delay: .3s;
       }
+
+      .pill {
+        color: $blue;
+        position: absolute;
+        top: 1px;
+        left: 36px;
+        display: block;
+        border: 2px solid $blue;
+        padding: 2px 5px 1px;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: .1em;
+        border-radius: 12px;
+        font-size: 11px;
+      }
     }
 
     p {
@@ -353,7 +393,8 @@
       transform: translateY(25px);
     }
 
-    video {
+    video,
+    .screenshot {
       transform-origin: 0 50%;
       transition:
         1s filter ease,
@@ -369,10 +410,14 @@
       }
 
       video {
+        box-shadow: 0px 16px 64px rgba(0,0,0,0);
+      }
+
+      video,
+      .screenshot {
         filter: blur(3px);
         opacity: .5;
         transform: scale3d(.9, .9, 1);
-        box-shadow: 0px 16px 64px rgba(0,0,0,0);
       }
     }
   }

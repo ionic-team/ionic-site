@@ -110,9 +110,9 @@
 
     hgroup {
       margin: 0 auto;
-      max-width: 460px;
+      max-width: 580px;
       text-align: center;
-      padding-bottom: 120px;
+      padding-bottom: 60px;
 
       .btn {
         margin-top: 32px;
@@ -820,6 +820,21 @@
 
     &:hover i {
       transform: translate(2px, 0);
+    }
+  }
+
+  .screenshot-group {
+    position: relative;
+
+    img {
+      max-width: 100%;
+    }
+
+    img:not(:first-child) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: 10s crossFadeInOut infinite;
     }
   }
 }

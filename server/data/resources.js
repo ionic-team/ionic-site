@@ -106,7 +106,7 @@ const resources = {
         "bgImage": "/img/resource-center/article-ionicvsreactnative.png",
         "bgColor": "#72B8FF"
       },{
-        "type": "Whitepaper",
+        "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",
         "url": "/books/hybrid-vs-native",
         "action": "Read",
@@ -115,7 +115,7 @@ const resources = {
       }, {
         "type": "Whitepaper",
         "title": "PWA Architects Guide",
-        "url": "/articles/pwa-architects-guide",
+        "url": "/enterprise/resources/whitepapers/pwa-architects-guide",
         "action": "Read",
         "bgImage": "/img/resource-center/article-pwa-guide.jpg",
         "bgColor": "#4ebff3"
@@ -129,7 +129,7 @@ const resources = {
       }, {
         "type": "Whitepaper",
         "title": "Why Hybrid",
-        "url": "/articles/why-hybrid",
+        "url": "/enterprise/resources/whitepapers/why-hybrid",
         "action": "Read",
         "bgImage": "/img/resource-center/article-why-hybrid.jpg",
         "bgColor": "#7b63b0"
@@ -434,21 +434,6 @@ const resources = {
         "bgImage": "/img/resource-center/presentation-production-pwas.jpg",
         "bgColor": "#57db95"
       }
-    ]
-  },
-  "whitepapers": {
-    title: "Whitepapers",
-    description: "Whitepappers showcasing best in class Ionic-built apps from some of the best companies in the world.",
-    meta: "Ionic Resources: Whitepapers for developers and architects",
-    items: [
-      // {
-      //   "type": "Whitepaper",
-      //   "title": "Testing",
-      //   "url": "/enterprise/resources/whitepapers/testing",
-      //   "action": "Download",
-      //   "bgImage": "/img/resource-center/webinar-appflow.png",
-      //   "bgColor": "#5352fe"
-      // }
     ]
   }
 }

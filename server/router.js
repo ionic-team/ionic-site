@@ -34,13 +34,6 @@ router: app => {
   .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
 
-  .get('/articles/pwa-architects-guide', (_, res) =>
-    res.render('articles/pwa-architects-guide'))
-  .get('/articles/pwa-architects-guide/preview', (_, res) =>
-    res.render('articles/pwa-architects-guide-preview'))
-
-  .get('/articles/why-hybrid', (_, res) => res.render('articles/why-hybrid'))
-
   .get('/books/hybrid-vs-native', (_, res) =>
     res.render('books/hybrid-vs-native'))
   .get('/books/hybrid-vs-native/preview', (_, res) =>

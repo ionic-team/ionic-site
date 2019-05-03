@@ -1,6 +1,6 @@
 {% extends "_layouts/enterprise.html" %}
-{% set id = 'enterprise-webinars' %}
-{% set cssPath = 'enterprise/resources/webinars' %}
+{% set id = 'enterprise-articles' %}
+{% set cssPath = 'enterprise/resources/whitepapers' %}
 
 {% set title = 'Ionic Article: ' + data.title %}
 {% if data.meta_description %}
@@ -11,106 +11,76 @@
 {% set stickyNav = true %}
 
 {% block main %}
+
 <div class="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="left breadcrumbs breadcrumbs--small">
       <li><a href="/enterprise/resources">Resources</a></li>
-      <li><a href="/enterprise/resources/articles">Articles</a></li>
+      <li><a href="/enterprise/resources/whitepapers">Whitepapers</a></li>
       <li>{{data.title}}</li>
     </ul>
   </div>
 </div>
 
-<div class="cta gradient"
-  {% if data.header_background %}
-     style="background-image:url('{{data.header_background.url}}')"
-  {% endif %}>
+<div class="cta">
   <hgroup class="container">
-    <strong>Ionic Whitepaper</strong>
+    <h5>White Paper</h5>
     <h1>{{data.title}}</h1>
-    <div class="cta-buttons">
-      {# <a class="btn sm white" href="{{data.watch_now_link.url}}">
-        Watch Now</a> #}
-      <a class="btn sm white"
-         data-toggle="modal"
-         data-target="#contactForm">Download</a>
-    </div>
+    <p>{{data.tagline}}</p>
   </hgroup>
 </div>
 
 <div class="container">
-  <main class="card">
-    <article>
+  <div class="signup-form">
+    <div class="left-col">
+      <div class="illustration">
+        <img src="{{data.cover_image.url}}"
+             alt="{{data.cover_image.alt}}"
+             srcset="{{data.cover_image['1x'].url}} 1x, {{data.cover_image.url}} 2x"/>
+      </div>
       {{PrismicDOM.RichText.asHtml(data.description)}}
-      <a class="btn sm"
-         data-toggle="modal"
-         data-target="#contactForm">Download</a>
-    </article>
-  </main>
-</div>
-
-<div class="container">
-  <div class="pjxTransitionBody">
-    <section class="resource-list">
-      <div class="resource-list__header">
-        <a class="scrollTopLink" href="/enterprise/resources/articles">
-          See all <ion-icon name="arrow-round-forward"></ion-icon>
-        </a>
-        <h4>Other Resources you might like</h4>
-      </div>
-      <div class="resource-card-list resource-card-list--quarter">
-        {% for r in resources.sectionFeatured['articles'] %}
-          <div class="resource-card">
-            <div class="resource-card__inner">
-            {{ macros.resource(r) }}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
-  </div>
-</div>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
-{% endblock %}
-
-{% block modals %}
-<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="text-center">
-          <h3>Stream {{data.title}}</h3>
-          <p class="lg">You're just a few clicks away from our free whitepaper.</p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-          	portalId: '3776657',
-          	formId: '{{data.hubspot_form_id}}',
-          	css: ''
-          });
-        </script>
-
-      </div>
+    </div>
+    <div class="right-col hubspot-override">
+      <h3>Download now</h3>
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+      hbspt.forms.create({
+      	portalId: "3776657",
+      	formId: "{{data.hubspot_form_id}}",
+      	css: ""
+      });
+      </script>
     </div>
   </div>
+
+  <div class="company">
+    <h2>
+      <strong>You’re in good company.</strong> Ionic powers millions of apps at
+      some of the smartest companies around the world.
+    </h2>
+    <div class="logos"></div>
+  </div>
 </div>
+<section class="bar get-started">
+  <div class="container">
+    <hgroup>
+      <h2>Get your team started with Ionic Appflow today. </h2>
+      <p class="lg">
+        Start building better apps faster with Ionic Appflow.
+      </p>
+    </hgroup>
+    <div>
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+        class="btn sm" id="btn-products-create-account">Create an Appflow account
+        </a>
+      <a class="btn sm white" id="btn-products-see-pricing"
+        href="/pricing">See pricing</a>
+    </div>
+  </div>
+</section>
+
+</main>
 {% endblock %}

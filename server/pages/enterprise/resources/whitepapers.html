@@ -34,9 +34,13 @@
   <div class="signup-form">
     <div class="left-col">
       <div class="illustration">
-        <img src="{{data.cover_image.url}}"
-             alt="{{data.cover_image.alt}}"
-             srcset="{{data.cover_image['1x'].url}} 1x, {{data.cover_image.url}} 2x"/>
+        {% if data.cover_image.url %}
+          <img src="{{data.cover_image.url}}"
+               alt="{{data.cover_image.alt}}"
+               srcset="
+                {{data.cover_image['1x'].url}} 1x, 
+                {{data.cover_image.url}} 2x"/>
+        {% endif %}
       </div>
       {{PrismicDOM.RichText.asHtml(data.description)}}
     </div>

@@ -17,7 +17,17 @@
     </hgroup>
 
     <ul class="rounded-tabs">
-      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="appflow">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="framework">
+        <div class="rounded-tabs__tab-inner">
+          Framework
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="native">
+        <div class="rounded-tabs__tab-inner">
+          Native
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="appflow">
         <div class="rounded-tabs__tab-inner">
           Appflow
         </div>
@@ -27,23 +37,29 @@
           Studio
         </div>
       </li>
-      <li class="rounded-tabs__tab" data-tab-content="enterprise-edition">
+      {# <li class="rounded-tabs__tab" data-tab-content="enterprise-edition">
         <div class="rounded-tabs__tab-inner">
           Enterprise Edition
         <div>
-      </li>
+      </li> #}
     </ul>
   </div>
 
-  <section class="tab-content tab-content--active" id="content-appflow">
-    {% include './appflow.html' %}
+  <section class="tab-content tab-content--active" id="content-framework">
+    {% include './_framework.html' %}
+  </section>
+  <section class="tab-content" id="content-native">
+    {% include './_native.html' %}
+  </section>
+  <section class="tab-content" id="content-appflow">
+    {% include './_appflow.html' %}
   </section>
   <section class="tab-content" id="content-studio">
-    {% include './studio.html' %}
+    {% include './_studio.html' %}
   </section>
-  <section class="tab-content" id="content-enterprise-edition">
+  {# <section class="tab-content" id="content-enterprise-edition">
     {% include './enterprise-edition.html' %}
-  </section>
+  </section> #}
 
   {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
@@ -259,7 +275,12 @@
       document.getElementById('content-' + contentId).classList.add('tab-content--active');
     }
 
-    if (window.location.hash && ['#appflow', '#studio', '#enterprise-edition', '#enterprise-engine'].includes(window.location.hash)) {
+    if (window.location.hash && [
+      '#appflow', 
+      '#studio', 
+      // '#enterprise-edition', 
+      // '#enterprise-engine'
+    ].includes(window.location.hash)) {
       if (window.location.hash === '#enterprise-engine') { // redirect -engine to -edition
         window.location.hash = '#enterprise-edition';
       }

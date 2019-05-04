@@ -1,5 +1,6 @@
 @import '../../vars';
 @import '../../bootstrap/variables';
+@import './__feature-lists';
 @import './__plan-cards';
 @import './__table';
 
@@ -357,7 +358,7 @@
     }
   }
 
-  main hgroup {
+  main hgroup:not(.feature-lists__heading) {
     text-align: center;
 
     h4 {

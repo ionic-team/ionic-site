@@ -68,13 +68,13 @@ function start() {
   app.enable('etag');
   
   app.use(checkForRedirects);
-  app.use(prismicMiddleware);
 
   // check if this is a valid static file
   app.use(express.static(process.env.PWD + '/content/', {
     etag: true
   }));
 
+  app.use(prismicMiddleware);
   app.use(loadLocalVars);
   
   app.set('views', __dirname + '/server/pages');

@@ -46,9 +46,12 @@ module.exports = {
     return next();
   },
 
-  loadLocalVars: (req, res, next) => {
+  loadLocalVars: async (req, res, next) => {
+    announcementBar = await req.prismic.api.getSingle('announcement_bar');
+    
     // Setting default Page Vars
     res.locals = Object.assign({}, res.locals, {
+      announcementBar,
       header_style: 'transparent',
       id: req.originalUrl.split('/').join('-'),
       employees: shuffle(employees),

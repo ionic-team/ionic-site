@@ -31,6 +31,10 @@
       line-height: 24px;
       letter-spacing: -0.03em;
       color: #616E7E;
+
+      span {
+        color: lighten(#616E7E, 40)
+      }
     }
   }
 

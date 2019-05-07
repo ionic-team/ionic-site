@@ -68,6 +68,21 @@
 
       }
     }
+
+    .version-text {
+      color: rgba(255, 255, 255, .4);
+      font-weight: 500;
+      font-size: 11px;
+      
+      a {
+        color: rgba(255, 255, 255, .4);
+  
+        &:hover {
+          color: rgba(255, 255, 255, .7);
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   #slide-limitless {

@@ -70,15 +70,15 @@
     }
 
     .version-text {
-      color: rgba(255, 255, 255, .4);
+      color: rgba(255, 255, 255, .6);
       font-weight: 500;
       font-size: 11px;
       
       a {
-        color: rgba(255, 255, 255, .4);
+        color: rgba(255, 255, 255, .6);
   
         &:hover {
-          color: rgba(255, 255, 255, .7);
+          color: rgba(255, 255, 255, .8);
           text-decoration: none;
         }
       }

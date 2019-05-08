@@ -6,6 +6,86 @@
   max-width: 458px;
 }
 
+#difference {
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 69px;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  .container {
+    position: relative;
+
+    &::before {
+      background: url('/img/homepage/hybrid-vs-native-ionic-ebook.png') 0 0 no-repeat;
+      background-size: 100%;
+      width: 424px;
+      height: 310px;
+      content: '';
+      position: absolute;
+      bottom: -69px;
+      left: 52px;
+    }
+  }
+
+  hgroup {
+    max-width: 550px;
+    margin-right: 50px;
+    margin-left: auto;
+  }
+
+  h5 {
+    font-size: 18px;
+    margin-bottom: 11px;
+    color: #1f3256;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    letter-spacing: -.01em;
+    color: #6c81a6;
+  }
+
+  .btn {
+    padding: 12px 13px 10px;
+    font-size: 14px;
+    background-color: #668bff;
+  }
+
+  @media (max-width: $screen-md-max) {
+    .container::before {
+      left: 0;
+    }
+
+    hgroup {
+      max-width: 500px;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    hgroup {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .container::before {
+      width: 212px;
+      height: 155px;
+      right: 0;
+      left: auto;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .container::before {
+      display: none;
+    }
+  }
+}
+
 #best-way h2 {
   max-width: 320px;
 }

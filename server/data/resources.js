@@ -335,7 +335,7 @@ const resources = {
         "type": "Webinar",
         "title": "Building iOS and Android binaries with Ionic Package",
         "target": "_self",
-        "url": "/enterprise/resources/webinars/how-sworkit-is-driving-growth-with-pwas-and-ionic",
+        "url": "/enterprise/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-ionicpackage.jpg",
         "bgColor": "#f8926b"

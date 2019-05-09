@@ -7,7 +7,7 @@ const heroFeatured = [
     title: "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
   }, {
     category: "articles",
-    title: "PWA Architects Guide",
+    title: "Ionic vs. React Native: A Comparison Guide",
   }
 ];
 

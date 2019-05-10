@@ -42,6 +42,7 @@ export namespace Components {
     'arrowMode': boolean;
     'buttonText': string;
     'darkMode': boolean;
+    'homepageMode': boolean;
     'kind': string;
     'lg': boolean;
     'placeholder': string;
@@ -50,6 +51,7 @@ export namespace Components {
     'arrowMode'?: boolean;
     'buttonText'?: string;
     'darkMode'?: boolean;
+    'homepageMode'?: boolean;
     'kind'?: string;
     'lg'?: boolean;
     'placeholder'?: string;

@@ -89,6 +89,53 @@ ionic-newsletter-signup {
         max-width: 100%;
       }
     }
+
+    &.homepage {
+      border-radius: 6px;
+      border: 1px solid #E9EDF3;
+      transition: .15s border-color ease;
+
+      &:hover {
+        border-color: darken(#E9EDF3, 10);
+      }
+
+      svg {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+      }
+
+      input {
+        border-radius: 6px 0 0 6px;
+        box-shadow: none;
+        padding-left: 40px;
+
+
+        &::placeholder {
+          color: #a8b0be;
+          font-weight: 400;
+        }
+      }
+
+      ionic-button button {
+        background: transparent;
+        color: #7CABFF;
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+        box-shadow: none;
+        border-radius: 0 6px 6px 0;
+
+        &:hover {
+          color: darken(#7CABFF, 10);
+          background: transparent;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 100%;
+      }
+    }
   }
 
   input {

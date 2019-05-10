@@ -2,7 +2,7 @@
 @import '../mixins';
 
 #ionic-slider {
-  background: #01050c;
+  // background: #01050c;
   margin-top: -72px;
   display: block;
   min-height: 860px;
@@ -342,13 +342,172 @@
       &:nth-child(5) {  animation-delay: .5s; }
     }
   }
+
+  #slide-one-any {
+    background: white;
+    position: relative;
+    min-height: 900px;
+
+    // &::before {
+    //   position: absolute;
+    //   content: '';
+    //   display: block;
+    //   width: 1vw;
+    //   left: 1vw;
+    //   right: 1vw;
+    // }
+
+    .notification {
+      display: inline-block;
+      background: #F6F8FB;
+      font-size: 11px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: 0.1em;
+      padding: 7px 15px 7px;
+
+      strong {
+        color: #1A232F;
+      }
+
+      &::after {
+        content: '>';
+      }
+    }
+
+    hgroup {
+      letter-spacing: -0.04em;
+      max-width: 464px;
+      display: block; 
+      margin-top: 72px;
+      position: relative;
+      z-index: 1;
+
+      h1 {
+        font-size: 64px;
+        line-height: 70px;
+        color: #020814;
+      }
+
+      p {
+        font-size: 22px;
+        line-height: 37px;
+        color: rgba(#5B708B, .9);
+      }
+
+      .btn {
+        background: #4D8DFF;
+        border-radius: 10px;
+
+        &:hover {
+          background: lighten(#4D8DFF, 5);
+        }
+
+        &:active {
+          background: #4D8DFF;
+        }
+      }
+
+      small {
+        font-size: 11px;
+        line-height: 21px;
+        letter-spacing: -0.02em;
+        color: #73849A;
+
+        a {
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-bottom: 1px solid #7CABFF;
+          }
+        }
+      }
+
+      @media (max-width: $screen-xs-max) {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 400px;
+      }
+    }
+
+    .graphic {
+      position: absolute;
+      right: -20px;
+      top: 140px;
+
+      @media (max-width: $screen-sm-max) {
+        width: 302px;
+        top: 260px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        width: 302px;
+        top: 176px;
+        right: calc(50% - 150px);
+      }
+    }
+
+    .stats {
+      padding: 0;
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+  
+      a {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: -0.02em;
+        color: #4E5B6A;
+        padding: 0 14px;
+        transition: .3s color;
+  
+        svg path {
+          transition: .3s fill;
+        }
+  
+        &:hover {
+          color: darken(#4E5B6A, 10);
+  
+          svg path {
+            fill: darken(#4E5B6A, 10);
+          }
+        }
+      }
+    }
+
+    ionic-newsletter-signup {
+      width: 400px;
+      position: absolute;
+      bottom: 36px;
+      right: 0;
+      max-width: calc(100% - 30px);
+  
+      @media (max-width: $screen-xs-max) {
+        bottom: -12px;
+        right: auto;
+      }
+    }
+    @media (max-width: $screen-xs-max) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
 }
 
 #page-home {
   #used-by {
+    border-top: 1px #EFF3F8 solid;
     padding-top: 60px;
     padding-bottom: 58px;
-    border-bottom: 1px solid #f2f5f9;
+    border-bottom: 1px solid #EFF3F8;
 
     .container {
       display: block;

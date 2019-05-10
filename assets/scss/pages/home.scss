@@ -346,7 +346,7 @@
   #slide-one-any {
     background: white;
     position: relative;
-    min-height: 900px;
+    min-height: 935px;
 
     // &::before {
     //   position: absolute;
@@ -380,10 +380,9 @@
     }
 
     hgroup {
-      letter-spacing: -0.04em;
       max-width: 464px;
       display: block; 
-      margin-top: 72px;
+      margin-top: 101px;
       position: relative;
       z-index: 1;
 
@@ -391,17 +390,26 @@
         font-size: 64px;
         line-height: 70px;
         color: #020814;
+        letter-spacing: -.04em;
+        margin-bottom: 7px;
       }
 
       p {
         font-size: 22px;
         line-height: 37px;
         color: rgba(#5B708B, .9);
+        letter-spacing: -.04em;
       }
 
       .btn {
         background: #4D8DFF;
         border-radius: 10px;
+        text-transform: uppercase;
+        margin-top: 12px;
+        font-size: 15px;
+        line-height: 21px;
+        padding: 16px 16px 12px;
+        letter-spacing: 0.08em;
 
         &:hover {
           background: lighten(#4D8DFF, 5);
@@ -410,26 +418,32 @@
         &:active {
           background: #4D8DFF;
         }
+
+        img {
+          margin-left: 2px;
+          vertical-align: 0;
+          margin-right: 2px;
+        }
       }
 
       small {
         font-size: 11px;
         line-height: 21px;
         letter-spacing: -0.02em;
-        color: #73849A;
+        color: #B2BECD;
 
-        a {
-          position: relative;
+        // a {
+        //   position: relative;
 
-          &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-bottom: 1px solid #7CABFF;
-          }
-        }
+        //   &::after {
+        //     content: '';
+        //     position: absolute;
+        //     left: 0;
+        //     right: 0;
+        //     bottom: 0;
+        //     border-bottom: 1px solid #7CABFF;
+        //   }
+        // }
       }
 
       @media (max-width: $screen-xs-max) {
@@ -441,11 +455,14 @@
 
     .graphic {
       position: absolute;
-      right: -20px;
-      top: 140px;
+      right: 20px;
+      top: 170px;
+      height: 563px;
+      width: 590px;
 
       @media (max-width: $screen-sm-max) {
         width: 302px;
+        height: auto;
         top: 260px;
       }
 
@@ -457,7 +474,7 @@
     .stats {
       padding: 0;
       position: absolute;
-      bottom: 24px;
+      bottom: 21px;
       left: 0;
       list-style: none;
       display: flex;
@@ -467,8 +484,8 @@
         font-size: 14px;
         line-height: 17px;
         letter-spacing: -0.02em;
-        color: #4E5B6A;
-        padding: 0 14px;
+        color: #73849A;
+        padding: 0 18px;
         transition: .3s color;
   
         svg path {
@@ -476,26 +493,41 @@
         }
   
         &:hover {
-          color: darken(#4E5B6A, 10);
+          color: darken(#73849A, 10);
   
           svg path {
-            fill: darken(#4E5B6A, 10);
+            fill: darken(#73849A, 10);
           }
         }
+      }
+
+      @media (max-width: $screen-xs-max) {
+        left: calc(50% - 140px);
       }
     }
 
     ionic-newsletter-signup {
       width: 400px;
       position: absolute;
-      bottom: 36px;
-      right: 0;
+      bottom: 29px;
+      right: 20px;
       max-width: calc(100% - 30px);
   
       @media (max-width: $screen-xs-max) {
-        bottom: -12px;
+        bottom: -26px;
         right: auto;
+        left: calc(50% - 200px);
       }
+
+      @media (max-width: 460px) {
+        left: 15px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      min-height: 0;
     }
 
     @media (max-width: $screen-xs-max) {
@@ -505,7 +537,7 @@
     }
   }
 
-  @media (max-width: $screen-xs-max) {
+  @media (max-width: $screen-sm-max) {
     min-height: 0;
   }
 }

@@ -91,7 +91,9 @@ ionic-newsletter-signup {
     }
 
     &.homepage {
+      height: 48px;
       border-radius: 6px;
+      background: #F8FAFC;
       border: 1px solid #E9EDF3;
       transition: .15s border-color ease;
 
@@ -101,14 +103,14 @@ ionic-newsletter-signup {
 
       svg {
         position: absolute;
-        top: 12px;
-        left: 12px;
+        top: 16px;
+        left: 16px;
       }
 
       input {
         border-radius: 6px 0 0 6px;
         box-shadow: none;
-        padding-left: 40px;
+        padding-left: 46px;
 
 
         &::placeholder {

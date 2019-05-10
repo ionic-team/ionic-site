@@ -373,6 +373,10 @@
       &::after {
         content: '>';
       }
+
+      @media (max-width: $screen-xs-max) {
+        display: none;
+      }
     }
 
     hgroup {
@@ -431,7 +435,7 @@
       @media (max-width: $screen-xs-max) {
         max-width: 100%;
         text-align: center;
-        margin-top: 400px;
+        margin-top: 64px;
       }
     }
 
@@ -446,9 +450,7 @@
       }
 
       @media (max-width: $screen-xs-max) {
-        width: 302px;
-        top: 176px;
-        right: calc(50% - 150px);
+        display: none;
       }
     }
 
@@ -495,10 +497,16 @@
         right: auto;
       }
     }
+
     @media (max-width: $screen-xs-max) {
       padding-top: 100px;
       padding-bottom: 100px;
+      min-height: 0;
     }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    min-height: 0;
   }
 }
 

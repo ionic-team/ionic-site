@@ -95,10 +95,11 @@ ionic-newsletter-signup {
       border-radius: 6px;
       background: #F8FAFC;
       border: 1px solid #E9EDF3;
-      transition: .15s border-color ease;
+      transition: .2s border-color, .2s background-color;
 
       &:hover {
-        border-color: darken(#E9EDF3, 10);
+        border-color: #73A6FF;
+        background: white;
       }
 
       svg {

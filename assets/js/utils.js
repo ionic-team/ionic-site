@@ -201,14 +201,10 @@ $('a.anchor[href*="#"]').click(function(event) {
     if (target.length) {
       var offset = event.target.dataset && event.target.dataset.offset
         ? event.target.dataset.offset : 100
-      $('html, body').animate({
-        scrollTop: target.offset().top - offset // give 100px of headroom
-      }, 600);
+      scrollToY(target.offset().top - offset, 600);
     } else {
       // otherwise scroll to the top of the page
-      $('html, body').animate({
-        scrollTop: 0
-      }, 600);
+      scrollToY(0, 600);
     }
     history.pushState && history.pushState(null, null, this.hash)
     return false;
@@ -216,13 +212,13 @@ $('a.anchor[href*="#"]').click(function(event) {
 });
 
 
-window.scrollToEl = function(selector) {
+window.scrollToEl = function(selector, speed) {
   // if passed a string, query for the element
   // otherwise assume it's already and element
   if(typeof selector === 'string') {
     selector = document.querySelector(selector);
   }
-  scrollToY(selector.offsetTop)
+  scrollToY(selector.offsetTop, speed)
 }
 
 window.scrollToY = function(scrollTargetY, speed, easing) {

@@ -1,3 +1,20 @@
 .banner {
   text-align: center;
+
+  &--hero {
+    .container {
+      max-width: 700px;
+    }
+
+    h1 {
+      margin-top: 2em;
+      font-size: 36px;
+      margin-bottom: 1.4em;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8em;
+    }
+  }
 }

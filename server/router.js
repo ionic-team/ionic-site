@@ -129,6 +129,7 @@ router: app => {
   .get('/survey/2018', (_, res) => res.render('survey/2018'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
+  .get('/translate', (_, res) => res.render('translate'))
   .get('/thank-you/:thankYou', (req, res, next) =>
     getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 

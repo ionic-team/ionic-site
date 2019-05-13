@@ -269,6 +269,20 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "How to build a PWA",
+        "url": "/enterprise/resources/webinars/hybrid-vs-native",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/card-webinar-how-to-build-pwa.png",
+        "bgColor": "#3f72f1"
+      }, {
+        "type": "Webinar",
+        "title": "Hybrid vs. Native",
+        "url": "/enterprise/resources/webinars/hybrid-vs-native",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/card-webinar-hybrid-vs-native.png",
+        "bgColor": "#6372ff"
+      }, {
+        "type": "Webinar",
         "title": "Submitting Production-ready Apps to App Stores",
         "url": "/enterprise/resources/webinars/submitting-production-ready-apps-to-app-stores",
         "action": "Watch",

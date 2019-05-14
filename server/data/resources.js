@@ -270,7 +270,7 @@ const resources = {
       {
         "type": "Webinar",
         "title": "How to build a PWA",
-        "url": "/enterprise/resources/webinars/hybrid-vs-native",
+        "url": "/enterprise/resources/webinars/how-to-build-pwa",
         "action": "Watch",
         "bgImage": "/img/resource-center/card-webinar-how-to-build-pwa.png",
         "bgColor": "#3f72f1"

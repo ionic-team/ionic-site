@@ -17,7 +17,8 @@ const {
   loadLocalVars
 }                        = require('./server/processRequest');
 const { 
-  prismicMiddleware 
+  prismicMiddleware,
+  announcementBarCronJob
 }                        = require('./server/prismic');
 
 const { 
@@ -76,6 +77,7 @@ function start() {
 
   app.use(prismicMiddleware);
   app.use(loadLocalVars);
+  announcementBarCronJob(app)
   
   app.set('views', __dirname + '/server/pages');
   expressNunjucks(app, {

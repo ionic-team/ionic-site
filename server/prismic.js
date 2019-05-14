@@ -1,6 +1,7 @@
 const Cookies     = require('cookies');
 const PrismicDOM  = require('prismic-dom');
 const Prismic     = require('prismic-javascript');
+let prismicAPI = null;
 
 const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 
@@ -62,6 +63,7 @@ function htmlSerializer (type, element, content, children) {
 async function getOne(key, value, size = 10, ordering = '') {
   return Prismic.getApi(PRISMIC_ENDPOINT)
   .then(api => {
+    prismicAPI = api;
     return api.query(
       Prismic.Predicates.at(key, value),
       { pageSize : size, orderings: ordering}
@@ -84,6 +86,7 @@ module.exports = {
     Prismic.api(PRISMIC_ENDPOINT, {
       req,
     }).then((api) => {
+      prismicAPI = api;
       req.prismic = { api };
       next();
     }).catch((error) => {
@@ -140,6 +143,16 @@ module.exports = {
       }
     }
     return results;
+  },
+
+  announcementBarCronJob: (app) => {
+    Prismic.api(PRISMIC_ENDPOINT).then(async (api) => {
+      prismicAPI = api;
+      app.locals.announcementBar = await prismicAPI.getSingle('announcement_bar');
+    });
+    setInterval(async ()=> {
+      app.locals.announcementBar = await prismicAPI.getSingle('announcement_bar');
+    }, 5 * 60 * 1000 ) // update every 5 mins
   },
 
   getOne: getOne

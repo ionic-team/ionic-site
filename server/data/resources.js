@@ -266,7 +266,14 @@ const resources = {
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
-    items: [
+    items: [{
+        "type": "Webinar",
+        "title": "Capacitor 1.0: A new way to build native mobile apps with Ionic",
+        "url": "/enterprise/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/capacitor-1-card.png",
+        "bgColor": "#010614"
+      }, 
       {
         "type": "Webinar",
         "title": "How to build a PWA",

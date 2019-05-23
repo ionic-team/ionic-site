@@ -157,6 +157,15 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "Southwest Airlines delights new hires with onboarding app",
+        "url": "https://meetmaestro.com/work/southwest/",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-southwest.png",
+        "bgColor": "#113F93"
+      },
+      {
+        "type": "Case Study",
         "title": "MRA builds its first app in just two months",
         "url": "/enterprise/resources/case-studies/mauritius-revenue-authority-mra",
         "target": "_self",
@@ -273,7 +282,7 @@ const resources = {
         "action": "Watch",
         "bgImage": "/img/resource-center/capacitor-1-card.png",
         "bgColor": "#010614"
-      }, 
+      },
       {
         "type": "Webinar",
         "title": "How to build a PWA",

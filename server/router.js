@@ -17,7 +17,15 @@ const viewCtrl    = require('./controllers/viewCtrl');
 module.exports = {
 router: app => {
 
-  var abTestTest = ab.test('pricing-test', {id: 'MRClmJX_QEakg3kJs2jH9g'});
+  // var abTestTest = ab.test('pricing-test', {id: 'MRClmJX_QEakg3kJs2jH9g'});
+
+  app.options("/api/*", function(_, res){
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 
+      'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.send(200);
+  });
 
   return new express.Router()
   // .get('/css/styles.min.css', abTestTest(null, 0.50), function(_, res) {

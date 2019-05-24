@@ -33,6 +33,12 @@ module.exports = {
       res.setHeader('X-WebKit-CSP', csp);
     }
 
+    ['.js', '.woff', '.woff2'].forEach(str => {
+      if (req.url.indexOf(str) !== -1) {
+        res.setHeader('Access-Control-Allow-Origin', '*')
+      }
+    });
+
     // cache static files
     var staticURLS = ['/img/','/fonts/','/favicon.ico'];
     for (var i = 0; i <= staticURLS.length; i++) {

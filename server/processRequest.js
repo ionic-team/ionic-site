@@ -33,7 +33,7 @@ module.exports = {
       res.setHeader('X-WebKit-CSP', csp);
     }
 
-    ['.js', '.woff', '.woff2', '.svg'].forEach(str => {
+    ['.js', '.woff', '.woff2', '.svg', '/api/'].forEach(str => {
       if (req.url.indexOf(str) !== -1) {
         res.setHeader('Access-Control-Allow-Origin', '*')
       }

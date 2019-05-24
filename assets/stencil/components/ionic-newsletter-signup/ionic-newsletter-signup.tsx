@@ -34,7 +34,7 @@ export class IonicNewsletterSignup {
     const email = this.email;
     this.isLoading = true;
     var xhr = new XMLHttpRequest();   // new HttpRequest instance
-    xhr.open("POST", "/api/v1/newsletter");
+    xhr.open('POST', 'https://ionicframework.com/api/v1/newsletter');
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {

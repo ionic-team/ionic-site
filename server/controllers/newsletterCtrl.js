@@ -30,11 +30,6 @@ module.exports = function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
 
-    let csp = 'upgrade-insecure-requests; default-src https:';
-    res.setHeader('Content-Security-Policy', csp);
-    res.setHeader('X-Content-Security-Policy', csp);
-    res.setHeader('X-WebKit-CSP', csp);
-
     res.json({ ok: true, message: `${email} added to newsletter${podcast ? 
       ' and podcast list' : ''}` });
   });

@@ -24,6 +24,9 @@ router: app => {
     res.header('Access-Control-Allow-Methods', 'POST,OPTIONS');
     res.header('Access-Control-Allow-Headers', 
       'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.removeHeader('Content-Security-Policy');
+    res.removeHeader('X-Content-Security-Policy');
+    res.removeHeader('X-WebKit-CSP');
     res.send(200);
   });
 

@@ -27,12 +27,13 @@ module.exports = function(req, res) {
 
   // relfect because we want to show the page even if one of the tasks error
   Promise.all(promises.map(reflect)).then(values => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
 
     let csp = 'upgrade-insecure-requests; default-src https:';
-    res.header('Content-Security-Policy', csp);
-    res.header('X-Content-Security-Policy', csp);
-    res.header('X-WebKit-CSP', csp);
+    res.setHeader('Content-Security-Policy', csp);
+    res.setHeader('X-Content-Security-Policy', csp);
+    res.setHeader('X-WebKit-CSP', csp);
 
     res.json({ ok: true, message: `${email} added to newsletter${podcast ? 
       ' and podcast list' : ''}` });

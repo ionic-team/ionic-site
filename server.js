@@ -71,6 +71,7 @@ function start() {
   app.use(checkForRedirects);
 
   // check if this is a valid static file
+  app.use(express.static('dist', { etag: true }));
   app.use(express.static(process.env.PWD + '/content/', {
     etag: true
   }));

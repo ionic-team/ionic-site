@@ -72,9 +72,8 @@ function start() {
 
   // check if this is a valid static file
   app.use(express.static('dist', { etag: true }));
-  app.use(express.static(process.env.PWD + '/content/', {
-    etag: true
-  }));
+  // cache images and static assets for 1 week
+  app.use(express.static('content', { maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
   app.use(prismicMiddleware);
   app.use(loadLocalVars);

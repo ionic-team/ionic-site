@@ -1,0 +1,36 @@
+@import '../../../vars';
+@import '../../../mixins';
+@import '../../../bootstrap/variables';
+
+@import '../shared';
+@import './shared';
+
+.ee-hero {
+  padding-bottom: 0;
+}
+
+.ee-main section {
+  margin-bottom: 80px;
+}
+
+main {
+  margin-bottom: 180px;
+
+  .content {
+   margin: 163px 0 184px;
+ }
+
+ p {
+   margin-bottom: 0;
+ }
+}
+
+@media (max-width: $screen-xs-max) {
+  main .content {
+    margin: 80px 0 0;
+  }
+
+  .solution-hero::after {
+   display: none;
+  }
+}

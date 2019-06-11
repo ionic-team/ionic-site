@@ -2,7 +2,7 @@
 {% set title = "Free Mobile App Development: Getting Started with Ionic Apps" %}
 {% set id = "getting-started" %}
 {% set pre_footer = false %}
-{% set meta_description = "" %}
+{% set meta_description = "Get started with your ionic mobile app development. Start building amazing cross platform mobile, desktop, and Progressive Web Apps with the web tech you know and love today." %}
 {% set stickyNav = true %}
 
 {% block main %}
@@ -56,7 +56,7 @@
           <span>Install with CLI</span>
         </div>
       </li>
-      <li class="rounded-tabs__tab" data-tab-content="creator" id="get-started-tab-creator">
+      <li class="rounded-tabs__tab" data-tab-content="studio" id="get-started-tab-studio">
         <div class="rounded-tabs__tab-inner">
           <svg width="21px" height="21px" viewBox="0 0 21 21">
             <g transform="translate(-771.000000, -478.000000)">
@@ -67,7 +67,7 @@
               </g>
             </g>
           </svg>
-          <span>Design with Creator</span>
+          <span>Build with Studio</span>
         </div>
       </li>
     </ul>
@@ -75,86 +75,6 @@
 </div>
 
 <main>
-  <section class="tab-content tab-content--active" id="content-account">
-    <div class="container">
-      <div class="form-row">
-        <div class="col form-wrapper">
-          <form class="form" id="signup-form" role="form">
-            <h1>Create a free Ionic account</h1>
-            <h2>Unlock the full experience. No credit card required.</h2>
-            <div class="errorlist">
-              <div>Unable to create account.</div>
-              <div class="form-message"></div>
-            </div>
-            <div class="form-group" id="field-name">
-              <label for="id_name">Full name</label>
-              <input type="text" id="id_name" name="name" tabindex="1" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-email">
-              <label for="">Email</label>
-              <input type="text" id="id_email" name="email" tabindex="2" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-username">
-              <label for="">Username</label>
-              <input type="text" id="id_username" name="username" tabindex="3" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-password">
-              <label for="">Password</label>
-              <input type="password" id="id_password" name="password" tabindex="4" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group">
-              <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
-            </div>
-            <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
-            <div class="well">
-              Already have an account? <a class="text-link" href="https://dashboard.ionicframework.com/login">Log in</a>
-            </div>
-          </form>
-        </div>
-
-        <div class="col benefits">
-          <h4>Get more with an Ionic account</h4>
-          <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Appflow</b> cloud features</p>
-          <ul>
-            <li>
-              <h5>Continuous delivery</h5>
-              <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
-            </li>
-            <li>
-              <h5>Package apps in the cloud</h5>
-              <p>Go from code to app store with no platform dependencies or complicated build steps.</p>
-            </li>
-            <li>
-              <h5>Ionic updates and tutorials</h5>
-              <p>Get access to the Forum, plus news and developer-focused trainings and workshops.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="content-row">
-        <div class="col col--centered col--full sign-up-logos">
-          <h1>Don't take our word for it</h1>
-          <h3 class="thin">Developers and teams across the globe build better apps with an Ionic Account</h3>
-          <div class="sign-up-logos__content">
-            <div class="target"></div>
-            <div class="verizon"></div>
-            <div class="amtrak"></div>
-            <div class="marketwatch"></div>
-            <div class="usarmy"></div>
-            <div class="ge"></div>
-            <div class="comcast"></div>
-            <div class="ea"></div>
-            <div class="ibm"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="tab-content" id="content-cli">
     <div class="container">
       <ol>
@@ -270,17 +190,102 @@
     </div>
   </section>
 
-  <section class="tab-content" id="content-creator">
+  <section class="tab-content tab-content--active" id="content-account">
+    <div class="container">
+      <div class="form-row">
+        <div class="col form-wrapper">
+          <form class="form" id="signup-form" role="form">
+            <h1>Create a free Ionic account</h1>
+            <h2>Unlock the full experience. No credit card required.</h2>
+            <div class="errorlist">
+              <div>Unable to create account.</div>
+              <div class="form-message"></div>
+            </div>
+            <div class="form-group" id="field-name">
+              <label for="id_name">Full name</label>
+              <input type="text" id="id_name" name="name" tabindex="1" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <div class="form-group" id="field-email">
+              <label for="">Email</label>
+              <input type="text" id="id_email" name="email" tabindex="2" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <div class="form-group" id="field-username">
+              <label for="">Username</label>
+              <input type="text" id="id_username" name="username" tabindex="3" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <div class="form-group" id="field-password">
+              <label for="">Password</label>
+              <input type="password" id="id_password" name="password" tabindex="4" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <div class="form-group">
+              <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
+            </div>
+            <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
+            <div class="well">
+              Already have an account? <a class="text-link" href="https://dashboard.ionicframework.com/login">Log in</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="col benefits">
+          <h4>Get more with an Ionic account</h4>
+          <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b>, <b>DevApp</b>, and <b>Ionic Appflow</b> cloud features</p>
+          <ul>
+            <li>
+              <h5>Continuous delivery</h5>
+              <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
+            </li>
+            <li>
+              <h5>Package apps in the cloud</h5>
+              <p>Go from code to app store with no platform dependencies or complicated build steps.</p>
+            </li>
+            <li>
+              <h5>Ionic updates and tutorials</h5>
+              <p>Get access to the Forum, plus news and developer-focused trainings and workshops.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-row">
+        <div class="col col--centered col--full sign-up-logos">
+          <h1>Don't take our word for it</h1>
+          <h3 class="thin">Developers and teams across the globe build better apps with an Ionic Account</h3>
+          <div class="sign-up-logos__content">
+            <div class="target"></div>
+            <div class="verizon"></div>
+            <div class="amtrak"></div>
+            <div class="marketwatch"></div>
+            <div class="usarmy"></div>
+            <div class="ge"></div>
+            <div class="comcast"></div>
+            <div class="ea"></div>
+            <div class="ibm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-content" id="content-studio">
     <div class="container">
       <hgroup>
-        <img src="/img/getting-started/creator-logo.png" alt="Creator" class="logo">
-        <h1>Create your Ionic apps visually</h1>
-        <h2>A simple drag-&-drop tool for going from idea to App Store, with just the drag of a mouse.</h2>
-        <a href="https://creator.ionic.io" class="btn">
-          Start an app in Creator <i class="ion-ios-arrow-forward"></i>
+        <img src="/img/getting-started/studio-logo-black.png" alt="Studio logo" class="logo">
+        <h1>Lightning fast app creation.</h1>
+        <p>Ionic Studio is a powerful app builder that delivers a smooth developer experience for teams building with Ionic. Get started with the fastest and easiest way to create award-winning cross-platform apps, from a single tool.</p>
+        <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=studio" class="btn">
+          Get Studio Now <i class="ion-ios-arrow-forward"></i>
         </a>
       </hgroup>
-      <img src="/img/getting-started/creator-devices.png" alt="Creator preview" class="img">
+      <div class="screenshot-group">
+        <img src="/img/products/studio/screenshot-main.png" 
+             alt="Ionic Studio Screenshot">
+        <img src="/img/products/studio/screenshot-main-2.png" 
+             alt="Ionic Studio Screenshot">
+      </div>
     </div>
   </section>
 </main>

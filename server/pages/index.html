@@ -2,13 +2,69 @@
 {% set title = "Ionic - Cross-Platform Mobile App Development" %}
 {% set id = "home" %}
 {% set pre_footer = false %}
+{% set header_style = 'transparent light' %}
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 {% set stickyNav = true %}
 {% set cssPath = 'home' %}
 
 {% block main %}
-<ionic-slider>
-  <div slot="slide-0" id="slide-limitless">
+<div id="ionic-slider">
+  <section id="slide-one-any" class="container">
+    {# <a href="/docs/release-notes" class="notification">
+      <strong>New!</strong> Ionic Framework v4.4.0 published
+    </a> #}
+    <hgroup>
+      <h1>One codebase. Any platform.</h1>
+      <p>
+        Built on standard web technology, Ionic helps teams build and ship 
+        beautiful cross-platform hybrid and Progressive Web Apps with ease.
+      </p>
+      <a href="/getting-started" class="btn blue sm btn-cta" id="btn-home-get-started">
+        Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
+      <p>
+        <small>
+          v4.4.0 / 2019-05-08 / 
+          <a id="btn-home-release-notes" href="/docs/release-notes">
+            Release Notes
+          </a>
+        </small>
+      </p>
+    </hgroup>
+    <img src="/img/homepage/hero-img.png" class="graphic" />
+    <aside>
+      <ul class="stats">
+        <li class="stars">
+          <a href="https://github.com/ionic-team/ionic" title="Github Stars" id="btn-home-gh-stars">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0C3.58214 0 0 3.675 0 8.20357C0 11.8286 2.29286 14.9 5.47143 15.9857C5.52143 15.9964 5.56429 16 5.60714 16C5.90357 16 6.01786 15.7821 6.01786 15.5929C6.01786 15.3964 6.01071 14.8821 6.00714 14.1964C5.70714 14.2643 5.43929 14.2929 5.2 14.2929C3.66071 14.2929 3.31071 13.0964 3.31071 13.0964C2.94643 12.15 2.42143 11.8964 2.42143 11.8964C1.725 11.4071 2.41786 11.3929 2.47143 11.3929H2.475C3.27857 11.4643 3.7 12.2429 3.7 12.2429C4.1 12.9429 4.63571 13.1393 5.11429 13.1393C5.48929 13.1393 5.82857 13.0179 6.02857 12.925C6.1 12.3964 6.30714 12.0357 6.53571 11.8286C4.76071 11.6214 2.89286 10.9179 2.89286 7.775C2.89286 6.87857 3.20357 6.14643 3.71429 5.575C3.63214 5.36786 3.35714 4.53214 3.79286 3.40357C3.79286 3.40357 3.85 3.38571 3.97143 3.38571C4.26071 3.38571 4.91429 3.49643 5.99286 4.24643C6.63214 4.06429 7.31429 3.975 7.99643 3.97143C8.675 3.975 9.36071 4.06429 10 4.24643C11.0786 3.49643 11.7321 3.38571 12.0214 3.38571C12.1429 3.38571 12.2 3.40357 12.2 3.40357C12.6357 4.53214 12.3607 5.36786 12.2786 5.575C12.7893 6.15 13.1 6.88214 13.1 7.775C13.1 10.925 11.2286 11.6179 9.44643 11.8214C9.73214 12.075 9.98929 12.575 9.98929 13.3393C9.98929 14.4357 9.97857 15.3214 9.97857 15.5893C9.97857 15.7821 10.0893 16 10.3857 16C10.4286 16 10.4786 15.9964 10.5286 15.9857C13.7107 14.9 16 11.825 16 8.20357C16 3.675 12.4179 0 8 0Z" fill="#92A1B3"/>
+            </svg>
+            38,264
+          </a>
+        </li>
+        <li class="forks">
+          <a href="https://github.com/ionic-team/ionic" title="Github Forks" id="btn-home-gh-forks">
+            <svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 4.57143C11 3.31071 10.0134 2.28571 8.8 2.28571C7.58656 2.28571 6.6 3.31071 6.6 4.57143C6.6 5.41786 7.04344 6.15357 7.7 6.55V6.85714C7.7 7.56786 7.43188 8.06071 6.83031 8.46071C6.30094 8.81071 5.52063 9.07143 4.51 9.22857C4.02875 9.30357 3.62656 9.44286 3.3 9.61071V4.26429C3.95656 3.86786 4.4 3.13214 4.4 2.28571C4.4 1.025 3.41344 0 2.2 0C0.986563 0 0 1.025 0 2.28571C0 3.13214 0.443437 3.86786 1.1 4.26429V11.7357C0.443437 12.1321 0 12.8679 0 13.7143C0 14.975 0.986563 16 2.2 16C3.41344 16 4.4 14.975 4.4 13.7143C4.4 13.1214 4.18344 12.5821 3.82594 12.175C3.89125 12 4.15938 11.5929 4.83656 11.4857C6.17031 11.2786 7.205 10.9179 8.00938 10.3857C9.24687 9.57143 9.9 8.35 9.9 6.85714V6.55C10.5566 6.15357 11 5.41786 11 4.57143ZM2.2 0.857143C2.95969 0.857143 3.575 1.49643 3.575 2.28571C3.575 3.075 2.95969 3.71429 2.2 3.71429C1.44031 3.71429 0.825 3.075 0.825 2.28571C0.825 1.49643 1.44031 0.857143 2.2 0.857143ZM2.2 15.1429C1.44031 15.1429 0.825 14.5036 0.825 13.7143C0.825 12.925 1.44031 12.2857 2.2 12.2857C2.95969 12.2857 3.575 12.925 3.575 13.7143C3.575 14.5036 2.95969 15.1429 2.2 15.1429ZM8.8 6C8.04031 6 7.425 5.36071 7.425 4.57143C7.425 3.78214 8.04031 3.14286 8.8 3.14286C9.55969 3.14286 10.175 3.78214 10.175 4.57143C10.175 5.36071 9.55969 6 8.8 6Z" fill="#92A1B3"/>
+            </svg>
+            13,537
+          </a>
+        </li>
+        <li class="followers">
+          <a href="https://twitter.com/Ionicframework" title="Twitter followers" id="btn-home-twitter-followers">
+            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 1.65885C15.41 1.93958 14.7794 2.12917 14.1149 2.21667C14.793 1.77917 15.3151 1.08646 15.5592 0.2625C14.9252 0.667187 14.2234 0.9625 13.474 1.11927C12.8739 0.430208 12.0195 0 11.0769 0C9.26298 0 7.79487 1.58229 7.79487 3.53281C7.79487 3.8099 7.822 4.07969 7.87963 4.33854C5.15024 4.19271 2.72939 2.78542 1.1121 0.645312C0.830685 1.16667 0.667938 1.77552 0.667938 2.42083C0.667938 3.64583 1.25111 4.72865 2.13266 5.36302C1.59017 5.34844 1.08159 5.18802 0.640814 4.92188V4.96562C0.640814 6.67917 1.77326 8.10469 3.27527 8.42917C3.00064 8.50938 2.70905 8.55313 2.41068 8.55313C2.20047 8.55313 1.99364 8.53125 1.7936 8.4875C2.21064 9.89114 3.42445 10.912 4.86205 10.9411C3.73978 11.8891 2.32253 12.4542 0.783217 12.4542C0.518754 12.4542 0.257682 12.4359 0 12.4031C1.44776 13.4167 3.17355 14 5.02479 14C11.0701 14 14.3725 8.6151 14.3725 3.94479C14.3725 3.79167 14.3691 3.63854 14.3624 3.48906C15.0032 2.98958 15.5592 2.36979 16 1.65885Z" fill="#92A1B3"/>
+            </svg>
+            104K
+          </a>
+        </li>
+      </ul>
+      <ionic-newsletter-signup 
+        homepage-mode="true" 
+        placeholder="Join our Newsletter"></ionic-newsletter-signup>
+    </aside>
+  </section>
+
+  {# <div slot="slide-0" id="slide-limitless">
     <ul class="graphics">
       <li class="iphone-x"></li>
       <li class="iphone-xs-max"></li>
@@ -26,6 +82,12 @@
       <a href="/getting-started" class="btn white rounded">
         Get Started <ion-icon name="arrow-forward"></ion-icon>
       </a>
+      <p class="version-text">
+          <a href="https://github.com/ionic-team/ionic/releases/tag/v{{frameworkInfo.version}}"
+             target="_blank">v{{frameworkInfo.version}}</a> / {{frameworkInfo.date}} /
+          <a href="/docs/release-notes"
+             target="_blank">Release Notes</a>
+        </p>
       <ul class="supported-platforms">
         <li><img src="/img/homepage/platform-apple-ios.svg" alt="apple"></li>
         <li><img src="/img/homepage/platform-android-google.svg" alt="android"></li>
@@ -35,9 +97,9 @@
         <li><img src="/img/homepage/platform-pwa-progressive-web-app.svg" alt="pwa"></li>
       </ul>
     </hgroup>
-  </div>
+  </div> #}
 
-  <div slot="slide-1" id="slide-v4" class="activateOnScroll">
+  {# <div slot="slide-1" id="slide-v4" class="activateOnScroll">
     <hgroup class="container">
       <img src="/img/homepage/ionic-for-everyone-icon.png" alt="Ionic Framework 4">
       <h4>Ionic Framework 4</h4>
@@ -63,8 +125,8 @@
         <li class="docs">Completely redesigned Docs and Guides</li>
       </ul>
     </div>
-  </div>
-</ionic-slider>
+  </div> #}
+</div>
 
 <aside id="used-by">
   <img class="container" src="/img/homepage/logos-a.png">
@@ -317,19 +379,15 @@ window.flow = function() {
 			icons = document.querySelectorAll("#integration-list img"),
 			resizeTimer,
 		  w, h;
-
 	// debounce the re-init so it doesn't totally freak out while draging
 	window.addEventListener('resize', resizeDebounce);
-
 	function resizeDebounce() {
 		clearTimeout(resizeTimer);
   	resizeTimer = setTimeout(init, 250);
 	}
-
 	function init() {
 		w = container.offsetWidth;
 		h = container.offsetHeight;
-
 		icons.forEach(function(icon, i) {
 			var size = sizes[Math.ceil(Math.random() * 3) -1];
 			TweenMax.set(
@@ -342,7 +400,6 @@ window.flow = function() {
 			animate(icon, i);
 		});
 	}
-
 	// animate x and y values at different rates
 	function animate(element, i) {
 		 TweenMax.to(
@@ -355,7 +412,6 @@ window.flow = function() {
 				 delay: -115 / icons.length * i
 			 }
 		 );
-
 		 TweenMax.to(
 			 element,
 			 R(6,16),
@@ -368,11 +424,9 @@ window.flow = function() {
 			 }
 		 );
 	};
-
 	function R(min,max) {
 		return min + Math.random() * (max-min)
 	};
-
 	return {
 		init: init
 	}

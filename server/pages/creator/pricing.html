@@ -123,14 +123,24 @@
     </div>-->
     {% endraw %}
   </div>
-  <div class="row product-comparison">
+  <!-- <div class="row product-comparison">
     <div class="plan enterprise">
       <h3>Need more?</h3>
       <p>Try our <strong>Enterprise version</strong> of Creator! For more
         information, <a href="/creator/support">contact us</a>.
       </p>
     </div>
-  </div>
+  </div> -->
+
+  <section class="studio-callout">
+    <hgroup>
+      <h3>Building enterprise level apps?</h3>
+      <p><strong>Ionic Studio</strong> is a powerful app builder that delivers a smooth developer experience for teams building enterprise apps with Ionic. Get started with the fastest and easiest way to create award-winning cross-platform apps, from a single tool.</p>
+      <a class="btn btn-ionic" href="/studio" id="creator-studio-callout">Learn more</a>
+    </hgroup>
+    <img src="/img/creator-studio-graphic.png" alt="Ionic Studio"/>
+  </section>
+  
   <div class="row also-included">
     <h3>Also included in every plan:</h3>
     <ul>
@@ -257,4 +267,34 @@
   </div>
 </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-sanitize.min.js"></script>
+<script>
+var IonicSiteModule = angular.module('IonicSite',
+  ['ngAnimate', 'ngSanitize', 'ngCookies']);
+
+IonicSiteModule
+.controller('CreatorPricingCtrl', ['$scope', function($scope) {
+  $scope.monthly = {
+    pro: 29,
+    agency: 99,
+    business: 399
+  };
+  $scope.annually = {
+    pro: 24,
+    agency: 89,
+    business: 359
+  };
+  $scope.setPeriod = function(period) {
+    $scope.period = period;
+  };
+  $scope.setPeriod('annually');
+}]);
+</script>
 {% endblock %}

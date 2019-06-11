@@ -1,6 +1,3 @@
-@import '../../vars';
-@import '../../bootstrap/variables';
-
 .resources {
   padding-bottom: 120px;
 
@@ -29,6 +26,14 @@
       letter-spacing: -0.02em;
       color: #1A232F;
       margin-bottom: 0;
+    }
+
+    h4 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: normal;
+      letter-spacing: -0.02em;
+      color: #1A232F;
     }
 
     h5 {

@@ -16,6 +16,8 @@
   <title>{{title}}</title>
 {% elif 'products-' in id %}
   <title>Ionic Appflow - {{ id | replace('products-','') | title}}</title>
+{% elif isEnterprise %}
+  <title>Ionic for Enterprise - {{ id | replace('enterprise-','') | replace("-", " ") | title}}</title>
 {% elif name %}
   <title>Ionic Framework - {{name}}</title>
 {% elif id %}
@@ -34,8 +36,11 @@
   {% set meta_keywords = "html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs, ionic pro, ionic pro apps, ionic pro suite, ionic pro product, ionic pro tools" %}
 {% endif %}
 
+{% if meta_description %}
+  <meta name="description" content="{{ meta_description }}">
+{% endif %}
+
 <meta name="author" content="Ionic">
-<meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards{% endif %}">
 <meta name="keywords" content="{% if meta_keywords %}{{ meta_keywords }}{% else %}html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs{% endif %}">
 <link rel="canonical" href="https://ionicframework.com{{requrl}}">
 

@@ -11,6 +11,23 @@
 {% endblock %}
 
 {% block main %}
+<script>
+function getQuerystringParameter(name) {
+  var querystring = window.location.search;
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(querystring);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+const hubsFormIds = {
+  '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f': '29',
+  'a2dda6ac-b4b8-4d9d-a03e-f0bad9caaa44': '49',
+  '5d3de1c6-5225-43f4-b0bb-e19513d59735': '99'
+};
+const formId = getQuerystringParameter('fid') || '5bfe4aaf-4b74-49e1-8f8f-22a435c7861f';
+var price = hubsFormIds[formId];
+console.log('Page loaded with form id', formId, price);
+</script>
 
 <div class="sub-header">
   <div class="container">
@@ -29,7 +46,7 @@
 
 <div class="top">
   <hgroup class="container">
-    <h4>Ionic App Builder</h4>
+    <!--<h4>Ionic App Builder</h4>-->
     <h1>Lightning fast app creation.</h1>
     <p>
       <strong>Ionic Studio</strong> is a powerful app builder that delivers a smooth
@@ -38,25 +55,33 @@
       a single tool.
     </p>
     <div class="btns">
-      <a class="btn dark rounded sm uppercase outline"
-         href="#" 
+      <a class="btn rounded sm uppercase"
+         href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=studio" 
+         {# href="#"
          data-toggle="modal" 
-         data-target="#requestDemo" 
-         id="btn-studio-hero-request-demo">Request a Demo</a>
-      <a class="btn dark rounded sm uppercase outline faded"
+         data-target="#joinWaitlist"  #}
+         id="btn-studio-hero-request-demo">Sign Up Now</a>
+      {# <a class="btn dark rounded sm uppercase outline faded"
          id="btn-studio-hero-watch-overview"
          data-toggle="modal" 
          data-target="#overviewVideo"
-         href="#"><ion-icon name="play"></ion-icon> Watch Overview</a>
+         href="#"><ion-icon name="play"></ion-icon> Watch Overview</a> #}
     </div>
   </hgroup>
 
   <section>
     <div class="container">
-      <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay
+      {# <video poster="/img/products/studio/studio-time-lapse-start.jpg" autoplay
              loop muted>
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-time-lapse.mp4" type="video/mp4">
-      </video>
+      </video> #}
+      
+      <div class="screenshot-group">
+        <img src="/img/products/studio/screenshot-main.png" 
+             alt="Ionic Studio Screenshot">
+        <img src="/img/products/studio/screenshot-main-2.png" 
+             alt="Ionic Studio Screenshot">
+      </div>
 
       <h3>Empower your team. Drive digital transformation.</h3>
       <ul>
@@ -92,6 +117,53 @@
 </div>
 
 <main>
+
+  <section>
+    <div class="container">
+      <hgroup>
+        <h2>Superpowers for creating</h2>
+        <p>
+          Drag and drop components directly into your app, which automatically 
+          adds logic and code as you build. Move seamlessly between design and 
+          code to create apps, more visually, with live previews.
+        </p>
+      </hgroup>
+
+      {# <video poster="/img/products/studio/studio-visual-editor-start.jpg" muted
+             class="fade-in">
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-visual-editor.mp4" type="video/mp4">
+      </video> #}
+
+      <img class="screenshot"
+           src="/img/products/studio/screenshot-wysiwyg.png" 
+           alt="Ionic Studio Code Editor">
+
+      <ul>
+        <li class="drag">
+          <strong>Drag &amp; Drop Components</strong>
+          <p>
+            Drag &amp; drop 100+ pre-built Ionic UI components directly into
+            your project’s code. Then modify their properties live.
+          </p>
+        </li>
+        <li class="properties delay-100">
+          <strong>Properties Editor</strong>
+          <p>
+            With Ionic’s components at your fingertips, no need to dig through
+            pages of documentation just to learn Ionic.
+          </p>
+        </li>
+        <li class="backend delay-200">
+          <strong>Works with Local Tools</strong>
+          <p>
+            Studio’s secure, local editor works off the file system and plays
+            nicely with other  tools, and with new or existing projects.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <hgroup>
@@ -102,10 +174,13 @@
           every dependency, so you can focus on development instead.
         </p>
       </hgroup>
-      <video poster="/img/products/studio/studio-code-editor-start.jpg" muted
+      {# <video poster="/img/products/studio/studio-code-editor-start.jpg" muted
              class="fade-in">
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-code-editor.mp4" type="video/mp4">
-      </video>
+      </video> #}
+      <img class="screenshot"
+           src="/img/products/studio/screenshot-code.png" 
+           alt="Ionic Studio Screenshot">
 
       <ul>
         <li class="ui">
@@ -124,48 +199,6 @@
         </li>
         <li class="secure delay-200">
           <strong>Secure Local Editor</strong>
-          <p>
-            Studio’s secure, local editor works off the file system and plays
-            nicely with other  tools, and with new or existing projects.
-          </p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <hgroup>
-        <h2>Superpowers for creating</h2>
-        <p>
-          Drag and drop components directly into your app, which automatically 
-          adds logic and code as you build. Move seamlessly between design and 
-          code to create apps, more visually, with live previews.
-        </p>
-      </hgroup>
-
-      <video poster="/img/products/studio/studio-visual-editor-start.jpg" muted
-             class="fade-in">
-        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-visual-editor.mp4" type="video/mp4">
-      </video>
-
-      <ul>
-        <li class="drag">
-          <strong>Drag &amp; Drop Components</strong>
-          <p>
-            Drag &amp; drop 100+ pre-built Ionic UI components directly into
-            your project’s code. Then modify their properties live.
-          </p>
-        </li>
-        <li class="properties delay-100">
-          <strong>Properties Editor</strong>
-          <p>
-            With Ionic’s components at your fingertips, no need to dig through
-            pages of documentation just to learn Ionic.
-          </p>
-        </li>
-        <li class="backend delay-200">
-          <strong>Backend Integrations</strong>
           <p>
             Studio’s secure, local editor works off the file system and plays
             nicely with other  tools, and with new or existing projects.
@@ -255,6 +288,7 @@
           </p>
         </li>
         <li class="ci delay-300">
+          <span class="pill">coming soon</span>
           <strong>CI/CD integration</strong>
           <p>
             One-click integration with <a href="/appflow">Ionic Appflow</a>, a 
@@ -265,6 +299,7 @@
       </ul>
     </div>
   </section>
+  <!--
   <aside class="promo promo-btns promo-studio">
     <div class="container">
       <hgroup>
@@ -285,6 +320,7 @@
       </div>
     </div>
   </aside>
+-->
 </main>
 {% include '../_includes/promos/tri-cta.html' %}
 
@@ -330,6 +366,63 @@
   </div>
 </div>
 <div class="modal collapse fade"
+     id="joinWaitlist"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Join the Studio waitlist</h3>
+          <p class="lg">
+            What kind of license do you need?
+          </p>
+          <p class="sm">
+            <b>Note:</b> at launch, organizations will be required to choose an organization license. This helps
+            us keep Studio affordable for the whole Ionic community and bring teams key features they need.
+          </p>
+        </hgroup>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <ionic-toggle>
+          <ionic-toggle-button slot="buttons" title="For Individual use ($29/mo)" tab="individuals"></ionic-toggle-button>
+          <ionic-toggle-button slot="buttons" title="For Organizations ($99/mo)" tab="orgs"></ionic-toggle-button>
+          <ionic-toggle-tab slot="tabs" tab="individuals">
+            <script>
+              hbspt.forms.create({
+              portalId: "3776657",
+              formId: '4daf765a-4374-4832-a5d7-e60f8930674c',
+              css: ""
+            });
+            </script>
+          </ionic-toggle-tab>
+          <ionic-toggle-tab slot="tabs" tab="orgs">
+            <script>
+              hbspt.forms.create({
+              portalId: "3776657",
+              formId: '32657356-4835-4dda-ba49-d2dc176430d3',
+              css: ""
+            });
+            </script>
+          </ionic-toggle-tab>
+          </ionic-toggle-tabs>
+        </ionic-toggle>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal collapse fade"
      id="overviewVideo"
      tabindex="-1"
      role="dialog"
@@ -367,11 +460,16 @@
 {% block scripts %}
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+// Update the price text
+Array.prototype.slice.call(document.querySelectorAll('.studio-price')).forEach(function(e) {
+  e.innerText = '$' + price;
+});
+
+window.sr = ScrollReveal({ duration: 500, scale: 1, distance: '10px' });
 sr.reveal('.fade-in, .top h3, .top li, main h2, main hgroup h2, main hgroup p, main li');
 
 for (i = 100; i < 300; i+=100){
-    sr.reveal('.delay-'+i, {delay: i});
+    sr.reveal('.delay-'+i, {delay: i / 2});
 }
 
 $(document).ready(function() {

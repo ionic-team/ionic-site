@@ -2,7 +2,6 @@
 {% set id = 'survey-2018' %}
 {% set bodyController = 'SurveyCtrl' %}
 {% set name = '2018 Developer Survey' %}
-{% set meta_description = 'Insights, trends, and perspectives from the worldwide Ionic Community' %}
 {% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2018.png' %}
 {% set header_style = 'transparent survey-layout' %}
 {% set cssPath = 'survey/2018' %}
@@ -664,7 +663,14 @@
 {% endblock %}
 
 {% block scripts %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.2/c3.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-sanitize.min.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.2/c3.min.js"></script>
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal('.animate-in p, .animate-in aside, .animate-in blockquote, ' +
@@ -674,6 +680,274 @@ setTimeout(function() {
   window.ScrollReveal().sync()
 }, 5000);
 
-{# window.activateOnScrollSelector = 'ionic-bar-chart'; #}
+var IonicSiteModule = angular.module('IonicSite',
+  ['ngAnimate', 'ngSanitize', 'ngCookies']);
+
+IonicSiteModule
+.controller('SurveyCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+  var currentSection = window.location.hash;
+
+  function scrollCheck() {
+    scrollPos = document.body.scrollTop || 
+                document.documentElement.scrollTop || 0;
+    if (scrollPos < 200 && currentSection) {
+      currentSection = null;
+      window.location.hash = '';
+      history.replaceState({}, "", '');
+    }
+  };
+
+  window.addEventListener('scroll',function(){$timeout(scrollCheck)});
+
+  // Scrollspy
+  $('body').scrollspy({
+    offset: 150
+  });
+
+  // update the URL on scrollspy change
+  $(window).on('activate.bs.scrollspy', function (e) {
+    currentSection = $("a[href^='#']", e.target).attr("href");
+    history.replaceState({}, "Ionic Framework - Survey-2017", currentSection);
+  });
+
+  // canvas animation at the top
+  function init() {
+    canvas = document.getElementById('statistical-suspension'); 
+    banner = document.getElementById('survey-banner');
+    context = canvas.getContext('2d');
+    canvasSize = {}
+    canvas.height = banner.offsetHeight * 2;
+    canvas.width = window.innerWidth * 2;
+    mouse = {x:0,y:0};
+    banner.addEventListener('mousemove',MouseMove,false);
+    banner.addEventListener('mousedown',MouseDown,false);
+    banner.addEventListener('mouseup',MouseUp,false);
+    banner.addEventListener('resize',canvasResize,false);
+    maxDistance = Math.sqrt(Math.pow(canvas.height,2) + Math.pow(canvas.width,2))
+    // console.log(maxDistance)
+    dotsHolder = [];
+    
+    mouseMove = false;
+    mouseDown = false;
+    for(i = 0;i < 50;i++) {
+      dotsHolder.push(new dots());
+    }
+  }
+
+  function canvasResize(event) {
+    canvas.height = 305;
+    canvas.width = window.innerWidth;
+    cancelAnimationFrame(animate);
+  }
+
+  function MouseUp(event) {
+    if(mouseMove) {
+      mouseMove = false;
+    }  
+    if(mouseDown) {
+      mouseDown = false;
+    }
+  }
+
+  function MouseDown(event) {
+    mouseDown = true;
+  }
+
+  function MouseMove(event) {
+    mouse.x = (event.pageX - canvas.offsetLeft) * 2;
+    mouse.y = (event.pageY - canvas.offsetTop) * 2;
+    if(mouseMove) {
+      context.lineTo(mouseX,mouseY);
+      context.stroke();
+    }
+  }
+
+  function dots() {
+    this.xPos = Math.random()*canvas.width;
+    this.yPos = Math.random()*canvas.height;
+    this.color = '#fff';
+    this.radius = ((Math.random() * .5) + .5) * 100; 
+    this.vx = Math.cos(this.radius) / 4;
+    this.vy = Math.sin(this.radius) / 4;
+    this.friction = 7;
+    this.speedX = this.vx;
+    this.speedY = this.vy;
+  } 
+  
+  dots.draw = function() {
+    context.clearRect(0,0,canvas.width,canvas.height);
+    for(var c = 0; c < dotsHolder.length;c++) {
+      dot = dotsHolder[c]; 
+      context.beginPath();
+      distanceX = dot.xPos - mouse.x;
+      distanceY = dot.yPos - mouse.y;
+      var particleDistance =  Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY, 2));
+      var particleMouse = Math.pow(Math.max(1.2 - particleDistance / maxDistance, 1), 4);
+      context.fillStyle = dot.color;
+      context.globalAlpha = (c / dotsHolder.length / 2) + .5;
+      dot.xPos += dot.vx;
+      dot.yPos += dot.vy;
+      if(dot.xPos < -50) {dot.xPos = canvas.width+50;}
+      if(dot.yPos < -50) {dot.yPos = canvas.height+50;}
+      if(dot.xPos > canvas.width+50) {dot.xPos = -50;}
+      if(dot.yPos > canvas.height+50) {dot.yPos = -50;}
+      context.font = (dot.radius * particleMouse ) + "px Arial";
+      context.fillText(c % 2 ? "°" : '+',dot.xPos,dot.yPos);
+      context.fill();
+
+    }
+  }
+  
+  function animate() {
+    requestAnimationFrame(animate);
+    dots.draw();
+  }
+
+  init();
+  animate();
+  
+}])
+.directive('barChart', [function() {
+  return {
+    restrict: 'E',
+    scope: {
+      data: '='
+    },
+    compile: function(el, attrs) {
+      return {
+        post: function(scope, element, $attrs) {
+
+          if (!scope.data.data && !scope.categories) {
+            var data = Object.keys(scope.data).map(function(k) {
+              return {label: k, value: scope.data[k]};
+            }).sort(function(a, b) {
+              if(a.value < b.value) return 1;
+              if(a.value > b.value) return -1;
+              return 0;
+            });
+
+            var bars = ['data1'].concat(data.map(function(bar) {
+              return bar.value;
+            }));
+            var labels = data.map(function(bar) {
+              return bar.label;
+            });
+
+            var chart = c3.generate({
+              bindto: el[0],
+              data: {
+                columns: [ bars ],
+                type: 'bar',
+                labels: {
+                  show: true,
+                  format: function(v) { return v + '%'; }
+                },
+                colors: {
+                  data1: '#4a8bfc'
+                },
+              },
+              padding: {
+                left: 250,
+              },
+              size: {
+                height: 20 * labels.length
+              },
+              bar: {
+                width: {
+                  ratio: 0.2 // this makes bar width 50% of length between ticks
+                }
+              },
+              axis: {
+                rotated: true,
+                x: {
+                  type: 'category',
+                  categories: labels,
+                  tick: {
+                    multiline: false,
+                    outer: false
+                  },
+                  height: 50,
+                  width: 200
+                },
+                y: {
+                  show: false
+                }
+              },
+              legend: {
+                show: false
+              },
+              tooltip: {
+                show: false
+              }
+            });
+            return;
+          }
+
+          var colors = {};
+          scope.data.data.forEach(function(bar, i) {
+            colors['data' + (i + 1)] = bar.color;
+          });
+          var columns = scope.data.data.map(function(k, i) {
+            return ['data' + (i + 1)].concat(k.values);
+          })
+          names = {};
+          scope.data.data.forEach(function(bar, i) {
+            names['data' + (i + 1)] = bar.name;
+          });
+
+          // console.log(colors, columns)
+
+          var chart = c3.generate({
+            bindto: el[0],
+            data: {
+              columns: columns,
+              type: 'bar',
+              labels: {
+                show: true,
+                format: function(v) { return v + '%'; }
+              },
+              colors: colors,
+              names: names
+            },
+            bar: {
+              width: {
+                ratio: 0.8 // this makes bar width 50% of length between ticks
+              }
+            },
+            grid: {
+              y: {
+                show: true
+              }
+            },
+            axis: {
+              x: {
+                type: 'category',
+                categories: scope.data.categories,
+                tick: {
+                  multiline: false,
+                  outer: false
+                },
+                height: 50,
+                width: 200
+              },
+              y: {
+                tick: {
+                  format: function(v) { return v + '%'; }
+                }
+              }
+            },
+            legend: {
+              show: true
+            },
+            tooltip: {
+              show: false
+            }
+          });
+        }
+      }
+    }
+  }
+}])
+;
 </script>
 {% endblock %}

@@ -17,7 +17,8 @@ const {
   loadLocalVars
 }                        = require('./server/processRequest');
 const { 
-  prismicMiddleware 
+  prismicMiddleware,
+  announcementBarCronJob
 }                        = require('./server/prismic');
 
 const { 
@@ -68,15 +69,16 @@ function start() {
   app.enable('etag');
   
   app.use(checkForRedirects);
-  app.use(prismicMiddleware);
 
   // check if this is a valid static file
   app.use(express.static('dist', { etag: true }));
-  app.use(express.static(process.env.PWD + '/_site/', {
+  app.use(express.static(process.env.PWD + '/content/', {
     etag: true
   }));
 
+  app.use(prismicMiddleware);
   app.use(loadLocalVars);
+  announcementBarCronJob(app)
   
   app.set('views', __dirname + '/server/pages');
   expressNunjucks(app, {

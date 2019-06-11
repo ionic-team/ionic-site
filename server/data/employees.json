@@ -7,13 +7,6 @@
     "image":"adam.jpg"
   },
   {
-    "name": "Amanda Beaudry",
-    "dept": "Sales",
-    "description": null,
-    "twitter": "amanda_ionic",
-    "image": "amanda.jpg"
-  },
-  {
     "name":"Andrew Haire",
     "dept":"VP of Marketing",
     "description":null,
@@ -84,13 +77,6 @@
     "image": "dan.jpg"
   },
   {
-    "name":"Danielle Jensen",
-    "dept":"Customer Success",
-    "description":"A member of the Customer Success team, Danielle can be found answering questions in Support tickets, writing up Help Center articles, or collaborating with customers to create their best solutions with Ionic Pro. In her free time, Danielle tries to balance her eclectic mix of hobbies: continuing her martial arts practice, learning new languages, attending EDM festivals, fostering animals through the local pet-rescue, going on week-long kayak trips, or (most likely) marathoning Avatar the Last Airbender for the 100th time. It may or may not be an obsession. We're working on it.",
-    "twitter":"keineaanung",
-    "image": "danielle.jpg"
-  },
-  {
     "name":"Derek Wilson",
     "dept":"Sales",
     "description": null,
@@ -117,13 +103,6 @@
     "description":null,
     "twitter":"johnsarcher",
     "image": "jack.png"
-  },
-  {
-    "name":"Jake Santerre",
-    "dept":"Sales",
-    "description":null,
-    "twitter":"JakeSanterre",
-    "image": "jake.png"
   },
   {
     "name":"Josh Thomas",
@@ -237,13 +216,6 @@
     "image": "perry.jpg"
   },
   {
-    "name":"Rachel Brown",
-    "dept":"Marketing",
-    "description": null,
-    "twitter": "rachelanjali",
-    "image": "rachel.png"
-  },
-  {
     "name":"Rachel Ashton",
     "dept":"Marketing",
     "description": null,
@@ -270,20 +242,6 @@
     "description":null,
     "twitter":"TheRyanBowman",
     "image": "ryan.jpg"
-  },
-  {
-    "name":"Sam Bevan",
-    "dept":"Sales",
-    "description":"At Ionic,  Sam is busy sending emails, chatting on calls, and creating partnerships with some amazing companies. On weekends, you're likely to find Sam in downtown Boston playing some pickup basketball, grabbing brunch in Brookline, or hanging with some friends on Lansdowne St. in Fenway.",
-    "twitter":null,
-    "image": "sam.jpg"
-  },
-  {
-    "name":"Stephen Ochs",
-    "dept":"Marketing",
-    "description":"There are few things in Stephen's life that he loves more than the Boston Celtics, From October to Hopefully June you can find him at the Garden when there is a Game. Avid Tennis player, always hitting the courts. Stephen is a seasoned Digital Marketing and Demand Generation leader, who has helped many companies grow through innovative marketing strategies.",
-    "twitter":"stochsmarketing",
-    "image": "stephen.jpg"
   },
   {
     "name": "Steve Breese",

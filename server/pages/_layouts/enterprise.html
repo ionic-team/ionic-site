@@ -1,0 +1,16 @@
+{% extends '_layouts/blank.html' %}
+{% set isEnterprise = true %}
+{% if stickyNav !== false %}
+  {% set stickyNav = true %}
+{% endif %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
+
+{% block page %}
+  {% include '../_includes/header-enterprise.html' %}
+
+  {% block main %}
+    <div class="hero"></div>
+  {% endblock %}
+
+  {% include '../_includes/footer.html' %}
+{% endblock %}

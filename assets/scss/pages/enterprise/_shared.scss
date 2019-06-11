@@ -1,0 +1,438 @@
+@import './components/ee-hero';
+
+.ee-main {
+  margin-top: 0;
+
+  section {
+    margin-bottom: 200px;
+  }
+
+  .left,
+  .right,
+  .center {
+    display: flex;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .left,
+  .right {
+    .content {
+      max-width: 480px;
+
+      @media (max-width: $screen-xs-max) {
+        max-width: 100%;
+        text-align: center;
+
+        li {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .left {
+    flex-direction: row;
+
+    .graphics {
+      margin-left: auto;
+    }
+  }
+
+  .right {
+    flex-direction: row-reverse;
+    margin-left: auto;
+
+    .graphics {
+      margin-right: auto;
+    }
+  }
+
+  .center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .content {
+      width: 894px;
+      max-width: 100%;
+    }
+  }
+
+  .full {
+    .content {
+      max-width: 568px;
+    }
+  }
+
+
+  @media (max-width: $screen-xs-max) {
+    .right,
+    .left {
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .graphics {
+        margin-bottom: 24px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    section {
+      margin-bottom: 100px;
+    }
+  }
+
+  .graphics {
+    justify-content: flex-end;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    font-size: 44px;
+    line-height: 51px;
+    letter-spacing: -0.03em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ee-section__title {
+    font-family: $font-family-monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 23px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5B708B;
+    margin-top: 0;
+  }
+
+  .ee-section__cta {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 31px;
+    letter-spacing: -0.02em;
+    color: #5B708B;
+    margin-top: 18px;
+
+    &.sm {
+      font-size: 16px;
+      line-height: 29px;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  ul:not(.frameworks) {
+    margin-top: 54px;
+  }
+
+  .content {
+    ul {
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: -0.02em;
+      color: #1A232F;
+      margin-bottom: 40px;
+      padding-left: 30px;
+      list-style: none;
+      position: relative;
+
+      &::before {
+        background-image: url('/img/enterprise/check.svg');
+        background-size: 100%;
+        content: '';
+        height: 10px;
+        width: 13px;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 64px;
+    grid-row-gap: 24px;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+
+    .icon {
+      margin-bottom: 16px;
+      width: 48px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cta-card {
+    background: $blue;
+    border-radius: 12px;
+    padding: 72px 72px 60px;
+    background-size: cover;
+    color: white;
+
+    .ee-section__title,
+    p {
+      color: #CED6E0;
+    }
+  }
+}
+
+#how-to {
+  margin-bottom: 0;
+  position: relative;
+  padding-top: 140px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    border-top: 1px solid rgba(#92A1B3, .3);
+    content: '';
+    display: block;
+  }
+}
+
+.cards--red-v-blue {
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  margin-top: 38px;
+
+  &__card {
+    background: #7CABFF;
+    border-radius: 8px;
+    padding: 40px 40px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 24px;
+    flex: 0 1 460px;
+    border-radius: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:nth-child(2) {
+      background: #F88D8D;
+
+      .btn {
+        background: rgba(#F45454, .5);
+      }
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: rgba(white, .7);
+    margin-top: 0;
+    margin-bottom: 22px;
+  }
+
+  .btn {
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: rgba(#3880FF, .5);
+
+    ion-icon {
+      display: inline-block;
+      height: 14px;
+      width: 14px;
+      vertical-align: -2px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    flex-direction: column;
+    align-items: center;
+
+    &__card {
+      flex: auto;
+      margin-right: 0;
+      margin-top: 20px;
+      max-width: 460px;
+    }
+  }
+}
+
+aside {
+  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+  margin-top: -60px;
+  padding-top: 200px;
+  padding-bottom: 120px;
+
+  p {
+    color: #414D5C;
+  }
+
+  .content {
+    max-width: 432px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+}
+
+.ee-get-started {
+  max-width: 700px;
+
+  h3 {
+    color: #414D5C;
+  }
+}
+
+@import '../../components/resources_read_more';
+
+.ee-main,
+.resources {
+  .features,
+  .cards {
+    li {
+      p {
+        font-size: 16px;
+        line-height: 29px;
+        letter-spacing: -0.01em;
+        color: #73849A;
+        margin-top: 0;
+      }
+
+      h4 {
+        font-size: 20px;
+        line-height: normal;
+        letter-spacing: -0.02em;
+        color: #020814;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.resources {
+  .cards {
+    margin-top: 0 !important;
+    text-align: left;
+    flex-wrap: wrap;
+
+    .img-wrapper {
+      border-radius: 6px;
+
+      + h4 {
+        margin-top: 24px;
+      }
+    }
+
+    // a little extra spacing between cards on the largest width
+    @media (min-width: $screen-lg-min) {
+      margin-left: -40px;
+      margin-right: -40px;
+
+      li {
+        padding: 40px;
+      }
+    }
+  }
+
+  .resources__customer-logos {
+    display: flex;
+    margin: 26px auto 0;
+    padding: 0;
+    justify-content: space-between;
+    max-width: 780px;
+    width: 100%;
+
+    li {
+      background: url('/img/enterprise/customer-logos.png');
+      background-size: 428px 46px;
+      background-repeat: no-repeat;
+      display: block;
+      height: 46px;
+    }
+
+    @media (max-width: $screen-sm) {
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 460px;
+
+      li {
+        margin: 20px;
+      }
+    }
+
+    .mastercard {
+      width: 58px;
+    }
+    .nationwide {
+      background-position: -58px 0;
+      width: 33px;
+    }
+    .uniqlo {
+      background-position: -91px 0;
+      width: 65px;
+    }
+    .ibm {
+      background-position: -156px 0;
+      width: 64px;
+    }
+    .ing {
+      background-position: -222px 0;
+      width: 103px;
+    }
+    .sap {
+      background-position: -326px 0;
+      width: 56px;
+    }
+    .nasa {
+      background-position: -380px 0;
+      width: 50px;
+    }
+
+  }
+}

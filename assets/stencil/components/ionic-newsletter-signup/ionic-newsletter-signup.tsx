@@ -1,4 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
+import { EmailIcon } from './ico-email';
 
 @Component({
   tag: 'ionic-newsletter-signup',
@@ -10,6 +11,7 @@ export class IonicNewsletterSignup {
   @Prop() placeholder: string = 'Email address';
   @Prop() buttonText: string = 'Subscribe';
   @Prop() darkMode: boolean = false;
+  @Prop() homepageMode: boolean = false;
   @Prop() arrowMode: boolean = false;
   @Prop() lg: boolean = false;
   @Prop() kind: string = 'default';
@@ -32,7 +34,7 @@ export class IonicNewsletterSignup {
     const email = this.email;
     this.isLoading = true;
     var xhr = new XMLHttpRequest();   // new HttpRequest instance
-    xhr.open("POST", "/api/v1/newsletter");
+    xhr.open('POST', 'https://ionicframework.com/api/v1/newsletter');
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -87,6 +89,9 @@ export class IonicNewsletterSignup {
     if (this.arrowMode) {
       str += ' arrow';
     }
+    if (this.homepageMode) {
+      str += ' homepage';
+    }
     if (this.lg) {
       str += ' lg';
     }
@@ -98,6 +103,8 @@ export class IonicNewsletterSignup {
       <form
         onSubmit={(e) => this.handleSubmit(e)}
         class={this.getFormClass()}>
+
+        {this.homepageMode ? <EmailIcon/> : ''}
 
         <input
           name="email"
@@ -114,7 +121,7 @@ export class IonicNewsletterSignup {
           disabled={this.isLoading || this.hasSubmitted}>
 
           {this.hasSubmitted ? 'Added!' :
-            this.arrowMode ?
+            this.arrowMode || this.homepageMode ?
               <ion-icon name="md-arrow-forward"></ion-icon> : this.buttonText
           }
         </ionic-button>

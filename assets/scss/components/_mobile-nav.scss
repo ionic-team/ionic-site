@@ -109,6 +109,16 @@
   }
 }
 
+.mobile-nav--enterprise .mobile-nav__menu {
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .mobile-nav__menuitem {
   position: relative;
   font-size: 24px;
@@ -231,6 +241,20 @@
   }
 }
 
+.mobile-nav--enterprise .mobile-nav__menuitem {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 0;
+
+  & + .mobile-nav__menuitem {
+    margin-top: 32px;
+  }
+}
+
+.mobile-nav--enterprise .mobile-nav__menuitem--cta a {
+  color: #3880FF;
+}
+
 .mobile-nav__menuitem--small {
   font-size: 18px;
   line-height: 1;
@@ -257,6 +281,10 @@
   width: 32px;
   height: 32px;
   margin: 0;
+}
+
+.mobile-nav--enterprise .mobile-nav__logo {
+  fill: #000;
 }
 
 .mobile-nav__close {
@@ -345,6 +373,36 @@
     to {
       transform: translateY(6px);
       opacity: 0;
+    }
+  }
+}
+
+.mobile-nav--enterprise .mobile-nav__footer {
+  background: #F9F9F9;
+  justify-content: center;
+
+  a {
+    line-height: normal;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: #3880FF;
+    text-transform: uppercase;
+  }
+
+  ion-icon {
+    color: rgba(56, 128, 255, 0.7);
+    font-size: 12px;
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    vertical-align: -2px;
+    opacity: 0;
+    transition: .2s transform ease, .2s opacity;
+    margin-right: 4px;
+
+    &.hydrated {
+      opacity: 1;
     }
   }
 }

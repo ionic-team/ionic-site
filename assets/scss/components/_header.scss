@@ -22,6 +22,23 @@
     }
   }
 
+
+  &.enterprise {
+    background: #fff;
+
+    .navbar-brand svg {
+      fill: #000;
+    }
+
+    .navbar-toggle i {
+      color: #000;
+    }
+
+    .navbar-toggle:hover i {
+      color: rgba(#000, 0.6);
+    }
+  }
+
   .navbar-header {
     // width: 132px;
     @media (max-width: $screen-sm-max) {
@@ -130,7 +147,7 @@
         font-size: 13px;
         font-weight: 600;
         margin-top: 0;
-        padding: 6px 12px;
+        padding: 6px 8px;
         letter-spacing: -.01em;
         margin-left: 14px;
         margin-right: 14px;
@@ -184,7 +201,7 @@
           color: $blue;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
-          margin-left: 0;
+          margin-left: 24px;
           transition: 0.3s box-shadow, 0.3s background;
 
           &:hover {
@@ -658,7 +675,6 @@
 
       i {
         color: #fff;
-        transform: scale(1.05);
       }
     }
 
@@ -943,12 +959,74 @@
         color: #c7d0e0;
       }
     }
+
+    &.enterprise {
+      background: none;
+      padding-top:  36px;
+
+      .navbar-nav > li:not(.header-btn-white) > a,
+      .navbar-nav ionic-search ion-icon {
+        color: #4E5B6A;
+
+        &:hover {
+          color: #92A1B3;
+        }
+      }
+
+      .navbar-nav > li.active > a,
+      .navbar-nav > li.open > a {
+        color: #92A1B3 !important;
+      }
+
+      .navbar-nav > li:not(.header-btn-white) > a {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 14px 10px;
+        font-family: $font-family-inter;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .navbar-nav > li.active > a {
+        color: #4E5B6A;
+      }
+
+      .navbar-right {
+        margin-top: 3px;
+      }
+
+      .navbar-center {
+        margin-top: 6px;
+        float: right;
+      }
+
+      &.navbar-sticky {
+        background: white;
+      }
+    }
+
+    #header-btn-outline {
+      transition: 0.2s border;
+      padding: 2px 10px 4px;
+      margin-left: 14px;
+      color: #3880FF;
+      border-radius: 16px;
+      border: 1px solid rgba(#3880FF, 0.4);
+      box-sizing: border-box;
+      box-shadow: none;
+      font-size: 13px;
+      font-weight: 600;
+
+      &:hover {
+        border: 1px solid rgba(#3880FF, 0.8);
+      }
+    }
   }
 
   .navbar-right > li > a {
     font-weight: 700;
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 0px;
+    margin-left: 8px;
   }
 
   &.navbar-sticky {
@@ -965,6 +1043,8 @@
     height: 31px;
     display: block;
   }
+
+
 }
 
 .docs .navbar-default .navbar-nav {
@@ -986,4 +1066,23 @@ body.page-header {
 
 .navbar-dark {
   background: #11192a;
+}
+
+.external-icon {
+  .external-icon__background {
+    fill: #97BDFF;
+  }
+  .external-icon__foreground {
+    fill: #fff;
+  }
+}
+
+.light .external-icon,
+.external-icon--light {
+  .external-icon__background {
+    fill: #e5e7ea;
+  }
+  .external-icon__foreground {
+    fill: #7a8496;
+  }
 }

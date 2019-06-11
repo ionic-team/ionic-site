@@ -12,12 +12,15 @@
       })(window,document.getElementById('optimizely'),'optimize-loading','dataLayer',4000,
       {'GTM-TKMGCBC':true});</script> #}
 
-      <strong>Live Demo:</strong>
-      How to get started with the Ionic development platform
-      <a href="/resources/webinars/ionic-in-30"
+      {# <strong>Studio is almost here!</strong>
+      Join the waitlist to be the first in line on launch
+      <a href="/studio" #}
+      {# <pre><code>{{ announcementBar | dump(2) }}</code></pre> #}
+      {{PrismicDOM.RichText.asHtml(announcementBar.data.text)}}
+      <a href="{{announcementBar.data.link.url}}"
          onclick="c('MarketingCTAs','btn-header-announcement', this, 0)"
          target="_blank"
-         id="btn-header-announcement">Register Now</a>
+         id="btn-header-announcement">{{announcementBar.data.button_text}}</a>
     </div>
   </div>
 </nav>
@@ -66,6 +69,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
 
       <ul class="nav navbar-nav navbar-right">
+        <!--
         <li style="position:static">
           <ionic-search>
             <ul>
@@ -75,6 +79,7 @@
             </ul>
           </ionic-search>
         </li>
+        -->
         <li>
           <a href="https://dashboard.ionicframework.com/login?source=framework-{{id}}">
             Log in</a>

@@ -1,459 +1,213 @@
-{% extends "_layouts/base.html" %}
+{% extends "_layouts/enterprise.html" %}
 {% set id = 'enterprise' %}
-{% import "../_includes/macros.html" as macros %}
-{% set pre_footer = false %}
-{% set title = 'Enterprise App Development Platform - Ionic Framework' %}
-{% set meta_description = "Ionic is the app platform for building industry leading enterprise apps. Ionic helps you build your mobile app strategy by delivering a mobile app platform for the enterprise." %}
-{% set stickyNav = true %}
+{% set title = 'Ionic for Enterprise' %}
+{% set cssPath = 'enterprise/home' %}
 
 {% block main %}
-
-<div class="banner cta" >
-  <hgroup class="container">
-    <h1>Ionic <em>for</em> Enterprise</h1>
-    <p>
-      The way large companies design, build, and deliver incredible apps.
-    </p>
-    <a onClick="mixpanel.track('Modal Opened', {'test': 'Enterprise - 1'})"
-       data-toggle="modal"
-       data-target="#contactForm"
-       class="btn white scrollToForm"
-       id="btn-enterprise-get-in-touch">Contact us</a>
+<div class="container">
+  <hgroup class="ee-hero ee-hero--centered ee-hero--large">
+    <h1>An app platform your developers will love.</h1>
+    <p>Build blazing fast mobile, desktop, and web apps with open web technologies.</p>
+    <a href="/enterprise/contact" class="btn">Contact us</a>
   </hgroup>
-  <div class="logos">
-    <div class="container">
-      <div class="logo logo--target"></div>
-      <div class="logo logo--verizon"></div>
-      <div class="logo logo--marketwatch"></div>
-      <div class="logo logo--usarmy"></div>
-      <div class="logo logo--ea"></div>
-      <div class="logo logo--diesel"></div>
-      <div class="logo logo--bmw"></div>
-      <div class="logo logo--ibm"></div>
-    </div>
-    <div class="logos__bg"></div>
-  </div>
 </div>
 
-<section class="overview container section__content">
-  <hgroup>
-    <h2>Supported. Secure. Universal.</h2>
-    <p class="lead">Some of the largest brands on earth trust Ionic to power their apps. See how Ionic for Enterprise can enable your team to move with the speed and efficiency of a startup, with the security, support, and peace of mind that enterprise teams require.</p>
-  </hgroup>
-</section>
-
-<section class="container section__content framework-section bg-animate">
-  <hgroup>
-    <h5  class="two-tone">Ionic <b>Framework</b></h5>
-    <h3>The open source UI Toolkit for building high performance mobile & PWAs with one codebase, for any device.</h3>
-  </hgroup>
-  <div class="row">
-    <div class="col">
-      <h4>Truly cross-platform apps</h4>
-      <p>The open source Ionic Framework is a complete app development kit for building cross-platform mobile and PWAs. Ionic’s rich library of UI components run and look beautiful on any platform or device, across mobile and desktop.</p>
-    </div>
-    <div class="col">
-      <h4>Built for web developers</h4>
-      <p>Ionic apps leverage technology familiar to any web developer: HTML, CSS, JS. Your existing web talent can quickly and easily build apps using the skills they already know, without dependence on specialists and costly native developers.</p>
-    </div>
-    <div class="col">
-      <h4>Designed for the future</h4>
-      <p>Ionic Framework is an open platform based on open web standards. Choose to build with React, Vue, and Angular, or any other front-end framework. Connect your apps to AWS, IBM, Google Firebase, or any backend cloud provider.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section__content logos">
-  <div class="container">
-    <div class="logo logo--lendingclub"></div>
-    <div class="logo logo--airbus"></div>
-    <div class="logo logo--cat"></div>
-    <div class="logo logo--study"></div>
-    <div class="logo logo--comcast"></div>
-  </div>
-</section>
-
-<section class="container section__content section__content--align-right pro-section bg-animate">
-  <hgroup>
-    <h5 class="two-tone">Ionic <b>Appflow</b></h5>
-    <h3>A fully integrated DevOps platform covering the entire app lifecycle for Enterprise teams building and shipping apps with Ionic.</h3>
-  </hgroup>
-  <div class="row">
-    <div class="col">
-      <h4><b>Continuous Feedback.</b> Push the right features at the right time, with fewer bugs. </h4>
-      <p>Easy app sharing and testing provides realtime feedback on new features and updates. Continuous runtime monitoring helps to improve app quality by catching errors before your users do.</p>
-    </div>
-    <div class="col">
-      <h4><b>Continuous Delivery.</b> Build, test, and release apps at the speed of development. </h4>
-      <p>Automatic builds make it easy to test, share, or deploy updates each time a team member pushes code. Live Updates allow you to skip the app stores and send new features directly to users, as soon as they’re ready.</p>
-    </div>
-    <div class="col">
-      <h4><b>Secure Collaboration.</b> Create amazing apps with the power of teams.</h4>
-      <p>A shared dashboard and activity feeds keep team members informed on what’s happening. Granular permissions help safeguard apps and data, allowing only necessary team members to work in a given app.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section__content logos">
-  <div class="container">
-    <div class="logo logo--amtrak"></div>
-    <div class="logo logo--aaa"></div>
-    <div class="logo logo--ge"></div>
-    <div class="logo logo--usaa"></div>
-    <div class="logo logo--ing"></div>
-  </div>
-</section>
-
-<section class="section__content bar iv">
-  <hgroup class="container">
-    <strong>Introducing</strong>
-    <a href="/enterprise/identity-vault" class="btn sm white pull-right">
-      Learn about Vault <i class="ion-ios-arrow-forward"></i>
-    </a>
-    <h2>Identity Vault</h2>
-    <p>Activate the most secure mobile biometrics authentication available.</p>
-  </hgroup>
-</section>
-
-<section class="container section__content support-section bg-animate">
-  <hgroup>
-    <h5 class="two-tone">Customized <b>Support &amp; Services</b></h5>
-    <h3>Ionic experts on-hand, ready to provide support, training, and guidance for Enterprise teams when they need it.</h3>
-  </hgroup>
-  <div class="row">
-    <div class="col">
-      <h4 class="sm">Mission-critical Support</h4>
-      <p class="sm">Here when you need us. Our highly-skilled customer success team is on-hand to provide priority hotfixes and troubleshooting backed by a guaranteed SLA.</p>
-    </div>
-    <div class="col">
-      <h4 class="sm">Private Training</h4>
-      <p class="sm">Accelerate your time to value with customized training sessions tailored to the needs of your team and your project objectives, led by Ionic’s expert training team.</p>
-    </div>
-    <div class="col">
-      <h4 class="sm">Advisory Services</h4>
-      <p class="sm">With personalized advisory services, we’ll keep your project on-track and make sure your apps are secure, stable, and optimized for scale and demanding timelines.</p>
-    </div>
-    <div class="col">
-      <h4 class="sm">Security Best Practices</h4>
-      <p class="sm">Protect what matters most by leveraging Ionic’s  security best practices and guidance - tailored to the needs of your users, your app, and your entire development team.</p>
-    </div>
-  </div>
-</section>
-
-<section class="container section__content form">
-  <h2  class="two-tone">Learn more about <b>Ionic Enterprise.</b></h2>
-
-  <div class="hubspot-override hubspot-override--large">
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-    	portalId: "3776657",
-    	formId: "3cbb2a81-0859-43ca-af75-47cb066e3b1e",
-      css: ""
-    });
-    </script>
-  </div>
-</section>
-
-<section class="testimonial-slides" style="background-color: #2e41b5;">
-
-  <div class="slide slide--airbus active" data-id="1" data-bgcolor="#2e41b5">
+<main class="ee-main">
+  <section id="difference">
     <div class="container">
       <hgroup>
-        <div class="slide__topbar">
-          <div class="logo"></div>
-          <a class="slide__cta" href="https://ionicframework.com/files/Airbus_Case_Study.pdf" target="_blank">
-            <svg><use xlink:href="#icon-book"/></svg>
-            Checkout the <b>Case Study</b>
-            <svg><use xlink:href="#icon-arrow"/></svg>
-          </a>
-        </div>
-        <h5>“ Ionic and it’s cross-platform approach to mobile app development is very efficient and effective for us. We’ve improved our app delivery time by 2X. ”</h5>
-        <span class="attribution"><b>Heinz Haeussler</b> Mobile Technical Expert</span>
+        <h5>Evaluating Ionic for Enterprise Development</h5>
+        <p>
+          Considering Ionic for your next project? This guide will give you 
+          everything you need to know to make the right decision.
+        </p>
+        <a href="/enterprise/resources/whitepapers/evaluating-ionic-for-enterprise-development" class="btn sm">Get the eBook</a>
       </hgroup>
     </div>
-
-  </div>
-
-  <div class="slide slide--marketwatch" data-id="2" data-bgcolor="#001a20">
-    <div class="container">
-      <hgroup>
-        <div class="slide__topbar">
-          <div class="logo"></div>
-          <a class="slide__cta" href="https://ionicframework.com/case-studies/MarketWatch.pdf" target="_blank">
-            <svg><use xlink:href="#icon-book"/></svg>
-            Checkout the <b>Case Study</b>
-            <svg><use xlink:href="#icon-arrow"/></svg>
-          </a>
-        </div>
-        <h5>“ With Ionic we develop one codebase that supports multiple platforms with a consistent UX. We’ve now doubled the output of our development team. ”</h5>
-        <span class="attribution"><b>Brian Aguilar</b> Product Manager</span>
-      </hgroup>
-    </div>
-  </div>
-
-  <div class="slide-imgs">
-    <div class="slide-img slide-img--airbus" data-id="1"></div>
-    <div class="slide-img slide-img--marketwatch" data-id="2"></div>
-  </div>
-
-  <div class="slide-indicator">
-    <div class="container">
-      <span class="active" data-target="1"></span>
-      <span data-target="2"></span>
-    </div>
-  </div>
-</section>
-
-<section class="container section__content">
-  <hgroup>
-    <h5 class="two-tone">More <b>Resources</b></h5>
-    <div class="hgroup-header">
-      <h3>Case Studies, eBooks, and Guides to help take you and your team further.</h3>
-      <a class="text-link" href="/resources">
-        See all resources
-        <svg><use xlink:href="#icon-arrow"/></svg>
-      </a>
-    </div>
-  </hgroup>
-  <div class="resource-card-list resource-card-list--quarter transitionHero">
-  {% for r in resources.gallery %}
-    <div class="resource-card card-large">
-      <div class="resource-card__inner">
-      {{ macros.resource(r, true) }}
-      </div>
-    </div>
-  {% endfor %}
-  </div>
-
-</section>
-
-<!-- {% include '../_includes/promos/pwa-architects-guide.html' %} -->
-
-<section class="bar get-started">
-  <div class="container">
-    <hgroup>
-      <h2>
-        Get your team started with Ionic Enterprise today.
-      </h2>
-      <p class="lg">
-        Start building better apps faster with Ionic Appflow.
+  </section>
+  <section id="best-way" class="container left">
+    <div class="content">
+      <h2>The best way to build apps.</h2>
+      <p>
+        Ionic makes it easy to build amazing apps for any platform or device,
+        using basic web technology - all with one shared codebase.
       </p>
-    </hgroup>
-    <div class="btns">
-      <a href="#" class="btn scrollToForm">Get in touch to learn more</a>
     </div>
-  </div>
-</section>
+    <div class="graphics">
+      <img src="/img/enterprise/apple-devices.png" alt="iPhone, iPad, Macbook">
+    </div>
+  </section>
+  <section id="friendly" class="container right">
+    <div class="content">
+      <h2>Developer-friendly, future-proof.</h2>
+      <p>
+        Ionic’s unique approach embraces open standards, giving you the freedom
+        to connect with and use any legacy app, third-party service, or
+        front-end technology.
+      </p>
+    </div>
+    <div class="graphics">
+      <img src="/img/enterprise/developer-friendly.png"
+           alt="any backend, any FE library, deploy anywhere">
+    </div>
+  </section>
+  <section id="supercharged" class="container center">
+    <div class="content">
+      <h2>A supercharged platform for teams.</h2>
+      <p>
+        Ionic’s powerful development platform gives you the tools you need to
+        create incredible apps at lightning speed and automate every phase of
+        delivery.
+      </p>
+    </div>
+    <figure>
+      <ul>
+        <li>
+          <div class="icon">
+            <img src="/img/enterprise/ico-visual.png" width="68" style="margin: 3px 0 0 5px;"/>
+          </div>
+          Visual Development
+        </li>
+        <li>
+          <div class="icon">
+            <img src="/img/enterprise/ico-cross-platform.png" width="82"/>
+          </div>
+          CROSS-PLATFORM SDK
+        </li>
+        <li>
+          <div class="icon">
+            <img src="/img/enterprise/ico-continuous.png" width="76"/>
+          </div>
+          Continuous Delivery
+        </li>
+      </ul>
+      <figcaption>
+        All backed by expert services and enterprise grade support.
+      </figcaption>
+    </figure>
+  </section>
+  <section id="why" class="container full">
+    <div class="content">
+      <h2>Why build with Ionic?</h2>
+      <p>
+        Ionic is a dev platform for the entire app lifecycle that allows teams
+        to build better apps, faster.
+      </p>
+    </div>
+    <ul class="features">
+      <li>
+        <img src="/img/enterprise/ico-more.png" class="icon">
+        <h4>More than just mobile</h4>
+        <p>
+          Build progressive web and native mobile apps for every major app
+          store, with one codebase. Ionic works and looks beautiful wherever it
+          runs.
+        </p>
+      </li>
+      <li>
+        <img src="/img/enterprise/ico-performance.png" class="icon">
+        <h4>Full native power and performance</h4>
+        <p>
+          There’s no limit to what you can do with Ionic. Give your users the
+          most advanced on-device features and hardware-accelerated performance.
+        </p>
+      </li>
+      <li>
+        <img src="/img/enterprise/ico-speed.png" class="icon">
+        <h4>Lighting fast development</h4>
+        <p>
+          Reduce the time and cost to develop apps by 10x or more, with one
+          shared codebase across mobile and desktop - plus powerful tools and
+          services to accelerate your entire journey.
+        </p>
+      </li>
+      <li>
+        <img src="/img/enterprise/ico-web.png" class="icon">
+        <h4>Build with the web</h4>
+        <p>
+          Ionic turns web developers into skilled mobile app developers. Create
+          award-winning mobile experiences using the most popular and widely
+          used programming languages in the world.
+        </p>
+      </li>
+      <li>
+        <img src="/img/enterprise/ico-community.png" class="icon">
+        <h4>Backed by a global community</h4>
+        <p>
+          Ionic is backed by a vibrant community of more than 5M developers in
+          over 200 countries. Join the thousands of global events and see how
+          easy it is to learn and grow with our platform.
+        </p>
+      </li>
+      <li>
+        <img src="/img/enterprise/ico-future.png" class="icon">
+        <h4>Future proof your apps</h4>
+        <p>
+          Empower your web teams to build native mobile apps, using the tools
+          they know and love - today, tomorrow, and whatever the future brings.
+        </p>
+      </li>
+    </ul>
+  </section>
+  <aside id="good-comapny" class="resources">
+    <div class="container center">
+      <div class="content">
+        <h2>You’re in good company.</h2>
+        <p>
+          Thousands of companies around the world build with Ionic. Join the
+          ranks with Ionic Enterprise for the stability and world-class support
+          needed to build apps with confidence.
+        </p>
+      </div>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" >
-  <defs>
-    <filter id="blur">
-      <feGaussianBlur stdDeviation="20" />
-    </filter>
-  </defs>
-  <symbol id="icon-book" viewBox="0 0 512 512"><path d="M146 64.1c54.1 0 100 27.9 100 82V446c0 2.2-3.1 2.7-3.8.7v-.1c-10.3-34.2-38.2-67.6-82.3-70.5-34.2-2.2-66.9 12.9-93.1 37.1-1.6 1.5-4.3 2.9-6.6 2.9h-4.5c-3.7 0-7.6-2.7-7.6-6.1V120.2C48 88.1 91.9 64.1 146 64.1zM366 64c-54.1 0-100 27.9-100 82v299.9c0 2.2 3.1 2.7 3.8.7v-.1c10.3-34.2 39.4-67.9 82.3-70.5 32.9-2 63.9 11 93.1 37.1 1.6 1.4 4.3 2.9 6.6 2.9h4.5c3.7 0 7.6-2.7 7.6-6.1V120c.1-32-43.8-56-97.9-56z"/></symbol>
-  <symbol id="icon-arrow" viewBox="0 0 512 512"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"/></symbol>
-</svg>
+      <ul class="cards">
+        <li>
+          <a href="/enterprise/customers">
+            <div class="img-wrapper">
+              <img src="/img/enterprise/card-amtrak.jpg"
+                   alt="Amtrak App">
+            </div>
+            <h4>Amtrak</h4>
+            <p>A leader in transportation, Amtrak is driving improved customer experiences with a brand-new rider app, built on Ionic.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/resources/case-studies/marketwatch">
+            <div class="img-wrapper">
+              <img src="/img/enterprise/card-marketwatch.jpg"
+                   alt="Marketwatch App">
+            </div>
+            <h4>Marketwatch</h4>
+            <p>See how a small team of web developers was able to turn around their App Store reviews by switching to Ionic.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/resources/case-studies/national-health-service">
+            <div class="img-wrapper">
+              <img src="/img/enterprise/card-nhs.jpg"
+                   alt="British National Health Service">
+            </div>
+            <h4>National Health Service</h4>
+            <p>The UK’s national healthcare organization is empowering its health workers with digital mobility solutions powered by Ionic.</p>
+          </a>
+        </li>
+      </ul>
 
-  
-{% include '../_includes/promos/tri-cta.html' %}
+      <ul class="resources__customer-logos">
+        <li class="mastercard"></li>
+        <li class="nationwide"></li>
+        <li class="uniqlo"></li>
+        <li class="ibm"></li>
+        <li class="ing"></li>
+        <li class="sap"></li>
+        <li class="nasa"></li>
+      </ul>
+    </div>
+  </aside>
+</main>
 {% endblock %}
 
 
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/easing/EasePack.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 
-<script>
-  (function(){
-
-    // fade in bg images
-    var bgAnimates = document.querySelectorAll('.bg-animate');
-    for (var i = 0; i < bgAnimates.length; i++) {
-      (function(){
-        var stageEl = bgAnimates[i];
-        initAnimation(
-          stageEl,
-          function () {
-            stageEl.classList.add('animate-bg-in');
-          },{
-            once: true,
-            playWhenInView: true
-          }
-        );
-      })()
-    }
-
-    // frosted blur for hero banner logos
-    var banner = document.querySelector('.banner');
-    var img = document.querySelector('.logos__bg');
-    function resizeImg () {
-      img.style.width = banner.scrollWidth + 'px';
-      img.style.height = banner.scrollHeight + 'px';
-    }
-    window.addEventListener('resize', resizeImg);
-    resizeImg();
-
-    // scroll to form button
-    var scrollToFormEls = document.querySelectorAll('.scrollToForm');
-    for (var i = 0; i < scrollToFormEls.length; i++) {
-      var el = scrollToFormEls[i];
-      el.addEventListener('click', function(ev){
-        ev.preventDefault();
-        scrollToForm();
-      });
-    }
-
-    function scrollToForm () {
-      var offset = document.querySelector('.form').offsetTop - 80;
-      window.scrollTo({
-        behavior: "smooth",
-        top: offset
-      });
-    }
-
-    if (window.location.hash == '#contact-us') {
-      scrollToForm();
-    }
-
-    // testimonial slider
-    var slideState = [];
-    var isSliderAnimating = false;
-    var indicators = document.querySelectorAll('.slide-indicator span');
-    var slideWrap = document.querySelector('.testimonial-slides');
-
-    for (var i = 0; i < indicators.length; i++) {
-      var indicator = indicators[i];
-      var isActive = (indicator.classList.contains('active')) ? true : false;
-      var slideId = indicator.dataset.target;
-      var slideEl = document.querySelector('.slide[data-id="' + slideId + '"]');
-      var slideImg = document.querySelector('.slide-img[data-id="' + slideId + '"]');
-      slideState.push({
-        id: slideId,
-        isActive: isActive,
-        el: slideEl,
-        img: slideImg,
-        color: slideEl.dataset.bgcolor
-      });
-
-      TweenLite.set(slideImg, {
-        scale: 1.1
-      })
-
-      indicator.addEventListener('click', handleClick)
-    }
-
-    slideState.map(function(slide) {
-      if (slide.isActive) {
-        slideWrap.style.backgroundColor = slide.color;
-      } else {
-        slide.el.style.display = 'none';
-        slide.img.style.display = 'none';
-      }
-    });
-
-    function handleClick(ev) {
-      if (isSliderAnimating) return;
-
-      for (var i = 0; i < indicators.length; i++) {
-        var indicator = indicators[i];
-        indicator.classList.remove('active');
-      }
-      ev.target.classList.add('active');
-
-      var targetId = ev.target.dataset.target;
-      transitionTo(targetId);
-    }
-
-    function triggerTo(id) {
-      for (var i = 0; i < indicators.length; i++) {
-        var indicator = indicators[i];
-        if (indicator.dataset.target === id) {
-          indicator.classList.add('active');
-        } else {
-          indicator.classList.remove('active');
-        }
-      }
-      transitionTo(id);
-    }
-
-
-
-    function transitionTo(id) {
-      if (isSliderAnimating) return;
-      isSliderAnimating = true;
-
-      var newSlide = slideState.filter(function(o){ return o.id === id})[0];
-      var oldSlide = slideState.filter(function(o){ return o.isActive == true})[0];
-
-      newSlide.isActive = true;
-      oldSlide.isActive = false;
-
-      TweenLite.to(slideWrap, 0.8, {
-        backgroundColor: newSlide.color,
-      });
-
-      TweenLite.to(oldSlide.el, 0.4, {
-        y: 10,
-        opacity: 0,
-        ease: Expo.easeOut
-      })
-
-      TweenLite.fromTo(newSlide.el, 0.8, {
-        y: -10,
-        opacity: 0,
-        display: 'block',
-        position: 'absolute'
-      },
-      {
-        y: 0,
-        opacity: 1,
-        ease: Expo.easeOut,
-        delay: 0.1,
-        onComplete: function () {
-          newSlide.el.style.position = 'relative';
-          oldSlide.el.style.display = 'none';
-          isSliderAnimating = false;
-        }
-      })
-
-      TweenLite.to(oldSlide.img, 0.8, {
-        scale: 1,
-        opacity: 0,
-        ease: Expo.easeOut,
-        delay: 0.1,
-        onComplete: function() {
-          oldSlide.img.style.display = 'none';
-        }
-      })
-
-      TweenLite.fromTo(newSlide.img, 0.8, {
-        scale: 1.2,
-        opacity: 0,
-        display: 'block'
-      },
-      {
-        scale: 1.1,
-        opacity: 1,
-        ease: Expo.easeOut,
-        delay: 0.1
-      })
-    }
-
-    var didSlideTrigger = false;
-    window.addEventListener('scroll', function(){
-      requestAnimationFrame(function(){
-        if (slideWrap.getBoundingClientRect().top < 200 && !didSlideTrigger) {
-          didSlideTrigger = true;
-          triggerTo('2');
-        }
-      });
-    });
-
-  })();
-</script>
 {% endblock %}

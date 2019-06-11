@@ -3,6 +3,8 @@
 
 #page-products {
   background-color: #fff;
+  height: auto !important;
+  min-height: auto;
 
   .pre-header {
     margin-bottom: 0px;
@@ -115,7 +117,7 @@
       text-align: center;
       position: relative;
       max-width: 830px;
-      padding-bottom: 354px;
+      padding-bottom: 376px;
       padding-top: 54px;
 
       h3 {
@@ -248,66 +250,52 @@
     }
   }
 
-  .cta-overlay {
-    margin-top: -239px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+  ionic-appflow-activator {
+    position: sticky;
+    top: -247px;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0 20px;
+    background: white;
 
     .app-screenshot {
-      overflow: hidden;
-      width: 100%;
-      max-width: 960px;
-      background-color: #fff;
-      background-repeat: no-repeat;
-      background-size: cover;
+      position: relative;
+      background: white;
+      height: 507px;
+      width: 960px;
+      margin-top: -300px;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,14,41,0.08), 0 30px 60px rgba(0,11,34,0.15);
-
       opacity: 0;
       animation: fadeIn 1s 1.8s forwards;
 
       img {
         width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0,14,41,0.08), 0 30px 60px rgba(0,11,34,0.15);
+      }
+
+      @media (max-width: $screen-md)  {
+        height: 338px;
+        width: 640px;
+      }
+
+      @media (max-width: $screen-sm)  {
+        height: 169px;
+        width: 320px;
+        margin-top: -84px;
       }
     }
 
-    // & > div:not(.customer-logos) {
-    //   background-color: #f9fafc;
-    //   padding: 58px;
-    //   display: flex;
-    //   align-items: flex-start;
-    // }
-
-    // .pro-video,
-    // .pro-benefits {
-    //   flex: 1;
-    // }
-    //
-    // @media (max-width: $screen-sm)  {
-    //   & > div:not(.customer-logos) {
-    //     flex-direction: column;
-    //     padding: 32px;
-    //   }
-    //
-    //   .pro-video,
-    //   .pro-benefits {
-    //     width: 100%;
-    //   }
-    //
-    //   .pro-benefits {
-    //     padding-left: 0;
-    //     padding-top: 40px;
-    //   }
-    // }
+    @media (max-width: $screen-md)  {
+      top: -84px;
+    }
 
     @media (max-width: $screen-sm)  {
-      margin-top: -76px;
+      position: relative;
+      z-index: 1;
+      top: 0;
     }
   }
 
@@ -316,7 +304,7 @@
     padding: 0;
     width: 100%;
     max-width: 1024px;
-    margin-top: 30px;
+    margin: 64px auto 0;
 
     display: flex;
     flex-wrap: wrap;

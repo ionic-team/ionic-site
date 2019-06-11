@@ -89,6 +89,56 @@ ionic-newsletter-signup {
         max-width: 100%;
       }
     }
+
+    &.homepage {
+      height: 48px;
+      border-radius: 6px;
+      background: #F8FAFC;
+      border: 1px solid #E9EDF3;
+      transition: .2s border-color, .2s background-color;
+
+      &:hover {
+        border-color: #73A6FF;
+        background: white;
+      }
+
+      svg {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+      }
+
+      input {
+        border-radius: 6px 0 0 6px;
+        box-shadow: none;
+        padding-left: 46px;
+
+
+        &::placeholder {
+          color: #a8b0be;
+          font-weight: 400;
+        }
+      }
+
+      ionic-button button {
+        background: transparent;
+        color: #7CABFF;
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+        box-shadow: none;
+        border-radius: 0 6px 6px 0;
+
+        &:hover {
+          color: darken(#7CABFF, 10);
+          background: transparent;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 100%;
+      }
+    }
   }
 
   input {
@@ -102,7 +152,7 @@ ionic-newsletter-signup {
     height: 100%;
     outline: 0;
     flex-grow: 1;
-    padding: 1px 16px 0px;
+    padding: 0px 16px 1px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
     transition: .2s background, .2s box-shadow;
 
@@ -131,7 +181,7 @@ ionic-newsletter-signup {
       font-weight: 500;
       font-size: 14px;
       height: 100%;
-      padding: 11px 13px 10px;
+      padding: 8px 9px 10px;
     }
   }
 }

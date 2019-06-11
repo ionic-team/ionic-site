@@ -1,20 +1,16 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products' %}
 {% set mixpanelEnabled = true %}
-{% set bodyController = "ProductsPageCtrl" %}
 {% set pre_footer = false %}
 {% set title = 'Ionic Appflow: Accessible DevOps for All'%}
 {% set meta_image = 'https://ionicframework.com/img/meta/products-appflow-og.png'%}
-{% set meta_description = 'Ionic Appflow is a powerful suite of tools, services, and automation that streamlines agile development to help teams focus on building apps, while we take care of the rest. '%}
+{% set meta_description = 'Ionic Appflow is a powerful suite of tools, services, and automation that streamlines agile development to help teams focus on building apps, while we take care of the rest. ' %}
 {% set cssPath = 'products/appflow' %}
-{% set stickyNav = true %}
 
 {% block header_style %}transparent{% endblock %}
 
 {% block body_attributes %}
-  data-spy="scroll"
-  data-target="#platform-nav"
-  data-offset="64"
+
 {% endblock %}
 
 {% block main %}
@@ -25,8 +21,8 @@
       <li>Ionic Appflow</li>
     </ul>
     <ul class="right">
-      <li><a href="/pro" class="active">Overview</a></li>
-      <li><a href="/pro/pricing">Pricing</a></li>
+      <li><a href="/appflow" class="active">Overview</a></li>
+      <li><a href="/pricing#appflow">Pricing</a></li>
       <li><a href="/docs/appflow">Docs</a></li>
     </ul>
   </div>
@@ -47,66 +43,69 @@
     <p>Focus on building apps while we automate the rest—from the moment code is checked in to the moment it lands in the hands of your users.</p>
     <div class="cta-buttons">
       <a class="btn btn--primary"
-      href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+      href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=appflow"
       alt="Sign up for Ionic Appflow"
       id="btn-appflow-try-it-free">Try it free</a>
-      <a class="btn" href="/pricing" id="btn-appflow-see-pricing-hero">See pricing</a>
+      <a class="btn" href="/pricing#appflow" id="btn-appflow-see-pricing-hero">See pricing</a>
     </div>
   </hgroup>
 </div>
 
-  <section class="cta-overlay">
-    <div class="app-screenshot">
-      <img src="/img/pro/pro-app-screenshot-2.png"/>
+<ionic-appflow-activator for="app-screenshot-img">
+  <a slot="1"
+     class="anchor updates"
+     onClick="scrollToEl('#updates')"
+     data-screenshot="/img/appflow/screen-live-updates.png">
+    <div class="icon">
+      {% include '../_includes/svg/appflow/live-updates.svg' %}
     </div>
-    <div class="customer-logos">
-      <div class="customer-logo--lendingclub"></div>
-      <div class="customer-logo--mcdonalds"></div>
-      <div class="customer-logo--study"></div>
-      <div class="customer-logo--cat"></div>
-      <div class="customer-logo--ge"></div>
-      <div class="customer-logo--comcast"></div>
-      <div class="customer-logo--amtrak"></div>
-      <div class="customer-logo--airbus"></div>
-      <div class="customer-logo--aaa"></div>
-      <div class="customer-logo--deloitte"></div>
-      <div class="customer-logo--usaa"></div>
-      <div class="customer-logo--ing"></div>
+    <div class="icon-active">
+      {% include '../_includes/svg/appflow/live-updates-active.svg' %}
     </div>
-    <!-- <div>
-      <div class="pro-video">
-        <div class="video-player">
-          <svg class="video-player-button" viewBox="0 0 278 278">
-            <title>Play Video</title>
-            <g fill="none" fill-rule="evenodd">
-              <circle fill="#FAFAFA" cx="139" cy="139" r="139"/>
-              <path d="M186.816 139.258l-74 48c-.998.648-2.316-.068-2.316-1.258V90c0-1.19 1.318-1.906 2.316-1.258l74 48a1.5 1.5 0 0 1 0 2.516z" fill="#9BA4B3" fill-rule="nonzero"/>
-            </g>
-          </svg>
-          <div class="video-player-frame">
-            <div class="js-video-target" data-youtube-id="ZB5lQTP987s"></div>
-          </div>
-        </div>
-      </div>
-      <div class="pro-benefits">
-        <ul>
-          <li>
-            <h4>Continuous delivery</h4>
-            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
-          </li>
-          <li>
-            <h4>Package apps in the cloud</h4>
-            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
-          </li>
-          <li>
-            <h4>Deploy live updates</h4>
-            <p>Skip the app stores by pushing versions of your app directly to your users, live.</p>
-          </li>
-        </ul>
-      </div>
-    </div> -->
-  </section>
+    <span>Live Updates</span>
+  </a>
+  <a slot="2" 
+     class="anchor native"
+     onClick="scrollToEl('#build')"
+     data-screenshot="/img/appflow/screen-native-builds.png">
+    <div class="icon">
+      {% include '../_includes/svg/appflow/native-builds.svg' %}
+    </div>
+    <div class="icon-active">
+      {% include '../_includes/svg/appflow/native-builds-active.svg' %}
+    </div>
+    <span>Native Builds</span>
+  </a>
+  <a slot="3"
+     class="anchor automation"
+     onClick="scrollToEl('#automate')"
+     data-screenshot="/img/appflow/screen-automation.png">
+    <div class="icon">
+      {% include '../_includes/svg/appflow/automations.svg' %}
+    </div>
+    <div class="icon-active">
+      {% include '../_includes/svg/appflow/automations-active.svg' %}
+    </div>
+    <span>Automations</span>
+  </a>
+</ionic-appflow-activator>
 
+<section class="cta-overlay">
+  <div class="customer-logos">
+    <div class="customer-logo--lendingclub"></div>
+    <div class="customer-logo--mcdonalds"></div>
+    <div class="customer-logo--study"></div>
+    <div class="customer-logo--cat"></div>
+    <div class="customer-logo--ge"></div>
+    <div class="customer-logo--comcast"></div>
+    <div class="customer-logo--amtrak"></div>
+    <div class="customer-logo--airbus"></div>
+    <div class="customer-logo--aaa"></div>
+    <div class="customer-logo--deloitte"></div>
+    <div class="customer-logo--usaa"></div>
+    <div class="customer-logo--ing"></div>
+  </div>
+</section>
 
 <main>
   <section class="overview hero" id="overview">
@@ -338,7 +337,7 @@
         <h3>Ready to make life easier?</h3>
       </hgroup>
       <div>
-        <a class="btn" id="btn-appflow-see-pricing-footer" href="/pricing">See pricing</a>
+        <a class="btn" id="btn-appflow-see-pricing-footer" href="/pricing#appflow">See pricing</a>
       </div>
     </div>
   </section>
@@ -357,12 +356,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/AttrPlugin.min.js"></script>
 
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
 <script>
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+
+{# window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal(
   '.customer-logos > div, main hgroup h3, main hgroup p, main .features li, ' +
-  '.content h4, .content h2, .content p, .pro-features li');
+  '.content h4, .content h2, .content p, .pro-features li'); #}
 
   (function() {
     // const videoPlayer = document.querySelector('.video-player');

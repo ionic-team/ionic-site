@@ -1,0 +1,99 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'translate' %}
+{% set pre_footer = false %}
+{% set header_style = 'transparent light' %}
+{% set stickyNav = true %}
+{% set cssPath = 'translations' %}
+
+{% block main %}
+<div class="banner banner--hero">
+  <hgroup class="container">
+    <h1>Help Ionic speak your language</h1>
+    <p>
+      The <a href="/community">Ionic Community</a> is what has made Ionic the
+      success that is. All over the world people are gathering, learning, 
+      sharing, and helping each other learn how to build apps with Ionic. Help 
+      us help even more people by contributing to our community led translation 
+      efforts.
+    </p>
+  </hgroup>
+</div>
+<main class="container">
+  <section class="resource-list">
+    <div class="resource-list__header">
+      <h4>Existing Translations</h4>
+    </div>
+    <div class="resource-card-list resource-card-list--third">
+      <div class="resource-card resource-card--light">
+        <div class="resource-card__inner">
+          <a href="https://github.com/ionic-team/ionic-docs/blob/master/CONTRIBUTING.md"
+             target="_blank"
+             style="background-image: url('/img/translate/flag-english.png');">
+            <div>
+              <span class="eyebrow">Documentation Source</span>
+              <div class="title">English</div>
+            </div>
+            <span class="action">
+              Contribute
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="resource-card resource-card--light">
+        <div class="resource-card__inner">
+          <a href="https://github.com/ionic-jp/ionic-docs/"
+             target="_blank"
+             style="background-image: url('/img/translate/flag-japanese.png');">
+            <div>
+              <span class="eyebrow">Japanese</span>
+              <div class="title">日本語</div>
+            </div>
+            <span class="action">
+              手伝う
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="resource-card resource-card--light">
+        <div class="resource-card__inner">
+          <a href="#join-the-fight"
+             target="_blank"
+             class="anchor"
+             style="background-image: url('/img/translate/flag-globe.png');">
+            <div>
+              <span class="eyebrow">New Translation</span>
+              <div class="title">Your Language</div>
+            </div>
+            <span class="action">Contact us to get started</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="join-the-fight">
+    <hgroup class="hero">
+      <h1>Translate your language</h1>
+      <p>
+        Don't see your language? Help us with a new translation effort!
+      </p>
+    </hgroup>
+
+    <div class="hubspot-override hubspot-override--large">
+      <script charset="utf-8"
+              type="text/javascript"
+              src="https://js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: '3776657',
+          formId: '19379ed2-fa9a-42d5-b69f-6f56422571ca',
+          css: ''
+        });
+      </script>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

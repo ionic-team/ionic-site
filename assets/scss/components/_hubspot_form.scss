@@ -179,11 +179,16 @@
     color: #505863;
   }
 
+  input.hs-input[type="number"] {
+    float: none;
+  }
+
   input.hs-input[type="text"],
   input.hs-input[type="email"],
   input.hs-input[type="tel"]  {
     height: auto;
     width: 100%;
+    float: none;
 
     &:focus {
       border-color: #629eff;
@@ -390,4 +395,10 @@
       padding: 0;
     }
   }
+}
+
+.hubspot-override--measure {
+  max-width: 748px;
+  margin-left: auto;
+  margin-right: auto;
 }

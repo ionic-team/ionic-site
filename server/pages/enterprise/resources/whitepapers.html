@@ -1,0 +1,90 @@
+{% extends "_layouts/enterprise.html" %}
+{% set id = 'enterprise-articles' %}
+{% set cssPath = 'enterprise/resources/whitepapers' %}
+
+{% set title = 'Ionic Article: ' + data.title %}
+{% if data.meta_description %}
+  {% set meta_description = data.meta_description %}
+{% endif %}
+{% set meta_image = data.meta_image.url or data.header_background or meta_image %}
+{% import "_includes/macros.html" as macros %}
+{% set stickyNav = true %}
+
+{% block main %}
+
+<div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs breadcrumbs--small">
+      <li><a href="/enterprise/resources">Resources</a></li>
+      <li><a href="/enterprise/resources/whitepapers">Whitepapers</a></li>
+      <li>{{data.title}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <hgroup class="container">
+    <h5>White Paper</h5>
+    <h1>{{data.title}}</h1>
+    <p>{{data.tagline}}</p>
+  </hgroup>
+</div>
+
+<div class="container">
+  <div class="signup-form">
+    <div class="left-col">
+      <div class="illustration">
+        {% if data.cover_image.url %}
+          <img src="{{data.cover_image.url}}"
+               alt="{{data.cover_image.alt}}"
+               srcset="
+                {{data.cover_image['1x'].url}} 1x, 
+                {{data.cover_image.url}} 2x"/>
+        {% endif %}
+      </div>
+      {{PrismicDOM.RichText.asHtml(data.description)}}
+    </div>
+    <div class="right-col hubspot-override">
+      <h3>Download now</h3>
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+      hbspt.forms.create({
+      	portalId: "3776657",
+      	formId: "{{data.hubspot_form_id}}",
+      	css: ""
+      });
+      </script>
+    </div>
+  </div>
+
+  <div class="company">
+    <h2>
+      <strong>You’re in good company.</strong> Ionic powers millions of apps at
+      some of the smartest companies around the world.
+    </h2>
+    <div class="logos"></div>
+  </div>
+</div>
+<section class="bar get-started">
+  <div class="container">
+    <hgroup>
+      <h2>Get your team started with Ionic Appflow today. </h2>
+      <p class="lg">
+        Start building better apps faster with Ionic Appflow.
+      </p>
+    </hgroup>
+    <div>
+      <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=appflow"
+        class="btn sm" id="btn-products-create-account">Create an Appflow account
+        </a>
+      <a class="btn sm white" id="btn-products-see-pricing"
+        href="/pricing#appflow">See pricing</a>
+    </div>
+  </div>
+</section>
+
+</main>
+{% endblock %}

@@ -84,6 +84,17 @@
     }
   }
 
+  &.light {
+    background: #F0F6FF;
+    color: $blue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: darken(#F0F6FF, 2);
+    }
+  }
+
   &.navy {
     background: #0039a2;
 

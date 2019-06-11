@@ -1,303 +1,315 @@
-<li class="dropdown products{% if id.indexOf('products') == 0%} active{% endif %}">
-  <a href="#"
-     class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
-     aria-haspopup="true"
-     aria-expanded="false">Product</a>
-  <ul class="dropdown-menu dropdown-menu--withbigs">
-    <li class="big">
-      <a href="/docs">
-        {% include '_includes/svg/ionic-blue.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Framework</strong>
-        <span class="dropdown-menu__text--l3">Open Source app framework</span>
-      </a>
-    </li>
-    <li class="big">
-      <a href="/docs/native">
-        {% include '_includes/svg/ionic-grey.html' %}
-        <strong class="dropdown-menu__text--l1">Ionic Native</strong>
-        <span class="dropdown-menu__text--l3">Native device features and integrations</span>
-      </a>
-    </li>
-    <li class="big">
-      <a href="/studio">
-        {% include '_includes/svg/studio-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Studio</strong>
-        <span class="dropdown-menu__text--l3">Rapid application development environment</span>
-      </a>
-    </li>
-    <li class="big">
-      <a href="/appflow">
-        {% include '_includes/svg/appflow-icon.html' %}
-        <strong class="dropdown-menu__text--l1">Mobile DevOps</strong>
-        <span class="dropdown-menu__text--l3">Remote app updates and automated binary builds</span>
-      </a>
-    </li>
-
-    <li class="divider"></li>
-    <li>
-      <a href="/integrations" class="dropdown-menu__text--l2">
-        Integrations
-      </a>
-    </li>
-    <li>
-      <a href="/pricing" class="dropdown-menu__text--l2">
-        Pricing
-      </a>
-    </li>
-    <li>
-      <a href="/demo" class="dropdown-menu__text--l2">
-        Get a demo
-      </a>
-    </li>
-    <li>
-      <a href="/support" class="dropdown-menu__text--l2">
-        Support options
-      </a>
-    </li>
-  </ul>
-</li>
-
-<!--
 <li class="dropdown">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Solutions</a>
-  <ul class="dropdown-menu">
-    <li>
-      <a href="/solutions/cross-platform" class="dropdown-menu__text--l2">
-        Cross Platform Development
-      </a>
-    </li>
-    <li>
-      <a href="/solutions/design-systems" class="dropdown-menu__text--l2">
-        Design Systems
-      </a>
-    </li>
-    <li>
-      <a href="/pwa/toolkit" class="dropdown-menu__text--l2">
-        Progressive Web Apps
-      </a>
-    </li>
-    <li>
-      <a href="/enterprise/identity-vault" class="dropdown-menu__text--l2">
-        Mobile Security &amp; Authentication
-    </li>
-    <li>
-      <a href="/enterprise/resources" class="dropdown-menu__text--l2">
-        Resource Center <ion-icon name="ios-arrow-forward"></ion-icon>
-      </a>
-    </li>
-  </ul>
+     aria-expanded="false">Platform</a>
+  <ul class="dropdown-menu--container">
+    <li class=" dropdown-menu__row">
+      <ul class="dropdown-menu__column">
+        <li class="dropdown-menu__text--l2">Products</li>
+        <li>
+          <a href="/docs" class="dropdown-menu__text--l3">
+            Ionic Framework
+          </a>
+        </li>
+        <li>
+          <a href="/studio" class="dropdown-menu__text--l3">
+            Studio
+          </a>
+        </li>
+        <li>
+          <a href="/appflow" class="dropdown-menu__text--l3">
+            Appflow
+          </a>
+        </li>
+        <li>
+          <a href="/docs/native" class="dropdown-menu__text--l3">
+            Native
+          </a>
+        </li>
+      </ul>
+  
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Solutions</li>
+        <li>
+          <a href="/integrations" class="dropdown-menu__text--l2">
+            Integrations
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/identity-vault" class="dropdown-menu__text--l3">
+            Biometric Sign In
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/solutions/pwa" class="dropdown-menu__text--l3">
+            Progressive Web Apps
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/solutions/design-systems" class="dropdown-menu__text--l3">
+            Design Systems
+          </a>
+        </li>
+      </ul>
+  
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Support</li>
+        <li>
+          <a href="/enterprise/customers" class="dropdown-menu__text--l2">
+            Customer Success
+          </a>
+        </li>
+        <li>
+          <a href="/advisory" class="dropdown-menu__text--l3">
+            Advisory
+          </a>
+        </li>
+        <li>
+          <a href="/enterprise/training" class="dropdown-menu__text--l3">
+            Training
+          </a>
+        </li>
+      </ul>
+    </li>{# end .dropdown-menu__row #}
+  </ul>{# end .dropdown-menu__container #}
 </li>
--->
 
-<li>
-  <a id="btn-header-ecosystem-blog" href="/integrations">
-    Integrations
-  </a>
-</li>
-
-<li class="dropdown developers">
+<li class="dropdown">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Documentation</a>
-  <ul class="dropdown-menu">
-    <li>
-      <a href="/docs" class="dropdown-menu__text--l1">
-        Documentation <ion-icon name="ios-arrow-forward"></ion-icon>
-      </a>
-    </li>
-    <li class="split">
-      <ul>
+     aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu--container">
+    <li class=" dropdown-menu__row">
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Support</li>
         <li>
-          <span class="dropdown-menu__text--l4">
-            Framework Docs
-          </span>
-        </li>
-        <li>
-          <a class="dropdown-menu__text--l3" href="/docs/intro">
-            Introduction
+          <a href="https://ionicframework.com/docs" class="dropdown-menu__text--l2">
+            Guide
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation" href="/docs/installation/cli">
-            Installation
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-ui-components" href="/docs/components/">
+          <a href="https://ionicframework.com/docs/components" class="dropdown-menu__text--l3" id="btn-header-developers-ui-components">
             UI Components
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-native-plugins" href="/docs/native/">
-            Native APIs
+          <a href="https://ionicframework.com/docs/native/" class="dropdown-menu__text--l3" id="btn-header-developers-native-plugins">
+            Native
+          </a>
+        </li>
+        <li>
+          <a href="https://ionicframework.com/docs/installation/cli" class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation">
+            CLI
           </a>
         </li>
       </ul>
-      <ul>
+  
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Get Started</li>
         <li>
-          <span class="dropdown-menu__text--l4">
-            Appflow Docs
-          </span>
-        </li>
-        <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-intro" href="/docs/appflow/quickstart">
-            Quickstart
+          <a href="https://ionicframework.com/docs/angular/overview" class="dropdown-menu__text--l2">
+            Angular
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-package" href="/docs/appflow/package/intro">
-            Native builds
+          <a href="https://ionicframework.com/docs/react/overview" class="dropdown-menu__text--l3">
+            React
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" id="btn-header-developers-pro-deploy" href="/docs/appflow/deploy/intro">
-            Live updating
+          <a href="https://ionicframework.com/docs/vue/overview" class="dropdown-menu__text--l3">
+            Vue
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" href="/docs/appflow/automation/intro">
-            Automations
+          <a href="https://ionicframework.com/docs/installation/cdn" class="dropdown-menu__text--l3">
+            Javascript
           </a>
         </li>
       </ul>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="/framework" class="dropdown-menu__text--l2">
-        Ionic Framework
-      </a>
-    </li>
-    <li>
-      <a href="https://stenciljs.com/" target="_blank" class="dropdown-menu__text--l2">
-        Stencil <icon-external></icon-external>
-      </a>
-    </li>
-    <li>
-      <a href="https://capacitor.ionicframework.com/" target="_blank" class="dropdown-menu__text--l2">
-        Capacitor <icon-external></icon-external>
-      </a>
-    </li>
-  </ul>
+  
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Open Source</li>
+        <li>
+          <a href="/framework" class="dropdown-menu__text--l2">
+            Framework
+          </a>
+        </li>
+        <li>
+          <a href="https://stenciljs.com/" target="_blank" class="dropdown-menu__text--l3">
+            Stencil
+          </a>
+        </li>
+        <li>
+          <a href="https://capacitor.ionicframework.com/" target="_blank" class="dropdown-menu__text--l3">
+            Capacitor
+          </a>
+        </li>
+      </ul>
+    </li>{# end .dropdown-menu__row #}
+  </ul>{# end .dropdown-menu__container #}
 </li>
 
-<!--
-<li class="dropdown ecosystem">
+<li class="dropdown">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">
-     Resources
-
-  </a>
-  <ul class="dropdown-menu">
-    <li>
-      <a id="btn-header-businesses-resource-center" href="/enterprise/resources" class="dropdown-menu__text--l1">
-        Resource Center <ion-icon name="ios-arrow-forward"></ion-icon>
-      </a>
-    </li>
-    <li class="split">
-      <ul>
+     aria-expanded="false">Resources</a>
+  <ul class="dropdown-menu--container">
+    <li class="dropdown-menu__row">
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Community Hub</li>
         <li>
-          <span class="dropdown-menu__text--l4">
-            Topics
-          </span>
+          <a href="https://ionicframework.com/blog" id="btn-header-ecosystem-blog" class="dropdown-menu__text--l2">
+            Blog
+          </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" href="/enterprise/resources/articles">
+          <a href="https://forum.ionicframework.com/" class="dropdown-menu__text--l3">
+            Forum
+          </a>
+        </li>
+        <li>
+          <a href="https://ionicworldwide.herokuapp.com/" class="dropdown-menu__text--l3">
+            Slack
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/Ionicframework" class="dropdown-menu__text--l3">
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ionic-team/ionic" class="dropdown-menu__text--l3">
+            GitHub
+          </a>
+        </li>
+      </ul>
+
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Resource Center</li>
+        <li>
+          <a href="/enterprise/resources/articles" class="dropdown-menu__text--l2">
             Articles
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" href="/enterprise/resources/case-studies">
+          <a href="/enterprise/resources/case-studies" class="dropdown-menu__text--l3">
             Case Studies
           </a>
         </li>
-        {# <li class="dropdown-menu__text--l3">
-          <a href="/enterprise/resources/whitepapers">
-            Whitepapers
-          </a>
-        </li> #}
-      </ul>
-      <ul>
         <li>
-          <span class="dropdown-menu__text--l4">
-            Media
-          </span>
-        </li>
-        <li>
-          <a class="dropdown-menu__text--l3" href="/enterprise/resources/webinars">
+          <a href="/enterprise/resources/webinars" class="dropdown-menu__text--l3">
             Webinars
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" href="/enterprise/resources/videos">
+          <a href="/enterprise/resources/videos" class="dropdown-menu__text--l3">
             Videos
           </a>
         </li>
         <li>
-          <a class="dropdown-menu__text--l3" href="https://betontheweb.ionicframework.com/episodes" target="_blank">
-            Podcast <icon-external></icon-external>
+          <a href="https://betontheweb.ionicframework.com/episodes" class="dropdown-menu__text--l3">
+            Podcast
           </a>
         </li>
       </ul>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="/what-is-ionic" class="dropdown-menu__text--l2">
-        What Is Ionic?
+
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Courses</li>
+        <li>
+          <a href="https://www.joshmorony.com/elite/" class="dropdown-menu__text--l2">
+            Elite Ionic
+          </a>
+        </li>
+        <li>
+          <a href="https://ionicacademy.com/" class="dropdown-menu__text--l3">
+            Ionic Academy
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pluralsight.com/courses/ionic-cli" class="dropdown-menu__text--l3">
+            Ionic CLI
+          </a>
+        </li>
+        <li>
+          <a href="https://www.udemy.com/ionic-4-build-pwa-and-mobile-apps-with-angular/" class="dropdown-menu__text--l3">
+            PWAs with Ionic
+          </a>
+        </li>
+        <li>
+          <a href="/community#section-education" class="dropdown-menu__text--l3">
+            See all...
+          </a>
+        </li>
+      </ul>
+    </li>{# end .dropdown-menu__row #}
+
+    <li class="dropdown-menu__item">
+      <a href="" class="dropdown-menu__text--l3">
+        <img src="" alt="Ionic Blog" class="dropdown-menu__text">
+        Using React Hooks in Ionic React...
       </a>
     </li>
-    <li>
-      <a href="https://forum.ionicframework.com" class="dropdown-menu__text--l2">
-        Ionic Forum
-      </a>
-    </li>
-    <li>
-      <a href="/community" class="dropdown-menu__text--l2">
-        Community
-      </a>
-    </li>
-    <li>
-      <a href="/support" class="dropdown-menu__text--l2">
-        Help Center
-      </a>
-    </li>
-  </ul>
+  </ul>{# end .dropdown-menu__container #}
 </li>
--->
+
+
+<li class="dropdown">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu--container">
+    <li class=" dropdown-menu__row">
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Pricing</li>
+        <li>
+          <a href="" class="dropdown-menu__text--l2">
+            Plans
+          </a>
+        </li>
+        <li>
+          <a href="" class="dropdown-menu__text--l3">
+            Comparison
+          </a>
+        </li>
+      </ul>
+  
+      <ul class="dropdown-menu--row__column">
+        <li class="dropdown-menu__text--l2">Buying Help</li>
+        <li>
+          <a href="" class="dropdown-menu__text--l2">
+            Talk to an Expert
+          </a>
+        </li>
+        <li>
+          <a href="/demo" class="dropdown-menu__text--l3">
+            Get a Demo
+          </a>
+        </li>
+        <li>
+          <a href="/sales" class="dropdown-menu__text--l3">
+            Contact Sales
+          </a>
+        </li>
+      </ul>
+    </li>{# end .dropdown-menu__row #}
+  </ul>{# end .dropdown-menu__container #}
+</li>
 
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
   <a href="/pricing" id="btn-header-pricing">
     Pricing
-  </a>
-</li>
-
-<li>
-  <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com">
-    Blog
-  </a>
-</li>
-
-<li>
-  <a href="/enterprise">
-    for Enterprise
-    <svg class="external-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect y="2" width="8" height="8" class="external-icon__background"/>
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6.64648L8 0.646484L8.70711 1.35359L2.70711 7.35359L2 6.64648Z" class="external-icon__foreground"/>
-      <path d="M4.35352 0H9.35352V1H4.35352V0Z" class="external-icon__foreground"/>
-      <path d="M9.35352 0L9.35352 5L8.35352 5L8.35352 -4.37114e-08L9.35352 0Z" class="external-icon__foreground"/>
-    </svg>
   </a>
 </li>

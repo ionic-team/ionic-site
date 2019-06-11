@@ -254,7 +254,6 @@ gulp.task('sitemap', function () {
   }))
   .pipe(gulp.dest('dist/'));
 });
-});
 
 gulp.task('build', ['build-prep'], function(done) {
   // runSequence('jekyll-build', function() {

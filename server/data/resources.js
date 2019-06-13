@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Ionic vs. React Native: A Comparison Guide",
+        "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
+        "bgColor": "#15375f"
+      },{
+        "type": "Article",
         "title": "Ionic vs Flutter: A Comparison",
         "url": "/enterprise/resources/articles/ionic-vs-flutter-comparison-guide",
         "target": "_self",
@@ -105,14 +113,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatishybrid.png",
         "bgColor": "#E85B6A"
-      },{
-        "type": "Article",
-        "title": "Ionic vs. React Native: A Comparison Guide",
-        "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
-        "bgColor": "#15375f"
       },{
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",

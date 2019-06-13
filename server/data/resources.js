@@ -24,7 +24,7 @@ const resources = {
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-flutter-card.png",
-        "bgColor": "#51A7FF"
+        "bgColor": "#479dFF"
       },{
         "type": "Article",
         "title": "What is Apache Cordova?",
@@ -112,7 +112,7 @@ const resources = {
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
-        "bgColor": "#72B8FF"
+        "bgColor": "#15375f"
       },{
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",

@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Ionic vs Flutter: A Comparison",
+        "url": "/enterprise/resources/articles/ionic-vs-flutter-comparison-guide",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/ionic-flutter-card.png",
+        "bgColor": "#51A7FF"
+      },{
+        "type": "Article",
         "title": "What is Apache Cordova?",
         "url": "/enterprise/resources/articles/what-is-apache-cordova",
         "target": "_self",
@@ -103,7 +111,7 @@ const resources = {
         "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
         "target": "_self",
         "action": "Read",
-        "bgImage": "/img/resource-center/article-ionicvsreactnative.png",
+        "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
         "bgColor": "#72B8FF"
       },{
         "type": "Ebook",

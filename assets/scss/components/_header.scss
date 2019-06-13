@@ -1,6 +1,6 @@
 .navbar-default {
   background: linear-gradient(to right, #347eff, #1ea3ff);
-  font-family: $font-family-eina;
+  font-family: $font-family-inter;
   margin-bottom: 20px;
   position: relative;
   padding-top: 20px;
@@ -292,7 +292,6 @@
         &__text--l4 {
           line-height: 1.3;
           letter-spacing: -0.01em;
-          color: #5290FE;
         }
 
         &__text--l1 {
@@ -316,7 +315,6 @@
 
         &__text--l3 {
           font-size: 13px;
-          font-family: $font-family-inter;
         }
 
         &__text--l4 {
@@ -357,12 +355,21 @@
           padding: 12px 28px;
         }
 
+        a.dropdown-menu__text--l2 {
+          color: #1A232F;
+          font-family: $font-family-eina;
+        }
+
         a.dropdown-menu__text--l3 {
-          padding: 5px 28px;
+          padding: 10px 28px;
         }
 
         a {
-          color: #5290FE;
+          color: #616E7E;
+
+          &:hover {
+            color: #5290FE;
+          }
         }
 
         .big a {
@@ -472,6 +479,54 @@
             content: '';
             display: block;
         }
+
+        &__row {
+          display: flex;
+        }
+
+        &__column {
+          position: relative;
+          
+          &::after {
+            position: absolute;
+            top: -18px;
+            bottom: -18px;
+            right: 0;
+            content: '';
+            display: block;
+            border-right: 1px solid #E7ECF3;
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+        }
+
+        &__item {
+          margin-top: 18px !important;
+
+          a {
+            display: flex;
+            border-top: 1px solid #E7ECF3;
+            padding-top: 16px;
+            padding-bottom: 0;
+            align-items: center;
+            font-size: 13px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.01em;
+            color: #1A232F;
+
+            & :last-child {
+              margin-left: auto;
+            }
+          }
+        }
+      }
+
+      #ionic-blog-logo {
+        margin-bottom: 6px;
       }
 
       &.open .dropdown-menu,
@@ -520,17 +575,21 @@
       display: block;
       position: absolute;
       border: 0;
-      border-radius: 3px;
+      border-radius: 4px;
       padding: 12px 0 10px;
       top: 52px;
       left: 70px;
       right: -100px;
       min-width: 205px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
+      box-shadow: 
+        0px 8px 16px rgba(2, 8, 20, 0.08), 
+        0px 2px 8px rgba(2, 8, 20, 0.1);
       opacity: 0;
       transform: scale(.01);
       transform-origin: 20% 8px;
-      transition: all 0.3s cubic-bezier(.155, 1.105, .295, 1.12), opacity 0.1s linear;
+      transition: 
+        all 0.3s cubic-bezier(.155, 1.105, .295, 1.12), 
+        opacity 0.1s linear;
 
       a {
         padding: 6px 23px;
@@ -906,7 +965,6 @@
               color: $dark-grey;
               border-bottom: 2px solid transparent;
               transition: color 0.2s, border-color 0.2s;
-              font-family: $font-family-eina;
               font-weight: 600;
 
               &:focus {
@@ -982,7 +1040,6 @@
         margin-left: 0;
         margin-right: 0;
         padding: 0 14px 10px;
-        font-family: $font-family-inter;
         font-weight: 400;
         font-size: 14px;
       }

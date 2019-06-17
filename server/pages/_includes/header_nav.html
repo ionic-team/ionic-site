@@ -7,13 +7,13 @@
      aria-expanded="false">
     Platform {% include '_includes/svg/chevron-down.svg' %}
   </a>
-  <ul class="dropdown-menu dropdown-menu--container">
+  <ul class="dropdown-menu dropdown-menu--container" id="dropdown-platform">
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
         <li><span class="dropdown-menu__text--l2">Products</span></li>
         <li>
           <a href="/docs" class="dropdown-menu__text--l3">
-            Ionic Framework
+            Framework
           </a>
         </li>
         <li>
@@ -36,8 +36,8 @@
       <ul class="dropdown-menu__column">
         <li><span class="dropdown-menu__text--l2">Solutions</span></li>
         <li>
-          <a href="/integrations" class="dropdown-menu__text--l3">
-            Integrations
+          <a href="/enterprise/solutions/cross-platform" class="dropdown-menu__text--l3">
+            Cross Platform Apps
           </a>
         </li>
         <li>
@@ -46,22 +46,22 @@
           </a>
         </li>
         <li>
-          <a href="/enterprise/solutions/pwa" class="dropdown-menu__text--l3">
-            Progressive Web Apps
+          <a href="/integrations" class="dropdown-menu__text--l3">
+            Integrations
           </a>
         </li>
         <li>
-          <a href="/enterprise/solutions/design-systems" class="dropdown-menu__text--l3">
-            Design Systems
+          <a href="/enterprise/solutions/pwa" class="dropdown-menu__text--l3">
+            Progressive Web Apps
           </a>
         </li>
       </ul>
   
       <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Support</span></li>
+        <li><span class="dropdown-menu__text--l2">Get Help</span></li>
         <li>
-          <a href="/enterprise/customers" class="dropdown-menu__text--l3">
-            Customer Success
+          <a href="/support" class="dropdown-menu__text--l3">
+            Support
           </a>
         </li>
         <li>
@@ -88,7 +88,7 @@
      aria-expanded="false">
       Developers {% include '_includes/svg/chevron-down.svg' %}
   </a>
-  <ul class="dropdown-menu dropdown-menu--container">
+  <ul class="dropdown-menu dropdown-menu--container" id="dropdown-developers">
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
         <li>
@@ -97,8 +97,8 @@
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs" class="dropdown-menu__text--l3">
-            Guide
+          <a href="https://ionicframework.com/docs/installation/cli" class="dropdown-menu__text--l3">
+            Installation
           </a>
         </li>
         <li>
@@ -112,13 +112,13 @@
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/installation/cli" class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation">
+          <a href="https://ionicframework.com/docs/cli" class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation">
             CLI
           </a>
         </li>
       </ul>
   
-      <ul class="dropdown-menu__column">
+      {#<ul class="dropdown-menu__column">
         <li><span class="dropdown-menu__text--l2">Get Started</span></li>
         <li>
           <a href="https://ionicframework.com/docs/angular/overview" class="dropdown-menu__text--l3">
@@ -140,7 +140,7 @@
             Javascript
           </a>
         </li>
-      </ul>
+      </ul>#}
   
       <ul class="dropdown-menu__column">
         <li><span class="dropdown-menu__text--l2">Open Source</span></li>
@@ -173,7 +173,7 @@
      aria-expanded="false">
     Resources {% include '_includes/svg/chevron-down.svg' %}
   </a>
-  <ul class="dropdown-menu dropdown-menu--container">
+  <ul class="dropdown-menu dropdown-menu--container" id="dropdown-resources">
     <li class="dropdown-menu__row">
       <ul class="dropdown-menu__column">
         <li>
@@ -211,12 +211,12 @@
       <ul class="dropdown-menu__column">
         <li>
           <a href="/enterprise/resources" class="dropdown-menu__text--l2">
-            Community Hub {% include '_includes/svg/ico-forward.svg' %}
+            Resource Center {% include '_includes/svg/ico-forward.svg' %}
           </a>
         </li>
         <li>
           <a href="/enterprise/resources/articles" class="dropdown-menu__text--l3">
-            Articles
+            Articles & Whitepapers
           </a>
         </li>
         <li>
@@ -282,7 +282,7 @@
 </li>
 
 
-{#<li class="dropdown dropdown--has-container">
+{#<li class="dropdown dropdown--has-container" id="dropdown-pricing">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"

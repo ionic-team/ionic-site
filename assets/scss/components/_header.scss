@@ -99,6 +99,7 @@
   .navbar-collapse {
     text-align: center;
     max-height: 32px;
+
     @media (max-width: $screen-xs-max) {
       max-height: 600px;
       margin-top: 20px;
@@ -111,11 +112,13 @@
       margin: 0 auto;
       display: inline-block;
     }
+
     @media (min-width: $screen-md-min) {
       &.navbar-center {
         margin-left: 0px; //offset to align with pre-header announcement
       }
     }
+
     @media (max-width: $screen-xs-max) {
       padding-right: 6px;
       padding-left: 6px;
@@ -133,12 +136,14 @@
           display: none;
         }
       }
+
       @media (max-width: $screen-md-max) {
         &.hide-lt-lg,
         .hide-lt-lg {
           display: none;
         }
       }
+
       @media (min-width: $screen-lg-min) {
         &.hide-gt-md,
         .hide-gt-md {
@@ -149,7 +154,7 @@
       > a {
         color: white;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         margin-top: 0;
         padding: 6px 8px;
         letter-spacing: -.01em;
@@ -159,16 +164,19 @@
         border-top: none;
         border-radius: 4px;
         transition-duration: 0.3s;
+
         @media (max-width: $screen-md-max) {
           margin-left: 9px;
           margin-right: 9px;
         }
+
         @media (max-width: $screen-sm-max) {
           margin-left: 0;
           margin-right: 0;
           padding-left: 10px;
           padding-right: 10px;
         }
+
         @media (max-width: $screen-xs-max) {
           padding: 15px;
           border: 0;
@@ -203,6 +211,7 @@
           padding: 6px 8px 6px;
           border-radius: 4px;
           color: $blue;
+          font-weight: 700;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
           margin-left: 24px;
@@ -236,8 +245,6 @@
     }
   }
 
-
-
   // mobile width animation & default styles
   .dropdown {
     .dropdown-menu {
@@ -260,12 +267,14 @@
       border-bottom: 1px solid #ebeef2;
       margin: 6px 0 13px;
     }
+
     @media (max-width: $screen-xs-max) {
       .dropdown-menu {
         text-align: center;
       }
     }
   }
+
   // desktop width animation
   @media (min-width: $screen-sm-min) {
     .dropdown {
@@ -275,10 +284,12 @@
         border: 0;
         border-radius: 8px;
         top: 39px;
-        padding: 18px 0;
+        padding: 18px 0 14px;
         right: auto;
         left: 50%;
-        box-shadow: 0 10px 28px rgba(0, 16, 44, 0.18), 0 1px 5px rgba(0, 16, 44, 0.2);
+        box-shadow: 
+          0 10px 28px rgba(0, 16, 44, 0.18), 
+          0 1px 5px rgba(0, 16, 44, 0.2);
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -286,9 +297,19 @@
         z-index: 1;
         transition-delay: 0s;
         transform-origin: 50% 0;
-        transition: transform 0.2s cubic-bezier(0.36,0.66,0.04,1), opacity 0.2s linear, top 0.25s step-end;
+        transition: 
+          transform 0.2s cubic-bezier(0.36,0.66,0.04,1), 
+          opacity 0.2s linear, top 0.25s step-end;
         backface-visibility: hidden;
 
+        &--container {
+          left: 280px;
+
+          &::before {
+            right: auto;
+            left: 50px;
+          }
+        }
 
         &__text--l1,
         &__text--l2,
@@ -350,8 +371,8 @@
         span,
         strong {
           display: block;
-          padding: 8px 28px;
-          min-width: 230px;
+          padding: 6px 25px;
+          min-width: 198px;
           transition: 0.2s color;
         }
 
@@ -365,7 +386,7 @@
         }
 
         a.dropdown-menu__text--l3 {
-          padding: 10px 28px;
+          padding: 9px 24px;
         }
 
         a {
@@ -373,6 +394,12 @@
 
           &:hover {
             color: #5290FE;
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
           }
         }
 
@@ -507,7 +534,7 @@
         }
 
         &__item {
-          margin-top: 18px !important;
+          margin-top: 17px !important;
 
           a {
             display: flex;
@@ -517,8 +544,6 @@
             align-items: center;
             font-size: 13px;
             line-height: 16px;
-            display: flex;
-            align-items: center;
             letter-spacing: -0.01em;
             color: #1A232F;
 
@@ -526,11 +551,11 @@
               margin-left: auto;
             }
           }
-        }
-      }
 
-      #ionic-blog-logo {
-        margin-bottom: 6px;
+          span {
+            padding-left: 12px;
+          }
+        }
       }
 
       &.open .dropdown-menu,
@@ -1010,7 +1035,7 @@
 
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #788294;
+        color: #414D5C;
 
         &:hover {
           color: $blue;
@@ -1085,7 +1110,6 @@
   }
 
   .navbar-right > li > a {
-    font-weight: 700;
     margin-right: 0px;
     margin-left: 8px;
   }
@@ -1104,8 +1128,6 @@
     height: 31px;
     display: block;
   }
-
-
 }
 
 .docs .navbar-default .navbar-nav {

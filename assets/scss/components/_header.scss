@@ -190,9 +190,10 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 6px 8px 6px;
+          padding: 7px 8px 5px;
           border-radius: 4px;
           color: $blue;
+          font-family: $font-family-eina;
           font-weight: 700;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
@@ -469,7 +470,7 @@
           &::after {
             position: absolute;
             top: -18px;
-            bottom: -18px;
+            bottom: -14px;
             right: 0;
             content: '';
             display: block;

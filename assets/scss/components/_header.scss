@@ -124,6 +124,10 @@
     > li {
       padding-top: 0;
 
+      &:first-child {
+        margin-left: 16px;
+      }
+
       &.sm-hide {
         @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
           display: none;
@@ -149,8 +153,8 @@
         margin-top: 0;
         padding: 6px 8px;
         letter-spacing: -.01em;
-        margin-left: 14px;
-        margin-right: 14px;
+        margin-left: 8px;
+        margin-right: 8px;
         transition: 0.2s color;
         border-top: none;
         border-radius: 4px;

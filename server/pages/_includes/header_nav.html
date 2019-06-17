@@ -4,7 +4,9 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Platform</a>
+     aria-expanded="false">
+    Platform {% include '_includes/svg/chevron-down.svg' %}
+  </a>
   <ul class="dropdown-menu dropdown-menu--container">
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
@@ -83,7 +85,9 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Developers</a>
+     aria-expanded="false">
+      Developers {% include '_includes/svg/chevron-down.svg' %}
+  </a>
   <ul class="dropdown-menu dropdown-menu--container">
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
@@ -166,7 +170,9 @@
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Resources</a>
+     aria-expanded="false">
+    Resources {% include '_includes/svg/chevron-down.svg' %}
+  </a>
   <ul class="dropdown-menu dropdown-menu--container">
     <li class="dropdown-menu__row">
       <ul class="dropdown-menu__column">
@@ -276,13 +282,15 @@
 </li>
 
 
-<li class="dropdown dropdown--has-container">
+{#<li class="dropdown dropdown--has-container">
   <a href="#"
      class="dropdown-toggle"
      data-toggle="dropdown"
      role="button"
      aria-haspopup="true"
-     aria-expanded="false">Developers</a>
+     aria-expanded="false">
+    Pricing {% include '_includes/svg/chevron-down.svg' %}
+  </a>
   <ul class="dropdown-menu dropdown-menu--container">
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
@@ -317,12 +325,12 @@
           </a>
         </li>
       </ul>
-    </li>{# end .dropdown-menu__row #}
-  </ul>{# end .dropdown-menu__container #}
-</li>
+    </li>
+  </ul>
+</li>#}
 
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
-  <a href="/pricing" id="btn-header-pricing">
-    Pricing
-  </a>
+  <a href="/pricing" id="btn-header-pricing">Pricing</a>
 </li>
+
+<li><a href="/enterprise">Enterprise</a></li>

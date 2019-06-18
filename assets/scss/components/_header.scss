@@ -1,11 +1,11 @@
 .navbar-default {
   background: linear-gradient(to right, #347eff, #1ea3ff);
-  font-family: $font-family-eina;
+  font-family: $font-family-inter;
   margin-bottom: 20px;
   position: relative;
   padding-top: 20px;
   border-radius: 0;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   min-height: 32px;
   z-index: 30;
   border: 0;
@@ -21,7 +21,6 @@
       position: fixed;
     }
   }
-
 
   &.enterprise {
     background: #fff;
@@ -48,8 +47,9 @@
 
   .navbar-brand {
     height: 32px;
+    color: white;
     padding: 1px 0 0 13px;
-    transition: 0.3s opacity;
+    transition: 0.3s color;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -60,7 +60,7 @@
     }
 
     &:hover {
-      opacity: 0.65;
+      color: rgba(white, .8);
     }
   }
 
@@ -79,26 +79,10 @@
     }
   }
 
-
-  #ionic-io-logo {
-    fill: #fff;
-    height: 30px;
-    width: 96px;
-    margin: 0;
-
-    .light &,
-    &.light {
-      fill: #3880FF;
-    }
-
-    @media (max-width: $screen-xs-max) {
-      fill: #3880FF;
-    }
-  }
-
   .navbar-collapse {
     text-align: center;
     max-height: 32px;
+
     @media (max-width: $screen-xs-max) {
       max-height: 600px;
       margin-top: 20px;
@@ -111,11 +95,13 @@
       margin: 0 auto;
       display: inline-block;
     }
+
     @media (min-width: $screen-md-min) {
       &.navbar-center {
         margin-left: 0px; //offset to align with pre-header announcement
       }
     }
+
     @media (max-width: $screen-xs-max) {
       padding-right: 6px;
       padding-left: 6px;
@@ -124,17 +110,23 @@
     > li {
       padding-top: 0;
 
+      &:first-child {
+        margin-left: 16px;
+      }
+
       &.sm-hide {
         @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
           display: none;
         }
       }
+
       @media (max-width: $screen-md-max) {
         &.hide-lt-lg,
         .hide-lt-lg {
           display: none;
         }
       }
+
       @media (min-width: $screen-lg-min) {
         &.hide-gt-md,
         .hide-gt-md {
@@ -145,26 +137,29 @@
       > a {
         color: white;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         margin-top: 0;
         padding: 6px 8px;
         letter-spacing: -.01em;
-        margin-left: 14px;
-        margin-right: 14px;
+        margin-left: 8px;
+        margin-right: 8px;
         transition: 0.2s color;
         border-top: none;
         border-radius: 4px;
         transition-duration: 0.3s;
+
         @media (max-width: $screen-md-max) {
           margin-left: 9px;
           margin-right: 9px;
         }
+
         @media (max-width: $screen-sm-max) {
           margin-left: 0;
           margin-right: 0;
           padding-left: 10px;
           padding-right: 10px;
         }
+
         @media (max-width: $screen-xs-max) {
           padding: 15px;
           border: 0;
@@ -196,12 +191,16 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 6px 8px 6px;
-          border-radius: 4px;
+          padding: 8px 11px 10px;
+          border-radius: 8px;
           color: $blue;
+          letter-spacing: -0.03em;
+          line-height: 16px;
+          font-family: $font-family-inter;
+          font-weight: 700;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
-          margin-left: 24px;
+          margin-left: 16px;
           transition: 0.3s box-shadow, 0.3s background;
 
           &:hover {
@@ -232,8 +231,6 @@
     }
   }
 
-
-
   // mobile width animation & default styles
   .dropdown {
     .dropdown-menu {
@@ -256,12 +253,14 @@
       border-bottom: 1px solid #ebeef2;
       margin: 6px 0 13px;
     }
+
     @media (max-width: $screen-xs-max) {
       .dropdown-menu {
         text-align: center;
       }
     }
   }
+
   // desktop width animation
   @media (min-width: $screen-sm-min) {
     .dropdown {
@@ -271,10 +270,12 @@
         border: 0;
         border-radius: 8px;
         top: 39px;
-        padding: 18px 0;
+        padding: 18px 0 14px;
         right: auto;
         left: 50%;
-        box-shadow: 0 10px 28px rgba(0, 16, 44, 0.18), 0 1px 5px rgba(0, 16, 44, 0.2);
+        box-shadow: 
+          0 10px 28px rgba(0, 16, 44, 0.18), 
+          0 1px 5px rgba(0, 16, 44, 0.2);
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -282,9 +283,19 @@
         z-index: 1;
         transition-delay: 0s;
         transform-origin: 50% 0;
-        transition: transform 0.2s cubic-bezier(0.36,0.66,0.04,1), opacity 0.2s linear, top 0.25s step-end;
+        transition: 
+          transform 0.2s cubic-bezier(0.36,0.66,0.04,1), 
+          opacity 0.2s linear, top 0.25s step-end;
         backface-visibility: hidden;
 
+        &--container {
+          left: 280px;
+
+          &::before {
+            right: auto;
+            left: 50px;
+          }
+        }
 
         &__text--l1,
         &__text--l2,
@@ -292,7 +303,6 @@
         &__text--l4 {
           line-height: 1.3;
           letter-spacing: -0.01em;
-          color: #5290FE;
         }
 
         &__text--l1 {
@@ -316,7 +326,6 @@
 
         &__text--l3 {
           font-size: 13px;
-          font-family: $font-family-inter;
         }
 
         &__text--l4 {
@@ -348,8 +357,8 @@
         span,
         strong {
           display: block;
-          padding: 8px 28px;
-          min-width: 230px;
+          padding: 6px 25px;
+          min-width: 198px;
           transition: 0.2s color;
         }
 
@@ -357,46 +366,27 @@
           padding: 12px 28px;
         }
 
+        a.dropdown-menu__text--l2 {
+          color: #1A232F;
+          font-family: $font-family-eina;
+        }
+
         a.dropdown-menu__text--l3 {
-          padding: 5px 28px;
+          padding: 9px 24px;
         }
 
         a {
-          color: #5290FE;
-        }
+          color: #616E7E;
 
-        .big a {
-          padding-left: 65px;
-          position: relative;
-
-          svg {
-            position: absolute;
-            left: 30px;
-            top: 15px;
-          }
-
-          span {
-            padding-top: 0;
-            color: #73849A !important;
-          }
-
-          strong {
-            padding-top: 12px;
-            padding-bottom: 0;
+          &:hover {
             color: #5290FE;
           }
-        }
 
-        &--withbigs {
-           padding-top: 0;
-
-           .big:first-child {
-             margin-top: 12px !important;
-           }
-
-           .big + .divider {
-             margin-top: 18px;
-           }
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
+          }
         }
 
         a:hover {
@@ -472,6 +462,52 @@
             content: '';
             display: block;
         }
+
+        &__row {
+          display: flex;
+        }
+
+        &__column {
+          position: relative;
+          
+          &::after {
+            position: absolute;
+            top: -18px;
+            bottom: -14px;
+            right: 0;
+            content: '';
+            display: block;
+            border-right: 1px solid #E7ECF3;
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+        }
+
+        &__item {
+          margin-top: 14px !important;
+
+          a {
+            display: flex;
+            border-top: 1px solid #E7ECF3;
+            padding-top: 16px;
+            padding-bottom: 0;
+            align-items: center;
+            font-size: 13px;
+            line-height: 16px;
+            letter-spacing: -0.01em;
+            color: #1A232F;
+
+            & :last-child {
+              margin-left: auto;
+            }
+          }
+
+          span {
+            padding-left: 12px;
+          }
+        }
       }
 
       &.open .dropdown-menu,
@@ -489,166 +525,6 @@
         border-top: 3px dashed;
         border-right: 3px solid transparent;
         border-left: 3px solid transparent;
-      }
-    }
-  }
-
-  .version {
-    float: left;
-    list-style: none;
-    padding-left: 0;
-
-    > li > a {
-      padding: 12px 5px 0;
-      font-size: 18px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, .5);
-      display: block;
-      @media (max-width: $screen-xs-max) {
-        padding: 13px 10px 0;
-      }
-
-      &:active,
-      &:focus,
-      &:hover {
-        color: rgba(white, .7);
-        text-decoration: none;
-      }
-    }
-
-    .dropdown-menu {
-      display: block;
-      position: absolute;
-      border: 0;
-      border-radius: 3px;
-      padding: 12px 0 10px;
-      top: 52px;
-      left: 70px;
-      right: -100px;
-      min-width: 205px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
-      opacity: 0;
-      transform: scale(.01);
-      transform-origin: 20% 8px;
-      transition: all 0.3s cubic-bezier(.155, 1.105, .295, 1.12), opacity 0.1s linear;
-
-      a {
-        padding: 6px 23px;
-        line-height: 1.6;
-        font-size: 13px;
-        font-weight: 500;
-
-        i::before {
-          font-size: 30px;
-          line-height: 10px;
-          position: relative;
-          top: 7px;
-          margin-left: 5px;
-        }
-
-        &.active,
-        &.active:hover {
-          color: $blue;
-          text-decoration: none;
-          background: transparent;
-          cursor: default;
-        }
-      }
-
-      &::before {
-        background: url('/img/ico-nav-arrow.png') center center no-repeat;
-        background-size: 15px;
-        width: 15px;
-        height: 8px;
-        position: absolute;
-        top: -7px;
-        left: 35px;
-        content: '';
-        z-index: 5;
-      }
-    }
-
-    &.open .dropdown-menu {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .header-form {
-    margin: 6px 0 0 110px;
-
-    @media (max-width: 1330px) {
-      margin-left: 0;
-    }
-
-    .form-group {
-      position: relative;
-      padding-left: 0;
-      margin-bottom: 0;
-
-      input {
-        background: rgba(255, 255, 255, .1);
-        box-shadow: none;
-        border: 0;
-        color: white;
-        font-size: 14px;
-        border-radius: 800px;
-        padding-left: 38px;
-        width: 150px;
-        transition: all 0.3s cubic-bezier(0.2, 0.85, 0.2, 1.1);
-
-        &:focus {
-          width: 270px;
-          color: white;
-          background: rgba(255, 255, 255, .15);
-        }
-
-        &::placeholder {
-          color: rgba(255, 255, 255, .4);
-        }
-      }
-
-      &::before {
-        font-family: 'Ionicons';
-        -webkit-font-smoothing: antialiased;
-        content: '\f4a5';
-        font-size: 18px;
-        font-weight: 800;
-        color: rgba(255, 255, 255, .4);
-        position: absolute;
-        top: 4px;
-        left: 14px;
-        cursor: pointer;
-
-        @media (max-width: $screen-xs-max) {
-          color: rgba(255, 255, 255, 1);
-        }
-      }
-    }
-    @media (max-width: $screen-md-max) {
-      margin-left: 40px;
-
-      .form-group input:focus {
-        width: 192px;
-      }
-    }
-    @media (max-width: $screen-xs-max) {
-      float: right;
-      margin-left: 10px;
-
-      .form-group input {
-        width: 40px;
-        padding: 0px;
-        opacity: 0;
-      }
-
-      .form-group input:focus {
-        width: calc(100vw - 20px);
-        padding: 6px 12px;
-        padding-left: 38px;
-        opacity: 1;
-        margin-bottom: 10px;
-        margin-right: 10px;
       }
     }
   }
@@ -723,132 +599,6 @@
     }
   }
 
-  .container-fluid {
-    min-height: 62px;
-    padding-top: 13px;
-    margin-top: -27px;
-
-    .navbar-nav {
-      padding-top: 5px;
-      @media (max-width: $screen-md-max) {
-        padding-left: 5px;
-      }
-
-      > li > a {
-        padding-left: 23px;
-        padding-right: 23px;
-      }
-    }
-
-    .header-btn-white {
-      margin-top: 0;
-    }
-    @media (max-width: $screen-xs-max) {
-      padding-top: 28px;
-    }
-    @media (max-width: 1514px) {
-      .navbar-nav > li > a {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-    }
-    // @media (max-width: 1226px) {
-    //   .navbar-nav > li > a {
-    //     padding-left: 5px;
-    //     padding-right: 4px;
-    //   }
-    // }
-    @media (max-width: 1106px) and (min-width: $screen-sm-min) {
-      #header-search {
-        // display: none;
-      }
-    }
-    @media (max-width: 1106px) and (min-width: $screen-sm-min) {
-      .hide-sm,
-      .sm-hide {
-        display: none;
-      }
-    }
-    @media (max-width: $screen-md-max) {
-      .hide-lt-lg {
-        display: none;
-      }
-    }
-    @media (min-width: $screen-lg-min) {
-      .hide-gt-md {
-        display: none;
-      }
-    }
-    @media (max-width: 892px) and (min-width: $screen-sm-min) {
-      .header-btn,
-      .header-btn-white {
-        display: none;
-      }
-    }
-
-    #ionic-docs-back,
-    #ionic-docs-logo {
-      width: 32px;
-      transition: 0.3s transform, 0.3s opacity;
-      @media (max-width: $screen-xs-max) {
-        margin-left: 12px;
-        margin-right: -13px;
-      }
-    }
-
-    #ionic-docs-back {
-      position: absolute;
-      top: 6px;
-      left: 13px;
-      opacity: 0;
-      transform: scale3d(1.1, 1.1, 1);
-    }
-
-    #ionic-docs-text {
-      width: 56px;
-      margin-left: 5px;
-    }
-
-    #ionic-pro-docs-text {
-      width: 36px;
-      margin-left: 8px;
-    }
-
-    .navbar-brand {
-      padding-top: 8px;
-
-      img {
-        width: 88px;
-      }
-
-      &.logo {
-        position: relative;
-        padding-top: 6px;
-
-        &:hover {
-          opacity: 1;
-
-          #ionic-docs-logo {
-            opacity: 0;
-            transform: translate3d(-3px, 0, 0) scale3d(1.1, 1.1, 1);
-          }
-
-          #ionic-docs-back {
-            opacity: 1;
-            transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
-          }
-        }
-
-        &:active,
-        &:focus,
-        &:hover:active {
-          transform: translate3d(-3px, 0, 0) scale3d(.9, .9, 1);
-          transform-origin: 120% 80%;
-        }
-      }
-    }
-  }
-
   + .cta {
     .bar {
       background: rgba(black, .9);
@@ -906,7 +656,6 @@
               color: $dark-grey;
               border-bottom: 2px solid transparent;
               transition: color 0.2s, border-color 0.2s;
-              font-family: $font-family-eina;
               font-weight: 600;
 
               &:focus {
@@ -942,13 +691,9 @@
   }
   @media (min-width: $screen-sm-min) {
     &.light {
-      #ionic-io-logo {
-        fill: #4f6384;
-      }
-
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #788294;
+        color: #414D5C;
 
         &:hover {
           color: $blue;
@@ -957,6 +702,14 @@
 
       .navbar-nav > li.active > a {
         color: #c7d0e0;
+      }
+
+      .navbar-brand {
+        color: #1A232F;
+    
+        &:hover {
+          color: $blue;
+        }
       }
     }
 
@@ -982,7 +735,6 @@
         margin-left: 0;
         margin-right: 0;
         padding: 0 14px 10px;
-        font-family: $font-family-inter;
         font-weight: 400;
         font-size: 14px;
       }
@@ -1024,14 +776,13 @@
   }
 
   .navbar-right > li > a {
-    font-weight: 700;
     margin-right: 0px;
     margin-left: 8px;
   }
 
   &.navbar-sticky {
     z-index: 999;
-    padding: 20px 0px;
+    padding: 16px 0px 0px;
     box-shadow:
       0px 2px 6px 0px rgba(0, 0, 0, 0.04),
       0px 6px 12px rgba(0, 0, 0, 0.02);
@@ -1044,7 +795,31 @@
     display: block;
   }
 
+  .external-icon {
+    width: 10px;
+    overflow: visible;
+  
+    .external-icon__background {
+      fill: #e5e7ea;
+      transition: .2s fill;
+    }
+    .external-icon__foreground {
+      fill: #7a8496;
+      transition: .2s transform ease, .2s fill;
+    }
+  }
+  
+  a:hover {
+    .external-icon__background {
+      fill: lighten($blue, 25);
 
+    }
+  
+    .external-icon__foreground {
+      fill: $blue;
+      transform: translate(1px, -1px);
+    }
+  }
 }
 
 .docs .navbar-default .navbar-nav {
@@ -1066,23 +841,4 @@ body.page-header {
 
 .navbar-dark {
   background: #11192a;
-}
-
-.external-icon {
-  .external-icon__background {
-    fill: #97BDFF;
-  }
-  .external-icon__foreground {
-    fill: #fff;
-  }
-}
-
-.light .external-icon,
-.external-icon--light {
-  .external-icon__background {
-    fill: #e5e7ea;
-  }
-  .external-icon__foreground {
-    fill: #7a8496;
-  }
 }

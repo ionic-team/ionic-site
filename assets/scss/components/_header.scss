@@ -805,6 +805,7 @@
     }
     .external-icon__foreground {
       fill: #7a8496;
+      transform: translate(1px, 0);
       transition: .2s transform ease, .2s fill;
     }
   }
@@ -817,7 +818,7 @@
   
     .external-icon__foreground {
       fill: $blue;
-      transform: translate(1px, -1px);
+      transform: translate(2px, -1px);
     }
   }
 }

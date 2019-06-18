@@ -5,7 +5,7 @@
   position: relative;
   padding-top: 20px;
   border-radius: 0;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   min-height: 32px;
   z-index: 30;
   border: 0;
@@ -47,8 +47,9 @@
 
   .navbar-brand {
     height: 32px;
+    color: white;
     padding: 1px 0 0 13px;
-    transition: 0.3s opacity;
+    transition: 0.3s color;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -59,7 +60,7 @@
     }
 
     &:hover {
-      opacity: 0.65;
+      color: rgba(white, .8);
     }
   }
 
@@ -190,10 +191,12 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 7px 8px 5px;
-          border-radius: 4px;
+          padding: 8px 11px 10px;
+          border-radius: 8px;
           color: $blue;
-          font-family: $font-family-eina;
+          letter-spacing: -0.03em;
+          line-height: 16px;
+          font-family: $font-family-inter;
           font-weight: 700;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
           margin-right: 0;
@@ -483,7 +486,7 @@
         }
 
         &__item {
-          margin-top: 17px !important;
+          margin-top: 14px !important;
 
           a {
             display: flex;
@@ -700,6 +703,14 @@
       .navbar-nav > li.active > a {
         color: #c7d0e0;
       }
+
+      .navbar-brand {
+        color: #1A232F;
+    
+        &:hover {
+          color: $blue;
+        }
+      }
     }
 
     &.enterprise {
@@ -771,7 +782,7 @@
 
   &.navbar-sticky {
     z-index: 999;
-    padding: 20px 0px;
+    padding: 16px 0px 0px;
     box-shadow:
       0px 2px 6px 0px rgba(0, 0, 0, 0.04),
       0px 6px 12px rgba(0, 0, 0, 0.02);

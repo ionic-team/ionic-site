@@ -527,6 +527,7 @@
   document.querySelectorAll('.cta-link').forEach(function(ctaLink){
     ctaLink.addEventListener('click', function(ev){
       ev.preventDefault();
+      window.c('Enterprise Engine', 'btn-enterprise-engine-hero-buy');
       scrollToSelector('.call-to-action');
     });
   });

@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Preview - Creating Ionic Applications with StencilJS",
+        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
+        "bgColor": "#393c49"
+      },{
+        "type": "Article",
         "title": "Ionic vs. React Native: A Comparison Guide",
         "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
         "target": "_self",

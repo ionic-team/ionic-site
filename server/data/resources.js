@@ -25,7 +25,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
         "bgColor": "#393c49"
-      },{
+      }, {
         "type": "Article",
         "title": "Ionic vs. React Native: A Comparison Guide",
         "url": "/enterprise/resources/articles/ionic-vs-react-native-a-comparison-guide",
@@ -33,7 +33,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
         "bgColor": "#15375f"
-      },{
+      }, {
         "type": "Article",
         "title": "Ionic vs Flutter: A Comparison",
         "url": "/enterprise/resources/articles/ionic-vs-flutter-comparison-guide",
@@ -41,7 +41,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-flutter-card.png",
         "bgColor": "#479dFF"
-      },{
+      }, {
         "type": "Article",
         "title": "What is Apache Cordova?",
         "url": "/enterprise/resources/articles/what-is-apache-cordova",
@@ -49,7 +49,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
         "bgColor": "#51A7FF"
-      },{
+      }, {
         "type": "Article",
         "title": "3 Common Pitfalls on the Path to Digital Transformation",
         "url": "/enterprise/resources/articles/digital-transformation-pitfalls",
@@ -57,7 +57,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-digitaltransformation.png",
         "bgColor": "#786DF9"
-      },{
+      }, {
         "type": "Article",
         "title": "Why Every Company Needs a Design System",
         "url": "/enterprise/resources/articles/why-every-company-needs-a-design-system",
@@ -65,7 +65,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-why-every-company-needs-a-design-system.png",
         "bgColor": "#31466D"
-      },{
+      }, {
         "type": "Article",
         "title": "What is Cross-Platform App Development?",
         "url": "/enterprise/resources/articles/what-is-cross-platform-app-development",
@@ -73,7 +73,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-what-is-cross-platform-development.png",
         "bgColor": "#FFBD00"
-      },{
+      }, {
         "type": "Article",
         "title": "How to Pick the Right Mobile Development Approach",
         "url": "/enterprise/resources/articles/how-to-pick-the-right-mobile-development-approach",
@@ -81,7 +81,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-questions-to-ask.png",
         "bgColor": "#5147F0"
-      },{
+      }, {
         "type": "Article",
         "title": "How Hybrid App Development Helps Deliver Great UX",
         "url": "/enterprise/resources/articles/how-hybrid-app-development-helps-deliver-great-ux",
@@ -89,7 +89,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-how-hybrid-app-development-delivers-great-ux.png",
         "bgColor": "#9273FF"
-      },{
+      }, {
         "type": "Article",
         "title": "What is a Progressive Web App and Why You Need One",
         "url": "/enterprise/resources/articles/what-is-a-progressive-web-app-and-why-you-need-one",
@@ -97,7 +97,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisapwa.png",
         "bgColor": "#F95E6F"
-      },{
+      }, {
         "type": "Article",
         "title": "Evaluating Ionic for Enterprise Development",
         "url": "/enterprise/resources/articles/evaluating-ionic-for-enterprise-development",
@@ -105,7 +105,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",
         "bgColor": "#4570E7"
-      },{
+      }, {
         "type": "Article",
         "title": "What is a UI Component Library",
         "url": "/enterprise/resources/articles/what-is-a-ui-component-library",
@@ -113,7 +113,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
         "bgColor": "#F78760"
-      },{
+      }, {
         "type": "Article",
         "title": "What is Hybrid App Development",
         "url": "/enterprise/resources/articles/what-is-hybrid-app-development",
@@ -121,7 +121,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatishybrid.png",
         "bgColor": "#E85B6A"
-      },{
+      }, {
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",
         "url": "/books/hybrid-vs-native",
@@ -179,8 +179,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-southwest.png",
         "bgColor": "#113F93"
-      },
-      {
+      }, {
         "type": "Case Study",
         "title": "MRA builds its first app in just two months",
         "url": "/enterprise/resources/case-studies/mauritius-revenue-authority-mra",
@@ -188,8 +187,7 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-mra.jpg",
         "bgColor": "#182435"
-      },
-      {
+      }, {
         "type": "Case Study",
         "title": "Building the new Marketwatch app",
         "url": "/enterprise/resources/case-studies/marketwatch",
@@ -291,15 +289,22 @@ const resources = {
     description: "Webinars showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
-    items: [{
+    items: [
+      {
+        "type": "Webinar",
+        "title": "Ionic Auth Connect: Single Sign-on Made Easy",
+        "url": "/enterprise/resources/webinars/auth-connect-native-authentication-made-easy",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-auth-connect.png",
+        "bgColor": "#b396ec"
+      },{
         "type": "Webinar",
         "title": "Capacitor 1.0: A new way to build native mobile apps with Ionic",
         "url": "/enterprise/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
         "action": "Watch",
         "bgImage": "/img/resource-center/capacitor-1-card.png",
         "bgColor": "#010614"
-      },
-      {
+      }, {
         "type": "Webinar",
         "title": "How to build a PWA",
         "url": "/enterprise/resources/webinars/how-to-build-pwa",

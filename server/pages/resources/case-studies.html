@@ -1,12 +1,12 @@
 {% extends "_layouts/enterprise.html" %}
-{% set id = 'enterprise-case-studies' %}
-{% set cssPath = 'enterprise/resources/case-studies' %}
+{% set id = 'case-studies' %}
+{% set cssPath = 'resources/case-studies' %}
 
-{% set title = 'Ionic Article: ' + data.title %}
+{% set title = 'Ionic Case Study: ' + data.title %}
 {% if data.meta_description %}
   {% set meta_description = data.meta_description %}
 {% endif %}
-{% set meta_image = data.meta_image.url or data.hero_image['1x'].url %}
+{% set meta_image = data.hero_image['1x'].url %}
 {% import "_includes/macros.html" as macros %}
 {% set stickyNav = true %}
 
@@ -14,8 +14,8 @@
 <div class="sub-header">
   <div class="container">
     <ul class="left breadcrumbs sm">
-      <li><a href="/enterprise/resources">Resources</a></li>
-      <li><a href="/enterprise/resources/articles">Articles</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/resources/case-studies">Case Study</a></li>
       <li>{{ data.title }}</li>
     </ul>
   </div>
@@ -29,10 +29,10 @@
         {% for group in data.body %}
           {% if group.slice_type == 'normal_text' %}
             {% for section in group.primary.content %}
-              {% if ['heading2', 'heading3'].indexOf(section.type) != -1 %}
+              {% if ['heading2', 'heading3', 'heading4'].indexOf(section.type) != -1 %}
                 <li>
-                  <a href="#{{ section.text | lower | replace(r/ /g, '-') | replace(r/([^a-z\-])/g, '') | replace(r/--/g, '-') }}"
-                     class="anchor nav-link nav-level-{{section.type}}"
+                  <a href="#{{ section.text | lower | replace(' ', '-' ) | replace(',', '' )  }}"
+                     class="anchor nav-link"
                      data-offset="100">{{ section.text }}</a>
                 </li>
               {% endif %}
@@ -70,32 +70,13 @@
       </ul>
     </nav>
   </aside>
-
   <div class="main-col">
     <div class="main-col__inner">
-    <hgroup>
-      <h1>{{ data.title }}</h1>
-      <p class="lg">{{ data.tagline }}</p>
-      <div class="byline">
-        {% for author in data.author %}
-          <img class="avatar"
-               src="{{ author.photo.url }}"
-               alt="{{ author.photo.alt }}"/>
-        {% endfor %}
-        By
-        {% for author in data.author %}
-          <a href="{{ author.author_url.url }}" class="name" target="_blank">
-          {{ author.name }}</a>{% if not loop.last %}, {% endif %}
-        {% endfor %}
-        {% if data.published_date %}
-          on {{ data.published_date|date('MMMM D, YYYY') }}
-        {% endif %}
-        <ul class="tags">
-          {% for tag in data.tags %}
-            <li>{{ tag.tag }}</li>
-          {% endfor %}
-        </ul>
-        </div>
+      {# {{ ctx.htmlSerializer }} #}
+
+      <hgroup>
+        <h1>{{ data.title }}</h1>
+        <p class="lg">{{ data.tagline }}</p>
         <img src="{{data.hero_image.url}}"
              srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
              alt="{{data.hero_image.alt}}">
@@ -140,13 +121,13 @@
       </article>
       <section class="resource-list">
         <div class="resource-list__header">
-          <a class="all" href="/enterprise/resources/articles">
+          <a class="all" href="/resources/case-studies">
             See all <ion-icon name="arrow-round-forward"></ion-icon>
           </a>
           <h4>Up Next</h4>
         </div>
         <div class="resource-card-list resource-card-list--third">
-          {% for r in resources.sectionFeatured['articles'] %}
+          {% for r in resources.sectionFeatured['case-studies'] %}
             {% if loop.index0 < 3 %}
               <div class="resource-card">
                 <div class="resource-card__inner">
@@ -160,7 +141,6 @@
     </div>
   </div>
 </main>
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
 {% endblock %}
 
 {% block scripts %}

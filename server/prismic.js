@@ -8,23 +8,23 @@ const { PRISMIC_ENDPOINT, PRISMIC_PREVIEW } = require('./config');
 function linkResolver(doc) {
   // Define the url depending on the document type
   if (doc.type === 'article') {
-    return '/enterprise/resources/articles/' + doc.uid;
+    return '/resources/articles/' + doc.uid;
   } else if (doc.type === 'case_study') {
-    return '/enterprise/resources/case-studies/' + doc.uid;
+    return '/resources/case-studies/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
   } else if (doc.type === 'integration') {
     return '/integrations/' + doc.uid;
   } else if (doc.type === 'podcast') {
-    return '/enterprise/resources/podcasts/' + doc.uid;
+    return '/resources/podcasts/' + doc.uid;
   } else if (doc.type === 'thank_you') {
     return '/thank-you/' + doc.uid;
   } else if (doc.type === 'video') {
-    return '/enterprise/resources/videos/' + doc.uid;
+    return '/resources/videos/' + doc.uid;
   } else if (doc.type === 'webinar') {
-    return '/enterprise/resources/webinars/' + doc.uid;
+    return '/resources/webinars/' + doc.uid;
   } else if (doc.type === 'whitepaper') {
-    return '/enterprise/resources/whitepapers/' + doc.uid;
+    return '/resources/whitepapers/' + doc.uid;
   }
 
   // Default to homepage

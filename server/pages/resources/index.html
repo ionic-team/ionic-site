@@ -1,6 +1,6 @@
 {% extends "_layouts/enterprise.html" %}
 {% set id = 'resources' %}
-{% set cssPath = 'enterprise/resources/index' %}
+{% set cssPath = 'resources/index' %}
 
 {% set mixpanelEnabled = true %}
 {% import "_includes/macros.html" as macros %}
@@ -38,7 +38,7 @@
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Articles</h4>
-        <a class="pjxLink scrollTopLink" href="/enterprise/resources/articles">See all</a>
+        <a class="pjxLink scrollTopLink" href="/resources/articles">See all</a>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
       {% for r in resources.sectionFeatured['articles'] %}
@@ -54,7 +54,7 @@
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Case Studies</h4>
-        <a class="pjxLink scrollTopLink" href="/enterprise/resources/case-studies">See all</a>
+        <a class="pjxLink scrollTopLink" href="/resources/case-studies">See all</a>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
       {% for r in resources.sectionFeatured['case-studies'] %}
@@ -70,7 +70,7 @@
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Webinars</h4>
-        <a class="pjxLink scrollTopLink" href="/enterprise/resources/webinars">See all</a>
+        <a class="pjxLink scrollTopLink" href="/resources/webinars">See all</a>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
       {% for r in resources.sectionFeatured['webinars'] %}
@@ -86,7 +86,7 @@
     <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Videos</h4>
-        <a class="pjxLink scrollTopLink" href="/enterprise/resources/videos">See all</a>
+        <a class="pjxLink scrollTopLink" href="/resources/videos">See all</a>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
       {% for r in resources.sectionFeatured['videos'] %}
@@ -102,7 +102,7 @@
     <!-- <section class="resource-list">
       <div class="resource-list__header">
         <h4>Featured Presentations</h4>
-        <a class="pjxLink scrollTopLink" href="/enterprise/resources/presentations">See all</a>
+        <a class="pjxLink scrollTopLink" href="/resources/presentations">See all</a>
       </div>
       <div class="resource-card-list resource-card-list--quarter">
       {% for r in resources.sectionFeatured['presentations'] %}
@@ -118,7 +118,7 @@
 
 </section>
 
-{% include '../../_includes/promos/tri-cta.html' %}
+{% include '_includes/promos/tri-cta.html' %}
 {% endblock %}
 
 {% block scripts %}

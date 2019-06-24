@@ -3,7 +3,10 @@
 {% if stickyNav !== false %}
   {% set stickyNav = true %}
 {% endif %}
-{% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
+
+{% if not meta_image %}
+    {% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
+  {% endif %}
 
 {% block page %}
   {% include '../_includes/header-enterprise.html' %}

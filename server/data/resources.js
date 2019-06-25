@@ -3,8 +3,8 @@ const heroFeatured = [
     category: "articles",
     title: "Hybrid vs. Native Ebook",
   }, {
-    category: "webinars",
-    title: "3 Trends That Will Impact Your Mobile Dev Strategy in 2019",
+    category: "articles",
+    title: "When & Why to Choose Ionic",
   }, {
     category: "articles",
     title: "Ionic vs. React Native: A Comparison Guide",
@@ -99,7 +99,7 @@ const resources = {
         "bgColor": "#F95E6F"
       }, {
         "type": "Article",
-        "title": "Evaluating Ionic for Enterprise Development",
+        "title": "When & Why to Choose Ionic",
         "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",

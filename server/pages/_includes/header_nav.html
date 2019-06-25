@@ -300,7 +300,11 @@
     </li>{# end .dropdown-menu__row #}
 
     <li class="dropdown-menu__item">
-      <ionic-blog-latest></ionic-blog-latest>
+      <a href="{{ latestBlog.url }}">
+        {% include '_includes/svg/logo-blog.svg' %}
+        <span>{{ latestBlog.title }}&hellip;</span>
+        {% include '_includes/svg/ico-forward.svg' %}
+      </a>
     </li>
   </ul>{# end .dropdown-menu__container #}
 </li>

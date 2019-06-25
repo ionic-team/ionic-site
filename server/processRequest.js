@@ -7,6 +7,10 @@ var tools           = require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
 
+// get the latest blog post info
+const lbs = require('./services/latestBlog');
+lbs.getLatestPost();
+
 module.exports = {
   checkForRedirects: (req, res, next) => {
     var uri = req.url.split(/[\?|#]/g);
@@ -67,7 +71,8 @@ module.exports = {
       url: req.originalUrl,
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),
-      frameworkInfo: frameworkInfo
+      frameworkInfo: frameworkInfo,
+      latestBlog: lbs.getLatestPost()
     });
 
     return next();
@@ -87,3 +92,6 @@ function shuffle(array) {
   }
   return array;
 };
+
+
+

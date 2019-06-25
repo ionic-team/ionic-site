@@ -1,5 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-import { EmailIcon } from './ico-email';
+import { EmailIcon } from '../../icons';
 
 @Component({
   tag: 'ionic-newsletter-signup',

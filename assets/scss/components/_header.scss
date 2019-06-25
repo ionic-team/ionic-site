@@ -53,6 +53,11 @@
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
+      color: #1A232F;
+  
+      &:hover {
+        color: $blue;
+      }
     }
 
     img {
@@ -61,6 +66,16 @@
 
     &:hover {
       color: rgba(white, .8);
+    }
+  }
+
+  &.light {
+    .navbar-brand {
+      color: #1A232F;
+  
+      &:hover {
+        color: $blue;
+      }
     }
   }
 
@@ -702,14 +717,6 @@
 
       .navbar-nav > li.active > a {
         color: #c7d0e0;
-      }
-
-      .navbar-brand {
-        color: #1A232F;
-    
-        &:hover {
-          color: $blue;
-        }
       }
     }
 

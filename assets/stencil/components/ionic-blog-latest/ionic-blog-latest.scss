@@ -1,0 +1,23 @@
+@import '../../vars';
+
+ionic-blog-latest {
+  a {
+    display: flex;
+    border-top: 1px solid #E7ECF3;
+    padding-top: 16px;
+    padding-bottom: 0;
+    align-items: center;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    color: #1A232F;
+
+    & :last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+
+
+

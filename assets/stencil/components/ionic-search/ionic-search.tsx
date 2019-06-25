@@ -1,5 +1,5 @@
 import 'ionicons';
-import { Close } from './arrow.svg';
+import { Close } from '../../icons';
 
 import {
   Component,

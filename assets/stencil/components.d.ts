@@ -27,6 +27,9 @@ export namespace Components {
     'data'?: string;
   }
 
+  interface IonicBlogLatest {}
+  interface IonicBlogLatestAttributes extends StencilHTMLAttributes {}
+
   interface IonicButton {
     'color': string;
     'disabled': boolean;
@@ -111,6 +114,7 @@ declare global {
     'IconExternal': Components.IconExternal;
     'IonicAppflowActivator': Components.IonicAppflowActivator;
     'IonicBarChart': Components.IonicBarChart;
+    'IonicBlogLatest': Components.IonicBlogLatest;
     'IonicButton': Components.IonicButton;
     'IonicNewsletterSignup': Components.IonicNewsletterSignup;
     'IonicQuickSignup': Components.IonicQuickSignup;
@@ -126,6 +130,7 @@ declare global {
     'icon-external': Components.IconExternalAttributes;
     'ionic-appflow-activator': Components.IonicAppflowActivatorAttributes;
     'ionic-bar-chart': Components.IonicBarChartAttributes;
+    'ionic-blog-latest': Components.IonicBlogLatestAttributes;
     'ionic-button': Components.IonicButtonAttributes;
     'ionic-newsletter-signup': Components.IonicNewsletterSignupAttributes;
     'ionic-quick-signup': Components.IonicQuickSignupAttributes;
@@ -154,6 +159,12 @@ declare global {
   var HTMLIonicBarChartElement: {
     prototype: HTMLIonicBarChartElement;
     new (): HTMLIonicBarChartElement;
+  };
+
+  interface HTMLIonicBlogLatestElement extends Components.IonicBlogLatest, HTMLStencilElement {}
+  var HTMLIonicBlogLatestElement: {
+    prototype: HTMLIonicBlogLatestElement;
+    new (): HTMLIonicBlogLatestElement;
   };
 
   interface HTMLIonicButtonElement extends Components.IonicButton, HTMLStencilElement {}
@@ -214,6 +225,7 @@ declare global {
     'icon-external': HTMLIconExternalElement
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement
     'ionic-bar-chart': HTMLIonicBarChartElement
+    'ionic-blog-latest': HTMLIonicBlogLatestElement
     'ionic-button': HTMLIonicButtonElement
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
     'ionic-quick-signup': HTMLIonicQuickSignupElement
@@ -229,6 +241,7 @@ declare global {
     'icon-external': HTMLIconExternalElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
+    'ionic-blog-latest': HTMLIonicBlogLatestElement;
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;

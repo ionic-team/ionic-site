@@ -100,7 +100,7 @@ const resources = {
       }, {
         "type": "Article",
         "title": "When & Why to Choose Ionic",
-        "url": "/resources/articles/evaluating-ionic-for-enterprise-development",
+        "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",

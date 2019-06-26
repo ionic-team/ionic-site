@@ -430,6 +430,13 @@ const resources = {
     items: [
       {
         "type": "Video",
+        "title": "The Ionic Show: Episode 10",
+        "url": "https://www.youtube.com/watch?v=DzFLisvjgQ0&t=305s",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/video-ionic-show-10.png",
+        "bgColor": "#f07e74"
+      }, {
+        "type": "Video",
         "title": "How Ionic Fueled Sworkit",
         "url": "https://www.youtube.com/watch?v=cTHjJ5-e6YQ",
         "action": "Watch",

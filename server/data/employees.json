@@ -258,6 +258,13 @@
     "image": "swami.jpg"
   },
   {
+    "name":"Tori Hansel",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":null,
+    "image": "tori.jpg"
+  },
+  {
     "name":"Tim Lancina",
     "dept":"Development",
     "description":"A temporarily embarrassed pro soccer player, Tim is fond of traveling the world and trying to convince his coworkers to eat bugs.  When not doing either of those, he is usually breaking things related to Ionic tooling, the platform, or the framework.",

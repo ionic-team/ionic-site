@@ -1,0 +1,90 @@
+ionic-appflow-activator nav {
+  background: white;
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  margin-top: 100px; }
+
+ionic-appflow-activator ul {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 600px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -44px;
+  margin-right: auto;
+  margin-left: auto; }
+
+ionic-appflow-activator li {
+  width: 120px;
+  position: relative;
+  list-style: none; }
+
+ionic-appflow-activator .progress-ring {
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 32px);
+  pointer-events: none; }
+  ionic-appflow-activator .progress-ring__circle {
+    opacity: 0;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%; }
+
+ionic-appflow-activator a {
+  text-align: center;
+  display: block;
+  padding-top: 64px;
+  cursor: pointer; }
+  ionic-appflow-activator a .icon,
+  ionic-appflow-activator a .icon-active {
+    position: absolute;
+    border-radius: 50%;
+    height: 56px;
+    width: 56px;
+    top: 4px;
+    left: calc(50% - 28px);
+    transition: .2s opacity ease, .2s transform ease; }
+  ionic-appflow-activator a .icon-active {
+    opacity: 0;
+    transform: scale(1.1, 1.1);
+    transition: .2s opacity ease, .2s transform ease; }
+  ionic-appflow-activator a span {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #92A1B3;
+    transition: .2s color ease; }
+
+ionic-appflow-activator .active .icon {
+  transform: scale(1.1, 1.1);
+  opacity: 0; }
+
+ionic-appflow-activator .active .icon-active {
+  opacity: 1;
+  transform: scale(1, 1); }
+
+ionic-appflow-activator .active span {
+  color: #6C89F7; }
+
+ionic-appflow-activator .app-screenshot {
+  position: relative; }
+  ionic-appflow-activator .app-screenshot img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(1.01, 1.01);
+    transition: .2s opacity ease, .2s transform ease; }
+    ionic-appflow-activator .app-screenshot img.active {
+      opacity: 1;
+      transform: none; }
+
+@keyframes full-circle {
+  to {
+    stroke-dashoffset: 0; } }

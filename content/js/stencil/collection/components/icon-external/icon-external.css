@@ -1,0 +1,19 @@
+icon-external {
+  color: #a6b8d2;
+  width: .8em;
+  height: .8em;
+  display: inline-block; }
+  icon-external svg {
+    fill: currentColor; }
+    icon-external svg .new-tab__box {
+      opacity: .5; }
+    icon-external svg .new-tab__arrow {
+      transition: .2s transform ease-out, .2s fill ease;
+      will-change: trasnform, fill; }
+
+a:hover icon-external,
+icon-external:hover {
+  color: #488aff; }
+  a:hover icon-external .new-tab__arrow,
+  icon-external:hover .new-tab__arrow {
+    transform: translate(1px, -1px); }

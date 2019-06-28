@@ -1,0 +1,49 @@
+ionic-quick-signup {
+  display: block; }
+
+.quick-signup-form {
+  width: 100%;
+  margin-bottom: -15px; }
+  .quick-signup-form .input-col {
+    padding-right: 0px; }
+  .quick-signup-form.transparent-input input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: #fff; }
+    .quick-signup-form.transparent-input input:focus {
+      border: none; }
+    .quick-signup-form.transparent-input input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: normal; }
+  .quick-signup-form.transparent-input button.btn.white {
+    font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif;
+    border-radius: 8px;
+    text-transform: none;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-right: 15px; }
+  .quick-signup-form input {
+    padding: 0 14px;
+    height: 54px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 2px solid transparent;
+    margin: 0;
+    width: 100%; }
+    .quick-signup-form input::placeholder {
+      color: #757575;
+      font-weight: bold; }
+    .quick-signup-form input:focus {
+      border: 2px solid #757575; }
+  .quick-signup-form button {
+    margin-top: 0; }
+
+@media (max-width: 991px) {
+  .quick-signup-form {
+    max-width: 60%;
+    margin: auto; } }
+
+@media (max-width: 767px) {
+  .quick-signup-form .btn {
+    margin-top: 20px; } }

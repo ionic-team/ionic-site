@@ -1,0 +1,45 @@
+ionic-slider {
+  position: relative; }
+  ionic-slider [slot^="slide-"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden; }
+  ionic-slider > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+    animation: fadeIn .5s ease; }
+    ionic-slider > div.visible {
+      display: block; }
+      ionic-slider > div.visible.new {
+        z-index: 1; }
+  ionic-slider .dots {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    z-index: 2; }
+    ionic-slider .dots li {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      margin-bottom: 4px;
+      list-style: none;
+      cursor: pointer;
+      transition: .5s background-color ease, .5s border-color ease; }
+      ionic-slider .dots li.active {
+        background-color: white;
+        border-color: white; }

@@ -394,7 +394,7 @@ const resources = {
         "type": "Webinar",
         "title": "Building Ionic Applications for Zebra Devices",
         "target": "_self",
-        "url": "/resources/webinars/building-ios-and-android-binaries-with-ionic-package",
+        "url": "/resources/webinars/zebra-devtalk-building-ionic-applications-for-zebra-devices",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-zebradevices.jpg",
         "bgColor": "#121e30"

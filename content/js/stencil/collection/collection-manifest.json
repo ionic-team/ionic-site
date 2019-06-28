@@ -1,0 +1,391 @@
+{
+  "components": [
+    {
+      "tag": "icon-external",
+      "dependencies": [],
+      "componentClass": "IconExternal",
+      "componentPath": "components/icon-external/icon-external.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/icon-external/icon-external.scss"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "ionic-appflow-activator",
+      "dependencies": [],
+      "componentClass": "IonicAppflowActivator",
+      "componentPath": "components/ionic-appflow-activatior/ionic-appflow-activatior.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-appflow-activatior/ionic-appflow-activator.scss"
+          ]
+        }
+      },
+      "states": [
+        {
+          "name": "$circles"
+        },
+        {
+          "name": "$lis"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "screenshots"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      }
+    },
+    {
+      "tag": "ionic-bar-chart",
+      "dependencies": [],
+      "componentClass": "IonicBarChart",
+      "componentPath": "components/ionic-bar-chart/ionic-bar-chart.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-bar-chart/ionic-bar-chart.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "String",
+          "attr": "color"
+        },
+        {
+          "name": "data",
+          "type": "String",
+          "attr": "data"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-button",
+      "dependencies": [],
+      "componentClass": "IonicButton",
+      "componentPath": "components/ionic-button/ionic-button.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-button/ionic-button.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "String",
+          "attr": "color"
+        },
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "attr": "disabled"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "attr": "type"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-newsletter-signup",
+      "dependencies": [
+        "ion-icon",
+        "ionic-button"
+      ],
+      "componentClass": "IonicNewsletterSignup",
+      "componentPath": "components/ionic-newsletter-signup/ionic-newsletter-signup.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-newsletter-signup/ionic-newsletter-signup.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "arrowMode",
+          "type": "Boolean",
+          "attr": "arrow-mode"
+        },
+        {
+          "name": "buttonText",
+          "type": "String",
+          "attr": "button-text"
+        },
+        {
+          "name": "darkMode",
+          "type": "Boolean",
+          "attr": "dark-mode"
+        },
+        {
+          "name": "homepageMode",
+          "type": "Boolean",
+          "attr": "homepage-mode"
+        },
+        {
+          "name": "kind",
+          "type": "String",
+          "attr": "kind"
+        },
+        {
+          "name": "lg",
+          "type": "Boolean",
+          "attr": "lg"
+        },
+        {
+          "name": "placeholder",
+          "type": "String",
+          "attr": "placeholder"
+        }
+      ],
+      "states": [
+        {
+          "name": "email"
+        },
+        {
+          "name": "hasSubmitted"
+        },
+        {
+          "name": "isLoading"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-quick-signup",
+      "dependencies": [],
+      "componentClass": "IonicQuickSignup",
+      "componentPath": "components/ionic-quick-signup/ionic-quick-signup.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-quick-signup/ionic-quick-signup.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "buttonColor",
+          "type": "String",
+          "attr": "button-color"
+        },
+        {
+          "name": "showPricingNotice",
+          "type": "Boolean",
+          "attr": "show-pricing-notice"
+        },
+        {
+          "name": "transparentInput",
+          "type": "Boolean",
+          "attr": "transparent-input"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-search",
+      "dependencies": [
+        "ion-icon"
+      ],
+      "componentClass": "IonicSearch",
+      "componentPath": "components/ionic-search/ionic-search.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-search/ionic-search.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "mobile",
+          "type": "Boolean",
+          "attr": "mobile"
+        }
+      ],
+      "states": [
+        {
+          "name": "active"
+        },
+        {
+          "name": "dragStyles"
+        },
+        {
+          "name": "pending"
+        },
+        {
+          "name": "query"
+        },
+        {
+          "name": "results"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      }
+    },
+    {
+      "tag": "ionic-slider",
+      "dependencies": [],
+      "componentClass": "IonicSlider",
+      "componentPath": "components/ionic-slider/ionic-slider.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-slider/ionic-slider.scss"
+          ]
+        }
+      },
+      "states": [
+        {
+          "name": "current"
+        },
+        {
+          "name": "status"
+        },
+        {
+          "name": "ticker"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-snap-bar",
+      "dependencies": [],
+      "componentClass": "IonicSnapBar",
+      "componentPath": "components/ionic-snap-bar/ionic-snap-bar.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-snap-bar/ionic-snap-bar.scss"
+          ]
+        }
+      },
+      "states": [
+        {
+          "name": "active"
+        }
+      ]
+    },
+    {
+      "tag": "ionic-toggle",
+      "dependencies": [],
+      "componentClass": "IonicToggle",
+      "componentPath": "components/ionic-toggle/ionic-toggle.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-toggle/ionic-toggle.scss"
+          ]
+        }
+      },
+      "listeners": [
+        {
+          "event": "toggleSelected",
+          "method": "selectionChanged",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "shadow": true
+    },
+    {
+      "tag": "ionic-toggle-button",
+      "dependencies": [],
+      "componentClass": "IonicToggleButton",
+      "componentPath": "components/ionic-toggle/ionic-toggle-button.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ionic-toggle/ionic-toggle-button.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "tab",
+          "type": "String",
+          "attr": "tab"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "attr": "title"
+        }
+      ],
+      "states": [
+        {
+          "name": "selected"
+        }
+      ],
+      "methods": [
+        {
+          "name": "deselect"
+        },
+        {
+          "name": "select"
+        }
+      ],
+      "events": [
+        {
+          "event": "toggleSelected"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "ionic-toggle-tab",
+      "dependencies": [],
+      "componentClass": "IonicToggleTab",
+      "componentPath": "components/ionic-toggle/ionic-toggle-tab.js",
+      "styles": {},
+      "props": [
+        {
+          "name": "tab",
+          "type": "String",
+          "attr": "tab"
+        }
+      ],
+      "states": [
+        {
+          "name": "hidden"
+        }
+      ],
+      "methods": [
+        {
+          "name": "hide"
+        },
+        {
+          "name": "show"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [
+    {
+      "name": "ionicons",
+      "tags": [
+        "ion-icon"
+      ]
+    }
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.18.1",
+    "typescriptVersion": "3.3.3"
+  },
+  "bundles": []
+}

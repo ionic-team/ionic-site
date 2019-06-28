@@ -1,0 +1,150 @@
+{
+  "tags": [
+    {
+      "label": "icon-external",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ionic-appflow-activator",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ionic-bar-chart",
+      "description": "",
+      "attributes": [
+        {
+          "label": "color",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "data",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ionic-button",
+      "description": "",
+      "attributes": [
+        {
+          "label": "color",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "disabled",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "type",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ionic-newsletter-signup",
+      "description": "",
+      "attributes": [
+        {
+          "label": "arrow-mode",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "button-text",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dark-mode",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "homepage-mode",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "kind",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "lg",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "placeholder",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ionic-quick-signup",
+      "description": "",
+      "attributes": [
+        {
+          "label": "button-color",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "show-pricing-notice",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "transparent-input",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ionic-search",
+      "description": "",
+      "attributes": [
+        {
+          "label": "mobile",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ionic-slider",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ionic-snap-bar",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ionic-toggle-button",
+      "description": "",
+      "attributes": [
+        {
+          "label": "tab",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "title",
+          "description": "",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

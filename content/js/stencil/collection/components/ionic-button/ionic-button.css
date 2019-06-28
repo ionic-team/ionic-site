@@ -1,0 +1,31 @@
+ionic-button button {
+  border-radius: 4px;
+  padding: 11px 15px 9px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: none;
+  height: 100%;
+  transition: background-color .2s, border-color .3s, box-shadow .3s, color .3s; }
+  ionic-button button.default {
+    background: #488aff;
+    color: white; }
+    ionic-button button.default:hover {
+      background: #629aff; }
+    ionic-button button.default:active {
+      background: #2f7aff; }
+  ionic-button button.white {
+    background: white;
+    border-color: #e8ebf1;
+    color: #488aff; }
+    ionic-button button.white:active {
+      background: #fafafa; }
+  ionic-button button:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12); }
+  ionic-button button:active {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+  ionic-button button:disabled {
+    background: #e8ebf1;
+    color: white;
+    box-shadow: none; }

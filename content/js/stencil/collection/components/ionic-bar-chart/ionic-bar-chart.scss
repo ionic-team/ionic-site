@@ -1,0 +1,36 @@
+@import '../../vars';
+
+ionic-bar-chart {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 16px;
+  display: block;
+  letter-spacing: -0.04em;
+
+  .bar-container {
+    width: 100%;
+    padding-right: 50px;
+    max-width: 697px;
+  }
+
+  .bar {
+    height: 12px;
+    position: relative;
+    border-radius: 2px;
+
+    span {
+      position: absolute;
+      right: -40px;
+      font-weight: 500;
+      top: -3px;
+    }
+  }
+
+  strong {
+    margin-top: 10px;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 34px;
+  }
+}

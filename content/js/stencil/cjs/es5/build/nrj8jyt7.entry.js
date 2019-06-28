@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ionic_site_components_core_js_1 = require("../ionic-site-components.core.js");
+var IonicToggleTab = function () { function e() { this.hidden = !0; } return e.prototype.hide = function () { this.hidden = !0; }, e.prototype.show = function () { this.hidden = !1; }, e.prototype.hostData = function () { return { style: { display: this.hidden ? "none" : "block" } }; }, e.prototype.render = function () { return ionic_site_components_core_js_1.h("slot", null); }, Object.defineProperty(e, "is", { get: function () { return "ionic-toggle-tab"; }, enumerable: !0, configurable: !0 }), Object.defineProperty(e, "encapsulation", { get: function () { return "shadow"; }, enumerable: !0, configurable: !0 }), Object.defineProperty(e, "properties", { get: function () { return { hidden: { state: !0 }, hide: { method: !0 }, show: { method: !0 }, tab: { type: String, attr: "tab" } }; }, enumerable: !0, configurable: !0 }), e; }();
+exports.IonicToggleTab = IonicToggleTab;

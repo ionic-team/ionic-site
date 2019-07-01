@@ -116,6 +116,11 @@ module.exports = {
         name: 'UI',
         slug: 'ui',
         description: 'Ionic provides integrations with your favorite User Interface solutions. View all the User Interface solutions you can integrate in your Ionic development projects.'
+      },
+      {
+        name: 'Voice',
+        slug: 'voice',
+        description: 'Ionic provides integrations with your favorite voice solutions. View all the voice solutions you can integrate in your Ionic development projects.'
       }
     ];
 

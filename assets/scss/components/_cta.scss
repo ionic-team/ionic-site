@@ -14,6 +14,15 @@
                                        rgba(30,161,255,1) 100%);
   }
 
+  &.cta--transparent {
+    background: transparent;
+    color: #020814;
+
+    hgroup p {
+      color: rgba(#27323F, .9);
+    }
+  }
+
   .center {
     text-align: center;
   }

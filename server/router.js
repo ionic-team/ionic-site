@@ -44,6 +44,7 @@ router: app => {
   .get('/about', (_, res) => res.render('about'))
   .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
+  .get('/auth-connect', (_, res) => res.render('auth-connect'))
 
   .get('/books/hybrid-vs-native', (_, res) =>
     res.render('books/hybrid-vs-native'))

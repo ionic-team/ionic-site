@@ -154,6 +154,14 @@
   }
 }
 
+.sub-header ~ #sticky-bar {
+  top: 56px;
+
+  @media (max-width: $screen-xs-max) {
+    top: 52px;
+  }
+}
+
 main {
   letter-spacing: -0.028em;
   color: #2F3A48;

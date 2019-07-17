@@ -285,3 +285,18 @@
     }
   }
 }
+
+#promo--how-to {
+  margin-bottom: 0;
+  position: relative;
+  padding-top: 140px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    border-top: 1px solid rgba(#92A1B3, .3);
+    content: '';
+    display: block;
+  }
+}

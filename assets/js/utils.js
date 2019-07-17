@@ -201,10 +201,10 @@ $('a.anchor[href*="#"]').click(function(event) {
     if (target.length) {
       var offset = event.target.dataset && event.target.dataset.offset
         ? event.target.dataset.offset : 100
-      scrollToY(target.offset().top - offset, 600);
+      scrollToY(target.offset().top - offset, 2000);
     } else {
       // otherwise scroll to the top of the page
-      scrollToY(0, 600);
+      scrollToY(0, 2000);
     }
     history.pushState && history.pushState(null, null, this.hash)
     return false;
@@ -231,7 +231,6 @@ window.scrollToY = function(scrollTargetY, speed, easing) {
         speed = speed || 2000,
         easing = easing || 'easeOutSine',
         currentTime = 0;
-
     // min time .1, max time .8 seconds
     var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
 

@@ -11,37 +11,16 @@
       font-family: $font-family-eina;
     }
   }
-  .sub-header {
-    .vault-link {
-      font-size: 15px;
-      font-weight: 700;
-      padding-left: 1px;
-      padding-top: 17px;
-      letter-spacing: .03em;
-
-      &:before {
-        content: '';
-        background: url('/img/enterprise/identity-vault/vault-nav-logo.png') 0 0 no-repeat;
-        background-size: 100%;
-        width: 32px;
-        height: 32px;
-        display: inline-block;
-        margin-right: 9px;
-        vertical-align: -11px;
-      }
-    }
-
-    .demo {
-      padding: 19px 1px 18px 15px;
-
-      &::after {
-        font-family: 'Ionicons';
-        content: "";
-        margin-left: 3px;
-        vertical-align: -1px;
-      }
-    }
-  }
+  // #sub-header {
+  //   .demo {
+  //     &::after {
+  //       font-family: 'Ionicons';
+  //       content: "";
+  //       margin-left: 3px;
+  //       vertical-align: -1px;
+  //     }
+  //   }
+  // }
 
   .top {
     margin-top: -172px;
@@ -715,7 +694,7 @@
     }
   }
 
-  .demo {
+  main .demo {
     padding-top: 97px;
     padding-bottom: 110px;
 

@@ -11,12 +11,12 @@
 {% set stickyNav = true %}
 
 {% block main %}
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/podcasts">Videos</a></li>
-      <li>{{data.title}}</li>
+      <li><a href="#">{{data.title}}</a></li>
     </ul>
   </div>
 </div>

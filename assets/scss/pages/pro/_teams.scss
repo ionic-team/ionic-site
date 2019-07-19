@@ -1,12 +1,12 @@
 #page-products-for-teams {
 
   main,
-  .sub-header,
+  #sub-header,
   .cta {
     font-family: $font-family-eina;
   }
 
-  .sub-header > .container {
+  #sub-header > .container {
     align-items: center;
   }
 

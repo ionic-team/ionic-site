@@ -184,6 +184,40 @@ hljs.initHighlightingOnLoad();
   }
 }());
 
+// determine if sticky sub-nav is stuck 
+// *intersection observer and position:sticky browser support match
+const subHeader = {
+  el: document.getElementById('sub-header'),
+  stuck: false,
+  queued: false,
+  observer: new IntersectionObserver(function(entries) {
+    if (subHeader.queued) return;
+    console.log(entries[0].intersectionRatio)
+
+    // no intersection with screen
+  	if(!subHeader.stuck && entries[0].intersectionRatio === 0) {
+      subHeader.queued = true;
+      requestAnimationFrame(function() {
+        subHeader.el.classList.add('sub-header--stuck');
+        subHeader.stuck = true;
+        subHeader.queued = false;
+      });
+
+  	// fully intersects with screen
+    } else if(subHeader.stuck && entries[0].intersectionRatio === 1) {
+      subHeader.queued = true;
+      requestAnimationFrame(function() {
+        subHeader.el.classList.remove('sub-header--stuck');
+        subHeader.stuck = false;
+        subHeader.queued = false;
+      })
+    }
+  }, { threshold: [0,1] })
+}
+if (subHeader.el) {
+  subHeader.observer.observe(document.getElementById('sub-header__trigger'));
+}
+
 // Smooth Scroll To anchor links with the .anchor class
 $('a.anchor[href*="#"]').click(function(event) {
   // On-page links

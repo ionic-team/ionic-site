@@ -3,15 +3,52 @@
  * page information, widgets, and links.
  * September 2017
  */
-.sub-header {
+#sub-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn .4s ease .5s forwards;
+  transition: all .5s ease;
+
+  &__trigger {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 1px;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &.sub-header--not-sticky {
+    position: relative;
+
+    &.sub-header--stuck { 
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+  }
+
+  &.sub-header--stuck {
+    background: #020814;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 2px rgba(black, .1);
+  
+    @supports ((-webkit-backdrop-filter: blur(1)) or (backdrop-filter: blur(1))) {
+      background: rgba(#020814, .9);
+    }
+  }
+
   & > .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: #697384;
+    color: white;
     font-size: 13px;
     font-weight: 500;
+    min-height: 55px;
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
@@ -26,6 +63,7 @@
       left: 15px;
       flex: 0 0 100%
     }
+
     &::after { display: none; }
   }
 
@@ -35,91 +73,56 @@
     margin-bottom: 0;
   }
 
+  .sub-header__right li:last-child a{
+    padding-right: 0;
+  }
+
+  ul:not(.sub-header__right) li:first-child a,
+  .sub-header__left li:first-child a {
+    padding-left: 0;
+  }
+
   li {
     display: inline-block;
   }
 
-  ul:not(.breadcrumbs) {
+  ul {
     font-size: 12px;
     line-height: 14px;
-
-    li {
-      padding: 18px 15px;
-    }
-
-    li:last-child {
-      padding-right: 0;
-    }
-
-    a:not(.btn) {
-      transition: color 0.3s;
-      color: rgba(255, 255, 255, 0.6);
-      padding: 0 0 4px;
-    }
-
-    a:not(.btn):not(.active):hover {
-      color: rgba(255, 255, 255, 1);
-    }
-
-    a:not(.btn).active {
-      color: rgba(255, 255, 255, 1);
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    @media (max-width: $screen-sm-min)  {
-      li {
-        padding: 18px 8px;
-      }
-    }
   }
 
-  .breadcrumbs {
-    font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
-    font-size: 16px;
-
-    &.sm {
+  .sub-header__breadcrumbs,
+  .sub-header__title {
+    &.sub-header__breadcrumbs--sm {
       font-size: 13px;
     }
 
-    li {
+    &,
+    a {
+      font-size: 16px;
       font-weight: 600;
-      color: white;
-      padding: 17px 0;
+      line-height: 22px;
+      letter-spacing: -0.01em;
+    }
 
+    li {
       &::after {
         content: '/';
         color: rgba(white, .1);
         margin-left: 5px;
         margin-right: 1px;
         font-size: 16px;
+        font-weight: 600;
         vertical-align: 0px;
       }
 
       &:last-child::after {
         display: none;
       }
-
-      a,
-      &::after {
-        font-weight: 600;
-      }
-    }
-
-    a {
-      color: rgba(white, 1);
-      transition: .2s color;
-      padding: 0;
-      display: inline-block;
-      margin-left: -1px;
-
-
-      &:hover {
-        color: rgba(white, .3);
-      }
     }
   }
 
-  .breadcrumbs--small {
+  .sub-header__breadcrumbs--small {
     &,
     li:after {
       font-size: 13px;
@@ -130,13 +133,16 @@
     }
   }
 
+  span,
   a {
     color: white;
     padding: 18px 15px;
     display: inline-block;
     text-decoration: none;
     transition: .2s color;
+  }
 
+  a {
     svg,
     path {
       transition: .2s fill;
@@ -145,10 +151,7 @@
       
 
     &.current,
-    &.active {
-      color: rgba(white, .4)
-    }
-
+    &.active,
     &:hover {
       color: rgba(white, .4);
     }
@@ -173,43 +176,35 @@
     }
   }
 }
-body.light .sub-header {
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  backdrop-filter: blur(20px);
+body.light #sub-header {
 
-  @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
-    background: rgba(white, .9);
+  &.sub-header--stuck {
+    background: white;
+  
+    @supports ((-webkit-backdrop-filter: blur(1)) or (backdrop-filter: blur(1))) {
+      background: rgba(white, .9);
+    }
   }
 
   .container::before {
-    border-top: 1px solid rgba(black, .06);
+    border-top-color: rgba(black, .06);
   }
 
-  .breadcrumbs {
-    li {
-      color: #272a2f;
-
-      &::after {
-        color:rgba(black, .3)
-      }
-    }
-
-    a {
-      color: #7a88a0;
-
-      &:hover {
-        color: $blue;
-      }
-    }
-  }
-
+  span,
   a,
-  ul:not(.breadcrumbs) a:not(.btn) {
+  li::after {
     color: #414D5C;
+  }
 
+  .sub-header__breadcrumbs,
+  .sub-header__title {
+    &,
+    a {
+      color: #1A232F;
+    }
+  }
+
+  a {
     &.current,
     &.active {
       color: #b1bbca;

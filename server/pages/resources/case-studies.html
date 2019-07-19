@@ -8,15 +8,15 @@
 {% endif %}
 {% set meta_image = data.hero_image['1x'].url %}
 {% import "_includes/macros.html" as macros %}
-{% set stickyNav = true %}
+{# {% set stickyNav = true %} #}
 
 {% block main %}
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs sm">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/case-studies">Case Study</a></li>
-      <li>{{ data.title }}</li>
+      <li><a href="#">{{data.title}}</a></li>
     </ul>
   </div>
 </div>

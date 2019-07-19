@@ -9,16 +9,16 @@
 {% endif %}
 {% set meta_image = data.meta_image.url or data.header_background or meta_image %}
 {% import "_includes/macros.html" as macros %}
-{% set stickyNav = true %}
+{# {% set stickyNav = true %} #}
 
 {% block main %}
 
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs breadcrumbs--small">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/resources">Resources</a></li>
       <li><a href="/resources/whitepapers">Whitepapers</a></li>
-      <li>{{data.title}}</li>
+      <li><a href="#">{{data.title}}</a></li>
     </ul>
   </div>
 </div>

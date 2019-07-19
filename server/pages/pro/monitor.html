@@ -3,7 +3,7 @@
 {% set title = 'App Monitoring with the Ionic Appflow Monitor' %}
 {% set header_style = 'transparent products-page' %}
 {% set meta_description = "Have better visibility into your hybrid app and native development. Ionic monitor identifies and tracks errors at the web layer, with detailed source maps all the way down to the typescript level." %}
-{% set stickyNav = true %}
+{# {% set stickyNav = true %} #}
 
 {% block body_attributes %}
 
@@ -11,13 +11,13 @@
 
 {% block main %}
 
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/pro">Pro</a></li>
-      <li>Monitor</li>
+      <li><a href="#">Monitor</a></li>
     </ul>
-    <ul class="right">
+    <ul class="sub-header__right">
       <li><a href="/pro/monitoring" class="active">Features</a></li>
       <li><a href="/docs/appflow/monitoring">Docs</a></li>
       <li><a href="/pricing#appflow">Pricing</a></li>

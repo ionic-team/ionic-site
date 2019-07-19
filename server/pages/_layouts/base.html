@@ -5,11 +5,11 @@
 
   {% block main %}
     {% if press_breadcrumb %}
-      <div class="sub-header">
+      <div id="sub-header">
         <div class="container">
-          <ul class="left breadcrumbs">
+          <ul class="sub-header__breadcrumbs">
             <li><a href="/press">Press &amp; Media</a></li>
-            <li>{{title | title}}</li>
+            <li><a href="#">{{title | title}}</a></li>
           </ul>
         </div>
       </div>

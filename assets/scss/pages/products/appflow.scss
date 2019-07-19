@@ -13,12 +13,11 @@
   .cta,
   .pro-nav,
   .pro-video,
-  .sub-header,
   main {
     font-family: $font-family-eina;
   }
 
-  .sub-header > .container {
+  #sub-header > .container {
     align-items: center;
 
     &:before {

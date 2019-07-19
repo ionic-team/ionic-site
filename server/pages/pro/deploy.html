@@ -3,7 +3,7 @@
 {% set title = 'Fast App Update Deployment and Easy Code Changes with Ionic Appflow' %}
 {% set header_style = 'transparent light products-page' %}
 {% set meta_description = "With Ionic deploy you can provide live app updates in real time. Push hot code updates, content changes, A/B tests, and bug fixes for hybrid and native apps in realtime before and after your app is in the app stores." %}
-{% set stickyNav = true %}
+{# {% set stickyNav = true %} #}
 
 {% block body_attributes %}
 
@@ -11,13 +11,13 @@
 
 {% block main %}
 
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/pro">Pro</a></li>
-      <li>Deploy</li>
+      <li><a href="#">Deploy</a></li>
     </ul>
-    <ul class="right">
+    <ul class="sub-header__right">
       <li><a href="/pro/deploy" class="active">Features</a></li>
       <li><a href="/docs/appflow/deploy/intro">Docs</a></li>
       <li><a href="/pricing#appflow">Pricing</a></li>

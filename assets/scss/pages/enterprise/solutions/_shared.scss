@@ -154,7 +154,7 @@
   }
 }
 
-.sub-header ~ #sticky-bar {
+#sub-header ~ #sticky-bar {
   top: 56px;
 
   @media (max-width: $screen-xs-max) {

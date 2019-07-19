@@ -3,7 +3,7 @@
 {% set title = 'Native App Development with No Platform Dependencies - Ionic Appflow' %}
 {% set header_style = 'transparent products-page' %}
 {% set meta_description = "Start developing native apps in the cloud as part of your mobile strategy with Ionic package and build cross platform apps for mobile, desktop and more without platform dependencies or complicated build steps." %}
-{% set stickyNav = true %}
+{# {% set stickyNav = true %} #}
 
 {% block body_attributes %}
 
@@ -11,13 +11,13 @@
 
 {% block main %}
 
-<div class="sub-header">
+<div id="sub-header">
   <div class="container">
-    <ul class="left breadcrumbs">
+    <ul class="sub-header__breadcrumbs">
       <li><a href="/pro">Pro</a></li>
-      <li>Package</li>
+      <li><a href="#">Package</a></li>
     </ul>
-    <ul class="right">
+    <ul class="sub-header__right">
       <li><a href="/pro/package" class="active">Features</a></li>
       <li><a href="/docs/appflow/package/intro">Docs</a></li>
       <li><a href="/pricing#appflow">Pricing</a></li>

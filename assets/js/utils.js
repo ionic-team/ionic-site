@@ -192,7 +192,6 @@ const subHeader = {
   queued: false,
   observer: new IntersectionObserver(function(entries) {
     if (subHeader.queued) return;
-    console.log(entries[0].intersectionRatio)
 
     // no intersection with screen
   	if(!subHeader.stuck && entries[0].intersectionRatio === 0) {

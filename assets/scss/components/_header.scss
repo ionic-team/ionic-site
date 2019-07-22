@@ -7,7 +7,7 @@
   border-radius: 0;
   margin-bottom: 8px;
   min-height: 32px;
-  z-index: 30;
+  z-index: 999;
   border: 0;
 
   @media (max-width: $screen-xs-max) {
@@ -527,7 +527,7 @@
       &:hover .dropdown-menu {
         opacity: 1;
         top: 39px;
-        z-index: 4;
+        // z-index: 999;
         pointer-events: all;
         transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
         transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.1s linear, top 0.25s step-start;

@@ -35,18 +35,14 @@
     z-index: 1;
 
     svg {
-      display: block;
-      margin-bottom: 16px;
+      display: inline-block;
+      vertical-align: -50%;
     }
 
     h3 {
       font-size: 35px;
       color: #00CEAB;
-      margin-bottom: 4px;
-
-      + h1 {
-        margin-top: 0;
-      }
+      margin-bottom: 46px;
     }
 
     h1 {

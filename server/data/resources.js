@@ -292,6 +292,14 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Live Demo: Building Capacitor Apps in Appflow",
+        "url": "/resources/webinars/live-demo-building-capacitor-apps-in-appflow",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-capacitor-appflow.png",
+        "bgColor": "#8582FB"
+      },
+      {
+        "type": "Webinar",
         "title": "Ionic Auth Connect: Single Sign-on Made Easy",
         "url": "/resources/webinars/auth-connect-native-authentication-made-easy",
         "action": "Watch",

@@ -211,11 +211,19 @@ const subHeader = {
         subHeader.queued = false;
       })
     }
-  }, { threshold: [0,1] })
+  }, { threshold: [0,1] }),
+  init: function() {
+    if (subHeader.el) {
+      subHeader.observer.observe(document.getElementById('sub-header__trigger'));
+      setTimeout(function() {
+
+        subHeader.el.classList.add('sub-header_initialized');
+        document.querySelector('.navbar-default').classList.add('navbar--not-fixed');
+      }, 150)
+    }
+  }
 }
-if (subHeader.el) {
-  subHeader.observer.observe(document.getElementById('sub-header__trigger'));
-}
+subHeader.init();
 
 // Smooth Scroll To anchor links with the .anchor class
 $('a.anchor[href*="#"]').click(function(event) {

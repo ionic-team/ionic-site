@@ -26,9 +26,13 @@
 .cta {
   position: relative;
   min-height: 760px;
+  max-width: 100%;
+  overflow: hidden;
 
   hgroup {
     max-width: 446px;
+    position: relative;
+    z-index: 1;
 
     svg {
       display: block;
@@ -64,6 +68,10 @@
   right: 0;
   top: 90px;
   animation: spin 200s linear infinite;
+
+  @media (max-width: $screen-xs-max) {
+    opacity: .5;
+  }
 }
 
 #header-graphic {

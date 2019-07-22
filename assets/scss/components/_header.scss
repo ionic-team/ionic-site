@@ -16,9 +16,12 @@
     width: 100%;
     padding-top: 1px;
     min-height: 50px;
+    transition: .3s box-shadow;
+    // 1 less than sub-nav
+    z-index: 98;
 
-    &.products-page {
-      position: fixed;
+    &.navbar--not-fixed {
+      position: absolute;
     }
   }
 

@@ -90,12 +90,9 @@
     justify-content: space-between;
     padding-top: 17px;
     padding-bottom: 17px;
-    padding-left: 15px;
-    flex-wrap: wrap;
-
-    @media (max-width: $screen-sm-max) {
-      justify-content: space-around;
-    }
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow-x: auto;
 
     &::before,
     &::after {
@@ -112,13 +109,14 @@
   }
 
   a {
-    padding: 10px 0;
+    padding: 10px 10px;
     font-size: 14px;
     line-height: 22px;
     text-align: center;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: block;
+    white-space: nowrap;
 
     &:hover,
     &:active,
@@ -159,6 +157,12 @@
 
   @media (max-width: $screen-xs-max) {
     top: 52px;
+
+    backdrop-filter: blur(20px);
+
+    @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+      background: rgba(white, .95);
+    }
   }
 }
 

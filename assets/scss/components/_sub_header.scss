@@ -7,14 +7,19 @@
   position: sticky;
   top: 0;
   z-index: 99;
+  backdrop-filter: blur(20px);
+  
   // opacity: 0;
   // animation: fadeIn .4s ease .5s forwards;
 
   &.sub-header_initialized {
+    transition: 
+      background-color .4s ease,
+      box-shadow .4s ease;
 
-    // transition: 
-    //   background-color .5s ease,
-    //   box-shadow .5s ease;
+      &:not(.sub-header--stuck) {
+        backdrop-filter: none;
+      }
   }
 
   &__trigger {
@@ -42,13 +47,10 @@
 
   &.sub-header--stuck {
     background: #020814;
-    &.sub-header_initialized {
-    backdrop-filter: blur(20px);
-    }
     box-shadow: 0 1px 0px rgba(black, .06);
   
     @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
-      background: rgba(#020814, .9);
+      background: rgba(#020814, .8);
     }
   }
 

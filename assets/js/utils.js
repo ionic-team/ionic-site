@@ -216,10 +216,9 @@ const subHeader = {
     if (subHeader.el) {
       subHeader.observer.observe(document.getElementById('sub-header__trigger'));
       setTimeout(function() {
-
         subHeader.el.classList.add('sub-header_initialized');
         document.querySelector('.navbar-default').classList.add('navbar--not-fixed');
-      }, 150)
+      }, 4500)
     }
   }
 }

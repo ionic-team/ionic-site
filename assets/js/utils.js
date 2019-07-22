@@ -218,7 +218,7 @@ const subHeader = {
       setTimeout(function() {
         subHeader.el.classList.add('sub-header_initialized');
         document.querySelector('.navbar-default').classList.add('navbar--not-fixed');
-      }, 4500)
+      }, 405)
     }
   }
 }

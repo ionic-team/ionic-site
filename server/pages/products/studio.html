@@ -71,17 +71,17 @@ console.log('Page loaded with form id', formId, price);
 
   <section>
     <div class="container">
-      <video poster="/img/products/studio/summer-19-preview.jpg" autoplay
+      {# <video poster="/img/products/studio/summer-19-preview.jpg" autoplay
              loop muted>
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-summer-19-update.mp4" type="video/mp4">
-      </video>
+      </video> #}
       
-      {# <div class="screenshot-group">
+      <div class="screenshot-group">
         <img src="/img/products/studio/screenshot-main.png" 
              alt="Ionic Studio Screenshot">
         <img src="/img/products/studio/screenshot-main-2.png" 
              alt="Ionic Studio Screenshot">
-      </div> #}
+      </div>
 
       <h3>Empower your team. Drive digital transformation.</h3>
       <ul>
@@ -220,13 +220,9 @@ console.log('Page loaded with form id', formId, price);
         </p>
       </hgroup>
       <div class="video-container fade-in">
-        <video poster="/img/products/studio/studio-serving-start.jpg"
-               muted
-               onended="showApp(this)">
-          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-serving.mp4"
-                  type="video/mp4">
+        <video poster="/img/products/studio/summer-19-preview.jpg" loop muted>
+          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-summer-19-update.mp4" type="video/mp4">
         </video>
-        <img src="/img/products/studio/app-serve-window.png" class="preview">
       </div>
       <ul>
         <li class="live">
@@ -497,9 +493,5 @@ $(document).ready(function() {
   $(document).on('scroll', checkMedia);
   checkMedia();
 });
-
-window.showApp = function(el) {
-  el.parentNode.classList.add('finished');
-}
 </script>
 {% endblock %}

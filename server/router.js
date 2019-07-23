@@ -75,6 +75,8 @@ router: app => {
     getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
   .get('/resources/case-studies/:caseStudy', (req, res, next) =>
     getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
+    .get('/resources/customer-stories/:customerStory', (req, res, next) =>
+      getPrismic(req, res, next, 'customer_story', req.params['customerStory'], 'resources/customer-stories'))
   .get('/resources/podcasts/:podcast', (req, res, next) =>
     getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
   .get('/resources/videos/:video', (req, res, next) =>

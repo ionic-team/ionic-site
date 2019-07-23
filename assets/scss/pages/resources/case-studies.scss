@@ -3,49 +3,6 @@
 @import '../../bootstrap/variables';
 
 
-#sub-header {
-
-  & > .container::before {
-    border-top: 1px solid #E9EDF3;
-  }
-
-  .breadcrumbs li,
-  .breadcrumbs li a {
-    font-family: $font-family-inter;
-    color: #52678c;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-  }
-
-  .breadcrumbs li a {
-    color: #8aa0bb;
-
-    &:hover {
-      color: #52678c;
-    }
-  }
-
- .breadcrumbs li::after {
-    color: #e1e4e8;
-    margin-left: 7px;
-    margin-right: 6px;
-    font-size: 14px;
-  }
-
-  @media (max-width: $screen-sm) {
-    display: none;
-  }
-}
-
-
-#sub-header .download {
-  padding-right: 0;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-  font-size: 12px;
-}
-
 main hgroup {
   margin-top: 24px;
   margin-bottom: 53px;

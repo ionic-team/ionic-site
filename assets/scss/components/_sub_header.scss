@@ -63,7 +63,8 @@
     font-size: 13px;
     font-weight: 500;
     min-height: 55px;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    overflow-x: auto;
     position: relative;
     z-index: 1;
 
@@ -90,6 +91,13 @@
     padding: 0;
     list-style: none;
     margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
   }
 
   .sub-header__right li:last-child a{
@@ -101,21 +109,13 @@
     padding-left: 0;
   }
 
-  li {
-    display: inline-block;
-  }
-
   ul {
     font-size: 12px;
     line-height: 14px;
   }
 
-  .sub-header__breadcrumbs,
   .sub-header__title {
-    &.sub-header__breadcrumbs--sm {
-      font-size: 13px;
-    }
-
+    // same as .sub-header__breadcrumbs li:last-child a
     &,
     a {
       font-size: 16px;
@@ -123,32 +123,36 @@
       line-height: 22px;
       letter-spacing: -0.01em;
     }
-
-    li {
-      &::after {
-        content: '/';
-        color: rgba(white, .1);
-        margin-left: 5px;
-        margin-right: 1px;
-        font-size: 16px;
-        font-weight: 600;
-        vertical-align: 0px;
-      }
-
-      &:last-child::after {
-        display: none;
-      }
-    }
   }
 
-  .sub-header__breadcrumbs--small {
-    &,
-    li:after {
-      font-size: 13px;
+  .sub-header__breadcrumbs li {
+    &::after {
+      content: '/';
+      color: rgba(white, .1);
+      font-size: 16px;
+      font-weight: 400;
+      vertical-align: 0px;
     }
 
-    li a {
-      font-weight: 600;
+    a {
+      padding-left: 8px;
+      padding-right: 8px;
+      color: rgba(white, .6);
+    }
+
+    &:last-child {
+      a {
+        opacity: 1;
+        // same as .sub-header__title
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+      }
+
+      &::after {
+        display: none;
+      }
     }
   }
 
@@ -158,6 +162,7 @@
     padding: 18px 15px;
     display: inline-block;
     text-decoration: none;
+    white-space: nowrap;
     transition: .2s color;
   }
 
@@ -210,9 +215,22 @@ body.light #sub-header {
   }
 
   span,
-  a,
-  li::after {
+  a {
     color: #414D5C;
+  }
+
+  .sub-header__breadcrumbs li {
+    &:after {
+      color: rgba(#414D5C, .2);
+    }
+
+    &:not(:last-child) a {
+      color: rgba(#414D5C, .6);
+
+      &:hover {
+        color: $blue;
+      }
+    }
   }
 
   .sub-header__breadcrumbs,

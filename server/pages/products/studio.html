@@ -220,9 +220,12 @@ console.log('Page loaded with form id', formId, price);
         </p>
       </hgroup>
       <div class="video-container fade-in">
-        <video poster="/img/products/studio/summer-19-preview.jpg" loop muted>
-          <source src="https://ionic-site-assets.s3.amazonaws.com/studio-summer-19-update.mp4" type="video/mp4">
-        </video>
+        <video poster="/img/products/studio/summer-19-preview.jpg"
+               muted
+               onended="showApp(this)">
+        <source src="https://ionic-site-assets.s3.amazonaws.com/studio-summer-19-update.mp4" type="video/mp4">
+      </video>
+        <img src="/img/products/studio/preview.png" class="preview">
       </div>
       <ul>
         <li class="live">
@@ -493,5 +496,9 @@ $(document).ready(function() {
   $(document).on('scroll', checkMedia);
   checkMedia();
 });
+
+window.showApp = function(el) {
+  el.parentNode.classList.add('finished');
+}
 </script>
 {% endblock %}

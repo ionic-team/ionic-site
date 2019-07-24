@@ -289,15 +289,6 @@ const resources = {
     description: "Customer Stories from developers and companies.",
     meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
     items: [
-      {
-        "type": "Customer Story",
-        "title": "Testing 1, 2, 3",
-        "url": "/resources/customer-stories/testing-customer-story",
-        "target": "_blank",
-        "action": "Read",
-        "bgImage": "https://ionicframeworkcom.cdn.prismic.io/ionicframeworkcom/13ff79e273ab031cdd20ae18035cef292bf10350_forrester-webinar-og.png",
-        "bgColor": "#113F93"
-      }
     ]
   },
   "webinars": {

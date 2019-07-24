@@ -128,7 +128,7 @@ body {
 
 .tabs {
   width: 100%;
-  max-width: 780px;
+  max-width: 800px;
   margin: 0 auto;
   overflow-x: auto;
   position: relative;
@@ -155,7 +155,7 @@ body {
 
 .tabs__item {
   & + .tabs__item {
-    margin-left: 20px;
+    margin-left: 18px;
   }
 
   a {
@@ -173,7 +173,7 @@ body {
     span {
       display: block;
       flex: 1 0 auto;
-      // white-space: nowrap;
+      white-space: nowrap;
       text-align: center;
     }
   }

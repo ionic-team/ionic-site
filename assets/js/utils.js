@@ -446,8 +446,12 @@ window.pjx = {
     this.urlRoot = urlRoot;
     this.navLinks = document.querySelectorAll('.pjxNavLink');
     this.hooks = hooks || {};
+    this.delegator = document.querySelector(delegatorID);
 
-    document.querySelector(delegatorID).addEventListener('click', function(ev){
+    // If delegator does not exist, bail
+    if (!this.delegator) return;
+
+    this.delegator.addEventListener('click', function(ev){
       var el = ev.target;
       while (el && !el.matches('a.pjxLink')) {
         el = el.parentNode;

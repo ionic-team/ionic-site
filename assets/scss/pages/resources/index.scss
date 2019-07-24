@@ -173,6 +173,8 @@ body {
     span {
       display: block;
       flex: 1 0 auto;
+      // white-space: nowrap;
+      text-align: center;
     }
   }
 

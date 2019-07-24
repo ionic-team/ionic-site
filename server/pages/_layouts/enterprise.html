@@ -4,12 +4,32 @@
   {% set stickyNav = true %}
 {% endif %}
 
+
+{% if header_style == 'transparent' %}}
+  {% set header_style = 'transparent light' %}
+{% endif %}
+
 {% if not meta_image %}
     {% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
   {% endif %}
 
 {% block page %}
-  {% include '../_includes/header-enterprise.html' %}
+  {% include '../_includes/header.html' %}
+
+  <div id="sub-header">
+    <div class="container">
+      <ul class="left sub-header__left">
+        <li><a class="sub-header__title" href="/enterprise">Enterprise</a></li>
+      </ul>
+      <ul class="sub-header__right">
+        <li><a href="/enterprise/why-ionic">Why Ionic?</a></li>
+        <li><a href="/enterprise/platform">Platform</a></li>
+        <li><a href="/enterprise/customers">Customers</a></li>
+        <li><a href="/enterprise/strategy-session">Strategy Session</a></li>
+        <li><a class="btn" href="/enterprise/contact-us">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
 
   {% block main %}
     <div class="hero"></div>
@@ -17,3 +37,4 @@
 
   {% include '../_includes/footer.html' %}
 {% endblock %}
+

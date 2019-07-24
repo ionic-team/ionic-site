@@ -91,6 +91,7 @@ router: app => {
   .get('/enterprise/solutions/design-systems', (_, res) => res.render('enterprise/solutions/design-systems'))
   .get('/enterprise/solutions/pwa', (_, res) => res.render('enterprise/solutions/pwa'))
 
+  .get('/enterprise/strategy-session', (_, res) => res.render('enterprise/strategy-session'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
   .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
   .get('/enterprise/why-ionic', (_, res) => res.render('enterprise/why-ionic'))
@@ -135,7 +136,6 @@ router: app => {
 
   .get('/sales', (_, res) => res.render('sales'))
   .get('/startups', (_, res) => res.render('startups'))
-  .get('/strategysession', (_, res) => res.render('strategysession'))
   .get('/studio', (_, res) => res.render('products/studio'))
   .get('/subscribe', (_, res) => res.render('subscribe'))
   .get('/support', (_, res) => res.render('support'))

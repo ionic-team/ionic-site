@@ -100,7 +100,7 @@
     align-items: center;
   }
 
-  .sub-header__right li:last-child a{
+  .sub-header__right li:last-child a:not(.btn) {
     padding-right: 0;
   }
 
@@ -177,7 +177,9 @@
     }
 
     &.btn {
-      padding: 6px 8px 5px;
+      padding: 5px 10px 3px;
+      border-radius: 16px;
+      color: white;
       font-size: 13px;
       font-weight: 600;
       vertical-align: 0px;
@@ -213,6 +215,11 @@ body.light #sub-header {
   span,
   a {
     color: #414D5C;
+  }
+
+  .btn,
+  .btn:hover {
+    color: white;
   }
 
   .sub-header__breadcrumbs li {

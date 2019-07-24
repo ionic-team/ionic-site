@@ -1,17 +1,18 @@
 {% extends '_layouts/blank.html' %}
 {% set isEnterprise = true %}
-{% if stickyNav !== false %}
-  {% set stickyNav = true %}
-{% endif %}
 
-
+{% import "_includes/macros.html" as macros %}
 {% if header_style == 'transparent' %}}
   {% set header_style = 'transparent light' %}
 {% endif %}
 
 {% if not meta_image %}
-    {% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
-  {% endif %}
+  {% set meta_image = 'https://ionicframework.com/img/meta/ionic-for-enterprise-og.png'%}
+{% endif %}
+
+{% macro navLinkAttrs(dest) %}
+href="{{dest}}" class="{% if dest in url %}active{% endif %}"
+{% endmacro %}
 
 {% block page %}
   {% include '../_includes/header.html' %}
@@ -22,11 +23,11 @@
         <li><a class="sub-header__title" href="/enterprise">Enterprise</a></li>
       </ul>
       <ul class="sub-header__right">
-        <li><a href="/enterprise/why-ionic">Why Ionic?</a></li>
-        <li><a href="/enterprise/platform">Platform</a></li>
-        <li><a href="/enterprise/customers">Customers</a></li>
-        <li><a href="/enterprise/strategy-session">Strategy Session</a></li>
-        <li><a class="btn" href="/enterprise/contact-us">Contact us</a></li>
+        <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
+        <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
+        <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>
+        <li><a {{ navLinkAttrs('/enterprise/strategy-session') }}>Strategy Session</a></li>
+        <li><a class="btn" href="/enterprise/contact">Contact us</a></li>
       </ul>
     </div>
   </div>

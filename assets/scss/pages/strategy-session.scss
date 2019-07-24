@@ -3,11 +3,8 @@
 
 #page-strategy-session {
   .cta {
-    background-color: #243c54;
-    background-image: url('/img/strategy-session/strategy-session-hero.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);
+    box-shadow: inset 0px -1px 0px rgba(0, 15, 41, 0.06);
     margin-top: -136px;
     padding-top: 136px;
   }
@@ -18,6 +15,7 @@
     max-width: 510px;
 
     h1 {
+      color: #020814;
       font-size: 48px;
       letter-spacing: -0.03em;
     }
@@ -27,8 +25,7 @@
       font-size: 22px;
       line-height: 36px;
       letter-spacing: -0.02em;
-      color: #F6F8FB;
-      opacity: 0.8;
+      color: rgba(#414D5C, .9);
     }
 
     @media (max-width: $screen-sm) {
@@ -59,16 +56,16 @@
 
   .content,
   .signup-form {
-    flex: 0 0 50%;
-
     @media (max-width: $screen-md) {
       flex: 0 0 100%;
     }
   }
 
   .content {
-    padding-right: 100px;
+    flex: 1 0 50%;
+    padding-right: 56px;
     margin-top: 80px;
+    flex: 0 1 700px;
 
     h2 {
       font-weight: 600;
@@ -91,10 +88,20 @@
     }
   }
 
+  .checkmark-list--large i {
+    background: #E7F4FF;
+
+    ion-icon  {
+      color: #4D8DFF;
+    }
+  }
+
   .signup-form {
+    flex: 0 1 560px;
     position: relative;
     z-index: 90;
-    margin-top: -26px;
+    margin-top: -260px;
+    margin-left: auto;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1), 0px 8px 16px rgba(2, 8, 20, 0.08);
     border-radius: 8px;
@@ -150,30 +157,30 @@
   .testimonial {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #E9EDF3;
+    align-content: center;
     font-family: $font-family-inter;
     font-weight: 600;
     letter-spacing: -0.01em;
     margin-top: 64px;
 
-    &__img,
-    &__caption {
-      flex: 0 0 45%;
-    }
-
     &__img {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      flex: 0 1 200px;
 
       img {
         width: 100%;
+        background: #EDF4F9;
+        border-radius: 50%;
       }
     }
 
     &__caption {
       position: relative;
-      padding-top: 16px;
+      padding-top: 26px;
+      margin-left: 20px;
+      flex: 1;
 
       &::before {
         content: '';
@@ -193,6 +200,7 @@
       line-height: 20px;
       color: #5B708B;
       margin: 0 0 16px;
+      letter-spacing: -0.01em;
     }
 
     &__name {

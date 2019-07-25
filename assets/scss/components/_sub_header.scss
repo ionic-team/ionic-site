@@ -93,6 +93,10 @@
     margin-bottom: 0;
     display: flex;
     align-items: center;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
 
   li {
@@ -121,7 +125,11 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 22px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
+
+      &:hover {
+        color: white;
+      }
     }
   }
 
@@ -155,7 +163,7 @@
   span,
   a {
     color: white;
-    padding: 18px 15px;
+    padding: 16px 12px;
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
@@ -186,6 +194,7 @@
       letter-spacing: -.01em;
       margin-right: 3px;
       margin-left: 9px;
+      box-shadow: none;
       transition: .3s box-shadow, .3s background;
 
       &:hover {
@@ -241,6 +250,10 @@ body.light #sub-header {
     &,
     a {
       color: #1A232F;
+
+      &:hover {
+        color: #1A232F;
+      }
     }
   }
 

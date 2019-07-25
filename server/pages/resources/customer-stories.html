@@ -71,6 +71,26 @@
       <hgroup>
         <h1>{{ data.title }}</h1>
         <p class="lg">{{ data.tagline }}</p>
+        <div class="byline">
+          {% for author in data.author %}
+            <img class="avatar"
+                 src="{{ author.photo.url }}"
+                 alt="{{ author.photo.alt }}"/>
+          {% endfor %}
+          By
+          {% for author in data.author %}
+            <a href="{{ author.author_url.url }}" class="name" target="_blank">
+            {{ author.name }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+          {% if data.published_date %}
+            on {{ data.published_date|date('MMMM D, YYYY') }}
+          {% endif %}
+          <ul class="tags">
+            {% for tag in data.tags %}
+              <li>{{ tag.tag }}</li>
+            {% endfor %}
+          </ul>
+        </div>
         <img src="{{data.hero_image.url}}"
              srcset="{{data.hero_image['1x'].url}} 1x, {{data.hero_image.url}} 2x"
              alt="{{data.hero_image.alt}}">

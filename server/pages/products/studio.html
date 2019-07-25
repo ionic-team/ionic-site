@@ -35,9 +35,11 @@ console.log('Page loaded with form id', formId, price);
       <li><a href="#" class="sub-header__title">Ionic Studio</a></li>
     </ul>
     <ul class="sub-header__right">
+      <li><a href="/pricing#studio">Pricing</a></li>
+      <li><a href="/docs/studio">Docs</a></li>
       <li>
         <a class="btn dark rounded xs uppercase outline"
-           href="#" data-toggle="modal" data-target="#requestDemo" 
+           href="#" data-toggle="modal" data-target="#requestDemo"
            id="btn-studio-subheader-request-demo">Request a Demo</a>
       </li>
     </ul>
@@ -56,14 +58,20 @@ console.log('Page loaded with form id', formId, price);
     </p>
     <div class="btns">
       <a class="btn rounded sm uppercase"
-         href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=studio" 
+         href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=studio"
          {# href="#"
-         data-toggle="modal" 
+         data-toggle="modal"
          data-target="#joinWaitlist"  #}
          id="btn-studio-hero-request-demo">Sign Up Now</a>
+
+      <a class="btn dark rounded sm uppercase outline faded"
+         id="btn-studio-hero-watch-overview"
+         href="/pricing#studio">See pricing</a>
+
+
       {# <a class="btn dark rounded sm uppercase outline faded"
          id="btn-studio-hero-watch-overview"
-         data-toggle="modal" 
+         data-toggle="modal"
          data-target="#overviewVideo"
          href="#"><ion-icon name="play"></ion-icon> Watch Overview</a> #}
     </div>
@@ -75,11 +83,11 @@ console.log('Page loaded with form id', formId, price);
              loop muted>
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-summer-19-update.mp4" type="video/mp4">
       </video> #}
-      
+
       <div class="screenshot-group">
-        <img src="/img/products/studio/screenshot-main.png" 
+        <img src="/img/products/studio/screenshot-main.png"
              alt="Ionic Studio Screenshot">
-        <img src="/img/products/studio/screenshot-main-2.png" 
+        <img src="/img/products/studio/screenshot-main-2.png"
              alt="Ionic Studio Screenshot">
       </div>
 
@@ -105,9 +113,9 @@ console.log('Page loaded with form id', formId, price);
         <li class="ship delay-200">
           <strong>Ship with ease</strong>
           <p>
-            As part of the Ionic Development Platform, Studio integrates with 
-            our mobile DevOps suite, <a href="/appflow">Ionic Appflow</a>, which 
-            makes it easier to build, test, update, and ship the powerful apps 
+            As part of the Ionic Development Platform, Studio integrates with
+            our mobile DevOps suite, <a href="/appflow">Ionic Appflow</a>, which
+            makes it easier to build, test, update, and ship the powerful apps
             you build using this tool.
           </p>
         </li>
@@ -123,8 +131,8 @@ console.log('Page loaded with form id', formId, price);
       <hgroup>
         <h2>Superpowers for creating</h2>
         <p>
-          Drag and drop components directly into your app, which automatically 
-          adds logic and code as you build. Move seamlessly between design and 
+          Drag and drop components directly into your app, which automatically
+          adds logic and code as you build. Move seamlessly between design and
           code to create apps, more visually, with live previews.
         </p>
       </hgroup>
@@ -135,7 +143,7 @@ console.log('Page loaded with form id', formId, price);
       </video> #}
 
       <img class="screenshot"
-           src="/img/products/studio/screenshot-wysiwyg.png" 
+           src="/img/products/studio/screenshot-wysiwyg.png"
            alt="Ionic Studio Code Editor">
 
       <ul>
@@ -179,7 +187,7 @@ console.log('Page loaded with form id', formId, price);
         <source src="https://ionic-site-assets.s3.amazonaws.com/studio-code-editor.mp4" type="video/mp4">
       </video> #}
       <img class="screenshot"
-           src="/img/products/studio/screenshot-code.png" 
+           src="/img/products/studio/screenshot-code.png"
            alt="Ionic Studio Screenshot">
 
       <ul>
@@ -193,7 +201,7 @@ console.log('Page loaded with form id', formId, price);
         <li class="no-docs delay-100">
           <strong>No Docs Required</strong>
           <p>
-            With Ionic’s components at your fingertips, there’s no need to dig 
+            With Ionic’s components at your fingertips, there’s no need to dig
             through pages of documentation to learn Ionic.
           </p>
         </li>
@@ -290,8 +298,8 @@ console.log('Page loaded with form id', formId, price);
           <span class="pill">coming soon</span>
           <strong>CI/CD integration</strong>
           <p>
-            One-click integration with <a href="/appflow">Ionic Appflow</a>, a 
-            powerful suite of mobile DevOps services for every phase of the 
+            One-click integration with <a href="/appflow">Ionic Appflow</a>, a
+            powerful suite of mobile DevOps services for every phase of the
             application lifecycle.
           </p>
         </li>

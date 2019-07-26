@@ -11,7 +11,7 @@
     letter-spacing: .04em;
     margin-right: 3px;
     margin-left: 9px;
-    transition: .2s box-shadow,.2s background;
+    transition: .3s box-shadow,.3s background;
 
     &:hover,
     &:focus {
@@ -139,7 +139,7 @@
       h1,
       p,
       .btn {
-        animation: .2s fadeInUp ease-out forwards;
+        animation: .4s fadeInUp ease-out forwards;
         opacity: 0;
       }
 

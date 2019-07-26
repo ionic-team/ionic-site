@@ -1,4 +1,4 @@
-import { Component, Event, Prop, State, EventEmitter, Method } from '@stencil/core';
+import { Component, Event, Prop, State, EventEmitter, Method, h } from '@stencil/core';
 
 @Component({
   tag: 'ionic-toggle-button',

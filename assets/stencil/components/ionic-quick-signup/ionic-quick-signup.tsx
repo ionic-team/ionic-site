@@ -1,7 +1,7 @@
 import 'ionicons';
 
 import {
-  Component, Prop,
+  Component, Prop, h
 } from '@stencil/core';
 
 declare var window: any;

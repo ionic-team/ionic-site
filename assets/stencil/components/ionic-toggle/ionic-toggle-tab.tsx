@@ -1,4 +1,4 @@
-import { Component, Prop, Method, State } from '@stencil/core';
+import { Component, Prop, Method, State, h } from '@stencil/core';
 
 @Component({
   tag: 'ionic-toggle-tab',

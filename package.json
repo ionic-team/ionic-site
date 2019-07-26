@@ -30,8 +30,8 @@
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
     "@sentry/node": "^4.6.4",
-    "@stencil/core": "0.18.1",
-    "@stencil/sass": "0.1.1",
+    "@stencil/core": "1.2.1",
+    "@stencil/sass": "1.0.1",
     "@stencil/utils": "latest",
     "@types/node": "10.12.27",
     "body-parser": "^1.18.3",

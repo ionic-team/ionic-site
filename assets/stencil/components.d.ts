@@ -5,39 +5,21 @@
  */
 
 
-import '@stencil/core';
-
-import 'ionicons';
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface IconExternal {}
-  interface IconExternalAttributes extends StencilHTMLAttributes {}
-
   interface IonicAppflowActivator {}
-  interface IonicAppflowActivatorAttributes extends StencilHTMLAttributes {}
-
   interface IonicBarChart {
     'color': string;
     'data': string;
   }
-  interface IonicBarChartAttributes extends StencilHTMLAttributes {
-    'color'?: string;
-    'data'?: string;
-  }
-
   interface IonicButton {
     'color': string;
     'disabled': boolean;
     'type': string;
   }
-  interface IonicButtonAttributes extends StencilHTMLAttributes {
-    'color'?: string;
-    'disabled'?: boolean;
-    'type'?: string;
-  }
-
   interface IonicNewsletterSignup {
     'arrowMode': boolean;
     'buttonText': string;
@@ -47,95 +29,34 @@ export namespace Components {
     'lg': boolean;
     'placeholder': string;
   }
-  interface IonicNewsletterSignupAttributes extends StencilHTMLAttributes {
-    'arrowMode'?: boolean;
-    'buttonText'?: string;
-    'darkMode'?: boolean;
-    'homepageMode'?: boolean;
-    'kind'?: string;
-    'lg'?: boolean;
-    'placeholder'?: string;
-  }
-
   interface IonicQuickSignup {
     'buttonColor': string;
     'showPricingNotice': boolean;
     'transparentInput': boolean;
   }
-  interface IonicQuickSignupAttributes extends StencilHTMLAttributes {
-    'buttonColor'?: string;
-    'showPricingNotice'?: boolean;
-    'transparentInput'?: boolean;
-  }
-
   interface IonicSearch {
     'mobile': boolean;
   }
-  interface IonicSearchAttributes extends StencilHTMLAttributes {
-    'mobile'?: boolean;
-  }
-
   interface IonicSlider {}
-  interface IonicSliderAttributes extends StencilHTMLAttributes {}
-
   interface IonicSnapBar {}
-  interface IonicSnapBarAttributes extends StencilHTMLAttributes {}
-
+  interface IonicSubHeader {
+    'darkMode': boolean;
+  }
+  interface IonicToggle {}
   interface IonicToggleButton {
-    'deselect': () => void;
-    'select': () => void;
+    'deselect': () => Promise<void>;
+    'select': () => Promise<void>;
     'tab': string;
     'title': string;
   }
-  interface IonicToggleButtonAttributes extends StencilHTMLAttributes {
-    'onToggleSelected'?: (event: CustomEvent) => void;
-    'tab'?: string;
-    'title'?: string;
-  }
-
   interface IonicToggleTab {
-    'hide': () => void;
-    'show': () => void;
+    'hide': () => Promise<void>;
+    'show': () => Promise<void>;
     'tab': string;
   }
-  interface IonicToggleTabAttributes extends StencilHTMLAttributes {
-    'tab'?: string;
-  }
-
-  interface IonicToggle {}
-  interface IonicToggleAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'IconExternal': Components.IconExternal;
-    'IonicAppflowActivator': Components.IonicAppflowActivator;
-    'IonicBarChart': Components.IonicBarChart;
-    'IonicButton': Components.IonicButton;
-    'IonicNewsletterSignup': Components.IonicNewsletterSignup;
-    'IonicQuickSignup': Components.IonicQuickSignup;
-    'IonicSearch': Components.IonicSearch;
-    'IonicSlider': Components.IonicSlider;
-    'IonicSnapBar': Components.IonicSnapBar;
-    'IonicToggleButton': Components.IonicToggleButton;
-    'IonicToggleTab': Components.IonicToggleTab;
-    'IonicToggle': Components.IonicToggle;
-  }
-
-  interface StencilIntrinsicElements {
-    'icon-external': Components.IconExternalAttributes;
-    'ionic-appflow-activator': Components.IonicAppflowActivatorAttributes;
-    'ionic-bar-chart': Components.IonicBarChartAttributes;
-    'ionic-button': Components.IonicButtonAttributes;
-    'ionic-newsletter-signup': Components.IonicNewsletterSignupAttributes;
-    'ionic-quick-signup': Components.IonicQuickSignupAttributes;
-    'ionic-search': Components.IonicSearchAttributes;
-    'ionic-slider': Components.IonicSliderAttributes;
-    'ionic-snap-bar': Components.IonicSnapBarAttributes;
-    'ionic-toggle-button': Components.IonicToggleButtonAttributes;
-    'ionic-toggle-tab': Components.IonicToggleTabAttributes;
-    'ionic-toggle': Components.IonicToggleAttributes;
-  }
 
 
   interface HTMLIconExternalElement extends Components.IconExternal, HTMLStencilElement {}
@@ -192,6 +113,18 @@ declare global {
     new (): HTMLIonicSnapBarElement;
   };
 
+  interface HTMLIonicSubHeaderElement extends Components.IonicSubHeader, HTMLStencilElement {}
+  var HTMLIonicSubHeaderElement: {
+    prototype: HTMLIonicSubHeaderElement;
+    new (): HTMLIonicSubHeaderElement;
+  };
+
+  interface HTMLIonicToggleElement extends Components.IonicToggle, HTMLStencilElement {}
+  var HTMLIonicToggleElement: {
+    prototype: HTMLIonicToggleElement;
+    new (): HTMLIonicToggleElement;
+  };
+
   interface HTMLIonicToggleButtonElement extends Components.IonicToggleButton, HTMLStencilElement {}
   var HTMLIonicToggleButtonElement: {
     prototype: HTMLIonicToggleButtonElement;
@@ -203,29 +136,7 @@ declare global {
     prototype: HTMLIonicToggleTabElement;
     new (): HTMLIonicToggleTabElement;
   };
-
-  interface HTMLIonicToggleElement extends Components.IonicToggle, HTMLStencilElement {}
-  var HTMLIonicToggleElement: {
-    prototype: HTMLIonicToggleElement;
-    new (): HTMLIonicToggleElement;
-  };
-
   interface HTMLElementTagNameMap {
-    'icon-external': HTMLIconExternalElement
-    'ionic-appflow-activator': HTMLIonicAppflowActivatorElement
-    'ionic-bar-chart': HTMLIonicBarChartElement
-    'ionic-button': HTMLIonicButtonElement
-    'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement
-    'ionic-quick-signup': HTMLIonicQuickSignupElement
-    'ionic-search': HTMLIonicSearchElement
-    'ionic-slider': HTMLIonicSliderElement
-    'ionic-snap-bar': HTMLIonicSnapBarElement
-    'ionic-toggle-button': HTMLIonicToggleButtonElement
-    'ionic-toggle-tab': HTMLIonicToggleTabElement
-    'ionic-toggle': HTMLIonicToggleElement
-  }
-
-  interface ElementTagNameMap {
     'icon-external': HTMLIconExternalElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
@@ -235,18 +146,81 @@ declare global {
     'ionic-search': HTMLIonicSearchElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
+    'ionic-sub-header': HTMLIonicSubHeaderElement;
+    'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
-    'ionic-toggle': HTMLIonicToggleElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface IconExternal extends JSXBase.HTMLAttributes<HTMLIconExternalElement> {}
+  interface IonicAppflowActivator extends JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement> {}
+  interface IonicBarChart extends JSXBase.HTMLAttributes<HTMLIonicBarChartElement> {
+    'color'?: string;
+    'data'?: string;
+  }
+  interface IonicButton extends JSXBase.HTMLAttributes<HTMLIonicButtonElement> {
+    'color'?: string;
+    'disabled'?: boolean;
+    'type'?: string;
+  }
+  interface IonicNewsletterSignup extends JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement> {
+    'arrowMode'?: boolean;
+    'buttonText'?: string;
+    'darkMode'?: boolean;
+    'homepageMode'?: boolean;
+    'kind'?: string;
+    'lg'?: boolean;
+    'placeholder'?: string;
+  }
+  interface IonicQuickSignup extends JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement> {
+    'buttonColor'?: string;
+    'showPricingNotice'?: boolean;
+    'transparentInput'?: boolean;
+  }
+  interface IonicSearch extends JSXBase.HTMLAttributes<HTMLIonicSearchElement> {
+    'mobile'?: boolean;
+  }
+  interface IonicSlider extends JSXBase.HTMLAttributes<HTMLIonicSliderElement> {}
+  interface IonicSnapBar extends JSXBase.HTMLAttributes<HTMLIonicSnapBarElement> {}
+  interface IonicSubHeader extends JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement> {
+    'darkMode'?: boolean;
+  }
+  interface IonicToggle extends JSXBase.HTMLAttributes<HTMLIonicToggleElement> {}
+  interface IonicToggleButton extends JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement> {
+    'onToggleSelected'?: (event: CustomEvent<any>) => void;
+    'tab'?: string;
+    'title'?: string;
+  }
+  interface IonicToggleTab extends JSXBase.HTMLAttributes<HTMLIonicToggleTabElement> {
+    'tab'?: string;
+  }
+
+  interface IntrinsicElements {
+    'icon-external': IconExternal;
+    'ionic-appflow-activator': IonicAppflowActivator;
+    'ionic-bar-chart': IonicBarChart;
+    'ionic-button': IonicButton;
+    'ionic-newsletter-signup': IonicNewsletterSignup;
+    'ionic-quick-signup': IonicQuickSignup;
+    'ionic-search': IonicSearch;
+    'ionic-slider': IonicSlider;
+    'ionic-snap-bar': IonicSnapBar;
+    'ionic-sub-header': IonicSubHeader;
+    'ionic-toggle': IonicToggle;
+    'ionic-toggle-button': IonicToggleButton;
+    'ionic-toggle-tab': IonicToggleTab;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+

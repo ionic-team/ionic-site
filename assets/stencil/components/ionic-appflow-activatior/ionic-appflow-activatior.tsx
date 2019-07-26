@@ -2,7 +2,8 @@ import {
   Component, 
   // Prop, 
   State,
-  Element
+  Element,
+  h
 } from '@stencil/core';
 
 import {
@@ -67,7 +68,7 @@ export class IonicAppflowActivator {
     });
 
     TweenLite.to(this.$circles[index], this.duration, {
-      strokeDashoffset: 0,
+      strokeDashoffset: String(0),
       onCompleteScope: this,
       onComplete: () =>  {
         // fade out and start the next animation
@@ -81,7 +82,7 @@ export class IonicAppflowActivator {
           onComplete: () => {
             // jump back to starting position
             TweenLite.to(this.$circles[index], 0, {
-              strokeDashoffset: this.circumference,
+              strokeDashoffset: String(this.circumference),
               lazy:true
             });
           }
@@ -100,7 +101,7 @@ export class IonicAppflowActivator {
 
     this.animationStopOthers(index)
     TweenLite.to(this.$circles[index], this.quickDuration, {
-      strokeDashoffset: 0,
+      strokeDashoffset: String(0),
       opacity: 1,
       onCompleteScope: this,
       onComplete: () => {
@@ -114,12 +115,12 @@ export class IonicAppflowActivator {
 
     this.animationStopOthers(index);
     TweenLite.to(this.$circles[index], .5, {
-      strokeDashoffset: this.circumference * -1,
+      strokeDashoffset: String(this.circumference * -1),
       lazy: true,
       onCompleteScope: this,
       onComplete: () => {
         TweenLite.to(this.$circles[index], 0, {
-          strokeDashoffset: this.circumference,
+          strokeDashoffset: String(this.circumference),
           opacity: 0,
           lazy: true,
           onCompleteScope: this,
@@ -145,7 +146,7 @@ export class IonicAppflowActivator {
       onCompleteScope: this,
       onComplete: () => {
         TweenLite.to(circles, 0, {
-          strokeDashoffset: this.circumference,
+          strokeDashoffset: String(this.circumference),
           opacity: 0,
           lazy: true
         });
@@ -167,7 +168,7 @@ export class IonicAppflowActivator {
                   strokeDasharray: 
                     `${this.circumference} ${this.circumference}`,
                   strokeDashoffset: 
-                    this.circumference - percent / 100 * this.circumference
+                    String(this.circumference - percent / 100 * this.circumference)
                 }}/>
       </svg>
     )

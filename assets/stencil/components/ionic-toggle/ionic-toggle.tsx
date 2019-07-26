@@ -1,4 +1,4 @@
-import { Component, Element, Listen } from '@stencil/core';
+import { Component, Element, Listen, h } from '@stencil/core';
 import { IonicToggleButton } from './ionic-toggle-button';
 import { IonicToggleTab } from './ionic-toggle-tab';
 

@@ -2,7 +2,7 @@
 @import '../../bootstrap/variables';
 
 #page-enterprise-support {
-  .navbar.transparent + .banner {
+  .navbar.transparent ~ .banner {
     background: #00295b no-repeat center bottom url('/img/enterprise/support/enterprise-support-hero-bg.jpg');
     background-size: cover;
     padding-bottom: 118px;

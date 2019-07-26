@@ -36,7 +36,7 @@
       color: #26262e;
     }
 
-    + .banner {
+    ~ .banner {
       background: #2a262c;
       background: url('/img/trusted-partners/tp-cta-bg.jpg'),
                   linear-gradient(to right, #222530 0%, #35363e 50%, #2a2932 100%);

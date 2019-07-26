@@ -1,7 +1,7 @@
 @import '../vars';
 
 #page-team {
-  .navbar + .banner {
+  .navbar ~ .banner {
     background: #393e49 no-repeat center top;
     background-image: url('/img/team/team-cta-bg.jpg'),
                       linear-gradient(to right, #1a2538 0%, #1f2b40 100%);

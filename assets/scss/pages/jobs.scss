@@ -2,7 +2,7 @@
 @import '../bootstrap/variables';
 
 #page-jobs {
-  .navbar + .banner {
+  .navbar ~ .banner {
     background: #26708a no-repeat center top;
     background-image: url('/img/jobs/jobs-cta-bg.jpg'),
                       linear-gradient(to right, #1e4e8b 0%, #298776 100%);

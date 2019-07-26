@@ -2,7 +2,7 @@
 @import '../bootstrap/variables';
 
 #page-contact {
-  .navbar + .banner {
+  .navbar ~ .banner {
     background: #6e4a71 no-repeat center top;
     background-image: url('/img/contact/contact-cta-bg.jpg'),
                       linear-gradient(to right, #29477d 0%, #a8444e 100%);

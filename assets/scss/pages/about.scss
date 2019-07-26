@@ -3,7 +3,7 @@
 
 #page-about {
   .navbar.transparent {
-    + .banner {
+    ~ .banner {
       background: #181830 no-repeat center top url('/img/about-us/about-us-cta-bg.jpg');
       background-size: cover;
       padding-top: 95px;

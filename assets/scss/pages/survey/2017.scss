@@ -4,7 +4,7 @@
 
 
 .survey-layout {
-  .navbar + .banner {
+  .navbar ~ .banner {
     h2 {
       font-weight: 700;
       color: rgba(0, 0, 0, .5);

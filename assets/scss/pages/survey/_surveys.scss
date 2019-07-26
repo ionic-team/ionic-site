@@ -1,5 +1,5 @@
 .survey-layout {
-  .navbar + .banner {
+  .navbar ~ .banner {
     background: linear-gradient(to right, #1e6fff 0%, #0499ff 100%);
     background-size: 100%;
     position: relative;

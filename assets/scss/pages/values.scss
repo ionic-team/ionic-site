@@ -2,7 +2,7 @@
 @import '../bootstrap/variables';
 
 #page-values {
-  .navbar + .banner {
+  .navbar ~ .banner {
     background: #181830 no-repeat center top;
     background-image: url('/img/values/values-cta-bg.jpg'),
                       linear-gradient(to right, #f4f7fb 0%, #d9dfe8 100%);

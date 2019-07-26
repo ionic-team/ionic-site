@@ -65,8 +65,8 @@
     .container {
       margin-top: 126px;
     }
-    .container + .container,
-    .container + .banner {
+    .container ~ .container,
+    .container ~ .banner {
       margin-top: 180px;
     }
 
@@ -127,8 +127,8 @@
       .container {
         margin-top: 64px;
       }
-      .container + .container,
-      .container + .banner {
+      .container ~ .container,
+      .container ~ .banner {
         margin-top: 84px;
       }
 

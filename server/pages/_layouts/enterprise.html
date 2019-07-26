@@ -32,6 +32,17 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
     </div>
   </div>
 
+  {# <ionic-sub-header>
+    <a slot="title" href="/enterprise">Enterprise</a>
+    <ul slot="right">
+      <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
+      <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
+      <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>
+      <li><a {{ navLinkAttrs('/enterprise/strategy-session') }}>Strategy Session</a></li>
+      <li><a class="btn" href="/enterprise/contact">Contact us</a></li>
+    </ul>
+  </ionic-sub-header> #}
+
   {% block main %}
     <div class="hero"></div>
   {% endblock %}

@@ -10,16 +10,13 @@
   top: 0;
   z-index: 99;
   backdrop-filter: blur(20px);
-  
-  // opacity: 0;
-  // animation: fadeIn .4s ease .5s forwards;
 
-  &.sub-header_initialized {
+  &.ionic-sub-header__initialized {
     transition: 
       background-color .4s ease,
       box-shadow .4s ease;
 
-      &:not(.sub-header--stuck) {
+      &:not(.ionic-sub-header--stuck) {
         backdrop-filter: none;
       }
   }
@@ -40,14 +37,14 @@
   &.sub-header--not-sticky {
     position: relative;
 
-    &.sub-header--stuck { 
+    &.ionic-sub-header--stuck { 
       background: none;
       box-shadow: none;
       backdrop-filter: none;
     }
   }
 
-  &.sub-header--stuck {
+  &.ionic-sub-header--stuck {
     background: #020814;
     box-shadow: 0 1px 0px rgba(black, .06);
   
@@ -106,12 +103,13 @@
     align-items: center;
   }
 
-  .sub-header__right li:last-child a:not(.btn) {
+  [slot="right"] li:last-child a:not(.btn) {
     padding-right: 0;
   }
 
-  ul:not(.sub-header__right) li:first-child a,
-  .sub-header__left li:first-child a {
+  ul:not([slot="right"]) li:first-child a,
+  [slot="left"] li:first-child a,
+  [slot="title"] {
     padding-left: 0;
   }
 
@@ -120,22 +118,19 @@
     line-height: 14px;
   }
 
-  .sub-header__title {
+  [slot="title"] {
     // same as .sub-header__breadcrumbs li:last-child a
-    &,
-    a {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 22px;
-      letter-spacing: -0.03em;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.03em;
 
-      &:hover {
-        color: white;
-      }
+    &:hover {
+      color: white;
     }
   }
 
-  .sub-header__breadcrumbs li {
+  [slot="breadcrumbs"] li {
     &::after {
       content: '/';
       color: rgba(white, .1);
@@ -209,9 +204,10 @@
     }
   }
 }
-body.light #sub-header {
 
-  &.sub-header--stuck {
+body.light ionic-sub-header {
+
+  &.ionic-sub-header--stuck {
     background: white;
   
     @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
@@ -233,7 +229,7 @@ body.light #sub-header {
     color: white;
   }
 
-  .sub-header__breadcrumbs li {
+  [slot="breadcrumbs"] li {
     &:after {
       color: rgba(#414D5C, .2);
     }
@@ -247,8 +243,8 @@ body.light #sub-header {
     }
   }
 
-  .sub-header__breadcrumbs,
-  .sub-header__title {
+  [slot="breadcrumbs"],
+  [slot="title"] {
     &,
     a {
       color: #1A232F;

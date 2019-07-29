@@ -15,18 +15,14 @@
 
 {% block main %}
 
-<div id="sub-header" class="sub-header--not-sticky">
-  <div class="container">
-    <ul>
-      <li class="sub-header__title">Appflow</li>
-    </ul>
-    <ul class="sub-header__right">
-      <li><a href="/appflow" class="active">Overview</a></li>
-      <li><a href="/pricing#appflow">Pricing</a></li>
-      <li><a href="/docs/appflow">Docs</a></li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header class="sub-header--not-sticky">
+  <a slot="title" href="#">Appflow</a>
+  <ul slot="right">
+    <li><a href="/appflow" class="active">Overview</a></li>
+    <li><a href="/pricing#appflow">Pricing</a></li>
+    <li><a href="/docs/appflow">Docs</a></li>
+  </ul>
+</ionic-sub-header>
 
 <div class="cta gradient">
   <div class="cta__background">

@@ -17,7 +17,7 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
 {% block page %}
   {% include '../_includes/header.html' %}
 
-  <div id="sub-header">
+  {# <div id="sub-header">
     <div class="container">
       <ul class="left sub-header__left">
         <li><a class="sub-header__title" href="/enterprise">Enterprise</a></li>
@@ -30,9 +30,9 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
         <li><a class="btn" href="/enterprise/contact">Contact us</a></li>
       </ul>
     </div>
-  </div>
+  </div> #}
 
-  {# <ionic-sub-header>
+  <ionic-sub-header>
     <a slot="title" href="/enterprise">Enterprise</a>
     <ul slot="right">
       <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
@@ -41,7 +41,7 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
       <li><a {{ navLinkAttrs('/enterprise/strategy-session') }}>Strategy Session</a></li>
       <li><a class="btn" href="/enterprise/contact">Contact us</a></li>
     </ul>
-  </ionic-sub-header> #}
+  </ionic-sub-header>
 
   {% block main %}
     <div class="hero"></div>

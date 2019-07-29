@@ -29,22 +29,18 @@ var price = hubsFormIds[formId];
 console.log('Page loaded with form id', formId, price);
 </script>
 
-<div id="sub-header" class="sub-header--not-sticky">
-  <div class="container">
-    <ul class="">
-      <li><a href="#" class="sub-header__title">Studio</a></li>
-    </ul>
-    <ul class="sub-header__right">
-      <li><a href="/pricing#studio">Pricing</a></li>
-      <li><a href="/docs/studio">Docs</a></li>
-      <li>
-        <a class="btn dark rounded xs uppercase outline"
-           href="#" data-toggle="modal" data-target="#requestDemo"
-           id="btn-studio-subheader-request-demo">Request a Demo</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header class="sub-header--not-sticky">
+  <a slot="title" href="#">Studio</a>
+  <ul slot="right">
+    <li><a href="/pricing#studio">Pricing</a></li>
+    <li><a href="/docs/studio">Docs</a></li>
+    <li>
+      <a class="btn dark rounded xs uppercase outline"
+         href="#" data-toggle="modal" data-target="#requestDemo"
+         id="btn-studio-subheader-request-demo">Request a Demo</a>
+    </li>
+  </ul>
+</ionic-sub-header>
 
 <div class="top">
   <hgroup class="container">

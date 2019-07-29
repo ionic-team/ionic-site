@@ -11,19 +11,17 @@
 
 {% block main %}
 
-<div id="sub-header">
-  <div class="container">
-    <ul class="sub-header__breadcrumbs">
-      <li><a href="/pro">Pro</a></li>
-      <li><a href="#">Monitor</a></li>
-    </ul>
-    <ul class="sub-header__right">
-      <li><a href="/pro/monitoring" class="active">Features</a></li>
-      <li><a href="/docs/appflow/monitoring">Docs</a></li>
-      <li><a href="/pricing#appflow">Pricing</a></li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header>
+  <ul slot="breadcrumbs">
+    <li><a href="/pro">Pro</a></li>
+    <li><a href="#">Monitor</a></li>
+  </ul>
+  <ul slot="right">
+    <li><a href="/pro/monitoring" class="active">Features</a></li>
+    <li><a href="/docs/appflow/monitoring">Docs</a></li>
+    <li><a href="/pricing#appflow">Pricing</a></li>
+  </ul>
+</ionic-sub-header>
 
 <div class="top">
   <hgroup class="container">

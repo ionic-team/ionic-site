@@ -8,17 +8,13 @@
 {% set meta_keywords = 'Ionic Framework, enterprise app development, enterprise app security, mobile security, app security, app authentication, mobile user authentication, biometric app security, biometric authentication, mobile biometric protection, iOS secure enclave, Android Fingerprint & Pin, Background data hiding, frontend authentication app, frontend app security, data at-rest encryption' %}
 
 {% block main %}
-<div id="sub-header">
-  <div class="container">
-    <ul class="sub-header__left">
-      <li><a class="sub-header__title" href="/enterprise/identity-vault">Identity Vault</a></li>
-    </ul>
-    <ul class="sub-header__right">
-      <li><a href="https://ionicframework.com/docs/enterprise/identity-vault">Docs</a></li>
-      <li><a href="#demo" class="demo anchor">Request Demo</a></li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header>
+  <a slot="title" href="/enterprise/identity-vault">Identity Vault</a>
+  <ul slot="right">
+    <li><a href="https://ionicframework.com/docs/enterprise/identity-vault">Docs</a></li>
+    <li><a href="#demo" class="demo anchor">Request Demo</a></li>
+  </ul>
+</ionic-sub-header>
 <main>
 <div class="top">
   <div class="container">

@@ -6,22 +6,18 @@
 
 {% block main %}
 
-<div id="sub-header">
-  <div class="container">
-    <ul class="left sub-header__left">
-      <li><a class="sub-header__title" href="/auth-connect">Auth Connect</a></li>
-    </ul>
-    <ul class="sub-header__right">
-      <li><a href="https://ionicframework.com/docs/enterprise/auth-connect">Docs</a></li>
-      {# <li>
-        <a href="">
-          {% include '_includes/svg/download.svg' %}
-          Spec Sheet
-        </a>
-      </li> #}
-    </ul>
-  </div>
-</div>
+<ionic-sub-header>
+  <a slot="title" href="/auth-connect">Auth Connect</a>
+  <ul slot="right">
+    <li><a href="https://ionicframework.com/docs/enterprise/auth-connect">Docs</a></li>
+    {# <li>
+      <a href="">
+        {% include '_includes/svg/download.svg' %}
+        Spec Sheet
+      </a>
+    </li> #}
+  </ul>
+</ionic-sub-header>
 
 <div class="container cta cta--transparent">
   <hgroup>

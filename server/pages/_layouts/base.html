@@ -5,14 +5,12 @@
 
   {% block main %}
     {% if press_breadcrumb %}
-      <div id="sub-header">
-        <div class="container">
-          <ul class="sub-header__breadcrumbs">
-            <li><a href="/press">Press &amp; Media</a></li>
-            <li><a href="#">{{title | title}}</a></li>
-          </ul>
-        </div>
-      </div>
+      <ionic-sub-header>
+        <ul slot="breadcrumbs">
+          <li><a href="/press">Press &amp; Media</a></li>
+          <li><a href="#">{{title | title}}</a></li>
+        </ul>
+      </ionic-sub-header>
     {% else %}
       <div class="cta banner"></div>
     {% endif %}

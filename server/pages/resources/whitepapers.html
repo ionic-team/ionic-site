@@ -13,15 +13,13 @@
 
 {% block main %}
 
-<div id="sub-header">
-  <div class="container">
-    <ul class="sub-header__breadcrumbs">
-      <li><a href="/resources">Resources</a></li>
-      <li><a href="/resources/whitepapers">Whitepapers</a></li>
-      <li><a href="#">{{data.title}}</a></li>
-    </ul>
-  </div>
-</div>
+<ionic-sub-header>
+  <ul slot="breadcrumbs">
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/resources/whitepapers">Whitepapers</a></li>
+    <li><a href="#">{{data.title}}</a></li>
+  </ul>
+</ionic-sub-header>
 
 <div class="cta">
   <hgroup class="container">

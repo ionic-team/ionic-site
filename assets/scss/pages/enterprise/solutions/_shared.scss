@@ -152,7 +152,7 @@
   }
 }
 
-#sub-header ~ #sticky-bar {
+ionic-sub-header ~ #sticky-bar {
   top: 56px;
 
   @media (max-width: $screen-xs-max) {

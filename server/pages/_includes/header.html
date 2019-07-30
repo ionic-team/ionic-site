@@ -1,7 +1,7 @@
 {% include '_includes/mobile_nav.html' %}
 
 {% if not hide_pre_header %}
-<nav class="pre-header">
+<nav class="pre-header {% if announcementBar.data.theme === 'Studio' %} pre-header--studio {% endif %}">
   <div class="container">
     <div{# id="optimizely"#}>
       {# Google Optimize hiding added for the top bar 10/18 #}

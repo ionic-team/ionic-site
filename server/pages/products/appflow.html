@@ -6,6 +6,7 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/products-appflow-og.png'%}
 {% set meta_description = 'Ionic Appflow is a powerful suite of tools, services, and automation that streamlines agile development to help teams focus on building apps, while we take care of the rest. ' %}
 {% set cssPath = 'products/appflow' %}
+{% set hide_pre_header = true %}
 
 {% block header_style %}transparent{% endblock %}
 
@@ -60,7 +61,7 @@
     </div>
     <span>Live Updates</span>
   </a>
-  <a slot="2" 
+  <a slot="2"
      class="anchor native"
      onClick="scrollToEl('#build')"
      data-screenshot="/img/appflow/screen-native-builds.png">
@@ -338,7 +339,7 @@
     </div>
   </section>
 </main>
-  
+
 {% include '../_includes/promos/tri-cta.html' %}
 {% endblock %}
 

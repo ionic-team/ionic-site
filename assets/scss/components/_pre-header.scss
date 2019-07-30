@@ -110,4 +110,48 @@
       }
     }
   }
+
+  &--studio {
+    background-color: #0B0C10;
+    background-image: url('/img/products/studio/preheader-bg.png');
+    background-repeat: no-repeat;
+    background-size: 1224px 49px;
+    background-position: center;
+    color: #B2BECD;
+    padding: 10px 0 12px;
+
+    .container {
+      font-size: 13px;
+    }
+
+    .container > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container > div::before {
+      display: block;
+      content: '';
+      background-image: url('/img/products/studio/studio-logo.svg');
+      width: 78px;
+      height: 20px;
+      margin-right: 24px;
+    }
+
+    .container p {
+      margin-bottom: 0;
+    }
+
+    a {
+      background-color: #3880FF;
+      font-size: 11px;
+      padding: 5px 10px;
+      margin-left: 24px;
+      line-height: 1;
+    }
+    a:hover {
+      background-color: lighten(#3880FF, 5%);
+    }
+  }
 }

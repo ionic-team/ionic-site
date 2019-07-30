@@ -21,23 +21,7 @@
 
   <div class="container">
     <ul class="rounded-tabs">
-      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="account" id="get-started-tab-create-account">
-        <div class="rounded-tabs__tab-inner">
-          <svg width="20px" height="20px" viewBox="0 0 20 20">
-            <g transform="translate(-309.000000, -479.000000)">
-              <g transform="translate(309.000000, 479.000000)">
-                <circle class="back" cx="10" cy="10" r="10"></circle>
-                <g class="front" transform="translate(5.000000, 1.000000)">
-                  <circle cx="5" cy="9" r="5"></circle>
-                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
-                </g>
-              </g>
-            </g>
-          </svg>
-          <span>Create Ionic account</span>
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="cli" id="get-started-tab-cli">
+      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="cli" id="get-started-tab-cli">
         <div class="rounded-tabs__tab-inner">
           <svg width="20px" height="18px" viewBox="0 0 20 18">
             <g transform="translate(-567.000000, -480.000000)">
@@ -54,6 +38,22 @@
             </g>
           </svg>
           <span>Install with CLI</span>
+        </div>
+      </li>
+      <li class="rounded-tabs__tab" data-tab-content="account" id="get-started-tab-create-account">
+        <div class="rounded-tabs__tab-inner">
+          <svg width="20px" height="20px" viewBox="0 0 20 20">
+            <g transform="translate(-309.000000, -479.000000)">
+              <g transform="translate(309.000000, 479.000000)">
+                <circle class="back" cx="10" cy="10" r="10"></circle>
+                <g class="front" transform="translate(5.000000, 1.000000)">
+                  <circle cx="5" cy="9" r="5"></circle>
+                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span>Create Ionic account</span>
         </div>
       </li>
       <li class="rounded-tabs__tab" data-tab-content="studio" id="get-started-tab-studio">
@@ -75,7 +75,7 @@
 </div>
 
 <main>
-  <section class="tab-content" id="content-cli">
+  <section class="tab-content tab-content--active" id="content-cli">
     <div class="container">
       <ol>
         <li>
@@ -190,7 +190,7 @@
     </div>
   </section>
 
-  <section class="tab-content tab-content--active" id="content-account">
+  <section class="tab-content" id="content-account">
     <div class="container">
       <div class="form-row">
         <div class="col form-wrapper">

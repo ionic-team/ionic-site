@@ -6,6 +6,7 @@
  * September 2017
  */
  ionic-sub-header {
+  font-family: $font-family-inter;
   position: sticky;
   top: 0;
   z-index: 99;
@@ -34,7 +35,7 @@
     }
   }
 
-  &.sub-header--not-sticky {
+  &.ionic-sub-header--not-sticky {
     position: relative;
 
     &.ionic-sub-header--stuck { 
@@ -119,6 +120,7 @@
   }
 
   [slot="title"] {
+    font-family: $font-family-eina;
     // same as .sub-header__breadcrumbs li:last-child a
     font-size: 16px;
     font-weight: 600;
@@ -160,6 +162,7 @@
   span,
   a {
     color: white;
+    letter-spacing: 0;
     padding: 16px 12px;
     display: inline-block;
     text-decoration: none;

@@ -3,7 +3,7 @@
 @import '../../bootstrap/variables';
 
 #page-products-studio {
-  #sub-header a.btn {
+  ionic-sub-header a.btn {
     padding: 6px 8px 5px;
     font-size: 11px;
     font-weight: 600;
@@ -139,15 +139,15 @@
       h1,
       p,
       .btn {
-        animation: .4s fadeInUp ease-out forwards;
+        animation: 1s fadeInUp forwards;
         opacity: 0;
       }
 
-      h4 { animation-delay: .3s; }
-      h1 { animation-delay: 0.4s; }
-      p { animation-delay: 0.5s; }
-      .btn { animation-delay: .6s; }
-      .btn:last-child { animation-delay: .7s; }
+      // h4 { animation-delay: .4s; }
+      h1 { animation-delay: 0.6s; }
+      p { animation-delay: .9s; }
+      .btn { animation-delay: 1.1s; }
+      .btn:last-child { animation-delay: 1.2s; }
     }
 
     p a {
@@ -155,8 +155,8 @@
     }
 
     video,
-    .screenshot {
-      animation: .5s fadeIn forwards 1s;
+    .screenshot-group {
+      animation: 1s fadeIn forwards 1.8s;
       opacity: 0;
     }
   }

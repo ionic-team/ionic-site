@@ -5,7 +5,7 @@
   position: relative;
   padding-top: 20px;
   border-radius: 0;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   min-height: 32px;
   z-index: 999;
   border: 0;
@@ -193,8 +193,7 @@
       }
 
       &.active > a {
-        color: rgba(white, 0.4);
-        pointer-events: none;
+        color: rgba(white, 0.7);
       }
 
       &.active > a:hover {

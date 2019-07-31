@@ -47,16 +47,18 @@ $(function() {
         //   href = updateQuerystringParameter(href, 'source', sourceVal + '-' + experimentId + '-' + variationId);
         // }
         // console.log(href)
-
         href += '&'
       } else {
         href += '?'
       }
-
       // Add Hubspot UTK ID as HSID if present
       if (hsutk) {
         href += 'hsid=' + encodeURIComponent(hsutk);
       }
+
+      // pass along any query parameters on the current page on to the dashboard as well
+      href += '&' + (window.location.search.split('?')[1] || '');
+
       el.setAttribute('href', href );
     })
   }

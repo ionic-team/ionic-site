@@ -162,7 +162,7 @@ gulp.task('js', function() {
 
 gulp.task('stencil', function(done) {
   return cp.spawn('node_modules/.bin/stencil',
-    ['build'],
+    ['build', process.env.PROD ? '' : '--dev'],
     {
       cwd: process.cwd(),
       env: {

@@ -1,18 +1,14 @@
 @import '../../vars';
 
-/**
- * The Sub Header sits under the main navigation to display context-specific
- * page information, widgets, and links.
- * September 2017
- */
  ionic-sub-header {
   font-family: $font-family-inter;
   position: sticky;
   top: 0;
   z-index: 99;
   backdrop-filter: blur(20px);
+  transition: .2s box-shadow;
 
-  &.ionic-sub-header__initialized {
+  &.ionic-sub-header--initialized {
     transition: 
       background-color .4s ease,
       box-shadow .4s ease;
@@ -206,6 +202,135 @@
       }
     }
   }
+
+  .ionic-sub-header__mobile-toggle {
+    display: none;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    &.hydrated.ionic-sub-header--initialized {
+      max-height: 55px;
+      background: transparent !important;
+    }
+
+    > .container {
+      max-height: 55px;
+      transition: .4s max-height ease;
+
+      background: white;
+      backdrop-filter: blur(20px);
+      @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+        background: rgba(white, .9);
+      }
+    }
+
+    &,
+    & > .container {
+      overflow: visible;
+      perspective: 1000px;
+    }
+
+    .ionic-sub-header__mobile-toggle {
+      display: block;
+      margin-top: 2px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: 
+        .4s transform cubic-bezier(.07,.65,.57,1.66);
+
+      svg path {
+        stroke-dasharray: 955;
+        stroke-dashoffset: 955;
+        transition: stroke-dashoffset .4s linear forwards;
+      }
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    [slot="right"] {
+      flex: 100%;
+      // position: absolute;
+      // background: white;
+      // left: 0;
+      // top: 55px;
+      // width: 100vw;
+      padding: 0 16px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      // box-shadow: 0 1px 0px rgba(black, .06);
+
+      // backdrop-filter: blur(20px);
+      // @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+      //   background: rgba(white, .8);
+      // }
+
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .4s ease .3s;
+
+      li {
+        display: block;
+        opacity: 0;
+        transform: translateX(15px);
+        transition: 
+          transform .4s step-end 0s,
+          opacity .4s ease 0s;
+      }
+
+      a {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .btn {
+        margin-top: 16px;
+        text-align: center;
+        margin-left: 0;
+        border-radius: 4px;
+      }
+    }
+
+    &.ionic-sub-header--mobile-active {
+      // box-shadow: none;
+
+      > .container {
+        box-shadow: 0 1px 0px rgba(black, .06);
+        transition: .4s max-height ease;
+        max-height: 600px;
+      }
+      
+      .ionic-sub-header__mobile-toggle {
+        transform: rotateZ(180deg);
+      }
+      
+      [slot="right"] {
+        transform: scaleY(1);
+        transition: transform .4s ease 0s;
+  
+        li {
+          transform: translateX(0);
+          opacity: 1;
+          transition: 
+          .4s transform .2s ease,
+          .4s opacity .2s ease;
+
+          &:nth-child(2) { transition-delay: .3s; }
+          &:nth-child(3) { transition-delay: .4s; }
+          &:nth-child(4) { transition-delay: .5s; }
+          &:nth-child(5) { transition-delay: .6s; }
+        }
+      }
+    }
+
+    & > .container { 
+      flex-wrap: wrap;
+    }
+  }
 }
 
 body.light ionic-sub-header {
@@ -270,6 +395,13 @@ body.light ionic-sub-header {
       svg,
       path {
         fill: $blue;
+      }
+    }
+
+    &.ionic-sub-header__mobile-toggle:hover {
+      svg,
+      path {
+        fill: unset;
       }
     }
   }

@@ -1,4 +1,5 @@
 import { Component, Element, Prop, State, h } from '@stencil/core';
+import { ChevronDown } from '../../icons';
 
 @Component({
   tag: 'ionic-sub-header',
@@ -9,8 +10,7 @@ export class IonicSubHeader {
 
   @Prop() darkMode = true;
 
-  @State() dropdownActive = false;
-  @State() activeClass = '';
+  @State() mobileDropdownActive = false;
   @State() stuck = false;
   @State() queued = false;
   @Element() el;
@@ -18,7 +18,7 @@ export class IonicSubHeader {
   observer: IntersectionObserver;
 
   constructor() {
-    
+    this.handleMobileToggleClick = this.handleMobileToggleClick.bind(this);
   }
 
   getTriggerEl() {
@@ -32,7 +32,7 @@ export class IonicSubHeader {
     this.el.before(this.getTriggerEl());
     this.init();
     requestAnimationFrame(()=>{
-      this.el.classList.add('ionic-sub-header__initialized');
+      this.el.classList.add('ionic-sub-header--initialized');
     })
   }
 
@@ -63,25 +63,28 @@ export class IonicSubHeader {
     if (this.el) {
       this.observer.observe(document.getElementById('ionic-sub-header__trigger'));
       setTimeout(() => {
-        this.el.classList.add('ionic-sub-header_initialized');
+        this.el.classList.add('ionic-sub-header--initialized');
         document.querySelector('.navbar-default').classList.add('navbar--not-fixed');
       }, 405)
     }
   }
 
-  handleDropdownClick() {
-    
+  handleMobileToggleClick() {
+    this.el.classList.toggle('ionic-sub-header--mobile-active');
   }
 
   render() {
     return (
-        <div class="container">
-          <slot name="title"/>
-          <slot name="breadcrumbs"/>
-          <slot name="left"/>
-          <slot name="right"/>
-          <slot name="button"/>
-        </div>
+      <div class="container">
+        <slot name="title"/>
+        <slot name="breadcrumbs"/>
+        <slot name="left"/>
+        <a class="ionic-sub-header__mobile-toggle"
+           onClick={this.handleMobileToggleClick}>
+          <ChevronDown/>
+        </a>
+        <slot name="right"/>
+      </div>
     );
   }
 }

@@ -1,18 +1,12 @@
-{% extends '_layouts/base.html' %}
+{% extends '_layouts/enterprise.html' %}
 {% set title = 'Ionic Enterprise Edition: Trusted Solution for Building Enterprise Apps' %}
 {% set meta_image = 'https://ionicframework.com/img/meta/products-ee-og.png' %}
 {% set meta_description = "Ionic Enterprise Edition is a trusted foundation and full-stack solution to build and power your company's mission-critical, enterprise apps that impact digital transformation." %}
-{% set id = 'products-enterprise-engine' %}
-{% set header_style = 'transparent light' %}
-{% set stickyNav = false %}
+{% set id = 'enterprise' %}
 {% set cssPath = 'enterprise/index' %}
-{% set hide_pre_header = true %}
-{% set pre_footer = false %}
 
 
 {% block main %}
-
-<svg style="display: none;"></svg>
 
 <div class="top">
   <div class="container">
@@ -20,7 +14,7 @@
       <h4>Ionic Enterprise </h4>
       <h1>The fastest way to build critical apps at scale.</h1>
       <p>Accelerate your company’s app development with a secure, long-term solution that’s optimized for enterprise and backed by Ionic experts.</p>
-      <a href="#" class="btn uppercase rounded cta-link" id="btn-enterprise-engine-hero-buy">Try Enterprise</a>
+      <a href="#" class="btn uppercase cta-link" id="btn-enterprise-engine-hero-buy">Try Enterprise<ion-icon name="ios-arrow-forward"></ion-icon></a>
     </hgroup>
   </div>
 </div>
@@ -36,306 +30,289 @@
 </nav>
 
 <main>
-  <section id="cross-platform-sdk">
-    <div class="container">
-      <div>
+  <section id="overview" class="container">
+    <div class="two-col">
+      <div class="content">
         <h2>Ionic Enterprise</h2>
-        <p class="lg">Our SDKs, tools, integrations, and services are designed to modernize enterprise app development. Ionic empowers your app development teams with everything they need to deliver the mission-critical apps that keep your business running.</h3>
-        <a href="/enterprise/sales">Contact sales to learn more</a>
-        <img src="/img/products/enterprise-engine/enterprise-edition-logo-sprite.png" alt="">
+        <p class="large">Our SDKs, tools, integrations, and services are designed to modernize enterprise app development. Ionic empowers your app development teams with everything they need to deliver the mission-critical apps that keep your business running.</p>
+        <a href="/enterprise/sales" class="contact-sales">Contact sales to learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+        <img src="/img/enterprise/logos-row-1.png" alt="Panera, GE, IBM, Nationwide">
+        <img src="/img/enterprise/logos-row-2.png" alt="Restaraunt Brands International, Amtrak, Target, Verizon">
+        <img src="/img/enterprise/logos-row-3.png" alt="NBC Universal, USAA, National Health Service, US Army">
       </div>
-      <div>
-        <div class="chart">
-          <h5><span>What you get</span></h5>
-          <div class="chart__box">
-            <ul class="chart__card-list chart__card-list--trio">
-              <li class="chart__card">
-                Cross-Platform Mobile SDK
-              </li>
-              <li class="chart__card">
-                Core Native Features
-              </li>
-              <li class="chart__card">
-                Customer Success &amp; Advisory
-              </li>
-            </ul>
-            <ul class="chart__card-list chart__card-list--duo">
-              <li class="chart__card">
-                Powerful Tools
-              </li>
-              <li class="chart__card">
-                Pre-Built Solutions
-              </li>
-            </ul>
-          </div>
-          <div class="chart__divider"></div>
-          <div class="chart__box">
-            <h6>Cross Platform Development Across:</h6>
-            <ul class="platform-list platform-list--quintet">
-              <li class="platform platform--ios">iOS</li>
-              <li class="platform platform--android">Android</li>
-              <li class="platform platform--electron">Desktop</li>
-              <li class="platform platform--pwa">PWA</li>
-              <li class="platform platform--browser">Browser</li>
-            </ul>
-          </div>
+      <div class="chart">
+        <h5><span>What you get</span></h5>
+        <div class="chart__box">
+          <ul class="chart__card-list chart__card-list--trio">
+            <li class="chart__card">
+              <img src="/img/enterprise/ico-sdk.png" width="28" height="28">
+              Cross-Platform Mobile SDK
+            </li>
+            <li class="chart__card">
+              <img src="/img/enterprise/ico-native.png" width="33" height="26">
+              Core Native Features
+            </li>
+            <li class="chart__card">
+              <img src="/img/enterprise/ico-customer-success.png" width="32" height="32">
+              Customer Success &amp; Advisory
+            </li>
+          </ul>
+          <ul class="chart__card-list chart__card-list--duo">
+            <li class="chart__card">
+              <img src="/img/enterprise/ico-tools.png" width="32" height="28">
+              Powerful Tools
+            </li>
+            <li class="chart__card">
+              <img src="/img/enterprise/ico-solutions.png" width="28" height="32">
+              Pre-Built Solutions
+            </li>
+          </ul>
+        </div>
+        <div class="chart__box">
+          <h6>Cross Platform Development Across:</h6>
+          <ul class="platform-list platform-list--quintet">
+            <li class="platform platform--ios">iOS</li>
+            <li class="platform platform--android">Android</li>
+            <li class="platform platform--electron">Desktop</li>
+            <li class="platform platform--pwa">PWA</li>
+            <li class="platform platform--browser">Browser</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-    <section id="front-end-framework" class="nav-section">
-      <div class="container two-col">
-        <hgroup>
-          <h3>Cross-Platform UI Toolkit</h3>
-          <h2>One UI library for all  your team’s projects and applications.</h2>
-          <p class="large">Develop award-winning mobile and desktop apps, with one shared codebase across projects and a single design language for your entire organization. Ionic Enterprise Edition comes with an enterprise-ready version of the open source Framework, backed by long-term support and migration assistance to keep you moving forward.</p>
-          <ul class="checkmark-list checkmark-list--large">
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              Timely support and troubleshooting for issues with Ionic Framework.
-            </li>
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              Long-term support for previous versions for up to 5 years.
-            </li>
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              Priority fixes to keep your development on track.
-            </li>
-          </ul>
-        </hgroup>
-        <div class="graphics--framework activateOnScroll">
-          <div class="shadow"></div>
-        </div>
-      </div>
-    </section>
+  {% include '_includes/promos/evaluating-ionic-for-enterprise.html' %}
 
-    <section id="native-device-features" class="nav-section">
-      <div class="container">
-        <h3>Native Device Features</h3>
-
-        <hgroup class="two-col">
-          <div>
-            <h2>Easy access to device features</h2>
-          </div>
-          <div>
-            <p class="large">Need access to native mobile device features like Camera and GPS? Ionic Enterprise Edition provides a core library of native functionality that you can easily add to any Ionic app, with active maintenance and security patching to keep your projects running smoothly.</p>
-          </div>
-        </hgroup>
-
-        <h3 class="large">Your native library comes with: </h3>
-        <ul class="feature-list">
+  <section id="cross-platform-sdk" class="nav-section">
+    <div class="container two-col">
+      <hgroup>
+        <h3>Cross-Platform SDK</h3>
+        <h2>A UI library for all your team’s projects and apps.</h2>
+        <p>Unlock the enterprise edition of the open source Framework and keep your projects moving forward. Build and deploy apps across multiple platforms, including iOS, Android, desktop, and Progressive Web Apps — all from a single codebase, using standardized web technologies.</p>
+        <a href="/enterprise/sales" class="contact-sales">Contact sales to learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+        <ul class="checkmark-list checkmark-list--large">
           <li>
-            <hgroup class="feature-icon feature-icon--updates">
-              <h4>Regular Release Cycles & updates</h4>
-              <p>A release timeline you can count on, as opposed to a community maintainers schedule. Think days instead of months or years.</p>
-            </hgroup>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Empower web teams to build award-winning apps
           </li>
           <li>
-            <hgroup class="feature-icon feature-icon--sla">
-              <h4>Guaranteed Support SLA & Ticketing</h4>
-              <p>Ability to communicate directly with the Ionic team with guaranteed response times, so you can be sure you will get answers & fixes ASAP.</p>
-            </hgroup>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Build with Angular, React, Vue, or your framework of choice
           </li>
           <li>
-            <hgroup class="feature-icon feature-icon--advisory">
-              <h4>Access to Advisory & Implementation Guidance</h4>
-              <p>Ensuring your team is utilizing best practices and  functionality from both the framework & native side with ease, enabling you to meet your deadlines while avoiding costly tech debt.</p>
-            </hgroup>
-          </li>
-
-          <li>
-            <hgroup class="feature-icon feature-icon--security">
-              <h4>Critical Security & Hot Bug Fixes</h4>
-              <p>The plugins that Ionic maintains will be guaranteed to work with future OS releases, patches, continued development, and more. There’s no fear of community plugin abandonement.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup class="feature-icon feature-icon--issues">
-              <h4>Issues & Feature Prioritization</h4>
-              <p>An Open Source plugin may have many open issues that will impact your team's ability to use the plugin, delaying your ability to ship new features. Ensure that your team remains agile by having Ionic fix the issues most important to you.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup class="feature-icon feature-icon--guaranteed">
-              <h4>Guaranteed Product Lifespan</h4>
-              <p>The plugins that Ionic maintains will be guaranteed to work with future operating system releases, patches, continued development, and more. There’s no fear of a plugin being abandoned by its original author.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup class="feature-icon feature-icon--discussions">
-              <h4>Influence & Improvement Discussions</h4>
-              <p>If a plugin doesn’t do what you need it to do, Ionic is always open to chat about modifications and how the plugin can work better for you.</p>
-            </hgroup>
-          </li>
-          <li>
-            <hgroup class="feature-icon feature-icon--protection">
-              <h4>Protection Against Changing Ecosystem</h4>
-              <p>The frontend and mobile app ecosystems are always changing, and you’re not in control of them like you would be with your backend choices. Ionic will ensure that future software releases are supported by our maintained.</p>
-            </hgroup>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Get priority fixes, long-term support, and live troubleshooting
           </li>
         </ul>
+      </hgroup>
+      <div class="graphics--framework activateOnScroll">
+        <div class="shadow"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="pre-built-solutions" class="nav-section">
-      <div class="container" >
-        <div class="two-col">
-          <div class="integrations">
-            <a class="integrations__identity-vault">
-              <i></i>
-              Identity Vault
-            </a>
-            <a class="integrations__aws-amplify">
-              <i></i>
-              AWS Amplify
-            </a>
-            <a class="integrations__couchbase">
-              <i></i>
-              Couchbase
-            </a>
-            <a class="integrations__active-directory">
-              <i></i>
-              Active Directory
-            </a>
-          </div>
-          <div>
-            <hgroup >
-              <h3>Pre-built Solutions</h3>
-              <h2>Lightning-fast development with pre-built solutions</h2>
-              <p class="large">Accelerate development with powerful solutions to common enterprise use cases - all built and supported by the Ionic team. Ionic’s growing library of solutions are ready to deploy in any of the apps you build with Enterprise Edition.</p>
-              <ul class="checkmark-list checkmark-list--large">
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Biometrics & user authentication
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Secure offline storage
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Mobile payment
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Notifications
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Barcode scanning
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  Cross-app communications
-                </li>
-                <li>
-                  <i>
-                    <ion-icon name="checkmark"></ion-icon>
-                  </i>
-                  And more
-                </li>
-              </ul>
-            </hgroup>
-          </div>
-        </div>
+  <section id="native-plugins" class="nav-section container">
+    <h3>Native Device Features</h3>
+    <hgroup class="two-col">
+      <div>
+        <h2>Unlocked access to powerful device features and capabilities.</h2>
       </div>
-    </section>
-
-    <section id="expert-services" class="nav-section">
-      <div class="container">
-        <hgroup>
-          <h3>Advisory & Training</h3>
-          <div class="two-col">
-            <div>
-              <h2>Your trusted development partner</h2>
-              <p class="large">Ionic Enterprise Edition customers get exclusive access to Ionic’s Advisory Services and Trainings.</p>
-            </div>
-          </div>
+      <div>
+        <p class="large">Need access to native features like Camera and GPS? Ionic Enterprise provides a library of native functionality that you can easily add to any Ionic app, with active maintenance and security patching to keep your projects running smoothly.</p>
+        <a href="/enterprise/contact" class="contact-sales">Contact sales to learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+    </hgroup>
+    <ul class="feature-list">
+      <li>
+        <hgroup class="feature-icon feature-icon--plugins">
+          <h4>Core Device Plugins</h4>
+          <p>Everything you need to deliver the core functionality your users expect, from essentials like <a href="https://ionicframework.com/docs/native/native-storage/">native storage</a> and <a href="https://ionicframework.com/docs/native/media-capture/">media capture</a>, to <a href="/integrations/category/payments">payments</a> and <a href="https://ionicframework.com/docs/native/splash-screen/">splash screen</a>.</p>
         </hgroup>
-        <div class="two-col">
-          <ul class="feature-list feature-list--large">
-            <li>
-              <i class="feature-icon feature-icon--advisory"></i>
-              <hgroup>
-                <h4>Ionic Advisory Services</h4>
-                <p>Our mobile experts become your development partner to ensure on-time app delivery, avoid technical debt, and eliminate risk. Examples include code reviews, architecture reviews, security audits, custom development solutions, and more.</p>
-              </hgroup>
-            </li>
-            <li>
-              <i class="feature-icon feature-icon--training"></i>
-              <hgroup>
-                <h4>Customized Team Training</h4>
-                <p>Our dedicated advisors are available for on-site or remote training to help your team get up-to-speed quickly on Ionic and provide our recommended best practices for building and delivering stellar mobile apps.</p>
-              </hgroup>
-            </li>
-          </ul>
-          <ul class="checkmark-list checkmark-list--large">
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              <hgroup>
-                <h5>Private Slack</h5>
-                <p>Unlock realtime access to Ionic engineers and native mobile experts via a dedicated Slack channel.</p>
-              </hgroup>
-            </li>
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              <hgroup>
-                <h5>Code Reviews</h5>
-                <p>Go line-by-line with our experts as they share coding best practices and advice.</p>
-              </hgroup>
-            </li>
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              <hgroup>
-                <h5>Custom Training</h5>
-                <p>Give your team the skills and tools they need to be successful building apps on day one.</p>
-              </hgroup>
-            </li>
-            <li>
-              <i>
-                <ion-icon name="checkmark"></ion-icon>
-              </i>
-              <hgroup>
-                <h5>Expert Advisory</h5>
-                <p>Our mobile experts are on-hand to help your development team tackle any aspect of app development.</p>
-              </hgroup>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
+      </li>
+      <li>
+        <hgroup class="feature-icon feature-icon--sla">
+          <h4>Guaranteed SLA</h4>
+          <p>Timely support and troubleshooting when you need it most. Get expert help directly from the Ionic team with guaranteed response times.</p>
+        </hgroup>
+      </li>
+      <li>
+        <hgroup class="feature-icon feature-icon--release-schedule">
+          <h4>Regular Release Cycles</h4>
+          <p>A release timeline you can count on, as opposed to a community maintainers schedule. Think days instead of months or years.</p>
+        </hgroup>
+      </li>
 
-  <section id="comparison-table" class="divider">
+      <li>
+        <hgroup class="feature-icon feature-icon--security">
+          <h4>Critical Security Updates &amp; Fixes</h4>
+          <p>Keep your users protected with ongoing security updates and fixes that keep pace with OS releases, patches, and known vulnerabilities.</p>
+        </hgroup>
+      </li>
+      <li>
+        <hgroup class="feature-icon feature-icon--issues">
+          <h4>Issues &amp; Feature Prioritization</h4>
+          <p>Have ideas or concerns about how a plugin should work? As an Enterprise customer, you’ll be able to request and prioritize what matters to you.</p>
+        </hgroup>
+      </li>
+      <li>
+        <hgroup class="feature-icon feature-icon--guaranteed">
+          <h4>Guidance &amp; Expertise</h4>
+          <p>Ensure your team is utilizing best practices and for adding native functionality, helping you to meet your deadlines while avoiding costly tech debt.</p>
+        </hgroup>
+      </li>
+    </ul>
+  </section>
+
+  <section id="powerful-developer-tools" class="nav-section container">
+    <div class="two-col">
+      <hgroup>
+        <h3>Powerful Developer Tools</h3>
+        <h2>Tools to speed up app development and delivery</h2>
+        <p>Give your whole team the tools they need to succeed with enterprise  versions of Ionic Studio rapid app builder and Appflow mobile DevOps suite.  Scale your app with custom plans and enable secure team collaboration with   an organization-level account.</p>
+        <a href="/enterprise/contact" class="contact-sales">Contact sales to learn  more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </hgroup>
+      <ul class="checkmark-list checkmark-list--large">
+        <li>
+          <i><ion-icon name="checkmark"></ion-icon></i>
+          <a href="/studio">Ionic Studio</a> secure local app builder to accelerate development.
+        </li>
+        <li>
+          <i><ion-icon name="checkmark"></ion-icon></i>
+          <a href="/appflow">Ionic Appflow</a> mobile DevOps suite for continuous delivery.
+        </li>
+        <li>
+          <i><ion-icon name="checkmark"></ion-icon></i>
+          Customized plans that scale to meet your needs.
+        </li>
+        <li>
+          <i><ion-icon name="checkmark"></ion-icon></i>
+          Advanced team collaboration and security.
+        </li>
+      </ul>
+    </div>
+    <div class="two-col two-col--right two-col--basic">
+      <img id="img-studio" src="/img/enterprise/studio.png" alt="Studio">
+      <div class="content">
+        <h4>Rapid Mobile App Development</h4>
+        <p>Ionic Studio is a powerful app builder that delivers a smooth developer experience for teams building with Ionic. Get started with the fastest and easiest way to create award-winning cross-platform apps, from a single tool.</p>
+        <a href="">Learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+    </div>
+    <div class="two-col two-col--left two-col--basic">
+      <div class="content">
+        <h4>Continuous Mobile Delivery</h4>
+        <p>Enable your team to spend more time on what matters and focus on building apps. Ionic Appflow automates everything else — from the moment code is checked in to the moment it lands in the hands of your users.</p>
+        <a href="">Learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+      <img id="img-devops" src="/img/enterprise/devops-graphic.png" alt="DevOps">
+    </div>
+  </section>
+
+  <section id="developer-tools" class="nav-section container">
+    <div class="two-col">
+      <div class="integrations">
+        <a class="integrations__aws-amplify">
+          <i></i>
+          AWS Amplify
+        </a>
+        <a class="integrations__identity-vault">
+          <i></i>
+          Identity Vault
+        </a>
+        <a class="integrations__active-directory">
+          <i></i>
+          Active Directory
+        </a>
+        <a class="integrations__auth-connect">
+          <i></i>
+          Auth-connect
+        </a>
+        <a class="integrations__couchbase">
+          <i></i>
+          Couchbase
+        </a>
+        <a class="integrations__mparticle">
+          <i></i>
+          Mparticle
+        </a>
+      </div>
+      <hgroup>
+        <h3>Pre-Built Solutions</h3>
+        <h2>Move faster than ever with premier mobile solutions and integrations.</h2>
+        <p class="large">Accelerate development with powerful solutions to common enterprise use cases - all built and supported by the Ionic team. Ionic’s growing library of solutions are ready to deploy in any of the apps you build with Ionic Enterprise.</p>
+        <a href="/enterprise/contact">Contact sales to learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+        <ul class="checkmark-list checkmark-list--large">
+          <li>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Biometric mobile sign-in
+          </li>
+          <li>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            User authentication
+          </li>
+          <li>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Secure offline storage
+          </li>
+          <li>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            Customer data management
+          </li>
+          <li>
+            <i><ion-icon name="checkmark"></ion-icon></i>
+            <a href="/integrations">And more<ion-icon name="ios-arrow-forward"></ion-icon></a>
+          </li>
+        </ul>
+      </hgroup>
+    </div>
+  </section>
+
+  <section id="expert-services" class="nav-section container">
+    <div class="two-col">
+      <hgroup>
+        <h3>Expert Services</h3>
+        <h2>Your trusted app development partner.</h2>
+        <p>Our Ionic Experts become your development partner to ensure on-time app delivery, avoid technical debt, and eliminate project risk. From timely support for the open source Framework, to code reviews and personalized team training, we’ve got you covered.</p>
+        <a href="">Contact sales to learn more</a>
+      </hgroup>
+      <ul class="feature-list feature-list--large">
+        <li>
+          <i class="feature-icon feature-icon--services"></i>
+          <hgroup>
+            <h4>Expert Advisory Services</h4>
+            <p>Improve development and reduce risk with live code reviews, architecture reviews, security audits, and tailored guidance directly from our Ionic Experts.</p>
+          </hgroup>
+        </li>
+        <li>
+          <i class="feature-icon feature-icon--training"></i>
+          <hgroup>
+            <h4>Customized Team Training</h4>
+            <p>Get your company up-to-speed quickly with instructor-led training covering basics to best practices for building and delivering stellar mobile apps.</p>
+          </hgroup>
+        </li>
+        <li>
+          <i class="feature-icon feature-icon--slack"></i>
+          <hgroup>
+            <h4>Private Slack Communication</h4>
+            <p>Get real-time advice, guidance, and feedback when you need it, with live Slack access and direct private chat with Ionic’s expert technical team.</p>
+          </hgroup>
+        </li>
+        <li>
+          <i class="feature-icon feature-icon--reviews"></i>
+          <hgroup>
+            <h4>Code and Design Reviews</h4>
+            <p>Our mobile experts will spend multiple days reviewing your existing project code and design patterns, providing highly tailored and actionable recommendations.</p>
+          </hgroup>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="comparison-table">
     <div class="container">
       <hgroup>
-        <h2><em>Everything you need.</em> From front to back.</h2>
+        <h2>Everything you need.<br>From front to back.</h2>
       </hgroup>
 
       <div class="comp-table-wrapper">
@@ -437,39 +414,15 @@
               <td><i class="dash"></i></td>
               <td><span class="pill">Add-on available</span></td>
             </tr>
-
           </tbody>
         </table>
       </div>
     </div>
   </section>
-
-  <section class="offwhite call-to-action">
-    <div class="container">
-      <hgroup class="center">
-        <h3>Ready to get started?</h3>
-        <p>
-          Connect with us today to see how you can get started with <b>Ionic Enterprise Edition</b>.
-        </p>
-      </hgroup>
-      <div class="hubspot-override hubspot-override--large">
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "1d517034-0dcd-4e0d-bbf3-554e8c919701",
-          css: ""
-        });
-        </script>
-      </div>
-    </div>
-  </section>
 </main>
 
-{% include '../_includes/promos/tri-cta.html' %}
+{% include '../_includes/promos/start-enterprise.html' %}
+{% include '../_includes/promos/quad-cta.html' %}
 {% endblock %}
 
 {% block modals %}

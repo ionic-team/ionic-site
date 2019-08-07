@@ -230,25 +230,11 @@
     "image": "roelf.png"
   },
   {
-    "name": "Ryan Baranowski",
-    "dept": "Sales",
-    "description": null,
-    "twitter": "IonicRyan",
-    "image": "ryan.png"
-  },
-  {
     "name":"Ryan Bowman",
     "dept":"VP of Sales",
     "description":null,
     "twitter":"TheRyanBowman",
     "image": "ryan.jpg"
-  },
-  {
-    "name": "Steve Breese",
-    "dept": "Sales",
-    "description": null,
-    "twitter": "IonicSteve",
-    "image": "steve.jpg"
   },
   {
     "name":"Swami Kumaresan",

@@ -89,7 +89,6 @@ router: app => {
   .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
   .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
   .get('/enterprise/solutions/design-systems', (_, res) => res.render('enterprise/solutions/design-systems'))
-  .get('/enterprise/solutions/pwa', (_, res) => res.render('enterprise/solutions/pwa'))
 
   .get('/enterprise/strategy-session', (_, res) => res.render('enterprise/strategy-session'))
   .get('/enterprise/support', (_, res) => res.render('enterprise/support'))

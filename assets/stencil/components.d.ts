@@ -58,11 +58,6 @@ export namespace Components {
 
 declare global {
 
-  // Adding a global JSX for backcompatibility with legacy dependencies
-  export namespace JSX {
-    export interface Element {}
-  }
-
 
   interface HTMLIconExternalElement extends Components.IconExternal, HTMLStencilElement {}
   var HTMLIconExternalElement: {

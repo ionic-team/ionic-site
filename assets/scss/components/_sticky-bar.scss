@@ -25,6 +25,9 @@
 
     &.active a:not(.btn) {
       color: $blue;
+      font-weight: 600;
+      letter-spacing: .076em;
+      text-decoration: none;
     }
   }
 
@@ -37,6 +40,7 @@
     text-transform: uppercase;
     display: block;
     white-space: nowrap;
+    text-decoration: none;
 
     &:hover,
     &:active,
@@ -72,7 +76,8 @@
   }
 }
 
-ionic-sub-header ~ #sticky-bar {
+ionic-sub-header ~ #sticky-bar,
+ionic-sub-header ~ .sticky-wrapper #sticky-bar {
   top: 56px;
 
   @media (max-width: $screen-xs-max) {

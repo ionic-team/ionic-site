@@ -38,7 +38,7 @@
     overflow: visible;
   }
 
-  main ul {
+  section ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -46,8 +46,8 @@
 
   .top {
     margin-top: -218px;
-    padding-top: 280px;
-    padding-bottom: 152px;
+    padding-top: 286px;
+    padding-bottom: 143px;
     background: #F8FAFD;
     position: relative;
     z-index: 0;
@@ -58,7 +58,7 @@
 
     hgroup {
       position: relative;
-      max-width: 560px;
+      max-width: 520px;
 
       h4 {
         line-height: 25px;
@@ -84,10 +84,11 @@
         color: #414D5C;
         line-height: 38px;
         margin: 0;
+        letter-spacing: -0.04em;
       }
 
       .btn {
-        margin-top: 24px;
+        margin-top: 20px;
         color: #fff;
         background: #3880FF;
         box-shadow: 
@@ -98,7 +99,7 @@
         font-size: 15px;
         line-height: 1em;
         letter-spacing: 0.08em;
-        padding: 16px 18px 16px;
+        padding: 13px 18px 14px;
 
         &:hover {
           background-color: lighten(#3880FF, 2%);
@@ -163,7 +164,7 @@
       line-height: 1;
       margin-top: 0;
       font-weight: 600;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-family: $font-family-monospace;
@@ -174,7 +175,7 @@
       line-height: 48px;
       font-size: 40px;
       margin-top: 0;
-      margin-bottom: 30px;
+      margin-bottom: 9px;
       font-weight: 600;
       letter-spacing: -0.04em;
     }
@@ -201,8 +202,14 @@
     }
 
     .checkmark-list {
+
       &--large {
         max-width: none;
+      }
+
+      li {
+        letter-spacing: -0.02em;
+        line-height: 24px;
       }
 
       i {
@@ -212,12 +219,16 @@
           color: $blue;
         }
       }
+
+      a {
+        color: #020814;
+      }
     }
 
     .contact-sales {
       font-size: 16px;
       letter-spacing: -.03em;
-      margin-top: 12px;
+      margin-top: 9px;
       display: inline-block;
       
       ion-icon {
@@ -280,9 +291,9 @@
 
   }
 
-  #overview {    
-    margin-top: 100px;
-    margin-bottom: 32px;
+  #overview {
+    margin-top: 90px;
+    margin-bottom: 70px;
 
     h3 {
       line-height: 40px;
@@ -299,49 +310,60 @@
     .content img {
       width: 100%;
       height: auto;
-      margin-top: 40px;
-      max-width: 420px;
+      margin-top: 60px;
+      max-width: 344px;
+      
+      + img {
+        margin-top: 36px;
+      }
     }
 
     .two-col > div:first-child {
       flex: 0 1 400px;
-      padding-right: 16px;
+      padding-right: 12px;
+      padding-top: 18px;
     }
 
     .two-col > div:last-child {
       flex: 0 1 614px;
+      margin-right: 4px;
     }
 
     @media (max-width: $screen-md) {
-      flex-direction: column;
-
-      & > div {
-        max-width: 624px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      & > div:first-child {
-        flex: 0 0 100%;
-        padding-right: 0px;
-        text-align: center;
-
-        img {
-          max-width: 400px;
+      .two-col {
+        flex-direction: column;
+  
+        & > div {
+          max-width: 624px;
           margin-left: auto;
           margin-right: auto;
         }
+  
+        & > div:first-child {
+          flex: 0 0 100%;
+          padding-right: 0px;
+          text-align: left;
+
+          img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+          }
+        }
+  
+        & > div:last-child {
+          margin-top: 40px;
+          flex: 0 0 100%;
+        }
       }
 
-      & > div:last-child {
-        margin-top: 40px;
-        flex: 0 0 100%;
+      .contact-sales {
+        display: block;
       }
     }
   }
 
   .chart {
-    margin-top: -8px;
 
     h5 {
       text-align: center;
@@ -386,6 +408,7 @@
       font-size: 14px;
       color: #193B5E;
       text-align: center;
+      letter-spacing: 0;
     }
 
     .checkmark-list {
@@ -414,7 +437,7 @@
   }
 
   .chart__box {
-    padding: 20px;
+    padding: 21px 23px 12px;
     background: #EFF2F7;
     border-radius: 8px;
     margin-top: 16px;
@@ -436,20 +459,26 @@
     flex-direction: column;
 
     img {
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
     }
   }
 
-  .chart__card-list--duo img {
+  .chart__card-list--duo {
+    .chart__card {
+      padding-bottom: 28px;
+    }
+
+    img {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: 10px;
+    }
   }
 
   .chart__card {
     flex: 1;
     min-height: 96px;
     margin: 12px 8px;
-    padding: 36px 22px;
+    padding: 37px 22px 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -473,7 +502,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
-    margin: 0 -10px;
+    margin: 0 -6px;
 
     li {
       font-weight: 500;
@@ -482,7 +511,7 @@
       text-align: center;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 20px;
+      padding: 15px;
       background: white;
       border-radius: 8px;
       color: #020814;
@@ -504,7 +533,7 @@
         background-image: url('/img/products/enterprise-engine/enterprise-engine-platform-sprite.png');
         background-repeat: no-repeat;
         background-size: 32px 160px;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
 
       &--ios::before {
@@ -531,17 +560,31 @@
   }
 
   .checkmark-list {
+    letter-spacing: -0.02em;
+
     &--large {
-      margin-top: 48px;
+      margin-top: 60px;
     }
   }
 
   #cross-platform-sdk {
-    margin-top: 200px;
-    margin-bottom: 100px;
+    margin-top: 264px;
+    margin-bottom: 130px;
+
+    .container {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
 
     hgroup {
-      max-width: 480px;
+      max-width: 486px;
+    }
+
+    p {
+      max-width: 474px;
+      letter-spacing: -0.02em;
     }
   }
 
@@ -572,30 +615,30 @@
       content: '';
       opacity: 0;
 
-      background: url('/img/homepage/framework-device-android.jpg') 0 0 no-repeat;
+      background: url('/img/enterprise/framework-device-android.png') 0 0 no-repeat;
       background-size: 100%;
-      top: 78px;
-      right: 99px;
-      width: 470px;
-      height: 624px;
+      top: 19px;
+      right: 107px;
+      width: 418px;
+      height: 555px;
     }
 
     &::after {
-      background-image: url('/img/homepage/framework-device-iphone.png');
+      background-image: url('/img/enterprise/framework-device-iphone.png');
       background-size: 100%;
-      width: 490px;
-      height: 790px;
-      top: 0px;
-      right: 0px;
+      width: 420px;
+      height: 678px;
+      top: -48px;
+      right: 45px;
     }
 
     .shadow {
-      background-image: url('/img/homepage/framework-devices-shadow.png');
+      background-image: url('/img/enterprise/framework-devices-shadow.png');
       background-size: 100%;
-      width: 1266px;
-      height: 214px;
-      top: 654px;
-      right: -200px;
+      width: 1056px;
+      height: 178px;
+      top: 516px;
+      right: -116px;
     }
 
     @media (max-width: $screen-lg) {
@@ -635,15 +678,28 @@
 
   #native-plugins {
     hgroup.two-col {
-      margin-bottom: 100px;
+      margin-bottom: 66px;
     }
+
     hgroup h2 {
       max-width: 500px;
+    }
+
+    .large {
+      margin-top: -8px;
     }
 
     @media (max-width: $screen-sm) {
       hgroup.two-col {
         margin-bottom: 60px;
+      }
+
+      .two-col {
+        flex-direction: column;
+      }
+
+      hgroup h2 {
+        max-width: 100%;
       }
     }
   }
@@ -656,24 +712,24 @@
     margin-right: -44px;
 
     li {
-     flex: 0 0 33%;
-     padding: 44px;
+     flex: 0 0 33.2%;
+     padding: 44px 44px 10px;
     }
 
     h4 {
       font-size: 20px;
       line-height: 1.4;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.027em;
       color: #2F3A48;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 10px;
       padding-right: 28px;
     }
 
      p {
-      font-size: 14px;
-      line-height: 25px;
-      letter-spacing: -0.02em;
+      font-size: 16px;
+      line-height: 29px;
+      letter-spacing: -0.01em;
       color: #5B708B;
      }
 
@@ -710,8 +766,13 @@
      }
 
      @media (max-width: $screen-md) {
+       margin-right: -16px;
+       margin-left: -16px;
+
        li {
          flex: 0 0 33%;
+         padding-left: 16px;
+         padding-right: 16px;
        }
 
         &--large li {
@@ -719,6 +780,7 @@
         }
      }
      @media (max-width: $screen-sm) {
+
        li {
          flex: 0 0 50%;
        }
@@ -755,7 +817,7 @@
       background-image: url('/img/enterprise/sprite-native-features.png');
       background-repeat: no-repeat;
       background-size: 100%;
-      margin-bottom: 14px;
+      margin-bottom: 19px;
     }
 
     &--plugins::before {
@@ -810,6 +872,9 @@
   }
 
   #powerful-developer-tools {
+    padding-top: 108px;
+    padding-bottom: 187px;
+
     .two-col {
       align-items: flex-end;
 
@@ -819,19 +884,41 @@
     }
 
     .checkmark-list {
-      margin-bottom: 48px;
+      margin-bottom: 34px;
     }
 
     hgroup {
-      max-width: 480px;
+      max-width: 500px;
+      padding-right: 20px;
+    }
+
+    @media (max-width: $screen-md) {
+      padding-bottom: 100px;
+
+      .two-col {
+        flex-direction: column;
+        align-items: stretch;
+
+        &.two-col--left {
+          flex-direction: column-reverse;
+        }
+      }
+
+      hgroup {
+        max-width: 100%;
+      }
     }
   }
 
   .two-col--basic {
-    margin-top: 256px;
+    margin-top: 90px;
+
+    + .two-col--basic {
+      margin-top: 72px;
+    }
 
     .content {
-      max-width: 384px;
+      max-width: 388px;
     }
 
     h4 {
@@ -853,6 +940,8 @@
     &.two-col--right {
       img {
         margin-right: -200px;
+        margin-left: -22px;
+        margin-top: 28px;
       }
 
       .content {
@@ -866,7 +955,24 @@
       }
 
       .content {
-        margin-left: 80px;
+        margin-left: 80px;    
+        margin-top: 8px;
+        margin-right: -15px;
+      }
+    }
+
+
+    @media (max-width: $screen-md) {
+      &.two-col--right,
+      &.two-col--left {
+        .content {
+          margin: 0;
+          max-width: 100%;
+        }
+
+        img {
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -881,13 +987,22 @@
     height: 470px;
   }
 
+  @media (max-width: $screen-md) {
+    #img-studio,
+    #img-devops {
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
   #pre-built-solutions {
     .two-col {
       align-items: center;
     }
 
     hgroup {
-      flex: 0 0 485px;
+      flex: 0 0 484px;
     }
 
     h2 {
@@ -900,7 +1015,17 @@
 
     @media (max-width: $screen-md) {
       .two-col {
+        // display: block;
+        flex-direction: column-reverse;
+      }
+
+      .integrations {
+        width: 400px;
+        height: 600px;
         display: block;
+        flex: 700px;
+        align-self: flex-end;
+        margin-top: -240px;
       }
     }
 
@@ -960,7 +1085,7 @@
 
   .integrations__aws-amplify {
     top: 0;
-    left: 176px;
+    left: 31px;
 
     i {
       width: 128px;
@@ -974,8 +1099,8 @@
   }
 
   .integrations__active-directory {
-    top: 165px;
-    left: 353px;
+    top: 18.5%;
+    left: 62%;
 
     i {
       width: 148px;
@@ -989,7 +1114,7 @@
   }
 
   .integrations__identity-vault {
-    top: 212px;
+    top: 24.1%;
     left: 0;
 
      i {
@@ -1004,8 +1129,8 @@
   }
 
   .integrations__auth-connect {
-    top: 399px;
-    left: 272px;
+    top: 45%;
+    left: 48%;
 
      i {
        width: 192px;
@@ -1019,8 +1144,8 @@
   }
 
   .integrations__couchbase {
-    top: 528px;
-    left: 46px;
+    top: 59%;
+    left: 8%;
 
     i {
       width: 128px;
@@ -1034,8 +1159,8 @@
   }
 
   .integrations__mparticle {
-    top: 705px;
-    left: 221px;
+    top: 79%;
+    left: 39%;
 
     i {
       width: 128px;
@@ -1111,18 +1236,49 @@
 
 
   #expert-services {
+    padding-top: 107px;
+    padding-bottom: 200px;
+
     hgroup {
       max-width: 456px;
     }
 
     .feature-list {
-      margin-top: 24px;
+      margin-top: 38px;
+
+      i {
+        margin-right: 47px;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #27323F;
+        font-family: $font-family-inter;
+      }
+
+      li {
+        margin-bottom: 18px;   
+      }
     }
 
     .checkmark-list--large {
       max-width: none;
       padding-left: 116px;
       margin-top: 0;
+    }
+
+    @media (max-width: $screen-md) {
+      .two-col {
+        flex-direction: column;
+      }
+
+      hgroup {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: $screen-sm) {
@@ -1156,14 +1312,18 @@
     }
 
     .container {
-      max-width: 960px;
+      position: relative;
     }
 
     hgroup {
       max-width: 540px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
+      margin-top: 198px;
 
       h2 {
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: -0.04em;
         color: #020814;
       }
     }

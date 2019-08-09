@@ -286,8 +286,8 @@
   }
 
   &#promo--ionic-for-enterprise {
-    padding-top: 74px;
-    padding-bottom: 74px;
+    padding-top: 53px;
+    padding-bottom: 84px;
     background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 49.9%, #F6F6FB 50%, #F6F6FB 100%);
 
     .promo__illustration {
@@ -297,12 +297,17 @@
       z-index: 0;
     }
 
+    hgroup {
+      padding-left: 60px;
+      padding-right: 40px;
+    }
+
     h3 {
       font-size: 28px;
       line-height:  34px;
       letter-spacing: -0.03em;
       color: #29323e;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: none;
       margin-top: 20px;
       margin-bottom: 10px;
@@ -331,8 +336,8 @@
   }
 
   &#promo--enterprise {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 118px;
+    padding-bottom: 115px;
     background: none;
     border-top: 1px solid #EFF3F8;
 
@@ -341,6 +346,10 @@
       line-height: 40px;
       letter-spacing: -0.04em;
       color: #1A232F;
+    }
+
+    p {
+      margin-top: 5px;
     }
     
     .container {
@@ -351,10 +360,23 @@
       padding: 0;
     }
 
+    .btns {
+      padding-left: 8px;
+      margin-top: 11px;
+      margin-right: 4px;
+    }
+
     .btn {
-      padding: 12px;
+      padding: 13px 17px 9px;
       border-radius: 10px;
       box-shadow: none;
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: -.02em;
+    }
+
+    .blue {
+      background: $blue-800;
     }
 
     .light-blue {
@@ -370,8 +392,8 @@
     border-bottom: 1px solid #E9EDF3;
 
     ul {
-      padding: 0;
-      margin: 0;
+      padding: 0 15px;
+      margin: 0 auto;
     }
 
     li {
@@ -379,6 +401,7 @@
       padding: 0;
       margin: 0;
       text-align: center;
+      width: 25%;
 
       &:last-child {
         border-right: none;
@@ -415,29 +438,58 @@
       color: #73849A;
     }
 
-    .promo--quad-cta__item {
-      &::before {
-        background: url('/img/promos/sprite-quad-cta.png');
+    .promo--quad-cta__graphic {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 8px auto 24px;
+      position: relative;
+
+      &::before,
+      &::after {
+        background: url('/img/promos/sprite-quad-cta.png?1');
         background-size: 100%;
         content: '';
-        width: 80px;
-        height: 72px;
-        display: block;
-        margin: 0 auto 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        transition: .3s opacity, .3s transform cubic-bezier(.175,.885,.32,1.275);
+      }
+      
+      &::after {
+        opacity: 0;
       }
 
-      &--docs::before {
-        background-position: 0 -72px;
+      &--enterprise {
+        &::before { background-position: 0 0; }
+        &::after  { background-position: 0 -80px; }
       }
 
-      &--github::before {
-        background-position: 0 -144px;
+      &--docs {
+        &::before { background-position: 0 (80px * 2 * -1); }
+        &::after  { background-position: 0 (80px * 3 * -1); }
       }
 
-      &--twitter::before {
-        background-position: 0 -216px;
-        height: 67px;
+      &--github {
+        &::before { background-position: 0 (80px * 4 * -1); }
+        &::after  { background-position: 0 (80px * 5 * -1); }
       }
+
+      &--twitter {
+        &::before { background-position: 0 (80px * 6 * -1); }
+        &::after  { background-position: 0 (80px * 7 * -1); }
+      }
+    }
+
+    a:hover .promo--quad-cta__graphic {
+      &::before,
+      &::after {
+        transform: translateY(-5px);
+      }
+
+      &::after { opacity: 1; }
     }
   }
 }

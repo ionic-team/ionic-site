@@ -158,12 +158,15 @@
     }
 
     h3 {
-      color: #616E7E;
-      font-size: 20px;
+      color: #92A1B3;
+      font-size: 12px;
       line-height: 1;
-      margin-bottom: 28px;
       margin-top: 0;
       font-weight: 600;
+      margin-bottom: 28px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: $font-family-monospace;
     }
 
     h2 {
@@ -809,10 +812,18 @@
   #powerful-developer-tools {
     .two-col {
       align-items: flex-end;
+
+      &.two-col--basic {
+        align-items: center;
+      }
     }
 
     .checkmark-list {
       margin-bottom: 48px;
+    }
+
+    hgroup {
+      max-width: 480px;
     }
   }
 
@@ -838,6 +849,26 @@
       letter-spacing: -0.01em;
       color: #5B708B;
     }
+
+    &.two-col--right {
+      img {
+        margin-right: -200px;
+      }
+
+      .content {
+        margin-right: 80px;
+      }
+    }
+
+    &.two-col--left {
+      img {
+        margin-left: -200px;
+      }
+
+      .content {
+        margin-left: 80px;
+      }
+    }
   }
 
   #img-studio {
@@ -851,15 +882,20 @@
   }
 
   #pre-built-solutions {
+    .two-col {
+      align-items: center;
+    }
+
+    hgroup {
+      flex: 0 0 485px;
+    }
+
     h2 {
       max-width: 500px;
     }
 
     .checkmark-list {
       max-width: none;
-      columns: 2 auto;
-      column-gap: 8px;
-      width: 108%;
     }
 
     @media (max-width: $screen-md) {
@@ -880,21 +916,27 @@
 
   .integrations {
     position: relative;
-    height: 660px;
+    height: 890px;
+    flex: calc(100% - 670px);
   }
 
   .integrations__identity-vault,
   .integrations__aws-amplify,
   .integrations__couchbase,
-  .integrations__active-directory {
+  .integrations__active-directory,
+  .integrations__auth-connect,
+  .integrations__mparticle {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 13px;
     text-align: center;
-    font-weight: 500;
     color: #5B708B;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 
     i {
       border-radius: 999px;
@@ -903,36 +945,51 @@
       align-items: center;
       box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1), 0px 8px 16px rgba(2, 8, 20, 0.08);
       background-color: #fff;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
     i::before {
       content: '';
       display: block;
-      background-image: url('/img/products/enterprise-engine/enterprise-engine-integrations-sprite.png');
+      background-image: url('/img/enterprise/sprite-pre-built-solutions.png');
       background-repeat: no-repeat;
-      background-size: 112px 294px;
+      background-size: 96px;
       background-position: center center;
     }
   }
 
-  .integrations__identity-vault {
+  .integrations__aws-amplify {
     top: 0;
-    left: 242px;
+    left: 176px;
 
     i {
-      width: 124px;
-      height: 124px;
+      width: 128px;
+      height: 128px;
     }
     i::before {
-      width: 56px;
-      height: 56px;
-      background-position: 0 -151px;
+      width: 64px;
+      height: 50px;
+      background-position: 0 0;
     }
   }
 
-  .integrations__aws-amplify {
-    top: 172px;
+  .integrations__active-directory {
+    top: 165px;
+    left: 353px;
+
+    i {
+      width: 148px;
+      height: 148px;
+    }
+    i::before {
+      width: 76px;
+      height: 76px;
+      background-position: 0 -50px;
+    }
+  }
+
+  .integrations__identity-vault {
+    top: 212px;
     left: 0;
 
      i {
@@ -940,81 +997,96 @@
        height: 192px;
      }
     i::before {
-      width: 112px;
-    	height: 84px;
-      background-position: 0 0;
+      width: 96px;
+    	height: 96px;
+      background-position: 0 -126px;
+    }
+  }
+
+  .integrations__auth-connect {
+    top: 399px;
+    left: 272px;
+
+     i {
+       width: 192px;
+       height: 192px;
+     }
+    i::before {
+      width: 96px;
+    	height: 96px;
+      background-position: 0 -222px;
     }
   }
 
   .integrations__couchbase {
-    top: 260px;
-    left: 324px;
+    top: 528px;
+    left: 46px;
 
     i {
-      width: 124px;
-      height: 124px;
+      width: 128px;
+      height: 128px;
     }
     i::before {
       width: 64px;
-      height: 65px;
-      background-position: 0 -85px;
+      height: 64px;
+      background-position: 0 -318px;
     }
   }
 
-  .integrations__active-directory {
-    top: 460px;
-    left: 172px;
+  .integrations__mparticle {
+    top: 705px;
+    left: 221px;
 
     i {
-      width: 160px;
-      height: 160px;
+      width: 128px;
+      height: 128px;
     }
     i::before {
-      width: 83px;
-      height: 84px;
-      background-position: 0 -210px;
+      width: 52px;
+      height: 48px;
+      background-position: 0 -382px;
     }
   }
 
   @media (max-width: $screen-lg) {
-    .integrations__identity-vault {
-      left: 212px;
-    }
+    // .integrations__identity-vault {
+    //   left: 212px;
+    // }
 
-    .integrations__couchbase {
-      left: 284px;
-    }
+    // .integrations__couchbase {
+    //   left: 284px;
+    // }
 
-    .integrations__active-directory {
-      left: 119px;
-    }
+    // .integrations__active-directory {
+    //   left: 119px;
+    // }
   }
 
   @media (max-width: $screen-md) {
-    .integrations {
-      flex: none;
-      height: 362px;
-      width: 586px;
-      margin-bottom: 40px;
-    }
+    // .integrations {
+    //   flex: none;
+    //   height: 362px;
+    //   width: 586px;
+    //   margin-bottom: 40px;
+    // }
 
-    .integrations__identity-vault {
-      left: 232px;
-    }
+    // .integrations__identity-vault {
+    //   left: 232px;
+    // }
 
-    .integrations__aws-amplify {
-      top: 82px;
-    }
+    // .integrations__aws-amplify {
+    //   top: 82px;
+    // }
 
-    .integrations__couchbase {
-      left: 251px;
-      top: 188px;
-    }
+    // .integrations__couchbase {
+    //   left: 251px;
+    //   top: 188px;
+    // }
 
-    .integrations__active-directory {
-      left: 416px;
-      top: 70px;
-    }
+    // .integrations__active-directory {
+    //   left: 416px;
+    //   top: 70px;
+    // }
   }
 
   @media (max-width: $screen-sm) {
@@ -1039,8 +1111,12 @@
 
 
   #expert-services {
-    hgroup + .two-col {
-      margin-top: 80px;
+    hgroup {
+      max-width: 456px;
+    }
+
+    .feature-list {
+      margin-top: 24px;
     }
 
     .checkmark-list--large {

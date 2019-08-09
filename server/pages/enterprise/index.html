@@ -209,20 +209,20 @@
     </div>
   </section>
 
-  <section id="developer-tools" class="nav-section container">
+  <section id="pre-built-solutions" class="nav-section container">
     <div class="two-col">
       <div class="integrations">
         <a class="integrations__aws-amplify">
           <i></i>
           AWS Amplify
         </a>
-        <a class="integrations__identity-vault">
-          <i></i>
-          Identity Vault
-        </a>
         <a class="integrations__active-directory">
           <i></i>
           Active Directory
+        </a>
+        <a class="integrations__identity-vault">
+          <i></i>
+          Identity Vault
         </a>
         <a class="integrations__auth-connect">
           <i></i>
@@ -430,71 +430,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-  function scrollToSelector(selector, offset){
-    var offset = offset || 0;
-    window.scrollToY(document.querySelector(selector).getBoundingClientRect().top + window.scrollY + offset, 200, 'easeOutExpo');
-  }
 
-  // main cta scroll to
-  document.querySelectorAll('.cta-link').forEach(function(ctaLink){
-    ctaLink.addEventListener('click', function(ev){
-      ev.preventDefault();
-      window.c('Enterprise Engine', 'btn-enterprise-engine-hero-buy');
-      scrollToSelector('.call-to-action');
-    });
-  });
-
-  // page nav scroll to
-  document.querySelectorAll('.page-nav__link').forEach(function(navLink){
-    navLink.addEventListener('click', function(ev){
-      ev.preventDefault();
-      var anchorId = ev.target.getAttribute("href");
-      scrollToSelector(anchorId, -60);
-    });
-  })
-
-  // nav highlighting
-  var threshold = window.innerHeight * 0.33;
-  var sectionOffsets = [];
-
-  function updateSectionOffsets(){
-    requestAnimationFrame(function(){
-      document.querySelectorAll('.nav-section').forEach(function(section){
-        sectionOffsets.push({
-          id: section.id,
-          top: section.getBoundingClientRect().top + window.scrollY,
-          bottom: section.getBoundingClientRect().bottom + window.scrollY,
-          anchor: document.querySelector('[href="#' + section.id + '"]'),
-          isActive: false
-        })
-      });
-    });
-  }
-
-  function checkOffsets(){
-    var scroll = window.scrollY + threshold;
-    sectionOffsets.forEach(function(section){
-      if (section.top < scroll && section.bottom > scroll) {
-        section.anchor.classList.add('active');
-        section.isActive = true;
-      } else {
-        section.anchor.classList.remove('active');
-        section.isActive = false;
-      }
-    });
-
-    if (sectionOffsets.filter(function(o){return o.isActive === true}).length) {
-      document.querySelector('.page-nav').classList.add('active');
-    } else {
-      document.querySelector('.page-nav').classList.remove('active');
-    }
-  }
-
-  updateSectionOffsets();
-  checkOffsets();
-  window.addEventListener('scroll', checkOffsets);
-  window.addEventListener('resize', updateSectionOffsets);
-
-</script>
 {% endblock %}

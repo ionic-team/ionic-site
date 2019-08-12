@@ -333,6 +333,19 @@
         vertical-align: -4px;
       }
     }
+
+    @media (max-width: $screen-sm) {
+      background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 100%);
+      padding-bottom: 400px;
+
+      hgroup {
+        padding: 0;
+      }
+
+      h3 {
+        text-align: left;
+      }
+    }
   }
 
   &#promo--enterprise {
@@ -490,6 +503,19 @@
       }
 
       &::after { opacity: 1; }
+    }
+
+    @media (max-width: $screen-sm) {
+      ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      
+      li {
+        flex: 50%;
+        width: 50%;
+        border-right: none;
+      }
     }
   }
 }

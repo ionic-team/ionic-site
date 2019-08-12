@@ -253,7 +253,7 @@
       h3,
       h2,
       p.large {
-        text-align: center;
+        text-align: left;
         margin-left: auto;
         margin-right: auto;
       }
@@ -434,6 +434,11 @@
         font-size: 11px;
       }
     }
+
+
+    @media (max-width: $screen-xs) {
+      max-width: 100% !important;
+    }
   }
 
   .chart__box {
@@ -557,6 +562,14 @@
       }
 
     }
+
+    @media (max-width: $screen-xs) {
+      flex-wrap: wrap;
+
+      .platform {
+        margin-bottom: 16px;
+      }
+    }
   }
 
   .checkmark-list {
@@ -585,6 +598,15 @@
     p {
       max-width: 474px;
       letter-spacing: -0.02em;
+    }
+
+    @media (max-width: $screen-sm) {
+      margin-top: 64px;
+      margin-bottom: 64px;
+
+      .graphics--framework {
+        display: none;
+      }
     }
   }
 
@@ -794,8 +816,8 @@
        li hgroup {
          display: flex;
          flex-direction: column;
-         align-items: center;
-         text-align: center;
+         align-items: flex-start;
+         text-align: left;
        }
 
        &--large i {
@@ -1029,12 +1051,26 @@
       }
     }
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
+
       .checkmark-list {
         max-width: none;
         columns: 1 auto;
         column-gap: 8px;
         width: 100%;
+      }
+
+      .integrations {
+        position: static;
+        display: flex;
+        margin-top: 0;
+        width: 100%;
+        max-width: 100%;
+        left: auto;
+        flex: 100%;
+        transform: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
       }
     }
   }
@@ -1080,6 +1116,12 @@
       background-repeat: no-repeat;
       background-size: 96px;
       background-position: center center;
+    }
+
+    @media (max-width: $screen-sm) {
+      position: static;
+      margin: 12px 16px;
+      align-self: center;
     }
   }
 
@@ -1282,11 +1324,14 @@
     }
 
     @media (max-width: $screen-sm) {
+      padding-bottom: 64px;
+
       .feature-list,
       .checkmark-list {
         margin-left: auto;
         margin-right: auto;
-        max-width: 420px;
+        max-width: 100%;
+        margin-top: 64px;
       }
       .checkmark-list--large {
         padding-left: 0;

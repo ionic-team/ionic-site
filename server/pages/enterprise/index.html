@@ -14,7 +14,12 @@
       <h4>Ionic Enterprise </h4>
       <h1>The fastest way to build critical apps at scale.</h1>
       <p>Accelerate your company’s app development with a secure, long-term solution that’s optimized for enterprise and backed by Ionic experts.</p>
-      <a href="#" class="btn uppercase cta-link" id="btn-enterprise-engine-hero-buy">Try Enterprise<ion-icon name="ios-arrow-forward"></ion-icon></a>
+      <a href="#" class="btn uppercase cta-link" id="btn-enterprise-engine-hero-buy">
+        Try Enterprise
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="s-ion-icon">
+          <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+        </svg>
+      </a>
     </hgroup>
   </div>
 </div>
@@ -192,7 +197,7 @@
       </ul>
     </div>
     <div class="two-col two-col--right two-col--basic">
-      <img id="img-studio" src="/img/enterprise/studio.png" alt="Studio">
+      <img id="img-studio" src="/img/enterprise/studio.png" alt="Studio" class="activateOnScroll">
       <div class="content">
         <h4>Rapid Mobile App Development</h4>
         <p>Ionic Studio is a powerful app builder that delivers a smooth developer experience for teams building with Ionic. Get started with the fastest and easiest way to create award-winning cross-platform apps, from a single tool.</p>
@@ -205,13 +210,13 @@
         <p>Enable your team to spend more time on what matters and focus on building apps. Ionic Appflow automates everything else — from the moment code is checked in to the moment it lands in the hands of your users.</p>
         <a href="/appflow" class="contact-sales">Learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
       </div>
-      <img id="img-devops" src="/img/enterprise/devops-graphic.png" alt="DevOps">
+      <img id="img-devops" src="/img/enterprise/devops-graphic.png" alt="DevOps" class="activateOnScroll">
     </div>
   </section>
 
   <section id="pre-built-solutions" class="nav-section container">
     <div class="two-col">
-      <div class="integrations">
+      <div class="integrations activateOnScroll">
         <a class="integrations__aws-amplify" target="_blank" href="/integrations/aws-amplify">
           <i></i>
           AWS Amplify
@@ -423,10 +428,6 @@
 
 {% include '../_includes/promos/start-enterprise.html' %}
 {% include '../_includes/promos/quad-cta.html' %}
-{% endblock %}
-
-{% block modals %}
-
 {% endblock %}
 
 {% block scripts %}

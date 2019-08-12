@@ -60,6 +60,14 @@
       position: relative;
       max-width: 520px;
 
+      h4,
+      h1,
+      p,
+      .btn {
+        opacity: 0;
+        animation: fadeInUp .5s ease-out  .5s forwards;
+      }
+
       h4 {
         line-height: 25px;
         font-size: 12px;
@@ -76,6 +84,7 @@
         letter-spacing: -0.03em;
         color: #020814;
         margin-top: 32px;
+        animation-delay: 1.2s;
       }
 
       p {
@@ -85,6 +94,7 @@
         line-height: 38px;
         margin: 0;
         letter-spacing: -0.04em;
+        animation-delay: 1.4s;
       }
 
       .btn {
@@ -99,15 +109,20 @@
         font-size: 15px;
         line-height: 1em;
         letter-spacing: 0.08em;
-        padding: 13px 18px 14px;
+        padding: 13px 10px 14px 18px;
+        width: auto;
+        animation-delay: 1.6s;
 
         &:hover {
           background-color: lighten(#3880FF, 2%);
         }
 
-        ion-icon {
-          font-size: 1.3em;
-          vertical-align: -25%;
+        svg {
+          display: inline-block;
+          height: 20px;
+          width: 20px;
+          fill: white;
+          vertical-align: -4px;
         }
       }
 
@@ -227,7 +242,7 @@
 
     .contact-sales {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: -.03em;
       margin-top: 9px;
       display: inline-block;
@@ -1012,6 +1027,15 @@
       }
     }
   }
+  
+  #img-studio,
+  #img-devops {
+    opacity: 0;
+
+    &.active {
+      animation: fadeInUp 1s .8s ease forwards;
+    }
+  }
 
   #img-studio {
     width: 765px;
@@ -1098,6 +1122,10 @@
     position: relative;
     height: 890px;
     flex: calc(100% - 670px);
+
+    &.active a {
+      animation: fadeInUp 1s .8s ease forwards;
+    }
   }
 
   .integrations__identity-vault,
@@ -1117,6 +1145,7 @@
     line-height: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    opacity: 0;
 
     i {
       border-radius: 999px;
@@ -1143,94 +1172,101 @@
       align-self: center;
     }
   }
-
-  .integrations__aws-amplify {
-    top: 0;
-    left: 31px;
-
-    i {
-      width: 128px;
-      height: 128px;
+  .integrations a {
+    &.integrations__aws-amplify {
+      top: 0;
+      left: 31px;
+      animation-delay: .5s;
+  
+      i {
+        width: 128px;
+        height: 128px;
+      }
+      i::before {
+        width: 64px;
+        height: 50px;
+        background-position: 0 0;
+      }
     }
-    i::before {
-      width: 64px;
-      height: 50px;
-      background-position: 0 0;
+  
+    &.integrations__active-directory {
+      top: 18.5%;
+      left: 62%;
+      animation-delay: .7s;
+  
+      i {
+        width: 148px;
+        height: 148px;
+      }
+      i::before {
+        width: 76px;
+        height: 76px;
+        background-position: 0 -50px;
+      }
     }
-  }
-
-  .integrations__active-directory {
-    top: 18.5%;
-    left: 62%;
-
-    i {
-      width: 148px;
-      height: 148px;
+  
+    &.integrations__identity-vault {
+      top: 24.1%;
+      left: 0;
+      animation-delay: .9s;
+  
+       i {
+         width: 192px;
+         height: 192px;
+       }
+      i::before {
+        width: 96px;
+      	height: 96px;
+        background-position: 0 -126px;
+      }
     }
-    i::before {
-      width: 76px;
-      height: 76px;
-      background-position: 0 -50px;
+  
+    &.integrations__auth-connect {
+      top: 45%;
+      left: 48%;
+      animation-delay: 1.1s;
+
+      i {
+        width: 192px;
+        height: 192px;
+      }
+      i::before {
+        width: 96px;
+      	height: 96px;
+        background-position: 0 -222px;
+      }
     }
-  }
-
-  .integrations__identity-vault {
-    top: 24.1%;
-    left: 0;
-
-     i {
-       width: 192px;
-       height: 192px;
-     }
-    i::before {
-      width: 96px;
-    	height: 96px;
-      background-position: 0 -126px;
+  
+    &.integrations__couchbase {
+      top: 59%;
+      left: 8%;
+      animation-delay: 1.3s;
+  
+      i {
+        width: 128px;
+        height: 128px;
+      }
+      i::before {
+        width: 64px;
+        height: 64px;
+        background-position: 0 -318px;
+      }
     }
-  }
-
-  .integrations__auth-connect {
-    top: 45%;
-    left: 48%;
-
-     i {
-       width: 192px;
-       height: 192px;
-     }
-    i::before {
-      width: 96px;
-    	height: 96px;
-      background-position: 0 -222px;
-    }
-  }
-
-  .integrations__couchbase {
-    top: 59%;
-    left: 8%;
-
-    i {
-      width: 128px;
-      height: 128px;
-    }
-    i::before {
-      width: 64px;
-      height: 64px;
-      background-position: 0 -318px;
-    }
-  }
-
-  .integrations__mparticle {
-    top: 79%;
-    left: 39%;
-
-    i {
-      width: 128px;
-      height: 128px;
-    }
-    i::before {
-      width: 52px;
-      height: 48px;
-      background-position: 0 -382px;
+  
+    &.integrations__mparticle {
+      top: 79%;
+      left: 39%;
+      animation-delay: 1.5s;
+  
+      i {
+        width: 128px;
+        height: 128px;
+      }
+      i::before {
+        width: 52px;
+        height: 48px;
+        background-position: 0 -382px;
+      }
     }
   }
 

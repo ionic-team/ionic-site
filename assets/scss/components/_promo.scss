@@ -286,8 +286,8 @@
   }
 
   &#promo--ionic-for-enterprise {
-    padding-top: 53px;
-    padding-bottom: 84px;
+    padding-top: 56px;
+    padding-bottom: 72px;
     background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 49.9%, #F6F6FB 50%, #F6F6FB 100%);
 
     .promo__illustration {
@@ -310,7 +310,7 @@
       font-weight: 600;
       text-transform: none;
       margin-top: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       font-family: $font-family-eina;
       
       em {
@@ -337,6 +337,7 @@
     @media (max-width: $screen-sm) {
       background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 100%);
       padding-bottom: 400px;
+      overflow: hidden;
 
       hgroup {
         padding: 0;
@@ -384,6 +385,7 @@
       border-radius: 10px;
       box-shadow: none;
       font-size: 18px;
+      font-weight: 600;
       line-height: 25px;
       letter-spacing: -.02em;
     }

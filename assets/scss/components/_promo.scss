@@ -336,15 +336,20 @@
 
     @media (max-width: $screen-sm) {
       background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 100%);
-      padding-bottom: 400px;
+      padding-bottom: 280px;
       overflow: hidden;
 
       hgroup {
         padding: 0;
+        text-align: left;
       }
 
       h3 {
         text-align: left;
+      }
+
+      .promo__illustration {
+        bottom: -100px;
       }
     }
   }

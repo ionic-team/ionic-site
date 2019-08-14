@@ -158,12 +158,25 @@
   span,
   a {
     color: white;
+    fill: white;
+    position: relative;
     letter-spacing: 0;
     padding: 16px 12px;
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
     transition: .2s color;
+
+    &.has-icon {
+      padding-left: 32px;
+    }
+
+    ion-icon {
+      font-size: 1.4em;
+      position: absolute;
+      left: 12px;
+      top: 14px;
+    }
   }
 
   a {
@@ -216,17 +229,17 @@
   @media (max-width: $screen-xs-max) {
     &.hydrated.ionic-sub-header--initialized {
       max-height: 55px;
-      background: transparent !important;
+      background: transparent;
     }
 
     > .container {
       max-height: 55px;
       transition: .4s max-height ease;
 
-      background: white;
+      background: black;
       backdrop-filter: blur(20px);
       @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
-        background: rgba(white, .9);
+        background: rgba(black, .9);
       }
     }
 
@@ -234,6 +247,15 @@
     & > .container {
       overflow: visible;
       perspective: 1000px;
+    }
+
+    span,
+    a {
+      ion-icon {
+        font-size: 1.4em;
+        position: static;
+        vertical-align: -3px;
+      }
     }
 
     .ionic-sub-header__mobile-toggle {
@@ -356,6 +378,7 @@ body.light ionic-sub-header {
   span,
   a {
     color: #414D5C;
+    fill: #414D5C;
   }
 
   .btn,
@@ -408,6 +431,16 @@ body.light ionic-sub-header {
       svg,
       path {
         fill: unset;
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    > .container {
+      background: white;
+
+      @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+        background: rgba(white, .9);
       }
     }
   }

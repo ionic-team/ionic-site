@@ -172,13 +172,18 @@
       transition: .2s fill;
       vertical-align: -15%;
     }
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
       
 
     &.current,
     &.active,
     &:hover {
       color: rgba(white, .4);
-      text-decoration: none;
     }
 
     &.btn {

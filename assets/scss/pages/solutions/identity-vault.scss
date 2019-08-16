@@ -1,3 +1,9 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+
+@import '../enterprise/shared';
+@import '../enterprise/solutions/shared';
+
 #page-identity-vault {
   ionic-sub-header .btn {
     background: #104784;
@@ -14,24 +20,108 @@
     .btn {
       font-family: $font-family-eina;
     }
+
+    h2 {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.04em;
+      color: #020814;
+      font-weight: 600;
+    }
+
+    p,
+    hgroup p + p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: -0.03em;
+      color: #5B708B;
+    }
+
+    hgroup p,
+    p.lg,
+    h5 {
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.03em;
+      color: #4E5B6A;
+
+      strong {
+        font-weight: 500;
+        color: #020814;
+      }
+    }
+
+    h5 {
+      font-weight: 600;
+      color: #020814;
+      margin-bottom: 0;
+      letter-spacing: -0.015em;
+    }
+
+    .checkmark-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      li {
+        padding-left: 42px;
+        position: relative;
+        list-style: none;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: -0.02em;
+        color: #616E7E;
+        margin-bottom: 18px;
+  
+        &::before {
+          background: url('/img/enterprise/identity-vault/sprite-checkmark.png') 0 bottom no-repeat;
+          background-size: 24px;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          left: 0;
+          top: 2px;
+          content: '';
+        }
+      }
+    }
+
+    .contact-sales {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -.03em;
+      margin-top: 9px;
+      display: inline-block;
+      text-decoration: none;
+      
+      ion-icon {
+        font-size: 16px;
+        vertical-align: -3px;
+        display: inline-block;
+        transition: .3s transform ease;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+
+        ion-icon {
+          transform: translateX(3px);
+        }
+      }
+    }
   }
-  // #sub-header {
-  //   .demo {
-  //     &::after {
-  //       font-family: 'Ionicons';
-  //       content: "";
-  //       margin-left: 3px;
-  //       vertical-align: -1px;
-  //     }
-  //   }
-  // }
 
   .top {
     margin-top: -172px;
-    padding-top: 276px;
-    background: #0c1c1c;
-    background: linear-gradient(to right, #0e1e2e 0%, #203e5a 100%);
-    min-height: 972px;
+    padding-top: 258px;
+    min-height: 926px;
 
     .container {
       position: relative;
@@ -39,55 +129,59 @@
       &::after {
         background: url('/img/enterprise/identity-vault/hero-img.png') 0 0 no-repeat;
         background-size: 100%;
-        width: 589px;
-        height: 760px;
+        width: 560px;
+        height: 728px;
         content: '';
         display: block;
         position: absolute;
-        right: -82px;
-        top: -72px;
+        right: -42px;
+        top: -50px;
       }
     }
 
     hgroup {
-      max-width: 540px;
+      max-width: 502px;
     }
 
     h1 {
-      color: white;
-      letter-spacing: -.02em;
+      font-size: 64px;
+      line-height: 70px;
+      letter-spacing: -0.03em;
+      color: #020814;
     }
 
     h3 {
-      color: #7bbfff;
-      font-size: 35px;
-      letter-spacing: -.016em;
-      line-height: 1.39em;
+      color: #144882;
+      font-size: 32px;
+      letter-spacing: -.04em;
+      line-height: 48px;
       margin-top: 15px;
-      margin-bottom: 9px;
-    }
+      margin-bottom: 58px;
 
-    p {
-      color: #c3cedf;
-      font-size: 18px;
-      letter-spacing: -.02em;
-      margin-bottom: 1px;
-      font-weight: 400;
-      line-height: 1.5em;
-
-      strong {
-        color: #fff;
-        font-weight: 400;
+      svg {
+        vertical-align: -20px;
+        margin-right: 9px;
       }
     }
 
+    p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 38px;
+      letter-spacing: -0.03em;
+      color: rgba(#414D5C, 0.9);
+    }
+
     .btn {
-      margin-top: 51px;
-      padding: 14px 16px 12px 19px;
+      margin-top: 0;
+      padding: 14px 17px 12px 16px;
+      font-weight: 700;
       font-size: 14px;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      letter-spacing: .06em;
       margin-bottom: 80px;
+      background: #104784;
 
       &::after {
         font-family: 'Ionicons';
@@ -145,79 +239,35 @@
   }
 
   .gandalf {
-    padding-top: 104px;
+    padding-top: 191px;
     margin-bottom: 80px;
+    display: block;
 
     .split {
       display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
-      > div {
-        flex: 0 1 520px;
+      > hgroup {
+        flex: 0 1 464px;
       }
     }
 
     h2 {
       margin-top: 7px;
-    font-size: 36px;
-    margin-left: 1px;
-    letter-spacing: -.02em;
-    font-weight: 700;
-    line-height: 1.8em;
-    }
-
-    h3 {
-      margin-top: 68px;
-      font-size: 27px;
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 19px;
-      margin-top: 24px;
-      margin-left: 1px;
-      letter-spacing: .005em;
-      line-height: 1.92em;
-      color: #51657d;
-
-      strong {
-        font-weight: 500;
-      }
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 33px;
+      font-weight: 700;
     }
 
     ul {
-      margin-left: auto;
-      flex: 0 1 514px;
-      margin-top: 34px;
-      padding-left: 0;
+      flex: 0 1 565px;
+      margin-bottom: 25px;
 
       @media (max-width: $screen-md-max)  {
         flex-basis: 392px;
-      }
-
-      li::before {
-        top: 0;
-      }
-    }
-
-    li {
-      padding-left: 55px;
-      font-size: 14px;
-      position: relative;
-      list-style: none;
-      letter-spacing: -.022em;
-      line-height: 1.78em;
-      margin-bottom: 36px;
-      color: #51657d;
-
-      &::before {
-        background: url('/img/enterprise/identity-vault/lock-checkmark.png') 0 0 no-repeat;
-        background-size: 32px;
-        width: 32px;
-        height: 32px;
-        position: absolute;
-        left: 0;
-        top: 7px;
-        content: '';
       }
     }
 
@@ -239,7 +289,7 @@
       background: #f3f5f8;
       border-radius: 14px;
       padding: 24px 30px;
-      margin-top: 59px;
+      margin-top: 22px;
       position: relative;
       min-height: 278px;
 
@@ -345,15 +395,14 @@
   .points {
     margin-bottom: 100px;
 
-    h2 {
-      letter-spacing: -.02em;
+    hgroup {
+      margin-top: 178px;
+      margin-bottom: 0;
+      max-width: 772px;
     }
 
-    p {
-      margin-top: 17px;
-      font-weight: 400;
-      font-size: 20px;
-      letter-spacing: -.02em;
+    h2 {
+      margin-bottom: 9px;
     }
 
     ul {
@@ -361,7 +410,7 @@
       flex-wrap: wrap;
       padding: 0;
       list-style: none;
-      padding-top: 68px;
+      padding-top: 56px;
       justify-content: space-between;
     }
 
@@ -371,7 +420,7 @@
       padding-top: 69px;
       margin-left: 1px;
       position: relative;
-      margin-bottom: 61px;
+      margin-bottom: 33px;
 
       @media (max-width: $screen-md-max)  {
         flex-basis: 256px;
@@ -398,15 +447,11 @@
         font-size: 20px;
         font-weight: 600;
         font-family: $font-family-eina;
+        letter-spacing: -.02em;
       }
 
       p {
-        font-size: 16px;
         margin-top: 15px;
-        font-weight: 400;
-        line-height: 1.8em;
-        letter-spacing: -.01em;
-        color: #51657d;
       }
     }
 
@@ -447,18 +492,23 @@
       height: 560px;
       content: '';
       position: absolute;
-      top: 0;
-      right: -10px;
+      top: 71px;
+      right: 19px;
+      display: block;
 
       @media (max-width: $screen-sm-max)  {
         width: 280px;
         height: 280px;
+        display: block;
+        position: static;
+        margin: 0 auto;
       }
     }
 
     hgroup {
-      width: calc(50% - 46px);
+      width: calc(50% - 90px);
       padding-top: 0;
+      margin-top: 136px;
 
       @media (max-width: $screen-md-max)  {
         width: calc(50% - 66px);
@@ -474,26 +524,16 @@
       }
     }
 
-    h3 {
-      padding-top: 115px;
-      font-weight: 600;
-      font-size: 28px;
-      letter-spacing: -.02em;
-      margin-bottom: 24px;
+    h2 {
+      margin-bottom: 11px;
     }
 
-    p {
-      color: #51657d;
-      font-weight: 400;
-      letter-spacing: -.02em;
-      line-height: 1.8em;
+    p.lg {
+      margin-bottom: 24px;
 
-      &.lg {
-        font-size: 19px;
-        letter-spacing: .004em;
-        line-height: 1.9em;
-        font-weight: 400;
-        margin-bottom: 17px;
+      + p {
+        margin-bottom: 18px;
+        line-height: 26px;
       }
     }
 
@@ -530,6 +570,7 @@
     }
 
     @media (max-width: $screen-xs-max)  {
+      display: block;
       padding-top: 200px;
 
       &::before {
@@ -556,13 +597,14 @@
       background-size: 100%;
       width: 560px;
       height: 560px;
-      top: 101px;
-      left: -11px;
+      top: 140px;
+      left: 15px;
       right: auto;
     }
 
     hgroup {
-      padding-top: 56px;
+      padding-top: 64px;
+      margin-bottom: 214px;
       width: calc(50% - 59px);
 
       @media (max-width: $screen-md-max)  {
@@ -609,83 +651,54 @@
     }
   }
 
-  .what-you-got {
+  section.what-you-got {
     background: #101928 url('/img/enterprise/identity-vault/bg-panes.png') 50% 0 no-repeat;
     background-size: 1000px;
 
     .container {
       position: relative;
-      padding-bottom: 150px;
+      padding-bottom: 130px;
     }
 
 
     hgroup {
-      padding-top: 178px;
-      max-width: 712px;
+      padding-top: 0;
+      max-width: 654px;
+      margin: 179px auto 0;
+      text-align: center;
     }
 
-    h3 {
+    h2 {
       color: white;
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -.02em;
+      margin-bottom: 10px;
     }
 
     p {
-      color: #b6c3d6;
-      font-weight: 400;
-      margin-top: 17px;
-      line-height: 1.8em;
-      font-size: 20px;
-      letter-spacing: -.02em;
-
-      strong {
-        color: white;
-        font-weight: 400;
-      }
+      color: #CED6E0;
     }
 
     ul {
       padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      margin-top: 69px;
-      justify-content: space-between;
+      margin-top: 63px;
     }
 
     li {
-      flex: 0 0 518px;
-      padding-left: 56px;
-      font-size: 16px;
+      flex: 1 0 382px;
       color: white;
-      position: relative;
-      margin-bottom: 45px;
-      padding-top: 5px;
-      letter-spacing: -.02em;
+      margin-bottom: 38px;
 
       @media (max-width: $screen-md-max)  {
         flex-basis: calc(50% - 50px);
       }
 
       &::before {
-        background: url('/img/enterprise/identity-vault/lock-checkmark.png') 0 100% no-repeat;
-        background-size: 32px;
-        width: 32px;
-        height: 32px;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+        background-position: 0 0;
       }
-    }
 
-    @media (max-width: $screen-sm-max)  {
-      // padding-bottom: 100px;
-
-      hgroup {
-        padding-top: 92px;
-        max-width: 712px;
+      a {
+        color: white;
+        font-weight: 500;
+        text-decoration: underline;
       }
     }
 
@@ -699,32 +712,24 @@
   }
 
   main .demo {
-    padding-top: 97px;
+    padding-top: 168px;
     padding-bottom: 110px;
 
     hgroup {
-      strong {
-        text-transform: uppercase;
-        letter-spacing: .06em;
-        font-family: $font-family-eina;
+      text-align: center;
+
+      h5 {
+        font-style: normal;
+        font-weight: 600;
+        color: #4E5B6A;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
       }
 
       h2 {
-        margin-top: 39px;
-        letter-spacing: -.01em;
-      }
-
-      p {
-        margin-top: 16px;
-        font-weight: 400;
-        font-size: 20px;
-        letter-spacing: -.02em;
-
-        strong {
-          font-weight: 400;
-          text-transform: none;
-          letter-spacing: inherit;
-        }
+        margin-top: 0;
       }
     }
 
@@ -764,6 +769,7 @@
       padding-top: 119px;
       width: calc(50% - 50px);
       padding-bottom: 140px;
+      margin-left: auto;
 
       @media (max-width: $screen-md-max)  {
         padding-top: 100px;

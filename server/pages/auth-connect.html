@@ -9,7 +9,7 @@
 <ionic-sub-header>
   <a slot="title" href="/auth-connect">Auth Connect</a>
   <ul slot="right">
-    <li><a href="/files/AuthConnect-Data-Sheet.pdf" target="_blank" class="has-icon"><ion-icon name="ios-download"></ion-icon> Data Sheet</a></li>
+    <li><a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"><ion-icon name="ios-download"></ion-icon> Data Sheet</a></li>
     <li><a href="https://ionicframework.com/docs/enterprise/auth-connect">Docs</a></li>
     <li><a class="btn anchor" data-offset="-50" href="#get-started">Request a Demo</a></li>
     {# <li>
@@ -197,6 +197,45 @@
   </div>
 </section>
 
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade modal--form"
+     id="modal-data-sheet"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="promo--ionic-for-enterprise">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override hubspot-override--large">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h2>Before we send it&hellip;</h2>
+          <p class="lg">
+            We just need some basic information so we can send the Data Sheet your way.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+            formId: "76f93fda-01ee-4825-8b4b-b561ee7101f5",
+            css: ""
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

@@ -74,4 +74,64 @@
       background: transparent;
     }
   }
+
+  &--form {
+    .modal-dialog {
+      width: 672px;
+      max-width: calc(100% - 24px);
+    }
+  
+    .modal-body {
+      padding: 48px;
+    }
+  
+    hgroup {
+      margin: 0 0 16px;
+      padding: 0;
+      text-align: left;
+    }
+  
+    h2 {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  
+    p {
+      font-size: 16px !important;
+      line-height: 26px !important;
+      letter-spacing: -0.02em !important;
+    }
+  
+    form {
+      max-width: 100%;
+    }
+  
+    .actions {
+      text-align: right;
+  
+      input {
+        width: auto;
+        background: $blue-800;
+        border-radius: 10px;
+        font-size: 15px;
+        line-height: 21px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 14px 18px;
+        min-height: auto;
+        height: auto;
+        
+        &::after {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="s-ion-icon"><path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg>');
+          background-size: 100%;
+          content: '';
+          height: 20px;
+          width: 20px;
+          display: block;
+          margin-left: 8px;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
 }

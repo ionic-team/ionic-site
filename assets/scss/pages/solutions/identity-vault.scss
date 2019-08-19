@@ -60,6 +60,17 @@
       letter-spacing: -0.015em;
     }
 
+    section {
+      @media (max-width: $screen-xs-max)  {
+        &,
+        &.center {
+          .content {
+            text-align: left;
+          }
+        }
+      }
+    }
+
     .checkmark-list {
       display: flex;
       flex-wrap: wrap;
@@ -225,10 +236,6 @@
         height: 190px;
         right: calc(50% - 95px);
         top: -190px;
-      }
-
-      hgroup {
-        text-align: center;
       }
 
       h1,
@@ -472,7 +479,6 @@
     @media (max-width: $screen-xs-max)  {
       li {
         flex-basis: 100%;
-        text-align: center;
 
         &::before {
           left: calc(50% - 24px);
@@ -705,6 +711,10 @@
     @media (max-width: $screen-xs-max)  {
       background-size: cover;
 
+      hgroup {
+        text-align: left;
+      }
+
       li {
         flex-basis: 100%;
       }
@@ -754,6 +764,10 @@
 
   .watch {
     background: #f6f8fb;
+
+    .container {
+      position: relative;
+    }
 
     .card {
       position: absolute;

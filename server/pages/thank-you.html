@@ -14,10 +14,14 @@
   <div class="content">
     <h1> {{data.title}} </h1>
     {{ PrismicDOM.RichText.asHtml(data.paragraph_text if data.paragraph_text else '') }}
-    <a class="btn" 
+    <a class="btn"
+       id="cta-btn"
        href="{{data.link_url.url}}" 
        target="{{data.link_url.target}}">
       {{data.link_text}}</a>
+    {% if data.automatically_download === 'Yes' %}
+      <p><small>Your file should download automatically within 3 seconds.<br>If not, click the button above</small></p>
+    {% endif %}
   </div>
 </main>
 
@@ -29,5 +33,15 @@
   <div class="logos"></div>
 </div>
 
-{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+<pre><code>{{ data | dump(2) }}</code></pre>
+{% endblock %}
+
+{% block scripts %}
+{% if data.automatically_download === 'Yes' %}
+<script>
+setTimeout(() => {
+  window.location.href = document.getElementById('cta-btn').href
+}, 3000)
+</script>
+{% endif %}
 {% endblock %}

@@ -5,6 +5,10 @@ Disallow: /docs/v3/demos/
 Disallow: /docs/v3/dist/
 Disallow: /present-ionic/slides/
 Disallow: /dist/
+Disallow: /docs/es/
+Disallow: /docs/fr/
+Disallow: /docs/pt/
+Disallow: /docs/zh/
 
 Sitemap: https://ionicframework.com/sitemap.xml
 Sitemap: https://ionicframework.com/docs/v1/sitemap.xml

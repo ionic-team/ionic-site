@@ -7,6 +7,13 @@
     "image":"adam.jpg"
   },
   {
+    "name":"Alex Roberts",
+    "dept":"Sales",
+    "description":null,
+    "twitter":null,
+    "image": "alex.jpg"
+  },
+  {
     "name":"Andrew Haire",
     "dept":"VP of Marketing",
     "description":null,
@@ -105,6 +112,13 @@
     "image": "jack.png"
   },
   {
+    "name":"Jade Vargas",
+    "dept":"Sales",
+    "description":null,
+    "twitter":"melissaraddatz1",
+    "image": "jade.jpg"
+  },
+  {
     "name":"Josh Thomas",
     "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
@@ -193,6 +207,13 @@
     "description":null,
     "twitter":"maxlynch",
     "image": "max.jpg"
+  },
+  {
+    "name":"Melissa Raddatz",
+    "dept":"Sales",
+    "description":"",
+    "twitter":"melissaraddatz1",
+    "image": "melissa.jpg"
   },
   {
     "name":"Mike Hartington",

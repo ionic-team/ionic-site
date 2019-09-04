@@ -141,7 +141,8 @@
           Our new eBook breaks down everything you need to know—all the myths,
           lies, and misconceptions.
         </p>
-        <a href="/books/hybrid-vs-native" class="btn sm">Read the eBook</a>
+        <a data-toggle="modal"
+           data-target="#contactForm" class="btn sm">Read the eBook</a>
       </hgroup>
     </div>
   </section>
@@ -367,6 +368,44 @@
     </hgroup>
   </section>
 </main>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="text-center">
+          <h3>Thank you for your interest in our eBook!</h3>
+          <p class="lg">
+            We just need some basic information so we can send the eBook your
+            way.
+          </p>
+        </hgroup>
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

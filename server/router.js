@@ -162,6 +162,8 @@ router: app => {
     (_, res) => markdown(res, 'pr-1704222-latest-version-of-ionic-provides-universal-design-system-for-enterprises'))
   .get('/press/release/2019/ionic-framework-4-release',
     (_, res) => markdown(res, 'pr-ionic-framework-4-release'))
+  .get('/press/release/2019/ionic-alan-announce-integration',
+    (_, res) => markdown(res, 'pr-ionic-alan-announce-integration'))
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

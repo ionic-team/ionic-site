@@ -87,8 +87,7 @@ router: app => {
 
   .get('/go/why-hybrid', (_, res) => res.render('go/why-hybrid/index'))
   .post('/go/why-hybrid', (_, res) => res.render('go/why-hybrid/thank-you'))
-  .get('/go/why-hybrid/thank-you', (_, res) =>
-    res.render('go/why-hybrid/thank-you'))
+  .get('/go/why-hybrid/thank-you', (_, res) => res.render('go/why-hybrid/thank-you'))
 
   .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
 
@@ -101,6 +100,7 @@ router: app => {
     getIntegration(req, res, next, req.params.integration))
 
   .get('/jobs', (_, res) => res.render('jobs'))
+  .get('/offline-storage', (_, res) => res.render('offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))

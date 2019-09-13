@@ -1,0 +1,269 @@
+@import '../../vars';
+@import '../../bootstrap/variables';
+
+@import '../enterprise/shared';
+@import '../enterprise/solutions/shared';
+
+@import './shared';
+
+body {
+  background: rgba(247, 249, 252, .6);
+}
+
+main,
+#pre-footer,
+footer {
+  background: white;
+}
+
+#sticky-bar {
+  z-index: 2;
+}
+
+ionic-sub-header .btn {
+  background: #7580F4;
+}
+
+#page-offline-storage .cta {
+  margin-top: -32px;
+
+  hgroup {
+    max-width: 482px;
+    padding-top: 12px;
+    padding-bottom: 94px;
+
+    h3 {
+      color: #7580F4;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      font-family: $font-family-inter;
+
+      svg {
+        margin-right: 10px;
+        vertical-align: -24px;
+      }
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 70px;
+    }
+
+    p {
+      letter-spacing: -0.02em;
+      max-width: 470px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      background: #7580F4;
+      box-shadow: 
+        0px 2px 4px rgba(2, 8, 20, 0.1), 
+        0px 1px 2px rgba(2, 8, 20, 0.08);
+      border-radius: 10px;
+
+      font-size: 15px;
+      line-height: 21px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 26px;
+      padding: 14px 16px 12px;
+
+      &::after {
+        font-family: 'Ionicons';
+        content: '';
+        font-size: 23px;
+        font-weight: 400;
+        vertical-align: -3px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .graphics {
+    top: 113px;
+    right: 19px;
+    opacity: 0;
+    animation: fadeInUp 1s ease .5s forwards;
+
+    .line-1,
+    .line-2,
+    .line-3,
+    .line-4,
+    .line-5 {
+      opacity: 0;
+      animation: fadeInUp .4s ease-out 1.3s forwards;
+    }
+
+    .line-2  { animation-delay: 1.4s; }
+    .line-3  { animation-delay: 1.5s; }
+    .line-4  { animation-delay: 1.6s; }
+    .line-5  { animation-delay: 1.7s; }
+
+    @media (max-width: $screen-md-max) {
+      right: 0;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      svg {
+        opacity: .14;
+      }
+    }
+  }
+}
+
+main section {
+  &.right,
+  &.left, 
+  &.pair {
+    hgroup {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+#overview {
+  margin-top: 158px;
+
+  h3 {
+    margin-bottom: 7px;
+  }
+
+  hgroup p {
+    letter-spacing: -.03em;
+    margin-bottom: 33px;
+  }
+
+  li {
+    flex: 0 calc(33% - 33px);
+  }
+
+  h4 {
+    margin-top: 6px;
+    letter-spacing: -.02em;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  li p {
+    line-height: 29px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    ul {
+      flex-wrap: wrap;
+    }
+    
+    li {
+      flex: 100%;
+    }
+  }
+}
+
+#secure-offline,
+#mobile-desktop {
+  padding-top: 200px;
+  padding-bottom: 172px;
+
+  hgroup {
+    max-width: 472px;
+  }
+
+  .graphics {
+    position: absolute;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 450px;
+    margin-bottom: 50px;
+    margin-top: 0;
+    padding-top: 0;
+
+    .graphics {
+      bottom: 0;
+      height: auto;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 200px;
+
+    .graphics {
+      width: 400px;
+    }
+  }
+}
+
+#secure-offline {
+  .graphics {
+    right: calc(60% - 1000px);
+    margin-top: -26px;
+
+    @media (min-width: 1668px), (max-width: $screen-sm-max) {
+      right: 0;
+    }
+  }
+}
+
+#mobile-desktop {
+  padding-bottom: 300px;
+
+  .graphics {
+    left: calc(50% - 971px);
+    margin-top: 11px;
+
+    @media (min-width: 1940px), (max-width: $screen-sm-max) {
+      left: 0;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    padding-bottom: 620px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 300px;
+  }
+}
+
+#performance-connected {
+}
+
+#features {
+  background: rgba(247, 249, 252, .6);
+  margin: 0;
+  padding-top: 170px;
+  padding-bottom: 180px;
+
+  h4 {
+    color: #868FF5;
+    margin-bottom: 18px;
+  }
+
+  li {
+    flex: 0 1 360px;
+
+    &::before {
+      content: url('/img/offline-storage/ico-check-circle.svg');
+    }
+  }
+}
+
+#get-started {
+  h3 {
+    color: #5A629A;
+  }
+
+  h2 {
+    color: #7580F4;
+  }
+}

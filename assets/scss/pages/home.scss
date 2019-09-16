@@ -458,7 +458,7 @@
 
       @media (max-width: $screen-xs-max) {
         max-width: 100%;
-        text-align: center;
+        text-align: left;
         margin-top: 64px;
       }
     }
@@ -562,26 +562,6 @@
 }
 
 #page-home {
-  #used-by {
-    border-top: 1px #EFF3F8 solid;
-    padding-top: 60px;
-    padding-bottom: 58px;
-    border-bottom: 1px solid #EFF3F8;
-
-    .container {
-      display: block;
-      max-width: 950px;
-
-      @media (max-width: $screen-sm-max) {
-        width: 100%;
-      }
-    }
-
-    @media (max-width: $screen-sm-max) {
-      display: none;
-    }
-  }
-
   section {
     padding-top: 170px;
     line-height: 1.75em;
@@ -695,7 +675,7 @@
     @media (max-width: $screen-sm-max) {
       .content {
         width: 100%;
-        text-align: center;
+        text-align: left;
       }
     }
   }
@@ -705,6 +685,10 @@
 
     hgroup {
       max-width: 740px;
+
+      @media (max-width: $screen-sm-max) {
+        text-align: left;
+      }
     }
 
     ul {
@@ -878,7 +862,7 @@
 
       .content {
         width: 100%;
-        text-align: center;
+        text-align: left;
 
         .frameworks {
           justify-content: center;
@@ -1115,7 +1099,7 @@
     }
 
     @media (max-width: $screen-xs-max) {
-      text-align: center;
+      text-align: left;
 
       .why {
         justify-content: space-around;
@@ -1309,6 +1293,7 @@
     }
 
     @media (max-width: $screen-xs-max) {
+      text-align: left;
 
       .case-studies {
         justify-content: space-around;

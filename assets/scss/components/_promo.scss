@@ -525,6 +525,135 @@
       }
     }
   }
+
+  &-card {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    max-width: 1136px;
+    padding: 0;
+    margin-top: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 
+      0px 12px 24px rgba(2, 8, 20, 0.2), 
+      0px 4px 8px rgba(2, 8, 20, 0.1);
+  
+    &::before,
+    &::after {
+      display: none;
+    }
+  
+    svg {
+      flex: 0 0 480px;
+    }
+  
+    hgroup {
+      padding: 8px 5.66% 8px 7%;
+    }
+  
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+      font-style: normal;
+      margin-top: 0;
+      margin-bottom: 40px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: $font-family-inter;
+  
+      svg {
+        vertical-align: -60%;
+        margin-right: 11px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+  
+    h3 {
+      font-size: 32px;
+      color: #020814;
+      font-weight: 600;
+      line-height: 35px;
+      margin-bottom: 3px;
+      letter-spacing: -0.03em;
+    }
+  
+    p {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.02em;
+      color: rgba(91, 112, 139, .9);
+    }
+  
+    .btn {
+      font-size: 15px;
+      font-weight: 700;    
+      margin-top: 22px;
+      line-height: 21px;
+      border-radius: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 14px 12px 19px;
+  
+      &::after {
+        font-family: 'Ionicons';
+        content: '';
+        font-size: 23px;
+        font-weight: 400;
+        vertical-align: -3px;
+        margin-left: 5px;
+      }
+    }
+
+    @media (max-width: $screen-md-max) {
+      h4 {
+        margin-bottom: 0;
+      }
+
+      .btn {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      flex-direction: column;
+      align-items: center;
+      padding: 32px;
+
+      hgroup {
+        padding: 0;
+
+        h4 svg {
+          display: inline-block;
+        }
+      }
+
+      svg {
+        display: none;
+      }
+
+      .btn {
+        margin-top: 16px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin: 96px 16px 32px;
+    }
+  
+    &--offline-storage {
+      h4 {
+        color: #7558f4;
+      }
+
+      .btn,
+      .btn:active {
+        background: #7580F4;
+      }
+    }
+  }
 }
 
 #promo--how-to {

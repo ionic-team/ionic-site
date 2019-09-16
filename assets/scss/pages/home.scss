@@ -467,16 +467,16 @@
       position: absolute;
       right: 20px;
       top: 120px;
-      height: 563px;
-      width: 590px;
+      height: 667px;
+      width: 682px;
 
       @media (max-width: $screen-md-max) {
-        top: 128px;
+        top: 120px;
         right: -64px;
       }
 
       @media (max-width: $screen-sm-max) {
-        width: 302px;
+        width: 334px;
         height: auto;
         top: 180px;
       }

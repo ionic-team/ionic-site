@@ -8,6 +8,17 @@
   min-height: 860px;
   position: relative;
 
+  &::before {
+    position: absolute;
+    border-bottom: 1px solid rgba(0, 26, 60, 0.1);
+    content: '';
+    display: block;
+    width: 100vw;
+    left: 0;
+    bottom: 28px;
+    z-index: 1;
+  }
+
   [slot="slide-0"] {
     display: block;
   }
@@ -347,15 +358,7 @@
     background: white;
     position: relative;
     min-height: 840px;
-
-    // &::before {
-    //   position: absolute;
-    //   content: '';
-    //   display: block;
-    //   width: 1vw;
-    //   left: 1vw;
-    //   right: 1vw;
-    // }
+    border-bottom: none;
 
     .notification {
       display: inline-block;
@@ -562,6 +565,7 @@
 }
 
 #page-home {
+
   section {
     padding-top: 170px;
     line-height: 1.75em;

@@ -565,6 +565,33 @@
 }
 
 #page-home {
+  .option {
+    display: none;
+
+    &--a { 
+      display: block; 
+    }
+  }
+
+  .options {
+    &.show-b,
+    &.show-c,
+    &.show-d {
+      .option--a { display: none; }
+    }
+
+    &.show-b .option--b,
+    &.show-c .option--c,
+    &.show-d .option--d { display: block; }
+  }
+
+  main {
+    overflow: visible;
+  }
+
+  #promo--hybrid-vs-native {
+    margin-top: -28px;
+  }
 
   section {
     padding-top: 170px;

@@ -681,6 +681,53 @@
   }
 }
 
+#promo--hybrid-vs-native {
+  overflow: visible;
+  background: linear-gradient(to right, #FDFAF3 0%, #F5CD7F 50%, #F9F8F8 50.01%, #F9F8F8 100%);
+  padding-top: 54px;
+  padding-bottom: 54px;
+
+  hgroup {
+    padding-left: 0;
+    margin-left: auto;
+    max-width: 438px;
+    margin-right: 64px;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    
+    span {
+      color: rgba(97, 110, 126, .7);
+    }
+  }
+
+  .btn.light-purple {
+    background: rgba(207, 212, 254, .35);
+    color: #7283FF;
+    box-shadow: none;
+    margin-top: 16px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba(207, 212, 254, .35);
+    }
+  
+    &::after {
+      font-family: 'Ionicons';
+      content: '';
+      font-size: 23px;
+      font-weight: 400;
+      vertical-align: -3px;
+      margin-left: 5px;
+    }
+  }
+}
+
 #promo--how-to {
   margin-bottom: 0;
   position: relative;

@@ -49,9 +49,15 @@
   }
 }
 
-@media (max-width: $screen-sm-max) {
-  #sticky-bar a {
-    letter-spacing: 0;
+#sticky-bar {
+  li.active a:not(.btn) {
+    color: $green;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    a {
+      letter-spacing: 0;
+    }
   }
 }
 

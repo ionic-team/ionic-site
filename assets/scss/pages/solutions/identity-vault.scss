@@ -4,9 +4,15 @@
 @import '../enterprise/shared';
 @import '../enterprise/solutions/shared';
 
+#sticky-bar {
+  li.active a:not(.btn) {
+    color: $navy;
+  }
+}
+
 #page-identity-vault {
   ionic-sub-header .btn {
-    background: #104784;
+    background: $navy;
   }
 
   main {
@@ -192,7 +198,7 @@
       letter-spacing: .08em;
       text-transform: uppercase;
       margin-bottom: 80px;
-      background: #104784;
+      background: $navy;
 
       &::after {
         font-family: 'Ionicons';

@@ -18,6 +18,10 @@ footer {
 
 #sticky-bar {
   z-index: 2;
+
+  li.active a:not(.btn) {
+    color: $purple;
+  }
 }
 
 ionic-sub-header .btn,
@@ -100,13 +104,13 @@ ionic-sub-header .btn:active {
     .line-4,
     .line-5 {
       opacity: 0;
-      animation: fadeInUp .4s ease-out 1.3s forwards;
+      animation: fadeInUp .4s ease-out .6s forwards;
     }
 
-    .line-2  { animation-delay: 1.4s; }
-    .line-3  { animation-delay: 1.5s; }
-    .line-4  { animation-delay: 1.6s; }
-    .line-5  { animation-delay: 1.7s; }
+    .line-2  { animation-delay: .7s; }
+    .line-3  { animation-delay: .8s; }
+    .line-4  { animation-delay: .9s; }
+    .line-5  { animation-delay: 1s; }
 
     @media (max-width: $screen-md-max) {
       right: 0;
@@ -118,10 +122,6 @@ ionic-sub-header .btn:active {
       }
     }
   }
-}
-
-#sticky-bar li.active a:not(.btn) {
-  color: $purple;
 }
 
 main section {
@@ -239,9 +239,6 @@ main section {
   @media (max-width: $screen-xs-max) {
     padding-bottom: 300px;
   }
-}
-
-#performance-connected {
 }
 
 #features {

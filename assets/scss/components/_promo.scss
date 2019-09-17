@@ -544,8 +544,10 @@
       display: none;
     }
   
-    svg {
+    svg,
+    .card-banner {
       flex: 0 0 480px;
+      max-width: 480px;
     }
   
     hgroup {
@@ -630,7 +632,8 @@
         }
       }
 
-      svg {
+      svg,
+      .card-banner {
         display: none;
       }
 
@@ -645,12 +648,34 @@
   
     &--offline-storage {
       h4 {
-        color: #7558f4;
+        color: $purple;
       }
 
       .btn,
       .btn:active {
-        background: #7580F4;
+        background: $purple;
+      }
+    }
+  
+    &--auth-connect {
+      h4 {
+        color: $green;
+      }
+
+      .btn,
+      .btn:active {
+        background: $green;
+      }
+    }
+  
+    &--identity-vault {
+      h4 {
+        color: $navy;
+      }
+
+      .btn,
+      .btn:active {
+        background: $navy;
       }
     }
   }

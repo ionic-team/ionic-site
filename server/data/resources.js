@@ -299,7 +299,7 @@ const resources = {
     items: [
       {
         "type": "Webinar",
-        "title": "Offline Storage: Build secure, offline-first-apps",
+        "title": "Offline Storage: Build secure, offline-first apps",
         "url": "https://ionicframework.com/resources/webinars/offline-storage-build-secure-offline-first-apps",
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-offline-storage.png",

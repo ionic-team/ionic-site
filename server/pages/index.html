@@ -129,7 +129,7 @@
 </div>
 
 <main>
-  <div class="options">
+  <div class="options" id="a-b-test">
     <div class="option option--a">
       {% include '_includes/promos/card-offline-storage.html' %}
     </div>
@@ -467,5 +467,22 @@ window.flow = function() {
 		init: init
 	}
 }().init();
+
+if (window.location.search.indexOf('show-')) {
+  var urlParams = new URLSearchParams(window.location.search)
+  const AB = document.getElementById('a-b-test');
+  AB.classList.remove('show-a'); 
+  AB.classList.remove('show-b'); 
+  AB.classList.remove('show-c'); 
+  AB.classList.remove('show-d'); 
+  
+  if (urlParams.has('show-a')) AB.classList.add('show-a');
+  if (urlParams.has('show-b')) AB.classList.add('show-b');
+  if (urlParams.has('show-c')) AB.classList.add('show-c');
+  if (urlParams.has('show-d')) AB.classList.add('show-d');
+}
+
+
+
 </script>
 {% endblock %}

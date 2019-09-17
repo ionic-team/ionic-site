@@ -15,9 +15,21 @@
     }
 
     h3 {
-      font-size: 35px;
       color: #00CEAB;
-      margin-bottom: 46px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      font-family: $font-family-inter;
+
+      svg {
+        margin-right: 10px;
+        vertical-align: -24px;
+      }
+
     }
 
     h1 {

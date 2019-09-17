@@ -137,7 +137,7 @@
 
   .top {
     margin-top: -172px;
-    padding-top: 258px;
+    padding-top: 234px;
     min-height: 926px;
 
     .container {
@@ -169,15 +169,20 @@
 
     h3 {
       color: #144882;
-      font-size: 32px;
-      letter-spacing: -.04em;
-      line-height: 48px;
       margin-top: 15px;
-      margin-bottom: 58px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      font-family: $font-family-inter;
+
 
       svg {
-        vertical-align: -20px;
-        margin-right: 9px;
+        vertical-align: -24px;
+        margin-right: 10px;
       }
     }
 

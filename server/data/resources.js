@@ -299,6 +299,14 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Offline Storage: Build secure, offline-first-apps",
+        "url": "https://ionicframework.com/resources/webinars/offline-storage-build-secure-offline-first-apps",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-offline-storage.png",
+        "bgColor": "#242C88"
+      },
+      {
+        "type": "Webinar",
         "title": "Live Demo: Building Capacitor Apps in Appflow",
         "url": "/resources/webinars/live-demo-building-capacitor-apps-in-appflow",
         "action": "Watch",

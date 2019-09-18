@@ -17,6 +17,10 @@
     left: 0;
     bottom: 28px;
     z-index: 1;
+
+    @media (max-width: $screen-sm-max) {
+      bottom: 0;
+    }
   }
 
   [slot="slide-0"] {
@@ -562,6 +566,10 @@
   @media (max-width: $screen-sm-max) {
     min-height: 0;
   }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 48px;
+  }
 }
 
 #page-home {
@@ -598,6 +606,10 @@
 
   #promo--hybrid-vs-native {
     margin-top: -28px;
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 0;
+    }
   }
 
   section {

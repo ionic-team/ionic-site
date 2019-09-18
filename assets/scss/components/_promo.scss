@@ -692,6 +692,16 @@
     margin-left: auto;
     max-width: 438px;
     margin-right: 64px;
+
+    @media (max-width: $screen-md-max) {
+      margin-right: 0;
+      max-width: 400px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-right: 0;
+      max-width: 320px;
+    }
   }
 
   h3 {
@@ -724,6 +734,15 @@
       font-weight: 400;
       vertical-align: -3px;
       margin-left: 5px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    background: #F9F8F8;
+    padding-bottom: 320px;
+
+    hgroup {
+      max-width: 100%;
     }
   }
 }

@@ -136,7 +136,8 @@
   // need to be applied to all hubspot forms
 
   &,
-  & fieldset {
+  & fieldset,
+  & iframe {
     max-width: 100%;
   }
 

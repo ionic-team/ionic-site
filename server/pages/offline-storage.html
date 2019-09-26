@@ -10,7 +10,13 @@
 <ionic-sub-header>
   <a slot="title" href="/offline-storage">Offline Storage</a>
   <ul slot="right">
-    {# <li><a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"><ion-icon name="ios-download"></ion-icon> Data Sheet</a></li> #}
+    <li>
+      <a data-toggle="modal" 
+         data-target="#promo--ionic-for-enterprise__modal"
+         class="has-icon">
+        <ion-icon name="ios-download"></ion-icon> Data Sheet
+      </a>
+    </li>
     {# <li><a href="https://ionicframework.com/docs/enterprise/offline-storage">Docs</a></li> #}
     <li><a href="https://ionicframework.com/resources/webinars/offline-storage-build-secure-offline-first-apps">Webinar Signup</a></li>
     <li><a class="btn anchor" data-offset="-50" href="#get-started">Get a Demo</a></li>
@@ -81,9 +87,9 @@
     </ul>
   </section>
 
-  {# <div id="store-n-protect">
+  <div id="store-n-protect">
     {% include '_includes/promos/data-sheet-offline-storage.html' %}
-  </div> #}
+  </div>
 
   <section id="secure-offline" class="left">
     <div class="container">

@@ -598,6 +598,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 14px 14px 12px 19px;
+      text-align: center;
+      white-space: normal;
   
       &::after {
         font-family: 'Ionicons';
@@ -873,3 +875,4 @@
     }
   }
 }
+

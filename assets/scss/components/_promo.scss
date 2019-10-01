@@ -813,7 +813,8 @@
   }
 }
 
-#promo--ionic-for-enterprise__modal {
+#promo--ionic-for-enterprise__modal,
+#promo--offline-storage__modal {
   .modal-dialog {
     width: 672px;
     max-width: calc(100% - 24px);

@@ -129,9 +129,8 @@ module.exports = {
         return res.render(template, response)
       })
       .then(resolve)
-      .catch(e => {
-        console.error(e);
-        next();
+      .catch(error => {
+        next(error.message);
       });
     });
   },

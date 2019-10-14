@@ -82,7 +82,7 @@
     "nunjucks": "^3.1.7",
     "nunjucks-date-filter": "^0.1.1",
     "prismic-dom": "^2.1.0",
-    "prismic-javascript": "^2.0.1",
+    "prismic-javascript": "^2.1.1",
     "redis": "^2.8.0",
     "request": "^2.83.0",
     "run-sequence": "^1.2.2",

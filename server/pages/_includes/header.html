@@ -1,6 +1,6 @@
 {% include '_includes/mobile_nav.html' %}
 
-{% if not hide_pre_header %}
+{% if not hide_pre_header and announcementBar %}
 <nav class="pre-header {% if announcementBar.data.theme === 'Studio' %} pre-header--studio {% endif %}">
   <div class="container">
     <div{# id="optimizely"#}>
@@ -61,11 +61,11 @@
           <a href="/support">Support</a>
         </li>
         <li class="sm-hide">
-          <a href="https://dashboard.ionicframework.com/login?source=framework-{{id}}">
+          <a href="https://dashboard.ionicframework.com/login?source=framework-{{id | default(id, 'default', true)}}">
             Log in</a>
         </li>
         <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
-          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}"
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-{{id | default(id, 'default', true)}}"
              id="btn-header-sign-up">Sign up</a>
         </li>
       </ul>

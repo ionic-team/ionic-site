@@ -80,7 +80,7 @@
   <div class="mobile-nav__footer">
     <div>
       <a href="https://dashboard.ionicframework.com/login" id="btn-header-log-in">Log in</a>
-      <a class="btn" href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}" id="btn-header-sign-up">Sign up</a>
+      <a class="btn" href="https://dashboard.ionicframework.com/signup?source=framework-{{id | default(id, 'default', true)}}" id="btn-header-sign-up">Sign up</a>
     </div>
   </div>
 </nav>

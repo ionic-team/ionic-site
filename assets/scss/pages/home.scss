@@ -718,6 +718,14 @@
 
   main {
     overflow: visible;
+
+    section {
+      overflow: hidden;
+    }
+
+    .promo {
+      overflow-x: hidden;
+    }
   }
 
   #promo--hybrid-vs-native {

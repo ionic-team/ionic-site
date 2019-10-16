@@ -21,7 +21,16 @@
       <a href="/getting-started" class="btn blue sm btn-cta" id="btn-home-get-started">
         Try Ionic React <img src="/img/homepage/ico-cli.png" width="16"/></a>
     </hgroup>
-    <img src="/img/homepage/react-ionic-static.png" alt="Ionic React example" class="graphic">
+    <div class="graphic">
+      <div class="graphic__container">
+        <img src="/img/homepage/graphic-react-app.png" 
+             alt="Ionic React example" 
+             id="ionic-react-app">
+        <img src="/img/homepage/graphic-ionic-react-code.svg" 
+             alt="Ionic React code" 
+             id="ionic-react-code">
+      </div>
+    </div>
   </section>
   {# <section id="slide-one-any" class="container">
     <hgroup>
@@ -422,6 +431,84 @@
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script>
+function Draggable(){
+  this.init = () => {
+    this.lastX = this.openX = 340; 
+    this.introDelay = 2;
+    this.loopDelay = 5;
+    this.speed = 1.4;
+    this.dragEl = document.getElementById('ionic-react-code');
+    this.loopHandler = null;
+
+    // opening bounce open animation
+    TweenMax.to(this.dragEl, this.speed, {
+      x: this.openX, 
+      ease:Elastic.easeOut.config(1, 0.8), 
+      delay: this.introDelay,
+      onComplete: () => {
+        // activate Drag and drop behaviour
+        this.dragEl.addEventListener('pointerdown', this.mouseDown, false);
+        window.addEventListener('pointerup', this.mouseUp, false);
+        this.dragEl.style.cursor = 'grab';
+        this.startLoop();
+      }
+    });
+  }
+
+  this.startLoop = () => {
+    TweenMax.to(this.dragEl, this.speed, {
+      x: 0, 
+      ease: Bounce.easeOut, 
+      delay: this.loopDelay,
+      onComplete: () => {
+        TweenMax.to(this.dragEl, this.speed, {
+          x: this.openX, 
+          ease:Elastic.easeOut.config(1, 0.8), 
+          delay: this.loopDelay,
+          onComplete: () => this.startLoop
+        });
+      }
+    });
+  }
+
+  this.mouseUp = (e) => {
+    window.removeEventListener('pointermove', this.divMove, true);
+    
+    // return to a resting position of open or closed
+    this.dragEl.style.cursor = 'grab';
+    if (this.lastX > this.openX * .6 ) {
+      this.lastX = this.openX;
+      TweenMax.to(this.dragEl, this.speed, {
+        x: this.lastX, 
+        ease: Elastic.easeOut.config(1, 0.3)
+      });
+    } else {
+      this.lastX = 0;
+      TweenMax.to(this.dragEl, this.speed, {
+        x: this.lastX, 
+        ease: Bounce.easeOut
+      });
+    }
+  }
+
+  this.mouseDown = (e) => {
+    this.dragEl.style.cursor = 'grabbing';
+    // record starting position and start tracking movement
+    this.startX = e.clientX - this.lastX;
+    window.addEventListener('pointermove', this.divMove, true);
+    e.preventDefault();
+  }
+  
+  this.divMove = (e) => {
+    // don't go backwards
+    this.lastX = Math.max(0, e.clientX - this.startX);
+    // set new position
+    TweenMax.to(this.dragEl, 0, {x: this.lastX});
+  }
+}
+const draggable = new Draggable();
+window.onload = draggable.init();
+
 window.flow = function() {
 	var sizes = ["s", "m", "l"],
 	    iconLWidth = 256,
@@ -481,22 +568,6 @@ window.flow = function() {
 		init: init
 	}
 }().init();
-
-if (window.location.search.indexOf('show-')) {
-  var urlParams = new URLSearchParams(window.location.search)
-  const AB = document.getElementById('a-b-test');
-  AB.classList.remove('show-a'); 
-  AB.classList.remove('show-b'); 
-  AB.classList.remove('show-c'); 
-  AB.classList.remove('show-d'); 
-  
-  if (urlParams.has('show-a')) AB.classList.add('show-a');
-  if (urlParams.has('show-b')) AB.classList.add('show-b');
-  if (urlParams.has('show-c')) AB.classList.add('show-c');
-  if (urlParams.has('show-d')) AB.classList.add('show-d');
-}
-
-
 
 </script>
 {% endblock %}

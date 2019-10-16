@@ -133,7 +133,7 @@
 
       strong {
         color: #44B4FF;
-        font-weight: 700;
+        font-weight: 600;
         display: block;
       }
     }
@@ -171,35 +171,66 @@
     .btn {
       background: #44B4FF;
       border-radius: 10px;
-
-      &:hover {
-        // color: 
-      }
     }
 
     .graphic {
-      height: 640px;
-      width: 560px;
+      height: 560px;
+      width: 480px;
       position: absolute;
-      right: -25px;
+      right: 16px;
       top: 160px;
+      border-radius: 16px;
+      box-shadow: 
+        0px 20px 40px rgba(2, 8, 20, 0.1), 
+        0px 0px 16px rgba(2, 8, 20, 0.08);
 
-      @media (max-width: $screen-sm-max) {
-        height: 320px;
-        width: 280px;
+      &__container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      #ionic-react-app {
+        width: 480px;
+        height: 560px;
+      }
+
+      #ionic-react-code {
+        top: -12px;
+        left: -24px;
+        width: 528px;
+        height: 608px;
       }
     }
 
-    @media (max-width: $screen-xs-max) {
+    @media (max-width: $screen-sm-max) {
       hgroup {
-        margin-bottom: 320px;
+        margin-bottom: 620px;
       }
 
       .graphic {
         right: auto;
         top: auto;
+        bottom: 168px;
+        left: calc(50% - 240px);
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      overflow: hidden;
+
+      .graphic {
         bottom: 120px;
-        left: calc(50% - 140px);
       }
     }
   }
@@ -737,7 +768,7 @@
   }
 
   section {
-    padding-top: 170px;
+    padding-top: 200px;
     line-height: 1.75em;
     padding-bottom: 170px;
     position: relative;

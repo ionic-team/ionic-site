@@ -221,13 +221,14 @@
       .graphic {
         right: auto;
         top: auto;
-        bottom: 168px;
+        bottom: 174px;
         left: calc(50% - 240px);
       }
     }
 
     @media (max-width: $screen-xs-max) {
       overflow: hidden;
+      padding-top: 120px;
 
       .graphic {
         bottom: 120px;

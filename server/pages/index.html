@@ -438,6 +438,7 @@ function Draggable(){
     this.loopDelay = 5;
     this.speed = 1.4;
     this.dragEl = document.getElementById('ionic-react-code');
+    this.dragged = false;
     this.loopHandler = null;
 
     // opening bounce open animation
@@ -449,6 +450,7 @@ function Draggable(){
         // activate Drag and drop behaviour
         this.dragEl.addEventListener('pointerdown', this.mouseDown, false);
         window.addEventListener('pointerup', this.mouseUp, false);
+        window.addEventListener('click', this.click, false);
         this.dragEl.style.cursor = 'grab';
         this.startLoop();
       }
@@ -456,16 +458,25 @@ function Draggable(){
   }
 
   this.startLoop = () => {
-    TweenMax.to(this.dragEl, this.speed, {
+    if (this.lastX < this.openX / 2) {
+      this.loopHandler = TweenMax.to(this.dragEl, this.speed, {
+        x: this.openX, 
+        ease:Elastic.easeOut.config(1, 0.8), 
+        delay: this.loopDelay,
+        onComplete: this.startLoop
+      });
+      return;
+    }
+    this.loopHandler = TweenMax.to(this.dragEl, this.speed, {
       x: 0, 
       ease: Bounce.easeOut, 
       delay: this.loopDelay,
       onComplete: () => {
-        TweenMax.to(this.dragEl, this.speed, {
+        this.loopHandler = TweenMax.to(this.dragEl, this.speed, {
           x: this.openX, 
           ease:Elastic.easeOut.config(1, 0.8), 
           delay: this.loopDelay,
-          onComplete: () => this.startLoop
+          onComplete: this.startLoop
         });
       }
     });
@@ -478,32 +489,43 @@ function Draggable(){
     this.dragEl.style.cursor = 'grab';
     if (this.lastX > this.openX * .6 ) {
       this.lastX = this.openX;
-      TweenMax.to(this.dragEl, this.speed, {
+      TweenMax.to(this.dragEl, this.speed * 1.4, {
         x: this.lastX, 
-        ease: Elastic.easeOut.config(1, 0.3)
+        ease: Elastic.easeOut.config(1, 0.3),
+        onComplete: this.startLoop
       });
     } else {
       this.lastX = 0;
       TweenMax.to(this.dragEl, this.speed, {
         x: this.lastX, 
-        ease: Bounce.easeOut
+        ease: Bounce.easeOut,
+        onComplete: this.startLoop
       });
     }
   }
 
   this.mouseDown = (e) => {
     this.dragEl.style.cursor = 'grabbing';
+    this.dragged = false;
+    this.loopHandler.pause();
     // record starting position and start tracking movement
-    this.startX = e.clientX - this.lastX;
+    this.startX = e.clientX - this.dragEl._gsTransform.x;
     window.addEventListener('pointermove', this.divMove, true);
     e.preventDefault();
   }
   
   this.divMove = (e) => {
+    this.dragged = true;
     // don't go backwards
     this.lastX = Math.max(0, e.clientX - this.startX);
     // set new position
     TweenMax.to(this.dragEl, 0, {x: this.lastX});
+  }
+
+  this.click = () => {
+    if (this.dragged) return;
+    this.lastX = this.lastX > this.openX * .6  ? 0 : this.openX;
+    this.mouseUp();
   }
 }
 const draggable = new Draggable();

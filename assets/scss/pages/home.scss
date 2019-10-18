@@ -149,9 +149,11 @@
       font-size: 20px;
       line-height: 32px;
       letter-spacing: -.02em;
+      padding-left: 28px;
       color: rgba(#2f3a48, .9);
       list-style: none;
       margin-bottom: 12px;
+      position: relative;
 
       &::before {
         color: #44B4FF;
@@ -159,7 +161,8 @@
         display: inline-block;
         height: 14px;
         width: 11px;
-        margin-right: 16px;
+        position: absolute;
+        left: 0;
       }
 
       code {

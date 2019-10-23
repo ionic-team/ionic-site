@@ -16,7 +16,14 @@ if (sidebarToggleEl) {
   };
 }
 
-// $(document).ready(function() {
+$(document).ready(function() {
+  var detectMouse = function(e){
+    $('.dropdown-toggle').dropdown();
+    // remove event bindings, so it only runs once
+    $body.off('touchstart', detectMouse);
+  }
+  // attach both events to body
+  $body.on('touchstart', detectMouse);
 //   // activate dropdowns
 //   $('.dropdown-toggle').dropdown();
 //
@@ -28,7 +35,7 @@ if (sidebarToggleEl) {
 //
 //   // Generic helper class for on-load animations
 //   $('.active-on-load').addClass('active');
-// });
+});
 
 (function () {
   // pre-header announcement animation

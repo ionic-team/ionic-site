@@ -75,9 +75,9 @@ function start() {
   // cache images and static assets for 1 week
   app.use(express.static('content', { maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
-  app.use(prismicMiddleware);
+  // app.use(prismicMiddleware);
   app.use(loadLocalVars);
-  announcementBarCronJob(app)
+  // announcementBarCronJob(app)
   
   app.set('views', __dirname + '/server/pages');
   expressNunjucks(app, {

@@ -149,13 +149,19 @@ module.exports = {
   },
 
   announcementBarCronJob: (app) => {
-    Prismic.api(PRISMIC_ENDPOINT).then(async (api) => {
-      prismicAPI = api;
-      app.locals.announcementBar = await prismicAPI.getSingle('announcement_bar');
-    });
-    setInterval(async ()=> {
-      app.locals.announcementBar = await prismicAPI.getSingle('announcement_bar');
-    }, 5 * 60 * 1000 ) // update every 5 mins
+    let prismicAPI;
+    const checkAnnouncementBar = async () => {
+      try {
+        if (!prismicAPI){
+          prismicAPI = await Prismic.api(PRISMIC_ENDPOINT);
+        }
+        app.locals.announcementBar = await prismicAPI.getSingle('announcement_bar');
+      } catch(e) {
+        console.error(e)
+      }
+    }
+    checkAnnouncementBar()
+    setInterval(checkAnnouncementBar, 5 * 60 * 1000 ) // update every 5 mins
   },
 
   getOne: getOne

@@ -299,6 +299,14 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Ionic Advisory: Your trusted development partner",
+        "url": "https://ionicframework.com/resources/webinars/ionic-advisory",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-advisory.png",
+        "bgColor": "#2C4186"
+      },
+      {
+        "type": "Webinar",
         "title": "Offline Storage: Build secure, offline-first apps",
         "url": "https://ionicframework.com/resources/webinars/offline-storage-build-secure-offline-first-apps",
         "action": "Watch",

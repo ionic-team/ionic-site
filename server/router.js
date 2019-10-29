@@ -6,7 +6,7 @@ const markdown             = require('./markdown');
 const es                   = require('express-sanitizer');
 const { join }             = require('path');
 
-const { previewController, getPrismic } = require('./prismic');
+const { getPrismicAPI, previewController, getPrismic } = require('./prismic');
 
 const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
@@ -96,7 +96,7 @@ router: app => {
     getIntegrations(req, res, next))
   .get('/integrations/category/:category', (req, res, next) =>
     getIntegrations(req, res, next, req.params.category))
-  .get('/integrations/:integration', (req, res, next) =>
+  .get('/integrations/:integration', getPrismicAPI, (req, res, next) =>
     getIntegration(req, res, next, req.params.integration))
 
   .get('/jobs', (_, res) => res.render('jobs'))
@@ -117,19 +117,19 @@ router: app => {
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>
     res.render('resources/category', {currentCategory: req.params.category}))
-  .get('/resources/articles/:article', (req, res, next) =>
+  .get('/resources/articles/:article', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
-  .get('/resources/case-studies/:caseStudy', (req, res, next) =>
+  .get('/resources/case-studies/:caseStudy', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
-    .get('/resources/customer-stories/:customerStory', (req, res, next) =>
+    .get('/resources/customer-stories/:customerStory', getPrismicAPI, (req, res, next) =>
       getPrismic(req, res, next, 'customer_story', req.params['customerStory'], 'resources/customer-stories'))
-  .get('/resources/podcasts/:podcast', (req, res, next) =>
+  .get('/resources/podcasts/:podcast', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
-  .get('/resources/videos/:video', (req, res, next) =>
+  .get('/resources/videos/:video', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
-  .get('/resources/webinars/:webinar', (req, res, next) =>
+  .get('/resources/webinars/:webinar', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
-  .get('/resources/whitepapers/:whitepaper', (req, res, next) =>
+  .get('/resources/whitepapers/:whitepaper', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
   .get('/sales', (_, res) => res.render('sales'))
@@ -142,7 +142,7 @@ router: app => {
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
   .get('/translate', (_, res) => res.render('translate'))
-  .get('/thank-you/:thankYou', (req, res, next) =>
+  .get('/thank-you/:thankYou', getPrismicAPI, (req, res, next) =>
     getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 
   .get('/trusted-partners', (_, res) => res.render('trusted-partners'))

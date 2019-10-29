@@ -76,7 +76,7 @@ async function getOne(key, value, size = 10, ordering = '') {
 }
 
 module.exports = {
-  prismicMiddleware: (req, res, next) => {
+  prismicMiddleware: (_, res, next) => {
     res.locals.ctx = {
       endpoint: PRISMIC_ENDPOINT,
       linkResolver,
@@ -86,6 +86,10 @@ module.exports = {
     res.locals.PrismicDOM = PrismicDOM;
     res.locals.PRISMIC_PREVIEW = PRISMIC_PREVIEW;
 
+    next();
+  },
+
+  getPrismicAPI: (req, _, next) => {
     // get Prismic API instance
     Prismic.api(PRISMIC_ENDPOINT, {
       req,
@@ -96,7 +100,6 @@ module.exports = {
     }).catch((error) => {
       next(error.message);
     });
-
   },
 
   previewController: (req, res) => {
@@ -118,20 +121,20 @@ module.exports = {
     }
   },
 
-  getPrismic: (req, res, next, type, uid, template) => {
+  getPrismic: async (req, res, next, type, uid, template) => {
     return new Promise(resolve => {
       return req.prismic.api.getByUID(type, uid)
-      .then(response => {
-        delete req;
-        if (response === undefined) {
-          throw(new Error(`Prisimic ${type} ${uid} not found`)); 
-        }
-        return res.render(template, response)
-      })
-      .then(resolve)
-      .catch(error => {
-        next(error.message);
-      });
+        .then(response => {
+          delete req;
+          if (response === undefined) {
+            throw(new Error(`Prisimic ${type} ${uid} not found`)); 
+          }
+          res.render(template, response);
+        })
+        .then(resolve)
+        .catch(error => {
+          next(error.message);
+        });
     });
   },
 

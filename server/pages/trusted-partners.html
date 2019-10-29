@@ -427,16 +427,19 @@ function($scope, $sce, $timeout) {
       $caseStudies.html($modalInfo.find('.case-studies').html());
     }
     $features.html($modalInfo.find('.features').html());
+
+    const newAddress = $newAddress[0].dataset['mapsaddress'] ? 
+      $newAddress[0].dataset['mapsaddress'] : $newAddress.html()
+        .replace(/<\/?strong>/g, '')
+        //.replace(/<strong>.+<\/strong>/g, '')
+        .replace(/<br>/g, ',+');
+
     $address.html($newAddress.html());
-    console.log($newAddress.html());
-    $iframe.attr('src', mapsURL + $newAddress.html()
-      .replace(/<\/?strong>/g, '')
-      //.replace(/<strong>.+<\/strong>/g, '')
-      .replace(/<br>/g, ',+')
-      .replace(/(\r\n|\n|\r)/gm, ',+')
-      .replace(/\s+/g, '+')
-      .replace(' ', '+'));
-    console.log($iframe.attr('src'));
+    $iframe.attr('src', mapsURL + newAddress
+        .replace(/(\r\n|\n|\r)/gm, ',+')
+        .replace(/\s+/g, '+')
+        .replace(' ', '+'));
+
     $scope.showContact = false;
 
     $timeout(function() {

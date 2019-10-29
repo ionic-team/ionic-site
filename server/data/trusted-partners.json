@@ -20,6 +20,16 @@
     "company-size": "5-20"
   },
   {
+    "slug":"benoveltylimited",
+    "name":"beNovelty Limited",
+    "short-description":"is an award-winning company offering Enterprise-Ready Ionic App & API solutions for modern internet business in Hong Kong & Greater Bay Area.",
+    "long-description":"<p>beNovelty is an award-winning Mobile & API first company founded by former IBM Technology Thought Leader & Architects. The team serves as an Innovation Partner with core capability in APIs, Open Web & Mobile Technologies. Their client base covers Start-ups, Enterprises & MNCs from different vertical such as banks, insurances, Hotel & Travels, HealthCare, Education etc.</p><p>Their start-up mentality together with enterprise experiences assemble new yet original services and products - always be novelty.</p><p>beNovelty Limited is an awardee of Hong Kong Best ICT Startup Awards & Hong Kong Quality Assurance Agency (HKQAA) Registered Platinum Start-up.</p>",
+    "address":"beNovelty Limited Unit 320<br>16 Science Park W Ave, Science Park, Hong Kong",
+    "features": ["Ionic App Development & Consultancy for Enterprise","Ionic Enterprise Plugin Development","UI-as-a-Services with Web Components","Managed Cloud API Services on AWS / Alibaba Cloud","Regulated Markets Ready – Banking, Insurance, Healthcare, Government etc."],
+    "coordinates":[79.8,45.5],
+    "company-size": "5-20"
+  },
+  {
     "slug":"inviqa",
     "name":"Inviqa",
     "short-description":"specialises in digital innovation, ecommerce, and content management systems, Inviqa is a trusted technology partner that puts business first.",
@@ -50,11 +60,23 @@
     "company-size": "10-20"
   },
   {
+    "slug":"hybridmob",
+    "name":"HybridMob",
+    "short-description":"is a leading US based, expert mobile development firm specializing in Ionic Framework development solutions.",
+    "long-description":"<p>HybridMob is a leading US based consulting firm specializing in custom Ionic Framework development solutions. Our highly specialized team consists of expert Ionic Framework developers with multiple years of experience building complex hybrid (iOS and Android) mobile apps across multiple industries.</p><p>Many of our senior developers have been building advanced Ionic apps since its initial release in 2013. Our team has built advanced Ionic apps for companies such as Amazon, InVision, Phillips and many more.</p><p>Our expert Ionic Framework developers excel in the following areas:</p><ul><li>Advanced Ionic architecture and development</li><li>Hybrid app MVP / POC</li><li>Sophisticated UI / UX design</li><li>Ionic project rescue</li><li>Native functionality (Capacitor)</li><li>Angular web development</li><li>Biometric authentication</li><li>Automated cloud device testing</li><li>Progressive Web Apps</li><li>&hellip;and much more</li></ul><p>While there are a number of consulting firms that offer Ionic Framework development services, we are one of the few who specialize solely in Ionic. As a result, we maintain a focused, expert team of Ionic consultants, available to bring your project to the next level. </p>",
+    "address":"548 Market Street #68673<br>San Francisco, CA 94104",
+    "mapsaddress": "548 Market Street, San Francisco, CA 94104",
+    "features":["Ionic 1-4","UI / UX Design","Angular 1-7","Offline storage","Staff Augmentation","Fullstack app development (Node.JS, AWS, Firebase and more)","Excellent communication skills"],
+    "coordinates":[14.4,38.9],
+    "company-size": "11-50"
+  },
+  {
     "slug":"hybapps",
     "name":"HybApps",
     "short-description":"is specialized in accelerating hybrid mobile apps development by providing mobile apps themes , apps source code , custome design services , custom application development and many other services.",
     "long-description":"<p>HybApps is specialized in accelerating hybrid mobile apps development by providing mobile apps themes , apps source code , custome design services , custom application development and many other services.</p><p>We have excellent experience in Front-End and Back-end developing on many frameworks such as PHP/MySQL and MEAN.</p><p>Successfully built many applications to our customers all over the world including Uber like solutions ,e-commerce solutions and many more.</p>",
     "address":"Tanta Qism 2<br>Tanta, Gharbia Governorate, Egypt",
+    "mapsaddress": "Tanta Qism 2, Tanta, Gharbia Governorate, Egypt",
     "features":["Angular","Ionic","Node.js","MEAN","App design","App development","Development consulting"],
     "coordinates":[56.5,42],
     "company-size": "11-50"

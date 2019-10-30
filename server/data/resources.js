@@ -173,6 +173,14 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "Reducing time-to-market by 50% with Ionic Enterprise",
+        "url": "/resources/case-studies/jnesis",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
+        "bgColor": "#2a3341"
+      }, {
+        "type": "Case Study",
         "title": "Southwest Airlines delights new hires with onboarding app",
         "url": "https://meetmaestro.com/work/southwest/",
         "target": "_blank",

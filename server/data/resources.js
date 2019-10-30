@@ -179,6 +179,28 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
         "bgColor": "#2a3341"
+      }, 
+      {
+        "type": "Customer Story",
+        "title": "Devin at Amtrak",
+        "url": "/resources/customer-stories/devin-amtrak",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-story-amtrak.jpg",
+        "bgColor": ""
+      }, {
+        "type": "Customer Story",
+        "title": "Seth at K12",
+        "url": "/resources/customer-stories/seth-k12",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-story-k12.jpg",
+        "bgColor": "#9d9849"
+      }, {
+        "type": "Customer Story",
+        "title": "Danya at CGI",
+        "url": "/resources/customer-stories/danya-cgi",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-story-cgi.jpg",
+        "bgColor": "#e2465c"
       }, {
         "type": "Case Study",
         "title": "Southwest Airlines delights new hires with onboarding app",
@@ -296,8 +318,7 @@ const resources = {
     title: "Customer Stories",
     description: "Customer Stories from developers and companies.",
     meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
-    items: [
-    ]
+    items: []
   },
   "webinars": {
     title: "Webinars",

@@ -20,3 +20,4 @@ linkchecker.html
 /package-lock.json
 /null
 /.stencil
+/assets/stencil/components.d.ts

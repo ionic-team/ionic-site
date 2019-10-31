@@ -181,25 +181,25 @@ const resources = {
         "bgColor": "#2a3341"
       }, 
       {
-        "type": "Customer Story",
+        "type": "Customer Interviews",
         "title": "Devin at Amtrak",
-        "url": "/resources/customer-stories/devin-amtrak",
+        "url": "/resources/customer-interviews/devin-amtrak",
         "action": "Read",
-        "bgImage": "/img/resource-center/customer-story-amtrak.jpg",
+        "bgImage": "/img/resource-center/customer-interview-amtrak.jpg",
         "bgColor": ""
       }, {
-        "type": "Customer Story",
+        "type": "Customer Interviews",
         "title": "Seth at K12",
-        "url": "/resources/customer-stories/seth-k12",
+        "url": "/resources/customer-interviews/seth-k12",
         "action": "Read",
-        "bgImage": "/img/resource-center/customer-story-k12.jpg",
+        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
         "bgColor": "#9d9849"
       }, {
-        "type": "Customer Story",
+        "type": "Customer Interviews",
         "title": "Danya at CGI",
-        "url": "/resources/customer-stories/danya-cgi",
+        "url": "/resources/customer-interviews/danya-cgi",
         "action": "Read",
-        "bgImage": "/img/resource-center/customer-story-cgi.jpg",
+        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
         "bgColor": "#e2465c"
       }, {
         "type": "Case Study",
@@ -314,11 +314,34 @@ const resources = {
       }
     ]
   },
-  "customer-stories": {
-    title: "Customer Stories",
-    description: "Customer Stories from developers and companies.",
+  "customer-interviews": {
+    title: "Customer Interviews",
+    description: "Customer Interviews from developers and companies.",
     meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
-    items: []
+    items: [
+      {
+        "type": "Customer Interviews",
+        "title": "Devin at Amtrak",
+        "url": "/resources/customer-interviews/devin-amtrak",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-amtrak.jpg",
+        "bgColor": ""
+      }, {
+        "type": "Customer Interviews",
+        "title": "Seth at K12",
+        "url": "/resources/customer-interviews/seth-k12",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-k12.jpg",
+        "bgColor": "#9d9849"
+      }, {
+        "type": "Customer Interviews",
+        "title": "Danya at CGI",
+        "url": "/resources/customer-interviews/danya-cgi",
+        "action": "Read",
+        "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
+        "bgColor": "#e2465c"
+      }
+    ]
   },
   "webinars": {
     title: "Webinars",

@@ -13,7 +13,7 @@ function linkResolver(doc) {
   } else if (doc.type === 'case_study') {
     return '/resources/case-studies/' + doc.uid;
   } else if (doc.type === 'customer_story') {
-    return '/resources/customer-stories/' + doc.uid;
+    return '/resources/customer-interviews/' + doc.uid;
   } else if (doc.type === 'enterprise_blog_post') {
     return '/enterprise/blog/' + doc.uid;
   } else if (doc.type === 'integration') {

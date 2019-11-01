@@ -179,14 +179,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
         "bgColor": "#2a3341"
-      }, 
-      {
-        "type": "Customer Interviews",
-        "title": "Devin at Amtrak",
-        "url": "/resources/customer-interviews/devin-amtrak",
-        "action": "Read",
-        "bgImage": "/img/resource-center/customer-interview-amtrak.jpg",
-        "bgColor": ""
       }, {
         "type": "Customer Interviews",
         "title": "Seth at K12",
@@ -320,13 +312,6 @@ const resources = {
     meta_description: 'Read how Ionic customers have leveraged Ionic solutions to acheive success on business critical projects within their organizations.',
     items: [
       {
-        "type": "Customer Interviews",
-        "title": "Devin at Amtrak",
-        "url": "/resources/customer-interviews/devin-amtrak",
-        "action": "Read",
-        "bgImage": "/img/resource-center/customer-interview-amtrak.jpg",
-        "bgColor": ""
-      }, {
         "type": "Customer Interviews",
         "title": "Seth at K12",
         "url": "/resources/customer-interviews/seth-k12",

@@ -72,7 +72,7 @@ module.exports = {
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),
       frameworkInfo: frameworkInfo,
-      latestBlog: lbs.getLatestPost()
+      // latestBlog: lbs.getLatestPost()
     });
 
     return next();

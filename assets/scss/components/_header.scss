@@ -25,22 +25,6 @@
     }
   }
 
-  &.enterprise {
-    background: #fff;
-
-    .navbar-brand svg {
-      fill: #000;
-    }
-
-    .navbar-toggle i {
-      color: #000;
-    }
-
-    .navbar-toggle:hover i {
-      color: rgba(#000, 0.6);
-    }
-  }
-
   .navbar-header {
     // width: 132px;
     @media (max-width: $screen-sm-max) {
@@ -154,13 +138,13 @@
 
       > a {
         color: white;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 500;
         margin-top: 0;
         padding: 6px 8px;
         letter-spacing: -.01em;
         margin-left: 8px;
-        margin-right: 8px;
+        margin-right: 11px;
         transition: 0.2s color;
         border-top: none;
         border-radius: 4px;
@@ -285,9 +269,9 @@
         display: block;
         position: absolute;
         border: 0;
-        border-radius: 8px;
+        border-radius: 4px;
         top: 39px;
-        padding: 18px 0 14px;
+        padding: 0;
         right: auto;
         left: 50%;
         box-shadow: 0 8px 24px rgba(0,16,44,.08), 0 3px 8px rgba(0,16,44,.12);
@@ -303,6 +287,13 @@
           opacity 0.2s linear, top 0.25s step-end;
         backface-visibility: hidden;
 
+        li,
+        ul {
+          margin: 0;
+          padding-left: 0;
+          list-style-type: none;
+        }
+
         &--container {
           left: 280px;
 
@@ -316,7 +307,6 @@
         &__text--l2,
         &__text--l3,
         &__text--l4 {
-          line-height: 1.3;
           letter-spacing: -0.01em;
         }
 
@@ -336,66 +326,140 @@
 
         &__text--l2 {
           font-weight: 600;
-          font-size: 14px;
+          font-size: 12px;
+          line-height: 15px;
+          color: #1A232F;
+          letter-spacing: .08em;
+          text-transform: uppercase;
+          padding: 15px 32px;
         }
 
         &__text--l3 {
-          font-size: 13px;
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: 500;
+          position: relative;
+          padding: 11px 20px 12px 60px;
+          min-width: 232px;
+
+          small {
+            display: block;
+            font-size: 12px;
+            line-height: 17px;
+            color: #73849A;
+            margin-top: 1px;
+            font-weight: 400;
+          }
+
+          &::before,
+          &::after {
+            background: url('/img/ico-nav.png') 0 0 no-repeat;
+            background-size: 20px;
+            height: 20px;
+            width: 20px;
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 30px;
+          }
+
+          @include hoverSprite(
+            'icon--enterprise'
+            'icon--advisory'
+            'icon--training'
+            'icon--docs'
+            'icon--installation'
+            'icon--ui-components'
+            'icon--native-apis'
+            'icon--deployment'
+            'icon--cli'
+            'icon--hub'
+            'icon--slack'
+            'icon--youtube'
+            'icon--github'
+            'icon--twitter'
+            'icon--resources'
+            'icon--help-center'
+            'icon--trusted-partners'
+            'icon--forum'
+            'icon--cross-platform-dev'
+            'icon--progressive-web-apps'
+            'icon--continuous-delivery'
+            'icon--biometric-sign-in'
+            'icon--user-authentication'
+            'icon--offline-storage'
+            'icon--why-ionic'
+            'icon--customers'
+            'icon--platform'
+          , 20);
+          
+          &.icon--lg {
+            padding: 14px 28px 15px 78px;
+
+            &::before,
+            &::after {
+              background: url('/img/ico-nav-lg.png') 0 0 no-repeat;
+              background-size: 32px;
+              height: 32px;
+              width: 32px;
+              top: 16px;
+            }
+
+            @include hoverSprite(
+              'icon--framework'
+              'icon--native'
+              'icon--studio'
+              'icon--appflow'
+            , 32);
+          }
+
+          svg {
+            position: absolute;
+            right: 32px;
+          }
         }
 
-        &__text--l4 {
-          font-size: 10px;
-          line-height: 1;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #B2BECD;
-          font-weight: 700;
+        &__no-icon {
+          padding-left: 30px;
+
+          &::before,
+          &::after {
+            display: none;
+          }
         }
 
-        ul + h6 {
-          margin-top: 26px;
+        > li > .dropdown-menu__text--l3 {
+          padding-top: 21px;
+          padding-bottom: 19px;
+
+          &::before,
+          &::after {
+            top: 19px;
+          }
         }
 
-        a,
-        li,
-        ul {
-          margin: 0;
-          padding: 0;
-        }
-
-        li {
-          list-style-type: none;
-          padding: 0;
-        }
-
-        a,
-        span,
-        strong {
+        a, 
+        span.dropdown-menu__text--l2 {
           display: block;
-          padding: 6px 25px;
-          min-width: 198px;
           transition: 0.2s color;
           font-family: $font-family-inter;
-        }
-
-        a.dropdown-menu__text--l1 {
-          padding: 12px 28px;
-        }
-
-        a.dropdown-menu__text--l2 {
-          color: #1A232F;
-          font-family: $font-family-eina;
-        }
-
-        a.dropdown-menu__text--l3 {
-          padding: 9px 24px;
+          white-space: nowrap;
         }
 
         a {
-          color: #616E7E;
+          color: #1A232F;
 
           &:hover {
-            color: #5290FE;
+            color: #2171FF;
+            background: transparent;
+
+            small {
+              color: #7CABFF;
+            }
+
+            path {
+              fill: #2171FF;
+            }
           }
 
           &:hover,
@@ -405,57 +469,20 @@
           }
         }
 
-        a:hover {
-          background: transparent;
-          color: #3376e8;
-
-          strong,
-          span {
-            color: #3376e8;
-          }
-        }
-
-        .divider {
-          padding-top: 20px;
-          background: #f8f9fb;
-          margin-top: 14px;
-          border-bottom: none;
-
-          ~ li a,
-          ~ li span {
-            background: #F6F8FB;
-          }
-
-          ~ li:last-child a {
-            margin-bottom: -15px;
-            padding-bottom: 21px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-          }
-        }
-
-        .split {
+        &__row {
           display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          min-width: 360px;
-          padding-bottom: 8px;
+          padding: 10px 0 19px;
+        }
 
-          a,
-          span {
-            min-width: 0;
-          }
+        &__row + li,
+        li + .dropdown-menu__row {
+          // margin: 7px 0;
+          // padding: 10px 0px;
+          border-top: 1px solid rgba(#E7ECF3, .8);
+        }
 
-          .sm {
-            color: $blue;
-            font-size: 12px;
-            font-weight: 400;
-            padding: 4px 28px;
-
-            &:hover {
-              color: lighten($blue, 10);
-            }
-          }
+        &__column {
+          position: relative;
         }
 
         &::after {
@@ -478,51 +505,21 @@
             content: '';
             display: block;
         }
+      }
 
-        &__row {
-          display: flex;
+      #dropdown-developers {
+        left: 240px;
+
+        &::before {
+          left: 170px;
         }
+      }
 
-        &__column {
-          position: relative;
-          
-          &::after {
-            position: absolute;
-            top: -18px;
-            bottom: -14px;
-            right: 0;
-            content: '';
-            display: block;
-            border-right: 1px solid #E7ECF3;
-          }
+      #dropdown-resources {
+        left: 140px;
 
-          &:last-child::after {
-            display: none;
-          }
-        }
-
-        &__item {
-          margin-top: 14px !important;
-
-          a {
-            display: flex;
-            border-top: 1px solid #E7ECF3;
-            padding-top: 16px;
-            padding-bottom: 0;
-            align-items: center;
-            font-size: 13px;
-            line-height: 16px;
-            letter-spacing: -0.01em;
-            color: #1A232F;
-
-            & :last-child {
-              margin-left: auto;
-            }
-          }
-
-          span {
-            padding-left: 12px;
-          }
+        &::before {
+          left: 250px;
         }
       }
 
@@ -535,12 +532,6 @@
         transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
         transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.1s linear, top 0.25s step-start;
         transition-delay: 0.2s;
-      }
-
-      .caret {
-        border-top: 3px dashed;
-        border-right: 3px solid transparent;
-        border-left: 3px solid transparent;
       }
     }
   }
@@ -709,7 +700,7 @@
     &.light {
       .navbar-nav > li:not(.header-btn-white) > a,
       .navbar-nav ionic-search ion-icon {
-        color: #414D5C;
+        color: #5B708B;
 
         &:hover {
           color: $blue;
@@ -718,51 +709,6 @@
 
       .navbar-nav > li.active > a {
         color: #c7d0e0;
-      }
-    }
-
-    &.enterprise {
-      background: none;
-      padding-top:  36px;
-
-      .navbar-nav > li:not(.header-btn-white) > a,
-      .navbar-nav ionic-search ion-icon {
-        color: #4E5B6A;
-
-        &:hover {
-          color: #92A1B3;
-        }
-      }
-
-      .navbar-nav > li.active > a,
-      .navbar-nav > li.open > a {
-        color: #92A1B3 !important;
-      }
-
-      .navbar-nav > li:not(.header-btn-white) > a {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 0 14px 10px;
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      .navbar-nav > li.active > a {
-        color: #4E5B6A;
-      }
-
-      .navbar-right {
-        margin-top: 3px;
-      }
-
-      .navbar-center {
-        margin-top: 6px;
-        float: right;
-      }
-
-      &.navbar-sticky {
-        background: white;
-        padding-bottom: 12px;
       }
     }
 

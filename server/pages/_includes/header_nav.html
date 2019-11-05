@@ -8,83 +8,59 @@
   </a>
   <ul class="dropdown-menu dropdown-menu--container" id="dropdown-platform">
     <li class=" dropdown-menu__row">
-      <ul class="dropdown-menu__column">
+      <ul class="dropdown-menu__column dropdown-menu__sprite-child">
         <li><span class="dropdown-menu__text--l2">Products</span></li>
         <li>
-          <a href="/docs" class="dropdown-menu__text--l3">
-            Framework
+          <a href="/docs" class="dropdown-menu__text--l3 icon--lg icon--framework">
+            Ionic Framework
+            <small>Cross-platform UI Toolkit for building apps</small>
           </a>
         </li>
         <li>
-          <a href="/studio" class="dropdown-menu__text--l3">
-            Studio
+          <a href="/docs/native" class="dropdown-menu__text--l3 icon--lg icon--native">
+            Ionic Native
+            <small>Premium native solutions and core plugins</small>
           </a>
         </li>
         <li>
-          <a href="/appflow" class="dropdown-menu__text--l3">
-            Appflow
+          <a href="/studio" class="dropdown-menu__text--l3 icon--lg icon--studio">
+            Ionic Studio
+            <small>A visual app-building environment</small>
           </a>
         </li>
         <li>
-          <a href="/docs/native" class="dropdown-menu__text--l3">
-            Native
-          </a>
-        </li>
-      </ul>
-  
-      <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Solutions</span></li>
-        <li>
-          <a href="/integrations" class="dropdown-menu__text--l3">
-            Integrations
-          </a>
-        </li>
-        <li>
-          <a href="/offline-storage" class="dropdown-menu__text--l3">
-            Offline Storage
-          </a>
-        </li>
-        <li>
-          <a href="/identity-vault" class="dropdown-menu__text--l3">
-            Biometric Sign In
-          </a>
-        </li>
-        <li>
-          <a href="/auth-connect" class="dropdown-menu__text--l3">
-            User Authentication
-          </a>
-        </li>
-        <li>
-          <a href="/pwa/toolkit" class="dropdown-menu__text--l3">
-            Progressive Web Apps
-          </a>
-        </li>
-        <li>
-          <a href="/enterprise/solutions/cross-platform" class="dropdown-menu__text--l3">
-            Cross Platform Apps
+          <a href="/appflow" class="dropdown-menu__text--l3 icon--lg icon--appflow">
+            Ionic Appflow
+            <small>Mobile devops cloud app management</small>
           </a>
         </li>
       </ul>
   
       <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Get Help</span></li>
+        <li><span class="dropdown-menu__text--l2">Services</span></li>
         <li>
-          <a href="/support" class="dropdown-menu__text--l3">
-            Support
+          <a href="/enterprise/support" class="dropdown-menu__text--l3 icon--enterprise">
+            Enterprise Support
           </a>
         </li>
         <li>
-          <a href="/advisory" class="dropdown-menu__text--l3">
+          <a href="/advisory" class="dropdown-menu__text--l3 icon--advisory">
             Advisory
           </a>
         </li>
         <li>
-          <a href="/enterprise/training" class="dropdown-menu__text--l3">
+          <a href="/enterprise/training" class="dropdown-menu__text--l3 icon--training">
             Training
           </a>
         </li>
       </ul>
     </li>{# end .dropdown-menu__row #}
+    <li>
+      <a href="/pricing" class="dropdown-menu__text--l3 dropdown-menu__no-icon" id="btn-header-pricing">
+        Platform Pricing
+        {% include '_includes/svg/ico-forward.svg' %}
+      </a>
+    </li>
   </ul>{# end .dropdown-menu__container #}
 </li>
 
@@ -97,102 +73,91 @@
       Developers {% include '_includes/svg/chevron-down.svg' %}
   </a>
   <ul class="dropdown-menu dropdown-menu--container" id="dropdown-developers">
+    <li>
+      <a href="https://ionicframework.com/docs" class="dropdown-menu__text--l3 icon--docs">
+        Ionic Docs
+        {% include '_includes/svg/ico-forward.svg' %}
+      </a>
+    </li>
     <li class=" dropdown-menu__row">
       <ul class="dropdown-menu__column">
+        <li><span class="dropdown-menu__text--l2">Topics</span></li>
         <li>
-          <a href="https://ionicframework.com/docs" class="dropdown-menu__text--l2">
-            Docs {% include '_includes/svg/ico-forward.svg' %}
-          </a>
-        </li>
-        <li>
-          <a href="https://ionicframework.com/docs/installation/cli" class="dropdown-menu__text--l3">
+          <a href="https://ionicframework.com/docs/installation/cli" class="dropdown-menu__text--l3 icon--installation">
             Installation
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/components" class="dropdown-menu__text--l3" id="btn-header-developers-ui-components">
+          <a href="https://ionicframework.com/docs/components" class="dropdown-menu__text--l3 icon--ui-compoents" id="btn-header-developers-ui-components">
             UI Components
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/native/" class="dropdown-menu__text--l3" id="btn-header-developers-native-plugins">
-            Native
+          <a href="https://ionicframework.com/docs/native/" class="dropdown-menu__text--l3 icon--native-apis" id="btn-header-developers-native-plugins">
+            Native APIs
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/cli" class="dropdown-menu__text--l3" id="btn-header-developers-setup-installation">
+          <a href="https://ionicframework.com/docs/native/" class="dropdown-menu__text--l3 icon--deployment" id="btn-header-developers-native-plugins">
+            Deployment
+          </a>
+        </li>
+        <li>
+          <a href="https://ionicframework.com/docs/cli" class="dropdown-menu__text--l3 icon--cli" id="btn-header-developers-setup-installation">
             CLI
           </a>
         </li>
       </ul>
-  
-      {#<ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Get Started</span></li>
-        <li>
-          <a href="https://ionicframework.com/docs/angular/overview" class="dropdown-menu__text--l3">
-            Angular
-          </a>
-        </li>
-        <li>
-          <a href="https://ionicframework.com/docs/react/overview" class="dropdown-menu__text--l3">
-            React
-          </a>
-        </li>
-        <li>
-          <a href="https://ionicframework.com/docs/vue/overview" class="dropdown-menu__text--l3">
-            Vue
-          </a>
-        </li>
-        <li>
-          <a href="https://ionicframework.com/docs/installation/cdn" class="dropdown-menu__text--l3">
-            Javascript
-          </a>
-        </li>
-      </ul>#}
 
       <ul class="dropdown-menu__column">
+        <li><span class="dropdown-menu__text--l2">Community</span></li>
         <li>
-          <a href="https://ionicframework.com/docs/appflow" class="dropdown-menu__text--l2">
-            Appflow Docs {% include '_includes/svg/ico-forward.svg' %}
+          <a href="/community" class="dropdown-menu__text--l3 icon--hub">
+            Hub
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/appflow/quickstart" class="dropdown-menu__text--l3">
-            Quickstart
+          <a href="https://ionicworldwide.herokuapp.com/" class="dropdown-menu__text--l3 icon--slack">
+            Slack
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/appflow/package/intro" class="dropdown-menu__text--l3">
-            Native Builds
+          <a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw" class="dropdown-menu__text--l3 icon--youtube">
+            YouTube
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/appflow/deploy/intro" class="dropdown-menu__text--l3">
-            Live Updating
+          <a href="https://github.com/ionic-team/ionic" class="dropdown-menu__text--l3 icon--github">
+            GitHub
           </a>
         </li>
         <li>
-          <a href="https://ionicframework.com/docs/appflow/automation/intro" class="dropdown-menu__text--l3">
-            Automation
+          <a href="https://twitter.com/Ionicframework" class="dropdown-menu__text--l3 icon--twitter">
+            Twitter
           </a>
         </li>
       </ul>
-  
+
       <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Open Source</span></li>
+        <li><span class="dropdown-menu__text--l2">Help</span></li>
         <li>
-          <a href="/framework" class="dropdown-menu__text--l3">
-            Framework
+          <a href="/resources" class="dropdown-menu__text--l3 icon--resources">
+            Resources
           </a>
         </li>
         <li>
-          <a href="https://stenciljs.com/" target="_blank" class="dropdown-menu__text--l3">
-            Stencil
+          <a href="/support" class="dropdown-menu__text--l3 icon--help-center">
+            Help Center
           </a>
         </li>
         <li>
-          <a href="https://capacitor.ionicframework.com/" target="_blank" class="dropdown-menu__text--l3">
-            Capacitor
+          <a href="/trusted-partners" class="dropdown-menu__text--l3 icon--trusted-partners">
+            Trusted Partners
+          </a>
+        </li>
+        <li>
+          <a href="https://forum.ionicframework.com/" class="dropdown-menu__text--l3 icon--forum">
+            Forum
           </a>
         </li>
       </ul>
@@ -206,168 +171,78 @@
      role="button"
      aria-haspopup="true"
      aria-expanded="false">
-    Resources {% include '_includes/svg/chevron-down.svg' %}
+    Enterprise {% include '_includes/svg/chevron-down.svg' %}
   </a>
   <ul class="dropdown-menu dropdown-menu--container" id="dropdown-resources">
+    <li>
+      <a href="/enterprise" class="dropdown-menu__text--l3 icon--enterprise">
+        Ionic Enterprise
+        {% include '_includes/svg/ico-forward.svg' %}
+      </a>
+    </li>
     <li class="dropdown-menu__row">
       <ul class="dropdown-menu__column">
+        <li><span class="dropdown-menu__text--l2">Use Cases</span></li>
         <li>
-          <a href="/resources" class="dropdown-menu__text--l2">
-            Resource Center {% include '_includes/svg/ico-forward.svg' %}
+          <a href="/enterprise/solutions/cross-platform" class="dropdown-menu__text--l3 icon--cross-platform-dev">
+            Cross-platform dev
           </a>
         </li>
         <li>
-          <a href="/resources/articles" class="dropdown-menu__text--l3">
-            Articles & Whitepapers
+          <a href="/pwa" class="dropdown-menu__text--l3 icon--progressive-web-apps">
+            Progressive Web Apps
           </a>
         </li>
         <li>
-          <a href="/resources/case-studies" class="dropdown-menu__text--l3">
-            Case Studies
-          </a>
-        </li>
-        <li>
-          <a href="/resources/webinars" class="dropdown-menu__text--l3">
-            Webinars
-          </a>
-        </li>
-        <li>
-          <a href="/resources/videos" class="dropdown-menu__text--l3">
-            Videos
-          </a>
-        </li>
-        <li>
-          <a href="https://betontheweb.ionicframework.com" class="dropdown-menu__text--l3">
-            Podcast
+          <a href="/appflow#automate" class="dropdown-menu__text--l3 icon--continuous-delivery">
+            Continuous Delivery
           </a>
         </li>
       </ul>
 
       <ul class="dropdown-menu__column">
+        <li><span class="dropdown-menu__text--l2">Native Solutions</span></li>
         <li>
-          <a href="/community" class="dropdown-menu__text--l2">
-            Community Hub {% include '_includes/svg/ico-forward.svg' %}
+          <a href="/identity-vault" class="dropdown-menu__text--l3 icon--biometric-sign-in">
+            Biometric Sign In
           </a>
         </li>
         <li>
-          <a href="https://forum.ionicframework.com/" class="dropdown-menu__text--l3">
-            Forum
+          <a href="/auth-connect" class="dropdown-menu__text--l3 icon--user-authentication">
+            User Authentication
           </a>
         </li>
         <li>
-          <a href="https://ionicworldwide.herokuapp.com/" class="dropdown-menu__text--l3">
-            Slack
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/Ionicframework" class="dropdown-menu__text--l3">
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw" class="dropdown-menu__text--l3">
-            YouTube
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/ionic-team/ionic" class="dropdown-menu__text--l3">
-            GitHub
+          <a href="/offline-storage" class="dropdown-menu__text--l3 icon--offline-storage">
+            Offline Storage
           </a>
         </li>
       </ul>
 
       <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Courses</span></li>
+        <li><span class="dropdown-menu__text--l2">For Enterprise</span></li>
         <li>
-          <a href="https://www.joshmorony.com/elite/" class="dropdown-menu__text--l3" target="_blank">
-            Elite Ionic {% include '_includes/svg/ico-external.svg' %}
+          <a href="/why-ionic" class="dropdown-menu__text--l3 icon--why-ionic">
+            Why Ionic?
           </a>
         </li>
         <li>
-          <a href="https://ionicacademy.com/" class="dropdown-menu__text--l3" target="_blank">
-            Ionic Academy {% include '_includes/svg/ico-external.svg' %}
+          <a href="/enterprise/customers" class="dropdown-menu__text--l3 icon--customers">
+            Customers
           </a>
         </li>
         <li>
-          <a href="https://www.pluralsight.com/courses/ionic-cli" class="dropdown-menu__text--l3" target="_blank">
-            Ionic CLI {% include '_includes/svg/ico-external.svg' %}
-          </a>
-        </li>
-        <li>
-          <a href="https://www.udemy.com/ionic-4-build-pwa-and-mobile-apps-with-angular/" class="dropdown-menu__text--l3" target="_blank">
-            PWAs with Ionic {% include '_includes/svg/ico-external.svg' %}
-          </a>
-        </li>
-        <li>
-          <a href="/community#section-education" class="dropdown-menu__text--l3">
-            See all...
+          <a href="/enterprise/platform" class="dropdown-menu__text--l3 icon--platform">
+            Platform
           </a>
         </li>
       </ul>
     </li>{# end .dropdown-menu__row #}
-
-    <li class="dropdown-menu__item">
-      <a href="{{ latestBlog.url }}">
-        {% include '_includes/svg/logo-blog.svg' %}
-        <span>{{ latestBlog.title }}&hellip;</span>
-        {% include '_includes/svg/ico-forward.svg' %}
-      </a>
-    </li>
   </ul>{# end .dropdown-menu__container #}
 </li>
-
-
-{#<li class="dropdown dropdown--has-container" id="dropdown-pricing">
-  <a href="#"
-     class="dropdown-toggle"
-     data-toggle="dropdown"
-     role="button"
-     aria-haspopup="true"
-     aria-expanded="false">
-    Pricing {% include '_includes/svg/chevron-down.svg' %}
-  </a>
-  <ul class="dropdown-menu dropdown-menu--container">
-    <li class=" dropdown-menu__row">
-      <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Pricing</span></li>
-        <li>
-          <a href="" class="dropdown-menu__text--l3">
-            Plans
-          </a>
-        </li>
-        <li>
-          <a href="" class="dropdown-menu__text--l3">
-            Comparison
-          </a>
-        </li>
-      </ul>
-  
-      <ul class="dropdown-menu__column">
-        <li><span class="dropdown-menu__text--l2">Buying Help</span></li>
-        <li>
-          <a href="" class="dropdown-menu__text--l3">
-            Talk to an Expert
-          </a>
-        </li>
-        <li>
-          <a href="/demo" class="dropdown-menu__text--l3">
-            Get a Demo
-          </a>
-        </li>
-        <li>
-          <a href="/sales" class="dropdown-menu__text--l3">
-            Contact Sales
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</li>#}
 
 <li class="{% if id.indexOf('pricing') == 0%} active{% endif %}">
   <a href="/pricing" id="btn-header-pricing">Pricing</a>
 </li>
-
-<li{% if id == 'enterprise' %} class="active"{% endif %}><a href="/enterprise">Enterprise</a></li>
 
 <li><a href="/blog" id="btn-header-ecosystem-blog">Blog</a></li>

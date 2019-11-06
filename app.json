@@ -1,0 +1,40 @@
+{
+  "addons": [
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "description": "The marketing/communications parts of the ",
+  "env": {
+    "PIPEDRIVE_TOKEN": {
+      "required": true
+    },
+    "PORT": {
+      "required": true
+    },
+    "PRISMIC_PREVIEW": {
+      "required": true
+    },
+    "PROD": {
+      "required": true
+    },
+    "SENTRY_DSN": {
+      "required": true
+    },
+    "SENTRY_ENVIRONMENT": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "ionic-site",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}

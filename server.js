@@ -1,13 +1,14 @@
 require('dotenv').config({silent: true});
   
-const express            = require('express');
-const compress           = require('compression');
-const cookieParser       = require('cookie-parser');
-const dateFilter         = require('nunjucks-date-filter');
-const expressNunjucks    = require('express-nunjucks');
-const helmet             = require('helmet');
-const Sentry             = require('@sentry/node');
-const throng             = require('throng');
+const express      = require('express');
+const compress     = require('compression');
+const cookieParser = require('cookie-parser');
+const dateFilter   = require('nunjucks-date-filter');
+const nunjucks     = require('nunjucks');
+const helmet       = require('helmet');
+const path         = require('path');
+const Sentry       = require('@sentry/node');
+const throng       = require('throng');
 
 const { handleNotFound } = require('./server/pageNotFound');
 const { router }         = require('./server/router');
@@ -79,14 +80,16 @@ function start() {
   app.use(loadLocalVars);
   announcementBarCronJob(app)
   
-  app.set('views', __dirname + '/server/pages');
-  expressNunjucks(app, {
+  nunjucks.configure('server/pages', {
+    express: app,
     noCache: !PROD,
     autoescape: false,
     filters: {
       date: dateFilter
     }
   });
+  app.set('views', path.resolve(__dirname, '/server/pages'));
+  app.set('view engine', 'html');
   
   app.use(router(app));
   

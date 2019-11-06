@@ -11,6 +11,7 @@ const footer       = require('gulp-footer');
 const header       = require('gulp-header');
 const lib          = require('./assets/3rd-party-libs.json');
 const minifyCss    = require('gulp-minify-css');
+const path         = require('path');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
@@ -99,7 +100,8 @@ gulp.task('styles:others', function() {
     .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
-      onError: console.error.bind(console, 'Sass error:')
+      onError: console.error.bind(console, 'Sass error:'),
+      includePaths: [path.join(__dirname, 'node_modules')]
     }))
     .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.sourcemaps.write())
@@ -118,7 +120,8 @@ gulp.task('styles:v2', function() {
   ) .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
-      onError: console.error.bind(console, 'Sass error:')
+      onError: console.error.bind(console, 'Sass error:'),
+      includePaths: [path.join(__dirname, 'node_modules')]
     }))
     .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(concat('styles.css'))

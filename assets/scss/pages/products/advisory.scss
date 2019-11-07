@@ -428,9 +428,19 @@
       flex: 0 0 25%;
       padding-right: 24px;
       margin-bottom: 24px;
+      position: relative;
 
       & + li {
         margin-top: 0;
+      }
+
+      i {
+        position: absolute;
+        top: 11px;
+      }
+
+      h4 {
+        margin-left: 32px;
       }
     }
 

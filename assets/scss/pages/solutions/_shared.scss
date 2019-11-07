@@ -123,7 +123,7 @@ main section {
       align-items: center;
   
       hgroup {
-        max-width: 480px;
+        max-width: 450px;
   
         @media (max-width: $screen-md-max) {
           max-width: 360px;
@@ -236,7 +236,7 @@ main section {
 
     li {
       padding: 0 15px 0 34px;
-      flex: 0 1 352px;
+      flex: 0 1 350px;
       min-width: 256px;
       margin-bottom: 36px;
       position: relative;

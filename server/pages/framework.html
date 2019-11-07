@@ -402,21 +402,28 @@ function digits(n){
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-$.ajax({
-  dataType: "jsonp",
-  url: "https://api.github.com/repos/ionic-team/ionic",
-  success: function(data){
+fetch("https://api.github.com/repos/ionic-team/ionic")
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error(response)
+    }
+  })
+  .then(data => {
     if(data) {
-      if(data.data.watchers){
-        $("#gh-stargazers").html(digits(data.data.watchers));
-        $('#gh-stars').html(digits(Math.round(data.data.watchers / 100)*100));
+      if(data.watchers){
+        $("#gh-stargazers").html(digits(data.watchers));
+        $('#gh-stars').html(digits(Math.round(data.watchers / 100)*100));
       }
-      if(data.data.forks){
-        $("#gh-forks").html(digits(data.data.forks));
+      if(data.forks){
+        $("#gh-forks").html(digits(data.forks));
       }
     }
-  }
-});
+  })
+  .catch(error => {
+    console.warn(error)
+  });
 
 var $appEl = $('.draggable .app');
 var draggableWidth = $('.draggable').width();

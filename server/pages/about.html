@@ -28,7 +28,7 @@
   </div>
 </div>
 <section class="container about-us hero left">
-  <div class="graphics active-on-load">
+  <div class="graphics active-on-load" id="timeline">
     <div class="period left">
       <h4>Company founded</h4>
       <p>
@@ -143,4 +143,11 @@
       <span class="ion-ios-arrow-round-forward-outline"></span></a></p>
   </hgroup>
 </div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+setTimeout(() => document.getElementById('timeline').classList.add('active'), 1500);
+</script>
 {% endblock %}

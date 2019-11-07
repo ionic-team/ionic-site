@@ -20,10 +20,10 @@ $(document).ready(function() {
   var detectMouse = function(e){
     $('.dropdown-toggle').dropdown();
     // remove event bindings, so it only runs once
-    $body.off('touchstart', detectMouse);
+    $(document.body).off('touchstart', detectMouse);
   }
   // attach both events to body
-  $body.on('touchstart', detectMouse);
+  $(document.body).on('touchstart', detectMouse);
 //   // activate dropdowns
 //   $('.dropdown-toggle').dropdown();
 //

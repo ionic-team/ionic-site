@@ -267,12 +267,15 @@
         display: block;
         position: absolute;
         border: 0;
-        border-radius: 4px;
+        border-radius: 8px;
         top: 39px;
         padding: 0;
         right: auto;
         left: 50%;
-        box-shadow: 0 8px 24px rgba(0,16,44,.08), 0 3px 8px rgba(0,16,44,.12);
+        box-shadow: 
+          0 50px 100px -20px rgba(0,0,0,.2), 
+          0 32px 64px -28px rgba(0,0,0,.3), 
+          0 -16px 64px -8px rgba(0,0,0,.024);
         opacity: 0;
         top: -2000px;
         pointer-events: none;

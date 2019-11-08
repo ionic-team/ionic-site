@@ -315,8 +315,8 @@
       &::after {
         background: url('/img/enterprise/identity-vault/iv-diagram-states.png') 0 0 no-repeat;
         background-size: 100%;
-        width: 1100px;
-        height: 242px;
+        width: 980px;
+        height: 215px;
         position: absolute;
         left: 21px;
         top: 24px;
@@ -329,6 +329,7 @@
       &::after {
         background-position: 0 100%;
         opacity: 0;
+        height: 216px;
         transform: scale3d(1.05, 1.05, 1);
       }
 

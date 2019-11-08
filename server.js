@@ -83,11 +83,9 @@ function start() {
   nunjucks.configure('server/pages', {
     express: app,
     noCache: !PROD,
-    autoescape: false,
-    filters: {
-      date: dateFilter
-    }
-  });
+    autoescape: false
+  }).addFilter('date', dateFilter);
+
   app.set('views', path.resolve(__dirname, '/server/pages'));
   app.set('view engine', 'html');
   

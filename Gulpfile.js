@@ -10,7 +10,6 @@ const es           = require('event-stream');
 const footer       = require('gulp-footer');
 const header       = require('gulp-header');
 const lib          = require('./assets/3rd-party-libs.json');
-const minifyCss    = require('gulp-minify-css');
 const path         = require('path');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
@@ -134,18 +133,6 @@ gulp.task('styles:v2', function() {
     .pipe($.size({title: 'styles'}));
 });
 
-gulp.task('styles:v1', function() {
-  return gulp.src('content/scss/**/*.scss')
-    .pipe(sass({onError: browserSync.notify}))
-    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(gulp.dest('dist/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('dist/css/'));
-});
-
 // compress and concat JS
 gulp.task('js', function() {
   return gulp.src(lib.js.concat(['assets/js/**/*.js']))
@@ -213,7 +200,6 @@ gulp.task('server', ['build'], function() {
 
 gulp.task('server:server', restartAndReload);
 
-gulp.task('server:stylesv1', ['styles:v1'], justReload);
 gulp.task('server:stylesv2', ['styles:v2'], justReload);
 gulp.task('server:others', ['styles:others'], justReload);
 gulp.task('server:stencil', ['stencil'], justReload);
@@ -221,7 +207,6 @@ gulp.task('server:js', ['js'], justReload);
 
 gulp.task('watch.max', ['server'], function() {
   gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
     ['server:stylesv2']);
   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
@@ -278,7 +263,6 @@ gulp.task(
   'build-prep',
   [
     'stencil:clean',
-    'styles:v1',
     'styles:v2',
     'styles:others',
   ],

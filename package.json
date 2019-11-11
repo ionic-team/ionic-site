@@ -59,7 +59,6 @@
     "gulp-footer": "^2.0.2",
     "gulp-header": "^2.0.9",
     "gulp-load-plugins": "^2.0.1",
-    "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-shell": "^0.7.1",

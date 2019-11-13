@@ -336,6 +336,14 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Ionic Native: Native-powered apps, without the hassle",
+        "url": "https://ionicframework.com/resources/webinars/ionic-native-native-powered-apps-without-hassle",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-ionic-native.png",
+        "bgColor": "#BB49B2"
+      },
+      {
+        "type": "Webinar",
         "title": "Ionic Advisory: Your trusted development partner",
         "url": "https://ionicframework.com/resources/webinars/ionic-advisory",
         "action": "Watch",

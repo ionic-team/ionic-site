@@ -39,6 +39,7 @@
     border-radius: 12px;
     background: white;
     padding: 36px 28px;
+    border: 1px solid #DEE3EA;
     box-shadow: 
       0px 2px 8px rgba(2, 8, 20, 0.08), 
       0px 8px 16px rgba(0, 0, 0, 0.1);
@@ -50,12 +51,37 @@
 
     &--dark {
       background: #1A325C;
-      color: #f6f8fb;
+      color: #E9EDF3;
+      border-color: #03112C;
 
-      h3,
-      .plan__price strong,
-      .plan__price__term {
+      &.plan__card h3,
+      .plan__price strong {
         color: #fff;
+      }
+
+      .plan {
+        &__price__term {
+          color: #A9B6CE;
+        }
+
+        &__feature {
+          &__divider {
+            border-color: #415B89;
+  
+            + .plan__feature__header {
+              background: #1A325C;
+              color: #A9B6CE;
+            }
+          }
+  
+          &__list li::before {
+            background-image: url('/img/pricing/ico-check-light.svg');
+          }
+
+          &__highlight {
+            background: #324E7E;
+          }
+        }
       }
     }
 
@@ -64,10 +90,38 @@
       border-top-right-radius: 0;
       border: 2px solid #3880FF;
     }
+
+    &--aside {
+      display: block;
+      background: #F6F8FB;
+      
+      h3 {
+        float: left;
+      }
+
+      .plan {
+        &__price {
+          float: right;
+        }
+
+        &__cta {
+          float: right;
+          clear: right;
+          margin-left: 2em;
+          margin-right: 0;
+        }
+
+        &__feature__list {
+          display: block;
+          clear: left;
+        }
+      }
+
+    }
   }
 
   .plan {
-    h3 {
+    &__card h3 {
       font-size: 24px;
       line-height: 29px;
       color: #020814;
@@ -80,7 +134,7 @@
       line-height: 24px;
       letter-spacing: -0.04em;
       color: #1A232F;
-
+      padding-bottom: 18px;
 
       &__term {
         font-size: 14px;
@@ -88,6 +142,10 @@
         letter-spacing: -0.02em;
         color: #414D5C;
         display: block;
+
+        &--short {
+          display: inline;
+        }
       }
 
       sup {
@@ -109,7 +167,19 @@
       font-size: 14px;
       line-height: 19px;
       letter-spacing: 0.08em;
-      padding: 13px 16px 12px;
+      padding: 8px 16px 7px;
+      border: 1px solid #DEE3EA;
+      box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
+
+      &.primary {
+        border-color: #3880FF;
+      }
+
+      &.navy {
+        border-color: #4A679B;
+        color: #D1EBFF;
+        background: #324E7E;
+      }
     }
 
     &__feature {
@@ -120,11 +190,12 @@
         + .plan__feature__header {
           margin-top: -8px;
           background: white;
-          margin-bottom: 40px;
+          margin-bottom: 0px;
           align-self: flex-start;
           padding: 6px;
         }
       }
+
       &__header {
         font-size: 10px;
         line-height: 4px;
@@ -133,6 +204,40 @@
         color: #616E7E;
       }
 
+      &__list {
+        padding-left: 0;
+        max-width: 360px;
+
+        li {
+          position: relative;
+          margin: 32px -8px 0 -8px;
+          list-style: none;
+          padding: 6px 10px 6px 28px;
+
+          &::before {
+            position: absolute;
+            top: 9px;
+            left: 6px;
+            background: url('/img/pricing/ico-check-dark.svg');
+            height: 11px;
+            width: 11px;
+            content: '';
+          }
+        }
+      }
+
+      &__highlight {
+        background: #F6F8FB;
+        border-radius: 16px;
+      }
+
+      &__asterisk {
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: -0.01em;
+        color: #92A1B3;
+        margin-top: auto;
+      }
     }
 
     &__note {

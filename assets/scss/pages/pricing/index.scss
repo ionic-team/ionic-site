@@ -54,20 +54,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-bottom: 40px;
+      background: #F4F6F9;
+      border-radius: 18px;
+      cursor: default;
+      margin: 0 auto 60px;
+      width: 196px;
+      padding: 3px 2px;
 
       span {
         transition: color 0.3s, background 0.3s;
-        font-size: 10px;
-        text-transform: uppercase;
-        color: #97a4ba;
-        background-color: #fff;
-        letter-spacing: 0.08em;
-        font-weight: 700;
         border-radius: 30px;
         padding: 5px 13px;
-        display: inline-block;
         text-align: center;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: -0.02em;
+        color: #5B708B;
       }
       span:hover {
         cursor: pointer;
@@ -75,20 +78,11 @@
         color: #7398d8;
       }
 
-      span + span {
-        margin-left: 6px;
-      }
-
-      span b {
-        opacity: 0.5;
-      }
-
       .active,
       .active:hover {
-        cursor: default;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(2, 8, 20, 0.1), 0px 0px 3px rgba(2, 8, 20, 0.08);
-        color: #639CFF;
+        border-radius: 18px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.15);
       }
     }
   }

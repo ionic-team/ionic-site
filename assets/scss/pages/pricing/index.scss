@@ -87,60 +87,78 @@
     }
   }
 
-  .logos {
+  .prefer-open-source {
+    border: 1px solid #DEE3EA;
+    border-radius: 16px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5B708B;
+    padding: 9px 12px 7px;
+    margin: 42px auto 24px;
+    max-width: 380px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+    span {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #4D8DFF;
+      margin-left: 8px;
+    }
+
+    svg {
+      vertical-align: -1px;
+    }
+  }
+
+  .anchor-cta {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #639CFF;
+    display: block;
+
+    svg {
+      vertical-align: -1px;
+    }
+  }
+
+  .logos {
+    text-align: center;
     margin-top: 60px;
+    background: linear-gradient(0deg, #0B111C, #0B111C);
+    padding-top: 124px;
+    padding-bottom: 124px;
+    color: white;
 
-    [class^="logo"] {
-      background-image: url('/img/pricing/enterprise-logos-v3.png');
-      background-size: 76px 198px;
+    h3 {
+      display: block;
+      margin-bottom: 85px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .icons > div {
+      background-image: url('/img/pricing/logos-light.png');
+      background-size: 100%;
       background-repeat: no-repeat;
-      flex: 0 0 auto;
+      flex: 0 0 66px;
+      height: 48px;
     }
 
-    .logo--ge {
-      background-position: -1px -1px;
-      width: 34px;
-      height: 34px;
-    }
-
-    .logo--verizon {
-      background-position: 0 -37px;
-      width: 74px;
-      height: 16px;
-    }
-
-    .logo--comcast {
-      background-position: 0 -55px;
-      width: 76px;
-      height: 20px;
-    }
-
-    .logo--panera {
-      background-position: 0 -77px;
-      width: 76px;
-      height: 26px;
-    }
-
-    .logo--mastercard {
-      background-position: 0 -105px;
-      width: 52px;
-      height: 30px;
-    }
-
-    .logo--usaa {
-      background-position: 0 -137px;
-      width: 30px;
-      height: 34px;
-    }
-
-    .logo--amtrak {
-      background-position: 0 -173px;
-      width: 62px;
-      height: 25px;
-    }
+    .logo--ge {         background-position: 0 0; }
+    .logo--verizon {    background-position: 0 -1 * (48px * 1); }
+    .logo--comcast {    background-position: 0 -1 * (48px * 2); }
+    .logo--panera {     background-position: 0 -1 * (48px * 3); }
+    .logo--mastercard { background-position: 0 -1 * (48px * 4); }
+    .logo--usaa {       background-position: 0 -1 * (48px * 5); }
+    .logo--amtrak {     background-position: 0 -1 * (48px * 6); }
 
     @media (max-width: $screen-sm) {
       justify-content: center;
@@ -248,174 +266,119 @@
     }
   }
 
-  .faq .container > h3,
-  .comparison > h3 {
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      font-size: 28px;
-  }
-
-  .also .container > h3 {
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    font-size: 36px;
-  }
-
   .offwhite-bg {
-    background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
-  }
-
-  .also,
-  .faq,
-  .benefits {
-    h4 {
-      font-weight: 600;
-      line-height: 28px;
-      font-size: 20px;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-      color: #000000;
-    }
-
-    p {
-      font-family: $font-family-inter;
-      line-height: 26px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-      color: #73849A;
-      font-weight: 400;
-
-      strong {
-        color: $blacker;
-      }
-
-      code {
-        font-family: $font-family-monospace;
-        background: none;
-        color: #8582FB;
-        padding: 0;
-        font-size: 14px;
-        border-radius: 0;
-        font-weight: 700;
-      }
-    }
+    background: rgba(#F7F9FC, .7);
   }
 
   .also {
     border-left: 0;
     border-right: 0;
-    padding: 0 0 200px;
+    padding: 0 0 160px;
+
+    h3 {
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      font-size: 48px;
+      line-height: 53px;
+      margin: 178px auto 68px;
+      text-align: center;
+    }
+
+    h4 {
+      font-size: 18px;
+      color: #020814;
+      font-weight: 600;
+      line-height: 25px;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 27px;
+      letter-spacing: -0.02em;
+      color: #5B708B;
+    }
 
     ul {
       padding: 0;
       list-style-type: none;
       display: flex;
       flex-wrap: wrap;
-
-      margin: 48px -48px -48px;
+      justify-content: space-around;
+      margin: 17px -17px -17px;
     }
 
     li {
-      flex: 0 0 33%;
-      padding: 0 48px 48px;
-    }
-
-    .pill {
+      flex: 1 0 25%;
+      min-width: 230px;
+      padding: 0 17px 17px;
       position: relative;
-      top: -3px;
-      margin-left: 5px;
-    }
-    @media (max-width: $screen-md)  {
-      padding-bottom: 100px;
 
-      li {
-        flex: 0 0 50%;
-      }
-    }
-
-    @media (max-width: $screen-sm)  {
-      ul {
-        margin: 24px -24px -24px;
+      &::before {
+        background: url('/img/pricing/sprite-features.svg');
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        content: '';
+        display: block;
       }
 
-      li {
-        padding: 0 24px 24px;
-      }
-    }
-
-    @media (max-width: $screen-xs)  {
-      li {
-        flex: 0 0 100%;
-      }
+      &:nth-child(2)::before { background-position: 0 -32px; }
+      &:nth-child(3)::before { background-position: 0 -64px; }
+      &:nth-child(4)::before { background-position: 0 -96px; }
     }
   }
 
   .faq {
+    padding-top: 100px;
+    padding-bottom: 100px;
 
-    padding-top: 200px;
-    padding-bottom: 200px;
-
-    .items {
-      display: flex;
+    h3, 
+    h4 {
+      color: #020814;
+      font-weight: 600;
     }
 
-    ul {
-      flex: 1;
-      margin: 0 auto;
-      padding-top: 49px;
-      padding-left: 0;
+    h4,
+    p {
+      line-height: 29px;
+      letter-spacing: -0.02em;
     }
 
-    ul + ul {
-      padding-left: 100px;
-    }
-
-    li {
-      display: block;
-      list-style: none;
-    }
-
-    li + li {
-      padding-top: 40px;
+    h3 {
+      font-size: 48px;
+      line-height: 53px;
+      text-align: center;
+      letter-spacing: -0.04em;
     }
 
     h4 {
-      line-height: 28px;
+      font-size: 24px;
+      margin-top: 64px;
     }
 
     p {
-      line-height: 28px;
+      font-size: 16px;
+      color: #5B708B;
     }
 
-    @media (max-width: $screen-md) {
-      padding-top: 100px;
-      padding-bottom: 100px;
+    &__cols {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 -32px;
     }
 
-    @media (max-width: $screen-sm) {
-      li + li {
-        padding-top: 40px;
-      }
-    }
-
-    @media (max-width: $screen-sm)  {
-      .items {
-        flex-direction: column;
-      }
-
-      ul + ul {
-        padding-left: 0;
-      }
-
-      ul,
-      li + li {
-        padding-top: 24px;
-      }
+    &__col {
+      padding: 0;
+      flex: 1 0 364px;
+      padding: 0 32px;
+      list-style: none;
     }
   }
 
   .form-wrapper {
-
     &.offwhite-bg {
       padding-top: 160px;
     }

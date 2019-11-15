@@ -64,7 +64,7 @@
       font-weight: 600;
       font-size: 12px;
       line-height: 20px;
-      color: #5B708B;
+      color: #1A232F;
 
       strong {
         font-size: 16px;
@@ -139,50 +139,38 @@
       font-weight: 400;
       vertical-align: middle;
       border: 0;
+      color: #5B708B;
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
 
-      &[colspan="4"] span {
-        display: inline-block;
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 600;
-        color: #020814;;
-        border-top: none;
-        padding-top: 30px;
-        padding-bottom: 8px;
-      }
-
-      &:not([colspan="4"]) {
-        font-family: $font-family-inter;
-        color: #4E5B6A;
+      small {
+        font-size: 14px;
+        line-height: 20px;
+        margin-left: 16px;
       }
 
       strong {
-        font-size: 14px;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: -0.02em;
         font-weight: 600;
         display: block;
-        color: #565c67;
+        color: #1A232F;
+        margin-top: 40px;
 
-        b {
-          font-weight: 600;
-          color: #171a20;
-        }
-
-        b a {
+        a {
           transition: border 0.3s;
           display: inline-block;
           color: #171a20;
           border-bottom: 1px solid rgba(#171a20, 0.2);
           line-height: 1;
-        }
 
-        b a:hover {
-          border-bottom: 1px solid rgba(#171a20, 0.7);
+          &:hover {
+            border-bottom: 1px solid rgba(#171a20, 0.7);
+          }
         }
-      }
-
-      a {
-        display: block;
-        font-weight: 600;
       }
 
       span {
@@ -197,50 +185,37 @@
       background: #fff;
     }
 
-    .stripe {
-      td,
-      th {
-        background: #f8f9fb;
-      }
-    }
-
-    .small {
-      td,
-      th {
-        border-bottom: 1px solid #E9EDF3;
-        padding-top: 6px;
-        padding-bottom: 6px;
-      }
-
-      th:first-child {
-        color: #73849A;
-        position: relative;
-      }
-
-      .check:before {
-        font-size: 12px;
-      }
-    }
-
     td {
       vertical-align: middle;
       text-align: center;
-      font-weight: 400;
+      font-weight: 500;
       border: 0;
-      font-size: 13px;
-      color: #4E5B6A;
+      font-size: 16px;
+      line-height: 22px;
+      color: #1A232F;
+      letter-spacing: -0.02em;
       font-family: $font-family-inter;
     }
 
-    .dash:before {
-      content: '\2014';
-      color: #c3ccdb;
+    .btn {
+      border: 1px solid #3880FF;
+      box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
+
+      &.white {
+        border-color: #DEE3EA;
+      }
+
+      &.dark {
+        border-color: #3E5A8D;
+        background: #2B4675;
+        color: #D1EBFF;
+      }
     }
 
     .check:before {
       font-family: 'Ionicons';
       content: "\f2bc";
-      color: #00d287;
+      color: #1A232F;
       font-size: 16px;
       line-height: 1em;
     }
@@ -248,40 +223,6 @@
     tr:last-child td {
       padding-top: 36px;
       padding-bottom: 36px;
-    }
-
-    .btn {
-      width: 100%;
-    }
-
-    .btn.sm {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-    }
-
-    .btn.dark {
-      background-color: #213049;
-      color: #CDDFFF;
-
-      &:hover {
-        background-color: lighten(#213049, 5%);
-      }
-    }
-  }
-
-  .btn-secondary {
-    background-color: #e1efff;
-    color: #3880ff;
-    box-shadow: none;
-
-    &:hover {
-      background-color: #eaf3fd;
-    }
-
-    &:active,
-    &:active:focus,
-    &:active:hover {
-      background-color: #d8eafe;
     }
   }
 
@@ -367,10 +308,6 @@
         padding-bottom: 18px;
       }
     }
-    tbody th[colspan="4"] span {
-      padding-top: 8px;
-      padding-bottom: 0;
-    }
 
     .box,
     .table-wrap,
@@ -422,13 +359,11 @@
     }
 
     thead td,
-    // tbody th:not([colspan="5"]) {
     tbody th {
       flex: 0 0 120px;
       border-right: 1px solid rgba(232, 235, 241, 0.6);
     }
 
-    tbody th[colspan="4"] span,
     tbody th strong,
     tbody tr.combined th{
       font-size: 13px;

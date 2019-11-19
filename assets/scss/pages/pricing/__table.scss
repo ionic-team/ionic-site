@@ -5,59 +5,40 @@
     min-width: 800px;
   }
 
-  thead,
-  tbody {
-    tr td:first-child,
-    tr th:first-child {
-      padding-left: 36px;
-    }
-
-    tr td:last-child,
-    tr th:last-child {
-      padding-right: 36px;
-    }
-  }
-
   thead th,
   tbody td {
     width: 20%;
   }
 
   thead {
-
     th, td {
       background: #fff;
       border-bottom: 1px solid rgba(#e8ebf1, 0.6);
-      padding-top: 32px;
-      padding-bottom: 30px;
       vertical-align: bottom;
-    }
+      padding: 32px 44px 30px;
 
-    th {
-      text-align: center;
-
-      h2 {
-        margin-bottom: 3px;
+      &:first-child {
+        padding-bottom: 6px;
+        padding-left: 0;
       }
     }
 
-
-    .eyebrow {
-      font-size: 10px;
-      color: #94a0b7;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-      margin-bottom: 4px;
-      display: inline-block;
+    h3,
+    h4 {
+      color: #020814;
     }
 
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0;
+    h3 {
+      font-size: 32px;
+      line-height: 44px;
       letter-spacing: -0.01em;
-      color: #020814;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 33px;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
     }
 
     .price {
@@ -73,7 +54,12 @@
     }
 
     .btn {
-      margin-top: 8px;
+      padding: 6px 10px 3px;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 7px;
     }
 
     .btn--primary {
@@ -105,11 +91,19 @@
   tbody {
     th,
     td {
-      padding-top: 14px;
-      padding-bottom: 14px;
-      padding-left: 16px;
-      padding-right: 16px;
+      padding: 12px 15px;
 
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    tr:first-child  td {
+      padding-top: 40px;
     }
 
     .pill {
@@ -127,6 +121,7 @@
         padding-top: 45px;
         padding-bottom: 22px;
       }
+
       th {
         font-size: 16px;
         line-height: 22px;
@@ -198,6 +193,11 @@
     }
 
     .btn {
+      padding: 11px 13px 8px;
+      font-size: 14px;
+      line-height: 19px;
+      border-radius: 8px;
+      letter-spacing: 0.08em;
       border: 1px solid #3880FF;
       box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
 
@@ -281,21 +281,6 @@
   }
 
   @media (max-width: 830px) {
-    thead,
-    tbody {
-      tr td:first-child,
-      tr th:first-child {
-        padding-left: 16px;
-        // position: absolute;
-        // left: 0;
-      }
-
-      tr td:last-child,
-      tr th:last-child {
-        padding-right: 16px;
-      }
-    }
-
     .btn.sm {
       font-size: 12px;
     }

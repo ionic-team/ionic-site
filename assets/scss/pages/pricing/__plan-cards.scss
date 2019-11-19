@@ -3,7 +3,8 @@
 #page-pricing {
   .plans {
     display: grid;
-    margin-left: -42px;
+    margin-left: -58px;
+    margin-top: 63px;
     font-family: $font-family-inter;
 
     gap: 16px;
@@ -12,6 +13,34 @@
     grid-template-areas: 
       "launch growth scale enterprise"
       "studio studio scale enterprise";
+
+    @media (max-width: $screen-lg) {
+      margin-left: -20px;
+      grid-template-columns: 233px 233px 233px 233px;
+    }
+
+    @media (max-width: $screen-md) {
+      margin-left: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+        "studio studio"
+        "launch growth"
+        "scale enterprise";
+
+      .plan__card--featured {
+        margin-top: 32px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "studio"
+        "launch"
+        "growth"
+        "scale"
+        "enterprise";
+    }
   }
 
   #plan-studio {
@@ -37,7 +66,7 @@
   .plan__card {
     border-radius: 12px;
     background: white;
-    padding: 36px 28px;
+    padding: 34px 26px;
     position: relative;
     flex: 1;
     display: flex;
@@ -90,15 +119,31 @@
 
     &--aside {
       display: block;
+      padding: 16px 27px;
       background: #F6F8FB;
+      border: none;
+      box-shadow: none;
       
-      h3 {
+      &.plan__card h3 {
         float: left;
+        font-weight: 600;
+        font-size: 22px;
+        margin-top: 15px;
+        letter-spacing: 0;
       }
 
       .plan {
         &__price {
           float: right;
+          padding-bottom: 2px;
+
+          sup {
+            font-size: 20px;
+          }
+
+          strong {
+            font-size: 36px;
+          }
         }
 
         &__cta {
@@ -106,11 +151,13 @@
           clear: right;
           margin-left: 2em;
           margin-right: 0;
+          padding: 10px 12px 9px;
         }
 
         &__feature__list {
           display: block;
           clear: left;
+          max-width: 330px;
         }
       }
 
@@ -123,6 +170,7 @@
       line-height: 29px;
       color: #020814;
       margin-top: 0;
+      margin-bottom: 11px;
     }
 
     &__price {
@@ -139,6 +187,7 @@
         letter-spacing: -0.02em;
         color: #414D5C;
         display: block;
+        margin-top: -2px;
 
         &--short {
           display: inline;
@@ -149,6 +198,7 @@
         font-weight: 500;
         font-size: 24px;
         line-height: 29px;
+        margin-right: 2px;
       }
 
       strong {
@@ -164,30 +214,44 @@
       font-size: 14px;
       line-height: 19px;
       letter-spacing: 0.08em;
-      padding: 8px 16px 7px;
-      border: 1px solid #DEE3EA;
+      padding: 11px 16px 10px;
+      margin-top: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid #3880FF;
       box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
 
-      &.primary {
-        border-color: #3880FF;
+      &.white {
+        border-color: #DEE3EA;
+
+        &:hover {
+          box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.08);
+        }
       }
 
       &.navy {
         border-color: #4A679B;
         color: #D1EBFF;
         background: #324E7E;
+
+        &:hover {
+          box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.2);
+        }
+      }
+
+      &:hover {
+        box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.12);
       }
     }
 
     &__feature {
       &__divider {
         border-bottom: 1px solid #DEE3EA;
-        margin: 40px -28px 0;
+        margin: 37px -26px 0;
 
         + .plan__feature__header {
-          margin-top: -8px;
+          margin: -9px -5px 0;
           background: white;
-          margin-bottom: 0px;
           align-self: flex-start;
           padding: 6px;
         }
@@ -203,13 +267,14 @@
 
       &__list {
         padding-left: 0;
-        max-width: 360px;
+        margin: 10px 0 0;
 
         li {
           position: relative;
-          margin: 32px -8px 0 -8px;
+          margin: 14px 0 0 -8px;
           list-style: none;
-          padding: 6px 10px 6px 28px;
+          padding: 6px 0 6px 27px;
+          letter-spacing: -0.02em;
 
           &::before {
             position: absolute;
@@ -220,12 +285,17 @@
             width: 11px;
             content: '';
           }
+
+          strong {
+            letter-spacing: -.04em;
+          }
         }
       }
 
       &__highlight {
         background: #F6F8FB;
         border-radius: 16px;
+        margin-right: -8px;
       }
 
       &__asterisk {
@@ -239,7 +309,7 @@
 
     &__note {
       position: absolute;
-      top: -30px;
+      top: -34px;
       left: -2px;
       right: -2px;
       background: #3880FF;
@@ -250,7 +320,7 @@
       font-size: 12px;
       line-height: 16px;
       letter-spacing: -0.02em;
-      padding: 7px 1em 6px;
+      padding: 9px 1em;
     }
   }
 }

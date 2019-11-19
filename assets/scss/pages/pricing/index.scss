@@ -17,7 +17,9 @@
 
   .cta {
     .container {
-      padding-bottom: 15px;
+      padding-bottom: 39px;
+      padding-top: 113px;
+      max-width: 536px;
     }
 
     hgroup {
@@ -39,7 +41,6 @@
       color: #5B708B;
       font-weight: 400;
       letter-spacing: -0.02em;
-      margin-bottom: 64px;
     }
   }
 
@@ -58,7 +59,8 @@
       border-radius: 18px;
       cursor: default;
       margin: 0 auto 60px;
-      width: 196px;
+      width: 198px;
+      font-weight: 600;
       padding: 3px 2px;
 
       span {
@@ -66,7 +68,6 @@
         border-radius: 30px;
         padding: 5px 13px;
         text-align: center;
-        font-weight: 500;
         font-size: 13px;
         line-height: 16px;
         letter-spacing: -0.02em;
@@ -76,6 +77,7 @@
         cursor: pointer;
         background-color: #ecf1fb;
         color: #7398d8;
+        box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.15);
       }
 
       .active,
@@ -93,21 +95,28 @@
     font-size: 12px;
     line-height: 15px;
     color: #5B708B;
-    padding: 9px 12px 7px;
-    margin: 42px auto 24px;
-    max-width: 380px;
+    padding: 9px 12px 6px;
+    margin: 66px auto 24px;
+    max-width: 386px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    transition: .2 box-shadow;
 
     span {
       font-weight: 600;
       letter-spacing: -0.01em;
       color: #4D8DFF;
       margin-left: 8px;
+      white-space: nowrap;
     }
 
     svg {
       vertical-align: -1px;
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.05);
     }
   }
 
@@ -123,25 +132,39 @@
     svg {
       vertical-align: -1px;
     }
+
+    &:hover {
+      color: $blue;
+    }
   }
 
   .logos {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 190px;
     background: linear-gradient(0deg, #0B111C, #0B111C);
-    padding-top: 124px;
+    padding-top: 105px;
     padding-bottom: 124px;
     color: white;
 
     h3 {
       display: block;
-      margin-bottom: 85px;
+      margin-bottom: 69px;
+      font-size: 31px;
     }
 
     .icons {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+
+      @media (max-width: 560px) {
+        justify-content: space-around;
+
+        > div {
+          margin: 0 20px 20px;
+        }
+      }
     }
 
     .icons > div {
@@ -152,28 +175,18 @@
       height: 48px;
     }
 
-    .logo--ge {         background-position: 0 0; }
+    .logo--national {   background-position: 0 0; }
     .logo--verizon {    background-position: 0 -1 * (48px * 1); }
     .logo--comcast {    background-position: 0 -1 * (48px * 2); }
     .logo--panera {     background-position: 0 -1 * (48px * 3); }
     .logo--mastercard { background-position: 0 -1 * (48px * 4); }
     .logo--usaa {       background-position: 0 -1 * (48px * 5); }
     .logo--amtrak {     background-position: 0 -1 * (48px * 6); }
-
-    @media (max-width: $screen-sm) {
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      margin-bottom: -20px;
-
-      [class^="logo"] {
-        margin: 20px;
-      }
-    }
+    .logo--ge {         background-position: 0 -1 * (48px * 7); }
   }
 
   .box {
-    margin-top: 30px;
+    margin-top: 41px;
     border-radius: 16px;
     background-color: rgb(255, 255, 255);
     font-family: $font-family-eina;
@@ -245,24 +258,24 @@
 
   .btn.sm {
     text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    font-weight: 700;
   }
 
 
   .comparison {
-    padding-top: 115px;
+    padding-top: 180px;
+
+    h2 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
     @media (max-width: $screen-sm) {
       padding-top: 100px;
     }
     @media (max-width: 830px){
       padding-left: 0;
       padding-right: 0;
-
-      h3 {
-        padding: 0 16px;
-      }
     }
   }
 
@@ -273,14 +286,14 @@
   .also {
     border-left: 0;
     border-right: 0;
-    padding: 0 0 160px;
+    padding: 0 0 164px;
 
     h3 {
       font-weight: 600;
       letter-spacing: -0.04em;
       font-size: 48px;
       line-height: 53px;
-      margin: 178px auto 68px;
+      margin: 196px auto 62px;
       text-align: center;
     }
 
@@ -290,7 +303,7 @@
       font-weight: 600;
       line-height: 25px;
       letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      margin-bottom: 13px;
     }
 
     p {
@@ -318,21 +331,22 @@
       &::before {
         background: url('/img/pricing/sprite-features.svg');
         background-size: 100%;
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
         content: '';
         display: block;
+        margin-bottom: 25px;
       }
 
-      &:nth-child(2)::before { background-position: 0 -32px; }
-      &:nth-child(3)::before { background-position: 0 -64px; }
-      &:nth-child(4)::before { background-position: 0 -96px; }
+      &:nth-child(2)::before { background-position: 0 -48px; }
+      &:nth-child(3)::before { background-position: 0 -96px; }
+      &:nth-child(4)::before { background-position: 0 -144px; }
     }
   }
 
   .faq {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 180px;
+    padding-bottom: 170px;
 
     h3, 
     h4 {
@@ -355,12 +369,15 @@
 
     h4 {
       font-size: 24px;
-      margin-top: 64px;
+      margin-top: 54px;
+      margin-bottom: 17px;
     }
 
     p {
       font-size: 16px;
       color: #5B708B;
+      margin-bottom: 26px;
+      letter-spacing: -0.02em;
     }
 
     &__cols {

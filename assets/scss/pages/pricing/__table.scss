@@ -16,11 +16,11 @@
       border-bottom: 1px solid rgba(#e8ebf1, 0.6);
       vertical-align: bottom;
       padding: 32px 44px 30px;
+    }
 
-      &:first-child {
-        padding-bottom: 6px;
-        padding-left: 0;
-      }
+    td {
+      padding-bottom: 6px;
+      padding-left: 0;
     }
 
     h3,
@@ -192,6 +192,21 @@
       font-family: $font-family-inter;
     }
 
+    .check:before {
+      font-family: 'Ionicons';
+      content: "\f2bc";
+      color: #1A232F;
+      font-size: 16px;
+      line-height: 1em;
+    }
+
+    tr:last-child td {
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+  }
+
+  tfoot {
     .btn {
       padding: 11px 13px 8px;
       font-size: 14px;
@@ -210,19 +225,6 @@
         background: #2B4675;
         color: #D1EBFF;
       }
-    }
-
-    .check:before {
-      font-family: 'Ionicons';
-      content: "\f2bc";
-      color: #1A232F;
-      font-size: 16px;
-      line-height: 1em;
-    }
-
-    tr:last-child td {
-      padding-top: 36px;
-      padding-bottom: 36px;
     }
   }
 
@@ -280,79 +282,105 @@
     }
   }
 
-  @media (max-width: 830px) {
-    .btn.sm {
-      font-size: 12px;
+  @media (max-width: $screen-md) {
+    table,
+    .table {
+      min-width: 100%;
+    }
+  
+    thead th,
+    tbody td {
+      width: auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    thead {
+      td {
+        padding-right: 48px;
+      }
     }
 
+    tbody th {
+      width: 128px;
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    tbody th:first-child {
+      width: 166px;
+      word-wrap: break-word;
+      padding-left: 4px;
+    }
+  }
+
+  @media (max-width: 690px) {
+    .btn {
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+
+    .table-wrap {
+      position: relative;
+      width:100%;
+      z-index: 1;
+      margin: auto;
+      overflow: auto;
+      height: 550px;
+    }
 
     thead {
       th,
       td {
         padding-top: 24px;
         padding-bottom: 18px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
       }
     }
 
-    .box,
-    .table-wrap,
-    table,
-    .table {
-      overflow: hidden;
+    table {
+      width: 100%;
+      min-width: 800px;
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 0;
     }
-    // min-width: 800px;
 
     thead {
-      position: relative;
-      display: block; /*seperates the header from the body allowing it to be positioned*/
-      width: 800px;
-      overflow: visible;
-
       td,
       th {
         height: 118px;
         padding-left: 16px;
         padding-right: 16px;
       }
-
-      td {/*first cell in the header*/
-        position: relative;
-        display: block; /*seperates the first cell in the header from the header*/
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-    }
-
-    tbody {
-      height: calc(100vh - 100px - 118px);
-      position: relative;
-      display: block; /*seperates the tbody from the header*/
-      width: calc(100vw);
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    thead tr,
-    tbody tr {
-      display: flex;
     }
 
     thead th,
     tbody td {
-      flex: 0 0 204px;
+      width: 128px;
     }
 
     thead td,
-    tbody th {
-      flex: 0 0 120px;
+    tbody th,
+    tfoot th {
+      width: 166px;
+      padding-right: 16px;
+      word-wrap: break-word;
       border-right: 1px solid rgba(232, 235, 241, 0.6);
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 2;
     }
 
-    tbody th strong,
-    tbody tr.combined th{
-      font-size: 13px;
-      line-height: 18px;
+    thead td:first-child,
+    tfoot th:first-child {
+      z-index: 5;
+      width: 166px;
+      background: white;
     }
 
     tbody tr.combined {
@@ -362,14 +390,18 @@
       }
     }
 
-    tbody tr th {  /*the first cell in each tr*/
-      position: relative;
-      display: block; /*seperates the first column from the tbody*/
-    }
-
     tbody tr:last-child th {
       height: 110px;
     }
-  }
 
+    tfoot,
+    tfoot th,
+    tfoot td {
+      position: -webkit-sticky;
+      position: sticky;
+      bottom: 0;
+      z-index:4;
+      background: white;
+    }
+  }
 }

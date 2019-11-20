@@ -47,7 +47,7 @@
   main {
     padding-bottom: 170px;
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-xs-max) {
       padding-bottom: 90px;
     }
 
@@ -187,7 +187,6 @@
 
   .box {
     margin-top: 41px;
-    border-radius: 16px;
     background-color: rgb(255, 255, 255);
     font-family: $font-family-eina;
     overflow: hidden;
@@ -223,7 +222,7 @@
         margin-bottom: -6px;
       }
 
-      @media (max-width: $screen-md) {
+      @media (max-width: $screen-sm-max) {
         &::before {
           position: relative;
           top: 2px;
@@ -270,7 +269,7 @@
       letter-spacing: -0.04em;
     }
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-xs-max) {
       padding-top: 100px;
     }
     @media (max-width: 830px){
@@ -426,7 +425,7 @@
       }
     }
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-xs-max) {
       &.offwhite-bg {
         padding-top: 80px;
       }

@@ -14,12 +14,12 @@
       "launch growth scale enterprise"
       "studio studio scale enterprise";
 
-    @media (max-width: $screen-lg) {
+    @media (max-width: $screen-md-max) {
       margin-left: -20px;
       grid-template-columns: 233px 233px 233px 233px;
     }
 
-    @media (max-width: $screen-md) {
+    @media (max-width: $screen-sm-max) {
       margin-left: 0;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 

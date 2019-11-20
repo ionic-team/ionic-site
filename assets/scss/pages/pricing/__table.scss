@@ -190,6 +190,9 @@
       color: #1A232F;
       letter-spacing: -0.02em;
       font-family: $font-family-inter;
+      border: 1px solid #f7f7f7;
+      border-left: none;
+      border-top: none;
     }
 
     .check:before {
@@ -282,7 +285,7 @@
     }
   }
 
-  @media (max-width: $screen-md) {
+  @media (max-width: $screen-sm-max) {
     table,
     .table {
       min-width: 100%;
@@ -307,7 +310,7 @@
     }
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-xs-max) {
     tbody th:first-child {
       width: 166px;
       word-wrap: break-word;
@@ -327,7 +330,7 @@
       z-index: 1;
       margin: auto;
       overflow: auto;
-      height: 550px;
+      height: 90vh;
     }
 
     thead {
@@ -339,11 +342,15 @@
         position: sticky;
         top: 0;
       }
+
+      th {
+        background: #fbfbfb;
+      }
     }
 
     table {
       width: 100%;
-      min-width: 800px;
+      min-width: 690px;
       margin: auto;
       border-collapse: separate;
       border-spacing: 0;
@@ -401,7 +408,9 @@
       position: sticky;
       bottom: 0;
       z-index:4;
-      background: white;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      background: #fbfbfb;
     }
   }
 }

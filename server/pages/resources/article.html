@@ -135,6 +135,15 @@
               {% endif %}
             </figure>
           {% endif %}
+
+          {% if group.slice_type == 'ad' %}
+            <aside class="advertisement">
+              <a href="{{ group.primary.link.url }}" 
+                 target="{{ group.primary.link.target }}">
+                {{ group.primary.text[0].text }}
+              </a>
+            </aside>
+          {% endif %}
         {% endfor %}
       </article>
       <section class="resource-list">

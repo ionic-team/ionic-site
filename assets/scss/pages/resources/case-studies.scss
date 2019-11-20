@@ -429,6 +429,17 @@ article {
     }
   }
 
+  aside.advertisement a {
+    font-size: 30px;
+    color: $blue;
+    margin-bottom: 1.6em;
+    margin-left: -1em;
+
+    &:hover {
+      color: darken($blue, 15);
+    }
+  }
+
   .table-wrap {
     overflow-x: auto;
     margin-right: -15px;

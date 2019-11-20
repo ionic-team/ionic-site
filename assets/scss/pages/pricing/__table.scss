@@ -190,9 +190,6 @@
       color: #1A232F;
       letter-spacing: -0.02em;
       font-family: $font-family-inter;
-      border: 1px solid #f7f7f7;
-      border-left: none;
-      border-top: none;
     }
 
     .check:before {
@@ -368,6 +365,12 @@
     thead th,
     tbody td {
       width: 128px;
+    }
+
+    tbody td {
+      border: 1px solid #f7f7f7;
+      border-left: none;
+      border-top: none;
     }
 
     thead td,

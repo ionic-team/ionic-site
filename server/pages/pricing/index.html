@@ -8,6 +8,17 @@
 {% set pre_footer = false %}
 
 {% block main %}
+<ionic-sub-header>
+  <a slot="title" href="/pricing">Pricing</a>
+  <ul slot="right">
+    <li><a class="anchor" href="#pricing-toggle">Plans</a></li>
+    <li><a class="anchor" href="#features">Comparison</a></li>
+    <li><a class="btn white"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Sales</a></li>
+  </ul>
+</ionic-sub-header>
 <div class="cta cta--transparent">
   <hgroup class="container center">
     <h1>Ionic platform pricing</h1>

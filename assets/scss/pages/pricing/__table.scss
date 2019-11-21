@@ -116,20 +116,6 @@
       }
     }
 
-    tr.combined {
-      th, td {
-        padding-top: 45px;
-        padding-bottom: 22px;
-      }
-
-      th {
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #333;
-      }
-    }
-
     th {
       font-weight: 400;
       vertical-align: middle;
@@ -139,6 +125,7 @@
       line-height: 22px;
       letter-spacing: -0.02em;
       white-space: nowrap;
+      font-family: $font-family-inter;
 
       small {
         font-size: 14px;

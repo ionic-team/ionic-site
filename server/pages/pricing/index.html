@@ -46,7 +46,7 @@
         <div class="plan__feature__header">What's included</div>
         <ul class="plan__feature__list">
           <li>Build cross-platform iOS, Android, and Progressive Web Apps with <strong>Ionic Studio</strong></li>
-          <li>Push <strong>live app updates</strong>to up to <strong>10,000 users</strong></li>
+          <li>Push <strong>live app updates</strong> to up to <strong>10,000 users</strong></li>
           <li>Build <strong>native app binaries</strong> in the cloud</li>
           <li>Manage app projects in the Ionic <strong>cloud dashboard</strong></li>
         </ul>
@@ -90,7 +90,7 @@
           <li>Live onboarding</li>
           <li>Product Support</li>
         </ul>
-        <span class="plan__feature__asterisk">* Hey Scale plan sold annually</span>
+        <span class="plan__feature__asterisk">* Scale plan sold annually</span>
       </div>
 
       <div id="plan-enterprise" class="plan__card plan__card--dark">
@@ -265,7 +265,7 @@
               <td>Custom limit</td>
             </tr>
             <tr>
-              <th>CI/CD automation</th>
+              <th>iOS Enterprise builds</th>
               <td></td>
               <td></td>
               <td><span class="check"></span></td>
@@ -284,28 +284,28 @@
               <td colspan="4"></td>
             </tr>
             <tr>
-              <th><a href="/identity-vault">Identity Vault</a> secure biometrics</th>
+              <th><a target="_blank" href="/identity-vault">Identity Vault</a> secure biometrics</th>
               <td></td>
               <td></td>
               <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th><a href="/auth-connect">Auth Connect</a> single API connector</th>
+              <th><a target="_blank" href="/auth-connect">Auth Connect</a> single API connector</th>
               <td></td>
               <td></td>
               <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th><a href="/offline-storage">Offline Storage</a> Secure storage</th>
+              <th><a target="_blank" href="/offline-storage">Offline Storage</a> Secure storage</th>
               <td></td>
               <td></td>
               <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th><a href="/">Core Device</a> Premier plugin library</th>
+              <th>Core Device Premier plugin library</th>
               <td></td>
               <td></td>
               <td></td>
@@ -504,7 +504,7 @@
       </li>
       <li>
         <h4>How many seats are with each plan?</h4>
-        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. If you are Growth subscriber and wish to add team members to your account, please contact our Support team.</p>
+        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. If you are a Growth subscriber and wish to add team members to your account, please contact our Support team.</p>
         <p>Scale and Enterprise plans offer flexible packages that scale to any number of team members. Please contact our Sales team to discuss a custom plan that accommodates the number of seats you’d like to include. If you are a current customer and would like to add more seats to your existing Scale or Enterprise plan, please contact Support.</p>
       </li>
       <li>
@@ -563,6 +563,11 @@
 <script>
 const toggle = function() {
   this.isMonthly = true;
+
+  // this animation is janky in FF so just skip it
+  this.animationLength = 
+    navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? 0 : 150;
+
   this.data = {
     '#plan-studio .plan__price strong' : [
       29, 
@@ -598,21 +603,25 @@ const toggle = function() {
     const wasMonthlyClicked = event.target.textContent.toLowerCase() === 'monthly';
     if (this.isMonthly === wasMonthlyClicked) return;
     this.isMonthly = wasMonthlyClicked;
-    for (let selector in this.data) {
-      document.querySelectorAll(selector).forEach(el => {
-        el.style['filter'] = 'blur(50px)';
-        // el.style['opacity'] = '0';
-        setTimeout(() => {
-          el.textContent = this.data[selector][this.isMonthly ? 0 : 1];
-          el.style['filter'] = 'blur(0)';
-          // el.style['opacity'] = '1';
-        }, 150);
-      });
-    }
+    
     this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 1 : 2})`)
         .classList.add('active');
     this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 2 : 1})`)
         .classList.remove('active');
+
+    for (let selector in this.data) {
+      document.querySelectorAll(selector).forEach(el => {
+        requestAnimationFrame(() => {
+          el.style['filter'] = 'blur(50px)';
+        });
+        setTimeout(() => {
+          el.textContent = this.data[selector][this.isMonthly ? 0 : 1];
+          requestAnimationFrame(() => {
+            el.style['filter'] = 'blur(0px)';
+          });
+        }, this.animationLength);
+      });
+    }
   }
 
   return {

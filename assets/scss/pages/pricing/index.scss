@@ -59,9 +59,10 @@
       border-radius: 18px;
       cursor: default;
       margin: 0 auto 60px;
-      width: 198px;
+      width: 204px;
       font-weight: 600;
       padding: 3px 2px;
+      font-family: $font-family-inter;
 
       span {
         transition: color 0.3s, background 0.3s;
@@ -70,7 +71,7 @@
         text-align: center;
         font-size: 13px;
         line-height: 16px;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.01em;
         color: #5B708B;
         transition: .2s all;
       }
@@ -84,6 +85,7 @@
       .active,
       .active:hover {
         border-radius: 18px;
+        color: #1A232F;
         background: #FFFFFF;
         box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.15);
       }
@@ -378,6 +380,7 @@
       color: #5B708B;
       margin-bottom: 26px;
       letter-spacing: -0.02em;
+      font-family: $font-family-inter;
     }
 
     &__cols {

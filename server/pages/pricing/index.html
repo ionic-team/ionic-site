@@ -17,7 +17,7 @@
 
 <main>
   <div class="container">
-    <div class="toggle">
+    <div class="toggle" id="pricing-toggle">
       <span class="active">Monthly</span>
       <span>Yearly (15% off)</span>
     </div>
@@ -39,7 +39,7 @@
         <h3>Launch</h3>
         <span class="plan__price">
           <sup>$</sup><strong>49</strong>
-          <span class="plan__price__term">Per month</span>
+          <span class="plan__price__term plan__price__term--full">Per month</span>
         </span>
         <a class="plan__cta btn sm white" href="">Try It Free</a>
         <div class="plan__feature__divider"></div>
@@ -57,7 +57,7 @@
         <h3>Growth</h3>
         <span class="plan__price">
           <sup>$</sup><strong>120</strong>
-          <span class="plan__price__term">Per month</span>
+          <span class="plan__price__term plan__price__term--full">Per month</span>
         </span>
         <a class="plan__cta btn sm" href="">Try It Free</a>
         <div class="plan__feature__divider"></div>
@@ -74,9 +74,12 @@
         <h3>Scale</h3>
         <span class="plan__price">
           From <sup>$</sup><strong>299</strong>
-          <span class="plan__price__term">Per month*</span>
+          <span class="plan__price__term plan__price__term--asterisk">Per month*</span>
         </span>
-        <a class="plan__cta btn sm white" href="">Contact Us</a>
+        <a class="plan__cta btn sm white"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Us</a>
         <div class="plan__feature__divider"></div>
         <div class="plan__feature__header">What's included</div>
         <ul class="plan__feature__list">
@@ -96,7 +99,10 @@
           <strong>Custom</strong>
           <span class="plan__price__term">Tailored to your needs</span>
         </span>
-        <a class="plan__cta btn sm navy" href="">Contact Sales</a>
+        <a class="plan__cta btn sm navy"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Sales</a>
         <div class="plan__feature__divider"></div>
         <div class="plan__feature__header">What's included</div>
         <ul class="plan__feature__list">
@@ -111,7 +117,7 @@
       </div>
     </div>
 
-    <a class="prefer-open-source" href="">
+    <a class="prefer-open-source" href="/getting-started">
       Prefer to start with the open source Framework?
       <span>
         Go here
@@ -121,7 +127,7 @@
       </span>
     </a>
 
-    <a class="anchor-cta" href="#features">
+    <a class="anchor-cta anchor" href="#features">
       See full feature comparison
       <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L6 6L1 11" stroke="#639CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -148,7 +154,7 @@
 
   <div class="container container-wide comparison">
     <h2>Pick the plan that works best for you.</h2>
-    <div class="box">
+    <div id="features" class="box">
       <div class="table-wrap">
         <table>
           <thead>
@@ -551,202 +557,73 @@
     </div>
   </div>
 </div>
-
-<div class="modal collapse fade"
-     id="contactFormNative"
-     tabindex="-1"
-     role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "87128e69-958d-46f7-8ec1-4883cb9d9c11",
-        	css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal collapse fade"
-     id="contactFormFramework"
-     tabindex="-1"
-     role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "675c2b5e-dc1e-4d52-84f3-f8f109ef2955",
-        	css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal collapse fade"
-     id="studioReserveSeat"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Reserve your seat</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-          portalId: "3776657",
-          formId: "541f87f4-ceb3-4501-9d95-4893bce088b6",
-          css: ""
-        });
-        </script>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal collapse fade"
-     id="eeAdvisoryAddon"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-          portalId: "3776657",
-        	formId: "01d73ed0-929c-4dce-9fec-673c0e57c1b0",
-          css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal collapse fade"
-     id="eeIntegrationsAddon"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "3776657",
-          	formId: "f06b6615-1c49-4104-a5e1-79a04239c99b",
-          css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  
+const toggle = function() {
+  this.isMonthly = true;
+  this.data = {
+    '#plan-studio .plan__price strong' : [
+      29, 
+      299
+    ],
+    '#plan-starter .plan__price strong' : [
+      49, 
+      499
+    ],
+    '#plan-growth .plan__price strong' : [
+      120, 
+      '1,220'
+    ],
+    '#plan-scale .plan__price strong' : [
+      299, 
+      '3,049'
+    ],
+    '.plan__price__term--short' : [
+      '/mo',
+      '/yr'
+    ],
+    '.plan__price__term--full' : [
+      'Per month',
+      'Per year'
+    ],
+    '.plan__price__term--asterisk' : [
+      'Per month*',
+      'Per year*'
+    ]
+  }
+
+  this.handleClick = event => {
+    const wasMonthlyClicked = event.target.textContent.toLowerCase() === 'monthly';
+    if (this.isMonthly === wasMonthlyClicked) return;
+    this.isMonthly = wasMonthlyClicked;
+    for (let selector in this.data) {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style['filter'] = 'blur(50px)';
+        // el.style['opacity'] = '0';
+        setTimeout(() => {
+          el.textContent = this.data[selector][this.isMonthly ? 0 : 1];
+          el.style['filter'] = 'blur(0)';
+          // el.style['opacity'] = '1';
+        }, 150);
+      });
+    }
+    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 1 : 2})`)
+        .classList.add('active');
+    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 2 : 1})`)
+        .classList.remove('active');
+  }
+
+  return {
+    // public methods
+    init: () => {
+      this.toggleEl = document.getElementById('pricing-toggle');
+      this.toggleEl.querySelectorAll('span').forEach(el => {
+        el.addEventListener('click', this.handleClick);
+      });
+    }
+  }
+}().init();
 </script>
 {% endblock %}

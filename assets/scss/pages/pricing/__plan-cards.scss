@@ -188,6 +188,7 @@
         color: #414D5C;
         display: block;
         margin-top: -2px;
+        transition: .15s all ease-out;
 
         &--short {
           display: inline;
@@ -206,6 +207,7 @@
         font-size: 40px;
         line-height: 48px;
         letter-spacing: -.03em;
+        transition: .15s all ease-out;
       }
     }
 

@@ -40,7 +40,7 @@
           <sup>$</sup><strong>29</strong>
           <span class="plan__price__term plan__price__term--short">/mo</span>
         </span>
-        <a class="plan__cta btn sm white" href="">Get a License</a>
+        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=studio-individual">Get a License</a>
         <ul class="plan__feature__list">
           <li>The locally installed app builder to visually create cross-platform iOS, Android, and PWAs</li>
         </ul>
@@ -52,7 +52,7 @@
           <sup>$</sup><strong>49</strong>
           <span class="plan__price__term plan__price__term--full">Per month</span>
         </span>
-        <a class="plan__cta btn sm white" href="">Try It Free</a>
+        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=developer">Try It Free</a>
         <div class="plan__feature__divider"></div>
         <div class="plan__feature__header">What's included</div>
         <ul class="plan__feature__list">
@@ -70,7 +70,7 @@
           <sup>$</sup><strong>120</strong>
           <span class="plan__price__term plan__price__term--full">Per month</span>
         </span>
-        <a class="plan__cta btn sm" href="">Try It Free</a>
+        <a class="plan__cta btn sm" href="https://dashboard.ionicframework.com/signup?plan=teams">Try It Free</a>
         <div class="plan__feature__divider"></div>
         <div class="plan__feature__header">What's included</div>
         <ul class="plan__feature__list">
@@ -246,7 +246,12 @@
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th>Concurrency limits</th>
+              <th>
+                Concurrency limits
+                <a class="anchor" href="#faq-concurrency">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
               <td>1</td>
               <td>2</td>
               <td>Custom limit</td>
@@ -348,14 +353,24 @@
               <td colspan="4"></td>
             </tr>
             <tr>
-              <th>Account &amp; Billing Support</th>
+              <th>
+                Account &amp; Billing Support
+                <a class="anchor" href="#faq-account">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th>Premium Product Support</th>
+              <th>
+                Premium Product Support
+                <a class="anchor" href="#faq-premium">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
               <td></td>
               <td></td>
               <td><span class="check"></span></td>
@@ -376,7 +391,12 @@
               <td><span class="check"></span></td>
             </tr>
             <tr>
-              <th>Enterprise Support SLA</th>
+              <th>
+                Enterprise Support SLA
+                <a class="anchor" href="#faq-enterprise">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
               <td></td>
               <td></td>
               <td></td>
@@ -402,7 +422,12 @@
               <td colspan="4"></td>
             </tr>
             <tr>
-              <th>Seats included</th>
+              <th>
+                Seats included
+                <a class="anchor" href="#faq-seats">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
               <td>1</td>
               <td>2</td>
               <td>Custom limit</td>
@@ -510,11 +535,11 @@
         <h4>Which plans offer iOS Enterprise builds?</h4>
         <p>For development teams that would like to use <a href="/pro/package">Ionic Package</a> to generate builds using their Apple Enterprise Program Account Certificate, a subscription to the Scale or Enterprise plan is required. The Apple Developer Enterprise Program allows large organizations to develop and deploy proprietary, internal-use apps to their employees. This program is for specific use cases that require private distribution directly to employees using secure internal systems or through a Mobile Device Management solution.</p>
       </li>
-      <li>
+      <li id="faq-account">
         <h4>What is Account &amp; Billing Support?</h4>
         <p>Account & Billing Support is available to all plan holders, and includes access to help for issues related to account billing, refunds, cancellations and account re-activations, and password or account access related concerns.</p>
       </li>
-      <li>
+      <li id="faq-premium">
         <h4>What is Premium Product Support?</h4>
         <p>Timely assistance with troubleshooting issues related to Ionic Studio and Appflow. For Enterprise customers, Premium Product Support includes issues related to Premier plugins and Ionic Native solutions, including <a href="/identity-vault">Identity Vault<a>, <a href="/auth-connect">Auth Connect</a>, and <a href="/offline-storage">Offline Storage</a>.</p>
       </li>
@@ -525,7 +550,7 @@
         <h4>Do I have to create an Ionic account to use the Framework?</h4>
         <p>No. Ionic Framework is totally open source and free to download and install without an Ionic account. We invite all Ionic developers to create an account so they can take advantage of free developer tools to help you build better apps and go faster, with tools such as Ionic Deploy for sending Live Updates to your users, and a single cloud dashboard to manage all of your projects. If you just want to start building wit the Framework, freel free!</p>
       </li>
-      <li>
+      <li id="faq-concurrency">
         <h4>What do Concurrency Limits refer to?</h4>
         <p>Concurrency Limits refers to the number of app builds that can occur at the same time. Once you have hit your limit, additional builds will be queued until the existing builds in process are completed. When you upgrade to the Scale plan, you’ll be able to set a customized concurrency limit that matches your team’s needs and goals.</p>
       </li>
@@ -533,12 +558,12 @@
         <h4>What are private git repos?</h4>
         <p>Private git repos are on-premises installations of a git service. All Ionic account plans offer a git-based workflow that works with cloud-based git services such as GitHub and BitBucket. For teams and businesses that wish to integrate with privately hosted git repos, we offer support for BitBucket servers as an add-on under the Scale and Enterprise plans. Contact our Sales team to learn more.</p>
       </li>
-      <li>
+      <li id="faq-seats">
         <h4>How many seats are with each plan?</h4>
         <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. If you are a Growth subscriber and wish to add team members to your account, please contact our Support team.</p>
         <p>Scale and Enterprise plans offer flexible packages that scale to any number of team members. Please contact our Sales team to discuss a custom plan that accommodates the number of seats you’d like to include. If you are a current customer and would like to add more seats to your existing Scale or Enterprise plan, please contact Support.</p>
       </li>
-      <li>
+      <li id="faq-enterprise">
         <h4>What is the Enterprise Support SLA?</h4>
         <p>You can customize your SLA as part of an Enterprise plan based on your specific requirements.</p>
       </li>
@@ -614,7 +639,7 @@ const toggle = function() {
     ],
     '#plan-scale .plan__price strong' : [
       299, 
-      '3,049'
+      '3,588'
     ],
     '.plan__price__term--short' : [
       '/mo',

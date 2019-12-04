@@ -8,7 +8,7 @@
     }
   ],
   "description": "The marketing/communications parts of the ",
-  "repo": "https://github.com/ionic-team/ionic-site",
+  "repository": "https://github.com/ionic-team/ionic-site",
   "env": {
     "PIPEDRIVE_TOKEN": {
       "required": true

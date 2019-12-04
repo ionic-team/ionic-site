@@ -98,7 +98,7 @@
       }
 
       &:last-child {
-        padding-right: 0;
+        // padding-right: 0;
       }
     }
 
@@ -212,6 +212,10 @@
         background: #2B4675;
         color: #D1EBFF;
       }
+    }
+
+    td {
+      text-align: center;
     }
   }
 

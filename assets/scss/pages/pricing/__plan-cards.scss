@@ -15,8 +15,9 @@
       "studio studio scale enterprise";
 
     @media (max-width: $screen-md-max) {
+      gap: 8px;
       margin-left: -20px;
-      grid-template-columns: 233px 233px 233px 233px;
+      grid-template-columns: 239px 239px 239px 239px;
     }
 
     @media (max-width: $screen-sm-max) {

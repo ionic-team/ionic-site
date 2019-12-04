@@ -5,66 +5,47 @@
     min-width: 800px;
   }
 
-  thead,
-  tbody {
-    tr td:first-child,
-    tr th:first-child {
-      padding-left: 36px;
-    }
-
-    tr td:last-child,
-    tr th:last-child {
-      padding-right: 36px;
-    }
-  }
-
   thead th,
   tbody td {
     width: 20%;
   }
 
   thead {
-
     th, td {
       background: #fff;
       border-bottom: 1px solid rgba(#e8ebf1, 0.6);
-      padding-top: 32px;
-      padding-bottom: 30px;
       vertical-align: bottom;
+      padding: 32px 44px 30px;
     }
 
-    th {
-      text-align: center;
-
-      h2 {
-        margin-bottom: 3px;
-      }
+    td {
+      padding-bottom: 6px;
+      padding-left: 0;
     }
 
-
-    .eyebrow {
-      font-size: 10px;
-      color: #94a0b7;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-      margin-bottom: 4px;
-      display: inline-block;
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: -0.01em;
+    h3,
+    h4 {
       color: #020814;
+    }
+
+    h3 {
+      font-size: 32px;
+      line-height: 44px;
+      letter-spacing: -0.01em;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 33px;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
     }
 
     .price {
       font-weight: 600;
       font-size: 12px;
       line-height: 20px;
-      color: #5B708B;
+      color: #1A232F;
 
       strong {
         font-size: 16px;
@@ -73,7 +54,12 @@
     }
 
     .btn {
-      margin-top: 8px;
+      padding: 6px 10px 3px;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 7px;
     }
 
     .btn--primary {
@@ -105,11 +91,19 @@
   tbody {
     th,
     td {
-      padding-top: 14px;
-      padding-bottom: 14px;
-      padding-left: 16px;
-      padding-right: 16px;
+      padding: 12px 15px;
 
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    tr:first-child  td {
+      padding-top: 40px;
     }
 
     .pill {
@@ -122,67 +116,43 @@
       }
     }
 
-    tr.combined {
-      th, td {
-        padding-top: 45px;
-        padding-bottom: 22px;
-      }
-      th {
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 700;
-        color: #333;
-      }
-    }
-
     th {
       font-weight: 400;
       vertical-align: middle;
       border: 0;
+      color: #5B708B;
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      font-family: $font-family-inter;
 
-      &[colspan="4"] span {
-        display: inline-block;
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 600;
-        color: #020814;;
-        border-top: none;
-        padding-top: 30px;
-        padding-bottom: 8px;
-      }
-
-      &:not([colspan="4"]) {
-        font-family: $font-family-inter;
-        color: #4E5B6A;
+      small {
+        font-size: 14px;
+        line-height: 20px;
+        margin-left: 16px;
       }
 
       strong {
-        font-size: 14px;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: -0.02em;
         font-weight: 600;
         display: block;
-        color: #565c67;
+        color: #1A232F;
+        margin-top: 40px;
 
-        b {
-          font-weight: 600;
-          color: #171a20;
-        }
-
-        b a {
+        a {
           transition: border 0.3s;
           display: inline-block;
           color: #171a20;
           border-bottom: 1px solid rgba(#171a20, 0.2);
           line-height: 1;
-        }
 
-        b a:hover {
-          border-bottom: 1px solid rgba(#171a20, 0.7);
+          &:hover {
+            border-bottom: 1px solid rgba(#171a20, 0.7);
+          }
         }
-      }
-
-      a {
-        display: block;
-        font-weight: 600;
       }
 
       span {
@@ -197,50 +167,22 @@
       background: #fff;
     }
 
-    .stripe {
-      td,
-      th {
-        background: #f8f9fb;
-      }
-    }
-
-    .small {
-      td,
-      th {
-        border-bottom: 1px solid #E9EDF3;
-        padding-top: 6px;
-        padding-bottom: 6px;
-      }
-
-      th:first-child {
-        color: #73849A;
-        position: relative;
-      }
-
-      .check:before {
-        font-size: 12px;
-      }
-    }
-
     td {
       vertical-align: middle;
       text-align: center;
-      font-weight: 400;
+      font-weight: 500;
       border: 0;
-      font-size: 13px;
-      color: #4E5B6A;
+      font-size: 16px;
+      line-height: 22px;
+      color: #1A232F;
+      letter-spacing: -0.02em;
       font-family: $font-family-inter;
-    }
-
-    .dash:before {
-      content: '\2014';
-      color: #c3ccdb;
     }
 
     .check:before {
       font-family: 'Ionicons';
       content: "\f2bc";
-      color: #00d287;
+      color: #1A232F;
       font-size: 16px;
       line-height: 1em;
     }
@@ -249,39 +191,27 @@
       padding-top: 36px;
       padding-bottom: 36px;
     }
-
-    .btn {
-      width: 100%;
-    }
-
-    .btn.sm {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-    }
-
-    .btn.dark {
-      background-color: #213049;
-      color: #CDDFFF;
-
-      &:hover {
-        background-color: lighten(#213049, 5%);
-      }
-    }
   }
 
-  .btn-secondary {
-    background-color: #e1efff;
-    color: #3880ff;
-    box-shadow: none;
+  tfoot {
+    .btn {
+      padding: 11px 13px 8px;
+      font-size: 14px;
+      line-height: 19px;
+      border-radius: 8px;
+      letter-spacing: 0.08em;
+      border: 1px solid #3880FF;
+      box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
 
-    &:hover {
-      background-color: #eaf3fd;
-    }
+      &.white {
+        border-color: #DEE3EA;
+      }
 
-    &:active,
-    &:active:focus,
-    &:active:hover {
-      background-color: #d8eafe;
+      &.dark {
+        border-color: #3E5A8D;
+        background: #2B4675;
+        color: #D1EBFF;
+      }
     }
   }
 
@@ -339,100 +269,115 @@
     }
   }
 
-  @media (max-width: 830px) {
-    thead,
-    tbody {
-      tr td:first-child,
-      tr th:first-child {
-        padding-left: 16px;
-        // position: absolute;
-        // left: 0;
-      }
-
-      tr td:last-child,
-      tr th:last-child {
-        padding-right: 16px;
+  @media (max-width: $screen-sm-max) {
+    table,
+    .table {
+      min-width: 100%;
+    }
+  
+    thead th,
+    tbody td {
+      width: auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    thead {
+      td {
+        padding-right: 48px;
       }
     }
 
-    .btn.sm {
-      font-size: 12px;
+    tbody th {
+      width: 128px;
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    tbody th:first-child {
+      width: 166px;
+      word-wrap: break-word;
+      padding-left: 4px;
+    }
+  }
+
+  @media (max-width: 690px) {
+    .btn {
+      margin-right: 2px;
+      margin-left: 2px;
     }
 
+    .table-wrap {
+      position: relative;
+      width:100%;
+      z-index: 1;
+      margin: auto;
+      overflow: auto;
+      height: 90vh;
+    }
 
     thead {
       th,
       td {
         padding-top: 24px;
         padding-bottom: 18px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+      }
+
+      th {
+        background: #fbfbfb;
       }
     }
-    tbody th[colspan="4"] span {
-      padding-top: 8px;
-      padding-bottom: 0;
-    }
 
-    .box,
-    .table-wrap,
-    table,
-    .table {
-      overflow: hidden;
+    table {
+      width: 100%;
+      min-width: 690px;
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 0;
     }
-    // min-width: 800px;
 
     thead {
-      position: relative;
-      display: block; /*seperates the header from the body allowing it to be positioned*/
-      width: 800px;
-      overflow: visible;
-
       td,
       th {
         height: 118px;
         padding-left: 16px;
         padding-right: 16px;
       }
-
-      td {/*first cell in the header*/
-        position: relative;
-        display: block; /*seperates the first cell in the header from the header*/
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-    }
-
-    tbody {
-      height: calc(100vh - 100px - 118px);
-      position: relative;
-      display: block; /*seperates the tbody from the header*/
-      width: calc(100vw);
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    thead tr,
-    tbody tr {
-      display: flex;
     }
 
     thead th,
     tbody td {
-      flex: 0 0 204px;
+      width: 128px;
+    }
+
+    tbody td {
+      border: 1px solid #f7f7f7;
+      border-left: none;
+      border-top: none;
     }
 
     thead td,
-    // tbody th:not([colspan="5"]) {
-    tbody th {
-      flex: 0 0 120px;
+    tbody th,
+    tfoot th {
+      width: 166px;
+      padding-right: 16px;
+      word-wrap: break-word;
       border-right: 1px solid rgba(232, 235, 241, 0.6);
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 2;
     }
 
-    tbody th[colspan="4"] span,
-    tbody th strong,
-    tbody tr.combined th{
-      font-size: 13px;
-      line-height: 18px;
+    thead td:first-child,
+    tfoot th:first-child {
+      z-index: 5;
+      width: 166px;
+      background: white;
     }
 
     tbody tr.combined {
@@ -442,14 +387,20 @@
       }
     }
 
-    tbody tr th {  /*the first cell in each tr*/
-      position: relative;
-      display: block; /*seperates the first column from the tbody*/
-    }
-
     tbody tr:last-child th {
       height: 110px;
     }
-  }
 
+    tfoot,
+    tfoot th,
+    tfoot td {
+      position: -webkit-sticky;
+      position: sticky;
+      bottom: 0;
+      z-index:4;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      background: #fbfbfb;
+    }
+  }
 }

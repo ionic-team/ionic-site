@@ -177,6 +177,10 @@
       color: #1A232F;
       letter-spacing: -0.02em;
       font-family: $font-family-inter;
+
+      small {
+        font-weight: 400;
+      }
     }
 
     .check:before {
@@ -185,11 +189,6 @@
       color: #1A232F;
       font-size: 16px;
       line-height: 1em;
-    }
-
-    tr:last-child td {
-      padding-top: 36px;
-      padding-bottom: 36px;
     }
   }
 
@@ -216,6 +215,8 @@
 
     td {
       text-align: center;
+      padding-top: 36px;
+      padding-bottom: 36px;
     }
   }
 

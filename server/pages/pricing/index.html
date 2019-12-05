@@ -29,16 +29,22 @@
 <main>
   <div class="container">
     <div class="toggle" id="pricing-toggle">
-      <span class="active">Monthly</span>
-      <span>Yearly (15% off)</span>
+      <span>Monthly</span>
+      <span class="active">Yearly (15% off)</span>
     </div>
 
-    <div class="plans">
+    <div id="plans" class="plans annually-active">
       <div id="plan-studio" class="plan__card plan__card--aside">
         <h3>Just Studio</h3>
         <span class="plan__price">
-          <sup>$</sup><strong>29</strong>
-          <span class="plan__price__term plan__price__term--short">/mo</span>
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>29</strong><small>/mo</small>
+            <span class="plan__price__term">&nbsp;</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>25</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
         </span>
         <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=studio-individual&source=framework-{{id}}">Get a License</a>
         <ul class="plan__feature__list">
@@ -49,8 +55,14 @@
       <div id="plan-starter" class="plan__card">
         <h3>Launch</h3>
         <span class="plan__price">
-          <sup>$</sup><strong>49</strong>
-          <span class="plan__price__term plan__price__term--full">Per month</span>
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>49</strong>
+            <span class="plan__price__term">Per Month</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>42</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
         </span>
         <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}">Get started</a>
         <div class="plan__feature__divider"></div>
@@ -67,8 +79,14 @@
         <div class="plan__note">Best all-in-one package value</div>
         <h3>Growth</h3>
         <span class="plan__price">
-          <sup>$</sup><strong>120</strong>
-          <span class="plan__price__term plan__price__term--full">Per month</span>
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>120</strong>
+            <span class="plan__price__term">Per Month</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>102</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
         </span>
         <a class="plan__cta btn sm" href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}">Get started</a>
         <div class="plan__feature__divider"></div>
@@ -84,8 +102,8 @@
       <div id="plan-scale" class="plan__card">
         <h3>Scale</h3>
         <span class="plan__price">
-          From <sup>$</sup><strong>299</strong>
-          <span class="plan__price__term plan__price__term--asterisk">Per month*</span>
+          From <sup>$</sup><strong>299</strong><small>/mo</small>
+          <span class="plan__price__term">Billed Annually</span>
         </span>
         <a class="plan__cta btn sm white"
            href="#"
@@ -101,7 +119,6 @@
           <li>Live onboarding</li>
           <li>Product Support</li>
         </ul>
-        <span class="plan__feature__asterisk">* Scale plan sold annually</span>
       </div>
 
       <div id="plan-enterprise" class="plan__card plan__card--dark">
@@ -434,6 +451,20 @@
               <td>Custom limit</td>
             </tr>
             <tr>
+              <th>Additional Seat Cost</th>
+              <td></td>
+              <td>$99/Seat</td>
+              <td>Contact Sales</td>
+              <td>Contact Sales</td>
+            </tr>
+            <tr>
+              <th>Seat Limit</th>
+              <td></td>
+              <td>5</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
               <th>Single sign-on</th>
               <td></td>
               <td></td>
@@ -553,7 +584,7 @@
       </li>
       <li id="faq-seats">
         <h4>How many seats are with each plan?</h4>
-        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. If you are a Growth subscriber and wish to add team members to your account, please contact our Support team.</p>
+        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. Growth subscribers can add additional seats with the Developer Hub.</p>
         <p>Scale and Enterprise plans offer flexible packages that scale to any number of team members. Please contact our Sales team to discuss a custom plan that accommodates the number of seats you’d like to include. If you are a current customer and would like to add more seats to your existing Scale or Enterprise plan, please contact Support.</p>
       </li>
       <li id="faq-enterprise">
@@ -611,45 +642,12 @@
 {% block scripts %}
 <script>
 const toggle = function() {
-  this.isMonthly = true;
-
-  // this animation is janky in FF so just skip it
-  this.animationLength = 
-    navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? 0 : 150;
-
-  this.data = {
-    '#plan-studio .plan__price strong' : [
-      29, 
-      299
-    ],
-    '#plan-starter .plan__price strong' : [
-      49, 
-      499
-    ],
-    '#plan-growth .plan__price strong' : [
-      120, 
-      '1,220'
-    ],
-    '#plan-scale .plan__price strong' : [
-      299, 
-      '3,588'
-    ],
-    '.plan__price__term--short' : [
-      '/mo',
-      '/yr'
-    ],
-    '.plan__price__term--full' : [
-      'Per month',
-      'Per year'
-    ],
-    '.plan__price__term--asterisk' : [
-      'Per month*',
-      'Per year*'
-    ]
-  }
+  this.isMonthly = false;
+  this.$plans = document.getElementById('plans');
 
   this.handleClick = event => {
-    const wasMonthlyClicked = event.target.textContent.toLowerCase() === 'monthly';
+    console.log('gets here')
+    const wasMonthlyClicked = event.target.textContent === 'Monthly';
     if (this.isMonthly === wasMonthlyClicked) return;
     this.isMonthly = wasMonthlyClicked;
     
@@ -658,19 +656,10 @@ const toggle = function() {
     this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 2 : 1})`)
         .classList.remove('active');
 
-    for (let selector in this.data) {
-      document.querySelectorAll(selector).forEach(el => {
-        requestAnimationFrame(() => {
-          el.style['filter'] = 'blur(50px)';
-        });
-        setTimeout(() => {
-          el.textContent = this.data[selector][this.isMonthly ? 0 : 1];
-          requestAnimationFrame(() => {
-            el.style['filter'] = 'blur(0px)';
-          });
-        }, this.animationLength);
-      });
-    }
+    requestAnimationFrame(() => {
+      this.$plans.className = 
+        `plans ${this.isMonthly ? 'monthly' : 'annually'}-active`
+    });
   }
 
   return {

@@ -189,7 +189,6 @@
         color: #414D5C;
         display: block;
         margin-top: -2px;
-        transition: .15s all ease-out;
 
         &--short {
           display: inline;
@@ -208,7 +207,6 @@
         font-size: 40px;
         line-height: 48px;
         letter-spacing: -.03em;
-        transition: .15s all ease-out;
       }
     }
 
@@ -307,7 +305,10 @@
         line-height: 14px;
         letter-spacing: -0.01em;
         color: #92A1B3;
-        margin-top: auto;
+        margin: 20px auto 0;
+        text-align: center;
+        width: 100%;
+        display: block;
       }
     }
 
@@ -325,6 +326,32 @@
       line-height: 16px;
       letter-spacing: -0.02em;
       padding: 9px 1em;
+    }
+  }
+}
+
+.plans {
+  .plan__price__monthly,
+  .plan__price__annually {
+    transition: .3s all ease-out;
+    display: inline-block;
+  }
+
+  .plan__price__monthly {
+    position: absolute;
+  }
+
+  &.monthly-active {
+    .plan__price__annually {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+  }
+
+  &.annually-active {
+    .plan__price__monthly {
+      transform: translateX(20px);
+      opacity: 0;
     }
   }
 }

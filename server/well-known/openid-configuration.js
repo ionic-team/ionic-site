@@ -7,7 +7,7 @@ module.exports = function(req, res) {
     authorization_endpoint: `${site_url}/oauth/authorize`,
     token_endpoint: `${config.API_URL}/oauth/token`,
     userinfo_endpoint: `${config.API_URL}/oauth/userinfo`,
-    jwks_uri: 'https://api.ionicjs.com/oauth/keys',
+    jwks_uri: `${config.API_URL}/oauth/keys`,
     scopes_supported: ['openid', 'profile', 'email'],
     response_types_supported: ['token id_token'],
     subject_types_supported: ['public'],

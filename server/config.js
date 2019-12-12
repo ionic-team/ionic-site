@@ -5,6 +5,9 @@ module.exports = {
   PROD: bool(process.env.PROD) || false,
   WEB_CONCURRENCY: int(process.env.WEB_CONCURRENCY) || 1,
 
+  // Ionic API
+  API_URL: process.env.IONIC_API || 'https://api.ionicjs.com',
+
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,

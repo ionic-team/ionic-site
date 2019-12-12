@@ -172,5 +172,8 @@ router: app => {
 
   // Prismic Preview
   .get('/preview', previewController)
+
+  // Well-Known URIs (RFC 8615)
+  .get('/.well-known/openid-configuration', require('./well-known/openid-configuration'))
 }
 };

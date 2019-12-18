@@ -2,6 +2,7 @@
 {% set id = 'books-native-v-hybrid' %}
 {% set title = 'Hybrid vs. Native Cross Platform App Development - Free Ionic eBook' %}
 {% set meta_description = "Learn when and why to choose hybrid apps over native. Many app dev leaders recognize that they now have a choice when it comes to how they build apps." %}
+{% set meta_canonical = "https://ionicframework.com/books/hybrid-vs-native" %}
 
 {% import "../_includes/macros.html" as macros %}
 
@@ -38,41 +39,4 @@
     </div>
   </hgroup>
 </main>
-{% endblock %}
-
-{% block modals %}
-<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="text-center">
-          <h3>Thank you for your interest in our eBook!</h3>
-          <p class="lg">
-            We just need some basic information so we can send the eBook your
-            way.
-          </p>
-        </hgroup>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-window.download = function() {
-  // alert('gets here');
-}
-</script>
 {% endblock %}

@@ -46,10 +46,8 @@ router: app => {
   .get('/appflow', (_, res) => res.render('products/appflow'))
   .get('/auth-connect', (_, res) => res.render('auth-connect'))
 
-  .get('/books/hybrid-vs-native', (_, res) =>
-    res.render('books/hybrid-vs-native'))
-  .get('/books/hybrid-vs-native/preview', (_, res) =>
-    res.render('books/hybrid-vs-native-preview'))
+  .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
+  .get('/books/hybrid-vs-native/preview', (_, res) => res.render('books/hybrid-vs-native-preview'))
 
   .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
   .get('/community', (_, res) => res.render('community'))

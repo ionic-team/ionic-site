@@ -42,7 +42,11 @@
 
 <meta name="author" content="Ionic">
 <meta name="keywords" content="{% if meta_keywords %}{{ meta_keywords }}{% else %}html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs{% endif %}">
-<link rel="canonical" href="https://ionicframework.com{{requrl}}">
+{% if meta_canonical %}
+  <link rel="canonical" href="{{meta_canonical}}">
+{% else %}
+  <link rel="canonical" href="https://ionicframework.com{{requrl}}">
+{% endif %}
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">

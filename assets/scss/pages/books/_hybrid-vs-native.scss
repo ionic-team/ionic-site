@@ -1,105 +1,105 @@
 #page-books-native-v-hybrid {
-	background: #e1e6ef;
-	background: linear-gradient(to right, #f2f0ee, #f2f0ee 50%, #f8f9fb 50%, #f8f9fb);
-	position: relative;
-	height: 100%;
+  background: #e1e6ef;
+  background: linear-gradient(to right, #f2f0ee, #f2f0ee 50%, #f8f9fb 50%, #f8f9fb);
+  position: relative;
+  height: 100%;
 
-	main {
-		display: flex;
-		position: relative;
-		align-items: center;
-		height: 100%;
+  main {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 100%;
 
-	}
+  }
 
-	aside,
-	hgroup {
-		flex: 0 0 50%;
-	}
+  aside,
+  hgroup {
+    flex: 0 0 50%;
+  }
 
-	aside {
-		position: relative;
-		background: url("/img/books/web-ebook-cover.png") no-repeat calc(100% - 1px) 50%;
-		background-size: contain;
-		height: 100%;
-		margin-top:160px;
-	}
+  aside {
+    position: relative;
+    background: url("/img/books/web-ebook-cover.png") no-repeat calc(100% - 1px) 50%;
+    background-size: contain;
+    height: 100%;
+    margin-top:160px;
+  }
 
-	hgroup {
-		color: #565d67;
-		padding-left: 10%;
+  hgroup {
+    color: #565d67;
+    padding-left: 10%;
 
-		h1 {
-			color: #0f1622;
-			font-weight: 700;
-			font-size: 44px;
-			line-height: 1.4em
-		}
+    h1 {
+      color: #0f1622;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.4em
+    }
 
-		p {
-			font-size: 18px;
-			line-height: 1.7em;
-			margin: 38px 0;
-		}
+    p {
+      font-size: 18px;
+      line-height: 1.7em;
+      margin: 38px 0;
+    }
 
-		.btn {
-			font-weight: 600;
-		}
-	}
+    .btn {
+      font-weight: 600;
+    }
+  }
 
-	.learn-more {
-		margin-top: 2em;
-		display: block;
-		font-weight: 600;
-	}
+  .learn-more {
+    margin-top: 2em;
+    display: block;
+    font-weight: 600;
+  }
 
-	.modal {
-		hgroup {
-			padding-right: 10%;
-		}
+  .modal {
+    hgroup {
+      padding-right: 10%;
+    }
 
-		h3 {
-			color: $blacker;
-		}
-	}
+    h3 {
+      color: $blacker;
+    }
+  }
 
-	@media (max-width: $screen-sm-max)  {
-	background: #e1e6ef;
+  @media (max-width: $screen-sm-max)  {
+  background: #e1e6ef;
 
-	&::before {
-		display: none;
-	}
+  &::before {
+    display: none;
+  }
 
-		main {
-			flex-direction: column;
-			width: 100%;
+    main {
+      flex-direction: column;
+      width: 100%;
 
-			aside {
-				height: 400px;
-				width: 100%;
-				background-position: calc(50% + 33px) 50%;
-				margin-top: 64px;
-			}
-	
-			hgroup {
-				padding: 20px 20px 48px;
-				position: relative;
-				text-align: center;
-	
-				&::before {
-					background: linear-gradient(45deg, #111c2c, #122541);
-					content: '';
-					position: absolute;
-					top: 0;
-					right: -15px;
-					left: -15px;
-					bottom: 0;
-				}
-	
-				> * {
-					position: relative;
-				}
-			}
-		}
-	}
+      aside {
+        height: 400px;
+        width: 100%;
+        background-position: calc(50% + 33px) 50%;
+        margin-top: 64px;
+      }
+  
+      hgroup {
+        padding: 20px 20px 48px;
+        position: relative;
+        text-align: center;
+  
+        &::before {
+          background: linear-gradient(45deg, #111c2c, #122541);
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -15px;
+          left: -15px;
+          bottom: 0;
+        }
+  
+        > * {
+          position: relative;
+        }
+      }
+    }
+  }
 }

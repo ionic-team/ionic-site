@@ -1,15 +1,12 @@
 #page-books-native-v-hybrid {
-  background: #e1e6ef;
-  background: linear-gradient(to right, #f2f0ee, #f2f0ee 50%, #f8f9fb 50%, #f8f9fb);
   position: relative;
   height: 100%;
 
   main {
     display: flex;
     position: relative;
-    align-items: center;
+    align-items: stretch;
     height: 100%;
-
   }
 
   aside,
@@ -18,16 +15,36 @@
   }
 
   aside {
+    background: #f2f0ee;
     position: relative;
-    background: url("/img/books/web-ebook-cover.png") no-repeat calc(100% - 1px) 50%;
-    background-size: contain;
     height: 100%;
-    margin-top:160px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .graphic {
+    background: url("/img/books/web-ebook-cover.png") no-repeat calc(100% - 1px) calc(50%);
+    background-size: contain;
+    max-width: 500px;
+    max-height: 800px;
+    margin-top: 10vh;
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .content-container {
+    max-width: 500px;
   }
 
   hgroup {
+    background: #f8f9fb;
     color: #565d67;
     padding-left: 10%;
+    max-height: 100%;
+    overflow: auto;
+    padding-bottom: 32px;
+    padding-right: 24px;
+    padding-top: 64px;
 
     h1 {
       color: #0f1622;
@@ -44,6 +61,16 @@
 
     .btn {
       font-weight: 600;
+    }
+  }
+
+  .hubspot-override .hbspt-form {
+    max-width: calc(100% - 24px);
+
+    input.hs-input[type="text"],
+    input.hs-input[type="email"],
+    input.hs-input[type="tel"] {
+      width: calc(100% - 24px);
     }
   }
 
@@ -64,28 +91,41 @@
   }
 
   @media (max-width: $screen-sm-max)  {
-  background: #e1e6ef;
+    background: #e1e6ef;
+    padding-top: 0;
+    margin-top: 0;
 
-  &::before {
-    display: none;
-  }
+    &::before {
+      display: none;
+    }
 
     main {
       flex-direction: column;
       width: 100%;
+      min-height: 100%;
+      overflow: scroll;
 
       aside {
-        height: 400px;
         width: 100%;
-        background-position: calc(50% + 33px) 50%;
-        margin-top: 64px;
+        height: 50vh;
+        max-height: 400px;
+        justify-content: center;
+        padding-left: 68px;
+
+        .graphic {
+          background-position: 50% 50%;
+          margin-top: 16px;
+        }
       }
-  
+
       hgroup {
         padding: 20px 20px 48px;
         position: relative;
         text-align: center;
-  
+        color: $whiteish;
+        overflow: visible;
+        max-height: none;
+
         &::before {
           background: linear-gradient(45deg, #111c2c, #122541);
           content: '';
@@ -95,9 +135,25 @@
           left: -15px;
           bottom: 0;
         }
-  
-        > * {
+
+        .content-container {
+          margin-left: auto;
+          margin-right: auto;
           position: relative;
+        }
+
+        h1 {
+          color: white;
+        }
+      }
+
+      .hubspot-override .hbspt-form {
+        label {
+          color: white;
+        }
+
+        .hs-button {
+          max-width: calc(100% - 24px);
         }
       }
     }

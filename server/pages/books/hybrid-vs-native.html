@@ -11,22 +11,32 @@
 {% endblock %}
 
 {% block main %}
-<main class="container">
-	<aside></aside>
-	<hgroup>
-		<h1>The definitive guide to hybrid vs. native app development.</h1>
-		<p>
-			With popular brands like MarketWatch, Nationwide, and Sworkit choosing
-			hybrid over native, many app dev leaders recognize that they now have a
-			choice when it comes to how they build apps. This guidebook explains the
-			essential elements of hybrid development, and what it could mean for your
-			next project.
-		</p>
-		<a class="btn yernge"
-       data-toggle="modal"
-       data-target="#contactForm">Send me the free eBook</a>
-    <a class="learn-more" href="/">Learn more about Ionic</a>
-	</hgroup>
+<main>
+  <aside><div class="graphic"></div></aside>
+  <hgroup>
+    <div class="content-container">
+      <h1>The definitive guide to hybrid vs. native app development.</h1>
+      <p>
+        With popular brands like MarketWatch, Nationwide, and Sworkit choosing
+        hybrid over native, many app dev leaders recognize that they now have a
+        choice when it comes to how they build apps. This guidebook explains the
+        essential elements of hybrid development, and what it could mean for your
+        next project.
+      </p>
+      <div class="hubspot-override">
+        <script charset="utf-8"
+                type="text/javascript"
+                src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
+          });
+        </script>
+      </div>
+      <a class="learn-more" href="/">Learn more about Ionic</a>
+    </div>
+  </hgroup>
 </main>
 {% endblock %}
 
@@ -53,15 +63,6 @@
             way.
           </p>
         </hgroup>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="https://js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: '3776657',
-            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
-          });
-        </script>
       </div>
     </div>
   </div>
@@ -71,7 +72,7 @@
 {% block scripts %}
 <script>
 window.download = function() {
-	// alert('gets here');
+  // alert('gets here');
 }
 </script>
 {% endblock %}

@@ -20,12 +20,13 @@
     height: 100%;
     display: flex;
     justify-content: flex-end;
+    padding-left: 32px;
   }
 
   .graphic {
     background: url("/img/books/web-ebook-cover.png") no-repeat calc(100% - 1px) calc(50%);
     background-size: contain;
-    max-width: 500px;
+    max-width: 600px;
     max-height: 800px;
     margin-top: 10vh;
     flex: 1;

@@ -46,6 +46,7 @@ router: app => {
   .get('/appflow', (_, res) => res.render('products/appflow'))
   .get('/auth-connect', (_, res) => res.render('auth-connect'))
 
+  .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.render('books/evaluating-ionic-for-enterprise'))
   .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
   .get('/books/hybrid-vs-native/preview', (_, res) => res.render('books/hybrid-vs-native-preview'))
 

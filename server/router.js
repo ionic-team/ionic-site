@@ -61,7 +61,7 @@ router: app => {
   .get('/developers', (_, res) => res.render('developers'))
 
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
-  .get('/enterprise/customers', (_, res) => res.render('enterprise/customers'))
+  .get('/customers', (_, res) => res.render('enterprise/customers'))
   .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
   .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
 

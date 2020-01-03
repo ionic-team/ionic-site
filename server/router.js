@@ -100,6 +100,7 @@ router: app => {
 
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/login', (_, res) => res.render('login'))
+  .get('/logout', (_, res) => res.render('logout'))
   .get('/offline-storage', (_, res) => res.render('offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))

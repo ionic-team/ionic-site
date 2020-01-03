@@ -1,0 +1,36 @@
+{% extends '_layouts/base.html' %}
+{% set title = "Ionic - Logout" %}
+{% set id = "logout" %}
+{% set pre_footer = false %}
+{% set header_style = 'transparent light' %}
+{% set stickyNav = false %}
+
+{% block main %}
+{# this page intentionally left blank #}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function() {
+    // handle logout
+    ajaxPost("/oauth/logout", "{}", function(res, xhr) {
+      window.location = "/login";
+    });
+
+    function ajaxPost(url, data, callback, x) {
+      try {
+        x = new (this.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
+        x.open("POST", url, 1);
+        x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        x.setRequestHeader("Content-Type", "application/json");
+        x.onreadystatechange = function() {
+          x.readyState > 3 && callback && callback(x.responseText, x);
+        };
+        x.send(data);
+      } catch (e) {
+        window.console && console.log(e);
+      }
+    }
+  })();
+</script>
+{% endblock %}

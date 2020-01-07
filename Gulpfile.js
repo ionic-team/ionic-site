@@ -18,7 +18,6 @@ const runSequence  = require('run-sequence');
 const sass         = require('gulp-sass');
 const server       = require('gulp-develop-server');
 const shell        = require('gulp-shell');
-const sitemappings = require('./scripts/sitemappings.json');
 const uglify       = require('gulp-uglify');
 
 var bustingCache = false;
@@ -42,7 +41,7 @@ var closureStart =
 var closureEnd = '\n})();\n';
 var version = pkg.version;
 
-function bustCache() {
+const bustCache = async () => {
 
   function cacheBust(path, fileName) {
     return gulp.src(path + fileName)
@@ -90,7 +89,7 @@ function justReload(done) {
   // });
 }
 
-gulp.task('styles:others', function() {
+const stylesOthers = () => {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'assets/scss/**/*.scss',
@@ -110,9 +109,9 @@ gulp.task('styles:others', function() {
     .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('dist/css/'))
     .pipe($.size({title: 'styles'}));
-});
+};
 
-gulp.task('styles:v2', function() {
+const stylesMain = () => {
   // For best performance, don't add Sass partials to `gulp.src`
   return  gulp.src(
     ['assets/scss/styles.scss'].concat(lib.css)
@@ -131,10 +130,10 @@ gulp.task('styles:v2', function() {
     .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('dist/css/'))
     .pipe($.size({title: 'styles'}));
-});
+};
 
 // compress and concat JS
-gulp.task('js', function() {
+const js = () => {
   return gulp.src(lib.js.concat(['assets/js/**/*.js']))
     .pipe($.sourcemaps.init())
     .pipe(concat('ionic-site.js', {newLine: ';'}))
@@ -146,11 +145,10 @@ gulp.task('js', function() {
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('dist/js'))
     .pipe($.size({title: 'js'}));
-});
+};
 
 
-
-gulp.task('stencil', function(done) {
+const stencil = (done) => {
   return cp.spawn('node_modules/.bin/stencil',
     ['build', process.env.PROD ? '' : '--dev'],
     {
@@ -168,105 +166,78 @@ gulp.task('stencil', function(done) {
     console.log(err)
     throw err; 
   });
-});
+};
 
-gulp.task('stencil:clean', function(done) {
+const stencilClean = (done) => {
   return runSequence('stencil', 'js', done);
-})
+};
 
-/**
- * Run Generate linkchecker page
- */
-gulp.task('linkchecker', ['build'],
-  shell.task('_scripts/linkchecker.sh', {verbose: true})
-);
-
-
-gulp.task('server-listen', function() {
+const serverStart = () => {
   return server.listen({'path': './server.js', 'execArgv': ['--inspect']},
   function(error) {
     if (!error) {
       browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
     }
   });
-});
+};
 
-/**
- * Wait for jekyll-build, then launch the Server
- */
-gulp.task('server', ['build'], function() {
-  return runSequence('server-listen');
-});
+// gulp.task('server:server', restartAndReload);
 
-gulp.task('server:server', restartAndReload);
+// gulp.task('server:stylesv2', ['styles:v2'], justReload);
+// gulp.task('server:others', ['styles:others'], justReload);
+// gulp.task('server:stencil', ['stencil'], justReload);
+// gulp.task('server:js', ['js'], justReload);
 
-gulp.task('server:stylesv2', ['styles:v2'], justReload);
-gulp.task('server:others', ['styles:others'], justReload);
-gulp.task('server:stencil', ['stencil'], justReload);
-gulp.task('server:js', ['js'], justReload);
+// gulp.task('watch.max', ['server'], function() {
+//   gulp.watch(['server.js','server/**/*'], ['server:server']);
+//   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
+//     ['server:stylesv2']);
+//   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
+//     '!assets/scss/**/_*.scss'], ['server:others']);
+//   gulp.watch(['assets/js/**/*.js'], ['server:js']);
+// });
 
-gulp.task('watch.max', ['server'], function() {
-  gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-    ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
-    '!assets/scss/**/_*.scss'], ['server:others']);
-  gulp.watch(['assets/js/**/*.js'], ['server:js']);
-});
+// gulp.task('watch', ['server'], function() {
+//   gulp.watch(['server.js','server/**/*'], ['server:server']);
+//   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
+//     ['server:stylesv2']);
+//   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
+//   gulp.watch(['assets/js/**/*.js'], ['server:js']);
+//   gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], 
+//     ['server:stencil']);
+// });
 
-gulp.task('watch', ['server'], function() {
-  gulp.watch(['server.js','server/**/*'], ['server:server']);
-  gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-    ['server:stylesv2']);
-  gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
-  gulp.watch(['assets/js/**/*.js'], ['server:js']);
-  gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], 
-    ['server:stencil']);
-});
-
-gulp.task('sitemap', function () {
-  gulp.src([
-    'server/pages/**/*.html',
-    '!server/pages/_*/**/*'
-  ], {
-    read: false
-  })
-  .pipe($.sitemap({
-    siteUrl: 'https://www.ionicframework.com',
-     getLoc: function(siteUrl, loc, entry) {
-      return loc.replace(/\.\w+$/, '').replace(/\/$/, '').replace(/(.*)\/index$/, '$1');
-    },
-    mappings: sitemappings,
-    // verbose: true,
-    lastmod: false
-  }))
-  .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('build', ['build-prep'], function(done) {
-  // runSequence('jekyll-build', function() {
-    done();
-  // })
-});
-
-gulp.task('build.clean', ['build-prep'], function(done) {
-  // runSequence('jekyll-build.clean', function() {
-    done();
-  // });
-});
-
-gulp.task('slug.prep', function () {
+const slugPrep = () => {
   return del(['assets']);
-});
+};
 
-gulp.task(
-  'build-prep',
-  [
-    'stencil:clean',
-    'styles:v2',
-    'styles:others',
-  ],
+const build = gulp.series(
+  gulp.parallel(
+    gulp.series(
+      stencil,
+      js
+    ),
+    stylesMain,
+    stylesOthers
+  ),
   bustCache
-);
+)
 
-gulp.task('default', ['build']);
+const run = gulp.series(
+  build, 
+  serverStart
+)
+
+// gulp.task('default', ['build']);
+
+module.exports = {
+  build,
+  bustCache,
+  js,
+  run,
+  serverStart,
+  slugPrep,
+  stencil,
+  stylesMain,
+  stylesOthers
+};

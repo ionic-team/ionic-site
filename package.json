@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp build",
     "dev": "gulp watch",
+    "start": "gulp watch",
     "heroku-postbuild": "gulp build && gulp slugPrep",
     "stencil-build": "stencil build",
     "stencil-dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",

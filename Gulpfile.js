@@ -10,18 +10,17 @@ const es           = require('event-stream');
 const footer       = require('gulp-footer');
 const header       = require('gulp-header');
 const lib          = require('./assets/3rd-party-libs.json');
+const nodemon      = require('gulp-nodemon');
 const path         = require('path');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
 const runSequence  = require('run-sequence');
 const sass         = require('gulp-sass');
-const server       = require('gulp-develop-server');
 const shell        = require('gulp-shell');
 const uglify       = require('gulp-uglify');
 
 var bustingCache = false;
-
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -32,6 +31,7 @@ var AUTOPREFIXER_BROWSERS = [
   'ios >= 9',
   'android >= 4.4'
 ];
+
 var closureStart =
   '/*!\n' +
   ' * Ionic \n' +
@@ -40,6 +40,7 @@ var closureStart =
   '(function() {\n';
 var closureEnd = '\n})();\n';
 var version = pkg.version;
+let server;
 
 const bustCache = async () => {
 
@@ -72,12 +73,11 @@ function bustCacheAndReload(done) {
 }
 
 function restartAndReload(done) {
-  server.restart(function(err) {
-    if (!err) {
-      done();
-      browserSync.reload();
-    }
-  });
+  server.emit('restart');
+  if (typeof done === 'function') {
+    done();
+  }
+  browserSync.reload();
 }
 
 function justReload(done) {
@@ -159,9 +159,10 @@ const stencil = (done) => {
       stdio: 'inherit'
     }
   )
-  .on('close', async () => {
 
+  .on('close', async () => {
     done();
+
   }).on('error', function(err) {
     console.log(err)
     throw err; 
@@ -172,40 +173,24 @@ const stencilClean = (done) => {
   return runSequence('stencil', 'js', done);
 };
 
-const serverStart = () => {
-  return server.listen({'path': './server.js', 'execArgv': ['--inspect']},
-  function(error) {
-    if (!error) {
-      browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
+const serverStart = (done) => {
+  server = nodemon({ 
+    script: 'server.js',
+    watch: 'server',
+  }).on('start', () => {
+    if (browserSync.active) {
+      setTimeout( browserSync.reload, 3050);
+    } else {
+      // giving the server 2 seconds to start
+      setTimeout(done, 2000);
     }
+  })
+  .on('crash', function() {
+    console.error('Application has crashed!\n')
+     server.emit('restart', 10)  // restart the server in 10 seconds
   });
 };
 
-// gulp.task('server:server', restartAndReload);
-
-// gulp.task('server:stylesv2', ['styles:v2'], justReload);
-// gulp.task('server:others', ['styles:others'], justReload);
-// gulp.task('server:stencil', ['stencil'], justReload);
-// gulp.task('server:js', ['js'], justReload);
-
-// gulp.task('watch.max', ['server'], function() {
-//   gulp.watch(['server.js','server/**/*'], ['server:server']);
-//   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-//     ['server:stylesv2']);
-//   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss',
-//     '!assets/scss/**/_*.scss'], ['server:others']);
-//   gulp.watch(['assets/js/**/*.js'], ['server:js']);
-// });
-
-// gulp.task('watch', ['server'], function() {
-//   gulp.watch(['server.js','server/**/*'], ['server:server']);
-//   gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'],
-//     ['server:stylesv2']);
-//   gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss'], ['server:others']);
-//   gulp.watch(['assets/js/**/*.js'], ['server:js']);
-//   gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], 
-//     ['server:stencil']);
-// });
 
 const slugPrep = () => {
   return del(['assets']);
@@ -223,10 +208,32 @@ const build = gulp.series(
   bustCache
 )
 
-const run = gulp.series(
+const run = gulp.parallel(
   build, 
   serverStart
 )
+
+const watchServer = async () => gulp.watch(['server.js','server/**/*'], restartAndReload);
+const watchStylesMain = async () => gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], gulp.series(stylesMain, justReload))
+const watchStylesOthers = async () => gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', '!assets/scss/**/_*.scss'], gulp.series(stylesOthers, justReload))
+const watchJS = async () => gulp.watch(['assets/js/**/*.js'], gulp.series(js, justReload));
+const watchStencil = async () => gulp.watch(['assets/stencil/**/*.{ts,tsx,scss}', '!assets/stencil/components.d.ts'], gulp.series(stencil, justReload));
+
+const watch = gulp.series(
+  run,
+  // serverStart,
+  gulp.parallel(
+    watchServer,
+    watchStylesMain,
+    watchStylesOthers,
+    watchJS, 
+    watchStencil
+  ),
+  async () => {
+    return browserSync.init({'proxy': 'http://localhost:3000', 'port': 3003})
+  }
+);
+
 
 // gulp.task('default', ['build']);
 
@@ -239,5 +246,6 @@ module.exports = {
   slugPrep,
   stencil,
   stylesMain,
-  stylesOthers
+  stylesOthers,
+  watch,
 };

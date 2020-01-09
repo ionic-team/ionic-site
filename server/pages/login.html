@@ -74,7 +74,7 @@
 
             var params = new URLSearchParams(location.search);
             if (!params.has('client_id')) {
-              params.set('response_type', 'id_token token');
+              params.set('response_type', 'token');
               params.set('scope', 'openid profile email');
               params.set('client_id', 'dash');
               params.set('nonce', Math.random().toString(36).substring(2));

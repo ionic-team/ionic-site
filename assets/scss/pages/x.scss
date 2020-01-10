@@ -17,6 +17,7 @@
   strong {
     color: #FFFFFF;
     font-weight: 600;
+    hyphens: auto;
   }
 
   h1 {
@@ -61,6 +62,10 @@
       font-size: 24px;
       line-height: 40px;
     }
+  }
+
+  img {
+    object-fit: contain;
   }
 
   li {
@@ -115,6 +120,16 @@
     img {
       width: calc(100% + 256px);
       margin-left: -128px;
+
+      @media (max-width: 1200px) {
+        width: calc(100% + 128px);
+        margin-left: -64px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        width: calc(100% + 64px);
+        margin-left: -32px;
+      }
     }
   }
 
@@ -168,6 +183,13 @@
     }
 
     li  {
+      padding: 0;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
       strong {
         display: block;
         font-size: 48px;
@@ -187,6 +209,10 @@
       &::after {
         display: none;
       }
+
+      @media (max-width: $screen-sm-max) {
+        flex-direction: column;
+      }
     }
 
     h2 {
@@ -198,10 +224,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 16px;
+
+      @media (max-width: $screen-sm-max) {
+        display: block;
+      }
     }
 
     li {
-      flex: 50%;
       margin: 0;
 
       &::before {
@@ -221,6 +250,19 @@
       overflow: hidden;
       max-height: 296px;
       position: relative;
+
+      @media (max-width: 1280px) {
+        margin: 0 0;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-height: none;
+        padding: 32px 48px 64px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        padding: 8px 16px 32px;
+      }
     }
 
     h5 {
@@ -233,7 +275,11 @@
       width: 555px;
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 725px;
+
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
     }
 
     form {
@@ -246,6 +292,7 @@
 
     .container {
       display: flex;
+      flex-wrap: wrap;
 
       &::before,
       &::after {
@@ -279,6 +326,22 @@
       align-self: center;
       list-style: none;
     }
+
+    @media (max-width: $screen-xs-max) {
+      hgroup {
+        padding: 0 10px 20px 24px;
+      }
+
+      ul {
+        order: -1;
+        flex: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 48px;
+        padding: 0;
+      }
+    }
   }
 
   form {
@@ -298,6 +361,7 @@
       border-radius: 10px;
       height: 56px;
       width: 396px;
+      max-width: 100%;
     }
 
     .hs_submit,
@@ -316,6 +380,35 @@
       font-size: 15px;
       line-height: 21px;
       letter-spacing: 0.08em;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      flex-direction: column;
+      align-items: center;
+
+      .hs_submit,
+      .hs_email {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    section {
+      .container {
+        flex-direction: column-reverse;
+      }
+
+      &#uncompromising,
+      &#create,
+      &#data,
+      &#ide,
+      &#ci {
+        .graphics {
+          margin: 0 auto;
+          width: 80%;
+        }
+      }
     }
   }
 }

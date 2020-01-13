@@ -5,9 +5,6 @@ exports.config = {
   plugins: [
     sass()
   ],
-  copy: [
-    { src: '../../node_modules/ionicons/dist/collection/icon/svg' }
-  ],
   outputTargets: [
     // {
     //   type: 'dist',
@@ -16,6 +13,12 @@ exports.config = {
     {
       type: 'dist',
       dir: 'dist/js/stencil',
+      copy: [
+        { 
+          src: '../../node_modules/ionicons/dist/collection/icon/svg',
+          dest: '../svg'
+        }
+      ],
     },
   ],
   srcDir: 'assets/stencil'

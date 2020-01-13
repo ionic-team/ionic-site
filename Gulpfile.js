@@ -17,20 +17,7 @@ const prefix       = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
 const runSequence  = require('run-sequence');
 const sass         = require('gulp-sass');
-const shell        = require('gulp-shell');
 const uglify       = require('gulp-uglify');
-
-var bustingCache = false;
-
-var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ff >= 45',
-  'chrome >= 54',
-  'safari >= 9',
-  'opera >= 23',
-  'ios >= 9',
-  'android >= 4.4'
-];
 
 var closureStart =
   '/*!\n' +
@@ -101,7 +88,7 @@ const stylesOthers = () => {
       onError: console.error.bind(console, 'Sass error:'),
       includePaths: [path.join(__dirname, 'node_modules')]
     }))
-    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix())
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
@@ -121,7 +108,7 @@ const stylesMain = () => {
       onError: console.error.bind(console, 'Sass error:'),
       includePaths: [path.join(__dirname, 'node_modules')]
     }))
-    .pipe(prefix({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(prefix())
     .pipe(concat('styles.css'))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))

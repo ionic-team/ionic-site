@@ -34,6 +34,39 @@
       letter-spacing: -0.02em;
     }
 
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      margin-left: -24px;
+      margin-right: -24px;
+
+      .col {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .col--full {
+        flex: 0 0 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .col--centered {
+        text-align: center;
+      }
+
+      a {
+        ion-icon {
+          color: #b0dbff;
+        }
+
+        &:hover ion-icon {
+          color: #3880ff;
+        }
+      }
+    }
+
     .form-row {
       display: flex;
       justify-content: center;

@@ -4,7 +4,7 @@ const bp                   = require('body-parser');
 const markdown             = require('./markdown');
 const es                   = require('express-sanitizer');
 
-const { getPrismicAPI, previewController, getPrismic } = require('./prismic');
+const { getPrismicAPI, getSingle, getPrismic, previewController } = require('./prismic');
 
 const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
@@ -150,7 +150,8 @@ router: app => {
 
   .get('/values', (_, res) => { res.render('values'); })
   .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
-  .get('/x', (_, res) => { res.render('x'); })
+  .get('/x', getPrismicAPI, (req, res, next) =>
+    getSingle(req, res, next, 'ionic_x_preview', 'x'))
 
   // press releases
   .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',

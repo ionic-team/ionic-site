@@ -17,7 +17,10 @@
   strong {
     color: #FFFFFF;
     font-weight: 600;
-    hyphens: auto;
+
+    @media (max-width: $screen-sm-max) {
+      hyphens: auto;
+    }
   }
 
   h1 {
@@ -325,6 +328,17 @@
       margin-left: auto;
       align-self: center;
       list-style: none;
+    }
+
+    a::after {
+      background: url('/img/x/ico-forward.svg') no-repeat;
+      height: 13px;
+      width: 8px;
+      content: '';
+      display: inline-block;
+      vertical-align: -1px;
+      margin-left: .4em;
+
     }
 
     @media (max-width: $screen-xs-max) {

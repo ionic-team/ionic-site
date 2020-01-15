@@ -138,6 +138,23 @@ module.exports = {
     });
   },
 
+  getSingle: async (req, res, next, name, template) => {
+    return new Promise(resolve => {
+      return req.prismic.api.getSingle(name)
+        .then(response => {
+          delete req;
+          if (response === undefined) {
+            throw(new Error(`Prisimic page ${name} not found`)); 
+          }
+          res.render(template, response);
+        })
+        .then(resolve)
+        .catch(error => {
+          next(error.message);
+        });
+    });
+  },
+
   getAll: async (key, value, ordering) => {
     let response = await getOne(key, value, 100, ordering);
     const pages = response.total_pages;

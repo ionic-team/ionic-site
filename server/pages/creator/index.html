@@ -26,9 +26,10 @@
 
   <section class="studio-callout">
     <hgroup>
-      <h3>Building enterprise-grade apps?</h3>
-      <p><strong>Ionic X</strong> is a powerful new low-code app builder that helps enterprise teams create stunning mobile apps in minutes. Build your UI. Connect to data. Deploy instantly. Do it all without writing a single line of code.</p>
-      <a class="btn btn-ionic" href="/x" id="creator-studio-callout">See how Ionic X can help you<br>accelerateapp delivery today.</a>
+      {{ PrismicDOM.RichText.asHtml(data.copy) }}
+      <a class="btn btn-ionic" href="{{ data.cta.url }}" id="creator-studio-callout">
+        {{ data.cta_text | safe }}
+      </a>
     </hgroup>
     <img src="/img/creator-studio-graphic.png" alt="Ionic Studio"/>
   </section>
@@ -162,4 +163,6 @@
     </div>
   </div>
 </section>
+
+<pre><code>{{ data | dump(2) }}</code></pre>
 {% endblock %}

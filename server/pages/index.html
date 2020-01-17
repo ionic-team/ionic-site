@@ -9,9 +9,10 @@
 
 {% block main %}
 <div id="ionic-slider">
-  <section id="slide-ionic-react" class="container">
+  <section id="slide-ionic-5" class="container">
     <hgroup>
-      <h4>New design. New animations. Faster apps.</h4>
+      <h4>{% include '_includes/svg/ionic-grey.html' %} Framework 5</h4>
+      <h1>New design. New animations. Faster apps.</h1>
       <ul>
         <li>Refreshed UI components and gestures</li>
         <li>A brand new custom animations API</li>
@@ -21,14 +22,7 @@
         Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
     </hgroup>
     <div class="graphic">
-      <div class="graphic__container">
-        <img src="/img/homepage/graphic-react-app.png" 
-             alt="Ionic React example" 
-             id="ionic-react-app">
-        <img src="/img/homepage/graphic-ionic-react-code.png" 
-             alt="Ionic React code" 
-             id="ionic-react-code">
-      </div>
+
     </div>
   </section>
   {# <section id="slide-ionic-react" class="container">
@@ -175,20 +169,7 @@
 </div>
 
 <main>
-  {# <div class="options" id="a-b-test">
-    <div class="option option--a"> #}
-      {# {% include '_includes/promos/card-offline-storage.html' %} #}
-    {# </div>
-    <div class="option option--b">
-      {% include '_includes/promos/card-auth-connect.html' %}
-    </div>
-    <div class="option option--c">
-      {% include '_includes/promos/card-identity-vault.html' %}
-    </div>
-    <div class="option option--d"> #}
-      {% include '_includes/promos/hybrid-vs-native.html' %}
-    {# </div>
-  </div> #}
+  {% include '_includes/promos/hybrid-vs-native.html' %}
 
   <section id="build-with-web" class="container">
     <hgroup>
@@ -317,14 +298,50 @@
     </div>
   </section>
 
+  <section id="components" class="left">
+    <div class="container content">
+      <h4>Native Power</h4>
+      <h2>Access core native device functionality.</h2>
+      <p>
+        Ionic makes it easy to access native device features with just a little 
+        bit of JavaScript. Choose from a rich library of over 120 native device 
+        plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
+        into the full native SDK when you need it. There’s no limit to what you 
+        can build.
+      </p>
+      <a href="/docs/native/" class="cta">Explore Ionic Native</a>
+    </div>
+    <div class="graphics">
+      
+    </div>
+  </section>
+
+  <section id="components" class="right">
+    <div class="container content">
+      <h4>A global community</h4>
+      <h2>Built for developers. Trusted by enterprise.</h2>
+      <p>
+        More than 5 Million developers in over 200 countries around the world 
+        are using Ionic to power their app development. Join the thousands of 
+        global meetups, forums, and events that makes building with Ionic so 
+        much fun.
+      </p>
+      <a href="/community" class="cta">Community Hub</a>
+      <a href="/customers" class="cta">Customers</a>
+    </div>
+    <div class="graphics">
+      
+    </div>
+  </section>
+
   <section id="integrations" class="center">
     <div class="content container">
-      <h4>Integrations</h4>
-      <h2>Yes, we integrate with that</h2>
+      <h4>Premier integrations</h4>
+      <h2>Yes, you can integrate with that.</h2>
       <p class="lg">
-        From community plugins to premium supported integrations, Ionic has you
-        covered. Unlock unmatched native power, speed, and core functionality
-        across all your apps.
+        From community plugins to premium supported integrations, Ionic has you 
+        covered. Power-up your app workflow with integrations into your favorite 
+        stacks.
       </p>
       <a href="/integrations" class="cta">See Integrations</a>
     </div>
@@ -346,73 +363,70 @@
     </ul>
   </section>
 
-  <section id="good-company" class="container center">
-    <hgroup>
-      <h3>You’re in good company</h3>
-      <p class="lg">
-        Thousands of amazing companies around the world build with Ionic. Join
-        the ranks with <a href="/enterprise">Ionic Enterprise</a>
-        for the stability and world-class support needed to build cross-platform
-        apps with confidence.
-      </p>
-    </hgroup>
-    <ul class="case-studies">
-      <li>
-        <a href="/enterprise-engine">
-          <img src="/img/homepage/customer-general-electric-ge.jpg"
-               alt="General Electric">
-          <p>
-            <strong>GE Transportation</strong> uses Ionic to build mission
-            critical apps ensuring timely deliveries.
-          </p>
-        </a>
-      </li>
-      <li>
-        <a href="/resources/case-studies/marketwatch">
-          <img src="/img/homepage/customer-marketwatch.jpg" alt="Market Watch">
-          <p>
-            The <strong>Marketwatch</strong> team built their flagship app in
-            record time leveraging Ionic.
-          </p>
-        </a>
-      </li>
-      <li>
-        <a href="/resources/case-studies/national-health-service">
-          <img src="/img/homepage/customer-nhs-national-health-service.jpg"
-               alt="National Health Service">
-          <p>
-            The <strong>National Health Service</strong>, one of the UK’s top
-            health providers went all in on Ionic.
-          </p>
-        </a>
-      </li>
-      <li>
-        <a target="_blank" href="https://itunes.apple.com/us/app/amtrak/id405074003?mt=8">
-          <img src="/img/homepage/customer-amtrak.jpg" alt="Amtrak">
-          <p>
-            <strong>Amtrak</strong> did a complete overhaul of their existing
-            app and converted it to Ionic.
-          </p>
-        </a>
-      </li>
-    </ul>
-    <img class="others" src="/img/homepage/logos-b.png?1">
-    <a href="/resources/case-studies" class="cta">See all Customer Stories</a>
-  </section>
+  
+<section class="loved-by container" id="testimonials">
+  <h2>
+    <strong>Loved</strong> by some of the best people and companies on earth
+  </h2>
+  <h3 class="quote hevery active">
+    Ionic is a shining example of a high-quality framework that takes advantage
+    of Angular's power and flexibility, enabling developers to build
+    production-ready mobile apps and Progressive Web Apps, in a fraction of the
+    time.
+  </h3>
+  <h3 class="quote catlin">
+    Ionic is the framework that I use for all of my projects, and I'm not sure I
+    can give a bigger compliment than that. The innate sense of style and
+    sophistication built into Ionic is awesome and makes building
+    professional-level mobile applications a snap.
+  </h3>
+  <h3 class="quote tamplin">
+    Ionic will dramatically change the way mobile apps are built. Their choice
+    of AngularJS means building functionality is now a breeze and it feels
+    near-native. Your developers and your users will thank you.
+  </h3>
+  <h3 class="quote schinsky">
+    I was so inspired when I found Ionic. It fills a gap that’s missing when
+    building for mobile and solves many complexities that otherwise require
+    multiple libraries, keeping your code cleaner. Overall, it just makes mobile
+    development fun and fast, so you can build more!
+  </h3>
+  <ul class="quotees">
+    <li data-speaker="hevery" class="active">
+      <img src="/img/framework/testimonial-misko.png" alt="Misko Hevery" />
+      <strong>Misko Hevery</strong>
+      <span>Creator of <a href="https://angular.io">Angular</a></span>
+    </li>
+    <li data-speaker="catlin">
+      <img src="/img/framework/testimonial-hampton.png" alt="Hampton Catlin" />
+      <strong>Hampton Catlin</strong>
+      <span>Creator of <a href="http://sassdoc.com">Sass</a></span>
+    </li>
+    <li data-speaker="tamplin">
+      <img src="/img/framework/testimonial-james.png" alt="James Tamplin" />
+      <strong>James Tamplin</strong>
+      <span>Co-Founder &amp; CEO, <a href="https://firebase.google.com">Firebase
+      </a></span>
+    </li>
+    <li data-speaker="schinsky">
+      <img src="/img/framework/testimonial-holly.png" alt="Holly Schinsky" />
+      <strong>Holly Schinsky</strong>
+      <span>Dev Advocate, <a href="http://www.adobe.com">Adobe</a></span>
+    </li>
+  </ul>
+  <img class="companies"
+       src="/img/framework/testimonial-logos.png?1"
+       alt="Apps built on Ionic framework"/>
+</section>
 
   <section id="join">
     <hgroup class="container center">
-      <h1>
-        Join the <strong>millions</strong> of developers using Ionic to build
-        incredible apps.
-      </h1>
-      <div class="btns">
-        <a href="/getting-started" class="btn white rounded">
-          Start Building <ion-icon name="arrow-forward"></ion-icon>
-        </a>
-        <a href="/sales" class="btn light rounded">Talk to Sales</a>
-      </div>
+      <h2>Start building cross-plaftorm apps today</h2>
+      <p>Ionic is quick to install and it’s easy to get started.</p>
     </hgroup>
+    <a href="/getting-started" class="btn white rounded">
+      Get Started <img src="/img/homepage/ico-cli.png" width="16"/>
+    </a>
   </section>
 </main>
 {% endblock %}
@@ -534,6 +548,49 @@ window.flow = function() {
 		init: init
 	}
 }().init();
+
+// Testimonials rotation
+var $testimonials = $('#testimonials');
+var testimonialIntervalID = null;
+var queued = false;
+
+function nextQuote() {
+  $active = $testimonials.find('.quotees .active');
+
+  if ($active.is(':last-child')) {
+    $active.removeClass('active');
+    $active = $testimonials.find('.quotees li:first-child').addClass('active');
+  } else {
+    $active = $active.removeClass('active').next().addClass('active');
+  }
+
+  $testimonials.find('h3.active')
+               .removeClass('active')
+               .siblings('.' + $active.data('speaker'))
+               .addClass('active');
+}
+
+function startTestimonialRotation() {
+  queued = false;
+  testimonialIntervalID = setInterval(nextQuote, 8000);
+}
+
+// what happens if a speaker is clicked
+$('.quotees li').click(function(ev) {
+  $testimonials.find('.active').removeClass('active');
+  $target = $(ev.delegateTarget);
+  $target.addClass('active');
+  $testimonials.find('.' + $target.data('speaker')).addClass('active');
+  // stop the rotation for a bit
+  clearInterval(testimonialIntervalID);
+  if (! queued) {
+    queued = true;
+    setTimeout(startTestimonialRotation, 13000);
+  }
+})
+
+// kick things off
+startTestimonialRotation();
 
 </script>
 {% endblock %}

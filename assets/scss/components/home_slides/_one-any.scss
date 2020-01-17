@@ -1,0 +1,147 @@
+#slide-one-any {
+  background: white;
+  position: relative;
+  min-height: 840px;
+  border-bottom: none;
+
+  .notification {
+    display: inline-block;
+    background: #F6F8FB;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 7px 15px 7px;
+
+    strong {
+      color: #1A232F;
+    }
+
+    &::after {
+      content: '>';
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+
+  hgroup {
+    max-width: 464px;
+    display: block; 
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 64px;
+      line-height: 64px;
+      color: #020814;
+      letter-spacing: -.04em;
+      margin-bottom: 7px;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 37px;
+      color: rgba(#5B708B, .9);
+      letter-spacing: -.04em;
+      font-family: $font-family-inter;
+    }
+
+    .btn {
+      background: #4D8DFF;
+      border-radius: 10px;
+      text-transform: uppercase;
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 21px;
+      padding: 14px 16px 12px;
+      letter-spacing: 0.08em;
+
+      &:hover {
+        background: lighten(#4D8DFF, 5);
+      }
+
+      &:active {
+        background: #4D8DFF;
+      }
+
+      img {
+        margin-left: 2px;
+        vertical-align: 0;
+        margin-right: 2px;
+      }
+    }
+
+    small {
+      font-size: 11px;
+      line-height: 21px;
+      letter-spacing: -0.02em;
+      color: #B2BECD;
+
+      a {
+        position: relative;
+        color: #92a0b3;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -2px;
+          border-bottom: 1px solid #dee3ea;
+        }
+
+        &:hover {
+          color: $blue;
+
+          &::after {
+            border-bottom-color: $blue;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      max-width: 100%;
+      text-align: left;
+      margin-top: 64px;
+    }
+  }
+
+  .graphic {
+    position: absolute;
+    right: -20px;
+    top: 80px;
+    height: 667px;
+    width: 682px;
+
+    @media (max-width: $screen-md-max) {
+      top: 120px;
+      right: -64px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      width: 334px;
+      height: auto;
+      top: 180px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: 0;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: 0;
+  }
+}

@@ -1,0 +1,108 @@
+#slide-limitless {
+  background: #548fff linear-gradient(to right, #4278ff, #67a7ff);
+  background-size: 100%;
+
+  .btn {
+    color: #3880ff;
+  }
+
+  ul {
+    padding: 0;
+    margin-top: 8px;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+
+      img {
+        height: 23px;
+        vertical-align: -8px;
+      }
+    }
+
+    img {
+      height: 13px;
+      opacity: .6;
+    }
+  }
+
+  .graphics {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: absolute;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+
+      &.iphone-x {
+        background: url('/img/homepage/hero-iphone-x.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -63px;
+        left: -191px;
+        width: 400px;
+        height: 306px;
+        animation-delay: .8s;
+      }
+
+      &.iphone-xs-max {
+        background: url('/img/homepage/hero-iphone-xs-max.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -39px;
+        left: 170px;
+        width: 490px;
+        height: 378px;
+        animation-delay: .9s;
+      }
+
+      &.pixel-3 {
+        background: url('/img/homepage/hero-google-pixel3.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -40px;
+        left: 607px;
+        width: 490px;
+        height: 400px;
+        animation-delay: 1s;
+      }
+
+      &.galaxy {
+        background: url('/img/homepage/hero-android-galaxy.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -41px;
+        left: 1063px;
+        width: 450px;
+        height: 356px;
+        animation-delay: 1.1s;
+      }
+
+      &.ipad {
+        background: url('/img/homepage/hero-ipad.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -44px;
+        left: 1484px;
+        width: 610px;
+        height: 524px;
+        animation-delay: 1.2s;
+      }
+
+      &.macbook {
+        background: url('/img/homepage/hero-macbook.png') 0 0 no-repeat;
+        background-size: 100%;
+        bottom: -63px;
+        left: 2061px;
+        width: 1470px;
+        height: 570px;
+        animation-delay: 1.3s;
+      }
+    }
+  }
+}

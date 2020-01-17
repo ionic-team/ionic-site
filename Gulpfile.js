@@ -15,7 +15,6 @@ const path         = require('path');
 const pkg          = require('./package.json');
 const prefix       = require('gulp-autoprefixer');
 const rename       = require('gulp-rename');
-const runSequence  = require('run-sequence');
 const sass         = require('gulp-sass');
 const uglify       = require('gulp-uglify');
 
@@ -154,10 +153,6 @@ const stencil = (done) => {
     console.log(err)
     throw err; 
   });
-};
-
-const stencilClean = (done) => {
-  return runSequence('stencil', 'js', done);
 };
 
 const serverStart = (done) => {

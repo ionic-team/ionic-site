@@ -2,6 +2,10 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'shared';
 
+.ee-hero {
+  padding-bottom: 62px;
+}
+
 .ee-main {
   .left,
   .right {
@@ -23,18 +27,113 @@
   }
 }
 
-.ee-main .ee-section-wrapper--gradient {
-  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+#companies {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  height: 440px;
+  margin-bottom: 326px;
 
-  section {
-    padding-top: 150px;
-    margin-bottom: 120px;
+  @media (max-width: $screen-xs-max) {
+    left: -50px;
   }
 
-  aside {
-    padding-top: 150px;
-    background: none;
-    padding-bottom: 0px;
+  li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+
+    &:nth-child(1) {
+      left: 40%;
+      animation-delay: .8s;
+    }
+
+    &:nth-child(2) {
+      left: 74%;
+      animation-delay: .9s;
+    }
+
+    &:nth-child(3) {
+      left: 96%;
+      top: 48%;
+      animation-delay: 1s;
+    }
+
+    &:nth-child(4) {
+      left: 5.5%;
+      top: 2.5%;
+      animation-delay: 1.1s;
+    }
+
+    &:nth-child(5) {
+      left: 55.5%;
+      top: 39.5%;
+      animation-delay: 1.2s;
+    }
+
+    &:nth-child(6) {
+      left: 46%;
+      top: 97%;
+      animation-delay: 1.3s;
+    }
+
+    &:nth-child(7) {
+      left: 76%;
+      top: 78%;
+      animation-delay: 1.4s;
+    }
+
+    &:nth-child(8) {
+      left: 10%;
+      top: 86.5%;
+      animation-delay: 1.5s;
+    }
+
+    &:nth-child(9) {
+      left: 25%;
+      top: 43%;
+      animation-delay: 1.6s;
+    }
+
+    &:nth-child(10) {
+      left: -10.5%;
+      top: 47.5%;
+      animation-delay: 1.7s;
+    }
+  }
+}
+
+.resources hgroup {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+
+  p {
+    max-width: 600px;
+  }
+}
+
+.ee-main {
+  section:first-child {
+    padding-bottom: 0;
+  }
+
+  .ee-section-wrapper--gradient {
+   background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+  
+   section {
+     padding-top: 150px;
+     margin-bottom: 120px;
+   }
+  
+   aside {
+     padding-top: 150px;
+     background: none;
+     padding-bottom: 0px;
+   }
   }
 }
 

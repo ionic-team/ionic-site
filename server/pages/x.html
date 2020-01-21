@@ -14,19 +14,7 @@
     <img src="/img/x/logo.png" alt="Ionic Logo" class="logo">
     <h1>{{ data.headline }}</h1>
     <p>{{ data.tagline }}</p>
-    <div class="hubspot-override hubspot-override--large">
-      <!--[if lte IE 8]>
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-      <![endif]-->
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-      <script>
-        hbspt.forms.create({
-          portalId: "3776657",
-          formId: "cf56f622-dbdb-4b82-a30b-7f5e066d877f",
-          css: ""
-      });
-      </script>
-    </div>
+    <a href="#schedule" class="btn anchor">Schedule a Demo</a>
   </hgroup>
 </header>
 
@@ -147,6 +135,10 @@
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.footer_cta) }}
         <div class="hubspot-override hubspot-override--large">
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
           <script>
             hbspt.forms.create({
               portalId: "3776657",

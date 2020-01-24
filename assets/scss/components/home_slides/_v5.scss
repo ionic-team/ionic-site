@@ -1,3 +1,26 @@
-#slide-ionic-5 {
-  
+#ionic-slider #slide-ionic-5 {
+  h4 {
+    font-family: $font-family-eina;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.03em;
+    color: #5B708B;
+    font-weight: 600;
+    text-transform: none;
+
+    svg {
+      height: 28px;
+      width: 28px;
+      vertical-align: text-bottom;
+    }
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 70px;
+    letter-spacing: -0.04em;
+    color: #020814;
+    max-width: 490px;
+  }
 }

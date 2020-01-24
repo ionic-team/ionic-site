@@ -1,4 +1,6 @@
 #ionic-slider #slide-ionic-5 {
+  padding-top: 157px;
+
   h4 {
     font-family: $font-family-eina;
     font-size: 24px;
@@ -7,11 +9,13 @@
     color: #5B708B;
     font-weight: 600;
     text-transform: none;
+    margin-bottom: 37px;
 
     svg {
       height: 28px;
       width: 28px;
-      vertical-align: text-bottom;
+      vertical-align: -5px;
+      margin-right: 3px;
     }
   }
 

@@ -34,6 +34,18 @@
     "company-size": "5-20"
   },
   {
+    "slug":"briebug",
+    "name":"Briebug",
+    "level":"platinum",
+    "link":"https://briebug.com",
+    "short-description":"provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.",
+    "long-description":"<p>BrieBug provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.</p>",
+    "address":"12596 W Bayaud Ave #201<br>Lakewood, CO 80228",
+    "features": null,
+    "coordinates":[19.5,38],
+    "company-size": "50-200"
+  },
+  {
     "slug":"inviqa",
     "name":"Inviqa",
     "short-description":"specialises in digital innovation, ecommerce, and content management systems, Inviqa is a trusted technology partner that puts business first.",
@@ -174,7 +186,7 @@
     "name":"OpenForge",
     "level":"platinum",
     "link":"https://openforge.io/",
-    "short-description":"is a Philadelphia based company that specializes in user experience, design, and application development. We embrace our collective knowledge in design thinking, psychology, and software engineering to find creative solutions for real-world problems.",
+    "short-description":"is a leader in mobile app consulting. Operating in the United States and South America, they specialize in mobile app development, Progressive Web Apps (PWAs), and App Store optimization. From concept to launch, OpenForge can guide you every step of the way.",
     "long-description":"<p>There’s nothing worse than throwing all your money and energy into building a product that no one wants. We believe that a collaborative and user-centered approach to design is key to creating a product that meets market expectations, that’s why we combine cutting-edge Web & Mobile technologies to bring your products to life.</p><p>Plain and simple — we believe that your success is our success and will stand by our values every step of the way. We’re here to challenge your assumptions and help you discover the full potential of your web and mobile applications. From discovery to deployment you can consider OpenForge as an extension of your own team.</p>",
     "address":"1608 Walnut St<br>Philadelphia, PA 19103 US",
     "features":null,

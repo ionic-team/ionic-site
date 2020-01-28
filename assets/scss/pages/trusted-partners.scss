@@ -7,6 +7,7 @@
   &.arctic-leaf { background-image: url('/img/trusted-partners/tp-logo-arctic-leaf.png'); }
   &.bendyworks { background-image: url('/img/trusted-partners/tp-logo-bendyworks.png'); }
   &.benoveltylimited { background-image: url('/img/trusted-partners/tp-logo-benovelty.png'); }
+  &.briebug { background-image: url('/img/trusted-partners/tp-logo-briebug.png'); }
   &.byng { background-image: url('/img/trusted-partners/tp-logo-byng.png'); }
   &.digitalscientists { background-image: url('/img/trusted-partners/tp-logo-digitalscientists.png'); }
   &.elixel { background-image: url('/img/trusted-partners/tp-logo-elixel.png'); }
@@ -59,7 +60,9 @@
         }
 
         h1 {
-          font-size: 36px;
+          font-size: 48px;
+          line-height: 53px;
+          letter-spacing: -0.03em;
         }
 
         p {
@@ -309,7 +312,7 @@
     }
 
     .list {
-      padding-bottom: 30px;
+      margin-bottom: 0;
 
       li {
         padding-top: 130px;
@@ -363,6 +366,12 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.1),
                         0 2px 8px  rgba(0,0,0,0.1);
             transform: translateY(-4px);
+          }
+
+
+          @media (max-width: $screen-md-max) {
+            width: 360px;
+            flex: 0 0 360px;
           }
         }
       }

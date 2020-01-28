@@ -373,6 +373,11 @@
             width: 360px;
             flex: 0 0 360px;
           }
+
+          @media (max-width: $screen-xs-max) {
+            max-width: 500px;
+            flex: 0 0 100%;
+          }
         }
       }
     }

@@ -105,7 +105,7 @@
     .container {
       max-width: 654px;
       text-align: center;
-      padding: 88px 0;
+      padding: 88px 0 0;
     }
 
     .logo {
@@ -121,6 +121,32 @@
     a.btn {
       padding-top: 17px;
       margin-top: 48px;
+    }
+
+    .keep-reading {
+      margin-top: 32px;
+      font-size: 14px;
+      display: block;
+      color: rgba(white,.5);
+      transition: .2s color;
+      text-decoration: none;
+
+      ion-icon {
+        display: block;
+        font-size: 26px;
+        height: 26px;
+        text-align: center;
+        margin: 0 auto;
+        transition: .2s transform ease-out;
+      }
+
+      &:hover {
+        color: rgba(white,.7);
+
+        ion-icon {
+          transform: translateY(4px);
+        }
+      }
     }
   }
 

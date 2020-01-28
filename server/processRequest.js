@@ -3,7 +3,8 @@ var resources       = require('./data/resources');
 var frameworkInfo   = require('./data/framework-info');
 var trustedPartners = require('./data/trusted-partners');
 var followerCount   = null;
-var tools           = require('./tools').getTwitterProfile().then(user => {
+
+require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
 

@@ -40,10 +40,9 @@
 <div class="perks">
   <div class="container">
     <hgroup class="text-center">
-      <h3>
-        Your custom <strong>apps</strong>. Built by <strong>pros</strong>.
-        Vetted by <strong>Ionic</strong>.
-      </h3>
+      <h2>
+        Built by pros. Vetted by Ionic.
+      </h2>
       <p class="lg">
         Boost your Ionic app development and deliver better mobile apps, faster.
       </p>
@@ -74,8 +73,8 @@
   </div>
 </div>
 
-<section class="partners" id="partners">
-  <div class="map" id="partner-map">
+<main class="partners" id="partners">
+  <section class="map" id="partner-map">
     <ul class="dots container">
       {% for tp in trustedPartners %}
         <li style="left:{{tp.coordinates[0]}}%; top:{{tp.coordinates[1]}}%;"
@@ -92,23 +91,45 @@
       {% endfor %}
     </ul>
     <hgroup class="text-center container">
-      <h3>
-        Connect with a <strong>Trusted Partner</strong> for your project.
-      </h3>
+      <h2>
+        Connect across the globe.
+      </h2>
       <p class="lg">
-        Select the right partner that fits your mobile app development needs
-        best.
+        Select a Trusted Partner that fits your app develolpment needs.
       </p>
     </hgroup>
-  </div>
-  <div class="container">
-    <ul class="list" id="tp-list">
+  </section>
+  <section id="platinum" class="container">
+    <h2>Platinum Partners</h2>
+    <ul class="list" id="tp-list-platinum">
       {% for tp in trustedPartners %}
-        {{ macros.trustedPartner(tp) }}
+        {% if tp.level == 'platinum' %}
+          {{ macros.trustedPartnerPremium(tp) }}
+        {% endif %}
       {% endfor %}
     </ul>
-  </div>
-</div>
+  </section>
+  <section id="gold" class="container">
+    <h2>Gold Partners</h2>
+    <ul class="list" id="tp-list-gold">
+      {% for tp in trustedPartners %}
+        {% if tp.level == 'gold' %}
+          {{ macros.trustedPartnerPremium(tp) }}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  <section id="community" class="container">
+    <h2>Community Partners</h2>
+    <ul class="list" id="tp-list">
+      {% for tp in trustedPartners %}
+        {% if tp.level != 'gold' and tp.level != 'platinum' %}
+          {{ macros.trustedPartner(tp) }}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</main>
 <div class="bar hero text-center">
   <hgroup class="container">
     <h3>Does your business build Ionic apps professionally?</h3>
@@ -116,7 +137,7 @@
       Apply to be a Trusted Partner
     </a>
   </hgroup>
-</section>
+</div>
 {% endblock %}
 
 {% block modals %}
@@ -144,7 +165,7 @@
                 src="https://maps.google.com/maps?amp;ie=UTF8&amp;gl=pl&amp;t=m&amp;z=12&amp;iwloc=A&amp;output=embed&q=google+maps+121+s+pinckney+madison+wi">
         </iframe>
           <a class="btn ionic"
-             ng-click="showContact = true"
+             ng-click="connect()"
              ng-bind="'Connect with ' + selectedCompany"></a>
           <address>
           </address>
@@ -160,12 +181,6 @@
                  role="tab"
                  data-toggle="tab">Company Info</a>
             </li>
-            <li role="presentation" ng-show="hasCaseStudy">
-              <a href="#case-studies"
-                 aria-controls="case-studies"
-                 role="tab"
-                 data-toggle="tab">Case studies</a>
-            </li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -174,8 +189,6 @@
                  id="company-info"
                  ng-bind-html="company.info">
 
-            </div>
-            <div role="tabpanel" class="tab-pane" id="case-studies">
             </div>
           </div>
         </section>
@@ -403,29 +416,38 @@ function($scope, $sce, $timeout) {
   var $address = $modal.find('address');
   var $iframe = $modal.find('iframe');
   var $logo = $modal.find('.logo');
-  var $caseStudies = $modal.find('#case-studies');
   var activePartnerInMapEl = null;
 
-  $scope.learnMore = function(e) {
+  $scope.connect = function(e) {
+    if ($scope.premium) {
+      window.open($scope.link, '_blank');
+     } else {
+      $scope.showContact = true;
+     } 
+  }
 
+  $scope.learnMore = function(e) {
+    
+    let $modalInfo;
+    $scope.premium = false;
     if (typeof e === 'string') {
-      var $modalInfo = $('#tp-list .' + e).find('.modal-info');
+      $modalInfo = $('#tp-list .' + e).find('.modal-info');
     } else if (!e || !e.target.parentElement) {
       return;
+    // Go up an extra level for premium partners
+    } else if ($(e.target).parent().is('a')) {
+      $modalInfo = $(e.target).parent().parent().find('.modal-info');
     } else {
-      var $modalInfo = $(e.target).parent().find('.modal-info');
+      $modalInfo = $(e.target).parent().find('.modal-info');
     }
 
     var $newAddress = $modalInfo.find('address');
-    var $newCaseStudy = $modalInfo.find('.case-studies').html();
-    $scope.hasCaseStudy = $newCaseStudy.length;
     $scope.selectedCompany = $modalInfo.data('name');
+    $scope.link = $modalInfo.data('link');
+    $scope.premium = $modalInfo.parent().is('.premium');
 
     $logo.removeClass().addClass('logo ' + $modalInfo.data('handle'));
     $companyInfo.html($modalInfo.find('.company-info').html());
-    if ($scope.hasCaseStudy) {
-      $caseStudies.html($modalInfo.find('.case-studies').html());
-    }
     $features.html($modalInfo.find('.features').html());
 
     const newAddress = $newAddress[0].dataset['mapsaddress'] ? 

@@ -170,6 +170,34 @@
 </li>
 {% endmacro %}
 
+{% macro trustedPartnerPremium(tp) %}
+<li class="premium {{ tp.slug }}">
+  <a class="hover-card" ng-click="learnMore($event)">
+    <p><strong>{{ tp.name }}</strong> {{ tp['short-description'] }}</p>
+  </a>
+  <div class="modal-info" data-name="{{ tp.name }}" data-handle="{{ tp.slug }}" data-link="{{tp.link}}">
+    <div class="company-info">{{ tp['long-description']|safe }}</div>
+    <div class="case-studies"></div>
+    <address data-mapsaddress="{{tp.mapsaddress}}">
+      <strong>{{ tp.name }}</strong><br>{{ tp.address|safe }}
+    </address>
+    <ul class="features">
+      {% if tp.features == null %}
+        <li> Angular 1 &amp; 2</li>
+        <li>Ionic 1 &amp; 2</li>
+        <li>App design</li>
+        <li>App development</li>
+        <li>Development consulting</li>
+      {% else %}
+        {% for feature in tp.features %}
+          <li>{{ feature }}</li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+</li>
+{% endmacro %}
+
 {% macro contactForm(
   page,
   messagePlaceholder="Send us a message",

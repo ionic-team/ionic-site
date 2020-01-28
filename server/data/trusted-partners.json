@@ -12,6 +12,8 @@
   {
     "slug":"bendyworks",
     "name":"Bendyworks",
+    "level":"gold",
+    "link":"https://bendyworks.com/",
     "short-description":"provides enterprise-level Ionic app development, app lifecycle management, and mobile solutions guidance.",
     "long-description":"<p>We at Bendyworks are excited to bring our long history of web application development to the phone with Ionic. From business intelligence apps to everyday employee tools and everywhere in between, we love breathing life into our clients' ideas.</p><p>Given our experience, we are exceptionally positioned to deliver high quality Ionic apps with comprehensive server backends, though we love constructing without a backend, too. When you're looking to build a mobile asset for your business, look no further than Bendyworks</p>",
     "address":"106 E Doty St #200<br>Madison, WI 53703, USA",
@@ -22,6 +24,8 @@
   {
     "slug":"benoveltylimited",
     "name":"beNovelty Limited",
+    "level":"gold",
+    "link":"https://www.benovelty.com/",
     "short-description":"is an award-winning company offering Enterprise-Ready Ionic App & API solutions for modern internet business in Hong Kong & Greater Bay Area.",
     "long-description":"<p>beNovelty is an award-winning Mobile & API first company founded by former IBM Technology Thought Leader & Architects. The team serves as an Innovation Partner with core capability in APIs, Open Web & Mobile Technologies. Their client base covers Start-ups, Enterprises & MNCs from different vertical such as banks, insurances, Hotel & Travels, HealthCare, Education etc.</p><p>Their start-up mentality together with enterprise experiences assemble new yet original services and products - always be novelty.</p><p>beNovelty Limited is an awardee of Hong Kong Best ICT Startup Awards & Hong Kong Quality Assurance Agency (HKQAA) Registered Platinum Start-up.</p>",
     "address":"beNovelty Limited Unit 320<br>16 Science Park W Ave, Science Park, Hong Kong",
@@ -62,6 +66,8 @@
   {
     "slug":"hybridmob",
     "name":"HybridMob",
+    "level":"gold",
+    "link":"https://hybridmob.com/",
     "short-description":"is a leading US based, expert mobile development firm specializing in Ionic Framework development solutions.",
     "long-description":"<p>HybridMob is a leading US based consulting firm specializing in custom Ionic Framework development solutions. Our highly specialized team consists of expert Ionic Framework developers with multiple years of experience building complex hybrid (iOS and Android) mobile apps across multiple industries.</p><p>Many of our senior developers have been building advanced Ionic apps since its initial release in 2013. Our team has built advanced Ionic apps for companies such as Amazon, InVision, Phillips and many more.</p><p>Our expert Ionic Framework developers excel in the following areas:</p><ul><li>Advanced Ionic architecture and development</li><li>Hybrid app MVP / POC</li><li>Sophisticated UI / UX design</li><li>Ionic project rescue</li><li>Native functionality (Capacitor)</li><li>Angular web development</li><li>Biometric authentication</li><li>Automated cloud device testing</li><li>Progressive Web Apps</li><li>&hellip;and much more</li></ul><p>While there are a number of consulting firms that offer Ionic Framework development services, we are one of the few who specialize solely in Ionic. As a result, we maintain a focused, expert team of Ionic consultants, available to bring your project to the next level. </p>",
     "address":"548 Market Street #68673<br>San Francisco, CA 94104",
@@ -104,6 +110,8 @@
   {
     "slug":"jnesis",
     "name":"JNESIS",
+    "level":"gold",
+    "link":"https://jnesis.com/en/home/",
     "short-description":"offers a wide range of solutions around Ionic, including end-to-end development and back-end connectivity, in France, Switzerland and New-Zealand.",
     "long-description":"<p>JNESIS offers a complete set of solutions, including cross-platform mobile development based on the Ionic framework, business specific back-ends in Node.js, Java or other technologies in France, Switzerland and New-Zealand.</p><p>We have extensive experience in creating business centric applications, from the ideation to the deployment in the app stores. In addition, we provide expertise in interfacing our applications with any existing information system or software.</p><p>We also have strong knowledge in UI/UX, performance optimization, distribution to large teams and complex applications. Working on a wide range of devices, we develop cutting edge applications with snappy interfaces.</p><p>Our teams in Mulhouse (FR), Paris (FR) and Hawkes Bay (NZ) can assist you locally in your mobile success.</p>",
     "address":"68, Rue Jacques Mugnier<br>68200 Mulhouse, France",
@@ -164,9 +172,11 @@
   {
     "slug":"openforge",
     "name":"OpenForge",
+    "level":"platinum",
+    "link":"https://openforge.io/",
     "short-description":"is a Philadelphia based company that specializes in user experience, design, and application development. We embrace our collective knowledge in design thinking, psychology, and software engineering to find creative solutions for real-world problems.",
     "long-description":"<p>There’s nothing worse than throwing all your money and energy into building a product that no one wants. We believe that a collaborative and user-centered approach to design is key to creating a product that meets market expectations, that’s why we combine cutting-edge Web & Mobile technologies to bring your products to life.</p><p>Plain and simple — we believe that your success is our success and will stand by our values every step of the way. We’re here to challenge your assumptions and help you discover the full potential of your web and mobile applications. From discovery to deployment you can consider OpenForge as an extension of your own team.</p>",
-    "address":"1040 N 2nd St #301<br>Philadelphia, PA 19123 US",
+    "address":"1608 Walnut St<br>Philadelphia, PA 19103 US",
     "features":null,
     "coordinates":[27.3,37.5],
     "company-size": "10-50"

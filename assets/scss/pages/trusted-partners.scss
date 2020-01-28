@@ -1,6 +1,8 @@
 @import '../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+@import '../mixins';
+
 @mixin tp-logos() {
   &.arctic-leaf { background-image: url('/img/trusted-partners/tp-logo-arctic-leaf.png'); }
   &.bendyworks { background-image: url('/img/trusted-partners/tp-logo-bendyworks.png'); }
@@ -30,7 +32,6 @@
   &.warpdev { background-image: url('/img/trusted-partners/tp-logo-warpdev.png'); }
   &.yuxi { background-image: url('/img/trusted-partners/tp-logo-yuxi.png'); }
 }
-
 
 #page-trusted-partners {
   .navbar {
@@ -103,6 +104,23 @@
     padding: 100px 0 20px;
     margin-bottom: 0;
 
+    hgroup {
+      h2 {
+        font-size: 48px;
+        line-height: 53px;
+        letter-spacing: -0.03em;
+        color: #020814;
+        margin-bottom: 0;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 38px;
+        letter-spacing: -0.04em;
+        color: #27323F;
+      }
+    }
+
     .item {
       padding-top: 235px;
 
@@ -124,7 +142,7 @@
 
   .list {
     justify-content: space-between;
-    padding: 82px 0 0;
+    padding: 48px 0 0;
     display: flex;
     flex-wrap: wrap;
 
@@ -154,8 +172,9 @@
   #partner-map {
     background: #17191c;
     height: 689px;
-    padding-top: 96px;
+    padding-top: 72px;
     position: relative;
+    margin-bottom: 160px;
 
     @media (max-width: $screen-md-max)  {
       height: 600px;
@@ -174,7 +193,7 @@
       z-index: 1;
     }
 
-    h3 {
+    h2 {
       color: rgba(white, .9);
 
       strong {
@@ -184,6 +203,9 @@
 
     p {
       color: rgba(white, .7);
+      font-size: 24px;
+      line-height: 38px;
+      letter-spacing: -0.04em;
     }
 
     .dots {
@@ -277,6 +299,15 @@
   }
 
   .partners {
+    h2 {
+      color: #020814;
+      font-size: 48px;
+      line-height: 53px;
+      text-align: center;
+      letter-spacing: -0.03em;
+      margin-top: 40px;
+    }
+
     .list {
       padding-bottom: 30px;
 
@@ -285,10 +316,14 @@
         padding-bottom: 70px;
         position: relative;
         margin-bottom: 120px;
-        background: transparent no-repeat top center;
+        background: transparent no-repeat center top;
         background-size: 250px;
 
         @include tp-logos();
+
+        p {
+          color: #5B708B;
+        }
 
         .btn {
           left: 0;
@@ -301,10 +336,37 @@
         }
 
         .modal-info { display: none; }
+
+        &.premium {
+          width: 460px;
+          flex: 0 0 460px;
+          text-align: left;
+          transition: .2s all ease-out;
+          background-position: center 16px;
+    
+          a {
+            margin-top: -170px;
+            padding-top: 190px;
+            display: block;
+            cursor: pointer;
+    
+            p {
+              color: #5B708B;
+              margin-left: 32px;
+              margin-right: 32px;
+              max-width: 100%;
+            }
+          }
+    
+          &:hover {
+            border-radius: 6px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1),
+                        0 2px 8px  rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+          }
+        }
       }
     }
-
-
   }
 
   .bar.text-center {

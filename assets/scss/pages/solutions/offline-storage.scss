@@ -168,8 +168,8 @@ main section {
   }
 }
 
-#secure-offline,
-#mobile-desktop {
+#secure,
+#mobile-ready {
   padding-top: 200px;
   padding-bottom: 172px;
 
@@ -204,7 +204,7 @@ main section {
   }
 }
 
-#secure-offline {
+#secure {
   .graphics {
     right: calc(60% - 1000px);
     margin-top: -26px;
@@ -215,7 +215,7 @@ main section {
   }
 }
 
-#mobile-desktop {
+#mobile-ready {
   padding-bottom: 300px;
 
   .graphics {

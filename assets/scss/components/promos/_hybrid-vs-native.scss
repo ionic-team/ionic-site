@@ -89,8 +89,34 @@
   }
 
   @media (max-width: $screen-xs-max) {
-    background: #F9F8F8;
-    padding-bottom: 320px;
+    background: transparent;
+
+    .expander {
+      background: #F9F8F8;
+      padding-bottom: 240px;
+      margin-right: 4px;
+      margin-left: 4px;
+      width: auto;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        background: linear-gradient(317deg, #CBEFFF 0%, #F3FBFF 100%);
+        top: auto;
+        height: 230px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 10px 0 0 10px;
+      }
+    }
+
+    .promo__illustration {
+      bottom: -180px;
+      top: auto;
+      left: calc(50% + 32px);
+      max-width: 320px;
+    }
 
     hgroup {
       max-width: 100%;

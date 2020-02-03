@@ -1,5 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import { EmailIcon } from '../../icons';
+import { EmailOutlineIcon } from '../../icons';
 
 @Component({
   tag: 'ionic-newsletter-signup',
@@ -104,7 +104,7 @@ export class IonicNewsletterSignup {
         onSubmit={(e) => this.handleSubmit(e)}
         class={this.getFormClass()}>
 
-        {this.homepageMode ? <EmailIcon/> : ''}
+        {this.homepageMode ? <EmailOutlineIcon/> : ''}
 
         <input
           name="email"

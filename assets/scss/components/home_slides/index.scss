@@ -1,0 +1,163 @@
+@import '../../vars';
+
+#ionic-slider {
+  // background: #01050c;
+  margin-top: -72px;
+  display: block;
+  min-height: 860px;
+  position: relative;
+
+  [slot="slide-0"] {
+    display: block;
+  }
+
+  [slot="slide-1"],
+  [slot="slide-2"] {
+    // display: none;
+  }
+
+  [slot^="slide-"] {
+    padding-top: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+    hgroup {
+      color: white;
+      max-width: 500px;
+      margin-top: 13px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 74px;
+      margin-bottom: 16px;
+      letter-spacing: -.03em;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 36px;
+      font-family: $font-family-eina;
+      letter-spacing: -0.03em;
+      color: #e4f1ff;
+    }
+
+    .btn {
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 18px;
+      padding: 20px 22px;
+      margin-right: -4px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+
+      ion-icon {
+        font-size: 16px;
+        margin-left: -4px;
+        vertical-align: -2px;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+
+      }
+    }
+
+    .version-text {
+      color: rgba(255, 255, 255, .6);
+      font-weight: 500;
+      font-size: 11px;
+      
+      a {
+        color: rgba(255, 255, 255, .6);
+  
+        &:hover {
+          color: rgba(255, 255, 255, .8);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    min-height: 0;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 48px;
+  }
+
+  aside {
+    position: absolute;
+    bottom: 64px;
+    left: 0;
+    right: 0;
+
+    .container  {
+      position: relative;
+    }
+  }
+
+  .stats {
+    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: -0.02em;
+      color: #92A1B3;
+      padding: 0 16px;
+      transition: .3s color;
+
+      svg {
+        vertical-align: -3px;
+
+        path {
+          transition: .3s fill;
+        }
+      }
+
+      &:hover {
+        color: darken(#92A1B3, 10);
+
+        svg path {
+          fill: darken(#92A1B3, 10);
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      left: calc(50% - 140px);
+      bottom: 40px;
+    }
+  }
+
+  ionic-newsletter-signup {
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    max-width: calc(100% - 30px);
+
+    @media (max-width: $screen-xs-max) {
+      bottom: -26px;
+      right: auto;
+      left: calc(50% - 200px);
+    }
+
+    @media (max-width: 460px) {
+      left: 15px;
+    }
+  }
+}

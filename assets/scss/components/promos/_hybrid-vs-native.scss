@@ -1,0 +1,99 @@
+#promo--hybrid-vs-native {
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .expander {
+    background: #F8FAFC;
+    border: 1px solid #EBEEF4;
+    margin-left: -56px;
+    width: calc(100% + (56px * 2));
+    padding: 46px 0 40px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      background: linear-gradient(317deg, #CBEFFF 0%, #F3FBFF 100%);
+      top: 0;
+      left: -42px;
+      width: calc(50% + 42px);
+      bottom: 0;
+      content: '';
+      border-radius: 10px 0 0 10px;
+    }
+  }
+
+  .promo__illustration {
+    top: 25px;
+    bottom: auto;
+    left: calc(50% - 18px);
+    max-width: 50%;
+
+    &__container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+  }
+
+  hgroup {
+    padding-left: 0;
+    margin-left: auto;
+    max-width: 404px;
+    margin-right: 44px;
+
+    @media (max-width: $screen-md-max) {
+      margin-right: 0;
+      max-width: 400px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-right: 0;
+      max-width: 320px;
+    }
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    
+    span {
+      color: rgba(97, 110, 126, .7);
+    }
+  }
+
+  a {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #3880FF;
+    padding: 21px 0;
+    font-weight: 700;
+    display: block;
+  
+    &::after {
+      font-family: 'Ionicons';
+      content: '';
+      font-size: 23px;
+      font-weight: 400;
+      vertical-align: -3px;
+      margin-left: 5px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    background: #F9F8F8;
+    padding-bottom: 320px;
+
+    hgroup {
+      max-width: 100%;
+    }
+  }
+}

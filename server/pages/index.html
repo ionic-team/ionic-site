@@ -171,17 +171,20 @@
 <main>
   {% include '_includes/promos/hybrid-vs-native.html' %}
 
-  <section id="build-with-web" class="container">
+  <section id="build-with-web" class="container split">
     <hgroup>
-      <h3>Cross-platform apps. Build with the web.</h3>
+      <h2>Cross-platform apps. Build with the web.</h2>
       <p>
         Free and open source, Ionic offers a library of mobile-optimized UI 
         components, gestures, and tools for building fast, highly interactive 
         apps.
       </p>
     </hgroup>
-    <ul class="">
-      <li class="">
+    <ul>
+      <li>
+        <img src="/img/homepage/components.png" 
+             srcset="/img/homepage/components-1x.png 1x, /img/homepage/components.png 2x" 
+             alt="Ionic Components">
         <h5>Beautiful, reusable components</h5>
         <p>
           Ionic’s UI components display beautifully on all mobile devices and 
@@ -189,7 +192,10 @@
           gorgeous base theme that adapts to each platform.
         </p>
       </li>
-      <li class="">
+      <li>
+        <img src="/img/homepage/run-anywhere.png" 
+             srcset="/img/homepage/run-anywhere-1x.png 1x, /img/homepage/run-anywhere.png 2x" 
+             alt="Cross-Platform Development">
         <h5>Write once, run anywhere</h5>
         <p>
           Ionic enables web developers to ship apps to the stores and as a PWA 
@@ -197,7 +203,10 @@
           your app looks and feels at home on every platform and device.
         </p>
       </li>
-      <li class="">
+      <li>
+        <img src="/img/homepage/tooling.png" 
+             srcset="/img/homepage/tooling-1x.png 1x, /img/homepage/tooling.png 2x" 
+             alt="Ionic CLI">
         <h5>Developer friendly tooling</h5>
         <p>
           Create, build, test, and deploy your app with a powerful CLI. Access 
@@ -210,7 +219,7 @@
   </section>
 
   <section id="performance" class="left container">
-    <div class="content">
+    <hgroup class="content">
       <h4>Performance obsessed</h4>
       <h2>Build fast apps, faster than before.</h2>
       <p>
@@ -220,36 +229,45 @@
         touch-optimized gestures, pre-rendering, and AOT compiling.
       </p>
       <a href="/getting-started" class="cta">Start building</a>
-    </div>
-    <div class="graphics activateOnScroll">
-      <ul>
-        <li>
+    </hgroup>
+    <ul class="graphics activateOnScroll">
+      <li>
+        <span>
           Up to
-          <strong>60<sub>FPS</sub></strong>
+          <strong>60<sub><small>FPS</small></sub></strong>
           Scrolling on mobile and desktop
-        </li>
-        <li>
+        </span>
+      </li>
+      <li>
+        <span>
           Consistent
           <strong>100<sup>%</sup></strong>
           Lighthouse PWA performance score
-        </li>
-        <li>
+        </span>
+      </li>
+      <li>
+        <span>
           Down to
           <strong>2.2<sub>s</sub></strong>
           Time to Interactive 
-        </li>
-        <li>
+        </span>
+      </li>
+      <li>
+        <span>
           Up to
           <strong>2<sub>x</sub></strong>
           Faster than previous versions
-        </li>
-      </ul>
-    </div>
+        </span>
+      </li>
+    </ul>
   </section>
 
   <section id="agnostic" class="right container">
-    <div class="graphics activateOnScroll"></div>
-    <div class="content">
+    <img class="graphics activateOnScroll"
+         src="/img/homepage/frameworks.png" 
+         srcset="/img/homepage/frameworks-1x.png 1x, /img/homepage/frameworks.png 2x" 
+         alt="Angular, React, Vue, and Plain 'ole Javascript">
+    <hgroup class="content">
       <h4>Framework Agnostic</h4>
       <h2>Build with your favorite Frameworks.</h2>
       <p>
@@ -259,47 +277,49 @@
         React, Vue, or even no framework at all with vanilla JavaScript.
       </p>
       <ul class="frameworks">
-        <li>Start With: </li>
+        <li>Start With:</li>
         <li>
-          <a href="" title="">
-            <img src="" alt="Angular">
+          <a title="Ionic with Angular Docs" href="https://ionicframework.com/docs/angular/overview">
+            <img src="/img/homepage/angular.png" alt="Angular">
           </a>
         </li>
         <li>
-          <a href="" title="">
-            <img src="" alt="React">
+          <a title="Ionic with React Docs" href="https://ionicframework.com/docs/react">
+            <img src="/img/homepage/react.png" alt="React">
           </a>
         </li>
         <li>
-          <a href="" title="">
-            <img src="" alt="Vue">
+          <a title="Ionic with Vue Docs" href="https://ionicframework.com/docs/vue/overview">
+            <img src="/img/homepage/vue.png" alt="Vue">
           </a>
         </li>
         <li>
-          <a href="" title="">
-            <img src="" alt="Javascript">
+          <a title="Ionic with Javascript Docs" href="https://ionicframework.com/docs/building/starting">
+            <img src="/img/homepage/javascript.png" alt="Javascript">
           </a>
         </li>
       </ul>
-    </div>
+    </hgroup>
   </section>
 
-  <section id="components" class="split">
-    <div class="container content">
-      <h4>100+ ui components</h4>
-      <h2>Simple, declarative UI component design.</h2>
+  <section id="components" class="split container">
+    <hgroup>
+      <div>
+        <h4>100+ ui components</h4>
+        <h2>Simple, declarative UI component design.</h2>
+      </div>
       <p>
         Ionic’s components are written in HTML, CSS, and JavaScript, making it 
         easily build beautiful, high quality UI’s that perform great everywhere.
       </p>
-    </div>
+    </hgroup>
     <div class="graphics">
-      
+      <img src="/img/homepage/demo.png" width="1136" style="margin-left:-64px">
     </div>
   </section>
 
-  <section id="components" class="left">
-    <div class="container content">
+  <section id="native" class="left container">
+    <hgroup class="content">
       <h4>Native Power</h4>
       <h2>Access core native device functionality.</h2>
       <p>
@@ -310,14 +330,20 @@
         can build.
       </p>
       <a href="/docs/native/" class="cta">Explore Ionic Native</a>
-    </div>
+    </hgroup>
     <div class="graphics">
-      
+      <img src="/img/homepage/native.png" width="642" style="margin-right:-64px">
     </div>
   </section>
 
-  <section id="components" class="right">
-    <div class="container content">
+  <section id="community" class="right container">
+    <div class="graphics">
+      <img class="graphics activateOnScroll"
+           src="/img/homepage/community.png" 
+           srcset="/img/homepage/community-1x.png 1x, /img/homepage/community.png 2x" 
+           alt="5m Developers, 10m Apps Created, 100+ Meetups">
+    </div>
+    <hgroup class="content">
       <h4>A global community</h4>
       <h2>Built for developers. Trusted by enterprise.</h2>
       <p>
@@ -328,10 +354,7 @@
       </p>
       <a href="/community" class="cta">Community Hub</a>
       <a href="/customers" class="cta">Customers</a>
-    </div>
-    <div class="graphics">
-      
-    </div>
+    </hgroup>
   </section>
 
   <section id="integrations" class="center">
@@ -365,69 +388,75 @@
 
   
 <section class="loved-by container" id="testimonials">
-  <h2>
+  <h3>
     <strong>Loved</strong> by some of the best people and companies on earth
-  </h2>
-  <h3 class="quote hevery active">
+  </h3>
+  <blockquote class="quote hevery active">
     Ionic is a shining example of a high-quality framework that takes advantage
     of Angular's power and flexibility, enabling developers to build
     production-ready mobile apps and Progressive Web Apps, in a fraction of the
     time.
-  </h3>
-  <h3 class="quote catlin">
+  </blockquote>
+  <blockquote class="quote catlin">
     Ionic is the framework that I use for all of my projects, and I'm not sure I
     can give a bigger compliment than that. The innate sense of style and
     sophistication built into Ionic is awesome and makes building
     professional-level mobile applications a snap.
-  </h3>
-  <h3 class="quote tamplin">
+  </blockquote>
+  <blockquote class="quote tamplin">
     Ionic will dramatically change the way mobile apps are built. Their choice
     of AngularJS means building functionality is now a breeze and it feels
     near-native. Your developers and your users will thank you.
-  </h3>
-  <h3 class="quote schinsky">
+  </blockquote>
+  <blockquote class="quote schinsky">
     I was so inspired when I found Ionic. It fills a gap that’s missing when
     building for mobile and solves many complexities that otherwise require
     multiple libraries, keeping your code cleaner. Overall, it just makes mobile
     development fun and fast, so you can build more!
-  </h3>
+  </blockquote>
   <ul class="quotees">
     <li data-speaker="hevery" class="active">
       <img src="/img/framework/testimonial-misko.png" alt="Misko Hevery" />
       <strong>Misko Hevery</strong>
-      <span>Creator of <a href="https://angular.io">Angular</a></span>
+      <span>Creator of Angular</span>
     </li>
     <li data-speaker="catlin">
       <img src="/img/framework/testimonial-hampton.png" alt="Hampton Catlin" />
       <strong>Hampton Catlin</strong>
-      <span>Creator of <a href="http://sassdoc.com">Sass</a></span>
+      <span>Creator of Sass</span>
     </li>
     <li data-speaker="tamplin">
       <img src="/img/framework/testimonial-james.png" alt="James Tamplin" />
       <strong>James Tamplin</strong>
-      <span>Co-Founder &amp; CEO, <a href="https://firebase.google.com">Firebase
-      </a></span>
+      <span>Co-Founder of Firebase</span>
     </li>
     <li data-speaker="schinsky">
       <img src="/img/framework/testimonial-holly.png" alt="Holly Schinsky" />
       <strong>Holly Schinsky</strong>
-      <span>Dev Advocate, <a href="http://www.adobe.com">Adobe</a></span>
+      <span>Dev Advocate, Adobe</span>
     </li>
   </ul>
-  <img class="companies"
-       src="/img/framework/testimonial-logos.png?1"
-       alt="Apps built on Ionic framework"/>
+  <div class="card"></div>
 </section>
 
-  <section id="join">
-    <hgroup class="container center">
-      <h2>Start building cross-plaftorm apps today</h2>
-      <p>Ionic is quick to install and it’s easy to get started.</p>
-    </hgroup>
-    <a href="/getting-started" class="btn white rounded">
-      Get Started <img src="/img/homepage/ico-cli.png" width="16"/>
-    </a>
+  <section id="start">
+    <div class="container">
+      <hgroup>
+        <h3>Start building cross-plaftorm apps today</h3>
+        <p>Ionic is quick to install and it’s easy to get started.</p>
+      </hgroup>
+      <a href="/getting-started" class="btn white">
+        Get Started
+        <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle opacity="0.24" cx="9" cy="8" r="8" fill="#51A7FF"/>
+          <rect x="9" y="14" width="10" height="2" fill="#4D8DFF"/>
+          <path d="M1 1L8 8L1 15" stroke="#4D8DFF" stroke-width="2"/>
+        </svg>
+      </a>
+    </div>
   </section>
+
+  {% include '_includes/promos/quad-cta.html' %}
 </main>
 {% endblock %}
 
@@ -564,7 +593,7 @@ function nextQuote() {
     $active = $active.removeClass('active').next().addClass('active');
   }
 
-  $testimonials.find('h3.active')
+  $testimonials.find('blockquote.active')
                .removeClass('active')
                .siblings('.' + $active.data('speaker'))
                .addClass('active');

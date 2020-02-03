@@ -93,7 +93,7 @@ ionic-newsletter-signup {
     &.homepage {
       height: 48px;
       border-radius: 6px;
-      background: #F8FAFC;
+      background: white;
       border: 1px solid #E9EDF3;
       transition: .2s border-color, .2s background-color;
 
@@ -129,7 +129,9 @@ ionic-newsletter-signup {
         box-shadow: none;
         border-radius: 0 6px 6px 0;
 
-        &:hover {
+        &:hover,
+        &:active,
+        &:focus {
           color: darken(#7CABFF, 10);
           background: transparent;
         }

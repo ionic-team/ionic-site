@@ -1,5 +1,6 @@
 #ionic-slider #slide-ionic-5 {
   padding-top: 157px;
+  padding-bottom: 245px;
 
   h4 {
     font-family: $font-family-eina;
@@ -26,5 +27,39 @@
     letter-spacing: -0.04em;
     color: #020814;
     max-width: 490px;
+  }
+
+  ul {
+    padding: 4px 0;
+    margin-bottom: 28px;
+  }
+
+  li {
+    background: url('/img/homepage/checkmark.svg') no-repeat left 11px;
+    background-size: 16px;
+    padding-left: 28px;
+    font-size: 24px;
+    line-height: 38px;
+    letter-spacing: -0.02em;
+    color: rgba(#1A232F,0.9);
+    list-style: none;
+    margin-bottom: 4px;
+  }
+
+  .btn {
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 15px 19px 13px;
+    border-radius: 10px;
+    box-shadow: 
+      0px 2px 4px rgba(2, 8, 20, 0.1), 
+      0px 1px 2px rgba(2, 8, 20, 0.08);
+
+    img {
+      margin: -1px -3px 0 2px;
+      width: 19px;
+    }
   }
 }

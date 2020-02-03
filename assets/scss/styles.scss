@@ -94,7 +94,7 @@
 @import 'components/toc';
 @import 'components/docs_content';
 @import 'components/pro_docs_content';
-@import 'components/promo';
+@import 'components/promos/index';
 @import 'components/mobile-nav';
 @import 'components/responsive_docs';
 @import 'components/resource-card';
@@ -128,7 +128,7 @@
 @import 'pages/getting-started';
 @import 'pages/go/pwa-architects-guide';
 @import 'pages/go/why-hybrid';
-@import 'pages/home';
+// @import 'pages/home';
 // @import 'pages/jobs';
 @import 'pages/login';
 // @import 'pages/press/index';

@@ -23,6 +23,14 @@ export const EmailIcon = () => (
   </svg>
 );
 
+export const EmailOutlineIcon = () => (
+  <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.2692 1.00012H2.73077C1.77452 1.00012 1 1.78324 1 2.75011V13.25C1 14.2169 1.77452 15 2.73077 15H17.2692C18.2255 15 19 14.2169 19 13.25V2.75011C19 1.78324 18.2255 1.00012 17.2692 1.00012Z" stroke="#CED6E0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3.76953 3.80005L10.0003 8.70002L16.2311 3.80005" stroke="#CED6E0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+);
+
 export const ForwardIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
     <path d="M4.19128 5.00186L0.220265 8.78303C-0.0734215 9.0629 -0.0734215 9.51544 0.220265 9.79233C0.513951 10.0692 0.988847 10.0692 1.28253 9.79233L5.78155 5.508C6.06587 5.23707 6.07212 4.80238 5.80342 4.52252L1.28566 0.208411C1.13881 0.0684779 0.945107 -6.94223e-09 0.754523 0C0.56394 6.94223e-09 0.370232 0.0684779 0.223389 0.208411C-0.0702975 0.488277 -0.0702974 0.940826 0.223389 1.21771L4.19128 5.00186Z" fill="currentColor"/>

@@ -1,5 +1,5 @@
 #ionic-slider #slide-ionic-5 {
-  padding-top: 157px;
+  padding-top: 190px;
   padding-bottom: 245px;
 
   h4 {
@@ -10,7 +10,7 @@
     color: #5B708B;
     font-weight: 600;
     text-transform: none;
-    margin-bottom: 37px;
+    margin-bottom: 30px;
 
     svg {
       height: 28px;
@@ -60,6 +60,152 @@
     img {
       margin: -1px -3px 0 2px;
       width: 19px;
+    }
+  }
+
+  .graphic {
+    position: absolute;
+    right: 0;
+    top: 200px;
+
+    > * {
+      position: absolute;
+      opacity: 0;
+      animation: fadeInUp .8s ease-out 1s forwards;
+
+      &:nth-child(1) {
+        right: -104px;
+        top: -8px;
+      }
+
+      &:nth-child(2) {
+        right: 356px;
+        top: 408px;
+        animation-delay: 1.1s;
+      }
+
+      &:nth-child(3) {
+        right: 176px;
+        top: 88px;
+        animation-delay: 1.2s;
+      }
+
+      &:nth-child(4) {
+        right: 400px;
+        top: 513px;
+        animation-delay: 1.3s;
+      }
+
+      &:nth-child(5) {
+        right: 54px;
+        top: -53px;
+        animation-delay: 1.4s;
+      }
+
+      &:nth-child(6) {
+        right: 80px;
+        top: 264px;
+        animation-delay: 1.5s;
+      }
+
+      &:nth-child(7) {
+        right: -80px;
+        top: 164px;
+        animation-delay: 1.6s;
+      }
+
+      &:nth-child(8) {
+        right: -40px;
+        top: 460px;
+        animation-delay: 1.7s;
+      }
+
+      &:nth-child(9) {
+        right: 304px;
+        top: 94px;
+        animation-delay: 1.8s;
+      }
+
+      &:nth-child(10) {
+        right: -20px;
+        top: 321px;
+        animation-delay: 1.9s;
+      }
+
+      &:nth-child(11) {
+        right: 140px;
+        top: -43px;
+        animation-delay: 2.0s;
+      }
+
+      &:nth-child(12) {
+        right: -100px;
+        top: 300px;
+        animation-delay: 2.1s;
+      }
+
+      &:nth-child(13) {
+        right: 16px;
+        top: 411px;
+        animation-delay: 2.2s;
+      }
+
+      &:nth-child(14) {
+        right: 112px;
+        top: 486px;
+        animation-delay: 2.3s;
+      }
+
+      &:nth-child(15) {
+        right: 208px;
+        top: 260px;
+        animation-delay: 2.4s;
+      }
+
+      &:nth-child(16) {
+        right: 400px;
+        top: 341px;
+        animation-delay: 2.5s;
+      }
+
+      &:nth-child(17) {
+        right: -80px;
+        top: 424px;
+        animation-delay: 2.6s;
+      }
+
+      &:nth-child(18) {
+        right: 108px;
+        top: 160px;
+        animation-delay: 2.7s;
+      }
+
+      &:nth-child(19) {
+        right: -38px;
+        top: 236px;
+        animation-delay: 2.8s;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      right: -160px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 600px;
+
+    .graphic {
+      top: auto;
+      transform: scale(.75);
+      right: calc(50% - 120px);
+      bottom: 530px;
+    }
+
+    h1 {
+      hyphens: auto;
+      max-width: 100%;
+      word-break: break-word;
     }
   }
 }

@@ -10,6 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface HomeComponents {}
   interface IconExternal {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
@@ -59,6 +60,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLHomeComponentsElement extends Components.HomeComponents, HTMLStencilElement {}
+  var HTMLHomeComponentsElement: {
+    prototype: HTMLHomeComponentsElement;
+    new (): HTMLHomeComponentsElement;
+  };
 
   interface HTMLIconExternalElement extends Components.IconExternal, HTMLStencilElement {}
   var HTMLIconExternalElement: {
@@ -138,6 +145,7 @@ declare global {
     new (): HTMLIonicToggleTabElement;
   };
   interface HTMLElementTagNameMap {
+    'home-components': HTMLHomeComponentsElement;
     'icon-external': HTMLIconExternalElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
@@ -155,6 +163,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface HomeComponents {}
   interface IconExternal {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
@@ -199,6 +208,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'home-components': HomeComponents;
     'icon-external': IconExternal;
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
@@ -221,6 +231,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;

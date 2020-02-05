@@ -14,10 +14,17 @@
 {% block main %}
 <ionic-sub-header>
   <ul slot="breadcrumbs">
+
     <li><a href="/resources">Resources</a></li>
     <li><a href="/resources/articles">Articles</a></li>
     <li><a href="#">{{data.title}}</a></li>
   </ul>
+
+  {% if data.cta_link and data.cta_title %}
+  <ul slot="right">
+    <li><a class="btn" href="{{data.cta_link.url}}">{{data.cta_title}}</a></li>
+  </ul>
+  {% endif %}
 </ionic-sub-header>
 
 <main class="container">
@@ -39,6 +46,13 @@
           {% endif %}
         {% endfor %}
       </ul>
+      {% if data.cta_link and data.cta_title %}
+        <a href="{{data.cta_link.url}}"
+           class="btn sm navbar-cta-btn"
+           target="_blank">
+          {{ data.cta_title }}
+        </a>
+      {% endif %}
       {% if data.download_link.url.length %}
         <a href="{{data.download_link.url}}"
            class="btn sm lightblue"

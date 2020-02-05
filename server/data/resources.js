@@ -19,6 +19,14 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Capacitor vs Cordova: Modern Hybrid App Development",
+        "url": "/resources/articles/capacitor-vs-cordova-modern-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
+        "bgColor": "#51A7FF"
+      }, {
+        "type": "Article",
         "title": "Preview - Creating Ionic Applications with StencilJS",
         "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
         "target": "_blank",

@@ -1,0 +1,43 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'react' %}
+{% set header_style = 'transparent' %}
+{% set cssPath = 'react' %}
+{% set title = data.title %}
+{# {% set meta_image = ''%} #}
+{# {% set meta_description = ''%} #}
+{% set hide_pre_header = true %}
+
+{% block main %}
+<header>
+
+  <hgroup class="container">
+    <img src="/img/react/logo.png" alt="Ionic Logo" class="logo">
+    <h1>{{ data.headline }}</h1>
+    <p>{{ data.tagline }}</p>
+    <a href="#learn" class="btn anchor">Explore</a>
+    <a href="#demo" class="btn anchor">Live Demo</a>
+    <a href="#sneak-peak" class="keep-reading anchor">
+      Scroll to learn more
+      <ion-icon name="ios-arrow-down"></ion-icon>
+    </a>
+  </hgroup>
+</header>
+<main>
+  <div id="what-you-got">
+    <div class="container">
+
+      <h2>100+ Beautiful React Components</h2>
+    </div>
+  
+    <div class="container">
+      <h2>Build Once Run Anywhere with Capacitor</h2>
+    </div>
+
+    <div class="container">
+      <h2>Try it now</h2>
+
+      <ionic-react-demo></ionic-react-demo>
+    </div>
+  </div>
+</main>
+{% endblock %}

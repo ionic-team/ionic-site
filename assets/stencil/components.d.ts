@@ -37,6 +37,7 @@ export namespace Components {
     'showPricingNotice': boolean;
     'transparentInput': boolean;
   }
+  interface IonicReactDemo {}
   interface IonicSearch {
     'mobile': boolean;
   }
@@ -110,6 +111,12 @@ declare global {
     new (): HTMLIonicQuickSignupElement;
   };
 
+  interface HTMLIonicReactDemoElement extends Components.IonicReactDemo, HTMLStencilElement {}
+  var HTMLIonicReactDemoElement: {
+    prototype: HTMLIonicReactDemoElement;
+    new (): HTMLIonicReactDemoElement;
+  };
+
   interface HTMLIonicSearchElement extends Components.IonicSearch, HTMLStencilElement {}
   var HTMLIonicSearchElement: {
     prototype: HTMLIonicSearchElement;
@@ -160,6 +167,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
+    'ionic-react-demo': HTMLIonicReactDemoElement;
     'ionic-search': HTMLIonicSearchElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
@@ -198,6 +206,7 @@ declare namespace LocalJSX {
     'showPricingNotice'?: boolean;
     'transparentInput'?: boolean;
   }
+  interface IonicReactDemo {}
   interface IonicSearch {
     'mobile'?: boolean;
   }
@@ -225,6 +234,7 @@ declare namespace LocalJSX {
     'ionic-button': IonicButton;
     'ionic-newsletter-signup': IonicNewsletterSignup;
     'ionic-quick-signup': IonicQuickSignup;
+    'ionic-react-demo': IonicReactDemo;
     'ionic-search': IonicSearch;
     'ionic-slider': IonicSlider;
     'ionic-snap-bar': IonicSnapBar;
@@ -249,6 +259,7 @@ declare module "@stencil/core" {
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
       'ionic-newsletter-signup': LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
+      'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
       'ionic-slider': LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;

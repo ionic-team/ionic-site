@@ -112,6 +112,8 @@ router: app => {
   .get('/pwa', (_, res) => res.render('pwa/index'))
   .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
 
+  .get('/react', (_, res) => res.render('react'))
+
   .get('/resources', (_, res) =>
     res.render('resources/index', {currentCategory: 'featured'}))
   .get('/resources/:category', (req, res) =>

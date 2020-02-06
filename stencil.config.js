@@ -15,7 +15,7 @@ exports.config = {
       dir: 'dist/js/stencil',
       copy: [
         { 
-          src: '../../node_modules/ionicons/dist/collection/icon/svg',
+          src: '../../node_modules/ionicons/dist/svg',
           dest: '../svg'
         }
       ],

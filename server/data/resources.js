@@ -23,7 +23,7 @@ const resources = {
         "url": "/resources/articles/capacitor-vs-cordova-modern-hybrid-app-development",
         "target": "_self",
         "action": "Read",
-        "bgImage": "/img/resource-center/article-what-is-cordova-phonegap.png",
+        "bgImage": "/img/resource-center/article-capacitor-vs-cordova.png",
         "bgColor": "#51A7FF"
       }, {
         "type": "Article",

@@ -25,15 +25,8 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-capacitor-vs-cordova.png",
         "bgColor": "#51A7FF"
-      }, {
-        "type": "Article",
-        "title": "Preview - Creating Ionic Applications with StencilJS",
-        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
-        "target": "_blank",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
-        "bgColor": "#393c49"
-      }, {
+      },
+      {
         "type": "Article",
         "title": "Ionic vs. React Native: A Comparison Guide",
         "url": "/resources/articles/ionic-vs-react-native-a-comparison-guide",
@@ -41,6 +34,14 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/ionic-vs-reactnative-card.png",
         "bgColor": "#15375f"
+      }, {
+        "type": "Article",
+        "title": "What is Hybrid App Development",
+        "url": "/resources/articles/what-is-hybrid-app-development",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-whatishybrid.png",
+        "bgColor": "#E85B6A"
       }, {
         "type": "Article",
         "title": "Ionic vs Flutter: A Comparison",
@@ -65,6 +66,14 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-digitaltransformation.png",
         "bgColor": "#786DF9"
+      }, {
+        "type": "Article",
+        "title": "Preview - Creating Ionic Applications with StencilJS",
+        "url": "https://cdn2.hubspot.net/hubfs/3776657/PREVIEW-Creating-Ionic-Apps-with-StencilJS.pdf",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-creating-ionic-applications-with-stencil.png",
+        "bgColor": "#393c49"
       }, {
         "type": "Article",
         "title": "Why Every Company Needs a Design System",
@@ -121,14 +130,6 @@ const resources = {
         "action": "Read",
         "bgImage": "/img/resource-center/article-whatisauicomponentlibrary.png",
         "bgColor": "#F78760"
-      }, {
-        "type": "Article",
-        "title": "What is Hybrid App Development",
-        "url": "/resources/articles/what-is-hybrid-app-development",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/article-whatishybrid.png",
-        "bgColor": "#E85B6A"
       }, {
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",

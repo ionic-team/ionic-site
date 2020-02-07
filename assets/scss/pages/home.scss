@@ -35,7 +35,7 @@
       display: flex;
 
       .content {
-        max-width: 430px;
+        max-width: 440px;
 
         @media (max-width: $screen-md-max) {
           max-width: 400px;
@@ -76,7 +76,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
-      margin-bottom: 80px;
+      margin-bottom: 66px;
 
       >:nth-child(1) {
         flex: 0 1 480px;
@@ -109,7 +109,7 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 110%;
-      letter-spacing: -0.04em;
+      letter-spacing: -.05em;
       color: #020814;
 
       + p {
@@ -138,7 +138,7 @@
 
     h5 {
       font-size: 20px;
-      margin-bottom: 16px;
+      margin-bottom: 11px;
       font-weight: 600;
       line-height: 28px;
       letter-spacing: -0.02em;
@@ -163,6 +163,22 @@
 
       strong {
         font-weight: 600;
+      }
+    }
+
+    .highlight {
+      position: relative;
+      background: transparent;
+
+      &::before {
+        content: '';
+        background: #D1EBFF;
+        position: absolute;
+        left: 0;
+        right: -2px;
+        bottom: 2px;
+        height: 16px;
+        z-index: -1;
       }
     }
 
@@ -199,6 +215,10 @@
         vertical-align: -3px;
         margin-left: 5px;
       }
+
+      + .cta {
+        margin-left: 30px;
+      }
     }
 
     @media (max-width: $screen-sm-max) {
@@ -229,7 +249,7 @@
       margin-bottom: 64px;
 
       img {
-        margin-bottom: 32px;
+        margin-bottom: 25px;
       }
     }
   }
@@ -285,7 +305,7 @@
       strong {
         display: block;
         font-size: 104px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 100%;
         letter-spacing: -0.08em;
         color: #020814;
@@ -369,6 +389,7 @@
 
     .frameworks {
       margin-bottom: 33px;
+      margin-top: 28px;
 
       @include flex-list();
 
@@ -379,11 +400,18 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: #1A232F;
+        margin-right: 16px;
 
         a {
           vertical-align: 8px;
           background-size: 100%;
           display: inline-block;
+          opacity: .6;
+          transition: .2s opacity;
+
+          &:hover {
+            opacity: 1;
+          }
         }
 
         img {
@@ -396,8 +424,8 @@
     .graphics {
       width: 560px;
       height: 708px;
-      margin-left: -64px;
-      margin-top: -154px;
+      margin-left: -55px;
+      margin-top: -169px;
 
       @media (max-width: $screen-sm-max) {
         margin: 64px auto 24px;
@@ -423,8 +451,8 @@
 
     .graphics {
       position: absolute;
-      left: -200px;
-      top: 20px;
+      left: -188px;
+      top: -22px;
     }
 
     @media (max-width: $screen-sm-max) {
@@ -448,6 +476,12 @@
 
     .content {
       max-width: 894px;
+    }
+
+    hgroup p {
+      max-width: 580px;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .integration-list {
@@ -490,22 +524,10 @@
       background: url('/img/homepage/heart.png') no-repeat top center;
       background-size: 88px;
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
 
       strong {
-        font-weight: 600;
-        position: relative;
-
-        &::before {
-          content: '';
-          background: #D1EBFF;
-          position: absolute;
-          left: 0;
-          right: -2px;
-          bottom: 2px;
-          height: 16px;
-          z-index: -1;
-        }
+        font-weight: 700;
       }
     }
 
@@ -583,8 +605,8 @@
 
   #start {
     background: linear-gradient(270deg, #6EB1FF 0%, #4D8DFF 100%);
-    padding-top: 94px;
-    padding-bottom: 72px;
+    padding-top: 72px;
+    padding-bottom: 62px;
 
     .container {
       display: flex;
@@ -603,6 +625,11 @@
       max-width: 790px;
     }
 
+    h3 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
     h3,
     p {
       letter-spacing: -0.03em;
@@ -611,13 +638,14 @@
 
     .btn {
       margin-left: auto;
-      text-transform: uppercase;
       font-weight: 700;
       font-size: 15px;
       line-height: 21px;
       letter-spacing: 0.08em;
+      border-radius: 10px;
       text-transform: uppercase;
       color: #4D8DFF;
+      padding: 14px 15px;
     }
   }
 }

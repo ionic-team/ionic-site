@@ -4,8 +4,15 @@
 
 home-components {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 634px 1fr;
   border-radius: 10px;
+  margin-right: -24px;
+  margin-left: -24px;
+
+  @media (min-width: 1200px) {
+    margin-right: -64px;
+    margin-left: -64px;
+  }
 
   .code-header {
     background: #0B1521;
@@ -87,8 +94,6 @@ home-components {
   .tab-content,
   .preview-content {
     position: relative;
-    display: flex;
-    justify-content: center;
     padding: 0;
 
     li {
@@ -144,6 +149,8 @@ home-components {
     border: 1px solid #E9EDF3;
     background-size: 10px 10px;
     border-radius: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
     iframe {

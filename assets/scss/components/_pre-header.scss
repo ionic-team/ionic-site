@@ -155,7 +155,8 @@
     }
   }
 
-  &--react {
+  &--react,
+  &--confetti {
     background-color: #5991f7;
     background-image: 
       url('/img/announcement-bar/bg-confetti.svg'), 

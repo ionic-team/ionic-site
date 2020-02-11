@@ -10,16 +10,24 @@
 {% block main %}
 <div id="ionic-slider">
   <section id="slide-ionic-5" class="container">
-    <hgroup class="activateOnScroll">
-      <h4>Ionic Framework 5</h4>
-      <h1>Design.<br>Animation.<br>Performance.</h1>
+    <hgroup>
+      <h4 class="activateOnScroll">Ionic Framework 5</h4>
+      <h1>
+        <span class="activateOnScroll">Design.</span>
+        <span class="activateOnScroll">Animation.</span>
+        <span class="activateOnScroll">Performance.</span>
+      </h1>
       <ul>
-        <li>New UI components and gestures</li>
-        <li>Brand new custom animations API </li>
-        <li>New icons, colors, and theming</li>
+        <li class="activateOnScroll">New UI components and gestures</li>
+        <li class="activateOnScroll">Brand new custom animations API </li>
+        <li class="activateOnScroll">New icons, colors, and theming</li>
       </ul>
-      <a href="/getting-started" class="btn blue sm btn-cta" id="btn-home-get-started">
-        Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
+      <div class="activateOnScroll btn-wrapper">
+        <a href="/getting-started" 
+           class="btn blue sm btn-cta" 
+           id="btn-home-get-started">
+          Get Started <img src="/img/homepage/ico-cli.png" width="16"/></a>
+      </div>
     </hgroup>
     <div class="graphic">
       <img src="/img/homepage/v5-components/alert.png" 
@@ -189,7 +197,7 @@
   </div> #}
 
 
-  <aside>
+  <aside class="activateOnScroll">
     <div class="container">
       <ul class="stats">
         <li class="stars">
@@ -225,7 +233,9 @@
 </div>
 
 <main>
-  {% include '_includes/promos/hybrid-vs-native.html' %}
+  <div class="expander-wrapper activateOnScroll">
+    {% include '_includes/promos/hybrid-vs-native.html' %}
+  </div>
 
   <section id="build-with-web" class="container split">
     <hgroup>
@@ -237,11 +247,10 @@
       </p>
     </hgroup>
     <ul>
-      <li>
+      <li class="activateOnScroll">
         <img src="/img/homepage/components.png" 
              srcset="/img/homepage/components-1x.png 1x, /img/homepage/components.png 2x" 
-             alt="Ionic Components"
-              class="activateOnScroll">
+             alt="Ionic Components">
         <h5>Beautiful, reusable components</h5>
         <p>
           Ionic’s UI components display beautifully on all mobile devices and 
@@ -249,11 +258,10 @@
           gorgeous base theme that adapts to each platform.
         </p>
       </li>
-      <li>
+      <li class="activateOnScroll">
         <img src="/img/homepage/run-anywhere.png" 
              srcset="/img/homepage/run-anywhere-1x.png 1x, /img/homepage/run-anywhere.png 2x" 
-             alt="Cross-Platform Development"
-              class="activateOnScroll">
+             alt="Cross-Platform Development">
         <h5>Write once, run anywhere</h5>
         <p>
           Ionic enables web developers to ship apps to the stores and as a PWA 
@@ -261,11 +269,10 @@
           your app looks and feels at home on every platform and device.
         </p>
       </li>
-      <li>
+      <li class="activateOnScroll">
         <img src="/img/homepage/tooling.png" 
              srcset="/img/homepage/tooling-1x.png 1x, /img/homepage/tooling.png 2x" 
-             alt="Ionic CLI"
-              class="activateOnScroll">
+             alt="Ionic CLI">
         <h5>Developer friendly tooling</h5>
         <p>
           Create, build, test, and deploy your app with a powerful CLI. Access 

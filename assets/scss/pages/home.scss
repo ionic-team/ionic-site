@@ -4,6 +4,27 @@
 @import '../components/home_slides/v5';
 
 #page-home {
+  .activateOnScroll {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: .4s opacity, .8s transform cubic-bezier(.07,.89,.79,.95);
+
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  aside.activateOnScroll {
+    transition-delay: 1.8s;
+    transition-duration: 1s;
+  }
+
+  .expander-wrapper {
+    transition-delay: 2.8s;
+    transition-duration: 2s;
+  }
+
   main {
     overflow: visible;
 
@@ -226,17 +247,6 @@
       color: white;
     }
 
-    .activateOnScroll {
-      opacity: 0;
-      transform: translateY(48px);
-      transition: .5s opacity, .4s transform ease-out;
-
-      &.active {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
     @media (max-width: $screen-sm-max) {
       .content {
         width: 100%;
@@ -268,11 +278,11 @@
         margin-bottom: 25px;
       }
 
-      &:nth-child(2) img {
+      &:nth-child(2) {
         transition-delay: .1s;
       }
 
-      &:nth-child(3) img {
+      &:nth-child(3) {
         transition-delay: .2s;
       }
     }

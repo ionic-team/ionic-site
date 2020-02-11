@@ -9,7 +9,8 @@
 {% block main %}
 <div class="banner banner--hero">
   <hgroup class="container">
-    <h1>Log in to Ionic</h1>
+    <h1 id="login-header">Log in to Ionic</h1>
+    <h1 id="sso-header" style="display: none">Log in with single sign-on</h1>
   </hgroup>
 </div>
 <main>
@@ -31,7 +32,7 @@
               <label for="id_password">
                 Password
                 <div class="forgot-password">
-                  <a href="https://dashboard.ionicframework.com/reset-password" title="Reset Password?">Forgot password?</a>
+                  <a href="{{ DASHBOARD_URL }}/reset-password" title="Reset Password?">Forgot password?</a>
                 </div>
               </label>
               <input type="password" id="id_password" name="password" autocomplete="current-password" tabindex="2" required>
@@ -39,14 +40,27 @@
             </div>
             <button type="submit" id="submit" class="btn btn-block" tabindex="3">Log in</button>
             <div class="well">
-              Don't have an account? <a class="text-link" href="https://dashboard.ionicframework.com/signup">Sign up</a>
+              Don't have an account? <a class="text-link" href="{{ DASHBOARD_URL }}/signup">Sign up</a>
             </div>
+          </form>
+          <form class="form" id="sso-form" role="form" style="display: none">
+            <div class="errorlist">
+              <div>Unable to log in:</div>
+              <div class="form-message"></div>
+            </div>
+            <div class="form-group" id="field-emailorslug">
+              <label for="id_emailorslug">Email or organization ID</label>
+              <input type="text" id="id_emailorslug" name="email" autocomplete="username" tabindex="1" required>
+              <div class="form-message form-message--small"></div>
+            </div>
+            <button type="submit" class="btn btn-block" tabindex="2">Log in</button>
           </form>
         </div>
       </div>
       <div class="content-row">
         <div class="col col--centered col--full">
-          <a href="https://dashboard.ionicframework.com/oauth2"><ion-icon name="lock"></ion-icon> Log in with single sign-on</a>
+          <a href="/login" id="login-link" style="display: none"><ion-icon name="mail"></ion-icon> Log in with email &amp; password</a>
+          <a href="/login" id="sso-link"><ion-icon name="lock"></ion-icon> Log in with single sign-on</a>
         </div>
       </div>
     </div>
@@ -55,10 +69,14 @@
 {% endblock %}
 
 {% block scripts %}
-{# URLSearchParams polyfill #}
+{# Promise, fetch, URLSearchParams polyfills #}
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js" integrity="sha384-Oa9qd3zGPgIOjIcotuclp6o+1G/FJtvOBKJRGkHSQt/nQWcZY/UwxnQYvVL5dfV5" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js" integrity="sha384-izk5QhlJG4UwhAQ3P3QgvguhYiTV1GRKBu41DyczWbFPX3hVK89Q+CLwVAzBBcy8" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/core-js-bundle@3.6.0/minified.js" integrity="sha384-ncfanduqeM726N53pO1u/fzP/gCzfbFxS9jpeBFt14eSI91/PIYHX8c98k88DcTF" crossorigin="anonymous"></script>
 <script>
   (function() {
+    var ssoIdKey = "_ionic_sso_id";
+
     // handle login form submission
     document
       .getElementById("login-form")
@@ -70,93 +88,156 @@
           source: "framework-login"
         };
 
-        ajaxPost("/oauth/login", JSON.stringify(data), function(res, xhr) {
-          if (xhr.status === 200) {
+        window.localStorage.removeItem(ssoIdKey);
+
+        fetch("/oauth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(result) {
+            if (result.error) {
+              handleError("#login-form", result.error);
+              return;
+            }
+
             window.c("Log in", "btn-login-submit");
             var _hsq = (window._hsq = window._hsq || []);
             _hsq.push(["identify", { email: data.email }]);
             _hsq.push(["trackEvent", { id: "000006636951" }]);
 
             var params = new URLSearchParams(location.search);
-            if (!params.has('client_id')) {
-              params.set('response_type', 'token');
-              params.set('scope', 'openid profile email');
-              params.set('client_id', 'dash');
-              params.set('nonce', Math.random().toString(36).substring(2));
+            if (!params.has("client_id")) {
+              params.set("response_type", "token");
+              params.set("scope", "openid profile email");
+              params.set("client_id", "dash");
+              params.set("nonce", Math.random().toString(36).substring(2));
             }
 
-            window.location = "/oauth/authorize?" + params.toString();
-          } else {
-            var response;
-            try {
-              response = JSON.parse(res);
-            } catch (e) {
-              response = { error: { message: e } };
-            }
-            clearErrors();
-            handleError(response.error);
-          }
-        });
-
-        function ajaxPost(url, data, callback, x) {
-          try {
-            x = new (this.XMLHttpRequest || ActiveXObject)(
-              "MSXML2.XMLHTTP.3.0"
-            );
-            x.open("POST", url, 1);
-            x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-            x.setRequestHeader("Content-Type", "application/json");
-            x.onreadystatechange = function() {
-              x.readyState > 3 && callback && callback(x.responseText, x);
-            };
-            x.send(data);
-          } catch (e) {
-            window.console && console.log(e);
-          }
-        }
-
-        function handleError(response) {
-          var loginError = response;
-          var loginErrors =
-            loginError && loginError.details
-              ? loginError.details.reduce(function(acc, current) {
-                  acc[current.parameter] = current.errors.join(" ");
-                  return acc;
-                }, {})
-              : {};
-
-          if (loginError) {
-            var errorlist = document.querySelector(".errorlist");
-            var message = errorlist.querySelector(".form-message");
-            errorlist.classList.add("error");
-            message.innerHTML = loginError.message;
-          }
-
-          if (loginErrors) {
-            for (var key in loginErrors) {
-              var errorGroup = document.querySelector("#field-" + key);
-              var message = errorGroup.querySelector(".form-message");
-              errorGroup.classList.add("error");
-              message.innerHTML = loginErrors[key];
-            }
-          }
-        }
-
-        function clearErrors() {
-          var errorlist = document.querySelector(".errorlist");
-          var message = errorlist.querySelector(".form-message");
-          errorlist.classList.remove("error");
-          message.innerHTML = "";
-
-          var keys = ["email", "password"];
-          for (var i = 0; i < keys.length; i++) {
-            var errorGroup = document.querySelector("#field-" + keys[i]);
-            var message = errorGroup.querySelector(".form-message");
-            errorGroup.classList.remove("error");
-            message.innerHTML = "";
-          }
-        }
+            window.location.assign("/oauth/authorize?" + params.toString());
+          })
+          .catch(function(reason) {
+            clearErrors("#login-form");
+            handleError("#login-form", { message: reason.message });
+          });
       });
+
+    document
+      .getElementById("sso-form")
+      .addEventListener("submit", function(e) {
+        e.preventDefault();
+        var emailOrSlug = document.getElementById("id_emailorslug").value;
+
+        fetch("{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug))
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(result) {
+            if (result.error) {
+              handleError("#sso-form", result.error);
+              return;
+            }
+            window.localStorage.setItem(ssoIdKey, emailOrSlug);
+
+            var params = new URLSearchParams(location.search);
+            if (!params.has("client_id")) {
+              params.set("response_type", "token");
+              params.set("redirect_uri", "{{ DASHBOARD_URL }}/oauth2");
+              params.set("scope", "openid profile email");
+              params.set("audience", "{{ API_URL }}");
+            }
+            params.set("client_id", "1VIbgWbPzGM7UN9Y53MN3XflLJvJzXmS");
+            params.set("connection", result.data.uuid);
+
+            window.location.assign("https://auth.ionicframework.com/authorize?" + params.toString());
+          })
+          .catch(function(reason) {
+            handleError("#sso-form", { message: reason.message });
+          });
+      });
+
+    function handleError(formId, response) {
+      var loginError = response;
+      var loginErrors =
+        loginError && loginError.details
+          ? loginError.details.reduce(function(acc, current) {
+              acc[current.parameter] = current.errors.join(" ");
+              return acc;
+            }, {})
+          : {};
+
+      if (loginError) {
+        var errorlist = document.querySelector(formId + " .errorlist");
+        var message = errorlist.querySelector(formId + " .form-message");
+        errorlist.classList.add("error");
+        message.innerHTML = loginError.message;
+      }
+
+      if (loginErrors) {
+        for (var key in loginErrors) {
+          var errorGroup = document.querySelector("#field-" + key);
+          var message = errorGroup.querySelector(formId + " .form-message");
+          errorGroup.classList.add("error");
+          message.innerHTML = loginErrors[key];
+        }
+      }
+    }
+
+    function clearErrors(formId) {
+      var errorlist = document.querySelector(formId + " .errorlist");
+      var message = errorlist.querySelector(formId + " .form-message");
+      errorlist.classList.remove("error");
+      message.innerHTML = "";
+
+      var keys = ["email", "password"];
+      for (var i = 0; i < keys.length; i++) {
+        var errorGroup = document.querySelector("#field-" + keys[i]);
+        var message = errorGroup.querySelector(formId + " .form-message");
+        errorGroup.classList.remove("error");
+        message.innerHTML = "";
+      }
+    }
+
+    function showLogin() {
+      ["sso-header", "sso-form", "login-link"].forEach(function(id) {
+        document.getElementById(id).style.display = "none";
+      });
+      ["login-header", "login-form", "sso-link"].forEach(function(id) {
+        document.getElementById(id).style.removeProperty("display");
+      });
+    }
+
+    function showSSO() {
+      ["login-header", "login-form", "sso-link"].forEach(function(id) {
+        document.getElementById(id).style.display = "none";
+      });
+      ["sso-header", "sso-form", "login-link"].forEach(function(id) {
+        document.getElementById(id).style.removeProperty("display");
+      });
+    }
+
+    document
+      .getElementById("login-link")
+      .addEventListener("click", function(e) {
+        e.preventDefault();
+        showLogin();
+      });
+
+    document
+      .getElementById("sso-link")
+      .addEventListener("click", function(e) {
+        e.preventDefault();
+        showSSO();
+      });
+
+    const ssoId = window.localStorage.getItem(ssoIdKey);
+    if (ssoId) {
+      document.getElementById("id_emailorslug").value = ssoId;
+      showSSO();
+    }
   })();
 </script>
 {% endblock %}

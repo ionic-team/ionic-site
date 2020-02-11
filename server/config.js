@@ -5,8 +5,9 @@ module.exports = {
   PROD: bool(process.env.PROD) || false,
   WEB_CONCURRENCY: int(process.env.WEB_CONCURRENCY) || 1,
 
-  // Ionic API
+  // Ionic API and Appflow dashboard
   API_URL: process.env.API_URL || 'https://api.ionicjs.com',
+  DASHBOARD_URL: process.env.DASHBOARD_URL || 'https://dashboard.ionicframework.com',
 
   // CloudFlare
   CF_EMAIL: process.env.CF_EMAIL || null,

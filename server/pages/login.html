@@ -143,14 +143,12 @@
             window.localStorage.setItem(ssoIdKey, emailOrSlug);
 
             var params = new URLSearchParams(location.search);
-            if (!params.has("client_id")) {
-              params.set("response_type", "token");
-              params.set("redirect_uri", "{{ DASHBOARD_URL }}/oauth2");
-              params.set("scope", "openid profile email");
-              params.set("audience", "{{ API_URL }}");
-            }
             params.set("client_id", "1VIbgWbPzGM7UN9Y53MN3XflLJvJzXmS");
             params.set("connection", result.data.uuid);
+            params.set("response_type", "token");
+            params.set("redirect_uri", "{{ DASHBOARD_URL }}/oauth2");
+            params.set("scope", "openid profile email");
+            params.set("audience", "{{ API_URL }}");
 
             window.location.assign("https://auth.ionicframework.com/authorize?" + params.toString());
           })

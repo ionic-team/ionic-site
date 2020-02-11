@@ -229,9 +229,11 @@
     .activateOnScroll {
       opacity: 0;
       filter: blur(10px);
-      transition: .4s opacity, .4s filter;
+      transform: translateY(8px);
+      transition: .6s opacity, .6s filter, .6s transform ease-out;
 
       &.active {
+        transform: translateY(0);
         opacity: 1;
         filter: blur(0);
       }
@@ -266,6 +268,14 @@
 
       img {
         margin-bottom: 25px;
+      }
+
+      &:nth-child(2) img {
+        transition-delay: .1s;
+      }
+
+      &:nth-child(3) img {
+        transition-delay: .2s;
       }
     }
   }

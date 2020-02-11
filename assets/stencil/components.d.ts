@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface HomeComponents {}
+  interface HomeNative {}
   interface IconExternal {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
@@ -65,6 +66,12 @@ declare global {
   var HTMLHomeComponentsElement: {
     prototype: HTMLHomeComponentsElement;
     new (): HTMLHomeComponentsElement;
+  };
+
+  interface HTMLHomeNativeElement extends Components.HomeNative, HTMLStencilElement {}
+  var HTMLHomeNativeElement: {
+    prototype: HTMLHomeNativeElement;
+    new (): HTMLHomeNativeElement;
   };
 
   interface HTMLIconExternalElement extends Components.IconExternal, HTMLStencilElement {}
@@ -146,6 +153,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
+    'home-native': HTMLHomeNativeElement;
     'icon-external': HTMLIconExternalElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
@@ -164,6 +172,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface HomeComponents {}
+  interface HomeNative {}
   interface IconExternal {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
@@ -209,6 +218,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
+    'home-native': HomeNative;
     'icon-external': IconExternal;
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
@@ -232,6 +242,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
+      'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;

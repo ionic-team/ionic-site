@@ -221,6 +221,22 @@
       }
     }
 
+    pre code {
+      background: transparent;
+      color: white;
+    }
+
+    .activateOnScroll {
+      opacity: 0;
+      filter: blur(10px);
+      transition: .4s opacity, .4s filter;
+
+      &.active {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
     @media (max-width: $screen-sm-max) {
       .content {
         width: 100%;
@@ -386,6 +402,7 @@
 
   #agnostic {
     overflow: visible;
+    padding-bottom: 30px;
 
     .frameworks {
       margin-bottom: 33px;
@@ -441,8 +458,35 @@
   }
 
   #native {
+    padding-bottom: 400px;
+
+    .graphics {
+      margin-top: -16px;
+      margin-right: -68px;
+      position: relative;
+
+      > img {
+        position: absolute;
+        top: -115px;
+        left: calc(50% - 207px);
+        height: 761px;
+        width: 499px;
+        z-index: -1;
+      }
+
+      home-native {
+        position: relative;
+      }
+    }
+
     @media (max-width: $screen-sm-max) {
       flex-direction: column;
+
+      .graphics {
+        margin-top: 64px;
+        margin-right: auto;
+        max-width: 100%;
+      }
     }
   }
 
@@ -565,11 +609,12 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-around;
       position: relative;
 
       li {
-        flex: 1 0;
+        flex: 0 1 190px;
+        margin-bottom: 32px;
         opacity: .5;
         transition: .2s opacity;
 

@@ -17,7 +17,7 @@ import Prism from 'prismjs';
   shadow: false
 })
 export class HomeComponents {
-  @State() activeTab: 'card'|'button'|'textInput' = 'card';
+  @State() activeTab: 'card'|'button'|'listItem' = 'card';
   @State() activePlatform = 'ios';
 
   constructor() {
@@ -31,9 +31,9 @@ export class HomeComponents {
 
   resizeIframe(el) {
     setTimeout(() => {
-      el.style.height = (el.contentWindow.document.documentElement.scrollHeight || 240) + 'px';
-    }, 500)
-    
+      console.log(el.contentWindow.document.documentElement.scrollHeight)
+      el.style.height = (el.contentWindow.document.documentElement.scrollHeight || 280) + 'px';
+    }, 50)
   }
 
 
@@ -45,8 +45,8 @@ export class HomeComponents {
               onClick={() => this.activeTab = 'card'}>Card</li>
           <li class={this.activeTab === 'button' ? 'active' : 'innactive'}
               onClick={() => this.activeTab = 'button'}>Button</li>
-          <li class={this.activeTab === 'textInput' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'textInput'}>Text Input</li>
+          <li class={this.activeTab === 'listItem' ? 'active' : 'innactive'}
+              onClick={() => this.activeTab = 'listItem'}>List Item</li>
         </ul>,
         <a href="https://ionicframework.com/docs/components">See All</a>
       </header>,
@@ -59,7 +59,7 @@ export class HomeComponents {
           <ion-segment-button value="ios">
             <ion-label>iOS</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="android">
+          <ion-segment-button value="md">
             <ion-label>Android</ion-label>
           </ion-segment-button>
         </ion-segment>
@@ -70,7 +70,7 @@ export class HomeComponents {
           <li class={this.activeTab === key ? 'active' : 'innactive'}>
             <pre>
               <code innerHTML={Prism.highlight(
-                this.markup[key], 
+                this.markup[key].display, 
                 Prism.languages.html, 
                 'html'
               )}></code>
@@ -82,9 +82,9 @@ export class HomeComponents {
       <ul class="preview-content">
         {Object.keys(this.markup).map(key => (
           <li class={this.activeTab === key ? 'active' : 'innactive'}>
-            <iframe srcdoc={this.ionicInjector(this.markup[key])}
-                    frameborder="0" 
-                    scrolling="no" 
+            <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
+                    frameborder="0"
+                    scrolling="no"
                     onLoad={e => this.resizeIframe(e.target)}></iframe>
           </li>
         ))}
@@ -97,11 +97,17 @@ export class HomeComponents {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css" />
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
+<script>window.Ionic = {
+  config: {
+    mode: '${this.activePlatform}'
+  }
+}</script>
 ${code}`;
   }
 
   markup = {
-    card: `
+    card: {
+      display: `
 <ion-card>
   <ion-img src="/assets/myImg.png"></ion-img>
   <ion-card-content>
@@ -119,8 +125,62 @@ ${code}`;
     </ion-item>
   </ion-card-content>
 </ion-card>`,
+      src: `
+        <style>
+          html, body {
+            height: 380px;
+          }
+          ion-card img {
+            width: 100%;
+            height: 120px;
+          }
+          
+          ion-card ion-grid {
+            --ion-grid-column-padding: 0;
+            
+            padding: 10px 0 0;
+          }
+          
+          ion-card-content ion-col:last-child {
+            text-align: right;
+          }
+          
+          ion-card ion-button[fill="clear"] {
+            --padding-end: 0;
+            margin: 0;
+          
+            height: 30px;
+          }
+        </style>
+        <ion-card>
+          <img src="/img/homepage/demo-image.png" />
+          <ion-card-header>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            <ion-card-title>Card Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button size="small">Action</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button fill="clear" color="medium">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                  </ion-button>
+                  <ion-button fill="clear" color="medium">
+                    <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>`
+    },
 
-  button: `
+  button: {
+    display:`
 <!-- Default -->
 <ion-button>Default</ion-button>
 
@@ -136,26 +196,107 @@ ${code}`;
 <ion-button color="danger">Danger</ion-button>
 <ion-button color="light">Light</ion-button>
 <ion-button color="medium">Medium</ion-button>
-<ion-button color="dark">Dark</ion-button>`,
+<ion-button color="dark">Dark</ion-button>
 
-textInput: `
-<!-- Input with value -->
-<ion-input value="custom"></ion-input>
-
-<!-- Input with placeholder -->
-<ion-input placeholder="Enter Input"></ion-input>
-
-<!-- Input with clear button when there is a value -->
-<ion-input clearInput value="clear me"></ion-input>
-
-<!-- Number type input -->
-<ion-input type="number" value="333"></ion-input>
-
-<!-- Disabled input -->
-<ion-input value="Disabled" disabled></ion-input>
-
-<!-- Readonly input -->
-<ion-input value="Readonly" readonly></ion-input>
 `,
+    src: `<!-- Default -->
+      <ion-button>Default</ion-button>
+
+      <!-- Anchor -->
+      <ion-button href="#">Anchor</ion-button>
+
+      <!-- Colors -->
+      <ion-button color="primary">Primary</ion-button>
+      <ion-button color="secondary">Secondary</ion-button>
+      <ion-button color="tertiary">Tertiary</ion-button>
+      <ion-button color="success">Success</ion-button>
+      <ion-button color="warning">Warning</ion-button>
+      <ion-button color="danger">Danger</ion-button>
+      <ion-button color="light">Light</ion-button>
+      <ion-button color="medium">Medium</ion-button>
+      <ion-button color="dark">Dark</ion-button>`
+  },
+
+  listItem: {
+    display: `
+<h4>Discover</h4>
+<h2>Music we think you'll love.</h2>
+<IonList>
+  {albums.map(album =>
+    <IonItem key={album.id}>
+      <IonThumbnail slot="start">
+        <img src={album.artwork} />
+      </IonThumbnail>
+      <IonLabel>
+        <h2>{album.title}</h2>
+        <p>{album.artist}, {album.year}</p>
+      </IonLabel>
+    </IonItem>
+  )}
+</IonList>
+
+
+`,
+    src: `
+      <style>
+        html, body {
+          min-height: 300px;
+        }
+        ion-thumbnail {
+          --border-radius: 6px;
+        }
+      </style>
+      <ion-app>
+        <ion-content>
+          <ion-list>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/26/Iron_%26_Wine_-_Beast_Epic.jpg" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>Beast Epic</h2>
+                <p>Iron & Wine, 2017</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="https://media.pitchfork.com/photos/5c7425267ad40308b4a8835c/1:1/w_320/JapaneseHouse_GoodAtFalling.jpg" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>Good At Falling</h2>
+                <p>The Japanese House, 2019</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/4f/Hallucinogen_%28EP%29_%28Front_Cover%29.png" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>Hallucinogen</h2>
+                <p>Kelela, 2015</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/66/22%2C_A_Million_cover.jpg" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>22, A Million</h2>
+                <p>Bon Iver, 2016</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/F%28x%29_4_Walls_CD_Cover.jpg/220px-F%28x%29_4_Walls_CD_Cover.jpg" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>4 Walls</h2>
+                <p>f(x), 2015</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-app>`
+    }
   }
 }

@@ -199,22 +199,30 @@ ${code}`;
 <ion-button color="dark">Dark</ion-button>
 
 `,
-    src: `<!-- Default -->
-      <ion-button>Default</ion-button>
+    src: `
+      <style>
+        html, body {
+          min-height: 300px;
+        }
+      </style>  
+      <ion-app><ion-list>
+        <!-- Default -->
+        <ion-button>Default</ion-button>
 
-      <!-- Anchor -->
-      <ion-button href="javascript:void(0);">Anchor</ion-button>
+        <!-- Anchor -->
+        <ion-button href="javascript:void(0);">Anchor</ion-button>
 
-      <!-- Colors -->
-      <ion-button color="primary">Primary</ion-button>
-      <ion-button color="secondary">Secondary</ion-button>
-      <ion-button color="tertiary">Tertiary</ion-button>
-      <ion-button color="success">Success</ion-button>
-      <ion-button color="warning">Warning</ion-button>
-      <ion-button color="danger">Danger</ion-button>
-      <ion-button color="light">Light</ion-button>
-      <ion-button color="medium">Medium</ion-button>
-      <ion-button color="dark">Dark</ion-button>`
+        <!-- Colors -->
+        <ion-button color="primary">Primary</ion-button>
+        <ion-button color="secondary">Secondary</ion-button>
+        <ion-button color="tertiary">Tertiary</ion-button>
+        <ion-button color="success">Success</ion-button>
+        <ion-button color="warning">Warning</ion-button>
+        <ion-button color="danger">Danger</ion-button>
+        <ion-button color="light">Light</ion-button>
+        <ion-button color="medium">Medium</ion-button>
+        <ion-button color="dark">Dark</ion-button>
+      </ion-list></ion-app>`
   },
 
   listItem: {

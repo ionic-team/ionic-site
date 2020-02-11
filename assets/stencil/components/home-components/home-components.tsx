@@ -203,7 +203,7 @@ ${code}`;
       <ion-button>Default</ion-button>
 
       <!-- Anchor -->
-      <ion-button href="#">Anchor</ion-button>
+      <ion-button href="javascript:void(0);">Anchor</ion-button>
 
       <!-- Colors -->
       <ion-button color="primary">Primary</ion-button>

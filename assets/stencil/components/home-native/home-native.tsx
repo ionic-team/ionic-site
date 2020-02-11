@@ -40,7 +40,7 @@ export class HomeNative {
           <li class={this.activeTab === 'geolocation' ? 'active' : 'innactive'}
               onClick={() => this.activeTab = 'geolocation'}>Geolocation</li>
         </ul>,
-        <a href="https://ionicframework.com/docs/native">See All</a>
+        <a href="https://ionicframework.com/docs/native" target="_blank">See All</a>
       </header>,
 
       <ul class="tab-content">

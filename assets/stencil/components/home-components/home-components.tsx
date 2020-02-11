@@ -48,7 +48,7 @@ export class HomeComponents {
           <li class={this.activeTab === 'listItem' ? 'active' : 'innactive'}
               onClick={() => this.activeTab = 'listItem'}>List Item</li>
         </ul>,
-        <a href="https://ionicframework.com/docs/components">See All</a>
+        <a href="https://ionicframework.com/docs/components" target="_blank">See All</a>
       </header>,
 
       <header class="preview-header">

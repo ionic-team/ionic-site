@@ -211,6 +211,7 @@
 
   @media (max-width: $screen-xs-max) {
     padding-bottom: 600px;
+    overflow: hidden;
 
     .graphic {
       top: auto;

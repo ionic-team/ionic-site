@@ -486,7 +486,7 @@
     Ionic makes building cross-platform mobile apps enjoyable. It's integration 
     with Angular is seemless, so it's easily become our go-to for mobile.
   </blockquote>
-  <blockquote class="quote hevery active">
+  <blockquote class="quote hevery is-active">
     Ionic is a shining example of a high-quality framework that takes advantage
     of Angular's power and flexibility, enabling developers to build
     production-ready mobile apps and Progressive Web Apps, in a fraction of the
@@ -512,7 +512,7 @@
       <strong>Jeff Cross</strong>
       <span>Co-Founder of Nrwl</span>
     </li>
-    <li data-speaker="hevery" class="active">
+    <li data-speaker="hevery" class="is-active">
       <img src="/img/framework/testimonial-misko.png" alt="Misko Hevery" />
       <strong>Misko Hevery</strong>
       <span>Creator of Angular</span>
@@ -676,19 +676,19 @@ var testimonialIntervalID = null;
 var queued = false;
 
 function nextQuote() {
-  $active = $testimonials.find('.quotees .active');
+  $active = $testimonials.find('.quotees .is-active');
 
   if ($active.is(':last-child')) {
-    $active.removeClass('active');
-    $active = $testimonials.find('.quotees li:first-child').addClass('active');
+    $active.removeClass('is-active');
+    $active = $testimonials.find('.quotees li:first-child').addClass('is-active');
   } else {
-    $active = $active.removeClass('active').next().addClass('active');
+    $active = $active.removeClass('is-active').next().addClass('is-active');
   }
 
-  $testimonials.find('blockquote.active')
-               .removeClass('active')
+  $testimonials.find('blockquote.is-active')
+               .removeClass('is-active')
                .siblings('.' + $active.data('speaker'))
-               .addClass('active');
+               .addClass('is-active');
 }
 
 function startTestimonialRotation() {
@@ -698,10 +698,10 @@ function startTestimonialRotation() {
 
 // what happens if a speaker is clicked
 $('.quotees li').click(function(ev) {
-  $testimonials.find('.active').removeClass('active');
+  $testimonials.find('.is-active').removeClass('is-active');
   $target = $(ev.delegateTarget);
-  $target.addClass('active');
-  $testimonials.find('.' + $target.data('speaker')).addClass('active');
+  $target.addClass('is-active');
+  $testimonials.find('.' + $target.data('speaker')).addClass('is-active');
   // stop the rotation for a bit
   clearInterval(testimonialIntervalID);
   if (! queued) {

@@ -608,7 +608,7 @@
         left: -4px;
       }
 
-      &.active {
+      &.is-active {
         opacity: 1;
       }
     }
@@ -623,12 +623,13 @@
       position: relative;
 
       li {
+        opacity: .5;
+        cursor: pointer;
         flex: 0 1 190px;
         margin-bottom: 32px;
-        opacity: .5;
         transition: .2s opacity;
 
-        &.active {
+        &.is-active {
           opacity: 1;
         }
       }

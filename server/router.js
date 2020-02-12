@@ -164,6 +164,12 @@ router: app => {
     (_, res) => markdown(res, 'pr-ionic-framework-4-release'))
   .get('/press/release/2019/ionic-alan-announce-integration',
     (_, res) => markdown(res, 'pr-ionic-alan-announce-integration'))
+  .get('/press/release/2020/ionic-achieves-record-revenue-growth-in-2019',
+    (_, res) => markdown(res, 'pr-ionic-achieves-record-revenue-growth-in-2019'))
+  .get('/press/release/2020/ionic-5-brings-major-design-updates',
+    (_, res) => markdown(res, 'pr-ionic-5-brings-major-design-updates'))
+
+    
 
   // JSON endpoints
   .post('/contact', bp.json(), es(), contactCtrl)

@@ -1,0 +1,159 @@
+{% extends '_layouts/blank.html' %}
+{% set title = "Create your Ionic App" %}
+{% set id = "start" %}
+{% set pre_footer = false %}
+{% set meta_description = "Create your own beautiful mobile app with just a few clicks and the power of Ionic Framework." %}
+{% set stickyNav = true %}
+
+{% block main %}
+<main>
+  <ionic-app-wizard></ionic-app-wizard>
+</main>
+
+{% endblock %} {% block scripts %}
+<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+<script>
+
+  (function() {
+
+      // content tabs
+      var tabs = document.querySelectorAll('.rounded-tabs__tab');
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', function() {
+          selectTab(this);
+        });
+      }
+
+      if (window.location.hash && ['#account', '#cli', '#creator'].includes(window.location.hash)) {
+        var content = window.location.hash.replace('#', '');
+        var tab = document.querySelector('[data-tab-content="' + content + '"]')
+        selectTab(tab);
+      }
+
+
+      function selectTab(tab) {
+        var contentId = tab.dataset.tabContent;
+        window.location.hash = contentId;
+
+        document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
+        document.querySelector('.tab-content--active').classList.remove('tab-content--active');
+        tab.classList.add('rounded-tabs__tab--active');
+        document.getElementById('content-' + contentId).classList.add('tab-content--active');
+      }
+
+      // handle sign up form submission
+      document.getElementById("signup-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        (typeof grecaptcha !== 'undefined' && typeof grecaptcha.execute !== 'undefined'
+          ? grecaptcha.execute('6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ', { action: 'signup' })
+          : $.when('')
+        ).then(function(recaptcha) {
+          var data = {
+            name: document.getElementById('id_name').value,
+            email: document.getElementById('id_email').value,
+            username: document.getElementById('id_username').value,
+            password: document.getElementById('id_password').value,
+            recaptcha: recaptcha,
+            source: 'framework-getting-started'
+          };
+
+          ajaxPost('https://api.ionicjs.com/signup', JSON.stringify(data), function(res, xhr) {
+            var response = JSON.parse(res);
+
+            if (xhr.status === 201) {
+              console.log(response.data.token);
+
+              window.c('Get started', 'btn-get-started-signup-submit');
+              var _hsq = window._hsq = window._hsq || [];
+              _hsq.push(["identify", {
+                email: response.data.user.email,
+                id: response.data.user.id
+              }]);
+              _hsq.push(["trackEvent", {
+                id: "000006040735"
+              }]);
+
+              setCookie('_ionic_token', response.data.token);
+              setCookie('_ionic_user_id', response.data.user.id);
+
+              var href = 'https://dashboard.ionicframework.com/select-plan?plan=starter';
+              var hsutk = window.getCookie('hubspotutk');
+              if (hsutk) {
+                href += '&hsid=' + encodeURIComponent(hsutk);
+              }
+              window.location = href;
+            } else {
+              console.error('err', response);
+              clearErrors();
+              handleError(response.error);
+            }
+          });
+        });
+
+        function ajaxPost(url, data, callback, x) {
+          try {
+            x = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
+            x.open('POST', url, 1);
+            x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            x.setRequestHeader('Content-Type', 'application/json');
+            x.onreadystatechange = function() {
+              x.readyState > 3 && callback && callback(x.responseText, x);
+            };
+            x.send(data);
+          } catch (e) {
+            window.console && console.log(e);
+          }
+        };
+
+        function handleError(response) {
+          var signupError = response;
+          var signupErrors = signupError && signupError.details ?
+            signupError.details.reduce(function(acc, current) {
+              acc[current.parameter] = current.errors.join(' ');
+              return acc;
+            }, {}) : {};
+
+          if (signupError) {
+            var errorlist = document.querySelector('.errorlist');
+            var message = errorlist.querySelector('.form-message');
+            errorlist.classList.add('error');
+            message.innerHTML = signupError.message;
+          }
+
+          if (signupErrors) {
+            for (var key in signupErrors) {
+              var errorGroup = document.querySelector('#field-' + key);
+              var message = errorGroup.querySelector('.form-message');
+              errorGroup.classList.add('error');
+              message.innerHTML = signupErrors[key];
+            }
+          }
+        }
+
+        function clearErrors() {
+          var errorlist = document.querySelector('.errorlist');
+          var message = errorlist.querySelector('.form-message');
+          errorlist.classList.remove('error');
+          message.innerHTML = '';
+
+          var keys = ['name', 'email', 'username', 'password'];
+          for (var i = 0; i < keys.length; i++) {
+            var errorGroup = document.querySelector('#field-' + keys[i]);
+            var message = errorGroup.querySelector('.form-message');
+            errorGroup.classList.remove('error');
+            message.innerHTML = '';
+          }
+        }
+
+        function setCookie(name, value) {
+          const days = 365;
+          const dt = new Date();
+          dt.setTime(dt.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + dt.toGMTString();
+          document.cookie = name + "=" + value + "; domain=ionicframework.com; expires=" + expires + ";";
+        }
+
+      });
+  })();
+</script>
+{% endblock %}

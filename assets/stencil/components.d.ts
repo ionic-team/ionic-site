@@ -13,6 +13,7 @@ export namespace Components {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color': string;
@@ -78,6 +79,12 @@ declare global {
   var HTMLIconExternalElement: {
     prototype: HTMLIconExternalElement;
     new (): HTMLIconExternalElement;
+  };
+
+  interface HTMLIonicAppWizardElement extends Components.IonicAppWizard, HTMLStencilElement {}
+  var HTMLIonicAppWizardElement: {
+    prototype: HTMLIonicAppWizardElement;
+    new (): HTMLIonicAppWizardElement;
   };
 
   interface HTMLIonicAppflowActivatorElement extends Components.IonicAppflowActivator, HTMLStencilElement {}
@@ -155,6 +162,7 @@ declare global {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
     'icon-external': HTMLIconExternalElement;
+    'ionic-app-wizard': HTMLIonicAppWizardElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
@@ -174,6 +182,7 @@ declare namespace LocalJSX {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color'?: string;
@@ -220,6 +229,7 @@ declare namespace LocalJSX {
     'home-components': HomeComponents;
     'home-native': HomeNative;
     'icon-external': IconExternal;
+    'ionic-app-wizard': IonicAppWizard;
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
@@ -244,6 +254,7 @@ declare module "@stencil/core" {
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
+      'ionic-app-wizard': LocalJSX.IonicAppWizard & JSXBase.HTMLAttributes<HTMLIonicAppWizardElement>;
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;

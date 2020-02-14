@@ -1,5 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 
+import { login, signup, SignupForm, LoginForm } from '../../util/auth';
+
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
   { name: 'Menu', id: 'menu' },
@@ -37,7 +39,11 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 0;
+  @State() step = 2;
+
+  @State() showSignup = true;
+  @State() signupErrors = null;
+  @State() loginErrors = null;
 
   // Form state
   @State() appName = '';
@@ -48,9 +54,22 @@ export class AppWizard {
   @State() authorEmail = '';
   @State() authorName = '';
 
+  @State() loginForm: LoginForm = {};
+  @State() signupForm: SignupForm = {};
+
   next = (e) => {
     e.preventDefault();
     this.step = this.step + 1 % this.STEPS.length;
+  }
+
+  login = async (e) => {
+    e.preventDefault();
+    await login(this.loginForm.email, this.loginForm.password);
+  }
+
+  signup = async (e) => {
+    e.preventDefault();
+    await signup(this.signupForm);
   }
 
   handleChangeStep = (e) => {
@@ -97,27 +116,27 @@ export class AppWizard {
       <div>
         <hgroup>
           <h2>Configure {this.appName}</h2>
-          <h4>This information will be necessary for deploying to App Stores</h4>
+          <h4>deploying to App Stores</h4>
         </hgroup>
         <form class="form" onSubmit={this.next}>
           <div class="form-group" id="field-appurl">
             <label htmlFor="id_appurl">Company or App URL</label>
-            <input type="text" id="id_appurl" name="appurl" value={this.appUrl} tabindex="1" required onInput={this.handleInput('appUrl')} />
+            <input type="text" id="id_appurl" name="appurl" value={this.appUrl} tabindex="1" onInput={this.handleInput('appUrl')} />
             <div class="form-message form-message--small"></div>
           </div>
           <div class="form-group" id="field-bundleid">
             <label htmlFor="id_bundleid">Bundle ID</label>
-            <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" required onInput={this.handleInput('bundleId')} />
+            <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
           <div class="form-group" id="field-authoremail">
             <label htmlFor="id_authoremail">Author Email</label>
-            <input type="text" id="id_authoremail" name="authoremail" value={this.authorEmail} tabindex="1" required onInput={this.handleInput('authorEmail')} />
+            <input type="text" id="id_authoremail" name="authoremail" value={this.authorEmail} tabindex="1" onInput={this.handleInput('authorEmail')} />
             <div class="form-message form-message--small"></div>
           </div>
           <div class="form-group" id="field-authorname">
             <label htmlFor="id_authorname">Author Name</label>
-            <input type="text" id="id_authorname" name="authorname" value={this.authorName} tabindex="1" required onInput={this.handleInput('authorName')}/>
+            <input type="text" id="id_authorname" name="authorname" value={this.authorName} tabindex="1" onInput={this.handleInput('authorName')}/>
             <div class="form-message form-message--small"></div>
           </div>
           <Button>Next</Button>
@@ -127,7 +146,31 @@ export class AppWizard {
   }
 
   renderAccount() {
-    return null;
+    return (
+      <div>
+        <hgroup>
+          <h2>Create your Ionic account</h2>
+          <h4>Build, connect, and ship your app even faster</h4>
+        </hgroup>
+        { this.showSignup ? (
+        <SignupForm
+          handleSubmit={this.signup}
+          errors={this.signupErrors}
+          form={this.signupForm}
+          loginInstead={() => this.showSignup = false}
+          inputChange={(name) => e => this.signupForm[name] = e.target.value}
+          />
+        ) : (
+        <LoginForm
+          handleSubmit={this.login}
+          errors={this.loginErrors}
+          signupInstead={() => this.showSignup = true}
+          form={this.loginForm}
+          inputChange={(name) => e => this.loginForm[name] = e.target.value}
+          />
+        )}
+      </div>
+    );
   }
 
   renderFinish() {
@@ -188,3 +231,133 @@ const Switcher = ({ items, index, onChange }) => (
     ))}
   </ion-segment>
 );
+
+interface SignupFormProps {
+  form: SignupForm;
+  handleSubmit: (e) => Promise<void>;
+  errors: any;
+  loginInstead: () => void;
+  inputChange: (name: string) => (e: any) => void;
+}
+const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: SignupFormProps) => (
+  <form class="form" id="signup-form" role="form" onSubmit={handleSubmit} method="POST">
+    { errors ? (
+    <div class="errorlist">
+      <div>Unable to create account.</div>
+      <div class="form-message">{errors}</div>
+    </div>
+    ) : null }
+    <div class="form-group" id="field-name">
+      <label>Full name</label>
+      <input
+        type="text"
+        id="id_name"
+        name="name"
+        tabindex="1"
+        required
+        value={form.name}
+        onInput={inputChange('name')}
+        />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <div class="form-group" id="field-email">
+      <label>Email</label>
+      <input
+        type="text"
+        id="id_email"
+        name="email"
+        tabindex="2"
+        required
+        value={form.email}
+        onInput={inputChange('email')}
+        />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <div class="form-group" id="field-username">
+      <label>Username</label>
+      <input
+        type="text"
+        id="id_username"
+        name="username"
+        tabindex="3"
+        required
+        value={form.username}
+        onInput={inputChange('username')}
+        />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <div class="form-group" id="field-password">
+      <label>Password</label>
+      <input
+        type="password"
+        id="id_password"
+        name="password"
+        tabindex="4"
+        required
+        value={form.password}
+        onInput={inputChange('password')}
+        />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <div class="form-group">
+    <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
+    </div>
+    <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
+    <div class="well">
+      Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); loginInstead() }}>Log in</a>
+    </div>
+  </form>
+)
+
+interface LoginFormProps {
+  form: LoginForm;
+  handleSubmit: (e) => Promise<void>;
+  errors: any;
+  signupInstead: () => void;
+  inputChange: (name: string) => (e: any) => void;
+}
+const LoginForm = ({ form, handleSubmit, errors, signupInstead, inputChange }: LoginFormProps) => (
+  <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
+    { errors ? (
+    <div class="errorlist">
+      <div>Unable to log in:</div>
+      <div class="form-message"></div>
+    </div>
+    ) : null }
+    <div class="form-group" id="field-email">
+      <label htmlFor="id_email">Email</label>
+      <input
+        type="text"
+        id="id_email"
+        name="email"
+        autocomplete="username"
+        tabindex="1"
+        required
+        value={form.email}
+        onInput={inputChange('email')} />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <div class="form-group" id="field-password">
+      <label htmlFor="id_password">
+        Password
+        <div class="forgot-password">
+          <a target="_blank" href="https://dashboard.ionicframework.com/reset-password" title="Reset Password?">Forgot password?</a>
+        </div>
+      </label>
+      <input
+        type="password"
+        id="id_password"
+        name="password"
+        autocomplete="current-password"
+        tabindex="2"
+        required
+        value={form.password}
+        onInput={inputChange('password')} />
+      <div class="form-message form-message--small"></div>
+    </div>
+    <button type="submit" id="submit" class="btn btn-block" tabindex="3">Log in</button>
+    <div class="well">
+      Don't have an account? <a class="text-link" href="#" onClick={(e) => { e.preventDefault(); signupInstead() }}>Sign up</a>
+    </div>
+  </form>
+)

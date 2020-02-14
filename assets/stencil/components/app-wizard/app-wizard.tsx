@@ -38,12 +38,28 @@ export class AppWizard {
   ]
 
   @State() step = 0;
+
+  // Form state
+  @State() appName = '';
   @State() framework = 'angular';
   @State() template = 'tabs';
+  @State() appUrl = '';
+  @State() bundleId = '';
+  @State() authorEmail = '';
+  @State() authorName = '';
+
+  next = (e) => {
+    e.preventDefault();
+    this.step = this.step + 1 % this.STEPS.length;
+  }
 
   handleChangeStep = (e) => {
     this.step = parseInt(e.detail.value, 10);
   }
+
+  handleInput = (fieldName) => e => {
+    this[fieldName] = e.target.value;
+  };
 
   renderBasics() {
     return (
@@ -52,10 +68,10 @@ export class AppWizard {
           <h2>Welcome to Ionic</h2>
           <h4>Let's start your first app</h4>
         </hgroup>
-        <form class="form">
+        <form class="form" onSubmit={this.next}>
           <div class="form-group" id="field-appname">
             <label htmlFor="id_appname">App name</label>
-            <input type="text" id="id_appname" name="appname" tabindex="1" required />
+            <input type="text" id="id_appname" name="appname" value={this.appName} tabindex="1" required onInput={this.handleInput('appName')} />
             <div class="form-message form-message--small"></div>
           </div>
           <div class="form-group" id="field-appname">
@@ -80,10 +96,31 @@ export class AppWizard {
     return (
       <div>
         <hgroup>
-          <h2>Welcome to Ionic</h2>
-          <h4>Let's start your first app</h4>
+          <h2>Configure {this.appName}</h2>
+          <h4>This information will be necessary for deploying to App Stores</h4>
         </hgroup>
-        <form>
+        <form class="form" onSubmit={this.next}>
+          <div class="form-group" id="field-appurl">
+            <label htmlFor="id_appurl">Company or App URL</label>
+            <input type="text" id="id_appurl" name="appurl" value={this.appUrl} tabindex="1" required onInput={this.handleInput('appUrl')} />
+            <div class="form-message form-message--small"></div>
+          </div>
+          <div class="form-group" id="field-bundleid">
+            <label htmlFor="id_bundleid">Bundle ID</label>
+            <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" required onInput={this.handleInput('bundleId')} />
+            <div class="form-message form-message--small"></div>
+          </div>
+          <div class="form-group" id="field-authoremail">
+            <label htmlFor="id_authoremail">Author Email</label>
+            <input type="text" id="id_authoremail" name="authoremail" value={this.authorEmail} tabindex="1" required onInput={this.handleInput('authorEmail')} />
+            <div class="form-message form-message--small"></div>
+          </div>
+          <div class="form-group" id="field-authorname">
+            <label htmlFor="id_authorname">Author Name</label>
+            <input type="text" id="id_authorname" name="authorname" value={this.authorName} tabindex="1" required onInput={this.handleInput('authorName')}/>
+            <div class="form-message form-message--small"></div>
+          </div>
+          <Button>Next</Button>
         </form>
       </div>
     )

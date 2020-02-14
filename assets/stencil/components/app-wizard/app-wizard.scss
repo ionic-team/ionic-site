@@ -1,5 +1,5 @@
 #app-wizard {
-  width: 768px;
+  width: 400px;
   margin: 40px auto;
 
   ion-segment {
@@ -9,5 +9,73 @@
 
   hgroup {
     text-align: center;
+  }
+
+  .templates, .frameworks {
+    user-select: none;
+    > .selected {
+      border: 2px solid #3880FF;
+
+      h5 {
+        color: #4D8DFF;
+      }
+    }
+  }
+
+  .templates {
+    display: flex;
+
+    .template {
+      flex: 1;
+      cursor: pointer;
+      height: 160px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      h5 {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 9px;
+        line-height: 11px;
+        text-align: center;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+
+  .frameworks {
+    display: flex;
+
+    .framework {
+      flex: 1;
+      cursor: pointer;
+      height: 120px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+      font-size: 14px;
+
+      h5 {
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: -0.01em;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

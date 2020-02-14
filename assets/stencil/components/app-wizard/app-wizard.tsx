@@ -1,5 +1,17 @@
 import { Component, State, h } from '@stencil/core';
 
+const TEMPLATES = [
+  { name: 'Tabs', id: 'tabs' },
+  { name: 'Menu', id: 'menu' },
+  { name: 'List', id: 'list' },
+];
+
+const FRAMEWORKS = [
+  { name: 'Angular', id: 'angular' },
+  { name: 'React', id: 'react' },
+  { name: 'Vue (beta)', id: 'vue' },
+]
+
 @Component({
   tag: 'ionic-app-wizard',
   styleUrl: 'app-wizard.scss',
@@ -26,6 +38,8 @@ export class AppWizard {
   ]
 
   @State() step = 0;
+  @State() framework = 'angular';
+  @State() template = 'tabs';
 
   handleChangeStep = (e) => {
     this.step = parseInt(e.detail.value, 10);
@@ -46,11 +60,15 @@ export class AppWizard {
           </div>
           <div class="form-group" id="field-appname">
             <label htmlFor="id_appname">Pick a template</label>
-            <TemplateSwitcher />
+            <TemplateSwitcher
+              value={this.template}
+              onChange={tmpl => this.template = tmpl} />
           </div>
           <div class="form-group" id="field-appname">
             <label htmlFor="id_appname">JavaScript Framework</label>
-            <FrameworkSwitcher />
+            <FrameworkSwitcher
+              value={this.framework}
+              onChange={framework => this.framework = framework} />
           </div>
           <Button>Next</Button>
         </form>
@@ -106,13 +124,30 @@ const Button = (_props, children) => (
   <button type="submit" id="submit" class="btn btn-block">{ children }</button>
 );
 
-const FrameworkSwitcher = () => null;
-const TemplateSwitcher = () => null;
+const FrameworkSwitcher = ({ value, onChange }) => (
+  <div class="frameworks">
+  {FRAMEWORKS.map(f => (
+    <div class={`framework ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+      <h5>{f.name}</h5>
+    </div>
+  ))}
+  </div>
+);
+
+const TemplateSwitcher = ({ value, onChange }) => (
+  <div class="templates">
+  {TEMPLATES.map(f => (
+    <div class={`template ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+      <h5>{f.name}</h5>
+    </div>
+  ))}
+  </div>
+);
 
 const Switcher = ({ items, index, onChange }) => (
   <ion-segment class="switcher" value={index} onIonChange={onChange}>
     {items.map((item, i) => (
-      <ion-segment-button value={i} class="switcher-button">{item}</ion-segment-button>
+      <ion-segment-button key={item} value={i} class="switcher-button">{item}</ion-segment-button>
     ))}
   </ion-segment>
 );

@@ -11,6 +11,25 @@
     text-align: center;
   }
 
+  .finish {
+    text-align: center;
+    header {
+      margin-bottom: 24px;
+      font-size: 22px;
+      .icon {
+        font-size: 36px;
+      }
+    }
+
+    pre {
+      text-align: left;
+      background: #0E151F;
+      border-radius: 6px;
+      padding: 14px 16px;
+      color: white;
+    }
+  }
+
   .templates, .frameworks {
     user-select: none;
     > .selected {

@@ -13,6 +13,7 @@ const FRAMEWORKS = [
   { name: 'React', id: 'react' },
   { name: 'Vue (beta)', id: 'vue' },
 ]
+const r = Math.floor(Math.random() * 10000);
 
 @Component({
   tag: 'ionic-app-wizard',
@@ -39,7 +40,7 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 2;
+  @State() step = 3;
 
   @State() showSignup = true;
   @State() signupErrors = null;
@@ -54,8 +55,25 @@ export class AppWizard {
   @State() authorEmail = '';
   @State() authorName = '';
 
-  @State() loginForm: LoginForm = {};
-  @State() signupForm: SignupForm = {};
+  @State() loginForm: LoginForm = {
+    email: 'max@ionic.io'
+  };
+  @State() signupForm: SignupForm = {
+    name: 'Mr Max',
+    email: `max+${r}@ionic.io`,
+    username: `maxtest-${r}`,
+  };
+
+  getSavedId = () => {
+    const flags = `
+      ${this.appName}
+      ${this.template}
+      --type=${this.framework}
+      --package-id=${this.bundleId}
+    `;
+    
+    return btoa(flags);
+  }
 
   next = (e) => {
     e.preventDefault();
@@ -174,27 +192,47 @@ export class AppWizard {
   }
 
   renderFinish() {
-    return null;
+    const savedId = this.getSavedId();
+    return (
+      <div class="finish">
+        <header>
+          <span class="icon">🎉</span>
+          <h3>Your app is ready to go!</h3>
+        </header>
+        <p>
+          Run this command to start building:
+        </p>
+        <div>
+          <pre><code>npm init ionic start {savedId}</code></pre>
+        </div>
+        <div>
+          <small>Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
+        </div>
+
+      </div>
+    )
   }
 
-  renderForm() {
+  renderStep() {
     switch (this.step) {
       case 0: return this.renderBasics();
       case 1: return this.renderConfigure();
       case 2: return this.renderAccount();
-      case 4: return this.renderFinish();
+      case 3: return this.renderFinish();
     }
   }
 
   render() {
     return (
       <div id="app-wizard">
+        {this.step < 3 ? (
         <Switcher
           items={this.STEPS.slice(0, 3).map(s => s.name)}
           index={this.step}
           onChange={this.handleChangeStep}
           />
-        {this.renderForm()}
+        ) : null}
+        {this.renderStep()}
       </div>
     );
   }

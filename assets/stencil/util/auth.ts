@@ -1,4 +1,5 @@
-const API_BASE = 'https://api.ionicjs.com';
+// const API_BASE = 'https://api.ionicjs.com';
+const API_BASE = 'https://api-staging.ionicjs.com';
 
 import { trackClick } from './analytics';
 import { hubspotTrack } from './hubspot';
@@ -24,8 +25,7 @@ const apiUrl = (url) => `${API_BASE}${url}`;
 
 export const login = async (email, password) => {
   try {
-    const ret = await fetch({
-      url: apiUrl('/oauth/login'),
+    const ret = await fetch(apiUrl('/oauth/login'), {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -35,7 +35,7 @@ export const login = async (email, password) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-    } as any);
+    });
 
     const data = await ret.json();
 
@@ -58,20 +58,19 @@ const oauthAuthorize = () => {
     params.set("nonce", Math.random().toString(36).substring(2));
   }
 
-  window.location.assign("/oauth/authorize?" + params.toString());
+  window.location.assign(`${apiUrl('/oauth/authorize')}?${params.toString()}`);
 }
 
 export const signup = async (form: SignupForm) => {
   try {
-    const ret = await fetch({
-      url: apiUrl('/signup'),
+    const ret = await fetch(apiUrl('/signup'), {
       method: 'POST',
       body: JSON.stringify(form),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-    } as any);
+    });
 
     if (ret.status !== 201) {
       throw makeApiError('Unable to create account');

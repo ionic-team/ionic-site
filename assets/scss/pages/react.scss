@@ -4,7 +4,7 @@
 @import './enterprise/shared';
 @import './enterprise/solutions/shared';
 @import './solutions/shared';
-
+@import '../components/grid';
 
 #page-react {
   background: #ffffff;
@@ -31,11 +31,22 @@
     width: 128px;
   }
 
+  react-components {
+    height: 566px;
+  }
+
   header {
+    background-color: #131A23;
+    color: white;
+
+    h1 {
+      color: white;
+    }
+
     .container {
       max-width: 654px;
       text-align: center;
-      padding: 88px 0 0;
+      padding: 88px 0;
     }
 
     .logo {
@@ -51,6 +62,15 @@
     a.btn {
       padding-top: 17px;
       margin-top: 48px;
+    }
+
+    a.btn.get-started {
+      background-color: #29ADFF;
+      border-radius: 10px;
+    }
+    a.btn.live-demo {
+      background-color: #414D5C;
+      border-radius: 10px;
     }
 
     .keep-reading {
@@ -129,10 +149,47 @@
   }
 
   hgroup {
+    h2 {
+      font-size: 40px;
+      letter-spacing: -0.03em;
+      line-height: 110%;
+      font-weight: 600;
+    }
+
     p {
-      font-size: 24px;
-      line-height: 38px;
+      color: #1A232F;
+      font-size: 20px;
+      line-height: 150%;
       letter-spacing: -.03em;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      cursor: pointer;
+
+      &:before {
+        display: none;
+      }
+
+      font-size: 24px;
+      color: #1A232F;
+      margin: 0;
+      list-style: none;
+
+      .icon {
+        width: 28px;
+      }
+
+      .title {
+        padding: 23px 0;
+        border-bottom: 1px solid #E6E6E8;
+        flex: 1;
+      }
     }
 
     .more {
@@ -171,12 +228,73 @@
     }
   }
 
+  #components {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  #native {
+    padding-bottom: 400px;
+
+    .graphics {
+      margin-top: -16px;
+      margin-right: -68px;
+      position: relative;
+
+      > img {
+        position: absolute;
+        top: -115px;
+        left: calc(50% - 207px);
+        height: 761px;
+        width: 499px;
+        z-index: -1;
+      }
+
+      home-native {
+        position: relative;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      flex-direction: column;
+
+      .graphics {
+        margin-top: 64px;
+        margin-right: auto;
+        max-width: 100%;
+      }
+    }
+  }
+
+  #start {
+    max-width: 365px;
+    margin: auto;
+    text-align: center;
+    pre {
+      background-color: #111;
+      color: white;
+      border: none;
+      text-align: left;
+    }
+    code {
+      background: transparent;
+      color: white;
+      .hljs-tag {
+        color: white;
+      }
+      .hljs-keyword {
+        color: white;
+      }
+    }
+  }
+
   #demo {
     width: 100%;
 
     iframe {
       height: 750px;
+      width: 100%;
+      border: none;
     }
   }
-
 }

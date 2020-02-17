@@ -12,71 +12,75 @@
 
   <hgroup class="container">
     <img src="/img/react/logo.png" alt="Ionic Logo" class="logo" />
-    <h1>{{ data.headline }}</h1>
-    <p>{{ data.tagline }}</p>
-    <a href="#demo" class="btn anchor">Live Demo</a>
-    <a href="#start" class="btn anchor">Get Started</a>
-    <a href="#sneak-peak" class="keep-reading anchor">
-      Scroll to learn more
-      <ion-icon name="ios-arrow-down"></ion-icon>
-    </a>
+    <h1>Build iOS and Android apps from a single code base. All in React.</h1>
+    <a href="#start" class="btn anchor get-started">Get Started</a>
+    <a href="#demo" class="btn anchor live-demo">Live Demo</a>
   </hgroup>
 </header>
+<nav id="sticky-bar">
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="150" href="#components">UI Components</a></li>
+    <li><a class="anchor" data-offset="150" href="#demo">Demo</a></li>
+    <li><a class="anchor" data-offset="150" href="#native">Native</a></li>
+    <li><a class="anchor" data-offset="150" href="#samples">Sample Apps</a></li>
+    <li><a class="anchor" data-offset="150" href="#enterprise">Enterprise</a></li>
+    <li><a class="anchor" data-offset="150" href="#vs-react-native">vs. RN</a></li>
+    <li><a class="anchor" data-offset="150" href="#start">Get Started</a></li>
+  </ul>
+</nav>
 <main>
-  <section class="right">
-    <div class="container" id="components">
-      <hgroup>
-        <h2>100+ Beautiful React Components</h2>
-        <p>
-          React-optimized mobile and web components for building powerful mobile, web, and desktop apps. 
-          Everything from <a href="https://ionicframework.com/docs/api/list">Lists</a> with swipeable options
-          to powerful <a href="https://ionicframework.com/docs/api/card">Card</a> layouts for stunning media-based experiences
-          to advanced tab and menu navigation.
-          <br />
-          Ionic React comes with more out-of-the-box controls than 
-          native, accelerating your unique app design.
-        </p>
-        <a href="https://ionicframework.com/docs/components" class="more anchor">Explore components <ion-icon name="ios-arrow-forward"></ion-icon></a>
-      </hgroup>
-    </div>
-  </section>
-
-  <section>
-    <div class="container" id="demo">
-      <h2>Try it now</h2>
+  <div class="container" id="components">
+    <div class="text-center">
+      <h2>100+ Beautiful React Components</h2>
       <p>
-        Try this demo Music App built with Ionic React and following best practices.
+        React-optimized mobile and web components for building blazing fast mobile, web, and desktop apps.
         <br />
-        <i>Note: App does not actually play music due to lack of legal public music APIs.</i>
+        Ionic React comes with more out-of-the-box controls than native, accelerating custom app design.
       </p>
-      <iframe id="demo" src="https://stackblitz.com/edit/ionic-react-demo?embed=1&file=App.jsx"></iframe>
+    </div>
+    <react-components></react-components>
+  </div>
+
+  <div>
+    <div class="container">
+      <div class="grid grid-cols-2">
+        <h2>
+          Music app demo.
+          <br />
+          Built on Ionic React.
+        </h2>
+        <p>
+          Try this demo Music App built with Ionic React and following best practices.
+          <br />
+          <i>Note: App does not actually play music due to lack of legal public music APIs.</i>
+        </p>
+      </div>
+    </div>
+
+    <div id="demo">
+      <iframe id="demo-frame" src="https://stackblitz.com/edit/ionic-react-demo?embed=1&file=App.jsx"></iframe>
+    </div>
+  </div>
+
+  <section id="native" class="left container">
+    <hgroup class="content">
+      <!--<h4 class="activateOnScroll">Native Power</h4>-->
+      <h2>Cross-platform <span class="highlight">native</span> API access.</h2>
+      <p class="activateOnScroll">
+        Ionic makes it easy to access native device features with just a little 
+        bit of JavaScript. Choose from a rich library of over 120 native device 
+        plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
+        into the full native SDK when you need it. There’s no limit to what you 
+        can build.
+      </p>
+      <a href="/docs/native/">Explore Ionic Native</a>
+    </hgroup>
+    <div class="graphics">
+      <react-capacitor></react-capacitor>
     </div>
   </section>
-
 
   <section class="left">
-    <div class="container" id="native">
-      <hgroup>
-        <h2>Build Once Run Anywhere with Capacitor</h2>
-        <p>
-          Ionic React apps use Capacitor (not Cordova) to unlock every native API and native UI controls across iOS, Android, Electron, and Web
-          Take photos and acces the camera roll with the 
-          <a href="https://capacitor.ionicframework.com/docs/apis/camera">Camera API</a>
-          Read and write files with the 
-          <a href="https://capacitor.ionicframework.com/docs/apis/filesystem">Filesystem API</a>
-          Send remote and local notifications with the
-          <a href="https://capacitor.ionicframework.com/docs/apis/push-notifications">Push</a> and
-          <a href="https://capacitor.ionicframework.com/docs/apis/local-Notifications">Local</a>
-            Notifications APIs
-            Track geolocation in realtime with the
-          <a href="https://capacitor.ionicframework.com/docs/apis/geolocation">Geolocation API</a>
-        </p>
-        <a href="https://capacitor.ionicframework.com/docs" class="more anchor">Explore Native APIs <ion-icon name="ios-arrow-forward"></ion-icon></a>
-      </hgroup>
-    </div>
-  </section>
-
-  <section class="right">
     <div class="container" id="samples">
       <hgroup>
         <h2>Sample Apps</h2>
@@ -152,10 +156,53 @@
     <h2>Get Started</h2>
     <p>
       <pre><code>
-        npm install -g @ionic/cli
-        ionic start myApp --type=react
+npm install -g @ionic/cli
+ionic start myApp --type=react
       </code></pre>
     </p>
   </div>
 </main>
+<aside class="resources">
+  <div class="container">
+    <hgroup>
+      <h3>Resources</h3>
+      <h5><a href="/resources">See all resources <ion-icon name="ios-arrow-forward"></ion-icon></a></h5>
+    </hgroup>
+    <ul class="cards">
+      <li>
+        <a href="/books/hybrid-vs-native">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-hybrid-vs-native.png"
+                 alt="Hybrid vs Native">
+          </div>
+          <h6>Ebook</h6>
+          <h4>Hybrid vs Native</h4>
+          <p class="small">Understand the essential elements of hybrid development, and what it could mean for your next project.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/articles/why-hybrid">
+          <div class="img-wrapper">
+            <img src="/img/solutions/card-development-approach.jpg"
+                 alt="How to Pick the Right Mobile Development Approach">
+          </div>
+          <h6>Article</h6>
+          <h4>How to Pick the Right Mobile Development Approach</h4>
+          <p class="small">This article addresses the key questions that you might not think to consider (beyond the feature checklists), in order to find the right approach...</p>
+        </a>
+      </li>
+      <li>
+        <a href="/resources/whitepapers/evaluating-ionic-for-enterprise-development">
+          <div class="img-wrapper">
+            <img src="/img/products/advisory/resource-evaluating-for-the-enterprise.png"
+                 alt="Evaluating Ionic for the Enterprise">
+          </div>
+          <h6>Article</h6>
+          <h4>Evaluating Ionic for the Enterprise</h4>
+          <p class="small">If you're an Architect, Senior Developer, or Executive charged with identifying the right application development solution for your business, this article is for you.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
 {% endblock %}

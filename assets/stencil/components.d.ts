@@ -58,6 +58,8 @@ export namespace Components {
     'show': () => Promise<void>;
     'tab': string;
   }
+  interface ReactCapacitor {}
+  interface ReactComponents {}
 }
 
 declare global {
@@ -158,6 +160,18 @@ declare global {
     prototype: HTMLIonicToggleTabElement;
     new (): HTMLIonicToggleTabElement;
   };
+
+  interface HTMLReactCapacitorElement extends Components.ReactCapacitor, HTMLStencilElement {}
+  var HTMLReactCapacitorElement: {
+    prototype: HTMLReactCapacitorElement;
+    new (): HTMLReactCapacitorElement;
+  };
+
+  interface HTMLReactComponentsElement extends Components.ReactComponents, HTMLStencilElement {}
+  var HTMLReactComponentsElement: {
+    prototype: HTMLReactComponentsElement;
+    new (): HTMLReactComponentsElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -175,6 +189,8 @@ declare global {
     'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
+    'react-capacitor': HTMLReactCapacitorElement;
+    'react-components': HTMLReactComponentsElement;
   }
 }
 
@@ -224,6 +240,8 @@ declare namespace LocalJSX {
   interface IonicToggleTab {
     'tab'?: string;
   }
+  interface ReactCapacitor {}
+  interface ReactComponents {}
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
@@ -242,6 +260,8 @@ declare namespace LocalJSX {
     'ionic-toggle': IonicToggle;
     'ionic-toggle-button': IonicToggleButton;
     'ionic-toggle-tab': IonicToggleTab;
+    'react-capacitor': ReactCapacitor;
+    'react-components': ReactComponents;
   }
 }
 
@@ -267,6 +287,8 @@ declare module "@stencil/core" {
       'ionic-toggle': LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;
       'ionic-toggle-button': LocalJSX.IonicToggleButton & JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement>;
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
+      'react-capacitor': LocalJSX.ReactCapacitor & JSXBase.HTMLAttributes<HTMLReactCapacitorElement>;
+      'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
     }
   }
 }

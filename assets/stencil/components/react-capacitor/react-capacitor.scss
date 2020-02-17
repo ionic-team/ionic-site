@@ -26,6 +26,7 @@
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
+    user-select: none;
 
     ul {
       display: flex;
@@ -122,6 +123,7 @@
     border-radius: 0 0 10px 10px;
     align-items: flex-start;
     position: relative;
+    margin-top: 0;
 
     &::before,
     &::after {

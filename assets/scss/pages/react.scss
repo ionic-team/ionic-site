@@ -41,6 +41,8 @@
 
     h1 {
       color: white;
+      font-size: 30px;
+      line-height: 36px;
     }
 
     .container {
@@ -234,8 +236,9 @@
   }
 
   #native {
-    padding-bottom: 400px;
-
+    .content {
+      margin-top: 100px;
+    }
     .graphics {
       margin-top: -16px;
       margin-right: -68px;
@@ -267,7 +270,7 @@
   }
 
   #start {
-    max-width: 365px;
+    max-width: 400px;
     margin: auto;
     text-align: center;
     pre {
@@ -275,6 +278,7 @@
       color: white;
       border: none;
       text-align: left;
+      font-size: 18px;
     }
     code {
       background: transparent;

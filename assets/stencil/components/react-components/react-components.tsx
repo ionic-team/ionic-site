@@ -3,13 +3,16 @@ import {
   // Element,
   // Prop,
   State,
-  h
+  h,
+  Prop,
+  Watch
 } from '@stencil/core';
 
 import '@ionic/core';
 import Prism from 'prismjs';
 
 
+export type ComponentType = 'card' | 'lists' | 'actionSheet';
 
 @Component({
   tag: 'react-components',
@@ -17,10 +20,16 @@ import Prism from 'prismjs';
   shadow: true
 })
 export class ReactComponents {
-  @State() activeTab: 'card'| 'lists' | 'actionSheet' = 'card';
-  @State() activePlatform = 'ios';
+  @Prop() component: ComponentType = 'card';
+  @State() activeTab: ComponentType = 'card';
+  @State() activeView = 'preview';
 
   constructor() {
+  }
+
+  @Watch('component')
+  handleComponentChange() {
+    this.activeTab = this.component;
   }
 
   componentWillLoad() {
@@ -37,55 +46,41 @@ export class ReactComponents {
   }
 
 
+  renderCode = (code) => {
+    return (
+      <pre><code innerHTML={Prism.highlight(
+        code,
+        Prism.languages.html, 
+        'html'
+      )}></code></pre>
+    );
+  }
+
   render() {
     return [
-      <header class="code-header">
-        <ul class="tab-menu">
-          <li class={this.activeTab === 'card' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'card'}>Card</li>
-          <li class={this.activeTab === 'lists' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'lists'}>Lists</li>
-          <li class={this.activeTab === 'actionSheet' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'actionSheet'}>Action Sheet</li>
-        </ul>,
-        <a href="https://ionicframework.com/docs/components" target="_blank">See All</a>
-      </header>,
-
       <header class="preview-header">
         <ion-segment mode="ios" 
-                     value={this.activePlatform}
+                     value={this.activeView}
                      color="medium" 
-                     onIonChange={e => this.activePlatform = e.detail.value }>
-          <ion-segment-button value="ios">
-            <ion-label>iOS</ion-label>
+                     onIonChange={e => this.activeView = e.detail.value }>
+          <ion-segment-button value="preview">
+            <ion-label>Preview</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="md">
-            <ion-label>Android</ion-label>
+          <ion-segment-button value="code">
+            <ion-label>Code</ion-label>
           </ion-segment-button>
         </ion-segment>
       </header>,
 
-      <ul class="tab-content">
-        {Object.keys(this.markup).map(key => (
-          <li class={this.activeTab === key ? 'active' : 'innactive'}>
-            <pre>
-              <code innerHTML={Prism.highlight(
-                this.markup[key].display, 
-                Prism.languages.html, 
-                'html'
-              )}></code>
-            </pre>
-          </li>
-        ))}
-      </ul>,
-
-      <ul class="preview-content">
+      <ul class={`preview-content${ this.activeView === 'code' ? ' code' : ''}`}>
         {Object.keys(this.markup).map(key => (
           <li class={this.activeTab === key ? 'active' : 'innactive'}>
             <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
                     frameborder="0"
                     scrolling="no"
+                    style={{ display: this.activeView === 'preview' ? 'block' : 'none' }}
                     onLoad={e => this.resizeIframe(e.target)}></iframe>
+            {this.activeView === 'code' ? this.renderCode(this.markup[key].display) : null}
           </li>
         ))}
       </ul>
@@ -99,7 +94,7 @@ export class ReactComponents {
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
 <script>window.Ionic = {
   config: {
-    mode: '${this.activePlatform}'
+    mode: 'ios'
   }
 }</script>
 ${code}`;

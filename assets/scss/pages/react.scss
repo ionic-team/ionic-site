@@ -33,6 +33,7 @@
 
   react-components {
     height: 566px;
+    width: 500px;
   }
 
   header {
@@ -192,6 +193,13 @@
         border-bottom: 1px solid #E6E6E8;
         flex: 1;
       }
+      &.selected {
+        color: #009DFF;
+        .title {
+          border-bottom: 1px solid #009DFF;
+
+        }
+      }
     }
 
     .more {
@@ -214,24 +222,23 @@
   }
 
   .features {
-    display: flex;
+    grid-gap: 50px;
   }
 
   .feature {
-    flex: 1;
+    h3 a {
+      color: #020814;
+      font-size: 20px;
+      font-weight: 600px;
+    }
 
-    .icon {
-      width: 96px;
-      height: 96px;
-      background-color: #44b4ff;
-      border-radius: 100%;
-
-      margin: 20px auto;
+    img {
+      width: 100%;
+      max-width: 308px;
     }
   }
 
   #components {
-    margin-top: 50px;
     margin-bottom: 100px;
   }
 

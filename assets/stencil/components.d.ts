@@ -7,7 +7,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  ComponentType,
+} from './components/react-components/react-components';
 
 export namespace Components {
   interface HomeComponents {}
@@ -59,7 +61,9 @@ export namespace Components {
     'tab': string;
   }
   interface ReactCapacitor {}
-  interface ReactComponents {}
+  interface ReactComponents {
+    'component': ComponentType;
+  }
 }
 
 declare global {
@@ -241,7 +245,9 @@ declare namespace LocalJSX {
     'tab'?: string;
   }
   interface ReactCapacitor {}
-  interface ReactComponents {}
+  interface ReactComponents {
+    'component'?: ComponentType;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;

@@ -4,7 +4,7 @@
 
 :host {
   display: grid;
-  grid-template-columns: 634px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
   border-radius: 10px;
   margin-right: -24px;
@@ -142,30 +142,8 @@
     }
   }
 
-  .tab-content {
+  .preview-content.code {
     background: #1C2B3E;
-    border: 1px solid #283A50;
-    border-radius: 0 0 0 10px;
-    align-items: flex-start;
-    position: relative;
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      bottom: 4px;
-      left: 0;
-      width: 16px;
-      background: linear-gradient(to left, rgba(#1C2B3E, 0), #1C2B3E);
-    }
-
-    &::after {
-      left: auto;
-      right: 0;
-      background: linear-gradient(to right, rgba(#1C2B3E, 0), #1C2B3E);
-    }
-
     pre  {
       background: transparent;
       padding: 0;
@@ -186,17 +164,6 @@
       code {
         white-space: pre;
       }
-    }
-
-    .tag {
-      background: transparent;
-      margin-left: 0;
-      padding: 0;
-      border-radius: 0;
-      font-weight: 700;
-      font-size: inherit;
-      text-transform: none;
-      letter-spacing: 0;
     }
   }
 

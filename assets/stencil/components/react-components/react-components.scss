@@ -144,6 +144,8 @@
 
   .preview-content.code {
     background: #1C2B3E;
+    display: block;
+
     pre  {
       background: transparent;
       padding: 0;
@@ -155,7 +157,7 @@
       letter-spacing: -.01em;
       font-weight: 500;
       font-family: $font-family-mono;
-      padding: 24px 0 48px 56px;
+      padding: 24px 0 24px 48px;
 
       @media (max-width: $screen-xs-max) {
         padding: 24px 0 48px 16px;

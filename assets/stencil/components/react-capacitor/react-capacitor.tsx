@@ -3,7 +3,9 @@ import {
   // Element,
   // Prop,
   State,
-  h
+  h,
+  Prop,
+  Watch
 } from '@stencil/core';
 
 import '@ionic/core';
@@ -11,15 +13,23 @@ import Prism from 'prismjs';
 
 
 
+export type TabType = 'notifications' | 'camera' | 'geolocation';
+
 @Component({
   tag: 'react-capacitor',
   styleUrl: 'react-capacitor.scss',
   shadow: true
 })
 export class ReactCapacitor {
-  @State() activeTab: 'notifications' | 'camera' | 'geolocation' = 'notifications';
+  @Prop() tab: TabType = 'camera';
+  @State() activeTab: TabType = 'camera';
 
   constructor() {
+  }
+
+  @Watch('tab')
+  handleTabChange() {
+    this.activeTab = this.tab;
   }
 
   componentWillLoad() {
@@ -31,18 +41,6 @@ export class ReactCapacitor {
 
   render() {
     return [
-      <header class="code-header">
-        <ul class="tab-menu">
-          <li class={this.activeTab === 'camera' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'camera'}>Camera</li>
-          <li class={this.activeTab === 'notifications' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'notifications'}>Notifications</li>
-          <li class={this.activeTab === 'geolocation' ? 'active' : 'innactive'}
-              onClick={() => this.activeTab = 'geolocation'}>Geolocation</li>
-        </ul>,
-        <a href="https://ionicframework.com/docs/native" target="_blank">See All</a>
-      </header>,
-
       <ul class="tab-content">
         {Object.keys(this.markup).map(key => (
           <li class={this.activeTab === key ? 'active' : 'innactive'}>

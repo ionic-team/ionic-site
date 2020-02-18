@@ -120,27 +120,10 @@
   .tab-content {
     background: #1C2B3E;
     border: 1px solid #283A50;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     align-items: flex-start;
     position: relative;
     margin-top: 0;
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      bottom: 4px;
-      left: 0;
-      width: 16px;
-      background: linear-gradient(to left, rgba(#1C2B3E, 0), #1C2B3E);
-    }
-
-    &::after {
-      left: auto;
-      right: 0;
-      background: linear-gradient(to right, rgba(#1C2B3E, 0), #1C2B3E);
-    }
 
     pre  {
       background: transparent;
@@ -148,6 +131,7 @@
       margin: 0;
       color: white;
       border: none;
+      border-radius: 10px;
       font-size: 13px;
       line-height: 23px;
       letter-spacing: -.01em;

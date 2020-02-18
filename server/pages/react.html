@@ -51,7 +51,7 @@
   </section>
 
   <div>
-    <div class="container">
+    <div class="container" id="demo-info">
       <div class="grid grid-cols-2">
         <h2>
           Music app demo.
@@ -59,7 +59,7 @@
           Built on Ionic React.
         </h2>
         <p>
-          Try this demo Music App built with Ionic React and following best practices.
+          Try this demo Music App built with Ionic React following best practices.
           <br />
           <i>Note: App does not actually play music due to lack of legal public music APIs.</i>
         </p>
@@ -78,8 +78,8 @@
         <p>
           Ionic React apps use Capacitor (not Cordova) to unlock every native API and UI control across iOS, Android, Electron, and Web. 
         </p>
-        <ul id="components-list">
-          <li data-type="camera" class="selected"><div class="icon"></div><div class="title">Cards</div></li>
+        <ul id="native-list">
+          <li data-type="camera" class="selected"><div class="icon"></div><div class="title">Camera</div></li>
           <li data-type="notifications"><div class="icon"></div><div class="title">Notifications</div></li>
           <li data-type="geolocation"><div class="icon"></div><div class="title">Geolocation</div></li>
         </p>
@@ -248,11 +248,16 @@ ionic start myApp --type=react
 
 {% block scripts %}
 <script>
-  console.log('Finding queryies', $('#components-list li').length);
   $('#components-list li').click(function() {
     const type = $(this).attr('data-type');
     $('react-components').prop('component', type);
     $('#components-list li').removeClass('selected');
+    $(this).addClass('selected');
+  });
+  $('#native-list li').click(function() {
+    const type = $(this).attr('data-type');
+    $('react-capacitor').prop('tab', type);
+    $('#native-list li').removeClass('selected');
     $(this).addClass('selected');
   });
 </script>

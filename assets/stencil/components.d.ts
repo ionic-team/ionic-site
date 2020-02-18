@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  TabType,
+} from './components/react-capacitor/react-capacitor';
+import {
   ComponentType,
 } from './components/react-components/react-components';
 
@@ -60,7 +63,9 @@ export namespace Components {
     'show': () => Promise<void>;
     'tab': string;
   }
-  interface ReactCapacitor {}
+  interface ReactCapacitor {
+    'tab': TabType;
+  }
   interface ReactComponents {
     'component': ComponentType;
   }
@@ -244,7 +249,9 @@ declare namespace LocalJSX {
   interface IonicToggleTab {
     'tab'?: string;
   }
-  interface ReactCapacitor {}
+  interface ReactCapacitor {
+    'tab'?: TabType;
+  }
   interface ReactComponents {
     'component'?: ComponentType;
   }

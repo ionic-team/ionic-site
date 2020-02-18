@@ -259,7 +259,9 @@ ${code}`;
     
     actionSheet: {
       display: `
-<IonButton onClick={() => setShowActionSheet(true)} expand="block">Show Action Sheet</IonButton>
+<IonButton
+  onClick={() => setShowActionSheet(true)}
+  expand="block">Show Action Sheet</IonButton>
 <IonActionSheet
   isOpen={showActionSheet}
   onDidDismiss={() => setShowActionSheet(false)}

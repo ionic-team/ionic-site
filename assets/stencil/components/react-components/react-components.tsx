@@ -57,34 +57,36 @@ export class ReactComponents {
   }
 
   render() {
-    return [
-      <header class="preview-header">
-        <ion-segment mode="ios" 
-                     value={this.activeView}
-                     color="medium" 
-                     onIonChange={e => this.activeView = e.detail.value }>
-          <ion-segment-button value="preview">
-            <ion-label>Preview</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="code">
-            <ion-label>Code</ion-label>
-          </ion-segment-button>
-        </ion-segment>
-      </header>,
+    return (
+      <div class="grid">
+        <header class="preview-header">
+          <ion-segment mode="ios" 
+                      value={this.activeView}
+                      color="medium" 
+                      onIonChange={e => this.activeView = e.detail.value }>
+            <ion-segment-button value="preview">
+              <ion-label>Preview</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="code">
+              <ion-label>Code</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </header>
 
-      <ul class={`preview-content${ this.activeView === 'code' ? ' code' : ''}`}>
-        {Object.keys(this.markup).map(key => (
-          <li class={this.activeTab === key ? 'active' : 'innactive'}>
-            <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
-                    frameborder="0"
-                    scrolling="no"
-                    style={{ display: this.activeView === 'preview' ? 'block' : 'none' }}
-                    onLoad={e => this.resizeIframe(e.target)}></iframe>
-            {this.activeView === 'code' ? this.renderCode(this.markup[key].display) : null}
-          </li>
-        ))}
-      </ul>
-    ];
+        <ul class={`preview-content${ this.activeView === 'code' ? ' code' : ''}`}>
+          {Object.keys(this.markup).map(key => (
+            <li class={this.activeTab === key ? 'active' : 'innactive'}>
+              <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
+                      frameborder="0"
+                      scrolling="no"
+                      style={{ display: this.activeView === 'preview' ? 'block' : 'none' }}
+                      onLoad={e => this.resizeIframe(e.target)}></iframe>
+              {this.activeView === 'code' ? this.renderCode(this.markup[key].display) : null}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   ionicInjector(code) {

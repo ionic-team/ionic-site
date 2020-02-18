@@ -3,9 +3,15 @@
 @import '../../prism-ionic';
 
 :host {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr;
+  display: block;
+
+  .grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+  }
+
   border-radius: 10px;
   margin-right: -24px;
   margin-left: -24px;
@@ -110,7 +116,7 @@
     background: #F9FAFC;
     border: 1px solid #E9EDF3;
     border-bottom: none;
-    border-radius: 0px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,7 +179,7 @@
     background: radial-gradient(#E8EBEF 10%, #FCFDFE 10%) repeat;
     border: 1px solid #E9EDF3;
     background-size: 10px 10px;
-    border-radius: 0 0 10px 0;
+    border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;

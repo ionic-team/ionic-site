@@ -531,7 +531,7 @@
       <span>Co-Founder of Firebase</span>
     </li>
   </ul>
-  <div class="card"></div>
+  <div id="testimonials__highlight"></div>
 </section>
 
   <section id="start">
@@ -673,48 +673,85 @@ window.flow = function() {
 	}
 }().init();
 
-// Testimonials rotation
-var $testimonials = $('#testimonials');
-var testimonialIntervalID = null;
-var queued = false;
+window.testimonials = function() {
+  // Testimonials rotation
+  const $testimonials = document.getElementById('testimonials');
+  let testimonialIntervalID = null;
+  let queued = false;
+  const $highlight = document.getElementById('testimonials__highlight');
+  
+  function nextQuote() {
+    let $active = $testimonials.querySelector('.quotees .is-active');
 
-function nextQuote() {
-  $active = $testimonials.find('.quotees .is-active');
+    $active.classList.remove('is-active');
+    // go back to the beginning if at the end
+    if (!$active.nextElementSibling) {
+      $active = $testimonials.querySelector('.quotees li:first-child');
+    } else {
+      $active = $active.nextElementSibling;
+    }
+    $active.classList.add('is-active');
+    updateHighlight($active);
+  
+    // activate the right quote
+    $testimonials.querySelector('blockquote.is-active').classList.remove('is-active')
+    $testimonials.querySelector(`blockquote.${$active.dataset.speaker}`).classList.add('is-active');
+  }
+  
+  function start() {
+    queued = false;
+    testimonialIntervalID = setInterval(nextQuote, 8000);
+  }
+  
+  // what happens if a speaker is clicked
+  function handleClick(event) {
+    // deactivate the currently active speaker & quote
+    for (let $activeEl of document.querySelectorAll(".is-active")) {
+      $activeEl.classList.remove('is-active');
+    }
 
-  if ($active.is(':last-child')) {
-    $active.removeClass('is-active');
-    $active = $testimonials.find('.quotees li:first-child').addClass('is-active');
-  } else {
-    $active = $active.removeClass('is-active').next().addClass('is-active');
+    // activate the clicked speaker
+    $target = event.currentTarget;
+    $target.classList.add('is-active');
+    $testimonials.querySelector(`.${$target.dataset.speaker}`).classList.add('is-active');
+    updateHighlight($target);
+
+    // stop the rotation for a bit
+    clearInterval(testimonialIntervalID);
+    if (! queued) {
+      queued = true;
+      setTimeout(start, 13000);
+    }
   }
 
-  $testimonials.find('blockquote.is-active')
-               .removeClass('is-active')
-               .siblings('.' + $active.data('speaker'))
-               .addClass('is-active');
-}
+  function updateHighlight($active) {
+    padding = {
+      x: 14,
+      y: 4
+    };
 
-function startTestimonialRotation() {
-  queued = false;
-  testimonialIntervalID = setInterval(nextQuote, 8000);
-}
-
-// what happens if a speaker is clicked
-$('.quotees li').click(function(ev) {
-  $testimonials.find('.is-active').removeClass('is-active');
-  $target = $(ev.delegateTarget);
-  $target.addClass('is-active');
-  $testimonials.find('.' + $target.data('speaker')).addClass('is-active');
-  // stop the rotation for a bit
-  clearInterval(testimonialIntervalID);
-  if (! queued) {
-    queued = true;
-    setTimeout(startTestimonialRotation, 13000);
+    $ul = $testimonials.querySelector('.quotees');
+    $highlight.style.top = `${$active.offsetTop + $ul.offsetTop - padding.y}px`;
+    $highlight.style.left = `${$active.offsetLeft + $ul.offsetLeft - padding.x}px`;
+    $highlight.style.height = `${$active.offsetHeight - padding.y}px`;
+    $highlight.style.width = `${$active.offsetWidth + (padding.x * 2)}px`;
   }
-})
+
+  function init() {
+    updateHighlight($testimonials.querySelector('.quotees .is-active'));
+    for (let quotee of $testimonials.querySelectorAll('.quotees li')) {
+      quotee.addEventListener('click', handleClick);
+    }
+  }
+
+  init();
+ 
+  return {
+    start: start
+  }
 
 // kick things off
-startTestimonialRotation();
+}().start();
 
 </script>
 {% endblock %}

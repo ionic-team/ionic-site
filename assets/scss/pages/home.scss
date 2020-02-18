@@ -625,9 +625,12 @@
       li {
         opacity: .5;
         cursor: pointer;
-        flex: 0 1 190px;
+        // flex: 0 1 190px;
         margin-bottom: 32px;
         transition: .2s opacity;
+        display: block;
+        padding-left: 52px;
+        position: relative;
 
         &.is-active {
           opacity: 1;
@@ -636,7 +639,8 @@
 
       img {
         width: 50px;
-        float: left;
+        position: absolute;
+        left: 0;
         margin-right: 8px;
       }
 
@@ -655,7 +659,20 @@
         line-height: 23px;
         letter-spacing: -0.02em;
         color: #73849A;
+        display: block;
       }
+    }
+
+    &__highlight {
+      background: transparent;
+      position: absolute;
+      box-shadow: 
+        0px 8px 16px rgba(2, 8, 20, 0.1), 
+        0px 4px 8px rgba(2, 8, 20, 0.08);
+      border-radius: 40px;
+      padding: 10px 6px 8px;
+      box-sizing: content-box;
+      transition: .2s all ease-out;
     }
   }
 

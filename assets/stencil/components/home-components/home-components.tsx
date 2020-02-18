@@ -31,7 +31,7 @@ export class HomeComponents {
 
   resizeIframe(el) {
     setTimeout(() => {
-      console.log(el.contentWindow.document.documentElement.scrollHeight)
+      // console.log(el.contentWindow.document.documentElement.scrollHeight)
       el.style.height = (el.contentWindow.document.documentElement.scrollHeight || 280) + 'px';
     }, 50)
   }

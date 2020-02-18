@@ -192,10 +192,24 @@
       font-size: 22px;
       color: #1A232F;
       margin: 0;
+      padding: 0;
       list-style: none;
 
       .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 28px;
+        margin-right: 16px;
+        margin-top: 0;
+
+        background-position: 0% 50%;
+        background-size: 28px 24px;
+        background-repeat: no-repeat;
+
+        &.cards { background-image: url('/img/react/card-icon.svg'); }
+        &.lists { background-image: url('/img/react/list-icon.svg'); }
+        &.action-sheet { background-image: url('/img/react/action-sheet-icon.svg'); }
       }
 
       .title {
@@ -206,6 +220,11 @@
 
       &.selected {
         color: #009DFF;
+        .icon {
+          svg * {
+            stroke: #009DFF;
+          }
+        }
         .title {
           border-bottom: 2px solid #009DFF;
         }
@@ -213,8 +232,14 @@
     }
 
     .more {
+      display: block;
       font-size: 24px;
       line-height: 40px;
+      margin-top: 16px;
+      margin-left: 42px;
+      ion-icon {
+        vertical-align: middle;
+      }
       p {
         font-size: 18px;
         line-height: 24px;
@@ -312,9 +337,9 @@
     }
   }
 
-  #demo-info {
+  #demo-info, #samples {
     p {
-      margin: 15px 0;
+      margin: 20px 0;
     }
   }
 

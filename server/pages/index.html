@@ -725,23 +725,30 @@ window.testimonials = function() {
   }
 
   function updateHighlight($active) {
-    padding = {
+    //console.log('updating')
+    if (!$active) {
+      const $active = $testimonials.querySelector('.quotees .is-active');
+    }
+
+    const padding = {
       x: 14,
       y: 4
     };
 
-    $ul = $testimonials.querySelector('.quotees');
+    const $ul = $testimonials.querySelector('.quotees');
     $highlight.style.top = `${$active.offsetTop + $ul.offsetTop - padding.y}px`;
     $highlight.style.left = `${$active.offsetLeft + $ul.offsetLeft - padding.x}px`;
     $highlight.style.height = `${$active.offsetHeight - padding.y}px`;
-    $highlight.style.width = `${$active.offsetWidth + (padding.x * 2)}px`;
+    $highlight.style.width = `${$active.offsetWidth + (padding.x * 1.5)}px`;
   }
 
   function init() {
+    // add listeners
     updateHighlight($testimonials.querySelector('.quotees .is-active'));
     for (let quotee of $testimonials.querySelectorAll('.quotees li')) {
       quotee.addEventListener('click', handleClick);
     }
+    window.addEventListener('resize', updateHighlight);
   }
 
   init();

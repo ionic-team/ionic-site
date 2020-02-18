@@ -526,6 +526,8 @@
   #integrations {
     background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
     padding-bottom: 100px;
+    overflow: visible;
+    overflow-x: hidden;
 
     .content {
       max-width: 894px;
@@ -545,7 +547,6 @@
 	    padding: 0;
       position: relative;
       opacity: 0;
-      overflow-x: hidden;
       animation: fadeIn 1s 1s forwards;
 
       li {
@@ -619,7 +620,7 @@
     }
 
     .quotees {
-      margin-top: 300px;
+      margin: 300px -32px 10px;
       padding: 0;
       list-style: none;
       display: flex;
@@ -665,6 +666,11 @@
         letter-spacing: -0.02em;
         color: #73849A;
         display: block;
+      }
+
+      @media (max-width: $screen-md-max) {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 

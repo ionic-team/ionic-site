@@ -611,6 +611,11 @@
       &.is-active {
         opacity: 1;
       }
+
+      @media (max-width: $screen-sm-max) {
+        left: 0;
+        width: 100%
+      }
     }
 
     .quotees {

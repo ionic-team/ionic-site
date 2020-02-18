@@ -19,6 +19,15 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "Ionic React vs React Native",
+        "url": "/resources/articles/ionic-react-vs-react-native",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-ionic-react-vs-react-native.png",
+        "bgColor": "#282E37"
+      },
+      {
+        "type": "Article",
         "title": "Capacitor vs Cordova: Modern Hybrid App Development",
         "url": "/resources/articles/capacitor-vs-cordova-modern-hybrid-app-development",
         "target": "_self",

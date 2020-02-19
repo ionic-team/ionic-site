@@ -238,8 +238,10 @@
 </div>
 
 <main>
-  <div class="expander-wrapper activateOnScroll">
-    {% include '_includes/promos/hybrid-vs-native.html' %}
+  <div class="overflow-mask">
+    <div class="expander-wrapper activateOnScroll">
+      {% include '_includes/promos/hybrid-vs-native.html' %}
+    </div>
   </div>
 
   <section id="build-with-web" class="container split">
@@ -400,29 +402,29 @@
     </div>
   </section>
 
-  <section id="native" class="left container">
-    <hgroup class="content">
-      <h4 class="activateOnScroll">Native Power</h4>
-      <h2 class="activateOnScroll">Access core <span class="highlight">native</span> device functionality.</h2>
-      <p class="activateOnScroll">
-        Ionic makes it easy to access native device features with just a little 
-        bit of JavaScript. Choose from a rich library of over 120 native device 
-        plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
-        into the full native SDK when you need it. There’s no limit to what you 7 976 
-        can build.
-      </p>
-      <a href="/docs/native/" class="cta activateOnScroll">Explore Ionic Native</a>
-    </hgroup>
-    <div class="graphics">
-      <home-native></home-native>
-      <img class="graphics activateOnScroll"
-           src="/img/homepage/phones.png" 
-           srcset="/img/homepage/phones-1x.png 1x, /img/homepage/phones.png 2x" 
-           alt="Access Native Android and iOS APIs">
-      
-
-    </div>
-  </section>
+  <div class="overflow-mask">
+    <section id="native" class="left container">
+      <hgroup class="content">
+        <h4 class="activateOnScroll">Native Power</h4>
+        <h2 class="activateOnScroll">Access core <span class="highlight">native</span> device functionality.</h2>
+        <p class="activateOnScroll">
+          Ionic makes it easy to access native device features with just a little 
+          bit of JavaScript. Choose from a rich library of over 120 native device 
+          plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
+          into the full native SDK when you need it. There’s no limit to what you 7 976 
+          can build.
+        </p>
+        <a href="/docs/native/" class="cta activateOnScroll">Explore Ionic Native</a>
+      </hgroup>
+      <div class="graphics">
+        <home-native></home-native>
+        <img class="graphics activateOnScroll"
+             src="/img/homepage/phones.png" 
+             srcset="/img/homepage/phones-1x.png 1x, /img/homepage/phones.png 2x" 
+             alt="Access Native Android and iOS APIs">
+      </div>
+    </section>
+  </div>
 
   <section id="community" class="right container">
     <div class="graphics">
@@ -693,7 +695,7 @@ window.testimonials = function() {
     $active.classList.add('is-active');
     updateHighlight($active);
   
-    // activate the right quote
+    // activate the related quote
     $testimonials.querySelector('blockquote.is-active').classList.remove('is-active')
     $testimonials.querySelector(`blockquote.${$active.dataset.speaker}`).classList.add('is-active');
   }
@@ -730,16 +732,11 @@ window.testimonials = function() {
       const $active = $testimonials.querySelector('.quotees .is-active');
     }
 
-    const padding = {
-      x: 14,
-      y: 4
-    };
-
     const $ul = $testimonials.querySelector('.quotees');
-    $highlight.style.top = `${$active.offsetTop + $ul.offsetTop - padding.y}px`;
-    $highlight.style.left = `${$active.offsetLeft + $ul.offsetLeft - padding.x}px`;
-    $highlight.style.height = `${$active.offsetHeight - padding.y}px`;
-    $highlight.style.width = `${$active.offsetWidth + (padding.x * 1.5)}px`;
+    $highlight.style.top = `${$active.offsetTop + $ul.offsetTop}px`;
+    $highlight.style.left = `${$active.offsetLeft + $ul.offsetLeft}px`;
+    $highlight.style.height = `${$active.offsetHeight}px`;
+    $highlight.style.width = `${$active.offsetWidth}px`;
   }
 
   function init() {

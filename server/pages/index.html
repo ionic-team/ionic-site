@@ -728,9 +728,9 @@ window.testimonials = function() {
   }
 
   function updateHighlight($active) {
-    //console.log('updating')
+    // console.log('updating');
     if (!$active) {
-      const $active = $testimonials.querySelector('.quotees .is-active');
+      $active = $testimonials.querySelector('.quotees .is-active');
     }
 
     const $ul = $testimonials.querySelector('.quotees');
@@ -746,8 +746,13 @@ window.testimonials = function() {
     for (let quotee of $testimonials.querySelectorAll('.quotees li')) {
       quotee.addEventListener('click', handleClick);
     }
-    window.addEventListener('resize', updateHighlight);
   }
+
+  let resizeTimer;
+  window.addEventListener('resize', function(e) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateHighlight, 150);
+  });
 
   init();
  

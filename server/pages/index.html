@@ -728,10 +728,11 @@ window.testimonials = function() {
   }
 
   function updateHighlight($active) {
-    // console.log('updating');
+    // get $active element if it is not passed
     if (!$active) {
       $active = $testimonials.querySelector('.quotees .is-active');
     }
+    // console.log('updating');
 
     const $ul = $testimonials.querySelector('.quotees');
     $highlight.style.top = `${$active.offsetTop + $ul.offsetTop}px`;
@@ -740,11 +741,11 @@ window.testimonials = function() {
     $highlight.style.width = `${$active.offsetWidth}px`;
   }
 
-  function init() {
+  function addListeners() {
     // add listeners
     updateHighlight($testimonials.querySelector('.quotees .is-active'));
-    for (let quotee of $testimonials.querySelectorAll('.quotees li')) {
-      quotee.addEventListener('click', handleClick);
+    for (let $quotee of $testimonials.querySelectorAll('.quotees li')) {
+      $quotee.addEventListener('click', handleClick);
     }
   }
 
@@ -755,14 +756,10 @@ window.testimonials = function() {
     resizeTimer = setTimeout(updateHighlight, 150);
   });
 
-  init();
- 
-  return {
-    start: start
-  }
-
-// kick things off
-}().start();
+  // kick things off
+  addListeners();
+  start();
+}();
 
 </script>
 {% endblock %}

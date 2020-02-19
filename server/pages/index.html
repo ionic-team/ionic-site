@@ -682,44 +682,30 @@ window.testimonials = function() {
   let testimonialIntervalID = null;
   let queued = false;
   const $highlight = document.getElementById('testimonials__highlight');
-  
-  function nextQuote() {
-    let $active = $testimonials.querySelector('.quotees .is-active');
 
-    $active.classList.remove('is-active');
+  function activateNextQuote() {
+    $oldSpeaker = deactivateSpeaker();
+
     // go back to the beginning if at the end
-    if (!$active.nextElementSibling) {
+    if (!$oldSpeaker.nextElementSibling) {
       $active = $testimonials.querySelector('.quotees li:first-child');
     } else {
-      $active = $active.nextElementSibling;
+      $active = $oldSpeaker.nextElementSibling;
     }
-    $active.classList.add('is-active');
-    updateHighlight($active);
-  
-    // activate the related quote
-    $testimonials.querySelector('blockquote.is-active').classList.remove('is-active')
-    $testimonials.querySelector(`blockquote.${$active.dataset.speaker}`).classList.add('is-active');
-  }
-  
-  function start() {
-    queued = false;
-    testimonialIntervalID = setInterval(nextQuote, 8000);
+
+    setActive($active);
   }
   
   // what happens if a speaker is clicked
   function handleClick(event) {
-    // deactivate the currently active speaker & quote
-    for (let $activeEl of document.querySelectorAll(".is-active")) {
-      $activeEl.classList.remove('is-active');
-    }
+    deactivateSpeaker();
 
     // activate the clicked speaker
-    $target = event.currentTarget;
-    $target.classList.add('is-active');
-    $testimonials.querySelector(`.${$target.dataset.speaker}`).classList.add('is-active');
-    updateHighlight($target);
+    setActive(event.currentTarget);
 
     // stop the rotation for a bit
+    // the queued check prevents the rotation from starting multiple times
+    // if the user clicks another speaker before the rotation restarts
     clearInterval(testimonialIntervalID);
     if (! queued) {
       queued = true;
@@ -727,6 +713,28 @@ window.testimonials = function() {
     }
   }
 
+  function start() {
+    queued = false;
+    testimonialIntervalID = setInterval(activateNextQuote, 8000);
+  }
+
+  // finds and deacivates just the current speaker, not the quote
+  function deactivateSpeaker() {
+    $speaker = $testimonials.querySelector('.quotees .is-active')
+    $speaker.classList.remove('is-active');
+    return $speaker;
+  }
+
+  // add is-active classes to the passed quotee and their related quote
+  function setActive($speaker) {
+    $speaker.classList.add('is-active');
+    // deactivate the old quote first
+    $testimonials.querySelector('blockquote.is-active').classList.remove('is-active');
+    $testimonials.querySelector(`blockquote.${$speaker.dataset.speaker}`).classList.add('is-active');
+    updateHighlight($speaker);
+  }
+
+  // update the speaker highlight position
   function updateHighlight($active) {
     // get $active element if it is not passed
     if (!$active) {
@@ -742,8 +750,6 @@ window.testimonials = function() {
   }
 
   function addListeners() {
-    // add listeners
-    updateHighlight($testimonials.querySelector('.quotees .is-active'));
     for (let $quotee of $testimonials.querySelectorAll('.quotees li')) {
       $quotee.addEventListener('click', handleClick);
     }
@@ -757,6 +763,7 @@ window.testimonials = function() {
   });
 
   // kick things off
+  updateHighlight();
   addListeners();
   start();
 }();

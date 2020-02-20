@@ -191,6 +191,20 @@ hgroup {
   }
 }
 
+#page-books-rethinking-low-code {
+  .graphic {
+    background-image: url("/img/books/rethinking-low-code-cover.png");
+  }
+
+  aside {
+    background: #e4e6f6;
+  }
+
+  hgroup {
+    background: #f7f9fb;
+  }
+}
+
 #page-books-native-v-hybrid,
 #page-books-evaluating-ionic-for-enterprise,
 #page-books-rethinking-low-code {
@@ -210,11 +224,5 @@ hgroup {
         max-width: calc(100% - 24px);
       }
     }
-  }
-}
-
-#page-books-rethinking-low-code {
-  .graphic {
-    background-image: url("/img/books/rethinking-low-code-cover.png");
   }
 }

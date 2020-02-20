@@ -15,6 +15,8 @@ const FRAMEWORKS = [
 ]
 const r = Math.floor(Math.random() * 10000);
 
+declare var window: any;
+
 @Component({
   tag: 'ionic-app-wizard',
   styleUrl: 'app-wizard.scss',
@@ -50,10 +52,10 @@ export class AppWizard {
   @State() appName = '';
   @State() framework = 'angular';
   @State() template = 'tabs';
-  @State() appUrl = '';
-  @State() bundleId = '';
-  @State() authorEmail = '';
-  @State() authorName = '';
+  @State() appUrl = 'http://example.com/';
+  @State() bundleId = 'com.supercool.ionic';
+  @State() authorEmail = 'max@ionic.io';
+  @State() authorName = 'Max';
 
   @State() loginForm: LoginForm = {
     email: 'max@ionic.io'
@@ -65,14 +67,21 @@ export class AppWizard {
   };
 
   getSavedId = () => {
-    const flags = `
-      ${this.appName}
-      ${this.template}
-      --type=${this.framework}
-      --package-id=${this.bundleId}
-    `;
+    const opts = {
+      '--type': this.framework,
+      '--package-id': this.bundleId,
+      '--tid': this.getHubspotId(),
+      '--app-url': this.appUrl,
+      '--author-name': this.authorName,
+      '--author-email': this.authorEmail
+    };
+
+    const specifiedOpts = Object.keys(opts).filter(k => !!opts[k]).map(k => `${k} ${opts[k]}`).join(' ');
+
+    const flags = `${this.appName} ${this.template} ${specifiedOpts}`;
     
-    return btoa(flags);
+    //return btoa(flags);
+    return flags;
   }
 
   next = (e) => {
@@ -88,6 +97,10 @@ export class AppWizard {
   signup = async (e) => {
     e.preventDefault();
     await signup(this.signupForm);
+  }
+
+  getHubspotId = () => {
+    return window.getCookie('hubspotutk');
   }
 
   handleChangeStep = (e) => {
@@ -203,7 +216,11 @@ export class AppWizard {
           Run this command to start building:
         </p>
         <div>
-          <pre><code>npm init ionic start {savedId}</code></pre>
+          <pre><code>npm install -g ionic
+
+
+ionic start {savedId}
+            </code></pre>
         </div>
         <div>
           <small>Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>

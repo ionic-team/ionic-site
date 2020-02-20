@@ -71,6 +71,7 @@ export class AppWizard {
       '--type': this.framework,
       '--package-id': this.bundleId,
       '--tid': this.getHubspotId(),
+      '--atk': this.getToken(),
       '--app-url': this.appUrl,
       '--author-name': this.authorName,
       '--author-email': this.authorEmail
@@ -101,6 +102,10 @@ export class AppWizard {
 
   getHubspotId = () => {
     return window.getCookie('hubspotutk');
+  }
+
+  getToken = () => {
+    return window.getCookie('_ionic_token');
   }
 
   handleChangeStep = (e) => {

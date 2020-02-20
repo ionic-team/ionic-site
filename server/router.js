@@ -47,6 +47,7 @@ router: app => {
   .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.render('books/evaluating-ionic-for-enterprise'))
   .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
   .get('/books/hybrid-vs-native/preview', (_, res) => res.render('books/hybrid-vs-native-preview'))
+  .get('/books/rethinking-low-code', (_, res) => res.render('books/rethinking-low-code'))
 
   .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
   .get('/community', (_, res) => res.render('community'))

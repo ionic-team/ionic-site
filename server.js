@@ -10,6 +10,8 @@ const path         = require('path');
 const Sentry       = require('@sentry/node');
 const throng       = require('throng');
 
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 const { handleNotFound } = require('./server/pageNotFound');
 const { router }         = require('./server/router');
 const tools              = require('./server/tools');
@@ -79,6 +81,11 @@ function start() {
   app.use(prismicMiddleware);
   app.use(loadLocalVars);
   announcementBarCronJob(app)
+
+  if (!PROD) {
+    // Proxy for oauth when in dev mode
+    app.use('/oauth', createProxyMiddleware({ target: 'https://staging.ionicframework.com', changeOrigin: true, secure: false }));
+  }
   
   nunjucks.configure('server/pages', {
     express: app,
@@ -95,7 +102,7 @@ function start() {
   app.use(Sentry.Handlers.errorHandler());
   
   app.use(handleNotFound);
-  
+
   // bind the app to listen for connections on a specified port
   app.listen(PORT, function() {
     console.log('Listening on port ' + PORT);

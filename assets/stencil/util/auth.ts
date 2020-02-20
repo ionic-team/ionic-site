@@ -1,5 +1,5 @@
 // const API_BASE = 'https://api.ionicjs.com';
-const API_BASE = 'https://api-staging.ionicjs.com';
+const API_BASE = 'https://staging.ionicframework.com';
 
 import { trackClick } from './analytics';
 import { hubspotTrack } from './hubspot';
@@ -23,16 +23,16 @@ const makeApiError = (message, exc?) => ({
 
 const apiUrl = (url) => `${API_BASE}${url}`;
 
-export const login = async (email, password) => {
+export const login = async (email, password, source) => {
   try {
-    const ret = await fetch(apiUrl('/oauth/login'), {
+    const ret = await fetch('/oauth/login', {
       method: 'POST',
       body: JSON.stringify({
         email,
-        password
+        password,
+        source
       }),
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
     });
@@ -43,7 +43,8 @@ export const login = async (email, password) => {
 
     hubspotTrack(data.email, { id: "000006636951" });
 
-    return oauthAuthorize();
+    return location.search;
+    //return oauthAuthorize();
   } catch (e) {
     throw makeApiError('Unable to log in', e);
   }

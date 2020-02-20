@@ -42,14 +42,14 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 3;
+  @State() step = 2;
 
   @State() showSignup = true;
   @State() signupErrors = null;
   @State() loginErrors = null;
 
   // Form state
-  @State() appName = '';
+  @State() appName = 'Super App';
   @State() framework = 'angular';
   @State() template = 'tabs';
   @State() appUrl = 'http://example.com/';
@@ -58,7 +58,7 @@ export class AppWizard {
   @State() authorName = 'Max';
 
   @State() loginForm: LoginForm = {
-    email: 'max@ionic.io'
+    email: 'max+1000@ionic.io'
   };
   @State() signupForm: SignupForm = {
     name: 'Mr Max',
@@ -92,12 +92,35 @@ export class AppWizard {
 
   login = async (e) => {
     e.preventDefault();
-    await login(this.loginForm.email, this.loginForm.password);
+    const ret = await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
+    console.log('Log in ret', ret, this.getToken());
+
+    this.save();
   }
 
   signup = async (e) => {
     e.preventDefault();
     await signup(this.signupForm);
+  }
+
+  save = async () => {
+    const res = await fetch('/api/v1/wizard/create', {
+      body: JSON.stringify({
+        'type': this.framework,
+        'package-id': this.bundleId,
+        'tid': this.getHubspotId(),
+        'atk': this.getToken(),
+        'app-url': this.appUrl,
+        'author-name': this.authorName,
+        'author-email': this.authorEmail
+      }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = res.json();
   }
 
   getHubspotId = () => {

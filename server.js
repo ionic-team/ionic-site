@@ -53,6 +53,7 @@ function start() {
     var limiter = require('express-limiter')(app, redis);
   
     // rate limit POST requests
+    /*
     limiter({
       path: '*',
       method: 'post',
@@ -61,6 +62,7 @@ function start() {
       total: 10,
       expire: 1000 * 60 * 60
     })
+    */
   }
   
   app.set('trust proxy', true);

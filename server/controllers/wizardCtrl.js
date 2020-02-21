@@ -26,7 +26,7 @@ const save = (data) => {
       if (err) return reject(err);
 
       // Expire the key after a bit
-      redisClient.expireat(appKey(tid), EXPIRE_TIME, (err) => {
+      redisClient.expireat(appKey(tid), (+new Date) + EXPIRE_TIME, (err) => {
         if (err) return reject(err);
         resolve();
       })
@@ -40,7 +40,7 @@ const getApp = (appId) => {
   }
 
   return new Promise((resolve, reject) => {
-    redisClient.get(appKey(tid), (err, value) => {
+    redisClient.get(appKey(appId), (err, value) => {
       if (err) return reject(err);
       resolve(value);
     });

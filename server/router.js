@@ -178,7 +178,7 @@ router: app => {
   .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
   .post('/api/v1/wizard/create', bp.json(), es(), wizardCtrl.save)
-  .post('/api/v1/wizard/app/:appId', bp.json(), es(), wizardCtrl.getApp)
+  .get('/api/v1/wizard/app/:appId', bp.json(), es(), wizardCtrl.getApp)
 
   // Prismic Preview
   .get('/preview', previewController)

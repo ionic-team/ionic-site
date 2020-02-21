@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, State, h, Listen } from '@stencil/core';
 
 import { login, signup, SignupForm, LoginForm } from '../../util/auth';
 
@@ -42,20 +42,22 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 2;
+  @State() step = 0;
 
   @State() showSignup = true;
   @State() signupErrors = null;
   @State() loginErrors = null;
 
   // Form state
-  @State() appName = 'Super App';
+  @State() appName = '';
   @State() framework = 'angular';
   @State() template = 'tabs';
-  @State() appUrl = 'http://example.com/';
   @State() bundleId = 'com.supercool.ionic';
+  @State() appUrl = 'http://example.com/';
+  /*
   @State() authorEmail = 'max@ionic.io';
   @State() authorName = 'Max';
+  */
 
   @State() loginForm: LoginForm = {
     email: 'max+1000@ionic.io'
@@ -66,15 +68,28 @@ export class AppWizard {
     username: `maxtest-${r}`,
   };
 
+  @Listen('popstate', { target: 'window' })
+  handlePopState(e) {
+    if (e.state) {
+      const step = e.state.step;
+      if (step) {
+        this.step = step;
+        return;
+      }
+    }
+
+    this.step = 0;
+  }
+
   getSavedId = () => {
     const opts = {
       '--type': this.framework,
       '--package-id': this.bundleId,
       '--tid': this.getHubspotId(),
       '--atk': this.getToken(),
-      '--app-url': this.appUrl,
-      '--author-name': this.authorName,
-      '--author-email': this.authorEmail
+      //'--app-url': this.appUrl,
+      //'--author-name': this.authorName,
+      //'--author-email': this.authorEmail
     };
 
     const specifiedOpts = Object.keys(opts).filter(k => !!opts[k]).map(k => `${k} ${opts[k]}`).join(' ');
@@ -85,9 +100,14 @@ export class AppWizard {
     return flags;
   }
 
+  setStep = (step) => {
+    this.step = step;
+    history.pushState({ step: this.step }, null, `#${this.STEPS[this.step].id}`);
+  }
+
   next = (e) => {
     e.preventDefault();
-    this.step = this.step + 1 % this.STEPS.length;
+    this.setStep(this.step + 1 % this.STEPS.length);
   }
 
   login = async (e) => {
@@ -95,7 +115,12 @@ export class AppWizard {
     const ret = await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
     console.log('Log in ret', ret, this.getToken());
 
-    this.save();
+    try {
+      await this.save();
+    } catch (e) {
+      alert('Unable to create app, please start over!');
+      this.step = 0;
+    }
   }
 
   signup = async (e) => {
@@ -110,9 +135,11 @@ export class AppWizard {
         'package-id': this.bundleId,
         'tid': this.getHubspotId(),
         'atk': this.getToken(),
+        /*
         'app-url': this.appUrl,
         'author-name': this.authorName,
         'author-email': this.authorEmail
+        */
       }),
       method: 'POST',
       headers: {
@@ -121,6 +148,12 @@ export class AppWizard {
     });
 
     const data = res.json();
+  }
+
+  getApp = async () => {
+    const res = await fetch(`/api/v1/wizard/app/${this.getHubspotId()}`);
+
+    return await res.json();
   }
 
   getHubspotId = () => {
@@ -132,7 +165,10 @@ export class AppWizard {
   }
 
   handleChangeStep = (e) => {
-    this.step = parseInt(e.detail.value, 10);
+    const step = parseInt(e.detail.value, 10);
+    if (step !== this.step) {
+      this.setStep(step);
+    }
   }
 
   handleInput = (fieldName) => e => {
@@ -175,7 +211,7 @@ export class AppWizard {
       <div>
         <hgroup>
           <h2>Configure {this.appName}</h2>
-          <h4>deploying to App Stores</h4>
+          <h4>Some extra information needed to correctly build native apps</h4>
         </hgroup>
         <form class="form" onSubmit={this.next}>
           <div class="form-group" id="field-appurl">
@@ -188,6 +224,7 @@ export class AppWizard {
             <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
+          {/*
           <div class="form-group" id="field-authoremail">
             <label htmlFor="id_authoremail">Author Email</label>
             <input type="text" id="id_authoremail" name="authoremail" value={this.authorEmail} tabindex="1" onInput={this.handleInput('authorEmail')} />
@@ -198,6 +235,7 @@ export class AppWizard {
             <input type="text" id="id_authorname" name="authorname" value={this.authorName} tabindex="1" onInput={this.handleInput('authorName')}/>
             <div class="form-message form-message--small"></div>
           </div>
+          */}
           <Button>Next</Button>
         </form>
       </div>
@@ -290,7 +328,7 @@ const Button = (_props, children) => (
 const FrameworkSwitcher = ({ value, onChange }) => (
   <div class="frameworks">
   {FRAMEWORKS.map(f => (
-    <div class={`framework ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+    <div key={f.id} class={`framework ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
       <h5>{f.name}</h5>
     </div>
   ))}
@@ -300,7 +338,7 @@ const FrameworkSwitcher = ({ value, onChange }) => (
 const TemplateSwitcher = ({ value, onChange }) => (
   <div class="templates">
   {TEMPLATES.map(f => (
-    <div class={`template ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+    <div key={f.id} class={`template ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
       <h5>{f.name}</h5>
     </div>
   ))}

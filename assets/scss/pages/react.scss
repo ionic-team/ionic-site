@@ -53,12 +53,32 @@
   }
 
   header {
+    position: relative;
+
     background-color: #131A23;
     color: white;
     background-image: url('/img/react/react-cta-bg.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center bottom;
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      background-color: #313C4A;
+      border-radius: 16px;
+      padding: 6px 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      ion-icon {
+        vertical-align: middle;
+      }
+    }
 
     h1 {
       color: white;

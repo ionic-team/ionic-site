@@ -298,19 +298,11 @@
     </div>
   </div>
 
-  <!--
   <div class="container" id="accolades">
     <h2>What People are Saying</h2>
-    <div class="tweets">
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Super excited about Ionic React! I’ve always dreamed of a “ruby on rails” equivalent for React where all the environment is setup to be productive right away. <a href="https://t.co/IBx2cfBQJv">https://t.co/IBx2cfBQJv</a></p>&mdash; vjeux ✪ (@Vjeux) <a href="https://twitter.com/Vjeux/status/1184258196707233793?ref_src=twsrc%5Etfw">October 16, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">I’m new to both Ionic and React but I’ve found ionic-react to be really nice!</p>&mdash; Kevin Southworth (@ksouthworth) <a href="https://twitter.com/ksouthworth/status/1226937939285901313?ref_src=twsrc%5Etfw">February 10, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I wanna start another app tonight. Ionic + React makes dev fun. Lmk if you got an idea.</p>&mdash; Diana Lopez (@pixelswithin) <a href="https://twitter.com/pixelswithin/status/1220956268539441153?ref_src=twsrc%5Etfw">January 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working with Ionic 4 has been amazing. The improvements, the React support, and the docs were all a major improvement. I can’t wait to get my hands on 5.0.0! <a href="https://t.co/2eJBOrii9Z">https://t.co/2eJBOrii9Z</a></p>&mdash; Devin (@paranoidcoder) <a href="https://twitter.com/paranoidcoder/status/1220788490809544712?ref_src=twsrc%5Etfw">January 24, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">I’m new to both Ionic and React but I’ve found ionic-react to be really nice!</p>&mdash; Kevin Southworth (@ksouthworth) <a href="https://twitter.com/ksouthworth/status/1226937939285901313?ref_src=twsrc%5Etfw">February 10, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Building apps with Ionic React is a joy. Using JavaScript and a build-free process makes the experience that much sweeter. Check <a href="https://t.co/3bKjusE44s">https://t.co/3bKjusE44s</a> to see how to run JavaScript <a href="https://twitter.com/ionic?ref_src=twsrc%5Etfw">@ionic</a> react apps in the browser build-free.</p>&mdash; Adnan Sagar, PhD (@adnan_msagar) <a href="https://twitter.com/adnan_msagar/status/1224420056752381952?ref_src=twsrc%5Etfw">February 3, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div id="tweets" class="tweets">
     </div>
   </div>
-  -->
 
   <div class="container grid grid-cols-2" id="start">
     <div>
@@ -343,5 +335,70 @@ ionic start --type=react
     $('#native-list li').removeClass('selected');
     $(this).addClass('selected');
   });
+  const tweets = [
+    {
+      author_username: 'vjeux',
+      author_name: 'vjeux',
+      date: 'October 2019',
+      avatar: '',
+      link: 'https://twitter.com/Vjeux/status/1184258196707233793',
+      content: `Super excited about Ionic React! I’ve always dreamed of a “ruby on rails” equivalent for React where all the environment is setup to be productive right away.`
+    },
+    {
+      author_username: 'adnan_msagar',
+      author_name: 'Adnan Sagar, PhD',
+      date: 'February 2020',
+      avatar: '',
+      link: 'https://twitter.com/adnan_msagar/status/1224420056752381952',
+      content: `Building apps with Ionic React is a joy. Using JavaScript and a build-free process makes the experience that much sweeter. Check ionic-react-conference-app to see how to run JavaScript @ionicframework react apps in the browser build-free.`
+    },
+    {
+      author_username: 'pixelswithin',
+      author_name: 'Kevin Southworth',
+      date: 'February 2020',
+      avatar: '',
+      link: '',
+      content: `I’m new to both Ionic and React but I’ve found ionic-react to be really nice!`
+    },
+    {
+      author_username: '',
+      author_name: 'Diana Lopez',
+      date: 'February 2020',
+      avatar: '',
+      link: 'https://twitter.com/adnan_msagar/status/1224420056752381952',
+      content: `I wanna start another app tonight. Ionic + React makes dev fun. Lmk if you got an idea.`
+    },
+    {
+      author_username: 'paranoidcoder',
+      author_name: 'Devin',
+      date: 'January 2020',
+      avatar: '',
+      link: '',
+      content: `Working with Ionic 4 has been amazing. The improvements, the React support, and the docs were all a major improvement. I can’t wait to get my hands on 5.0.0!`
+    }
+  ];
+
+  const tweetsList = $('#tweets');
+  console.log('Appending', tweets, tweetsList);
+  tweets.forEach(t => tweetsList.append(`
+  <div class="tweet">
+    <div class="tweet-author">
+      <div class="tweet-author-avatar">
+      </div>
+      <div class="tweet-author-info">
+        <h3><a href="${t.author_link}">${t.author_username}</a></h3>
+        <h5><a href="${t.author_link}">@${t.author_name}</a></h5>
+      </div>
+      <div class="tweet-twitter-icon"></div>
+    </div>
+    <div class="tweet-content">
+      ${t.content}
+    </div>
+    <div class="tweet-footer">
+      <div class="tweet-date">${t.date}</div>
+      <div class="tweet-view">View Tweet</div>
+    </div>
+  </div>
+  `));
 </script>
 {% endblock %}

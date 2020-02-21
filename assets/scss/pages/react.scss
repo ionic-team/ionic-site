@@ -436,4 +436,110 @@
       border: none;
     }
   }
+
+  #accolades {
+    .tweets {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 64px;
+      .tweet {
+        background: #F6F8FB;
+        border-radius: 4px;
+        color: #2F3A48;
+        padding: 32px;
+        margin-bottom: 56px;
+
+        .tweet-author {
+          display: grid;
+          grid-template-columns: 56px 1fr 16px;
+        }
+
+        .tweet-author-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+          background-color: gray;
+        }
+
+        .tweet-author-info {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 160%;
+          /* or 26px */
+          letter-spacing: -0.02em;
+
+          a {
+            color: #020814;
+            text-decoration: none;
+          }
+
+          h3 {
+            margin-top: 0;
+            margin-bottom: 0px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 160%;
+            /* or 26px */
+
+            letter-spacing: -0.02em;
+
+            /* carbon / 800 */
+
+            color: #020814;
+          }
+          h5 {
+            margin-top: 0;
+            font-size: 12px;
+            line-height: 160%;
+            /* or 19px */
+
+            letter-spacing: -0.02em;
+
+            /* carbon / 300 */
+
+            color: #414D5C;
+
+          }
+        }
+
+        .tweet-author-username {
+          font-size: 12px;
+          line-height: 160%;
+          /* or 19px */
+
+          display: flex;
+          align-items: center;
+          letter-spacing: -0.02em;
+
+          /* carbon / 300 */
+
+          color: #414D5C;
+        }
+
+        .tweet-content {
+          margin-top: 24px;
+          margin-bottom: 28px;
+        }
+
+        .tweet-footer {
+          display: grid;
+          grid-template-columns: auto auto;
+          justify-content: space-between;
+
+          letter-spacing: 0.08em;
+          font-size: 10px;
+          /* carbon / 100 */
+
+          color: #616E7E;
+
+          .tweet-date {
+            text-transform: uppercase;
+          }
+          .tweet-view {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
 }

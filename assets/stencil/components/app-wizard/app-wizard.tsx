@@ -42,13 +42,18 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 0;
+  @State() step = 2;
 
   @State() showSignup = true;
   @State() signupErrors = null;
   @State() loginErrors = null;
 
+  // The current appId from the server
+  appId: string;
+
   // Form state
+  @State() authenticating = false;
+  @State() email = '';
   @State() appName = '';
   @State() framework = 'angular';
   @State() template = 'tabs';
@@ -112,20 +117,45 @@ export class AppWizard {
 
   login = async (e) => {
     e.preventDefault();
-    const ret = await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
-    console.log('Log in ret', ret, this.getToken());
 
     try {
-      await this.save();
+      this.authenticating = true;
+      const ret = await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
+      this.email = this.loginForm.email;
+      this.authenticating = false;
     } catch (e) {
-      alert('Unable to create app, please start over!');
-      this.step = 0;
+      this.authenticating = false;
+      this.loginErrors = e;
+      return;
     }
+
+    return this.finish();
   }
 
   signup = async (e) => {
     e.preventDefault();
-    await signup(this.signupForm);
+    try {
+      this.authenticating = true;
+      await signup(this.signupForm);
+      this.email = this.loginForm.email;
+      this.authenticating = false;
+    } catch (e) {
+      this.authenticating = false;
+      this.signupErrors = e;
+      return;
+    }
+
+    return this.finish();
+  }
+
+  finish = async () => {
+    try {
+      await this.save();
+      this.setStep(this.STEPS.length - 1);
+    } catch (e) {
+      alert('Unable to create app, please start over!');
+      this.step = 0;
+    }
   }
 
   save = async () => {
@@ -135,6 +165,8 @@ export class AppWizard {
         'package-id': this.bundleId,
         'tid': this.getHubspotId(),
         'atk': this.getToken(),
+        'email': this.email,
+        'appId': this.appId
         /*
         'app-url': this.appUrl,
         'author-name': this.authorName,
@@ -147,7 +179,9 @@ export class AppWizard {
       }
     });
 
-    const data = res.json();
+    const data = await res.json();
+    this.appId = data.appId;
+    return data;
   }
 
   getApp = async () => {
@@ -243,6 +277,24 @@ export class AppWizard {
   }
 
   renderAccount() {
+    if (this.email) {
+      return (
+        <div>
+          <hgroup>
+            <h2>Create your Ionic account</h2>
+            <h4>Get access to the Ionic Forum and Appflow</h4>
+          </hgroup>
+          <div class="logged-in">
+            <p>
+              Logged in as {this.email}
+            </p>
+            <form onSubmit={e => { e.preventDefault(); this.finish() }}>
+              <Button>Finish</Button>
+            </form>
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
         <hgroup>
@@ -252,6 +304,7 @@ export class AppWizard {
         { this.showSignup ? (
         <SignupForm
           handleSubmit={this.signup}
+          disable={this.authenticating}
           errors={this.signupErrors}
           form={this.signupForm}
           loginInstead={() => this.showSignup = false}
@@ -260,6 +313,7 @@ export class AppWizard {
         ) : (
         <LoginForm
           handleSubmit={this.login}
+          disable={this.authenticating}
           errors={this.loginErrors}
           signupInstead={() => this.showSignup = true}
           form={this.loginForm}
@@ -271,7 +325,10 @@ export class AppWizard {
   }
 
   renderFinish() {
-    const savedId = this.getSavedId();
+    const instructions = `
+npm install -g @ionic/cli
+ionic start --saved-id ${this.appId}
+    `;
     return (
       <div class="finish">
         <header>
@@ -282,14 +339,10 @@ export class AppWizard {
           Run this command to start building:
         </p>
         <div>
-          <pre><code>npm install -g ionic
-
-
-ionic start {savedId}
-            </code></pre>
+          <pre><code>{instructions}</code></pre>
         </div>
         <div>
-          <small>Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
+          <small>Note: this command will expire in two hours. Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
         </div>
 
       </div>
@@ -357,15 +410,16 @@ interface SignupFormProps {
   form: SignupForm;
   handleSubmit: (e) => Promise<void>;
   errors: any;
+  disable: boolean;
   loginInstead: () => void;
   inputChange: (name: string) => (e: any) => void;
 }
-const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: SignupFormProps) => (
+const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputChange }: SignupFormProps) => (
   <form class="form" id="signup-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
     <div class="errorlist">
       <div>Unable to create account.</div>
-      <div class="form-message">{errors}</div>
+      <div class="form-message">{errors.message}</div>
     </div>
     ) : null }
     <div class="form-group" id="field-name">
@@ -377,6 +431,7 @@ const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: S
         tabindex="1"
         required
         value={form.name}
+        disabled={disable}
         onInput={inputChange('name')}
         />
       <div class="form-message form-message--small"></div>
@@ -390,6 +445,7 @@ const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: S
         tabindex="2"
         required
         value={form.email}
+        disabled={disable}
         onInput={inputChange('email')}
         />
       <div class="form-message form-message--small"></div>
@@ -403,6 +459,7 @@ const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: S
         tabindex="3"
         required
         value={form.username}
+        disabled={disable}
         onInput={inputChange('username')}
         />
       <div class="form-message form-message--small"></div>
@@ -416,14 +473,20 @@ const SignupForm = ({ form, handleSubmit, errors, loginInstead, inputChange }: S
         tabindex="4"
         required
         value={form.password}
+        disabled={disable}
         onInput={inputChange('password')}
         />
       <div class="form-message form-message--small"></div>
     </div>
     <div class="form-group">
-    <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
+    <span class="disclaimer">By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a></span>
     </div>
-    <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
+    <button
+      type="submit"
+      id="submit"
+      class="btn btn-block"
+      disabled={disable}
+      tabindex="5">Create free account</button>
     <div class="well">
       Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); loginInstead() }}>Log in</a>
     </div>
@@ -434,15 +497,16 @@ interface LoginFormProps {
   form: LoginForm;
   handleSubmit: (e) => Promise<void>;
   errors: any;
+  disable: boolean;
   signupInstead: () => void;
   inputChange: (name: string) => (e: any) => void;
 }
-const LoginForm = ({ form, handleSubmit, errors, signupInstead, inputChange }: LoginFormProps) => (
+const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputChange }: LoginFormProps) => (
   <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
     <div class="errorlist">
       <div>Unable to log in:</div>
-      <div class="form-message"></div>
+      <div class="form-message">{errors.message}</div>
     </div>
     ) : null }
     <div class="form-group" id="field-email">
@@ -455,6 +519,7 @@ const LoginForm = ({ form, handleSubmit, errors, signupInstead, inputChange }: L
         tabindex="1"
         required
         value={form.email}
+        disabled={disable}
         onInput={inputChange('email')} />
       <div class="form-message form-message--small"></div>
     </div>
@@ -473,10 +538,18 @@ const LoginForm = ({ form, handleSubmit, errors, signupInstead, inputChange }: L
         tabindex="2"
         required
         value={form.password}
+        disabled={disable}
         onInput={inputChange('password')} />
       <div class="form-message form-message--small"></div>
     </div>
-    <button type="submit" id="submit" class="btn btn-block" tabindex="3">Log in</button>
+    <button
+      type="submit"
+      id="submit"
+      class="btn btn-block"
+      disabled={disable}
+      tabindex="3">
+        Log in
+    </button>
     <div class="well">
       Don't have an account? <a class="text-link" href="#" onClick={(e) => { e.preventDefault(); signupInstead() }}>Sign up</a>
     </div>

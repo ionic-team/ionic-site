@@ -1,6 +1,7 @@
-const { 
-  REDIS_URL
-} = require('../config');
+const { REDIS_URL } = require('../config');
+
+const hbs = require('../hubspot');
+const shortid = require('shortid');
 
 let redisClient;
 if (REDIS_URL) {
@@ -10,25 +11,51 @@ if (REDIS_URL) {
 // Expire after 2 hours
 const EXPIRE_TIME = 1000 * 60 * 60 * 2;
 
-const appKey = (tid) => `wizard-app-${tid}`;
+const appKey = (appId) => `wizard-app-${appId}`;
 
-const save = (data) => {
+const generateId = () => {
+  return shortid.generate();
+}
+
+const save = async (data) => {
   if (!redisClient) {
     return;
   }
 
   // tid is the hubspot id we can just piggy-back on as our session id
   // since they already did the hard work for us
+  const appId = data.appId || generateId();
+
   const tid = data.tid;
 
+  const email = data.email;
+
+  let canonicalId;
+  try {
+    let hubspotProfile;
+    if (email) {
+      hubspotProfile = await hbs.getByEmail(email);
+    } else {
+      hubspotProfile = await hbs.getByToken(tid);
+    }
+    canonicalId = hubspotProfile['canonical-vid'];
+  } catch (e) {
+  }
+
+  if (canonicalId) {
+    data['cid'] = canonicalId;
+  }
+
   return new Promise((resolve, reject) => {
-    redisClient.set(appKey(tid), JSON.stringify(data), (err) => {
+    redisClient.set(appKey(appId), JSON.stringify(data), (err) => {
       if (err) return reject(err);
 
       // Expire the key after a bit
-      redisClient.expireat(appKey(tid), (+new Date) + EXPIRE_TIME, (err) => {
+      redisClient.expireat(appKey(appId), (+new Date) + EXPIRE_TIME, (err) => {
         if (err) return reject(err);
-        resolve();
+        resolve({
+          appId
+        });
       })
     });
   })
@@ -56,10 +83,11 @@ module.exports = {
   },
   save: async (req, res) => {
     const app = req.body;
+    let data = {};
     if (redisClient) {
-      await save(app);
+      data = await save(app);
     }
     res.status(200);
-    res.json({});
+    res.json(data);
   }
 }

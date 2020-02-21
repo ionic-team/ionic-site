@@ -31,6 +31,12 @@
     }
   }
 
+  code {
+    background: #DFF8FE;
+    color: #4991FF;
+    border-radius: 4px;
+  }
+
   twitter-widget {
     float: left;
   }
@@ -49,6 +55,10 @@
   header {
     background-color: #131A23;
     color: white;
+    background-image: url('/img/react/react-cta-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center bottom;
 
     h1 {
       color: white;
@@ -137,9 +147,10 @@
   }
 
   h2 {
-    font-size: 48px;
-    line-height: 58px;
     letter-spacing: -.03em;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 110%;
   }
 
   h3 {
@@ -170,11 +181,12 @@
     }
 
     p {
-      color: #1A232F;
+      color: #2F3A48;
       font-size: 20px;
       line-height: 150%;
       letter-spacing: -.03em;
-      margin-bottom: 16px;
+      margin-top: 32px;
+      margin-bottom: 56px;
     }
 
     ul {
@@ -261,6 +273,27 @@
   }
 
   .feature {
+    .image {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      svg {
+      }
+      margin-bottom: 28px;
+    }
+
+    h3 {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 180%;
+      letter-spacing: -0.02em;
+    }
+
     h3 a {
       color: #020814;
       font-size: 20px;

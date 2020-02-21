@@ -347,16 +347,47 @@
     }
   }
 
+  #enterprise {
+    hgroup {
+      max-width: 400px;
+    }
+
+    .graphics {
+      width: 568px;
+    }
+    .btn {
+      background-color: #193857;
+    }
+  }
+
   #start {
-    max-width: 500px;
-    margin: auto;
-    text-align: center;
+    background: #44B7FF;
+    border-radius: 16px;
+    padding: 64px;
+    margin-bottom: 64px;
+    color: white;
+    h2 {
+      margin-top: 0;
+      font-size: 40px;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    h2, p, pre, code {
+      color: white;
+    }
+    &:before {
+      display: none;
+    }
     pre {
-      background-color: #111;
+      background-color: #0071B8;
       color: white;
       border: none;
+      border-radius: 8px;
       text-align: left;
       font-size: 18px;
+      margin-left: 56px;
     }
     code {
       background: transparent;

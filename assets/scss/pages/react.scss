@@ -442,6 +442,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 64px;
+
+      .tweet-share {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        align-items: center;
+        background: #F6F8FB;
+        border-radius: 4px;
+        color: #2F3A48;
+        padding: 32px;
+        height: 96px;
+        h4 {
+          margin: 0;
+        }
+        a {
+          color: #009DFF;
+        }
+      }
+
       .tweet {
         background: #F6F8FB;
         border-radius: 4px;
@@ -459,6 +478,11 @@
           height: 40px;
           border-radius: 40px;
           background-color: gray;
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+          }
         }
 
         .tweet-author-info {
@@ -537,6 +561,10 @@
           }
           .tweet-view {
             text-transform: uppercase;
+            a {
+              text-decoration: none;
+              color: #616E7E;
+            }
           }
         }
       }

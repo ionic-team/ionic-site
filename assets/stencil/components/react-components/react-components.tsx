@@ -118,8 +118,8 @@ ${code}`;
     </p>
     <IonItem>
       <IonButton fill="solid">Action</IonButton>
-      <IonIcon icon={heart} slot="end”></IonIcon>
-      <IonIcon icon={share} slot="end”></IonIcon>
+      <IonIcon icon={heart} slot="end"></IonIcon>
+      <IonIcon icon={share} slot="end"></IonIcon>
     </IonItem>
   </IonCardContent>
 </IonCard>`,

@@ -301,6 +301,14 @@
   <div class="container" id="accolades">
     <h2>What People are Saying</h2>
     <div id="tweets" class="tweets">
+      <div id="tweet-share" class="tweet-share">
+        <h4>Love Ionic React?</h4>
+        <a
+          target="_blank"
+          href="http://twitter.com/share?text=Check out Ionic React to build native mobile and Progressive Web Apps with React&url=https://ionicframework.com/react&via=ionicframework">
+          Let us know on Twitter
+        </a>
+      </div>
     </div>
   </div>
 
@@ -340,7 +348,7 @@ ionic start --type=react
       author_username: 'vjeux',
       author_name: 'vjeux',
       date: 'October 2019',
-      avatar: '',
+      avatar: 'https://pbs.twimg.com/profile_images/758422091347603456/_tIflgtD_reasonably_small.jpg',
       link: 'https://twitter.com/Vjeux/status/1184258196707233793',
       content: `Super excited about Ionic React! I’ve always dreamed of a “ruby on rails” equivalent for React where all the environment is setup to be productive right away.`
     },
@@ -348,42 +356,43 @@ ionic start --type=react
       author_username: 'adnan_msagar',
       author_name: 'Adnan Sagar, PhD',
       date: 'February 2020',
-      avatar: '',
+      avatar: 'https://pbs.twimg.com/profile_images/550311525840207872/ce4j64OE_reasonably_small.png',
       link: 'https://twitter.com/adnan_msagar/status/1224420056752381952',
       content: `Building apps with Ionic React is a joy. Using JavaScript and a build-free process makes the experience that much sweeter. Check ionic-react-conference-app to see how to run JavaScript @ionicframework react apps in the browser build-free.`
     },
     {
-      author_username: 'pixelswithin',
+      author_username: 'ksouthworth',
       author_name: 'Kevin Southworth',
       date: 'February 2020',
-      avatar: '',
-      link: '',
+      avatar: 'https://pbs.twimg.com/profile_images/567568545/kevatar_reasonably_small.jpg',
+      link: 'https://twitter.com/ksouthworth/status/1226937939285901313',
       content: `I’m new to both Ionic and React but I’ve found ionic-react to be really nice!`
     },
     {
-      author_username: '',
+      author_username: 'pixelswithin',
       author_name: 'Diana Lopez',
       date: 'February 2020',
-      avatar: '',
-      link: 'https://twitter.com/adnan_msagar/status/1224420056752381952',
+      avatar: 'https://pbs.twimg.com/profile_images/1230634083673235458/0-Px-hwE_reasonably_small.jpg',
+      link: 'https://twitter.com/pixelswithin/status/1220956268539441153',
       content: `I wanna start another app tonight. Ionic + React makes dev fun. Lmk if you got an idea.`
     },
     {
       author_username: 'paranoidcoder',
       author_name: 'Devin',
       date: 'January 2020',
-      avatar: '',
-      link: '',
+      avatar: 'https://pbs.twimg.com/profile_images/951649117436104704/JvW7pIWf_reasonably_small.jpg',
+      link: 'https://twitter.com/paranoidcoder/status/1220788490809544712',
       content: `Working with Ionic 4 has been amazing. The improvements, the React support, and the docs were all a major improvement. I can’t wait to get my hands on 5.0.0!`
     }
   ];
 
   const tweetsList = $('#tweets');
   console.log('Appending', tweets, tweetsList);
-  tweets.forEach(t => tweetsList.append(`
+  tweets.forEach(t => $(`
   <div class="tweet">
     <div class="tweet-author">
       <div class="tweet-author-avatar">
+        <img src="${t.avatar}" />
       </div>
       <div class="tweet-author-info">
         <h3><a href="${t.author_link}">${t.author_username}</a></h3>
@@ -396,9 +405,9 @@ ionic start --type=react
     </div>
     <div class="tweet-footer">
       <div class="tweet-date">${t.date}</div>
-      <div class="tweet-view">View Tweet</div>
+      <div class="tweet-view"><a target="_blank" href="${t.link}">View Tweet</a></div>
     </div>
   </div>
-  `));
+  `).insertBefore('#tweet-share'));
 </script>
 {% endblock %}

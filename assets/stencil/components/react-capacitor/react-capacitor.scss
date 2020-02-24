@@ -5,7 +5,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  width: 560px;
+  width: 100%;
   border-radius: 10px;
   position: relative;
 
@@ -105,16 +105,6 @@
   }
 
   .tab-content {
-    position: relative;
-    padding: 0;
-
-    li {
-      display: none;
-
-      &.active {
-        display: block;
-      }
-    }
   }
 
   .tab-content {
@@ -124,6 +114,17 @@
     align-items: flex-start;
     position: relative;
     margin-top: 0;
+    padding: 0;
+
+    height: 100%;
+
+    li {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
 
     pre  {
       background: transparent;

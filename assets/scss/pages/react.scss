@@ -59,7 +59,7 @@
     color: white;
     background-image: url('/img/react/react-cta-bg.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 75%;
     background-position: center bottom;
 
     .back-button {
@@ -72,6 +72,7 @@
       background-color: #313C4A;
       border-radius: 16px;
       padding: 6px 8px;
+      text-transform: uppercase;
       cursor: pointer;
       text-decoration: none;
       color: white;
@@ -82,8 +83,8 @@
 
     h1 {
       color: white;
-      font-size: 30px;
-      line-height: 36px;
+      font-size: 48px;
+      line-height: 110%;
     }
 
     .container {
@@ -103,8 +104,12 @@
     }
 
     a.btn {
-      padding-top: 17px;
-      margin-top: 48px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      margin-top: 24px;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
     }
 
     a.btn.get-started {
@@ -206,7 +211,7 @@
       line-height: 150%;
       letter-spacing: -.03em;
       margin-top: 32px;
-      margin-bottom: 56px;
+      margin-bottom: 16px;
     }
 
     ul {
@@ -327,13 +332,19 @@
   }
 
   #components {
-    margin-bottom: 100px;
+    margin-bottom: 24px;
     @media (max-width: $screen-sm-max) {
       grid-template-columns: 1fr;
     }
   }
 
   #native {
+    react-capacitor {
+      height: 100%;
+      flex: 1;
+      margin-right: 64px;
+    }
+
     .content {
       margin-top: 100px;
     }
@@ -421,9 +432,34 @@
     }
   }
 
+  #demo-info {
+    h2 {
+      margin-bottom: 48px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 150%;
+    }
+  }
+
   #demo-info, #samples {
+    i {
+      color: #73849A;
+    }
     p {
       margin: 20px 0;
+    }
+    .try-it {
+      font-weight: bold;
+      ion-icon {
+        vertical-align: middle;;
+      }
+    }
+  }
+
+  #samples {
+    p {
+      height: 105px;
     }
   }
 
@@ -434,6 +470,20 @@
       height: 750px;
       width: 100%;
       border: none;
+    }
+  }
+
+  #vs-react-native {
+    hgroup {
+      p {
+        margin-bottom: 64px;
+      }
+    }
+
+    .feature {
+      h3 {
+        height: 48px;
+      }
     }
   }
 

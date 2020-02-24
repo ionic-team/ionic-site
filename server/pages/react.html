@@ -16,7 +16,7 @@
 
   <hgroup class="container">
     <img src="/img/react/logo.png" alt="Ionic Logo" class="logo" />
-    <h1>Build iOS, Android, and Progressive Web Apps from a single code base with Ionic React.</h1>
+    <h1>Build Native and Progressive Web Apps from a single code base with Ionic React.</h1>
     <a href="#start" class="btn anchor get-started">Get Started</a>
     <a href="#demo" class="btn anchor live-demo">Live Demo</a>
   </hgroup>
@@ -96,24 +96,23 @@
         </h2>
         <p>
           Try this demo Music App built with Ionic React following best practices.
-          <br />
           <i>Note: App does not actually play music due to lack of legal public music APIs.</i>
         </p>
       </div>
     </div>
 
     <div id="demo">
-      <iframe id="demo-frame" src="https://stackblitz.com/edit/ionic-react-demo?embed=1&file=Home.jsx"></iframe>
+      <iframe id="demo-frame" src="https://stackblitz.com/edit/ionic-react-demo?embed=1&file=pages/Home.jsx"></iframe>
     </div>
   </div>
 
   <section class="right">
-    <div class="container grid grid-cols-2" id="native">
+    <div class="container" id="native">
       <hgroup>
-        <h2>Build once, run natively on iOS, Android, web</h2>
+        <h2>Build once, run natively on iOS, Android, Electron, and the Web</h2>
         <p>
           Ionic React apps use our <a href="https://capacitor.ionicframework.com/" target="_blank">Capacitor</a> project (not Cordova)
-          to unlock every native API and UI control across iOS, Android, Electron, and Web. 
+          to unlock every native API across iOS, Android, Electron, and Web. 
         </p>
         <ul id="native-list">
           <li data-type="camera" class="selected">
@@ -166,6 +165,7 @@
           The demo available on this page is a simple demo of a music player app, tab-based navigation,
           and basic user account features
         </p>
+        <a class="try-it" href="https://stackblitz.com/edit/ionic-react-demo">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </div>
       <div class="feature">
         <a href="https://github.com/ionic-team/ionic-react-conference-app" target="_blank"><img src="/img/react/conference-app-thumb.png" /></a>
@@ -173,6 +173,7 @@
         <p>
           Ionic's fake conference app is a great example of an app combining both tabs and menu navigation
         </p>
+        <a class="try-it" href="https://github.com/ionic-team/ionic-react-conference-app">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </div>
       <div class="feature">
         <a href="https://github.com/mhartington/StarTrack-react" target="_blank"><img src="/img/react/startracks-app-thumb.png" /></a>
@@ -180,6 +181,7 @@
         <p>
           An Apple Music player demo that plays real music. Note: Must have an Apple Music account.
         </p>
+        <a class="try-it" href="https://github.com/mhartington/StarTrack-react">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </div>
     </div>
   </div>
@@ -383,6 +385,14 @@ ionic start --type=react
       avatar: 'https://pbs.twimg.com/profile_images/951649117436104704/JvW7pIWf_reasonably_small.jpg',
       link: 'https://twitter.com/paranoidcoder/status/1220788490809544712',
       content: `Working with Ionic 4 has been amazing. The improvements, the React support, and the docs were all a major improvement. I can’t wait to get my hands on 5.0.0!`
+    },
+    {
+      author_username: 'BMcCoy04',
+      author_name: 'Bryan McCoy',
+      date: 'February 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/1086463539689254912/SZbmuKwp_reasonably_small.jpg',
+      link: 'https://twitter.com/BMcCoy04/status/1231952440632782850',
+      content: `I’m actually re-writing a react native app in ionic (to deploy it as a pwa). I can’t imagine why I wouldn’t use this for all of my future web apps or native apps. I’m really enjoying the framework.`
     }
   ];
 

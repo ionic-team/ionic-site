@@ -151,6 +151,7 @@
   .preview-content.code {
     background: #1C2B3E;
     display: block;
+    overflow: hidden;
 
     pre  {
       background: transparent;
@@ -202,11 +203,6 @@
 
     .tab-content {
       border-radius: 0 0 10px 10px;
-    }
-
-    .preview-header,
-    .preview-content {
-      display: none;
     }
   }
 }

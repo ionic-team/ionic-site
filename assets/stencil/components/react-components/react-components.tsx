@@ -107,11 +107,11 @@ ${code}`;
       display: `
 <IonCard>
   <IonImg src="/assets/myImg.png"></IonImg>
+  <IonCardHeader>
+    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+    <IonCardTitle>Card Title</IonCardTitle>
+  </IonCardHeader>
   <IonCardContent>
-    <IonCardHeader>
-      <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-      <IonCardTitle>Card Title</IonCardTitle>
-    </IonCardHeader>
     <p>
       Here’s a small text description for the card component. 
       Nothing more, nothing less.

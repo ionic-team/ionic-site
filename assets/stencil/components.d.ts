@@ -7,7 +7,12 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  TabType,
+} from './components/react-capacitor/react-capacitor';
+import {
+  ComponentType,
+} from './components/react-components/react-components';
 
 export namespace Components {
   interface HomeComponents {}
@@ -37,6 +42,7 @@ export namespace Components {
     'showPricingNotice': boolean;
     'transparentInput': boolean;
   }
+  interface IonicReactDemo {}
   interface IonicSearch {
     'mobile': boolean;
   }
@@ -56,6 +62,12 @@ export namespace Components {
     'hide': () => Promise<void>;
     'show': () => Promise<void>;
     'tab': string;
+  }
+  interface ReactCapacitor {
+    'tab': TabType;
+  }
+  interface ReactComponents {
+    'component': ComponentType;
   }
 }
 
@@ -110,6 +122,12 @@ declare global {
     new (): HTMLIonicQuickSignupElement;
   };
 
+  interface HTMLIonicReactDemoElement extends Components.IonicReactDemo, HTMLStencilElement {}
+  var HTMLIonicReactDemoElement: {
+    prototype: HTMLIonicReactDemoElement;
+    new (): HTMLIonicReactDemoElement;
+  };
+
   interface HTMLIonicSearchElement extends Components.IonicSearch, HTMLStencilElement {}
   var HTMLIonicSearchElement: {
     prototype: HTMLIonicSearchElement;
@@ -151,6 +169,18 @@ declare global {
     prototype: HTMLIonicToggleTabElement;
     new (): HTMLIonicToggleTabElement;
   };
+
+  interface HTMLReactCapacitorElement extends Components.ReactCapacitor, HTMLStencilElement {}
+  var HTMLReactCapacitorElement: {
+    prototype: HTMLReactCapacitorElement;
+    new (): HTMLReactCapacitorElement;
+  };
+
+  interface HTMLReactComponentsElement extends Components.ReactComponents, HTMLStencilElement {}
+  var HTMLReactComponentsElement: {
+    prototype: HTMLReactComponentsElement;
+    new (): HTMLReactComponentsElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -160,6 +190,7 @@ declare global {
     'ionic-button': HTMLIonicButtonElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
+    'ionic-react-demo': HTMLIonicReactDemoElement;
     'ionic-search': HTMLIonicSearchElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
@@ -167,6 +198,8 @@ declare global {
     'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
+    'react-capacitor': HTMLReactCapacitorElement;
+    'react-components': HTMLReactComponentsElement;
   }
 }
 
@@ -198,6 +231,7 @@ declare namespace LocalJSX {
     'showPricingNotice'?: boolean;
     'transparentInput'?: boolean;
   }
+  interface IonicReactDemo {}
   interface IonicSearch {
     'mobile'?: boolean;
   }
@@ -215,6 +249,12 @@ declare namespace LocalJSX {
   interface IonicToggleTab {
     'tab'?: string;
   }
+  interface ReactCapacitor {
+    'tab'?: TabType;
+  }
+  interface ReactComponents {
+    'component'?: ComponentType;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
@@ -225,6 +265,7 @@ declare namespace LocalJSX {
     'ionic-button': IonicButton;
     'ionic-newsletter-signup': IonicNewsletterSignup;
     'ionic-quick-signup': IonicQuickSignup;
+    'ionic-react-demo': IonicReactDemo;
     'ionic-search': IonicSearch;
     'ionic-slider': IonicSlider;
     'ionic-snap-bar': IonicSnapBar;
@@ -232,6 +273,8 @@ declare namespace LocalJSX {
     'ionic-toggle': IonicToggle;
     'ionic-toggle-button': IonicToggleButton;
     'ionic-toggle-tab': IonicToggleTab;
+    'react-capacitor': ReactCapacitor;
+    'react-components': ReactComponents;
   }
 }
 
@@ -249,6 +292,7 @@ declare module "@stencil/core" {
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
       'ionic-newsletter-signup': LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
+      'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
       'ionic-slider': LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
@@ -256,6 +300,8 @@ declare module "@stencil/core" {
       'ionic-toggle': LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;
       'ionic-toggle-button': LocalJSX.IonicToggleButton & JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement>;
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
+      'react-capacitor': LocalJSX.ReactCapacitor & JSXBase.HTMLAttributes<HTMLReactCapacitorElement>;
+      'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
     }
   }
 }

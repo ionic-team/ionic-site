@@ -319,8 +319,13 @@
 
   .features {
     grid-gap: 50px;
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
       grid-template-columns: 1fr;
+      grid-gap: 24px;
+
+      p {
+        margin-bottom: 16px;
+      }
     }
   }
 
@@ -478,7 +483,7 @@
         color: white;
       }
     }
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
       grid-template-columns: 1fr;
       
       padding: 32px;
@@ -592,7 +597,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 64px;
-      @media (max-width: $screen-xs) {
+      @media (max-width: $screen-sm) {
         grid-template-columns: 1fr;
         column-gap: 16px;
       }

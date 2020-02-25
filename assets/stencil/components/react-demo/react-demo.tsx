@@ -1,4 +1,4 @@
-import { Component, Element, Listen, h } from '@stencil/core';
+import { Component, Element, h } from '@stencil/core';
 @Component({
   tag: 'ionic-react-demo',
   styleUrl: 'react-demo.scss',

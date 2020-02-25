@@ -450,12 +450,15 @@
     padding: 64px;
     margin-bottom: 64px;
     color: white;
+
+    grid-template-columns: 2fr 3fr;
+
     h2 {
       margin-top: 0;
-      font-size: 40px;
+      font-size: 32px;
     }
     p {
-      font-size: 20px;
+      font-size: 16px;
       margin-bottom: 0;
     }
     h2, p, pre, code {
@@ -470,7 +473,7 @@
       border: none;
       border-radius: 8px;
       text-align: left;
-      font-size: 18px;
+      font-size: 16px;
       margin-left: 56px;
     }
     code {

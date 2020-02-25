@@ -145,7 +145,7 @@
 
 {% macro trustedPartner(tp) %}
 <li class="{{ tp.slug }}">
-  <p><strong>{{ tp.name }}</strong> {{ tp['short-description'] }}</p>
+  <p>{{ tp['short-description']|safe }}</p>
   <a class="btn ionic sm" ng-click="learnMore($event)">Learn more</a>
   <div class="modal-info" data-name="{{ tp.name }}" data-handle="{{ tp.slug }}">
     <div class="company-info">{{ tp['long-description']|safe }}</div>
@@ -173,7 +173,7 @@
 {% macro trustedPartnerPremium(tp) %}
 <li class="premium {{ tp.slug }}">
   <a class="hover-card" ng-click="learnMore($event)">
-    <p><strong>{{ tp.name }}</strong> {{ tp['short-description'] }}</p>
+    <p>{{ tp['short-description']|safe }}</p>
   </a>
   <div class="modal-info" data-name="{{ tp.name }}" data-handle="{{ tp.slug }}" data-link="{{tp.link}}">
     <div class="company-info">{{ tp['long-description']|safe }}</div>

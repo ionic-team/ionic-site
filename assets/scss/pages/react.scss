@@ -529,7 +529,7 @@
         vertical-align: middle;;
       }
     }
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
       .grid.grid-cols-2 {
         grid-template-columns: 1fr;
       }

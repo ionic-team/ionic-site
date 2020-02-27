@@ -13,6 +13,14 @@ const FRAMEWORKS = [
   { name: 'React', id: 'react' },
   { name: 'Vue (beta)', id: 'vue' },
 ]
+
+const THEMES = [
+  '#3880FF', // blue
+  '#6030FF', // purple
+  '#43C465', // green
+  '#F2C526', // yellow
+  '#F65E3C' // red
+]
 const r = Math.floor(Math.random() * 10000);
 
 declare var window: any;
@@ -42,7 +50,7 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 2;
+  @State() step = 0;
 
   @State() showSignup = true;
   @State() signupErrors = null;
@@ -51,8 +59,12 @@ export class AppWizard {
   // The current appId from the server
   appId: string;
 
+  // Color picker ref
+  colorPickerRef: HTMLInputElement;
+
   // Form state
   @State() authenticating = false;
+  @State() theme = THEMES[0];
   @State() email = '';
   @State() appName = '';
   @State() framework = 'angular';
@@ -84,25 +96,6 @@ export class AppWizard {
     }
 
     this.step = 0;
-  }
-
-  getSavedId = () => {
-    const opts = {
-      '--type': this.framework,
-      '--package-id': this.bundleId,
-      '--tid': this.getHubspotId(),
-      '--atk': this.getToken(),
-      //'--app-url': this.appUrl,
-      //'--author-name': this.authorName,
-      //'--author-email': this.authorEmail
-    };
-
-    const specifiedOpts = Object.keys(opts).filter(k => !!opts[k]).map(k => `${k} ${opts[k]}`).join(' ');
-
-    const flags = `${this.appName} ${this.template} ${specifiedOpts}`;
-    
-    //return btoa(flags);
-    return flags;
   }
 
   setStep = (step) => {
@@ -161,12 +154,14 @@ export class AppWizard {
   save = async () => {
     const res = await fetch('/api/v1/wizard/create', {
       body: JSON.stringify({
-        'type': this.framework,
+        type: this.framework,
         'package-id': this.bundleId,
-        'tid': this.getHubspotId(),
-        'atk': this.getToken(),
-        'email': this.email,
-        'appId': this.appId
+        tid: this.getHubspotId(),
+        atk: this.getToken(),
+        email: this.email,
+        appId: this.appId,
+        template: this.template,
+        name: this.appName
         /*
         'app-url': this.appUrl,
         'author-name': this.authorName,
@@ -205,6 +200,10 @@ export class AppWizard {
     }
   }
 
+  handlePickTheme = (e) => {
+    this.colorPickerRef && this.colorPickerRef.click();
+  }
+
   handleInput = (fieldName) => e => {
     this[fieldName] = e.target.value;
   };
@@ -217,19 +216,32 @@ export class AppWizard {
           <h4>Let's start your first app</h4>
         </hgroup>
         <form class="form" onSubmit={this.next}>
+          <input
+            type="color"
+            class="color-picker"
+            ref={e => this.colorPickerRef = e}
+            value={this.theme}
+            onInput={(e: any) => this.theme = e.currentTarget.value }
+            />
           <div class="form-group" id="field-appname">
             <label htmlFor="id_appname">App name</label>
             <input type="text" id="id_appname" name="appname" value={this.appName} tabindex="1" required onInput={this.handleInput('appName')} />
             <div class="form-message form-message--small"></div>
           </div>
+          <label>Pick a template</label>
+          <ThemePicker
+            value={this.theme}
+            onChange={(theme) => this.theme = theme}
+            onPick={this.handlePickTheme}
+          />
           <div class="form-group" id="field-appname">
-            <label htmlFor="id_appname">Pick a template</label>
+            <label>Pick a template</label>
             <TemplateSwitcher
               value={this.template}
               onChange={tmpl => this.template = tmpl} />
           </div>
           <div class="form-group" id="field-appname">
-            <label htmlFor="id_appname">JavaScript Framework</label>
+            <label>JavaScript Framework</label>
             <FrameworkSwitcher
               value={this.framework}
               onChange={framework => this.framework = framework} />
@@ -327,7 +339,7 @@ export class AppWizard {
   renderFinish() {
     const instructions = `
 npm install -g @ionic/cli
-ionic start --saved-id ${this.appId}
+ionic start --start-id ${this.appId}
     `;
     return (
       <div class="finish">
@@ -377,6 +389,29 @@ ionic start --saved-id ${this.appId}
 const Button = (_props, children) => (
   <button type="submit" id="submit" class="btn btn-block">{ children }</button>
 );
+
+const ThemePicker = ({ value, onChange, onPick }) => {
+  const themes = [
+    ...THEMES,
+    !THEMES.find(t => t === value) ? value : null
+  ].filter(t => !!t);
+
+  return (
+    <div class="themes">
+    {themes.map(t => (
+      <div
+        key={t}
+        class={`theme ${value === t ? 'selected' : ''}`}
+        onClick={() => onChange(t)}>
+          <div class="theme-color" style={{ backgroundColor: t }} />
+      </div>
+    ))}
+      <div class="theme pick-theme" onClick={() => onPick()}>
+        <ion-icon name="md-color-filter" />
+      </div>
+    </div>
+  )
+}
 
 const FrameworkSwitcher = ({ value, onChange }) => (
   <div class="frameworks">

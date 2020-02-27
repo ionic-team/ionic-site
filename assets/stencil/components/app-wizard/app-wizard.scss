@@ -11,6 +11,10 @@
     text-align: center;
   }
 
+  .color-picker {
+    display: none;
+  }
+
   .logged-in {
     p {
       margin: 50px 0;
@@ -36,13 +40,56 @@
     }
   }
 
-  .templates, .frameworks {
+  .themes, .templates, .frameworks {
     user-select: none;
     > .selected {
       border: 2px solid #3880FF;
 
       h5 {
         color: #4D8DFF;
+      }
+    }
+  }
+
+  .themes {
+    display: flex;
+    column-gap: 5px;
+    margin-bottom: 16px;
+    .theme {
+      width: 42px;
+      height: 42px;
+      padding: 2px;
+
+      border-radius: 34px;
+
+      user-select: none;
+      border: 2px solid transparent;
+
+      cursor: pointer;
+
+      &.selected {
+        border: 2px solid #3880FF;
+      }
+
+      .theme-color {
+        width: 34px;
+        height: 34px;
+        border-radius: 34px;
+      }
+
+      &.pick-theme {
+        width: 38px;
+        height: 38px;
+        margin-top: 2px;
+        margin-left: 2px;
+        border: 2px solid #E9EDF3;
+        padding: 0;
+        color: #5B708B;
+        font-size: 20px;
+        text-align: center;
+        ion-icon {
+          vertical-align: middle;
+        }
       }
     }
   }

@@ -4,7 +4,7 @@ import { login, signup, SignupForm, LoginForm } from '../../util/auth';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
-  { name: 'Menu', id: 'menu' },
+  { name: 'Menu', id: 'sidemenu' },
   { name: 'List', id: 'list' },
 ];
 
@@ -161,7 +161,8 @@ export class AppWizard {
         email: this.email,
         appId: this.appId,
         template: this.template,
-        name: this.appName
+        name: this.appName,
+        theme: this.theme
         /*
         'app-url': this.appUrl,
         'author-name': this.authorName,

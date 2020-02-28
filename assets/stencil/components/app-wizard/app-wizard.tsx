@@ -455,9 +455,10 @@ const Switcher = ({ items, index, onChange }) => {
           {completed ? (
             <ion-icon name="checkmark-circle" />
           ) : (
-            <ion-icon name="radio-button-off" />
+            <div class="empty-circle" />
           )}
           {item}
+          <div class="switcher-separator" />
         </div>
       )
     })}

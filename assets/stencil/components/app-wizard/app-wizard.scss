@@ -1,6 +1,11 @@
 #app-wizard {
   width: 400px;
-  margin: 40px auto;
+  margin: 10px auto;
+
+  button ion-icon {
+    vertical-align: middle;
+    margin-top: -1px
+  }
 
   ion-segment {
     max-width: 284px;
@@ -9,6 +14,61 @@
 
   hgroup {
     text-align: center;
+    margin: 86px 0 56px 0;
+
+    h2 {
+      margin-top: 0;
+      font-size: 32px;
+      line-height: 22px;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  label {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: normal;
+    color: var(--c-carbon-100);
+  }
+
+  ui-floating-input {
+    margin-bottom: 28px;
+  }
+
+  .switcher {
+    display: flex;
+    justify-content: center;
+    user-select: none;
+
+    .switcher-button {
+      text-align: center;
+      color: #020814;
+      flex: 1;
+      cursor: pointer;
+
+      ion-icon {
+        vertical-align: middle;
+        margin-right: 7px;
+        margin-bottom: 1px
+      }
+
+      &.switcher-button-completed {
+        color: #3880FF;
+        ion-icon {
+          color: #3880FF;
+          fill: #3880FF;
+          stroke: #3880FF;
+        }
+      }
+      &.switcher-button-inactive {
+        color: #92A1B3;
+        ion-icon {
+          color: #92A1B3;
+          fill: #92A1B3;
+          stroke: #92A1B3;
+        }
+      }
+    }
   }
 
   .color-picker {
@@ -40,10 +100,34 @@
     }
   }
 
-  .themes, .templates, .frameworks {
+  .frameworks {
+    .framework {
+      text-align: center;
+    }
+
+    .framework-logo {
+      background: url('/img/start/js-framework-sprite.png') no-repeat transparent;
+      background-size: 56px;
+      margin: 15px auto;
+      width: 56px;
+      height: 56px;
+    }
+
+    .framework-angular { background-position: 0 -56px; }
+    .framework-react { background-position: 0 -168px; }
+    .framework-vue { background-position: 0 -280px; }
+
+    .selected {
+      .framework-angular { background-position: 0 0; }
+      .framework-react { background-position: 0 -112px; }
+      .framework-vue { background-position: 0 -224px; }
+    }
+  }
+
+  .themes, .frameworks {
     user-select: none;
-    > .selected {
-      border: 2px solid #3880FF;
+    .selected {
+      border: 2px solid #3880FF !important;
 
       h5 {
         color: #4D8DFF;
@@ -99,12 +183,31 @@
 
     .template {
       flex: 1;
-      cursor: pointer;
-      height: 160px;
       margin: 10px;
-      border-radius: 8px;
-      border: 2px solid transparent;
-      box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+      cursor: pointer;
+
+      &.selected {
+        .template-image {
+          border: 2px solid #3880FF !important;
+        }
+
+        h5 {
+          color: #4D8DFF;
+        }
+      }
+
+      .template-image {
+        background: url('/img/start/starter-template-sprite.png') no-repeat transparent;
+        width: 120px;
+        height: 140px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+      }
+
+      .template-tabs { background-position: 0 0 }
+      .template-sidemenu { background-position: 0 -140px }
+      .template-list { background-position: 0 -280px }
 
       &:first-child {
         margin-left: 0;

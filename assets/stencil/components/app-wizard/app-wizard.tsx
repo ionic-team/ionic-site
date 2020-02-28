@@ -33,12 +33,8 @@ declare var window: any;
 export class AppWizard {
   STEPS = [
     {
-      name: 'Basics',
+      name: 'App Style',
       id: 'basics'
-    },
-    {
-      name: 'Configure',
-      id: 'configure'
     },
     {
       name: 'Account',
@@ -113,7 +109,7 @@ export class AppWizard {
 
     try {
       this.authenticating = true;
-      const ret = await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
+      await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
       this.email = this.loginForm.email;
       this.authenticating = false;
     } catch (e) {
@@ -194,14 +190,13 @@ export class AppWizard {
     return window.getCookie('_ionic_token');
   }
 
-  handleChangeStep = (e) => {
-    const step = parseInt(e.detail.value, 10);
+  handleChangeStep = (step) => {
     if (step !== this.step) {
       this.setStep(step);
     }
   }
 
-  handlePickTheme = (e) => {
+  handlePickTheme = (_e) => {
     this.colorPickerRef && this.colorPickerRef.click();
   }
 
@@ -224,12 +219,15 @@ export class AppWizard {
             value={this.theme}
             onInput={(e: any) => this.theme = e.currentTarget.value }
             />
-          <div class="form-group" id="field-appname">
-            <label htmlFor="id_appname">App name</label>
-            <input type="text" id="id_appname" name="appname" value={this.appName} tabindex="1" required onInput={this.handleInput('appName')} />
-            <div class="form-message form-message--small"></div>
-          </div>
-          <label>Pick a template</label>
+          <ui-floating-input
+            label="App name"
+            type="text"
+            name="app-name"
+            value={this.appName}
+            tabindex={1}
+            required={true}
+            onChange={this.handleInput('appName')} />
+          <label>Pick a theme</label>
           <ThemePicker
             value={this.theme}
             onChange={(theme) => this.theme = theme}
@@ -247,7 +245,7 @@ export class AppWizard {
               value={this.framework}
               onChange={framework => this.framework = framework} />
           </div>
-          <Button>Next</Button>
+          <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
         </form>
       </div>
     )
@@ -294,8 +292,8 @@ export class AppWizard {
       return (
         <div>
           <hgroup>
-            <h2>Create your Ionic account</h2>
-            <h4>Get access to the Ionic Forum and Appflow</h4>
+            <h2>Complete your profile</h2>
+            <h4>Finish your profile and join the community</h4>
           </hgroup>
           <div class="logged-in">
             <p>
@@ -311,8 +309,8 @@ export class AppWizard {
     return (
       <div>
         <hgroup>
-          <h2>Create your Ionic account</h2>
-          <h4>Build, connect, and ship your app even faster</h4>
+          <h2>Complete your profile</h2>
+          <h4>Finish your profile and join the community</h4>
         </hgroup>
         { this.showSignup ? (
         <SignupForm
@@ -365,9 +363,9 @@ ionic start --start-id ${this.appId}
   renderStep() {
     switch (this.step) {
       case 0: return this.renderBasics();
-      case 1: return this.renderConfigure();
-      case 2: return this.renderAccount();
-      case 3: return this.renderFinish();
+      //case 1: return this.renderConfigure();
+      case 1: return this.renderAccount();
+      case 2: return this.renderFinish();
     }
   }
 
@@ -417,7 +415,11 @@ const ThemePicker = ({ value, onChange, onPick }) => {
 const FrameworkSwitcher = ({ value, onChange }) => (
   <div class="frameworks">
   {FRAMEWORKS.map(f => (
-    <div key={f.id} class={`framework ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+    <div
+      key={f.id}
+      class={`framework ${value === f.id ? 'selected' : ''}`}
+      onClick={() => onChange(f.id)}>
+      <div class={`framework-logo framework-${f.id}`} />
       <h5>{f.name}</h5>
     </div>
   ))}
@@ -427,20 +429,41 @@ const FrameworkSwitcher = ({ value, onChange }) => (
 const TemplateSwitcher = ({ value, onChange }) => (
   <div class="templates">
   {TEMPLATES.map(f => (
-    <div key={f.id} class={`template ${value === f.id ? 'selected' : ''}`} onClick={() => onChange(f.id)}>
+    <div
+      key={f.id}
+      class={`template ${value === f.id ? 'selected' : ''}`}
+      onClick={() => onChange(f.id)}>
+      <div class={`template-image template-${f.id}`} />
       <h5>{f.name}</h5>
     </div>
   ))}
   </div>
 );
 
-const Switcher = ({ items, index, onChange }) => (
-  <ion-segment class="switcher" value={index} onIonChange={onChange}>
-    {items.map((item, i) => (
-      <ion-segment-button key={item} value={i} class="switcher-button">{item}</ion-segment-button>
-    ))}
-  </ion-segment>
-);
+const Switcher = ({ items, index, onChange }) => {
+  return (
+  <div class="switcher">
+    {items.map((item, i) => {
+      const completed = i < index;
+      const inactive = i > index;
+      return (
+        <div
+          key={item}
+          class={`switcher-button${ completed ? ' switcher-button-completed' : ''}${ inactive ? ' switcher-button-inactive' : ''}`}
+          onClick={_ => onChange(i)}
+          >
+          {completed ? (
+            <ion-icon name="checkmark-circle" />
+          ) : (
+            <ion-icon name="radio-button-off" />
+          )}
+          {item}
+        </div>
+      )
+    })}
+  </div>
+  )
+};
 
 interface SignupFormProps {
   form: SignupForm;
@@ -458,64 +481,44 @@ const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputCh
       <div class="form-message">{errors.message}</div>
     </div>
     ) : null }
-    <div class="form-group" id="field-name">
-      <label>Full name</label>
-      <input
-        type="text"
-        id="id_name"
-        name="name"
-        tabindex="1"
-        required
-        value={form.name}
-        disabled={disable}
-        onInput={inputChange('name')}
-        />
-      <div class="form-message form-message--small"></div>
-    </div>
-    <div class="form-group" id="field-email">
-      <label>Email</label>
-      <input
-        type="text"
-        id="id_email"
-        name="email"
-        tabindex="2"
-        required
-        value={form.email}
-        disabled={disable}
-        onInput={inputChange('email')}
-        />
-      <div class="form-message form-message--small"></div>
-    </div>
-    <div class="form-group" id="field-username">
-      <label>Username</label>
-      <input
-        type="text"
-        id="id_username"
-        name="username"
-        tabindex="3"
-        required
-        value={form.username}
-        disabled={disable}
-        onInput={inputChange('username')}
-        />
-      <div class="form-message form-message--small"></div>
-    </div>
-    <div class="form-group" id="field-password">
-      <label>Password</label>
-      <input
-        type="password"
-        id="id_password"
-        name="password"
-        tabindex="4"
-        required
-        value={form.password}
-        disabled={disable}
-        onInput={inputChange('password')}
-        />
-      <div class="form-message form-message--small"></div>
-    </div>
+    <ui-floating-input
+      type="text"
+      label="Full name"
+      name="name"
+      inputTabIndex={1}
+      required={true}
+      value={form.name}
+      disabled={disable}
+      onChange={inputChange('name')} />
+    <ui-floating-input
+      type="email"
+      label="Email"
+      name="email"
+      inputTabIndex={2}
+      required={true}
+      value={form.email}
+      disabled={disable}
+      onChange={inputChange('email')} />
+    <ui-floating-input
+      type="text"
+      label="Username"
+      name="username"
+      inputTabIndex={3}
+      required={true}
+      value={form.username}
+      disabled={disable}
+      onChange={inputChange('username')} />
+    <ui-floating-input
+      type="password"
+      label="Password"
+      name="password"
+      inputTabIndex={4}
+      required={true}
+      value={form.password}
+      disabled={disable}
+      onChange={inputChange('password')} />
     <div class="form-group">
-    <span class="disclaimer">By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a></span>
+      <span class="disclaimer">By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a></span>
     </div>
     <button
       type="submit"
@@ -545,39 +548,31 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
       <div class="form-message">{errors.message}</div>
     </div>
     ) : null }
-    <div class="form-group" id="field-email">
-      <label htmlFor="id_email">Email</label>
-      <input
-        type="text"
-        id="id_email"
-        name="email"
-        autocomplete="username"
-        tabindex="1"
-        required
-        value={form.email}
-        disabled={disable}
-        onInput={inputChange('email')} />
-      <div class="form-message form-message--small"></div>
+    <ui-floating-input
+      type="email"
+      label="Email"
+      name="email"
+      autocomplete="username"
+      inputTabIndex={1}
+      required={true}
+      value={form.email}
+      disabled={disable}
+      onChange={inputChange('email')} />
+    <ui-floating-input
+      type="password"
+      label="Password"
+      name="password"
+      autocomplete="current-password"
+      inputTabIndex={2}
+      required={true}
+      value={form.password}
+      disabled={disable}
+      onChange={inputChange('password')} />
+    {/*
+    <div class="forgot-password">
+      <a target="_blank" href="https://dashboard.ionicframework.com/reset-password" title="Reset Password?">Forgot password?</a>
     </div>
-    <div class="form-group" id="field-password">
-      <label htmlFor="id_password">
-        Password
-        <div class="forgot-password">
-          <a target="_blank" href="https://dashboard.ionicframework.com/reset-password" title="Reset Password?">Forgot password?</a>
-        </div>
-      </label>
-      <input
-        type="password"
-        id="id_password"
-        name="password"
-        autocomplete="current-password"
-        tabindex="2"
-        required
-        value={form.password}
-        disabled={disable}
-        onInput={inputChange('password')} />
-      <div class="form-message form-message--small"></div>
-    </div>
+    */}
     <button
       type="submit"
       id="submit"

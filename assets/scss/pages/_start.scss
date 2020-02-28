@@ -9,55 +9,11 @@
       margin-bottom: 42px;
     }
   
-    label {
-      font-size: 13px;
-      color: #3B434D;
-      letter-spacing: -0.015em;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-  
-    input[type="text"],
-    input[type="password"] {
-      transition: border 0.2s;
-      display: block;
-      width: 100%;
-      background: #FFFFFF;
-      border: 1px solid #C3CDDF;
-      border-radius: 6px;
-      padding: 11px 16px;
-  
-      &:focus {
-        outline: none !important;
-        border: 1px solid #3880ff;
-      }
-    }
-  
-    .error input[type="text"],
-    .error input[type="password"] {
-      border-color: #f45454;
-    }
-  
     .checkbox-label {
       color: #727A87;
       font-size: 11px;
       font-weight: 600;
       margin-left: 4px;
-    }
-  
-    .form-group {
-      margin-bottom: 20px;
-    }
-  
-    .form-message {
-      color: #f45454;
-      font-weight: 600;
-  
-      &--small {
-        font-size: 11px;
-        line-height: 16px;
-        margin-top: 6px;
-      }
     }
   
     .btn {

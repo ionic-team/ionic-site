@@ -58,6 +58,20 @@ export namespace Components {
     'show': () => Promise<void>;
     'tab': string;
   }
+  interface UiFloatingInput {
+    'autocomplete': string;
+    'disabled': boolean;
+    'inputId': string;
+    'inputTabIndex': number;
+    'label': string;
+    'message': string;
+    'name': string;
+    'onChange': (e) => void;
+    'required': boolean;
+    'setFocus': (focused: any) => Promise<void>;
+    'type': string;
+    'value': string;
+  }
 }
 
 declare global {
@@ -158,6 +172,12 @@ declare global {
     prototype: HTMLIonicToggleTabElement;
     new (): HTMLIonicToggleTabElement;
   };
+
+  interface HTMLUiFloatingInputElement extends Components.UiFloatingInput, HTMLStencilElement {}
+  var HTMLUiFloatingInputElement: {
+    prototype: HTMLUiFloatingInputElement;
+    new (): HTMLUiFloatingInputElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -175,6 +195,7 @@ declare global {
     'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
+    'ui-floating-input': HTMLUiFloatingInputElement;
   }
 }
 
@@ -224,6 +245,19 @@ declare namespace LocalJSX {
   interface IonicToggleTab {
     'tab'?: string;
   }
+  interface UiFloatingInput {
+    'autocomplete'?: string;
+    'disabled'?: boolean;
+    'inputId'?: string;
+    'inputTabIndex'?: number;
+    'label'?: string;
+    'message'?: string;
+    'name'?: string;
+    'onChange'?: (e) => void;
+    'required'?: boolean;
+    'type'?: string;
+    'value'?: string;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
@@ -242,6 +276,7 @@ declare namespace LocalJSX {
     'ionic-toggle': IonicToggle;
     'ionic-toggle-button': IonicToggleButton;
     'ionic-toggle-tab': IonicToggleTab;
+    'ui-floating-input': UiFloatingInput;
   }
 }
 
@@ -267,6 +302,7 @@ declare module "@stencil/core" {
       'ionic-toggle': LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;
       'ionic-toggle-button': LocalJSX.IonicToggleButton & JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement>;
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
+      'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
     }
   }
 }

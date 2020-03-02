@@ -37,8 +37,8 @@ export class AppWizard {
       id: 'basics'
     },
     {
-      name: 'Account',
-      id: 'account'
+      name: 'Profile',
+      id: 'profile'
     },
     {
       name: 'Finish',
@@ -125,7 +125,7 @@ export class AppWizard {
     e.preventDefault();
     try {
       this.authenticating = true;
-      await signup(this.signupForm);
+      await signup(this.signupForm, 'wizard-1');
       this.email = this.loginForm.email;
       this.authenticating = false;
     } catch (e) {
@@ -477,10 +477,7 @@ interface SignupFormProps {
 const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputChange }: SignupFormProps) => (
   <form class="form" id="signup-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
-    <div class="errorlist">
-      <div>Unable to create account.</div>
-      <div class="form-message">{errors.message}</div>
-    </div>
+    <FormErrors>{errors.message}</FormErrors>
     ) : null }
     <ui-floating-input
       type="text"
@@ -518,9 +515,6 @@ const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputCh
       value={form.password}
       disabled={disable}
       onChange={inputChange('password')} />
-    <div class="form-group">
-      <span class="disclaimer">By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a></span>
-    </div>
     <button
       type="submit"
       id="submit"
@@ -529,6 +523,9 @@ const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputCh
       tabindex="5">Create free account</button>
     <div class="well">
       Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); loginInstead() }}>Log in</a>
+    </div>
+    <div class="form-group disclaimer">
+      By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
     </div>
   </form>
 )
@@ -545,8 +542,7 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
   <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
     <div class="errorlist">
-      <div>Unable to log in:</div>
-      <div class="form-message">{errors.message}</div>
+      <FormErrors>{errors.message}</FormErrors>
     </div>
     ) : null }
     <ui-floating-input
@@ -587,3 +583,7 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
     </div>
   </form>
 )
+
+const FormErrors = (_props, children) => (
+  <div class="form-errors">{children}</div>
+);

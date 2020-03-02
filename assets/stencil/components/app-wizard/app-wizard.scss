@@ -14,7 +14,7 @@
 
   hgroup {
     text-align: center;
-    margin: 86px 0 56px 0;
+    margin: 58px 0 48px 0;
 
     h2 {
       margin-top: 0;
@@ -125,7 +125,7 @@
   .finish {
     text-align: center;
     header {
-      margin-bottom: 24px;
+      margin: 96px 0 24px 0;
       font-size: 22px;
       .icon {
         font-size: 36px;
@@ -294,4 +294,35 @@
       }
     }
   }
+
+  .disclaimer {
+    font-weight: 400;
+    margin-top: 24px;
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: #a0a9b7;
+  }
+
+  .well {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #E1E5ED;
+    border-radius: 6px;
+    margin-top: 16px;
+    color: #3B424D;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .form-errors {
+    margin: 24px 0;
+    text-align: center;
+    font-weight: bold;
+    color: var(--c-red-800);
+  }
+  
 }

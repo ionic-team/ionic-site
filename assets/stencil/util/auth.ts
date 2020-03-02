@@ -3,6 +3,7 @@ const API_BASE = 'https://staging.ionicframework.com';
 
 import { trackClick } from './analytics';
 import { hubspotTrack } from './hubspot';
+import { recaptcha } from './recaptcha';
 
 export interface SignupForm {
   name?: string;
@@ -62,11 +63,17 @@ const oauthAuthorize = () => {
   window.location.assign(`${apiUrl('/oauth/authorize')}?${params.toString()}`);
 }
 
-export const signup = async (form: SignupForm) => {
+export const signup = async (form: SignupForm, source: string) => {
   try {
-    const ret = await fetch(apiUrl('/oauth/signup'), {
+    const recaptchaCode = await recaptcha('signup');
+
+    const ret = await fetch('/oauth/signup', {
       method: 'POST',
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        ...form,
+        source,
+        recaptcha: recaptchaCode
+      }),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

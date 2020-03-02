@@ -7,21 +7,25 @@ ui-floating-input {
     background: var(--c-grey-100);
     border-radius: 8px;
 
-    &.focused, &.has-value {
+    &.focused {
       border-color: var(--c-blue-800);
 
       label {
         color: var(--c-blue-800) !important;
+      }
 
+      input {
+        caret-color: var(--c-blue-800);
+      }
+    }
+
+    &.focused, &.has-value {
+      label {
         font-size: 12px;
         // line-height: 15px;
         line-height: 1.15rem;
         transform: translateY(-106%) scale(0.75);
         cursor: auto;
-      }
-
-      input {
-        caret-color: var(--c-blue-800);
       }
     }
   }

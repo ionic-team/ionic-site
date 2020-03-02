@@ -64,7 +64,7 @@ const oauthAuthorize = () => {
 
 export const signup = async (form: SignupForm) => {
   try {
-    const ret = await fetch(apiUrl('/signup'), {
+    const ret = await fetch(apiUrl('/oauth/signup'), {
       method: 'POST',
       body: JSON.stringify(form),
       headers: {

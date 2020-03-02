@@ -1,6 +1,7 @@
 #app-wizard {
   width: 400px;
   margin: 10px auto;
+  margin-top: -22px;
 
   button ion-icon {
     vertical-align: middle;
@@ -45,7 +46,12 @@
   .switcher {
     display: flex;
     justify-content: center;
+    align-items: center;
     user-select: none;
+
+    margin-left: 18px;
+
+    max-width: 90%;
 
     .empty-circle {
       display: inline-block;
@@ -56,31 +62,21 @@
       border: 1px solid var(--c-carbon-900);
     }
 
+    .switcher-separator {
+      display: inline-block;
+      width: 22px;
+      height: 1px;
+      margin: 0px 6px;
+      background-color: var(--c-indigo-400);
+    }
+
     .switcher-button {
-      text-align: center;
+      text-align: left;
       color: #020814;
-      flex: 1;
+      width: auto;
       cursor: pointer;
 
       position: relative;
-
-      &:last-child {
-        &:after {
-          display: none;
-        }
-      }
-
-      &:after {
-        content: '';
-        right: -14px;
-        bottom: 50%;
-        margin-top: -1px;
-        position: absolute;
-        display: inline-block;
-        width: 22px;
-        height: 1px;
-        background-color: var(--c-indigo-400);
-      }
 
       ion-icon, .empty-circle {
         vertical-align: middle;
@@ -107,8 +103,6 @@
           border-color: var(--c-indigo-400);
         }
       }
-      .switcher-separator {
-      }
     }
   }
 
@@ -124,11 +118,11 @@
 
   .finish {
     text-align: center;
-    header {
+    hgroup {
       margin: 96px 0 24px 0;
-      font-size: 22px;
       .icon {
         font-size: 36px;
+        margin-bottom: 8px;
       }
     }
 
@@ -138,6 +132,16 @@
       border-radius: 6px;
       padding: 14px 16px;
       color: white;
+      width: 300px;
+      margin: auto;
+
+      code {
+        font-size: 16px
+      }
+    }
+
+    .info {
+      margin-top: 12px;
     }
   }
 
@@ -165,7 +169,7 @@
     }
   }
 
-  .themes, .frameworks {
+  .frameworks {
     user-select: none;
     .selected {
       border: 2px solid #3880FF !important;
@@ -180,33 +184,33 @@
     display: flex;
     column-gap: 5px;
     margin-bottom: 16px;
+    user-select: none;
     .theme {
-      width: 42px;
-      height: 42px;
-      padding: 2px;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
 
       border-radius: 34px;
 
       user-select: none;
-      border: 2px solid transparent;
+
+      opacity: 0.6;
 
       cursor: pointer;
 
       &.selected {
-        border: 2px solid #3880FF;
-      }
+        opacity: 1;
 
-      .theme-color {
-        width: 34px;
-        height: 34px;
-        border-radius: 34px;
+        svg {
+          vertical-align: middle;
+          margin-top: -1px;
+        }
       }
 
       &.pick-theme {
         width: 38px;
         height: 38px;
-        margin-top: 2px;
-        margin-left: 2px;
         border: 2px solid #E9EDF3;
         padding: 0;
         color: #5B708B;
@@ -214,6 +218,7 @@
         text-align: center;
         ion-icon {
           vertical-align: middle;
+          margin-top: -2px;
         }
       }
     }

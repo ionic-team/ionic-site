@@ -7,6 +7,24 @@
 
 {% block main %}
 <main>
+  <nav class="navbar navbar-default transparent light">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          {% include '_includes/svg/ionic-black.svg' %}
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="sm-hide">
+            <a href="https://dashboard.ionicframework.com/login?source=framework-{{id | default(id, 'default', true)}}">
+              Log in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <ionic-app-wizard></ionic-app-wizard>
 </main>
 

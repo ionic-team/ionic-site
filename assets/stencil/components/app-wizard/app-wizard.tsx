@@ -16,10 +16,13 @@ const FRAMEWORKS = [
 
 const THEMES = [
   '#3880FF', // blue
-  '#6030FF', // purple
-  '#43C465', // green
-  '#F2C526', // yellow
-  '#F65E3C' // red
+  '#5260ff', // purple
+  '#2dd36f', // green
+  '#ffc409', // yellow
+  '#eb445a', // red
+  '#f4f5f8', // light
+  '#92949c', // medium
+  '#222428', // dark
 ]
 const r = Math.floor(Math.random() * 10000);
 
@@ -342,18 +345,18 @@ ionic start --start-id ${this.appId}
     `;
     return (
       <div class="finish">
-        <header>
+        <hgroup>
           <span class="icon">🎉</span>
-          <h3>Your app is ready to go!</h3>
-        </header>
-        <p>
-          Run this command to start building:
-        </p>
+          <h2>You're all set</h2>
+          <h4>
+            Now, just run these commands:
+          </h4>
+        </hgroup>
         <div>
           <pre><code>{instructions}</code></pre>
         </div>
-        <div>
-          <small>Note: this command will expire in two hours. Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
+        <div class="info">
+          <small>Note: this command will expire in two hours.<br />Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
         </div>
 
       </div>
@@ -401,11 +404,19 @@ const ThemePicker = ({ value, onChange, onPick }) => {
       <div
         key={t}
         class={`theme ${value === t ? 'selected' : ''}`}
+        style={{ backgroundColor: t }}
         onClick={() => onChange(t)}>
-          <div class="theme-color" style={{ backgroundColor: t }} />
+        { value === t ? (
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1L4 11L1 7.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        ) : null}
       </div>
     ))}
-      <div class="theme pick-theme" onClick={() => onPick()}>
+      <div
+        class="theme pick-theme"
+        onClick={() => onPick()}
+        >
         <ion-icon name="md-color-filter" />
       </div>
     </div>
@@ -446,7 +457,7 @@ const Switcher = ({ items, index, onChange }) => {
     {items.map((item, i) => {
       const completed = i < index;
       const inactive = i > index;
-      return (
+      return [
         <div
           key={item}
           class={`switcher-button${ completed ? ' switcher-button-completed' : ''}${ inactive ? ' switcher-button-inactive' : ''}`}
@@ -458,9 +469,9 @@ const Switcher = ({ items, index, onChange }) => {
             <div class="empty-circle" />
           )}
           {item}
-          <div class="switcher-separator" />
-        </div>
-      )
+        </div>,
+        i < items.length - 1 ? <div class="switcher-separator" /> : null
+      ]
     })}
   </div>
   )

@@ -355,7 +355,7 @@
 
           &::before,
           &::after {
-            background: url('/img/ico-nav.png') 0 0 no-repeat;
+            background: url('/img/ico-nav.png?1') 0 0 no-repeat;
             background-size: 20px;
             height: 20px;
             width: 20px;
@@ -402,7 +402,7 @@
 
             &::before,
             &::after {
-              background: url('/img/ico-nav-lg.png') 0 0 no-repeat;
+              background: url('/img/ico-nav-lg.png?1') 0 0 no-repeat;
               background-size: 36px;
               height: 36px;
               width: 36px;

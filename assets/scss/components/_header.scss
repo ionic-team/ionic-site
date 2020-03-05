@@ -327,13 +327,13 @@
         }
 
         &__text--l2 {
-          font-weight: 600;
-          font-size: 12px;
+          font-weight: 400;
+          font-size: 11px;
           line-height: 15px;
-          color: #1A232F;
+          color: #5B708B;
           letter-spacing: .08em;
           text-transform: uppercase;
-          padding: 15px 32px;
+          padding: 15px 32px 10px;
         }
 
         &__text--l3 {
@@ -401,18 +401,18 @@
             &::before,
             &::after {
               background: url('/img/ico-nav-lg.png') 0 0 no-repeat;
-              background-size: 32px;
-              height: 32px;
-              width: 32px;
+              background-size: 36px;
+              height: 36px;
+              width: 36px;
               top: 16px;
             }
 
             @include hoverSprite(
               'icon--framework'
               'icon--native'
-              'icon--studio'
               'icon--appflow'
-            , 32);
+              'icon--studio'
+            , 36);
           }
 
           svg {
@@ -485,6 +485,37 @@
 
         &__column {
           position: relative;
+
+          + .dropdown-menu__column--highlight {
+            background: #F9FAFD;
+            margin-top: -10px;
+            margin-bottom: -19px;
+            padding-top: 10px;
+            padding-bottom: 19px;
+            border-radius: 0 16px 16px 0;
+
+            a {
+              padding-left: 70px;
+              // min-width: 320px;
+
+              &::before,
+              &::after {
+                left: 40px;
+              }
+            }
+          }
+
+          li + li .dropdown-menu__text--l2 {
+            margin-top: 24px;
+          }
+
+          li:last-child {
+            margin-bottom: 24px;
+          }
+
+          &:last-child li a {
+            min-width: 300px;
+          }
         }
 
         &::after {
@@ -517,11 +548,11 @@
         }
       }
 
-      #dropdown-resources {
-        left: 140px;
+      #dropdown-support {
+        left: 0px;
 
         &::before {
-          left: 250px;
+          left: 170px;
         }
       }
 
@@ -857,6 +888,10 @@
       margin-left: 0;
     }
   }
+}
+
+#dropdown-support .navbar-default .dropdown .dropdown-menu::before {
+
 }
 
 // fix for the header component API docs page. it conflicts w/ a bootstrap

@@ -393,6 +393,8 @@
             'icon--why-ionic'
             'icon--customers'
             'icon--platform'
+            'icon--react'
+            'icon--angular'
           , 20);
           
           &.icon--lg {
@@ -473,7 +475,7 @@
 
         &__row {
           display: flex;
-          padding: 10px 0 19px;
+          padding: 10px 0 0;
         }
 
         &__row + li,
@@ -489,9 +491,7 @@
           + .dropdown-menu__column--highlight {
             background: #F9FAFD;
             margin-top: -10px;
-            margin-bottom: -19px;
             padding-top: 10px;
-            padding-bottom: 19px;
             border-radius: 0 16px 16px 0;
 
             a {
@@ -888,10 +888,6 @@
       margin-left: 0;
     }
   }
-}
-
-#dropdown-support .navbar-default .dropdown .dropdown-menu::before {
-
 }
 
 // fix for the header component API docs page. it conflicts w/ a bootstrap

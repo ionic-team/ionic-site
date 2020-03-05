@@ -146,6 +146,8 @@
   }
 
   .frameworks {
+    user-select: none;
+
     .framework {
       text-align: center;
     }
@@ -163,20 +165,19 @@
     .framework-vue { background-position: 0 -280px; }
 
     .selected {
-      .framework-angular { background-position: 0 0; }
-      .framework-react { background-position: 0 -112px; }
-      .framework-vue { background-position: 0 -224px; }
-    }
-  }
-
-  .frameworks {
-    user-select: none;
-    .selected {
       border: 2px solid #3880FF !important;
 
       h5 {
         color: #4D8DFF;
       }
+      .framework-angular { background-position: 0 0; }
+      .framework-react { background-position: 0 -112px; }
+      .framework-vue { background-position: 0 -224px; }
+    }
+
+    .soon {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 
@@ -328,6 +329,15 @@
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
+  }
+
+  .skip {
+    text-align: center;
+    a {
+      color: rgb(155, 155, 155);
+      font-size: 12px;
+      text-decoration: none;
+    }
   }
   
 }

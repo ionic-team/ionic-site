@@ -11,7 +11,7 @@ const TEMPLATES = [
 const FRAMEWORKS = [
   { name: 'Angular', id: 'angular' },
   { name: 'React', id: 'react' },
-  { name: 'Vue (beta)', id: 'vue' },
+  { name: 'Vue (beta)', id: 'vue', soon: true },
 ]
 
 const THEMES = [
@@ -49,7 +49,7 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 0;
+  @State() step = 1;
 
   @State() showSignup = true;
   @State() signupErrors = null;
@@ -99,7 +99,8 @@ export class AppWizard {
 
   setStep = (step) => {
     this.step = step;
-    history.pushState({ step: this.step }, null, `#${this.STEPS[this.step].id}`);
+    let hash = this.STEPS[this.step].id;
+    history.pushState({ step: this.step }, null, `#${hash}`);
   }
 
   next = (e) => {
@@ -137,6 +138,10 @@ export class AppWizard {
       return;
     }
 
+    return this.finish();
+  }
+
+  skipAuth = (e) => {
     return this.finish();
   }
 
@@ -296,7 +301,7 @@ export class AppWizard {
         <div>
           <hgroup>
             <h2>Complete your profile</h2>
-            <h4>Finish your profile and join the community</h4>
+            <h4>Get access to the community, forum, and more</h4>
           </hgroup>
           <div class="logged-in">
             <p>
@@ -313,7 +318,7 @@ export class AppWizard {
       <div>
         <hgroup>
           <h2>Complete your profile</h2>
-          <h4>Finish your profile and join the community</h4>
+          <h4>Get access to the community, forum, and more</h4>
         </hgroup>
         { this.showSignup ? (
         <SignupForm
@@ -334,6 +339,9 @@ export class AppWizard {
           inputChange={(name) => e => this.loginForm[name] = e.target.value}
           />
         )}
+        <div class="skip">
+          <a href="#" onClick={this.skipAuth}>Skip this step &raquo;</a>
+        </div>
       </div>
     );
   }
@@ -428,7 +436,7 @@ const FrameworkSwitcher = ({ value, onChange }) => (
   {FRAMEWORKS.map(f => (
     <div
       key={f.id}
-      class={`framework ${value === f.id ? 'selected' : ''}`}
+      class={`framework ${value === f.id ? 'selected' : ''}${f.soon ? ' soon' : ''}`}
       onClick={() => onChange(f.id)}>
       <div class={`framework-logo framework-${f.id}`} />
       <h5>{f.name}</h5>
@@ -531,7 +539,7 @@ const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputCh
       id="submit"
       class="btn btn-block"
       disabled={disable}
-      tabindex="5">Create free account</button>
+      tabindex="5">Create profile</button>
     <div class="well">
       Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); loginInstead() }}>Log in</a>
     </div>

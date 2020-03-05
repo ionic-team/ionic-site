@@ -281,12 +281,8 @@
     }
 
     ul {
-      flex: 0 1 565px;
+      flex: 0 1 392px;
       margin-bottom: 25px;
-
-      @media (max-width: $screen-md-max)  {
-        flex-basis: 392px;
-      }
     }
 
     @media (max-width: $screen-sm-max)  {

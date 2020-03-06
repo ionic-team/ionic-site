@@ -1,8 +1,8 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
-@import '../enterprise/shared';
-@import '../enterprise/solutions/shared';
+@import './shared';
+@import './solutions/shared';
 
 #sticky-bar {
   li.active a:not(.btn) {
@@ -67,6 +67,9 @@
     }
 
     section {
+      margin-top: 0;
+      margin-bottom: 0;
+
       @media (max-width: $screen-xs-max)  {
         &,
         &.center {

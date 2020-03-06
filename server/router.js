@@ -42,7 +42,7 @@ router: app => {
   .get('/about', (_, res) => res.render('about'))
   .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
-  .get('/auth-connect', (_, res) => res.render('auth-connect'))
+  .get('/enterprise/auth-connect', (_, res) => res.render('enterprise/auth-connect'))
 
   .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.render('books/evaluating-ionic-for-enterprise'))
   .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
@@ -89,7 +89,7 @@ router: app => {
 
   .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
 
-  .get('/identity-vault', (_, res) => res.render('identity-vault'))
+  .get('/enterprise/identity-vault', (_, res) => res.render('enterprise/identity-vault'))
   .get('/integrations', (req, res, next) =>
     getIntegrations(req, res, next))
   .get('/integrations/category/:category', (req, res, next) =>
@@ -100,7 +100,7 @@ router: app => {
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/login', (_, res) => res.render('login'))
   .get('/logout', (_, res) => res.render('logout'))
-  .get('/offline-storage', (_, res) => res.render('offline-storage'))
+  .get('/enterprise/offline-storage', (_, res) => res.render('enterprise/offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))

@@ -1,10 +1,8 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
-@import '../enterprise/shared';
-@import '../enterprise/solutions/shared';
-
 @import './shared';
+@import './solutions/shared';
 
 body {
   background: rgba(247, 249, 252, .6);

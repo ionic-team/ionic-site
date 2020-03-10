@@ -4,10 +4,10 @@ const heroFeatured = [
     title: "Hybrid vs. Native Ebook",
   }, {
     category: "articles",
-    title: "When & Why to Choose Ionic",
+    title: "Evaluating Ionic for Enterprise",
   }, {
     category: "articles",
-    title: "Ionic vs. React Native: A Comparison Guide",
+    title: "Ionic React vs React Native"
   }
 ];
 
@@ -17,6 +17,15 @@ const resources = {
     description: "Articles showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta_description: 'Get the latest insights on mobile app development technology and trends for enterprise app development. Ionic articles provide insights into mobile strategy for enteprises and businesses alike.',
     items: [
+      {
+        "type": "Article",
+        "title": "Why Developers Love Ionic",
+        "url": "/resources/articles/why-developers-love-ionic",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-developers-love-ionic.png",
+        "bgColor": "#4F82FF"
+      },
       {
         "type": "Article",
         "title": "Ionic React vs React Native",
@@ -125,7 +134,7 @@ const resources = {
         "bgColor": "#F95E6F"
       }, {
         "type": "Article",
-        "title": "When & Why to Choose Ionic",
+        "title": "Evaluating Ionic for Enterprise",
         "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",

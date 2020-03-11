@@ -285,9 +285,6 @@ export class AppWizard {
               }} />
           </div>
           <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
-          <div class="skip">
-            Or follow the <a href="https://ionicframework.com/getting-started">manual install</a> guide &raquo;
-          </div>
         </form>
       </div>
     )
@@ -434,14 +431,20 @@ ionic start
   render() {
     return (
       <div id="app-wizard">
-        {this.step < 3 ? (
-        <Switcher
-          items={this.STEPS.slice(0, 3).map(s => s.name)}
-          index={this.step}
-          onChange={this.handleChangeStep}
-          />
-        ) : null}
-        {this.renderStep()}
+        <div class="wrapper">
+          {this.step < 3 ? (
+          <Switcher
+            items={this.STEPS.slice(0, 3).map(s => s.name)}
+            index={this.step}
+            onChange={this.handleChangeStep}
+            />
+          ) : null}
+          {this.renderStep()}
+        </div>
+        <div class="notice">
+          Prefer to install manually? <br />
+          <a href="https://ionicframework.com/getting-started">Follow our CLI installation guide</a>
+        </div>
       </div>
     );
   }

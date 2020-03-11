@@ -1,4 +1,26 @@
 #page-start {
+  .grecaptcha-badge {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    left: 0px !important;
+    right: initial !important;
+    width: 70px !important;
+    margin: 0 auto;
+    box-shadow: 0 0 4px #ddd;
+    transition: linear 100ms width;
+  }
+  .grecaptcha-badge:hover {
+    width: 256px !important;
+  }
+
+  @media screen and (max-width: 480px) {
+    .grecaptcha-badge {
+      z-index: -1;
+      visibility: collapse;
+    }
+  }
+
   .form {
     h1 {
       margin-top: 0;
@@ -28,6 +50,9 @@
   
     @media (max-width: $screen-xs-min) {
       padding: 36px 28px;
+    }
+    @media (max-width: 480px) {
+      padding: 0;
     }
   }
 }

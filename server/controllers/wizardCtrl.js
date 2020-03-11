@@ -8,8 +8,8 @@ if (REDIS_URL) {
   redisClient = require('redis').createClient(REDIS_URL);
 }
 
-// Expire after 2 hours
-const EXPIRE_TIME = 1000 * 60 * 60 * 2;
+// Expire after 1 week
+const EXPIRE_TIME = (1000 * 60 * 60 * 1) * 24 * 7;
 
 const appKey = (appId) => `wizard-app-${appId}`;
 
@@ -85,6 +85,9 @@ module.exports = {
     const app = req.body;
     let data = {};
     if (redisClient) {
+      const ip = req.header('CF-Connecting-IP');
+      app['ip'] = ip;
+
       data = await save(app);
     }
     res.status(200);

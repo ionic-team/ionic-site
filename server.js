@@ -53,16 +53,14 @@ function start() {
     var limiter = require('express-limiter')(app, redis);
   
     // rate limit POST requests
-    /*
     limiter({
       path: '*',
       method: 'post',
       lookup: ['headers.CF-Connecting-IP'],
-      // 10 requests per hour
-      total: 10,
-      expire: 1000 * 60 * 60
+      // 15 requests per 30 seconds
+      total: 15,
+      expire: 1000 * 30
     })
-    */
   }
   
   app.set('trust proxy', true);

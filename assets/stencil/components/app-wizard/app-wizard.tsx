@@ -1,6 +1,8 @@
 import { Component, State, h, Listen } from '@stencil/core';
 
 import { login, signup, SignupForm, LoginForm } from '../../util/auth';
+import { trackEvent } from '../../util/hubspot';
+import { getUtmParams } from '../../util/analytics';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -11,7 +13,7 @@ const TEMPLATES = [
 const FRAMEWORKS = [
   { name: 'Angular', id: 'angular' },
   { name: 'React', id: 'react' },
-  { name: 'Vue (beta)', id: 'vue', soon: true },
+  { name: 'Vue (soon)', id: 'vue', soon: true },
 ]
 
 const THEMES = [
@@ -49,7 +51,7 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 1;
+  @State() step = 0;
 
   @State() showSignup = true;
   @State() signupErrors = null;
@@ -100,6 +102,7 @@ export class AppWizard {
   setStep = (step) => {
     this.step = step;
     let hash = this.STEPS[this.step].id;
+    console.log('Pushing state w/ hash', hash);
     history.pushState({ step: this.step }, null, `#${hash}`);
   }
 
@@ -113,7 +116,7 @@ export class AppWizard {
 
     try {
       this.authenticating = true;
-      await login(this.loginForm.email, this.loginForm.password, 'start-wizard');
+      await login(this.loginForm.email, this.loginForm.password, 'start-wizard', 'Start Wizard Log In');
       this.email = this.loginForm.email;
       this.authenticating = false;
     } catch (e) {
@@ -148,6 +151,13 @@ export class AppWizard {
   finish = async () => {
     try {
       await this.save();
+
+      trackEvent({
+        id: 'Start Wizard Finish'
+      });
+
+      console.log('Setting step', this.STEPS.length - 1);
+
       this.setStep(this.STEPS.length - 1);
     } catch (e) {
       alert('Unable to create app, please start over!');
@@ -156,32 +166,32 @@ export class AppWizard {
   }
 
   save = async () => {
-    const res = await fetch('/api/v1/wizard/create', {
-      body: JSON.stringify({
-        type: this.framework,
-        'package-id': this.bundleId,
-        tid: this.getHubspotId(),
-        atk: this.getToken(),
-        email: this.email,
-        appId: this.appId,
-        template: this.template,
-        name: this.appName,
-        theme: this.theme
-        /*
-        'app-url': this.appUrl,
-        'author-name': this.authorName,
-        'author-email': this.authorEmail
-        */
-      }),
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    try {
+      const res = await fetch('/api/v1/wizard/create', {
+        body: JSON.stringify({
+          type: this.framework,
+          'package-id': this.bundleId,
+          tid: this.getHubspotId(),
+          email: this.email,
+          appId: this.appId,
+          template: this.template,
+          name: this.appName,
+          theme: this.theme,
+          utm: getUtmParams()
+        }),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-    const data = await res.json();
-    this.appId = data.appId;
-    return data;
+      const data = await res.json();
+      this.appId = data.appId;
+      return data;
+    } catch (e) {
+      console.error('Unable to save app, server error:', e);
+      return null;
+    }
   }
 
   getApp = async () => {
@@ -192,10 +202,6 @@ export class AppWizard {
 
   getHubspotId = () => {
     return window.getCookie('hubspotutk');
-  }
-
-  getToken = () => {
-    return window.getCookie('_ionic_token');
   }
 
   handleChangeStep = (step) => {
@@ -251,7 +257,11 @@ export class AppWizard {
             <label>JavaScript Framework</label>
             <FrameworkSwitcher
               value={this.framework}
-              onChange={framework => this.framework = framework} />
+              onChange={framework => {
+                if (framework !== 'vue') {
+                  this.framework = framework;
+                } 
+              }} />
           </div>
           <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
         </form>
@@ -347,12 +357,16 @@ export class AppWizard {
   }
 
   renderFinish() {
-    const instructions = `
+    const instructions = this.appId ? `
 npm install -g @ionic/cli
 ionic start --start-id ${this.appId}
+    ` : `
+npm install -g @ionic/cli
+ionic start
     `;
     return (
       <div class="finish">
+        {this.appId ? (
         <hgroup>
           <span class="icon">🎉</span>
           <h2>You're all set</h2>
@@ -360,11 +374,22 @@ ionic start --start-id ${this.appId}
             Now, just run these commands:
           </h4>
         </hgroup>
+        ) : (
+        <hgroup>
+          <h2>Error: Unable to save app</h2>
+          <p>
+            Unfortunately, we were unable to save your app configuration. To create a 
+            new Ionic app, use the Ionic CLI.
+            <br />
+            We are looking into this issue, thanks for your understanding.
+          </p>
+        </hgroup>
+        )}
         <div>
           <pre><code>{instructions}</code></pre>
         </div>
         <div class="info">
-          <small>Note: this command will expire in two hours.<br />Dive deeper with the <a href="https://ionicframework.com/docs">documentation</a></small>
+          <small>Note: this command will expire in two hours.<br />Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
         </div>
 
       </div>

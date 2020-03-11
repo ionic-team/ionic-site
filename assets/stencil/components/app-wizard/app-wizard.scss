@@ -150,6 +150,11 @@
 
     .framework {
       text-align: center;
+
+      &.soon {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
 
     .framework-logo {
@@ -175,10 +180,6 @@
       .framework-vue { background-position: 0 -224px; }
     }
 
-    .soon {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
   }
 
   .themes {

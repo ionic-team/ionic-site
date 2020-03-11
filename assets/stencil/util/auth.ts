@@ -2,7 +2,7 @@
 const API_BASE = 'https://staging.ionicframework.com';
 
 import { trackClick } from './analytics';
-import { hubspotTrack } from './hubspot';
+import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
 
 export interface SignupForm {
@@ -24,7 +24,7 @@ const makeApiError = (message, exc?) => ({
 
 const apiUrl = (url) => `${API_BASE}${url}`;
 
-export const login = async (email, password, source) => {
+export const login = async (email, password, source, loginEventId ="000006636951") => {
   try {
     const ret = await fetch('/oauth/login', {
       method: 'POST',
@@ -42,7 +42,8 @@ export const login = async (email, password, source) => {
 
     trackClick('Log in', 'btn-login-submit');
 
-    hubspotTrack(data.email, { id: "000006636951" });
+    identify(data.email);
+    trackEvent({ id: loginEventId });
 
     return location.search;
     //return oauthAuthorize();

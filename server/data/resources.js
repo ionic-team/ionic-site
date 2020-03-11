@@ -363,6 +363,14 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Ionic 5: Live Demo and Q&A",
+        "url": "https://ionicframework.com/resources/webinars/announcing-ionic-5",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/ionic-5.png",
+        "bgColor": "#6372ff"
+      },
+      {
+        "type": "Webinar",
         "title": "Ionic Native: Native-powered apps, without the hassle",
         "url": "https://ionicframework.com/resources/webinars/ionic-native-native-powered-apps-without-hassle",
         "action": "Watch",

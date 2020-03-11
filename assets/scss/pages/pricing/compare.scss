@@ -1,0 +1,484 @@
+@import '../../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import './__plan-cards';
+@import './__table';
+
+#page-pricing {
+  font-family: $font-family-eina;
+  padding-top: 0;
+
+  ionic-sub-header .btn.white {
+    color: #4D8DFF;
+    border: 1px solid #E9EDF3;
+    box-shadow: 0px 1px 2px rgba(0, 16, 46, 0.04);
+
+    &:hover {
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);;
+    }
+    
+    &:active {
+      box-shadow: inset 1px 2px rgba(0, 16, 46, 0.04);
+    }
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  main {
+    padding: 30px 0;
+  }
+
+  .cta {
+    .container {
+      padding-bottom: 39px;
+      padding-top: 64px;
+      max-width: 536px;
+    }
+
+    hgroup {
+      padding-top: 54px;
+      max-width: 720px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #020814;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      line-height: 32px;
+      font-size: 20px;
+      color: #5B708B;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      font-family: $font-family-inter;
+    }
+  }
+
+  main {
+    padding-bottom: 170px;
+
+    @media (max-width: $screen-xs-max) {
+      padding-bottom: 90px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F4F6F9;
+      border-radius: 18px;
+      cursor: default;
+      margin: 0 auto 60px;
+      width: 204px;
+      font-weight: 500;
+      padding: 3px 2px;
+      font-family: $font-family-inter;
+
+      span {
+        transition: color 0.3s, background 0.3s;
+        border-radius: 30px;
+        padding: 5px 13px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: -0.01em;
+        color: #5B708B;
+        transition: .2s color, .2s background;
+      }
+      span:hover {
+        cursor: pointer;
+        color: #7398d8;
+      }
+
+      .active,
+      .active:hover {
+        font-weight: 600;
+        border-radius: 18px;
+        color: #1A232F;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.15);
+      }
+    }
+  }
+
+  .prefer-open-source {
+    border: 1px solid #DEE3EA;
+    border-radius: 16px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5B708B;
+    padding: 9px 12px 6px;
+    margin: 66px auto 24px;
+    max-width: 386px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .2 box-shadow;
+
+    span {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #4D8DFF;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    svg {
+      vertical-align: -1px;
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 3px rgba(0, 16, 46, 0.05);
+    }
+  }
+
+  .anchor-cta {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #639CFF;
+    display: block;
+
+    svg {
+      vertical-align: -1px;
+    }
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .logos {
+    text-align: center;
+    margin-top: 190px;
+    background: #0B111C;
+    padding-top: 105px;
+    padding-bottom: 124px;
+    color: white;
+
+    h3 {
+      display: block;
+      margin-bottom: 69px;
+      font-size: 31px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      @media (max-width: 560px) {
+        justify-content: space-around;
+
+        > div {
+          margin: 0 20px 20px;
+        }
+      }
+    }
+
+    .icons > div {
+      background-image: url('/img/pricing/logos-light.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      flex: 0 0 66px;
+      height: 48px;
+    }
+
+    .logo--national {   background-position: 0 0; }
+    .logo--verizon {    background-position: 0 -1 * (48px * 1); }
+    .logo--comcast {    background-position: 0 -1 * (48px * 2); }
+    .logo--panera {     background-position: 0 -1 * (48px * 3); }
+    .logo--mastercard { background-position: 0 -1 * (48px * 4); }
+    .logo--usaa {       background-position: 0 -1 * (48px * 5); }
+    .logo--amtrak {     background-position: 0 -1 * (48px * 6); }
+    .logo--ge {         background-position: 0 -1 * (48px * 7); }
+  }
+
+  .box {
+    margin-top: 41px;
+    background-color: rgb(255, 255, 255);
+    font-family: $font-family-eina;
+    overflow: hidden;
+  }
+
+  .table-wrap {
+    position: relative;
+    overflow-x: auto;
+
+    tippy .tip.right {
+      top: -60px;
+    }
+  }
+
+  .features  {
+    li {
+      font-family: $font-family-inter;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: #414D5C;
+      padding: 10px 0;
+      display: flex;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        background-image: url('/img/checkmark-light-gray.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        margin-bottom: -6px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        &::before {
+          position: relative;
+          top: 2px;
+          width: 18px;
+          height: 18px;
+          flex: 0 0 18px;
+        }
+      }
+    }
+  }
+
+  main hgroup:not(.feature-lists__heading) {
+    text-align: center;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: .1em;
+      margin-top: 32px;
+      color: #999;
+    }
+
+    h3 {
+      font-weight: 600;
+      max-width: 975px;
+      margin: 32px auto 16px;
+      font-size: 24px;
+      line-height: 1.8em
+    }
+  }
+
+  .btn.sm {
+    text-transform: uppercase;
+  }
+
+
+  .comparison {
+    padding-top: 180px;
+
+    h2 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 100px;
+    }
+    @media (max-width: 830px){
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .offwhite-bg {
+    background: rgba(#F7F9FC, .7);
+  }
+
+  .also {
+    border-left: 0;
+    border-right: 0;
+    padding: 0 0 164px;
+
+    h3 {
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      font-size: 48px;
+      line-height: 53px;
+      margin: 196px auto 62px;
+      text-align: center;
+    }
+
+    h4 {
+      font-size: 18px;
+      color: #020814;
+      font-weight: 600;
+      line-height: 25px;
+      letter-spacing: -0.02em;
+      margin-bottom: 13px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 27px;
+      letter-spacing: -0.02em;
+      color: #5B708B;
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 17px -17px -17px;
+    }
+
+    li {
+      flex: 1 0 25%;
+      min-width: 230px;
+      padding: 0 17px 17px;
+      position: relative;
+
+      &::before {
+        background: url('/img/pricing/sprite-features.svg');
+        background-size: 100%;
+        width: 48px;
+        height: 48px;
+        content: '';
+        display: block;
+        margin-bottom: 25px;
+      }
+
+      &:nth-child(2)::before { background-position: 0 -48px; }
+      &:nth-child(3)::before { background-position: 0 -96px; }
+      &:nth-child(4)::before { background-position: 0 -144px; }
+    }
+  }
+
+  .faq {
+    padding-top: 180px;
+    padding-bottom: 170px;
+
+    h3, 
+    h4 {
+      color: #020814;
+      font-weight: 600;
+    }
+
+    h4,
+    p {
+      line-height: 29px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 48px;
+      line-height: 53px;
+      text-align: center;
+      letter-spacing: -0.04em;
+    }
+
+    h4 {
+      font-size: 24px;
+      margin-top: 54px;
+      margin-bottom: 17px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #5B708B;
+      margin-bottom: 26px;
+      letter-spacing: -0.02em;
+      font-family: $font-family-inter;
+    }
+
+    &__cols {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 -32px;
+    }
+
+    &__col {
+      padding: 0;
+      flex: 1 0 364px;
+      padding: 0 32px;
+      list-style: none;
+    }
+  }
+
+  .form-wrapper {
+    &.offwhite-bg {
+      padding-top: 160px;
+    }
+
+    .container {
+      max-width: 756px;
+    }
+
+    hgroup {
+      margin-bottom: 20px;
+
+      h2 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 28px;
+        letter-spacing: -0.01em;
+        color: #000000;
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 6px;
+        line-height: 28px;
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: -0.01em;
+        font-weight: 400;
+        color: #5B708B;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      &.offwhite-bg {
+        padding-top: 80px;
+      }
+    }
+  }
+
+  .modal {
+    hgroup {
+      padding-top: 18px;
+      padding-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 29px;
+      font-weight: 600;
+      color: #171a20;
+      margin: 18px 0 8px;
+      letter-spacing: -0.03em;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #4c576c;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    form {
+      max-width: 100%;
+      padding: 0 15px 15px;
+    }
+
+    .hs_submit {
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}

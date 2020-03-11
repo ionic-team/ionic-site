@@ -103,6 +103,7 @@ router: app => {
   .get('/enterprise/offline-storage', (_, res) => res.render('enterprise/offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))
+  .get('/pricing/compare', (_, res) => res.render('pricing/compare'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
 
   .get('/pro/contact', (_, res) => res.render('pro/contact'))

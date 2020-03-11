@@ -1,0 +1,639 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'pricing' %}
+{% set title = 'Ionic Platform Pricing - Cross-Platform Web App Development Tools' %}
+{% set header_style = 'transparent light' %}
+{% set bodyController = 'pricingCtrl' %}
+{% set meta_description = "Get pricing on the Ionic Development Platform. From DevOps to our app building solutions and our enterprise mobile app framework." %}
+{% set cssPath = 'pricing/compare' %}
+{% set pre_footer = false %}
+
+{% block main %}
+<ionic-sub-header>
+  <a slot="title" href="/pricing">Pricing</a>
+  <ul slot="right">
+    <li><a class="anchor" href="#pricing-toggle">Plans</a></li>
+    <li><a class="anchor" href="#features">Comparison</a></li>
+    <li><a class="btn white"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Sales</a></li>
+  </ul>
+</ionic-sub-header>
+<div class="cta cta--transparent">
+  <hgroup class="container center">
+    <h1>Ionic platform pricing</h1>
+    <p>Everything you need to continuously build, connect, and ship award-winning cross-platform apps.</p>
+  </hgroup>
+</div>
+
+<main>
+  <div class="container">
+    <div class="toggle" id="pricing-toggle">
+      <span>Monthly</span>
+      <span class="active">Yearly (15% off)</span>
+    </div>
+
+    <div id="plans" class="plans annually-active">
+      <div id="plan-studio" class="plan__card plan__card--aside">
+        <h3>Just Studio</h3>
+        <span class="plan__price">
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>29</strong><small>/mo</small>
+            <span class="plan__price__term">&nbsp;</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>25</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
+        </span>
+        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=studio-individual&source=framework-{{id}}">Get a License</a>
+        <ul class="plan__feature__list">
+          <li>The locally installed app builder to visually create cross-platform iOS, Android, and PWAs</li>
+        </ul>
+      </div>
+
+      <div id="plan-starter" class="plan__card">
+        <h3>Launch</h3>
+        <span class="plan__price">
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>49</strong>
+            <span class="plan__price__term">Per Month</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>42</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
+        </span>
+        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}">Get started</a>
+        <div class="plan__feature__divider"></div>
+        <div class="plan__feature__header">What's included</div>
+        <ul class="plan__feature__list">
+          <li>Build cross-platform iOS, Android, and Progressive Web Apps with <strong>Ionic Studio</strong></li>
+          <li>Push <strong>live app updates</strong> to up to <strong>10,000 users</strong></li>
+          <li>Build <strong>native app binaries</strong> in the cloud</li>
+          <li>Manage app projects in the Ionic <strong>cloud dashboard</strong></li>
+        </ul>
+      </div>
+
+      <div id="plan-growth" class="plan__card plan__card--featured">
+        <div class="plan__note">Best all-in-one package value</div>
+        <h3>Growth</h3>
+        <span class="plan__price">
+          <span class="plan__price__monthly">
+            <sup>$</sup><strong>120</strong>
+            <span class="plan__price__term">Per Month</span>
+          </span>
+          <span class="plan__price__annually">
+            <sup>$</sup><strong>102</strong><small>/mo</small>
+            <span class="plan__price__term">Billed Annually</span>
+          </span>
+        </span>
+        <a class="plan__cta btn sm" href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}">Get started</a>
+        <div class="plan__feature__divider"></div>
+        <div class="plan__feature__header">What's included</div>
+        <ul class="plan__feature__list">
+          <li class="plan__feature__highlight">All the <strong>Launch</strong> plan features</li>
+          <li><strong>CI/CD automation</strong> to ship continuously with mobile</li>
+          <li>Push live app updates to up to <strong>25,000 users</strong></li>
+          <li><strong>Collaborate</strong> with team members and clients</li>
+        </ul>
+      </div>
+
+      <div id="plan-scale" class="plan__card">
+        <h3>Scale</h3>
+        <span class="plan__price">
+          From <sup>$</sup><strong>299</strong><small>/mo</small>
+          <span class="plan__price__term">Billed Annually</span>
+        </span>
+        <a class="plan__cta btn sm white"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Us</a>
+        <div class="plan__feature__divider"></div>
+        <div class="plan__feature__header">What's included</div>
+        <ul class="plan__feature__list">
+          <li class="plan__feature__highlight">All the <strong>Growth</strong> plan features</li>
+          <li>Push live app updates to up to <strong>1M users</strong></li>
+          <li>iOS <strong>Enterprise builds</strong></li>
+          <li>Role-based permissions &amp; <strong>SSO</strong> access to Ionic dashboard</li>
+          <li>Live onboarding</li>
+          <li>Product Support</li>
+        </ul>
+      </div>
+
+      <div id="plan-enterprise" class="plan__card plan__card--dark">
+        <h3>Enterprise</h3>
+        <span class="plan__price">
+          <strong>Custom</strong>
+          <span class="plan__price__term">Tailored to your needs</span>
+        </span>
+        <a class="plan__cta btn sm navy"
+           href="#"
+           data-toggle="modal"
+           data-target="#contactForm">Contact Sales</a>
+        <div class="plan__feature__divider"></div>
+        <div class="plan__feature__header">What's included</div>
+        <ul class="plan__feature__list">
+          <li class="plan__feature__highlight">All the <strong>Scale</strong> plan features</li>
+          <li>Push live app updates to <strong>1M+ monthly users</strong></li>
+          <li>Protect users with advanced <strong>biometrics sign-in</strong></li>
+          <li>Connect with <strong>any auth provider</strong> from a single API</li>
+          <li>Deliver <strong>offline-first</strong> mobile app experiences</li>
+          <li>Unlock <strong>core device features</strong> with a supported plugin library</li>
+          <li><strong>Premium Enterprise</strong> support, services, and training</li>
+        </ul>
+      </div>
+    </div>
+
+    <a class="prefer-open-source" href="/getting-started">
+      Prefer to start with the open source Framework?
+      <span>
+        Go here
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path opacity="0.8" d="M4.49078 4.99814L1.1816 1.21697C0.936862 0.937105 0.936862 0.484555 1.1816 0.207667C1.42634 -0.0692222 1.82209 -0.0692222 2.06682 0.207667L5.81601 4.492C6.05294 4.76293 6.05814 5.19762 5.83423 5.47748L2.06943 9.79159C1.94706 9.93152 1.78564 10 1.62682 10C1.468 10 1.30657 9.93152 1.1842 9.79159C0.939466 9.51172 0.939466 9.05917 1.1842 8.78228L4.49078 4.99814Z" fill="#4D8DFF"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="anchor-cta anchor" href="#features">
+      See full feature comparison
+      <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L6 6L1 11" stroke="#639CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+    </a>
+  </div>
+
+  <div class="logos">
+    <div class="container">
+      <h3>Empowering Teams at innovative companies.</h3>
+      <div class="icons">
+        <div class="logo--national"></div>
+        <div class="logo--verizon"></div>
+        <div class="logo--comcast"></div>
+        <div class="logo--panera"></div>
+        <div class="logo--mastercard"></div>
+        <div class="logo--usaa"></div>
+        <div class="logo--amtrak"></div>
+        <div class="logo--ge"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-wide comparison">
+    <h2>Pick the plan that works best for you.</h2>
+    <div id="features" class="box">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <h3>Features</h3>
+              </td>
+              <th>
+                <div class="plan-wrap">
+                  <h4>Launch</h4>
+                  <div class="price"><strong>$49</strong>/mo</div>
+                  <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
+                     class="btn micro"
+                     id="btn-pricing-starter">Get started</a>
+                </div>
+              </th>
+              <th>
+                <div class="plan-wrap">
+                  <h4>Growth</h4>
+                  <div class="price" data-toggle="billing-team"><strong>$120</strong>/mo</div>
+                  <a href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}"
+                     class="btn micro btn--primary"
+                     id="btn-pricing-team">Get started</a>
+                </div>
+              </th>
+              <th>
+                <div class="plan-wrap">
+                  <h4>Scale</h4>
+                  <div class="price">From <strong>$299</strong>/mo</div>
+                  <a href="#"
+                     class="btn micro"
+                     data-toggle="modal"
+                     data-target="#contactForm">Contact us</a>
+                </div>
+              </th>
+              <th>
+                <div class="plan-wrap">
+                  <h4>Enterprise</h4>
+                  <div class="price"><strong>Custom</strong></div>
+                  <a href="#"
+                     class="btn micro btn--dark"
+                     data-toggle="modal"
+                     data-target="#contactForm">Contact us</a>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><strong>Ionic Studio</strong></th>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+            <tr>
+              <th><strong>Ionic Appflow</strong></th>
+              <td colspan="4"></td>
+            </tr>
+            <tr>
+              <th>
+                Live app updates
+                <a class="anchor" href="#faq-live-updates">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td>10,000 <small>/ mo</small></td>
+              <td>25,000 <small>/ mo</small></td>
+              <td>300,000 - 1M<small>/ yr</small></td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th>Native app builds</th>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                Concurrency limits
+                <a class="anchor" href="#faq-concurrency">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td>1</td>
+              <td>2</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th>
+                CI/CD automation
+                {# <a class="anchor" href="">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a> #}
+              </th>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th><small>Automations</small></th>
+              <td></td>
+              <td>4</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th><small>Environments</small></th>
+              <td></td>
+              <td>2</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th><small>Configurations</small></th>
+              <td></td>
+              <td>2</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th>
+                iOS Enterprise builds
+                <a class="anchor" href="#faq-ios">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                Private git repos
+                <a class="anchor" href="#faq-git">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+            <tr>
+              <th><strong>Ionic Native</strong></th>
+              <td colspan="4"></td>
+            </tr>
+            <tr>
+              <th><a target="_blank" href="/enterprise/identity-vault">Identity Vault</a> secure biometrics</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th><a target="_blank" href="/enterprise/auth-connect">Auth Connect</a> single API connector</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th><a target="_blank" href="/enterprise/offline-storage">Offline Storage</a> Secure storage</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Core Device Premier plugin library</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+            <tr>
+              <th><strong>Premium Support</strong></th>
+              <td colspan="4"></td>
+            </tr>
+            <tr>
+              <th>
+                Account &amp; Billing Support
+                <a class="anchor" href="#faq-account">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                Premium Product Support
+                <a class="anchor" href="#faq-premium">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Live Onboarding</th>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Dedicated Success Manager</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>
+                Enterprise Support SLA
+                <a class="anchor" href="#faq-enterprise">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Advisory Services</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Team Training</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+            </tr>
+
+            <tr>
+              <th><strong>Admin &amp; Security</strong></th>
+              <td colspan="4"></td>
+            </tr>
+            <tr>
+              <th>
+                Seats included
+                <a class="anchor" href="#faq-seats">
+                  {% include '../_includes/svg/ico-question.svg' %}
+                </a>
+              </th>
+              <td>1</td>
+              <td>2</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th>Additional Seat Cost</th>
+              <td></td>
+              <td>$99/Seat</td>
+              <td>Contact Sales</td>
+              <td>Contact Sales</td>
+            </tr>
+            <tr>
+              <th>Seat Limit</th>
+              <td></td>
+              <td>5</td>
+              <td>Custom limit</td>
+              <td>Custom limit</td>
+            </tr>
+            <tr>
+              <th>Single sign-on</th>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+            <tr>
+              <th>Role-based access</th>
+              <td></td>
+              <td></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th></th>
+              <td>
+                <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
+                   class="btn sm white"
+                   id="btn-pricing-starter">Get started</a>
+              </td>
+              <td>
+                <a href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}"
+                   class="btn sm"
+                   id="btn-pricing-team">Get started</a>
+              </td>
+              <td>
+                <a href="#"
+                   class="btn sm white"
+                   data-toggle="modal"
+                   data-target="#contactForm">Contact us</a>
+              </td>
+              <td>
+                <a href="#"
+                   class="btn sm dark"
+                   data-toggle="modal"
+                   data-target="#contactForm">Contact us</a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="also offwhite-bg">
+  <div class="container">
+    <h3>Every plan comes with:</h3>
+    <ul>
+      <li class="also__live">
+        <h4>Live app updating</h4>
+        <p>
+          Deliver real-time app updates, content changes, A/B tests, bug fixes, and more. Push changes directly to your users, right from the Ionic cloud dashboard.
+        </p>
+      </li>
+      <li class="also__cloud">
+        <h4>Cloud Dashboard</h4>
+        <p>
+          Get access to a unified Dashboard to house and organize all your Ionic apps, accessible in one place. Track activity and builds from anywhere.
+        </p>
+      </li>
+      <li class="also__git">
+        <h4>Git-based workflow</h4>
+        <p>
+          With Ionic’s developer platform, starting and deploying apps is as simple as git push ionic and we handle the rest. Connect to your favorite git host.
+        </p>
+      </li>
+      <li class="also__forum">
+        <h4>Access to Forum</h4>
+        <p>
+          Having an Ionic account unlocks access to post and comment on the Ionic Forum, the single most active community hub for Ionic developers.
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq container">
+  <h3>Have a Question?</h3>
+  <div class="faq__cols">
+    <ul class="faq__col">
+      <li id="faq-live-updates">
+        <h4>How do Live Update limits work?</h4>
+        <p>Using the Ionic <a href="/pro/deploy">Deploy</a> service allows you to push hot code updates directly to your users’ devices, all from the Ionic cloud dashboard, without having to go through the app stores.</p>
+        <p>A single Live Update is one code update to one device. If you send one update to 200 devices, that counts as 200 Live Updates. If you send two updates to 200 devices, that counts as 400 Live Updates.</p>
+        <p>The number of Live Updates varies with each plan. The Launch plan includes 10,000 Live Updates per month. The Growth plan allows up to 25,000 Live Updates per month. The plan limits are refreshed each month. If you exceed your quota for a given month, you will have to upgrade to a higher plan, or wait until the next calendar month to send more updates.</p>
+        <p>If you need more than 25,000 Live Updates, the Scale and Enterprise plans offer custom limits, based on annual usage. Ionic’s Live Update service scales to millions of units, with pricing varying based on the number of Updates in your custom plan. <a href="/sales">Contact our Sales</a> team to learn more about setting up a custom Scale or Enterprise plan.</p>
+      </li>
+      <li id="faq-ios">
+        <h4>Which plans offer iOS Enterprise builds?</h4>
+        <p>For development teams that would like to use <a href="/pro/package">Ionic Package</a> to generate builds using their Apple Enterprise Program Account Certificate, a subscription to the Scale or Enterprise plan is required. The Apple Developer Enterprise Program allows large organizations to develop and deploy proprietary, internal-use apps to their employees. This program is for specific use cases that require private distribution directly to employees using secure internal systems or through a Mobile Device Management solution.</p>
+      </li>
+      <li id="faq-account">
+        <h4>What is Account &amp; Billing Support?</h4>
+        <p>Account & Billing Support is available to all plan holders, and includes access to help for issues related to account billing, refunds, cancellations and account re-activations, and password or account access related concerns.</p>
+      </li>
+      <li id="faq-premium">
+        <h4>What is Premium Product Support?</h4>
+        <p>Timely assistance with troubleshooting issues related to Ionic Studio and Appflow. For Enterprise customers, Premium Product Support includes issues related to Premier plugins and Ionic Native solutions, including <a href="/enterprise/identity-vault">Identity Vault<a>, <a href="/enterprise/auth-connect">Auth Connect</a>, and <a href="/enterprise/offline-storage">Offline Storage</a>.</p>
+      </li>
+    </ul>
+
+    <ul class="faq__col">
+      <li>
+        <h4>Do I have to create an Ionic account to use the Framework?</h4>
+        <p>No. Ionic Framework is totally open source and free to download and install without an Ionic account. We invite all Ionic developers to create an account so they can take advantage of free developer tools to help you build better apps and go faster, with tools such as Ionic Deploy for sending Live Updates to your users, and a single cloud dashboard to manage all of your projects. If you just want to start building wit the Framework, freel free!</p>
+      </li>
+      <li id="faq-concurrency">
+        <h4>What do Concurrency Limits refer to?</h4>
+        <p>Concurrency Limits refers to the number of app builds that can occur at the same time. Once you have hit your limit, additional builds will be queued until the existing builds in process are completed. When you upgrade to the Scale plan, you’ll be able to set a customized concurrency limit that matches your team’s needs and goals.</p>
+      </li>
+      <li id="faq-git">
+        <h4>What are private git repos?</h4>
+        <p>Private git repos are on-premises installations of a git service. All Ionic account plans offer a git-based workflow that works with cloud-based git services such as GitHub and BitBucket. For teams and businesses that wish to integrate with privately hosted git repos, we offer support for BitBucket servers as an add-on under the Scale and Enterprise plans. Contact our Sales team to learn more.</p>
+      </li>
+      <li id="faq-seats">
+        <h4>How many seats are with each plan?</h4>
+        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. Growth subscribers can add additional seats with the Developer Hub.</p>
+        <p>Scale and Enterprise plans offer flexible packages that scale to any number of team members. Please contact our Sales team to discuss a custom plan that accommodates the number of seats you’d like to include. If you are a current customer and would like to add more seats to your existing Scale or Enterprise plan, please contact Support.</p>
+      </li>
+      <li id="faq-enterprise">
+        <h4>What is the Enterprise Support SLA?</h4>
+        <p>You can customize your SLA as part of an Enterprise plan based on your specific requirements.</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% include '../_includes/promos/quad-cta.html' %}
+{% endblock %}
+
+{% block modals %}
+{% include './_modal--contact.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const toggle = function() {
+  this.isMonthly = false;
+  this.$plans = document.getElementById('plans');
+
+  this.handleClick = event => {
+    console.log('gets here')
+    const wasMonthlyClicked = event.target.textContent === 'Monthly';
+    if (this.isMonthly === wasMonthlyClicked) return;
+    this.isMonthly = wasMonthlyClicked;
+    
+    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 1 : 2})`)
+        .classList.add('active');
+    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 2 : 1})`)
+        .classList.remove('active');
+
+    requestAnimationFrame(() => {
+      this.$plans.className = 
+        `plans ${this.isMonthly ? 'monthly' : 'annually'}-active`
+    });
+  }
+
+  return {
+    // public methods
+    init: () => {
+      this.toggleEl = document.getElementById('pricing-toggle');
+      this.toggleEl.querySelectorAll('span').forEach(el => {
+        el.addEventListener('click', this.handleClick);
+      });
+    }
+  }
+}().init();
+</script>
+{% endblock %}

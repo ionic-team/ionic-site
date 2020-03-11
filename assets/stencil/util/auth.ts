@@ -1,9 +1,11 @@
-// const API_BASE = 'https://api.ionicjs.com';
-const API_BASE = 'https://staging.ionicframework.com';
+const API_BASE = 'https://api.ionicjs.com';
+//const API_BASE = 'https://staging.ionicframework.com';
 
 import { trackClick } from './analytics';
 import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
+import { getCookie, setCookie } from './cookie';
+import { ApiUser } from '../declarations';
 
 export interface SignupForm {
   name?: string;
@@ -39,6 +41,10 @@ export const login = async (email, password, source, loginEventId ="000006636951
     });
 
     const data = await ret.json();
+    console.log('Got login data', data);
+
+    setCookie('_ionic_token', data.token);
+    setCookie('_ionic_user_id', data.user.id)
 
     trackClick('Log in', 'btn-login-submit');
 
@@ -52,7 +58,7 @@ export const login = async (email, password, source, loginEventId ="000006636951
   }
 }
 
-const oauthAuthorize = () => {
+export const oauthAuthorize = () => {
   var params = new URLSearchParams(location.search);
   if (!params.has("client_id")) {
     params.set("response_type", "token");
@@ -89,6 +95,9 @@ export const signup = async (form: SignupForm, source: string) => {
     const token = data.token;
     console.log('Signed up', token);
 
+    setCookie('_ionic_token', data.token);
+    setCookie('_ionic_user_id', data.user.id);
+
     /*
     window.c('Get started', 'btn-get-started-signup-submit');
     var _hsq = window._hsq = window._hsq || [];
@@ -100,8 +109,6 @@ export const signup = async (form: SignupForm, source: string) => {
       id: "000006040735"
     }]);
 
-    setCookie('_ionic_token', response.data.token);
-    setCookie('_ionic_user_id', response.data.user.id);
 
     var href = 'https://dashboard.ionicframework.com/select-plan?plan=starter';
     var hsutk = window.getCookie('hubspotutk');
@@ -112,5 +119,22 @@ export const signup = async (form: SignupForm, source: string) => {
     */
   } catch (e) {
     throw makeApiError('Unable to create account', e);
+  }
+}
+
+export const getAuthToken = () => {
+  return getCookie('_ionic_token');
+}
+
+export const getUser = async (): Promise<ApiUser> => {
+  try {
+    const ret = await fetch(apiUrl(`/users/self`), {
+      headers: {
+        'Authorization': `Bearer ${getAuthToken()}`
+      }
+    });
+    return (await ret.json()).data as ApiUser;
+  } catch (e) {
+    return null;
   }
 }

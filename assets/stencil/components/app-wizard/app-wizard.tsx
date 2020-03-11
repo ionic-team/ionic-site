@@ -1,8 +1,9 @@
 import { Component, State, h, Listen } from '@stencil/core';
 
-import { login, signup, SignupForm, LoginForm } from '../../util/auth';
+import { login, signup, SignupForm, LoginForm, getAuthToken, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
+import { ApiUser } from '../../declarations';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -57,6 +58,8 @@ export class AppWizard {
   @State() signupErrors = null;
   @State() loginErrors = null;
 
+  user: ApiUser;
+
   // The current appId from the server
   appId: string;
 
@@ -86,6 +89,15 @@ export class AppWizard {
     username: `maxtest-${r}`,
   };
 
+  async componentDidLoad() {
+    try {
+      const user = await getUser();
+      this.user = user;
+      console.log('Got user', user);
+    } catch (e) {
+    }
+  }
+
   @Listen('popstate', { target: 'window' })
   handlePopState(e) {
     if (e.state) {
@@ -109,6 +121,15 @@ export class AppWizard {
   next = (e) => {
     e.preventDefault();
     this.setStep(this.step + 1 % this.STEPS.length);
+  }
+
+  basicsNext = (e) => {
+    e.preventDefault();
+    if (this.user) {
+      this.finish();
+    } else {
+      this.next(e);
+    }
   }
 
   login = async (e) => {
@@ -225,7 +246,7 @@ export class AppWizard {
           <h2>Welcome to Ionic</h2>
           <h4>Let's start your first app</h4>
         </hgroup>
-        <form class="form" onSubmit={this.next}>
+        <form class="form" onSubmit={this.basicsNext}>
           <input
             type="color"
             class="color-picker"
@@ -264,6 +285,9 @@ export class AppWizard {
               }} />
           </div>
           <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
+          <div class="skip">
+            Or follow the <a href="https://ionicframework.com/getting-started">manual install</a> guide &raquo;
+          </div>
         </form>
       </div>
     )
@@ -389,7 +413,9 @@ ionic start
           <pre><code>{instructions}</code></pre>
         </div>
         <div class="info">
-          <small>Note: this command will expire in two hours.<br />Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
+          <small>Note: this command will expire in two hours.<br />
+          Requires <code>@ionic/cli</code> 6.2.2 or above<br />
+          Need help? See the full <a href="https://ionicframework.com/getting-started">installation guide</a></small>
         </div>
 
       </div>

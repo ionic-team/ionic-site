@@ -116,6 +116,18 @@
     }
   }
 
+  .skip {
+    margin-top: 16px;
+    text-align: center;
+    color: rgb(155, 155, 155);
+    font-size: 12px;
+    a {
+      color: rgb(155, 155, 155);
+      font-size: 12px;
+      text-decoration: none;
+    }
+  }
+
   .finish {
     text-align: center;
     hgroup {
@@ -330,15 +342,6 @@
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
-  }
-
-  .skip {
-    text-align: center;
-    a {
-      color: rgb(155, 155, 155);
-      font-size: 12px;
-      text-decoration: none;
-    }
   }
   
 }

@@ -1,6 +1,6 @@
 import { Component, State, h, Listen } from '@stencil/core';
 
-import { login, signup, SignupForm, LoginForm, getAuthToken, getUser } from '../../util/auth';
+import { login, signup, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
@@ -156,6 +156,7 @@ export class AppWizard {
       this.email = this.loginForm.email;
       this.authenticating = false;
     } catch (e) {
+      console.error(e);
       this.authenticating = false;
       this.signupErrors = e;
       return;
@@ -164,7 +165,7 @@ export class AppWizard {
     return this.finish();
   }
 
-  skipAuth = (e) => {
+  skipAuth = (_e) => {
     return this.finish();
   }
 
@@ -175,8 +176,6 @@ export class AppWizard {
       trackEvent({
         id: 'Start Wizard Finish'
       });
-
-      console.log('Setting step', this.STEPS.length - 1);
 
       this.setStep(this.STEPS.length - 1);
     } catch (e) {

@@ -1,7 +1,5 @@
 const API_BASE = 'https://api.ionicjs.com';
-//const API_BASE = 'https://staging.ionicframework.com';
 
-import { trackClick } from './analytics';
 import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
 import { getCookie, setCookie } from './cookie';
@@ -41,14 +39,13 @@ export const login = async (email, password, source, loginEventId ="000006636951
     });
 
     const data = await ret.json();
-    console.log('Got login data', data);
 
     setCookie('_ionic_token', data.token);
     setCookie('_ionic_user_id', data.user.id)
 
-    trackClick('Log in', 'btn-login-submit');
+    // trackClick('Log in', 'btn-login-submit');
 
-    identify(data.email);
+    identify(data.email, data.user.id);
     trackEvent({ id: loginEventId });
 
     return location.search;
@@ -70,7 +67,7 @@ export const oauthAuthorize = () => {
   window.location.assign(`${apiUrl('/oauth/authorize')}?${params.toString()}`);
 }
 
-export const signup = async (form: SignupForm, source: string) => {
+export const signup = async (form: SignupForm, source: string, signupEventId="000006040735") => {
   try {
     const recaptchaCode = await recaptcha('signup');
 
@@ -87,36 +84,19 @@ export const signup = async (form: SignupForm, source: string) => {
       },
     });
 
-    if (ret.status !== 201) {
+    const data = await ret.json();
+
+    if (data.error) {
       throw makeApiError('Unable to create account');
     }
 
-    const data = await ret.json();
-    const token = data.token;
-    console.log('Signed up', token);
+    // TODO: We don't have this data at this point
+    // setCookie('_ionic_token', data.token);
+    // setCookie('_ionic_user_id', data.user.id);
 
-    setCookie('_ionic_token', data.token);
-    setCookie('_ionic_user_id', data.user.id);
+    identify(form.email);
 
-    /*
-    window.c('Get started', 'btn-get-started-signup-submit');
-    var _hsq = window._hsq = window._hsq || [];
-    _hsq.push(["identify", {
-      email: response.data.user.email,
-      id: response.data.user.id
-    }]);
-    _hsq.push(["trackEvent", {
-      id: "000006040735"
-    }]);
-
-
-    var href = 'https://dashboard.ionicframework.com/select-plan?plan=starter';
-    var hsutk = window.getCookie('hubspotutk');
-    if (hsutk) {
-      href += '&hsid=' + encodeURIComponent(hsutk);
-    }
-    window.location = href;
-    */
+    trackEvent({ id: signupEventId });
   } catch (e) {
     throw makeApiError('Unable to create account', e);
   }

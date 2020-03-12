@@ -9,7 +9,7 @@ export const trackEvent = (trackEventData: HubspotTrackEventArgs) => {
   _hsq.push(["trackEvent", trackEventData]);
 }
 
-export const identify = (email) => {
+export const identify = (email, id = null) => {
   var _hsq = (window._hsq = window._hsq || []);
-  _hsq.push(["identify", { email }]);
+  _hsq.push(["identify", { email, id }]);
 }

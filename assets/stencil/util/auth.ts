@@ -2,7 +2,7 @@ const API_BASE = 'https://api.ionicjs.com';
 
 import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
-import { getCookie, setCookie } from './cookie';
+import { getCookie } from './cookie';
 import { ApiUser } from '../declarations';
 
 export interface SignupForm {
@@ -38,14 +38,9 @@ export const login = async (email, password, source, loginEventId ="000006636951
       },
     });
 
-    const data = await ret.json();
+    await ret.json();
 
-    setCookie('_ionic_token', data.token);
-    setCookie('_ionic_user_id', data.user.id)
-
-    // trackClick('Log in', 'btn-login-submit');
-
-    identify(data.email, data.user.id);
+    identify(email);
     trackEvent({ id: loginEventId });
 
     return location.search;
@@ -89,10 +84,6 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
     if (data.error) {
       throw makeApiError('Unable to create account');
     }
-
-    // TODO: We don't have this data at this point
-    // setCookie('_ionic_token', data.token);
-    // setCookie('_ionic_user_id', data.user.id);
 
     identify(form.email);
 

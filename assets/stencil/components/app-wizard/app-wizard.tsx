@@ -12,8 +12,8 @@ const TEMPLATES = [
 ];
 
 const FRAMEWORKS = [
-  { name: 'Angular', id: 'angular' },
   { name: 'React', id: 'react' },
+  { name: 'Angular', id: 'angular' },
   { name: 'Vue (soon)', id: 'vue', soon: true },
 ]
 
@@ -27,7 +27,6 @@ const THEMES = [
   '#92949c', // medium
   '#222428', // dark
 ]
-const r = Math.floor(Math.random() * 10000);
 
 declare var window: any;
 
@@ -71,22 +70,22 @@ export class AppWizard {
   @State() theme = THEMES[0];
   @State() email = '';
   @State() appName = '';
-  @State() framework = 'angular';
+  @State() framework = 'react';
   @State() template = 'tabs';
-  @State() bundleId = 'com.supercool.ionic';
-  @State() appUrl = 'http://example.com/';
+  @State() bundleId = '';
+  @State() appUrl = '';
   /*
   @State() authorEmail = 'max@ionic.io';
   @State() authorName = 'Max';
   */
 
   @State() loginForm: LoginForm = {
-    email: 'max+1000@ionic.io'
+    email: ''
   };
   @State() signupForm: SignupForm = {
-    name: 'Mr Max',
-    email: `max+${r}@ionic.io`,
-    username: `maxtest-${r}`,
+    name: '',
+    email: '',
+    username: ''
   };
 
   async componentDidLoad() {
@@ -400,7 +399,7 @@ ionic start
           <pre><code>{instructions}</code></pre>
         </div>
         <div class="info">
-          <small>Note: this command will expire in two hours.<br />
+          <small>Note: this command will expire in one week.<br />
           Requires <code>@ionic/cli</code> 6.2.2 or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
         </div>
@@ -413,6 +412,7 @@ ionic start
           Follow @IonicFramework</a>
         </div>
 
+        <twitter-script />
       </div>
     )
   }

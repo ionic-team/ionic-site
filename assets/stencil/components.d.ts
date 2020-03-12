@@ -70,6 +70,7 @@ export namespace Components {
   interface ReactComponents {
     'component': ComponentType;
   }
+  interface TwitterScript {}
   interface UiFloatingInput {
     'autocomplete': string;
     'disabled': boolean;
@@ -203,6 +204,12 @@ declare global {
     new (): HTMLReactComponentsElement;
   };
 
+  interface HTMLTwitterScriptElement extends Components.TwitterScript, HTMLStencilElement {}
+  var HTMLTwitterScriptElement: {
+    prototype: HTMLTwitterScriptElement;
+    new (): HTMLTwitterScriptElement;
+  };
+
   interface HTMLUiFloatingInputElement extends Components.UiFloatingInput, HTMLStencilElement {}
   var HTMLUiFloatingInputElement: {
     prototype: HTMLUiFloatingInputElement;
@@ -228,6 +235,7 @@ declare global {
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
     'react-capacitor': HTMLReactCapacitorElement;
     'react-components': HTMLReactComponentsElement;
+    'twitter-script': HTMLTwitterScriptElement;
     'ui-floating-input': HTMLUiFloatingInputElement;
   }
 }
@@ -285,6 +293,7 @@ declare namespace LocalJSX {
   interface ReactComponents {
     'component'?: ComponentType;
   }
+  interface TwitterScript {}
   interface UiFloatingInput {
     'autocomplete'?: string;
     'disabled'?: boolean;
@@ -319,6 +328,7 @@ declare namespace LocalJSX {
     'ionic-toggle-tab': IonicToggleTab;
     'react-capacitor': ReactCapacitor;
     'react-components': ReactComponents;
+    'twitter-script': TwitterScript;
     'ui-floating-input': UiFloatingInput;
   }
 }
@@ -348,6 +358,7 @@ declare module "@stencil/core" {
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
       'react-capacitor': LocalJSX.ReactCapacitor & JSXBase.HTMLAttributes<HTMLReactCapacitorElement>;
       'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
+      'twitter-script': LocalJSX.TwitterScript & JSXBase.HTMLAttributes<HTMLTwitterScriptElement>;
       'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
     }
   }

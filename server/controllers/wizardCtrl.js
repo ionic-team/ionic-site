@@ -3,6 +3,9 @@ const { REDIS_URL } = require('../config');
 const hbs = require('../hubspot');
 const shortid = require('shortid');
 
+// Don't allow _ or -
+shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
+
 let redisClient;
 if (REDIS_URL) {
   redisClient = require('redis').createClient(REDIS_URL);

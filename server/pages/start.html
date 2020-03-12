@@ -17,10 +17,6 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
       
         <ul class="nav navbar-nav navbar-right">
-          <li class="sm-hide">
-            <a href="https://dashboard.ionicframework.com/login?source=framework-{{id | default(id, 'default', true)}}">
-              Log in</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -30,4 +26,20 @@
 
 {% endblock %} {% block scripts %}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+<script>window.twttr = (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function (f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
 {% endblock %}

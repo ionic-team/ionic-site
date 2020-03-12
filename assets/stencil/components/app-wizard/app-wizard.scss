@@ -144,7 +144,7 @@
   .finish {
     text-align: center;
     hgroup {
-      margin: 96px 0 24px 0;
+      margin: 76px 0 24px 0;
       .icon {
         font-size: 36px;
         margin-bottom: 8px;
@@ -169,6 +169,21 @@
 
     .info {
       margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    hr {
+      width: 50%;
+      margin: 50px auto 0;
+    }
+
+    .social {
+      max-width: 80%;
+      margin: auto;
+      margin-top: 16px;
+      display: flex;
+      column-gap: 16px;
+      justify-content: center;
     }
   }
 

@@ -91,9 +91,9 @@ export class AppWizard {
 
   async componentDidLoad() {
     try {
+      // Get the user to see if they are logged in
       const user = await getUser();
       this.user = user;
-      console.log('Got user', user);
     } catch (e) {
     }
   }
@@ -114,7 +114,6 @@ export class AppWizard {
   setStep = (step) => {
     this.step = step;
     let hash = this.STEPS[this.step].id;
-    console.log('Pushing state w/ hash', hash);
     history.pushState({ step: this.step }, null, `#${hash}`);
   }
 
@@ -284,7 +283,11 @@ export class AppWizard {
                 } 
               }} />
           </div>
+          { this.user ? (
+          <Button>Create App</Button>
+          ) : (
           <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
+          )}
         </form>
       </div>
     )
@@ -308,18 +311,6 @@ export class AppWizard {
             <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
-          {/*
-          <div class="form-group" id="field-authoremail">
-            <label htmlFor="id_authoremail">Author Email</label>
-            <input type="text" id="id_authoremail" name="authoremail" value={this.authorEmail} tabindex="1" onInput={this.handleInput('authorEmail')} />
-            <div class="form-message form-message--small"></div>
-          </div>
-          <div class="form-group" id="field-authorname">
-            <label htmlFor="id_authorname">Author Name</label>
-            <input type="text" id="id_authorname" name="authorname" value={this.authorName} tabindex="1" onInput={this.handleInput('authorName')}/>
-            <div class="form-message form-message--small"></div>
-          </div>
-          */}
           <Button>Next</Button>
         </form>
       </div>
@@ -412,7 +403,15 @@ ionic start
         <div class="info">
           <small>Note: this command will expire in two hours.<br />
           Requires <code>@ionic/cli</code> 6.2.2 or above<br />
-          Need help? See the full <a href="https://ionicframework.com/getting-started">installation guide</a></small>
+          Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
+        </div>
+        <hr />
+        <div class="social">
+          <iframe src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=ionic&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+          <a class="twitter-follow-button"
+            data-show-screen-name="false"
+            href="https://twitter.com/ionicframework">
+          Follow @IonicFramework</a>
         </div>
 
       </div>

@@ -225,8 +225,8 @@
   }
 
   .themes {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(34px, 1fr));
     column-gap: 5px;
     row-gap: 5px;
     margin-bottom: 16px;
@@ -271,7 +271,8 @@
   }
 
   .templates {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 120px);
     column-gap: 10px;
     row-gap: 10px;
     justify-content: space-between;
@@ -291,7 +292,8 @@
       }
 
       .template-image {
-        background: url('/img/start/starter-template-sprite.png') no-repeat transparent;
+        background-size: 100%;
+        background-color: transparent;
         margin: auto;
         width: 120px;
         height: 140px;
@@ -300,9 +302,17 @@
         box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
       }
 
-      .template-tabs { background-position: 0 0 }
-      .template-sidemenu { background-position: 0 -140px }
-      .template-list { background-position: 0 -280px }
+      .template-tabs {
+        background-image: url('/img/start/starter-template-tabs.png');
+      }
+
+      .template-sidemenu {
+        background-image: url('/img/start/starter-template-menu.png');
+      }
+
+      .template-list {
+        background-image: url('/img/start/starter-template-list.png');
+      }
 
       &:first-child {
         margin-left: 0;
@@ -323,6 +333,7 @@
 
   .frameworks {
     display: flex;
+    grid-template-columns: repeat(auto-fit, 120px);
     column-gap: 10px;
     row-gap: 10px;
     justify-content: space-between;

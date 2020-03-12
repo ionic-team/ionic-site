@@ -1,7 +1,9 @@
+const shortid = require('shortid');
+const request = require('request');
+
 const { REDIS_URL } = require('../config');
 
-const hbs = require('../hubspot');
-const shortid = require('shortid');
+const hbs     = require('../hubspot');
 
 // Don't allow _ or -
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
@@ -19,6 +21,36 @@ const appKey = (appId) => `wizard-app-${appId}`;
 const generateId = () => {
   return shortid.generate();
 }
+
+const hbsSubmit = async (app) => {
+  const formUrl = `https://forms.hubspot.com/uploads/form/v2/3776657/03342c92-c6a9-450c-b84b-c246588cf880`;
+
+  const hsContext = {
+    hutk: app.tid,
+    pageUrl: 'https://ionicframework.com/start',
+    pageName: 'Ionic Start Wizard',
+    ipAddress: app.ip,
+  };
+
+  const payload = {
+    email: app.email,
+    'hs_context': JSON.stringify(hsContext),
+    ...(app.utm || {}),
+  };
+
+  return new Promise((resolve, reject) => {
+    request.post(formUrl, {
+      form: payload
+    }, (err, res, body) => {
+      if (err) {
+        console.error('Unable to post to hbs', err);
+        reject(err);
+        return;
+      }
+      resolve(res);
+    });
+  });
+};
 
 const save = async (data) => {
   if (!redisClient) {
@@ -72,7 +104,7 @@ const getApp = (appId) => {
   return new Promise((resolve, reject) => {
     redisClient.get(appKey(appId), (err, value) => {
       if (err) return reject(err);
-      resolve(value);
+      resolve(JSON.parse(value));
     });
   })
 }
@@ -82,7 +114,7 @@ module.exports = {
     const appId = req.params.appId;
     const app = await getApp(appId);
     res.status(200);
-    res.json(JSON.parse(app));
+    res.json(app);
   },
   save: async (req, res) => {
     const app = req.body;
@@ -95,5 +127,12 @@ module.exports = {
     }
     res.status(200);
     res.json(data);
+  },
+  appStarted: async (req, res) => {
+    const appId = req.params.appId;
+    const app = await getApp(appId);
+    await hbsSubmit(app);
+    res.status(200);
+    res.json(app);
   }
 }

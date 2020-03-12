@@ -182,6 +182,7 @@ router: app => {
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
   .post('/api/v1/wizard/create', bp.json(), es(), wizardCtrl.save)
   .get('/api/v1/wizard/app/:appId', bp.json(), es(), wizardCtrl.getApp)
+  .post('/api/v1/wizard/app/:appId/start', bp.json(), es(), wizardCtrl.appStarted)
 
   // Prismic Preview
   .get('/preview', previewController)

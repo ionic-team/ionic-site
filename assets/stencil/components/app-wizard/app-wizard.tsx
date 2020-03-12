@@ -515,7 +515,7 @@ const Switcher = ({ items, index, onChange }) => {
   return (
   <div class="switcher">
     {items.map((item, i) => {
-      const completed = i < index;
+      const completed = i < index || index === items.length - 1;
       const inactive = i > index;
       return [
         <div

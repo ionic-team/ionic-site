@@ -381,7 +381,7 @@ ionic start
           <span class="icon">🎉</span>
           <h2>You're all set</h2>
           <h4>
-            Now, just run these commands:
+            Run this to see your amazing new app:
           </h4>
         </hgroup>
         ) : (

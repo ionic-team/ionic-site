@@ -282,9 +282,9 @@ export class AppWizard {
               }} />
           </div>
           { this.user ? (
-          <Button>Create App</Button>
+          <Button><span>Create App</span></Button>
           ) : (
-          <Button>Continue <ion-icon name="ios-arrow-forward" /></Button>
+          <Button><span>Continue <ion-icon name="ios-arrow-forward" /></span></Button>
           )}
         </form>
       </div>
@@ -309,7 +309,7 @@ export class AppWizard {
             <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
-          <Button>Next</Button>
+          <Button><span>Next</span></Button>
         </form>
       </div>
     )
@@ -328,7 +328,7 @@ export class AppWizard {
               Logged in as {this.email}
             </p>
             <form onSubmit={e => { e.preventDefault(); this.finish() }}>
-              <Button>Finish</Button>
+              <Button><span>Finish</span></Button>
             </form>
           </div>
         </div>

@@ -18,6 +18,7 @@ export namespace Components {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color': string;
@@ -69,6 +70,20 @@ export namespace Components {
   interface ReactComponents {
     'component': ComponentType;
   }
+  interface UiFloatingInput {
+    'autocomplete': string;
+    'disabled': boolean;
+    'inputId': string;
+    'inputTabIndex': number;
+    'label': string;
+    'message': string;
+    'name': string;
+    'onChange': (e) => void;
+    'required': boolean;
+    'setFocus': (focused: any) => Promise<void>;
+    'type': string;
+    'value': string;
+  }
 }
 
 declare global {
@@ -90,6 +105,12 @@ declare global {
   var HTMLIconExternalElement: {
     prototype: HTMLIconExternalElement;
     new (): HTMLIconExternalElement;
+  };
+
+  interface HTMLIonicAppWizardElement extends Components.IonicAppWizard, HTMLStencilElement {}
+  var HTMLIonicAppWizardElement: {
+    prototype: HTMLIonicAppWizardElement;
+    new (): HTMLIonicAppWizardElement;
   };
 
   interface HTMLIonicAppflowActivatorElement extends Components.IonicAppflowActivator, HTMLStencilElement {}
@@ -181,10 +202,17 @@ declare global {
     prototype: HTMLReactComponentsElement;
     new (): HTMLReactComponentsElement;
   };
+
+  interface HTMLUiFloatingInputElement extends Components.UiFloatingInput, HTMLStencilElement {}
+  var HTMLUiFloatingInputElement: {
+    prototype: HTMLUiFloatingInputElement;
+    new (): HTMLUiFloatingInputElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
     'icon-external': HTMLIconExternalElement;
+    'ionic-app-wizard': HTMLIonicAppWizardElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
@@ -200,6 +228,7 @@ declare global {
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
     'react-capacitor': HTMLReactCapacitorElement;
     'react-components': HTMLReactComponentsElement;
+    'ui-floating-input': HTMLUiFloatingInputElement;
   }
 }
 
@@ -207,6 +236,7 @@ declare namespace LocalJSX {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color'?: string;
@@ -255,11 +285,25 @@ declare namespace LocalJSX {
   interface ReactComponents {
     'component'?: ComponentType;
   }
+  interface UiFloatingInput {
+    'autocomplete'?: string;
+    'disabled'?: boolean;
+    'inputId'?: string;
+    'inputTabIndex'?: number;
+    'label'?: string;
+    'message'?: string;
+    'name'?: string;
+    'onChange'?: (e) => void;
+    'required'?: boolean;
+    'type'?: string;
+    'value'?: string;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
     'home-native': HomeNative;
     'icon-external': IconExternal;
+    'ionic-app-wizard': IonicAppWizard;
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
@@ -275,6 +319,7 @@ declare namespace LocalJSX {
     'ionic-toggle-tab': IonicToggleTab;
     'react-capacitor': ReactCapacitor;
     'react-components': ReactComponents;
+    'ui-floating-input': UiFloatingInput;
   }
 }
 
@@ -287,6 +332,7 @@ declare module "@stencil/core" {
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
+      'ionic-app-wizard': LocalJSX.IonicAppWizard & JSXBase.HTMLAttributes<HTMLIonicAppWizardElement>;
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
@@ -302,6 +348,7 @@ declare module "@stencil/core" {
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
       'react-capacitor': LocalJSX.ReactCapacitor & JSXBase.HTMLAttributes<HTMLReactCapacitorElement>;
       'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
+      'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
     }
   }
 }

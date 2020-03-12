@@ -1,0 +1,432 @@
+#app-wizard {
+  .notice {
+    position: fixed;
+    padding: 10px 15px;
+    bottom: 14px;
+    right: 14px;
+    background: var(--c-grey-100);
+    border: 1px solid var(--c-grey-300);
+    border-radius: 8px;
+
+  }
+
+  .wrapper {
+    width: 400px;
+    margin: 10px auto;
+    margin-top: -22px;
+  }
+
+  button ion-icon {
+    vertical-align: middle;
+    margin-top: -1px
+  }
+
+  ion-segment {
+    max-width: 284px;
+    margin: auto;
+  }
+
+  hgroup {
+    text-align: center;
+    margin: 58px 0 48px 0;
+
+    h2 {
+      margin-top: 0;
+      font-size: 32px;
+      line-height: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    h4 {
+      font-weight: normal;
+      font-size: 18px;
+      margin-top: 16px;
+      color: var(--c-carbon-400);
+    }
+  }
+
+  label {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: normal;
+    color: var(--c-carbon-100);
+  }
+
+  ui-floating-input {
+    margin-bottom: 28px;
+  }
+
+  .switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+
+    margin-left: 18px;
+
+    max-width: 90%;
+
+    .empty-circle {
+      display: inline-block;
+      vertical-align: middle;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--c-carbon-900);
+    }
+
+    .switcher-separator {
+      display: inline-block;
+      width: 22px;
+      height: 1px;
+      margin: 0px 6px;
+      background-color: var(--c-indigo-400);
+    }
+
+    .switcher-button {
+      text-align: left;
+      color: #020814;
+      width: auto;
+      cursor: pointer;
+
+      position: relative;
+
+      ion-icon, .empty-circle {
+        vertical-align: middle;
+        margin-right: 7px;
+        margin-bottom: 1px
+      }
+
+      &.switcher-button-completed {
+        &:after {
+          background-color: var(--c-blue-800);
+        }
+
+        color: #3880FF;
+        ion-icon {
+          color: #3880FF;
+          fill: #3880FF;
+          stroke: #3880FF;
+        }
+      }
+
+      &.switcher-button-inactive {
+        color: #92A1B3;
+        .empty-circle {
+          border-color: var(--c-indigo-400);
+        }
+      }
+    }
+  }
+
+  .color-picker {
+    display: none;
+  }
+
+  .logged-in {
+    p {
+      margin: 50px 0;
+    }
+  }
+
+  .skip {
+    margin-top: 16px;
+    text-align: center;
+    color: rgb(155, 155, 155);
+    font-size: 12px;
+    a {
+      color: rgb(155, 155, 155);
+      font-size: 12px;
+      text-decoration: none;
+    }
+  }
+
+  .finish {
+    text-align: center;
+    hgroup {
+      margin: 76px 0 24px 0;
+      .icon {
+        font-size: 36px;
+        margin-bottom: 8px;
+      }
+    }
+
+    pre {
+      text-align: left;
+      background: #0E151F;
+      border-radius: 6px;
+      border: none;
+      padding: 0px 16px;
+      color: white;
+      width: 350px;
+      margin: auto;
+
+      code {
+        border: none;
+        font-size: 16px
+      }
+    }
+
+    .info {
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    hr {
+      width: 50%;
+      margin: 50px auto 0;
+    }
+
+    .social {
+      max-width: 80%;
+      margin: auto;
+      margin-top: 16px;
+      display: flex;
+      column-gap: 16px;
+      justify-content: center;
+    }
+  }
+
+  .frameworks {
+    user-select: none;
+
+    .framework {
+      text-align: center;
+
+      &.soon {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .framework-logo {
+      background: url('/img/start/js-framework-sprite.png') no-repeat transparent;
+      background-size: 56px;
+      margin: 15px auto;
+      width: 56px;
+      height: 56px;
+    }
+
+    .framework-angular { background-position: 0 -56px; }
+    .framework-react { background-position: 0 -168px; }
+    .framework-vue { background-position: 0 -280px; }
+
+    .selected {
+      border: 2px solid #3880FF !important;
+
+      h5 {
+        color: #4D8DFF;
+      }
+      .framework-angular { background-position: 0 0; }
+      .framework-react { background-position: 0 -112px; }
+      .framework-vue { background-position: 0 -224px; }
+    }
+
+  }
+
+  .themes {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
+    margin-bottom: 16px;
+    user-select: none;
+    .theme {
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+
+      border-radius: 100%;
+
+      user-select: none;
+
+      opacity: 0.6;
+
+      cursor: pointer;
+
+      &.selected {
+        opacity: 1;
+
+        svg {
+          vertical-align: middle;
+          margin-top: -1px;
+        }
+      }
+
+      &.pick-theme {
+        width: 38px;
+        height: 38px;
+        border: 2px solid #E9EDF3;
+        padding: 0;
+        color: #5B708B;
+        font-size: 20px;
+        text-align: center;
+        ion-icon {
+          vertical-align: middle;
+          margin-top: -2px;
+        }
+      }
+    }
+  }
+
+  .templates {
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: space-between;
+
+    .template {
+      flex-shrink: 1;
+      cursor: pointer;
+
+      &.selected {
+        .template-image {
+          border: 2px solid #3880FF !important;
+        }
+
+        h5 {
+          color: #4D8DFF;
+        }
+      }
+
+      .template-image {
+        background: url('/img/start/starter-template-sprite.png') no-repeat transparent;
+        margin: auto;
+        width: 120px;
+        height: 140px;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+      }
+
+      .template-tabs { background-position: 0 0 }
+      .template-sidemenu { background-position: 0 -140px }
+      .template-list { background-position: 0 -280px }
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      h5 {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 9px;
+        line-height: 11px;
+        text-align: center;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+
+  .frameworks {
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: space-between;
+
+    .framework {
+      flex: 0;
+      min-width: 120px;
+      cursor: pointer;
+      height: 120px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      box-shadow: 0px 2px 4px rgba(0, 13, 36, 0.04), 0px 2px 8px rgba(0, 13, 36, 0.1);
+      font-size: 14px;
+
+      h5 {
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: -0.01em;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .disclaimer {
+    font-weight: 400;
+    margin-top: 24px;
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: #a0a9b7;
+  }
+
+  .well {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #E1E5ED;
+    border-radius: 6px;
+    margin-top: 16px;
+    color: #3B424D;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .form-errors {
+    margin: 24px 0;
+    text-align: center;
+    font-weight: bold;
+    color: var(--c-red-800);
+  }
+  
+  @media screen and (max-width: 480px) {
+    .notice {
+      position: static;
+      border: 0;
+    }
+    .wrapper {
+      max-width: 100%;
+      margin: 0;
+      padding: 16px;
+    }
+    .form {
+      padding: 0;
+    }
+    .templates {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      .template {
+        flex-grow: 0;
+      }
+    }
+    .frameworks {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      .framework {
+        flex-grow: 0;
+      }
+    }
+
+    .finish {
+      pre {
+        width: 100%;
+        code {
+          font-size: 13px;
+        }
+      }
+
+      hgroup {
+        margin-top: 32px;
+        .icon {
+          font-size: 24px;
+        }
+        h2 {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}

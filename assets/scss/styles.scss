@@ -13,6 +13,7 @@
   // @import '../../content/docs/demos/css/ionic.css';
 }
 
+@import 'theme';
 @import 'vars';
 @import 'fonts';
 
@@ -126,6 +127,7 @@
 // @import 'pages/enterprise/support';
 @import 'pages/enterprise/training';
 @import 'pages/getting-started';
+@import 'pages/start';
 @import 'pages/go/pwa-architects-guide';
 @import 'pages/go/why-hybrid';
 // @import 'pages/home';

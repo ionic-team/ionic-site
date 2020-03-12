@@ -10,7 +10,7 @@ Ionic Docs are in a [separate repo](https://github.com/ionic-team/ionic-docs/). 
 ## Local Build
 
 1. Run `npm install`
-2. Run `npm rstart` (after the first run, this is the only step needed)
+2. Run `npm start` (after the first run, this is the only step needed)
 
 
 ## Third Party Libraries

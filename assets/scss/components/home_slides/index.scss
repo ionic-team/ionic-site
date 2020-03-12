@@ -160,4 +160,9 @@
       left: 15px;
     }
   }
+
+  @media (max-width: $screen-sm-max) {
+    overflow: hidden;
+    width: 100%;
+  }
 }

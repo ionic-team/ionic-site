@@ -245,6 +245,11 @@
     }
   }
 
+  .overflow-mask { 
+    overflow: hidden;
+    max-width: 100vw;
+  }
+
   #build-with-web {
     padding-bottom: 64px;
 
@@ -526,6 +531,8 @@
   #integrations {
     background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
     padding-bottom: 100px;
+    overflow: visible;
+    overflow-x: hidden;
 
     .content {
       max-width: 894px;
@@ -545,7 +552,6 @@
 	    padding: 0;
       position: relative;
       opacity: 0;
-      overflow-x: hidden;
       animation: fadeIn 1s 1s forwards;
 
       li {
@@ -611,10 +617,15 @@
       &.is-active {
         opacity: 1;
       }
+
+      @media (max-width: $screen-sm-max) {
+        left: 0;
+        width: 100%
+      }
     }
 
     .quotees {
-      margin-top: 300px;
+      margin: 220px -32px 10px;
       padding: 0;
       list-style: none;
       display: flex;
@@ -625,9 +636,12 @@
       li {
         opacity: .5;
         cursor: pointer;
-        flex: 0 1 190px;
+        // flex: 0 1 190px;
         margin-bottom: 32px;
         transition: .2s opacity;
+        display: block;
+        padding: 6px 18px 10px 60px;
+        position: relative;
 
         &.is-active {
           opacity: 1;
@@ -636,7 +650,8 @@
 
       img {
         width: 50px;
-        float: left;
+        position: absolute;
+        left: 8px;
         margin-right: 8px;
       }
 
@@ -655,7 +670,25 @@
         line-height: 23px;
         letter-spacing: -0.02em;
         color: #73849A;
+        display: block;
       }
+
+      @media (max-width: $screen-md-max) {
+        margin-top: 300px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    &__highlight {
+      background: transparent;
+      position: absolute;
+      box-shadow: 
+        0px 8px 16px rgba(2, 8, 20, 0.1), 
+        0px 4px 8px rgba(2, 8, 20, 0.08);
+      border-radius: 40px;
+      box-sizing: content-box;
+      transition: .2s all ease-out;
     }
   }
 

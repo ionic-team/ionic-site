@@ -1,0 +1,431 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'react' %}
+{% set header_style = 'transparent' %}
+{% set cssPath = 'react' %}
+{% set title = 'Build Native and Progressive Web Apps with React and Ionic' %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ionic-react-og.png'%}
+{% set meta_description = 'Cross-platform development with React and Ionic Framework' %}
+{% set hide_pre_header = true %}
+
+{% block main %}
+<header>
+  <a href="/" class="back-button">
+    <ion-icon name="ios-arrow-back"></ion-icon>
+    Ionic Home
+  </a>
+
+  <hgroup class="container">
+    <img src="/img/react/logo.png" alt="Ionic Logo" class="logo" />
+    <h1>Build Native and Progressive Web Apps from a single code base with Ionic React.</h1>
+    <a href="#start" class="btn anchor get-started">Get Started</a>
+    <a href="#demo" class="btn anchor live-demo">Live Demo</a>
+    <a href="https://ionic-react-demo.stackblitz.io/" target="_blank" class="btn anchor live-demo live-demo-mobile">Live Demo</a>
+  </hgroup>
+</header>
+
+<nav id="sticky-bar">
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="150" href="#components">UI Components</a></li>
+    <li><a class="anchor" data-offset="150" href="#demo">Demo</a></li>
+    <li><a class="anchor" data-offset="150" href="#native">Native</a></li>
+    <li><a class="anchor" data-offset="150" href="#samples">Sample Apps</a></li>
+    <li><a class="anchor" data-offset="150" href="#enterprise">Enterprise</a></li>
+    <li><a class="anchor" data-offset="150" href="#vs-react-native">vs. RN</a></li>
+    <li><a class="anchor" data-offset="150" href="#start">Get Started</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="left">
+    <div class="container grid grid-cols-2" id="components">
+      <hgroup>
+        <h2>100+ Beautiful React Components</h2>
+        <p>
+          React-optimized mobile and web components for building blazing fast mobile, web, and desktop apps.
+          Ionic React comes with more out-of-the-box controls than native, accelerating custom app design.
+        </p>
+        <ul id="components-list">
+          <li data-type="card" class="selected">
+            <div class="icon">
+              <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="28" height="24" rx="4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 7H15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 11H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Cards</div>
+          </li>
+          <li data-type="lists">
+            <div class="icon">
+              <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 20H31" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 19C2.55228 19 3 19.4477 3 20C3 20.5523 2.55228 21 2 21C1.44772 21 1 20.5523 1 20C1 19.4477 1.44772 19 2 19Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 11H31" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 10C2.55228 10 3 10.4477 3 11C3 11.5523 2.55228 12 2 12C1.44772 12 1 11.5523 1 11C1 10.4477 1.44772 10 2 10Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 2H31" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 1C2.55228 1 3 1.44772 3 2C3 2.55228 2.55228 3 2 3C1.44772 3 1 2.55228 1 2C1 1.44772 1.44772 1 2 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Lists</div>
+          </li>
+          <li data-type="actionSheet">
+            <div class="icon">
+              <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1V19C1 22.3137 3.68629 25 7 25H23C26.3137 25 29 22.3137 29 19V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 5H29" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 10H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 15H23" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 20H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Action Sheet</div>
+          </li>
+          <a target="_blank" href="https://ionicframework.com/docs/components" class="more anchor">Explore components <ion-icon name="ios-arrow-forward"></ion-icon></a>
+        </p>
+      </hgroup>
+      <react-components></react-components>
+    </div>
+  </section>
+
+  <div>
+    <div class="container" id="demo-info">
+      <div class="grid grid-cols-2">
+        <h2>
+          Music app demo.
+          <br />
+          Built on Ionic React.
+        </h2>
+        <p>
+          Try this demo Music App built with Ionic React following best practices.
+          <i>Note: App does not actually play music due to lack of legal public music APIs.</i>
+        </p>
+      </div>
+    </div>
+
+    <div id="demo">
+      <iframe id="demo-frame" src="https://stackblitz.com/edit/ionic-react-demo?embed=1&file=pages/Home.jsx"></iframe>
+      <div id="demo-mobile">
+        <a href="https://ionic-react-demo.stackblitz.io/" target="_blank" class="btn anchor live-demo live-demo-mobile">Try it Now</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="right">
+    <div class="container" id="native">
+      <hgroup>
+        <h2>Build once, run natively on iOS, Android, Electron, and the Web</h2>
+        <p>
+          Ionic React apps use our <a href="https://capacitor.ionicframework.com/" target="_blank">Capacitor</a> project (not Cordova)
+          to unlock every native API across iOS, Android, Electron, and Web. 
+        </p>
+        <ul id="native-list">
+          <li data-type="camera" class="selected">
+            <div class="icon">
+              <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.3633 4.951L19.5715 1.7965C19.1939 1.306 18.6763 1 18.0962 1H11.9038C11.3237 1 10.8061 1.306 10.4285 1.7965L8.63673 4.951C8.25913 5.44225 7.7725 5.8 7.19231 5.8H3.15385C2.58261 5.8 2.03477 6.05286 1.63085 6.50294C1.22692 6.95303 1 7.56348 1 8.2V22.6C1 23.2365 1.22692 23.847 1.63085 24.2971C2.03477 24.7471 2.58261 25 3.15385 25H26.8462C27.4174 25 27.9652 24.7471 28.3692 24.2971C28.7731 23.847 29 23.2365 29 22.6V8.2C29 7.56348 28.7731 6.95303 28.3692 6.50294C27.9652 6.05286 27.4174 5.8 26.8462 5.8H22.875C22.2928 5.8 21.7409 5.44225 21.3633 4.951Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 20C17.7614 20 20 17.7614 20 15C20 12.2386 17.7614 10 15 10C12.2386 10 10 12.2386 10 15C10 17.7614 12.2386 20 15 20Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+                <path d="M6.11467 5.2625V3.75H4.49928V5.2625" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Camera</div>
+          </li>
+          <li data-type="notifications">
+            <div class="icon">
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M27 13V23C27 26.3137 24.3137 29 21 29H7C3.68629 29 1 26.3137 1 23V9C1 5.68629 3.68629 3 7 3H17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="25" cy="5" r="4" transform="rotate(-180 25 5)" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Notifications</div>
+          </li>
+          <li data-type="geolocation">
+            <div class="icon">
+              <svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 1C6.375 1 1 5.72254 1 11.539C1 21 9 28.8375 11.9375 32.5008C12.0594 32.6554 12.2192 32.7813 12.4039 32.868C12.5886 32.9548 12.7928 33 13 33C13.2072 33 13.4115 32.9548 13.5961 32.868C13.7808 32.7813 13.9406 32.6554 14.0625 32.5008C17 28.8391 25 20.5556 25 11.539C25 5.72254 19.625 1 13 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 16.4074C15.2091 16.4074 17 14.6166 17 12.4074C17 10.1983 15.2091 8.40742 13 8.40742C10.7909 8.40742 9 10.1983 9 12.4074C9 14.6166 10.7909 16.4074 13 16.4074Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="title">Geolocation</div>
+          </li>
+        </p>
+      </hgroup>
+      <react-capacitor></react-capacitor>
+    </div>
+  </section>
+
+
+  <div class="container" id="samples">
+    <div class="grid grid-cols-2">
+      <h2>Try an Ionic React sample app.</h2>
+      <p>
+        One of the best ways to get started and learn best practices is to explore a sample app.
+      </p>
+    </div>
+    <div class="features grid grid-cols-3">
+      <div class="feature">
+        <a href="https://stackblitz.com/edit/ionic-react-demo" target="_blank"><img src="/img/react/music-player-thumb.png" /></a>
+        <h3><a href="https://stackblitz.com/edit/ionic-react-demo" target="_blank">Music Player</a></h3>
+        <p>
+          The demo available on this page is a simple demo of a music player app, tab-based navigation,
+          and basic user account features
+        </p>
+        <a class="try-it" href="https://stackblitz.com/edit/ionic-react-demo">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+      <div class="feature">
+        <a href="https://github.com/ionic-team/ionic-react-conference-app" target="_blank"><img src="/img/react/conference-app-thumb.png" /></a>
+        <h3><a href="https://github.com/ionic-team/ionic-react-conference-app" target="_blank">Conference App</a></h3>
+        <p>
+          Ionic's fake conference app is a great example of an app combining both tabs and menu navigation
+        </p>
+        <a class="try-it" href="https://github.com/ionic-team/ionic-react-conference-app">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+      <div class="feature">
+        <a href="https://github.com/mhartington/StarTrack-react" target="_blank"><img src="/img/react/startracks-app-thumb.png" /></a>
+        <h3><a href="https://github.com/mhartington/StarTrack-react" target="_blank">StarTrack</a></h3>
+        <p>
+          An Apple Music player demo that plays real music. Note: Must have an Apple Music account.
+        </p>
+        <a class="try-it" href="https://github.com/mhartington/StarTrack-react">Try it <ion-icon name="ios-arrow-forward"></ion-icon></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="right">
+    <div class="container" id="enterprise">
+      <hgroup>
+        <h2>Ionic React for Enterprise.</h2>
+        <p>
+          Enterprise-ready integrations, tools, and expert support for you next mission-critical app project. 
+          <br /><br />
+          Unlock powerful features like secure identity, encrypted offline storage, cloud builds, and real-time app updates.
+        </p>
+        <a class="btn ionic" id="ionic-react-enterprise-cta" href="https://ionicframework.com/enterprise" target="_blank">
+          Learn more
+        </a>
+      </hgroup>
+      <div class="graphics">
+        <img src="/img/react/ionic-enterprise-img.png" alt="Ionic React for Enterprise">
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="vs-react-native">
+    <div class="text-center">
+      <hgroup>
+        <h2>Ionic React vs React Native</h2>
+        <p>
+          Ionic React is not a one-to-one alternative to <br />
+          React Native. In fact, there are some key differences.
+        </p>
+      </hgroup>
+    </div>
+    <div class="features grid grid-cols-4">
+      <div class="feature">
+        <div class="image">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="27" stroke="#49B9FF" stroke-width="2"/>
+            <path d="M31.5652 28C31.5652 29.9868 29.969 31.5975 28 31.5975C26.031 31.5975 24.4348 29.9868 24.4348 28C24.4348 26.0131 26.031 24.4024 28 24.4024C29.969 24.4024 31.5652 26.0131 31.5652 28Z" fill="#61DAFB"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14.4621C27.4155 13.8887 26.8332 13.3639 26.2578 12.892C24.7717 11.6733 23.2951 10.7769 21.9164 10.3268C20.5378 9.87676 19.1607 9.84625 18 10.5225C16.8393 11.1987 16.1769 12.4173 15.8739 13.8471C15.5708 15.277 15.6018 17.0155 15.9048 18.9235C16.0221 19.6623 16.1813 20.4336 16.3812 21.2311C15.5968 21.4551 14.8552 21.7016 14.1626 21.9685C12.3736 22.6578 10.8659 23.4999 9.79025 24.4797C8.7147 25.4594 8 26.6476 8 28C8 29.3524 8.7147 30.5406 9.79025 31.5203C10.8659 32.5001 12.3736 33.3422 14.1626 34.0315C14.8552 34.2984 15.5968 34.5449 16.3812 34.7689C16.1813 35.5664 16.0221 36.3377 15.9048 37.0765C15.6018 38.9845 15.5708 40.723 15.8739 42.1529C16.1769 43.5827 16.8393 44.8013 18 45.4775C19.1607 46.1537 20.5378 46.1232 21.9164 45.6732C23.2951 45.2231 24.7717 44.3267 26.2578 43.108C26.8332 42.6361 27.4155 42.1113 28 41.5379C28.5845 42.1113 29.1668 42.6361 29.7422 43.108C31.2283 44.3267 32.7049 45.2231 34.0836 45.6732C35.4622 46.1232 36.8393 46.1538 38 45.4775C39.1607 44.8013 39.8231 43.5827 40.1261 42.1529C40.4292 40.723 40.3982 38.9845 40.0952 37.0765C39.9779 36.3377 39.8187 35.5664 39.6188 34.7689C40.4032 34.5449 41.1448 34.2984 41.8374 34.0315C43.6264 33.3422 45.1341 32.5001 46.2097 31.5203C47.2853 30.5406 48 29.3524 48 28C48 26.6476 47.2853 25.4594 46.2097 24.4797C45.1341 23.4999 43.6264 22.6578 41.8374 21.9685C41.1448 21.7016 40.4032 21.4551 39.6188 21.2311C39.8187 20.4336 39.9779 19.6623 40.0952 18.9235C40.3982 17.0155 40.4292 15.277 40.1261 13.8471C39.8231 12.4173 39.1607 11.1987 38 10.5225C36.8393 9.84625 35.4622 9.87675 34.0836 10.3268C32.7049 10.7769 31.2283 11.6733 29.7422 12.892C29.1668 13.3639 28.5845 13.8887 28 14.4621ZM37.1304 12.0423C37.7165 12.3837 38.183 13.0702 38.4255 14.2141C38.6679 15.358 38.6613 16.8617 38.378 18.6459C38.2692 19.3314 38.1206 20.0513 37.9331 20.7994C36.2878 20.4236 34.4945 20.1394 32.5987 19.9625C31.4991 18.3943 30.3585 16.9693 29.2133 15.7194C29.7616 15.1815 30.3052 14.6917 30.8391 14.2539C32.2287 13.1142 33.516 12.3565 34.6189 11.9965C35.722 11.6364 36.5444 11.7008 37.1304 12.0423ZM26.7867 15.7194C26.2384 15.1815 25.6948 14.6917 25.1609 14.2539C23.7713 13.1142 22.484 12.3565 21.3811 11.9965C20.278 11.6364 19.4556 11.7008 18.8696 12.0423C18.2835 12.3837 17.817 13.0702 17.5745 14.2141C17.3321 15.358 17.3387 16.8617 17.622 18.6459C17.7308 19.3314 17.8794 20.0513 18.0669 20.7994C19.7122 20.4236 21.5055 20.1394 23.4013 19.9625C24.5009 18.3943 25.6415 16.9693 26.7867 15.7194ZM37.4575 22.4902C36.3343 22.237 35.1326 22.0269 33.8684 21.8669C34.2809 22.5175 34.6851 23.1878 35.0788 23.876C35.4726 24.5642 35.8458 25.2525 36.1979 25.9383C36.6926 24.7536 37.1132 23.5984 37.4575 22.4902ZM37.1975 28C37.9936 26.2549 38.6463 24.5457 39.1465 22.92C39.8822 23.1302 40.5743 23.3603 41.2171 23.608C42.89 24.2525 44.1839 24.9986 45.0444 25.7824C45.9049 26.5662 46.2609 27.3171 46.2609 28C46.2609 28.6829 45.9049 29.4338 45.0444 30.2176C44.1839 31.0014 42.89 31.7475 41.2171 32.392C40.5743 32.6397 39.8822 32.8698 39.1465 33.08C38.6463 31.4543 37.9936 29.7451 37.1975 28ZM35.2752 28C34.764 26.9291 34.196 25.8429 33.5727 24.7534C32.9493 23.664 32.3011 22.6245 31.6376 21.6424C30.4629 21.5536 29.2467 21.5069 28 21.5069C26.7533 21.5069 25.5371 21.5536 24.3624 21.6424C23.6989 22.6245 23.0507 23.664 22.4273 24.7534C21.804 25.8429 21.236 26.9291 20.7248 28C21.236 29.0709 21.804 30.1571 22.4273 31.2466C23.0507 32.336 23.6989 33.3755 24.3624 34.3576C25.5371 34.4464 26.7533 34.4931 28 34.4931C29.2467 34.4931 30.4629 34.4464 31.6376 34.3576C32.3011 33.3755 32.9493 32.336 33.5727 31.2466C34.196 30.1571 34.764 29.0709 35.2752 28ZM33.8684 34.1331C34.2809 33.4825 34.6851 32.8122 35.0788 32.124C35.4726 31.4358 35.8458 30.7475 36.1979 30.0617C36.6926 31.2464 37.1132 32.4016 37.4575 33.5098C36.3343 33.763 35.1326 33.9731 33.8684 34.1331ZM30.3295 36.1948C29.5649 36.23 28.7875 36.248 28 36.248C27.2125 36.248 26.4351 36.23 25.6705 36.1948C26.4399 37.2195 27.221 38.1646 28 39.0196C28.779 38.1646 29.5601 37.2195 30.3295 36.1948ZM29.2133 40.2806C30.3585 39.0307 31.4991 37.6057 32.5987 36.0375C34.4945 35.8606 36.2878 35.5764 37.9331 35.2006C38.1206 35.9487 38.2692 36.6686 38.378 37.3541C38.6613 39.1383 38.6679 40.642 38.4255 41.7859C38.183 42.9298 37.7165 43.6163 37.1304 43.9577C36.5444 44.2992 35.722 44.3636 34.6189 44.0035C33.516 43.6435 32.2287 42.8858 30.8391 41.7461C30.3052 41.3083 29.7616 40.8185 29.2133 40.2806ZM26.7867 40.2806C25.6415 39.0307 24.5009 37.6057 23.4013 36.0375C21.5055 35.8606 19.7122 35.5764 18.0669 35.2006C17.8794 35.9487 17.7308 36.6686 17.622 37.3541C17.3387 39.1383 17.3321 40.642 17.5745 41.7859C17.817 42.9298 18.2835 43.6163 18.8696 43.9577C19.4556 44.2992 20.278 44.3636 21.3811 44.0035C22.484 43.6435 23.7713 42.8858 25.1609 41.7461C25.6948 41.3083 26.2384 40.8185 26.7867 40.2806ZM18.5425 33.5098C19.6657 33.763 20.8674 33.9731 22.1316 34.1331C21.7191 33.4825 21.3149 32.8122 20.9212 32.124C20.5274 31.4358 20.1542 30.7475 19.8021 30.0617C19.3074 31.2464 18.8868 32.4016 18.5425 33.5098ZM19.8021 25.9383C20.1542 25.2525 20.5274 24.5642 20.9212 23.876C21.3149 23.1878 21.7191 22.5175 22.1316 21.8669C20.8674 22.0269 19.6657 22.237 18.5425 22.4902C18.8868 23.5984 19.3074 24.7536 19.8021 25.9383ZM18.8025 28C18.0064 29.7451 17.3537 31.4543 16.8535 33.08C16.1178 32.8698 15.4257 32.6397 14.7829 32.392C13.11 31.7475 11.8161 31.0014 10.9556 30.2176C10.0951 29.4338 9.73913 28.6829 9.73913 28C9.73913 27.3171 10.0951 26.5662 10.9556 25.7824C11.8161 24.9986 13.11 24.2525 14.7829 23.608C15.4257 23.3603 16.1178 23.1302 16.8535 22.92C17.3537 24.5457 18.0064 26.2549 18.8025 28ZM25.6705 19.8052C26.4351 19.77 27.2125 19.752 28 19.752C28.7875 19.752 29.5649 19.77 30.3295 19.8052C29.5601 18.7805 28.779 17.8354 28 16.9804C27.221 17.8354 26.4399 18.7805 25.6705 19.8052Z" fill="#61DAFB"/>
+          </svg>
+        </div>
+
+        <h3>Web Standards and React DOM</h3>
+        <p>
+          Based on web standards and <code>react-dom</code> compatible React libraries.
+        Many React libraries do not support <code>react-native</code>.
+        </p>
+      </div>
+      <div class="feature">
+        <div class="image">
+          <svg width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="56" height="2" transform="matrix(1 0 0 -1 0 40)" fill="#49B9FF"/>
+            <path d="M37.274 31.9501L43.7024 8H40.1198H37.2486L34.4283 21.7353L33.9201 24.1899H33.7931L29.7024 8H24.6969L20.5808 24.1899H20.4537L19.3103 18.537L16.4646 29.5947L17.0998 31.9501H22.9945L27.1361 16.9999H27.2631L31.4047 31.9501H31.8621H34.4283H37.274Z" fill="#49B9FF"/>
+            <path d="M47.7423 8H45.5318L45.4047 8.44627L44.0327 13.6032L46.5989 22.3056H41.6951L40.5263 26.6939H47.8185L49.3684 31.9501H56L47.7423 8Z" fill="#4991FF"/>
+            <path d="M18.5989 12.5375C17.2523 9.73585 14.3557 8.04993 10.6207 8.04993H0V32H6.25045V24.9836H10.265C12.4247 24.9836 14.3303 24.4629 15.8294 23.496L18.5989 12.5375ZM8.94374 20.4216H6.25045V12.7358H8.99456C11.6116 12.7358 13.1869 14.0746 13.1869 16.5787C13.1615 19.058 11.6116 20.4216 8.94374 20.4216Z" fill="#61DAFB"/>
+            <rect width="56" height="2" transform="matrix(1 0 0 -1 0 2)" fill="#49B9FF"/>
+          </svg>
+        </div>
+
+        <h3>First-class Progressive Web Apps</h3>
+        <p>React Native does not officially support PWAs. In contrast, Ionic React 
+        supports PWAs, and native iOS, Android, and Electron.</p>
+      </div>
+      <div class="feature">
+        <div class="image">
+          <svg width="56" height="52" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="54" height="50" rx="5" fill="white" stroke="#61DAFB" stroke-width="2"/>
+            <path d="M0 9C0 4.02944 4.02944 0 9 0H47C51.9706 0 56 4.02944 56 9H0Z" fill="#61DAFB"/>
+            <rect x="17" y="6" width="3" height="3" rx="1.5" transform="rotate(-180 17 6)" fill="white"/>
+            <rect x="12" y="6" width="3" height="3" rx="1.5" transform="rotate(-180 12 6)" fill="white"/>
+            <rect x="7" y="6" width="3" height="3" rx="1.5" transform="rotate(-180 7 6)" fill="white"/>
+            <rect x="13" y="15" width="30" height="36" rx="4" fill="white" stroke="#49B9FF" stroke-width="2"/>
+            <rect x="21" y="25" width="14" height="26" rx="3" fill="white" stroke="#4991FF" stroke-width="2"/>
+            <path d="M29.5 27C30.0523 27 30.5 26.5523 30.5 26C30.5 25.4477 30.0523 25 29.5 25V27ZM26 25C25.4477 25 25 25.4477 25 26C25 26.5523 25.4477 27 26 27V25ZM29.5 25H26V27H29.5V25Z" fill="#4991FF"/>
+          </svg>
+        </div>
+
+        <h3>Build in the Browser</h3>
+        <p>Build apps faster than ever before with first-class browser development support.
+          Chances are you can build a significant chunk of your app right in Chrome!
+        </p>
+      </div>
+      <div class="feature">
+        <div class="image">
+          <svg width="53" height="56" viewBox="0 0 53 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31.7857 20.2856H47.2857C48.3087 20.2856 49.2898 20.692 50.0131 21.4154C50.7365 22.1387 51.1429 23.1198 51.1429 24.1428V54.9999H31.7857" stroke="#49B9FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M44.4286 45.3571C44.0472 45.3571 43.6743 45.4702 43.3571 45.6821C43.04 45.894 42.7928 46.1952 42.6468 46.5476C42.5009 46.9 42.4627 47.2878 42.5371 47.6619C42.6115 48.036 42.7952 48.3796 43.0649 48.6493C43.3346 48.919 43.6782 49.1027 44.0524 49.1771C44.4265 49.2516 44.8142 49.2134 45.1666 49.0674C45.519 48.9214 45.8202 48.6742 46.0322 48.3571C46.2441 48.0399 46.3572 47.6671 46.3572 47.2856C46.3572 46.7741 46.154 46.2836 45.7923 45.9219C45.4306 45.5602 44.9401 45.3571 44.4286 45.3571Z" fill="#49B9FF"/>
+            <path d="M44.4286 35.7144C44.0472 35.7144 43.6743 35.8275 43.3571 36.0394C43.04 36.2513 42.7928 36.5525 42.6468 36.9049C42.5009 37.2573 42.4627 37.6451 42.5371 38.0192C42.6115 38.3933 42.7952 38.7369 43.0649 39.0066C43.3346 39.2763 43.6782 39.46 44.0524 39.5344C44.4265 39.6089 44.8142 39.5707 45.1666 39.4247C45.519 39.2787 45.8202 39.0315 46.0322 38.7144C46.2441 38.3972 46.3572 38.0244 46.3572 37.6429C46.3572 37.1314 46.154 36.6409 45.7923 36.2792C45.4306 35.9175 44.9401 35.7144 44.4286 35.7144Z" fill="#49B9FF"/>
+            <path d="M44.4286 26.0714C44.0472 26.0714 43.6743 26.1845 43.3571 26.3964C43.04 26.6083 42.7928 26.9095 42.6468 27.2619C42.5009 27.6143 42.4627 28.0021 42.5371 28.3762C42.6115 28.7503 42.7952 29.094 43.0649 29.3637C43.3346 29.6334 43.6782 29.8171 44.0524 29.8915C44.4265 29.9659 44.8142 29.9277 45.1666 29.7818C45.519 29.6358 45.8202 29.3886 46.0322 29.0714C46.2441 28.7543 46.3572 28.3814 46.3572 28C46.3572 27.4885 46.154 26.998 45.7923 26.6363C45.4306 26.2746 44.9401 26.0714 44.4286 26.0714Z" fill="#49B9FF"/>
+            <path d="M36.7143 45.3571C36.3329 45.3571 35.96 45.4702 35.6429 45.6821C35.3257 45.894 35.0785 46.1952 34.9325 46.5476C34.7866 46.9 34.7484 47.2878 34.8228 47.6619C34.8972 48.036 35.0809 48.3796 35.3506 48.6493C35.6203 48.919 35.964 49.1027 36.3381 49.1771C36.7122 49.2516 37.0999 49.2134 37.4523 49.0674C37.8047 48.9214 38.1059 48.6742 38.3179 48.3571C38.5298 48.0399 38.6429 47.6671 38.6429 47.2856C38.6429 46.7741 38.4397 46.2836 38.078 45.9219C37.7163 45.5602 37.2258 45.3571 36.7143 45.3571Z" fill="#49B9FF"/>
+            <path d="M36.7143 35.7144C36.3329 35.7144 35.96 35.8275 35.6429 36.0394C35.3257 36.2513 35.0785 36.5525 34.9325 36.9049C34.7866 37.2573 34.7484 37.6451 34.8228 38.0192C34.8972 38.3933 35.0809 38.7369 35.3506 39.0066C35.6203 39.2763 35.964 39.46 36.3381 39.5344C36.7122 39.6089 37.0999 39.5707 37.4523 39.4247C37.8047 39.2787 38.1059 39.0315 38.3179 38.7144C38.5298 38.3972 38.6429 38.0244 38.6429 37.6429C38.6429 37.1314 38.4397 36.6409 38.078 36.2792C37.7163 35.9175 37.2258 35.7144 36.7143 35.7144Z" fill="#49B9FF"/>
+            <path d="M36.7143 26.0714C36.3329 26.0714 35.96 26.1845 35.6429 26.3964C35.3257 26.6083 35.0785 26.9095 34.9325 27.2619C34.7866 27.6143 34.7484 28.0021 34.8228 28.3762C34.8972 28.7503 35.0809 29.094 35.3506 29.3637C35.6203 29.6334 35.964 29.8171 36.3381 29.8915C36.7122 29.9659 37.0999 29.9277 37.4523 29.7818C37.8047 29.6358 38.1059 29.3886 38.3179 29.0714C38.5298 28.7543 38.6429 28.3814 38.6429 28C38.6429 27.4885 38.4397 26.998 38.078 26.6363C37.7163 26.2746 37.2258 26.0714 36.7143 26.0714Z" fill="#49B9FF"/>
+            <path d="M13.5 55V46H19.5V55" stroke="#4991FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19.5 55H31.375C31.5029 55 31.6255 54.9492 31.7159 54.8588C31.8063 54.7684 31.8571 54.6457 31.8571 54.5179V4.85714C31.8571 3.83416 31.4508 2.85309 30.7274 2.12973C30.0041 1.40638 29.023 1 28 1H4.85714C3.83416 1 2.85309 1.40638 2.12973 2.12973C1.40638 2.85309 1 3.83416 1 4.85714V55H13.5" stroke="#4991FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.03643 49.1986C6.63701 49.2509 6.23126 49.1767 5.87612 48.9866C5.52099 48.7965 5.23429 48.5 5.05628 48.1386C4.87828 47.7773 4.81788 47.3692 4.88359 46.9718C4.94929 46.5744 5.13779 46.2075 5.42263 45.9227C5.70746 45.6378 6.07434 45.4493 6.47177 45.3836C6.8692 45.3179 7.27722 45.3783 7.63858 45.5563C7.99993 45.7343 8.29648 46.021 8.4866 46.3762C8.67671 46.7313 8.75086 47.137 8.69862 47.5365C8.64349 47.958 8.45063 48.3495 8.15004 48.6501C7.84944 48.9507 7.45795 49.1435 7.03643 49.1986Z" fill="#4991FF"/>
+            <path d="M7.03643 39.5557C6.63701 39.6079 6.23126 39.5338 5.87612 39.3437C5.52099 39.1536 5.23429 38.857 5.05628 38.4957C4.87828 38.1343 4.81788 37.7263 4.88359 37.3289C4.94929 36.9314 5.13779 36.5646 5.42263 36.2797C5.70746 35.9949 6.07434 35.8064 6.47177 35.7407C6.8692 35.675 7.27722 35.7354 7.63858 35.9134C7.99993 36.0914 8.29648 36.3781 8.4866 36.7332C8.67671 37.0883 8.75086 37.4941 8.69862 37.8935C8.64349 38.315 8.45063 38.7065 8.15004 39.0071C7.84944 39.3077 7.45795 39.5006 7.03643 39.5557Z" fill="#4991FF"/>
+            <path d="M7.03643 29.9129C6.63701 29.9651 6.23126 29.891 5.87612 29.7009C5.52099 29.5107 5.23429 29.2142 5.05628 28.8528C4.87828 28.4915 4.81788 28.0835 4.88359 27.686C4.94929 27.2886 5.13779 26.9217 5.42263 26.6369C5.70746 26.3521 6.07434 26.1636 6.47177 26.0978C6.8692 26.0321 7.27722 26.0925 7.63858 26.2705C7.99993 26.4486 8.29648 26.7352 8.4866 27.0904C8.67671 27.4455 8.75086 27.8513 8.69862 28.2507C8.64349 28.6722 8.45063 29.0637 8.15004 29.3643C7.84944 29.6649 7.45795 29.8578 7.03643 29.9129Z" fill="#4991FF"/>
+            <path d="M7.03643 20.2701C6.63701 20.3223 6.23126 20.2482 5.87612 20.058C5.52099 19.8679 5.23429 19.5714 5.05628 19.21C4.87828 18.8487 4.81788 18.4406 4.88359 18.0432C4.94929 17.6458 5.13779 17.2789 5.42263 16.9941C5.70746 16.7092 6.07434 16.5207 6.47177 16.455C6.8692 16.3893 7.27722 16.4497 7.63858 16.6277C7.99993 16.8057 8.29648 17.0924 8.4866 17.4476C8.67671 17.8027 8.75086 18.2085 8.69862 18.6079C8.64349 19.0294 8.45063 19.4209 8.15004 19.7215C7.84944 20.0221 7.45795 20.2149 7.03643 20.2701Z" fill="#4991FF"/>
+            <path d="M7.03643 10.6271C6.63701 10.6794 6.23126 10.6052 5.87612 10.4151C5.52099 10.225 5.23429 9.92843 5.05628 9.56708C4.87828 9.20572 4.81788 8.79769 4.88359 8.40027C4.94929 8.00284 5.13779 7.63596 5.42263 7.35112C5.70746 7.06628 6.07434 6.87779 6.47177 6.81208C6.8692 6.74638 7.27722 6.80677 7.63858 6.98478C7.99993 7.16279 8.29648 7.44948 8.4866 7.80462C8.67671 8.15975 8.75086 8.56551 8.69862 8.96493C8.64349 9.38645 8.45063 9.77794 8.15004 10.0785C7.84944 10.3791 7.45795 10.572 7.03643 10.6271Z" fill="#4991FF"/>
+            <path d="M16.6793 39.5557C16.2799 39.6079 15.8741 39.5338 15.519 39.3437C15.1638 39.1536 14.8771 38.857 14.6991 38.4957C14.5211 38.1343 14.4607 37.7263 14.5264 37.3289C14.5921 36.9314 14.7806 36.5646 15.0655 36.2797C15.3503 35.9949 15.7172 35.8064 16.1146 35.7407C16.512 35.675 16.9201 35.7354 17.2814 35.9134C17.6428 36.0914 17.9393 36.3781 18.1294 36.7332C18.3196 37.0883 18.3937 37.4941 18.3415 37.8935C18.2863 38.315 18.0935 38.7065 17.7929 39.0071C17.4923 39.3077 17.1008 39.5006 16.6793 39.5557Z" fill="#4991FF"/>
+            <path d="M16.6793 29.9129C16.2799 29.9651 15.8741 29.891 15.519 29.7009C15.1638 29.5107 14.8771 29.2142 14.6991 28.8528C14.5211 28.4915 14.4607 28.0835 14.5264 27.686C14.5921 27.2886 14.7806 26.9217 15.0655 26.6369C15.3503 26.3521 15.7172 26.1636 16.1146 26.0978C16.512 26.0321 16.9201 26.0925 17.2814 26.2705C17.6428 26.4486 17.9393 26.7352 18.1294 27.0904C18.3196 27.4455 18.3937 27.8513 18.3415 28.2507C18.2863 28.6722 18.0935 29.0637 17.7929 29.3643C17.4923 29.6649 17.1008 29.8578 16.6793 29.9129Z" fill="#4991FF"/>
+            <path d="M16.6793 20.2701C16.2799 20.3223 15.8741 20.2482 15.519 20.058C15.1638 19.8679 14.8771 19.5714 14.6991 19.21C14.5211 18.8487 14.4607 18.4406 14.5264 18.0432C14.5921 17.6458 14.7806 17.2789 15.0655 16.9941C15.3503 16.7092 15.7172 16.5207 16.1146 16.455C16.512 16.3893 16.9201 16.4497 17.2814 16.6277C17.6428 16.8057 17.9393 17.0924 18.1294 17.4476C18.3196 17.8027 18.3937 18.2085 18.3415 18.6079C18.2863 19.0294 18.0935 19.4209 17.7929 19.7215C17.4923 20.0221 17.1008 20.2149 16.6793 20.2701Z" fill="#4991FF"/>
+            <path d="M16.6793 10.6271C16.2799 10.6794 15.8741 10.6052 15.519 10.4151C15.1638 10.225 14.8771 9.92843 14.6991 9.56708C14.5211 9.20572 14.4607 8.79769 14.5264 8.40027C14.5921 8.00284 14.7806 7.63596 15.0655 7.35112C15.3503 7.06628 15.7172 6.87779 16.1146 6.81208C16.512 6.74638 16.9201 6.80677 17.2814 6.98478C17.6428 7.16279 17.9393 7.44948 18.1294 7.80462C18.3196 8.15975 18.3937 8.56551 18.3415 8.96493C18.2863 9.38645 18.0935 9.77794 17.7929 10.0785C17.4923 10.3791 17.1008 10.572 16.6793 10.6271Z" fill="#4991FF"/>
+            <path d="M26.3222 49.1986C25.9227 49.2509 25.517 49.1767 25.1619 48.9866C24.8067 48.7965 24.52 48.5 24.342 48.1386C24.164 47.7773 24.1036 47.3692 24.1693 46.9718C24.235 46.5744 24.4235 46.2075 24.7084 45.9227C24.9932 45.6378 25.3601 45.4493 25.7575 45.3836C26.1549 45.3179 26.563 45.3783 26.9243 45.5563C27.2857 45.7343 27.5822 46.021 27.7723 46.3762C27.9624 46.7313 28.0366 47.137 27.9844 47.5365C27.9292 47.958 27.7364 48.3495 27.4358 48.6501C27.1352 48.9507 26.7437 49.1435 26.3222 49.1986Z" fill="#4991FF"/>
+            <path d="M26.3222 39.5557C25.9227 39.6079 25.517 39.5338 25.1619 39.3437C24.8067 39.1536 24.52 38.857 24.342 38.4957C24.164 38.1343 24.1036 37.7263 24.1693 37.3289C24.235 36.9314 24.4235 36.5646 24.7084 36.2797C24.9932 35.9949 25.3601 35.8064 25.7575 35.7407C26.1549 35.675 26.563 35.7354 26.9243 35.9134C27.2857 36.0914 27.5822 36.3781 27.7723 36.7332C27.9624 37.0883 28.0366 37.4941 27.9844 37.8935C27.9292 38.315 27.7364 38.7065 27.4358 39.0071C27.1352 39.3077 26.7437 39.5006 26.3222 39.5557Z" fill="#4991FF"/>
+            <path d="M26.3222 29.9129C25.9227 29.9651 25.517 29.891 25.1619 29.7009C24.8067 29.5107 24.52 29.2142 24.342 28.8528C24.164 28.4915 24.1036 28.0835 24.1693 27.686C24.235 27.2886 24.4235 26.9217 24.7084 26.6369C24.9932 26.3521 25.3601 26.1636 25.7575 26.0978C26.1549 26.0321 26.563 26.0925 26.9243 26.2705C27.2857 26.4486 27.5822 26.7352 27.7723 27.0904C27.9624 27.4455 28.0366 27.8513 27.9844 28.2507C27.9292 28.6722 27.7364 29.0637 27.4358 29.3643C27.1352 29.6649 26.7437 29.8578 26.3222 29.9129Z" fill="#4991FF"/>
+            <path d="M27.4377 19.7224C28.1885 18.9716 28.1855 17.7513 27.4309 16.9967C26.6764 16.2422 25.456 16.2391 24.7052 16.9899C23.9544 17.7407 23.9575 18.9611 24.712 19.7156C25.4666 20.4702 26.6869 20.4732 27.4377 19.7224Z" fill="#4991FF"/>
+            <path d="M26.3222 10.6271C25.9227 10.6794 25.517 10.6052 25.1619 10.4151C24.8067 10.225 24.52 9.92843 24.342 9.56708C24.164 9.20572 24.1036 8.79769 24.1693 8.40027C24.235 8.00284 24.4235 7.63596 24.7084 7.35112C24.9932 7.06628 25.3601 6.87779 25.7575 6.81208C26.1549 6.74638 26.563 6.80677 26.9243 6.98478C27.2857 7.16279 27.5822 7.44948 27.7723 7.80462C27.9624 8.15975 28.0366 8.56551 27.9844 8.96493C27.9292 9.38645 27.7364 9.77794 27.4358 10.0785C27.1352 10.3791 26.7437 10.572 26.3222 10.6271Z" fill="#4991FF"/>
+          </svg>
+        </div>
+
+        <h3>Enterprise-ready</h3>
+        <p>
+          Ionic React is supported by a company dedicated to enterprise app dev -- with supported native plugins, DevOps, services, and more.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="accolades">
+    <h2>What People are Saying</h2>
+    <div id="tweets" class="tweets">
+      <div id="tweet-share" class="tweet-share">
+        <h4>Love Ionic React?</h4>
+        <a
+          target="_blank"
+          href="http://twitter.com/share?text=Check out Ionic React to build native mobile and Progressive Web Apps with React&url=https://ionicframework.com/react&via=ionicframework">
+          Let us know on Twitter
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container grid grid-cols-2" id="start">
+    <div>
+      <h2>Get Started with Ionic React</h2>
+      <p>Start building better apps faster, all in React</p>
+    </div>
+    <div>
+      <pre><code>
+npm install -g @ionic/cli
+ionic start --type=react
+      </code></pre>
+    </div>
+  </div>
+</main>
+
+{% include '_includes/footer.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $('#components-list li').click(function() {
+    const type = $(this).attr('data-type');
+    $('react-components').prop('component', type);
+    $('#components-list li').removeClass('selected');
+    $(this).addClass('selected');
+  });
+  $('#native-list li').click(function() {
+    const type = $(this).attr('data-type');
+    $('react-capacitor').prop('tab', type);
+    $('#native-list li').removeClass('selected');
+    $(this).addClass('selected');
+  });
+  const tweets = [
+    {
+      author_username: 'vjeux',
+      author_name: 'vjeux',
+      date: 'October 2019',
+      avatar: 'https://pbs.twimg.com/profile_images/758422091347603456/_tIflgtD_reasonably_small.jpg',
+      link: 'https://twitter.com/Vjeux/status/1184258196707233793',
+      content: `Super excited about Ionic React! I’ve always dreamed of a “ruby on rails” equivalent for React where all the environment is setup to be productive right away.`
+    },
+    {
+      author_username: 'adnan_msagar',
+      author_name: 'Adnan Sagar, PhD',
+      date: 'February 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/550311525840207872/ce4j64OE_reasonably_small.png',
+      link: 'https://twitter.com/adnan_msagar/status/1224420056752381952',
+      content: `Building apps with Ionic React is a joy. Using JavaScript and a build-free process makes the experience that much sweeter. Check ionic-react-conference-app to see how to run JavaScript @ionicframework react apps in the browser build-free.`
+    },
+    {
+      author_username: 'ksouthworth',
+      author_name: 'Kevin Southworth',
+      date: 'February 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/567568545/kevatar_reasonably_small.jpg',
+      link: 'https://twitter.com/ksouthworth/status/1226937939285901313',
+      content: `I’m new to both Ionic and React but I’ve found ionic-react to be really nice!`
+    },
+    {
+      author_username: 'pixelswithin',
+      author_name: 'Diana Lopez',
+      date: 'February 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/1230634083673235458/0-Px-hwE_reasonably_small.jpg',
+      link: 'https://twitter.com/pixelswithin/status/1220956268539441153',
+      content: `I wanna start another app tonight. Ionic + React makes dev fun. Lmk if you got an idea.`
+    },
+    /*
+    {
+      author_username: 'paranoidcoder',
+      author_name: 'Devin',
+      date: 'January 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/951649117436104704/JvW7pIWf_reasonably_small.jpg',
+      link: 'https://twitter.com/paranoidcoder/status/1220788490809544712',
+      content: `Working with Ionic 4 has been amazing. The improvements, the React support, and the docs were all a major improvement. I can’t wait to get my hands on 5.0.0!`
+    },
+    */
+    {
+      author_username: 'BMcCoy04',
+      author_name: 'Bryan McCoy',
+      date: 'February 2020',
+      avatar: 'https://pbs.twimg.com/profile_images/1086463539689254912/SZbmuKwp_reasonably_small.jpg',
+      link: 'https://twitter.com/BMcCoy04/status/1231952440632782850',
+      content: `I’m actually re-writing a react native app in ionic (to deploy it as a pwa). I can’t imagine why I wouldn’t use this for all of my future web apps or native apps. I’m really enjoying the framework.`
+    }
+  ];
+
+  const tweetsList = $('#tweets');
+  console.log('Appending', tweets, tweetsList);
+  tweets.forEach(t => $(`
+  <div class="tweet">
+    <div class="tweet-author">
+      <div class="tweet-author-avatar">
+        <img src="${t.avatar}" />
+      </div>
+      <div class="tweet-author-info">
+        <h3><a href="https://twitter.com/${t.author_username}">${t.author_username}</a></h3>
+        <h5><a href="https://twitter.com/${t.author_username}">@${t.author_name}</a></h5>
+      </div>
+      <div class="tweet-twitter-icon"></div>
+    </div>
+    <div class="tweet-content">
+      ${t.content}
+    </div>
+    <div class="tweet-footer">
+      <div class="tweet-date">${t.date}</div>
+      <div class="tweet-view"><a target="_blank" href="${t.link}">View Tweet</a></div>
+    </div>
+  </div>
+  `).insertBefore('#tweet-share'));
+</script>
+{% endblock %}

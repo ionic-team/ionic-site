@@ -1,0 +1,208 @@
+@import '../../vars';
+// @import '../../../../node_modules/prismjs/themes/prism-tomorrow';
+@import '../../prism-ionic';
+
+:host {
+  display: block;
+
+  .grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+  }
+
+  border-radius: 10px;
+  margin-right: -24px;
+  margin-left: -24px;
+
+  @media (min-width: 1200px) {
+    margin-right: -64px;
+    margin-left: -64px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    grid-template-columns: minmax(200px, 1fr) 290px;
+    margin-right: -8px;
+    margin-left: -8px;
+  }
+
+  .code-header {
+    background: #0B1521;
+    border-radius: 10px 0 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      color: #7A8EA7;
+      border: 1px solid transparent;
+      list-style: none;
+      padding: 20px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1;
+      position: relative;
+      transition: .2s color, .2s background-color;
+
+      &::after {
+        position: absolute;
+        height: 1px;
+        content: '';
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        background: transparent;
+      }
+
+      &.active {
+        background: #1C2B3E;
+        border-color: #283A50;
+        border-bottom-color: #1C2B3E;
+        color: #FFFFFF;
+
+        &::after {
+          background: #1C2B3E;
+        }
+      }
+
+      &:first-child {
+        border-radius: 10px 0 0 0;
+      }
+
+      &:hover {
+        color: #FFFFFF;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        padding: 20px 10px;
+      }
+    }
+
+    a {
+      background: rgba(#7CABFF, 0.3);
+      color: #7CABFF;
+      border-radius: 16px;
+      padding: 8px;
+      align-self: center;
+      margin-right: 20px;
+      transition: .2s background-color;
+      
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+        background: rgba(#7CABFF, 0.5);
+      }
+
+      @media (max-width: $screen-xs-max) {
+        display: none;
+      }
+    }
+  }
+
+  .preview-header {
+    background: #F9FAFC;
+    border: 1px solid #E9EDF3;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-segment {
+      display: flex;
+      justify-content: center;
+      width: 142px;
+      background: #E9EDF3;
+    }
+
+    ion-segment-button {
+      flex: 0 1;
+    }
+  }
+
+  .tab-content,
+  .preview-content {
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .preview-content.code {
+    background: #1C2B3E;
+    display: block;
+    overflow: hidden;
+
+    pre  {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      color: white;
+      border: none;
+      font-size: 13px;
+      line-height: 23px;
+      letter-spacing: -.01em;
+      font-weight: 500;
+      font-family: $font-family-mono;
+      padding: 24px 0 24px 48px;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 24px 0 48px 16px;
+      }
+
+      code {
+        white-space: pre;
+      }
+    }
+  }
+
+  .preview-content {
+    background: radial-gradient(#E8EBEF 10%, #FCFDFE 10%) repeat;
+    border: 1px solid #E9EDF3;
+    background-size: 10px 10px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    iframe {
+      background: transparent;
+    }
+  }
+
+  @media (max-width: 525px) {
+    grid-template-columns: 100%;
+
+    .code-header {
+      border-radius: 10px 10px 0 0;
+
+      li {
+        padding: 20px;
+      }
+    }
+
+    .tab-content {
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}

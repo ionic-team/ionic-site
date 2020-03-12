@@ -204,6 +204,10 @@
       }
     }
 
+    @media (max-width: $screen-md-max) {
+      right: 52px;
+    }
+
     @media (max-width: $screen-sm-max) {
       right: -160px;
     }
@@ -227,3 +231,4 @@
     }
   }
 }
+

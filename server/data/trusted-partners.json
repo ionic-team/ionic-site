@@ -1,20 +1,10 @@
 [
   {
-    "slug":"arctic-leaf",
-    "name":"Arctic Leaf",
-    "short-description":"specializes in cross-platform Ionic apps with an emphasis on user-experience, long-term engagement & fluid design for startups and enterprises.",
-    "long-description":"<p>With our grassroots in game development and user-interface design, Arctic Empire is no stranger to producing original, cutting-edge mobile products for a variety of local and international clients.</p><p>Since our inception in 2010, Arctic Leaf has gone on to build over 50 amazing cross-platform mobile applications with a share of those apps developed in Ionic Frameworks.</p><p>From tax filing to crowdfunding, including integrations with push notifications, analytics, social media authentication and more, our dedicated team of developers have the insight and know-how to produce expertly crafted mobile experiences that will resonate with your audience!</p><p>We pride ourselves on bringing businesses from start-up to enterprise with our expertise in design, development, and digital marketing.",
-    "address":"400 Cooper #501<br>Ottawa, ON, K2P 2H8",
-    "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
-    "coordinates":[27,34],
-    "company-size": "11-50"
-  },
-  {
     "slug":"bendyworks",
     "name":"Bendyworks",
     "level":"gold",
     "link":"https://bendyworks.com/",
-    "short-description":"provides enterprise-level Ionic app development, app lifecycle management, and mobile solutions guidance.",
+    "short-description":"<strong>Bendyworks</strong> provides enterprise-level Ionic app development, app lifecycle management, and mobile solutions guidance.",
     "long-description":"<p>We at Bendyworks are excited to bring our long history of web application development to the phone with Ionic. From business intelligence apps to everyday employee tools and everywhere in between, we love breathing life into our clients' ideas.</p><p>Given our experience, we are exceptionally positioned to deliver high quality Ionic apps with comprehensive server backends, though we love constructing without a backend, too. When you're looking to build a mobile asset for your business, look no further than Bendyworks</p>",
     "address":"106 E Doty St #200<br>Madison, WI 53703, USA",
     "features":null,
@@ -26,7 +16,7 @@
     "name":"beNovelty Limited",
     "level":"gold",
     "link":"https://www.benovelty.com/",
-    "short-description":"is an award-winning company offering Enterprise-Ready Ionic App & API solutions for modern internet business in Hong Kong & Greater Bay Area.",
+    "short-description":"<strong>beNovelty Limited</strong> is an award-winning company offering Enterprise-Ready Ionic App & API solutions for modern internet business in Hong Kong & Greater Bay Area.",
     "long-description":"<p>beNovelty is an award-winning Mobile & API first company founded by former IBM Technology Thought Leader & Architects. The team serves as an Innovation Partner with core capability in APIs, Open Web & Mobile Technologies. Their client base covers Start-ups, Enterprises & MNCs from different vertical such as banks, insurances, Hotel & Travels, HealthCare, Education etc.</p><p>Their start-up mentality together with enterprise experiences assemble new yet original services and products - always be novelty.</p><p>beNovelty Limited is an awardee of Hong Kong Best ICT Startup Awards & Hong Kong Quality Assurance Agency (HKQAA) Registered Platinum Start-up.</p>",
     "address":"beNovelty Limited Unit 320<br>16 Science Park W Ave, Science Park, Hong Kong",
     "features": ["Ionic App Development & Consultancy for Enterprise","Ionic Enterprise Plugin Development","UI-as-a-Services with Web Components","Managed Cloud API Services on AWS / Alibaba Cloud","Regulated Markets Ready – Banking, Insurance, Healthcare, Government etc."],
@@ -38,7 +28,7 @@
     "name":"Briebug",
     "level":"platinum",
     "link":"https://briebug.com",
-    "short-description":"provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.",
+    "short-description":"<strong>Briebug</strong> provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.",
     "long-description":"<p>We are premier brokers of technology solutions. We have built a team of talented developers dedicated to delivering cutting edge enterprise solutions that will provide years of value to our clients.</p><p>BrieBug creates next generation web pages and mobile apps that are responsive and client focused using the latest technologies, including Mongo, Express, Angular and Node (MEAN stack). We deliver projects on time and on budget!</p><p>BrieBug ranks as the premier web/mobile application consulting firm creating solutions that define the next generation of technology. We provide top level consulting teams that are hand picked, groomed, trained, and company supported to meet your needs from day one.</p>",
     "address":"12596 W Bayaud Ave #201<br>Lakewood, CO 80228",
     "features": null,
@@ -46,41 +36,11 @@
     "company-size": "50-200"
   },
   {
-    "slug":"inviqa",
-    "name":"Inviqa",
-    "short-description":"specialises in digital innovation, ecommerce, and content management systems, Inviqa is a trusted technology partner that puts business first.",
-    "long-description":"<p>In a world where digital is redefining business, choosing the right technology partner is fundamental to achieving your goals. Inviqa is the technology partner you can trust to put your business first. A specialist in digital innovation, ecommerce and content management systems, Inviqa helps pioneering brands and organisations to engage, convert and retain their customers.</p>",
-    "address":"Castlewood,77-91 New Oxford Street<br>London, WC1A 1DG, UK",
-    "features":null,
-    "coordinates":[47.7,31.6],
-    "company-size": "50-200"
-  },
-  {
-    "slug":"digitalscientists",
-    "name":"Digital Scientists",
-    "short-description":"is a software innovation lab based in Atlanta, GA. We partner with forward-thinking businesses to create mobile apps, websites, ecommerce stores and internet of things (IoT) applications",
-    "long-description":"<p>At Digital Scientists, we work with forward thinking businesses to disrupt existing business models and create products that delight users. We have a great product design team that is passionate about user experience and adevelopment team that pushes boundaries of what's possible. Our stack includes Ionic Framework, Elasticsearch, Ruby on Rails and Node. We leverage the JSON APIs provided by Elasticsearch to speed up backend development and deliver a scalable solution.</p><p>Our experience with the Ionic Framework lets us use the same application codebase across desktop, mobile web and apps in order to deliver a compelling solution in a short amount of time. We also author native Cordova components when necessary. This lets us deliver the best possible product, using the best technology for the task.</p>",
-    "address":"21 S Main St<br>Alpharetta, GA 30009",
-    "features": ["Ionic 1 & 2", "App design", "App development", "Product development", "Solution architecture"],
-    "coordinates":[24.9,40.3],
-    "company-size": "10-30"
-  },
-  {
-    "slug":"elixel",
-    "name":"Elixel",
-    "short-description":"is a UK based digital product agency who plan, design, develop and launch customer-focused applications.",
-    "long-description":"<p>Elixel is a UK based digital product agency who plan, design, develop and launch customer-focused applications. Working with a wide variety of businesses from food suppliers to crowdfunding organisations, Elixel’s focus has always been creating projects with a clear return on investment. The majority of these projects harness their value through data collection and improved customer communications.</p><p>Using Ionic as a framework, they adapt and extend the platform to develop an unrivalled user experience that ensures your users keep coming back.</p><p>Elixel build collaborative relationships with their clients ensuring a rich and well-executed experience no matter what stage of the journey.  Whether it is an MVP used to test the market or a full product launch with feature roadmapping, they have the talent to deliver projects that push organisations to the next level.</p>",
-    "address":"153 Armada Way<br>Plymouth, PL1 1HY, UK",
-    "features":null,
-    "coordinates":[46.8,32.2],
-    "company-size": "10-20"
-  },
-  {
     "slug":"hybridmob",
     "name":"HybridMob",
     "level":"gold",
     "link":"https://hybridmob.com/",
-    "short-description":"is a leading US based, expert mobile development firm specializing in Ionic Framework development solutions.",
+    "short-description":"<strong>HybridMob</strong> is a leading US based, expert mobile development firm specializing in Ionic Framework development solutions.",
     "long-description":"<p>HybridMob is a leading US based consulting firm specializing in custom Ionic Framework development solutions. Our highly specialized team consists of expert Ionic Framework developers with multiple years of experience building complex hybrid (iOS and Android) mobile apps across multiple industries.</p><p>Many of our senior developers have been building advanced Ionic apps since its initial release in 2013. Our team has built advanced Ionic apps for companies such as Amazon, InVision, Phillips and many more.</p><p>Our expert Ionic Framework developers excel in the following areas:</p><ul><li>Advanced Ionic architecture and development</li><li>Hybrid app MVP / POC</li><li>Sophisticated UI / UX design</li><li>Ionic project rescue</li><li>Native functionality (Capacitor)</li><li>Angular web development</li><li>Biometric authentication</li><li>Automated cloud device testing</li><li>Progressive Web Apps</li><li>&hellip;and much more</li></ul><p>While there are a number of consulting firms that offer Ionic Framework development services, we are one of the few who specialize solely in Ionic. As a result, we maintain a focused, expert team of Ionic consultants, available to bring your project to the next level. </p>",
     "address":"548 Market Street #68673<br>San Francisco, CA 94104",
     "mapsaddress": "548 Market Street, San Francisco, CA 94104",
@@ -89,96 +49,15 @@
     "company-size": "11-50"
   },
   {
-    "slug":"hybapps",
-    "name":"HybApps",
-    "short-description":"is specialized in accelerating hybrid mobile apps development by providing mobile apps themes , apps source code , custome design services , custom application development and many other services.",
-    "long-description":"<p>HybApps is specialized in accelerating hybrid mobile apps development by providing mobile apps themes , apps source code , custome design services , custom application development and many other services.</p><p>We have excellent experience in Front-End and Back-end developing on many frameworks such as PHP/MySQL and MEAN.</p><p>Successfully built many applications to our customers all over the world including Uber like solutions ,e-commerce solutions and many more.</p>",
-    "address":"Tanta Qism 2<br>Tanta, Gharbia Governorate, Egypt",
-    "mapsaddress": "Tanta Qism 2, Tanta, Gharbia Governorate, Egypt",
-    "features":["Angular","Ionic","Node.js","MEAN","App design","App development","Development consulting"],
-    "coordinates":[56.5,42],
-    "company-size": "11-50"
-  },
-  {
-    "slug":"hybrid-heroes",
-    "name":"Hybrid Heroes",
-    "short-description":"specializes in hybrid app development with Ionic. The team provides design, consulting and development of innovative mobile apps for startups and enterprises",
-    "long-description":"<p>Hybrid Heroes is a Berlin-based app development team that specializes in hybrid app development with web technologies. Our team handles strategy, design and product management and develops innovative mobile user concepts for each client.</p><p>We use an Ionic framework to build hybrid apps for most diverse requirements. It provides us with state-of-the-art mobile components and architecture as the foundation for our projects. This allows us to iterate quickly from prototype to release candidate.</p><p>Our experience lies in the development of mobile and web applications for clients from a variety of industries such as media, commerce, entertainment and hardware engineering. Among our references are mobile monitoring tools for complex data evaluation, tools for internal working processes, as well as social and news applications.</p>",
-    "address":"Reichenberger Straße 113a<br>10999 Berlin, Germany",
-    "features":null,
-    "coordinates":[51.9,31.7],
-    "company-size": "1-10"
-  },
-  {
-    "slug":"incentro",
-    "name":"Incentro",
-    "short-description":"helps companies connect between their services and the daily life of their customers by building high-end mobile and web applications.",
-    "long-description":"<p>We rock at building app-solutions that make you happy</p><p>The keywords of our service are information, marketing and technology. For the whole process, we have specialists in house. From designing, developing and managing websites, webshops and apps, to optimising them using data and marketing automation activities.</p><p>We have at least 260 passionate Incentronauts (employees). And we work for the top 200 companies in the Netherlands and beyond. We love to work on a fast pace in a high intensive collaboration with our client. Working the agile way to make sure to deliver the features with the highest business value.</p><p>We love to share our passion in the open source community and by co-organizing the dutch Ionic meetups.</p><p>Please contact us for more information on how we bring value to your organisation.</p>",
-    "address":"Van Nelleweg 2429<br>3044 BC Rotterdam Netherlands",
-    "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
-    "coordinates":[49.5,31.8],
-    "company-size": "200-500"
-  },
-  {
     "slug":"jnesis",
     "name":"JNESIS",
     "level":"gold",
     "link":"https://jnesis.com/en/home/",
-    "short-description":"offers a wide range of solutions around Ionic, including end-to-end development and back-end connectivity, in France, Switzerland and New-Zealand.",
-    "long-description":"<p>JNESIS offers a complete set of solutions, including cross-platform mobile development based on the Ionic framework, business specific back-ends in Node.js, Java or other technologies in France, Switzerland and New-Zealand.</p><p>We have extensive experience in creating business centric applications, from the ideation to the deployment in the app stores. In addition, we provide expertise in interfacing our applications with any existing information system or software.</p><p>We also have strong knowledge in UI/UX, performance optimization, distribution to large teams and complex applications. Working on a wide range of devices, we develop cutting edge applications with snappy interfaces.</p><p>Our teams in Mulhouse (FR), Paris (FR) and Hawkes Bay (NZ) can assist you locally in your mobile success.</p>",
-    "address":"68, Rue Jacques Mugnier<br>68200 Mulhouse, France",
+    "short-description":"As Ionic’s sole Gold Partner in Europe, <strong>JNESIS</strong> offers a wide range of solutions around Ionic, including end-to-end development and back-end connectivity.",
+    "long-description":"<p>JNESIS offers a wide set of solutions, including cross-platform mobile apps and Progress Web Apps (PWA) development, business specific back-ends in Node.js, Java or other languages.</p><p>We have extensive experience in creating business centric applications, from concept to deployment in the app stores.</p><p>In addition, we provide expertise in interfacing our applications with any existing information system or software.</p><p>We also have strong knowledge in UI/UX, performance optimization, distribution to large teams and complex applications.</p><p>Working on a wide range of devices, we develop cutting edge applications with snappy interfaces.</p><p>Our experts can also assist you by auditing an existing app or with high quality consulting and training</p>",
+    "address":"40 rue Alexandre Dumas<br>75011 PARIS, France",
     "features":["Angular 1 to 7", "Ionic 1 to 4", "App design", "App development", "Consulting", "Training", "Java & Node.js back-end"],
     "coordinates":[48.5,34.4],
-    "company-size": "50-200"
-  },
-  {
-    "slug":"keensoft",
-    "name":"Keensoft",
-    "short-description":"develops serious, confident and top-quality applications for big private companies and government combining ionic framework with other top current technologies.",
-    "long-description":"<p>keensoft works with big private companies and government, providing UX Design and app lifecycle management. We use ionic framework combined with other top current technologies to develop serious, confident and top-quality applications for our customers.</p><p>We are Pure, efficiency is our strength. We believe there should be no unnecessary costs or needless embellishments. We are transparent, we are an independent company in which our customers are at the heart of how we go about our work. Our aim is to provide the best market solution in the most efficient way. There are no vested interests in our assessments or recommendations.</p><p>We have passion, we believe in what we do and are involved in our customers’ success with our solutions. Our essence, our dream is to contribute to a better world through professional technology. We are Affordable, thanks to our experience, together with our swift, efficient work methods we can offer our services under a clearly defined budget, in total alignment with the benefits obtained.</p>",
-    "address":"17 Alfonso I Street, Of. 2<br>50003 Zaragoza, Spain",
-    "features":["Angular 1 & 2", "Ionic 1 & 2", "App Design", "App Development", "Development consulting", "Electron native apps"],
-    "coordinates":[47.5,36.9],
-    "company-size": "11-50"
-  },
-  {
-    "slug":"kunder",
-    "name":"Kunder",
-    "short-description":"provides enterprise-level software development and app lifecycle management, focusing on great quality and outstanding UI/UX.",
-    "long-description":"<p>kunder is a high-quality software design and development firm. We work hand in hand with our costumers either to improve current developments or create new tailor-made software. We develop simple solutions, through complex engineering.</p><p>Our aim at kunder is to improve your business through better interaction with your customers. Our expertise in the financial sector, as well as other industries, allows us to offer robust solutions for your needs.</p>",
-    "address":"Nueva Providencia 1860 Of. 182, Providencia<br>Santiago de Chile",
-    "features":null,
-    "coordinates":[28.7,73],
-    "company-size": "11-50"
-  },
-  {
-    "slug":"macadamian",
-    "name":"Macadamian",
-    "short-description":"is a full service software design and development firm employing nearly 200 UX Design &amp; Solution creation professionals.",
-    "long-description":"<p>Macadamian is a full service software design and development firm that employs close to 200 UX Design and solution creation professionals. We’re the go-to partner for more and more organizations in the quickly-evolving world of the Internet of Things (IoT). We work with them to deliver successful digital connected solutions – to engage with their clients through new business models that increase revenues and drive new operating efficiencies, while providing ever-greater insights into their end-users.</p><p>Our broad expertise across a number of sectors (healthcare, manufacturing, cleantech…) ensures that we can anticipate your IoT needs while we leverage our platform to accelerate your successful commercial launch while minimizing upfront development costs. We work with trusted partners like Ionic to integrate best in class technologies that support an end-to-end solution of the highest quality that will drive lasting value for your business.</p>",
-    "address":"165 Rue Wellington<br>Gatineau, Canada, J8X 2J3",
-    "features":null,
-    "coordinates":[27.5,34.9],
-    "company-size": "200-500"
-  },
-  {
-    "slug":"modus-create",
-    "name":"Modus Create",
-    "short-description":"designs and builds Ionic mobile apps that stand the test of time, specializing in cross-platform mobile UI/UX.",
-    "long-description":"<p>Modus Create is a digital product agency that accelerates digital transformation. We use Ionic to build hybrid mobile apps and MVPs for Fortune 100 clients, SaaS providers, and startups. The overall performance, flexibility, speed, and architecture of Ionic allow us to iterate quickly and get apps into production faster.</p>",
-    "address":"11480 Commerce Park Dr #350<br> Reston, VA 20191",
-    "features":null,
-    "coordinates":[26.5,38.7],
-    "company-size": "50-200"
-  },
-  {
-    "slug":"onetree",
-    "name":"OneTree",
-    "short-description":"is an experienced software development company that specializes in building custom interactive solutions",
-    "long-description":"<p>Onetree is an experienced software development company based in Montevideo, Uruguay serving customers in United States that specializes in building custom interactive solutions. We provide user experience services, as well as development on mobile and web solutions, helping companies develop their products, from startups to well-established enterprises.</p><p>With the use of Ionic, we are able to deliver high quality cross-platform mobile applications, keeping the focus on optimal user experience and performance. We are focused on building healthcare applications and have experience on building HIPAA compliant applications.</p>",
-    "address":"Avenida 18 Julio 1077<br>Montevideo, Uruguay, 11100",
-    "features":null,
-    "coordinates":[32.8,73],
     "company-size": "50-200"
   },
   {
@@ -186,82 +65,11 @@
     "name":"OpenForge",
     "level":"platinum",
     "link":"https://openforge.io/",
-    "short-description":"is a leader in mobile app consulting. Operating in the United States and South America, they specialize in mobile app development, Progressive Web Apps (PWAs), and App Store optimization. From concept to launch, OpenForge can guide you every step of the way.",
-    "long-description":"<p>There’s nothing worse than throwing all your money and energy into building a product that no one wants. We believe that a collaborative and user-centered approach to design is key to creating a product that meets market expectations, that’s why we combine cutting-edge Web & Mobile technologies to bring your products to life.</p><p>Plain and simple — we believe that your success is our success and will stand by our values every step of the way. We’re here to challenge your assumptions and help you discover the full potential of your web and mobile applications. From discovery to deployment you can consider OpenForge as an extension of your own team.</p>",
+    "short-description":"<strong>OpenForge</strong> is a leader in mobile app consulting. Operating in the United States and South America, they specialize in mobile app development, Progressive Web Apps (PWAs), and App Store optimization. From concept to launch, OpenForge can guide you every step of the way.",
+    "long-description":"<p>OpenForge is a Philadelphia-based Mobile Application development company. We’re here to help you discover the full potential of your mobile applications; we’ll do this by challenging your assumptions and guiding you through the process of evaluating your business needs.</p><p>Our team has been a top-trusted platinum partner of the Ionic Framework since 2014. From discovery to deployment, we believe that a collaborative practice to development, and a user-focused approach to design, is key to creating a product that meets market expectations, that’s why we combine cutting-edge Mobile technologies to bring your apps to life.</p>",
     "address":"1608 Walnut St<br>Philadelphia, PA 19103 US",
     "features":null,
     "coordinates":[27.3,37.5],
     "company-size": "10-50"
-  },
-  {
-    "slug":"ordina",
-    "name":"Ordina Belgium",
-    "short-description":"builds applications for end-to-end digital projects around M2M, Internet-Of-Things, Virtual Reality, Augmented Reality, Robotics, Sensoring & Wearables.",
-    "long-description":"<p>IT for People. Ordina believes in a digital world that helps people to move ahead. We are helping to create a better and more pleasant society by realizing sustainable innovations together with our clients.</p>",
-    "address":"Blarenberglaan 3B<br>B-2800 Mechelen, Belgium",
-    "features":null,
-    "coordinates":[49.2,32.9],
-    "company-size": "500-1000"
-  },
-  {
-    "slug":"powergate",
-    "name":"Powergate",
-    "short-description":"Powergate specializes in helping enterprises and startups build high-performance interactive web and mobile apps.",
-    "long-description":"<p>PowerGate is a software engineering and technology consultancy based in Iowa City, Iowa and Hanoi, Vietnam. We are dedicated to helping enterprises and startups build high-performance interactive web and mobile applications. PowerGate has launched dozens of powerful, native-feeling mobile apps using Ionic plus AngularJS, React, Node.js, PHP, .NET and an Agile delivery process. We have experience across a number of industries, including: Health Care, Marketplaces, SaaS, Financial Services, Real Estate, and Social Networks.</p>",
-    "address":"1160 Lang str, Gia Nguyen Building<br>Hanoi, Hanoi City, Vietnam",
-    "features":null,
-    "coordinates":[76.8,47],
-    "company-size": "50-200"
-  },
-  {
-    "slug":"scopic",
-    "name":"Scopic Software",
-    "short-description":"provides complete end-to-end web, mobile & desktop development services",
-    "long-description":"<p>Scopic Software is the largest virtual software services company in the world. Our global team brings together diverse expertise to deliver creative and customized software solutions. Whether it’s mobile, web, or desktop, front-end or back-end, prototype or production, we specialize in creating vibrant, media-rich applications with industry-leading technologies. We are a low-cost, high-value partner for cross-platform mobile applications.</p><p>At Scopic, we realize that having the ability to support multiple platforms right off the bat is no longer an option – it’s a necessity. Ionic is our top choice for mobile cross-platform development. We have built a number of Ionic applications, including Treasure Beaches and Rokket Med. We also use the framework to build progressive web applications. The flexibility that Ionic provides is a benefit that we continue to appreciate. View our full mobile application portfolio here, and send us a message to request a quote today.</p>",
-    "address":"12 Carly Circle<br>Rutland MA 01543",
-    "features":null,
-    "coordinates":[28.1,36],
-    "email":["sales@scopicsoftware.com"],
-    "company-size": "200-500"
-  },
-  {
-    "slug":"spatial-vision",
-    "name":"Spatial Vision",
-    "short-description":"are creative and innovative technology experts, passionate about delivering high performance Ionic Mobile Apps.",
-    "long-description":"<p>We are creative and innovative technology experts, passionate about delivering high performance Ionic Mobile Apps that engage people to capture data about the world around them, to become ‘citizen scientists’. Our Mobile Apps allow users to visualize data in the real world context.</p><p>In addition, we provide targeted, effective Mobile solutions for government organisations managing complexity associated with natural resources, land, hazards and threats, licensing and regulation, and community engagement.</p><p>Our Agile Process ensures that whether it is a MVP or a complex mobile App we will deliver maximum value for your investment.</p>",
-    "address":"575 Bourke St<br>Melbourne Australia",
-    "features":null,
-    "coordinates":[88,74.3],
-    "company-size": "11-50"
-  },
-  {
-    "slug":"scaffold",
-    "name":"Scaffold",
-    "short-description":"builds apps for mobile, web and embedded software distribution. They specialise in IoT, BLE and integrated hardware projects with complex management systems.",
-    "long-description":"<p>Scaffold is a Northern Ireland based multi-disciplinary studio specialising in software development covering both web / app and machine-based software design and development in a variety of languages. We have been delivering Ionic based solutions since 2014 and offer development in both Ionic 1 and Ionic 2.</p><p>We have a wealth of experience in app development within the IoT (Internet of Things) sector including development for internet enabled devices. We have completed projects that incorporate integration with sensors via cable accessories and via wireless protocols such as Bluetooth and Bluetooth Low Energy (BLE).</p><p>We excel in delivering solutions to challenging problems and have a proven record in delivering award winning applications alongside robust systems and infrastructure for industries including manufacturing, education, automotive, health care and multimedia.</p><p>We are a team of developers, designers and thinkers that will ensure you get the best solution for you, your projects and your business.</p>",
-    "address":"Moira Road<br>Lisburn BT28 2RF, UK",
-    "features":null,
-    "coordinates":[46,30.8],
-    "company-size": null
-  },
-  {
-    "slug":"warpdev",
-    "name":"Warp Development",
-    "short-description":"is an innovative IT company that offers an umbrella solution to the design and development of high-end Ionic apps.",
-    "long-description":"<p>Warp Development utilises the Ionic Framework to create applications that perform and behave exceptionally on the latest mobile devices.  We create hybrid applications with all the best web technologies that we love and our creative design team can craft applications suitable for all devices. We are obsessed with performance and we always make sure that our applications perform at top speed.</p><p>Our team has extensive experience in creating a wide variety of applications, anything from e-commerce mobile apps to news apps. We place our users at the top of our list and make sure our applications are easy to use and understand.</p><p>If you need a customized backend with integrations into third party systems or an application to solve a specific business need, you have come to the right place. We create custom apps that will help your business succeed!</p>",
-    "address":"8, B, Cotillion Place Techno Park, 22 Techno Ave<br>Stellenbosch, 7600, South Africa",
-    "features":null,
-    "coordinates":[55.7,69.7],
-    "company-size": "50-200"
-  },
-  {
-    "slug":"yuxi",
-    "name":"Yuxi Global",
-    "short-description":"is a contemporary software development boutique HQ in Cincinnati and with operations in LATAM. We are technological enablers with an obsessive focus and desire to delighting our customer.",
-    "long-description":"<p>Yuxi Global is a contemporary software development boutique HQ in Cincinnati and with operations in LATAM. We are technological enablers with an obsessive focus and desire to delighting our customer.</p><p>We accomplish this by giving our customers, colleagues and contributors a seat at the table. By fostering an environment of continuous learning, knowledge dissemination, collaboration, and diversity, we are able to organically consolidate our core competences, and develop a culture of innovation and forward-looking individuals.</p><p>Our diverse and multicultural team located I. our two offices in Colombia with 150+ individuals, are the core of Nearshoring and Digital Solutions service offer, that impacts every stage of our client’s product lifecycle, from concept validation to product releases with quick and measurable wins.</p><p>Our experience in building Omni-channel experiences paired with our subject matter expertise in Ionic has enabled us to deliver solutions that go from allowing customers to interact with smart lockers and click-and-collect systems, to enabling Airports to interact, inform and chaperon visitors with real time information directly to their mobile devices, and FinTech solutions that are configurable for some largest banks in LATAM.</p><p>We combine all these solutions to our Data Analytics, UX/UI and our Frontend capabilities and we create a recopied that is exploited to our client’s benefit in their conquest of creating products and services that are exploited to their maximum potential and add value to their end-costumers digital journey.</p>",
-    "address":"Cra. 48 N 20-34<br>Ciudad del Río, Medellín, Colombia",
-    "features":null,
-    "coordinates":[27.4,54],
-    "company-size": "50-200"
   }
 ]

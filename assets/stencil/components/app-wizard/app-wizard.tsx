@@ -51,7 +51,11 @@ export class AppWizard {
     }
   ]
 
-  @State() step = 0;
+  STEP_BASICS = 0;
+  STEP_PROFILE = 1;
+  STEP_FINISH = 2;
+
+  @State() step = this.STEP_BASICS;
 
   @State() showSignup = true;
   @State() signupErrors = null;
@@ -64,6 +68,9 @@ export class AppWizard {
 
   // Color picker ref
   colorPickerRef: HTMLInputElement;
+
+  // Reference to the basic form for validation
+  submitButtonWrapRef: HTMLDivElement;
 
   // Form state
   @State() authenticating = false;
@@ -107,7 +114,7 @@ export class AppWizard {
       }
     }
 
-    this.step = 0;
+    this.step = this.STEP_BASICS;
   }
 
   setStep = (step) => {
@@ -121,8 +128,8 @@ export class AppWizard {
     this.setStep(this.step + 1 % this.STEPS.length);
   }
 
-  basicsNext = (e) => {
-    e.preventDefault();
+  basicsNext = (e?) => {
+    e?.preventDefault();
     if (this.user) {
       this.finish();
     } else {
@@ -179,7 +186,7 @@ export class AppWizard {
       this.setStep(this.STEPS.length - 1);
     } catch (e) {
       alert('Unable to create app, please start over!');
-      this.step = 0;
+      this.step = this.STEP_BASICS;
     }
   }
 
@@ -223,6 +230,10 @@ export class AppWizard {
   }
 
   handleChangeStep = (step) => {
+    if (step === this.STEP_PROFILE && this.step === this.STEP_BASICS) {
+      this.submitButtonWrapRef?.querySelector('button').click();
+      return;
+    }
     if (step !== this.step) {
       this.setStep(step);
     }
@@ -281,11 +292,15 @@ export class AppWizard {
                 } 
               }} />
           </div>
-          { this.user ? (
-          <Button><span>Create App</span></Button>
-          ) : (
-          <Button><span>Continue <ion-icon name="ios-arrow-forward" /></span></Button>
-          )}
+          <div ref={e => this.submitButtonWrapRef = e}>
+            <Button>
+            { this.user ? (
+              <span>Create App</span>
+            ) : (
+              <span>Continue <ion-icon name="ios-arrow-forward" /></span>
+            )}
+            </Button>
+          </div>
         </form>
       </div>
     )
@@ -315,7 +330,7 @@ export class AppWizard {
     )
   }
 
-  renderAccount() {
+  renderProfile() {
     if (this.email) {
       return (
         <div>
@@ -419,10 +434,10 @@ ionic start
 
   renderStep() {
     switch (this.step) {
-      case 0: return this.renderBasics();
+      case this.STEP_BASICS: return this.renderBasics();
       //case 1: return this.renderConfigure();
-      case 1: return this.renderAccount();
-      case 2: return this.renderFinish();
+      case this.STEP_PROFILE: return this.renderProfile();
+      case this.STEP_FINISH: return this.renderFinish();
     }
   }
 
@@ -449,7 +464,7 @@ ionic start
 }
 
 const Button = (_props, children) => (
-  <button type="submit" id="submit" class="btn btn-block">{ children }</button>
+  <button type="submit" class="btn btn-block">{ children }</button>
 );
 
 const ThemePicker = ({ value, onChange, onPick }) => {

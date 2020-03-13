@@ -70,7 +70,7 @@ export class FloatingInput {
       classes.push('has-value');
     }
 
-    return (
+    return [
       <div class={classes.join(' ')}>
         <input
           id={inputId}
@@ -89,8 +89,8 @@ export class FloatingInput {
           onBlur={_e => this.setFocus(false)}
           />
         <label>{label}</label>
-        { message ? (<div class="form-message form-message--small">{message}</div>) : null }
-      </div>
-    );
+      </div>,
+      message ? <div class="form-message form-message--small">{message}</div> : null
+    ];
   }
 }

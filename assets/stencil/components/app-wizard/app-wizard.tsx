@@ -158,7 +158,14 @@ export class AppWizard {
     e.preventDefault();
     try {
       this.authenticating = true;
-      await signup(this.signupForm, 'wizard-1');
+      const ret = await signup(this.signupForm, 'wizard-1');
+
+      if (ret.error) {
+        this.authenticating = false;
+        this.signupErrors = e;
+        return;
+      }
+
       this.email = this.loginForm.email;
       this.authenticating = false;
     } catch (e) {

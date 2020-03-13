@@ -47,6 +47,14 @@ export namespace Components {
   interface IonicSearch {
     'mobile': boolean;
   }
+  interface IonicSignupForm {
+    'gaEventLabel': any;
+    'gaEventName': any;
+    'onFormSubmit': (e) => Promise<void>;
+    'onInputChange': (name: string) => (e: any) => void;
+    'onLoginInstead': () => void;
+    'source': any;
+  }
   interface IonicSlider {}
   interface IonicSnapBar {}
   interface IonicSubHeader {
@@ -156,6 +164,12 @@ declare global {
     new (): HTMLIonicSearchElement;
   };
 
+  interface HTMLIonicSignupFormElement extends Components.IonicSignupForm, HTMLStencilElement {}
+  var HTMLIonicSignupFormElement: {
+    prototype: HTMLIonicSignupFormElement;
+    new (): HTMLIonicSignupFormElement;
+  };
+
   interface HTMLIonicSliderElement extends Components.IonicSlider, HTMLStencilElement {}
   var HTMLIonicSliderElement: {
     prototype: HTMLIonicSliderElement;
@@ -227,6 +241,7 @@ declare global {
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-react-demo': HTMLIonicReactDemoElement;
     'ionic-search': HTMLIonicSearchElement;
+    'ionic-signup-form': HTMLIonicSignupFormElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
     'ionic-sub-header': HTMLIonicSubHeaderElement;
@@ -272,6 +287,14 @@ declare namespace LocalJSX {
   interface IonicReactDemo {}
   interface IonicSearch {
     'mobile'?: boolean;
+  }
+  interface IonicSignupForm {
+    'gaEventLabel'?: any;
+    'gaEventName'?: any;
+    'onFormSubmit'?: (e) => Promise<void>;
+    'onInputChange'?: (name: string) => (e: any) => void;
+    'onLoginInstead'?: () => void;
+    'source'?: any;
   }
   interface IonicSlider {}
   interface IonicSnapBar {}
@@ -320,6 +343,7 @@ declare namespace LocalJSX {
     'ionic-quick-signup': IonicQuickSignup;
     'ionic-react-demo': IonicReactDemo;
     'ionic-search': IonicSearch;
+    'ionic-signup-form': IonicSignupForm;
     'ionic-slider': IonicSlider;
     'ionic-snap-bar': IonicSnapBar;
     'ionic-sub-header': IonicSubHeader;
@@ -350,6 +374,7 @@ declare module "@stencil/core" {
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
       'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
+      'ionic-signup-form': LocalJSX.IonicSignupForm & JSXBase.HTMLAttributes<HTMLIonicSignupFormElement>;
       'ionic-slider': LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
       'ionic-sub-header': LocalJSX.IonicSubHeader & JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement>;

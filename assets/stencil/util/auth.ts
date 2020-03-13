@@ -82,12 +82,14 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
     const data = await ret.json();
 
     if (data.error) {
-      throw makeApiError('Unable to create account');
+      return data;
     }
 
     identify(form.email);
 
     trackEvent({ id: signupEventId });
+    
+    return data;
   } catch (e) {
     throw makeApiError('Unable to create account', e);
   }

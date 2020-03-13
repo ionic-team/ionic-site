@@ -27,7 +27,7 @@ export class FloatingInput {
   }
 
   @Method()
-  setFocus(focused) {
+  async setFocus(focused) {
     this.focused = focused;
   }
 

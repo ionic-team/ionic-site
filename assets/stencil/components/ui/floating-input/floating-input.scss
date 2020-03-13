@@ -4,7 +4,7 @@ ui-floating-input {
   .ui-floating-input {
     position: relative;
     border: 1px solid var(--c-indigo-400);
-    background: var(--c-grey-100);
+    background: var(--c-indigo-50);
     border-radius: 8px;
 
     &.focused {
@@ -21,7 +21,7 @@ ui-floating-input {
 
     &.focused, &.has-value {
       label {
-        font-size: 12px;
+        font-size: 12px !important;
         // line-height: 15px;
         line-height: 1.15rem;
         transform: translateY(-106%) scale(0.75);
@@ -42,8 +42,8 @@ ui-floating-input {
     color: var(--c-carbon-100) !important;
     display: block;
     font-weight: normal;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 15px !important;
+    line-height: 18px !important;
     letter-spacing: .009375em;
 
     overflow: hidden;

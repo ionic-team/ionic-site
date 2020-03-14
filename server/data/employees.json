@@ -79,7 +79,7 @@
   {
     "name":"Dan Imhoff",
     "dept":"Development",
-    "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
+    "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic App Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
     "twitter":"dwieeb",
     "image": "dan.jpg"
   },
@@ -148,7 +148,7 @@
   {
     "name":"Lars Mikkelsen",
     "dept":"Development",
-    "description":"Lars works on the Ionic Platform and it’s his passion to make it as fast, secure, and reliable as humanly possible. His perseverance and attention to detail ensures that the toughest of bugs never stand a chance. Outside work he enjoys exploring the Boston food scene and “hygge” with his girlfriend and their pug.",
+    "description":"Lars works on the Ionic App Platform and it’s his passion to make it as fast, secure, and reliable as humanly possible. His perseverance and attention to detail ensures that the toughest of bugs never stand a chance. Outside work he enjoys exploring the Boston food scene and “hygge” with his girlfriend and their pug.",
     "twitter":null,
     "image": "lars.jpg"
   },
@@ -225,7 +225,7 @@
   {
     "name":"Nick Hyatt",
     "dept":"Development",
-    "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic Platform.",
+    "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic App Platform.",
     "twitter":"NicholasPHyatt",
     "image": "nick.jpg"
   },

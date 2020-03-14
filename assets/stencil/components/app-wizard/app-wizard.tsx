@@ -1,6 +1,6 @@
 import { Component, State, h, Listen } from '@stencil/core';
 
-import { login, signup, SignupForm, LoginForm, getUser } from '../../util/auth';
+import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
@@ -58,7 +58,6 @@ export class AppWizard {
   @State() step = this.STEP_BASICS;
 
   @State() showSignup = true;
-  @State() signupErrors = null;
   @State() loginErrors = null;
 
   user: ApiUser;
@@ -88,11 +87,6 @@ export class AppWizard {
 
   @State() loginForm: LoginForm = {
     email: ''
-  };
-  @State() signupForm: SignupForm = {
-    name: '',
-    email: '',
-    username: ''
   };
 
   async componentDidLoad() {
@@ -154,28 +148,10 @@ export class AppWizard {
     return this.finish();
   }
 
-  signup = async (e) => {
-    e.preventDefault();
-    try {
-      this.authenticating = true;
-      const ret = await signup(this.signupForm, 'wizard-1');
-
-      if (ret.error) {
-        this.authenticating = false;
-        this.signupErrors = e;
-        return;
-      }
-
-      this.email = this.loginForm.email;
-      this.authenticating = false;
-    } catch (e) {
-      console.error(e);
-      this.authenticating = false;
-      this.signupErrors = e;
-      return;
-    }
-
-    return this.finish();
+  handleSignup = (e: CustomEvent<SignupForm>) => {
+    const form = e.detail;
+    this.email = form.email;
+    this.finish();
   }
 
   skipAuth = (_e) => {
@@ -363,14 +339,17 @@ export class AppWizard {
           <h4>Get access to the community, forum, and more</h4>
         </hgroup>
         { this.showSignup ? (
-        <SignupForm
-          handleSubmit={this.signup}
-          disable={this.authenticating}
-          errors={this.signupErrors}
-          form={this.signupForm}
-          loginInstead={() => this.showSignup = false}
-          inputChange={(name) => e => this.signupForm[name] = e.target.value}
-          />
+          <ionic-signup-form
+            source="wizard-1"
+            ga-event-name="Wizard Signup"
+            ga-event-label="btn-wizard-signup-submit"
+            hubspot-event-id="000006040735"
+            id="signup-form"
+            allow-login="true"
+            oauth-redirect="false"
+            onSignedUp={this.handleSignup}
+            onLoginInstead={() => this.showSignup = false}
+          ></ionic-signup-form>
         ) : (
         <LoginForm
           handleSubmit={this.login}

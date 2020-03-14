@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  SignupForm,
+} from './util/auth';
+import {
   TabType,
 } from './components/react-capacitor/react-capacitor';
 import {
@@ -48,11 +51,11 @@ export namespace Components {
     'mobile': boolean;
   }
   interface IonicSignupForm {
+    'allowLogin': boolean;
     'gaEventLabel': any;
     'gaEventName': any;
-    'onFormSubmit': (e) => Promise<void>;
-    'onInputChange': (name: string) => (e: any) => void;
-    'onLoginInstead': () => void;
+    'hubspotEventId': string;
+    'oauthRedirect': boolean;
     'source': any;
   }
   interface IonicSlider {}
@@ -289,11 +292,13 @@ declare namespace LocalJSX {
     'mobile'?: boolean;
   }
   interface IonicSignupForm {
+    'allowLogin'?: boolean;
     'gaEventLabel'?: any;
     'gaEventName'?: any;
-    'onFormSubmit'?: (e) => Promise<void>;
-    'onInputChange'?: (name: string) => (e: any) => void;
-    'onLoginInstead'?: () => void;
+    'hubspotEventId'?: string;
+    'oauthRedirect'?: boolean;
+    'onLoginInstead'?: (event: CustomEvent<void>) => void;
+    'onSignedUp'?: (event: CustomEvent<SignupForm>) => void;
     'source'?: any;
   }
   interface IonicSlider {}

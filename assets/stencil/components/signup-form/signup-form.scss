@@ -6,7 +6,7 @@ ionic-signup-form {
   }
 
   ui-floating-input {
-    margin-bottom: 28px;
+    margin-bottom: 25px;
   }
 
   .well {
@@ -18,7 +18,6 @@ ionic-signup-form {
     border: 1px solid #E1E5ED;
     border-radius: 6px;
     margin-top: 16px;
-    margin-bottom: 16px;
     color: #3B424D;
     font-size: 14px;
     font-weight: 600;
@@ -26,6 +25,10 @@ ionic-signup-form {
     .text-link {
       margin-left: 5px;
     }
+  }
+
+  .disclaimer {
+    margin-top: 16px;
   }
 
   .form-errors {

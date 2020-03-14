@@ -1,7 +1,8 @@
-import { Component, h, State, Prop } from "@stencil/core";
+import { Component, h, State, Prop, Event } from "@stencil/core";
 import { SignupForm, signup, oauthAuthorize } from "../../util/auth";
 import { FormErrors } from "../../forms";
 import { trackClick } from "../../util/analytics";
+import { EventEmitter } from "@ionic/core/dist/types/stencil.core";
 
 
 @Component({
@@ -12,12 +13,22 @@ import { trackClick } from "../../util/analytics";
 export class IonicSignupForm {
   @Prop() source;
 
-  @Prop() onFormSubmit: (e) => Promise<void>;
-  @Prop() onLoginInstead: () => void;
-  @Prop() onInputChange: (name: string) => (e: any) => void;
+  // Fired when the signup has completed. Is only triggered if oauthRedirect is false
+  @Event() signedUp: EventEmitter<SignupForm>;
+  // Fired if the user opted to log-in instead and allowLogin is true
+  @Event() loginInstead: EventEmitter<void>;
 
+  // Google analytics event name
   @Prop() gaEventName;
+  // Google analytics event label
   @Prop() gaEventLabel;
+  // The hubspot event id on signup
+  @Prop() hubspotEventId = '000006040735';
+  // Whether to navigate away from the page to do the final oAuth authorization
+  @Prop() oauthRedirect = true;
+  // Whether to allow the user to login instead
+  @Prop() allowLogin = false;
+
 
   @State() submitting = false;
 
@@ -44,14 +55,19 @@ export class IonicSignupForm {
     }
 
     try {
-      const ret = await signup(this.form, this.source, '000006040735');
+      const ret = await signup(this.form, this.source, this.hubspotEventId);
 
       if (ret.error) {
         this.handleErrors(ret.error);
         return;
       }
 
-      await oauthAuthorize();
+      // Trigger the authorize redirect
+      if (this.oauthRedirect) {
+        await oauthAuthorize();
+      } else {
+        this.signedUp.emit(this.form);
+      }
     } catch (e) {
       this.formErrorMap = { '_form': `Unable to sign up: ${e.message}` };
     } finally {
@@ -74,7 +90,7 @@ export class IonicSignupForm {
   inputChange = (name: string) => e => this.form[name] = e.target.value;
 
   render() {
-    const { form, inputChange, onLoginInstead } = this;
+    const { form, inputChange } = this;
 
     const disable = this.submitting;
 
@@ -129,9 +145,16 @@ export class IonicSignupForm {
           class="btn btn-block"
           disabled={disable}
           tabindex="5">Create profile</button>
+        {this.allowLogin ? (
         <div class="well">
-          Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); onLoginInstead() }}>Log in</a>
+          Already have an account?
+          <a href="#"
+             class="text-link"
+             onClick={e => { e.preventDefault(); this.loginInstead.emit() }}>
+               Log in
+          </a>
         </div>
+        ) : null}
         <div class="form-group disclaimer">
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
         </div>

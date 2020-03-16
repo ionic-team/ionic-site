@@ -4,10 +4,13 @@
 .cta.cta--transparent {
     background: #3E6CFF;
     color: white;
-    padding-top: 0;
+    padding-top: 64px;
     margin-top: 0;
 
   hgroup {
+    max-width: 790px;
+    padding-bottom: 52px;
+
     h1 {
       font-size: 56px;
       line-height: 62px;
@@ -28,9 +31,13 @@
       0px 8px 16px rgba(2, 8, 20, 0.03), 
       0px 4px 8px rgba(2, 8, 20, 0.04);
     border-radius: 8px;
+    max-width: 530px;
+    padding: 0 32px 12px;
+    margin-bottom: 187px;
+    display: block;
 
     h3 {
-      font-weight: 500;
+      font-weight: 600;
       font-size: 22px;
       line-height: 35px;
       letter-spacing: -0.02em;
@@ -43,8 +50,27 @@
       color: #E7F4FF;
 
       a {
+        margin-left: 8px;
+        color: white;
         font-weight: 600;
+        position: relative;
         border-bottom: 2px solid rgba(white, .3);
+
+        &::after {
+          background-image: url('/img/pricing/arrow-forward-sharp.svg');
+          background-size: 100%;
+          content: '';
+          height: 10px;
+          width: 12px;
+          top: 4px;
+          right: -16px;
+          position: absolute;
+          transition: .2s transform ease;
+        }
+
+        &:hover {
+          transform: translateX(3px);
+        }
       }
     }
   }

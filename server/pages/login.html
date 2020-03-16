@@ -117,7 +117,7 @@
               params.set("nonce", Math.random().toString(36).substring(2));
             }
 
-            // window.location.assign("/oauth/authorize?" + params.toString());
+            window.location.assign("/oauth/authorize?" + params.toString());
           })
           .catch(function(reason) {
             clearErrors("#login-form");

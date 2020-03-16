@@ -120,10 +120,6 @@
     }
   }
 
-  .color-picker {
-    display: none;
-  }
-
   .logged-in {
     p {
       margin: 50px 0;
@@ -256,6 +252,7 @@
       }
 
       &.pick-theme {
+        position: relative;
         width: 38px;
         height: 38px;
         border: 2px solid #E9EDF3;
@@ -266,6 +263,13 @@
         ion-icon {
           vertical-align: middle;
           margin-top: -2px;
+        }
+
+        .color-picker {
+          position: absolute;
+          left: 0;
+          visibility: collapse;
+          bottom: 10px;
         }
       }
     }

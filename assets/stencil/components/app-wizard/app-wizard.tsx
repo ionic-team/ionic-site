@@ -1,4 +1,4 @@
-import { Component, State, h, Listen } from '@stencil/core';
+import { Component, State, h, Listen, Element } from '@stencil/core';
 
 import { login, signup, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
@@ -36,6 +36,8 @@ declare var window: any;
   shadow: false
 })
 export class AppWizard {
+  @Element() el;
+
   STEPS = [
     {
       name: 'App Style',
@@ -240,7 +242,9 @@ export class AppWizard {
   }
 
   handlePickTheme = (_e) => {
-    this.colorPickerRef && this.colorPickerRef.click();
+    const colorPicker = this.el.querySelector('input[type="color"]');
+
+    colorPicker && colorPicker.click();
   }
 
   handleInput = (fieldName) => e => {
@@ -255,13 +259,6 @@ export class AppWizard {
           <h4>Let's start your first app</h4>
         </hgroup>
         <form class="form" onSubmit={this.basicsNext}>
-          <input
-            type="color"
-            class="color-picker"
-            ref={e => this.colorPickerRef = e}
-            value={this.theme}
-            onInput={(e: any) => this.theme = e.currentTarget.value }
-            />
           <ui-floating-input
             label="App name"
             type="text"
@@ -271,7 +268,7 @@ export class AppWizard {
             required={true}
             onChange={this.handleInput('appName')} />
           <label>Pick a theme</label>
-          <ThemePicker
+          <ThemeSwitcher
             value={this.theme}
             onChange={(theme) => this.theme = theme}
             onPick={this.handlePickTheme}
@@ -414,8 +411,8 @@ ionic start
           <pre><code>{instructions}</code></pre>
         </div>
         <div class="info">
+          Requires <b><code>@ionic/cli</code> 6.2.2</b> or above<br />
           <small>Note: this command will expire in one week.<br />
-          Requires <code>@ionic/cli</code> 6.2.2 or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
         </div>
         <hr />
@@ -467,7 +464,7 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-const ThemePicker = ({ value, onChange, onPick }) => {
+const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [
     ...THEMES,
     !THEMES.find(t => t === value) ? value : null
@@ -493,6 +490,12 @@ const ThemePicker = ({ value, onChange, onPick }) => {
         onClick={() => onPick()}
         >
         <ion-icon name="md-color-filter" />
+        <input
+          type="color"
+          class="color-picker"
+          value={value}
+          onInput={(e: any) => onChange(e.currentTarget.value) }
+          />
       </div>
     </div>
   )

@@ -19,12 +19,6 @@ export class FloatingInput {
   @Prop() onChange: (e) => void = (_e) => {};
 
   @State() focused = false;
-  @State() hasValue = false;
-
-  @Watch('value')
-  handleValueChange() {
-    this.hasValue = !!this.value;
-  }
 
   @Method()
   async setFocus(focused) {
@@ -32,7 +26,6 @@ export class FloatingInput {
   }
 
   checkChange = (e) => {
-    this.hasValue = !!e.currentTarget.value;
     this.onChange && this.onChange(e);
   }
 
@@ -66,7 +59,7 @@ export class FloatingInput {
       classes.push('focused');
     }
 
-    if (this.hasValue) {
+    if (this.value) {
       classes.push('has-value');
     }
 

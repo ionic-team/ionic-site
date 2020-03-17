@@ -178,18 +178,19 @@ export class AppWizard {
   }
 
   finish = async () => {
-    try {
-      await this.save();
+    const created = await this.save();
 
-      trackEvent({
-        id: 'Start Wizard Finish'
-      });
-
-      this.setStep(this.STEPS.length - 1);
-    } catch (e) {
-      alert('Unable to create app, please start over!');
-      this.step = this.STEP_BASICS;
+    if (!created) {
+      alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+      this.setStep(this.STEP_BASICS);
+      return;
     }
+
+    trackEvent({
+      id: 'Start Wizard Finish'
+    });
+
+    this.setStep(this.STEPS.length - 1);
   }
 
   save = async () => {
@@ -211,6 +212,10 @@ export class AppWizard {
           'Content-Type': 'application/json'
         }
       });
+
+      if (res.status !== 200) {
+        throw new Error('Error saving app');
+      }
 
       const data = await res.json();
       this.appId = data.appId;

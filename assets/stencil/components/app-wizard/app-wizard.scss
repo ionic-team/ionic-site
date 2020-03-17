@@ -226,6 +226,7 @@
     grid-template-columns: repeat(auto-fit, minmax(34px, 1fr));
     column-gap: 5px;
     row-gap: 5px;
+    align-items: center;
     margin-bottom: 16px;
     user-select: none;
     .theme {
@@ -253,6 +254,8 @@
 
       &.pick-theme {
         position: relative;
+        margin-top: -2px;
+        margin-left: -2px;
         width: 38px;
         height: 38px;
         border: 2px solid #E9EDF3;

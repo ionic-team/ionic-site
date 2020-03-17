@@ -54,7 +54,7 @@ const hbsSubmit = async (app) => {
 
 const save = async (data) => {
   if (!redisClient) {
-    return;
+    throw new Error('No redis client');
   }
 
   // tid is the hubspot id we can just piggy-back on as our session id
@@ -117,14 +117,32 @@ module.exports = {
     res.json(app);
   },
   save: async (req, res) => {
+    const error = (e) => {
+      if (e) {
+        console.error(e);
+      }
+      res.status(400);
+      res.json({
+        error: 'Unable to save app. Please try again'
+      });
+    }
     const app = req.body;
     let data = {};
+
     if (redisClient) {
       const ip = req.header('CF-Connecting-IP');
       app['ip'] = ip;
 
-      data = await save(app);
+      try {
+        data = await save(app);
+      } catch (e) {
+        return error(e);
+      }
     }
+    if (!data.appId) {
+      return error();
+    }
+
     res.status(200);
     res.json(data);
   },

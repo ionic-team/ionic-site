@@ -424,7 +424,7 @@ ionic start
             href="https://twitter.com/share?ref_src=twsrc%5Etfw"
             class="twitter-share-button"
             data-size="large"
-            data-text="I just built an app in seconds using the Ionic App Wizard. Check it out!"
+            data-text="Check out the new mobile App Wizard from @ionicframework"
             data-url="https://ionicframework.com/start"
             data-via="ionicframework"
             data-related="ionicframework,maxlynch"

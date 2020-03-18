@@ -417,8 +417,18 @@ ionic start
         </div>
         <div class="info">
           Requires <b><code>@ionic/cli</code> 6.2.2</b> or above<br />
-          <small>Note: this command will expire in one week.<br />
-          Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a></small>
+          Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
+        </div>
+        <div class="share">
+          <a
+            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+            class="twitter-share-button"
+            data-size="large"
+            data-text="I just built an app in seconds using the Ionic App Wizard. Check it out!"
+            data-url="https://ionicframework.com/start"
+            data-via="ionicframework"
+            data-related="ionicframework,maxlynch"
+            data-show-count="false">Tweet</a>
         </div>
         <hr />
         <div class="social">

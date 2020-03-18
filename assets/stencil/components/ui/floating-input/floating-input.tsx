@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Method, Watch } from '@stencil/core';
+import { Component, h, Prop, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'ui-floating-input',

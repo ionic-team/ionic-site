@@ -1,38 +1,53 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+$c-white: white;
+$c-carbon-600: #27323F;
+$c-black-700: #010610;
+$c-aqua: #E7F4FF;
+$c-blue-800: #4D8DFF;
+$c-indigo-200: #E9EDF3;
+$c-indigo-1000: #2D4665;
+$c-indigo-1100: #182E4A;
+$c-indigo-1200: #001A3A;
+
+$expander-padding: 32px;
+
 .cta.cta--transparent {
     background: #3E6CFF;
-    color: white;
-    padding-top: 64px;
+    color: $c-white;
+    padding-top: 20px;
     margin-top: 0;
 
   hgroup {
     max-width: 790px;
-    padding-bottom: 52px;
+    padding-bottom: 35px;
 
     h1 {
       font-size: 56px;
       line-height: 62px;
       letter-spacing: -0.04em;
+      margin-bottom: 4px;
     }
 
     p {
       font-size: 22px;
       line-height: 35px;
       letter-spacing: -0.02em;
-      color: rgba(#E7F4FF, 0.9);
+      color: rgba($c-aqua, 0.9);
     }
   }
 
   aside {
-    border: 1px solid rgba(#E7F4FF, .3);
+    border: 1px solid rgba($c-aqua, .3);
     box-shadow: 
       0px 8px 16px rgba(2, 8, 20, 0.03), 
       0px 4px 8px rgba(2, 8, 20, 0.04);
     border-radius: 8px;
-    max-width: 530px;
-    padding: 0 32px 12px;
+    max-width: 533px;
+    padding: 1px $expander-padding 13px;
+    margin-left: -1 * $expander-padding;
+    margin-right: -1 * $expander-padding;
     margin-bottom: 187px;
     display: block;
 
@@ -41,20 +56,22 @@
       font-size: 22px;
       line-height: 35px;
       letter-spacing: -0.02em;
+      margin-top: 18px;
+      margin-bottom: 0px;
     }
 
     p {
       font-size: 16px;
       line-height: 26px;
       letter-spacing: -0.01em;
-      color: #E7F4FF;
+      color: $c-aqua;
 
       a {
         margin-left: 8px;
-        color: white;
+        color: $c-white;
         font-weight: 600;
         position: relative;
-        border-bottom: 2px solid rgba(white, .3);
+        border-bottom: 2px solid rgba($c-white, .3);
 
         &::after {
           background-image: url('/img/pricing/arrow-forward-sharp.svg');
@@ -66,12 +83,190 @@
           right: -16px;
           position: absolute;
           transition: .2s transform ease;
+          display: inline-block;
         }
 
-        &:hover {
+        &:hover::after {
           transform: translateX(3px);
         }
       }
     }
+  }
+}
+
+main {
+  margin-top: -160px;
+  position: relative;
+  z-index: 1;
+
+  section:first-child {
+    h3 {
+      color: $c-white;
+      font-size: 22px;
+      line-height: 35px;
+      letter-spacing: -0.02em;
+      color: $c-white;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+$card-expander-gap: 10px;
+$expander-padding-with-gap: $expander-padding + $card-expander-gap;
+.cards {
+  padding: 0 0 12px;
+  margin-left: -1 * $expander-padding-with-gap;
+  margin-right: -1 * $expander-padding-with-gap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.card {
+  flex: 1 0 200px;
+  padding: 40px $expander-padding-with-gap 96px;
+  position: relative;
+  transition: .3s transform ease-out;
+
+  &::before {
+    position: absolute;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #486FFF;
+    box-shadow: 
+      0px 8px 16px rgba(2, 8, 20, 0.08), 
+      0px 4px 8px rgba(2, 8, 20, 0.12);
+    border-radius: 8px;
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: $card-expander-gap;
+    left: $card-expander-gap;
+    z-index: -1;
+  }
+
+  h2 {
+    color: $c-black-700;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+  }
+
+  p, 
+  li {
+    color: $c-indigo-1000;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px 0;
+    width: calc(100% + 34px);
+  }
+
+  li {
+    padding-left: 22px;
+    font-size: 14px;
+    flex: 1 0 180px;
+    margin-bottom: 8px;
+    position: relative;
+    list-style: none;
+
+    &::before {
+      content: '';
+      background: url('/img/pricing/ico-check-dark-2020.svg');
+      background-size: 100%;
+      height: 10px;
+      width: 10px;
+      position: absolute;
+      left: 0;
+      top: 8px;
+    }
+  }
+
+  .call-to-action {
+    color: $c-blue-800;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 32px $expander-padding;
+    position: absolute;
+    bottom: 0;
+    left: $card-expander-gap;
+    right: $card-expander-gap;
+    background: #F9FBFE;
+    border-radius: 0px 0px 8px 8px;
+    
+    svg {
+      float: right;
+      position: relative;
+      transition: .3s transform ease-out;
+    }
+  }
+
+  &.dark {
+    &::before {
+      background: $c-indigo-1200;
+      box-shadow: 
+        0px 8px 16px rgba(2, 8, 20, 0.08),
+        0px 4px 8px rgba(2, 8, 20, 0.12);
+    }
+
+    h2 {
+      color: $c-white;
+    }
+
+    p,
+    li {
+      color: $c-indigo-200;
+    }
+
+    li::before {
+      background-image: url('/img/pricing/ico-check-light-2020.svg');
+    }
+
+    .call-to-action {
+      color: $c-white;
+      background: $c-indigo-1100;
+
+      path {
+        stroke: $c-white;
+      }
+    }
+  }
+
+
+  &:hover {
+    transform: translateY(-2px);
+
+    .call-to-action svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+#loved-by {
+  margin-top: 160px;
+  margin-bottom: 160px;
+
+  h3 {
+    max-width: 300px;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    color: $c-carbon-600;
+    margin-bottom: 32px;
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
   }
 }

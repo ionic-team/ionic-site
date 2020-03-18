@@ -416,7 +416,7 @@ ionic start
           <pre><code>{instructions}</code></pre>
         </div>
         <div class="info">
-          Requires <b><code>@ionic/cli</code> 6.2.2</b> or above<br />
+          Requires <b><code>@ionic/cli</code> 6.3.0</b> or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
         </div>
         <div class="share">

@@ -1,17 +1,6 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
-$c-white: white;
-$c-carbon-600: #27323F;
-$c-black-700: #010610;
-$c-aqua: #E7F4FF;
-$c-blue-800: #4D8DFF;
-$c-indigo-200: #E9EDF3;
-$c-indigo-1000: #2D4665;
-$c-indigo-1100: #182E4A;
-$c-indigo-1200: #001A3A;
-
-$expander-padding: 32px;
+@import './_vars';
 
 .cta.cta--transparent {
     background: #3E6CFF;

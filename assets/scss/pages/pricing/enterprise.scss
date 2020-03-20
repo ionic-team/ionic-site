@@ -15,6 +15,7 @@
 
   hgroup {
     max-width: 650px;
+    padding-bottom: 120px;
   }
 
   h1 {
@@ -22,6 +23,7 @@
     line-height: 110%;
     letter-spacing: -0.04em;
     color: $c-white;
+    margin-bottom: 5px;
   }
 
   p {
@@ -53,6 +55,7 @@ main {
     line-height: 44px;
     letter-spacing: -0.04em;
     color: $c-indigo-1200;
+    margin-bottom: 7px;
   }
 
   h3 {
@@ -61,6 +64,7 @@ main {
     line-height: 160%;
     letter-spacing: -0.02em;
     color: $c-carbon-900;
+    margin-bottom: 0px;
   }
 
   h4 {
@@ -84,7 +88,7 @@ main {
   }
 
   .features {
-    margin: 16px 0 64px;
+    margin: 31px 0 67px;
 
     li {
       font-size: 16px;
@@ -92,7 +96,7 @@ main {
       letter-spacing: -0.01em;
       color: $c-indigo-850;
       padding-left: 36px;
-      margin: 16px 0;
+      margin: 24px 0;
       position: relative;
       list-style: none;
   
@@ -117,7 +121,7 @@ main {
 
     li {
       list-style: none;
-      padding: 20px;
+      padding: 6px 20px;
     }
   }
 
@@ -128,14 +132,14 @@ main {
       0px 8px 16px rgba(2, 8, 20, 0.08), 
       0px 4px 8px rgba(2, 8, 20, 0.12);
     border-radius: 8px;
-    margin-top: -40px;
-    padding: 24px 40px 38px;
+    margin-top: -48px;
+    padding: 20px 40px 38px;
     position: relative;
     z-index: 1;
     flex: 0 0 540px;
 
     &__aside {
-      padding: 32px 0 16px 68px;
+      padding: 44px 0 16px 68px;
 
       @media (max-width: $screen-xs-max) {
         padding-left: 15px;
@@ -161,8 +165,13 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 96px;
+  margin-top: 124px;
   margin-bottom: 128px;
+
+  &::before,
+  &::after {
+    display: none;
+  }
 
   hgroup {
     position: sticky;
@@ -176,6 +185,7 @@ main {
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: $c-indigo-700;
+      margin-bottom: 29px;
     }
 
     h2 {
@@ -184,6 +194,7 @@ main {
       line-height: 110%;
       letter-spacing: -0.04em;
       color: $c-carbon-900;
+      margin-bottom: 20px;
     }
 
     p {
@@ -191,6 +202,7 @@ main {
       line-height: 160%;
       letter-spacing: -0.03em;
       color: $c-indigo-800;
+      margin-bottom: 13px;
     }
 
     @media (max-width: $screen-xs-max) {
@@ -203,7 +215,8 @@ main {
   > ul {
     padding: 0;
     position: relative;
-    max-width: 400px;
+    max-width: 455px;
+    margin-top: 53px;
 
     &::before {
       border-left: 2px dashed #78B8F8;
@@ -235,6 +248,7 @@ main {
       letter-spacing: -0.01em;
       color: $c-carbon-700;
       margin-top: 0;
+      margin-bottom: 0px;
     }
 
     p {
@@ -279,13 +293,13 @@ main {
 
 #quote {
   background: $c-indigo-50;
-  padding-top: 160px;
+  padding-top: 130px;
   overflow: hidden;
 
   hgroup {
     text-align: center;
     max-width: 518px;
-    margin: 0 auto 32px;
+    margin: 0 auto 74px;
 
     h4 {
       font-weight: bold;
@@ -302,6 +316,7 @@ main {
       line-height: 110%;
       letter-spacing: -0.04em;
       color: $c-carbon-900;
+      margin-bottom: 30px;
     }
   }
 
@@ -309,7 +324,7 @@ main {
     background: #2774D2;
     border-radius: 8px;
     width: 672px;
-    padding: 64px;
+    padding: 64px 64px 90px;
     display: block;
     position: relative;
 
@@ -319,7 +334,7 @@ main {
       line-height: 150%;
       letter-spacing: -0.01em;
       color: $c-white;
-      margin: 32px 0;
+      margin: 55px 0 40px;
       position: relative;
       max-width: 384px;
 
@@ -353,11 +368,11 @@ main {
 
     aside {
       position: absolute;
-      right: -340px;
-      top: 50px;
+      right: -375px;
+      top: 59px;
 
       img {
-        width: 544px;
+        width: 591px;
       }
     }
 
@@ -381,7 +396,7 @@ main {
     margin: 64px -20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
 
     li {
@@ -396,7 +411,7 @@ main {
 }
 
 #get-started {
-  padding-top: 128px;
+  padding-top: 232px;
   padding-bottom: 128px;
 
   hgroup {
@@ -412,6 +427,7 @@ main {
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: $c-indigo-700;
+    margin-bottom: 30px;
   }
 
   h2 {

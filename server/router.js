@@ -43,7 +43,6 @@ router: app => {
   .get('/about', (_, res) => res.render('about'))
   .get('/advisory', (_, res) => res.render('products/advisory'))
   .get('/appflow', (_, res) => res.render('products/appflow'))
-  .get('/enterprise/auth-connect', (_, res) => res.render('enterprise/auth-connect'))
 
   .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.render('books/evaluating-ionic-for-enterprise'))
   .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
@@ -57,12 +56,15 @@ router: app => {
   .get('/creator', getPrismicAPI, (req, res, next) => getSingle(req, res, next, 'creator_x_promo', 'creator/index'))
   .get('/creator/pricing', (_, res) => res.render('creator/pricing'))
   .get('/creator/support', (_, res) => res.render('creator/support'))
+  .get('/customers', (_, res) => res.render('enterprise/customers'))
   .get('/demo', (_, res) => res.render('demo'))
   .get('/developers', (_, res) => res.render('developers'))
 
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
-  .get('/customers', (_, res) => res.render('enterprise/customers'))
+  .get('/enterprise/auth-connect', (_, res) => res.render('enterprise/auth-connect'))
   .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
+  .get('/enterprise/identity-vault', (_, res) => res.render('enterprise/identity-vault'))
+  .get('/enterprise/offline-storage', (_, res) => res.render('enterprise/offline-storage'))
   .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
 
   .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
@@ -90,7 +92,6 @@ router: app => {
 
   .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
 
-  .get('/enterprise/identity-vault', (_, res) => res.render('enterprise/identity-vault'))
   .get('/integrations', (req, res, next) =>
     getIntegrations(req, res, next))
   .get('/integrations/category/:category', (req, res, next) =>
@@ -101,9 +102,10 @@ router: app => {
   .get('/jobs', (_, res) => res.render('jobs'))
   .get('/login', (_, res) => res.render('login'))
   .get('/logout', (_, res) => res.render('logout'))
-  .get('/enterprise/offline-storage', (_, res) => res.render('enterprise/offline-storage'))
   .get('/press', (_, res) => res.render('press'))
   .get('/pricing', (_, res) => res.render('pricing/index'))
+  .get('/pricing/compare', (_, res) => res.render('pricing/compare'))
+  .get('/pricing/enterprise', (_, res) => res.render('pricing/enterprise'))
   .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
 
   .get('/pro/contact', (_, res) => res.render('pro/contact'))

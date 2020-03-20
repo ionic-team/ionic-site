@@ -1,334 +1,299 @@
 @import '../../vars';
 
-#page-pricing {
-  .plans {
-    display: grid;
-    margin-left: -58px;
-    margin-top: 63px;
-    font-family: $font-family-inter;
+ .plans {
+  display: grid;
+  margin-left: -58px;
+  margin-top: 63px;
+  font-family: $font-family-inter;
+  gap: 16px;
+  grid-template-columns: 272px 272px 272px 272px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "hobby launch growth scale";
 
-    gap: 16px;
-    grid-template-columns: 272px 272px 272px 272px;
-    grid-template-rows: auto;
+  @media (max-width: $screen-md-max) {
+    gap: 8px;
+    margin-left: -20px;
+    grid-template-columns: 239px 239px 239px 239px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-      "launch growth scale enterprise"
-      "studio studio scale enterprise";
-
-    @media (max-width: $screen-md-max) {
-      gap: 8px;
-      margin-left: -20px;
-      grid-template-columns: 239px 239px 239px 239px;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      margin-left: 0;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: 
-        "studio studio"
-        "launch growth"
-        "scale enterprise";
-
-      .plan__card--featured {
-        margin-top: 32px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      grid-template-columns: 1fr;
-      grid-template-areas: 
-        "studio"
-        "launch"
-        "growth"
-        "scale"
-        "enterprise";
+      "hobby launch"
+      "growth scale";
+    .plan__card--featured {
+      margin-top: 32px;
     }
   }
 
-  #plan-studio {
-    grid-area: studio;
-  }
-
-  #plan-launch {
-    grid-area: launch;
-  }
-
-  #plan-growth {
-    grid-area: growth;
-  }
-
-  #plan-scale {
-    grid-area: scale;
-  }
-
-  #plan-enterprise {
-    grid-area: enterprise;
-  }
-
-  .plan__card {
-    border-radius: 12px;
-    background: white;
-    padding: 34px 26px;
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border: 1px solid #DEE3EA;
-    box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
-
-    &--dark {
-      background: #1A325C;
-      color: #E9EDF3;
-      border-color: #03112C;
-
-      &.plan__card h3,
-      .plan__price strong {
-        color: #fff;
-      }
-
-      .plan {
-        &__price__term {
-          color: #A9B6CE;
-        }
-
-        &__feature {
-          &__divider {
-            border-color: #415B89;
-  
-            + .plan__feature__header {
-              background: #1A325C;
-              color: #A9B6CE;
-            }
-          }
-  
-          &__list li::before {
-            background-image: url('/img/pricing/ico-check-light.svg');
-          }
-
-          &__highlight {
-            background: #324E7E;
-          }
-        }
-      }
-    }
-
-    &--featured {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border: 2px solid #3880FF;
-    }
-
-    &--aside {
-      display: block;
-      padding: 16px 27px;
-      background: #F6F8FB;
-      border: none;
-      box-shadow: none;
-      
-      &.plan__card h3 {
-        float: left;
-        font-weight: 600;
-        font-size: 22px;
-        margin-top: 15px;
-        letter-spacing: 0;
-      }
-
-      .plan {
-        &__price {
-          float: right;
-          padding-bottom: 2px;
-
-          sup {
-            font-size: 20px;
-          }
-
-          strong {
-            font-size: 36px;
-          }
-        }
-
-        &__cta {
-          float: right;
-          clear: right;
-          margin-left: 2em;
-          margin-right: 0;
-          padding: 10px 12px 9px;
-        }
-
-        &__feature__list {
-          display: block;
-          clear: left;
-          max-width: 330px;
-        }
-      }
-
-    }
-  }
-
-  .plan {
-    &__card h3 {
-      font-size: 24px;
-      line-height: 29px;
-      color: #020814;
-      margin-top: 0;
-      margin-bottom: 11px;
-    }
-
-    &__price {
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      letter-spacing: -0.04em;
-      color: #1A232F;
-      padding-bottom: 18px;
-
-      &__term {
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: -0.02em;
-        color: #414D5C;
-        display: block;
-        margin-top: -2px;
-
-        &--short {
-          display: inline;
-        }
-      }
-
-      sup {
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 29px;
-        margin-right: 2px;
-      }
-
-      strong {
-        font-weight: 300;
-        font-size: 40px;
-        line-height: 48px;
-        letter-spacing: -.03em;
-      }
-    }
-
-    &__cta {
-      align-self: flex-start;
-      font-size: 14px;
-      line-height: 19px;
-      letter-spacing: 0.08em;
-      padding: 11px 16px 10px;
-      margin-top: 8px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid #3880FF;
-      box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
-
-      &.white {
-        border-color: #DEE3EA;
-
-        &:hover {
-          box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.08);
-        }
-      }
-
-      &.navy {
-        border-color: #4A679B;
-        color: #D1EBFF;
-        background: #324E7E;
-
-        &:hover {
-          box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.2);
-        }
-      }
-
-      &:hover {
-        box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.12);
-      }
-    }
-
-    &__feature {
-      &__divider {
-        border-bottom: 1px solid #DEE3EA;
-        margin: 37px -26px 0;
-
-        + .plan__feature__header {
-          margin: -9px -5px 0;
-          background: white;
-          align-self: flex-start;
-          padding: 6px;
-        }
-      }
-
-      &__header {
-        font-size: 10px;
-        line-height: 4px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #616E7E;
-      }
-
-      &__list {
-        padding-left: 0;
-        margin: 10px 0 0;
-
-        li {
-          position: relative;
-          margin: 14px 0 0 -8px;
-          list-style: none;
-          padding: 6px 0 6px 27px;
-          letter-spacing: -0.02em;
-
-          &::before {
-            position: absolute;
-            top: 9px;
-            left: 6px;
-            background: url('/img/pricing/ico-check-dark.svg');
-            height: 11px;
-            width: 11px;
-            content: '';
-          }
-
-          strong {
-            letter-spacing: -.04em;
-            font-weight: 600;
-          }
-        }
-      }
-
-      &__highlight {
-        background: #F6F8FB;
-        border-radius: 16px;
-        margin-right: -8px;
-      }
-
-      &__asterisk {
-        font-size: 12px;
-        line-height: 14px;
-        letter-spacing: -0.01em;
-        color: #92A1B3;
-        margin: 20px auto 0;
-        text-align: center;
-        width: 100%;
-        display: block;
-      }
-    }
-
-    &__note {
-      position: absolute;
-      top: -34px;
-      left: -2px;
-      right: -2px;
-      background: #3880FF;
-      border-radius: 12px 12px 0 0;
-      color: white;
-      text-align: center;
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 16px;
-      letter-spacing: -0.02em;
-      padding: 9px 1em;
-    }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "hobby"
+      "launch"
+      "growth"
+      "scale";
   }
 }
+
+#plan-hobby {
+  grid-area: hobby;
+}
+
+#plan-launch {
+  grid-area: launch;
+}
+
+#plan-launch {
+  grid-area: growth;
+}
+
+#plan-launch {
+  grid-area: scale;
+}
+
+#plan-launch {
+  grid-area: enterprise;
+}
+
+.plan__card {
+  border-radius: 12px;
+  background: white;
+  padding: 34px 26px;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid #DEE3EA;
+  box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
+
+  &--dark {
+    background: #1A325C;
+    color: #E9EDF3;
+    border-color: #03112C;
+
+    &.plan__card h3,
+    .plan__price strong {
+      color: #fff;
+    }
+
+    .plan__description {
+      color: $c-indigo-300;
+    }
+
+    .plan {
+      &__price__term {
+        color: #A9B6CE;
+      }
+
+      &__feature {
+        &__divider {
+          border-color: #415B89;
+
+          + .plan__feature__header {
+            background: #1A325C;
+            color: #A9B6CE;
+          }
+        }
+
+        &__list li::before {
+          background-image: url('/img/pricing/ico-check-light.svg');
+        }
+
+        &__highlight {
+          background: #324E7E;
+        }
+      }
+    }
+  }
+
+  &--featured {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 2px solid #3880FF;
+  }
+}
+
+.plan {
+  &__card h3 {
+    color: #020814;
+    margin-top: 0;
+    margin-bottom: 11px;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #1A232F;
+    padding-bottom: 18px;
+
+    &__term {
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: -0.02em;
+      color: #414D5C;
+      display: block;
+      margin-top: -2px;
+
+      &--short {
+        display: inline;
+      }
+    }
+
+    sup {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      margin-right: 2px;
+    }
+
+    strong {
+      font-weight: bold;
+      font-size: 44px;
+      line-height: 48px;
+      letter-spacing: -.03em;
+    }
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: $c-indigo-800;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.08em;
+    padding: 11px 16px 10px;
+    margin-top: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid #3880FF;
+    box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
+    margin-top: auto;
+    align-self: stretch;
+
+    &.white {
+      border-color: #DEE3EA;
+
+      &:hover {
+        box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.08);
+      }
+    }
+
+    &.navy {
+      border-color: #4A679B;
+      color: #D1EBFF;
+      background: #324E7E;
+
+      &:hover {
+        box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.2);
+      }
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.12);
+    }
+  }
+
+  &__feature {
+    &__divider {
+      border-bottom: 1px solid #DEE3EA;
+      margin: 37px -26px 0;
+
+      + .plan__feature__header {
+        margin: -9px -5px 0;
+        background: white;
+        align-self: flex-start;
+        padding: 6px;
+      }
+    }
+    
+    &__header {
+      font-size: 10px;
+      line-height: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #616E7E;
+    }
+    
+    &__list {
+      padding-left: 0;
+      margin: 10px 0 32px;
+      
+      li {
+        position: relative;
+        margin: 14px 0 0 -8px;
+        list-style: none;
+        padding: 6px 0 6px 27px;
+        letter-spacing: -0.02em;
+        
+        &::before {
+          position: absolute;
+          top: 9px;
+          left: 6px;
+          background: url('/img/pricing/ico-check-dark.svg');
+          height: 11px;
+          width: 11px;
+          content: '';
+        }
+        
+        strong {
+          letter-spacing: -.04em;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    &__highlight {
+      background: #F6F8FB;
+      border-radius: 16px;
+      margin-right: -8px;
+    }
+    
+    &__asterisk {
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: -0.01em;
+      color: #92A1B3;
+      margin: 20px auto 0;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  &__note {
+    position: absolute;
+    top: -34px;
+    left: -2px;
+    right: -2px;
+    background: #3880FF;
+    border-radius: 12px 12px 0 0;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    padding: 9px 1em;
+  }
+}
+
 
 .plans {
   .plan__price__monthly,

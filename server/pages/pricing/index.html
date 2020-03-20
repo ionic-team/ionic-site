@@ -2,675 +2,82 @@
 {% set id = 'pricing' %}
 {% set title = 'Ionic App Platform Pricing - Cross-Platform Web App Development Tools' %}
 {% set header_style = 'transparent light' %}
-{% set bodyController = 'pricingCtrl' %}
 {% set meta_description = "Get pricing on the Ionic Development Platform. From DevOps to our app building solutions and our enterprise mobile app framework." %}
 {% set cssPath = 'pricing/index' %}
 {% set pre_footer = false %}
 
 {% block main %}
-<ionic-sub-header>
-  <a slot="title" href="/pricing">Pricing</a>
-  <ul slot="right">
-    <li><a class="anchor" href="#pricing-toggle">Plans</a></li>
-    <li><a class="anchor" href="#features">Comparison</a></li>
-    <li><a class="btn white"
-           href="#"
-           data-toggle="modal"
-           data-target="#contactForm">Contact Sales</a></li>
-  </ul>
-</ionic-sub-header>
+
+{% include './__sub-header.html' %}
+
 <div class="cta cta--transparent">
-  <hgroup class="container center">
-    <h1>Ionic app platform pricing</h1>
-    <p>Everything you need to continuously build, connect, and ship award-winning cross-platform apps.</p>
-  </hgroup>
+  <div class="container">
+    <hgroup>
+      <h1>Pricing for teams of all sizes.</h1>
+      <p>Whether you’re building the next big thing, or want to move faster with premium tools for your team—we’ve got you covered.</p>
+    </hgroup>
+  
+    <aside>
+      <h3>Sign up for a free Ionic account</h3>
+      <p>No credit card required. No trial period. Connect and manage your apps in a central workspace.<a href="/getting-started#account">Sign up free</a></p>
+    </aside>
+  </div>
 </div>
 
 <main>
-  <div class="container">
-    <div class="toggle" id="pricing-toggle">
-      <span>Monthly</span>
-      <span class="active">Yearly (15% off)</span>
+  <section id="ways-to-buy" class="container">
+    <h3>2 ways to buy:</h3>
+    <div class="cards">
+      <a class="card" href="/pricing/compare">
+        <h2>Ionic cloud plans</h2>
+        <p>A centralized cloud app management dashboard to build, package, and deploy your apps continuously.</p>
+        <ul>
+          <li>Centralized cloud dashboard</li>
+          <li>Live app deployments</li>
+          <li>Native app binary builds</li>
+          <li>Mobile CI/CD automation</li>
+        </ul>
+        <div class="call-to-action">
+          Compare Plans
+          {% include './__svg-forward.html' %}
+        </div>
+      </a>
+      <a class="card dark" href="/pricing/enterprise">
+        <h2>Ionic Enterprise Platform</h2>
+        <p>Enterprise-grade scalability, native security, and expert support—with premium plugins to build smarter and faster.</p>
+        <ul>
+          <li>Dedicated Success Team</li>
+          <li>Enterprise response SLA</li>
+          <li>Advanced mobile security</li>
+          <li>Premium native plugins</li>
+        </ul>
+        <div class="call-to-action">
+          Learn more
+          {% include './__svg-forward.html' %}
+        </div>
+      </a>
     </div>
+  </section>
 
-    <div id="plans" class="plans annually-active">
-      <div id="plan-studio" class="plan__card plan__card--aside">
-        <h3>Just Studio</h3>
-        <span class="plan__price">
-          <span class="plan__price__monthly">
-            <sup>$</sup><strong>29</strong><small>/mo</small>
-            <span class="plan__price__term">&nbsp;</span>
-          </span>
-          <span class="plan__price__annually">
-            <sup>$</sup><strong>25</strong><small>/mo</small>
-            <span class="plan__price__term">Billed Annually</span>
-          </span>
-        </span>
-        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=studio-individual&source=framework-{{id}}">Get a License</a>
-        <ul class="plan__feature__list">
-          <li>The locally installed app builder to visually create cross-platform iOS, Android, and PWAs</li>
-        </ul>
-      </div>
-
-      <div id="plan-starter" class="plan__card">
-        <h3>Launch</h3>
-        <span class="plan__price">
-          <span class="plan__price__monthly">
-            <sup>$</sup><strong>49</strong>
-            <span class="plan__price__term">Per Month</span>
-          </span>
-          <span class="plan__price__annually">
-            <sup>$</sup><strong>42</strong><small>/mo</small>
-            <span class="plan__price__term">Billed Annually</span>
-          </span>
-        </span>
-        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}">Get started</a>
-        <div class="plan__feature__divider"></div>
-        <div class="plan__feature__header">What's included</div>
-        <ul class="plan__feature__list">
-          <li>Build cross-platform iOS, Android, and Progressive Web Apps with <strong>Ionic Studio</strong></li>
-          <li>Push <strong>live app updates</strong> to up to <strong>10,000 users</strong></li>
-          <li>Build <strong>native app binaries</strong> in the cloud</li>
-          <li>Manage app projects in the Ionic <strong>cloud dashboard</strong></li>
-        </ul>
-      </div>
-
-      <div id="plan-growth" class="plan__card plan__card--featured">
-        <div class="plan__note">Best all-in-one package value</div>
-        <h3>Growth</h3>
-        <span class="plan__price">
-          <span class="plan__price__monthly">
-            <sup>$</sup><strong>120</strong>
-            <span class="plan__price__term">Per Month</span>
-          </span>
-          <span class="plan__price__annually">
-            <sup>$</sup><strong>102</strong><small>/mo</small>
-            <span class="plan__price__term">Billed Annually</span>
-          </span>
-        </span>
-        <a class="plan__cta btn sm" href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}">Get started</a>
-        <div class="plan__feature__divider"></div>
-        <div class="plan__feature__header">What's included</div>
-        <ul class="plan__feature__list">
-          <li class="plan__feature__highlight">All the <strong>Launch</strong> plan features</li>
-          <li><strong>CI/CD automation</strong> to ship continuously with mobile</li>
-          <li>Push live app updates to up to <strong>25,000 users</strong></li>
-          <li><strong>Collaborate</strong> with team members and clients</li>
-        </ul>
-      </div>
-
-      <div id="plan-scale" class="plan__card">
-        <h3>Scale</h3>
-        <span class="plan__price">
-          From <sup>$</sup><strong>299</strong><small>/mo</small>
-          <span class="plan__price__term">Billed Annually</span>
-        </span>
-        <a class="plan__cta btn sm white"
-           href="#"
-           data-toggle="modal"
-           data-target="#contactForm">Contact Us</a>
-        <div class="plan__feature__divider"></div>
-        <div class="plan__feature__header">What's included</div>
-        <ul class="plan__feature__list">
-          <li class="plan__feature__highlight">All the <strong>Growth</strong> plan features</li>
-          <li>Push live app updates to up to <strong>1M users</strong></li>
-          <li>iOS <strong>Enterprise builds</strong></li>
-          <li>Role-based permissions &amp; <strong>SSO</strong> access to Ionic dashboard</li>
-          <li>Live onboarding</li>
-          <li>Product Support</li>
-        </ul>
-      </div>
-
-      <div id="plan-enterprise" class="plan__card plan__card--dark">
-        <h3>Enterprise</h3>
-        <span class="plan__price">
-          <strong>Custom</strong>
-          <span class="plan__price__term">Tailored to your needs</span>
-        </span>
-        <a class="plan__cta btn sm navy"
-           href="#"
-           data-toggle="modal"
-           data-target="#contactForm">Contact Sales</a>
-        <div class="plan__feature__divider"></div>
-        <div class="plan__feature__header">What's included</div>
-        <ul class="plan__feature__list">
-          <li class="plan__feature__highlight">All the <strong>Scale</strong> plan features</li>
-          <li>Push live app updates to <strong>1M+ monthly users</strong></li>
-          <li>Protect users with advanced <strong>biometrics sign-in</strong></li>
-          <li>Connect with <strong>any auth provider</strong> from a single API</li>
-          <li>Deliver <strong>offline-first</strong> mobile app experiences</li>
-          <li>Unlock <strong>core device features</strong> with a supported plugin library</li>
-          <li><strong>Premium Enterprise</strong> support, services, and training</li>
-        </ul>
-      </div>
-    </div>
-
-    <a class="prefer-open-source" href="/getting-started">
-      Prefer to start with the open source Framework?
-      <span>
-        Go here
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity="0.8" d="M4.49078 4.99814L1.1816 1.21697C0.936862 0.937105 0.936862 0.484555 1.1816 0.207667C1.42634 -0.0692222 1.82209 -0.0692222 2.06682 0.207667L5.81601 4.492C6.05294 4.76293 6.05814 5.19762 5.83423 5.47748L2.06943 9.79159C1.94706 9.93152 1.78564 10 1.62682 10C1.468 10 1.30657 9.93152 1.1842 9.79159C0.939466 9.51172 0.939466 9.05917 1.1842 8.78228L4.49078 4.99814Z" fill="#4D8DFF"/>
-        </svg>
-      </span>
-    </a>
-
-    <a class="anchor-cta anchor" href="#features">
-      See full feature comparison
-      <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L6 6L1 11" stroke="#639CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-
-    </a>
-  </div>
-
-  <div class="logos">
-    <div class="container">
-      <h3>Empowering Teams at innovative companies.</h3>
-      <div class="icons">
-        <div class="logo--national"></div>
-        <div class="logo--verizon"></div>
-        <div class="logo--comcast"></div>
-        <div class="logo--panera"></div>
-        <div class="logo--mastercard"></div>
-        <div class="logo--usaa"></div>
-        <div class="logo--amtrak"></div>
-        <div class="logo--ge"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container container-wide comparison">
-    <h2>Pick the plan that works best for you.</h2>
-    <div id="features" class="box">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <td>
-                <h3>Features</h3>
-              </td>
-              <th>
-                <div class="plan-wrap">
-                  <h4>Launch</h4>
-                  <div class="price"><strong>$49</strong>/mo</div>
-                  <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
-                     class="btn micro"
-                     id="btn-pricing-starter">Get started</a>
-                </div>
-              </th>
-              <th>
-                <div class="plan-wrap">
-                  <h4>Growth</h4>
-                  <div class="price" data-toggle="billing-team"><strong>$120</strong>/mo</div>
-                  <a href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}"
-                     class="btn micro btn--primary"
-                     id="btn-pricing-team">Get started</a>
-                </div>
-              </th>
-              <th>
-                <div class="plan-wrap">
-                  <h4>Scale</h4>
-                  <div class="price">From <strong>$299</strong>/mo</div>
-                  <a href="#"
-                     class="btn micro"
-                     data-toggle="modal"
-                     data-target="#contactForm">Contact us</a>
-                </div>
-              </th>
-              <th>
-                <div class="plan-wrap">
-                  <h4>Enterprise</h4>
-                  <div class="price"><strong>Custom</strong></div>
-                  <a href="#"
-                     class="btn micro btn--dark"
-                     data-toggle="modal"
-                     data-target="#contactForm">Contact us</a>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><strong>Ionic Studio</strong></th>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
-              <th><strong>Ionic Appflow</strong></th>
-              <td colspan="4"></td>
-            </tr>
-            <tr>
-              <th>
-                Live app updates
-                <a class="anchor" href="#faq-live-updates">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td>10,000 <small>/ mo</small></td>
-              <td>25,000 <small>/ mo</small></td>
-              <td>300,000 - 1M<small>/ yr</small></td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th>Native app builds</th>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>
-                Concurrency limits
-                <a class="anchor" href="#faq-concurrency">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td>1</td>
-              <td>2</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th>
-                CI/CD automation
-                {# <a class="anchor" href="">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a> #}
-              </th>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th><small>Automations</small></th>
-              <td></td>
-              <td>4</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th><small>Environments</small></th>
-              <td></td>
-              <td>2</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th><small>Configurations</small></th>
-              <td></td>
-              <td>2</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th>
-                iOS Enterprise builds
-                <a class="anchor" href="#faq-ios">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>
-                Private git repos
-                <a class="anchor" href="#faq-git">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
-              <th><strong>Ionic Native</strong></th>
-              <td colspan="4"></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/identity-vault">Identity Vault</a> secure biometrics</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/auth-connect">Auth Connect</a> single API connector</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/offline-storage">Offline Storage</a> Secure storage</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Core Device Premier plugin library</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
-              <th><strong>Premium Support</strong></th>
-              <td colspan="4"></td>
-            </tr>
-            <tr>
-              <th>
-                Account &amp; Billing Support
-                <a class="anchor" href="#faq-account">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>
-                Premium Product Support
-                <a class="anchor" href="#faq-premium">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Live Onboarding</th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Dedicated Success Manager</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>
-                Enterprise Support SLA
-                <a class="anchor" href="#faq-enterprise">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Advisory Services</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Team Training</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
-              <th><strong>Admin &amp; Security</strong></th>
-              <td colspan="4"></td>
-            </tr>
-            <tr>
-              <th>
-                Seats included
-                <a class="anchor" href="#faq-seats">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td>1</td>
-              <td>2</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th>Additional Seat Cost</th>
-              <td></td>
-              <td>$99/Seat</td>
-              <td>Contact Sales</td>
-              <td>Contact Sales</td>
-            </tr>
-            <tr>
-              <th>Seat Limit</th>
-              <td></td>
-              <td>5</td>
-              <td>Custom limit</td>
-              <td>Custom limit</td>
-            </tr>
-            <tr>
-              <th>Single sign-on</th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Role-based access</th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th></th>
-              <td>
-                <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
-                   class="btn sm white"
-                   id="btn-pricing-starter">Get started</a>
-              </td>
-              <td>
-                <a href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}"
-                   class="btn sm"
-                   id="btn-pricing-team">Get started</a>
-              </td>
-              <td>
-                <a href="#"
-                   class="btn sm white"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a>
-              </td>
-              <td>
-                <a href="#"
-                   class="btn sm dark"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  </div>
-</main>
-
-<div class="also offwhite-bg">
-  <div class="container">
-    <h3>Every plan comes with:</h3>
+  <section id="loved-by" class="container">
+    <h3>Loved by some of the best organizations across the globe</h3>
     <ul>
-      <li class="also__live">
-        <h4>Live app updating</h4>
-        <p>
-          Deliver real-time app updates, content changes, A/B tests, bug fixes, and more. Push changes directly to your users, right from the Ionic cloud dashboard.
-        </p>
-      </li>
-      <li class="also__cloud">
-        <h4>Cloud Dashboard</h4>
-        <p>
-          Get access to a unified Dashboard to house and organize all your Ionic apps, accessible in one place. Track activity and builds from anywhere.
-        </p>
-      </li>
-      <li class="also__git">
-        <h4>Git-based workflow</h4>
-        <p>
-          With Ionic’s developer platform, starting and deploying apps is as simple as git push ionic and we handle the rest. Connect to your favorite git host.
-        </p>
-      </li>
-      <li class="also__forum">
-        <h4>Access to Forum</h4>
-        <p>
-          Having an Ionic account unlocks access to post and comment on the Ionic Forum, the single most active community hub for Ionic developers.
-        </p>
-      </li>
+      <li><svg width="34" height="42" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.8819 34.1758H32.8814V9.88277H25.5485V25.0262L23.4252 23.1191V11.0407C23.4005 3.93438 24.314 0.574219 24.314 0.574219C21.845 0.574219 20.5364 2.73108 20.2648 3.36678C18.8575 3.52571 17.7218 4.25223 16.9564 5.68257C16.512 6.4999 16.3145 7.27183 16.2404 7.6578C13.3023 8.2935 13.0307 13.1067 13.2282 13.9694L8.68525 9.88277H0.685701V34.1758H8.01862V19.4865C8.01862 19.4865 11.574 22.5742 11.5493 22.5742C11.8703 23.4596 12.1912 23.8229 12.1912 23.8229L10.8086 22.7331C10.5617 25.117 11.2777 26.343 11.969 27.2512L10.2901 25.9343C10.1666 28.2955 11.4011 29.7486 12.1665 30.3843L9.91975 29.3853C9.77161 30.7929 11.3024 32.8817 12.2159 33.2677L10.3395 33.0179C10.7592 34.9704 12.2159 35.6743 12.2159 35.6743C12.2159 35.6743 9.00622 35.6061 7.50013 35.6061C3.37691 35.5834 0.661011 35.924 0.661011 35.924C0.661011 35.924 2.48807 37.5814 4.80893 37.6722L2.73497 38.8528C4.24106 39.3069 5.67307 39.1479 5.67307 39.1479L4.46327 40.4647C4.46327 40.4647 8.24083 39.1252 9.82099 39.2387C11.0802 39.3296 17.0058 41.441 20.9809 41.441C23.6474 41.441 25.5732 40.5102 27.1287 39.7382C28.0669 39.2842 28.8816 38.8982 29.6964 38.7847C31.1284 38.5803 31.7951 39.0571 31.7951 39.0571C31.9432 38.4895 32.3876 37.0819 30.0421 36.7413C29.9433 36.3554 29.5483 35.8559 28.931 35.7651C27.6718 35.5834 22.3882 35.2202 22.24 35.1975C21.7956 35.1748 20.2648 34.9023 21.6722 33.0633C21.7709 32.9271 22.4869 32.1098 22.4869 32.1098L24.8819 34.1758ZM24.6844 35.9921C26.4126 36.1056 27.6471 36.2191 28.8816 36.3554C29.3508 36.4008 29.5236 36.9003 29.5977 37.15C29.0051 37.0138 28.0669 36.9684 28.0669 36.9684L28.0175 37.4906C28.0175 37.4906 28.8076 37.2862 29.6964 37.2635C29.6964 37.2635 31.4988 37.2635 31.4 38.376C30.9062 38.0581 29.8939 38.1944 29.6223 38.2398C28.7088 38.376 27.8694 38.762 26.8571 39.2387C25.9435 39.6701 24.9559 40.1469 23.8202 40.4875C24.314 40.0334 25.6473 38.6939 25.6473 38.6939L23.8943 38.1263L25.3263 36.9684L23.1042 35.8559C23.6721 35.924 24.1906 35.9694 24.6844 35.9921ZM22.1166 31.633C21.3018 32.4957 20.2402 33.7444 20.4624 34.6299C20.6352 35.3791 21.7709 35.8332 21.7709 35.8332L24.2399 37.0592L22.6351 38.3533L24.5609 38.8982C24.5609 38.8982 22.8079 40.5556 22.6104 40.7145C22.1166 40.7826 21.5734 40.828 21.0055 40.828C16.9317 40.828 11.2777 38.6257 9.87037 38.603C8.19145 38.5803 6.06811 39.4885 6.06811 39.4885L7.17916 38.376C7.17916 38.376 5.72245 38.6484 4.31513 38.5349L6.29032 37.2862C4.56203 37.2408 3.03125 36.764 2.31524 36.2873C2.31524 36.2873 5.52493 36.0602 9.87037 36.1056C11.6234 36.1283 14.6108 36.2873 14.6108 36.2873C13.1294 35.7197 11.7715 34.9477 11.1789 33.6309L13.9936 34.0169C12.8085 33.3585 11.1049 31.6784 10.7839 30.407L13.9195 31.4059C13.3517 30.8611 11.4258 29.181 11.0802 27.2512L13.5492 28.6815C12.9072 28.0685 11.1296 24.89 11.4258 23.9591L13.7467 25.3894C12.6356 24.1407 11.3518 20.8033 12.2159 19.5092C12.9319 22.052 14.4874 22.9601 14.4874 22.9601C13.4504 21.5979 11.253 16.7393 13.3517 14.6052C13.9195 19.4411 16.1416 21.0757 16.1416 21.0757C14.2899 18.374 12.1912 10.0417 16.1169 8.36161C15.3515 13.7197 17.2033 16.6258 17.2033 16.6258C16.0429 11.6991 16.0922 4.72901 20.0673 4.0706C18.1168 9.33788 19.4995 13.3791 19.4995 13.3791C19.2032 1.09641 23.5239 1.30074 23.5239 1.30074C23.5239 1.30074 22.8079 4.79712 22.8079 11.018V28.9993C22.8079 30.248 22.6845 30.9973 22.1166 31.633Z" fill="#010610"/></svg></li>
+      <li><svg width="31" height="42" viewBox="0 0 31 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.08388 32.2292V33.9464H4.23408V34.9857H3.08388V37.8325C3.08388 38.3748 3.22191 38.5103 3.774 38.5103C3.95803 38.5103 4.09606 38.5103 4.28009 38.4652V39.6852C3.95803 39.7304 3.63598 39.7304 3.31392 39.7304C2.11772 39.7304 1.47361 39.3689 1.47361 38.3296V34.9857H0.507446V33.9464H1.47361V32.2292C1.47361 32.2292 3.08388 32.2292 3.08388 32.2292ZM10.0311 38.194C10.0311 38.5555 10.0771 38.6459 10.4451 38.6459H10.4911V39.6852C10.3071 39.7756 10.0771 39.8208 9.84704 39.8208C9.11091 39.8208 8.74285 39.5949 8.60483 39.0978C8.23676 39.5497 7.54665 39.866 6.58048 39.866C5.38428 39.866 4.60214 39.2785 4.60214 38.1488C4.55614 37.697 4.74017 37.2451 5.10823 36.9288C5.47629 36.6125 6.02839 36.4769 6.99455 36.3413C8.05273 36.2058 8.4668 36.1606 8.4668 35.6183C8.4668 34.9857 8.00672 34.8501 7.45463 34.8501C6.81052 34.8501 6.44246 35.1213 6.39645 35.7087H4.78618C4.83218 34.4434 5.89036 33.8108 7.50064 33.8108C9.20293 33.8108 10.0311 34.3531 10.0311 35.4376V38.194ZM7.13257 38.7815C8.00672 38.7815 8.42079 38.3296 8.42079 37.471V36.8836C8.28277 37.0192 8.00672 37.1095 7.45463 37.1547C6.62649 37.2451 6.16641 37.4258 6.16641 38.0585C6.16641 38.5103 6.44246 38.7815 7.13257 38.7815ZM14.6319 33.856V35.302C14.4478 35.2568 14.2638 35.2568 14.0798 35.2568C12.9296 35.2568 12.5155 36.025 12.5155 37.1095V39.6852H10.9052V33.9464H12.4235V34.9857C12.7455 34.2627 13.4817 33.7656 14.2638 33.7656C14.4018 33.8108 14.4938 33.8108 14.6319 33.856ZM18.8646 34.7146V33.9464H20.3828V39.3237C20.3828 40.8149 19.5087 41.8542 17.3923 41.8542C16.0581 41.8542 14.9079 41.1764 14.8159 40.0015H16.4262C16.5642 40.5438 16.9783 40.7697 17.6224 40.7697C18.4505 40.7697 18.9106 40.2727 18.9106 39.3689V38.6007C18.5425 39.1882 17.8524 39.5497 17.1623 39.5045C15.506 39.5045 14.6779 38.3296 14.6779 36.6125C14.6779 35.1665 15.552 33.7656 17.1623 33.7656C17.8064 33.7656 18.4965 34.1271 18.8646 34.7146ZM17.4843 38.3296C18.3585 38.3296 18.8646 37.6518 18.8646 36.748C18.8646 35.9346 18.6345 34.9857 17.4843 34.9857C16.6562 34.9857 16.1961 35.6635 16.1961 36.6125C16.1961 37.5614 16.5642 38.3296 17.4843 38.3296ZM26.6399 36.9288V37.2451H22.4532C22.4992 38.2392 22.9593 38.6911 23.8794 38.6911C24.4775 38.6911 25.0296 38.3296 25.1676 37.9681H26.5939C26.1798 39.2785 25.2597 39.9112 23.8794 39.9112C22.0391 39.9112 20.8889 38.6459 20.8889 36.9288C20.8889 35.1665 22.0851 33.9012 23.8794 33.9012C25.6277 33.8108 26.6399 35.2116 26.6399 36.9288ZM25.0296 36.2058C24.8916 35.3472 24.4775 34.9857 23.7414 34.9857C23.0513 34.9405 22.4532 35.4376 22.4072 36.1154V36.2058H25.0296ZM29.0323 32.2292V33.9464H30.1825V34.9857H29.0323V37.8325C29.0323 38.3748 29.1703 38.5103 29.7224 38.5103C29.9065 38.5103 30.0445 38.5103 30.2285 38.4652V39.6852C29.9065 39.7304 29.5844 39.7304 29.2623 39.7304C28.0661 39.7304 27.422 39.3689 27.422 38.3296V34.9857H26.4559V33.9464H27.422V32.2292C27.422 32.2292 29.0323 32.2292 29.0323 32.2292Z" fill="#010610"/><path d="M0.507202 15.6032C0.507202 7.38039 7.15291 0.728271 15.3677 0.728271C23.5826 0.728271 30.2283 7.38039 30.2283 15.6032C30.2283 23.8259 23.5826 30.478 15.3677 30.478C7.15291 30.5242 0.507202 23.8259 0.507202 15.6032ZM15.3677 25.5351C20.8597 25.5351 25.2901 21.1004 25.2901 15.6032C25.2901 10.1059 20.8597 5.67117 15.3677 5.67117C9.8758 5.67117 5.44533 10.1059 5.44533 15.6032C5.44533 21.1004 9.8758 25.5351 15.3677 25.5351ZM20.3059 15.6032C20.3059 18.3287 18.0906 20.546 15.3677 20.546C12.6448 20.546 10.4296 18.3287 10.4296 15.6032C10.4296 12.8776 12.6448 10.6603 15.3677 10.6603C18.0906 10.6603 20.3059 12.8776 20.3059 15.6032Z" fill="#010610"/></svg></li>
+      <li><svg width="40" height="42" viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M30.6748 6.5371C30.7699 6.30515 30.5797 6.08685 30.5797 6.08685C30.5797 6.08685 29.0852 3.54905 23.8274 2.976C21.0015 2.67583 17.1702 3.24888 14.4801 4.7088C9.58905 7.3421 8.8554 11.6946 8.8554 11.6946C8.82823 11.8037 8.78747 12.1312 8.89616 12.2676C9.00485 12.4041 9.16788 12.4041 9.37167 12.3358C11.0971 11.7491 16.2191 10.0436 19.4526 9.18405C24.0584 7.95609 27.8489 7.20566 30.2672 6.79634C30.4575 6.75541 30.6069 6.70083 30.6748 6.5371Z" fill="#010610"/><path d="M35.9333 27.0307C33.1753 33.2524 27.8903 37.5775 20.9477 37.6731C15.9073 37.7413 11.451 36.0085 8.23106 32.9795L6.28823 33.8118V30.7828C4.16878 27.9175 2.93244 24.2746 2.93244 20.1541C2.93244 9.57992 10.9891 1.25703 22.2384 1.25703C24.0726 1.25703 25.7301 1.54356 26.98 1.83008C25.0508 1.2161 23.1351 0.875 21.0021 0.875C8.93754 0.875 0.812988 10.6987 0.812988 20.8363C0.812988 31.8743 9.44023 41.125 20.7575 41.125C31.5722 41.125 37.4006 33.4707 39.2755 28.859L35.9333 27.0307Z" fill="#010610"/><path d="M33.1343 24.8468C34.7237 24.6695 35.8241 24.0282 36.4219 23.428C36.9653 22.8822 37.1011 22.1455 37.1011 21.5861C37.1283 20.7676 37.1011 18.2027 37.1011 18.2027L32.9033 19.1167C32.9033 19.1167 32.9033 19.4305 32.9033 20.099C32.9169 20.7539 33.2294 21.1086 33.9086 20.9858C34.126 20.9449 34.452 20.8494 34.452 20.8494V21.6544C34.452 21.6271 34.52 22.1046 33.4603 22.3092C32.0746 22.5275 31.4497 21.668 31.4361 20.1536C31.4633 18.5301 32.3735 17.6024 33.4875 17.3431C34.7373 17.0566 35.4438 17.3568 35.8513 17.4114C37.237 17.616 37.631 15.5286 36.3675 15.0375C35.4302 14.6555 34.2211 14.5873 33.0663 14.8192C31.5176 15.133 28.4881 16.4291 28.4745 20.6448C28.461 24.001 30.9199 25.0924 33.1343 24.8468Z" fill="#010610"/><path d="M19.4805 28.435C19.4805 28.435 20.7711 27.9848 20.8797 27.9575C21.9122 27.6028 22.2926 26.9752 22.2926 25.9111C22.279 24.7514 22.279 22.4866 22.279 22.4866L25.2814 25.952C25.7704 26.4568 26.3818 26.4977 26.9387 26.334C27.5093 26.1703 27.9984 25.6382 28.012 24.8878C28.012 22.3911 28.012 16.2791 28.012 16.2791C28.012 16.2791 27.2376 16.4428 26.5991 16.6201C25.8655 16.8248 25.2949 17.3023 25.2949 18.5574C25.2949 18.994 25.2949 21.5453 25.2949 21.5453C25.2949 21.5453 23.5832 19.4033 22.4828 18.2982C21.8986 17.7116 20.9205 18.0663 20.9205 18.0663L19.4805 18.5029V28.435Z" fill="#010610"/><path d="M18.5699 18.7214C18.5699 18.7214 17.6733 18.9807 16.9397 19.2535C15.9888 19.5946 15.4318 20.154 15.4318 21.6001C15.4318 22.9371 15.4318 29.8542 15.4318 29.8542C15.4318 29.8542 16.2605 29.5677 17.0484 29.2675C18.1488 28.8446 18.5699 28.2716 18.5699 27.1119C18.5699 26.116 18.5699 18.7214 18.5699 18.7214Z" fill="#010610"/><path d="M14.0997 20.6863C13.271 20.3043 12.5646 20.7272 12.2657 21.1911L9.7253 25.5432V22.0369L6.70939 23.2785L6.6958 33.1833L8.81509 32.2965C8.81509 32.2965 9.23623 32.1737 9.48077 31.7781C9.71172 31.4097 9.69813 30.8094 9.69813 30.8094V27.6715L12.062 30.1955C12.5782 30.7412 13.5292 31.0141 14.3714 30.3319C15.1322 29.718 15.0099 28.6675 14.5888 28.19L12.4423 26.0207C12.4423 26.0207 14.3307 23.0192 14.6431 22.5281C15.0507 21.8459 14.8469 21.0274 14.0997 20.6863Z" fill="#010610"/><path d="M12.9183 32.3381C12.8096 32.5974 13.0678 32.8566 13.0678 32.8566C14.1547 34.2347 19.0049 35.9811 24.2764 34.6986C32.3194 32.7475 34.0177 27.0306 34.2079 26.2256C34.2487 26.0619 34.2758 25.8026 34.1264 25.6389C34.0041 25.5025 33.8139 25.5025 33.5693 25.557C27.9718 26.8805 18.6925 29.7321 13.3259 32.038C13.0949 32.1335 12.9998 32.1744 12.9183 32.3381Z" fill="#010610"/><path d="M8.14927 19.3488C8.13568 18.8031 7.71454 18.5029 6.99452 18.8713V20.6313C6.99452 20.6313 7.22547 20.5221 7.40208 20.4403C7.83681 20.2356 8.16285 19.8809 8.14927 19.3488ZM6.98094 17.7526C7.11679 17.698 7.21189 17.6571 7.32057 17.6025C7.71454 17.4115 7.99983 17.0431 7.99983 16.5793C7.99983 16.0472 7.5651 15.9108 6.98094 16.2109C6.98094 16.2245 6.98094 17.7526 6.98094 17.7526ZM10.0784 19.0896C10.1055 20.4812 9.11382 21.2179 7.80964 21.75L5.16052 22.8824V15.6652C5.16052 15.6652 6.8315 14.983 7.37491 14.7784C8.92362 14.2054 9.83383 14.9012 9.83383 15.938C9.83383 16.6338 9.53496 17.2205 8.89645 17.7389C9.52137 17.8481 10.0648 18.3665 10.0784 19.0896Z" fill="#010610"/><path d="M15.1046 13.0037C15.1046 12.3898 14.6835 12.2397 14.1808 12.3762C13.7733 12.4989 13.2978 12.6763 13.2978 12.6763V17.1649C13.2978 17.6151 13.2299 18.1745 12.6729 18.3109C12.2517 18.42 12.048 18.1335 12.048 17.6833V14.0133C12.048 13.3994 11.6268 13.222 11.1242 13.3857C10.5536 13.5767 10.2275 13.7132 10.2275 13.7132C10.2275 13.7132 10.2275 16.892 10.2275 18.1608C10.214 19.6479 11.2464 20.3983 12.7952 19.9344C14.1673 19.5251 15.0911 18.7475 15.1046 16.7692V13.0037Z" fill="#010610"/><path d="M29.8601 14.8596C30.2541 14.7777 30.4986 14.4912 30.4986 14.0001C30.4986 13.5635 30.4986 13.2224 30.4986 13.2224L28.3522 13.6999V12.4311C28.3522 12.4311 29.4118 12.2128 29.6971 12.1446C30.0639 12.0628 30.2541 11.8581 30.2541 11.4352C30.2541 11.0395 30.2541 10.6985 30.2541 10.6985L28.3522 11.1077V10.0982C28.3522 10.0982 29.3439 9.89352 29.8737 9.78437C30.2948 9.70251 30.4307 9.41601 30.4307 9.02036C30.4307 8.76114 30.4307 8.25635 30.4307 8.25635C29.4797 8.42006 27.6729 8.78843 26.5453 9.04765L26.5317 15.6236C26.5317 15.6236 28.6782 15.1188 29.8601 14.8596Z" fill="#010610"/><path d="M17.4153 14.5871C17.4153 14.5871 18.475 14.0278 18.475 13.1546C18.4614 12.4043 17.7821 12.568 17.4289 12.7044L17.4153 14.5871ZM17.4289 15.6104C17.4289 15.6104 17.4289 16.8655 17.4289 17.384C17.4289 17.8615 17.1029 18.2026 16.6953 18.3663C16.6953 18.3799 16.6953 18.3526 16.6953 18.3663C16.3557 18.4891 15.6221 18.7346 15.6221 18.7346V11.954C15.6221 11.954 17.13 11.422 18.0131 11.2173C19.3716 10.8899 20.3497 11.5175 20.3361 12.6362C20.3225 13.7003 19.7384 14.3416 19.2086 14.7918L20.3769 15.9105C20.7301 16.2652 20.7573 16.8928 20.3633 17.2748C20.1188 17.5068 19.4803 17.7387 18.9912 17.2203C18.9776 17.2203 17.4289 15.6104 17.4289 15.6104Z" fill="#010610"/><path d="M32.659 10.9442C32.659 10.9442 33.7051 10.5486 33.6915 9.70269C33.6779 8.99325 32.9851 9.11604 32.6454 9.19789L32.659 10.9442ZM30.8929 14.6551V8.16102C30.8929 8.16102 32.7813 7.81994 33.2704 7.76537C34.6289 7.58801 35.5391 8.35202 35.5119 9.41618C35.4983 10.3576 34.9142 10.9306 34.4115 11.2716C34.4115 11.2716 35.3353 12.3085 35.5798 12.595C35.9059 12.9634 35.8923 13.6046 35.4032 13.9184C34.9278 14.2185 34.4387 14.0685 34.167 13.7547L32.659 11.9538C32.659 11.9538 32.659 13.0589 32.659 13.5364C32.659 14.0139 32.3737 14.3686 31.8847 14.4641L30.8929 14.6551Z" fill="#010610"/><path d="M26.1101 11.9266L23.4339 12.5405C23.4339 12.5405 23.4339 12.827 23.4339 13.2909C23.4339 13.6456 23.6784 13.8639 24.0316 13.7957C24.249 13.7547 24.4256 13.7138 24.4256 13.7138V14.4642C24.4256 14.7643 23.9909 14.9553 23.529 14.9417C22.8769 14.9144 22.5237 14.4096 22.5101 13.4546C22.5237 12.1994 23.1214 11.4627 23.9229 11.2581C24.3169 11.1489 24.6837 11.2035 24.969 11.2444C25.6618 11.3536 26.0558 11.0261 26.0694 10.4531C26.083 9.83919 25.5396 9.45718 24.3848 9.49811C21.858 9.57997 20.5674 11.4081 20.5674 13.5774C20.5674 15.8012 22.021 16.7835 23.7871 16.4697C24.7788 16.2651 25.2814 15.9376 25.6211 15.6375C25.9607 15.3373 26.1101 14.8871 26.1101 14.4915V11.9266Z" fill="#010610"/><path d="M15.5529 4.65405C12.5913 5.96379 10.5943 9.08805 10.4856 10.3978C10.4449 10.9162 11.1377 10.9981 11.2056 10.4387C11.8306 8.03753 13.7325 5.77278 15.5529 4.65405Z" fill="#010610"/><path d="M25.3493 6.89176C26.9388 6.49611 27.8218 6.44153 27.8354 5.71845C27.8626 4.51786 24.4663 3.12627 21.3417 3.38549C24.5206 3.60378 26.4225 4.83165 26.4225 5.67752C26.4361 6.22325 25.9606 6.70075 25.3493 6.89176Z" fill="#010610"/><path d="M26.3279 33.3612C28.7189 32.4198 31.0148 30.6053 32.2918 27.9039C32.6586 27.1263 31.5989 26.717 31.3001 27.6447C30.5529 29.5684 29.0313 31.8195 26.3279 33.3612Z" fill="#010610"/></g><defs><clipPath id="clip0"><rect x="0.812988" y="0.875" width="38.4625" height="40.25" fill="white"/></clipPath></defs></svg></li>
+      <li><svg width="29" height="34" viewBox="0 0 29 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.378052 24.6287V30.0647C0.378052 33.0984 2.19144 33.6069 3.6969 33.6069C5.93798 33.6069 6.96443 32.0988 6.96443 30.0296V24.6287H5.47608V30.2225C5.47608 30.924 5.25368 32.2391 3.67979 32.2216C2.25987 32.2041 1.98615 30.8538 1.98615 29.977V24.6287H0.378052Z" fill="#010610"/><path d="M13.1579 24.9969C13.1579 24.9969 12.217 24.5059 11.1392 24.5059C9.80485 24.5059 8.11121 25.2073 8.11121 27.1362C8.11121 28.4689 9.06922 29.1002 9.71931 29.4334C10.0615 29.6087 10.4891 29.8016 10.8313 29.9945C11.0024 30.0997 11.7209 30.3452 11.7209 31.1343C11.7209 31.976 10.8142 32.2741 10.4207 32.2741C8.98369 32.2741 7.99146 31.6078 7.99146 31.6078L8.14542 33.3087C8.14542 33.3087 8.72708 33.6244 10.5063 33.6244C12.1828 33.6244 13.3974 32.5021 13.3974 30.9765C13.3974 29.8016 12.6105 29.1002 11.9433 28.767C11.4129 28.504 11.105 28.3637 10.6602 28.1357C10.1983 27.9078 9.73642 27.5395 9.73642 26.9433C9.73642 26.312 10.301 25.8561 11.1392 25.8561C12.371 25.8561 12.8671 26.4172 13.1579 26.6101V24.9969Z" fill="#010610"/><path d="M23.3037 30.6964L24.4842 27.2592L25.545 30.6964H23.3037ZM16.2036 30.6964L17.3841 27.2592L18.4277 30.6964H16.2036ZM25.2199 24.6287H23.4406L23.7314 25.3652L20.9769 32.9236L18.1369 24.6287H16.3405L16.6313 25.3652L13.6886 33.4147H15.2968L15.8101 31.8889H18.8554L19.3687 33.4147H22.3969L22.9102 31.8889H25.9556L26.4688 33.4147H28.2481L25.2199 24.6287Z" fill="#010610"/><path d="M0.292847 14.7552L0.361277 17.5083C0.361277 17.5083 1.01136 17.0173 1.74698 17.0173C2.4826 17.0173 3.32087 17.5609 3.32087 17.5609L9.90724 21.5064L10.4718 19.0163L3.32087 14.7201C3.32087 14.7201 2.49971 14.1765 1.74698 14.1765C1.02847 14.1765 0.292847 14.7552 0.292847 14.7552Z" fill="#010610"/><path d="M0.292847 11.1595L0.361277 13.9126C0.361277 13.9126 1.01136 13.4216 1.74698 13.4216C2.4826 13.4216 3.32087 13.9652 3.32087 13.9652L10.6087 18.3316L11.1561 15.8415L3.32087 11.1244C3.32087 11.1244 2.49971 10.5808 1.74698 10.5808C1.02847 10.5983 0.292847 11.1595 0.292847 11.1595Z" fill="#010610"/><path d="M0.292847 7.56456L0.361277 10.3177C0.361277 10.3177 1.01136 9.82665 1.74698 9.82665C2.4826 9.82665 3.32087 10.3703 3.32087 10.3703L11.3272 15.175L11.8746 12.685L3.32087 7.54702C3.32087 7.54702 2.49971 7.00342 1.74698 7.00342C1.02847 7.00342 0.292847 7.56456 0.292847 7.56456Z" fill="#010610"/><path d="M14.0137 3.19844L14.7494 6.44277L24.7751 12.4579C24.7751 12.4579 25.5621 13.0016 26.332 13.0016C27.1019 13.0016 27.8033 12.4404 27.8033 12.4404L27.7349 9.66957C27.7349 9.66957 27.1019 10.1606 26.332 10.1606C25.5621 10.1606 24.7751 9.61696 24.7751 9.61696L17.0248 4.96967L16.4945 2.88278C16.4945 2.79509 16.5629 2.76002 16.5971 2.74248L17.9145 2.3216C18.0856 2.3216 18.1882 2.47943 18.1882 2.60219L18.2567 2.74248C18.308 2.76002 18.4962 2.67234 18.5133 2.6548V1.86564C18.5133 1.32199 18.0856 0.83096 17.521 0.83096H16.2036C16.2036 0.83096 16.0154 0.375 15.4508 0.375H12.953C12.3028 0.375 12.1317 1.00633 12.1317 1.00633L10.4038 8.19647L3.32074 3.95253C3.32074 3.95253 2.55085 3.40889 1.74674 3.40889C0.942631 3.40889 0.275391 3.97007 0.275391 3.97007L0.343826 6.72336C0.343826 6.72336 0.942631 6.23233 1.72963 6.23233C2.53374 6.23233 3.30364 6.77598 3.30364 6.77598L12.012 12.002L14.0137 3.19844Z" fill="#010610"/><path d="M14.9547 7.31958L15.6903 10.5812L24.7915 16.0348C24.7915 16.0348 25.6127 16.5784 26.3483 16.5784C27.101 16.5784 27.8195 16.0173 27.8195 16.0173L27.7511 13.2642C27.7511 13.2642 27.1694 13.7552 26.3654 13.7552C25.5442 13.7552 24.8086 13.2116 24.8086 13.2116L14.9547 7.31958Z" fill="#010610"/><path d="M15.8785 11.4758L16.6142 14.7375L24.7744 19.6299C24.7744 19.6299 25.5956 20.1735 26.3312 20.1735C27.0839 20.1735 27.8024 19.6124 27.8024 19.6124L27.734 16.8593C27.734 16.8593 27.1524 17.3503 26.3483 17.3503C25.5272 17.3503 24.7915 16.8067 24.7915 16.8067L15.8785 11.4758Z" fill="#010610"/><path d="M16.8195 15.6321L17.5551 18.8762L24.7915 23.2075C24.7915 23.2075 25.6127 23.7511 26.3483 23.7511C27.1011 23.7511 27.8196 23.1899 27.8196 23.1899L27.7511 20.4368C27.7511 20.4368 27.1695 20.9278 26.3654 20.9278C25.5443 20.9278 24.8087 20.3842 24.8087 20.3842L16.8195 15.6321Z" fill="#010610"/></svg></li>
+      <li><svg width="51" height="30" viewBox="0 0 51 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9457 29.8751C23.9457 29.8751 8.68025 29.8751 5.68017 29.8751C2.68009 29.8751 0.248047 27.338 0.248047 24.2084C0.248047 21.0788 2.68009 18.5417 5.68017 18.5417C6.53163 18.5417 7.28464 18.4383 9.48266 19.7459C14.8431 23.5001 23.9457 29.8751 23.9457 29.8751Z" fill="#010610"/><path d="M22.4158 27.9992C22.4158 27.9992 9.96451 19.2222 7.51748 17.4973C5.07046 15.7724 4.42719 12.3047 6.08071 9.75203C7.73422 7.19935 11.0584 6.52831 13.5054 8.25322C14.1999 8.74277 14.8687 9.09135 15.9707 11.4217C18.3595 17.5658 22.4158 27.9992 22.4158 27.9992Z" fill="#010610"/><path d="M22.1002 25.542C22.1002 25.542 16.4031 10.9339 15.2835 8.06296C14.1638 5.19207 15.3921 1.87976 18.027 0.664714C20.6618 -0.550329 23.7054 0.792006 24.8251 3.6629C25.1428 4.4777 25.511 5.15812 25.2304 7.76916C24.0702 14.3563 22.1002 25.542 22.1002 25.542Z" fill="#010610"/><path d="M27.2511 29.8751C27.2511 29.8751 42.5165 29.8751 45.5166 29.8751C48.5167 29.8751 50.9487 27.338 50.9487 24.2084C50.9487 21.0788 48.5167 18.5417 45.5166 18.5417C44.6651 18.5417 43.9121 18.4383 41.7141 19.7459C36.3537 23.5001 27.2511 29.8751 27.2511 29.8751Z" fill="#010610"/><path d="M28.7802 27.9997C28.7802 27.9997 41.2315 19.2227 43.6786 17.4978C46.1256 15.7729 46.7689 12.3052 45.1153 9.75252C43.4618 7.19984 40.1377 6.5288 37.6906 8.25371C36.9961 8.74326 36.3273 9.09184 35.2253 11.4222C32.8366 17.5663 28.7802 27.9997 28.7802 27.9997Z" fill="#010610"/><path d="M35.9131 8.06289L29.0964 25.5419L26.3249 9.80571C26.0845 8.29621 26.3095 8.00065 26.7295 7.56244C27.0806 7.19622 27.5829 6.83 28.0627 6.59974C28.1601 6.55297 28.1758 6.41579 28.0806 6.36429C27.8091 6.21751 27.4514 6.10774 27.1369 6.07494C26.7173 6.03117 26.2458 6.04149 25.8667 6.07249C25.8749 4.90964 26.091 4.36758 26.3059 3.82846C26.3279 3.77344 26.3498 3.71845 26.3715 3.66284C27.4911 0.791935 30.5347 -0.550397 33.1696 0.664647C35.8044 1.87969 37.0327 5.192 35.9131 8.06289Z" fill="#010610"/></svg></li>
+      <li><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.94873 18.4907C6.38509 18.4927 11.8215 18.4897 17.2578 18.4927C17.2588 23.9343 17.2578 29.375 17.2578 34.8167H0.94873V18.4907Z" fill="#010610"/><path d="M18.9241 18.4927C24.3595 18.4907 29.7958 18.4917 35.2322 18.4917C35.2322 23.9334 35.2322 29.375 35.2322 34.8167H18.9231C18.9241 29.375 18.9221 23.9334 18.9241 18.4927Z" fill="#010610"/><path d="M0.94873 0.5H17.2578C17.2568 5.94165 17.2578 11.3833 17.2568 16.825C11.8215 16.825 6.38509 16.825 0.94873 16.825V0.5Z" fill="#010610"/><path d="M18.9231 0.5H35.2322C35.2322 5.94165 35.2332 11.3833 35.2312 16.825C29.7958 16.824 24.3595 16.825 18.9241 16.825C18.9221 11.3833 18.9231 5.94165 18.9231 0.5Z" fill="#010610"/></svg></li>
+      <li><svg width="59" height="26" viewBox="0 0 59 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24.8069 20.4738C28.3278 22.3106 31.9438 24.0249 35.084 25.2494C38.7952 15.6982 45.5515 8.10615 58.0173 1.12639V0.759033C42.0306 6.39182 32.0389 10.4327 24.8069 20.4738Z" fill="#010610"/><path fill-rule="evenodd" clip-rule="evenodd" d="M31.3499 1.85413C27.829 1.57519 9.36822 0.877825 1.18457 6.03832C3.37322 7.99093 5.75219 9.94355 8.60695 12.1751C16.7906 6.59621 27.2581 4.64359 36.9642 3.80675V3.38833C35.0611 3.10939 32.9676 2.5515 31.3499 1.85413Z" fill="#010610"/><path fill-rule="evenodd" clip-rule="evenodd" d="M40.3168 3.63502C32.9896 4.63387 20.1431 7.3807 12.8159 13.3738C15.4804 15.1218 18.24 16.8698 21.0947 18.4929C28.7074 9.87783 38.9846 6.00729 49.3569 3.38531V3.01074C46.7876 3.38531 42.7909 3.63502 40.3168 3.63502Z" fill="#010610"/></svg></li>
+      <li><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0877 35.4976C8.45395 35.4976 0.605957 27.689 0.605957 17.9988C0.605957 8.34622 8.45395 0.5 18.0877 0.5C27.7215 0.5 35.5695 8.34622 35.5695 17.9988C35.5695 27.689 27.7215 35.4976 18.0877 35.4976ZM18.0877 1.3279C8.88629 1.3279 1.43305 8.7884 1.43305 17.9988C1.43305 27.2092 8.89569 34.6697 18.0971 34.6697C27.2985 34.6697 34.7518 27.2092 34.7518 17.9988C34.7424 8.83544 27.2891 1.3279 18.0877 1.3279ZM32.9002 22.985C32.8908 23.0038 32.8626 23.0226 32.8156 23.0038C32.778 22.985 32.7592 22.9662 32.7592 22.9379C32.7592 22.9097 33.3419 21.1881 33.3419 19.203C33.3326 17.0674 32.4679 15.7597 31.3588 15.7597C30.6821 15.7597 30.1934 16.2489 30.1934 16.9733C30.1934 18.281 31.7911 18.3845 31.7911 21.2445C31.7911 22.4111 31.5468 23.5212 31.1614 24.7349C29.3663 30.7936 23.6518 33.6066 18.0877 33.6066C15.5218 33.6066 13.6985 33.0797 13.1533 32.8351C13.1345 32.8257 13.1157 32.7787 13.1345 32.741C13.1439 32.7128 13.1815 32.6846 13.2097 32.694C13.4259 32.7787 14.9955 33.2773 16.9317 33.2773C19.0652 33.2773 20.3246 32.4023 20.3246 31.3392C20.3246 30.6619 19.7983 30.1256 19.1122 30.1256C17.8057 30.1256 17.7024 31.772 14.9015 31.772C13.6891 31.772 12.627 31.5274 11.3676 31.1417C5.35235 29.2883 2.48572 23.6247 2.49511 17.9988C2.49511 15.2611 3.26582 13.0784 3.27521 13.0596C3.28461 13.0408 3.32221 13.0314 3.3598 13.0408C3.4068 13.0596 3.4162 13.0972 3.4068 13.1066C3.33161 13.3324 2.82407 14.8942 2.82407 16.8322C2.82407 18.9678 3.69816 20.2285 4.80722 20.2285C5.43694 20.2285 5.97267 19.7487 5.97267 19.0619C5.97267 17.7542 4.37487 17.6036 4.37487 14.7907C4.37487 13.577 4.61924 12.5139 5.00459 11.2533C6.85615 5.25101 12.5236 2.42863 18.0877 2.391C20.6724 2.37218 22.9375 3.14363 23.0221 3.2189C23.0409 3.2283 23.0503 3.26594 23.0409 3.30357C23.0221 3.35061 22.9939 3.35061 22.9751 3.35061C22.9469 3.35061 21.4713 2.72968 19.2438 2.72968C17.1572 2.72968 15.8508 3.60462 15.8508 4.71476C15.8508 5.34509 16.3301 5.87194 17.0632 5.87194C18.3697 5.87194 18.4637 4.27259 21.2739 4.27259C22.4863 4.27259 23.5484 4.51719 24.8078 4.90292C30.8607 6.74687 33.6145 12.4669 33.6709 17.9894C33.7085 20.8306 32.9096 22.9756 32.9002 22.985ZM24.5729 18.8267C22.9281 18.8267 21.6686 20.0403 21.6686 21.4891C21.6686 22.7027 22.3924 23.6718 23.3604 23.6718C23.6988 23.6718 24.0371 23.4742 24.0371 23.0414C24.0371 22.4111 23.2007 22.2606 23.2664 21.3104C23.304 20.6894 23.8962 20.2755 24.4695 20.2755C25.6349 20.2755 26.1707 21.4044 26.1707 22.5616C26.1237 24.3585 24.8078 25.6004 23.257 25.6004C21.2269 25.6004 19.9111 23.6624 19.9111 21.5738C19.9111 18.4692 21.9412 17.2555 23.0127 16.9639C23.0221 16.9639 25.7947 17.4625 25.7101 16.2301C25.6725 15.6938 24.8736 15.4869 24.2909 15.4586C23.6424 15.4304 23.0033 15.6656 23.0033 15.6656C22.6649 15.4963 22.43 15.1576 22.289 14.7718C24.2721 13.2666 25.6819 11.8178 25.6819 10.1714C25.6819 9.29643 25.0992 8.52498 23.9902 8.52498C22.007 8.52498 20.5032 11.0463 20.5032 13.323C20.5032 13.7088 20.5032 14.0945 20.5972 14.4426C19.3377 15.3646 18.3979 15.9384 16.7061 16.9545C16.7061 16.7381 16.7531 16.1924 16.8941 15.4869C17.4768 14.8565 18.2757 13.9063 18.2757 13.1819C18.2757 12.8432 18.0783 12.5516 17.693 12.5516C16.7249 12.5516 16.0012 14.0098 15.8038 15.0259C15.3715 15.5621 14.4974 16.2395 13.7737 16.2395C13.1909 16.2395 13.003 15.7032 12.9466 15.5151C14.7887 14.8847 17.0632 12.3634 17.0632 10.0867C17.0632 9.60689 16.8659 8.53438 15.4185 8.53438C13.2379 8.53438 11.3958 11.7801 11.3958 14.3015C10.6157 14.3015 10.3337 13.4736 10.3337 12.8526C10.3337 12.2223 10.5781 11.592 10.5781 11.3944C10.5781 11.1968 10.4841 10.9616 10.1927 10.9616C9.46902 10.9616 9.02727 11.9307 9.02727 13.0408C9.07427 14.5931 10.0893 15.5621 11.4522 15.6562C11.6495 16.5782 12.4672 17.4531 13.4823 17.4531C14.112 17.4531 14.8827 17.2555 15.4185 16.7757C15.3715 17.1144 15.3245 17.4061 15.2681 17.6977C13.1439 18.8267 11.6025 19.5981 10.1927 20.8588C9.08367 21.8748 8.45395 23.2296 8.45395 24.3021C8.45395 25.7603 9.37503 27.1151 11.2642 27.1151C13.4917 27.1151 15.1835 25.3182 16.0106 22.8533C16.3959 21.6867 16.5557 19.9933 16.6497 18.4409C18.8772 17.1803 19.9299 16.4465 21.0953 15.628C21.2363 15.8726 21.3867 16.0607 21.5841 16.2113C20.569 16.7475 18.1441 18.2434 18.1441 21.7902C18.1441 24.3115 19.8359 27.1245 23.1819 27.1245C25.9451 27.1245 27.8343 24.8478 27.8343 22.6651C27.8249 20.6706 26.7064 18.8267 24.5729 18.8267ZM11.2642 25.6098C10.5405 25.6474 10.0517 25.177 10.0517 24.4056C10.0517 22.317 12.9372 20.3319 15.1177 19.2688C14.7323 22.1759 13.7455 25.4969 11.2642 25.6098ZM12.862 14.1697C12.862 12.5704 14.441 9.53163 15.3997 9.8515C16.5369 10.2278 14.4598 13.2948 12.862 14.1697ZM22.007 13.4453C22.007 11.4603 23.351 9.52222 24.0841 9.88913C24.9206 10.3031 23.4638 12.1753 22.007 13.4453Z" fill="#010610"/></svg></li>
     </ul>
-  </div>
-</div>
+  </section>
 
-<div class="faq container">
-  <h3>Have a Question?</h3>
-  <div class="faq__cols">
-    <ul class="faq__col">
-      <li id="faq-live-updates">
-        <h4>How do Live Update limits work?</h4>
-        <p>Using the Ionic <a href="/pro/deploy">Deploy</a> service allows you to push hot code updates directly to your users’ devices, all from the Ionic cloud dashboard, without having to go through the app stores.</p>
-        <p>A single Live Update is one code update to one device. If you send one update to 200 devices, that counts as 200 Live Updates. If you send two updates to 200 devices, that counts as 400 Live Updates.</p>
-        <p>The number of Live Updates varies with each plan. The Launch plan includes 10,000 Live Updates per month. The Growth plan allows up to 25,000 Live Updates per month. The plan limits are refreshed each month. If you exceed your quota for a given month, you will have to upgrade to a higher plan, or wait until the next calendar month to send more updates.</p>
-        <p>If you need more than 25,000 Live Updates, the Scale and Enterprise plans offer custom limits, based on annual usage. Ionic’s Live Update service scales to millions of units, with pricing varying based on the number of Updates in your custom plan. <a href="/sales">Contact our Sales</a> team to learn more about setting up a custom Scale or Enterprise plan.</p>
-      </li>
-      <li id="faq-ios">
-        <h4>Which plans offer iOS Enterprise builds?</h4>
-        <p>For development teams that would like to use <a href="/pro/package">Ionic Package</a> to generate builds using their Apple Enterprise Program Account Certificate, a subscription to the Scale or Enterprise plan is required. The Apple Developer Enterprise Program allows large organizations to develop and deploy proprietary, internal-use apps to their employees. This program is for specific use cases that require private distribution directly to employees using secure internal systems or through a Mobile Device Management solution.</p>
-      </li>
-      <li id="faq-account">
-        <h4>What is Account &amp; Billing Support?</h4>
-        <p>Account & Billing Support is available to all plan holders, and includes access to help for issues related to account billing, refunds, cancellations and account re-activations, and password or account access related concerns.</p>
-      </li>
-      <li id="faq-premium">
-        <h4>What is Premium Product Support?</h4>
-        <p>Timely assistance with troubleshooting issues related to Ionic Studio and Appflow. For Enterprise customers, Premium Product Support includes issues related to Premier plugins and Ionic Native solutions, including <a href="/enterprise/identity-vault">Identity Vault<a>, <a href="/enterprise/auth-connect">Auth Connect</a>, and <a href="/enterprise/offline-storage">Offline Storage</a>.</p>
-      </li>
-    </ul>
 
-    <ul class="faq__col">
-      <li>
-        <h4>Do I have to create an Ionic account to use the Framework?</h4>
-        <p>No. Ionic Framework is totally open source and free to download and install without an Ionic account. We invite all Ionic developers to create an account so they can take advantage of free developer tools to help you build better apps and go faster, with tools such as Ionic Deploy for sending Live Updates to your users, and a single cloud dashboard to manage all of your projects. If you just want to start building wit the Framework, freel free!</p>
-      </li>
-      <li id="faq-concurrency">
-        <h4>What do Concurrency Limits refer to?</h4>
-        <p>Concurrency Limits refers to the number of app builds that can occur at the same time. Once you have hit your limit, additional builds will be queued until the existing builds in process are completed. When you upgrade to the Scale plan, you’ll be able to set a customized concurrency limit that matches your team’s needs and goals.</p>
-      </li>
-      <li id="faq-git">
-        <h4>What are private git repos?</h4>
-        <p>Private git repos are on-premises installations of a git service. All Ionic account plans offer a git-based workflow that works with cloud-based git services such as GitHub and BitBucket. For teams and businesses that wish to integrate with privately hosted git repos, we offer support for BitBucket servers as an add-on under the Scale and Enterprise plans. Contact our Sales team to learn more.</p>
-      </li>
-      <li id="faq-seats">
-        <h4>How many seats are with each plan?</h4>
-        <p>The number of seats included varies by plan. Launch plans include one (1) seat. Growth plans include two (2) seats with the base subscription, with the ability to add up to five (5) team members at $99 per additional seat. Growth subscribers can add additional seats with the Developer Hub.</p>
-        <p>Scale and Enterprise plans offer flexible packages that scale to any number of team members. Please contact our Sales team to discuss a custom plan that accommodates the number of seats you’d like to include. If you are a current customer and would like to add more seats to your existing Scale or Enterprise plan, please contact Support.</p>
-      </li>
-      <li id="faq-enterprise">
-        <h4>What is the Enterprise Support SLA?</h4>
-        <p>You can customize your SLA as part of an Enterprise plan based on your specific requirements.</p>
-      </li>
-    </ul>
-  </div>
-</div>
-
-{% include '../_includes/promos/quad-cta.html' %}
+</main>
 {% endblock %}
 
 {% block modals %}
-<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "3cbb2a81-0859-43ca-af75-47cb066e3b1e",
-        	css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
+{% include './__modal--contact.html' %}
 {% endblock %}
 
-{% block scripts %}
-<script>
-const toggle = function() {
-  this.isMonthly = false;
-  this.$plans = document.getElementById('plans');
-
-  this.handleClick = event => {
-    console.log('gets here')
-    const wasMonthlyClicked = event.target.textContent === 'Monthly';
-    if (this.isMonthly === wasMonthlyClicked) return;
-    this.isMonthly = wasMonthlyClicked;
-    
-    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 1 : 2})`)
-        .classList.add('active');
-    this.toggleEl.querySelector(`span:nth-child(${this.isMonthly ? 2 : 1})`)
-        .classList.remove('active');
-
-    requestAnimationFrame(() => {
-      this.$plans.className = 
-        `plans ${this.isMonthly ? 'monthly' : 'annually'}-active`
-    });
-  }
-
-  return {
-    // public methods
-    init: () => {
-      this.toggleEl = document.getElementById('pricing-toggle');
-      this.toggleEl.querySelectorAll('span').forEach(el => {
-        el.addEventListener('click', this.handleClick);
-      });
-    }
-  }
-}().init();
-</script>
-{% endblock %}

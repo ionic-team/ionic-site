@@ -160,8 +160,16 @@
                   hubspot-event-id="000006040735"
                   id="signup-form"
                   allow-login="false"
-                  oauth-redirect="true"
+                  oauth-redirect="false"
                 ></ionic-signup-form>
+                <div id="signup-thanks">
+                  <h2>Thanks!</h2>
+                  <p>
+                    Thanks for joining the Ionic community!
+                    As part of your account, you get access to the <a href="http://forum.ionicframework.com/">Ionic Forum</a>,
+                    and the ability to push live, remote app updates with <a href="https://dashboard.ionicframework.com/">Appflow</a> (and more!).
+                  </p>
+                </div>
             </div>
           </div>
         </li>
@@ -290,4 +298,13 @@
 <script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.6.4/minified.js" integrity="sha384-0klsXCJV+cWaC+zXWBGWot1n1vMkFkbxy6BtBjwrn+fEoS5kflOTchfH9PUQPaN+" crossorigin="anonymous"></script>
 {# Google reCAPTCHA #}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+<script>
+  const signupForm = document.querySelector('ionic-signup-form');
+  const signupThanks = document.querySelector('#signup-thanks');
+
+  signupForm.addEventListener('signedUp', (e) => {
+    signupForm.style.display = 'none';
+    signupThanks.style.display = 'block';
+  });
+</script>
 {% endblock %}

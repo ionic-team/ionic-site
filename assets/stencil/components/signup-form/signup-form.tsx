@@ -97,7 +97,7 @@ export class IonicSignupForm {
     return (
       <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST">
         { this.formErrorMap?._form ? (
-          <FormErrors>{this.formErrorMap._form}</FormErrors>
+          <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
         ) : null }
         <ui-floating-input
           type="text"

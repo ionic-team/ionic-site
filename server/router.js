@@ -53,6 +53,7 @@ router: app => {
   .get('/community', (_, res) => res.render('community'))
   .get('/contact', (_, res) => res.render('contact'))
   .get('/contributors', (_, res) => res.render('contributors'))
+  .get('/covid-19', (_, res) => markdown(res, 'corona'))
   .get('/creator', getPrismicAPI, (req, res, next) => getSingle(req, res, next, 'creator_x_promo', 'creator/index'))
   .get('/creator/pricing', (_, res) => res.render('creator/pricing'))
   .get('/creator/support', (_, res) => res.render('creator/support'))

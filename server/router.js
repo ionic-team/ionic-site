@@ -11,6 +11,7 @@ const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
+const wizardCtrl = require('./controllers/wizardCtrl');
 
 module.exports = {
 router: app => {
@@ -137,6 +138,7 @@ router: app => {
     getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
   .get('/sales', (_, res) => res.render('sales'))
+  .get('/start', (_, res) => res.render('start'))
   .get('/startups', (_, res) => res.render('startups'))
   .get('/studio', (_, res) => res.render('products/studio'))
   .get('/subscribe', (_, res) => res.render('subscribe'))
@@ -180,6 +182,9 @@ router: app => {
   .post('/contact', bp.json(), es(), contactCtrl)
   .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
+  .post('/api/v1/wizard/create', bp.json(), es(), wizardCtrl.save)
+  .get('/api/v1/wizard/app/:appId', bp.json(), es(), wizardCtrl.getApp)
+  .post('/api/v1/wizard/app/:appId/start', bp.json(), es(), wizardCtrl.appStarted)
 
   // Prismic Preview
   .get('/preview', previewController)

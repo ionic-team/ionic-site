@@ -4,10 +4,10 @@ const heroFeatured = [
     title: "Hybrid vs. Native Ebook",
   }, {
     category: "articles",
-    title: "When & Why to Choose Ionic",
+    title: "Evaluating Ionic for Enterprise",
   }, {
     category: "articles",
-    title: "Ionic vs. React Native: A Comparison Guide",
+    title: "Ionic React vs React Native"
   }
 ];
 
@@ -17,6 +17,15 @@ const resources = {
     description: "Articles showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta_description: 'Get the latest insights on mobile app development technology and trends for enterprise app development. Ionic articles provide insights into mobile strategy for enteprises and businesses alike.',
     items: [
+      {
+        "type": "Article",
+        "title": "Why Developers Love Ionic",
+        "url": "/resources/articles/why-developers-love-ionic",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/article-why-developers-love-ionic.png",
+        "bgColor": "#4F82FF"
+      },
       {
         "type": "Article",
         "title": "Ionic React vs React Native",
@@ -125,7 +134,7 @@ const resources = {
         "bgColor": "#F95E6F"
       }, {
         "type": "Article",
-        "title": "When & Why to Choose Ionic",
+        "title": "Evaluating Ionic for Enterprise",
         "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
         "target": "_self",
         "action": "Read",
@@ -352,6 +361,14 @@ const resources = {
     meta: "Ionic Resources: Webinars for developers and architects",
     meta_description: 'Check out Ionic resources and view the white papers, webinars, videos and more we have created to help developers understand why Ionic and cross platform development is the right choices for them.',
     items: [
+      {
+        "type": "Webinar",
+        "title": "Ionic 5: Live Demo and Q&A",
+        "url": "https://ionicframework.com/resources/webinars/announcing-ionic-5",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/ionic-5.png",
+        "bgColor": "#6372ff"
+      },
       {
         "type": "Webinar",
         "title": "Ionic Native: Native-powered apps, without the hassle",

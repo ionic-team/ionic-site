@@ -17,7 +17,7 @@
     "jsxFactory": "h",
   },
   "include": [
-    "src",
+    "assets/stencil",
     "types/jsx.d.ts"
   ],
   "exclude": [

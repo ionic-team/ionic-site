@@ -18,65 +18,24 @@
       with the web tech you know and love.
     </h4>
   </hgroup>
-
-  <div class="container">
-    <ul class="rounded-tabs">
-      <li class="rounded-tabs__tab rounded-tabs__tab--active" data-tab-content="cli" id="get-started-tab-cli">
-        <div class="rounded-tabs__tab-inner">
-          <svg width="20px" height="18px" viewBox="0 0 20 18">
-            <g transform="translate(-567.000000, -480.000000)">
-              <g transform="translate(560.000000, 480.000000)">
-                <circle class="middle" cx="17" cy="10" r="8"></circle>
-                <g class="front">
-                  <rect x="17" y="14" width="10" height="2"></rect>
-                  <g transform="translate(8.485281, 8.485281) rotate(-315.000000) translate(-8.485281, -8.485281) translate(2.485281, 2.485281)">
-                    <rect x="0" y="0" width="12" height="2"></rect>
-                    <rect transform="translate(11.000000, 6.000000) rotate(-90.000000) translate(-11.000000, -6.000000) " x="5" y="5" width="12" height="2"></rect>
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
-          <span>Install with CLI</span>
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="account" id="get-started-tab-create-account">
-        <div class="rounded-tabs__tab-inner">
-          <svg width="20px" height="20px" viewBox="0 0 20 20">
-            <g transform="translate(-309.000000, -479.000000)">
-              <g transform="translate(309.000000, 479.000000)">
-                <circle class="back" cx="10" cy="10" r="10"></circle>
-                <g class="front" transform="translate(5.000000, 1.000000)">
-                  <circle cx="5" cy="9" r="5"></circle>
-                  <circle cx="11.5" cy="2.5" r="2.5"></circle>
-                </g>
-              </g>
-            </g>
-          </svg>
-          <span>Create Ionic account</span>
-        </div>
-      </li>
-      <li class="rounded-tabs__tab" data-tab-content="studio" id="get-started-tab-studio">
-        <div class="rounded-tabs__tab-inner">
-          <svg width="21px" height="21px" viewBox="0 0 21 21">
-            <g transform="translate(-771.000000, -478.000000)">
-              <g transform="translate(771.000000, 478.000000)">
-                <rect class="back" x="0" y="0" width="14" height="14" rx="4"></rect>
-                <rect class="middle middle--border" x="3.5" y="3.5" width="15" height="15" rx="4"></rect>
-                <path d="M18.2583573,17.3292828 L19.1883542,19.2360589 L16.491972,20.5511724 L15.5384277,18.5961167 L13.5,20.3795001 L13.5,9.83378992 L20.8782282,16.8566861 L18.2583573,17.3292828 Z" class="front front--border" stroke-linecap="round" stroke-linejoin="round"></path>
-              </g>
-            </g>
-          </svg>
-          <span>Build with Studio</span>
-        </div>
-      </li>
-    </ul>
-  </div>
 </div>
 
 <main>
-  <section class="tab-content tab-content--active" id="content-cli">
+  <section id="content-wizard">
     <div class="container">
+      <h2 class="section-title">Simple Install</h2>
+      <p>
+        Try the new Ionic App Wizard for a visual way to start a new Ionic app
+      </p>
+      <a href="/start" class="btn ionic">Open Wizard</a>
+    </div>
+  </section>
+  <section id="content-cli">
+    <div class="container">
+      <h2 class="section-title">Manual Install</h2>
+      <p>
+        Prefer to install and start an Ionic app manually from the command line? Follow the manual install below.</i>
+      </p>
       <ol>
         <li>
           <div>
@@ -137,6 +96,42 @@
           </div>
         </li>
 
+        <li>
+          <div>
+            <h1>Join the community</h1>
+            <div class="content-row">
+              <div class="col col--half">
+                <p>Get free access to the Ionic Forum, live training events, news updates, and more.</p>
+                <p>
+                  Ionic developers often say the Ionic community is one of the best parts about building Ionic apps, and we'd
+                  love to have you!
+                </p>
+                <!--
+                <p>Your Ionic profile also gets you access to the ability to update apps in the app store remotely with a free <a href="/appflow">Ionic Appflow</a> account.
+                -->
+              </div>
+              <div class="col col--half">
+                <ionic-signup-form
+                  source="framework-getting-started"
+                  ga-event-name="Get started"
+                  ga-event-label="btn-get-started-signup-submit"
+                  hubspot-event-id="000006040735"
+                  id="signup-form"
+                  allow-login="false"
+                  oauth-redirect="false"
+                ></ionic-signup-form>
+                <div id="signup-thanks">
+                  <h2>Thanks!</h2>
+                  <p>
+                    Thanks for joining the Ionic community!
+                    As part of your account, you get access to the <a href="http://forum.ionicframework.com/">Ionic Forum</a>,
+                    and the ability to push live, remote app updates with <a href="https://dashboard.ionicframework.com/">Appflow</a> (and more!).
+                  </p>
+                </div>
+            </div>
+          </div>
+        </li>
+
         <div class="supercharge">
           <li>
             <div>
@@ -193,44 +188,6 @@
   <section class="tab-content" id="content-account">
     <div class="container">
       <div class="form-row">
-        <div class="col form-wrapper">
-          <form class="form" id="signup-form" role="form">
-            <h1>Create a free Ionic account</h1>
-            <h2>Unlock the full experience. No credit card required.</h2>
-            <div class="errorlist">
-              <div>Unable to create account.</div>
-              <div class="form-message"></div>
-            </div>
-            <div class="form-group" id="field-name">
-              <label for="id_name">Full name</label>
-              <input type="text" id="id_name" name="name" tabindex="1" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-email">
-              <label for="">Email</label>
-              <input type="text" id="id_email" name="email" tabindex="2" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-username">
-              <label for="">Username</label>
-              <input type="text" id="id_username" name="username" tabindex="3" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-password">
-              <label for="">Password</label>
-              <input type="password" id="id_password" name="password" tabindex="4" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group">
-              <span class="disclaimer">By signing up you agree to our <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
-            </div>
-            <button type="submit" id="submit" class="btn btn-block" tabindex="5">Create free account</button>
-            <div class="well">
-              Already have an account? <a class="text-link" href="https://dashboard.ionicframework.com/login">Log in</a>
-            </div>
-          </form>
-        </div>
-
         <div class="col benefits">
           <h4>Get more with an Ionic account</h4>
           <p>An Ionic Account offers more than just the open source tools. Instantly get access to the <b>Ionic Forum</b> and <b>Ionic Appflow</b> cloud features</p>
@@ -300,131 +257,12 @@
 {# Google reCAPTCHA #}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
 <script>
+  const signupForm = document.querySelector('ionic-signup-form');
+  const signupThanks = document.querySelector('#signup-thanks');
 
-  (function() {
-
-      // content tabs
-      var tabs = document.querySelectorAll('.rounded-tabs__tab');
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].addEventListener('click', function() {
-          selectTab(this);
-        });
-      }
-
-      if (window.location.hash && ['#account', '#cli', '#creator'].includes(window.location.hash)) {
-        var content = window.location.hash.replace('#', '');
-        var tab = document.querySelector('[data-tab-content="' + content + '"]')
-        selectTab(tab);
-      }
-
-
-      function selectTab(tab) {
-        var contentId = tab.dataset.tabContent;
-        window.location.hash = contentId;
-
-        document.querySelector('.rounded-tabs__tab--active').classList.remove('rounded-tabs__tab--active');
-        document.querySelector('.tab-content--active').classList.remove('tab-content--active');
-        tab.classList.add('rounded-tabs__tab--active');
-        document.getElementById('content-' + contentId).classList.add('tab-content--active');
-      }
-
-    // handle sign up form submission
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
-        handleError({ message: 'Failed to load reCAPTCHA' });
-        return;
-      }
-
-      grecaptcha
-        .execute('6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ', { action: 'signup' })
-        .then(function(recaptcha) {
-          var data = {
-            name: document.getElementById('id_name').value,
-            email: document.getElementById('id_email').value,
-            username: document.getElementById('id_username').value,
-            password: document.getElementById('id_password').value,
-            recaptcha: recaptcha,
-            source: 'framework-getting-started'
-          };
-
-          fetch('/oauth/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          })
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(result) {
-              if (result.error) {
-                handleError(result.error);
-                return;
-              }
-
-              window.c('Get started', 'btn-get-started-signup-submit');
-              var _hsq = (window._hsq = window._hsq || []);
-              _hsq.push(['identify', { email: data.email }]);
-              _hsq.push(['trackEvent', { id: '000006040735' }]);
-
-              var nonce = Math.random().toString(36).substring(2);
-
-              var params = new URLSearchParams();
-              params.set('response_type', 'token');
-              params.set('scope', 'openid profile email');
-              params.set('client_id', 'dash');
-              params.set('nonce', nonce);
-
-              window.location.assign('/oauth/authorize?' + params.toString());
-            })
-            .catch(function(reason) {
-              clearErrors();
-              handleError({ message: reason.message });
-            });
-        });
-    });
-
-    function handleError(response) {
-      var signupError = response;
-      var signupErrors =
-        signupError && signupError.details
-          ? signupError.details.reduce(function(acc, current) {
-              acc[current.parameter] = current.errors.join(' ');
-              return acc;
-            }, {})
-          : {};
-
-      if (signupError) {
-        var errorlist = document.querySelector('.errorlist');
-        var message = errorlist.querySelector('.form-message');
-        errorlist.classList.add('error');
-        message.innerHTML = signupError.message;
-      }
-
-      if (signupErrors) {
-        for (var key in signupErrors) {
-          var errorGroup = document.querySelector('#field-' + key);
-          var message = errorGroup.querySelector('.form-message');
-          errorGroup.classList.add('error');
-          message.innerHTML = signupErrors[key];
-        }
-      }
-    }
-
-    function clearErrors() {
-      var errorlist = document.querySelector('.errorlist');
-      var message = errorlist.querySelector('.form-message');
-      errorlist.classList.remove('error');
-      message.innerHTML = '';
-
-      var keys = ['name', 'email', 'username', 'password'];
-      for (var i = 0; i < keys.length; i++) {
-        var errorGroup = document.querySelector('#field-' + keys[i]);
-        var message = errorGroup.querySelector('.form-message');
-        errorGroup.classList.remove('error');
-        message.innerHTML = '';
-      }
-    }
-  })();
+  signupForm.addEventListener('signedUp', (e) => {
+    signupForm.style.display = 'none';
+    signupThanks.style.display = 'block';
+  });
 </script>
 {% endblock %}

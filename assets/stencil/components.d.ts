@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  SignupForm,
+} from './util/auth';
+import {
   TabType,
 } from './components/react-capacitor/react-capacitor';
 import {
@@ -18,6 +21,7 @@ export namespace Components {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color': string;
@@ -46,6 +50,14 @@ export namespace Components {
   interface IonicSearch {
     'mobile': boolean;
   }
+  interface IonicSignupForm {
+    'allowLogin': boolean;
+    'gaEventLabel': any;
+    'gaEventName': any;
+    'hubspotEventId': string;
+    'oauthRedirect': boolean;
+    'source': any;
+  }
   interface IonicSlider {}
   interface IonicSnapBar {}
   interface IonicSubHeader {
@@ -69,6 +81,21 @@ export namespace Components {
   interface ReactComponents {
     'component': ComponentType;
   }
+  interface TwitterScript {}
+  interface UiFloatingInput {
+    'autocomplete': string;
+    'disabled': boolean;
+    'inputId': string;
+    'inputTabIndex': number;
+    'label': string;
+    'message': string;
+    'name': string;
+    'onChange': (e) => void;
+    'required': boolean;
+    'setFocus': (focused: any) => Promise<void>;
+    'type': string;
+    'value': string;
+  }
 }
 
 declare global {
@@ -90,6 +117,12 @@ declare global {
   var HTMLIconExternalElement: {
     prototype: HTMLIconExternalElement;
     new (): HTMLIconExternalElement;
+  };
+
+  interface HTMLIonicAppWizardElement extends Components.IonicAppWizard, HTMLStencilElement {}
+  var HTMLIonicAppWizardElement: {
+    prototype: HTMLIonicAppWizardElement;
+    new (): HTMLIonicAppWizardElement;
   };
 
   interface HTMLIonicAppflowActivatorElement extends Components.IonicAppflowActivator, HTMLStencilElement {}
@@ -132,6 +165,12 @@ declare global {
   var HTMLIonicSearchElement: {
     prototype: HTMLIonicSearchElement;
     new (): HTMLIonicSearchElement;
+  };
+
+  interface HTMLIonicSignupFormElement extends Components.IonicSignupForm, HTMLStencilElement {}
+  var HTMLIonicSignupFormElement: {
+    prototype: HTMLIonicSignupFormElement;
+    new (): HTMLIonicSignupFormElement;
   };
 
   interface HTMLIonicSliderElement extends Components.IonicSlider, HTMLStencilElement {}
@@ -181,10 +220,23 @@ declare global {
     prototype: HTMLReactComponentsElement;
     new (): HTMLReactComponentsElement;
   };
+
+  interface HTMLTwitterScriptElement extends Components.TwitterScript, HTMLStencilElement {}
+  var HTMLTwitterScriptElement: {
+    prototype: HTMLTwitterScriptElement;
+    new (): HTMLTwitterScriptElement;
+  };
+
+  interface HTMLUiFloatingInputElement extends Components.UiFloatingInput, HTMLStencilElement {}
+  var HTMLUiFloatingInputElement: {
+    prototype: HTMLUiFloatingInputElement;
+    new (): HTMLUiFloatingInputElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
     'icon-external': HTMLIconExternalElement;
+    'ionic-app-wizard': HTMLIonicAppWizardElement;
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
@@ -192,6 +244,7 @@ declare global {
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-react-demo': HTMLIonicReactDemoElement;
     'ionic-search': HTMLIonicSearchElement;
+    'ionic-signup-form': HTMLIonicSignupFormElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
     'ionic-sub-header': HTMLIonicSubHeaderElement;
@@ -200,6 +253,8 @@ declare global {
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
     'react-capacitor': HTMLReactCapacitorElement;
     'react-components': HTMLReactComponentsElement;
+    'twitter-script': HTMLTwitterScriptElement;
+    'ui-floating-input': HTMLUiFloatingInputElement;
   }
 }
 
@@ -207,6 +262,7 @@ declare namespace LocalJSX {
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
+  interface IonicAppWizard {}
   interface IonicAppflowActivator {}
   interface IonicBarChart {
     'color'?: string;
@@ -235,6 +291,16 @@ declare namespace LocalJSX {
   interface IonicSearch {
     'mobile'?: boolean;
   }
+  interface IonicSignupForm {
+    'allowLogin'?: boolean;
+    'gaEventLabel'?: any;
+    'gaEventName'?: any;
+    'hubspotEventId'?: string;
+    'oauthRedirect'?: boolean;
+    'onLoginInstead'?: (event: CustomEvent<void>) => void;
+    'onSignedUp'?: (event: CustomEvent<SignupForm>) => void;
+    'source'?: any;
+  }
   interface IonicSlider {}
   interface IonicSnapBar {}
   interface IonicSubHeader {
@@ -255,11 +321,26 @@ declare namespace LocalJSX {
   interface ReactComponents {
     'component'?: ComponentType;
   }
+  interface TwitterScript {}
+  interface UiFloatingInput {
+    'autocomplete'?: string;
+    'disabled'?: boolean;
+    'inputId'?: string;
+    'inputTabIndex'?: number;
+    'label'?: string;
+    'message'?: string;
+    'name'?: string;
+    'onChange'?: (e) => void;
+    'required'?: boolean;
+    'type'?: string;
+    'value'?: string;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
     'home-native': HomeNative;
     'icon-external': IconExternal;
+    'ionic-app-wizard': IonicAppWizard;
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
@@ -267,6 +348,7 @@ declare namespace LocalJSX {
     'ionic-quick-signup': IonicQuickSignup;
     'ionic-react-demo': IonicReactDemo;
     'ionic-search': IonicSearch;
+    'ionic-signup-form': IonicSignupForm;
     'ionic-slider': IonicSlider;
     'ionic-snap-bar': IonicSnapBar;
     'ionic-sub-header': IonicSubHeader;
@@ -275,6 +357,8 @@ declare namespace LocalJSX {
     'ionic-toggle-tab': IonicToggleTab;
     'react-capacitor': ReactCapacitor;
     'react-components': ReactComponents;
+    'twitter-script': TwitterScript;
+    'ui-floating-input': UiFloatingInput;
   }
 }
 
@@ -287,6 +371,7 @@ declare module "@stencil/core" {
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
+      'ionic-app-wizard': LocalJSX.IonicAppWizard & JSXBase.HTMLAttributes<HTMLIonicAppWizardElement>;
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
@@ -294,6 +379,7 @@ declare module "@stencil/core" {
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
       'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
+      'ionic-signup-form': LocalJSX.IonicSignupForm & JSXBase.HTMLAttributes<HTMLIonicSignupFormElement>;
       'ionic-slider': LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
       'ionic-sub-header': LocalJSX.IonicSubHeader & JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement>;
@@ -302,6 +388,8 @@ declare module "@stencil/core" {
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;
       'react-capacitor': LocalJSX.ReactCapacitor & JSXBase.HTMLAttributes<HTMLReactCapacitorElement>;
       'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
+      'twitter-script': LocalJSX.TwitterScript & JSXBase.HTMLAttributes<HTMLTwitterScriptElement>;
+      'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
     }
   }
 }

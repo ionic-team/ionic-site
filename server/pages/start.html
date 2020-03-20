@@ -1,0 +1,29 @@
+{% extends '_layouts/blank.html' %}
+{% set title = "Create your Ionic App" %}
+{% set id = "start" %}
+{% set pre_footer = false %}
+{% set meta_description = "Create your own beautiful mobile app with just a few clicks and the power of Ionic Framework." %}
+{% set stickyNav = true %}
+
+{% block main %}
+<main>
+  <nav class="navbar navbar-default transparent light">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          {% include '_includes/svg/ionic-black.svg' %}
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <ionic-app-wizard></ionic-app-wizard>
+</main>
+
+{% endblock %} {% block scripts %}
+<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+{% endblock %}

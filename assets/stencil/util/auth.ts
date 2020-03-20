@@ -59,7 +59,7 @@ export const oauthAuthorize = () => {
     params.set("nonce", Math.random().toString(36).substring(2));
   }
 
-  window.location.assign(`${apiUrl('/oauth/authorize')}?${params.toString()}`);
+  window.location.assign(`/oauth/authorize?${params.toString()}`);
 }
 
 export const signup = async (form: SignupForm, source: string, signupEventId="000006040735") => {
@@ -82,12 +82,14 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
     const data = await ret.json();
 
     if (data.error) {
-      throw makeApiError('Unable to create account');
+      return data;
     }
 
     identify(form.email);
 
     trackEvent({ id: signupEventId });
+    
+    return data;
   } catch (e) {
     throw makeApiError('Unable to create account', e);
   }

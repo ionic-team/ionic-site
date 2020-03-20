@@ -75,4 +75,15 @@ ui-floating-input {
     &:valid {
     }
   }
+
+  .form-message {
+    color: var(--c-red-600);
+    font-weight: 500;
+
+    &--small {
+      font-size: 11px;
+      line-height: 16px;
+      margin-top: 6px;
+    }
+  }
 }

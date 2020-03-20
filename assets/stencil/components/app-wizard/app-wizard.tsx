@@ -1,6 +1,6 @@
 import { Component, State, h, Listen, Element } from '@stencil/core';
 
-import { login, signup, SignupForm, LoginForm, getUser } from '../../util/auth';
+import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
@@ -60,7 +60,6 @@ export class AppWizard {
   @State() step = this.STEP_BASICS;
 
   @State() showSignup = true;
-  @State() signupErrors = null;
   @State() loginErrors = null;
 
   user: ApiUser;
@@ -90,11 +89,6 @@ export class AppWizard {
 
   @State() loginForm: LoginForm = {
     email: ''
-  };
-  @State() signupForm: SignupForm = {
-    name: '',
-    email: '',
-    username: ''
   };
 
   async componentDidLoad() {
@@ -156,21 +150,10 @@ export class AppWizard {
     return this.finish();
   }
 
-  signup = async (e) => {
-    e.preventDefault();
-    try {
-      this.authenticating = true;
-      await signup(this.signupForm, 'wizard-1');
-      this.email = this.loginForm.email;
-      this.authenticating = false;
-    } catch (e) {
-      console.error(e);
-      this.authenticating = false;
-      this.signupErrors = e;
-      return;
-    }
-
-    return this.finish();
+  handleSignup = (e: CustomEvent<SignupForm>) => {
+    const form = e.detail;
+    this.email = form.email;
+    this.finish();
   }
 
   skipAuth = (_e) => {
@@ -358,14 +341,17 @@ export class AppWizard {
           <h4>Get access to the community, forum, and more</h4>
         </hgroup>
         { this.showSignup ? (
-        <SignupForm
-          handleSubmit={this.signup}
-          disable={this.authenticating}
-          errors={this.signupErrors}
-          form={this.signupForm}
-          loginInstead={() => this.showSignup = false}
-          inputChange={(name) => e => this.signupForm[name] = e.target.value}
-          />
+          <ionic-signup-form
+            source="wizard-1"
+            ga-event-name="Wizard Signup"
+            ga-event-label="btn-wizard-signup-submit"
+            hubspot-event-id="000006040735"
+            id="signup-form"
+            allow-login="true"
+            oauth-redirect="false"
+            onSignedUp={this.handleSignup}
+            onLoginInstead={() => this.showSignup = false}
+          ></ionic-signup-form>
         ) : (
         <LoginForm
           handleSubmit={this.login}
@@ -569,70 +555,6 @@ const Switcher = ({ items, index, onChange }) => {
   </div>
   )
 };
-
-interface SignupFormProps {
-  form: SignupForm;
-  handleSubmit: (e) => Promise<void>;
-  errors: any;
-  disable: boolean;
-  loginInstead: () => void;
-  inputChange: (name: string) => (e: any) => void;
-}
-const SignupForm = ({ form, handleSubmit, errors, disable, loginInstead, inputChange }: SignupFormProps) => (
-  <form class="form" id="signup-form" role="form" onSubmit={handleSubmit} method="POST">
-    { errors ? (
-    <FormErrors>{errors.message}</FormErrors>
-    ) : null }
-    <ui-floating-input
-      type="text"
-      label="Full name"
-      name="name"
-      inputTabIndex={1}
-      required={true}
-      value={form.name}
-      disabled={disable}
-      onChange={inputChange('name')} />
-    <ui-floating-input
-      type="email"
-      label="Email"
-      name="email"
-      inputTabIndex={2}
-      required={true}
-      value={form.email}
-      disabled={disable}
-      onChange={inputChange('email')} />
-    <ui-floating-input
-      type="text"
-      label="Username"
-      name="username"
-      inputTabIndex={3}
-      required={true}
-      value={form.username}
-      disabled={disable}
-      onChange={inputChange('username')} />
-    <ui-floating-input
-      type="password"
-      label="Password"
-      name="password"
-      inputTabIndex={4}
-      required={true}
-      value={form.password}
-      disabled={disable}
-      onChange={inputChange('password')} />
-    <button
-      type="submit"
-      id="submit"
-      class="btn btn-block"
-      disabled={disable}
-      tabindex="5">Create profile</button>
-    <div class="well">
-      Already have an account? <a href="#" class="text-link" onClick={e => { e.preventDefault(); loginInstead() }}>Log in</a>
-    </div>
-    <div class="form-group disclaimer">
-      By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
-    </div>
-  </form>
-)
 
 interface LoginFormProps {
   form: LoginForm;

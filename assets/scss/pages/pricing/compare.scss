@@ -1,4 +1,5 @@
 @import '../../vars';
+@import './__vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import './__plan-cards';
 @import './__table';
@@ -20,29 +21,29 @@ main {
   .container {
     padding-bottom: 39px;
     padding-top: 64px;
-    max-width: 536px;
   }
 
   hgroup {
     padding-top: 54px;
-    max-width: 720px;
-  }
+    max-width: 752px;
+    margin-left: 0;
 
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #020814;
-    margin-bottom: 8px;
-    letter-spacing: -0.04em;
-  }
-
-  p {
-    line-height: 32px;
-    font-size: 20px;
-    color: #5B708B;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    font-family: $font-family-inter;
+    h1 {
+      font-size: 56px;
+      line-height: 110%;
+      letter-spacing: -0.04em;
+      color: $c-carbon-900;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+  
+    p {
+      font-size: 22px;
+      line-height: 160%;
+      letter-spacing: -0.02em;
+      color: rgba($c-carbon-900, .9);
+      font-family: $font-family-inter;
+    }
   }
 }
 

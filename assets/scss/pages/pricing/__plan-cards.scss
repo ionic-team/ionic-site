@@ -9,8 +9,7 @@
   grid-template-columns: 272px 272px 272px 272px;
   grid-template-rows: auto;
   grid-template-areas: 
-    "launch growth scale enterprise"
-    "studio studio scale enterprise";
+    "hobby launch growth scale";
 
   @media (max-width: $screen-md-max) {
     gap: 8px;
@@ -22,9 +21,8 @@
     margin-left: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-      "studio studio"
-      "launch growth"
-      "scale enterprise";
+      "hobby launch"
+      "growth scale";
     .plan__card--featured {
       margin-top: 32px;
     }
@@ -33,31 +31,30 @@
   @media (max-width: 500px) {
     grid-template-columns: 1fr;
     grid-template-areas: 
-      "studio"
+      "hobby"
       "launch"
       "growth"
-      "scale"
-      "enterprise";
+      "scale";
   }
 }
 
-#plan-studio {
-  grid-area: studio;
+#plan-hobby {
+  grid-area: hobby;
 }
 
 #plan-launch {
   grid-area: launch;
 }
 
-#plan-growth {
+#plan-launch {
   grid-area: growth;
 }
 
-#plan-scale {
+#plan-launch {
   grid-area: scale;
 }
 
-#plan-enterprise {
+#plan-launch {
   grid-area: enterprise;
 }
 
@@ -81,6 +78,10 @@
     &.plan__card h3,
     .plan__price strong {
       color: #fff;
+    }
+
+    .plan__description {
+      color: $c-indigo-300;
     }
 
     .plan {
@@ -114,60 +115,19 @@
     border-top-right-radius: 0;
     border: 2px solid #3880FF;
   }
-
-  &--aside {
-    display: block;
-    padding: 16px 27px;
-    background: #F6F8FB;
-    border: none;
-    box-shadow: none;
-    
-    &.plan__card h3 {
-      float: left;
-      font-weight: 600;
-      font-size: 22px;
-      margin-top: 15px;
-      letter-spacing: 0;
-    }
-
-    .plan {
-      &__price {
-        float: right;
-        padding-bottom: 2px;
-
-        sup {
-          font-size: 20px;
-        }
-
-        strong {
-          font-size: 36px;
-        }
-      }
-
-      &__cta {
-        float: right;
-        clear: right;
-        margin-left: 2em;
-        margin-right: 0;
-        padding: 10px 12px 9px;
-      }
-
-      &__feature__list {
-        display: block;
-        clear: left;
-        max-width: 330px;
-      }
-    }
-  }
 }
 
 .plan {
   &__card h3 {
-    font-size: 24px;
-    line-height: 29px;
     color: #020814;
     margin-top: 0;
     margin-bottom: 11px;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
   &__price {
@@ -199,11 +159,18 @@
     }
 
     strong {
-      font-weight: 300;
-      font-size: 40px;
+      font-weight: bold;
+      font-size: 44px;
       line-height: 48px;
       letter-spacing: -.03em;
     }
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: $c-indigo-800;
   }
 
   &__cta {
@@ -217,6 +184,8 @@
     text-transform: uppercase;
     border: 1px solid #3880FF;
     box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
+    margin-top: auto;
+    align-self: stretch;
 
     &.white {
       border-color: #DEE3EA;
@@ -264,7 +233,7 @@
     
     &__list {
       padding-left: 0;
-      margin: 10px 0 0;
+      margin: 10px 0 32px;
       
       li {
         position: relative;

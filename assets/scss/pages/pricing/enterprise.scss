@@ -4,6 +4,9 @@
 @import '../../components/resources_read_more';
 @import './_vars';
 
+.hubspot-override .hbspt-form .hs-form-required {
+  display: none;
+}
 
 .transparent .cta {
   padding-top: 20px;
@@ -125,7 +128,7 @@ main {
       0px 4px 8px rgba(2, 8, 20, 0.12);
     border-radius: 8px;
     margin-top: -40px;
-    padding: 32px 40px 24px;
+    padding: 24px 40px 38px;
     position: relative;
     z-index: 1;
     flex: 0 0 540px;
@@ -345,6 +348,8 @@ main {
 }
 
 #get-started {
+  padding-top: 128px;
+
   hgroup {
     text-align: center;
   }
@@ -362,9 +367,9 @@ main {
 
   h2 {
     font-weight: 600;
-font-size: 48px;
-line-height: 110%;
-letter-spacing: -0.04em;
-color: $c-carbon-900;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.04em;
+    color: $c-carbon-900;
   }
 }

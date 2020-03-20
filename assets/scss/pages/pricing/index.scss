@@ -37,6 +37,11 @@
     margin-bottom: 187px;
     display: block;
 
+    @media (max-width: $screen-sm-max) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     h3 {
       font-weight: 600;
       font-size: 22px;
@@ -70,6 +75,11 @@
           position: absolute;
           transition: .2s transform ease;
           display: inline-block;
+
+          @media (max-width: $screen-sm-max) {
+            position: static;
+            margin-left: 8px;
+          }
         }
 
         &:hover::after {
@@ -100,16 +110,23 @@ main {
 $card-expander-gap: 10px;
 $expander-padding-with-gap: $expander-padding + $card-expander-gap;
 .cards {
-  padding: 0 0 12px;
+  padding: 0;
   margin-left: -1 * $expander-padding-with-gap;
   margin-right: -1 * $expander-padding-with-gap;
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: $screen-sm-max) {
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 
 .card {
   flex: 1 0 200px;
+  margin-bottom: 12px;
   padding: 40px $expander-padding-with-gap 96px;
   position: relative;
   transition: .3s transform ease-out;
@@ -154,6 +171,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
 
   li {
     padding-left: 22px;
+    padding-right: 8px;
     font-size: 14px;
     flex: 1 0 180px;
     margin-bottom: 8px;

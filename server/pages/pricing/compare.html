@@ -12,10 +12,12 @@
 {% include './__sub-header.html' %}
 
 <div class="cta cta--transparent">
-  <hgroup class="container">
-    <h1>Pricing plans</h1>
-    <p>Cloud app management to continuously build, connect, and ship award-winning cross-platform apps—all from a centralized dashboard.</p>
-  </hgroup>
+  <div class="container">
+    <hgroup>
+      <h1>Pricing plans</h1>
+      <p>Cloud app management to continuously build, connect, and ship award-winning cross-platform apps—all from a centralized dashboard.</p>
+    </hgroup>
+  </div>
 </div>
 
 <main>
@@ -85,7 +87,7 @@
           <li>2+ <strong>concurrent builds</strong></li>
           <li>Email support</li>
         </ul>
-        <a class="plan__cta btn sm white" href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}">Get started</a>
+        <a class="plan__cta btn sm" href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}">Get started</a>
       </div>
 
       <div id="plan-scale" class="plan__card plan__card--dark">
@@ -111,16 +113,6 @@
            data-target="#contactForm">Contact Us</a>
       </div>
     </div>
-
-    <a class="prefer-open-source" href="/getting-started">
-      Prefer to start with the open source Framework?
-      <span>
-        Go here
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity="0.8" d="M4.49078 4.99814L1.1816 1.21697C0.936862 0.937105 0.936862 0.484555 1.1816 0.207667C1.42634 -0.0692222 1.82209 -0.0692222 2.06682 0.207667L5.81601 4.492C6.05294 4.76293 6.05814 5.19762 5.83423 5.47748L2.06943 9.79159C1.94706 9.93152 1.78564 10 1.62682 10C1.468 10 1.30657 9.93152 1.1842 9.79159C0.939466 9.51172 0.939466 9.05917 1.1842 8.78228L4.49078 4.99814Z" fill="#4D8DFF"/>
-        </svg>
-      </span>
-    </a>
 
     <a class="anchor-cta anchor" href="#features">
       See full feature comparison
@@ -159,6 +151,15 @@
               </td>
               <th>
                 <div class="plan-wrap">
+                  <h4>Hobby</h4>
+                  <div class="price"><strong>Free</strong</div>
+                  <a href="/start"
+                     class="btn micro"
+                     id="btn-pricing-hobby">Get started</a>
+                </div>
+              </th>
+              <th>
+                <div class="plan-wrap">
                   <h4>Launch</h4>
                   <div class="price"><strong>$49</strong>/mo</div>
                   <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
@@ -178,19 +179,9 @@
               <th>
                 <div class="plan-wrap">
                   <h4>Scale</h4>
-                  <div class="price">From <strong>$299</strong>/mo</div>
-                  <a href="#"
-                     class="btn micro"
-                     data-toggle="modal"
-                     data-target="#contactForm">Contact us</a>
-                </div>
-              </th>
-              <th>
-                <div class="plan-wrap">
-                  <h4>Enterprise</h4>
                   <div class="price"><strong>Custom</strong></div>
                   <a href="#"
-                     class="btn micro btn--dark"
+                     class="btn micro"
                      data-toggle="modal"
                      data-target="#contactForm">Contact us</a>
                 </div>
@@ -199,16 +190,11 @@
           </thead>
           <tbody>
             <tr>
-              <th><strong>Ionic Studio</strong></th>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
               <th><strong>Ionic Appflow</strong></th>
-              <td colspan="4"></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
+              <td><span class="check"></span></td>
             </tr>
             <tr>
               <th>
@@ -217,14 +203,14 @@
                   {% include '../_includes/svg/ico-question.svg' %}
                 </a>
               </th>
+              <td>100 <small>/ mo</small></td>
               <td>10,000 <small>/ mo</small></td>
               <td>25,000 <small>/ mo</small></td>
-              <td>300,000 - 1M<small>/ yr</small></td>
               <td>Custom limit</td>
             </tr>
             <tr>
               <th>Native app builds</th>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
@@ -236,9 +222,9 @@
                   {% include '../_includes/svg/ico-question.svg' %}
                 </a>
               </th>
+              <td></td>
               <td>1</td>
               <td>2</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
@@ -249,29 +235,29 @@
                 </a> #}
               </th>
               <td></td>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
               <th><small>Automations</small></th>
               <td></td>
+              <td></td>
               <td>4</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
               <th><small>Environments</small></th>
               <td></td>
+              <td></td>
               <td>2</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
               <th><small>Configurations</small></th>
               <td></td>
+              <td></td>
               <td>2</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
@@ -283,7 +269,7 @@
               </th>
               <td></td>
               <td></td>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
@@ -300,40 +286,7 @@
             </tr>
 
             <tr>
-              <th><strong>Ionic Native</strong></th>
-              <td colspan="4"></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/identity-vault">Identity Vault</a> secure biometrics</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/auth-connect">Auth Connect</a> single API connector</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th><a target="_blank" href="/enterprise/offline-storage">Offline Storage</a> Secure storage</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Core Device Premier plugin library</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-
-            <tr>
-              <th><strong>Premium Support</strong></th>
+              <th><strong>Premium Cloud Support</strong></th>
               <td colspan="4"></td>
             </tr>
             <tr>
@@ -343,7 +296,7 @@
                   {% include '../_includes/svg/ico-question.svg' %}
                 </a>
               </th>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
               <td><span class="check"></span></td>
@@ -357,44 +310,11 @@
               </th>
               <td></td>
               <td></td>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
               <th>Live Onboarding</th>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Dedicated Success Manager</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>
-                Enterprise Support SLA
-                <a class="anchor" href="#faq-enterprise">
-                  {% include '../_includes/svg/ico-question.svg' %}
-                </a>
-              </th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Advisory Services</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><span class="check"></span></td>
-            </tr>
-            <tr>
-              <th>Team Training</th>
               <td></td>
               <td></td>
               <td></td>
@@ -413,36 +333,36 @@
                 </a>
               </th>
               <td>1</td>
+              <td>1</td>
               <td>2</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
               <th>Additional Seat Cost</th>
               <td></td>
+              <td></td>
               <td>$99/Seat</td>
-              <td>Contact Sales</td>
               <td>Contact Sales</td>
             </tr>
             <tr>
               <th>Seat Limit</th>
               <td></td>
+              <td></td>
               <td>5</td>
-              <td>Custom limit</td>
               <td>Custom limit</td>
             </tr>
             <tr>
               <th>Single sign-on</th>
               <td></td>
               <td></td>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
             </tr>
             <tr>
               <th>Role-based access</th>
               <td></td>
               <td></td>
-              <td><span class="check"></span></td>
+              <td></td>
               <td><span class="check"></span></td>
             </tr>
           </tbody>
@@ -450,20 +370,19 @@
             <tr>
               <th></th>
               <td>
-                <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
+                <a href="/start"
                    class="btn sm white"
+                   id="btn-pricing-starter">Get started</a>
+              </td>
+              <td>
+                <a href="https://dashboard.ionicframework.com/signup?plan=developer&source=framework-{{id}}"
+                   class="btn sm"
                    id="btn-pricing-starter">Get started</a>
               </td>
               <td>
                 <a href="https://dashboard.ionicframework.com/signup?plan=teams&source=framework-{{id}}"
                    class="btn sm"
                    id="btn-pricing-team">Get started</a>
-              </td>
-              <td>
-                <a href="#"
-                   class="btn sm white"
-                   data-toggle="modal"
-                   data-target="#contactForm">Contact us</a>
               </td>
               <td>
                 <a href="#"
@@ -532,7 +451,7 @@
       </li>
       <li id="faq-premium">
         <h4>What is Premium Product Support?</h4>
-        <p>Timely assistance with troubleshooting issues related to Ionic Studio and Appflow. For Enterprise customers, Premium Product Support includes issues related to Premier plugins and Ionic Native solutions, including <a href="/enterprise/identity-vault">Identity Vault<a>, <a href="/enterprise/auth-connect">Auth Connect</a>, and <a href="/enterprise/offline-storage">Offline Storage</a>.</p>
+        <p>Timely assistance with troubleshooting issues related to Appflow or the Cloud dashboard.</p>
       </li>
     </ul>
 

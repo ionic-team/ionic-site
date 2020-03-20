@@ -40,6 +40,7 @@ main {
   display: flex;
   overflow: visible;
   margin-left: -1 * $expander-padding;
+  align-items: flex-start;
 
   &::before,
   &::after {
@@ -135,7 +136,23 @@ main {
 
     &__aside {
       padding: 32px 0 16px 68px;
+
+      @media (max-width: $screen-xs-max) {
+        padding-left: 15px;
+      }
     }
+
+    @media (max-width: $screen-sm-max) {
+      flex: 0 0 400px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    margin-left: 0;
   }
 }
 
@@ -174,6 +191,12 @@ main {
       line-height: 160%;
       letter-spacing: -0.03em;
       color: $c-indigo-800;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      margin-bottom: 64px;
+      position: static;
     }
   }
 
@@ -247,15 +270,21 @@ main {
       }
     }
   }
+
+  @media (max-width: $screen-xs-max) {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 }
 
 #quote {
   background: $c-indigo-50;
   padding-top: 160px;
+  overflow: hidden;
 
   hgroup {
     text-align: center;
-    width: 518px;
+    max-width: 518px;
     margin: 0 auto 32px;
 
     h4 {
@@ -331,6 +360,21 @@ main {
         width: 544px;
       }
     }
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+
+      aside {
+        position: static;
+
+        img {
+          width: 100%;
+          max-width: 544px;
+        }
+      }
+    }
   }
 
   .logos {
@@ -344,11 +388,16 @@ main {
       padding: 20px;
       list-style: none;
     }
+
+    @media (max-width: $screen-xs-max) {
+      justify-content: space-around;
+    }
   }
 }
 
 #get-started {
   padding-top: 128px;
+  padding-bottom: 128px;
 
   hgroup {
     text-align: center;

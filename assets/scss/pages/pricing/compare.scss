@@ -18,15 +18,12 @@ main {
 }
 
 .cta {
-  .container {
-    padding-bottom: 39px;
-    padding-top: 64px;
-  }
 
   hgroup {
     padding-top: 54px;
     max-width: 752px;
     margin-left: 0;
+    padding-bottom: 52px;
 
     h1 {
       font-size: 56px;
@@ -127,6 +124,7 @@ main {
 }
 
 .anchor-cta {
+  margin-top: 52px;
   font-weight: 500;
   font-size: 17px;
   line-height: 27px;

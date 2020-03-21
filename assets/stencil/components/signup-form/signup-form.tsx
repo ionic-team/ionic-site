@@ -87,7 +87,7 @@ export class IonicSignupForm {
     }, {});
   }
 
-  inputChange = (name: string) => e => this.form[name] = e.target.value;
+  inputChange = (name: string) => e => this.form = { ...this.form, [name]: e.target.value };
 
   render() {
     const { form, inputChange } = this;

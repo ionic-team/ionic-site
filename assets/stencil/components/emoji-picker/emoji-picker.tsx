@@ -94,16 +94,20 @@ export class EmojiPicker {
       <Host
         style={{ left: `${this.x}px`, top: `${this.y}px` }}
         class={ this.open ? 'open' : ''}>
-        <Categories
-          categories={this.categories}
-          selectedCategory={this.selectedCategory}
-          selectCategory={this.handleSelectCategory}
-          />
-        <Search
-          value={this.searchQuery}
-          onInput={this.handleSearchInput}
-          />
-        <Emoji />
+        <div class="wrapper">
+          <Categories
+            categories={this.categories}
+            selectedCategory={this.selectedCategory}
+            selectCategory={this.handleSelectCategory}
+            />
+          <Search
+            value={this.searchQuery}
+            onInput={this.handleSearchInput}
+            />
+          <Emojis
+            category={this.selectedCategory}
+            />
+        </div>
       </Host>
     )
   }
@@ -145,6 +149,12 @@ const Search = ({ onInput, value }: SearchProps) => (
   </div>
 )
 
-const Emoji = () => {
-  return null;
+interface EmojisProps {
+  category: EmojiCategory;
+}
+const Emojis = ({ category }: EmojisProps) => {
+  return (
+    <div class="emojis">
+    </div>
+  )
 }

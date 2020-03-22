@@ -17,6 +17,11 @@
   display: block;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .categories {
   display: flex;
   justify-content: space-between;
@@ -51,5 +56,6 @@
 }
 
 .emojis {
+  flex: 1;
   overflow-y: auto;
 }

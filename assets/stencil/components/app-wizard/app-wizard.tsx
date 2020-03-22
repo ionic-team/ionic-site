@@ -73,6 +73,9 @@ export class AppWizard {
   // Reference to the basic form for validation
   submitButtonWrapRef: HTMLDivElement;
 
+  @State() showEmojiPicker = false;
+  @State() emojiPickerEvent: MouseEvent = null;
+
   // Form state
   @State() authenticating = false;
   @State() theme = THEMES[0];
@@ -229,6 +232,9 @@ export class AppWizard {
     }
   }
 
+  handlePickEmoji = (emoji) => {
+  }
+
   handlePickTheme = (_e) => {
     const colorPicker = this.el.querySelector('input[type="color"]');
 
@@ -240,6 +246,8 @@ export class AppWizard {
   };
 
   renderBasics() {
+    const { showEmojiPicker } = this;
+
     return (
       <div>
         <hgroup>
@@ -255,6 +263,19 @@ export class AppWizard {
             tabindex={1}
             required={true}
             onChange={this.handleInput('appName')} />
+          <label>Pick an icon</label>
+          <AppIcon
+            //  img={this.appIcon}
+            emoji="🤹‍♀️"
+            theme={this.theme}
+            onClick={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
+            />
+          <ionic-emoji-picker
+            open={showEmojiPicker}
+            openEvent={this.emojiPickerEvent}
+            onEmojiPick={this.handlePickEmoji}
+            onClosed={() => this.showEmojiPicker = false}
+            />
           <label>Pick a theme</label>
           <ThemeSwitcher
             value={this.theme}
@@ -262,13 +283,13 @@ export class AppWizard {
             onPick={this.handlePickTheme}
           />
           <div class="form-group" id="field-appname">
-            <label>Pick a template</label>
+            <label>Pick a layout template</label>
             <TemplateSwitcher
               value={this.template}
               onChange={tmpl => this.template = tmpl} />
           </div>
           <div class="form-group" id="field-appname">
-            <label>JavaScript Framework</label>
+            <label>Pick a JavaScript Framework</label>
             <FrameworkSwitcher
               value={this.framework}
               onChange={framework => {
@@ -463,6 +484,15 @@ ionic start
 
 const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
+);
+
+const AppIcon = ({ emoji, theme, onClick }) => (
+  <div
+    class="app-icon"
+    style={{ backgroundColor: theme }}
+    onClick={onClick}>
+    {emoji}
+  </div>
 );
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {

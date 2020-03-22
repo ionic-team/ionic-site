@@ -32,6 +32,10 @@ export namespace Components {
     'disabled': boolean;
     'type': string;
   }
+  interface IonicEmojiPicker {
+    'open': boolean;
+    'openEvent': MouseEvent;
+  }
   interface IonicNewsletterSignup {
     'arrowMode': boolean;
     'buttonText': string;
@@ -143,6 +147,12 @@ declare global {
     new (): HTMLIonicButtonElement;
   };
 
+  interface HTMLIonicEmojiPickerElement extends Components.IonicEmojiPicker, HTMLStencilElement {}
+  var HTMLIonicEmojiPickerElement: {
+    prototype: HTMLIonicEmojiPickerElement;
+    new (): HTMLIonicEmojiPickerElement;
+  };
+
   interface HTMLIonicNewsletterSignupElement extends Components.IonicNewsletterSignup, HTMLStencilElement {}
   var HTMLIonicNewsletterSignupElement: {
     prototype: HTMLIonicNewsletterSignupElement;
@@ -240,6 +250,7 @@ declare global {
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
+    'ionic-emoji-picker': HTMLIonicEmojiPickerElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-react-demo': HTMLIonicReactDemoElement;
@@ -272,6 +283,12 @@ declare namespace LocalJSX {
     'color'?: string;
     'disabled'?: boolean;
     'type'?: string;
+  }
+  interface IonicEmojiPicker {
+    'onClosed'?: (event: CustomEvent<any>) => void;
+    'onEmojiPick'?: (event: CustomEvent<any>) => void;
+    'open'?: boolean;
+    'openEvent'?: MouseEvent;
   }
   interface IonicNewsletterSignup {
     'arrowMode'?: boolean;
@@ -344,6 +361,7 @@ declare namespace LocalJSX {
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
+    'ionic-emoji-picker': IonicEmojiPicker;
     'ionic-newsletter-signup': IonicNewsletterSignup;
     'ionic-quick-signup': IonicQuickSignup;
     'ionic-react-demo': IonicReactDemo;
@@ -375,6 +393,7 @@ declare module "@stencil/core" {
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
+      'ionic-emoji-picker': LocalJSX.IonicEmojiPicker & JSXBase.HTMLAttributes<HTMLIonicEmojiPickerElement>;
       'ionic-newsletter-signup': LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
       'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;

@@ -57,6 +57,18 @@
     margin-bottom: 25px;
   }
 
+  .app-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    cursor: pointer;
+    user-select: none;
+  }
+
   .switcher {
     display: flex;
     justify-content: center;

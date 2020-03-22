@@ -100,6 +100,11 @@ export namespace Components {
     'type': string;
     'value': string;
   }
+  interface UiTip {
+    'disabled': boolean;
+    'position': 'top' | 'right' | 'bottom' | 'left';
+    'text': string;
+  }
 }
 
 declare global {
@@ -242,6 +247,12 @@ declare global {
     prototype: HTMLUiFloatingInputElement;
     new (): HTMLUiFloatingInputElement;
   };
+
+  interface HTMLUiTipElement extends Components.UiTip, HTMLStencilElement {}
+  var HTMLUiTipElement: {
+    prototype: HTMLUiTipElement;
+    new (): HTMLUiTipElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -266,6 +277,7 @@ declare global {
     'react-components': HTMLReactComponentsElement;
     'twitter-script': HTMLTwitterScriptElement;
     'ui-floating-input': HTMLUiFloatingInputElement;
+    'ui-tip': HTMLUiTipElement;
   }
 }
 
@@ -352,6 +364,11 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string;
   }
+  interface UiTip {
+    'disabled'?: boolean;
+    'position'?: 'top' | 'right' | 'bottom' | 'left';
+    'text'?: string;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
@@ -377,6 +394,7 @@ declare namespace LocalJSX {
     'react-components': ReactComponents;
     'twitter-script': TwitterScript;
     'ui-floating-input': UiFloatingInput;
+    'ui-tip': UiTip;
   }
 }
 
@@ -409,6 +427,7 @@ declare module "@stencil/core" {
       'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
       'twitter-script': LocalJSX.TwitterScript & JSXBase.HTMLAttributes<HTMLTwitterScriptElement>;
       'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
+      'ui-tip': LocalJSX.UiTip & JSXBase.HTMLAttributes<HTMLUiTipElement>;
     }
   }
 }

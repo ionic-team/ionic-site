@@ -4,6 +4,7 @@ import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
+import { unifiedToNative } from '../../util/emoji';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -73,6 +74,7 @@ export class AppWizard {
   // Reference to the basic form for validation
   submitButtonWrapRef: HTMLDivElement;
 
+  @State() selectedEmoji = '👩‍🚀';
   @State() showEmojiPicker = false;
   @State() emojiPickerEvent: MouseEvent = null;
 
@@ -232,7 +234,10 @@ export class AppWizard {
     }
   }
 
-  handlePickEmoji = (emoji) => {
+  handlePickEmoji = (e) => {
+    console.log('Selected emoji', e.detail);
+    this.selectedEmoji = unifiedToNative(e.detail.b);
+    this.showEmojiPicker = false;
   }
 
   handlePickTheme = (_e) => {
@@ -263,10 +268,17 @@ export class AppWizard {
             tabindex={1}
             required={true}
             onChange={this.handleInput('appName')} />
-          <label>Pick an icon</label>
+          <label>
+            Pick an icon
+            <ui-tip
+              text="An icon for your app. You can easily change this later!"
+              position="top">
+              <InfoCircle />
+            </ui-tip>
+          </label>
           <AppIcon
             //  img={this.appIcon}
-            emoji="🤹‍♀️"
+            emoji={this.selectedEmoji}
             theme={this.theme}
             onClick={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
             />
@@ -276,20 +288,41 @@ export class AppWizard {
             onEmojiPick={this.handlePickEmoji}
             onClosed={() => this.showEmojiPicker = false}
             />
-          <label>Pick a theme</label>
+          <label>
+            Pick a theme
+            <ui-tip
+              text="The primary brand color for your app"
+              position="top">
+              <InfoCircle />
+            </ui-tip>
+          </label>
           <ThemeSwitcher
             value={this.theme}
             onChange={(theme) => this.theme = theme}
             onPick={this.handlePickTheme}
           />
           <div class="form-group" id="field-appname">
-            <label>Pick a layout template</label>
+            <label>
+              Pick a layout template
+              <ui-tip
+                text="Choose a tabs, menu, or list-style layout"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+            </label>
             <TemplateSwitcher
               value={this.template}
               onChange={tmpl => this.template = tmpl} />
           </div>
           <div class="form-group" id="field-appname">
-            <label>Pick a JavaScript Framework</label>
+            <label>
+              Pick a JavaScript Framework
+              <ui-tip
+                text="Don't know what to choose? Try React"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+            </label>
             <FrameworkSwitcher
               value={this.framework}
               onChange={framework => {
@@ -642,4 +675,8 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
 
 const FormErrors = (_props, children) => (
   <div class="form-errors">{children}</div>
+);
+
+const InfoCircle = () => (
+  <ion-icon class="info-circle" name="information-circle-outline" />
 );

@@ -1,5 +1,6 @@
 :host {
-  --category-selected-color: var(--c-blue-400);
+  --category-color: var(--c-grey-700);
+  --category-selected-color: var(--c-purple-400);
   --padding-left-right: 12px;
   --search-border-color: #222;
 
@@ -20,6 +21,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .categories {
@@ -32,6 +34,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   svg {
+    fill: var(--category-color);
     transition: fill 200ms ease-in-out;
   }
 }
@@ -58,4 +61,30 @@
 .emojis {
   flex: 1;
   overflow-y: auto;
+  margin: 0;
+  padding: 4px var(--padding-left-right);
+
+  display: grid;
+  grid-template-columns: repeat(9, 32px);
+  justify-content: space-between;
+
+  li {
+    list-style: none;
+    font-size: 24px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    border-radius: 100%;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    .emoji {
+      font-size: 24px;
+    }
+  }
 }

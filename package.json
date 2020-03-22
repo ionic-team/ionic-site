@@ -48,6 +48,7 @@
     "cookies": "^0.8.0",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
+    "emoji-datasource-twitter": "^5.0.1",
     "event-stream": "^4.0.1",
     "express": "^4.17.1",
     "express-ab": "^0.7.4",

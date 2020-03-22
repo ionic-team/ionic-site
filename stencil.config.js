@@ -17,6 +17,10 @@ exports.config = {
         { 
           src: '../../node_modules/ionicons/dist/svg',
           dest: '../svg'
+        },
+        {
+          src: '../../node_modules/emoji-datasource-twitter/emoji.json',
+          dest: '../emoji.json'
         }
       ],
     },

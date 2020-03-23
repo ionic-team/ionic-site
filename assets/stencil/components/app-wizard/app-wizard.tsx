@@ -289,7 +289,7 @@ export class AppWizard {
           <label>
             Pick an icon
             <ui-tip
-              text="An icon for your app. You can easily change this later!"
+              text="An icon for your app. You can easily change this and add your own image later!"
               position="top">
               <InfoCircle />
             </ui-tip>
@@ -547,7 +547,6 @@ const AppIcon = ({ emoji, theme, onClick }) => {
       <div
         class="app-icon-image"
         style={{ backgroundImage: `url('https://twemoji.maxcdn.com/2/svg/${image}.svg')` }} />
-
     </div>
   )
 };

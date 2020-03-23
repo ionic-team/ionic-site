@@ -19,6 +19,15 @@ const resources = {
     items: [
       {
         "type": "Article",
+        "title": "The ROI of Hybrid vs. Native",
+        "url": "/resources/articles/roi-hybrid-vs-native",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/roi-hybrid-native-card.png",
+        "bgColor": "#4F82FF"
+      },
+      {
+        "type": "Article",
         "title": "Why Developers Love Ionic",
         "url": "/resources/articles/why-developers-love-ionic",
         "target": "_self",
@@ -200,11 +209,51 @@ const resources = {
     items: [
       {
         "type": "Case Study",
+        "title": "Amtrak",
+        "url": "/resources/case-studies/passenger-rail-co",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/amtrak-card.png",
+        "bgColor": "#2C4186"
+      }, {
+        "type": "Case Study",
         "title": "Reducing time-to-market by 50% with Ionic Enterprise",
         "url": "/resources/case-studies/jnesis",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-jnesis.jpg",
+        "bgColor": "#2a3341"
+      }, {
+        "type": "Case Study",
+        "title": "Siberian CMS",
+        "url": "/resources/case-studies/siberian-cms",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/siberian-cms-card.png",
+        "bgColor": "#5147F0"
+      }, {
+        "type": "Case Study",
+        "title": "Southwest Airlines delights new hires with onboarding app",
+        "url": "https://meetmaestro.com/work/southwest/",
+        "target": "_blank",
+        "action": "Read",
+        "bgImage": "/img/resource-center/casestudy-southwest.png",
+        "bgColor": "#113F93"
+      }, {
+        "type": "Case Study",
+        "title": "Mobile Measures",
+        "url": "/resources/case-studies/mobile-measures",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/mobile-measures-card.png",
+        "bgColor": "#2C4186"
+      }, {
+        "type": "Case Study",
+        "title": "Samaritan's Purse",
+        "url": "/resources/case-studies/occ",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/samaritans-purse-card.png",
         "bgColor": "#2a3341"
       }, {
         "type": "Customer Interviews",
@@ -222,28 +271,12 @@ const resources = {
         "bgColor": "#e2465c"
       }, {
         "type": "Case Study",
-        "title": "Southwest Airlines delights new hires with onboarding app",
-        "url": "https://meetmaestro.com/work/southwest/",
-        "target": "_blank",
-        "action": "Read",
-        "bgImage": "/img/resource-center/casestudy-southwest.png",
-        "bgColor": "#113F93"
-      }, {
-        "type": "Case Study",
         "title": "MRA builds its first app in just two months",
         "url": "/resources/case-studies/mauritius-revenue-authority-mra",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-mra.jpg",
         "bgColor": "#182435"
-      }, {
-        "type": "Case Study",
-        "title": "Building the new Marketwatch app",
-        "url": "/resources/case-studies/marketwatch",
-        "target": "_self",
-        "action": "Read",
-        "bgImage": "/img/resource-center/casestudy-marketwatch.jpg",
-        "bgColor": "#000000"
       }, {
         "type": "Case Study",
         "title": "Napa Group speeds up development",
@@ -649,7 +682,7 @@ let gallery = [{
   title: "Hybrid Vs. Native ebook",
 }, {
   category: "case-studies",
-  title: "Building the new Marketwatch app",
+  title: "Amtrak",
 }, {
   category: "articles",
   title: "PWA Architects Guide",

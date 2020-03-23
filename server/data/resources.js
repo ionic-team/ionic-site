@@ -217,7 +217,7 @@ const resources = {
         "bgColor": "#2C4186"
       }, {
         "type": "Case Study",
-        "title": "Reducing time-to-market by 50% with Ionic Enterprise",
+        "title": "Jnesis",
         "url": "/resources/case-studies/jnesis",
         "target": "_self",
         "action": "Read",
@@ -233,7 +233,7 @@ const resources = {
         "bgColor": "#5147F0"
       }, {
         "type": "Case Study",
-        "title": "Southwest Airlines delights new hires with onboarding app",
+        "title": "Southwest Airlines",
         "url": "https://meetmaestro.com/work/southwest/",
         "target": "_blank",
         "action": "Read",
@@ -257,21 +257,21 @@ const resources = {
         "bgColor": "#2a3341"
       }, {
         "type": "Customer Interviews",
-        "title": "Seth at K12",
+        "title": "K12",
         "url": "/resources/customer-interviews/seth-k12",
         "action": "Read",
         "bgImage": "/img/resource-center/customer-interview-k12.jpg",
         "bgColor": "#9d9849"
       }, {
         "type": "Customer Interviews",
-        "title": "Danya at CGI",
+        "title": "CGI",
         "url": "/resources/customer-interviews/danya-cgi",
         "action": "Read",
         "bgImage": "/img/resource-center/customer-interview-cgi.jpg",
         "bgColor": "#e2465c"
       }, {
         "type": "Case Study",
-        "title": "MRA builds its first app in just two months",
+        "title": "Mauritius Revenue Authority",
         "url": "/resources/case-studies/mauritius-revenue-authority-mra",
         "target": "_self",
         "action": "Read",
@@ -279,7 +279,7 @@ const resources = {
         "bgColor": "#182435"
       }, {
         "type": "Case Study",
-        "title": "Napa Group speeds up development",
+        "title": "Napa Group",
         "url": "/resources/case-studies/napa-group-llc",
         "target": "_self",
         "action": "Read",
@@ -287,7 +287,7 @@ const resources = {
         "bgColor": "#7479e4"
       }, {
         "type": "Case Study",
-        "title": "Why the world's largest healthcare provider chose Ionic",
+        "title": "National Health Service",
         "url": "/resources/case-studies/national-health-service",
         "target": "_self",
         "action": "Read",
@@ -295,7 +295,7 @@ const resources = {
         "bgColor": "#0163ac"
       }, {
         "type": "Case Study",
-        "title": "Sworkit goes cross platform with Ionic",
+        "title": "Sworkit",
         "url": "/resources/case-studies/sworkit",
         "target": "_self",
         "action": "Read",
@@ -303,7 +303,7 @@ const resources = {
         "bgColor": "#fbb363"
       }, {
         "type": "Case Study",
-        "title": "Airbus takes to the skies with Ionic",
+        "title": "Airbus",
         "url": "/resources/case-studies/airbus-helicopter",
         "target": "_self",
         "action": "Read",
@@ -320,7 +320,7 @@ const resources = {
       // },
       {
         "type": "Case Study",
-        "title": "Sense Corp accelerates the app lifecycle with Ionic",
+        "title": "Sense Corp",
         "url": "/resources/case-studies/sense-corp",
         "target": "_self",
         "action": "Read",
@@ -328,7 +328,7 @@ const resources = {
         "bgColor": "#394a6f"
       }, {
         "type": "Case Study",
-        "title": "Interactive Gaming Company removes development roadblocks with Ionic",
+        "title": "Interactive Gaming Company",
         "url": "/resources/case-studies/interactive-gaming-company",
         "target": "_self",
         "action": "Read",
@@ -336,7 +336,7 @@ const resources = {
         "bgColor": "#535582"
       }, {
         "type": "Case Study",
-        "title": "Pacifica dives into hybrid development with Ionic",
+        "title": "Pacifica",
         "url": "/resources/case-studies/pacifica",
         "target": "_self",
         "action": "Read",
@@ -344,14 +344,14 @@ const resources = {
         "bgColor": "#044d63"
       }, {
         "type": "Case Study",
-        "title": "Untapp'd taps the power of Ionic ",
+        "title": "Untapp'd",
         "url": "https://blog.ionicframework.com/built-with-ionic-untappd/",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-untappd.jpg",
         "bgColor": "#f8926b"
       }, {
         "type": "Case Study",
-        "title": "Diesel brings their Salesforce CRM to mobile with Ionic",
+        "title": "Diesel",
         "url": "https://blog.ionicframework.com/built-with-ionic-diesel-mobile-app/",
         "action": "Read",
         "bgImage": "/img/resource-center/casestudy-diesel.jpg",

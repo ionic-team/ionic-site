@@ -4,7 +4,8 @@ import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
-import { unifiedToNative } from '../../util/emoji';
+
+import { Emoji } from '../emoji-picker/emoji-picker';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -74,7 +75,24 @@ export class AppWizard {
   // Reference to the basic form for validation
   submitButtonWrapRef: HTMLDivElement;
 
-  @State() selectedEmoji = '👩‍🚀';
+  getRandomEmoji(): Emoji {
+    const emoji = [
+      '1f60b', // yum
+      '1f601', // grin
+      '1f60e', // shades
+      '1f61c', //  
+      '1f929', // starstruck
+      '1f604', // smile
+      '1f603', // smiley
+      '1f973', // party
+    ].map(i => ({
+      image: i
+    }));
+
+    return emoji[Math.floor(Math.random() * emoji.length)];
+  }
+
+  @State() selectedEmoji: Emoji = this.getRandomEmoji();
   @State() showEmojiPicker = false;
   @State() emojiPickerEvent: MouseEvent = null;
 
@@ -236,7 +254,7 @@ export class AppWizard {
 
   handlePickEmoji = (e) => {
     console.log('Selected emoji', e.detail);
-    this.selectedEmoji = unifiedToNative(e.detail.b);
+    this.selectedEmoji = e.detail as Emoji;
     this.showEmojiPicker = false;
   }
 
@@ -318,7 +336,7 @@ export class AppWizard {
             <label>
               Pick a JavaScript Framework
               <ui-tip
-                text="Don't know what to choose? Try React"
+                text="React is beginner friendly, Angular is popular for enterprise"
                 position="top">
                 <InfoCircle />
               </ui-tip>
@@ -519,14 +537,20 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-const AppIcon = ({ emoji, theme, onClick }) => (
-  <div
-    class="app-icon"
-    style={{ backgroundColor: theme }}
-    onClick={onClick}>
-    {emoji}
-  </div>
-);
+const AppIcon = ({ emoji, theme, onClick }) => {
+  const image = emoji.image.replace('.png', '');//emoji.image.split('-')[0].replace('.png', '');
+  return (
+    <div
+      class="app-icon"
+      style={{ backgroundColor: theme }}
+      onClick={onClick}>
+      <div
+        class="app-icon-image"
+        style={{ backgroundImage: `url('https://twemoji.maxcdn.com/2/svg/${image}.svg')` }} />
+
+    </div>
+  )
+};
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [

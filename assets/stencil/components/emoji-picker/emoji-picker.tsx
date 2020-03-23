@@ -15,29 +15,29 @@ interface Emojis {
   [name:string]: Emoji;
 }
 
-interface Emoji {
-  name: string;
-  unified: string;
-  non_qualified: string;
-  documo: any;
-  au: string;
-  softbank: string;
-  google: string;
-  image: string;
-  sheet_x: string;
-  sheet_y: string;
-  short_name: string;
-  short_names: string[];
-  text: string;
-  texts: string;
-  category: string;
-  sort_order: number;
-  added_in: string;
-  has_img_apple: boolean;
-  has_img_google: boolean;
-  has_img_twitter: boolean;
-  has_img_facebook: boolean;
-  skin_variations: { [code:string]: SkinVariation };
+export interface Emoji {
+  name?: string;
+  unified?: string;
+  non_qualified?: string;
+  documo?: any;
+  au?: string;
+  softbank?: string;
+  google?: string;
+  image?: string;
+  sheet_x?: number;
+  sheet_y?: number;
+  short_name?: string;
+  short_names?: string[];
+  text?: string;
+  texts?: string;
+  category?: string;
+  sort_order?: number;
+  added_in?: string;
+  has_img_apple?: boolean;
+  has_img_google?: boolean;
+  has_img_twitter?: boolean;
+  has_img_facebook?: boolean;
+  skin_variations?: { [code:string]: SkinVariation };
 }
 
 interface SkinVariation {
@@ -264,11 +264,19 @@ const Emojis = ({ category, emojis, emojiPicked }: EmojisProps) => {
   console.log('Rendering emojis', category.emojis, emojis);
   return (
     <ul class="emojis">
-      {category.emojis.map(e => (
-      <li onClick={() => emojiPicked(emojis[e])}>
-        {unifiedToNative(emojis[e].unified)}
-      </li>
-      ))}
+      {category.emojis.map(e => {
+        const em = emojis[e]
+        const x = em.sheet_x * (100 / 56);
+        const y = em.sheet_y * (100 / 56);
+        return (
+          <li onClick={() => emojiPicked(em)}>
+            <div
+              class="emoji-image"
+              style={{ backgroundPosition: `${x}% ${y}%`}} />
+            {/*{unifiedToNative(emojis[e].unified)}*/}
+          </li>
+        )
+      })}
     </ul>
   )
 }

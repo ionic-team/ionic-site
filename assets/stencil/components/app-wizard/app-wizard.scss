@@ -68,6 +68,11 @@
     cursor: pointer;
     user-select: none;
     margin-bottom: 12px;
+
+    .app-icon-image {
+      width: 64px;
+      height: 64px;
+    }
   }
 
   .info-circle {

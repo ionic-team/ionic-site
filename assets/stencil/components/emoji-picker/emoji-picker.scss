@@ -68,10 +68,20 @@
   grid-template-columns: repeat(9, 32px);
   justify-content: space-between;
 
+  .emoji-image {
+    background-image: url('/js/stencil/emoji-sheet-twitter-256-64.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    background-size: 5700% 5700%;
+  }
+
   li {
     list-style: none;
     font-size: 24px;
     width: 32px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;

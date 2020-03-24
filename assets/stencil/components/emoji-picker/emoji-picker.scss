@@ -53,6 +53,8 @@
   padding: 4px var(--padding-left-right);
   position: relative;
 
+  user-select: none;
+
   input {
     flex: 1;
     border-radius: 4px;
@@ -63,10 +65,17 @@
   }
 
   .x {
+    cursor: pointer;
     position: absolute;
-    right: 4px;
-    top: 4px;
+    right: 16px;
+    top: 0px;
     font-size: 12px;
+    line-height: 25px;
+
+    ion-icon {
+      vertical-align: middle;
+      color: var(--search-color);
+    }
   }
 }
 

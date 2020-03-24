@@ -68,6 +68,8 @@
     .app-icon {
       width: 96px;
       height: 96px;
+      min-width: 96px;
+      min-height: 96px;
       position: relative;
       border-radius: 32px;
       display: flex;
@@ -129,6 +131,7 @@
     .app-icon-upload {
       flex: 1;
       display: flex;
+      overflow: hidden;
       flex-direction: column;
       justify-content: center;
       padding: 16px;

@@ -178,7 +178,10 @@ export class EmojiPicker {
     this.closed.emit();
   }
 
-  handleSelectCategory = (c: EmojiCategory) => this.selectedCategory = c;
+  handleSelectCategory = (c: EmojiCategory) => {
+    this.selectedCategory = c;
+    this.searchQuery = '';
+  }
 
   handleSearchInput = (e) => this.searchQuery = e.target.value;
 
@@ -279,7 +282,11 @@ const Search = ({ onInput, onClear, value }: SearchProps) => (
       onPaste={onInput}
       onClick={onInput}
       />
-    <div class="x" onClick={onClear} />
+    { value ? (
+    <div class="x" onClick={onClear}>
+      <ion-icon name="close" />
+    </div>
+    ) : null}
   </div>
 )
 

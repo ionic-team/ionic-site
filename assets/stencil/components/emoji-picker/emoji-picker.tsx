@@ -8,10 +8,10 @@ interface EmojiSet {
   categories: EmojiCategory[];
   compressed: boolean;
   default: EmojiSet;
-  emojis: Emojis;
+  emojis: EmojiMap;
 }
 
-interface Emojis {
+interface EmojiMap {
   [name:string]: Emoji;
 }
 
@@ -77,7 +77,7 @@ export class EmojiPicker {
   @State() categories: EmojiCategory[];
   @State() searchQuery: string = '';
 
-  @State() emojis: Emojis;
+  @State() emojis: EmojiMap;
 
   x: number = 0;
   y: number = 0;
@@ -114,7 +114,7 @@ export class EmojiPicker {
         emojis[emoji.short_name] = emoji;
       }
       return emojis;
-    }, {} as Emojis);
+    }, {} as EmojiMap);
 
     this.categories = allEmoji.sort((a, b) => a.sort_order - b.sort_order).reduce((categories, emoji) => {
       if (emoji.category === 'Skin Tones') {
@@ -182,14 +182,39 @@ export class EmojiPicker {
 
   handleSearchInput = (e) => this.searchQuery = e.target.value;
 
+  handleClearSearchInput = (e) => this.searchQuery = '';
+
   handleEmojiPicked = (emoji: Emoji) => {
     this.emojiPick.emit(emoji);
+  }
+
+  getFilteredEmojis() {
+    if (this.searchQuery) {
+      return Object.keys(this.emojis).filter(k => {
+        const emoji = this.emojis[k];
+        const fields = [
+          ...(emoji.short_names || []),
+          emoji.name,
+        ];
+
+        return fields.some(f => !!f && f.toLocaleLowerCase().indexOf(this.searchQuery.toLocaleLowerCase()) >= 0);
+      }).sort((a, b) => {
+        const ea = this.emojis[a];
+        const eb = this.emojis[b];
+
+        return ea.sort_order - eb.sort_order;
+      });
+    }
+
+    return this.selectedCategory.emojis;
   }
 
   render() {
     if (!this.open) {
       return null;
     }
+
+    const visibleEmojis = this.searchQuery ? this.getFilteredEmojis() : this.selectedCategory.emojis;
 
     return (
       <Host
@@ -204,9 +229,10 @@ export class EmojiPicker {
           <Search
             value={this.searchQuery}
             onInput={this.handleSearchInput}
+            onClear={this.handleClearSearchInput}
             />
           <Emojis
-            category={this.selectedCategory}
+            visibleEmojis={visibleEmojis}
             emojis={this.emojis}
             emojiPicked={this.handleEmojiPicked}
             />
@@ -240,9 +266,10 @@ const Categories = ({ categories, selectedCategory, selectCategory }: Categories
 
 interface SearchProps {
   onInput: (e) => void;
+  onClear: (e) => void;
   value: string;
 }
-const Search = ({ onInput, value }: SearchProps) => (
+const Search = ({ onInput, onClear, value }: SearchProps) => (
   <div class="search">
     <input
       type="search"
@@ -252,19 +279,19 @@ const Search = ({ onInput, value }: SearchProps) => (
       onPaste={onInput}
       onClick={onInput}
       />
+    <div class="x" onClick={onClear} />
   </div>
 )
 
 interface EmojisProps {
-  category: EmojiCategory;
-  emojis: Emojis;
+  visibleEmojis: string[];
+  emojis: EmojiMap;
   emojiPicked: (emoji: Emoji) => void;
 }
-const Emojis = ({ category, emojis, emojiPicked }: EmojisProps) => {
-  console.log('Rendering emojis', category.emojis, emojis);
+const Emojis = ({ visibleEmojis, emojis, emojiPicked }: EmojisProps) => {
   return (
     <ul class="emojis">
-      {category.emojis.map(e => {
+      {visibleEmojis.map(e => {
         const em = emojis[e]
         const x = em.sheet_x * (100 / 56);
         const y = em.sheet_y * (100 / 56);

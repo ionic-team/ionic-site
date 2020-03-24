@@ -2,7 +2,8 @@
   --category-color: var(--c-grey-700);
   --category-selected-color: var(--c-purple-400);
   --padding-left-right: 12px;
-  --search-border-color: #222;
+  --search-border-color: var(--c-grey-600);
+  --search-color: var(--c-grey-900);
 
   display: none;
   position: fixed;
@@ -50,11 +51,22 @@
 .search {
   display: flex;
   padding: 4px var(--padding-left-right);
+  position: relative;
+
   input {
     flex: 1;
     border-radius: 4px;
+    color: var(--search-color);
     border: 1px solid var(--search-border-color);
-    height: 24px;
+    height: 20px;
+    padding: 4px;
+  }
+
+  .x {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 12px;
   }
 }
 
@@ -67,6 +79,7 @@
   display: grid;
   grid-template-columns: repeat(9, 32px);
   justify-content: space-between;
+  align-content: flex-start;
 
   .emoji-image {
     background-image: url('/js/stencil/emoji-sheet-twitter-256-64.png');

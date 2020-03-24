@@ -618,6 +618,7 @@ const AppIcon = ({ img, emoji, theme, onClick }) => {
         <div
           class="app-icon-image app-icon-image-uploaded"
           style={{ backgroundImage: `url(${img})`}} />
+        <div class="app-icon-hover" />
       </div>
     );
   }
@@ -631,6 +632,11 @@ const AppIcon = ({ img, emoji, theme, onClick }) => {
       <div
         class="app-icon-image"
         style={{ backgroundImage: `url('https://twemoji.maxcdn.com/2/svg/${image}.svg')` }} />
+      <div class="app-icon-hover">
+        <div class="app-icon-hover-icon">
+          <ion-icon name="md-create" />
+        </div>
+      </div>
     </div>
   )
 };
@@ -639,7 +645,7 @@ const AppIconUpload = ({ onChoose }) => {
   return (
     <div class={`app-icon-upload`}>
       <input type="file" accept="image/png" onChange={onChoose} />
-      <span class="app-icon-upload-info">Choose image or drag and drop here</span>
+      <span class="app-icon-upload-info">Choose image, emoji, or drag and drop here</span>
     </div>
   )
 }

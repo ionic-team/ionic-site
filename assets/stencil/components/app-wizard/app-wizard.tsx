@@ -6,7 +6,7 @@ import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
 
 import { Emoji } from '../emoji-picker/emoji-picker';
-import { generateAppIconForThemeAndEmoji } from '../../util/app-icon';
+import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -206,13 +206,19 @@ export class AppWizard {
   save = async () => {
     try {
       let iconImage;
+      let splash;
       if (!this.appIcon && this.selectedEmoji) {
         const emoji = this.selectedEmoji;
-        const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emoji.image}.svg`;
-        const rendered = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl);
-        iconImage = rendered;
+        const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
+        const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emojiImageName}.svg`;
+        const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
+        const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
+        iconImage = renderedAppIcon;
+        splash = renderedSplashScreen;
       } else {
+        const renderedSplashScreen = await generateAppIconForThemeAndImage(this.theme, this.appIcon, 2732, 512);
         iconImage = this.appIcon;
+        splash = renderedSplashScreen;
       }
 
       const res = await fetch('/api/v1/wizard/create', {
@@ -225,6 +231,7 @@ export class AppWizard {
           template: this.template,
           name: this.appName,
           theme: this.theme,
+          appSplash: splash,
           appIcon: iconImage,
           utm: getUtmParams()
         }),
@@ -623,7 +630,7 @@ const AppIcon = ({ img, emoji, theme, onClick }) => {
     );
   }
 
-  const image = emoji.image.replace('.png', '');//emoji.image.split('-')[0].replace('.png', '');
+  const image = emoji.image.replace('-fe0f', '').replace('.png', '');
   return (
     <div
       class="app-icon"

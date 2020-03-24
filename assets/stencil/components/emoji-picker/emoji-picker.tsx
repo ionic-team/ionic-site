@@ -1,7 +1,6 @@
 import { Component, Prop, Event, h, EventEmitter, Host, Watch, Listen, Element, State } from '@stencil/core';
 
 import * as EmojiSvgs from './svgs';
-import { unifiedToNative } from '../../util/emoji';
 
 interface EmojiSet {
   aliases: { [key:string]: string };
@@ -188,6 +187,7 @@ export class EmojiPicker {
   handleClearSearchInput = (e) => this.searchQuery = '';
 
   handleEmojiPicked = (emoji: Emoji) => {
+    console.log('Picked emoji', emoji);
     this.emojiPick.emit(emoji);
   }
 
@@ -307,7 +307,6 @@ const Emojis = ({ visibleEmojis, emojis, emojiPicked }: EmojisProps) => {
             <div
               class="emoji-image"
               style={{ backgroundPosition: `${x}% ${y}%`}} />
-            {/*{unifiedToNative(emojis[e].unified)}*/}
           </li>
         )
       })}

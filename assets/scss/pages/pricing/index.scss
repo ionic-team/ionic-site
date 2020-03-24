@@ -127,13 +127,14 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
 .card {
   flex: 1 0 200px;
   margin-bottom: 12px;
-  padding: 40px $expander-padding-with-gap 96px;
+  padding: 18px $expander-padding-with-gap 109px;
   position: relative;
-  transition: .3s transform ease-out;
+  list-style: none;
+  transition: .2s transform ease-out;
 
   &::before {
     position: absolute;
-    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #486FFF;
+    background: #FFFFFF;
     box-shadow: 
       0px 8px 16px rgba(2, 8, 20, 0.08), 
       0px 4px 8px rgba(2, 8, 20, 0.12);
@@ -151,6 +152,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     font-size: 28px;
     line-height: 34px;
     letter-spacing: -0.02em;
+    margin-bottom: 15px;
   }
 
   p, 
@@ -165,8 +167,8 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
   ul {
     display: flex;
     flex-wrap: wrap;
-    padding: 24px 0;
-    width: calc(100% + 34px);
+    padding: 16px 0;
+    width: calc(100% + 38px);
   }
 
   li {
@@ -174,7 +176,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     padding-right: 8px;
     font-size: 14px;
     flex: 1 0 180px;
-    margin-bottom: 8px;
+    margin: 10px 0;
     position: relative;
     list-style: none;
 
@@ -197,7 +199,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     line-height: 1em;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 32px $expander-padding;
+    padding: 30px $expander-padding;
     position: absolute;
     bottom: 0;
     left: $card-expander-gap;
@@ -250,20 +252,91 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     .call-to-action svg {
       transform: translateX(4px);
     }
+
+    &::before {
+      box-shadow: 
+        0px 10px 24px rgba(2, 8, 20, 0.12), 
+        0px 6px 12px rgba(2, 8, 20, 0.2);
+    }
+  }
+}
+
+#open-source {
+  margin-top: 44px;
+
+  .card {
+    padding-bottom: 85px;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 160%;
+    margin-bottom: 18px;
+    color: $c-carbon-900;
+    font-family: $font-family-inter;
+  }
+
+  .cards h3 {
+    margin-top: 9px;
+    font-size: 20px;
+    line-height: 120%;
+    color: $c-carbon-900;
+    font-family: $font-family-eina;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -0.01em;
+    color: $c-indigo-800;
+    margin-bottom: 15px;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 160%;
+    letter-spacing: 0.1em;
+    color: $c-indigo-600;
+    position: absolute;
+    bottom: 18px;
+    left: 38px;
+    font-family: $font-family-inter;
+  }
+
+  a  {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: -0.01em;
+    color: $c-indigo-1100;
+    position: absolute;
+    bottom: 25px;
+    right: 39px;
+
+    svg {
+      margin-right: 3px;
+    }
   }
 }
 
 #loved-by {
-  margin-top: 160px;
-  margin-bottom: 160px;
+  margin-top: 74px;
+  margin-bottom: 136px;
 
   h3 {
     max-width: 300px;
     font-size: 20px;
+    font-weight: 600;
     line-height: 130%;
     letter-spacing: -0.01em;
     color: $c-carbon-600;
-    margin-bottom: 32px;
+    margin-bottom: 38px;
+    font-family: $font-family-inter;
   }
 
   ul {
@@ -272,5 +345,6 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
+    align-items: center;
   }
 }

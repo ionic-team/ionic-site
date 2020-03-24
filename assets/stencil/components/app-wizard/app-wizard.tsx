@@ -6,6 +6,7 @@ import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
 
 import { Emoji } from '../emoji-picker/emoji-picker';
+import { generateAppIconForThemeAndEmoji } from '../../util/app-icon';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -95,6 +96,8 @@ export class AppWizard {
   @State() selectedEmoji: Emoji = this.getRandomEmoji();
   @State() showEmojiPicker = false;
   @State() emojiPickerEvent: MouseEvent = null;
+  @State() isAppIconDropping = false;
+  @State() appIconUploadError = '';
 
   // Form state
   @State() authenticating = false;
@@ -105,6 +108,7 @@ export class AppWizard {
   @State() template = 'tabs';
   @State() bundleId = '';
   @State() appUrl = '';
+  @State() appIcon: string;
   /*
   @State() authorEmail = 'max@ionic.io';
   @State() authorName = 'Max';
@@ -201,6 +205,16 @@ export class AppWizard {
 
   save = async () => {
     try {
+      let iconImage;
+      if (!this.appIcon && this.selectedEmoji) {
+        const emoji = this.selectedEmoji;
+        const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emoji.image}.svg`;
+        const rendered = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl);
+        iconImage = rendered;
+      } else {
+        iconImage = this.appIcon;
+      }
+
       const res = await fetch('/api/v1/wizard/create', {
         body: JSON.stringify({
           type: this.framework,
@@ -211,6 +225,7 @@ export class AppWizard {
           template: this.template,
           name: this.appName,
           theme: this.theme,
+          appIcon: iconImage,
           utm: getUtmParams()
         }),
         method: 'POST',
@@ -253,8 +268,8 @@ export class AppWizard {
   }
 
   handlePickEmoji = (e) => {
-    console.log('Selected emoji', e.detail);
     this.selectedEmoji = e.detail as Emoji;
+    this.appIcon = null;
     this.showEmojiPicker = false;
   }
 
@@ -267,6 +282,56 @@ export class AppWizard {
   handleInput = (fieldName) => e => {
     this[fieldName] = e.target.value;
   };
+
+  setAppIconFromFile = (file: File) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.selectedEmoji = null;
+      this.appIcon = reader.result as string;
+    }
+    reader.onerror = () => {
+      this.appIconUploadError = 'Unable to read file';
+    }
+  }
+
+  handleAppIconChoose = (e) => {
+    console.log('Choose', e);
+    if (e.target.files.length) {
+      const file = e.target.files[0];
+      if (file.size > 1024 * 800) {
+        this.appIconUploadError = 'Image must be < 800KB';
+        return;
+      }
+
+      this.setAppIconFromFile(file);
+    }
+  }
+
+  handleAppIconDragOver = (e: DragEvent) => {
+    this.isAppIconDropping = true;
+    e.dataTransfer.dropEffect = 'copy';
+    e.preventDefault();
+  }
+
+  handleAppIconDragOut = (e) => {
+    this.isAppIconDropping = false;
+  }
+
+  handleAppIconDrop = (e: DragEvent) => {
+    e.preventDefault();
+    this.isAppIconDropping = false;
+    if (e.dataTransfer.files) {
+      const file = e.dataTransfer.files[0];
+
+      if (file.size > 1024 * 800) {
+        this.appIconUploadError = 'Image must be < 800KB';
+        return;
+      }
+
+      this.setAppIconFromFile(file);
+    }
+  }
 
   renderBasics() {
     const { showEmojiPicker } = this;
@@ -294,18 +359,25 @@ export class AppWizard {
               <InfoCircle />
             </ui-tip>
           </label>
-          <AppIcon
-            //  img={this.appIcon}
-            emoji={this.selectedEmoji}
-            theme={this.theme}
-            onClick={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
-            />
-          <ionic-emoji-picker
-            open={showEmojiPicker}
-            openEvent={this.emojiPickerEvent}
-            onEmojiPick={this.handlePickEmoji}
-            onClosed={() => this.showEmojiPicker = false}
-            />
+          <div
+            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}
+            onDragOver={this.handleAppIconDragOver}
+            onDragExit={this.handleAppIconDragOut}
+            onDrop={this.handleAppIconDrop}>
+            <AppIcon
+              img={this.appIcon}
+              emoji={this.selectedEmoji}
+              theme={this.theme}
+              onClick={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
+              />
+            <AppIconUpload onChoose={this.handleAppIconChoose} />
+            <ionic-emoji-picker
+              open={showEmojiPicker}
+              openEvent={this.emojiPickerEvent}
+              onEmojiPick={this.handlePickEmoji}
+              onClosed={() => this.showEmojiPicker = false}
+              />
+          </div>
           <label>
             Pick a theme
             <ui-tip
@@ -537,7 +609,19 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-const AppIcon = ({ emoji, theme, onClick }) => {
+const AppIcon = ({ img, emoji, theme, onClick }) => {
+  if (img) {
+    return (
+      <div
+        class="app-icon"
+        onClick={onClick}>
+        <div
+          class="app-icon-image app-icon-image-uploaded"
+          style={{ backgroundImage: `url(${img})`}} />
+      </div>
+    );
+  }
+
   const image = emoji.image.replace('.png', '');//emoji.image.split('-')[0].replace('.png', '');
   return (
     <div
@@ -550,6 +634,15 @@ const AppIcon = ({ emoji, theme, onClick }) => {
     </div>
   )
 };
+
+const AppIconUpload = ({ onChoose }) => {
+  return (
+    <div class={`app-icon-upload`}>
+      <input type="file" accept="image/png" onChange={onChoose} />
+      <span class="app-icon-upload-info">Choose image or drag and drop here</span>
+    </div>
+  )
+}
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [

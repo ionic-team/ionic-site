@@ -57,21 +57,40 @@
     margin-bottom: 25px;
   }
 
-  .app-icon {
-    width: 96px;
-    height: 96px;
-    border-radius: 32px;
+  .app-icon-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 64px;
-    cursor: pointer;
-    user-select: none;
-    margin-bottom: 12px;
 
-    .app-icon-image {
-      width: 64px;
-      height: 64px;
+    &.app-icon-dropping {
+      border-radius: 16px;
+      border: 1px dashed #eee;
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 64px;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 12px;
+
+      .app-icon-image {
+        width: 64px;
+        height: 64px;
+      }
+      .app-icon-image-uploaded {
+        background-size: 100%;
+        width: 96px;
+        height: 96px;
+        border-radius: 32px;
+      }
+    }
+
+    .app-icon-upload {
+      flex: 1;
     }
   }
 

@@ -145,6 +145,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
     right: $card-expander-gap;
     left: $card-expander-gap;
     z-index: -1;
+    transition: .2s box-shadow ease-out;
   }
 
   h2 {

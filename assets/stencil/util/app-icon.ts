@@ -50,30 +50,34 @@ export const generateAppIconForThemeAndEmoji = async (theme, emojiImage, imageSi
   });
 };
 
-export const generateAppIconForThemeAndImage = async (theme, image, imageSize, iconSize) => {
+export const generateAppIconForThemeAndImage = async (theme, image, fullImageSize, maxImageWidth) => {
   const canvas = document.createElement('canvas');
   canvas.style.visibility = 'hidden';
-  canvas.width = imageSize
-  canvas.height = imageSize;
-  canvas.style.width = `${imageSize}px`;
-  canvas.style.height = `${imageSize}px`;
+  canvas.width = fullImageSize;
+  canvas.height = fullImageSize;
+  canvas.style.width = `${fullImageSize}px`;
+  canvas.style.height = `${fullImageSize}px`;
   const ctx = canvas.getContext('2d');
 
   ctx.fillStyle = theme;
-  ctx.fillRect(0, 0, imageSize, imageSize);
+  ctx.fillRect(0, 0, fullImageSize, fullImageSize);
 
-  const midx = imageSize / 2;
-  const midy = imageSize / 2;
-
-  const imageX = midx - iconSize / 2;
-  const imageY = midy - iconSize / 2;
+  const midx = fullImageSize / 2;
+  const midy = fullImageSize / 2;
 
   const img = new Image();
   img.src = image;
 
   return new Promise((resolve, reject) => {
     img.onload = () => {
-      ctx.drawImage(img, imageX, imageY, iconSize, iconSize);
+      const aspectRatio = img.width / img.height;
+      const imageW = Math.max(Math.min(img.width, maxImageWidth), maxImageWidth);
+      const imageH = imageW * 1 / aspectRatio;
+      const imageX = midx - imageW / 2;
+      const imageY = midy - imageH / 2;
+
+
+      ctx.drawImage(img, imageX, imageY, imageW, imageH);
 
       resolve(canvas.toDataURL('image/png'));
     };

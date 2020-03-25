@@ -72,8 +72,10 @@
         <img class="creator-logo" src="/img/pro/creator/creator-logo.png"/>
       </a>
       <nav>
+        <!--
         <a class="btn {% if page == 'pricing' %}active{% endif %}"
            href="/creator/pricing">Pricing</a>
+        -->
         <a class="btn {% if page == 'docs' %}active{% endif %}"
            href="http://docs.usecreator.com">Docs</a>
         <a class="btn {% if page == 'support' %}active{% endif %}"
@@ -81,9 +83,11 @@
         <a class="btn blue border" href="https://creator.ionic.io/app/login">
           Login
         </a>
+        <!--
         <a class="btn blue signup" href="https://creator.ionic.io/app/signup">
           Sign up
         </a>
+      -->
       </nav>
     </header>
   {% endblock %}
@@ -95,26 +99,6 @@
 
 
   {% block footer %}
-  {% if showBuildNowSignup%}
-    <hgroup class="start-now">
-      <h2>
-        Start building now! Creator is <strong>100% free to try.</strong>
-      </h2>
-      <p>
-        See why people around the world use Creator to build amazing
-        cross-platform mobile apps.
-      </p>
-      <form action="https://creator.ionic.io/app/signup"
-            method="get"
-            id="form-products-creator-get-started">
-        <input type="text"
-               class="input"
-               placeholder="Email address"
-               name="email">
-        <input type="submit" class="btn btn-ionic" value="Get started!">
-      </form>
-    </hgroup>
-  {% endif %}
   <footer class="container">
     <div class="row">
       <div class="left">

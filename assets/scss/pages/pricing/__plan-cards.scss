@@ -3,7 +3,7 @@
  .plans {
   display: grid;
   margin-left: -58px;
-  margin-top: 63px;
+  margin-top: 55px;
   font-family: $font-family-inter;
   gap: 16px;
   grid-template-columns: 272px 272px 272px 272px;
@@ -61,7 +61,7 @@
 .plan__card {
   border-radius: 12px;
   background: white;
-  padding: 34px 26px;
+  padding: 30px 26px 26px;
   position: relative;
   flex: 1;
   display: flex;
@@ -121,7 +121,7 @@
   &__card h3 {
     color: #020814;
     margin-top: 0;
-    margin-bottom: 11px;
+    margin-bottom: 13px;
 
     font-weight: 600;
     font-size: 12px;
@@ -136,7 +136,7 @@
     line-height: 24px;
     letter-spacing: -0.04em;
     color: #1A232F;
-    padding-bottom: 18px;
+    padding-bottom: 13px;
 
     &__term {
       font-size: 14px;
@@ -173,14 +173,12 @@
     color: $c-indigo-800;
   }
 
-  &__cta {
+  &__cta.btn {
     align-self: flex-start;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
-    letter-spacing: 0.08em;
-    padding: 11px 16px 10px;
-    margin-top: 8px;
-    letter-spacing: 0.08em;
+    padding: 16px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     border: 1px solid #3880FF;
     box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
@@ -213,7 +211,7 @@
   &__feature {
     &__divider {
       border-bottom: 1px solid #DEE3EA;
-      margin: 37px -26px 0;
+      margin: 30px -26px 0;
 
       + .plan__feature__header {
         margin: -9px -5px 0;
@@ -233,13 +231,13 @@
     
     &__list {
       padding-left: 0;
-      margin: 10px 0 32px;
+      margin: 9px 0 26px;
       
       li {
         position: relative;
         margin: 14px 0 0 -8px;
         list-style: none;
-        padding: 6px 0 6px 27px;
+        padding: 4px 0 5px 30px;
         letter-spacing: -0.02em;
         
         &::before {

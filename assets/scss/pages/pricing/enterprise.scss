@@ -39,14 +39,18 @@ main {
 }
 
 #hear-from-you {
-  display: flex;
-  overflow: visible;
-  margin-left: -1 * $expander-padding;
-  align-items: flex-start;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFD 100%);
 
-  &::before,
-  &::after {
-    display: none;
+  .container {
+    display: flex;
+    overflow: visible;
+    margin-left: -1 * $expander-padding;
+    align-items: flex-start;
+  
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
   h2 {
@@ -133,6 +137,7 @@ main {
       0px 4px 8px rgba(2, 8, 20, 0.12);
     border-radius: 8px;
     margin-top: -48px;
+    margin-bottom: -48px;
     padding: 20px 40px 38px;
     position: relative;
     z-index: 1;
@@ -308,6 +313,7 @@ main {
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: $c-indigo-700;
+      font-family: $font-family-monospace;
     }
 
     h2 {
@@ -398,6 +404,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 0;
+    align-items: center;
 
     li {
       padding: 20px;

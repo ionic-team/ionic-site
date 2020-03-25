@@ -127,7 +127,14 @@ main {
 
     li {
       list-style: none;
-      padding: 6px 20px;
+      padding: 6px 0;
+      flex: 0 1 75px;
+      text-align: center;
+
+      @media (max-width: $screen-md-max) {
+        padding: 6px 12px;
+        flex: 1;
+      }
     }
   }
 
@@ -149,7 +156,7 @@ main {
       padding: 44px 0 16px 68px;
 
       @media (max-width: $screen-xs-max) {
-        padding-left: 15px;
+        padding-left: 30px;
       }
     }
 
@@ -159,6 +166,13 @@ main {
 
     @media (max-width: $screen-xs-max) {
       display: none;
+    }
+
+    .hs-richtext p {
+      font-size: 10px;
+      line-height: 12px;
+      letter-spacing: -0.01em;
+      color: $c-indigo-700;
     }
   }
 
@@ -172,7 +186,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 124px;
+  margin-top: 169px;
   margin-bottom: 128px;
 
   &::before,
@@ -192,7 +206,8 @@ main {
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: $c-indigo-700;
-      margin-bottom: 29px;
+      margin-bottom: 32px;
+      font-family: $font-family-monospace;
     }
 
     h2 {
@@ -226,11 +241,15 @@ main {
     margin-top: 53px;
 
     &::before {
-      border-left: 2px dashed #78B8F8;
+      background-image: linear-gradient(#78B8F8 20%, rgba(120, 184, 248, 0) 0%);
+      background-position: right;
+      background-size: 2px 10px;
+      background-repeat: repeat-y;
       position: absolute;
       top: 0;
       bottom: 314px;
-      left: 22px;
+      left: 23px;
+      width: 2px;
       content: '';
     }
   }
@@ -238,8 +257,8 @@ main {
   li {
     list-style: none;
     position: relative;
-    padding-left: 64px;
-    margin-bottom: 64px;
+    padding-left: 103px;
+    margin-bottom: 62px;
     padding-top: 8px;
 
     svg {
@@ -263,6 +282,7 @@ main {
       line-height: 150%;
       letter-spacing: -0.01em;
       color: $c-carbon-400;
+      margin-bottom: 14px;
     }
 
     ul {
@@ -277,7 +297,7 @@ main {
       line-height: 150%;
       letter-spacing: -0.01em;
       color: $c-indigo-800;
-      margin: 8px 0;
+      margin: 7px 0;
 
       &::before {
         background: url('/img/pricing/ico-check-2.svg');
@@ -300,7 +320,8 @@ main {
 
 #quote {
   background: $c-indigo-50;
-  padding-top: 130px;
+  padding-top: 124px;
+  padding-bottom: 100px;
   overflow: hidden;
 
   hgroup {
@@ -316,6 +337,7 @@ main {
       text-transform: uppercase;
       color: $c-indigo-700;
       font-family: $font-family-monospace;
+      margin-bottom: 32px;
     }
 
     h2 {
@@ -369,7 +391,7 @@ main {
 
       cite {
         opacity: .5;
-        margin-left: 8px;
+        margin-left: 14px;
         font-style: normal;
       }
     }
@@ -420,7 +442,7 @@ main {
 }
 
 #get-started {
-  padding-top: 232px;
+  padding-top: 170px;
   padding-bottom: 128px;
 
   hgroup {
@@ -445,5 +467,10 @@ main {
     line-height: 110%;
     letter-spacing: -0.04em;
     color: $c-carbon-900;
+  }
+
+  .hubspot-override {
+    margin: 0 auto;
+    max-width: 700px;
   }
 }

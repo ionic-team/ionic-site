@@ -185,8 +185,9 @@
     margin-top: auto;
     align-self: stretch;
 
-    &.white {
-      border-color: #DEE3EA;
+    &.light {
+      border-color: #EEF6FE;
+      color: #3880FF;
 
       &:hover {
         box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.08);

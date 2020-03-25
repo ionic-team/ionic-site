@@ -7,6 +7,8 @@
     color: $c-white;
     padding-top: 20px;
     margin-top: 0;
+    position: relative;
+    z-index: 1;
 
   hgroup {
     max-width: 790px;
@@ -93,9 +95,12 @@
 main {
   margin-top: -160px;
   position: relative;
-  z-index: 1;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFD 100%);
 
   section:first-child {
+    position: relative;
+    z-index: 1;
+
     h3 {
       color: $c-white;
       font-size: 22px;
@@ -115,6 +120,8 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
   margin-right: -1 * $expander-padding-with-gap;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: $screen-sm-max) {
     flex-direction: column;

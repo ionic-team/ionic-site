@@ -85,13 +85,13 @@
   }
 
   &.light {
-    background: #F0F6FF;
+    background: #EEF6FE;
     color: $blue;
 
     &:hover,
     &:focus,
     &:active {
-      background: darken(#F0F6FF, 2);
+      background: darken(#EEF6FE, 2);
     }
   }
 

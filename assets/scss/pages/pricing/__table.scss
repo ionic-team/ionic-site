@@ -53,16 +53,25 @@ thead {
     }
   }
 
-  .btn {
+  .btn,
+  .btn.micro {
     padding: 6px 10px 3px;
     text-transform: none;
     letter-spacing: -0.01em;
     font-size: 12px;
     font-weight: 600;
     margin-top: 7px;
+    background: #EEF6FE;
+    border-color: #EEF6FE;
+
+    &:hover {
+      background: darken(#EEF6FE, 3%);
+      border-color: darken(#EEF6FE, 3%);
+    }
   }
 
-  .btn--primary {
+  .btn--primary,
+  .btn--primary.micro {
     background: #3880FF;
     color: #fff;
 
@@ -71,7 +80,8 @@ thead {
     }
   }
 
-  .btn--dark {
+  .btn--dark,
+  .btn--dark.micro {
     background: #213049;
     color: #CDDFFF;
     border: 0;
@@ -193,7 +203,7 @@ tbody {
 }
 
 tfoot {
-  .btn {
+  .btn.sm {
     padding: 11px 13px 8px;
     font-size: 14px;
     line-height: 19px;
@@ -202,14 +212,25 @@ tfoot {
     border: 1px solid #3880FF;
     box-shadow: 0px 2px 4px rgba(0, 16, 46, 0.04);
 
-    &.white {
-      border-color: #DEE3EA;
+    &.light {
+      border-color: #EEF6FE;
+      background: #EEF6FE;
+
+      &:hover {
+        border-color: darken(#EEF6FE, 3%);
+        background: darken(#EEF6FE, 3%);
+      }
     }
 
     &.dark {
       border-color: #3E5A8D;
       background: #2B4675;
       color: #D1EBFF;
+
+      &:hover {
+        border-color: lighten(#3E5A8D, 3%);
+        background: lighten(#2B4675, 3%);
+      }
     }
   }
 

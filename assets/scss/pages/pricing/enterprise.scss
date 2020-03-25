@@ -42,15 +42,17 @@ main {
   background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFD 100%);
 
   .container {
-    display: flex;
-    overflow: visible;
-    margin-left: -1 * $expander-padding;
-    align-items: flex-start;
-  
     &::before,
     &::after {
       display: none;
     }
+  }
+
+  .expander {
+    display: flex;
+    overflow: visible;
+    margin-left: -1 * $expander-padding;
+    align-items: flex-start;
   }
 
   h2 {

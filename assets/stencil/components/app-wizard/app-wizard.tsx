@@ -294,8 +294,18 @@ export class AppWizard {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      this.selectedEmoji = null;
-      this.appIcon = reader.result as string;
+      const b64 = reader.result as string;
+
+      const img = new Image();
+      img.src = reader.result as string;
+      img.onload = () => {
+        if (img.width < 1024 || img.height < 1024) {
+          alert('Icon size must be at least 1024x1024');
+        } else {
+          this.selectedEmoji = null;
+          this.appIcon = reader.result as string;
+        }
+      }
     }
     reader.onerror = () => {
       this.appIconUploadError = 'Unable to read file';
@@ -358,47 +368,47 @@ export class AppWizard {
             tabindex={1}
             required={true}
             onChange={this.handleInput('appName')} />
-          <label>
-            Pick an icon
-            <ui-tip
-              text="An icon for your app. You can easily change this and add your own image later!"
-              position="top">
-              <InfoCircle />
-            </ui-tip>
-          </label>
           <div
             class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}
             onDragOver={this.handleAppIconDragOver}
             onDragExit={this.handleAppIconDragOut}
             onDrop={this.handleAppIconDrop}>
-            <AppIcon
-              img={this.appIcon}
-              emoji={this.selectedEmoji}
-              theme={this.theme}
-              onClick={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
-              />
-            <AppIconUpload onChoose={this.handleAppIconChoose} />
+            <div class="app-icon-pick">
+              <label>
+                Pick an icon
+                <ui-tip
+                  text="An icon for your app. You can easily change this and add your own image later!"
+                  position="top">
+                  <InfoCircle />
+                </ui-tip>
+              </label>
+              <AppIcon
+                img={this.appIcon}
+                emoji={this.selectedEmoji}
+                theme={this.theme}
+                onChooseEmoji={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
+                onChooseFile={this.handleAppIconChoose} />
+            </div>
             <ionic-emoji-picker
               open={showEmojiPicker}
               openEvent={this.emojiPickerEvent}
               onEmojiPick={this.handlePickEmoji}
-              onClosed={() => this.showEmojiPicker = false}
+              onClosed={() => this.showEmojiPicker = false} />
+            <div class="app-icon-theme">
+              <label>Pick a theme color</label>
+              <ui-tip
+                text="The primary brand color for your app"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+              <ThemeSwitcher
+                value={this.theme}
+                onChange={(theme) => this.theme = theme}
+                onPick={this.handlePickTheme}
               />
+            </div>
           </div>
-          <label>
-            Pick a theme
-            <ui-tip
-              text="The primary brand color for your app"
-              position="top">
-              <InfoCircle />
-            </ui-tip>
-          </label>
-          <ThemeSwitcher
-            value={this.theme}
-            onChange={(theme) => this.theme = theme}
-            onPick={this.handlePickTheme}
-          />
-          <div class="form-group" id="field-appname">
+          <div class="form-group">
             <label>
               Pick a layout template
               <ui-tip
@@ -616,46 +626,34 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-const AppIcon = ({ img, emoji, theme, onClick }) => {
-  if (img) {
-    return (
-      <div
-        class="app-icon"
-        onClick={onClick}>
-        <div
-          class="app-icon-image app-icon-image-uploaded"
-          style={{ backgroundImage: `url(${img})`}} />
-        <div class="app-icon-hover" />
-      </div>
-    );
+const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
+  const bgColor = img ? 'transparent': theme;
+
+  let bgImage;
+  if (emoji) {
+    const emojiImage = emoji.image.replace('-fe0f', '').replace('.png', '');
+    bgImage = `url('https://twemoji.maxcdn.com/2/svg/${emojiImage}.svg')`;
+  } else {
+    bgImage = `url(${img})`;
   }
 
-  const image = emoji.image.replace('-fe0f', '').replace('.png', '');
   return (
     <div
       class="app-icon"
-      style={{ backgroundColor: theme }}
-      onClick={onClick}>
+      style={{ backgroundColor: bgColor }}>
       <div
-        class="app-icon-image"
-        style={{ backgroundImage: `url('https://twemoji.maxcdn.com/2/svg/${image}.svg')` }} />
+        class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
+        style={{ backgroundImage: bgImage }} />
       <div class="app-icon-hover">
-        <div class="app-icon-hover-icon">
-          <ion-icon name="md-create" />
+        <div class="app-icon-hover-icons">
+          <ion-icon name="md-happy" onClick={onChooseEmoji} />
+          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} />
         </div>
+        <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
       </div>
     </div>
   )
 };
-
-const AppIconUpload = ({ onChoose }) => {
-  return (
-    <div class={`app-icon-upload`}>
-      <input type="file" accept="image/png" onChange={onChoose} />
-      <span class="app-icon-upload-info">Choose image, emoji, or drag and drop here</span>
-    </div>
-  )
-}
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [

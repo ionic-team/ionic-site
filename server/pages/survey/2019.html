@@ -1,0 +1,213 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'survey-2019' %}
+{% set name = '2019 Developer Survey' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2019.png' %}
+{% set header_style = 'transparent survey-layout' %}
+{% set cssPath = 'survey/2019' %}
+
+{% block body_attributes %}
+  data-spy="scroll" data-target="#survey-2019-nav" data-offset="400"
+{% endblock %}
+
+{% block main %}
+<div id="survey-banner" class="cta banner">
+  <hgroup class="container">
+    <svg></svg>
+    <h4>2019</h4>
+    <h1>Developer Survey</h1>
+    <p>2019’s biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
+  </hgroup>
+</div>
+
+<nav id="survey-2019-nav" class="bar">
+  <ul class="container">
+    <li><a href="#introduction" class="anchor">INTRODUCTION</a></li>
+    <li><a href="#trends" class="anchor">TRENDS</a></li>
+    <li><a href="#tools" class="anchor">TOOLS</a></li>
+    <li><a href="#pwas" class="anchor">PWA</a></li>
+    <li><a href="#backend" class="anchor">BACKEND</a></li>
+    <li><a href="#results" class="anchor">RESULTS</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="introduction">
+    <div class="container center">
+      <h2>2019, a year of growth.</h2>
+      <p class="lg">Welcome to the 2019 Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared insights on the types of apps they’re working on, how they’re working on them, and the technologies they’re using to develop them.</p>
+      <p class="lg">The results from this 2019 edition highlight some exciting trends and concepts that we think you’ll find interesting—whether you’re a community member or tech vendor. Read on for some of our topline takeaways and observations, then investigate the data for yourself at the bottom of the page.</p>
+    </div>
+  </section>
+
+  <section id="trends" class="grey">
+    <div class="container">
+      <h2>The Age of the Web Developer</h2>
+      <div class="cols">
+        <div class="col">
+          <p class="highlight">Over 75% of the software developers in our survey identified themselves as Web Developers.</p>
+          <p>When you think “Web Developer” you might imagine a traditional browser, but with a large library of SDKs—that’s seemingly growing by the day—and tools like Ionic, these developers are now creating apps in every platform, and in every form factor imaginable.</p>
+          <h4>When you think “Web Developer” you might imagine a traditional browser, but with a large library of SDKs—that’s seemingly growing by the day—and tools like Ionic, these developers are now creating apps in every platform, and in every form factor imaginable.</h4>
+          <figure></figure>
+        </div>
+        <div class="col">
+          <h4>The main takeaway</h4>
+          <p>What’s more, a full 78% of those developers are full-stack developers, meaning they can heavily influence backend tech stack decisions, as well as frontend. And they do: 94% of Web Developers have some say over the backend services and providers their organization uses, with 50% having final say or a great deal of influence.</p>
+          <p class="highlight">TL;DR: Web Developers are large and in charge. They aren’t just developing frontend features, they’re making decisions on every aspect of technology for the full technology stack. And given how the web continues to permeate every aspect of our lives—digital and otherwise—this influence will only grow in years to come.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <h2>Mobile Tools and Approaches</h2>
+      <div class="cols">
+        <div class="col">
+          <h4>The top mobile dev tools</h4>
+          <p>The mobile tools market remained incredibly steady since last year’s survey. The results show three clear tiers of popularity among Ionic developers in the mobile development stack. Once again, Ionic (86%) was the top tier, followed by Cordova/PhoneGap (48%). The third tier was made up of React Native (16%) and Flutter (12%), with other tools falling in the single digits. Of course, given that this survey is taken largely from the Ionic community, it’s not surprising to see the results so heavily skewed towards Ionic.</p>
+          <figure></figure>
+        </div>
+        <div class="col">
+          <h4>Ionic-type approaches are on the rise</h4>
+          <p>The bigger takeaway is that business execs and developers have come around to the fact that mobile frameworks like Ionic, React Native, and Flutter, can, in fact, provide stellar app experiences across platforms, in a dev-friendly package.</p>
+          <p class="highlight">The proof is in the numbers, while about 30% of survey respondents still do extensive work in Native Android and iOS, they are using solutions like Ionic and React Native in much greater numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools-tools" class="grey">
+    <div class="container">
+      <h2>The Tools, the Tools</h2>
+      <p>When you’re developing and hosting apps, you depend on a range of tools and services throughout the lifecycle. From service providers and hosting platforms, to user auth and push notification services, it truly takes a village to raise a successful application.</p>
+      <p class="highlight">Let’s take a look at what companies are using when it comes to tools and services.</p>
+      <div class="cols">
+        <div class="col">
+          <h4>Top Backend Service Providers:</h4>
+          <figure></figure>
+          <h4>Top Hosting Providers:</h4>
+          <figure></figure>
+          <h4>Top Databases:</h4>
+          <figure></figure>
+        </div>
+        <div class="col">
+          <h4>Top Auth Choices:</h4>
+          <figure></figure>
+          <h4>Top Auth Choices:</h4>
+          <figure></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trends">
+    <div class="container">
+      <h2>JS Trends, Take 2</h2>
+      <h4>When analyzing last year’s results, we said:</h4>
+      <p class="highlight">“As we introduce versions of Ionic that support Vue (currently in alpha) and React (coming in 2019), we expect to see the mix of Ionic developers surveyed shift more towards these Angular alternatives.”</p>
+      <figure></figure>
+      <p>The results of this year’s research show that this shift is, in fact happening. Angular, React, and Vue were once again the three most-used frameworks, by far. Looking into the number a bit further, we can see that while Angular stayed consistent at around 85% of users doing extensive development work with it last year. Meanwhile, React and Vue saw large gains. React grew almost 30% in popularity to 30% of users, while 20% of users reported using Vue, an 18% jump.</p>
+      <h4>Q8. Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</h4>
+      <figure></figure>
+      <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
+    </div>
+  </section>
+
+  <section id="delivery" class="grey">
+    <div class="container">
+      <h2>App Delivery</h2>
+      <p class="highlight">Apps are at the heart of what many respondents do. Being able to manage multiple apps and deliver updates and new apps in a timely and efficient way makes an organization go.</p>
+      <p>Most respondents’ teams, over 75%, were responsible for a relatively manageable 1-5 apps. However, many teams out there have a daunting portfolio of apps to take care of, especially at the enterprise level.</p>
+      <p>When we look at organizations with more than 500 employees, we find that 9% of developers delivered 9 or more new apps last year, 8% supported or maintained 20 or more, and 7% had a backlog of at least 20 apps waiting for development.</p>
+      <p>Of course, this backlog goes hand-in-hand with how long it takes to develop an app. Almost 80% of respondents said it takes their team 3-4 months, or longer, to develop a mobile or web app, with just over 20% could deliver in 1-2 months or less.</p>
+      <figure></figure>
+    </div>
+  </section>
+
+  <section id="pwas">
+    <div class="container">
+      <h2>PWAs FTW</h2>
+      <div class="cols">
+        <div class="col">
+          <p>By now, we all know the benefits of PWAs: they use modern web capabilities to deliver fast, native-app experiences with no app stores or downloads. The mobile app experiences they provide are highly optimized, reliable, and accessible — anywhere you have a web browser.</p>
+          <p>It’s not surprising, then, that companies continue to embrace PWAs in overwhelming numbers. Nearly 65% of all respondents said their company built a PWA or plan to in the next year. This compares favorably to our results last year (61%), and shows that PWAs are here to stay.</p>
+          <h4>PWAs as part of a greater app strategy.</h4>
+          <p>Almost three quarters of respondents said their app would (40%) or might (34%) also be made available as a native app in an app store. This shows that PWAs are complementing native apps, rather than replacing them altogether.</p>
+          <p>Interestingly, however, that does leave almost a quarter of respondents don’t plan to make their app available in an app store, showing that the web itself is becoming a legitimate app delivery channel.</p>
+        </div>
+        <div class="col">
+          <p class="highlight">And why are PWAs so popular? Cross platform efficiency — the ease of serving multiple platforms with a single app — continues to be the most popular reason companies are choosing PWAs.</p>
+          <p>This year, however, accessibility to users was also a large driver. Companies increasingly chose PWAs to distribute directly to users (18%), and make it easier for those users to access it through the web and search (10%). This strategy is starting to pay off, with over 10% of respondents saying the single biggest impact they’ve seen from their PWAs is increased usage.</p>
+          <h4>Choose your tools</h4>
+          <p>Similar to last year, Ionic and Angular were far and away the most popular tools for developing PWAs. On the hosting side, Firebase and AWS once again topped the rankings, with a significant number of companies (33%) also choosing to host PWAs themselves.</p>
+          <figure></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="backend" class="grey">
+    <div class="container">
+      <h2>Continuous delivery</h2>
+      <div class="cols">
+        <div class="col">
+          <h4>Top CI/CD tools</h4>
+          <p>Now that we’ve seen how many apps respondents are responsible for, let’s look at how they’re managing their processes. DevOps and continuous integration and continuous delivery (CI/CD) tools to streamline software development, testing, and deployment are no longer new. Developers know that using a CI/CD tool of some kind is critical to keeping your release cadence where it needs to be--whether it’s weekly, daily, or more.</p>
+        </div>
+        <div class="col">
+          <h4>Top 3 General Purpose CI/CD tools:</h4>
+          <figure></figure>
+          <h4>Top 3 Mobile CI/CD tools:</h4>
+          <figure></figure>
+        </div>
+      </div>
+      <h4>How developers are using CI/CD tools</h4>
+      <p class="highlight">While over 75% of professionals surveyed are using a CI/CD tool, that still leaves almost a quarter that aren’t. The release cadence for these companies shows how valuable CI/CD tools can be in today’s environment.</p>
+      <p class="highlight">Respondents using a CI/CD tool were <strong>70% more likely to release multiple times per week or more</strong>, and 42% less likely to release quarterly or less.</p>
+      <h4>How often do you release apps? (release cadence)</h4>
+      <figure></figure>
+      <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
+    </div>
+  </section>
+
+  <section id="bottom-line">
+    <div class="container">
+      <h2>The bottom line</h2>
+      <p class="lg">We’ve been conducting this survey for three years now, and the results have never been more clear: PWAs are here and they’re delivering results. It’s also important to recognize that Web Developers are delivering more and more value, as they shift from the browser to the full technology stack.</p>
+      <p class="lg">Companies are recognizing these facts in a few important ways. First, they’re recognizing the value Web Developers bring and leaning on them for more decision-making responsibilities. Organizations are also increasingly investing in comprehensive web strategies, and realizing that PWAs are an important way to deliver cross-platform apps efficiently, and effectively drive users to their apps.</p>
+      <p class="lg"><strong>At Ionic we’ve always believed in the power of the web—and web developers. The results of this survey show that year after year, more companies are joining us on that path.</strong></p>
+    </div>
+  </section>
+
+  <section id="results" class="black">
+    <div class="container">
+      <h2>Survey Results and Demographics</h2>
+      <p class="lg">We’re happy to say that the survey once again attracted a diverse community of respondents. Developers of all types, working on different types of apps, working for companies of all sizes, in a range of industries, all across the globe contributed to our study.</p>
+      <p class="lg">See for yourself:</p>
+      <h3>Demographics</h3>
+      <dl>
+        <dt>What types of apps are you building?</dt>
+        <dd><figure></figure></dd>
+        <dt>Which of the following best describes the type of environment you work in?</dt>
+        <dd><figure></figure></dd>
+      </dl>
+      <h3>Frameworks, Tools, and Approaches</h3>
+      <dl>
+        <dt>What types of apps are you building?</dt>
+        <dd><figure></figure></dd>
+        <dt>Which of the following best describes the type of environment you work in?</dt>
+        <dd><figure></figure></dd>
+      </dl>
+      <h3>Progressive Web Apps</h3>
+      <dl>
+        <dt>What types of apps are you building?</dt>
+        <dd><figure></figure></dd>
+        <dt>Which of the following best describes the type of environment you work in?</dt>
+        <dd><figure></figure></dd>
+      </dl>
+      <h3>Backend Technology</h3>
+      <figure></figure>
+    </div>
+  </section>
+</main>
+{% endblock %}

@@ -146,6 +146,7 @@ router: app => {
   .get('/support', (_, res) => res.render('support'))
   .get('/survey/2017', (_, res) => res.render('survey/2017'))
   .get('/survey/2018', (_, res) => res.render('survey/2018'))
+  .get('/survey/2019', (_, res) => res.render('survey/2019'))
   .get('/team', (_, res) => res.render('team'))
   .get('/tos', (_, res) => markdown(res, 'tos'))
   .get('/translate', (_, res) => res.render('translate'))

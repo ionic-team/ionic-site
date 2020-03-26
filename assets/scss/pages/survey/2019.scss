@@ -1,0 +1,18 @@
+@import '../../vars';
+
+#page-survey-2019 {
+  position: relative;
+}
+
+#survey-banner {
+  background: transparent 0% 0% no-repeat padding-box;
+  background-image:
+    url('/img/survey/banner-mask.svg'),
+    linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
+  background-size: cover, cover;
+}
+
+#survey-2019-nav {
+  position: sticky;
+  top: 0;
+}

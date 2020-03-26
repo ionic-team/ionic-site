@@ -1,5 +1,8 @@
 @import '../../vars';
 
+$c-black-300: #24282E;
+$c-black-500: #0E151F;
+
 #page-survey-2019 {
   position: relative;
 }
@@ -10,9 +13,69 @@
     url('/img/survey/banner-mask.svg'),
     linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
   background-size: cover, cover;
+  margin-bottom: 65px;
 }
 
 #survey-2019-nav {
   position: sticky;
   top: 0;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    padding: 10px;
+    display: inline-block;
+  }
+}
+
+main {
+  margin-top: 65px;
+  border-top: 1px solid #B2BECD;
+
+  h2 {
+    font-size: 48px;
+    line-height: 66px;
+    font-weight: bold;
+    letter-spacing: 0;
+    color: $c-black-500;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: $c-black-500;
+
+    &.lg {
+      font-size: 24px;
+      line-height: 33px;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: $c-black-300;
+    }
+  }
+
+  section {
+    padding-top: 77px;
+    padding-bottom: 77px;
+
+    &.grey {
+      background: #F7F9FC;
+    }
+
+    &.center {
+      .container {
+        max-width: 611px;
+        text-align: center;
+      }
+    }
+  }
 }

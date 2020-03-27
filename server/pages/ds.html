@@ -1,0 +1,50 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'ds' %}
+{% set title = 'Ionic Design System' %}
+
+
+{% macro demonstrate(code) %}
+{{code | safe}}
+<pre><code>{{code | escape }}</pre></code>
+{% endmacro %}
+
+{% block main %}
+<div class="cta gradient" >
+  <div class="container">
+    <hgroup>
+      <h1>Design System</h1>
+      <p>A collection of design patterns used on this site</p>
+    </hgroup>
+  </div>
+</div>
+
+<main class="container">
+  <h1>Buttons</h1>
+  {{demonstrate('<button class="btn">Basic Button</button>')}}
+  {{demonstrate('<a class="btn">Basic Link Button</a>')}}
+  {{demonstrate('<a class="btn outline">Outline Button</a>')}}
+  {{demonstrate('<a class="btn outline faded">Outline faded Button</a>')}}
+  {{demonstrate('<a class="btn btn-primary">Primary Button</a>')}}
+  {{demonstrate('<a class="btn btn-primary outline">Primary Outline Button</a>')}}
+  {{demonstrate('<a class="btn red">Red Button</a>')}}
+  {{demonstrate('<a class="btn light">Light Button</a>')}}
+  {{demonstrate('<a class="btn navy">Navy Button</a>')}}
+  {{demonstrate('<a class="btn green">Green Button</a>')}}
+  {{demonstrate('<a class="btn white">White Button</a>')}}
+  {{demonstrate('<a class="btn White outline">White Outline Button</a>')}}
+  {{demonstrate('<a class="btn grey">Grey Button</a>')}}
+  {{demonstrate('<a class="btn light-purple">Light Purple Button</a>')}}
+  {{demonstrate('<a class="btn light-purple outline">Light Purple Outline Button</a>')}}
+  {{demonstrate('<a class="btn dark">Dark Button</a>')}}
+  {{demonstrate('<a class="btn dark-pink">Dark Pink Button</a>')}}
+  {{demonstrate('<a class="btn orange">Orange Button</a>')}}
+  {{demonstrate('<a class="btn sm">Small Button</a>')}}
+  {{demonstrate('<a class="btn rounded">Rounded Button</a>')}}
+  {{demonstrate('<a class="btn rounded sm">Rounded Small Button</a>')}}
+  {{demonstrate('<a class="btn uppercase">Uppercase Button</a>')}}
+  {{demonstrate('<a class="btn micro">Micro Button</a>')}}
+</main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

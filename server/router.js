@@ -60,6 +60,7 @@ router: app => {
   .get('/customers', (_, res) => res.render('enterprise/customers'))
   .get('/demo', (_, res) => res.render('demo'))
   .get('/developers', (_, res) => res.render('developers'))
+  .get('/ds', (_, res) => res.render('ds'))
 
   .get('/enterprise', (_, res) => res.render('enterprise/index'))
   .get('/enterprise/auth-connect', (_, res) => res.render('enterprise/auth-connect'))

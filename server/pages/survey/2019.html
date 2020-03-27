@@ -211,3 +211,18 @@
   </section>
 </main>
 {% endblock %}
+
+{% block scripts %}
+<script>
+// get the sticky element
+const observer = new IntersectionObserver( 
+  ([e]) => {
+    console.log(e)
+    return e.target.classList.toggle('isSticky', e.intersectionRatio < 1)
+  },
+  //{threshold: [1]}
+);
+
+observer.observe(document.getElementById('survey-2019-nav'))
+</script>
+{% endblock %}

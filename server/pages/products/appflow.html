@@ -2,11 +2,12 @@
 {% set id = 'products' %}
 {% set mixpanelEnabled = true %}
 {% set pre_footer = false %}
+{% set header_style = 'transparent light' %}
 {% set title = 'Ionic Appflow: Accessible Mobile DevOps for All'%}
 {% set meta_image = 'https://ionicframework.com/img/meta/products-appflow-og.png'%}
 {% set meta_description = 'Ionic Appflow is a powerful suite of tools, services, and automation that streamlines agile development to help teams focus on building apps, while we take care of the rest. ' %}
 {% set cssPath = 'products/appflow' %}
-{% set hide_pre_header = true %}
+
 
 {% block header_style %}transparent{% endblock %}
 
@@ -16,12 +17,30 @@
 
 {% block main %}
 
-<ionic-sub-header class="ionic-sub-header--not-sticky">
-  <a slot="title" href="#">Appflow</a>
+<ionic-sub-header>
+  <svg slot="title"width="112" height="24" viewBox="0 0 112 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>Appflow logo</title>
+    <path d="M42.4217 6.39211V18.173H39.4281V16.7341C38.674 17.8133 37.3257 18.4428 35.6347 18.4428C32.1611 18.4428 30.1273 15.6999 30.1273 12.2826C30.1273 8.8652 32.1611 6.12231 35.6347 6.12231C37.3257 6.12231 38.674 6.75183 39.4281 7.831V6.39211H42.4217ZM36.3202 8.93264C34.5149 8.93264 33.3723 10.3715 33.3723 12.2826C33.3723 14.1936 34.5149 15.6325 36.3202 15.6325C38.1255 15.6325 39.2681 14.1936 39.2681 12.2826C39.2681 10.3715 38.1255 8.93264 36.3202 8.93264Z" fill="black"/>
+    <path d="M46.986 22.5282H43.741V6.39211H46.7346V7.831C47.4887 6.75183 48.837 6.12231 50.528 6.12231C54.0015 6.12231 56.0354 8.8652 56.0354 12.2826C56.0354 15.6999 54.0015 18.4428 50.528 18.4428C48.837 18.4428 47.603 17.7234 46.986 16.914V22.5282ZM49.8425 15.6325C51.6478 15.6325 52.7904 14.1936 52.7904 12.2826C52.7904 10.3715 51.6478 8.93265 49.8425 8.93265C48.0372 8.93265 46.8946 10.3715 46.8946 12.2826C46.8946 14.1936 48.0372 15.6325 49.8425 15.6325Z" fill="black"/>
+    <path d="M60.2989 22.5282H57.0539V6.39211H60.0475V7.831C60.8016 6.75183 62.1499 6.12231 63.841 6.12231C67.3145 6.12231 69.3483 8.8652 69.3483 12.2826C69.3483 15.6999 67.3145 18.4428 63.841 18.4428C62.1499 18.4428 60.9159 17.7234 60.2989 16.914V22.5282ZM63.1554 15.6325C64.9607 15.6325 66.1033 14.1936 66.1033 12.2826C66.1033 10.3715 64.9607 8.93265 63.1554 8.93265C61.3501 8.93265 60.2075 10.3715 60.2075 12.2826C60.2075 14.1936 61.3501 15.6325 63.1554 15.6325Z" fill="black"/>
+    <path d="M79.9027 1.47168H76.6578V18.1731H79.9027V1.47168Z" fill="black"/>
+    <path d="M73.5597 5.54104C73.5597 4.5518 74.144 4.23704 74.921 4.23704C75.2866 4.23704 75.6686 4.25953 75.6686 4.25953V1.51664C75.6686 1.51664 74.9536 1.47168 74.3823 1.47168C71.96 1.47168 70.3147 2.77567 70.3147 5.60849V18.1731H73.5597V8.91022H75.7371V6.39217H73.5597V5.54104Z" fill="black"/>
+    <path d="M80.8454 12.2826C80.8454 8.93264 83.2905 6.12231 87.1297 6.12231C90.9688 6.12231 93.414 8.93264 93.414 12.2826C93.414 15.6325 90.9688 18.4428 87.1297 18.4428C83.2905 18.4428 80.8454 15.6325 80.8454 12.2826ZM87.1297 15.6325C88.8436 15.6325 90.169 14.3959 90.169 12.2826C90.169 10.1692 88.8436 8.93264 87.1297 8.93264C85.4158 8.93264 84.0904 10.1692 84.0904 12.2826C84.0904 14.3959 85.4158 15.6325 87.1297 15.6325Z" fill="black"/>
+    <path d="M102.356 10.8886H102.311L99.8656 18.173H96.8263L92.6443 6.39209H96.0036L98.403 14.1486L100.871 6.39209H103.796L106.287 14.1936L108.709 6.39209H112L107.818 18.173H104.779L102.356 10.8886Z" fill="black"/>
+    <ellipse cx="13.2238" cy="16.7547" rx="2.98973" ry="2.9434" fill="#4F68FF"/>
+    <path d="M26.4476 24L16.2831 0H10.1844L20.3489 24H26.4476Z" fill="#4F68FF"/>
+    <path opacity="0.2" d="M14.3137 9.75L16.2831 0H10.1844L12.7255 6L13.9961 9L14.1549 9.375L14.3137 9.75Z" fill="black"/>
+    <path d="M3.8147e-06 24L10.1645 0H16.2633L6.09873 24H3.8147e-06Z" fill="#639CFF"/>
+  </svg>
+
   <ul slot="right">
     <li><a href="/appflow" class="active">Overview</a></li>
     <li><a href="/pricing#appflow">Pricing</a></li>
     <li><a href="/docs/appflow">Docs</a></li>
+    <li><a class="btn"
+            href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=appflow"
+            alt="Sign up for Ionic Appflow"
+            id="btn-appflow-try-it-free">Try it free</a></li>
   </ul>
 </ionic-sub-header>
 
@@ -35,74 +54,23 @@
     <div></div>
   </div>
   <hgroup class="container">
-    <h3>Continuously build, deploy & ship apps</h3>
+    <a href="#" class="announcement">
+      <span class="announcement__title">New:</span>
+      <span class="announcement__message">Publish directly to app stores</span>
+      <i></i>
+    </a>
     <h1>Continuous Mobile DevOps.</h1>
-    <p>Focus on building apps while we automate the rest—from the moment code is checked in to the moment it lands in the hands of your users.</p>
+    <p>Continuous native builds, live app deploys, and CI/CD automation. All from a shared collaborative workspace.</p>
     <div class="cta-buttons">
       <a class="btn btn--primary"
       href="https://dashboard.ionicframework.com/signup?source=framework-{{id}}&product=appflow"
       alt="Sign up for Ionic Appflow"
       id="btn-appflow-try-it-free">Try it free</a>
-      <a class="btn" href="/pricing#appflow" id="btn-appflow-see-pricing-hero">See pricing</a>
     </div>
   </hgroup>
+
+  <ionic-appflow-activator for="app-screenshot-img"/>
 </div>
-
-<ionic-appflow-activator for="app-screenshot-img">
-  <a slot="1"
-     class="anchor updates"
-     onClick="scrollToEl('#updates')"
-     data-screenshot="/img/appflow/screen-live-updates.png">
-    <div class="icon">
-      {% include '../_includes/svg/appflow/live-updates.svg' %}
-    </div>
-    <div class="icon-active">
-      {% include '../_includes/svg/appflow/live-updates-active.svg' %}
-    </div>
-    <span>Live Updates</span>
-  </a>
-  <a slot="2"
-     class="anchor native"
-     onClick="scrollToEl('#build')"
-     data-screenshot="/img/appflow/screen-native-builds.png">
-    <div class="icon">
-      {% include '../_includes/svg/appflow/native-builds.svg' %}
-    </div>
-    <div class="icon-active">
-      {% include '../_includes/svg/appflow/native-builds-active.svg' %}
-    </div>
-    <span>Native Builds</span>
-  </a>
-  <a slot="3"
-     class="anchor automation"
-     onClick="scrollToEl('#automate')"
-     data-screenshot="/img/appflow/screen-automation.png">
-    <div class="icon">
-      {% include '../_includes/svg/appflow/automations.svg' %}
-    </div>
-    <div class="icon-active">
-      {% include '../_includes/svg/appflow/automations-active.svg' %}
-    </div>
-    <span>Automations</span>
-  </a>
-</ionic-appflow-activator>
-
-<section class="cta-overlay">
-  <div class="customer-logos">
-    <div class="customer-logo--lendingclub"></div>
-    <div class="customer-logo--mcdonalds"></div>
-    <div class="customer-logo--study"></div>
-    <div class="customer-logo--cat"></div>
-    <div class="customer-logo--ge"></div>
-    <div class="customer-logo--comcast"></div>
-    <div class="customer-logo--amtrak"></div>
-    <div class="customer-logo--airbus"></div>
-    <div class="customer-logo--aaa"></div>
-    <div class="customer-logo--deloitte"></div>
-    <div class="customer-logo--usaa"></div>
-    <div class="customer-logo--ing"></div>
-  </div>
-</section>
 
 <main>
   <section class="overview hero" id="overview">
@@ -117,7 +85,7 @@
           <p>Deliver a better mobile experience for your users by sending updates directly to them in real-time, without waiting for app store or MDM approval.</p>
         </li>
         <li class="faster">
-          <h4>Unlock continuous delivery</h4>
+          <h4>Deliver continuously</h4>
           <p>Automate app delivery, without being a DevOps expert. Our preconfigured, customizable best practices automate your delivery pipeline in minutes.</p>
         </li>
         <li class="happier">
@@ -128,18 +96,56 @@
     </div>
   </section>
 
+  <section class="customers">
+    <div class="container">
+      <h4>Appflow enables development teams at</h4>
+      <div class="customer-logos">
+        <div class="customer-logo--aaa"></div>
+        <div class="customer-logo--amtrak"></div>
+        <div class="customer-logo--ibm"></div>
+        <div class="customer-logo--cat"></div>
+        <div class="customer-logo--nasa"></div>
+        <div class="customer-logo--nbc"></div>
+        <div class="customer-logo--target"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deploy-to-appstores hero">
+    <div class="container">
+      <div class="content">
+        <hgroup>
+          <div class="pill">Now available</div>
+          <h2>Publish to app stores. From a single click.</h2>
+        </hgroup>
+        <p>Deploy directly to the iOS App Store and Google Play Store, directly from your cloud dashboard.</p>
+      </div>
+    </div>
+    <div class="screen">
+      <div>
+        <img src="/img/appflow/publish-to-appstore.png">
+      </div>
+      <ul>
+        <li class="icon-appstore" aria-label="iOS Appstore"></li>
+        <li class="icon-testflight" aria-label="Testflight"></li>
+        <li class="icon-google-play" aria-label="Google Play"></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="updates left hero" id="updates">
     <div class="container">
       <div class="content dark">
-        <h4>Deploy</h4>
-        <h2>Live hot code updates</h2>
-        <p>Deliver live app updates, content changes, A/B tests, bug fixes, and more—before or after your app is in the store. No lines, no waiting, no slowdowns.</p>
+        <h2>Deploy live, hot code updates.</h2>
+        <p>Ship live app updates, content changes, A/B tests, bug fixes, and more—before or after your app is in the store. No lines, no waiting, no slowdowns.</p>
       </div>
     </div>
     <div class="anim-updates">
       <div class="anim-updates__root">
+
         <div class="anim-updates__foreground"></div>
         <div class="anim-updates__device"></div>
+        <!-- <div class="anim-updates__screen"></div> -->
         <div class="anim-updates__background"></div>
       <div>
     </div>
@@ -148,9 +154,8 @@
   <section class="build right hero" id="build">
     <div class="container">
       <div class="content dark">
-        <h4>Package</h4>
-        <h2>Continuous native builds</h2>
-        <p>Create native apps binaries in the cloud with Ionic Package to get from code to app store with no platform dependencies or complicated build steps.</p>
+        <h2>Compile all your native builds. All in one place.</h2>
+        <p>Create native app binaries in the cloud to get from code to app store with no platform dependencies or complicated build steps.</p>
       </div>
 
       <div class="anim-build">
@@ -175,7 +180,7 @@
                       <path d="M131.7598,0.02 L14.9998,0.02 C6.7158,0.02 -0.0002,6.736 -0.0002,15.02 L-0.0002,111.88 C-0.0002,120.165 6.7158,126.88 14.9998,126.88 L179.6198,126.88" id="line-1-A"></path>
                     </g>
                     <text id="title-1" class="anim-build__text" textLength="82" transform="translate(139, 9)"> Web Assets </text>
-                    <text id="title-2" class="anim-build__text" textLength="104" transform="translate(170, 190)"> Ionic Package </text>
+                    <text id="title-2" class="anim-build__text" textLength="90" transform="translate(176, 190)"> Native Build </text>
                     <text id="title-3" class="anim-build__text" textLength="112" transform="translate(299, 372)"> Native Binaries </text>
                     <g id="icons-1" transform="translate(31.000000, 28.000000)">
                         <g class="icon">
@@ -232,8 +237,7 @@
   <section class="automate left hero" id="automate">
     <div class="container">
       <div class="content dark">
-        <h4>Automation</h4>
-        <h2>Automate your workflow</h2>
+        <h2>Automate your entire workflow.</h2>
         <p>Fully automate your delivery pipeline—from native binary builds to QA—in minutes using our preconfigured, smart defaults and powerful workflows, with customizability to fit your team’s unique needs.</p>
       </div>
     </div>
@@ -245,8 +249,8 @@
         <div class="android"><p>Trigger Android build</p></div>
         <div class="ios"><p>Trigger iOS build</p></div>
         <div class="web"><p>Trigger Web build</p></div>
-        <div class="testflight"><p>Distribute to TestFlight<span>(coming soon)</span></p></div>
-        <div class="playstore"><p>Distribute to Google Play <span>(coming soon)</span></p></div>
+        <div class="testflight"><p>Deploy to TestFlight</p></div>
+        <div class="playstore"><p>Deploy to Google Play</p></div>
         <div class="webhook"><p>Trigger webhook</p></div>
       </div>
       <svg width="1346" height="790" xmlns="http://www.w3.org/2000/svg">
@@ -319,9 +323,9 @@
           <h5>Live app updating</h5>
           <p>Immediately push new features and code changes live, directly to end-user devices—without being dependent on app store approvals or internal MDM restrictions.</p>
         </li>
-        <li class="pro-feature--role-based-controls">
-          <h5>Role-based controls</h5>
-          <p>Assign specific team members who are allowed to promote or deny the progress of packages from one environment to another.</p>
+        <li class="pro-feature--app-store-deploys">
+          <h5>App store deploys</h5>
+          <p>Publish directly to the app stores without all of the hassle and time lost. Just enter a few basic inputs, and we take care of the rest.</p>
         </li>
       </ul>
     </div>
@@ -402,7 +406,7 @@ sr.reveal(
       const foregroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#f9fafc' ];
       const backgroundColors = ['#5d37ff','#7b69ff', '#b9bbff', '#f9fafc' ];
       // const backgroundColors = ['#5d37ff', '#261e62', '#141631', '#0d0f1c'];
-      const spacing = 190;
+      const spacing = 208;
       let foregroundScreens = [];
       let backgroundScreens = [];
       let updatesTl;
@@ -499,19 +503,13 @@ sr.reveal(
 
       initAnimation(updatesStage, updatesTl, {
         playWhenInView: true,
-        breakpoint: 991
+        breakpoint: 1
       });
     }
 
-    let hasUpdatesAnimIntialized = false;
-    function checkForUpdatesReady() {
-      if (!hasUpdatesAnimIntialized && window.innerWidth > 991) {
-          setupUpdatesAnimation();
-          hasUpdatesAnimIntialized = true;
-      }
-    }
-    checkForUpdatesReady();
-    window.addEventListener('resize', () => requestAnimationFrame(checkForUpdatesReady));
+    setupUpdatesAnimation();
+
+
 
     // BUILD ANIMATION
     function setupBuildAnimation() {
@@ -620,7 +618,8 @@ sr.reveal(
 
       initAnimation(buildStage, buildTl, {
         once: true,
-        playWhenInView: true
+        playWhenInView: true,
+        breakpoint: 1
       });
     }
     setupBuildAnimation();
@@ -853,7 +852,8 @@ sr.reveal(
 
       initAnimation(automateStage, automateTl, {
         once: false,
-        playWhenInView: true
+        playWhenInView: true,
+        breakpoint: 1
       });
 
     }

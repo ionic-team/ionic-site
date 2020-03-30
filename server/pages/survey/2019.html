@@ -29,10 +29,10 @@
     <li><a href="#results" class="anchor">RESULTS</a></li>
   </ul>
 </nav>
-
+<div id="scroll-spy"></div>
 <main>
-  <section id="introduction">
-    <div class="container center">
+  <section id="introduction" class="center">
+    <div class="container">
       <h2>2019, a year of growth.</h2>
       <p class="lg">Welcome to the 2019 Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared insights on the types of apps they’re working on, how they’re working on them, and the technologies they’re using to develop them.</p>
       <p class="lg">The results from this 2019 edition highlight some exciting trends and concepts that we think you’ll find interesting—whether you’re a community member or tech vendor. Read on for some of our topline takeaways and observations, then investigate the data for yourself at the bottom of the page.</p>
@@ -46,7 +46,7 @@
         <div class="col">
           <p class="highlight">Over 75% of the software developers in our survey identified themselves as Web Developers.</p>
           <p>When you think “Web Developer” you might imagine a traditional browser, but with a large library of SDKs—that’s seemingly growing by the day—and tools like Ionic, these developers are now creating apps in every platform, and in every form factor imaginable.</p>
-          <h4>When you think “Web Developer” you might imagine a traditional browser, but with a large library of SDKs—that’s seemingly growing by the day—and tools like Ionic, these developers are now creating apps in every platform, and in every form factor imaginable.</h4>
+          <h4>Top deployment targets Web Developers are developing apps for:</h4>
           <figure></figure>
         </div>
         <div class="col">
@@ -214,15 +214,15 @@
 
 {% block scripts %}
 <script>
-// get the sticky element
-const observer = new IntersectionObserver( 
-  ([e]) => {
-    console.log(e)
-    return e.target.classList.toggle('isSticky', e.intersectionRatio < 1)
-  },
-  //{threshold: [1]}
-);
+const scrollSpy = () => {
+  const $nav = document.getElementById('survey-2019-nav')
+  const observer = new IntersectionObserver( 
+    ([e]) => $nav.classList.toggle('isSticky', e.intersectionRatio < 1),
+    {threshold: [1]}
+  );
 
-observer.observe(document.getElementById('survey-2019-nav'))
+  observer.observe(document.getElementById('scroll-spy'));
+};
+scrollSpy();
 </script>
 {% endblock %}

@@ -3,6 +3,11 @@
 $c-black-300: #24282E;
 $c-black-500: #0E151F;
 
+$c-grey-200: #F7F9FC;
+$c-grey-400: #B2BECD;
+
+$c-blue-400: #3780FF;
+
 #page-survey-2019 {
   position: relative;
 }
@@ -13,17 +18,19 @@ $c-black-500: #0E151F;
     url('/img/survey/banner-mask.svg'),
     linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
   background-size: cover, cover;
-  margin-bottom: 65px;
+  margin-bottom: 55px;
 }
 
 #survey-2019-nav {
   position: sticky;
-  top: 0;
+  top: -1px;
   background: white;
+  transition: .2s box-shadow;
 
   ul {
     display: flex;
     justify-content: space-around;
+    padding: 0;
   }
 
   li {
@@ -31,14 +38,28 @@ $c-black-500: #0E151F;
   }
 
   a {
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: $c-grey-400;
+    font-weight: 600;
+  }
+
+  &.isSticky {
+    box-shadow: 0 2px 4px rgba($c-black-300, .1);
+
+    @supports (backdrop-filter: blur(5px)) {
+      background: rgba(#fff, 0.9);
+      backdrop-filter: blur(5px);
+    }
   }
 }
 
 main {
-  margin-top: 65px;
-  border-top: 1px solid #B2BECD;
+  margin-top: 55px;
+  border-top: 1px solid $c-grey-400;
 
   h2 {
     font-size: 48px;
@@ -46,6 +67,7 @@ main {
     font-weight: bold;
     letter-spacing: 0;
     color: $c-black-500;
+    margin-bottom: 45px;
   }
 
   p {
@@ -54,6 +76,7 @@ main {
     font-weight: 400;
     letter-spacing: 0;
     color: $c-black-500;
+    margin-bottom: 20px;
 
     &.lg {
       font-size: 24px;
@@ -61,7 +84,24 @@ main {
       font-weight: 400;
       letter-spacing: 0;
       color: $c-black-300;
+      margin-bottom: 32px;
     }
+
+    &.highlight {
+      color: $c-blue-400;
+      font-size: 20px;
+      line-height: 34px;
+      font-weight: 400;
+      background: transparent;
+    }
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: $c-black-500;
+    letter-spacing: 0;
   }
 
   section {
@@ -69,14 +109,25 @@ main {
     padding-bottom: 77px;
 
     &.grey {
-      background: #F7F9FC;
+      background: $c-grey-200;
     }
 
     &.center {
+      text-align: center;
+
       .container {
-        max-width: 611px;
+        max-width: 630px;
         text-align: center;
       }
+    }
+  }
+
+  .cols {
+    display: flex;
+    justify-content: space-between;
+
+    .col {
+      flex: 0 0 380px;
     }
   }
 }

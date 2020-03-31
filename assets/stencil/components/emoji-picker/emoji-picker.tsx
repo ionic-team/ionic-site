@@ -184,7 +184,7 @@ export class EmojiPicker {
 
   handleSearchInput = (e) => this.searchQuery = e.target.value;
 
-  handleClearSearchInput = (e) => this.searchQuery = '';
+  handleClearSearchInput = (_e) => this.searchQuery = '';
 
   handleEmojiPicked = (emoji: Emoji) => {
     console.log('Picked emoji', emoji);

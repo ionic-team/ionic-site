@@ -33,6 +33,8 @@ const THEMES = [
 
 declare var window: any;
 
+const apiUrl = path => `https://ionic-app-wizard-api.herokuapp.com${path}`;//`http://localhost:5000${path}`;
+
 @Component({
   tag: 'ionic-app-wizard',
   styleUrl: 'app-wizard.scss',
@@ -64,6 +66,7 @@ export class AppWizard {
 
   @State() showSignup = true;
   @State() loginErrors = null;
+  @State() creatingApp = false;
 
   user: ApiUser;
 
@@ -136,8 +139,6 @@ export class AppWizard {
         return;
       }
     }
-
-    this.step = this.STEP_BASICS;
   }
 
   setStep = (step) => {
@@ -188,74 +189,90 @@ export class AppWizard {
   }
 
   finish = async () => {
-    const created = await this.save();
+    try {
+      this.setStep(this.STEPS.length - 1);
 
-    if (!created) {
-      alert('Unable to create app, please ping us on Twitter and try the manual install below.');
-      this.setStep(this.STEP_BASICS);
-      return;
+      this.creatingApp = true;
+
+      const created = await this.save();
+
+      if (!created) {
+        alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+        this.setStep(this.STEP_BASICS);
+        return;
+      }
+
+      trackEvent({
+        id: 'Start Wizard Finish'
+      });
+    } catch (e) {
+      try {
+        const data = JSON.parse(e.message);
+        if (data.type === 'too-large') {
+          alert('Unable to create app, your icon image is too large. Try a smaller filesize or add it manually later');
+        } else {
+          alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+        }
+      } catch(e) {
+        alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+      }
+    } finally {
+      this.creatingApp = false;
     }
-
-    trackEvent({
-      id: 'Start Wizard Finish'
-    });
-
-    this.setStep(this.STEPS.length - 1);
   }
 
   save = async () => {
-    try {
-      let iconImage;
-      let splash;
-      if (!this.appIcon && this.selectedEmoji) {
-        const emoji = this.selectedEmoji;
-        const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
-        const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emojiImageName}.svg`;
-        const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
-        const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
-        iconImage = renderedAppIcon;
-        splash = renderedSplashScreen;
-      } else {
-        const renderedSplashScreen = await generateAppIconForThemeAndImage(this.theme, this.appIcon, 2732, 512);
-        iconImage = this.appIcon;
-        splash = renderedSplashScreen;
-      }
-
-      const res = await fetch('/api/v1/wizard/create', {
-        body: JSON.stringify({
-          type: this.framework,
-          'package-id': this.bundleId,
-          tid: this.getHubspotId(),
-          email: this.email,
-          appId: this.appId,
-          template: this.template,
-          name: this.appName,
-          theme: this.theme,
-          appSplash: splash,
-          appIcon: iconImage,
-          utm: getUtmParams()
-        }),
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (res.status !== 200) {
-        throw new Error('Error saving app');
-      }
-
-      const data = await res.json();
-      this.appId = data.appId;
-      return data;
-    } catch (e) {
-      console.error('Unable to save app, server error:', e);
-      return null;
+    let iconImage;
+    let splash;
+    if (!this.appIcon && this.selectedEmoji) {
+      const emoji = this.selectedEmoji;
+      const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
+      const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emojiImageName}.svg`;
+      const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
+      const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
+      iconImage = renderedAppIcon;
+      splash = renderedSplashScreen;
+    } else {
+      const renderedSplashScreen = await generateAppIconForThemeAndImage(this.theme, this.appIcon, 2732, 512);
+      iconImage = this.appIcon;
+      splash = renderedSplashScreen;
     }
+
+    const res = await fetch(apiUrl('/api/v1/wizard/create'), {
+      body: JSON.stringify({
+        type: this.framework,
+        'package-id': this.bundleId,
+        tid: this.getHubspotId(),
+        email: this.email,
+        appId: this.appId,
+        template: this.template,
+        name: this.appName,
+        theme: this.theme,
+        appSplash: splash,
+        appIcon: iconImage,
+        utm: getUtmParams()
+      }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (res.status === 413) {
+      throw new Error(JSON.stringify({ type: 'too-large' }));
+    }
+
+    if (res.status !== 200) {
+      throw new Error(JSON.stringify({ type: 'error' }));
+    }
+
+    const data = await res.json();
+    this.appId = data.appId;
+    return data;
   }
 
   getApp = async () => {
-    const res = await fetch(`/api/v1/wizard/app/${this.getHubspotId()}`);
+    const res = await fetch(apiUrl(`/api/v1/wizard/app/${this.getHubspotId()}`));
 
     return await res.json();
   }
@@ -294,8 +311,6 @@ export class AppWizard {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      const b64 = reader.result as string;
-
       const img = new Image();
       img.src = reader.result as string;
       img.onload = () => {
@@ -331,7 +346,7 @@ export class AppWizard {
     e.preventDefault();
   }
 
-  handleAppIconDragOut = (e) => {
+  handleAppIconDragOut = (_e) => {
     this.isAppIconDropping = false;
   }
 
@@ -538,9 +553,11 @@ ionic start --start-id ${this.appId}
 npm install -g @ionic/cli
 ionic start
     `;
+
+    const creating = this.creatingApp;
+
     return (
       <div class="finish">
-        {this.appId ? (
         <hgroup>
           <span class="icon">🎉</span>
           <h2>You're all set</h2>
@@ -548,20 +565,15 @@ ionic start
             Run this to see your amazing new app:
           </h4>
         </hgroup>
+        {creating ? (
+        <div class="creating-app">
+          <pre><code>Creating app <ion-spinner /></code></pre>
+        </div>
         ) : (
-        <hgroup>
-          <h2>Error: Unable to save app</h2>
-          <p>
-            Unfortunately, we were unable to save your app configuration. To create a 
-            new Ionic app, use the Ionic CLI.
-            <br />
-            We are looking into this issue, thanks for your understanding.
-          </p>
-        </hgroup>
-        )}
         <div>
           <pre><code>{instructions}</code></pre>
         </div>
+        )}
         <div class="info">
           Requires <b><code>@ionic/cli</code> 6.3.0</b> or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
@@ -604,7 +616,7 @@ ionic start
     return (
       <div id="app-wizard">
         <div class="wrapper">
-          {this.step < 3 ? (
+          {this.step < 2 ? (
           <Switcher
             items={this.STEPS.slice(0, 3).map(s => s.name)}
             index={this.step}

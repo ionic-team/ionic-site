@@ -82,7 +82,6 @@
       justify-content: center;
       align-items: center;
       font-size: 64px;
-      cursor: pointer;
       user-select: none;
       margin-bottom: 12px;
 
@@ -109,7 +108,12 @@
         font-size: 28px;
         justify-content: center;
         align-items: center;
-        color: white;
+        color: var(--c-grey-300);
+
+        ion-icon:hover {
+          cursor: pointer;
+          color: white;
+        }
       }
 
       &:hover {
@@ -234,6 +238,16 @@
       .icon {
         font-size: 36px;
         margin-bottom: 8px;
+      }
+    }
+
+    .creating-app {
+      code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        text-align: center;
       }
     }
 

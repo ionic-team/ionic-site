@@ -65,7 +65,7 @@ function start() {
   }
   
   app.set('trust proxy', true);
-  app.use(bodyParser({limit: '1mb'}));
+  app.use(bodyParser({limit: '500k'}));
   // The Sentry request handler must be the first middleware on the app
   app.use(Sentry.Handlers.requestHandler());
   app.use(compress());

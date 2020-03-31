@@ -1,0 +1,32 @@
+.modal {
+  hgroup {
+    padding-top: 18px;
+    padding-bottom: 32px;
+  }
+
+  h3 {
+    font-size: 29px;
+    font-weight: 600;
+    color: #171a20;
+    margin: 18px 0 8px;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: #4c576c;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  form {
+    max-width: 100%;
+    padding: 0 15px 15px;
+  }
+  
+  .hs_submit {
+    text-align: center;
+    font-weight: 600;
+  }
+}

@@ -1,125 +1,147 @@
 @import '../../vars';
 
 ionic-appflow-activator {
-  nav {
-    background: white;
-    position: sticky;
-    top: 100px;
+  overflow: hidden;
+
+  .nav {
     width: 100%;
-    margin-top: 100px;
+    background: #fff;
+    box-shadow: 0px -12px 24px rgba(2, 8, 20, 0.06), 0px -4px 8px rgba(2, 8, 20, 0.02);
+    z-index: 20;
+    position: relative;
+    border-bottom: 1px solid #F0F0F0;
   }
 
   ul {
+    position: relative;
+    z-index: 10;
     display: flex;
-    justify-content: space-between;
-    max-width: 100%;
-    width: 600px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: -44px;
-    margin-right: auto;
-    margin-left: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   li {
-    width: 120px;
+    padding-top: 24px;
+    display: inline-block;
     position: relative;
     list-style: none;
+    flex: 1;
+    cursor: default;
   }
 
-  .progress-ring {
-    position: absolute;
-    top: 0px;
-    left: calc(50% - 32px);
-    pointer-events: none;
-
-    &__circle {
-      // transition: 0.35s stroke-dashoffset ease;
-      // axis compensation
-      opacity: 0;
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
-      // animation: 5s full-circle infinite;
-    }
-
-    &:hover .progress-ring__circle {
-      // stroke-dashoffset: 0 !important;
-    }
+  li + li {
+    margin-left: 56px;
   }
 
-  a {
-    text-align: center;
-    display: block;
-    padding-top: 64px;
-    cursor: pointer;
-
-    .icon,
-    .icon-active {
-      position: absolute;
-      border-radius: 50%;
-      height: 56px;
-      width: 56px;
-      top: 4px;
-      left: calc(50% - 28px);
-      transition: .2s opacity ease, .2s transform ease;
+  li {
+    h5,
+    p {
+      font-family: $font-family-inter;
+      transition: color 0.2s;
     }
 
-    .icon-active {
-      opacity: 0;
-      transform: scale(1.1, 1.1);
-      transition: .2s opacity ease, .2s transform ease;
-    }
-
-    span {
+    h5 {
+      display: block;
       font-size: 14px;
       line-height: 22px;
-      text-align: center;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 600;
+      color: #616E7E;
+    }
+
+    p {
       color: #92A1B3;
-      transition: .2s color ease;
+      margin-bottom: 24px;
+    }
+
+    svg {
+      transition: transform 0.2s;
     }
   }
 
-  .active {
-    .icon {
-      transform: scale(1.1, 1.1);
-      opacity: 0;
+  li.active {
+    h5 {
+      color: #010610;
+    }
+    p {
+      color: #5B708B;
     }
 
-    .icon-active {
-      opacity: 1;
-      transform: scale(1, 1);
+    svg {
+      transform: translateY(-2px);
     }
+  }
 
-    span  {
-      color: #6C89F7;
-    }
+  .indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #6C89F7;
   }
 
   .app-screenshot {
     position: relative;
+    z-index: 5;
 
-    img {
+    .screen {
+      border-radius: 16px;
+      overflow: hidden;
       position: absolute;
       top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      width: 100%;
       opacity: 0;
-      transform: scale(1.01, 1.01);
-      transition: .2s opacity ease, .2s transform ease;
+      transform: translateY(6px);
+      animation-fill-mode: forwards;
 
-      &.active {
-        opacity: 1;
-        transform: none;
+      &.animate-in {
+        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        animation-duration: 1s;
+        animation-name: animateIn;
+        animation-delay: 0.1s;
+        z-index: 15;
       }
+
+      &.animate-out {
+        animation-timing-function: ease;
+        animation-duration: 0.6s;
+        animation-name: animateOut;
+        z-index: 10;
+      }
+    }
+
+    img {
+      vertical-align: bottom;
+      width: 100%;
     }
   }
 }
 
 
-@keyframes full-circle {
-  to  { stroke-dashoffset: 0; }
+@keyframes animateIn {
+  from {
+    // transform: translateY(6px);
+    opacity: 0;
+  }
+
+  to {
+    // transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animateOut {
+  from {
+    // transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    // transform: translateY(4px) scale(0.98);
+    opacity: 0;
+  }
 }

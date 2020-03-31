@@ -1,14 +1,34 @@
-import { 
-  Component, 
-  // Prop, 
-  State,
-  Element,
-  h
-} from '@stencil/core';
+import { Component, State, Listen, Element, h } from '@stencil/core';
+import { TweenLite } from "gsap/TweenLite";
+import { publishIcon, updatesIcon, buildsIcon, automationsIcon } from './activator-icons'
 
-import {
-  TweenLite
-} from "gsap/TweenLite";
+const screens: any = [
+  {
+    name: 'App Publishing',
+    description: 'Publish directly to the Apple and Google App Stores.',
+    icon: publishIcon,
+    image: '/img/appflow/screen-app-publishing.png'
+  },
+  {
+    name: 'Live Updates',
+    description: 'Deploy live app updates in real-time.',
+    icon: updatesIcon,
+    image: '/img/appflow/screen-live-updates.png'
+  },
+  {
+    name: 'Native Builds',
+    description: 'Compile native app binaries in the cloud.',
+    icon: buildsIcon,
+    image: '/img/appflow/screen-native-builds.png'
+  },
+  {
+    name: 'Automations',
+    description: 'Fully automate your app delivery pipeline.',
+    icon: automationsIcon,
+    image: '/img/appflow/screen-automations.png'
+  },
+]
+
 
 @Component({
   tag: 'ionic-appflow-activator',
@@ -16,191 +36,99 @@ import {
   shadow: false
 })
 export class IonicAppflowActivator {
-  @State() $circles = [];
-  @State() $lis = [];
-  @State() screenshots = [];
-  @State() active = null;
-  @Element() el;
+  @Element() el: HTMLElement;
 
-  duration = 6//seconds
-  quickDuration = .25 //seconds
-  r = 31; // radius
-  circumference: number;
-  gsRefs = [];
-  scrollPause = null
+  @State() currentScreen: number = null;
+  @State() isPaused: boolean = false;
 
-  constructor()  {
-    this.circumference = this.r * 2 * Math.PI;
-    this.animationSelect = this.animationSelect.bind(this);
-    this.animationStart = this.animationStart.bind(this);
-  }
+  duration = 6;//seconds
+  indicators = [];
+  tween: any = null;
 
   componentDidLoad() {
-    setTimeout(this.animationStart, 2000, 0);
-    // setTimeout(this.animationStart, 3000, 2);
-    // setTimeout(this.animationStart, 4000, 3);
-
-    // recursive function to add all the circles
-    const addCircle = (li, i) => {
-      this.$lis[i] = li;
-      this.$circles[i] = li.querySelector('.progress-ring__circle');
-      this.screenshots[i] = li.querySelector('a').dataset.screenshot;
-      if (li.nextElementSibling && li.nextElementSibling.nodeName === 'LI') {
-        addCircle(li.nextElementSibling, i + 1);
-      }
-    }
-
-    addCircle(this.el.querySelector('li:nth-child(1)'), 0);
-    this.active = 0;
+    this.currentScreen = 0;
+    setTimeout(this.start.bind(this), 2000);
   }
 
-  animationStart(index) {
-    console.log('starting')
-    if(window.pageYOffset > 1000) {
-      console.log('pausing')
-      this.scrollPause = setTimeout(this.animationStart, 5000, 0)
+  start() {
+    const indicator = this.indicators[this.currentScreen];
+
+    TweenLite.set(indicator, {
+      width: 0,
+      alpha: 1
+    });
+
+    this.tween = TweenLite.to(indicator, this.duration, {
+      width: '100%',
+      onComplete: () => {
+        this.increment();
+      }
+    });
+  }
+
+  override(index) {
+    if (this.currentScreen === index) return;
+    this.tween.pause();
+    this.increment(index);
+  }
+
+  increment(index?) {
+    TweenLite.to(this.indicators[this.currentScreen], 0.4, {
+      alpha: 0
+    });
+
+    if (index !== undefined) {
+      this.currentScreen = index;
+      this.start();
       return;
     }
-    this.active = index;
-    this.$lis[index].classList.add('active');
-    TweenLite.to(this.$circles[index], .4, {
-      opacity: 1
-    });
 
-    TweenLite.to(this.$circles[index], this.duration, {
-      strokeDashoffset: String(0),
-      onCompleteScope: this,
-      onComplete: () =>  {
-        // fade out and start the next animation
-        this.animationStart(
-          index >= this.$circles.length - 1 ? 0 : index + 1
-        );
-        this.$lis[index].classList.remove('active');
-        TweenLite.to(this.$circles[index], .2, {
-          opacity: 0,
-          onCompleteScope: this,
-          onComplete: () => {
-            // jump back to starting position
-            TweenLite.to(this.$circles[index], 0, {
-              strokeDashoffset: String(this.circumference),
-              lazy:true
-            });
-          }
-        });
-      }
-    })
+    this.currentScreen = (this.currentScreen >= screens.length - 1) ? 0 : this.currentScreen + 1;
+    this.start();
   }
 
-  animationSelect(index) {
-    this.$lis[index].classList.add('active');
-    this.active = index;
+  @Listen('scroll', {target: 'window'})
+  onScroll() {
+    if (this.tween === null) return false;
+    const rect = this.el.getBoundingClientRect();
+    const isVisible = (rect.top <= window.innerHeight) && (rect.bottom >= 0);
 
-    if (this.scrollPause) {
-      clearTimeout(this.scrollPause);
+    if (isVisible && this.isPaused) {
+      this.tween.play();
+      this.isPaused = false;
     }
-
-    this.animationStopOthers(index)
-    TweenLite.to(this.$circles[index], this.quickDuration, {
-      strokeDashoffset: String(0),
-      opacity: 1,
-      onCompleteScope: this,
-      onComplete: () => {
-        this.animationStopOthers(index);
-        // this.animationStart(index);
-      }}
-    )
-  }
-
-  animationRestart(index) {
-
-    this.animationStopOthers(index);
-    TweenLite.to(this.$circles[index], .5, {
-      strokeDashoffset: String(this.circumference * -1),
-      lazy: true,
-      onCompleteScope: this,
-      onComplete: () => {
-        TweenLite.to(this.$circles[index], 0, {
-          strokeDashoffset: String(this.circumference),
-          opacity: 0,
-          lazy: true,
-          onCompleteScope: this,
-          onComplete: () => {
-            this.animationStart(index);
-          }
-        })
-      }
-    })
-  }
-
-  animationStopOthers(index) {
-    const circles = [];
-    this.$circles.forEach((circle, i) => {
-      if (i != index ) {
-        circles.push(circle);
-        this.$lis[i].classList.remove('active');
-      }
-    });
-    TweenLite.to(circles, .2, {
-      opacity: 0,
-      lazy: true,
-      onCompleteScope: this,
-      onComplete: () => {
-        TweenLite.to(circles, 0, {
-          strokeDashoffset: String(this.circumference),
-          opacity: 0,
-          lazy: true
-        });
-      }
-    })
-  }
-
-  circle(percent = 0) {
-    return (
-      <svg class="progress-ring" height="64" width="64" >
-        <circle class="progress-ring__circle"
-                stroke="#6C89F7"
-                stroke-width="2"
-                fill="transparent"
-                r={this.r}
-                cx="32"
-                cy="32"
-                style={{
-                  strokeDasharray: 
-                    `${this.circumference} ${this.circumference}`,
-                  strokeDashoffset: 
-                    String(this.circumference - percent / 100 * this.circumference)
-                }}/>
-      </svg>
-    )
+    if (!isVisible && !this.isPaused) {
+      this.tween.pause();
+      this.isPaused = true;
+    }
   }
 
   render() {
     return ([
       <div class="app-screenshot">
-        {this.screenshots.map((screenshot, i) => 
-          <img class={i === this.active ? 'active' : 'inactive'} 
-               src={screenshot}/>
+        {screens.map((screen, i) =>
+          <div class={`screen ${i === this.currentScreen ? 'animate-in' : 'animate-out'}`}>
+            <img src={screen.image}/>
+          </div>
         )}
       </div>,
-      <nav>
-        <ul>
-          <li onMouseEnter={() => this.animationSelect(0)}
-              onMouseLeave={() => this.animationRestart(0)}>
-            {this.circle()}
-            <slot name="1"></slot>
-          </li>
-          <li onMouseEnter={() => this.animationSelect(1)}
-              onMouseLeave={() => this.animationRestart(1)}>
-            {this.circle()}
-            <slot name="2"></slot>
-          </li>
-          <li onMouseEnter={() => this.animationSelect(2)}
-              onMouseLeave={() => this.animationRestart(2)}>
-            {this.circle()}
-            <slot name="3"></slot>
-          </li>
-        </ul>
-      </nav>
+      <div class="nav">
+        <div class="container">
+          <ul>
+            {screens.map((screen, i) =>
+              <li
+                class={(i === this.currentScreen) ? 'active' : 'default'}
+                onMouseEnter={() => this.override(i)}>
+                {screen.icon(i === this.currentScreen ? 'active' : 'default')}
+                <h5>{screen.name}</h5>
+                <p>{screen.description}</p>
+                <div class="indicator" ref={(el) => this.indicators[i] = el}></div>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
     ]);
   }
 }
+

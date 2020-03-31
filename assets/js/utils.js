@@ -191,7 +191,7 @@ hljs.initHighlightingOnLoad();
   }
 }());
 
-// determine if sticky sub-nav is stuck 
+// determine if sticky sub-nav is stuck
 // *intersection observer and position:sticky browser support match
 const subHeader = {
   el: document.getElementById('sub-header'),

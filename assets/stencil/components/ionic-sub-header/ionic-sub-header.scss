@@ -9,7 +9,7 @@
   transition: .2s box-shadow;
 
   &.ionic-sub-header--initialized {
-    transition: 
+    transition:
       background-color .4s ease,
       box-shadow .4s ease;
 
@@ -34,7 +34,7 @@
   &.ionic-sub-header--not-sticky {
     position: relative;
 
-    &.ionic-sub-header--stuck { 
+    &.ionic-sub-header--stuck {
       background: none;
       box-shadow: none;
       backdrop-filter: none;
@@ -44,7 +44,7 @@
   &.ionic-sub-header--stuck {
     background: #020814;
     box-shadow: 0 1px 0px rgba(black, .06);
-  
+
     @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
       background: rgba(#020814, .8);
     }
@@ -111,7 +111,7 @@
   }
 
   ul {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 14px;
   }
 
@@ -122,6 +122,8 @@
     font-weight: 600;
     line-height: 22px;
     letter-spacing: -0.03em;
+    padding-top: 0;
+    padding-bottom: 0;
 
     &:hover {
       color: white;
@@ -188,12 +190,16 @@
       vertical-align: -15%;
     }
 
+    &.active {
+      pointer-events: none;
+    }
+
     &:hover,
     &:active,
     &:focus {
       text-decoration: none;
     }
-      
+
 
     &.current,
     &.active,
@@ -202,8 +208,8 @@
     }
 
     &.btn {
-      padding: 5px 10px 3px;
-      border-radius: 16px;
+      padding: 5px 10px 6px;
+      border-radius: 6px;
       color: white;
       font-size: 13px;
       font-weight: 600;
@@ -265,7 +271,7 @@
       margin-top: 2px;
       cursor: pointer;
       transform-style: preserve-3d;
-      transition: 
+      transition:
         .4s transform cubic-bezier(.07,.65,.57,1.66);
 
       svg path {
@@ -306,7 +312,7 @@
         display: block;
         opacity: 0;
         transform: translateX(15px);
-        transition: 
+        transition:
           transform .4s step-end 0s,
           opacity .4s ease 0s;
       }
@@ -333,19 +339,19 @@
         transition: .4s max-height ease;
         max-height: 600px;
       }
-      
+
       .ionic-sub-header__mobile-toggle {
         transform: rotateZ(180deg);
       }
-      
+
       [slot="right"] {
         transform: scaleY(1);
         transition: transform .4s ease 0s;
-  
+
         li {
           transform: translateX(0);
           opacity: 1;
-          transition: 
+          transition:
           .4s transform .2s ease,
           .4s opacity .2s ease;
 
@@ -357,7 +363,7 @@
       }
     }
 
-    & > .container { 
+    & > .container {
       flex-wrap: wrap;
     }
   }
@@ -367,7 +373,7 @@ body.light ionic-sub-header {
 
   &.ionic-sub-header--stuck {
     background: white;
-  
+
     @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
       background: rgba(white, .9);
     }

@@ -35,6 +35,8 @@ declare var window: any;
 
 const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
 
+const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
+
 @Component({
   tag: 'ionic-app-wizard',
   styleUrl: 'app-wizard.scss',
@@ -227,7 +229,7 @@ export class AppWizard {
     if (!this.appIcon && this.selectedEmoji) {
       const emoji = this.selectedEmoji;
       const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
-      const emojiImageUrl = `https://twemoji.maxcdn.com/2/svg/${emojiImageName}.svg`;
+      const emojiImageUrl = emojiSvg(emojiImageName);
       const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
       const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
       iconImage = renderedAppIcon;
@@ -644,7 +646,7 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
   let bgImage;
   if (emoji) {
     const emojiImage = emoji.image.replace('.png', '');
-    bgImage = `url('https://twemoji.maxcdn.com/v/latest/svg/${emojiImage}.svg')`;
+    bgImage = `url('${emojiSvg(emojiImage)}')`;
   } else {
     bgImage = `url(${img})`;
   }

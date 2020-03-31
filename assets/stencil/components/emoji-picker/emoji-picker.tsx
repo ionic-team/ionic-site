@@ -145,8 +145,6 @@ export class EmojiPicker {
     this.categories.splice(1, 2);
 
     this.selectedCategory = this.categories[0];
-
-    console.log('Loaded emoji', this.categories, this.emojis);
   }
 
   @Watch('openEvent')
@@ -290,6 +288,10 @@ const Search = ({ onInput, onClear, value }: SearchProps) => (
   </div>
 )
 
+const processName = (name) => name
+                              .toLocaleLowerCase().split(/[\s_-]+/)
+                              .map(s => s[0].toUpperCase() + s.slice(1))
+                              .join(' ');
 interface EmojisProps {
   visibleEmojis: string[];
   emojis: EmojiMap;
@@ -302,8 +304,17 @@ const Emojis = ({ visibleEmojis, emojis, emojiPicked }: EmojisProps) => {
         const em = emojis[e]
         const x = em.sheet_x * (100 / 56);
         const y = em.sheet_y * (100 / 56);
+
+        let name = null;
+        if (em.name) {
+          name = processName(em.name);
+        } else if (em.short_name) {
+          name = processName(em.short_name);
+        }
+
         return (
-          <li onClick={() => emojiPicked(em)}>
+          <li title={name}
+              onClick={() => emojiPicked(em)}>
             <div
               class="emoji-image"
               style={{ backgroundPosition: `${x}% ${y}%`}} />

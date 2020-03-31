@@ -33,7 +33,7 @@ const THEMES = [
 
 declare var window: any;
 
-const apiUrl = path => `https://ionic-app-wizard-api.herokuapp.com${path}`;//`http://localhost:5000${path}`;
+const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
 
 @Component({
   tag: 'ionic-app-wizard',
@@ -643,8 +643,8 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
 
   let bgImage;
   if (emoji) {
-    const emojiImage = emoji.image.replace('-fe0f', '').replace('.png', '');
-    bgImage = `url('https://twemoji.maxcdn.com/2/svg/${emojiImage}.svg')`;
+    const emojiImage = emoji.image.replace('.png', '');
+    bgImage = `url('https://twemoji.maxcdn.com/v/latest/svg/${emojiImage}.svg')`;
   } else {
     bgImage = `url(${img})`;
   }
@@ -658,8 +658,8 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
         style={{ backgroundImage: bgImage }} />
       <div class="app-icon-hover">
         <div class="app-icon-hover-icons">
-          <ion-icon name="md-happy" onClick={onChooseEmoji} />
-          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} />
+          <ion-icon name="md-happy" onClick={onChooseEmoji} title="Pick emoji" />
+          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file" />
         </div>
         <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
       </div>

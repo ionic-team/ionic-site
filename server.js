@@ -1,7 +1,6 @@
 require('dotenv').config({silent: true});
   
 const express      = require('express');
-const bodyParser   = require('body-parser');
 const compress     = require('compression');
 const cookieParser = require('cookie-parser');
 const dateFilter   = require('nunjucks-date-filter');
@@ -65,7 +64,6 @@ function start() {
   }
   
   app.set('trust proxy', true);
-  app.use(bodyParser({limit: '500k'}));
   // The Sentry request handler must be the first middleware on the app
   app.use(Sentry.Handlers.requestHandler());
   app.use(compress());

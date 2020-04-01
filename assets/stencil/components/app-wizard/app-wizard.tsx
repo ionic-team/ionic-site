@@ -6,7 +6,7 @@ import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
 
 import { Emoji } from '../emoji-picker/emoji-picker';
-import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
+// import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -33,7 +33,7 @@ const THEMES = [
 
 declare var window: any;
 
-const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
+const apiUrl = path => `${path}`;
 
 const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 
@@ -224,6 +224,7 @@ export class AppWizard {
   }
 
   save = async () => {
+    /*
     let iconImage;
     let splash;
     if (!this.appIcon && this.selectedEmoji) {
@@ -239,6 +240,7 @@ export class AppWizard {
       iconImage = this.appIcon;
       splash = renderedSplashScreen;
     }
+    */
 
     const res = await fetch(apiUrl('/api/v1/wizard/create'), {
       body: JSON.stringify({
@@ -250,8 +252,8 @@ export class AppWizard {
         template: this.template,
         name: this.appName,
         theme: this.theme,
-        appSplash: splash,
-        appIcon: iconImage,
+        // appSplash: splash,
+        // appIcon: iconImage,
         utm: getUtmParams()
       }),
       method: 'POST',
@@ -368,7 +370,7 @@ export class AppWizard {
   }
 
   renderBasics() {
-    const { showEmojiPicker } = this;
+    // const { showEmojiPicker } = this;
 
     return (
       <div>
@@ -386,10 +388,13 @@ export class AppWizard {
             required={true}
             onChange={this.handleInput('appName')} />
           <div
-            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}
+            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}>
+            {/*
             onDragOver={this.handleAppIconDragOver}
             onDragExit={this.handleAppIconDragOut}
             onDrop={this.handleAppIconDrop}>
+            */}
+            {/*
             <div class="app-icon-pick">
               <label>
                 Pick an icon
@@ -411,6 +416,7 @@ export class AppWizard {
               openEvent={this.emojiPickerEvent}
               onEmojiPick={this.handlePickEmoji}
               onClosed={() => this.showEmojiPicker = false} />
+            */}
             <div class="app-icon-theme">
               <label>Pick a theme color</label>
               <ui-tip
@@ -640,6 +646,7 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
+/*
 const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
   const bgColor = img ? 'transparent': theme;
 
@@ -668,6 +675,7 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
     </div>
   )
 };
+*/
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [

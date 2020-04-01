@@ -1,6 +1,7 @@
 @import '../../vars';
 
 $c-black-300: #24282E;
+$c-black-400: #17202E;
 $c-black-500: #0E151F;
 
 $c-grey-200: #F7F9FC;
@@ -102,6 +103,18 @@ main {
     line-height: 27px;
     color: $c-black-500;
     letter-spacing: 0;
+
+    + .highlight {
+      margin-top: 25px;
+    }
+  }
+
+  .spacer {
+    margin: 45px 0;
+  }
+
+  .container {
+    max-width: 880px;
   }
 
   section {
@@ -110,6 +123,24 @@ main {
 
     &.grey {
       background: $c-grey-200;
+    }
+
+    &.dark,
+    &.black {
+      background: $c-black-400;
+      color: white;
+
+      p, 
+      h2, 
+      h3, 
+      h4, 
+      h5 {
+        color: white;
+      }
+    }
+
+    &.black {
+      background: $c-black-500;
     }
 
     &.center {

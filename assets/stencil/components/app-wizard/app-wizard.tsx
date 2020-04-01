@@ -5,6 +5,9 @@ import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
 
+import { Emoji } from '../emoji-picker/emoji-picker';
+// import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
+
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
   { name: 'Menu', id: 'sidemenu' },
@@ -29,6 +32,10 @@ const THEMES = [
 ]
 
 declare var window: any;
+
+const apiUrl = path => `${path}`;
+
+const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 
 @Component({
   tag: 'ionic-app-wizard',
@@ -61,6 +68,7 @@ export class AppWizard {
 
   @State() showSignup = true;
   @State() loginErrors = null;
+  @State() creatingApp = false;
 
   user: ApiUser;
 
@@ -73,6 +81,29 @@ export class AppWizard {
   // Reference to the basic form for validation
   submitButtonWrapRef: HTMLDivElement;
 
+  getRandomEmoji(): Emoji {
+    const emoji = [
+      '1f60b', // yum
+      '1f601', // grin
+      '1f60e', // shades
+      '1f61c', //  
+      '1f929', // starstruck
+      '1f604', // smile
+      '1f603', // smiley
+      '1f973', // party
+    ].map(i => ({
+      image: i
+    }));
+
+    return emoji[Math.floor(Math.random() * emoji.length)];
+  }
+
+  @State() selectedEmoji: Emoji = this.getRandomEmoji();
+  @State() showEmojiPicker = false;
+  @State() emojiPickerEvent: MouseEvent = null;
+  @State() isAppIconDropping = false;
+  @State() appIconUploadError = '';
+
   // Form state
   @State() authenticating = false;
   @State() theme = THEMES[0];
@@ -82,6 +113,7 @@ export class AppWizard {
   @State() template = 'tabs';
   @State() bundleId = '';
   @State() appUrl = '';
+  @State() appIcon: string;
   /*
   @State() authorEmail = 'max@ionic.io';
   @State() authorName = 'Max';
@@ -109,8 +141,6 @@ export class AppWizard {
         return;
       }
     }
-
-    this.step = this.STEP_BASICS;
   }
 
   setStep = (step) => {
@@ -161,56 +191,92 @@ export class AppWizard {
   }
 
   finish = async () => {
-    const created = await this.save();
+    try {
+      this.setStep(this.STEPS.length - 1);
 
-    if (!created) {
-      alert('Unable to create app, please ping us on Twitter and try the manual install below.');
-      this.setStep(this.STEP_BASICS);
-      return;
+      this.creatingApp = true;
+
+      const created = await this.save();
+
+      if (!created) {
+        alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+        this.setStep(this.STEP_BASICS);
+        return;
+      }
+
+      trackEvent({
+        id: 'Start Wizard Finish'
+      });
+    } catch (e) {
+      try {
+        const data = JSON.parse(e.message);
+        if (data.type === 'too-large') {
+          alert('Unable to create app, your icon image is too large. Try a smaller filesize or add it manually later');
+        } else {
+          alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+        }
+      } catch(e) {
+        alert('Unable to create app, please ping us on Twitter and try the manual install below.');
+      }
+    } finally {
+      this.creatingApp = false;
     }
-
-    trackEvent({
-      id: 'Start Wizard Finish'
-    });
-
-    this.setStep(this.STEPS.length - 1);
   }
 
   save = async () => {
-    try {
-      const res = await fetch('/api/v1/wizard/create', {
-        body: JSON.stringify({
-          type: this.framework,
-          'package-id': this.bundleId,
-          tid: this.getHubspotId(),
-          email: this.email,
-          appId: this.appId,
-          template: this.template,
-          name: this.appName,
-          theme: this.theme,
-          utm: getUtmParams()
-        }),
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (res.status !== 200) {
-        throw new Error('Error saving app');
-      }
-
-      const data = await res.json();
-      this.appId = data.appId;
-      return data;
-    } catch (e) {
-      console.error('Unable to save app, server error:', e);
-      return null;
+    /*
+    let iconImage;
+    let splash;
+    if (!this.appIcon && this.selectedEmoji) {
+      const emoji = this.selectedEmoji;
+      const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
+      const emojiImageUrl = emojiSvg(emojiImageName);
+      const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
+      const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
+      iconImage = renderedAppIcon;
+      splash = renderedSplashScreen;
+    } else {
+      const renderedSplashScreen = await generateAppIconForThemeAndImage(this.theme, this.appIcon, 2732, 512);
+      iconImage = this.appIcon;
+      splash = renderedSplashScreen;
     }
+    */
+
+    const res = await fetch(apiUrl('/api/v1/wizard/create'), {
+      body: JSON.stringify({
+        type: this.framework,
+        'package-id': this.bundleId,
+        tid: this.getHubspotId(),
+        email: this.email,
+        appId: this.appId,
+        template: this.template,
+        name: this.appName,
+        theme: this.theme,
+        // appSplash: splash,
+        // appIcon: iconImage,
+        utm: getUtmParams()
+      }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (res.status === 413) {
+      throw new Error(JSON.stringify({ type: 'too-large' }));
+    }
+
+    if (res.status !== 200) {
+      throw new Error(JSON.stringify({ type: 'error' }));
+    }
+
+    const data = await res.json();
+    this.appId = data.appId;
+    return data;
   }
 
   getApp = async () => {
-    const res = await fetch(`/api/v1/wizard/app/${this.getHubspotId()}`);
+    const res = await fetch(apiUrl(`/api/v1/wizard/app/${this.getHubspotId()}`));
 
     return await res.json();
   }
@@ -229,6 +295,12 @@ export class AppWizard {
     }
   }
 
+  handlePickEmoji = (e) => {
+    this.selectedEmoji = e.detail as Emoji;
+    this.appIcon = null;
+    this.showEmojiPicker = false;
+  }
+
   handlePickTheme = (_e) => {
     const colorPicker = this.el.querySelector('input[type="color"]');
 
@@ -239,7 +311,67 @@ export class AppWizard {
     this[fieldName] = e.target.value;
   };
 
+  setAppIconFromFile = (file: File) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const img = new Image();
+      img.src = reader.result as string;
+      img.onload = () => {
+        if (img.width < 1024 || img.height < 1024) {
+          alert('Icon size must be at least 1024x1024');
+        } else {
+          this.selectedEmoji = null;
+          this.appIcon = reader.result as string;
+        }
+      }
+    }
+    reader.onerror = () => {
+      this.appIconUploadError = 'Unable to read file';
+    }
+  }
+
+  handleAppIconChoose = (e) => {
+    console.log('Choose', e);
+    if (e.target.files.length) {
+      const file = e.target.files[0];
+      if (file.size > 1024 * 800) {
+        this.appIconUploadError = 'Image must be < 800KB';
+        return;
+      }
+
+      this.setAppIconFromFile(file);
+    }
+  }
+
+  handleAppIconDragOver = (e: DragEvent) => {
+    this.isAppIconDropping = true;
+    e.dataTransfer.dropEffect = 'copy';
+    e.preventDefault();
+  }
+
+  handleAppIconDragOut = (_e) => {
+    this.isAppIconDropping = false;
+  }
+
+  handleAppIconDrop = (e: DragEvent) => {
+    e.preventDefault();
+    this.isAppIconDropping = false;
+    if (e.dataTransfer.files) {
+      const file = e.dataTransfer.files[0];
+
+      if (file.size > 1024 * 800) {
+        this.appIconUploadError = 'Image must be < 800KB';
+        return;
+      }
+
+      this.setAppIconFromFile(file);
+    }
+  }
+
   renderBasics() {
+    // const { showEmojiPicker } = this;
+
     return (
       <div>
         <hgroup>
@@ -255,20 +387,72 @@ export class AppWizard {
             tabindex={1}
             required={true}
             onChange={this.handleInput('appName')} />
-          <label>Pick a theme</label>
-          <ThemeSwitcher
-            value={this.theme}
-            onChange={(theme) => this.theme = theme}
-            onPick={this.handlePickTheme}
-          />
-          <div class="form-group" id="field-appname">
-            <label>Pick a template</label>
+          <div
+            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}>
+            {/*
+            onDragOver={this.handleAppIconDragOver}
+            onDragExit={this.handleAppIconDragOut}
+            onDrop={this.handleAppIconDrop}>
+            */}
+            {/*
+            <div class="app-icon-pick">
+              <label>
+                Pick an icon
+                <ui-tip
+                  text="An icon for your app. You can easily change this and add your own image later!"
+                  position="top">
+                  <InfoCircle />
+                </ui-tip>
+              </label>
+              <AppIcon
+                img={this.appIcon}
+                emoji={this.selectedEmoji}
+                theme={this.theme}
+                onChooseEmoji={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
+                onChooseFile={this.handleAppIconChoose} />
+            </div>
+            <ionic-emoji-picker
+              open={showEmojiPicker}
+              openEvent={this.emojiPickerEvent}
+              onEmojiPick={this.handlePickEmoji}
+              onClosed={() => this.showEmojiPicker = false} />
+            */}
+            <div class="app-icon-theme">
+              <label>Pick a theme color</label>
+              <ui-tip
+                text="The primary brand color for your app"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+              <ThemeSwitcher
+                value={this.theme}
+                onChange={(theme) => this.theme = theme}
+                onPick={this.handlePickTheme}
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>
+              Pick a layout template
+              <ui-tip
+                text="Choose a tabs, menu, or list-style layout"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+            </label>
             <TemplateSwitcher
               value={this.template}
               onChange={tmpl => this.template = tmpl} />
           </div>
           <div class="form-group" id="field-appname">
-            <label>JavaScript Framework</label>
+            <label>
+              Pick a JavaScript Framework
+              <ui-tip
+                text="React is beginner friendly, Angular is popular for enterprise"
+                position="top">
+                <InfoCircle />
+              </ui-tip>
+            </label>
             <FrameworkSwitcher
               value={this.framework}
               onChange={framework => {
@@ -377,9 +561,11 @@ ionic start --start-id ${this.appId}
 npm install -g @ionic/cli
 ionic start
     `;
+
+    const creating = this.creatingApp;
+
     return (
       <div class="finish">
-        {this.appId ? (
         <hgroup>
           <span class="icon">🎉</span>
           <h2>You're all set</h2>
@@ -387,20 +573,15 @@ ionic start
             Run this to see your amazing new app:
           </h4>
         </hgroup>
+        {creating ? (
+        <div class="creating-app">
+          <pre><code>Creating app <ion-spinner /></code></pre>
+        </div>
         ) : (
-        <hgroup>
-          <h2>Error: Unable to save app</h2>
-          <p>
-            Unfortunately, we were unable to save your app configuration. To create a 
-            new Ionic app, use the Ionic CLI.
-            <br />
-            We are looking into this issue, thanks for your understanding.
-          </p>
-        </hgroup>
-        )}
         <div>
           <pre><code>{instructions}</code></pre>
         </div>
+        )}
         <div class="info">
           Requires <b><code>@ionic/cli</code> 6.3.0</b> or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
@@ -443,7 +624,7 @@ ionic start
     return (
       <div id="app-wizard">
         <div class="wrapper">
-          {this.step < 3 ? (
+          {this.step < 2 ? (
           <Switcher
             items={this.STEPS.slice(0, 3).map(s => s.name)}
             index={this.step}
@@ -464,6 +645,37 @@ ionic start
 const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
+
+/*
+const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
+  const bgColor = img ? 'transparent': theme;
+
+  let bgImage;
+  if (emoji) {
+    const emojiImage = emoji.image.replace('.png', '');
+    bgImage = `url('${emojiSvg(emojiImage)}')`;
+  } else {
+    bgImage = `url(${img})`;
+  }
+
+  return (
+    <div
+      class="app-icon"
+      style={{ backgroundColor: bgColor }}>
+      <div
+        class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
+        style={{ backgroundImage: bgImage }} />
+      <div class="app-icon-hover">
+        <div class="app-icon-hover-icons">
+          <ion-icon name="md-happy" onClick={onChooseEmoji} title="Pick emoji" />
+          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file" />
+        </div>
+        <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
+      </div>
+    </div>
+  )
+};
+*/
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [
@@ -612,4 +824,8 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
 
 const FormErrors = (_props, children) => (
   <div class="form-errors">{children}</div>
+);
+
+const InfoCircle = () => (
+  <ion-icon class="info-circle" name="information-circle-outline" />
 );

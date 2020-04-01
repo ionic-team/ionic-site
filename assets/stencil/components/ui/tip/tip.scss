@@ -1,0 +1,53 @@
+ui-tip {
+  display: contents;
+  cursor: pointer;
+}
+
+ui-tip.is-active:after {
+  opacity: 1;
+  transition: opacity 150ms;
+  transition-delay: 100ms;
+}
+
+ui-tip:after {
+  background-color: var(--c-black);
+  border: solid 1px var(--c-gray-30);
+  border-radius: 4px;
+  color: var(--c-grey-400);
+  content: attr(text);
+  font-family: var(--font-family);
+  font-size: 12px;
+  text-transform: none;
+  line-height: 1;
+  opacity: 0;
+  padding: 0.75em;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 75ms;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+ui-tip.bottom:after {
+  left: calc(var(--target-left) + (var(--target-width) / 2) + var(--tip-adjustment-x, 0px));
+  top: calc(var(--target-bottom) - var(--tip-adjustment-y, 0px));
+  transform: translate(-50%, 0);
+}
+
+ui-tip.right:after {
+  left: calc(var(--target-right) + var(--tip-adjustment-x, 0px));
+  top: calc(var(--target-top) + (var(--target-height) / 2) - var(--tip-adjustment-y, 0px));
+  transform: translate(0, -50%);
+}
+
+ui-tip.top:after {
+  left: calc(var(--target-left) + (var(--target-width) / 2) + var(--tip-adjustment-x, 0px));
+  top: calc(var(--target-top) - var(--tip-adjustment-y, 0px));
+  transform: translate(-50%, -100%);
+}
+
+ui-tip.left:after {
+  left: calc(var(--target-left) + var(--tip-adjustment-x, 0px));
+  top: calc(var(--target-top) + (var(--target-height) / 2) - var(--tip-adjustment-y, 0px));
+  transform: translate(-100%, -50%);
+}

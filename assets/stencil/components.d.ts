@@ -32,6 +32,10 @@ export namespace Components {
     'disabled': boolean;
     'type': string;
   }
+  interface IonicEmojiPicker {
+    'open': boolean;
+    'openEvent': MouseEvent;
+  }
   interface IonicNewsletterSignup {
     'arrowMode': boolean;
     'buttonText': string;
@@ -96,6 +100,11 @@ export namespace Components {
     'type': string;
     'value': string;
   }
+  interface UiTip {
+    'disabled': boolean;
+    'position': 'top' | 'right' | 'bottom' | 'left';
+    'text': string;
+  }
 }
 
 declare global {
@@ -141,6 +150,12 @@ declare global {
   var HTMLIonicButtonElement: {
     prototype: HTMLIonicButtonElement;
     new (): HTMLIonicButtonElement;
+  };
+
+  interface HTMLIonicEmojiPickerElement extends Components.IonicEmojiPicker, HTMLStencilElement {}
+  var HTMLIonicEmojiPickerElement: {
+    prototype: HTMLIonicEmojiPickerElement;
+    new (): HTMLIonicEmojiPickerElement;
   };
 
   interface HTMLIonicNewsletterSignupElement extends Components.IonicNewsletterSignup, HTMLStencilElement {}
@@ -232,6 +247,12 @@ declare global {
     prototype: HTMLUiFloatingInputElement;
     new (): HTMLUiFloatingInputElement;
   };
+
+  interface HTMLUiTipElement extends Components.UiTip, HTMLStencilElement {}
+  var HTMLUiTipElement: {
+    prototype: HTMLUiTipElement;
+    new (): HTMLUiTipElement;
+  };
   interface HTMLElementTagNameMap {
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -240,6 +261,7 @@ declare global {
     'ionic-appflow-activator': HTMLIonicAppflowActivatorElement;
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
+    'ionic-emoji-picker': HTMLIonicEmojiPickerElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-react-demo': HTMLIonicReactDemoElement;
@@ -255,6 +277,7 @@ declare global {
     'react-components': HTMLReactComponentsElement;
     'twitter-script': HTMLTwitterScriptElement;
     'ui-floating-input': HTMLUiFloatingInputElement;
+    'ui-tip': HTMLUiTipElement;
   }
 }
 
@@ -272,6 +295,12 @@ declare namespace LocalJSX {
     'color'?: string;
     'disabled'?: boolean;
     'type'?: string;
+  }
+  interface IonicEmojiPicker {
+    'onClosed'?: (event: CustomEvent<any>) => void;
+    'onEmojiPick'?: (event: CustomEvent<any>) => void;
+    'open'?: boolean;
+    'openEvent'?: MouseEvent;
   }
   interface IonicNewsletterSignup {
     'arrowMode'?: boolean;
@@ -335,6 +364,11 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string;
   }
+  interface UiTip {
+    'disabled'?: boolean;
+    'position'?: 'top' | 'right' | 'bottom' | 'left';
+    'text'?: string;
+  }
 
   interface IntrinsicElements {
     'home-components': HomeComponents;
@@ -344,6 +378,7 @@ declare namespace LocalJSX {
     'ionic-appflow-activator': IonicAppflowActivator;
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
+    'ionic-emoji-picker': IonicEmojiPicker;
     'ionic-newsletter-signup': IonicNewsletterSignup;
     'ionic-quick-signup': IonicQuickSignup;
     'ionic-react-demo': IonicReactDemo;
@@ -359,6 +394,7 @@ declare namespace LocalJSX {
     'react-components': ReactComponents;
     'twitter-script': TwitterScript;
     'ui-floating-input': UiFloatingInput;
+    'ui-tip': UiTip;
   }
 }
 
@@ -375,6 +411,7 @@ declare module "@stencil/core" {
       'ionic-appflow-activator': LocalJSX.IonicAppflowActivator & JSXBase.HTMLAttributes<HTMLIonicAppflowActivatorElement>;
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
+      'ionic-emoji-picker': LocalJSX.IonicEmojiPicker & JSXBase.HTMLAttributes<HTMLIonicEmojiPickerElement>;
       'ionic-newsletter-signup': LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
       'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
@@ -390,6 +427,7 @@ declare module "@stencil/core" {
       'react-components': LocalJSX.ReactComponents & JSXBase.HTMLAttributes<HTMLReactComponentsElement>;
       'twitter-script': LocalJSX.TwitterScript & JSXBase.HTMLAttributes<HTMLTwitterScriptElement>;
       'ui-floating-input': LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
+      'ui-tip': LocalJSX.UiTip & JSXBase.HTMLAttributes<HTMLUiTipElement>;
     }
   }
 }

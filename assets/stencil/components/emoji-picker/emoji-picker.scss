@@ -1,0 +1,122 @@
+:host {
+  --category-color: var(--c-grey-700);
+  --category-selected-color: var(--c-purple-400);
+  --padding-left-right: 12px;
+  --search-border-color: var(--c-grey-600);
+  --search-color: var(--c-grey-900);
+
+  display: none;
+  position: fixed;
+  width: 320px;
+  height: 420px;
+  z-index: 1000;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  background-color: white;
+}
+
+:host(.open) {
+  display: block;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px var(--padding-left-right) 0;
+}
+
+.category {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  svg {
+    fill: var(--category-color);
+    transition: fill 200ms ease-in-out;
+  }
+}
+
+.category.category-selected {
+  border-bottom: 2px solid var(--category-selected-color);
+
+  svg {
+    fill: var(--category-selected-color);
+  }
+}
+
+.search {
+  display: flex;
+  padding: 4px var(--padding-left-right);
+  position: relative;
+
+  user-select: none;
+
+  input {
+    flex: 1;
+    border-radius: 4px;
+    color: var(--search-color);
+    border: 1px solid var(--search-border-color);
+    height: 20px;
+    padding: 4px;
+  }
+
+  .x {
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    top: 0px;
+    font-size: 12px;
+    line-height: 25px;
+
+    ion-icon {
+      vertical-align: middle;
+      color: var(--search-color);
+    }
+  }
+}
+
+.emojis {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px var(--padding-left-right);
+
+  display: grid;
+  grid-template-columns: repeat(9, 32px);
+  justify-content: space-between;
+  align-content: flex-start;
+
+  .emoji-image {
+    background-image: url('/js/stencil/emoji-sheet-twitter-256-64.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    background-size: 5700% 5700%;
+  }
+
+  li {
+    list-style: none;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    border-radius: 100%;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    .emoji {
+      font-size: 24px;
+    }
+  }
+}

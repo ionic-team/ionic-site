@@ -49,12 +49,106 @@
     font-size: 12px;
     line-height: 15px;
     font-weight: normal;
-    color: var(--c-carbon-100);
+    color: var(--c-carbon-200);
     margin-bottom: 14px;
   }
 
   ui-floating-input {
     margin-bottom: 25px;
+  }
+
+  .app-icon-group {
+    display: grid;
+    //grid-template-columns: 96px 1fr;
+    grid-template-columns: 1fr;
+    column-gap: 56px;
+
+    input[type="file"] {
+      visibility: collapse;
+    }
+
+    &.app-icon-dropping {
+      border-radius: 16px;
+      border: 1px dashed #eee;
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      min-width: 96px;
+      min-height: 96px;
+      position: relative;
+      border-radius: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 64px;
+      user-select: none;
+      margin-bottom: 12px;
+
+      .app-icon-hover {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.3);
+        color: white;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .app-icon-hover-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 12px;
+        margin-bottom: 12px;
+        font-size: 28px;
+        justify-content: center;
+        align-items: center;
+        color: var(--c-grey-300);
+
+        ion-icon:hover {
+          cursor: pointer;
+          color: white;
+        }
+      }
+
+      &:hover {
+        .app-icon-hover {
+          display: flex;
+        }
+      }
+
+      .app-icon-image {
+        width: 64px;
+        height: 64px;
+      }
+      .app-icon-image-uploaded {
+        background-size: 100%;
+        width: 96px;
+        height: 96px;
+        border-radius: 32px;
+      }
+    }
+
+    .app-icon-upload {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px;
+    }
+  }
+
+  .info-circle {
+    font-size: 16px;
+    vertical-align: middle;
+    margin-left: 4px;
   }
 
   .switcher {
@@ -145,6 +239,16 @@
       .icon {
         font-size: 36px;
         margin-bottom: 8px;
+      }
+    }
+
+    .creating-app {
+      code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        text-align: center;
       }
     }
 

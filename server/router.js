@@ -11,7 +11,6 @@ const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
 const newsletterCtrl    = require('./controllers/newsletterCtrl');
 const viewCtrl    = require('./controllers/viewCtrl');
-const wizardCtrl = require('./controllers/wizardCtrl');
 
 module.exports = {
 router: app => {
@@ -184,9 +183,9 @@ router: app => {
   .post('/contact', bp.json(), es(), contactCtrl)
   .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
   .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
-  .post('/api/v1/wizard/create', bp.json(), es(), wizardCtrl.save)
-  .get('/api/v1/wizard/app/:appId', bp.json(), es(), wizardCtrl.getApp)
-  .post('/api/v1/wizard/app/:appId/start', bp.json(), es(), wizardCtrl.appStarted)
+
+  .get('/api/v1/wizard/*', (req, res) => res.redirect(`https://wizard-api.ionicframework.com${req.path}`))
+  .post('/api/v1/wizard/*', (req, res) => res.redirect(307, `https://wizard-api.ionicframework.com${req.path}`))
 
   // Prismic Preview
   .get('/preview', previewController)

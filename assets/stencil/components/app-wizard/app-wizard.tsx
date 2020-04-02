@@ -35,7 +35,7 @@ declare var window: any;
 
 const apiUrl = path => `${path}`;
 
-const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
+// const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 
 @Component({
   tag: 'ionic-app-wizard',

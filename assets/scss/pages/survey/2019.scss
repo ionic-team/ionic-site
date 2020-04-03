@@ -115,11 +115,13 @@ main {
 
   .container {
     max-width: 880px;
+    position: relative;
   }
 
   section {
     padding-top: 77px;
     padding-bottom: 77px;
+    overflow: hidden;
 
     &.grey {
       background: $c-grey-200;
@@ -151,6 +153,10 @@ main {
         text-align: center;
       }
     }
+
+    figure {
+      margin: 30px 0;
+    }
   }
 
   .cols {
@@ -160,5 +166,101 @@ main {
     .col {
       flex: 0 0 380px;
     }
+  }
+}
+
+#trends,
+#tools,
+#tools-tools,
+#trends,
+#delivery,
+#pwas,
+#backend,
+#bottom-line {
+  .container::before {
+    background: transparent no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    position: absolute;
+  }
+}
+
+#trends .container::before {
+  background-image: url('/img/survey/lines-trends.svg');
+  width: 317px;
+  height: 267px;
+  bottom: -77px;
+  right: 30px;
+}
+
+#tools .container::before {
+  background-image: url('/img/survey/lines-tools.svg');
+  width: 545px;
+  height: 355px;
+  bottom: 58px;
+  left: -260px;
+  opacity: .4;
+}
+
+#tools-tools .container::before {
+  background-image: url('/img/survey/lines-tools-tools.svg');
+  width: 299px;
+  height: 254px;
+  bottom: -77px;
+  right: -260px;
+}
+
+// # .container::before {
+//   background-image: url('/img/survey/lines-.svg');
+//   width: 299px;
+//   height: 254px;
+//   bottom: -77px;
+//   right: -260px;
+// }
+
+#delivery .container::before {
+  background-image: url('/img/survey/lines-delivery.svg');
+  width: 1097px;
+  height: 508px;
+  bottom: -77px;
+  left: -340px;
+}
+
+// # .container::before {
+//   background-image: url('/img/survey/lines-.svg');
+//   width: 299px;
+//   height: 254px;
+//   bottom: -77px;
+//   right: -260px;
+// }
+
+#backend .container::before {
+  background-image: url('/img/survey/lines-backend.svg');
+  width: 234px;
+  height: 347px;
+  bottom: -79px;
+  left: -220px;
+}
+
+#bottom-line .container::before {
+  background-image: url('/img/survey/lines-bottom-line.svg');
+  width: 519px;
+  height: 244px;
+  top: 29px;
+  right: -220px;
+}
+
+
+#frameworks {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  svg {
+    width: unset;
   }
 }

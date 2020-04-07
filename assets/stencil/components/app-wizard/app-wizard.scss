@@ -59,8 +59,7 @@
 
   .app-icon-group {
     display: grid;
-    //grid-template-columns: 96px 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 96px 1fr;
     column-gap: 56px;
 
     input[type="file"] {

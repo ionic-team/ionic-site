@@ -49,7 +49,7 @@
           <h4>Top deployment targets Web Developers are developing apps for:</h4>
           <figure>
             <img src="/img/survey/deployment-targets@2x.png"
-              srcset="/img/survey/deployment-targets.png 1x, /img/survey/deployment-target@2x.png 2x"
+              srcset="/img/survey/deployment-targets.png 1x, /img/survey/deployment-targets@2x.png 2x"
               alt="82% Deploy to Google play, 70% iOS, 62% Web, 13% Desktop" />
           </figure>
         </div>
@@ -92,9 +92,12 @@
       <div class="cols">
         <div class="col">
           <h4>Top Backend Service Providers:</h4>
-          <figure></figure>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="378" height="87" viewBox="0 0 378 87"><g transform="translate(-281 -4176)"><text transform="translate(281 4176)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">53%</tspan></text><text transform="translate(281 4210)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">43%</tspan></text><text transform="translate(281 4244)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">23%</tspan></text><text transform="translate(569 4177)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase/GCP</tspan></text><text transform="translate(569 4211)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">AWS</tspan></text><text transform="translate(569 4245)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Azure</tspan></text><line x2="248" transform="translate(310.5 4190.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="130" transform="translate(310.5 4185.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4224.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="112" transform="translate(310.5 4219.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4258.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="84" transform="translate(310.5 4253.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
           <h4>Top Hosting Providers:</h4>
-          <figure></figure>
+          <figure>
+          </figure>
           <h4>Top Databases:</h4>
           <figure></figure>
         </div>
@@ -248,5 +251,37 @@ const scrollSpy = () => {
   observer.observe(document.getElementById('scroll-spy'));
 };
 scrollSpy();
+
+document.getElementById('tools').graphData = {
+  barChart: {
+    axis: {
+      x: {
+        format: 'CURRENCY',
+      },
+    },
+    margin: {
+      top: 20,
+      right: 40,
+      bottom: 20,
+      left: 40,
+    },
+  },
+  styles: {
+    width: '100%',
+    height: '500px',
+    margin: '20px 0',
+  },
+  colors: [
+    '#98abc5',
+    '#8a89a6',
+    '#7b6888',
+    '#6b486b',
+    '#a05d56',
+    '#d0743c',
+    '#ff8c00',
+  ],
+  labels: ['<5', '5-13', '14-17', '18-24', '25-44', '45-64', '≥65'],
+  data: [1250, 200, 20, 140, 600, 3002, 5985],
+};
 </script>
 {% endblock %}

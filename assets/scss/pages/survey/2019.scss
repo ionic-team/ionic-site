@@ -24,6 +24,7 @@ $c-blue-400: #3780FF;
 
 #survey-2019-nav {
   position: sticky;
+  z-index: 1;
   top: -1px;
   background: white;
   transition: .2s box-shadow;

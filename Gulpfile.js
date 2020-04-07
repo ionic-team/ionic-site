@@ -142,6 +142,7 @@ const stencil = (done) => {
       env: {
         PATH: process.env.PATH
       },
+      shell: true,
       stdio: 'inherit'
     }
   )

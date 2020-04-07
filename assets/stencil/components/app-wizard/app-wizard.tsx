@@ -128,6 +128,7 @@ export class AppWizard {
       // Get the user to see if they are logged in
       const user = await getUser();
       this.user = user;
+      this.setStep(this.STEP_BASICS);
     } catch (e) {
     }
   }
@@ -136,10 +137,7 @@ export class AppWizard {
   handlePopState(e) {
     if (e.state) {
       const step = e.state.step;
-      if (step) {
-        this.step = step;
-        return;
-      }
+      this.step = step || 0;
     }
   }
 
@@ -151,11 +149,14 @@ export class AppWizard {
 
   next = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     this.setStep(this.step + 1 % this.STEPS.length);
   }
 
   basicsNext = (e?) => {
     e?.preventDefault();
+    e?.stopPropagation();
+
     if (this.user) {
       this.finish();
     } else {
@@ -186,7 +187,9 @@ export class AppWizard {
     this.finish();
   }
 
-  skipAuth = (_e) => {
+  skipAuth = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     return this.finish();
   }
 
@@ -228,7 +231,12 @@ export class AppWizard {
     let splash;
     if (!this.appIcon && this.selectedEmoji) {
       const emoji = this.selectedEmoji;
-      const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
+      let emojiImage = emoji.image.replace('.png', '');
+      const emojiSplit = emojiImage.split('-');
+      let emojiImageName = emojiImage;
+      if (emojiSplit.length === 2 && emojiSplit[1] === 'fe0f') {
+        emojiImageName = emojiImage.replace('-fe0f', '');
+      }
       const emojiImageUrl = emojiSvg(emojiImageName);
       const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 768);
       const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
@@ -330,7 +338,6 @@ export class AppWizard {
   }
 
   handleAppIconChoose = (e) => {
-    console.log('Choose', e);
     if (e.target.files.length) {
       const file = e.target.files[0];
       if (file.size > 1024 * 800) {
@@ -645,7 +652,14 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
 
   let bgImage;
   if (emoji) {
-    const emojiImage = emoji.image.replace('.png', '');
+    let emojiImage = emoji.image.replace('.png', '');
+    const imageSplit = emojiImage.split('-');
+
+    // For some reason we need to remove fe0f from images that just have it
+    // as blah-fe0f since those aren't named as such in the twemoji database
+    if (imageSplit.length == 2 && imageSplit[1] === 'fe0f') {
+      emojiImage = emojiImage.replace('-fe0f', '');
+    }
     bgImage = `url('${emojiSvg(emojiImage)}')`;
   } else {
     bgImage = `url(${img})`;

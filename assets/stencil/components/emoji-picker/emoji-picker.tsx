@@ -178,6 +178,9 @@ export class EmojiPicker {
   handleSelectCategory = (c: EmojiCategory) => {
     this.selectedCategory = c;
     this.searchQuery = '';
+    setTimeout(() => {
+      this.el.shadowRoot.querySelector('.emojis').scrollTop = 0;
+    }, 30);
   }
 
   handleSearchInput = (e) => this.searchQuery = e.target.value;
@@ -185,7 +188,6 @@ export class EmojiPicker {
   handleClearSearchInput = (_e) => this.searchQuery = '';
 
   handleEmojiPicked = (emoji: Emoji) => {
-    console.log('Picked emoji', emoji);
     this.emojiPick.emit(emoji);
   }
 

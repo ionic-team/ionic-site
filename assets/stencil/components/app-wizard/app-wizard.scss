@@ -63,7 +63,8 @@
     column-gap: 56px;
 
     input[type="file"] {
-      visibility: collapse;
+      visibility: hidden;
+      width: 0;
     }
 
     &.app-icon-dropping {

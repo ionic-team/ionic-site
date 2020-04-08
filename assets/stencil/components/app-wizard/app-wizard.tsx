@@ -394,10 +394,7 @@ export class AppWizard {
             required={true}
             onChange={this.handleInput('appName')} />
           <div
-            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}
-            onDragOver={this.handleAppIconDragOver}
-            onDragExit={this.handleAppIconDragOut}
-            onDrop={this.handleAppIconDrop}>
+            class={`app-icon-group`}>
             <div class="app-icon-pick">
               <label>
                 Pick an icon
@@ -412,7 +409,12 @@ export class AppWizard {
                 emoji={this.selectedEmoji}
                 theme={this.theme}
                 onChooseEmoji={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
-                onChooseFile={this.handleAppIconChoose} />
+                onChooseFile={this.handleAppIconChoose}
+                isDropping={this.isAppIconDropping}
+                onDragOver={this.handleAppIconDragOver}
+                onDragExit={this.handleAppIconDragOut}
+                onDrop={this.handleAppIconDrop}
+                 />
             </div>
             <ionic-emoji-picker
               open={showEmojiPicker}
@@ -648,7 +650,8 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
+const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,
+                   onChooseFile, onDragOver, onDragExit, onDrop }) => {
   const bgColor = img ? 'transparent': theme;
 
   let bgImage;
@@ -667,18 +670,42 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
   }
 
   return (
-    <div
-      class="app-icon"
-      style={{ backgroundColor: bgColor }}>
-      <div
-        class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
-        style={{ backgroundImage: bgImage }} />
-      <div class="app-icon-hover">
-        <div class="app-icon-hover-icons">
-          <ion-icon name="md-happy" onClick={onChooseEmoji} title="Pick emoji" />
-          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file" />
+    <div class={`app-icon-wrapper${isDropping ? ` app-icon-dropping` : ''}`}
+         onDragOver={onDragOver}
+         onDragExit={onDragExit}
+         onDrop={onDrop}>
+      <div class="app-icon-dropping-wrapper">
+        <div class="app-icon-dropping-icon">
+          <ion-icon name="create" />
         </div>
-        <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
+      </div>
+      <div
+        class="app-icon"
+        style={{ backgroundColor: bgColor }}>
+        <div
+          class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
+          style={{ backgroundImage: bgImage }} />
+        <div class="app-icon-hover">
+          <div class="app-icon-hover-icons">
+            <div class="icon" onClick={onChooseEmoji} title="Pick emoji">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.19995 16.3C8.19995 16.3 9.99995 18.7 13 18.7C16 18.7 17.8 16.3 17.8 16.3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 11.2H8.512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.5 11.2H17.512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="icon" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file">
+              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 23H1"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 1V19"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 9L9 1L1 9"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
+        </div>
       </div>
     </div>
   )
@@ -700,7 +727,7 @@ const ThemeSwitcher = ({ value, onChange, onPick }) => {
         onClick={() => onChange(t)}>
         { value === t ? (
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 1L4 11L1 7.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 1L4 11L1 7.25"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         ) : null}
       </div>

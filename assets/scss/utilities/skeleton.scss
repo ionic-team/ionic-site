@@ -1,32 +1,56 @@
-// --------------------- STACK --------------------------
-.stack {
-  --space: 1.5rem;
+// --------------------- EXPAND -------------------------
+[class^='expand'] {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+[class^='expand'] > * {
+  flex-grow:1;  
+}
+.expand\:e {
+  justify-content: flex-end;
+}
+
+.expand\:s {
   justify-content: flex-start;
 }
 
-.stack > * {
-  margin-top: 0;
-  margin-bottom: 0;
-} 
+// --------------------- STACK --------------------------
+@mixin stack($spaceY){
+  [class^='stack'] {
+    --s: #{$spaceY};
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
-.stack > * + * {
-  margin-top: var(--space);
+  [class^='stack'] > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  } 
+
+  .stack > * + * {
+    margin-top: var(--s);
+  }
+
+  .stack\:rec * + * {
+    margin-top: var(--s);
+  }  
 }
 
 // ------------------------ BOX -----------------------------
+@mixin box($pY, $pX) {
+  .box {
+    --sY: $pY;
+    --sX: $pX;
+    padding: var(--sY) var(--sX);
+    color: var(--colorText);
+    background-color: var(--colorBack);
+  }
 
-.box {
-  padding: var(--s1);
-  --color-light: #fff;
-  --color-dark: #000;
-  color: var(--color-dark);
-  background-color: var(--color-light);
-}
-
-.box * {
-  color: inherit;
+  .box * {
+    color: inherit;
+  }
 }
 
 // ------------------------ CENTER ---------------------------
@@ -81,23 +105,25 @@
 }
 
 // ----------------------- SWITCHER -----------------------------
-
-.switcher > * {
-  display: flex;
-  flex-wrap: wrap;
-  margin: calc((var(--s1) / 2) * -1);
+@mixin switcher($count, $threshold, $mY, $mX){
+  .switcher > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc((var(--s1) / 2) * -1);
+  }
+  
+  .switcher > * > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--measure) - (100% - var(--s1))) * 999);
+    margin: calc(var(--s1) / 2);
+  }
+  
+  .switcher > * > :nth-last-child(n+#{$count + 1}),
+  .switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
+    flex-basis: 100%;
+  }
 }
 
-.switcher > * > * {
-  flex-grow: 1;
-  flex-basis: calc((var(--measure) - (100% - var(--s1))) * 999);
-  margin: calc(var(--s1) / 2);
-}
-
-.switcher > * > :nth-last-child(n+5),
-.switcher > * > :nth-last-child(n+5) ~ * {
-  flex-basis: 100%;
-}
 
 // ----------------------- COVER ---------------------------------
 
@@ -124,24 +150,6 @@
 .cover > h1 {
   margin-top: auto;
   margin-bottom: auto;
-}
-
-// ------------------------- GRID ---------------------------
-
-.grid {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 100%;
-}
-
-.grid.aboveMin {
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-}
-
-@supports (width: min(20rem, 100%)) {
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-  }
 }
 
 // ------------------------- FRAME ---------------------------

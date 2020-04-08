@@ -1,3 +1,12 @@
 @import '../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../utilities/skeleton.scss';
+
+@include stack(3em);
+
+ionic-sub-header {
+  svg {
+    height: 3ex;
+  }
+}
 

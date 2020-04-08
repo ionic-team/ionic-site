@@ -412,7 +412,7 @@ export class AppWizard {
                 onChooseFile={this.handleAppIconChoose}
                 isDropping={this.isAppIconDropping}
                 onDragOver={this.handleAppIconDragOver}
-                onDragExit={this.handleAppIconDragOut}
+                onDragLeave={this.handleAppIconDragOut}
                 onDrop={this.handleAppIconDrop}
                  />
             </div>
@@ -465,7 +465,7 @@ export class AppWizard {
                 } 
               }} />
           </div>
-          <div ref={e => this.submitButtonWrapRef = e}>
+          <div ref={e => this.submitButtonWrapRef = e} class="next-button-wrapper">
             <Button>
             { this.user ? (
               <span>Create App</span>
@@ -497,7 +497,7 @@ export class AppWizard {
             <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
-          <Button><span>Next</span></Button>
+          <Button class="next-button-wrapper"><span>Next</span></Button>
         </form>
       </div>
     )
@@ -515,7 +515,7 @@ export class AppWizard {
             <p>
               Logged in as {this.email}
             </p>
-            <form onSubmit={e => { e.preventDefault(); this.finish() }}>
+            <form onSubmit={e => { e.preventDefault(); this.finish() }} class="next-button-wrapper">
               <Button><span>Finish</span></Button>
             </form>
           </div>
@@ -651,7 +651,7 @@ const Button = (_props, children) => (
 );
 
 const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,
-                   onChooseFile, onDragOver, onDragExit, onDrop }) => {
+                   onChooseFile, onDragOver, onDragLeave, onDrop }) => {
   const bgColor = img ? 'transparent': theme;
 
   let bgImage;
@@ -672,11 +672,11 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,
   return (
     <div class={`app-icon-wrapper${isDropping ? ` app-icon-dropping` : ''}`}
          onDragOver={onDragOver}
-         onDragExit={onDragExit}
+         onDragLeave={onDragLeave}
          onDrop={onDrop}>
       <div class="app-icon-dropping-wrapper">
         <div class="app-icon-dropping-icon">
-          <ion-icon name="create" />
+          <ion-icon name="md-add" />
         </div>
       </div>
       <div

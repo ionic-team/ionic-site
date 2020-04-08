@@ -57,6 +57,10 @@
     margin-bottom: 25px;
   }
 
+  .next-button-wrapper {
+    margin-top: 20px;
+  }
+
   .app-icon-group {
     display: grid;
     grid-template-columns: 96px 1fr;
@@ -103,12 +107,13 @@
         .app-icon-dropping-icon {
           display: block;
           background-color: var(--c-blue-800);
-          border-radius: 14px;
+          border-radius: 10px;
           display: flex;
           justify-content: center;
           align-items: center;
           width: 32px;
           height: 32px;
+          font-size: 22px;
           color: white;
         }
 

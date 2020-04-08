@@ -5,17 +5,105 @@
 {% set meta_image = ''%}
 {% set meta_description = '' %}
 {% set header_style = 'transparent light' %}
-{% set stickyNav = true %}
+{% set stickyNav = false %}
 {% set cssPath = 'native' %}
 
 {% block main %}
+
+<ionic-sub-header>
+  <a slot="title" href="/enterprise/offline-storage">
+
+    Native</a>
+  <ul slot="right">
+    <li><a href="">Overview</a></li>
+    <li><a href="">Pricing</a></li>
+    <li><a href="">Docs</a></li>
+    <li><a class="btn anchor" data-offset="-50" href="#get-started">Get a Demo</a></li>
+  </ul>
+</ionic-sub-header>
+
 <div class="banner">
   <hgroup class="container">
-
+    <div>
+      <h1>Native power and security, made easy.</h1>
+      <p>Take on mobile projects with peace of mind, knowing the native features, security, and performance you need
+        will just work - now and in the future.</p>
+    </div>
+    <div>
+      <button>Get a Demo</button>
+      <button>Talk to Sales</button>
+    </div>
   </hgroup>
-
 </div>
+
+<nav id="sticky-bar">
+  <ul class="container nav" role="tablist">
+    <li><a class="anchor" data-offset="150" href="#">Supported Plugins</a></li>
+    <li><a class="anchor" data-offset="150" href="#">App Security</a></li>
+    <li><a class="anchor" data-offset="150" href="#">Support & Guidance</a></li>
+    <li><a class="anchor" data-offset="150" href="#">Features</a></li>
+  </ul>
+</nav>
+
 <main>
+  <section>
+    <h2>Unlock native device features and security for any device.</h1>
+      <article>
+        <h3>Build with confidence</h3>
+        <p>Enjoy peace of mind knowing the native plugins you depend on are built and maintained by a team you can
+          trust, and backed by mission-critical support and expert services.</p>
+      </article>
+      <article>
+        <h3>Protect your users & data</h3>
+        <p>Give your users the best possible on-device security, with advanced biometric authentication and the latest
+          in secure storage.</p>
+      </article>
+      <article>
+        <h3>Accelerate your mobile projects</h3>
+        <p>Save valuable time and effort that would normally be spent chasing plugins and troubleshooting issues. Ionic
+          Native is a complete solution that delivers everything you need on Day 1.</p>
+      </article>
+  </section>
+
+  <section>
+    <h2>Premier, supported native plugins</h2>
+    <p>Native plugins maintained by Ionic’s team of native experts. Active subscribers get ongoing updates to keep pace
+      with OS and API changes, and evolving device standards.</p>
+  </section>
+
+  <section>
+    <h2>Better app security</h2>
+    <p>Deliver the best possible frontend security to protect users and data, with plug-and-play security solutions like
+      Ionic Identity Vault, Auth Connect, and secure Offline Storage.</p>
+  </section>
+
+  <section>
+    <article>
+      <h2>Mission-critical support</h2>
+      <p>Get guaranteed response SLAs throughout the app lifecycle. Ionic’s professional support team is on-hand to help
+        you troubleshoot and address issues occuring at the native layer.</p>
+    </article>
+
+    <article>
+      <h2>Expert native guidance</h2>
+      <p>
+        Our team of native experts will work with you to define a native strategy that fits your unique goals and
+        challenges. We’re here to help.
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Advanced mobile biometric, security, and storage solutions</h2>
+  </section>
+
+  <section>
+    <h2>Easy access to native device features and capabilities</h2>
+  </section>
+
+  <section>
+    <h2>Ionic Native</h2>
+  </section>
 
 </main>
 
@@ -24,5 +112,7 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script>
+  $('body').scrollspy({ target: '#sticky-bar', offset: 150 })
+</script>
 {% endblock %}

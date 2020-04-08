@@ -80,6 +80,11 @@
 
       .app-icon-dropping-icon {
         display: none;
+        color: white;
+        svg {
+          fill: white;
+          stroke: white;
+        }
       }
 
       &.app-icon-dropping {

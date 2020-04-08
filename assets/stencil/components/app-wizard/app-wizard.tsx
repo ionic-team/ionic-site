@@ -375,6 +375,16 @@ export class AppWizard {
     }
   }
 
+  handleRootDragOver = (e: DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
+  handleRootDrop = (e: DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
   renderBasics() {
     const { showEmojiPicker } = this;
 
@@ -626,7 +636,7 @@ ionic start
 
   render() {
     return (
-      <div id="app-wizard">
+      <div id="app-wizard" onDragOver={this.handleRootDragOver} onDrop={this.handleRootDrop}>
         <div class="wrapper">
           {this.step < 2 ? (
           <Switcher
@@ -676,7 +686,10 @@ const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,
          onDrop={onDrop}>
       <div class="app-icon-dropping-wrapper">
         <div class="app-icon-dropping-icon">
-          <ion-icon name="md-add" />
+          <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 9H1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
       <div

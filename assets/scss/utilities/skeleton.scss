@@ -1,10 +1,10 @@
 // --------------------- EXPAND -------------------------
-[class^='expand'] {
+[class~='expand'] {
   display: flex;
   align-items: stretch;
   justify-content: center;
 }
-[class^='expand'] > * {
+[class~='expand'] > * {
   flex-grow:1;  
 }
 .expand\:e {
@@ -16,39 +16,37 @@
 }
 
 // --------------------- STACK --------------------------
-@mixin stack($spaceY){
-  [class^='stack'] {
+@mixin stack($element, $spaceY){
+  #{element}[class~='stack'] {
     --s: #{$spaceY};
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
 
-  [class^='stack'] > * {
+  #{element}[class~='stack'] > * {
     margin-top: 0;
     margin-bottom: 0;
   } 
 
-  .stack > * + * {
+  #{element}.stack > * + * {
     margin-top: var(--s);
   }
 
-  .stack\:rec * + * {
+  #{element}.stack\:rec * + * {
     margin-top: var(--s);
   }  
 }
 
 // ------------------------ BOX -----------------------------
-@mixin box($pY, $pX) {
-  .box {
-    --sY: $pY;
-    --sX: $pX;
-    padding: var(--sY) var(--sX);
-    color: var(--colorText);
-    background-color: var(--colorBack);
+@mixin box($element, $pY, $pX, $background, $text) {
+  #{$element}.box {
+    padding: #{$pY} #{$pX};
+    background: #{$background};
+    color: #{$text};
   }
 
-  .box * {
+  #{$element}.box * {
     color: inherit;
   }
 }
@@ -56,10 +54,10 @@
 // ------------------------ CENTER ---------------------------
 
 .center {
-  box-sizing: content-box;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--measure);
+  max-width: var(--mw);
 }
 
 // ------------------------ CLUSTER --------------------------
@@ -105,21 +103,25 @@
 }
 
 // ----------------------- SWITCHER -----------------------------
-@mixin switcher($count, $threshold, $mY, $mX){
-  .switcher > * {
+@mixin switcher($element, $count, $threshold, $mX){
+  #{$element} .switcher > * {
+    --mX: #{$mX};
+    --measure: #{$threshold};
+
     display: flex;
     flex-wrap: wrap;
-    margin: calc((var(--s1) / 2) * -1);
+    margin-right: calc((var(--mX) / 2) * -1);
+    margin-left: calc((var(--mX) / 2) * -1);
   }
   
-  .switcher > * > * {
+  #{$element} .switcher > * > * {
     flex-grow: 1;
-    flex-basis: calc((var(--measure) - (100% - var(--s1))) * 999);
-    margin: calc(var(--s1) / 2);
+    flex-basis: calc((var(--measure) - (100% - var(--mX))) * 999);
+    margin: calc(var(--mx) / 2);
   }
   
-  .switcher > * > :nth-last-child(n+#{$count + 1}),
-  .switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
+  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}),
+  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
     flex-basis: 100%;
   }
 }

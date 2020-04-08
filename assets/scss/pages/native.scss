@@ -2,11 +2,121 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../utilities/skeleton.scss';
 
-@include stack(3em);
+$mainColor: #193455;
+$heroHeight: 768px;
+
+body[data-theme="light"] {
+  // Main
+  --colorBack: white;
+  --colorBackInvert: #{$mainColor};
+
+  // Text
+  --colorTitle: #010610;
+  --colorTitleInvert: white;
+  --colorSubtext1: #2D4665;
+  --colorSubtext2: #616E7E;
+  --colorSubtext3: #445B78;
+  --colorSubtextInvert: #E9EDF3;
+  --colorSubtextInvert2: #CED6E0;
+
+  // buttons
+  --btnPrimaryBack: #{$mainColor};
+  --btnPrimaryText: white;
+  --btnSecondaryBack: #DEE3EA;
+  --btnSecondaryText: #{$mainColor};
+
+}
+
+body[data-theme="dark"] {
+  //dark theme variables
+}
+
+:root {
+  --pX2: calc(var(--horizontal-padding) / 2);
+  --horizontal-padding-3: calc(var(--horizontal-padding) / 4);
+
+  --vertical-padding-2: calc(var(--vertical-padding) / 2);
+  --vertical-padding-3: calc(var(--vertical-padding) / 4);
+
+  --line-height: 1.8rem;
+
+  --footer-background: hsl(var(--accent-hue), 18%, 24%);
+}
+
+// ------------------------ BUTTONS --------------------------
+
+
+%btn {
+  border-radius: 8px;
+  height: 51px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border:none;  
+  font-weight: bold;
+  letter-spacing: .1rem;
+}
+
+@include box('.btn-primary', 16px, 20px, var(--btnPrimaryBack), var(--btnPrimaryText));
+.btn-primary {
+  @extend %btn;
+}
+
+@include box('.btn-secondary', 16px, 20px, var(--btnSecondaryBack), var(--btnSecondaryText));
+.btn-secondary {
+  @extend %btn;
+}
+
+// --------------------------- TITLES --------------------------------
+h1 { font-weight: 900; }
+h2 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 112%;
+  color: var(--colorTitle);
+}
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+  font-family: $font-family-inter;
+  color: var(--colorTitle);
+  letter-spacing: -.07em;
+}
+
+#hero {
+  height: $heroHeight;
+}
+
+#heroBack {
+  position:absolute;
+  z-index: -1;
+}
+
+@include stack('#hero', 40px);
+#heroText {
+  max-width: 448px;
+
+  @include box(h1, 0, 0, inherit, var(--colorTitle));
+  h1 {
+    font-size: 64px;
+  }
+
+  @include box(p, 0, 0, inherit, var(--colorSubtext1));
+  p {
+    font-size: 20px;
+    line-height: 160%;
+  }
+}
+
+@include switcher('#native', 3, $container-sm, 0);
+#native {
+  svg {
+    height: 64px;
+  }
+}
 
 ionic-sub-header {
   svg {
-    height: 3ex;
+    height: 24px;
   }
 }
 

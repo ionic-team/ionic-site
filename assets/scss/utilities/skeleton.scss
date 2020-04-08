@@ -1,3 +1,17 @@
+// --------------------- ROW --------------------------
+@mixin row($element, $threshold, $gap) {
+  #{$element}.row {
+    display:flex;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  #{$element}.row > * {
+    flex-grow: 1;
+  }
+}
+
 // --------------------- EXPAND -------------------------
 [class~='expand'] {
   display: flex;
@@ -6,6 +20,9 @@
 }
 [class~='expand'] > * {
   flex-grow:1;  
+}
+.expand\:x\:s {
+  flex:column nowrap;
 }
 .expand\:e {
   justify-content: flex-end;
@@ -16,48 +33,63 @@
 }
 
 // --------------------- STACK --------------------------
-@mixin stack($element, $spaceY){
-  #{element}[class~='stack'] {
-    --s: #{$spaceY};
+@mixin stack($element, $mY){
+  #{$element}[class~='stack'] {    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
 
-  #{element}[class~='stack'] > * {
+  #{$element}[class~='stack'] > * {
     margin-top: 0;
     margin-bottom: 0;
   } 
 
-  #{element}.stack > * + * {
+  #{$element}.stack > * + * {
+    --s: #{$mY};
     margin-top: var(--s);
   }
 
-  #{element}.stack\:rec * + * {
+  #{$element}.stack\:rec * + * {
+    --s: #{$mY};
     margin-top: var(--s);
   }  
 }
 
 // ------------------------ BOX -----------------------------
-@mixin box($element, $pY, $pX, $background, $text) {
+@mixin box($element, $pY, $pX, $background, $text, $mW: null) {
   #{$element}.box {
     padding: #{$pY} #{$pX};
     background: #{$background};
     color: #{$text};
-  }
-
-  #{$element}.box * {
-    color: inherit;
+    @if $mW {
+      max-width: #{$mW};
+    }
+    
   }
 }
 
 // ------------------------ CENTER ---------------------------
+@mixin centerX($element, $mw) {
+  #{$element} .center\:x {
+    --mw: #{$mw};
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--mw);
+  }
+}
 
-.center {
+.center\:x {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--mw);
+}
+
+.center\:y {
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 // ------------------------ CLUSTER --------------------------
@@ -106,15 +138,17 @@
 @mixin switcher($element, $count, $threshold, $mX){
   #{$element} .switcher > * {
     --mX: #{$mX};
-    --measure: #{$threshold};
 
     display: flex;
     flex-wrap: wrap;
-    margin-right: calc((var(--mX) / 2) * -1);
     margin-left: calc((var(--mX) / 2) * -1);
+    margin-right: calc((var(--mX) / 2) * -1);
   }
   
   #{$element} .switcher > * > * {
+    --mX: #{$mX};
+    --measure: #{$threshold};
+
     flex-grow: 1;
     flex-basis: calc((var(--measure) - (100% - var(--mX))) * 999);
     margin: calc(var(--mx) / 2);

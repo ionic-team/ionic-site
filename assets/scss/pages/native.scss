@@ -2,6 +2,13 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../utilities/skeleton.scss';
 
+@include stack('', 40px);
+
+h1, h2, h3, p {
+  margin: 0px;
+  padding: 0px;
+}
+
 $mainColor: #193455;
 $heroHeight: 768px;
 
@@ -91,28 +98,69 @@ h3 {
   z-index: -1;
 }
 
-@include stack('#hero', 40px);
+@include box ('#heroText', 0, 0, 0, 0, 448px);
 #heroText {
-  max-width: 448px;
 
-  @include box(h1, 0, 0, inherit, var(--colorTitle));
+  @include box(h1, 0, 0, 0, var(--colorTitle));
   h1 {
     font-size: 64px;
   }
 
-  @include box(p, 0, 0, inherit, var(--colorSubtext1));
+  @include box(p, 0, 0, 0, var(--colorSubtext1));
   p {
     font-size: 20px;
     line-height: 160%;
   }
 }
 
+@include centerX('#native', 678px);
 @include switcher('#native', 3, $container-sm, 0);
 #native {
   svg {
     height: 64px;
   }
 }
+
+@include box('#pluginsText', 0, 0, 0, var(--colorTitle), 448px);
+@include stack('#pluginsText', 40px);
+@include row('#plugins', $container-sm, 20px);
+#plugins {
+  svg {
+    width: 48px;
+  }
+}
+
+@include box('#securityText', 0, 0, 0, var(--colorTitle), 448px);
+@include stack('#securityText', 40px);
+@include row('#security', $container-sm, 20px);
+#security {
+
+}
+
+@include row('#supGuidance', $container-sm, 20px);
+@include stack('#supGuidance', 40px);
+#supGuidance {
+  svg {
+    height: 176px;
+  }
+  @include box ('article', 0, 0, 0, 0, 448px);
+  @include box ('h2', 0, 0, 0, var(--colorTitle));
+  @include box ('p', 0, 0, 0, var(--colorSubtext3));
+}
+
+
+#secFeatures {
+  svg {
+    width: 80px;
+  }
+}
+
+#keyFeatures {
+  svg {
+    width: 56px;
+  }
+}
+
 
 ionic-sub-header {
   svg {

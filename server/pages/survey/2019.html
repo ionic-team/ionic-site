@@ -16,6 +16,15 @@
     <h4>2019</h4>
     <h1>Developer Survey</h1>
     <p>2019’s biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
+
+    <ul id="cubes">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </hgroup>
 </div>
 
@@ -287,6 +296,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
 <script>
 const stickyWatcher = () => {
   const $nav = document.getElementById('survey-2019-nav')
@@ -307,5 +317,84 @@ $(window).on('activate.bs.scrollspy', function (e) {
   currentSection = $("a[href^='#']", e.target).attr("href");
   history.replaceState({}, "Ionic Framework - Survey-2017", currentSection);
 });
+
+
+createCube = ($element, color, size) => {
+  // Based on https://codepen.io/stizz1e/pen/EPyOyE
+  //Build the scene
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min
+  }
+  const width = size,
+      height = size,
+      xRotate = random(0, 1) === 1 ? random(8000, 12000) : -1 * random(8000, 12000),
+      yRotate = random(0, 1) === 1 ? random(8000, 12000) : -1 * random(8000, 12000);
+  const View_angle = 45,
+      Aspect = width / height,
+      Near = .01,
+      Far = 10000;
+  
+  //Create WebGL renderer, camera and scene
+  const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+  renderer.setSize(width, height);
+  const camera = new THREE.PerspectiveCamera(
+    45, 1, 0.1, 10000);
+  const scene = new THREE.Scene();
+
+  //add camera to the scene
+  scene.add(camera);
+  //adjust camera y-index
+  camera.position.y = 160;
+  //adjust camera z-index
+  camera.position.z = 400;
+  
+  //init renderer
+  renderer.setSize(width, height);
+  
+  $element.append(renderer.domElement);
+  //END Scene set up variables
+  
+  //CREATE Cube object
+  const cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
+  const cubeMaterial = new THREE.MeshLambertMaterial({color});
+  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  cube.rotation.y = random(0, 360);
+  cube.rotation.x = random(0, 360);
+  scene.add(cube);
+  //END CUBE OBJECT
+  
+  //tell camera what to look at
+  camera.lookAt(cube.position);
+  
+  //START LIGHTING
+  const pointLight = new THREE.PointLight(0xFFFFFF, .5);
+  pointLight.position.set(-100, 500, 200);
+  scene.add(pointLight);
+  // const bottomLight = new THREE.PointLight(0xFFFFFF, 1);
+  // bottomLight.position.set(0, -100, 500);
+  // scene.add(bottomLight);
+  const light = new THREE.HemisphereLight(0xFFFFFF, 0xFFFFFF, .8);
+  scene.add( light );
+  //END LIGHTING
+  
+  //DRAW SCENE
+  function render(){
+    renderer.render(scene, camera);
+    renderer.setClearColor( 0x000000, 0);
+    //CREATE MOVEMENT
+    cube.rotation.y = +new Date() / yRotate;
+    cube.rotation.x = +new Date() / xRotate;
+    requestAnimationFrame(render);
+  }
+  render();
+}
+
+createCube(document.querySelector('#cubes li:nth-child(1)'), '#3780FF', 100);
+createCube(document.querySelector('#cubes li:nth-child(2)'), '#F37BAB', 100);
+createCube(document.querySelector('#cubes li:nth-child(3)'), '#F7D443', 100);
+createCube(document.querySelector('#cubes li:nth-child(4)'), '#3EED5B', 50);
+createCube(document.querySelector('#cubes li:nth-child(5)'), '#3780FF', 50);
+createCube(document.querySelector('#cubes li:nth-child(6)'), '#F7D443', 50);
+
 </script>
 {% endblock %}

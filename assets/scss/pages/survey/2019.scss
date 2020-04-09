@@ -5,6 +5,7 @@ $c-black-400: #17202E;
 $c-black-500: #0E151F;
 
 $c-grey-200: #F7F9FC;
+$c-grey-300: #DEE3EA;
 $c-grey-400: #B2BECD;
 
 $c-blue-400: #3780FF;
@@ -14,11 +15,15 @@ $c-blue-400: #3780FF;
 }
 
 #survey-banner {
-  background: transparent 0% 0% no-repeat padding-box;
+  background: transparent 50% 0% no-repeat padding-box;
   background-image:
     url('/img/survey/banner-mask.svg'),
     linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
-  background-size: cover, cover;
+  background-size: 1440px, cover;
+
+  .container {
+    position: relative;
+  }
 
   h1 {
     font-size: 64px;
@@ -46,13 +51,51 @@ $c-blue-400: #3780FF;
   }
 }
 
+#cubes {
+
+  li {
+    list-style: none;
+    position: absolute;
+    
+    &:nth-child(1) {
+      top: 22px;
+      left: -225px;
+    }
+
+    &:nth-child(2) {
+      top: 58px;
+      right: -86px;
+    }
+
+    &:nth-child(3) {
+      top: 337px;
+      right: -145px;
+    }
+
+    &:nth-child(4) {
+      top: 237px;
+      left: -12px;
+    }
+
+    &:nth-child(5) {
+      top: 30px;
+      right: 192px;
+    }
+
+    &:nth-child(6) {
+      top: 309px;
+      left: 78px;
+    }
+  }
+}
+
 #survey-2019-nav {
   position: sticky;
   z-index: 1;
   top: -1px;
   background: white;
   transition: .2s box-shadow, .2s border-color;
-  border-bottom: 1px solid $c-grey-400;
+  border-bottom: 1px solid $c-grey-300;
 
   ul {
     display: flex;

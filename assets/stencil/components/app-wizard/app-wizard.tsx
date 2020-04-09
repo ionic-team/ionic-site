@@ -8,6 +8,18 @@ import { ApiUser } from '../../declarations';
 import { Emoji } from '../emoji-picker/emoji-picker';
 import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
 
+import ALL_PLUGINS from './plugins.json';
+
+interface Plugin {
+  plugin: string;
+  pluginName: string;
+  repo: string;
+  pluginRef: string;
+  install: string;
+}
+
+const PLUGINS = ALL_PLUGINS.filter(p => !!p) as Plugin[];
+
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
   { name: 'Menu', id: 'sidemenu' },
@@ -52,6 +64,10 @@ export class AppWizard {
       id: 'basics'
     },
     {
+      name: 'Features',
+      id: 'features'
+    },
+    {
       name: 'Profile',
       id: 'profile'
     },
@@ -62,14 +78,9 @@ export class AppWizard {
   ]
 
   STEP_BASICS = 0;
-  STEP_PROFILE = 1;
-  STEP_FINISH = 2;
-
-  @State() step = this.STEP_BASICS;
-
-  @State() showSignup = true;
-  @State() loginErrors = null;
-  @State() creatingApp = false;
+  STEP_FEATURES = 1;
+  STEP_PROFILE = 2;
+  STEP_FINISH = 3;
 
   user: ApiUser;
 
@@ -99,6 +110,13 @@ export class AppWizard {
     return emoji[Math.floor(Math.random() * emoji.length)];
   }
 
+
+  @State() step = this.STEP_FEATURES;
+
+  @State() showSignup = true;
+  @State() loginErrors = null;
+  @State() creatingApp = false;
+
   @State() selectedEmoji: Emoji = this.getRandomEmoji();
   @State() showEmojiPicker = false;
   @State() emojiPickerEvent: MouseEvent = null;
@@ -115,6 +133,7 @@ export class AppWizard {
   @State() bundleId = '';
   @State() appUrl = '';
   @State() appIcon: string;
+  @State() appSelectedPlugins: Plugin[] = [];
   /*
   @State() authorEmail = 'max@ionic.io';
   @State() authorName = 'Max';
@@ -125,11 +144,12 @@ export class AppWizard {
   };
 
   async componentDidLoad() {
+    console.log('Loaded plugins', PLUGINS);
+
     try {
       // Get the user to see if they are logged in
       const user = await getUser();
       this.user = user;
-      this.setStep(this.STEP_BASICS);
     } catch (e) {
     }
   }
@@ -385,6 +405,19 @@ export class AppWizard {
     return false;
   };
 
+  handleTogglePlugin = (plugin: Plugin) => {
+    const has = this.appSelectedPlugins.find(p => p.plugin === plugin.plugin);
+
+    if (has) {
+      this.appSelectedPlugins = this.appSelectedPlugins.filter(p => p.plugin !== plugin.plugin);
+    } else {
+      this.appSelectedPlugins = [
+        ...this.appSelectedPlugins,
+        plugin
+      ];
+    };
+  }
+
   renderBasics() {
     const { showEmojiPicker } = this;
 
@@ -485,6 +518,22 @@ export class AppWizard {
             </Button>
           </div>
         </form>
+      </div>
+    )
+  }
+
+  renderFeatures() {
+    return (
+      <div>
+        <hgroup>
+          <h2>Add native features</h2>
+          <h4>We'll pre-load them into your app</h4>
+        </hgroup>
+        <NativePluginSelect
+          togglePlugin={this.handleTogglePlugin}
+          plugins={PLUGINS}
+          selectedPlugins={this.appSelectedPlugins}
+          />
       </div>
     )
   }
@@ -629,6 +678,7 @@ ionic start
     switch (this.step) {
       case this.STEP_BASICS: return this.renderBasics();
       //case 1: return this.renderConfigure();
+      case this.STEP_FEATURES: return this.renderFeatures();
       case this.STEP_PROFILE: return this.renderProfile();
       case this.STEP_FINISH: return this.renderFinish();
     }
@@ -640,7 +690,7 @@ ionic start
         <div class="wrapper">
           {this.step < 2 ? (
           <Switcher
-            items={this.STEPS.slice(0, 3).map(s => s.name)}
+            items={this.STEPS.slice(0, this.STEPS.length).map(s => s.name)}
             index={this.step}
             onChange={this.handleChangeStep}
             />
@@ -875,4 +925,50 @@ const FormErrors = (_props, children) => (
 
 const InfoCircle = () => (
   <ion-icon class="info-circle" name="information-circle-outline" />
+);
+
+interface NativePluginSelectProps {
+  togglePlugin: (p: Plugin) => void;
+  plugins: Plugin[];
+  selectedPlugins: Plugin[];
+}
+const NativePluginSelect = ({ togglePlugin, plugins, selectedPlugins }: NativePluginSelectProps) => {
+  return (
+    <div class="plugin-select">
+      <label>Select community plugins</label>
+      <ul class="plugins">
+        {plugins.map((p: Plugin) => {
+          const isSelected = selectedPlugins.find(s => s.plugin === p.plugin);
+          return (
+            <li
+              class={`plugin${isSelected ? ' plugin-selected' : ''}`}
+              onClick={() => togglePlugin(p)}
+              >
+              <PluginIcon className="plugin-icon" />
+              <div class="name">{p.pluginName}</div>
+              <CheckmarkIcon className="checkmark-icon" />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )
+}
+
+const PluginIcon = ({ className }) => (
+  <svg class={className} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.79 5.36365C16.9062 5.54548 16.9997 5.7777 17 5.9875V12.3973C16.9999 12.6071 16.9389 12.8133 16.8229 12.9952C16.7068 13.1772 16.5399 13.3286 16.3388 13.4344L10.0054 16.7549C9.70019 16.9147 9.35345 16.9989 9.00042 16.9989C8.64738 16.9989 8.30064 16.9147 7.99542 16.7549L1.66208 13.4344C1.46075 13.3287 1.29367 13.1773 1.17751 12.9954C1.06134 12.8134 1.00014 12.6072 1 12.3973V5.9875C1.00028 5.7777 1.09384 5.54548 1.21 5.36365"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1.21002 5.36364C1.21002 5.36364 1.46075 5.155 1.66209 5.04932L4.82875 3.38907M16.79 5.36365C16.674 5.18168 16.5399 5.15509 16.3388 5.04932L13.1721 3.38907"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1.20831 5.36365L8.99998 9.49268L16.7916 5.36365"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9 17V9.49268"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 3C13 4.10457 11.2091 5 9 5C6.79086 5 5 4.10457 5 3C5 2.57353 5.26697 2.17823 5.7219 1.85362C6.44524 1.33747 7.6438 1 9 1C10.3562 1 11.5548 1.33747 12.2781 1.85362C12.733 2.17823 13 2.57353 13 3Z"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 3.64465C5 3.64465 5.00005 4.21819 5.00005 4.64466C5.00005 5.74923 6.7909 6.64465 9.00003 6.64465C11.2092 6.64465 13 5.74923 13 4.64466C13 4.21819 13 3.64465 13 3.64465"  stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 3.11572C5 3.11572 5.00005 3.63191 5.00005 4.01573C5.00005 5.00984 6.7909 5.81572 9.00003 5.81572C11.2092 5.81572 13 5.00984 13 4.01573C13 3.63191 13 3.11572 13 3.11572"  stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)
+
+const CheckmarkIcon = ({ className }) => (
+<svg class={className} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 1L4 11L1 7.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 );

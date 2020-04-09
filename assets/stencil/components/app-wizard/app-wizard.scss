@@ -553,6 +553,49 @@
     }
   }
 
+  .plugin-select {
+    .plugins {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+      border-bottom: 1px solid var(--c-indigo-200);
+      padding: 16px 8px;
+      font-size: 14px;
+      color: var(--c-carbon-400);
+      display: grid;
+      grid-template-columns: 16px 1fr 16px;
+      column-gap: 16px;
+      cursor: pointer;
+      user-select: none;
+
+      .plugin-icon {
+        stroke: var(--c-carbon-300);
+      }
+
+      .checkmark-icon {
+        display: none;
+        stroke: var(--c-ionic-brand);
+      }
+
+      &.plugin-selected {
+        background: #F3F9FE;
+        color: var(--c-ionic-brand);
+        .plugin-icon {
+          stroke: var(--c-ionic-brand);
+        }
+        .checkmark-icon {
+          display: block;
+        }
+      }
+    }
+  }
+
   .disclaimer {
     font-weight: 400;
     margin-top: 24px;

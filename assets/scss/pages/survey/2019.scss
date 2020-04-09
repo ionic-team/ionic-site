@@ -19,7 +19,6 @@ $c-blue-400: #3780FF;
     url('/img/survey/banner-mask.svg'),
     linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
   background-size: cover, cover;
-  margin-bottom: 55px;
 }
 
 #survey-2019-nav {
@@ -27,12 +26,15 @@ $c-blue-400: #3780FF;
   z-index: 1;
   top: -1px;
   background: white;
-  transition: .2s box-shadow;
+  transition: .2s box-shadow, .2s border-color;
+  border-bottom: 1px solid $c-grey-400;
 
   ul {
     display: flex;
     justify-content: space-around;
     padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   li {
@@ -40,17 +42,42 @@ $c-blue-400: #3780FF;
   }
 
   a {
-    padding: 20px;
+    padding: 43px 26px 38px;
     display: inline-block;
     font-size: 14px;
-    line-height: 32px;
+    line-height: 1em;
     letter-spacing: 0;
     color: $c-grey-400;
     font-weight: 600;
+    transition: .2s color;
+    position: relative;
+
+    &::before {
+      content: '';
+      background: $c-blue-400;
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      opacity: 0;
+      transition: .4s opacity ease-out;
+    }
+  }
+
+  li.active a,
+  a:hover {
+    color: $c-blue-400;
+    background: transparent;
+  }
+
+  li.active a::before {
+    opacity: 1;
   }
 
   &.isSticky {
     box-shadow: 0 2px 4px rgba($c-black-300, .1);
+    border-bottom-color: transparent;
 
     @supports (backdrop-filter: blur(5px)) {
       background: rgba(#fff, 0.9);
@@ -59,9 +86,12 @@ $c-blue-400: #3780FF;
   }
 }
 
+#scroll-spy {
+  position: relative;
+  top: -96px;
+}
+
 main {
-  margin-top: 55px;
-  border-top: 1px solid $c-grey-400;
 
   h2 {
     font-size: 48px;

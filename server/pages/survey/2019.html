@@ -20,7 +20,7 @@
 </div>
 
 <nav id="survey-2019-nav" class="bar">
-  <ul class="container">
+  <ul class="container nav">
     <li><a href="#introduction" class="anchor">INTRODUCTION</a></li>
     <li><a href="#trends" class="anchor">TRENDS</a></li>
     <li><a href="#tools" class="anchor">TOOLS</a></li>
@@ -288,7 +288,7 @@
 
 {% block scripts %}
 <script>
-const scrollSpy = () => {
+const stickyWatcher = () => {
   const $nav = document.getElementById('survey-2019-nav')
   const observer = new IntersectionObserver( 
     ([e]) => $nav.classList.toggle('isSticky', e.intersectionRatio < 1),
@@ -297,38 +297,15 @@ const scrollSpy = () => {
 
   observer.observe(document.getElementById('scroll-spy'));
 };
-scrollSpy();
+stickyWatcher();
 
-document.getElementById('tools').graphData = {
-  barChart: {
-    axis: {
-      x: {
-        format: 'CURRENCY',
-      },
-    },
-    margin: {
-      top: 20,
-      right: 40,
-      bottom: 20,
-      left: 40,
-    },
-  },
-  styles: {
-    width: '100%',
-    height: '500px',
-    margin: '20px 0',
-  },
-  colors: [
-    '#98abc5',
-    '#8a89a6',
-    '#7b6888',
-    '#6b486b',
-    '#a05d56',
-    '#d0743c',
-    '#ff8c00',
-  ],
-  labels: ['<5', '5-13', '14-17', '18-24', '25-44', '45-64', '≥65'],
-  data: [1250, 200, 20, 140, 600, 3002, 5985],
-};
+$('body').scrollspy({
+  offset: 150
+});
+
+$(window).on('activate.bs.scrollspy', function (e) {
+  currentSection = $("a[href^='#']", e.target).attr("href");
+  history.replaceState({}, "Ionic Framework - Survey-2017", currentSection);
+});
 </script>
 {% endblock %}

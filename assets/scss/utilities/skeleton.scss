@@ -1,35 +1,23 @@
-// --------------------- ROW --------------------------
-@mixin row($element, $threshold, $gap) {
-  #{$element}.row {
-    display:flex;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  #{$element}.row > * {
-    flex-grow: 1;
-  }
+.strip {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.strip > * {
+  flex: 1 1 auto;
 }
 
 // --------------------- EXPAND -------------------------
-[class~='expand'] {
+.expand\:y {
   display: flex;
   align-items: stretch;
-  justify-content: center;
-}
-[class~='expand'] > * {
-  flex-grow:1;  
-}
-.expand\:x\:s {
-  flex:column nowrap;
-}
-.expand\:e {
-  justify-content: flex-end;
 }
 
-.expand\:s {
-  justify-content: flex-start;
+.expand\:x\:e {
+  display:flex;
+  justify-content: flex-end;
+
 }
 
 // --------------------- STACK --------------------------
@@ -37,6 +25,7 @@
   #{$element}[class~='stack'] {    
     display: flex;
     flex-direction: column;
+    align-items:flex-start;
     justify-content: flex-start;
   }
 
@@ -81,15 +70,16 @@
 }
 
 .center\:x {
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
 .center\:y {
-  display:flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  align-self: center;
+}
+
+.center\:txt {
+  text-align:center;
 }
 
 // ------------------------ CLUSTER --------------------------
@@ -135,23 +125,17 @@
 }
 
 // ----------------------- SWITCHER -----------------------------
-@mixin switcher($element, $count, $threshold, $mX){
+@mixin switcher($element, $count, $threshold, $gap){
   #{$element} .switcher > * {
-    --mX: #{$mX};
-
     display: flex;
     flex-wrap: wrap;
-    margin-left: calc((var(--mX) / 2) * -1);
-    margin-right: calc((var(--mX) / 2) * -1);
+    margin: calc((#{$gap} / 2) * -1);
   }
   
   #{$element} .switcher > * > * {
-    --mX: #{$mX};
-    --measure: #{$threshold};
-
     flex-grow: 1;
-    flex-basis: calc((var(--measure) - (100% - var(--mX))) * 999);
-    margin: calc(var(--mx) / 2);
+    flex-basis: calc((#{$threshold} - (100% - #{$gap})) * 999);
+    margin: calc(#{$gap} / 2);
   }
   
   #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}),

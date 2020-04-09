@@ -4,11 +4,17 @@
 
 @include stack('', 40px);
 
+
+
 h1, h2, h3, p {
   margin: 0px;
   padding: 0px;
 }
+img {
+  max-width: 100%;
+}
 
+$container-sm: $container-sm - $grid-gutter-width;
 $mainColor: #193455;
 $heroHeight: 768px;
 
@@ -31,7 +37,6 @@ body[data-theme="light"] {
   --btnPrimaryText: white;
   --btnSecondaryBack: #DEE3EA;
   --btnSecondaryText: #{$mainColor};
-
 }
 
 body[data-theme="dark"] {
@@ -86,7 +91,7 @@ h3 {
   font-size: 20px;
   font-family: $font-family-inter;
   color: var(--colorTitle);
-  letter-spacing: -.07em;
+  letter-spacing: -.01em;
 }
 
 #hero {
@@ -98,7 +103,7 @@ h3 {
   z-index: -1;
 }
 
-@include box ('#heroText', 0, 0, 0, 0, 448px);
+@include box('#heroText', 0, 0, 0, 0, 448px);
 #heroText {
 
   @include box(h1, 0, 0, 0, var(--colorTitle));
@@ -113,9 +118,11 @@ h3 {
   }
 }
 
-@include centerX('#native', 678px);
-@include switcher('#native', 3, $container-sm, 0);
+@include box('#native h2', null,null,null,null, 678px);
+@include switcher('#native', 3, $container-sm, 0px);
 #native {
+  @include box('article',null,null,null,null, 312px);
+
   svg {
     height: 64px;
   }
@@ -123,7 +130,7 @@ h3 {
 
 @include box('#pluginsText', 0, 0, 0, var(--colorTitle), 448px);
 @include stack('#pluginsText', 40px);
-@include row('#plugins', $container-sm, 20px);
+@include switcher('#plugins', 2, $container-sm, 0px);
 #plugins {
   svg {
     width: 48px;
@@ -132,12 +139,12 @@ h3 {
 
 @include box('#securityText', 0, 0, 0, var(--colorTitle), 448px);
 @include stack('#securityText', 40px);
-@include row('#security', $container-sm, 20px);
+@include switcher('#security', 2, $container-sm, 0px);
 #security {
 
 }
 
-@include row('#supGuidance', $container-sm, 20px);
+@include switcher('#supGuidance', 2, $container-sm, 0px);
 @include stack('#supGuidance', 40px);
 #supGuidance {
   svg {
@@ -148,11 +155,30 @@ h3 {
   @include box ('p', 0, 0, 0, var(--colorSubtext3));
 }
 
+@include box('.panel', 32px, 32px, var(--colorSubtext3), 0, 324px);
+@include box('.panel > h3', null, null, null, var(--colorTitleInvert));
+@include box('.panel > p', null, null, null, var(--colorSubtextInvert2));
+.panel {
+  border-radius: 8px;
+}
 
+@include box('#secFeaturesText > h2', 0, 0, 0, var(--colorTitleInvert), 640px);
+@include box('#secFeaturesText > p', 0, 0, 0, var(--colorSubtextInvert), 640px);
 #secFeatures {
+
+  
   svg {
     width: 80px;
   }
+}
+
+#secFeaturesBack {
+  background: var(--colorBackInvert);
+  position: absolute;
+  left:0;
+  height: 500px;
+  min-width: 100vw;
+  z-index: -1;
 }
 
 #keyFeatures {
@@ -168,3 +194,6 @@ ionic-sub-header {
   }
 }
 
+@media (max-width: $container-sm) {
+  
+}

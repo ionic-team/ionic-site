@@ -1,12 +1,29 @@
 .strip {
   display:flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
-.strip > * {
-  flex: 1 1 auto;
+.strip\:c {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
+
+[class^='strip'] > * {
+  // flex-grow:1;
+  flex-shrink: 1;
+}
+
+.flex\:r\:w {
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex\:r\:nw {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
 
 // --------------------- EXPAND -------------------------
 .expand\:y {
@@ -14,10 +31,23 @@
   align-items: stretch;
 }
 
+.expand\:w {
+  width: 100%;
+}
+
+.expand\:x\:s {
+  display:flex;
+  justify-content: flex-start;
+}
+
+.expand\:x\:c {
+  display:flex;
+  justify-content: center;
+}
+
 .expand\:x\:e {
   display:flex;
   justify-content: flex-end;
-
 }
 
 // --------------------- STACK --------------------------
@@ -46,15 +76,20 @@
 }
 
 // ------------------------ BOX -----------------------------
-@mixin box($element, $pY, $pX, $background, $text, $mW: null) {
+@mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
+           $mW: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null) {
   #{$element}.box {
-    padding: #{$pY} #{$pX};
-    background: #{$background};
-    color: #{$text};
-    @if $mW {
-      max-width: #{$mW};
-    }
-    
+    padding-left: #{$pX};
+    padding-right: #{$pX};
+    padding-top: #{$pY};
+    padding-bottom: #{$pY};
+    margin-left: #{$mLeft};
+    margin-right: #{$mRight};
+    margin-top: #{$mTop};
+    margin-bottom: #{$mBot};
+    background: #{$back};
+    color: #{$color};
+    flex-basis: #{$mW};    
   }
 }
 

@@ -4,19 +4,10 @@
 
 @include stack('', 40px);
 
-
-
-h1, h2, h3, p {
-  margin: 0px;
-  padding: 0px;
-}
-img {
-  max-width: 100%;
-}
-
 $container-sm: $container-sm - $grid-gutter-width;
 $mainColor: #193455;
 $heroHeight: 768px;
+$sectionPadding: 200px;
 
 body[data-theme="light"] {
   // Main
@@ -78,13 +69,21 @@ body[data-theme="dark"] {
   @extend %btn;
 }
 
-// --------------------------- TITLES --------------------------------
-h1 { font-weight: 900; }
+// -------------------------------- STANDARD --------------------------------
+h1 {
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 100%;
+  margin: 0px;
+}
 h2 {
   font-weight: 600;
   font-size: 48px;
   line-height: 112%;
+  letter-spacing: -.04em;
   color: var(--colorTitle);
+  margin-bottom: 40px;
+  margin-top: 0px;
 }
 h3 {
   font-weight: 500;
@@ -93,107 +92,153 @@ h3 {
   color: var(--colorTitle);
   letter-spacing: -.01em;
 }
+.p1 {
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -.03em;
+}
+.p2 {
+  font-size: 16px;
+  line-height: 180%;
+  letter-spacing: -.01em;
+}
+img {
+  max-width: 100%;
+}
 
+// ------------------------- CUSTOM PAGE STYLES -----------------------------
+
+@include box('#hero', $pY: 134px);
 #hero {
   height: $heroHeight;
+  background-image: url('/img/native/bg_native.svg');
+  background-position: center;
 }
 
-#heroBack {
-  position:absolute;
-  z-index: -1;
-}
-
-@include box('#heroText', 0, 0, 0, 0, 448px);
+@include box('#heroText', $mW: 448px);
 #heroText {
 
-  @include box(h1, 0, 0, 0, var(--colorTitle));
+  @include box(h1, $color: var(--colorTitle));
   h1 {
-    font-size: 64px;
+    
   }
 
-  @include box(p, 0, 0, 0, var(--colorSubtext1));
+  @include box(p, $color: var(--colorSubtext1));
   p {
-    font-size: 20px;
-    line-height: 160%;
+    font-size: 22px;
   }
 }
 
-@include box('#native h2', null,null,null,null, 678px);
-@include switcher('#native', 3, $container-sm, 0px);
+@include box('#native h2', $mW: 678px, $mBot: 120px);
+@include switcher('#native', 3, $container-sm, 44px);
 #native {
-  @include box('article',null,null,null,null, 312px);
+  article {
+    flex: 1 1 312px;
+  }
 
   svg {
     height: 64px;
   }
 }
 
-@include box('#pluginsText', 0, 0, 0, var(--colorTitle), 448px);
+@include box('#pluginsText', $color: var(--colorTitle), $mW: 448px);
 @include stack('#pluginsText', 40px);
-@include switcher('#plugins', 2, $container-sm, 0px);
 #plugins {
   svg {
     width: 48px;
   }
 }
+#pluginsImg {
+  max-width: 566px;
+}
 
-@include box('#securityText', 0, 0, 0, var(--colorTitle), 448px);
+@include box('#securityText', $color: var(--colorTitle), $mW: 448px);
 @include stack('#securityText', 40px);
-@include switcher('#security', 2, $container-sm, 0px);
 #security {
 
 }
+#securityText {
+  order: 2;
+}
+#securityImg {
+  max-width: 570px;
+}
 
-@include switcher('#supGuidance', 2, $container-sm, 0px);
 @include stack('#supGuidance', 40px);
+@include switcher('#supGuidance', 2, $container-sm, 128px);
 #supGuidance {
   svg {
     height: 176px;
   }
-  @include box ('article', 0, 0, 0, 0, 448px);
-  @include box ('h2', 0, 0, 0, var(--colorTitle));
-  @include box ('p', 0, 0, 0, var(--colorSubtext3));
+  @include box ('article', $mW: 448px);
+  @include box ('h2', $color: var(--colorTitle));
+  @include box ('p', $color: var(--colorSubtext3));
 }
 
-@include box('.panel', 32px, 32px, var(--colorSubtext3), 0, 324px);
-@include box('.panel > h3', null, null, null, var(--colorTitleInvert));
-@include box('.panel > p', null, null, null, var(--colorSubtextInvert2));
+@include box('.panel', 32px, 32px, var(--colorSubtext3), null, 324px);
+@include box('.panel > h3', $color: var(--colorTitleInvert));
+@include box('.panel > p', $color: var(--colorSubtextInvert2));
 .panel {
   border-radius: 8px;
 }
 
-@include box('#secFeaturesText > h2', 0, 0, 0, var(--colorTitleInvert), 640px);
-@include box('#secFeaturesText > p', 0, 0, 0, var(--colorSubtextInvert), 640px);
-#secFeatures {
-
-  
+@include box('#secFeatures', $back: var(--colorBackInvert));
+@include box('#secFeaturesText', $mBot: 96px, $mW: 640px);
+@include box('#secFeaturesText > h2', $color:var(--colorTitleInvert));
+@include box('#secFeaturesText > p', $color:var(--colorSubtextInvert));
+@include switcher('#secFeatures', 3, $container-sm, 26px);
+#secFeatures {  
   svg {
     width: 80px;
   }
+
 }
 
-#secFeaturesBack {
-  background: var(--colorBackInvert);
-  position: absolute;
-  left:0;
-  height: 500px;
-  min-width: 100vw;
-  z-index: -1;
-}
-
-#keyFeatures {
+@include switcher('#keyFeatures', 2, $container-sm, 87px);
+@include box('#keyFeaturesTitle', $color: var(--colorTitle), $mW: 489px);
+@include box('#keyFeaturesContent', $mW: 351px);
+#keyFeatures {  
   svg {
     width: 56px;
   }
 }
+@media (max-width: $container-sm) {
+  #keyFeaturesTitle {
+    position: static;
+  }  
+}
+main {
+  overflow: visible;
+}
 
-
+#tag-along {  
+  position:relative;
+  #keyFeaturesTitle {
+    position:sticky;
+    top:150px;
+    height: 100%;
+  }
+}
 ionic-sub-header {
   svg {
     height: 24px;
   }
 }
 
+@include stack('.main1', $sectionPadding);
+@include box('.main1', $pY: $sectionPadding);
+.main1 {
+
+}
+@include box('.main2', $pY: $sectionPadding);
+.main2 {
+
+}
+@include box('.main3', $pY: $sectionPadding);
+.main3 {
+
+}
+
 @media (max-width: $container-sm) {
-  
+
 }

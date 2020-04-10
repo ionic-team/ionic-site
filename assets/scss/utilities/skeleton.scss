@@ -1,3 +1,12 @@
+@mixin animationForward($name: unique-id(), $time: 1s, $curve: cubic-bezier(.47,.44,.11,.87)) {
+  animation: #{$name} #{$time};
+  animation-timing-function: $curve;
+  animation-fill-mode: forwards;
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 .strip {
   display:flex;
   flex-wrap: wrap;
@@ -20,7 +29,16 @@
 }
 .flex\:r\:nw {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex\:c {
+  display:flex;
+  flex-direction:column;
 }
 
 
@@ -55,8 +73,6 @@
   #{$element}[class~='stack'] {    
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
-    justify-content: flex-start;
   }
 
   #{$element}[class~='stack'] > * {

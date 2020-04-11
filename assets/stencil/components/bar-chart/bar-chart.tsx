@@ -29,7 +29,7 @@ export class BarChart {
       return bar.label;
     });
 
-    const chart = c3.generate({
+    c3.generate({
       bindto: this.el,
       data: {
         columns: [ bars ],

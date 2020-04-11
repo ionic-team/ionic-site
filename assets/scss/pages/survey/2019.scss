@@ -275,6 +275,12 @@ main {
     figure {
       margin: 30px 0;
     }
+
+    @media (max-width: $screen-sm-max)  {
+      svg {
+        max-width: 100%;
+      }
+    }
   }
 
   .cols {
@@ -284,10 +290,23 @@ main {
     .col {
       width: 380px;
       overflow: visible;
+
+      @media (max-width: $screen-sm-max)  {
+        width: 360px;
+      }
     }
 
     + h4 {
       margin-top: 50px;
+    }
+
+
+    @media (max-width: $screen-xs-max)  {
+      flex-wrap: wrap;
+
+      .col {
+        width: 100%;
+      }
     }
   }
 }

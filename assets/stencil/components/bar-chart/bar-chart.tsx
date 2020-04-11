@@ -43,7 +43,7 @@ export class BarChart {
         },
       },
       padding: {
-        left: 240,
+        left: 218,
       },
       size: {
         height: 37 * labels.length

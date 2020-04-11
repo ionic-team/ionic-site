@@ -400,6 +400,7 @@ main {
 #results-demographcis,
 #results-frameworks,
 #results-pwas,
+#results-process,
 #results-backend {
   position: relative;
 
@@ -419,6 +420,10 @@ main {
 #results-demographcis::before { top: -18px; }
 
 #results-frameworks::before {
+  background-image: url('/img/survey/lines-frameworks.svg');
+}
+
+#results-process::before {
   background-image: url('/img/survey/lines-frameworks.svg');
 }
 

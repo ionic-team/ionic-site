@@ -18,6 +18,11 @@ import {
 } from './components/react-components/react-components';
 
 export namespace Components {
+  interface BarChart {
+    'color': string;
+    'graphData': string | object;
+    'highlightFirst': number;
+  }
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
@@ -100,6 +105,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLBarChartElement extends Components.BarChart, HTMLStencilElement {}
+  var HTMLBarChartElement: {
+    prototype: HTMLBarChartElement;
+    new (): HTMLBarChartElement;
+  };
 
   interface HTMLHomeComponentsElement extends Components.HomeComponents, HTMLStencilElement {}
   var HTMLHomeComponentsElement: {
@@ -233,6 +244,7 @@ declare global {
     new (): HTMLUiFloatingInputElement;
   };
   interface HTMLElementTagNameMap {
+    'bar-chart': HTMLBarChartElement;
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
     'icon-external': HTMLIconExternalElement;
@@ -259,6 +271,11 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface BarChart {
+    'color'?: string;
+    'graphData'?: string | object;
+    'highlightFirst'?: number;
+  }
   interface HomeComponents {}
   interface HomeNative {}
   interface IconExternal {}
@@ -337,6 +354,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'bar-chart': BarChart;
     'home-components': HomeComponents;
     'home-native': HomeNative;
     'icon-external': IconExternal;
@@ -368,6 +386,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'bar-chart': LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;

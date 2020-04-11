@@ -724,7 +724,6 @@ createCube = ($element, color, size) => {
   
   //Create WebGL renderer, camera and scene
   const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-  renderer.setSize(width, height);
   const camera = new THREE.PerspectiveCamera(
     45, 1, 0.1, 10000);
   const scene = new THREE.Scene();
@@ -737,6 +736,7 @@ createCube = ($element, color, size) => {
   camera.position.z = 400;
   
   //init renderer
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   
   $element.append(renderer.domElement);

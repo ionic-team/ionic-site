@@ -173,13 +173,13 @@ export class AppWizard {
       await login(this.loginForm.email, this.loginForm.password, 'start-wizard', 'Start Wizard Log In');
       this.email = this.loginForm.email;
       this.authenticating = false;
+      return this.finish();
     } catch (e) {
       this.authenticating = false;
       this.loginErrors = e;
       return;
     }
 
-    return this.finish();
   }
 
   handleSignup = (e: CustomEvent<SignupForm>) => {
@@ -827,7 +827,7 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
   <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
     <div class="errorlist">
-      <FormErrors>{errors.message}</FormErrors>
+      <FormErrors>{errors.message}{errors.reason ? `: ${errors.reason}` : ``}</FormErrors>
     </div>
     ) : null }
     <ui-floating-input

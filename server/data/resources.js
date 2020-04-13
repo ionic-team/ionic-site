@@ -396,6 +396,22 @@ const resources = {
     items: [
       {
         "type": "Webinar",
+        "title": "Appflow: Push to App Stores",
+        "url": "https://ionicframework.com/resources/webinars/appflow-push-to-app-stores",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-deploy-to-appstore.png",
+        "bgColor": "#6966f3"
+      },
+      {
+        "type": "Webinar",
+        "title": "Build your own Ionic-React app",
+        "url": "https://ionicframework.com/resources/webinars/ionic-react",
+        "action": "Watch",
+        "bgImage": "/img/resource-center/webinar-ionic-react.png",
+        "bgColor": "#5ba2fc"
+      },
+      {
+        "type": "Webinar",
         "title": "Ionic 5: Live Demo and Q&A",
         "url": "https://ionicframework.com/resources/webinars/announcing-ionic-5",
         "action": "Watch",
@@ -441,7 +457,7 @@ const resources = {
         "action": "Watch",
         "bgImage": "/img/resource-center/webinar-auth-connect.png",
         "bgColor": "#b396ec"
-      },{
+      }, {
         "type": "Webinar",
         "title": "Capacitor 1.0: A new way to build native mobile apps with Ionic",
         "url": "/resources/webinars/capacitor-version-one-launch-native-pwas-for-all",
@@ -628,7 +644,7 @@ const resources = {
         "action": "View",
         "bgImage": "/img/resource-center/presentation-ionic-stencil.jpg",
         "bgColor": "#555d81"
-      },  {
+      }, {
         "type": "Video",
         "title": "Building production PWAs with Ionic",
         "url": "https://www.youtube.com/watch?v=aVZ_HyA6XjA",
@@ -671,7 +687,7 @@ Object.keys(resources).forEach((category, index) => {
   heroFeatured.map(resource => {
     if (resource.category === category)
       candidates = candidates.filter(o => o.title !== resource.title);
-    }
+  }
   );
   sectionFeatured[category] = candidates.slice(0, 4);
 });

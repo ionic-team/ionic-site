@@ -39,9 +39,10 @@ $btnSecondaryText: #{$mainColor};
   font-weight: bold;
   letter-spacing: .1rem;
   white-space: nowrap;
+  text-align:center;
 }
 
-@include box('.btn-primary', 16px, 20px, $btnPrimaryBack, $btnPrimaryText, $mRight: 20px, $mBot: 20px);
+@include box('.btn-primary', null, null, $btnPrimaryBack, $btnPrimaryText);
 .btn-primary {
   @extend %btn;
   @include animationForward($time: 300ms) {
@@ -65,7 +66,7 @@ $btnSecondaryText: #{$mainColor};
   }
 }
 
-@include box('.btn-secondary', 16px, 20px, $btnSecondaryBack, $btnSecondaryText);
+@include box('.btn-secondary', null, null, $btnSecondaryBack, $btnSecondaryText);
 .btn-secondary {
   @extend %btn;
   @include animationForward($time: 300ms) {
@@ -179,6 +180,38 @@ a {
 
 @include stack('', 40px);
 
+
+@include box('ionic-sub-header .btn-primary', $pY:5px, $pX: 10px);
+ionic-sub-header {
+
+  #hdrNativeLogo:hover {
+    path.text {
+      // color: black;
+      fill: black;
+    }
+    path.tb-rect {
+      fill: #E4B035;
+    }
+    path.lr-rect {
+      fill: #FFD352;
+    }
+  }
+  svg {
+    height: 24px;
+  }
+  .btn-primary {
+    padding-top: 6px !important;
+    padding-right: 10px !important;
+    font-size: 13px;
+    height: 28px;
+    font-weight: 600;
+
+    &:hover {
+      color:white !important;
+    }
+  }
+}
+
 @include box('#hero', $pY: 134px);
 #hero {
   min-height: $heroHeight;
@@ -187,6 +220,8 @@ a {
 }
 
 @include box('#heroText', $mW: 448px);
+@include box('#heroText a.btn-primary', $pY:16px, $pX: 20px, $mRight: 20px, $mBot: 20px);
+@include box('#heroText a.btn-secondary', $pY:16px, $pX: 20px);
 #heroText {
 
   @include box(h1, $color: $colorTitle);
@@ -281,7 +316,6 @@ a {
 @include box('.panel > p', $color: $colorSubtextInvert2);
 .panel {
   border-radius: 8px;
-  // cursor: pointer;
   @include animationForward($time: 300ms) {
     0% {
       background: lighten(#445B78, 4%);
@@ -382,12 +416,6 @@ a {
 @include box('#get-started', $pY: $sectionPad);
 #get-started {
 
-}
-
-ionic-sub-header {
-  svg {
-    height: 24px;
-  }
 }
 
 // -------------------------- MEDIA QUERIES -------------------------------

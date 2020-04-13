@@ -285,7 +285,8 @@
     }
   }
 
-  &#promo--ionic-for-enterprise {
+  &#promo--ionic-for-enterprise,
+  &#promo--state-of-app-dev-2020 {
     padding-top: 56px;
     padding-bottom: 72px;
     background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 49.99%, #F6F6FB 50%, #F6F6FB 100%);
@@ -319,7 +320,7 @@
       }
     }
 
-    #btn-promo-evaluating-ionic-for-enterprise {
+    .btn {
       background: rgba(#CFD4FE, .35);
       border-radius: 10px;
       box-shadow: none;
@@ -351,6 +352,24 @@
       .promo__illustration {
         bottom: -100px;
       }
+    }
+  }
+
+  &#promo--state-of-app-dev-2020 {
+    overflow: hidden;
+    background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 49.99%, #eef5ff 50%, #e8f1ff 100%);
+
+    .promo__illustration {
+      width: 450px;
+      height: 501px;
+      left: calc(50% - 12px);
+      bottom: auto;
+      top: 32px;
+    }
+
+    @media (max-width: $screen-sm) {
+      background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 100%);
+
     }
   }
 

@@ -220,6 +220,19 @@ main {
     margin: 48px 0 100px;
   }
 
+  dt {
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 24px;
+
+    small {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      color: rgba(white, .7);
+    }
+  }
+
   dd {
     margin-bottom: 60px;
   }
@@ -308,6 +321,14 @@ main {
         width: 100%;
       }
     }
+  }
+}
+
+#results {
+  h3 {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
   }
 }
 
@@ -431,12 +452,12 @@ main {
     background-image: url('/img/survey/lines-demographics.svg');
     width: 393px;
     height: 300px;
-    top: -68px;
+    top: -50px;
     left: -60px;
   }
 }
 
-#results-demographcis::before { top: -18px; }
+#results-demographcis::before { top: 0; }
 
 #results-frameworks::before {
   background-image: url('/img/survey/lines-frameworks.svg');

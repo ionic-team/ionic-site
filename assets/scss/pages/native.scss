@@ -18,6 +18,7 @@ $colorTitleInvert: white;
 $colorSubtext1: #2D4665;
 $colorSubtext2: #616E7E;
 $colorSubtext3: #445B78;
+$colorSubtext4: #5B708B;;
 $colorSubtextInvert: #E9EDF3;
 $colorSubtextInvert2: #CED6E0;
 
@@ -88,6 +89,7 @@ $btnSecondaryText: #{$mainColor};
   }
   
 }
+
 // #endregion
 
 // #region --------------- DEFAULT STYLES -------------
@@ -133,6 +135,36 @@ a {
   &:active, &:hover, &:focus {
     text-decoration: none;
   }
+}
+#sticky-bar .anchor:hover {
+  color: $mainColor;
+  font-weight: 600;
+}
+#sticky-bar li.active a:not(.btn) {
+  color: $mainColor;
+}
+
+.btn.anchor {
+  background: $mainColor;
+}
+.highlight {
+  color: #4a8bfc;
+}
+.superTitle {
+  content: 'key features';
+  text-transform: uppercase;
+  color: #73849A;
+  letter-spacing: .16em;
+  font-size: 12px;
+  font-family: Roboto Mono;
+  font-weight: bold;
+  position: absolute;
+  top: -32px;
+  width: 100%;
+}
+
+#get-started .content {
+  position: relative;
 }
 
 // Main Section Styles
@@ -249,7 +281,7 @@ a {
 @include box('.panel > p', $color: $colorSubtextInvert2);
 .panel {
   border-radius: 8px;
-  cursor: pointer;
+  // cursor: pointer;
   @include animationForward($time: 300ms) {
     0% {
       background: lighten(#445B78, 4%);
@@ -289,8 +321,10 @@ a {
 
 @include switcher('#keyFeatures', 2, ($container-sm - $grid-gutter-width), 87px);
 @include box('#keyFeatures', $back: $colorBack2);
+@include box('#keyFeaturesTitle p', $color: $colorSubtext4);
 @include box('#keyFeaturesContent h3', $color: $colorTitle2);
 @include box('#keyFeaturesContent p', $color: $colorSubtext3);
+
 #keyFeatures {  
   @include box('svg', $mRight: 40px);
   svg {
@@ -315,6 +349,7 @@ a {
     }
   }
   article:not(:last-child):after {
+    contain: content;
     writing-mode: vertical-lr;
     content: '............................................................';
     position: absolute;

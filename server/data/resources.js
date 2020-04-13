@@ -144,7 +144,7 @@ const resources = {
       }, {
         "type": "Article",
         "title": "Evaluating Ionic for Enterprise",
-        "url": "/resources/whitepapers/evaluating-ionic-for-enterprise-development",
+        "url": "https://go.ionicframework.com/enterprise-eval-guide",
         "target": "_self",
         "action": "Read",
         "bgImage": "/img/resource-center/article-evaluating-for-enterprise.png",

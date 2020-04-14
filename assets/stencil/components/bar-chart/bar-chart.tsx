@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State } from '@stencil/core';
+import { Component, Element, Prop, State, h } from '@stencil/core';
 import c3 from 'c3';
 
 @Component({
@@ -9,13 +9,42 @@ import c3 from 'c3';
 export class BarChart {
 
   @Prop() graphData: string | object = {};
-  @Prop() color: string = '#b2becd';
-  @Prop() highlightFirst: number;
-  @State() data = {};
+  @Prop() color: string = 'blue';
 
   @Element() el;
 
-  componentDidLoad() {
+  data = {};
+  barChartGradients = `
+    <svg id="bar-chart-gradients" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pink-gradient">
+          <stop offset="0%" stop-color="#F9BFD7" />
+          <stop offset="100%" stop-color="#F37BAB" />
+        </linearGradient>
+        <linearGradient id="blue-gradient">
+          <stop offset="0%" stop-color="#87B3FF" />
+          <stop offset="100%" stop-color="#3780FF" />
+        </linearGradient>
+        <linearGradient id="yellow-gradient">
+          <stop offset="0%" stop-color="#FCEEB4" />
+          <stop offset="100%" stop-color="#F7D443" />
+        </linearGradient>
+        <linearGradient id="green-gradient">
+          <stop offset="0%" stop-color="#8BF49D" />
+          <stop offset="100%" stop-color="#3EED5B" />
+        </linearGradient>
+      </defs>
+    </svg>`
+
+  componentWillLoad() {
+    const gradientsExist = !!document.getElementById('bar-chart-gradients');
+    if (!gradientsExist) {
+      // add hidden SVG of gradient defs if it doesn't exist yet
+      const parser = new DOMParser();
+      const $svg = parser.parseFromString(this.barChartGradients, 'text/html');
+      document.body.appendChild($svg.body);
+    }
+
     this.data = typeof this.graphData === 'string' ? JSON.parse(this.graphData) : this.graphData;
 
     var data = Object.keys(this.data).map((k) => {
@@ -39,7 +68,7 @@ export class BarChart {
           format: function(v) { return v + '%'; }
         },
         colors: {
-          data1: '#4a8bfc'
+          data1: this.color
         },
       },
       padding: {

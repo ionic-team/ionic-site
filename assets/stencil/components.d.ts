@@ -21,7 +21,6 @@ export namespace Components {
   interface BarChart {
     'color': string;
     'graphData': string | object;
-    'highlightFirst': number;
   }
   interface HomeComponents {}
   interface HomeNative {}
@@ -274,7 +273,6 @@ declare namespace LocalJSX {
   interface BarChart {
     'color'?: string;
     'graphData'?: string | object;
-    'highlightFirst'?: number;
   }
   interface HomeComponents {}
   interface HomeNative {}

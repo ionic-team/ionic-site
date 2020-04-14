@@ -1,7 +1,7 @@
 {% extends "_layouts/base.html" %}
 {% set id = 'survey-2019' %}
 {% set name = '2019 Developer Survey' %}
-{% set meta_image = 'https://ionicframework.com/img/survey/survey-meta-2019.png' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/19-dev-survey-ogimg.png' %}
 {% set header_style = 'transparent' %}
 {% set cssPath = 'survey/2019' %}
 
@@ -44,8 +44,7 @@
     <div class="container">
       <h2>2019: A year of growth.</h2>
       <p class="lg">Welcome to the 2019 Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared their stories and perspectives with us.</p>
-      <p class="lg">The theme of this year’s results is Growth: The growing influence of Web Developers, who now control every layer of the stack, across all deployment targets.  And a growing, diverse Ionic community, with more React and Vue developers than ever before.</p>
-      <p> Read on for some of our topline takeaways and observations, then investigate the data for yourself at the bottom of the page.</p>
+      <p class="lg">The theme of this year’s survey is the “Age of the Web Developer”. Web Developers now control every layer of the stack - from frontend to backend - across all deployment targets—mobile and desktop included. And as more and more web-centric tools, libraries, and frameworks emerge, their power and influence will only grow.Read on for more analysis, along with the usual list of most popular tools & services.</p>
     </div>
   </section>
 
@@ -53,7 +52,7 @@
 
   <section id="trends" class="grey">
     <div class="container">
-      <h2>The Age of the Web Developer</h2>
+      <h2>Web Developers Rule the World</h2>
       <div class="cols">
         <div class="col">
           <p class="highlight">Over 75% of the software developers in our survey identified themselves as Web Developers.</p>
@@ -191,504 +190,506 @@
     </div>
   </section>
 
-  <section id="backend" class="grey">
-    <div class="container">
-      <h2>Continuous delivery</h2>
-      <div class="cols">
-        <div class="col">
-          <h4>Top CI/CD tools</h4>
-          <p>Now that we’ve seen how many apps respondents are responsible for, let’s look at how they’re managing their processes. DevOps and continuous integration and continuous delivery (CI/CD) tools to streamline software development, testing, and deployment are no longer new. Developers know that using a CI/CD tool of some kind is critical to keeping your release cadence where it needs to be--whether it’s weekly, daily, or more.</p>
+  <div id="dark-sections">
+    <section id="backend" class="grey">
+      <div class="container">
+        <h2>Continuous delivery</h2>
+        <div class="cols">
+          <div class="col">
+            <h4>Top CI/CD tools</h4>
+            <p>Now that we’ve seen how many apps respondents are responsible for, let’s look at how they’re managing their processes. DevOps and continuous integration and continuous delivery (CI/CD) tools to streamline software development, testing, and deployment are no longer new. Developers know that using a CI/CD tool of some kind is critical to keeping your release cadence where it needs to be--whether it’s weekly, daily, or more.</p>
+          </div>
+          <div class="col">
+            <h4>Top 3 General Purpose CI/CD tools:</h4>
+            <figure>
+              <svg xmlns="http://www.w3.org/2000/svg" width="411" height="87" viewBox="0 0 411 87"><g transform="translate(-780 -8715)"><text transform="translate(780 8715)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">22%</tspan></text><text transform="translate(780 8749)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">20%</tspan></text><text transform="translate(780 8783)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">18%</tspan></text><text transform="translate(1068 8716)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitLab CI</tspan></text><text transform="translate(1068 8750)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Jenkins/CloudBees</tspan></text><text transform="translate(1068 8784)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitHub Actions</tspan></text><line x2="248" transform="translate(809.5 8729.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="56" transform="translate(809.5 8724.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8763.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="47" transform="translate(809.5 8758.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8797.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8792.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+            </figure>
+            <h4>Top 3 Mobile CI/CD tools:</h4>
+            <figure>
+              <svg xmlns="http://www.w3.org/2000/svg" width="439" height="87" viewBox="0 0 439 87"><g transform="translate(-780 -8897)"><text transform="translate(780 8897)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">12%</tspan></text><text transform="translate(780 8931)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">05%</tspan></text><text transform="translate(780 8965)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">01%</tspan></text><text transform="translate(1068 8898)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Ionic Appflow</tspan></text><text transform="translate(1068 8932)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Microsoft App Center</tspan></text><text transform="translate(1068 8966)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Buddy Build</tspan></text><line x2="248" transform="translate(809.5 8911.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8906.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8945.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="15" transform="translate(809.5 8940.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8979.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="8" transform="translate(809.5 8974.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+            </figure>
+          </div>
         </div>
-        <div class="col">
-          <h4>Top 3 General Purpose CI/CD tools:</h4>
-          <figure>
-            <svg xmlns="http://www.w3.org/2000/svg" width="411" height="87" viewBox="0 0 411 87"><g transform="translate(-780 -8715)"><text transform="translate(780 8715)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">22%</tspan></text><text transform="translate(780 8749)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">20%</tspan></text><text transform="translate(780 8783)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">18%</tspan></text><text transform="translate(1068 8716)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitLab CI</tspan></text><text transform="translate(1068 8750)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Jenkins/CloudBees</tspan></text><text transform="translate(1068 8784)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitHub Actions</tspan></text><line x2="248" transform="translate(809.5 8729.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="56" transform="translate(809.5 8724.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8763.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="47" transform="translate(809.5 8758.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8797.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8792.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
-          </figure>
-          <h4>Top 3 Mobile CI/CD tools:</h4>
-          <figure>
-            <svg xmlns="http://www.w3.org/2000/svg" width="439" height="87" viewBox="0 0 439 87"><g transform="translate(-780 -8897)"><text transform="translate(780 8897)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">12%</tspan></text><text transform="translate(780 8931)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">05%</tspan></text><text transform="translate(780 8965)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">01%</tspan></text><text transform="translate(1068 8898)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Ionic Appflow</tspan></text><text transform="translate(1068 8932)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Microsoft App Center</tspan></text><text transform="translate(1068 8966)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Buddy Build</tspan></text><line x2="248" transform="translate(809.5 8911.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8906.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8945.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="15" transform="translate(809.5 8940.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8979.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="8" transform="translate(809.5 8974.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
-          </figure>
-        </div>
+        <h4>How developers are using CI/CD tools</h4>
+        <p class="highlight">While over 75% of professionals surveyed are using a CI/CD tool, that still leaves almost a quarter that aren’t. The release cadence for these companies shows how valuable CI/CD tools can be in today’s environment.</p>
+        <p class="highlight">Respondents using a CI/CD tool were <strong>70% more likely to release multiple times per week or more</strong>, and 42% less likely to release quarterly or less.</p>
+        <div class="spacer"></div>
+        <h4>How often do you release apps? (release cadence)</h4>
+        <figure>
+          <img src="/img/survey/release-frequency@2x.png"
+            srcset="/img/survey/release-frequency.png 1x, /img/survey/release-frequency@2x.png 2x"
+            alt="Chart showing that those who use CI/CD tools tend to release more frequently" />
+        </figure>
+        <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
       </div>
-      <h4>How developers are using CI/CD tools</h4>
-      <p class="highlight">While over 75% of professionals surveyed are using a CI/CD tool, that still leaves almost a quarter that aren’t. The release cadence for these companies shows how valuable CI/CD tools can be in today’s environment.</p>
-      <p class="highlight">Respondents using a CI/CD tool were <strong>70% more likely to release multiple times per week or more</strong>, and 42% less likely to release quarterly or less.</p>
-      <div class="spacer"></div>
-      <h4>How often do you release apps? (release cadence)</h4>
-      <figure>
-        <img src="/img/survey/release-frequency@2x.png"
-          srcset="/img/survey/release-frequency.png 1x, /img/survey/release-frequency@2x.png 2x"
-          alt="Chart showing that those who use CI/CD tools tend to release more frequently" />
-      </figure>
-      <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
-    </div>
-  </section>
-
-  <section id="bottom-line" class="dark center">
-    <div class="container">
-      <h2>The bottom line</h2>
-      <p class="lg">We’ve been conducting this survey for three years now, and the results have never been more clear: PWAs are here and they’re delivering results. It’s also important to recognize that Web Developers are delivering more and more value, as they shift from the browser to the full technology stack.</p>
-      <p class="lg">Companies are recognizing these facts in a few important ways. First, they’re recognizing the value Web Developers bring and leaning on them for more decision-making responsibilities. Organizations are also increasingly investing in comprehensive web strategies, and realizing that PWAs are an important way to deliver cross-platform apps efficiently, and effectively drive users to their apps.</p>
-      <p class="lg"><strong>At Ionic we’ve always believed in the power of the web—and web developers. The results of this survey show that year after year, more companies are joining us on that path.</strong></p>
-    </div>
-  </section>
-
-  <section id="results" class="black">
-    <div class="container">
-      <h2>Survey Results and Demographics</h2>
-      <p class="lg">We’re happy to say that the survey once again attracted a diverse community of respondents. Developers of all types, working on different types of apps, working for companies of all sizes, in a range of industries, all across the globe contributed to our study.</p>
-      <p class="lg">See for yourself:</p>
-      <h3 id="results-demographcis">Demographics</h3>
-      <dl>
-        <dt>Which of the following best describes you?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Professional Developer": 81,
-                "Non-Developer, Occasional": 9,
-                "Student": 7,
-                "Former Developer": 2,
-                "Other": 2 
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following best describes the principal industry of your organization?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Telecommunications, Technology, Internet & Electronics": 28,
-                "Professional Services & Consulting": 18,
-                "Education": 7,
-                "Finance & Financial Services": 7,
-                "Healthcare & Pharmaceuticals": 5,
-                "Business Support & Logistics": 4,
-                "Advertising & Marketing": 4,
-                "Entertainment & Leisure": 3,
-                "Government": 3,
-                "Retail & Consumer Durables": 2,
-                "Transportation & Delivery": 2,
-                "Manufacturing": 2,
-                "Food & Beverages": 1,
-                "Insurance": 1,
-                "Automotive": 1,
-                "Nonprofit": 1,
-                "Utilities, Energy, and Extraction": 1,
-                "Construction, Machinery, and Homes": 1,
-                "Agriculture": 1,
-                "Real Estate": 1,
-                "Airlines & Aerospace": 1,
-                "I am currently not employed": 5
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-      <dl>
-        <dt>About how many employees work at your company?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "1-10 employees": 37,
-                "11-50 employees": 22,
-                "51-500 employees": 18,
-                "501-1000 employees": 4,
-                "1001-5000 employees": 5,
-                "5,001+ employees": 7,
-                "I am currently not employed": 7
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>In which region do you currently reside?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Europe": 39,
-                "Asia and Pacific": 22,
-                "South and Latin America": 16,
-                "North America": 16,
-                "Africa, Middle East, and CIS": 7
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which following best describe you as a software developer?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Web developer": 76,
-                "Mobile developer": 16,
-                "Desktop applications developer": 2,
-                "DevOps specialist": 1,
-                "Data scientist": 0,
-                "Systems administrator": 0,
-                "Graphic designer": 0,
-                "Database administrator": 0,
-                "Oter": 4
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>
-          Which of the following best describes you as a Web developer?
-          <small>For respondents who identified as Web Developers in the previous question.</small>
-        </dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Full stack Web developer": 78,
-                "Front-end Web developer": 17,
-                "Back-end Web developer": 5
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>
-          Which of the following ​best describes your current role?
-          <small>For respondents who identified as non-developers.</small>
-        </dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Engineering manager": 15,
-                "C-suite executive (CIO, CTO, etc.)": 14,
-                "Product manager": 12,
-                "Analyst or consultant": 10,
-                "Designer or illustrator": 8,
-                "Educator or academic researcher": 7,
-                "Architect": 6,
-                "Data scientist": 3,
-                "Other": 25
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-      <h3 id="results-frameworks">Frameworks, Tools, and Approaches</h3>
-      <dl>
-        <dt>Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Angular": 84,
-                "React": 30,
-                "Vue": 20,
-                "Stencil": 6,
-                "Ext JS": 4,
-                "Backbone": 2,
-                "Meteor": 2,
-                "Polymer": 2,
-                "Ember": 1,
-                "Svelte": 1,
-                "Preact": 1,
-                "Other": 10
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following mobile development tools and SDKs have you done extensive development work in over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Ionic": 86,
-                "Cordova": 48,
-                "Native Android": 20,
-                "React Native": 16,
-                "Flutter": 12,
-                "Native iOS": 11,
-                "Xamarin": 6,
-                "NativeScript": 5,
-                "Other": 3
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-
-      <h3 id="results-backend">Backend Technology</h3>
-      <dl>
-        <dt>Which of the following continuous integration and delivery (CI/CD) tools have you used extensively over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "GitLab CI": 22,
-                "Jenkins/ CloudBees": 20,
-                "GitHub Actions": 18,
-                "BitBucket Pipeline": 15,
-                "Azure DevOps": 13,
-                "Ionic Appflow": 12,
-                "Circle CI": 6,
-                "Travis CI": 6,
-                "Microsoft App Center": 5,
-                "AWS CodePipeline": 5,
-                "Buddy Build": 1,
-                "Bitrise": 0,
-                "Other": 6,
-                "None": 24
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following backend service providers have you used extensively over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Firebase / GCP": 53,
-                "AWS": 43,
-                "Azure": 23,
-                "Heroku": 16,
-                "IBM": 3,
-                "Oracle (Mobile Hub)": 2,
-                "Red Hat (Feed Henry)": 2,
-                "Progress (Kinvey)": 0,
-                "Kumulos": 0,
-                "Rackspace Managed Cloud": 0,
-                "Digital Ocean": 0,
-                "Other (please specify)": 11
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following hosting providers have you used extensively over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "AWS": 39,
-                "Firebase / GCP": 36,
-                "Self-hosted": 33,
-                "Azure": 18,
-                "Digital Ocean": 16,
-                "Heroku": 14,
-                "Netlify": 6,
-                "Other": 10
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following database environments have you done extensive development work in over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "MySQL": 55,
-                "Firebase": 36,
-                "MongoDB": 31,
-                "Microsoft SQL Server": 26,
-                "SQLite": 26,
-                "Postgres": 25,
-                "MariaDB": 17,
-                "Redis": 10,
-                "Oracle": 10,
-                "AWS RDS": 8,
-                "AWS DynamoDB": 6,
-                "CouchDB": 4,
-                "Cassandra": 2,
-                "Couchbase": 2,
-                "Other": 4
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following user authentication services have you used extensively over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Firebase Auth": 43,
-                "Custom OAuth": 33,
-                "Auth0": 28,
-                "OpenID Connect": 9,
-                "Azure Authentication": 8,
-                "Amazon Cognito": 7,
-                "Auth.io": 6,
-                "Microsoft ADFS": 6,
-                "GCP Auth": 4,
-                "Fabric Digits": 0,
-                "Stormpath": 0,
-                "Other": 9
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following push notification services have you used extensively over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Firebase": 73,
-                "OneSignal": 28,
-                "Amazon Pinpoint": 4,
-                "Pushwoosh": 2,
-                "Urban Airship": 1,
-                "Apple Push Notification Service": 0,
-                "Google Cloud Messaging": 0,
-                "Other": 11
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-
-      <h3 id="results-process">Development Process</h3>
-      <dl>
-        <dt>How much influence do you have when it comes to determining which backend services and providers to use?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "I have the final say": 30,
-                "A great deal": 24,
-                "A lot": 10,
-                "A moderate amount": 18,
-                "A little": 10,
-                "None at all": 8
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>How many new apps did you or your team deliver in the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "1-3": 70,
-                "4-8": 24,
-                "9-15": 4,
-                "16-20": 1,
-                "20+": 1
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>How long, on average, does it take your organization to deliver a new mobile or web application?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "1 - 2 months": 21,
-                "3 - 4 months": 41,
-                "5 - 6 months": 22,
-                "7 - 12 months": 9,
-                "Over 12 months": 8
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>How many existing apps did you or your team actively maintain or update during the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "1-5": 78,
-                "6-10": 15,
-                "11-20": 4,
-                "20+": 3
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>About how frequently do you release new versions and update to the apps that you currently maintain?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Every day": 4,
-                "A few times a week": 9,
-                "About once a week": 11,
-                "A few times a month": 23,
-                "Once a month": 24,
-                "Once a quarter": 18,
-                "Less than once a quarter": 11
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>How many app development projects are currently in the backlog and awaiting development?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "1-9": 90,
-                "10-19": 7,
-                "20-29": 1,
-                "30-49": 1,
-                "50-100": 1,
-                "100+": 1
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-
-      <h3 id="results-pwas">Progressive Web Apps</h3>
-      <dl>
-        <dt>Which of the following deployment targets have you developed apps for over the past year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Google Play": 82,
-                "iOS App Store": 70,
-                "Web Browser (including PWAs)": 62,
-                "Desktop Container (e.g. Electron)": 13,
-                "Smart Devices": 6,
-                "Chat / Conversational AI": 5,
-                "Microsoft Store": 3,
-                "Voice": 2,
-                "Wearables": 2
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Have you published a Progressive Web App (PWA) in the last year?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Yes": 38,
-                "No": 37,
-                "No, but we plan to next year": 25
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Will the app also be available as a native binary in the app stores?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Yes": 40,
-                "No": 26,
-                "Maybe": 34
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>What is the *primary* motivation for building a PWA?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Cross-platform efficiency": 42,
-                "Distribute the app directly to users": 18,
-                "Improve mobile web experience": 18,
-                "Easier to update the app as needed": 11,
-                "Acquire more users": 10,
-                "Everyone else is doing it": 2
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>If you have published a PWA already, what is the biggest impact you have observed so far?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Simplified operations": 33,
-                "Haven&#145t published the PWA yet": 31,
-                "No impact since publishing the PWA": 12,
-                "Better user engagement": 11,
-                "Increased user acquisition": 9,
-                "Increased in-app/ad-driven revenue": 2,
-                "other": 2
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which tools, libraries, or frameworks are you using to build PWAs?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Ionic": 72,
-                "Angular": 71,
-                "React": 21,
-                "Vue": 15,
-                "Stencil": 8,
-                "Polymer / Lit-Element": 2,
-                "Preact": 1,
-                "Other": 4
-              }'></bar-chart>
-          </figure>
-        </dd>
-        <dt>Which of the following hosting providers are you using to host your PWA(s)?</dt>
-        <dd>
-          <figure>
-            <bar-chart graph-data='{
-                "Firebase / GCP": 38,
-                "Self-hosted": 33,
-                "AWS": 28,
-                "Azure": 13,
-                "Digital Ocean": 11,
-                "Heroku": 9,
-                "Other": 7,
-                "Netlify": 6
-              }'></bar-chart>
-          </figure>
-        </dd>
-      </dl>
-    </div>
-  </section>
+    </section>
+  
+    <section id="bottom-line" class="dark center">
+      <div class="container">
+        <h2>The bottom line</h2>
+        <p class="lg">We’ve been conducting this survey for three years now, and the results have never been more clear: PWAs are here and they’re delivering results. It’s also important to recognize that Web Developers are delivering more and more value, as they shift from the browser to the full technology stack.</p>
+        <p class="lg">Companies are recognizing these facts in a few important ways. First, they’re recognizing the value Web Developers bring and leaning on them for more decision-making responsibilities. Organizations are also increasingly investing in comprehensive web strategies, and realizing that PWAs are an important way to deliver cross-platform apps efficiently, and effectively drive users to their apps.</p>
+        <p class="lg"><strong>At Ionic we’ve always believed in the power of the web—and web developers. The results of this survey show that year after year, more companies are joining us on that path.</strong></p>
+      </div>
+    </section>
+  
+    <section id="results" class="black">
+      <div class="container">
+        <h2>Survey Results and Demographics</h2>
+        <p class="lg">We’re happy to say that the survey once again attracted a diverse community of respondents. Developers of all types, working on different types of apps, working for companies of all sizes, in a range of industries, all across the globe contributed to our study.</p>
+        <p class="lg">See for yourself:</p>
+        <h3 id="results-demographcis">Demographics</h3>
+        <dl>
+          <dt>Which of the following best describes you?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Professional Developer": 81,
+                  "Non-Developer, Occasional": 9,
+                  "Student": 7,
+                  "Former Developer": 2,
+                  "Other": 2 
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following best describes the principal industry of your organization?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Telcom, Tech, Internet & Electronics": 28,
+                  "Professional Services & Consulting": 18,
+                  "Education": 7,
+                  "Finance & Financial Services": 7,
+                  "Healthcare & Pharmaceuticals": 5,
+                  "Business Support & Logistics": 4,
+                  "Advertising & Marketing": 4,
+                  "Entertainment & Leisure": 3,
+                  "Government": 3,
+                  "Retail & Consumer Durables": 2,
+                  "Transportation & Delivery": 2,
+                  "Manufacturing": 2,
+                  "Food & Beverages": 1,
+                  "Insurance": 1,
+                  "Automotive": 1,
+                  "Nonprofit": 1,
+                  "Utilities, Energy, and Extraction": 1,
+                  "Construction, Machinery, and Homes": 1,
+                  "Agriculture": 1,
+                  "Real Estate": 1,
+                  "Airlines & Aerospace": 1,
+                  "I am currently not employed": 5
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+        <dl>
+          <dt>About how many employees work at your company?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "1-10 employees": 37,
+                  "11-50 employees": 22,
+                  "51-500 employees": 18,
+                  "501-1000 employees": 4,
+                  "1001-5000 employees": 5,
+                  "5,001+ employees": 7,
+                  "I am currently not employed": 7
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>In which region do you currently reside?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Europe": 39,
+                  "Asia and Pacific": 22,
+                  "South and Latin America": 16,
+                  "North America": 16,
+                  "Africa, Middle East, and CIS": 7
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which following best describe you as a software developer?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Web developer": 76,
+                  "Mobile developer": 16,
+                  "Desktop applications developer": 2,
+                  "DevOps specialist": 1,
+                  "Data scientist": 0,
+                  "Systems administrator": 0,
+                  "Graphic designer": 0,
+                  "Database administrator": 0,
+                  "Oter": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>
+            Which of the following best describes you as a Web developer?
+            <small>For respondents who identified as Web Developers in the previous question.</small>
+          </dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Full stack Web developer": 78,
+                  "Front-end Web developer": 17,
+                  "Back-end Web developer": 5
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>
+            Which of the following ​best describes your current role?
+            <small>For respondents who identified as non-developers.</small>
+          </dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Engineering manager": 15,
+                  "C-suite executive (CIO, CTO, etc.)": 14,
+                  "Product manager": 12,
+                  "Analyst or consultant": 10,
+                  "Designer or illustrator": 8,
+                  "Educator or academic researcher": 7,
+                  "Architect": 6,
+                  "Data scientist": 3,
+                  "Other": 25
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+        <h3 id="results-frameworks">Frameworks, Tools, and Approaches</h3>
+        <dl>
+          <dt>Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Angular": 84,
+                  "React": 30,
+                  "Vue": 20,
+                  "Stencil": 6,
+                  "Ext JS": 4,
+                  "Backbone": 2,
+                  "Meteor": 2,
+                  "Polymer": 2,
+                  "Ember": 1,
+                  "Svelte": 1,
+                  "Preact": 1,
+                  "Other": 10
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following mobile development tools and SDKs have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Ionic": 86,
+                  "Cordova": 48,
+                  "Native Android": 20,
+                  "React Native": 16,
+                  "Flutter": 12,
+                  "Native iOS": 11,
+                  "Xamarin": 6,
+                  "NativeScript": 5,
+                  "Other": 3
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-backend">Backend Technology</h3>
+        <dl>
+          <dt>Which of the following continuous integration and delivery (CI/CD) tools have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "GitLab CI": 22,
+                  "Jenkins/ CloudBees": 20,
+                  "GitHub Actions": 18,
+                  "BitBucket Pipeline": 15,
+                  "Azure DevOps": 13,
+                  "Ionic Appflow": 12,
+                  "Circle CI": 6,
+                  "Travis CI": 6,
+                  "Microsoft App Center": 5,
+                  "AWS CodePipeline": 5,
+                  "Buddy Build": 1,
+                  "Bitrise": 0,
+                  "Other": 6,
+                  "None": 24
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following backend service providers have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase / GCP": 53,
+                  "AWS": 43,
+                  "Azure": 23,
+                  "Heroku": 16,
+                  "IBM": 3,
+                  "Oracle (Mobile Hub)": 2,
+                  "Red Hat (Feed Henry)": 2,
+                  "Progress (Kinvey)": 0,
+                  "Kumulos": 0,
+                  "Rackspace Managed Cloud": 0,
+                  "Digital Ocean": 0,
+                  "Other (please specify)": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following hosting providers have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "AWS": 39,
+                  "Firebase / GCP": 36,
+                  "Self-hosted": 33,
+                  "Azure": 18,
+                  "Digital Ocean": 16,
+                  "Heroku": 14,
+                  "Netlify": 6,
+                  "Other": 10
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following database environments have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "MySQL": 55,
+                  "Firebase": 36,
+                  "MongoDB": 31,
+                  "Microsoft SQL Server": 26,
+                  "SQLite": 26,
+                  "Postgres": 25,
+                  "MariaDB": 17,
+                  "Redis": 10,
+                  "Oracle": 10,
+                  "AWS RDS": 8,
+                  "AWS DynamoDB": 6,
+                  "CouchDB": 4,
+                  "Cassandra": 2,
+                  "Couchbase": 2,
+                  "Other": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following user authentication services have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase Auth": 43,
+                  "Custom OAuth": 33,
+                  "Auth0": 28,
+                  "OpenID Connect": 9,
+                  "Azure Authentication": 8,
+                  "Amazon Cognito": 7,
+                  "Auth.io": 6,
+                  "Microsoft ADFS": 6,
+                  "GCP Auth": 4,
+                  "Fabric Digits": 0,
+                  "Stormpath": 0,
+                  "Other": 9
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following push notification services have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase": 73,
+                  "OneSignal": 28,
+                  "Amazon Pinpoint": 4,
+                  "Pushwoosh": 2,
+                  "Urban Airship": 1,
+                  "Apple Push Notification Service": 0,
+                  "Google Cloud Messaging": 0,
+                  "Other": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-process">Development Process</h3>
+        <dl>
+          <dt>How much influence do you have when it comes to determining which backend services and providers to use?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "I have the final say": 30,
+                  "A great deal": 24,
+                  "A lot": 10,
+                  "A moderate amount": 18,
+                  "A little": 10,
+                  "None at all": 8
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many new apps did you or your team deliver in the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-3": 70,
+                  "4-8": 24,
+                  "9-15": 4,
+                  "16-20": 1,
+                  "20+": 1
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How long, on average, does it take your organization to deliver a new mobile or web application?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1 - 2 months": 21,
+                  "3 - 4 months": 41,
+                  "5 - 6 months": 22,
+                  "7 - 12 months": 9,
+                  "Over 12 months": 8
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many existing apps did you or your team actively maintain or update during the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-5": 78,
+                  "6-10": 15,
+                  "11-20": 4,
+                  "20+": 3
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>About how frequently do you release new versions and update to the apps that you currently maintain?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Every day": 4,
+                  "A few times a week": 9,
+                  "About once a week": 11,
+                  "A few times a month": 23,
+                  "Once a month": 24,
+                  "Once a quarter": 18,
+                  "Less than once a quarter": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many app development projects are currently in the backlog and awaiting development?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-9": 90,
+                  "10-19": 7,
+                  "20-29": 1,
+                  "30-49": 1,
+                  "50-100": 1,
+                  "100+": 1
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-pwas">Progressive Web Apps</h3>
+        <dl>
+          <dt>Which of the following deployment targets have you developed apps for over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Google Play": 82,
+                  "iOS App Store": 70,
+                  "Web Browser (including PWAs)": 62,
+                  "Desktop Container (e.g. Electron)": 13,
+                  "Smart Devices": 6,
+                  "Chat / Conversational AI": 5,
+                  "Microsoft Store": 3,
+                  "Voice": 2,
+                  "Wearables": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Have you published a Progressive Web App (PWA) in the last year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Yes": 38,
+                  "No": 37,
+                  "No, but we plan to next year": 25
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Will the app also be available as a native binary in the app stores?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Yes": 40,
+                  "No": 26,
+                  "Maybe": 34
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>What is the *primary* motivation for building a PWA?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Cross-platform efficiency": 42,
+                  "Distribute the app directly to users": 18,
+                  "Improve mobile web experience": 18,
+                  "Easier to update the app as needed": 11,
+                  "Acquire more users": 10,
+                  "Everyone else is doing it": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>If you have published a PWA already, what is the biggest impact you have observed so far?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Simplified operations": 33,
+                  "Haven&#145t published the PWA yet": 31,
+                  "No impact since publishing the PWA": 12,
+                  "Better user engagement": 11,
+                  "Increased user acquisition": 9,
+                  "Increased in-app/ad-driven revenue": 2,
+                  "other": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which tools, libraries, or frameworks are you using to build PWAs?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Ionic": 72,
+                  "Angular": 71,
+                  "React": 21,
+                  "Vue": 15,
+                  "Stencil": 8,
+                  "Polymer / Lit-Element": 2,
+                  "Preact": 1,
+                  "Other": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following hosting providers are you using to host your PWA(s)?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Firebase / GCP": 38,
+                  "Self-hosted": 33,
+                  "AWS": 28,
+                  "Azure": 13,
+                  "Digital Ocean": 11,
+                  "Heroku": 9,
+                  "Other": 7,
+                  "Netlify": 6
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </div>
 </main>
 {% endblock %}
 
@@ -703,6 +704,13 @@ const stickyWatcher = () => {
   );
 
   observer.observe(document.getElementById('scroll-spy'));
+
+  {# const observer = new IntersectionObserver( 
+    ([e]) => $nav.classList.toggle('isDark', e.intersectionRatio < 1),
+    {threshold: [1]}
+  );
+
+  observer.observe(document.getElementById('dark-sections')); #}
 };
 stickyWatcher();
 
@@ -787,11 +795,11 @@ createCube = ($element, color, size) => {
 }
 
 createCube(document.querySelector('#cubes li:nth-child(1)'), '#3780FF', 100);
-createCube(document.querySelector('#cubes li:nth-child(2)'), '#F37BAB', 100);
-createCube(document.querySelector('#cubes li:nth-child(3)'), '#F7D443', 100);
-createCube(document.querySelector('#cubes li:nth-child(4)'), '#3EED5B', 50);
-createCube(document.querySelector('#cubes li:nth-child(5)'), '#3780FF', 50);
-createCube(document.querySelector('#cubes li:nth-child(6)'), '#F7D443', 50);
+createCube(document.querySelector('#cubes li:nth-child(2)'), '#1B6DFF', 100);
+createCube(document.querySelector('#cubes li:nth-child(3)'), '#35E2E9', 100);
+createCube(document.querySelector('#cubes li:nth-child(4)'), '#46B1FF', 50);
+createCube(document.querySelector('#cubes li:nth-child(5)'), '#62BDFF', 50);
+createCube(document.querySelector('#cubes li:nth-child(6)'), '#4D8DFF', 50);
 
 </script>
 {% endblock %}

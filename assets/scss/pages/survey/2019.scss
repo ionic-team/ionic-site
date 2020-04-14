@@ -18,11 +18,15 @@ $c-blue-400: #3780FF;
   background: transparent 50% 0% no-repeat padding-box;
   background-image:
     url('/img/survey/banner-mask.svg'),
-    linear-gradient(180deg, #3780FF 0%, #1C4080 100%);
+    linear-gradient(180deg, #4BA6FF 0%, #3E71FF 100%);
   background-size: 1440px, cover;
 
   .container {
     position: relative;
+  }
+
+  hgroup {
+    max-width: 580px;
   }
 
   h1 {
@@ -152,6 +156,15 @@ $c-blue-400: #3780FF;
       backdrop-filter: blur(30px);
     }
   }
+
+  &.isDark {
+    background: black;
+
+    @supports (backdrop-filter: blur(5px)) {
+      background: rgba(black, .8);
+      backdrop-filter: blur(30px);
+    }
+  }
 }
 
 #scroll-spy {
@@ -277,11 +290,8 @@ main {
     }
 
     &.center {
-      text-align: center;
-
       .container {
         max-width: 630px;
-        text-align: center;
       }
     }
 

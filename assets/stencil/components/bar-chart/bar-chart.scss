@@ -2,6 +2,60 @@
 
 bar-chart {
   fill: currentColor;
+
+  // important necessary to override attr vals
+  path.c3-bar {
+    fill: url(#blue-gradient) !important;
+    stroke: url(#blue-gradient) !important;
+  }
+
+  text.c3-text {
+    fill: #3780FF !important;
+  }
+
+  &[color="pink"] {
+    path.c3-bar {
+      fill: url(#pink-gradient) !important;
+      stroke: url(#pink-gradient) !important;
+    }
+
+    text.c3-text {
+      fill: #F37BAB !important;
+    }
+  }
+
+  &[color="blue"] {
+    path.c3-bar {
+      fill: url(#blue-gradient) !important;
+      stroke: url(#blue-gradient) !important;
+    }
+
+    text.c3-text {
+      fill: #3780FF !important;
+    }
+  }
+
+  &[color="yellow"] {
+    path.c3-bar {
+      fill: url(#yellow-gradient) !important;
+      stroke: url(#yellow-gradient) !important;
+    }
+
+    text.c3-text {
+      fill: #F7D443 !important;
+    }
+  }
+
+  &[color="green"] {
+    path.c3-bar {
+      fill: url(#green-gradient) !important;
+      stroke: url(#green-gradient) !important;
+    }
+
+    text.c3-text {
+      fill: #3EED5B !important;
+    }
+  }
 }
 
 

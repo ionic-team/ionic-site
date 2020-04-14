@@ -56,39 +56,38 @@ $c-blue-400: #3780FF;
 }
 
 #cubes {
-
   li {
     list-style: none;
     position: absolute;
     
     &:nth-child(1) {
       top: 22px;
-      left: -225px;
+      left: -336px;
     }
 
     &:nth-child(2) {
       top: 58px;
-      right: -86px;
+      right: -196px;
     }
 
     &:nth-child(3) {
       top: 337px;
-      right: -145px;
+      right: -254px;
     }
 
     &:nth-child(4) {
       top: 237px;
-      left: -12px;
+      left: -120px;
     }
 
     &:nth-child(5) {
       top: 30px;
-      right: 192px;
+      right: 92px;
     }
 
     &:nth-child(6) {
       top: 309px;
-      left: 78px;
+      left: -34px;
     }
   }
 }
@@ -96,10 +95,11 @@ $c-blue-400: #3780FF;
 #survey-2019-nav {
   position: sticky;
   z-index: 1;
-  top: -1px;
+  top: -2px;
   background: white;
   transition: .2s box-shadow, .2s border-color;
   border-bottom: 1px solid $c-grey-300;
+  transition: .3s background-color;
 
   ul {
     display: flex;
@@ -138,7 +138,9 @@ $c-blue-400: #3780FF;
   }
 
   li.active a,
-  a:hover {
+  a:hover,
+  a:active,
+  a:focus {
     color: $c-blue-400;
     background: transparent;
   }
@@ -161,8 +163,8 @@ $c-blue-400: #3780FF;
     background: black;
 
     @supports (backdrop-filter: blur(5px)) {
-      background: rgba(black, .8);
-      backdrop-filter: blur(30px);
+      background: rgba(black, .7);
+      backdrop-filter: blur(20px);
     }
   }
 }

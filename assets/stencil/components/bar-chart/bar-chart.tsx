@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, h } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
 import c3 from 'c3';
 
 @Component({
@@ -14,6 +14,7 @@ export class BarChart {
   @Element() el;
 
   data = {};
+  defaultColor = '#73849A';
   barChartGradients = `
     <svg id="bar-chart-gradients" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -68,7 +69,7 @@ export class BarChart {
           format: function(v) { return v + '%'; }
         },
         colors: {
-          data1: this.color
+          data1: this.defaultColor
         },
       },
       padding: {

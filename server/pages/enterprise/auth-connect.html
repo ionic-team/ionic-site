@@ -7,7 +7,10 @@
 {% block main %}
 
 <ionic-sub-header>
-  <a slot="title" href="/enterprise/auth-connect">Auth Connect</a>
+  <ul slot="breadcrumbs" style="font-size: 16px;">
+    <li><a href="/native">Native</a></li>
+    <li><a href="#">Auth Connect</a></li>
+  </ul>
   <ul slot="right">
     <li><a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"><ion-icon name="ios-download"></ion-icon> Data Sheet</a></li>
     <li><a href="https://ionicframework.com/docs/enterprise/auth-connect">Docs</a></li>

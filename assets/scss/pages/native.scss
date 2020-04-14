@@ -237,7 +237,8 @@ ionic-sub-header {
   }
 }
 
-@include box('#native h2', $mW: 678px, $mBot: 120px);
+@include box('#nativeTitle', $mW: 576px);
+@include box('#nativeTitle p', $mBot: 96.11px, $color: $colorSubtext3);
 @include switcher('#native', 3, $container-sm - $grid-gutter-width, 44px);
 #native {
   article {

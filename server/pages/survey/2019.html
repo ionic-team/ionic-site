@@ -701,7 +701,6 @@
 <script>
 window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
 sr.reveal('main section p, main section li, main section figure, main section bar-chart, main section h4');
-{# sr.reveal('.animate-in ionic-bar-chart', {duration: 500}); #}
 setTimeout(function() {
   window.ScrollReveal().sync()
 }, 5000);
@@ -717,10 +716,7 @@ const stickyWatcher = () => {
   observer.observe($scrollSpy);
 
   const darknessObserver = new IntersectionObserver( 
-    ([e]) => {
-      console.log(e)
-      return $nav.classList.toggle('isDark', e.isIntersecting)
-    },
+    ([e]) => $nav.classList.toggle('isDark', e.isIntersecting),
     {rootMargin: '-50px 0px -93%'}
   );
   const $darkSections = document.getElementById('dark-sections')

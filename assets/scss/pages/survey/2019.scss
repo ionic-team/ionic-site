@@ -10,6 +10,11 @@ $c-grey-400: #B2BECD;
 
 $c-blue-400: #3780FF;
 
+// scroll reveal conflicts w/ sticky nav
+html {
+  height: auto !important;
+}
+
 #page-survey-2019 {
   position: relative;
 }

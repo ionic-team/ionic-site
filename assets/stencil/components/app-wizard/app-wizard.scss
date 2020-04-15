@@ -57,19 +57,88 @@
     margin-bottom: 25px;
   }
 
+  .next-button-wrapper {
+    margin-top: 20px;
+  }
+
   .app-icon-group {
     display: grid;
-    //grid-template-columns: 96px 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 96px 1fr;
     column-gap: 56px;
+    margin-bottom: 15px;
 
     input[type="file"] {
-      visibility: collapse;
+      visibility: hidden;
+      width: 0;
     }
 
-    &.app-icon-dropping {
-      border-radius: 16px;
-      border: 1px dashed #eee;
+    .app-icon-wrapper {
+      width: 96px;
+      height: 96px;
+      min-width: 96px;
+      min-height: 96px;
+
+      .app-icon-dropping-icon {
+        display: none;
+        color: white;
+        svg {
+          fill: white;
+          stroke: white;
+        }
+      }
+
+      &.app-icon-dropping {
+        border: 2px solid var(--c-blue-800);
+        border-radius: 32px;
+        padding: 2px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .app-icon-dropping-wrapper {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 32px;
+          background-color: rgba(255, 255, 255, 0.4);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+        }
+
+        .app-icon-dropping-icon {
+          display: block;
+          background-color: var(--c-blue-800);
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 32px;
+          height: 32px;
+          font-size: 22px;
+          color: white;
+        }
+
+        .app-icon-hover {
+          display: none;
+        }
+
+        .app-icon {
+          border-radius: 28px;
+          width: 88px;
+          height: 88px;
+          min-width: 88px;
+          min-height: 88px;
+
+          .app-icon-image {
+            width: 58px;
+            height: 58px;
+          }
+        }
+      }
     }
 
     .app-icon {
@@ -104,16 +173,25 @@
       .app-icon-hover-icons {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: 12px;
-        margin-bottom: 12px;
-        font-size: 28px;
+        column-gap: 14px;
+        margin-bottom: 4px;
+        font-size: 26px;
         justify-content: center;
         align-items: center;
         color: var(--c-grey-300);
 
-        ion-icon:hover {
+        .icon {
+          text-align: center;
+          svg {
+            stroke: var(--c-grey-300);
+          }
+        }
+
+        .icon:hover {
           cursor: pointer;
-          color: white;
+          svg {
+            stroke: white;
+          }
         }
       }
 
@@ -259,7 +337,7 @@
       border: none;
       padding: 0px 16px;
       color: white;
-      width: 350px;
+      width: 400px;
       margin: auto;
 
       code {

@@ -17,9 +17,10 @@ export interface LoginForm {
   password?: string;
 }
 
-const makeApiError = (message, exc?) => ({
+const makeApiError = (message, exc?, reason?) => ({
   message,
-  error: exc
+  error: exc,
+  reason
 });
 
 const apiUrl = (url) => `${API_BASE}${url}`;
@@ -38,6 +39,10 @@ export const login = async (email, password, source, loginEventId ="000006636951
       },
     });
 
+    if (ret.status === 401) {
+      throw 'Incorrect Email or Password';
+    }
+
     await ret.json();
 
     identify(email);
@@ -46,7 +51,8 @@ export const login = async (email, password, source, loginEventId ="000006636951
     return location.search;
     //return oauthAuthorize();
   } catch (e) {
-    throw makeApiError('Unable to log in', e);
+    const reason = typeof e === 'string' ? e : '';
+    throw makeApiError('Unable to log in', e, reason);
   }
 }
 

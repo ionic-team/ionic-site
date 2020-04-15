@@ -6,7 +6,7 @@ import { getUtmParams } from '../../util/analytics';
 import { ApiUser } from '../../declarations';
 
 import { Emoji } from '../emoji-picker/emoji-picker';
-// import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
+import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
 
 const TEMPLATES = [
   { name: 'Tabs', id: 'tabs' },
@@ -33,9 +33,10 @@ const THEMES = [
 
 declare var window: any;
 
-const apiUrl = path => `${path}`;
+// const apiUrl = path => `${path}`;
+const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
 
-// const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
+const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 
 @Component({
   tag: 'ionic-app-wizard',
@@ -128,6 +129,7 @@ export class AppWizard {
       // Get the user to see if they are logged in
       const user = await getUser();
       this.user = user;
+      this.setStep(this.STEP_BASICS);
     } catch (e) {
     }
   }
@@ -136,10 +138,7 @@ export class AppWizard {
   handlePopState(e) {
     if (e.state) {
       const step = e.state.step;
-      if (step) {
-        this.step = step;
-        return;
-      }
+      this.step = step || 0;
     }
   }
 
@@ -151,11 +150,14 @@ export class AppWizard {
 
   next = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     this.setStep(this.step + 1 % this.STEPS.length);
   }
 
   basicsNext = (e?) => {
     e?.preventDefault();
+    e?.stopPropagation();
+
     if (this.user) {
       this.finish();
     } else {
@@ -171,13 +173,13 @@ export class AppWizard {
       await login(this.loginForm.email, this.loginForm.password, 'start-wizard', 'Start Wizard Log In');
       this.email = this.loginForm.email;
       this.authenticating = false;
+      return this.finish();
     } catch (e) {
       this.authenticating = false;
       this.loginErrors = e;
       return;
     }
 
-    return this.finish();
   }
 
   handleSignup = (e: CustomEvent<SignupForm>) => {
@@ -186,7 +188,9 @@ export class AppWizard {
     this.finish();
   }
 
-  skipAuth = (_e) => {
+  skipAuth = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     return this.finish();
   }
 
@@ -224,14 +228,18 @@ export class AppWizard {
   }
 
   save = async () => {
-    /*
     let iconImage;
     let splash;
     if (!this.appIcon && this.selectedEmoji) {
       const emoji = this.selectedEmoji;
-      const emojiImageName = emoji.image.replace('-fe0f', '').replace('.png', '');
+      let emojiImage = emoji.image.replace('.png', '');
+      const emojiSplit = emojiImage.split('-');
+      let emojiImageName = emojiImage;
+      if (emojiSplit.length === 2 && emojiSplit[1] === 'fe0f') {
+        emojiImageName = emojiImage.replace('-fe0f', '');
+      }
       const emojiImageUrl = emojiSvg(emojiImageName);
-      const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 512);
+      const renderedAppIcon = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 1024, 768);
       const renderedSplashScreen = await generateAppIconForThemeAndEmoji(this.theme, emojiImageUrl, 2732, 512);
       iconImage = renderedAppIcon;
       splash = renderedSplashScreen;
@@ -240,7 +248,6 @@ export class AppWizard {
       iconImage = this.appIcon;
       splash = renderedSplashScreen;
     }
-    */
 
     const res = await fetch(apiUrl('/api/v1/wizard/create'), {
       body: JSON.stringify({
@@ -252,8 +259,8 @@ export class AppWizard {
         template: this.template,
         name: this.appName,
         theme: this.theme,
-        // appSplash: splash,
-        // appIcon: iconImage,
+        appSplash: splash,
+        appIcon: iconImage,
         utm: getUtmParams()
       }),
       method: 'POST',
@@ -332,7 +339,6 @@ export class AppWizard {
   }
 
   handleAppIconChoose = (e) => {
-    console.log('Choose', e);
     if (e.target.files.length) {
       const file = e.target.files[0];
       if (file.size > 1024 * 800) {
@@ -369,8 +375,18 @@ export class AppWizard {
     }
   }
 
+  handleRootDragOver = (e: DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
+  handleRootDrop = (e: DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
   renderBasics() {
-    // const { showEmojiPicker } = this;
+    const { showEmojiPicker } = this;
 
     return (
       <div>
@@ -388,13 +404,7 @@ export class AppWizard {
             required={true}
             onChange={this.handleInput('appName')} />
           <div
-            class={`app-icon-group${this.isAppIconDropping ? ` app-icon-dropping` : ''}`}>
-            {/*
-            onDragOver={this.handleAppIconDragOver}
-            onDragExit={this.handleAppIconDragOut}
-            onDrop={this.handleAppIconDrop}>
-            */}
-            {/*
+            class={`app-icon-group`}>
             <div class="app-icon-pick">
               <label>
                 Pick an icon
@@ -409,14 +419,18 @@ export class AppWizard {
                 emoji={this.selectedEmoji}
                 theme={this.theme}
                 onChooseEmoji={(e) => { this.showEmojiPicker = true; this.emojiPickerEvent = e }}
-                onChooseFile={this.handleAppIconChoose} />
+                onChooseFile={this.handleAppIconChoose}
+                isDropping={this.isAppIconDropping}
+                onDragOver={this.handleAppIconDragOver}
+                onDragLeave={this.handleAppIconDragOut}
+                onDrop={this.handleAppIconDrop}
+                 />
             </div>
             <ionic-emoji-picker
               open={showEmojiPicker}
               openEvent={this.emojiPickerEvent}
               onEmojiPick={this.handlePickEmoji}
               onClosed={() => this.showEmojiPicker = false} />
-            */}
             <div class="app-icon-theme">
               <label>Pick a theme color</label>
               <ui-tip
@@ -461,7 +475,7 @@ export class AppWizard {
                 } 
               }} />
           </div>
-          <div ref={e => this.submitButtonWrapRef = e}>
+          <div ref={e => this.submitButtonWrapRef = e} class="next-button-wrapper">
             <Button>
             { this.user ? (
               <span>Create App</span>
@@ -493,7 +507,7 @@ export class AppWizard {
             <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
             <div class="form-message form-message--small"></div>
           </div>
-          <Button><span>Next</span></Button>
+          <Button class="next-button-wrapper"><span>Next</span></Button>
         </form>
       </div>
     )
@@ -511,7 +525,7 @@ export class AppWizard {
             <p>
               Logged in as {this.email}
             </p>
-            <form onSubmit={e => { e.preventDefault(); this.finish() }}>
+            <form onSubmit={e => { e.preventDefault(); this.finish() }} class="next-button-wrapper">
               <Button><span>Finish</span></Button>
             </form>
           </div>
@@ -555,7 +569,7 @@ export class AppWizard {
 
   renderFinish() {
     const instructions = this.appId ? `
-npm install -g @ionic/cli
+npm install -g @ionic/cli cordova-res
 ionic start --start-id ${this.appId}
     ` : `
 npm install -g @ionic/cli
@@ -583,7 +597,7 @@ ionic start
         </div>
         )}
         <div class="info">
-          Requires <b><code>@ionic/cli</code> 6.3.0</b> or above<br />
+          Requires <b><code>@ionic/cli</code> 6.5.0</b> or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
         </div>
         <div class="share">
@@ -622,7 +636,7 @@ ionic start
 
   render() {
     return (
-      <div id="app-wizard">
+      <div id="app-wizard" onDragOver={this.handleRootDragOver} onDrop={this.handleRootDrop}>
         <div class="wrapper">
           {this.step < 2 ? (
           <Switcher
@@ -646,36 +660,69 @@ const Button = (_props, children) => (
   <button type="submit" class="btn btn-block">{ children }</button>
 );
 
-/*
-const AppIcon = ({ img, emoji, theme, onChooseEmoji, onChooseFile}) => {
+const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,
+                   onChooseFile, onDragOver, onDragLeave, onDrop }) => {
   const bgColor = img ? 'transparent': theme;
 
   let bgImage;
   if (emoji) {
-    const emojiImage = emoji.image.replace('.png', '');
+    let emojiImage = emoji.image.replace('.png', '');
+    const imageSplit = emojiImage.split('-');
+
+    // For some reason we need to remove fe0f from images that just have it
+    // as blah-fe0f since those aren't named as such in the twemoji database
+    if (imageSplit.length == 2 && imageSplit[1] === 'fe0f') {
+      emojiImage = emojiImage.replace('-fe0f', '');
+    }
     bgImage = `url('${emojiSvg(emojiImage)}')`;
   } else {
     bgImage = `url(${img})`;
   }
 
   return (
-    <div
-      class="app-icon"
-      style={{ backgroundColor: bgColor }}>
-      <div
-        class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
-        style={{ backgroundImage: bgImage }} />
-      <div class="app-icon-hover">
-        <div class="app-icon-hover-icons">
-          <ion-icon name="md-happy" onClick={onChooseEmoji} title="Pick emoji" />
-          <ion-icon name="md-create" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file" />
+    <div class={`app-icon-wrapper${isDropping ? ` app-icon-dropping` : ''}`}
+         onDragOver={onDragOver}
+         onDragLeave={onDragLeave}
+         onDrop={onDrop}>
+      <div class="app-icon-dropping-wrapper">
+        <div class="app-icon-dropping-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 9H1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
+      </div>
+      <div
+        class="app-icon"
+        style={{ backgroundColor: bgColor }}>
+        <div
+          class={`app-icon-image${ img ? ' app-icon-image-uploaded' : ''}`}
+          style={{ backgroundImage: bgImage }} />
+        <div class="app-icon-hover">
+          <div class="app-icon-hover-icons">
+            <div class="icon" onClick={onChooseEmoji} title="Pick emoji">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.19995 16.3C8.19995 16.3 9.99995 18.7 13 18.7C16 18.7 17.8 16.3 17.8 16.3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 11.2H8.512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.5 11.2H17.512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="icon" onClick={() => (document.querySelector('#file-app-icon') as HTMLInputElement).click()} title="Pick file">
+              <svg width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 23H1"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 1V19"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 9L9 1L1 9"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <input type="file" id="file-app-icon" accept="image/png" onChange={onChooseFile} />
+        </div>
       </div>
     </div>
   )
 };
-*/
 
 const ThemeSwitcher = ({ value, onChange, onPick }) => {
   const themes = [
@@ -693,7 +740,7 @@ const ThemeSwitcher = ({ value, onChange, onPick }) => {
         onClick={() => onChange(t)}>
         { value === t ? (
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 1L4 11L1 7.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 1L4 11L1 7.25"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         ) : null}
       </div>
@@ -780,7 +827,7 @@ const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputCh
   <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
     { errors ? (
     <div class="errorlist">
-      <FormErrors>{errors.message}</FormErrors>
+      <FormErrors>{errors.message}{errors.reason ? `: ${errors.reason}` : ``}</FormErrors>
     </div>
     ) : null }
     <ui-floating-input

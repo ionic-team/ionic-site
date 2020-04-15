@@ -1,0 +1,60 @@
+// --------------------- STACK --------------------------
+@mixin stack($element, $mY){
+  #{$element}[class~='stack'] {    
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{$element}[class~='stack'] > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  } 
+
+  #{$element}.stack > * + * {
+    --s: #{$mY};
+    margin-top: var(--s);
+  }
+
+  #{$element}.stack\:rec * + * {
+    --s: #{$mY};
+    margin-top: var(--s);
+  }  
+}
+
+// ------------------------ BOX -----------------------------
+@mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
+           $mW: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null) {
+  #{$element}.box {
+    padding-left: #{$pX};
+    padding-right: #{$pX};
+    padding-top: #{$pY};
+    padding-bottom: #{$pY};
+    margin-left: #{$mLeft};
+    margin-right: #{$mRight};
+    margin-top: #{$mTop};
+    margin-bottom: #{$mBot};
+    background: #{$back};
+    color: #{$color};
+    flex-basis: #{$mW};    
+  }
+}
+
+// ----------------------- SWITCHER -----------------------------
+@mixin switcher($element, $count, $threshold, $gap){
+  #{$element} .switcher > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc((#{$gap} / 2) * -1);
+  }
+  
+  #{$element} .switcher > * > * {
+    flex-grow: 1;
+    flex-basis: calc((#{$threshold} - (100% - #{$gap})) * 999);
+    margin: calc(#{$gap} / 2);
+  }
+  
+  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}),
+  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
+    flex-basis: 100%;
+  }
+}

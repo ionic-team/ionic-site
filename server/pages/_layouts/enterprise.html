@@ -23,6 +23,7 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
         <li><a class="sub-header__title" href="/enterprise">Enterprise</a></li>
       </ul>
       <ul class="sub-header__right">
+        <li><a {{ navLinkAttrs('/enterprise') }}>Overview</a></li>
         <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
         <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
         <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>
@@ -35,6 +36,7 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
   <ionic-sub-header>
     <a slot="title" href="/enterprise">Enterprise</a>
     <ul slot="right">
+      <li><a {{ navLinkAttrs('/enterprise') }}>Overview</a></li>
       <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
       <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
       <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>

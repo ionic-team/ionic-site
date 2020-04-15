@@ -1,0 +1,829 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'survey-2019' %}
+{% set name = '2019 Developer Survey' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/19-dev-survey-ogimg.png' %}
+{% set header_style = 'transparent' %}
+{% set cssPath = 'survey/2019' %}
+
+{% block body_attributes %}
+  data-spy="scroll" data-target="#survey-2019-nav" data-offset="400"
+{% endblock %}
+
+{% block main %}
+<div id="survey-banner" class="cta banner">
+  <hgroup class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="31.643" height="31.642" viewBox="0 0 31.643 31.642"><g transform="translate(-655 626)"><path d="M81.46,222.5a7.21,7.21,0,1,0,7.21,7.21A7.21,7.21,0,0,0,81.46,222.5Z" transform="translate(589.362 -839.883)" fill="#fff"/><circle cx="3.284" cy="3.284" r="3.284" transform="translate(677.889 -623.312)" fill="#fff"/><path d="M64.454,191.734l-.138-.3-.215.25a4.95,4.95,0,0,1-1.982,1.365l-.215.077.086.215a12.933,12.933,0,1,1-6.394-6.717l.2.1.088-.215a4.95,4.95,0,0,1,1.459-1.913l.258-.215-.295-.153a15.642,15.642,0,0,0-7.253-1.763,15.821,15.821,0,1,0,14.4,9.254Z" transform="translate(620.764 -808.46)" fill="#fff"/></g></svg>
+    <h4>2019</h4>
+    <h1>Developer Survey</h1>
+    <p>2019’s biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
+
+    <ul id="cubes">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </hgroup>
+</div>
+
+<nav id="survey-2019-nav" class="bar">
+  <ul class="container nav">
+    <li><a href="#introduction" class="anchor">INTRODUCTION</a></li>
+    <li><a href="#trends" class="anchor">TRENDS</a></li>
+    <li><a href="#tools" class="anchor">TOOLS</a></li>
+    <li><a href="#pwas" class="anchor">PWA</a></li>
+    <li><a href="#backend" class="anchor">BACKEND</a></li>
+    <li><a href="#results" class="anchor">RESULTS</a></li>
+  </ul>
+</nav>
+<div id="scroll-spy"></div>
+<main>
+  <section id="introduction" class="center">
+    <div class="container">
+      <h2>The Age of the Web Developer</h2>
+      <p class="lg">Welcome to the 2019 Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared their stories and perspectives with us.</p>
+      <p class="lg">The theme of this year’s survey is the “Age of the Web Developer”. Web Developers now control every layer of the stack - from frontend to backend - across all deployment targets—mobile and desktop included. And as more and more web-centric tools, libraries, and frameworks emerge, their power and influence will only grow.</p>
+      <p class="lg">Read on for more analysis, along with the usual list of most popular tools & services.</p>
+    </div>
+  </section>
+
+  {% include '_includes/promos/state-of-app-dev-2020.html' %}
+
+  <section id="trends" class="grey">
+    <div class="container">
+      <h2>Web Developers Rule the World</h2>
+      <div class="cols">
+        <div class="col">
+          <p class="highlight">Over 75% of the software developers in our survey identified themselves as Web Developers.</p>
+          <p>When you think “Web Developer” you might imagine a traditional browser, but with a large library of SDKs—that’s seemingly growing by the day—and tools like Ionic, these developers are now creating apps in every platform, and in every form factor imaginable.</p>
+          <h4>Top deployment targets Web Developers are developing apps for:</h4>
+          <figure>
+            <img src="/img/survey/deployment-targets@2x.png"
+              srcset="/img/survey/deployment-targets.png 1x, /img/survey/deployment-targets@2x.png 2x"
+              alt="82% Deploy to Google play, 70% iOS, 62% Web, 13% Desktop" />
+          </figure>
+        </div>
+        <div class="col">
+          <h4>The main takeaway</h4>
+          <p>What’s more, a full 78% of those developers are full-stack developers, meaning they can heavily influence backend tech stack decisions, as well as frontend. And they do: 94% of Web Developers have some say over the backend services and providers their organization uses, with 50% having final say or a great deal of influence.</p>
+          <p class="highlight">TL;DR: Web Developers are large and in charge. They aren’t just developing frontend features, they’re making decisions on every aspect of technology for the full technology stack. And given how the web continues to permeate every aspect of our lives—digital and otherwise—this influence will only grow in years to come.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <h2>Mobile Tools and Approaches</h2>
+      <div class="cols">
+        <div class="col">
+          <h4>The top mobile dev tools</h4>
+          <p>The mobile tools market remained incredibly steady since last year’s survey. The results show three clear tiers of popularity among Ionic developers in the mobile development stack. Once again, Ionic (86%) was the top tier, followed by Cordova/PhoneGap (48%). The third tier was made up of React Native (16%) and Flutter (12%), with other tools falling in the single digits. Of course, given that this survey is taken largely from the Ionic community, it’s not surprising to see the results so heavily skewed towards Ionic.</p>
+          <figure>
+            <img src="/img/survey/top-tools@2x.png?v2"
+              srcset="/img/survey/top-tools.png?v2 1x, /img/survey/top-tools@2x.png?v2 2x"
+              alt="1st: Ionic - 2nd: Cordova, Phonegap - 3rd: React Native, Flutter" />
+          </figure>
+        </div>
+        <div class="col">
+          <h4>Ionic-type approaches are on the rise</h4>
+          <p>The bigger takeaway is that business execs and developers have come around to the fact that mobile frameworks like Ionic, React Native, and Flutter, can, in fact, provide stellar app experiences across platforms, in a dev-friendly package.</p>
+          <p class="highlight">The proof is in the numbers, while about 30% of survey respondents still do extensive work in Native Android and iOS, they are using solutions like Ionic and React Native in much greater numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools-tools" class="grey">
+    <div class="container">
+      <h2>The Tools, the Tools</h2>
+      <p>When you’re developing and hosting apps, you depend on a range of tools and services throughout the lifecycle. From service providers and hosting platforms, to user auth and push notification services, it truly takes a village to raise a successful application.</p>
+      <p class="highlight">Let’s take a look at what companies are using when it comes to tools and services.</p>
+      <div class="cols">
+        <div class="col">
+          <h4>Top Backend Service Providers:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="378" height="87" viewBox="0 0 378 87"><g transform="translate(-281 -4176)"><text transform="translate(281 4176)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">53%</tspan></text><text transform="translate(281 4210)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">43%</tspan></text><text transform="translate(281 4244)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">23%</tspan></text><text transform="translate(569 4177)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase/GCP</tspan></text><text transform="translate(569 4211)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">AWS</tspan></text><text transform="translate(569 4245)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Azure</tspan></text><line x2="248" transform="translate(310.5 4190.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="130" transform="translate(310.5 4185.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4224.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="112" transform="translate(310.5 4219.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4258.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="84" transform="translate(310.5 4253.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+          <h4>Top Hosting Providers:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="385" height="87" viewBox="0 0 385 87"><g transform="translate(-281 -4342)"><text transform="translate(281 4342)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">39%</tspan></text><text transform="translate(281 4376)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">36%</tspan></text><text transform="translate(281 4410)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">18%</tspan></text><text transform="translate(569 4343)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">AWS</tspan></text><text transform="translate(569 4377)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase/GCP</tspan></text><text transform="translate(569 4411)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Azure</tspan></text><line x2="248" transform="translate(310.5 4356.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="104" transform="translate(310.5 4351.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4390.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="95" transform="translate(310.5 4385.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4424.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="48" transform="translate(310.5 4419.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+          <h4>Top Databases:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="385" height="87" viewBox="0 0 385 87"><g transform="translate(-281 -4508)"><text transform="translate(281 4508)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">55%</tspan></text><text transform="translate(281 4542)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">36%</tspan></text><text transform="translate(281 4576)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">31%</tspan></text><text transform="translate(569 4509)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">MySQL</tspan></text><text transform="translate(569 4543)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase</tspan></text><text transform="translate(569 4577)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">MongoDB</tspan></text><line x2="248" transform="translate(310.5 4522.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="130" transform="translate(310.5 4517.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4556.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="100" transform="translate(310.5 4551.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(310.5 4590.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="79" transform="translate(310.5 4585.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+        </div>
+        <div class="col">
+          <h4>Top Auth Choices:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="422" height="87" viewBox="0 0 422 87"><g transform="translate(-768 -4176)"><text transform="translate(768 4176)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">43%</tspan></text><text transform="translate(768 4210)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">33%</tspan></text><text transform="translate(768 4244)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">28%</tspan></text><text transform="translate(1056 4177)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase Auth</tspan></text><text transform="translate(1056 4211)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Custom OAuth</tspan></text><text transform="translate(1056 4245)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">AuthO</tspan></text><line x2="248" transform="translate(797.5 4190.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="119" transform="translate(797.5 4185.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(797.5 4224.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="104" transform="translate(797.5 4219.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(797.5 4258.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="88" transform="translate(797.5 4253.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+          <h4>Top Push Services:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="393" height="87" viewBox="0 0 393 87"><g transform="translate(-768 -4342)"><text transform="translate(768 4342)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">73%</tspan></text><text transform="translate(768 4376)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">28%</tspan></text><text transform="translate(768 4410)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">04%</tspan></text><text transform="translate(1056 4343)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Firebase</tspan></text><text transform="translate(1056 4377)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">OneSignal</tspan></text><text transform="translate(1056 4411)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Amazon Pinpoint</tspan></text><line x2="248" transform="translate(797.5 4356.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="192" transform="translate(797.5 4351.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(797.5 4390.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="88" transform="translate(797.5 4385.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(797.5 4424.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="16" transform="translate(797.5 4419.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="js-trends">
+    <div class="container">
+      <h2>JS Trends, Take 2</h2>
+      <h4>When analyzing last year’s results, we said:</h4>
+      <p class="highlight">“As we introduce versions of Ionic that support Vue (currently in alpha) and React (coming in 2019), we expect to see the mix of Ionic developers surveyed shift more towards these Angular alternatives.”</p>
+      <figure>
+        <ul id="frameworks">
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="94.497" height="101.5" viewBox="0 0 94.497 101.5"><defs><style>.a{fill:#73849a;}.b{fill:#fff;}</style></defs><g transform="translate(-31.9 -30)"><path class="a" d="M79.148,30h0L31.9,46.849l7.206,62.473L79.148,131.5h0l40.042-22.178L126.4,46.849Z" transform="translate(0 0)"/><path class="a" d="M125,30V92.626h0V131.5h0l40.042-22.178,7.207-62.473Z" transform="translate(-45.852 0)"/><path class="b" d="M96.337,52.1,66.8,118.329H77.813l5.938-14.819h25.071l5.938,14.819h11.013L96.337,52.1Zm8.628,42.275H87.709l8.628-20.757Z" transform="translate(-17.188 -10.884)"/></g></svg></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="113.975" height="101.5" viewBox="0 0 113.975 101.5"><defs><style>.a{fill:#73849a;}</style></defs><g transform="translate(-175.7 -78)"><path class="a" d="M289.676,128.762c0-7.55-9.455-14.706-23.952-19.143,3.345-14.775,1.859-26.531-4.693-30.294a10.186,10.186,0,0,0-5.2-1.3V83.2a5.38,5.38,0,0,1,2.648.6c3.159,1.812,4.53,8.712,3.462,17.587-.256,2.184-.674,4.484-1.185,6.83A112.585,112.585,0,0,0,246,105.692a113.327,113.327,0,0,0-9.664-11.616c7.574-7.039,14.683-10.9,19.515-10.9V78h0c-6.389,0-14.752,4.553-23.209,12.452-8.456-7.852-16.82-12.359-23.209-12.359v5.181c4.809,0,11.941,3.833,19.515,10.826a109.727,109.727,0,0,0-9.595,11.593,108.484,108.484,0,0,0-14.775,2.555c-.534-2.323-.929-4.577-1.208-6.737-1.092-8.875.256-15.774,3.392-17.61a5.17,5.17,0,0,1,2.672-.6V78.116h0a10.359,10.359,0,0,0-5.25,1.3c-6.528,3.764-7.992,15.5-4.623,30.225-14.45,4.461-23.859,11.593-23.859,19.12,0,7.55,9.455,14.706,23.952,19.143-3.345,14.775-1.859,26.531,4.693,30.294a10.213,10.213,0,0,0,5.227,1.3c6.389,0,14.752-4.553,23.209-12.452,8.456,7.852,16.82,12.359,23.209,12.359a10.359,10.359,0,0,0,5.25-1.3c6.528-3.764,7.992-15.5,4.623-30.225C280.267,143.444,289.676,136.289,289.676,128.762Zm-30.248-15.5c-.86,3-1.928,6.087-3.136,9.177-.952-1.859-1.951-3.717-3.043-5.576-1.069-1.859-2.207-3.671-3.345-5.436C253.2,111.919,256.384,112.523,259.428,113.266Zm-10.64,24.742c-1.812,3.136-3.671,6.11-5.6,8.875-3.462.3-6.97.465-10.5.465-3.508,0-7.016-.163-10.454-.441q-2.892-4.147-5.622-8.828-2.648-4.565-4.832-9.246c1.44-3.113,3.067-6.226,4.809-9.27,1.812-3.136,3.671-6.11,5.6-8.875,3.462-.3,6.97-.465,10.5-.465,3.508,0,7.016.163,10.454.441q2.892,4.147,5.622,8.828,2.648,4.565,4.832,9.246C252.133,131.851,250.53,134.965,248.788,138.008Zm7.5-3.02c1.255,3.113,2.323,6.226,3.206,9.246-3.043.743-6.249,1.371-9.572,1.859,1.138-1.789,2.277-3.624,3.345-5.506C254.34,138.728,255.339,136.846,256.291,134.988Zm-23.557,24.788a95.8,95.8,0,0,1-6.458-7.434c2.091.093,4.228.163,6.389.163,2.184,0,4.344-.046,6.458-.163A90.682,90.682,0,0,1,232.734,159.776ZM215.45,146.093c-3.3-.488-6.482-1.092-9.525-1.835.86-3,1.928-6.087,3.136-9.177.953,1.859,1.951,3.717,3.043,5.576S214.311,144.327,215.45,146.093Zm17.168-48.346a95.785,95.785,0,0,1,6.458,7.434c-2.091-.093-4.228-.163-6.389-.163-2.184,0-4.344.046-6.458.163A90.683,90.683,0,0,1,232.618,97.747Zm-17.192,13.684c-1.138,1.789-2.277,3.624-3.345,5.506-1.069,1.859-2.068,3.717-3.02,5.576-1.255-3.113-2.323-6.226-3.206-9.246C208.9,112.546,212.1,111.919,215.427,111.431ZM194.4,140.517c-8.224-3.508-13.544-8.108-13.544-11.755s5.32-8.271,13.544-11.755c2-.86,4.182-1.626,6.435-2.346a111.588,111.588,0,0,0,5.227,14.148,110.007,110.007,0,0,0-5.157,14.078C198.607,142.166,196.423,141.377,194.4,140.517Zm12.5,33.2c-3.16-1.812-4.53-8.712-3.462-17.587.256-2.184.674-4.484,1.185-6.83a112.591,112.591,0,0,0,14.752,2.532,113.33,113.33,0,0,0,9.664,11.616c-7.574,7.039-14.683,10.9-19.515,10.9A5.544,5.544,0,0,1,206.9,173.715Zm55.106-17.7c1.092,8.875-.256,15.774-3.392,17.61a5.17,5.17,0,0,1-2.672.6c-4.809,0-11.941-3.833-19.515-10.826a109.727,109.727,0,0,0,9.595-11.593,108.479,108.479,0,0,0,14.775-2.556A65.047,65.047,0,0,1,262.006,156.013Zm8.944-15.5c-2,.86-4.182,1.626-6.435,2.346a111.584,111.584,0,0,0-5.227-14.148,110,110,0,0,0,5.158-14.079c2.3.72,4.484,1.51,6.528,2.37,8.224,3.508,13.544,8.108,13.544,11.755C284.495,132.409,279.175,137.032,270.951,140.517Z" transform="translate(0)"/><path class="a" d="M320.8,78.4Z" transform="translate(-111.39 -0.307)"/><circle class="a" cx="10.617" cy="10.617" r="10.617" transform="translate(222.048 118.145)"/><path class="a" d="M520.5,78.1Z" transform="translate(-264.696 -0.077)"/></g></svg></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="117.201" height="101.5" viewBox="0 0 117.201 101.5"><defs><style>.a{fill:#73849a;}.b{fill:#b2becd;}</style></defs><g transform="translate(-76.306 313.339)"><g transform="translate(76.306 -313.339)"><path class="a" d="M-88.968,0-102.5,23.44-116.034,0H-161.1l58.6,101.5L-43.9,0Z" transform="translate(161.101)"/></g><g transform="translate(99.746 -313.339)"><path class="b" d="M-60.057,0-73.59,23.44-87.124,0h-21.627l35.16,60.9L-38.43,0Z" transform="translate(108.751)"/></g></g></svg></li>
+        </ul>
+      </figure>
+      <p>The results of this year’s research show that this shift is, in fact happening. Angular, React, and Vue were once again the three most-used frameworks, by far. Looking into the number a bit further, we can see that while Angular stayed consistent at around 85% of users doing extensive development work with it last year. Meanwhile, React and Vue saw large gains. React grew almost 30% in popularity to 30% of users, while 20% of users reported using Vue, an 18% jump.</p>
+      <div class="spacer"></div>
+      <h4>Q8. Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</h4>
+      <figure>
+        <img src="/img/survey/top-frameworks@2x.png"
+          srcset="/img/survey/top-frameworks.png 1x, /img/survey/top-frameworks@2x.png 2x"
+          alt="2019: 84% Angular, 30% React, 30% Vue - 2018: 86% Angular, 23% React, 23% Vue" />
+      </figure>
+      <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
+    </div>
+  </section>
+
+  <section id="delivery" class="grey">
+    <div class="container">
+      <h2>App Delivery</h2>
+      <p class="highlight">Apps are at the heart of what many respondents do. Being able to manage multiple apps and deliver updates and new apps in a timely and efficient way makes an organization go.</p>
+      <p>Most respondents’ teams, over 75%, were responsible for a relatively manageable 1-5 apps. However, many teams out there have a daunting portfolio of apps to take care of, especially at the enterprise level.</p>
+      <p>When we look at organizations with more than 500 employees, we find that 9% of developers delivered 9 or more new apps last year, 8% supported or maintained 20 or more, and 7% had a backlog of at least 20 apps waiting for development.</p>
+      <p>Of course, this backlog goes hand-in-hand with how long it takes to develop an app. Almost 80% of respondents said it takes their team 3-4 months, or longer, to develop a mobile or web app, with just over 20% could deliver in 1-2 months or less.</p>
+      <figure>
+        <svg class="lg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1168" height="140" viewBox="0 0 1168 140"><defs><linearGradient id="s" x1="-0.181" y1="0.372" x2="0.877" y2="0.54" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#f7f9fc" stop-opacity="0"/><stop offset="1" stop-color="#f7f9fc"/></linearGradient></defs><g transform="translate(-280 -6882)"><text transform="translate(280 6924)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">09%</tspan></text><text transform="translate(280 6959)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">08%</tspan></text><text transform="translate(280 6994)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">07%</tspan></text><text transform="translate(280 6882)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">&lt;500 Employee Organizations</tspan></text><text transform="translate(568 6925)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">9 or more</tspan></text><text transform="translate(568 6960)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">20 or more</tspan></text><text transform="translate(568 6995)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">at least 20</tspan></text><line x2="248" transform="translate(309.5 6938.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="28" transform="translate(309.5 6933.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(309.5 6973.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="23" transform="translate(309.5 6968.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(309.5 7008.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="18" transform="translate(309.5 7003.5)" fill="none" stroke="#3780ff" stroke-width="11"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(671 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(779 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(725 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(833 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(698 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(806 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(752 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(860 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(887 6925)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(671 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(941 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(779 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1049 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(725 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(995 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(833 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1103 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(698 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(968 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(806 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1076 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(752 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1022 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(860 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1130 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(887 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1157 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(914 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1184 6960)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(671 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(914 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1157 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(779 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1022 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1265 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1400 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(725 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(968 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1211 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(833 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1076 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1319 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(698 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(941 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1184 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(806 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1049 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1292 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1427 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(752 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(995 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1238 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(860 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1103 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1346 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(887 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1130 6995)" fill="#3780ff"/><circle cx="8.5" cy="8.5" r="8.5" transform="translate(1373 6995)" fill="#3780ff"/><rect width="780" height="106" transform="translate(668 6916)" fill="url(#s)"/><text transform="translate(568 6882)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13"># of new apps delivered</tspan></text></g></svg>
+        <svg class="sm" xmlns="http://www.w3.org/2000/svg" width="468" height="130" viewBox="0 0 468 130"><g transform="translate(-280 -6882)"><text transform="translate(280 6924)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">09%</tspan></text><text transform="translate(280 6959)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">08%</tspan></text><text transform="translate(280 6994)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">07%</tspan></text><text transform="translate(280 6882)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">&lt;500 Employee Organizations</tspan></text><text transform="translate(568 6925)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">9 or more</tspan></text><text transform="translate(568 6960)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">20 or more</tspan></text><text transform="translate(568 6995)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">at least 20</tspan></text><line x2="248" transform="translate(309.5 6938.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="28" transform="translate(309.5 6933.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(309.5 6973.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="23" transform="translate(309.5 6968.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(309.5 7008.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="18" transform="translate(309.5 7003.5)" fill="none" stroke="#3780ff" stroke-width="11"/><text transform="translate(558 6882)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13"># of new apps delivered</tspan></text></g></svg>
+      </figure>
+    </div>
+  </section>
+
+  <section id="pwas">
+    <div class="container">
+      <h2>PWAs FTW</h2>
+      <div class="cols">
+        <div class="col">
+          <p>By now, we all know the benefits of PWAs: they use modern web capabilities to deliver fast, native-app experiences with no app stores or downloads. The mobile app experiences they provide are highly optimized, reliable, and accessible — anywhere you have a web browser.</p>
+          <p>It’s not surprising, then, that companies continue to embrace PWAs in overwhelming numbers. Nearly 65% of all respondents said their company built a PWA or plan to in the next year. This compares favorably to our results last year (61%), and shows that PWAs are here to stay.</p>
+          <h4>PWAs as part of a greater app strategy.</h4>
+          <p>Almost three quarters of respondents said their app would (40%) or might (34%) also be made available as a native app in an app store. This shows that PWAs are complementing native apps, rather than replacing them altogether.</p>
+          <p>Interestingly, however, that does leave almost a quarter of respondents don’t plan to make their app available in an app store, showing that the web itself is becoming a legitimate app delivery channel.</p>
+        </div>
+        <div class="col">
+          <p class="highlight">And why are PWAs so popular? Cross platform efficiency — the ease of serving multiple platforms with a single app — continues to be the most popular reason companies are choosing PWAs.</p>
+          <p>This year, however, accessibility to users was also a large driver. Companies increasingly chose PWAs to distribute directly to users (18%), and make it easier for those users to access it through the web and search (10%). This strategy is starting to pay off, with over 10% of respondents saying the single biggest impact they’ve seen from their PWAs is increased usage.</p>
+          <h4>Choose your tools</h4>
+          <p>Similar to last year, Ionic and Angular were far and away the most popular tools for developing PWAs. On the hosting side, Firebase and AWS once again topped the rankings, with a significant number of companies (33%) also choosing to host PWAs themselves.</p>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="399.647" height="121.125" viewBox="0 0 399.647 121.125"><g transform="translate(-780 -8193)"><text transform="translate(1015 8193)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Development</tspan></text><text transform="translate(903 8193)" fill="#73a5ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Hosting</tspan></text><g transform="translate(992.607 8217)"><path d="M63.147,30h0L31.9,41.143l4.766,41.315L63.147,97.125h0L89.627,82.458l4.766-41.315Z" transform="translate(0)" fill="#73849a"/><path d="M125,30V71.416h0V97.125h0l26.481-14.667,4.766-41.315Z" transform="translate(-61.853)" fill="#73849a"/><path d="M86.333,52.1,66.8,95.9h7.283l3.927-9.8H94.59l3.927,9.8H105.8L86.333,52.1Zm5.706,27.957H80.628L86.333,66.33Z" transform="translate(-23.187 -14.683)" fill="#fff"/></g><g transform="translate(458 8873)"><path d="M89.435,222.5a15.185,15.185,0,1,0,15.185,15.185A15.185,15.185,0,0,0,89.435,222.5Z" transform="translate(598.888 -830.35)" fill="#73849a"/><circle cx="6.917" cy="6.917" r="6.917" transform="translate(703.21 -620.338)" fill="#73849a"/><path d="M97.88,201.992l-.29-.635-.453.526a10.426,10.426,0,0,1-4.175,2.874l-.453.163.181.453a27.238,27.238,0,1,1-13.467-14.147l.426.2.186-.453a10.425,10.425,0,0,1,3.073-4.03l.544-.453-.621-.322a32.946,32.946,0,0,0-15.276-3.713,33.322,33.322,0,1,0,30.321,19.492Z" transform="translate(620.764 -808.46)" fill="#73849a"/></g><path d="M67.161,147.73l7.532-48.266A1.738,1.738,0,0,1,77.94,98.9l8.095,15.151Zm53.547,11.731L113.522,115a1.743,1.743,0,0,0-2.944-.952L65.3,159.461,90.363,173.53a5.263,5.263,0,0,0,5.065,0Zm-20.345-38.786-5.8-11.038a1.725,1.725,0,0,0-3.073,0l-25.5,45.452Z" transform="translate(832.97 8139.945)" fill="#73849a"/><g transform="translate(778.332 8253.9)"><path d="M34.522,19.544a8.546,8.546,0,0,0,.311,2.514,15.119,15.119,0,0,0,.9,2.034,1.229,1.229,0,0,1,.2.65,1.118,1.118,0,0,1-.537.847l-1.779,1.186a1.354,1.354,0,0,1-.734.254,1.3,1.3,0,0,1-.847-.4,8.738,8.738,0,0,1-1.017-1.328c-.282-.48-.565-1.017-.876-1.666a10.434,10.434,0,0,1-8.3,3.9A7.739,7.739,0,0,1,16.19,25.5a7.256,7.256,0,0,1-2.09-5.423,7.271,7.271,0,0,1,2.57-5.819,10.275,10.275,0,0,1,6.92-2.2,22.364,22.364,0,0,1,2.994.226c1.045.141,2.118.367,3.248.621V10.845c0-2.147-.452-3.644-1.328-4.519-.9-.876-2.429-1.3-4.6-1.3a12.851,12.851,0,0,0-3.051.367,22.507,22.507,0,0,0-3.051.96,8.1,8.1,0,0,1-.989.367,1.732,1.732,0,0,1-.452.085c-.4,0-.593-.282-.593-.876V4.546a1.787,1.787,0,0,1,.2-.989,2.115,2.115,0,0,1,.791-.593,16.261,16.261,0,0,1,3.559-1.271,17.125,17.125,0,0,1,4.406-.537c3.361,0,5.819.763,7.4,2.288,1.554,1.525,2.344,3.841,2.344,6.948v9.152ZM23.054,23.838a9.154,9.154,0,0,0,2.909-.508,6.294,6.294,0,0,0,2.683-1.808,4.483,4.483,0,0,0,.96-1.808,10.14,10.14,0,0,0,.282-2.457V16.07a23.589,23.589,0,0,0-2.6-.48,21.283,21.283,0,0,0-2.655-.169,6.512,6.512,0,0,0-4.209,1.13A3.937,3.937,0,0,0,19.043,19.8a3.644,3.644,0,0,0,4.011,4.039Zm22.681,3.051a1.577,1.577,0,0,1-1.073-.282,2.3,2.3,0,0,1-.593-1.1L37.431,3.67a4.948,4.948,0,0,1-.254-1.13.62.62,0,0,1,.678-.706h2.768a1.566,1.566,0,0,1,1.1.282,2.311,2.311,0,0,1,.565,1.1l4.745,18.7,4.406-18.7a1.981,1.981,0,0,1,.537-1.1,1.943,1.943,0,0,1,1.13-.282h2.26a1.7,1.7,0,0,1,1.13.282,1.9,1.9,0,0,1,.537,1.1L61.5,22.143,66.383,3.218a2.422,2.422,0,0,1,.565-1.1,1.843,1.843,0,0,1,1.1-.282h2.627a.628.628,0,0,1,.706.706,2.817,2.817,0,0,1-.056.452,4.02,4.02,0,0,1-.2.706L64.321,25.532a2.166,2.166,0,0,1-.593,1.1,1.807,1.807,0,0,1-1.073.282H60.225a1.7,1.7,0,0,1-1.13-.282,2,2,0,0,1-.537-1.13L54.181,7.286l-4.35,18.19a2.2,2.2,0,0,1-.537,1.13,1.751,1.751,0,0,1-1.13.282Zm36.3.763a18.692,18.692,0,0,1-4.35-.508,12.849,12.849,0,0,1-3.248-1.13,2.035,2.035,0,0,1-.876-.791,1.994,1.994,0,0,1-.169-.791V22.99c0-.593.226-.876.65-.876a1.6,1.6,0,0,1,.508.085c.169.056.424.169.706.282a15.364,15.364,0,0,0,3.107.989,16.963,16.963,0,0,0,3.361.339,7.621,7.621,0,0,0,4.124-.932,3.042,3.042,0,0,0,1.469-2.683,2.751,2.751,0,0,0-.763-1.977A7.087,7.087,0,0,0,83.7,16.748l-4.1-1.271A8.615,8.615,0,0,1,75.082,12.6,6.73,6.73,0,0,1,73.67,8.5a6.286,6.286,0,0,1,.763-3.135,7.263,7.263,0,0,1,2.034-2.316A8.965,8.965,0,0,1,79.4,1.58a12.311,12.311,0,0,1,3.559-.48,14.18,14.18,0,0,1,1.892.113c.65.085,1.243.2,1.836.311.565.141,1.1.282,1.61.452a6.165,6.165,0,0,1,1.186.508,2.442,2.442,0,0,1,.847.706,1.522,1.522,0,0,1,.254.932V5.45c0,.593-.226.9-.65.9a2.938,2.938,0,0,1-1.073-.339,12.922,12.922,0,0,0-5.423-1.1,7.29,7.29,0,0,0-3.757.791,2.727,2.727,0,0,0-1.328,2.514,2.667,2.667,0,0,0,.847,2.005,8.437,8.437,0,0,0,3.107,1.554l4.011,1.271A8.591,8.591,0,0,1,90.7,15.759,6.392,6.392,0,0,1,92,19.714a7.261,7.261,0,0,1-.734,3.276,7.6,7.6,0,0,1-2.062,2.486,9.105,9.105,0,0,1-3.135,1.582A13.432,13.432,0,0,1,82.031,27.651Z" transform="translate(-8.921)" fill="#73849a"/><g transform="translate(1.668 32.761)"><path d="M78.449,126.079c-9.293,6.864-22.794,10.507-34.4,10.507a62.239,62.239,0,0,1-42-16.015c-.876-.791-.085-1.864.96-1.243a84.705,84.705,0,0,0,42.03,11.157,83.871,83.871,0,0,0,32.059-6.553C78.646,123.226,79.974,124.949,78.449,126.079Z" transform="translate(-1.668 -117.462)" fill="#73849a" fill-rule="evenodd"/><path d="M257.628,117.4c-1.186-1.525-7.852-.734-10.875-.367-.9.113-1.045-.678-.226-1.271,5.31-3.728,14.038-2.655,15.055-1.412,1.017,1.271-.282,10-5.254,14.179-.763.65-1.5.311-1.158-.537C256.3,125.2,258.814,118.9,257.628,117.4Z" transform="translate(-176.977 -113.192)" fill="#73849a" fill-rule="evenodd"/></g></g></g></svg>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="backend" class="grey">
+    <div class="container">
+      <h2>Continuous delivery</h2>
+      <div class="cols">
+        <div class="col">
+          <h4>Top CI/CD tools</h4>
+          <p>Now that we’ve seen how many apps respondents are responsible for, let’s look at how they’re managing their processes. DevOps and continuous integration and continuous delivery (CI/CD) tools to streamline software development, testing, and deployment are no longer new. Developers know that using a CI/CD tool of some kind is critical to keeping your release cadence where it needs to be--whether it’s weekly, daily, or more.</p>
+        </div>
+        <div class="col">
+          <h4>Top 3 General Purpose CI/CD tools:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="411" height="87" viewBox="0 0 411 87"><g transform="translate(-780 -8715)"><text transform="translate(780 8715)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">22%</tspan></text><text transform="translate(780 8749)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">20%</tspan></text><text transform="translate(780 8783)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">18%</tspan></text><text transform="translate(1068 8716)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitLab CI</tspan></text><text transform="translate(1068 8750)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Jenkins/CloudBees</tspan></text><text transform="translate(1068 8784)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">GitHub Actions</tspan></text><line x2="248" transform="translate(809.5 8729.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="56" transform="translate(809.5 8724.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8763.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="47" transform="translate(809.5 8758.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8797.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8792.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+          <h4>Top 3 Mobile CI/CD tools:</h4>
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="439" height="87" viewBox="0 0 439 87"><g transform="translate(-780 -8897)"><text transform="translate(780 8897)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">12%</tspan></text><text transform="translate(780 8931)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">05%</tspan></text><text transform="translate(780 8965)" fill="#3780ff" font-size="12" font-family="RobotoMono-Bold, Roboto Mono" font-weight="700"><tspan x="0" y="13">01%</tspan></text><text transform="translate(1068 8898)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Ionic Appflow</tspan></text><text transform="translate(1068 8932)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Microsoft App Center</tspan></text><text transform="translate(1068 8966)" fill="#3780ff" font-size="12" font-family="RobotoMono-Regular, Roboto Mono" letter-spacing="-0.02em"><tspan x="0" y="13">Buddy Build</tspan></text><line x2="248" transform="translate(809.5 8911.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="36" transform="translate(809.5 8906.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8945.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="15" transform="translate(809.5 8940.5)" fill="none" stroke="#3780ff" stroke-width="11"/><line x2="248" transform="translate(809.5 8979.5)" fill="none" stroke="#b2becd" stroke-width="0.5" stroke-dasharray="4"/><line x2="8" transform="translate(809.5 8974.5)" fill="none" stroke="#3780ff" stroke-width="11"/></g></svg>
+          </figure>
+        </div>
+      </div>
+      <h4>How developers are using CI/CD tools</h4>
+      <p class="highlight">While over 75% of professionals surveyed are using a CI/CD tool, that still leaves almost a quarter that aren’t. The release cadence for these companies shows how valuable CI/CD tools can be in today’s environment.</p>
+      <p class="highlight">Respondents using a CI/CD tool were <strong>70% more likely to release multiple times per week or more</strong>, and 42% less likely to release quarterly or less.</p>
+      <div class="spacer"></div>
+      <h4>How often do you release apps? (release cadence)</h4>
+      <figure>
+        <img src="/img/survey/release-frequency@2x.png"
+          srcset="/img/survey/release-frequency.png 1x, /img/survey/release-frequency@2x.png 2x"
+          alt="Chart showing that those who use CI/CD tools tend to release more frequently" />
+      </figure>
+      <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
+    </div>
+  </section>
+  
+  <div id="dark-sections">
+    <section id="bottom-line" class="dark center">
+      <div class="container">
+        <h2>The bottom line</h2>
+        <p class="lg">We’ve been conducting this survey for three years now, and the results have never been more clear: PWAs are here and they’re delivering results. It’s also important to recognize that Web Developers are delivering more and more value, as they shift from the browser to the full technology stack.</p>
+        <p class="lg">Companies are recognizing these facts in a few important ways. First, they’re recognizing the value Web Developers bring and leaning on them for more decision-making responsibilities. Organizations are also increasingly investing in comprehensive web strategies, and realizing that PWAs are an important way to deliver cross-platform apps efficiently, and effectively drive users to their apps.</p>
+        <p class="lg"><strong>At Ionic we’ve always believed in the power of the web—and web developers. The results of this survey show that year after year, more companies are joining us on that path.</strong></p>
+      </div>
+    </section>
+  
+    <section id="results" class="black">
+      <div class="container">
+        <h2>Survey Results and Demographics</h2>
+        <p class="lg">We’re happy to say that the survey once again attracted a diverse community of respondents. Developers of all types, working on different types of apps, working for companies of all sizes, in a range of industries, all across the globe contributed to our study.</p>
+        <p class="lg">See for yourself:</p>
+        <h3 id="results-demographcis">Demographics</h3>
+        <dl>
+          <dt>Which of the following best describes you?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Professional Developer": 81,
+                  "Non-Developer, Occasional": 9,
+                  "Student": 7,
+                  "Former Developer": 2,
+                  "Other": 2 
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following best describes the principal industry of your organization?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Telcom, Tech, Internet & Electronics": 28,
+                  "Professional Services & Consulting": 18,
+                  "Education": 7,
+                  "Finance & Financial Services": 7,
+                  "Healthcare & Pharmaceuticals": 5,
+                  "Business Support & Logistics": 4,
+                  "Advertising & Marketing": 4,
+                  "Entertainment & Leisure": 3,
+                  "Government": 3,
+                  "Retail & Consumer Durables": 2,
+                  "Transportation & Delivery": 2,
+                  "Manufacturing": 2,
+                  "Food & Beverages": 1,
+                  "Insurance": 1,
+                  "Automotive": 1,
+                  "Nonprofit": 1,
+                  "Utilities, Energy, and Extraction": 1,
+                  "Construction, Machinery, and Homes": 1,
+                  "Agriculture": 1,
+                  "Real Estate": 1,
+                  "Airlines & Aerospace": 1,
+                  "I am currently not employed": 5
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+        <dl>
+          <dt>About how many employees work at your company?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "1-10 employees": 37,
+                  "11-50 employees": 22,
+                  "51-500 employees": 18,
+                  "501-1000 employees": 4,
+                  "1001-5000 employees": 5,
+                  "5,001+ employees": 7,
+                  "I am currently not employed": 7
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>In which region do you currently reside?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Europe": 39,
+                  "Asia and Pacific": 22,
+                  "South and Latin America": 16,
+                  "North America": 16,
+                  "Africa, Middle East, and CIS": 7
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which following best describe you as a software developer?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Web developer": 76,
+                  "Mobile developer": 16,
+                  "Desktop applications developer": 2,
+                  "DevOps specialist": 1,
+                  "Data scientist": 0,
+                  "Systems administrator": 0,
+                  "Graphic designer": 0,
+                  "Database administrator": 0,
+                  "Other": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>
+            Which of the following best describes you as a Web developer?
+            <small>For respondents who identified as Web Developers in the previous question.</small>
+          </dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Full stack Web developer": 78,
+                  "Front-end Web developer": 17,
+                  "Back-end Web developer": 5
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>
+            Which of the following ​best describes your current role?
+            <small>For respondents who identified as non-developers.</small>
+          </dt>
+          <dd>
+            <figure>
+              <bar-chart color="pink" graph-data='{
+                  "Engineering manager": 15,
+                  "C-suite executive (CIO, CTO, etc.)": 14,
+                  "Product manager": 12,
+                  "Analyst or consultant": 10,
+                  "Designer or illustrator": 8,
+                  "Educator or academic researcher": 7,
+                  "Architect": 6,
+                  "Data scientist": 3,
+                  "Other": 25
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+        <h3 id="results-frameworks">Frameworks, Tools, and Approaches</h3>
+        <dl>
+          <dt>Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Angular": 84,
+                  "React": 30,
+                  "Vue": 20,
+                  "Stencil": 6,
+                  "Ext JS": 4,
+                  "Backbone": 2,
+                  "Meteor": 2,
+                  "Polymer": 2,
+                  "Ember": 1,
+                  "Svelte": 1,
+                  "Preact": 1,
+                  "Other": 10
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following mobile development tools and SDKs have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Ionic": 86,
+                  "Cordova": 48,
+                  "Native Android": 20,
+                  "React Native": 16,
+                  "Flutter": 12,
+                  "Native iOS": 11,
+                  "Xamarin": 6,
+                  "NativeScript": 5,
+                  "Other": 3
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-backend">Backend Technology</h3>
+        <dl>
+          <dt>Which of the following continuous integration and delivery (CI/CD) tools have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "GitLab CI": 22,
+                  "Jenkins/ CloudBees": 20,
+                  "GitHub Actions": 18,
+                  "BitBucket Pipeline": 15,
+                  "Azure DevOps": 13,
+                  "Ionic Appflow": 12,
+                  "Circle CI": 6,
+                  "Travis CI": 6,
+                  "Microsoft App Center": 5,
+                  "AWS CodePipeline": 5,
+                  "Buddy Build": 1,
+                  "Bitrise": 0,
+                  "Other": 6,
+                  "None": 24
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following backend service providers have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase / GCP": 53,
+                  "AWS": 43,
+                  "Azure": 23,
+                  "Heroku": 16,
+                  "IBM": 3,
+                  "Oracle (Mobile Hub)": 2,
+                  "Red Hat (Feed Henry)": 2,
+                  "Progress (Kinvey)": 0,
+                  "Kumulos": 0,
+                  "Rackspace Managed Cloud": 0,
+                  "Digital Ocean": 0,
+                  "Other (please specify)": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following hosting providers have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "AWS": 39,
+                  "Firebase / GCP": 36,
+                  "Self-hosted": 33,
+                  "Azure": 18,
+                  "Digital Ocean": 16,
+                  "Heroku": 14,
+                  "Netlify": 6,
+                  "Other": 10
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following database environments have you done extensive development work in over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "MySQL": 55,
+                  "Firebase": 36,
+                  "MongoDB": 31,
+                  "Microsoft SQL Server": 26,
+                  "SQLite": 26,
+                  "Postgres": 25,
+                  "MariaDB": 17,
+                  "Redis": 10,
+                  "Oracle": 10,
+                  "AWS RDS": 8,
+                  "AWS DynamoDB": 6,
+                  "CouchDB": 4,
+                  "Cassandra": 2,
+                  "Couchbase": 2,
+                  "Other": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following user authentication services have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase Auth": 43,
+                  "Custom OAuth": 33,
+                  "Auth0": 28,
+                  "OpenID Connect": 9,
+                  "Azure Authentication": 8,
+                  "Amazon Cognito": 7,
+                  "Auth.io": 6,
+                  "Microsoft ADFS": 6,
+                  "GCP Auth": 4,
+                  "Fabric Digits": 0,
+                  "Stormpath": 0,
+                  "Other": 9
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following push notification services have you used extensively over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="yellow" graph-data='{
+                  "Firebase": 73,
+                  "OneSignal": 28,
+                  "Amazon Pinpoint": 4,
+                  "Pushwoosh": 2,
+                  "Urban Airship": 1,
+                  "Apple Push Notification Service": 0,
+                  "Google Cloud Messaging": 0,
+                  "Other": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-process">Development Process</h3>
+        <dl>
+          <dt>How much influence do you have when it comes to determining which backend services and providers to use?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "I have the final say": 30,
+                  "A great deal": 24,
+                  "A lot": 10,
+                  "A moderate amount": 18,
+                  "A little": 10,
+                  "None at all": 8
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many new apps did you or your team deliver in the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-3": 70,
+                  "4-8": 24,
+                  "9-15": 4,
+                  "16-20": 1,
+                  "20+": 1
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How long, on average, does it take your organization to deliver a new mobile or web application?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1 - 2 months": 21,
+                  "3 - 4 months": 41,
+                  "5 - 6 months": 22,
+                  "7 - 12 months": 9,
+                  "Over 12 months": 8
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many existing apps did you or your team actively maintain or update during the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-5": 78,
+                  "6-10": 15,
+                  "11-20": 4,
+                  "20+": 3
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>About how frequently do you release new versions and update to the apps that you currently maintain?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "Every day": 4,
+                  "A few times a week": 9,
+                  "About once a week": 11,
+                  "A few times a month": 23,
+                  "Once a month": 24,
+                  "Once a quarter": 18,
+                  "Less than once a quarter": 11
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>How many app development projects are currently in the backlog and awaiting development?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="blue" graph-data='{
+                  "1-9": 90,
+                  "10-19": 7,
+                  "20-29": 1,
+                  "30-49": 1,
+                  "50-100": 1,
+                  "100+": 1
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+  
+        <h3 id="results-pwas">Progressive Web Apps</h3>
+        <dl>
+          <dt>Which of the following deployment targets have you developed apps for over the past year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Google Play": 82,
+                  "iOS App Store": 70,
+                  "Web Browser (including PWAs)": 62,
+                  "Desktop Container (e.g. Electron)": 13,
+                  "Smart Devices": 6,
+                  "Chat / Conversational AI": 5,
+                  "Microsoft Store": 3,
+                  "Voice": 2,
+                  "Wearables": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Have you published a Progressive Web App (PWA) in the last year?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Yes": 38,
+                  "No": 37,
+                  "No, but we plan to next year": 25
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Will the app also be available as a native binary in the app stores?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Yes": 40,
+                  "No": 26,
+                  "Maybe": 34
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>What is the *primary* motivation for building a PWA?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Cross-platform efficiency": 42,
+                  "Distribute the app directly to users": 18,
+                  "Improve mobile web experience": 18,
+                  "Easier to update the app as needed": 11,
+                  "Acquire more users": 10,
+                  "Everyone else is doing it": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>If you have published a PWA already, what is the biggest impact you have observed so far?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Simplified operations": 33,
+                  "Haven&#145t published the PWA yet": 31,
+                  "No impact since publishing the PWA": 12,
+                  "Better user engagement": 11,
+                  "Increased user acquisition": 9,
+                  "Increased in-app/ad-driven revenue": 2,
+                  "other": 2
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which tools, libraries, or frameworks are you using to build PWAs?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Ionic": 72,
+                  "Angular": 71,
+                  "React": 21,
+                  "Vue": 15,
+                  "Stencil": 8,
+                  "Polymer / Lit-Element": 2,
+                  "Preact": 1,
+                  "Other": 4
+                }'></bar-chart>
+            </figure>
+          </dd>
+          <dt>Which of the following hosting providers are you using to host your PWA(s)?</dt>
+          <dd>
+            <figure>
+              <bar-chart color="green" graph-data='{
+                  "Firebase / GCP": 38,
+                  "Self-hosted": 33,
+                  "AWS": 28,
+                  "Azure": 13,
+                  "Digital Ocean": 11,
+                  "Heroku": 9,
+                  "Other": 7,
+                  "Netlify": 6
+                }'></bar-chart>
+            </figure>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
+sr.reveal('main section p, main section li, main section figure, main section bar-chart, main section h4');
+{# sr.reveal('.animate-in ionic-bar-chart', {duration: 500}); #}
+setTimeout(function() {
+  window.ScrollReveal().sync()
+}, 5000);
+
+
+const stickyWatcher = () => {
+  const $nav = document.getElementById('survey-2019-nav')
+  const observer = new IntersectionObserver( 
+    ([e]) => $nav.classList.toggle('isSticky', e.intersectionRatio < 1),
+    {threshold: [1]}
+  );
+  $scrollSpy = document.getElementById('scroll-spy');
+  observer.observe($scrollSpy);
+
+  const darknessObserver = new IntersectionObserver( 
+    ([e]) => {
+      console.log(e)
+      return $nav.classList.toggle('isDark', e.isIntersecting)
+    },
+    {rootMargin: '-50px 0px -93%'}
+  );
+  const $darkSections = document.getElementById('dark-sections')
+  darknessObserver.observe($darkSections);
+
+  // check initial scroll positions
+  const scrollPos = document.body.scrollTop;
+  if (scrollPos > $scrollSpy.offsetTop) {
+    $nav.classList.add('isSticky')
+  }
+  if (scrollPos > $darkSections.offsetTop) {
+    $nav.classList.add('isDark')
+  }
+};
+stickyWatcher();
+
+$('body').scrollspy({
+  offset: 150
+});
+
+$(window).on('activate.bs.scrollspy', function (e) {
+  currentSection = $("a[href^='#']", e.target).attr("href");
+  history.replaceState({}, "Ionic Framework - Survey-2017", currentSection);
+
+});
+
+
+createCube = ($element, color, size) => {
+  // Based on https://codepen.io/stizz1e/pen/EPyOyE
+  //Build the scene
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min
+  }
+  const width = size,
+      height = size,
+      xRotate = random(0, 1) === 1 ? random(8000, 12000) : -1 * random(8000, 12000),
+      yRotate = random(0, 1) === 1 ? random(8000, 12000) : -1 * random(8000, 12000);
+  const View_angle = 45,
+      Aspect = width / height,
+      Near = .01,
+      Far = 10000;
+  
+  //Create WebGL renderer, camera and scene
+  const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+  const camera = new THREE.PerspectiveCamera(
+    45, 1, 0.1, 10000);
+  const scene = new THREE.Scene();
+
+  //add camera to the scene
+  scene.add(camera);
+  //adjust camera y-index
+  camera.position.y = 160;
+  //adjust camera z-index
+  camera.position.z = 400;
+  
+  //init renderer
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(width, height);
+  
+  $element.append(renderer.domElement);
+  //END Scene set up variables
+  
+  //CREATE Cube object
+  const cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
+  const cubeMaterial = new THREE.MeshLambertMaterial({color});
+  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  cube.rotation.y = random(0, 360);
+  cube.rotation.x = random(0, 360);
+  scene.add(cube);
+  //END CUBE OBJECT
+  
+  //tell camera what to look at
+  camera.lookAt(cube.position);
+  
+  //START LIGHTING
+  const pointLight = new THREE.PointLight(0xFFFFFF, .5);
+  pointLight.position.set(-100, 500, 200);
+  scene.add(pointLight);
+  // const bottomLight = new THREE.PointLight(0xFFFFFF, 1);
+  // bottomLight.position.set(0, -100, 500);
+  // scene.add(bottomLight);
+  const light = new THREE.HemisphereLight(0xFFFFFF, 0xFFFFFF, .8);
+  scene.add( light );
+  //END LIGHTING
+  
+  //DRAW SCENE
+  function render(){
+    renderer.render(scene, camera);
+    renderer.setClearColor( 0x000000, 0);
+    //CREATE MOVEMENT
+    cube.rotation.y = +new Date() / yRotate;
+    cube.rotation.x = +new Date() / xRotate;
+    requestAnimationFrame(render);
+  }
+  render();
+}
+
+createCube(document.querySelector('#cubes li:nth-child(1)'), '#3780FF', 100);
+createCube(document.querySelector('#cubes li:nth-child(2)'), '#1B6DFF', 100);
+createCube(document.querySelector('#cubes li:nth-child(3)'), '#35E2E9', 100);
+createCube(document.querySelector('#cubes li:nth-child(4)'), '#46B1FF', 50);
+createCube(document.querySelector('#cubes li:nth-child(5)'), '#62BDFF', 50);
+createCube(document.querySelector('#cubes li:nth-child(6)'), '#4D8DFF', 50);
+
+</script>
+{% endblock %}

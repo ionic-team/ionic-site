@@ -11,7 +11,10 @@
 
 {% block main %}
 <ionic-sub-header>
-  <a slot="title" href="/enterprise/identity-vault">Identity Vault</a>
+  <ul slot="breadcrumbs" style="font-size: 16px;">
+    <li><a href="/native">Native</a></li>
+    <li><a href="#">Identity Vault</a></li>
+  </ul>
   <ul slot="right">
     <li><a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"><ion-icon name="ios-download"></ion-icon> Data Sheet</a></li>
     <li><a href="/docs/enterprise/identity-vault">Docs</a></li>

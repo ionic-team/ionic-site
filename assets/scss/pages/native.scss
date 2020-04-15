@@ -1,0 +1,463 @@
+@import '../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../components/resources_read_more';
+@import '../utilities/native_utils';
+
+// #region --------------- VARIABLES -------------------
+$mainColor: #193455;
+$heroHeight: 768px;
+$sectionPad: 200px;
+
+$colorBack2: #F7F9FC;
+$colorBackInvert: $mainColor;
+
+// Text
+$colorTitle: #010610;
+$colorTitle2: #1A232F;
+$colorTitleInvert: white;
+$colorSubtext1: #2D4665;
+$colorSubtext2: #616E7E;
+$colorSubtext3: #445B78;
+$colorSubtext4: #5B708B;;
+$colorSubtextInvert: #E9EDF3;
+$colorSubtextInvert2: #CED6E0;
+
+// buttons
+$btnPrimaryBack: $mainColor;
+$btnPrimaryText: white;
+$btnSecondaryBack: #DEE3EA;
+$btnSecondaryText: #{$mainColor};
+// #endregion
+
+// #region --------------- BUTTONS ---------------------
+%btn {
+  border-radius: 8px;
+  height: 51px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border:none;  
+  font-weight: bold;
+  letter-spacing: .1rem;
+  white-space: nowrap;
+  text-align:center;
+}
+
+@include box('.btn-primary', null, null, $btnPrimaryBack, $btnPrimaryText);
+.btn-primary {
+  @extend %btn;
+  @include animationForward($time: 300ms) {
+    0% {
+      background: lighten($mainColor, 8%);
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    100% {
+
+    }
+  }  
+  &:hover, &:focus {
+    @include animationForward($time: 300ms) {
+      0% {
+      }
+      100% {
+        background: lighten($mainColor, 8%);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+}
+
+@include box('.btn-secondary', null, null, $btnSecondaryBack, $btnSecondaryText);
+.btn-secondary {
+  @extend %btn;
+  @include animationForward($time: 300ms) {
+    0% {
+      background: darken(#DEE3EA, 4%);
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    100% {
+
+    }
+  }  
+  &:hover, &:focus {
+    @include animationForward($time: 300ms) {
+      0% {
+      }
+      100% {
+        background: darken(#DEE3EA, 4%);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+  
+}
+
+// #endregion
+
+// #region --------------- DEFAULT STYLES -------------
+
+h1 {
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 100%;
+  margin: 0px;
+}
+h2 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 112%;
+  letter-spacing: -.04em;
+  color: $colorTitle;
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+  font-family: $font-family-inter;
+  color: $colorTitle;
+  letter-spacing: -.01em;
+  margin-top: 0px;
+}
+.p1 {
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -.03em;
+}
+.p2 {
+  font-size: 16px;
+  line-height: 180%;
+  letter-spacing: -.01em;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  &:active, &:hover, &:focus {
+    text-decoration: none;
+    color: #488aff;
+  }
+}
+#sticky-bar .anchor:hover {
+  color: $mainColor;
+  font-weight: 600;
+}
+#sticky-bar li.active a:not(.btn) {
+  color: $mainColor;
+}
+
+.btn.anchor {
+  background: $mainColor;
+}
+.highlight {
+  color: #4a8bfc;
+}
+.superTitle {
+  content: 'key features';
+  text-transform: uppercase;
+  color: #73849A;
+  letter-spacing: .16em;
+  font-size: 12px;
+  font-family: Roboto Mono;
+  font-weight: bold;
+  position: absolute;
+  top: -32px;
+  width: 100%;
+}
+
+#get-started .content {
+  position: relative;
+}
+
+// Main Section Styles
+@include stack('.main1', $sectionPad);
+@include box('.main1', $pY: $sectionPad);
+@include box('.main2', $pY: $sectionPad);
+@include box('.main3', $pY: $sectionPad);
+// #endregion
+
+
+// ------------------------- CUSTOM PAGE STYLES -----------------------------
+
+@include stack('', 40px);
+
+
+@include box('ionic-sub-header .btn-primary', $pY:5px, $pX: 10px);
+ionic-sub-header {
+
+  #hdrNativeLogo:hover {
+    path.text {
+      // color: black;
+      fill: black;
+    }
+    path.tb-rect {
+      fill: #E4B035;
+    }
+    path.lr-rect {
+      fill: #FFD352;
+    }
+  }
+  svg {
+    height: 24px;
+  }
+  .btn-primary {
+    text-transform: none;
+    padding-top: 6px !important;
+    padding-right: 10px !important;
+    font-size: 13px;
+    height: 28px;
+    font-weight: 600;
+
+    &:hover {
+      color:white !important;
+    }
+  }
+}
+
+@include box('#hero', $pY: 134px);
+#hero {
+  min-height: $heroHeight;
+  background-image: url('/img/native/bg_native.svg');
+  background-position: center;
+}
+
+@include box('#heroText', $mW: 448px);
+@include box('#heroText a.btn-primary', $pY:16px, $pX: 20px, $mRight: 20px, $mBot: 20px);
+@include box('#heroText a.btn-secondary', $pY:16px, $pX: 20px);
+#heroText {
+
+  @include box(h1, $color: $colorTitle);
+  h1 {
+    
+  }
+
+  @include box(p, $color: $colorSubtext1);
+  p {
+    font-size: 22px;
+  }
+}
+
+@include box('#nativeTitle', $mW: 576px);
+@include box('#nativeTitle p', $mBot: 96.11px, $color: $colorSubtext3);
+@include switcher('#native', 3, $container-sm - $grid-gutter-width, 44px);
+#native {
+  article {
+    flex: 1 1 312px;
+  }
+  @include box('svg', $mBot: 32px);
+  svg {
+    height: 64px;
+  }
+}
+
+@include box('#pluginsText', $mW: 300px);
+@include box('#pluginsText p', $color: $colorSubtext3);
+@include stack('#pluginsText', 40px);
+@include box('#pluginsImg', $mW: 420px);
+@include box('#plugins svg + svg', $mLeft: 28px);
+#plugins {
+  justify-content: space-between;
+}
+#pluginsText {
+  flex-grow: 1;
+  max-width: 448px;
+  justify-content: center;
+  svg {
+    width: 48px;
+  }
+}
+#pluginsImg {
+  flex-grow:1;
+  max-width: 566px;
+  img {
+    object-fit: contain;
+  }
+}
+
+@include box('#securityText', $color: $colorTitle, $mW: 300px);
+@include box('#securityText p', $color: $colorSubtext3);
+@include stack('#securityText', 40px);
+@include box('#securityImg', $mW: 420px);
+#security {
+  justify-content: space-between;
+}
+#securityText {
+  order: 2;
+  flex-grow: 1;
+  max-width: 408px;
+  justify-content: center;
+}
+#securityImg {
+  flex-grow:1;
+  order: 1;
+  max-width: 570px;
+  img {
+    object-fit: contain;
+    margin-right: 50px;
+  }
+}
+
+@include stack('#supGuidance', 40px);
+@include box('#support', $mRight: 40px);
+@include box ('#supGuidance h2', $color: $colorTitle);
+@include box ('#supGuidance p', $color: $colorSubtext3);
+#supGuidance {
+  width: 100%;
+  justify-content: space-between;
+  svg {
+    height: 176px;
+    width: 280px;
+  }
+  article {
+    flex: 1 1 0;
+    max-width: 448px;
+  }
+}
+
+@include box('.panel', 32px, 32px, $colorSubtext3, null, 324px);
+@include box('.panel > h3', $color: $colorTitleInvert);
+@include box('.panel > p', $color: $colorSubtextInvert2);
+.panel {
+  border-radius: 8px;
+  @include animationForward($time: 300ms) {
+    0% {
+      background: lighten(#445B78, 4%);
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    100% {
+
+    }
+  }  
+  &:hover, &:focus {
+    @include animationForward($time: 300ms) {
+      0% {
+      }
+      100% {
+        background: lighten(#445B78, 4%);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+@include box('#secFeatures', $back: $colorBackInvert);
+@include box('#secFeaturesText', $mBot: 96px, $mW: 640px);
+@include box('#secFeaturesText h2', $color: $colorTitleInvert);
+@include box('#secFeaturesText p', $color: $colorSubtextInvert);
+@include switcher('#secFeatures', 3, $container-sm - $grid-gutter-width, 26px);
+#secFeatures {  
+
+  @include box('svg', $mBot: 32px);
+  svg {
+    width: 80px;
+  }
+
+}
+
+@include switcher('#keyFeatures', 2, ($container-sm - $grid-gutter-width), 87px);
+@include box('#keyFeatures', $back: $colorBack2);
+@include box('#keyFeaturesTitle p', $color: $colorSubtext4);
+@include box('#keyFeaturesContent h3', $color: $colorTitle2);
+@include box('#keyFeaturesContent p', $color: $colorSubtext3);
+
+#keyFeatures {  
+  @include box('svg', $mRight: 40px);
+  svg {
+    position: relative;
+    width: 56px;
+    z-index:2;
+  }
+}
+@include stack('#keyFeaturesContent', 92px);
+#keyFeaturesContent {
+  contain: content;
+  overflow: hidden;
+
+  @include box('article', $back: $colorBack2);
+  article:not(:last-child) {
+    padding-bottom: 100px;
+  }
+  @for $i from 1 through 5 {
+    article:nth-child(#{$i}) {
+      position: relative;
+      z-index: #{$i};
+    }
+  }
+  article:not(:last-child):after {
+    contain: content;
+    writing-mode: vertical-lr;
+    content: '............................................................';
+    position: absolute;
+    left: 20px;
+    height: 100%;
+    z-index: 1;
+    letter-spacing: 4px;
+    color: #B2BECD;
+    font-size: 20px;
+  }
+}
+
+
+// Sticky doesn't work without this.
+@media (min-width: $screen-sm) {
+  main {
+    overflow: visible;
+  }
+}
+
+.tag-along {  
+  position:relative;
+  #keyFeaturesTitle {
+    position:sticky;
+    top:150px;
+    height: 100%;
+  }
+}
+
+@include box('#get-started', $pY: $sectionPad);
+#get-started {
+
+}
+
+// -------------------------- MEDIA QUERIES -------------------------------
+
+@media (max-width: $screen-sm) {
+  :root {
+    --sectionPad: 100px;
+  }  
+  #native {
+    svg {
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+  #plugins {
+
+  }
+  #pluginsImg {
+    // display: none;
+    position: relative;
+    right: 0;
+    // max-width: 80%;
+    margin-left: auto;
+    margin-top: 50px;
+  }
+  #securityImg {
+    // display:none;
+    order: 2;
+    position: relative;
+    position: static;
+    margin-top: 100px;
+    margin-left: auto;
+    // max-width: 80%;
+    img {
+      margin-right: 0px;
+    }
+  }
+  #support {
+    margin-bottom: 100px;
+  }
+
+}

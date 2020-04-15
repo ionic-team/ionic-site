@@ -1,22 +1,22 @@
-const gulp         = require('gulp');
-const $            = require('gulp-load-plugins')();
-const browserSync  = require('browser-sync');
-const cachebust    = require('gulp-cache-bust');
-const cleanCSS     = require('gulp-clean-css');
-const concat       = require('gulp-concat');
-const cp           = require('child_process');
-const del          = require('del');
-const es           = require('event-stream');
-const footer       = require('gulp-footer');
-const header       = require('gulp-header');
-const lib          = require('./assets/3rd-party-libs.json');
-const nodemon      = require('gulp-nodemon');
-const path         = require('path');
-const pkg          = require('./package.json');
-const prefix       = require('gulp-autoprefixer');
-const rename       = require('gulp-rename');
-const sass         = require('gulp-sass');
-const uglify       = require('gulp-uglify');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const browserSync = require('browser-sync');
+const cachebust = require('gulp-cache-bust');
+const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const cp = require('child_process');
+const del = require('del');
+const es = require('event-stream');
+const footer = require('gulp-footer');
+const header = require('gulp-header');
+const lib = require('./assets/3rd-party-libs.json');
+const nodemon = require('gulp-nodemon');
+const path = require('path');
+const pkg = require('./package.json');
+const prefix = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 
 var closureStart =
   '/*!\n' +
@@ -35,11 +35,11 @@ const bustCache = async () => {
       .pipe(cachebust({
         basePath: 'dist'
       }))
-      .pipe(rename({extname: '.prod.html'}))
+      .pipe(rename({ extname: '.prod.html' }))
       .pipe(gulp.dest('./' + path));
   }
 
-  var bustArray = function() {
+  var bustArray = function () {
     return [
       cacheBust('server/pages/_includes/', 'head.html'),
       cacheBust('server/pages/_includes/', 'scripts.html'),
@@ -50,7 +50,7 @@ const bustCache = async () => {
 }
 
 function bustCacheAndReload(done) {
-  bustCache().on('end', function() {
+  bustCache().on('end', function () {
     done();
     browserSync.reload();
     // apply the template change in the background
@@ -68,10 +68,10 @@ function restartAndReload(done) {
 
 function justReload(done) {
   // server.restart(function(err) {
-    // if (!err) {
-      done();
-      browserSync.reload();
-    // }
+  // if (!err) {
+  done();
+  browserSync.reload();
+  // }
   // });
 }
 
@@ -91,17 +91,17 @@ const stylesOthers = () => {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename({extname: '.min.css'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('dist/css/'))
-    .pipe($.size({title: 'styles'}));
+    .pipe($.size({ title: 'styles' }));
 };
 
 const stylesMain = () => {
   // For best performance, don't add Sass partials to `gulp.src`
-  return  gulp.src(
+  return gulp.src(
     ['assets/scss/styles.scss'].concat(lib.css)
-  ) .pipe($.sourcemaps.init())
+  ).pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:'),
@@ -112,65 +112,66 @@ const stylesMain = () => {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/css/'))
     // Concatenate and minify styles
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename({extname: '.min.css'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('dist/css/'))
-    .pipe($.size({title: 'styles'}));
+    .pipe($.size({ title: 'styles' }));
 };
 
 // compress and concat JS
 const js = () => {
   return gulp.src(lib.js.concat(['assets/js/**/*.js']))
     .pipe($.sourcemaps.init())
-    .pipe(concat('ionic-site.js', {newLine: ';'}))
+    .pipe(concat('ionic-site.js', { newLine: ';' }))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('dist/js'))
     .pipe(uglify())
-    .pipe(rename({extname: '.min.js'}))
+    .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('dist/js'))
-    .pipe($.size({title: 'js'}));
+    .pipe($.size({ title: 'js' }));
 };
 
 
 const stencil = (done) => {
-  return cp.spawn('node_modules/.bin/stencil',
+  return cp.spawn(path.join('node_modules', '.bin', 'stencil'),
     ['build', process.env.PROD ? '' : '--dev'],
     {
       cwd: process.cwd(),
       env: {
-          PATH: process.env.PATH
+        PATH: process.env.PATH
       },
+      shell: true,
       stdio: 'inherit'
     }
   )
 
-  .on('close', async () => {
-    done();
+    .on('close', async () => {
+      done();
 
-  }).on('error', function(err) {
-    console.log(err)
-    throw err; 
-  });
+    }).on('error', function (err) {
+      console.log(err)
+      throw err;
+    });
 };
 
 const serverStart = (done) => {
-  server = nodemon({ 
+  server = nodemon({
     script: 'server.js',
     watch: 'server',
   }).on('start', () => {
     if (browserSync.active) {
-      setTimeout( browserSync.reload, 3050);
+      setTimeout(browserSync.reload, 3050);
     } else {
       // giving the server 2 seconds to start
       setTimeout(done, 2000);
     }
   })
-  .on('crash', function() {
-    console.error('Application has crashed!\n')
-     server.emit('restart', 10)  // restart the server in 10 seconds
-  });
+    .on('crash', function () {
+      console.error('Application has crashed!\n')
+      server.emit('restart', 10)  // restart the server in 10 seconds
+    });
 };
 
 
@@ -191,11 +192,11 @@ const build = gulp.series(
 )
 
 const run = gulp.parallel(
-  build, 
+  build,
   serverStart
 )
 
-const watchServer = async () => gulp.watch(['server.js','server/**/*'], restartAndReload);
+const watchServer = async () => gulp.watch(['server.js', 'server/**/*'], restartAndReload);
 const watchStylesMain = async () => gulp.watch(['assets/scss/**/_*.scss', 'assets/scss/styles.scss'], gulp.series(stylesMain, justReload))
 const watchStylesOthers = async () => gulp.watch(['assets/scss/**/*.scss', '!assets/scss/styles.scss', '!assets/scss/**/_*.scss'], gulp.series(stylesOthers, justReload))
 const watchJS = async () => gulp.watch(['assets/js/**/*.js'], gulp.series(js, justReload));
@@ -208,11 +209,11 @@ const watch = gulp.series(
     watchServer,
     watchStylesMain,
     watchStylesOthers,
-    watchJS, 
+    watchJS,
     watchStencil
   ),
   async () => {
-    return browserSync.init({'proxy': 'http://localhost:3000', 'port': 3003})
+    return browserSync.init({ 'proxy': 'http://localhost:3000', 'port': 3003 })
   }
 );
 

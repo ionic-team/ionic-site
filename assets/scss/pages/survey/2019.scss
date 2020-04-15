@@ -21,12 +21,27 @@ $c-blue-400: #3780FF;
     linear-gradient(180deg, #4BA6FF 0%, #3E71FF 100%);
   background-size: 1440px, cover;
 
+  // safari only because of a chrome bug
+  @media not all and (min-resolution:.001dpcm)
+    { @supports (-webkit-appearance:none) {
+      overflow: hidden;
+    }
+  }
+
   .container {
     position: relative;
   }
 
   hgroup {
     max-width: 580px;
+  }
+
+  h1,
+  h4,
+  p {
+    animation: 1s fadeInUp;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 
   h1 {
@@ -36,6 +51,7 @@ $c-blue-400: #3780FF;
     margin-top: 22px;
     margin-bottom: 2px;
     font-weight: 600;
+    animation-delay: 1.2s;
   }
 
   h4 {
@@ -46,12 +62,16 @@ $c-blue-400: #3780FF;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 23px;
+    opacity: 0;
+    animation-delay: 0s;
   }
 
   p {
     font-size: 22px;
     color: rgba(255,255,255,.8);
     line-height: 40px;
+    opacity: 0;
+    animation-delay: 1.4s;
   }
 }
 
@@ -59,35 +79,44 @@ $c-blue-400: #3780FF;
   li {
     list-style: none;
     position: absolute;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    opacity: 0;
     
     &:nth-child(1) {
       top: 22px;
       left: -336px;
+      animation-delay: 2s;
     }
 
     &:nth-child(2) {
       top: 58px;
       right: -196px;
+      animation-delay: 2.2s;
     }
 
     &:nth-child(3) {
       top: 337px;
       right: -254px;
+      animation-delay: 2.4s;
     }
 
     &:nth-child(4) {
       top: 237px;
       left: -120px;
+      animation-delay: 2.6s;
     }
 
     &:nth-child(5) {
       top: 30px;
       right: 92px;
+      animation-delay: 2.8s;
     }
 
     &:nth-child(6) {
       top: 309px;
       left: -34px;
+      animation-delay: 2.9s;
     }
   }
 }
@@ -165,6 +194,15 @@ $c-blue-400: #3780FF;
     @supports (backdrop-filter: blur(5px)) {
       background: rgba(black, .7);
       backdrop-filter: blur(20px);
+    }
+  }
+
+  @media (max-width: $screen-xs-max)  {
+    overflow-x: auto;
+    top: 46px;
+
+    a {
+      padding: 32px 8px 24px;
     }
   }
 }
@@ -302,7 +340,8 @@ main {
     }
 
     @media (max-width: $screen-sm-max)  {
-      svg {
+      svg,
+      img {
         max-width: 100%;
       }
     }
@@ -317,7 +356,7 @@ main {
       overflow: visible;
 
       @media (max-width: $screen-sm-max)  {
-        width: 360px;
+        width: 350px;
       }
     }
 
@@ -367,6 +406,11 @@ main {
   height: 267px;
   bottom: -77px;
   right: 30px;
+  
+  @media (max-width: $screen-xs-max)  {
+    bottom: -200px;
+    right: -60px;
+  }
 }
 
 #tools .container::before {
@@ -392,6 +436,10 @@ main {
   height: 355px;
   left: -280px;
   top: 170px;
+
+  @media (max-width: $screen-xs-max)  {
+    display: none;
+  }
 }
 
 #delivery {
@@ -405,6 +453,22 @@ main {
 
   figure {
     margin: 140px 0 100px; 
+
+    svg.sm {
+      display: none;
+    }
+  
+    @media (max-width: $screen-sm-max)  {
+      svg {
+        &.sm {
+          display: block;
+        }
+  
+        &.lg {
+          display: none;
+        }
+      }
+    }
   }
 }
 
@@ -414,6 +478,10 @@ main {
   height: 356px;
   bottom: -77px;
   right: -312px;
+
+  @media (max-width: $screen-xs-max)  {
+    display: none;
+  }
 }
 
 #backend .container::before {
@@ -446,6 +514,13 @@ main {
 
   svg {
     width: unset;
+  }
+
+  @media (max-width: $screen-xs-max)  {
+    display: flex;
+    justify-content: space-around;
+
+    margin-right: 0;
   }
 }
 

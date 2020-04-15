@@ -370,6 +370,13 @@
     @media (max-width: $screen-sm) {
       background: linear-gradient(to right, #F1F8FF 0%, #C8CCFD 100%);
 
+      .promo__illustration {
+        width: 300px;
+        height: 334px;
+        top: auto;
+        bottom: -100px;
+        left: calc(50% + 42px);
+      }
     }
   }
 

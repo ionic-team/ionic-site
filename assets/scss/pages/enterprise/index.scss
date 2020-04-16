@@ -1,2 +1,72 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../utilities/enterprise_utils.scss';
+
+$colorBackInvert: #010610;
+
+h1 {
+  margin: 0 0 32px 0;
+  font-size: 64px;
+  letter-spacing: -.03em;
+}
+h2 {
+  margin: 0 0 40px 0;
+  font-size: 48px;
+  line-height: 112%;
+  letter-spacing: -0.04em;
+}
+h3 {
+  margin: 0 0 20px 0;
+}
+.p1 {
+  font-size: 24px;
+  line-height: 160%;
+}
+.p2 {
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -0.03em;
+}
+.p3 {
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: -0.01em;
+}
+
+// #region ------------------- COMPONENTS ----------------------------
+ionic-sub-header {
+  position:relative;
+  background: #010610 !important;
+  a:not(.active):not(:hover) {
+    color: white !important;
+  }
+  [slot='title'] {
+    letter-spacing: -.01em;
+    font-size: 18px;
+    &:hover {
+      color: #488aff !important;
+    }
+  }
+}
+
+.ionic-sub-header--stuck {
+  position: sticky;
+}
+
+#heroImage {
+  position: absolute;
+  top: 0;
+  background: #010610;
+}
+@include box($color: white);
+#heroText {
+  position: relative;
+  z-index: 2;
+}
+
+#top {
+  position: relative;
+  min-height: 776px;
+  background: #010610;
+}
+// #endregion

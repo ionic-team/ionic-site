@@ -23,8 +23,9 @@
 
 // ------------------------ BOX -----------------------------
 @mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
-           $mW: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null) {
+           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null) {
   #{$element}.box {
+    box-sizing: border-box;
     padding-left: #{$pX};
     padding-right: #{$pX};
     padding-top: #{$pY};
@@ -35,7 +36,7 @@
     margin-bottom: #{$mBot};
     background: #{$back};
     color: #{$color};
-    flex-basis: #{$mW};    
+    flex-basis: #{$fB};    
   }
 }
 

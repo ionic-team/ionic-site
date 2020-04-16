@@ -1,3 +1,19 @@
+.d\:flex {
+  display:flex;
+}
+.d\:block {
+  display:block;
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.strip > * {
+  flex: 1 1 auto;
+}
+
 // --------------------- STACK --------------------------
 @mixin stack($element, $mY){
   #{$element}[class~='stack'] {    
@@ -23,7 +39,7 @@
 
 // ------------------------ BOX -----------------------------
 @mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
-           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null) {
+           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null) {
   #{$element}.box {
     box-sizing: border-box;
     padding-left: #{$pX};
@@ -36,7 +52,8 @@
     margin-bottom: #{$mBot};
     background: #{$back};
     color: #{$color};
-    flex-basis: #{$fB};    
+    flex-basis: #{$fB};   
+    flex-grow: #{$fG};
   }
 }
 

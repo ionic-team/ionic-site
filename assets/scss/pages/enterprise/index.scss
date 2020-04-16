@@ -3,7 +3,17 @@
 @import '../../utilities/enterprise_utils.scss';
 
 $colorBackInvert: #010610;
+$colorBtnText: #001A3A;
+$colorTitle: #010610;
+$colorTitleInvert: white;
+$colorSubtext: #445B78;
+$colorSubtextInvert: #F6F8FB;
+$colorSubtextInvert2: #DEE3EA;
+$colorSubtextInvert3: #B2BECD;
+$lg: 99999;
 
+
+// #region ------------------- DEFAULT STYLES ----------------------------
 h1 {
   margin: 0 0 32px 0;
   font-size: 64px;
@@ -14,9 +24,14 @@ h2 {
   font-size: 48px;
   line-height: 112%;
   letter-spacing: -0.04em;
+  color: $colorTitle;
 }
 h3 {
   margin: 0 0 20px 0;
+  color: $colorTitle;
+}
+p {
+  color: $colorSubtext;
 }
 .p1 {
   font-size: 24px;
@@ -33,10 +48,43 @@ h3 {
   letter-spacing: -0.01em;
 }
 
-// #region ------------------- COMPONENTS ----------------------------
+main {
+  overflow: visible;
+}
+// #endregion
+
+// #region ------------------- COMPONENTS --------------------------------
+%btn {
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .1em;
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  &:hover {
+
+  }
+}
+
+.btn-main {
+  @extend %btn;
+  background: white;
+  color: $colorBtnText;
+  &:hover, &:active, &:focus {
+    color: $colorBtnText;
+    background: darken(white, 8%);
+  }
+
+}
+// #endregion
+
 ionic-sub-header {
   position:relative;
-  background: #010610 !important;
+  background: $colorBackInvert !important;
   a:not(.active):not(:hover) {
     color: white !important;
   }
@@ -49,6 +97,10 @@ ionic-sub-header {
   }
 }
 
+#sticky-bar {
+  top: 56px;
+}
+
 .ionic-sub-header--stuck {
   position: sticky;
 }
@@ -56,9 +108,10 @@ ionic-sub-header {
 #heroImage {
   position: absolute;
   top: 0;
-  background: #010610;
+  background: $colorBackInvert;
 }
-@include box($color: white);
+@include box('#heroText', $color: white, $fB: 560px);
+@include box('#heroText p', $color: $colorSubtextInvert, $fB: 560px);
 #heroText {
   position: relative;
   z-index: 2;
@@ -67,6 +120,18 @@ ionic-sub-header {
 #top {
   position: relative;
   min-height: 776px;
-  background: #010610;
+  background: $colorBackInvert;
 }
-// #endregion
+@include box('#enterpriseText', $fB: 0, $fG: $lg);
+@include box('#enterpriseImg', $fB: 489.36px, $fG: 1);
+
+#enterpriseSec {
+  img {
+    width: 100%;
+  }
+  svg {
+    // height: 100px;
+  }
+}
+
+

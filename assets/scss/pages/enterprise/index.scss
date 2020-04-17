@@ -51,6 +51,32 @@ p {
 main {
   overflow: visible;
 }
+
+blockquote {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  quotes:none;
+
+  footer {
+    padding: 0px;
+    border-top: 0;
+
+    &::before {
+      content: '';
+    }
+  }
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content:'';
+  content:none;
+}
 // #endregion
 
 // #region ------------------- COMPONENTS --------------------------------
@@ -65,9 +91,7 @@ main {
   align-items: center;
   padding: 16px 20px;
   cursor: pointer;
-  &:hover {
-
-  }
+  line-height: 14px;
 }
 
 .btn-main {
@@ -124,13 +148,78 @@ ionic-sub-header {
 }
 @include box('#enterpriseText', $fB: 0, $fG: $lg);
 @include box('#enterpriseImg', $fB: 489.36px, $fG: 1);
-
 #enterpriseSec {
   img {
     width: 100%;
   }
-  svg {
-    // height: 100px;
+}
+
+#ossSec {
+  #ossTitle {
+
+  }
+  @include box('#ossCont svg', $w: 48px);
+  #ossCont {
+
+  }
+}
+
+#nativeSec {
+  #nativeTitle {
+
+  }
+
+  @include box('#nativeCont svg', $w: 48px);
+  #nativeCont {
+
+  }
+}
+
+#mobSecSec {
+  #mobSecTitle {
+
+  }
+  @include box('#mobSecCont svg', $w: 80px);
+  #mobSecCont {
+
+  }
+}
+
+#adviseSec {
+  #adviseTitle {
+
+  }
+
+  @include box('#adviseCont svg', $w: 32px);
+  #adviseCont {
+
+  }
+}
+
+#delivSec {
+
+  @include box('#delivTitle svg', $w: 448px);
+  #delivTitle {
+
+  }
+
+  @include box('#delivCont svg', $w: 48px, $h: 48px);
+  #delivCont {
+
+  }
+}
+
+#finalCta {
+  background: $colorBackInvert;
+
+  @include box('p', $color: $colorTitleInvert);
+  p {
+    strong { font-weight: 600; }
+
+    font-family: $font-family-eina;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
   }
 }
 

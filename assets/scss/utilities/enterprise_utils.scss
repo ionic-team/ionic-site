@@ -4,6 +4,9 @@
 .d\:block {
   display:block;
 }
+.ai\:c {
+  align-items:center;
+}
 
 .strip {
   display: flex;
@@ -39,7 +42,8 @@
 
 // ------------------------ BOX -----------------------------
 @mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
-           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null) {
+           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
+           $w: null, $h: null) {
   #{$element}.box {
     box-sizing: border-box;
     padding-left: #{$pX};
@@ -54,6 +58,8 @@
     color: #{$color};
     flex-basis: #{$fB};   
     flex-grow: #{$fG};
+    width: #{$w};
+    height: #{$h};
   }
 }
 

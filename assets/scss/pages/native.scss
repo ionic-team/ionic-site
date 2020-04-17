@@ -161,7 +161,7 @@ a {
   font-family: Roboto Mono;
   font-weight: bold;
   position: absolute;
-  top: -32px;
+  top: -42px;
   width: 100%;
 }
 
@@ -319,6 +319,7 @@ ionic-sub-header {
 @include box('.panel > p', $color: $colorSubtextInvert2);
 .panel {
   border-radius: 8px;
+  height: 100%;
   @include animationForward($time: 300ms) {
     0% {
       background: lighten(#445B78, 4%);
@@ -411,7 +412,7 @@ ionic-sub-header {
   position:relative;
   #keyFeaturesTitle {
     position:sticky;
-    top:150px;
+    top:225px;
     height: 100%;
   }
 }

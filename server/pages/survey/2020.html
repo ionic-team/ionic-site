@@ -1,21 +1,20 @@
 {% extends "_layouts/base.html" %}
-{% set id = 'survey-2019' %}
-{% set name = '2019 Developer Survey' %}
-{% set meta_image = 'https://ionicframework.com/img/survey/ionic-dev-survey-19-img.png' %}
+{% set id = 'survey-2020' %}
+{% set name = '2020 Developer Survey' %}
+{% set meta_image = 'https://ionicframework.com/img/survey/dev-survey-og-img.png' %}
 {% set header_style = 'transparent' %}
-{% set cssPath = 'survey/2019' %}
+{% set cssPath = 'survey/2020' %}
 
 {% block body_attributes %}
-  data-spy="scroll" data-target="#survey-2019-nav" data-offset="400"
+  data-spy="scroll" data-target="#survey-2020-nav" data-offset="400"
 {% endblock %}
 
 {% block main %}
 <div id="survey-banner" class="cta banner">
   <hgroup class="container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="31.643" height="31.642" viewBox="0 0 31.643 31.642"><g transform="translate(-655 626)"><path d="M81.46,222.5a7.21,7.21,0,1,0,7.21,7.21A7.21,7.21,0,0,0,81.46,222.5Z" transform="translate(589.362 -839.883)" fill="#fff"/><circle cx="3.284" cy="3.284" r="3.284" transform="translate(677.889 -623.312)" fill="#fff"/><path d="M64.454,191.734l-.138-.3-.215.25a4.95,4.95,0,0,1-1.982,1.365l-.215.077.086.215a12.933,12.933,0,1,1-6.394-6.717l.2.1.088-.215a4.95,4.95,0,0,1,1.459-1.913l.258-.215-.295-.153a15.642,15.642,0,0,0-7.253-1.763,15.821,15.821,0,1,0,14.4,9.254Z" transform="translate(620.764 -808.46)" fill="#fff"/></g></svg>
-    <h4>2019</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 31.643 31.642"><g transform="translate(-655 626)"><path d="M81.46,222.5a7.21,7.21,0,1,0,7.21,7.21A7.21,7.21,0,0,0,81.46,222.5Z" transform="translate(589.362 -839.883)" fill="#fff"/><circle cx="3.284" cy="3.284" r="3.284" transform="translate(677.889 -623.312)" fill="#fff"/><path d="M64.454,191.734l-.138-.3-.215.25a4.95,4.95,0,0,1-1.982,1.365l-.215.077.086.215a12.933,12.933,0,1,1-6.394-6.717l.2.1.088-.215a4.95,4.95,0,0,1,1.459-1.913l.258-.215-.295-.153a15.642,15.642,0,0,0-7.253-1.763,15.821,15.821,0,1,0,14.4,9.254Z" transform="translate(620.764 -808.46)" fill="#fff"/></g></svg>
     <h1>Developer Survey</h1>
-    <p>2019’s biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
+    <p>This year's biggest insights, trends, and perspectives from the worldwide Ionic community.</p>
 
     <ul id="cubes">
       <li></li>
@@ -28,7 +27,7 @@
   </hgroup>
 </div>
 
-<nav id="survey-2019-nav" class="bar">
+<nav id="survey-2020-nav" class="bar">
   <ul class="container nav">
     <li><a href="#introduction" class="anchor">INTRODUCTION</a></li>
     <li><a href="#trends" class="anchor">TRENDS</a></li>
@@ -43,7 +42,7 @@
   <section id="introduction" class="center">
     <div class="container">
       <h2>The Age of the Web Developer</h2>
-      <p class="lg">Welcome to the 2019 Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared their stories and perspectives with us.</p>
+      <p class="lg">Welcome to the annual Ionic Developer Survey results! For the third year in a row, we heard from thousands of community members who shared their stories and perspectives with us.</p>
       <p class="lg">The theme of this year’s survey is the “Age of the Web Developer”. Web Developers now control every layer of the stack - from frontend to backend - across all deployment targets—mobile and desktop included. And as more and more web-centric tools, libraries, and frameworks emerge, their power and influence will only grow.</p>
       <p class="lg">Read on for more analysis, along with the usual list of most popular tools & services.</p>
     </div>
@@ -130,7 +129,7 @@
     </div>
   </section>
 
-  <section id="js-trends">
+  <section id="js-trends"> 
     <div class="container">
       <h2>JS Trends, Take 2</h2>
       <h4>When analyzing last year’s results, we said:</h4>
@@ -146,9 +145,9 @@
       <div class="spacer"></div>
       <h4>Q8. Which of the following libraries, frameworks, and tools have you done extensive development work in over the past year?</h4>
       <figure>
-        <img src="/img/survey/top-frameworks@2x.png"
-          srcset="/img/survey/top-frameworks.png 1x, /img/survey/top-frameworks@2x.png 2x"
-          alt="2019: 84% Angular, 30% React, 30% Vue - 2018: 86% Angular, 23% React, 23% Vue" />
+        <img src="/img/survey/top-frameworks@2x?v1.png"
+          srcset="/img/survey/top-frameworks.png?v1 1x, /img/survey/top-frameworks@2x.png?v1 2x"
+          alt="This Year: 84% Angular, 30% React, 30% Vue - Last Year: 86% Angular, 23% React, 23% Vue" />
       </figure>
       <p class="highlight">This signals that more people in the React and Vue communities are trying Ionic, and perhaps some existing Angular developers are giving other frameworks a try, as well.</p>
     </div>
@@ -707,7 +706,7 @@ setTimeout(function() {
 
 
 const stickyWatcher = () => {
-  const $nav = document.getElementById('survey-2019-nav')
+  const $nav = document.getElementById('survey-2020-nav')
   const observer = new IntersectionObserver( 
     ([e]) => $nav.classList.toggle('isSticky', e.intersectionRatio < 1),
     {threshold: [1]}

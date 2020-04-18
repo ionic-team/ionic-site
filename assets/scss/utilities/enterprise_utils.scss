@@ -1,11 +1,20 @@
-.d\:flex {
+.d\:flx {
   display:flex;
 }
-.d\:block {
+.d\:blk {
   display:block;
+}
+.d\:flx\:w {
+  @extend .d\:flx;
+  flex-wrap:wrap;
 }
 .ai\:c {
   align-items:center;
+}
+
+.ctr\:x {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .strip {

@@ -2,6 +2,7 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../../utilities/enterprise_utils.scss';
 
+$colorBackHighlight: #2774D2;
 $colorBackInvert: #010610;
 $colorBtnText: #001A3A;
 $colorTitle: #010610;
@@ -61,10 +62,16 @@ blockquote {
   vertical-align:baseline;
   background:transparent;
   quotes:none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: $colorTitleInvert;
 
   footer {
     padding: 0px;
     border-top: 0;
+    color: inherit;
 
     &::before {
       content: '';
@@ -72,11 +79,9 @@ blockquote {
   }
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content:'';
-  content:none;
-}
+// img {
+//   width: 100%;
+// }
 // #endregion
 
 // #region ------------------- COMPONENTS --------------------------------
@@ -102,7 +107,55 @@ q:before, q:after {
     color: $colorBtnText;
     background: darken(white, 8%);
   }
+}
 
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#nativeImgs {
+  overflow: visible;
+  overflow-x: hidden;
+
+  .content {
+    max-width: 894px;
+  }
+
+  hgroup p {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  #imageList {
+    height: 268px;
+    position: relative;
+    display:block;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+
+    li {
+      list-style: none;
+      position: absolute;
+    }
+
+    img {
+      position: absolute;
+      width: 128px;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(black, .1);
+
+      &.m {
+        width: 64px;
+      }
+
+      &.m {
+        width: 96px;
+      }
+    }
+  }
 }
 // #endregion
 
@@ -132,6 +185,7 @@ ionic-sub-header {
 #heroImage {
   position: absolute;
   top: 0;
+  right: 0;
   background: $colorBackInvert;
 }
 @include box('#heroText', $color: white, $fB: 560px);
@@ -171,6 +225,37 @@ ionic-sub-header {
 
   @include box('#nativeCont svg', $w: 48px);
   #nativeCont {
+
+  }
+}
+
+#quote1Sec {
+  position:relative;
+
+  #quote1Img {
+    flex-basis: 50%;
+    img {
+      object-fit:cover;
+      width: 100%;
+      height: 332px;
+    }
+  }
+
+  @include box('#quote1Back', $back: $colorBackHighlight);
+  #quote1Back {
+    flex-basis: 50%;
+    height: 332px;
+  }
+  #quote1Cont {
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+    blockquote {
+      position: absolute;
+      width: 50%;
+      right: 0;
+    }
 
   }
 }

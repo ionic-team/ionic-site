@@ -11,6 +11,12 @@
 .ai\:c {
   align-items:center;
 }
+.ai\:s {
+  align-items:flex-start;
+}
+.fg {
+  flex-grow: 1;
+}
 
 .jc\:c {
   justify-content: center;
@@ -23,6 +29,15 @@
 
 .strip {
   display: flex;
+}
+
+.strip\:w {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.strip\:w > * {
+  flex-grow: 1;
 }
 
 .strip > * {
@@ -77,9 +92,12 @@
   }
 }
 
-@mixin spacer($w: null) {
-  .spacer {
-    max-width: $w;
+@mixin spacer($el: '&', $mxW: null, $mnW: null, $mnH: null, $mxH: null) {
+  #{$el} .spacer {
+    max-width: $mxW;
+    min-width: $mnW;
+    max-height: $mxH;
+    min-height: $mnH;
     flex-basis: 0px;
     flex-grow: 1;
   }
@@ -105,21 +123,21 @@
   }
 }
 // ----------------------- SWITCHER -----------------------------
-@mixin switcher($element, $count, $threshold, $gap){
-  #{$element} .switcher > * {
+@mixin switcher($element:"&", $count:null, $threshold:null, $gap:null){
+  #{$element}.switcher > * {
     display: flex;
     flex-wrap: wrap;
     margin: calc((#{$gap} / 2) * -1);
   }
   
-  #{$element} .switcher > * > * {
+  #{$element}.switcher > * > * {
     flex-grow: 1;
     flex-basis: calc((#{$threshold} - (100% - #{$gap})) * 999);
     margin: calc(#{$gap} / 2);
   }
   
-  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}),
-  #{$element} .switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
+  #{$element}.switcher > * > :nth-last-child(n+#{$count + 1}),
+  #{$element}.switcher > * > :nth-last-child(n+#{$count + 1}) ~ * {
     flex-basis: 100%;
   }
 }

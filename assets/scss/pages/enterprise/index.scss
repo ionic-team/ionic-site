@@ -4,6 +4,7 @@
 
 $colorBackHighlight: #2774D2;
 $colorBackInvert: #010610;
+$colorBackInvert2: #001A3A;
 $colorBtnText: #001A3A;
 $colorTitle: #010610;
 $colorTitleInvert: white;
@@ -204,7 +205,7 @@ ionic-sub-header {
 }
 
 #enterpriseSec {
-@include spacer(143px);
+@include spacer($mxW:143px);
 
   #enterpriseText {
   @include box($mxW: 384px);
@@ -221,23 +222,36 @@ ionic-sub-header {
 }
 
 #ossSec {
+@include spacer($mxW:96px);
+
   #ossTitle {
-
+  @include stack($mY: 40px);
+  @include box($mxW: 480px);
   }
-  @include box('#ossCont svg', $w: 48px);
+  
   #ossCont {
-
+  @include stack($mY: 64px);
+  @include box($mxW: 448px);
+  @include box('svg', $mnW: 48px, $mxW: 48px);
+  
+  @include box('.content', $mxW: 352px);
+  @include spacer($mxW: 48px, $mnW: 20px, $mnH: 20px);
   }
 }
 
 #nativeSec {
-  #nativeTitle {
+  @include box('h2', $mxW: 480px);
 
+  #nativeTitle {
+  @include box('.title1', $mxW: 480px);
+  @include spacer($mxW: 64px);
+  @include box('.title2', $mxW: 480px);
   }
 
-  @include box('#nativeCont svg', $w: 48px);
+  
   #nativeCont {
-
+  @include box('svg', $w: 48px);
+  @include switcher($count:3, $threshold: $container-sm - $grid-gutter-width, $gap: 20px);
   }
 
   #imageList {
@@ -279,23 +293,42 @@ ionic-sub-header {
 }
 
 #mobSecSec {
+@include spacer($mxW: 96px, $mnW: 32px);
+
   #mobSecTitle {
+  @include box($mxW: 480px);
 
   }
-  @include box('#mobSecCont svg', $w: 80px);
+  
   #mobSecCont {
-
+  @include box($mxW: 448px);
+  @include stack($mY: 40px);
+    @include box('svg', $w: 80px);
   }
 }
 
 #adviseSec {
+@include box($back: $colorBackInvert2);
+
   #adviseTitle {
+  @include stack($mY: 40px);
+    @include box('h2', $color: $colorTitleInvert);
+    @include box('p', $color: $colorSubtextInvert2, $mxW: 704px);
 
   }
 
-  @include box('#adviseCont svg', $w: 32px);
+  
   #adviseCont {
-
+  // @include spacer($mxW: 48px, $mnW: 32px);  
+    @include box('.row1', $fB: 440px);
+    @include box('.row2', $fB: 440px);
+  
+    .panel {
+    @include box($fB: 220px);
+      @include box('h3', $color: $colorTitleInvert);
+      @include box('p', $color: $colorSubtextInvert2);
+      @include box('svg', $w: 32px);
+    }
   }
 }
 

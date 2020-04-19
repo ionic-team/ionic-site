@@ -188,9 +188,11 @@ ionic-sub-header {
   right: 0;
   background: $colorBackInvert;
 }
-@include box('#heroText', $color: white, $fB: 560px);
-@include box('#heroText p', $color: $colorSubtextInvert, $fB: 560px);
+
 #heroText {
+@include box($color: white, $mxW: 560px);
+@include box('p', $color: $colorSubtextInvert, $mxW: 560px);
+
   position: relative;
   z-index: 2;
 }
@@ -200,11 +202,21 @@ ionic-sub-header {
   min-height: 776px;
   background: $colorBackInvert;
 }
-@include box('#enterpriseText', $fB: 0, $fG: $lg);
-@include box('#enterpriseImg', $fB: 489.36px, $fG: 1);
+
 #enterpriseSec {
-  img {
-    width: 100%;
+@include spacer(143px);
+
+  #enterpriseText {
+  @include box($mxW: 384px);
+  @include stack($mY: 40px);
+
+    #logoList {
+      @include box($mTop: 81px, $fG: 0);
+      @include cluster($el: '& ', $sX: 48px, $sY: 32px);
+    }
+  }
+  #enterpriseImg {
+  @include box($mxW: 489px);
   }
 }
 
@@ -230,7 +242,7 @@ ionic-sub-header {
 
   #imageList {
     svg {
-      filter: drop-shadow( 0px 8px 8px rgba(0, 0, 0, .4));
+      filter: drop-shadow( 0px 8px 4px #ebebeb);
     }
   }
 }
@@ -311,6 +323,15 @@ ionic-sub-header {
     font-size: 28px;
     line-height: 120%;
     letter-spacing: -0.03em;
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .strip {
+      flex-direction:column;
+  }
+  .snap {
+      max-width: 100% !important;
   }
 }
 

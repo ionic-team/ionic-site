@@ -12,6 +12,10 @@
   align-items:center;
 }
 
+.jc\:c {
+  justify-content: center;
+}
+
 .ctr\:x {
   margin-left: auto;
   margin-right: auto;
@@ -19,15 +23,14 @@
 
 .strip {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .strip > * {
-  flex: 1 1 auto;
+  flex-grow: 1;
 }
 
 // --------------------- STACK --------------------------
-@mixin stack($element, $mY){
+@mixin stack($element: '&', $mY: null){
   #{$element}[class~='stack'] {    
     display: flex;
     flex-direction: column;
@@ -39,20 +42,18 @@
   } 
 
   #{$element}.stack > * + * {
-    --s: #{$mY};
-    margin-top: var(--s);
+    margin-top: #{$mY};
   }
 
   #{$element}.stack\:rec * + * {
-    --s: #{$mY};
-    margin-top: var(--s);
+    margin-top: #{$mY};
   }  
 }
 
 // ------------------------ BOX -----------------------------
-@mixin box($element:null, $pY:null, $pX:null, $back:null, $color:null,
-           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
-           $w: null, $h: null) {
+@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
+           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: 9999,
+           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null) {
   #{$element}.box {
     box-sizing: border-box;
     padding-left: #{$pX};
@@ -69,9 +70,40 @@
     flex-grow: #{$fG};
     width: #{$w};
     height: #{$h};
+    max-width: #{$mxW};
+    min-width: #{$mnW};
+    max-height: #{$mxH};
+    min-height: #{$mnH};
   }
 }
 
+@mixin spacer($w: null) {
+  .spacer {
+    max-width: $w;
+    flex-basis: 0px;
+    flex-grow: 1;
+  }
+}
+// ---------------------- CLUSTER ---------------------------------
+@mixin cluster($el: '&', $sX: 0, $sY: 0) {
+  #{$el}.cluster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: calc(#{$sX} / 2 * -1);
+    margin-right: calc(#{$sX} / 2 * -1);
+    margin-top: calc(#{$sY} / 2 * -1);
+    margin-bottom: calc(#{$sY} / 2 * -1);
+  }
+
+  #{$el}.cluster > * {
+    margin-left: calc(#{$sX} / 2);
+    margin-right: calc(#{$sX} / 2);
+    margin-top: calc(#{$sY} / 2);
+    margin-bottom: calc(#{$sY} / 2);
+  }
+}
 // ----------------------- SWITCHER -----------------------------
 @mixin switcher($element, $count, $threshold, $gap){
   #{$element} .switcher > * {

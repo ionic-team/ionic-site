@@ -7,9 +7,10 @@ const es = require('express-sanitizer');
 const { getPrismicAPI, getSingle, getPrismic, previewController } = require('./prismic');
 
 const { getIntegrations, getIntegration } = require('./controllers/integrations');
-const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const contactCtrl = require('./controllers/contactCtrl');
+const hsblockedCtrl = require('./controllers/hsblockedCtrl');
 const newsletterCtrl = require('./controllers/newsletterCtrl');
+const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const viewCtrl = require('./controllers/viewCtrl');
 
 module.exports = {
@@ -183,6 +184,7 @@ module.exports = {
   
     // JSON endpoints
     .post('/contact', bp.json(), es(), contactCtrl)
+    .post('/api/v1/hsblocked', bp.json(), es(), hsblockedCtrl)
     .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
     .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
   

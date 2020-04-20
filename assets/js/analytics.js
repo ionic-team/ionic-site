@@ -83,6 +83,42 @@ function updateQuerystringParameter(uri, key, value) {
   }
 }
 
+window.hsSnitch = () => {
+  // no hubspot forms on this page, bail
+  if (!document.querySelector('[src="//js.hsforms.net/forms/v2.js"')) return;
+
+  const selector = '.hs-form';
+
+  // has the form already loaded?
+  let hsFound = !!document.querySelector(selector);
+  if (hsFound) return;
+
+  const timer = setTimeout(async () => {
+    // one last check, just to be safe
+    if (hsFound || !!document.querySelector(selector)) return;
+
+    const response = await fetch('/api/v1/hsblocked', {
+      method: 'POST', 
+      mode: 'same-origin',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({browser: navigator.userAgent})
+    });
+    // give HS 3 seconds to load
+  }, 3000);
+  
+  // listen for the form to load
+  window.addEventListener('message', event => {
+    if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+      hsFound = true;
+      clearTimeout(timer);
+    }
+  });
+}
+window.hsSnitch();
+
 // shorthand global analytics click event helper
 window.c = function(cat, lbl, el, val) {
   if (typeof val === 'undefined') {

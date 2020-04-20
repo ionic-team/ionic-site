@@ -104,7 +104,10 @@ window.hsSnitch = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({browser: navigator.userAgent})
+      body: JSON.stringify({
+        browser: navigator.userAgent,
+        url: window.location.href
+      })
     });
     // give HS 3 seconds to load
   }, 3000);

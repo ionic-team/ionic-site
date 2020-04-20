@@ -1,7 +1,7 @@
 const heroFeatured = [
   {
     category: "articles",
-    title: "Hybrid vs. Native Ebook",
+    title: "State of App Development - 2020"
   }, {
     category: "articles",
     title: "Evaluating Ionic for Enterprise",
@@ -17,6 +17,15 @@ const resources = {
     description: "Articles showcasing best in class Ionic-built apps from some of the best companies in the world.",
     meta_description: 'Get the latest insights on mobile app development technology and trends for enterprise app development. Ionic articles provide insights into mobile strategy for enteprises and businesses alike.',
     items: [
+      {
+        "type": "Article",
+        "title": "State of App Development - 2020",
+        "url": "https://go.ionicframework.com/state-of-app-dev-2020",
+        "target": "_self",
+        "action": "Read",
+        "bgImage": "/img/resource-center/state-of-app-dev-2020.png",
+        "bgColor": "#7D5FB0"
+      },
       {
         "type": "Article",
         "title": "The ROI of Hybrid vs. Native",

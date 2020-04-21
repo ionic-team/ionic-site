@@ -107,7 +107,7 @@ window.hsSnitch = () => {
       body: JSON.stringify({
         browser: navigator.userAgent,
         url: window.location.href,
-        type: 'button'
+        type: 'form'
       })
     });
     // give HS 3 seconds to load

@@ -169,7 +169,7 @@ const resources = {
       }, {
         "type": "Ebook",
         "title": "Hybrid vs. Native Ebook",
-        "url": "/books/hybrid-vs-native",
+        "url": "http://go.ionicframework.com/hybrid-vs-native-guide",
         "action": "Read",
         "bgImage": "/img/resource-center/article-hybrid-native.jpg",
         "bgColor": "#3b69f1"

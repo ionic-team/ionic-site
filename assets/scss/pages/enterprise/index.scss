@@ -13,6 +13,7 @@ $colorSubtextInvert: #F6F8FB;
 $colorSubtextInvert2: #DEE3EA;
 $colorSubtextInvert3: #B2BECD;
 $lg: 99999;
+$shadow: drop-shadow( 0px 8px 8px #d3d3d3);
 
 
 // #region ------------------- DEFAULT STYLES ----------------------------
@@ -80,9 +81,11 @@ blockquote {
   }
 }
 
-// img {
-//   width: 100%;
-// }
+.section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
 // #endregion
 
 // #region ------------------- COMPONENTS --------------------------------
@@ -205,7 +208,7 @@ ionic-sub-header {
 }
 
 #enterpriseSec {
-@include spacer($mxW:143px);
+@include spacer($mxW:143px, $mnH: 100px);
 
   #enterpriseText {
   @include box($mxW: 384px);
@@ -256,7 +259,7 @@ ionic-sub-header {
 
   #imageList {
     svg {
-      filter: drop-shadow( 0px 8px 4px #ebebeb);
+      filter: $shadow;
     }
   }
 }
@@ -293,7 +296,7 @@ ionic-sub-header {
 }
 
 #mobSecSec {
-@include spacer($mxW: 96px, $mnW: 32px);
+@include spacer($mxW: 96px, $mnW: 32px, $mnH: 100px);
 
   #mobSecTitle {
   @include box($mxW: 480px);
@@ -319,7 +322,7 @@ ionic-sub-header {
 
   
   #adviseCont {
-  // @include spacer($mxW: 48px, $mnW: 32px);  
+  @include box($mTop: 128px);  
     @include box('.row1', $fB: 440px);
     @include box('.row2', $fB: 440px);
   
@@ -333,23 +336,72 @@ ionic-sub-header {
 }
 
 #delivSec {
+@include spacer($mxW:96px, $mnW: 32px, $mnH: 32px);
+  
+  #delivTitle {  
+    .sec1 {
+    @include box($mxW: 480px);
+      @include box('p', $mxW: 448px);
 
-  @include box('#delivTitle svg', $w: 448px);
-  #delivTitle {
+    }
+    .sec2 {
+    @include box($mxW: 448px);
+    filter: $shadow;
+
+    }
 
   }
 
-  @include box('#delivCont svg', $w: 48px, $h: 48px);
+  
   #delivCont {
+  @include box($mTop: 132px);
+  @include box('svg', $w: 48px, $h: 48px);
+  @include box('article', $mxW: 308px);
 
   }
 }
 
+#quote2Sec {
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+  #quote2Title {
+    @include box($mxW: 832px, $mBot: 86px);
+  }
+  #quote2Cont {    
+    position: relative;
+
+    .sec1 {
+    @include box($back:$colorBackHighlight, $mxW: 65%, $mnH: 560px, $pX: 64px, $pY: 64px);
+      @include box('& > svg', $mxW: 215.5px, $mBot: 66.3px);
+      @include box('blockquote', $mxW: 66.66%);  
+      @include box('footer', $mTop: 47px);
+
+      border-radius: 8px;
+    }
+    .sec2 {
+      height: 100%;
+      position: absolute;
+      left: 45%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  #logoList2 {
+    @include cluster($sX: 83px, $sY: 32px);
+    @include box($mTop: 97px, $mBot: 28px);
+  }
+
 #finalCta {
+  padding-top:128px;
+  padding-bottom:128px;
   background: $colorBackInvert;
 
-  @include box('p', $color: $colorTitleInvert);
+  
   p {
+  @include box($color: $colorTitleInvert, $mxW: 679px);
+
     strong { font-weight: 600; }
 
     font-family: $font-family-eina;
@@ -360,11 +412,32 @@ ionic-sub-header {
 }
 
 @media (max-width: $screen-sm) {
+  h1 {
+    font-size: 56px;
+  }
+  h2 {
+    font-size: 38px;
+  }
+  .section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
   .strip {
       flex-direction:column;
   }
   .snap {
       max-width: 100% !important;
+  }
+
+  #quote2Cont .sec1 {
+  @include box($mnH: auto,$pX: 32px, $pY: 32px);
+  @include box('svg', $mBot: 32px);
+    
+  }
+
+  #quote2Cont .sec2{
+    position: static;
   }
 }
 

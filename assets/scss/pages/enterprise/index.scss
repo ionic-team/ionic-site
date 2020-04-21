@@ -7,11 +7,14 @@ $colorBackInvert: #010610;
 $colorBackInvert2: #001A3A;
 $colorBtnText: #001A3A;
 $colorTitle: #010610;
+$colorTitle2: #73849A;
 $colorTitleInvert: white;
 $colorSubtext: #445B78;
 $colorSubtextInvert: #F6F8FB;
 $colorSubtextInvert2: #DEE3EA;
 $colorSubtextInvert3: #B2BECD;
+$colorLinkDark: #001A3A;
+$colorLinkLight: #488aff;
 $lg: 99999;
 $shadow: drop-shadow( 0px 8px 8px #d3d3d3);
 
@@ -33,8 +36,24 @@ h3 {
   margin: 0 0 20px 0;
   color: $colorTitle;
 }
+.a1 {
+  font-size: 20px;
+  line-height: 170%;
+  letter-spacing: -.03em;
+}
+a.light {
+  &:hover, &:active, &:focus {
+    color: $colorLinkLight !important;
+  }
+}
+a.dark{
+  &:hover, &:active, &:focus {
+    color: $colorLinkDark !important;
+  }
+}
 p {
   color: $colorSubtext;
+  margin: 0;
 }
 .p1 {
   font-size: 24px;
@@ -65,16 +84,28 @@ blockquote {
   background:transparent;
   quotes:none;
   font-weight: 500;
-  font-size: 18px;
   line-height: 150%;
   letter-spacing: -0.01em;
   color: $colorTitleInvert;
+  z-index: 2;
+  position: relative;
+
+  &::before {
+    content: url('/img/enterprise/left_quote.png');
+    position: absolute;
+    left: -10px;
+    top: -7px;
+    z-index: -1;
+  }
 
   footer {
     padding: 0px;
     border-top: 0;
     color: inherit;
 
+    cite {
+      font-style: normal;
+    }
     &::before {
       content: '';
     }
@@ -84,6 +115,16 @@ blockquote {
 .section {
   padding-top: 200px;
   padding-bottom: 200px;
+}
+
+.superTitle {
+  font-family: $font-family-monospace;
+  font-weight: bold;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $colorTitle2;
+  letter-spacing: .14em;
+  margin-bottom: 32px;
 }
 
 // #endregion
@@ -101,6 +142,10 @@ blockquote {
   padding: 16px 20px;
   cursor: pointer;
   line-height: 14px;
+}
+
+.btn:hover, .btn:active, .btn:focus {
+  color:white !important;
 }
 
 .btn-main {
@@ -164,17 +209,21 @@ blockquote {
 // #endregion
 
 ionic-sub-header {
-  position:relative;
+  // position:absolute;
   background: $colorBackInvert !important;
-  a:not(.active):not(:hover) {
+  a:not(.active):not(:hover):not(.btn) {
     color: white !important;
   }
   [slot='title'] {
     letter-spacing: -.01em;
     font-size: 18px;
-    &:hover {
+    &:hover, &:active, &:focus {
       color: #488aff !important;
     }
+  }
+  .btn {
+    background: white;
+    color: $colorBtnText !important;
   }
 }
 
@@ -189,22 +238,26 @@ ionic-sub-header {
 #heroImage {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   background: $colorBackInvert;
 }
 
 #heroText {
-@include box($color: white, $mxW: 560px);
-@include box('p', $color: $colorSubtextInvert, $mxW: 560px);
+@include box($color: white, $mxW: 560px, $mTop: 180px, $mBot: 164px);
+  @include box('p', $color: $colorSubtextInvert, $mxW: 560px);
+  @include box('a.link1', $mTop: 48px);
+  @include box('a.link2', $mTop: 16px, $color: white);
 
   position: relative;
   z-index: 2;
 }
 
 #top {
-  position: relative;
-  min-height: 776px;
   background: $colorBackInvert;
+}
+
+#top .container {
+  position: relative;
 }
 
 #enterpriseSec {
@@ -225,7 +278,7 @@ ionic-sub-header {
 }
 
 #ossSec {
-@include spacer($mxW:96px);
+@include spacer($mxW:96px, $mnH: 64px);
 
   #ossTitle {
   @include stack($mY: 40px);
@@ -235,7 +288,7 @@ ionic-sub-header {
   #ossCont {
   @include stack($mY: 64px);
   @include box($mxW: 448px);
-  @include box('svg', $mnW: 48px, $mxW: 48px);
+  @include box('svg', $mnW: 48px, $mxW: 48px, $mnH: 48px);
   
   @include box('.content', $mxW: 352px);
   @include spacer($mxW: 48px, $mnW: 20px, $mnH: 20px);
@@ -243,21 +296,25 @@ ionic-sub-header {
 }
 
 #nativeSec {
+@include box($back: linear-gradient(180deg, #F7F9FC 0%, #FCFDFE 100%));
   @include box('h2', $mxW: 480px);
 
   #nativeTitle {
+  @include spacer($mnW: 40px, $mnH: 40px);
   @include box('.title1', $mxW: 480px);
-  @include spacer($mxW: 64px);
+  
   @include box('.title2', $mxW: 480px);
+  @include box('.title2 a', $mTop: 40px);
   }
 
   
   #nativeCont {
-  @include box('svg', $w: 48px);
+  @include box('svg', $mxW: 48px, $mBot: 32px);
   @include switcher($count:3, $threshold: $container-sm - $grid-gutter-width, $gap: 20px);
   }
 
   #imageList {
+  @include box($mTop: 96px);
     svg {
       filter: $shadow;
     }
@@ -276,20 +333,29 @@ ionic-sub-header {
     }
   }
 
-  @include box('#quote1Back', $back: $colorBackHighlight);
+  
   #quote1Back {
+  @include box($back: $colorBackHighlight);
     flex-basis: 50%;
     height: 332px;
   }
   #quote1Cont {
+    height: 100%;
     position: absolute;
     left: 0;
     right: 0;
     
     blockquote {
+      font-size: 18px;
       position: absolute;
-      width: 50%;
-      right: 0;
+      left: calc(50% + 64px);
+      footer {
+        margin-top: 32px;
+      }
+      .company {
+        margin-left: 12px;
+        opacity: .6;
+      }
     }
 
   }
@@ -300,18 +366,23 @@ ionic-sub-header {
 
   #mobSecTitle {
   @include box($mxW: 480px);
+  @include stack($mY: 40px);
 
   }
   
   #mobSecCont {
   @include box($mxW: 448px);
   @include stack($mY: 40px);
-    @include box('svg', $w: 80px);
+    @include box('svg', $w: 80px, $mBot: 46px);
   }
 }
 
 #adviseSec {
 @include box($back: $colorBackInvert2);
+
+  .superTitle {
+    color: $colorSubtextInvert3;
+  }
 
   #adviseTitle {
   @include stack($mY: 40px);
@@ -322,6 +393,7 @@ ionic-sub-header {
 
   
   #adviseCont {
+  @include spacer($mnW: 32px);
   @include box($mTop: 128px);  
     @include box('.row1', $fB: 440px);
     @include box('.row2', $fB: 440px);
@@ -330,7 +402,7 @@ ionic-sub-header {
     @include box($fB: 220px);
       @include box('h3', $color: $colorTitleInvert);
       @include box('p', $color: $colorSubtextInvert2);
-      @include box('svg', $w: 32px);
+      @include box('svg', $mBot: 24px);
     }
   }
 }
@@ -347,15 +419,12 @@ ionic-sub-header {
     .sec2 {
     @include box($mxW: 448px);
     filter: $shadow;
-
     }
-
   }
-
   
   #delivCont {
   @include box($mTop: 132px);
-  @include box('svg', $w: 48px, $h: 48px);
+  @include box('svg', $w: 48px, $h: 48px, $mBot: 32px);
   @include box('article', $mxW: 308px);
 
   }
@@ -370,6 +439,17 @@ ionic-sub-header {
   }
   #quote2Cont {    
     position: relative;
+
+    blockquote {
+      font-size: 22px;
+      footer {
+        margin-top: 47px;
+      }
+      .company {
+        margin-left: 12px;
+        opacity: .6;
+      }
+    }
 
     .sec1 {
     @include box($back:$colorBackHighlight, $mxW: 65%, $mnH: 560px, $pX: 64px, $pY: 64px);
@@ -394,6 +474,8 @@ ionic-sub-header {
   }
 
 #finalCta {
+@include spacer($mnW: 32px, $mnH: 32px);
+
   padding-top:128px;
   padding-bottom:128px;
   background: $colorBackInvert;

@@ -151,7 +151,7 @@ const resources = {
         "bgImage": "/img/resource-center/article-whatisapwa.png",
         "bgColor": "#F95E6F"
       }, {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "Evaluating Ionic for Enterprise",
         "url": "https://go.ionicframework.com/enterprise-eval-guide",
         "target": "_self",

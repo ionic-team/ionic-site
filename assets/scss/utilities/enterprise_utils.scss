@@ -5,8 +5,12 @@
   display:block;
 }
 .d\:flx\:w {
-  @extend .d\:flx;
+  display:flex;
   flex-wrap:wrap;
+}
+.d\:flx-c {
+  display: flex;
+  flex-direction:column;
 }
 .ai\:c {
   align-items:center;
@@ -19,12 +23,21 @@
 }
 
 .jc\:c {
-  justify-content: center;
+  justify-content: center !important;
+}
+.jc\:sb {
+  justify-content: space-between
+}
+.jc\:se {
+  justify-content: space-evenly;
 }
 
 .ctr\:x {
   margin-left: auto;
   margin-right: auto;
+}
+.ctr\:txt {
+  text-align: center;
 }
 
 .strip {
@@ -38,10 +51,12 @@
 
 .strip\:w > * {
   flex-grow: 1;
+  flex-basis: 0;
 }
 
 .strip > * {
   flex-grow: 1;
+  flex-basis: 0;
 }
 
 // --------------------- STACK --------------------------

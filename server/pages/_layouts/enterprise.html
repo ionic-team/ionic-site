@@ -11,7 +11,14 @@
 {% endif %}
 
 {% macro navLinkAttrs(dest) %}
-href="{{dest}}" class="{% if dest in url %}active{% endif %}"
+  {% set regEx = r/\/enterprise(\/index)?(?!\/)/ %}
+
+  {%if regEx.test(dest)%}
+    href="{{dest}}" class="{%if regEx.test(url)%}active{% endif %}"
+  {%else%}
+    href="{{dest}}" class="{%if dest in url%}active{% endif %}"
+  {%endif%}
+
 {% endmacro %}
 
 {% block page %}

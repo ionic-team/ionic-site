@@ -4,11 +4,14 @@
 .d\:blk {
   display:block;
 }
+.d\:i-flx {
+  display:inline-flex;
+}
 .d\:flx\:w {
   display:flex;
   flex-wrap:wrap;
 }
-.d\:flx-c {
+.d\:flx\:c {
   display: flex;
   flex-direction:column;
 }
@@ -108,14 +111,18 @@
   }
 }
 
-@mixin spacer($el: '&', $mxW: null, $mnW: null, $mnH: null, $mxH: null) {
+@mixin spacer($el: '&', $mxW: null, $mnW: null, $mnH: null, $mxH: null, $fB: null, $fG: 1) {
   #{$el} .spacer {
     max-width: $mxW;
     min-width: $mnW;
     max-height: $mxH;
     min-height: $mnH;
-    flex-basis: 0px;
-    flex-grow: 1;
+    @if $fB {
+      flex-basis: $fB;
+    } @else {
+      flex-basis: 0px;
+    }    
+    flex-grow: $fG;
   }
 }
 // ---------------------- CLUSTER ---------------------------------

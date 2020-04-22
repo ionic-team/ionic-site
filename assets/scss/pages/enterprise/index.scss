@@ -18,23 +18,27 @@ $colorLinkDark: #001A3A;
 $colorLinkLight: #488aff;
 $lg: 99999;
 $shadow: drop-shadow( 0px 8px 8px #d3d3d3);
+$timing: cubic-bezier(.06,.7,.68,.86);
 
 
 // #region ------------------- DEFAULT STYLES ----------------------------
 h1 {
-  margin: 0 0 32px 0;
+  margin: 0 0 28px 0;
   font-size: 64px;
   letter-spacing: -.03em;
 }
 h2 {
-  margin: 0 0 40px 0;
+  margin: 0 0 16px 0;
   font-size: 48px;
   line-height: 112%;
   letter-spacing: -0.04em;
   color: $colorTitle;
+  font-weight: 600;
 }
 h3 {
-  margin: 0 0 20px 0;
+  font-family: $font-family-inter;
+  font-weight: 600;
+  margin: 0 0 16px 0;
   color: $colorTitle;
   font-size: 20px;
 }
@@ -60,6 +64,7 @@ p {
 .p1 {
   font-size: 24px;
   line-height: 160%;
+  letter-spacing: -.03em;
 }
 .p2 {
   font-size: 20px;
@@ -123,6 +128,7 @@ blockquote {
 
 .superTitle {
   font-family: $font-family-monospace;
+  font-size: 12px;
   font-weight: bold;
   line-height: 100%;
   text-transform: uppercase;
@@ -210,31 +216,65 @@ ionic-sub-header .btn:hover, .btn:active, .btn:focus,
 // #endregion
 
 // #region ------------------- ANIMATIONS --------------------------------
-.btn-main {
+.btn-main, ionic-sub-header .btn {
   animation-name: colorButtonBack;
   animation-duration: 300ms;
   animation-fill-mode:forwards;
+  animation-timing-function: $timing;
   @keyframes colorButtonBack {
     from {
-      background: #4d8dfd;
-      color: white;
+      background: darken(white, 12%);
+      color: #001A3A;
     }
-    to {}
+    to {
+      background: white;
+      color: #001A3A;
+    }
   }
 
   &:hover, &:focus, &:active {        
     animation-name: colorButtonForward;
     animation-duration: 300ms;
     animation-fill-mode:forwards;
+    animation-timing-function: $timing;
     @keyframes colorButtonForward {
-      from {}
+      from {
+        color: #001A3A;
+        background: white;
+      }
       to {
-        background: #4d8dfd;
-        color: white;
+        background: darken(white, 12%);
+        color: #001A3A;
       }
     }
   }
 }
+
+.panel {
+    animation-name: jumpUpBackwards;
+    animation-duration: 300ms;
+    animation-fill-mode:forwards;
+    animation-timing-function: $timing;
+    @keyframes jumpUpBackwards {
+      from {
+        background: #E9EDF3;
+      }
+      to {}
+    }
+
+    &:hover, &:focus, &:active {        
+      animation-name: jumpUpForwards;
+      animation-duration: 300ms;
+      animation-fill-mode:forwards;
+      animation-timing-function: $timing;
+      @keyframes jumpUpForwards {
+        from {}
+        to {
+          background: #E9EDF3;
+        }
+      }
+    }
+  }
 // #endregion
 
 
@@ -298,6 +338,7 @@ ionic-sub-header {
 }
 
 #enterpriseSec {
+@include box($mTop: 160px, $mBot: 200px);
 @include spacer($mxW:143px, $mnH: 100px);
 
   #enterpriseText {
@@ -346,7 +387,7 @@ ionic-sub-header {
 
   
   #nativeCont {
-  @include box('svg', $mxW: 48px, $mBot: 32px);
+  @include box('svg', $mxW: 48px, $mBot: 24px);
   @include switcher($count:3, $threshold: $container-sm - $grid-gutter-width, $gap: 32px);
   }
 
@@ -412,27 +453,6 @@ ionic-sub-header {
 
     .panel {
     @include box($back: $colorPanelBack, $pX: 48px, $pY: 48px, $bR: 8px);
-      animation-name: jumpUpBackwards;
-      animation-duration: 300ms;
-      animation-fill-mode:forwards;
-      @keyframes jumpUpBackwards {
-        from {
-          filter: $shadow;
-        }
-        to {}
-      }
-
-      &:hover, &:focus, &:active {        
-        animation-name: jumpUpForwards;
-        animation-duration: 300ms;
-        animation-fill-mode:forwards;
-        @keyframes jumpUpForwards {
-          from {}
-          to {
-            filter: $shadow;
-          }
-        }
-      }
     }
   }
 
@@ -454,13 +474,13 @@ ionic-sub-header {
     }  
     
     #adviseCont {
-    // @include spacer($mnW: 32px);
+    @include spacer($mnW: 48px);
     @include box($mTop: 128px);  
       @include box('.row1', $fB: 440px);
       @include box('.row2', $fB: 440px);
     
       article {
-      @include box($fB: 220px);
+      @include box($mBot: 32px);
         @include box('h3', $color: $colorTitleInvert);
         @include box('p', $color: $colorSubtextInvert2);
         @include box('svg', $mBot: 24px);
@@ -470,11 +490,13 @@ ionic-sub-header {
 
 
 #delivSec {
+@include box($back: #FBFBFD);
 @include spacer($mxW:96px, $mnW: 32px, $mnH: 32px);
 }
   #delivTitle {  
     .sec1 {
     @include box($mxW: 480px);
+      @include box('h2', $mBot: 36px);
       @include box('p', $mxW: 448px);
 
     }
@@ -495,6 +517,10 @@ ionic-sub-header {
 #quote2Sec {
   padding-top: 128px;
   padding-bottom: 128px;
+  .a1 {
+    color: #92A1B3;
+    font-size: 14px;
+  }
 }
   #quote2Title {
     @include box($mxW: 832px, $mBot: 86px);
@@ -570,6 +596,12 @@ ionic-sub-header {
   }
 }
 
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  #adviseCont > .spacer {
+    min-width: 0px;
+  }
+}
+
 @media (max-width: $screen-sm) {
   h1 {
     font-size: 56px;
@@ -582,7 +614,7 @@ ionic-sub-header {
     padding-bottom: 100px;
   }
 
-  .strip {
+  [class*='strip']{
       flex-direction:column;
   }
   .snap {

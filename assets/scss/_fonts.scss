@@ -8,6 +8,7 @@ $graphikDir: $fontsDir + 'graphik/';
 @font-face {
   font-family: 'Ionicons';
   src:
+    local('Ionicons'),
     url($fontsDir + 'ionicons.woff2') format('woff2'),
     url($fontsDir + 'ionicons.woff') format('woff'),
     url($fontsDir + 'ionicons.ttf') format('ttf'),
@@ -19,7 +20,9 @@ $graphikDir: $fontsDir + 'graphik/';
 
 @font-face {
   font-family: 'Eina';
-  src: url($einaDir + 'eina-01-bold.woff2') format('woff2'),
+  font-display: swap;
+  src: local('Eina Bold'),
+       url($einaDir + 'eina-01-bold.woff2') format('woff2'),
        url($einaDir + 'eina-01-bold.woff') format('woff'),
        url($einaDir + 'eina-01-bold.ttf') format('ttf'),
        url($einaDir + 'eina-01-bold.eot?#iefix') format('eot');
@@ -28,7 +31,9 @@ $graphikDir: $fontsDir + 'graphik/';
 }
 @font-face {
   font-family: 'Eina';
-  src: url($einaDir + 'eina-01-semibold.woff2') format('woff2'),
+  font-display: swap;
+  src: local('Eina Semibold'),
+       url($einaDir + 'eina-01-semibold.woff2') format('woff2'),
        url($einaDir + 'eina-01-semibold.woff') format('woff'),
        url($einaDir + 'eina-01-semibold.ttf') format('ttf'),
        url($einaDir + 'eina-01-semibold.eot?#iefix') format('eot');
@@ -37,7 +42,9 @@ $graphikDir: $fontsDir + 'graphik/';
 }
 @font-face {
   font-family: 'Eina';
-  src: url($einaDir + 'eina-01-regular.woff2') format('woff2'),
+  font-display: swap;
+  src: local('Eina  Regular'),
+       url($einaDir + 'eina-01-regular.woff2') format('woff2'),
        url($einaDir + 'eina-01-regular.woff') format('woff'),
        url($einaDir + 'eina-01-regular.ttf') format('ttf'),
        url($einaDir + 'eina-01-regular.eot?#iefix') format('eot');
@@ -47,122 +54,127 @@ $graphikDir: $fontsDir + 'graphik/';
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 400;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-Regular.woff2') format('woff2'),
+  src: local('Inter Regular'),
+       url($cdn + 'inter/Inter-Regular.woff2') format('woff2'),
        url($cdn + 'inter/Inter-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 400;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-Italic.woff2') format('woff2'),
+  src: local('Inter Italic'),
+       url($cdn + 'inter/Inter-Italic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-Italic.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 500;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-Medium.woff2') format('woff2'),
+  src: local('Inter Medium'),
+       url($cdn + 'inter/Inter-Medium.woff2') format('woff2'),
        url($cdn + 'inter/Inter-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 500;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-MediumItalic.woff2') format('woff2'),
+  src: local('Inter Medium Italic'),
+       url($cdn + 'inter/Inter-MediumItalic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-MediumItalic.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 600;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-SemiBold.woff2') format('woff2'),
+  src: local('Inter SemiBold'),
+       url($cdn + 'inter/Inter-SemiBold.woff2') format('woff2'),
        url($cdn + 'inter/Inter-SemiBold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 600;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-SemiBoldItalic.woff2') format('woff2'),
+  src: local('Inter SemiBoldItalic'),
+       url($cdn + 'inter/Inter-SemiBoldItalic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-SemiBoldItalic.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 700;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-Bold.woff2') format('woff2'),
+  src: local('Inter Bold'),
+       url($cdn + 'inter/Inter-Bold.woff2') format('woff2'),
        url($cdn + 'inter/Inter-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 700;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-BoldItalic.woff2') format('woff2'),
+  src: local('Inter BoldItalic'),
+       url($cdn + 'inter/Inter-BoldItalic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-BoldItalic.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 800;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-ExtraBold.woff2') format('woff2'),
+  src: local('Inter ExtraBold'),
+       url($cdn + 'inter/Inter-ExtraBold.woff2') format('woff2'),
        url($cdn + 'inter/Inter-ExtraBold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 800;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-ExtraBoldItalic.woff2') format('woff2'),
+  src: local('Inter ExtraBoldItalic'),
+       url($cdn + 'inter/Inter-ExtraBoldItalic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-ExtraBoldItalic.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  normal;
   font-weight: 900;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-Black.woff2') format('woff2'),
+  src: local('Inter Black'),
+       url($cdn + 'inter/Inter-Black.woff2') format('woff2'),
        url($cdn + 'inter/Inter-Black.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
+  font-display: swap;
   font-style:  italic;
   font-weight: 900;
   unicode-range: U+000-5FF;
-  src: url($cdn + 'inter/Inter-BlackItalic.woff2') format('woff2'),
+  src: local('Inter BlackItalic'),
+       url($cdn + 'inter/Inter-BlackItalic.woff2') format('woff2'),
        url($cdn + 'inter/Inter-BlackItalic.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'FreightTextPro';
-  font-weight: 400;
-  unicode-range: U+000-5FF;
-  src: url($cdn + '29D26A_0_0.eot');
-  src: url($cdn + '29D26A_0_0.eot?#iefix') format('embedded-opentype'),
-       url($cdn + '29D26A_0_0.woff') format('woff'),
-       url($cdn + '29D26A_0_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FreightTextPro';
-  font-weight: 500;
-  unicode-range: U+000-5FF;
-  src: url($cdn + '29D26A_1_0.eot');
-  src: url($cdn + '29D26A_1_0.eot?#iefix') format('embedded-opentype'),
-       url($cdn + '29D26A_1_0.woff') format('woff'),
-       url($cdn + '29D26A_1_0.ttf') format('truetype');
-}

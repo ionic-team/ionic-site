@@ -6,6 +6,7 @@ $colorBackHighlight: #2774D2;
 $colorBackInvert: #010610;
 $colorBackInvert2: #001A3A;
 $colorBtnText: #001A3A;
+$colorPanelBack: #F6F8FB;
 $colorTitle: #010610;
 $colorTitle2: #73849A;
 $colorTitleInvert: white;
@@ -35,6 +36,7 @@ h2 {
 h3 {
   margin: 0 0 20px 0;
   color: $colorTitle;
+  font-size: 20px;
 }
 .a1 {
   font-size: 20px;
@@ -75,6 +77,7 @@ main {
 }
 
 blockquote {
+  font-family: inherit;
   margin:0;
   padding:0;
   border:0;
@@ -102,6 +105,7 @@ blockquote {
     padding: 0px;
     border-top: 0;
     color: inherit;
+    font-family: inherit;
 
     cite {
       font-style: normal;
@@ -144,7 +148,8 @@ blockquote {
   line-height: 14px;
 }
 
-.btn:hover, .btn:active, .btn:focus {
+ionic-sub-header .btn:hover, .btn:active, .btn:focus,
+.ionic-sub-header--stuck .btn:hover, .btn:active, .btn:focus {
   color:white !important;
 }
 
@@ -152,10 +157,6 @@ blockquote {
   @extend %btn;
   background: white;
   color: $colorBtnText;
-  &:hover, &:active, &:focus {
-    color: $colorBtnText;
-    background: darken(white, 8%);
-  }
 }
 
 @keyframes fadeIn {
@@ -208,7 +209,42 @@ blockquote {
 }
 // #endregion
 
+// #region ------------------- ANIMATIONS --------------------------------
+.btn-main {
+  animation-name: colorButtonBack;
+  animation-duration: 300ms;
+  animation-fill-mode:forwards;
+  @keyframes colorButtonBack {
+    from {
+      background: #4d8dfd;
+      color: white;
+    }
+    to {}
+  }
+
+  &:hover, &:focus, &:active {        
+    animation-name: colorButtonForward;
+    animation-duration: 300ms;
+    animation-fill-mode:forwards;
+    @keyframes colorButtonForward {
+      from {}
+      to {
+        background: #4d8dfd;
+        color: white;
+      }
+    }
+  }
+}
+// #endregion
+
+
 ionic-sub-header {
+  .ionic-sub-header__mobile-toggle {
+    fill: white !important;
+  }
+  .container {
+    background: $colorBackInvert !important;
+  }
   // position:absolute;
   background: $colorBackInvert !important;
   a:not(.active):not(:hover):not(.btn) {
@@ -254,6 +290,7 @@ ionic-sub-header {
 
 #top {
   background: $colorBackInvert;
+  overflow:hidden;
 }
 
 #top .container {
@@ -278,7 +315,7 @@ ionic-sub-header {
 }
 
 #ossSec {
-@include spacer($mxW:96px, $mnH: 64px);
+@include spacer($mxW:96px, $mnW: 32px);
 
   #ossTitle {
   @include stack($mY: 40px);
@@ -310,7 +347,7 @@ ionic-sub-header {
   
   #nativeCont {
   @include box('svg', $mxW: 48px, $mBot: 32px);
-  @include switcher($count:3, $threshold: $container-sm - $grid-gutter-width, $gap: 20px);
+  @include switcher($count:3, $threshold: $container-sm - $grid-gutter-width, $gap: 32px);
   }
 
   #imageList {
@@ -322,7 +359,7 @@ ionic-sub-header {
 }
 
 #quote1Sec {
-  position:relative;
+  position:relative;}
 
   #quote1Img {
     flex-basis: 50%;
@@ -331,9 +368,7 @@ ionic-sub-header {
       width: 100%;
       height: 332px;
     }
-  }
-
-  
+  }  
   #quote1Back {
   @include box($back: $colorBackHighlight);
     flex-basis: 50%;
@@ -359,23 +394,50 @@ ionic-sub-header {
     }
 
   }
-}
+
 
 #mobSecSec {
-@include spacer($mxW: 96px, $mnW: 32px, $mnH: 100px);
-
+@include spacer($mxW: 96px, $mnW: 32px, $mnH: 32px);
+}
   #mobSecTitle {
   @include box($mxW: 480px);
   @include stack($mY: 40px);
-
   }
   
   #mobSecCont {
+  @include spacer($mnH: 16px);
   @include box($mxW: 448px);
   @include stack($mY: 40px);
-    @include box('svg', $w: 80px, $mBot: 46px);
+    @include box('svg', $w: 80px, $mBot: 42px);    
+
+    .panel {
+    @include box($back: $colorPanelBack, $pX: 48px, $pY: 48px, $bR: 8px);
+      animation-name: jumpUpBackwards;
+      animation-duration: 300ms;
+      animation-fill-mode:forwards;
+      @keyframes jumpUpBackwards {
+        from {
+          filter: $shadow;
+        }
+        to {}
+      }
+
+      &:hover, &:focus, &:active {        
+        animation-name: jumpUpForwards;
+        animation-duration: 300ms;
+        animation-fill-mode:forwards;
+        @keyframes jumpUpForwards {
+          from {}
+          to {
+            filter: $shadow;
+          }
+        }
+      }
+    }
   }
-}
+
+  
+
 
 #adviseSec {
 @include box($back: $colorBackInvert2);
@@ -383,33 +445,33 @@ ionic-sub-header {
   .superTitle {
     color: $colorSubtextInvert3;
   }
-
-  #adviseTitle {
-  @include stack($mY: 40px);
-    @include box('h2', $color: $colorTitleInvert);
-    @include box('p', $color: $colorSubtextInvert2, $mxW: 704px);
-
-  }
-
-  
-  #adviseCont {
-  @include spacer($mnW: 32px);
-  @include box($mTop: 128px);  
-    @include box('.row1', $fB: 440px);
-    @include box('.row2', $fB: 440px);
-  
-    .panel {
-    @include box($fB: 220px);
-      @include box('h3', $color: $colorTitleInvert);
-      @include box('p', $color: $colorSubtextInvert2);
-      @include box('svg', $mBot: 24px);
-    }
-  }
 }
+  #adviseTitle {
+    @include stack($mY: 40px);
+      @include box('h2', $color: $colorTitleInvert);
+      @include box('p', $color: $colorSubtextInvert2, $mxW: 704px);
+  
+    }  
+    
+    #adviseCont {
+    // @include spacer($mnW: 32px);
+    @include box($mTop: 128px);  
+      @include box('.row1', $fB: 440px);
+      @include box('.row2', $fB: 440px);
+    
+      article {
+      @include box($fB: 220px);
+        @include box('h3', $color: $colorTitleInvert);
+        @include box('p', $color: $colorSubtextInvert2);
+        @include box('svg', $mBot: 24px);
+      }
+    }
+
+
 
 #delivSec {
 @include spacer($mxW:96px, $mnW: 32px, $mnH: 32px);
-  
+}
   #delivTitle {  
     .sec1 {
     @include box($mxW: 480px);
@@ -421,14 +483,14 @@ ionic-sub-header {
     filter: $shadow;
     }
   }
-  
+
   #delivCont {
   @include box($mTop: 132px);
-  @include box('svg', $w: 48px, $h: 48px, $mBot: 32px);
-  @include box('article', $mxW: 308px);
-
+    @include box('svg', $w: 48px, $h: 48px, $mBot: 26px);
+    @include box('article', $mxW: 308px);
   }
-}
+
+
 
 #quote2Sec {
   padding-top: 128px;
@@ -493,6 +555,21 @@ ionic-sub-header {
   }
 }
 
+//sticky doesn't work without this
+@media (min-width: $screen-sm) {
+  main {
+    overflow: visible;
+  }
+  .tag-along {  
+    position:relative;
+    #mobSecTitle {
+      position:sticky;
+      top:180px;
+      height: 100%;
+    }
+  }
+}
+
 @media (max-width: $screen-sm) {
   h1 {
     font-size: 56px;
@@ -512,14 +589,60 @@ ionic-sub-header {
       max-width: 100% !important;
   }
 
+  #quote1Cont {
+    position: static;
+    blockquote {
+      position: relative;
+      top:0;
+      left: 0;
+    }
+  }
+  #quote1Back {
+    position: static;
+    height: auto;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    min-height: 332px;
+    display: flex;
+    align-items: center;
+  }
+
+  #adviseSec {
+    text-align:start;
+
+    .superTitle {
+      text-align:start;
+    }
+    #adviseTitle {
+      h2, p {
+        text-align:start;
+      }
+
+      a {
+        margin-left:0;
+      }
+    }
+  }
+
+  #adviseCont {
+  @include box($mTop: 64px);
+  }
+
+  #delivCont {
+  @include box($mTop: 64px);
+  }
+
   #quote2Cont .sec1 {
-  @include box($mnH: auto,$pX: 32px, $pY: 32px);
-  @include box('svg', $mBot: 32px);
-    
+  @include box($mnH: auto,$pX: 32px);
+  @include box('svg', $mBot: 32px);    
   }
 
   #quote2Cont .sec2{
     position: static;
+  }
+
+  #finalCta .sec2 {
+    justify-content:flex-start;
   }
 }
 

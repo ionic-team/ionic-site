@@ -83,7 +83,7 @@
 // ------------------------ BOX -----------------------------
 @mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
            $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: 9999,
-           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null) {
+           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $bR: null) {
   #{$element}.box {
     box-sizing: border-box;
     padding-left: #{$pX};
@@ -104,6 +104,7 @@
     min-width: #{$mnW};
     max-height: #{$mxH};
     min-height: #{$mnH};
+    border-radius: #{$bR};
   }
 }
 

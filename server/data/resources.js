@@ -23,7 +23,7 @@ const resources = {
         "url": "https://go.ionicframework.com/state-of-app-dev-2020",
         "target": "_self",
         "action": "Read",
-        "bgImage": "/img/resource-center/state-of-app-dev-2020.png",
+        "bgImage": "/img/resource-center/state-of-app-card.png",
         "bgColor": "#7D5FB0"
       },
       {

@@ -6,12 +6,6 @@
 // These former pages are depreciated and being phased out for the styles here.
 //
 //
-// @import url('https://fonts.googleapis.com/css?family=Nunito:300');
-@import 'ionicons-v3/ionicons';
-
-.ionic-example {
-  // @import '../../content/docs/demos/css/ionic.css';
-}
 
 @import 'theme';
 @import 'vars';
@@ -156,3 +150,5 @@
 // @import 'pages/trusted-partners';
 // @import 'pages/values';
 @import 'pages/what-is-ionic';
+
+@import 'ionicons-v3/ionicons';

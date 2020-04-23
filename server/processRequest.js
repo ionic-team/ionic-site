@@ -79,6 +79,8 @@ module.exports = {
       // latestBlog: lbs.getLatestPost()
     });
 
+    res.setHeader('Link', '<https://code.ionicframework.com/assets/fonts/eina/eina-01-bold.woff2>;rel=preload;as=font;type=font/woff2;crossorigin=anonymous,<https://code.ionicframework.com/assets/fonts/inter/Inter-variable-ASCII-subset.woff2>;rel=preload;as=font;type=font/woff2;crossorigin=anonymous');
+
     return next();
   }
 };

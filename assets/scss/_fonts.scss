@@ -4,6 +4,8 @@ $cdn: 'https://code.ionicframework.com/assets/fonts/';
 $fontsDir: '/fonts/';
 $einaDir: $fontsDir + 'eina/';
 $graphikDir: $fontsDir + 'graphik/';
+$interDir: $fontsDir + 'inter/';
+$interVariableUrl: $cdn + 'inter/Inter-variable-ASCII-subset.woff2';
 
 @font-face {
   font-family: 'Ionicons';
@@ -59,8 +61,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 400;
   unicode-range: U+000-5FF;
   src: local('Inter Regular'),
-       url($cdn + 'inter/Inter-Regular.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-Regular.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-Regular.woff2') format('woff2'),
+       url($interDir + 'Inter-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -69,8 +72,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 400;
   unicode-range: U+000-5FF;
   src: local('Inter Italic'),
-       url($cdn + 'inter/Inter-Italic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-Italic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-Italic.woff2') format('woff2'),
+       url($interDir + 'Inter-Italic.woff') format('woff');
 }
 
 @font-face {
@@ -80,8 +84,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 500;
   unicode-range: U+000-5FF;
   src: local('Inter Medium'),
-       url($cdn + 'inter/Inter-Medium.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-Medium.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-Medium.woff2') format('woff2'),
+       url($interDir + 'Inter-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -90,8 +95,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 500;
   unicode-range: U+000-5FF;
   src: local('Inter Medium Italic'),
-       url($cdn + 'inter/Inter-MediumItalic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-MediumItalic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-MediumItalic.woff2') format('woff2'),
+       url($interDir + 'Inter-MediumItalic.woff') format('woff');
 }
 
 @font-face {
@@ -101,8 +107,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 600;
   unicode-range: U+000-5FF;
   src: local('Inter SemiBold'),
-       url($cdn + 'inter/Inter-SemiBold.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-SemiBold.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-SemiBold.woff2') format('woff2'),
+       url($interDir + 'Inter-SemiBold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -111,8 +118,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 600;
   unicode-range: U+000-5FF;
   src: local('Inter SemiBoldItalic'),
-       url($cdn + 'inter/Inter-SemiBoldItalic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-SemiBoldItalic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-SemiBoldItalic.woff2') format('woff2'),
+       url($interDir + 'Inter-SemiBoldItalic.woff') format('woff');
 }
 
 @font-face {
@@ -122,8 +130,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 700;
   unicode-range: U+000-5FF;
   src: local('Inter Bold'),
-       url($cdn + 'inter/Inter-Bold.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-Bold.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-Bold.woff2') format('woff2'),
+       url($interDir + 'Inter-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -132,8 +141,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 700;
   unicode-range: U+000-5FF;
   src: local('Inter BoldItalic'),
-       url($cdn + 'inter/Inter-BoldItalic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-BoldItalic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-BoldItalic.woff2') format('woff2'),
+       url($interDir + 'Inter-BoldItalic.woff') format('woff');
 }
 
 @font-face {
@@ -143,8 +153,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 800;
   unicode-range: U+000-5FF;
   src: local('Inter ExtraBold'),
-       url($cdn + 'inter/Inter-ExtraBold.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-ExtraBold.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-ExtraBold.woff2') format('woff2'),
+       url($interDir + 'Inter-ExtraBold.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -153,8 +164,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 800;
   unicode-range: U+000-5FF;
   src: local('Inter ExtraBoldItalic'),
-       url($cdn + 'inter/Inter-ExtraBoldItalic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-ExtraBoldItalic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-ExtraBoldItalic.woff2') format('woff2'),
+       url($interDir + 'Inter-ExtraBoldItalic.woff') format('woff');
 }
 
 @font-face {
@@ -164,8 +176,9 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 900;
   unicode-range: U+000-5FF;
   src: local('Inter Black'),
-       url($cdn + 'inter/Inter-Black.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-Black.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-Black.woff2') format('woff2'),
+       url($interDir + 'Inter-Black.woff') format('woff');
 }
 @font-face {
   font-family: 'Inter';
@@ -174,7 +187,8 @@ $graphikDir: $fontsDir + 'graphik/';
   font-weight: 900;
   unicode-range: U+000-5FF;
   src: local('Inter BlackItalic'),
-       url($cdn + 'inter/Inter-BlackItalic.woff2') format('woff2'),
-       url($cdn + 'inter/Inter-BlackItalic.woff') format('woff');
+       url($interVariableUrl) format('woff2-variations'),
+       url($interDir + 'Inter-BlackItalic.woff2') format('woff2'),
+       url($interDir + 'Inter-BlackItalic.woff') format('woff');
 }
 

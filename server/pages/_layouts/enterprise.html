@@ -11,7 +11,14 @@
 {% endif %}
 
 {% macro navLinkAttrs(dest) %}
-href="{{dest}}" class="{% if dest in url %}active{% endif %}"
+  {% set regEx = r/\/enterprise(\/index)?(?!\/)/ %}
+
+  {%if regEx.test(dest)%}
+    href="{{dest}}" class="{%if regEx.test(url)%}active{% endif %}"
+  {%else%}
+    href="{{dest}}" class="{%if dest in url%}active{% endif %}"
+  {%endif%}
+
 {% endmacro %}
 
 {% block page %}
@@ -23,7 +30,8 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
         <li><a class="sub-header__title" href="/enterprise">Enterprise</a></li>
       </ul>
       <ul class="sub-header__right">
-        <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
+        <li><a {{ navLinkAttrs('/enterprise') }}>Overview</a></li>
+        <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic</a></li>
         <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
         <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>
         <li><a {{ navLinkAttrs('/enterprise/strategy-session') }}>Strategy Session</a></li>
@@ -35,7 +43,8 @@ href="{{dest}}" class="{% if dest in url %}active{% endif %}"
   <ionic-sub-header>
     <a slot="title" href="/enterprise">Enterprise</a>
     <ul slot="right">
-      <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic?</a></li>
+      <li><a {{ navLinkAttrs('/enterprise') }}>Overview</a></li>
+      <li><a {{ navLinkAttrs('/enterprise/why-ionic') }}>Why Ionic</a></li>
       <li><a {{ navLinkAttrs('/enterprise/platform') }}>Platform</a></li>
       <li><a {{ navLinkAttrs('/enterprise/customers') }}>Customers</a></li>
       <li><a {{ navLinkAttrs('/enterprise/strategy-session') }}>Strategy Session</a></li>

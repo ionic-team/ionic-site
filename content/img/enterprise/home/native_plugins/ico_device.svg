@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="15 7 90 108">
+    <path fill="#B2BECD" d="M41.78 114c2.21 0 3.53-1.37 3.53-3.64s-1.32-3.63-3.48-3.63H39.3V114h2.47zm-1.15-1.14v-5h1.12c1.48 0 2.25.83 2.25 2.5s-.77 2.5-2.29 2.5h-1.08zm6.93 1.14h4.76v-1.1h-3.44v-1.99h3.17v-1.1h-3.17v-1.98h3.41v-1.1h-4.73V114zm8.05-7.27h-1.45l2.56 7.27h1.63l2.56-7.27h-1.45l-1.89 5.72h-.07l-1.9-5.72zm8.58 0h-1.32V114h1.32v-7.27zm8.65 2.45c-.22-1.62-1.47-2.55-3.08-2.55-1.9 0-3.33 1.38-3.33 3.73s1.41 3.74 3.33 3.74c1.73 0 2.88-1.12 3.08-2.5l-1.33-.02c-.17.86-.86 1.34-1.73 1.34-1.18 0-2.03-.89-2.03-2.56 0-1.64.84-2.55 2.03-2.55.89 0 1.58.5 1.73 1.37h1.33zm2.2 4.82h4.77v-1.1h-3.45v-1.99h3.17v-1.1h-3.17v-1.98h3.42v-1.1h-4.73V114z"/>
+    <circle cx="60" cy="52" r="44" fill="#fff"/>
+    <mask id="device_a" width="32" height="56" x="44" y="24" maskUnits="userSpaceOnUse">
+        <path fill="#fff" d="M44 32a8 8 0 018-8h16a8 8 0 018 8v40a8 8 0 01-8 8H52a8 8 0 01-8-8V32z"/>
+    </mask>
+    <g mask="url(#device_a)">
+        <rect width="31.11" height="56" x="43.11" y="25.36" fill="url(#device_gradient)" rx="8"/>
+        <path stroke="#010610" stroke-width="3" d="M45.5 32a6.5 6.5 0 016.5-6.5h16a6.5 6.5 0 016.5 6.5v40a6.5 6.5 0 01-6.5 6.5H52a6.5 6.5 0 01-6.5-6.5V32z"/>
+    </g>
+    <path fill="#010610" d="M52.89 25.64H67.1v1.5a2 2 0 01-2 2H54.9a2 2 0 01-2-2v-1.5z"/>
+    <defs>
+        <linearGradient id="device_gradient" x2="100%" y2="100%">  
+            <stop stop-color="#85ffe0"/>
+            <stop offset="50%" stop-color="#f9ccff" />
+            <stop offset="100%" stop-color="#adb1ff" />            
+        </linearGradient>
+    </defs>
+</svg>

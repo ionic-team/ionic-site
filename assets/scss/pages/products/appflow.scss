@@ -160,7 +160,7 @@
 
       p {
         letter-spacing: -.03em;
-        max-width: 660px;
+        max-width: 700px;
         line-height: 1.6em;
         font-size: 22px;
         font-weight: 400;
@@ -205,6 +205,11 @@
             color: rgba(white, .8);
           }
         }
+
+        + img {
+          margin-top: 8px;
+          display: block;
+        }
       }
 
       @media (max-width: $screen-sm)  {
@@ -246,7 +251,8 @@
       .announcement,
       h1,
       p,
-      .cta-buttons .btn {
+      .cta-buttons .btn,
+      .cta-buttons + img {
         animation: 1s fadeInUp forwards;
         opacity: 0;
       }
@@ -256,6 +262,7 @@
       p { animation-delay: .9s; }
       .cta-buttons .btn { animation-delay: 1.1s; }
       .cta-buttons .btn:last-child { animation-delay: 1.2s; }
+      .cta-buttons + img { animation-delay: 2s;}
     }
   }
 

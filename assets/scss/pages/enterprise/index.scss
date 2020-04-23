@@ -18,7 +18,7 @@ $colorLinkDark: #001A3A;
 $colorLinkLight: #488aff;
 $lg: 99999;
 $shadow: drop-shadow( 0px 8px 8px #d3d3d3);
-$timing: cubic-bezier(.06,.7,.68,.86);
+$timing: cubic-bezier(.71,.69,.45,.84);
 
 
 // #region ------------------- DEFAULT STYLES ----------------------------
@@ -37,8 +37,8 @@ h2 {
 }
 h3 {
   font-family: $font-family-inter;
-  font-weight: 600;
-  margin: 0 0 16px 0;
+  font-weight: 500;
+  margin-top: 0;
   color: $colorTitle;
   font-size: 20px;
 }
@@ -77,6 +77,10 @@ p {
   letter-spacing: -0.01em;
 }
 
+#sticky-bar li.active a:not(.btn) {
+  color: $colorLinkDark !important;
+}
+
 main {
   overflow: visible;
 }
@@ -91,7 +95,7 @@ blockquote {
   vertical-align:baseline;
   background:transparent;
   quotes:none;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.01em;
   color: $colorTitleInvert;
@@ -134,7 +138,7 @@ blockquote {
   text-transform: uppercase;
   color: $colorTitle2;
   letter-spacing: .14em;
-  margin-bottom: 32px;
+  margin-bottom: 24px !important;
 }
 
 // #endregion
@@ -258,6 +262,7 @@ ionic-sub-header .btn:hover, .btn:active, .btn:focus,
     @keyframes jumpUpBackwards {
       from {
         background: #E9EDF3;
+        transform: translateY(-4px);
       }
       to {}
     }
@@ -270,6 +275,7 @@ ionic-sub-header .btn:hover, .btn:active, .btn:focus,
       @keyframes jumpUpForwards {
         from {}
         to {
+          transform: translateY(-4px);
           background: #E9EDF3;
         }
       }
@@ -323,6 +329,8 @@ ionic-sub-header {
   @include box('p', $color: $colorSubtextInvert, $mxW: 560px);
   @include box('a.link1', $mTop: 48px);
   @include box('a.link2', $mTop: 16px, $color: white);
+  animation-name: fadeInUp;
+  animation-duration: 2s;
 
   position: relative;
   z-index: 2;
@@ -343,15 +351,19 @@ ionic-sub-header {
 
   #enterpriseText {
   @include box($mxW: 384px);
-  @include stack($mY: 40px);
+  @include stack($mY: 16px);
 
     #logoList {
-      @include box($mTop: 81px, $fG: 0);
+      @include box($mTop: 56px, $fG: 0);
       @include cluster($el: '& ', $sX: 48px, $sY: 32px);
     }
   }
   #enterpriseImg {
-  @include box($mxW: 489px);
+  @include box($mxW: 490px);
+    img {
+      width: 100%;
+    }
+
   }
 }
 
@@ -359,12 +371,15 @@ ionic-sub-header {
 @include spacer($mxW:96px, $mnW: 32px);
 
   #ossTitle {
-  @include stack($mY: 40px);
+  @include stack($mY: 16px);
   @include box($mxW: 480px);
+    h2 {
+      margin-top: 0px !important;
+    }
   }
   
   #ossCont {
-  @include stack($mY: 64px);
+  @include stack($mY: 40px);
   @include box($mxW: 448px);
   @include box('svg', $mnW: 48px, $mxW: 48px, $mnH: 48px);
   
@@ -382,7 +397,7 @@ ionic-sub-header {
   @include box('.title1', $mxW: 480px);
   
   @include box('.title2', $mxW: 480px);
-  @include box('.title2 a', $mTop: 40px);
+  @include box('.title2 a', $mTop: 32px);
   }
 
   
@@ -442,7 +457,10 @@ ionic-sub-header {
 }
   #mobSecTitle {
   @include box($mxW: 480px);
-  @include stack($mY: 40px);
+  @include stack($mY: 16px);
+    h2 {
+      margin-top: 0px !important;
+    }
   }
   
   #mobSecCont {
@@ -467,8 +485,8 @@ ionic-sub-header {
   }
 }
   #adviseTitle {
-    @include stack($mY: 40px);
-      @include box('h2', $color: $colorTitleInvert);
+    @include stack($mY: 16px);
+      @include box('h2', $color: $colorTitleInvert, $mTop: 0px);
       @include box('p', $color: $colorSubtextInvert2, $mxW: 704px);
   
     }  
@@ -480,7 +498,7 @@ ionic-sub-header {
       @include box('.row2', $fB: 440px);
     
       article {
-      @include box($mBot: 32px);
+      @include box($mBot: 32px, $fB: 220px);
         @include box('h3', $color: $colorTitleInvert);
         @include box('p', $color: $colorSubtextInvert2);
         @include box('svg', $mBot: 24px);
@@ -495,13 +513,13 @@ ionic-sub-header {
 }
   #delivTitle {  
     .sec1 {
-    @include box($mxW: 480px);
-      @include box('h2', $mBot: 36px);
+    @include box($mxW: 480px, $fB: 50%);
+      @include box('h2', $mBot: 16px);
       @include box('p', $mxW: 448px);
 
     }
     .sec2 {
-    @include box($mxW: 448px);
+    @include box($mxW: 448px, $fB: 50%);
     filter: $shadow;
     }
   }

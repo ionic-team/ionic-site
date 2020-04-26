@@ -63,6 +63,10 @@ export class IonicNewsletterSignup {
       'https://api.hsforms.com/submissions/v3/integration/submit',
       '3776657',
       '76e5f69f-85fd-4579-afce-a1892d48bb32'].join('/');
+
+    const hutkMatch = document.cookie.match && document.cookie.match(/hubspotutk=(.*?);/)
+    const hutk = hutkMatch ? hutkMatch[1] : ''
+
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
@@ -77,7 +81,7 @@ export class IonicNewsletterSignup {
         value: this.email
       }],
       context: {
-        hutk: document.cookie.match(/hubspotutk=(.*?);/)[1],
+        hutk,
         pageUri: window.location.href,
         pageName: document.title
       }

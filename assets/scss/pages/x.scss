@@ -304,7 +304,7 @@
       margin: 0 -128px;
       padding: 46px 64px;
       overflow: hidden;
-      max-height: 540px;
+      max-height: 640px;
       position: relative;
 
       @media (max-width: 1280px) {
@@ -334,11 +334,12 @@
       left: 724px;
 
       @media (max-width: 1280px) {
-        left: 525px;
+        left: 715px;
       }
 
       @media (max-width: $screen-sm-max) {
-        left: 480px;
+        left: 315px;
+        bottom: -120px;
       }
 
       @media (max-width: $screen-xs-max) {
@@ -348,6 +349,10 @@
 
     form {
       justify-content: flex-start;
+    }
+
+    .hubspot-override {
+      max-width: 630px;
     }
   }
 

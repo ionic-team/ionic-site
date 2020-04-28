@@ -95,7 +95,7 @@ window.hsSnitch = () => {
   if (hsFound) return;
 
   const report = async (type) => {
-    console.erro(`Hubspot Error: ${type} blocked`);
+    console.error(`Hubspot Error: ${type} blocked`);
     const response = await fetch('/api/v1/hsblocked', {
       method: 'POST', 
       mode: 'same-origin',

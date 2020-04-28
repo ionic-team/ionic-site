@@ -88,15 +88,14 @@ window.hsSnitch = () => {
   if (!document.querySelector('[src="//js.hsforms.net/forms/v2.js"')) return;
 
   const selector = '.hs-form';
+  let submitting;
 
   // has the form already loaded?
   let hsFound = !!document.querySelector(selector);
   if (hsFound) return;
 
-  const timer = setTimeout(async () => {
-    // one last check, just to be safe
-    if (hsFound || !!document.querySelector(selector)) return;
-
+  const report = async (type) => {
+    console.erro(`Hubspot Error: ${type} blocked`);
     const response = await fetch('/api/v1/hsblocked', {
       method: 'POST', 
       mode: 'same-origin',
@@ -107,18 +106,42 @@ window.hsSnitch = () => {
       body: JSON.stringify({
         browser: navigator.userAgent,
         url: window.location.href,
-        type: 'form'
+        type
       })
     });
     // give HS 3 seconds to load
+  }
+
+  const timer = setTimeout(() => {
+    // one last check, just to be safe
+    if (hsFound || !!document.querySelector(selector)) return;
+    report('form');
   }, 3000);
   
   // listen for the form to load
   window.addEventListener('message', event => {
-    console.log(event.data)
-    if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+    // console.log(event.data);
+    if(event.data.type !== 'hsFormCallback') return;
+
+    // form found
+    if(event.data.eventName === 'onFormReady') {
       hsFound = true;
       clearTimeout(timer);
+      return;
+    }
+
+    // form submitting
+    if(event.data.eventName === 'onFormSubmit') {
+      submitting = setTimeout(() => {
+        report('form-submit');
+      }, 2000);
+      return;
+    }
+
+    // form submission sucessful
+    if(event.data.eventName === 'onFormSubmitted') {
+      clearTimeout(submitting)
+      return;
     }
   });
 }

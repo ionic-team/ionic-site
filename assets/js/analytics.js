@@ -115,6 +115,7 @@ window.hsSnitch = () => {
   
   // listen for the form to load
   window.addEventListener('message', event => {
+    console.log(event.data)
     if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
       hsFound = true;
       clearTimeout(timer);

@@ -678,6 +678,10 @@
         margin-left: 0;
         margin-right: 0;
       }
+
+      @media (max-width: 440px) {
+        margin-top: 420px;
+      }
     }
 
     &__highlight {

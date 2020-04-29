@@ -142,7 +142,6 @@ module.exports = {
     .get('/sales', (_, res) => res.render('sales'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.render('startups'))
-    .get('/studio', (_, res) => res.render('products/studio'))
     .get('/subscribe', (_, res) => res.render('subscribe'))
     .get('/support', (_, res) => res.render('support'))
     .get('/survey/2017', (_, res) => res.render('survey/2017'))

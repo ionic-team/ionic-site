@@ -113,7 +113,6 @@ module.exports = {
   
     .get('/pro/contact', (_, res) => res.render('pro/contact'))
     .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
-    .get('/pro/monitor', (_, res) => res.render('pro/monitor'))
     .get('/pro/package', (_, res) => res.render('pro/package'))
   
     .get('/pwa', (_, res) => res.render('pwa/index'))

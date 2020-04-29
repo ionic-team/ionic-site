@@ -18,7 +18,7 @@ const resources = {
     meta_description: 'Get the latest insights on mobile app development technology and trends for enterprise app development. Ionic articles provide insights into mobile strategy for enteprises and businesses alike.',
     items: [
       {
-        "type": "Article",
+        "type": "Whitepaper",
         "title": "State of App Development - 2020",
         "url": "https://go.ionicframework.com/state-of-app-dev-2020",
         "target": "_self",

@@ -1,1 +1,8 @@
-<svg width="756" height="594" viewBox="0 0 756 594" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".7"><rect opacity=".4" width="325.264" height="573.66" rx="8" transform="matrix(.89159 -.45285 .811 .58504 .089 257.639)" fill="#D0D2FF"/><rect opacity=".4" width="286.301" height="418.962" rx="8" transform="matrix(.89159 -.45285 .811 .58504 54.566 195.746)" fill="#B6B9F9"/><rect opacity=".8" width="241.199" height="253.671" rx="8" transform="matrix(.89159 -.45285 .811 .58504 107.677 139.573)" fill="#B6B9F9"/><rect opacity=".9" width="185.921" height="135.212" rx="8" transform="matrix(.89159 -.45285 .811 .58504 163 84.195)" fill="#8582FB"/></g></svg>
+<svg width="756" height="594" viewBox="0 0 756 594" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.7">
+<rect opacity="0.4" width="325.264" height="573.66" rx="8" transform="matrix(0.891587 -0.45285 0.811004 0.585041 0.0887451 257.639)" fill="#D0D2FF"/>
+<rect opacity="0.4" width="286.301" height="418.962" rx="8" transform="matrix(0.891587 -0.45285 0.811004 0.585041 54.5663 195.746)" fill="#B6B9F9"/>
+<rect opacity="0.8" width="241.199" height="253.671" rx="8" transform="matrix(0.891587 -0.45285 0.811004 0.585041 107.677 139.573)" fill="#B6B9F9"/>
+<rect opacity="0.9" width="185.921" height="135.212" rx="8" transform="matrix(0.891587 -0.45285 0.811004 0.585041 163 84.1946)" fill="#8582FB"/>
+</g>
+</svg>

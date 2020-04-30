@@ -201,6 +201,8 @@ ionic-sub-header {
     height: 24px;
   }
   .btn-primary {
+    display:flex;
+    align-items:center;
     text-transform: none;
     padding-top: 6px !important;
     padding-right: 10px !important;

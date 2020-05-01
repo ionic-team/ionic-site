@@ -48,6 +48,7 @@ export namespace Components {
     'kind': string;
     'lg': boolean;
     'placeholder': string;
+    'srLabel': { id: string; text: string; };
   }
   interface IonicQuickSignup {
     'buttonColor': string;
@@ -325,6 +326,7 @@ declare namespace LocalJSX {
     'kind'?: string;
     'lg'?: boolean;
     'placeholder'?: string;
+    'srLabel'?: { id: string; text: string; };
   }
   interface IonicQuickSignup {
     'buttonColor'?: string;

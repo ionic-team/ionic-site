@@ -1,5 +1,6 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { EmailOutlineIcon } from '../../icons';
+import { uuid } from 'uuidv4';
 
 @Component({
   tag: 'ionic-newsletter-signup',
@@ -7,7 +8,10 @@ import { EmailOutlineIcon } from '../../icons';
   shadow: false
 })
 export class IonicNewsletterSignup {
-
+  @Prop() srLabel = {
+    id: uuid(),
+    text: 'enter email to join newsletter',
+  } 
   @Prop() placeholder: string = 'Email address';
   @Prop() buttonText: string = 'Subscribe';
   @Prop() darkMode: boolean = false;
@@ -109,8 +113,10 @@ export class IonicNewsletterSignup {
         class={this.getFormClass()}>
 
         {this.homepageMode ? <EmailOutlineIcon/> : ''}
+        <label id={this.srLabel.id} class="sr-only">{this.srLabel.text}</label>
 
         <input
+          aria-labelledby={this.srLabel.id}
           name="email"
           type="email"
           value={this.email}

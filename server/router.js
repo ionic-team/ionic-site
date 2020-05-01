@@ -8,6 +8,7 @@ const { getPrismicAPI, getSingle, getPrismic, previewController } = require('./p
 
 const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const contactCtrl = require('./controllers/contactCtrl');
+const getformCtrl = require('./controllers/getformCtrl');
 const hsblockedCtrl = require('./controllers/hsblockedCtrl');
 const newsletterCtrl = require('./controllers/newsletterCtrl');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
@@ -182,6 +183,7 @@ module.exports = {
   
     // JSON endpoints
     .post('/contact', bp.json(), es(), contactCtrl)
+    .get('/api/v1/getform/:formId', bp.json(), es(), getformCtrl)
     .post('/api/v1/hsblocked', bp.json(), es(), hsblockedCtrl)
     .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
     .post('/api/v1/view/link', bp.json(), es(), viewCtrl)

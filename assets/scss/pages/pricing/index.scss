@@ -270,69 +270,6 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
   }
 }
 
-#open-source {
-  margin-top: 44px;
-
-  .card {
-    padding-bottom: 85px;
-  }
-
-  h3 {
-    margin-top: 0;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 160%;
-    margin-bottom: 18px;
-    color: $c-carbon-900;
-    font-family: $font-family-inter;
-  }
-
-  .cards h3 {
-    margin-top: 9px;
-    font-size: 20px;
-    line-height: 120%;
-    color: $c-carbon-900;
-    font-family: $font-family-eina;
-    margin-bottom: 14px;
-  }
-
-  p {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: -0.01em;
-    color: $c-indigo-800;
-    margin-bottom: 15px;
-  }
-
-  h4 {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 160%;
-    letter-spacing: 0.1em;
-    color: $c-indigo-600;
-    position: absolute;
-    bottom: 18px;
-    left: 38px;
-    font-family: $font-family-inter;
-  }
-
-  a  {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 160%;
-    letter-spacing: -0.01em;
-    color: $c-indigo-1100;
-    position: absolute;
-    bottom: 25px;
-    right: 39px;
-
-    svg {
-      margin-right: 3px;
-    }
-  }
-}
-
 #loved-by {
   margin-top: 74px;
   margin-bottom: 136px;

@@ -10,13 +10,30 @@
 
 {% block main %}
 <header>
+  <div class="container">
+    <nav>
+      <a href="/x"><img src="/img/x/logo.png" alt="Ionic Logo" class="logo"></a>
+
+      <ul>
+        <li>
+          <a href="/x/love-letter">Why X?</a>
+        </li>
+        <li>
+          <a href="/books/rethinking-low-code">Read our Whitepaper</a>
+        </li>
+        <li>
+          <a href="#schedule" class="btn dark anchor">Join beta</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
   <hgroup class="container">
-    <img src="/img/x/logo.png" alt="Ionic Logo" class="logo">
     <h1>{{ data.headline }}</h1>
     <p>{{ data.tagline }}</p>
     <div class="btns">
-      <a href="#schedule" class="btn anchor">Apply for early access</a>
-      <a href="/books/rethinking-low-code" class="btn dark">Read our Whitepaper</a>
+      <a href="#schedule" class="btn anchor">Get early access</a>
+
     </div>
     <a href="#sneak-peak" class="keep-reading anchor">
       Or keep scrolling to learn more
@@ -113,8 +130,8 @@
       <ul class="items">
         {% for item in data.platform_items %}
           <li>
-            <img src="{{item.image.url}}" 
-                 srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x" 
+            <img src="{{item.image.url}}"
+                 srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x"
                  alt="{{item.image.alt}}">
             {{ PrismicDOM.RichText.asHtml(item.text) }}
           </li>

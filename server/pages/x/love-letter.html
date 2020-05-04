@@ -1,0 +1,76 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'x' %}
+{% set header_style = 'transparent' %}
+{% set cssPath = 'x' %}
+{% set title = data.title %}
+{# {% set meta_image = ''%} #}
+{# {% set meta_description = ''%} #}
+{% set hide_pre_header = true %}
+
+
+{% block main %}
+<header>
+  <div class="container">
+    <nav>
+      <a href="/x"><img src="/img/x/logo.png" alt="Ionic Logo" class="logo"></a>
+
+      <ul>
+        <li class="active">
+          <a href="/x/love-letter">Why X?</a>
+        </li>
+        <li>
+          <a href="/books/rethinking-low-code">Read our Whitepaper</a>
+        </li>
+        <li>
+          <a href="#schedule" class="btn dark anchor">Join beta</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+</main>
+
+<div id="schedule">
+  <div class="container">
+    <div class="expander">
+      <hgroup>
+
+        <div class="hubspot-override hubspot-override--large">
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              portalId: "3776657",
+              formId: "cf56f622-dbdb-4b82-a30b-7f5e066d877f",
+              css: ""
+          });
+          </script>
+        </div>
+      </hgroup>
+      <img src="/img/x/make-it-easy.png" class="graphics"/>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <img src="/img/x/logo-white.png" alt="Ionic Logo - White" class="logo">
+  </div>
+</footer>
+
+{# <pre><code>{{ data | dump(2) }}</code></pre> #}
+
+{% endblock %}
+
+{% block modals %}
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

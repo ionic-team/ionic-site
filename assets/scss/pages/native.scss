@@ -218,18 +218,26 @@ ionic-sub-header {
   }
 }
 
-@include box('#hero', $pY: 134px);
 #hero {
   min-height: $heroHeight;
-  background-image: url('/img/native/bg_native.svg');
-  background-position: center;
+  position: relative;
+  overflow:hidden;
 }
 
-@include box('#heroText', $mW: 448px);
+#heroBack {
+  position: absolute;
+  left: calc((1800px - 100%) / 2 * -1);
+  height: 100%;
+  z-index: -1;
+}
+
+@include box('#heroText', $mW: 448px, $mTop: 134px, $mBot: 134px);
 @include box('#heroText a.btn-primary', $pY:16px, $pX: 20px, $mRight: 20px, $mBot: 20px);
 @include box('#heroText a.btn-secondary', $pY:16px, $pX: 20px);
 #heroText {
-
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  
   @include box(h1, $color: $colorTitle);
   h1 {
     

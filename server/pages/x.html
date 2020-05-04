@@ -57,7 +57,6 @@
     <div class="container">
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.drag___drop) }}
-        <a href="#schedule" class="more anchor">Get a demo <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </hgroup>
       <img src="/img/x/drag-drop.png" alt="Drag and Drop app Creation" class="graphics">
     </div>
@@ -67,7 +66,6 @@
     <div class="container">
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.data) }}
-        <a href="#schedule" class="more anchor">Get a demo <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </hgroup>
       <img src="/img/x/data-connector.png" alt="Control your data visually" class="graphics">
     </div>
@@ -77,7 +75,6 @@
     <div class="container">
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.code) }}
-        <a href="#schedule" class="more anchor">Get a demo <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </hgroup>
       <img src="/img/x/ide.png" alt="" class="graphics">
     </div>
@@ -87,7 +84,6 @@
     <div class="container">
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.ci) }}
-        <a href="#schedule" class="more anchor">Get a demo <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </hgroup>
       <img src="/img/x/live-updates.png" alt="" class="graphics">
     </div>
@@ -113,8 +109,8 @@
       <ul class="items">
         {% for item in data.platform_items %}
           <li>
-            <img src="{{item.image.url}}" 
-                 srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x" 
+            <img src="{{item.image.url}}"
+                 srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x"
                  alt="{{item.image.alt}}">
             {{ PrismicDOM.RichText.asHtml(item.text) }}
           </li>

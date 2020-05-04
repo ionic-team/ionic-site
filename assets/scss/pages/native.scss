@@ -235,7 +235,9 @@ ionic-sub-header {
 @include box('#heroText a.btn-primary', $pY:16px, $pX: 20px, $mRight: 20px, $mBot: 20px);
 @include box('#heroText a.btn-secondary', $pY:16px, $pX: 20px);
 #heroText {
-
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  
   @include box(h1, $color: $colorTitle);
   h1 {
     

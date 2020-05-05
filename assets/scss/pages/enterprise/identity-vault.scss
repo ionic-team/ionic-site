@@ -4,6 +4,10 @@
 @import './shared';
 @import './solutions/shared';
 
+img {
+  height: auto;
+}
+
 #sticky-bar {
   li.active a:not(.btn) {
     color: $navy;

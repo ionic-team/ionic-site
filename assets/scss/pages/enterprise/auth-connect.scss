@@ -4,6 +4,9 @@
 @import './shared';
 @import './solutions/shared';
 
+img {
+  height: auto;
+}
 
 @keyframes spin-in {
   0% {

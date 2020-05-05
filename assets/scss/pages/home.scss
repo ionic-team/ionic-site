@@ -3,6 +3,10 @@
 @import '../components/home_slides/index';
 @import '../components/home_slides/v5';
 
+img {
+  height: auto;
+}
+
 #page-home {
   .activateOnScroll {
     opacity: 0;

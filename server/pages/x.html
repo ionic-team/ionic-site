@@ -38,15 +38,15 @@
 
       <ul class="items">
         <li>
-          <img src="/img/x/ico-backlog.png" alt="Checklist Icon" width="48">
+          <img src="/img/x/ico-backlog.png" alt="Checklist Icon" loading="lazy" width="48">
           {{ PrismicDOM.RichText.asHtml(data.experiences_item_1) }}
         </li>
         <li>
-          <img src="/img/x/ico-talent.png" alt="People Icon" width="48">
+          <img src="/img/x/ico-talent.png" alt="People Icon" loading="lazy" width="48">
           {{ PrismicDOM.RichText.asHtml(data.experiences_item_2) }}
         </li>
         <li>
-          <img src="/img/x/ico-control.png" alt="Settings Icon" width="48">
+          <img src="/img/x/ico-control.png" alt="Settings Icon" loading="lazy" width="48">
           {{ PrismicDOM.RichText.asHtml(data.experiences_item_3) }}
         </li>
       </ul>
@@ -58,7 +58,7 @@
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.drag___drop) }}
       </hgroup>
-      <img src="/img/x/drag-drop.png" alt="Drag and Drop app Creation" class="graphics">
+      <img src="/img/x/drag-drop.png" alt="Drag and Drop app Creation" loading="lazy" class="graphics">
     </div>
   </section>
 
@@ -67,7 +67,7 @@
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.data) }}
       </hgroup>
-      <img src="/img/x/data-connector.png" alt="Control your data visually" class="graphics">
+      <img src="/img/x/data-connector.png" alt="Control your data visually" loading="lazy" class="graphics">
     </div>
   </section>
 
@@ -76,7 +76,7 @@
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.code) }}
       </hgroup>
-      <img src="/img/x/ide.png" alt="" class="graphics">
+      <img src="/img/x/ide.png" alt="" loading="lazy" class="graphics">
     </div>
   </section>
 
@@ -85,7 +85,7 @@
       <hgroup>
         {{ PrismicDOM.RichText.asHtml(data.ci) }}
       </hgroup>
-      <img src="/img/x/live-updates.png" alt="" class="graphics">
+      <img src="/img/x/live-updates.png" alt="" loading="lazy" class="graphics">
     </div>
   </section>
 
@@ -110,6 +110,7 @@
         {% for item in data.platform_items %}
           <li>
             <img src="{{item.image.url}}"
+                 loading="lazy" 
                  srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x"
                  alt="{{item.image.alt}}">
             {{ PrismicDOM.RichText.asHtml(item.text) }}
@@ -151,14 +152,14 @@
           </script>
         </div>
       </hgroup>
-      <img src="/img/x/make-it-easy.png" class="graphics"/>
+      <img src="/img/x/make-it-easy.png" loading="lazy" class="graphics"/>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="container">
-    <img src="/img/x/logo-white.png" alt="Ionic Logo - White" class="logo">
+    <img src="/img/x/logo-white.png" loading="lazy" alt="Ionic Logo - White" class="logo">
     <hgroup>
       {{ PrismicDOM.RichText.asHtml(data.footer_text) }}
     </hgroup>

@@ -24,6 +24,9 @@ export namespace Components {
   }
   interface HomeComponents {}
   interface HomeNative {}
+  interface HubspotDynamicContent {
+    'formId': string;
+  }
   interface HubspotForm {
     'formId': string;
   }
@@ -133,6 +136,12 @@ declare global {
   var HTMLHomeNativeElement: {
     prototype: HTMLHomeNativeElement;
     new (): HTMLHomeNativeElement;
+  };
+
+  interface HTMLHubspotDynamicContentElement extends Components.HubspotDynamicContent, HTMLStencilElement {}
+  var HTMLHubspotDynamicContentElement: {
+    prototype: HTMLHubspotDynamicContentElement;
+    new (): HTMLHubspotDynamicContentElement;
   };
 
   interface HTMLHubspotFormElement extends Components.HubspotForm, HTMLStencilElement {}
@@ -276,6 +285,7 @@ declare global {
     'bar-chart': HTMLBarChartElement;
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
+    'hubspot-dynamic-content': HTMLHubspotDynamicContentElement;
     'hubspot-form': HTMLHubspotFormElement;
     'icon-external': HTMLIconExternalElement;
     'ionic-app-wizard': HTMLIonicAppWizardElement;
@@ -309,6 +319,9 @@ declare namespace LocalJSX {
   }
   interface HomeComponents {}
   interface HomeNative {}
+  interface HubspotDynamicContent {
+    'formId'?: string;
+  }
   interface HubspotForm {
     'formId'?: string;
   }
@@ -402,6 +415,7 @@ declare namespace LocalJSX {
     'bar-chart': BarChart;
     'home-components': HomeComponents;
     'home-native': HomeNative;
+    'hubspot-dynamic-content': HubspotDynamicContent;
     'hubspot-form': HubspotForm;
     'icon-external': IconExternal;
     'ionic-app-wizard': IonicAppWizard;
@@ -437,6 +451,7 @@ declare module "@stencil/core" {
       'bar-chart': LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
+      'hubspot-dynamic-content': LocalJSX.HubspotDynamicContent & JSXBase.HTMLAttributes<HTMLHubspotDynamicContentElement>;
       'hubspot-form': LocalJSX.HubspotForm & JSXBase.HTMLAttributes<HTMLHubspotFormElement>;
       'icon-external': LocalJSX.IconExternal & JSXBase.HTMLAttributes<HTMLIconExternalElement>;
       'ionic-app-wizard': LocalJSX.IonicAppWizard & JSXBase.HTMLAttributes<HTMLIonicAppWizardElement>;

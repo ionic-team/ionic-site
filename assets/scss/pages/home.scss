@@ -3,11 +3,12 @@
 @import '../components/home_slides/index';
 @import '../components/home_slides/v5';
 
-img {
-  height: auto;
-}
 
 #page-home {
+  img {
+    height: auto;
+  }
+
   .activateOnScroll {
     opacity: 0;
     transform: translateY(48px);

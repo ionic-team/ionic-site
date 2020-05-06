@@ -1,7 +1,13 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+
 #page-products-advisory {
+
+  img {
+    height: auto;
+  }
+  
 
   .top {
     text-align: center;

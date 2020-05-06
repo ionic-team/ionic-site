@@ -1,4 +1,12 @@
 #page-pwa {
+
+  img:not(.promo__illustration) {
+    width: auto;
+  }
+  img {
+    height: auto;
+  }
+
   font-size: 1.4rem;
 
   #social-share-sidebar {

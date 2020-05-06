@@ -1,6 +1,10 @@
 #page-getting-started {
   font-family: $font-family-eina;
 
+  img {
+    height: auto;
+  }
+
   #signup-thanks {
     display: none;
   }

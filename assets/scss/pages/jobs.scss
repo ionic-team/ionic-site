@@ -2,6 +2,10 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 #page-jobs {
+
+  img {
+    height: auto;
+  }
   .navbar ~ .banner {
     background: #26708a no-repeat center top;
     background-image: url('/img/jobs/jobs-cta-bg.jpg'),

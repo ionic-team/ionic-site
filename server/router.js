@@ -161,7 +161,7 @@ module.exports = {
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
     .get('/x', getPrismicAPI, (req, res, next) =>
-      getSingle(req, res, next, 'ionic_x_preview', 'x/index'))
+      getSingle(req, res, next, 'ionic-x-dc-landing', 'x/index'))
     .get('/x/love-letter', (_, res) => res.render('x/love-letter'))
 
     // press releases

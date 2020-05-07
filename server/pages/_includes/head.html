@@ -19,12 +19,12 @@
 <link rel="preload" href="https://code.ionicframework.com/assets/fonts/eina/eina-01-semibold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://code.ionicframework.com/assets/fonts/ionicons.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://code.ionicframework.com/assets/fonts/inter/Inter-variable-ASCII-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/css/styles.min.css" as="style" />
+
 
 {% if dev %}
-  <link href="/css/styles.css" rel="stylesheet">
+  <link rel="preload" href="/css/styles.css" as="style" onload="this.rel='stylesheet'" />
 {% else %}
-  <link href="/css/styles.min.css" rel="stylesheet">
+  <link rel="preload" href="/css/styles.min.css" as="style" onload="this.rel='stylesheet'" />
 {% endif %}
 
 {% if cssPath %}

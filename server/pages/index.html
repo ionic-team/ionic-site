@@ -627,66 +627,69 @@
 }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<script>
-window.flow = function() {
-	var sizes = ["s", "m", "l"],
-	    iconLWidth = 256,
-	    container = document.getElementById("integration-list"),
-			icons = document.querySelectorAll("#integration-list img"),
-			resizeTimer,
-		  w, h;
-	// debounce the re-init so it doesn't totally freak out while draging
-	window.addEventListener('resize', resizeDebounce);
-	function resizeDebounce() {
-		clearTimeout(resizeTimer);
-  	resizeTimer = setTimeout(init, 250);
-	}
-	function init() {
-		w = container.offsetWidth;
-		h = container.offsetHeight;
-		icons.forEach(function(icon, i) {
-			var size = sizes[Math.ceil(Math.random() * 3) -1];
-			TweenMax.set(
-				icon, {
-					attr: {class: size},
-					y: R(50, h - 150),
-					x: R(w, w + 50)
-				}
-			);
-			animate(icon, i);
-		});
-	}
-	// animate x and y values at different rates
-	function animate(element, i) {
-		 TweenMax.to(
-			 element,
-			 R(110,120),
-			 {
-				 x: -1500,
-				 ease: Linear.easeNone,
-				 repeat:-1,
-				 delay: -115 / icons.length * i
-			 }
-		 );
-		 TweenMax.to(
-			 element,
-			 R(6,16),
-			 {
-				 y: '+=50',
-				 repeat: -1,
-				 yoyo: true,
-				 ease: Sine.easeInOut,
-         delay: R(-16, -6)
-			 }
-		 );
-	};
-	function R(min,max) {
-		return min + Math.random() * (max-min)
-	};
-	return {
-		init: init
-	}
+
+<script type="module">
+const load = async () => {
+  const module = await import("https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js");
+
+  window.flow = function() {
+  var sizes = ["s", "m", "l"],
+      iconLWidth = 256,
+      container = document.getElementById("integration-list"),
+      icons = document.querySelectorAll("#integration-list img"),
+      resizeTimer,
+      w, h;
+  // debounce the re-init so it doesn't totally freak out while draging
+  window.addEventListener('resize', resizeDebounce);
+  function resizeDebounce() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 250);
+  }
+  function init() {
+    w = container.offsetWidth;
+    h = container.offsetHeight;
+    icons.forEach(function(icon, i) {
+      var size = sizes[Math.ceil(Math.random() * 3) -1];
+      TweenMax.set(
+        icon, {
+          attr: {class: size},
+          y: R(50, h - 150),
+          x: R(w, w + 50)
+        }
+      );
+      animate(icon, i);
+    });
+  }
+  // animate x and y values at different rates
+  function animate(element, i) {
+    TweenMax.to(
+      element,
+      R(110,120),
+      {
+        x: -1500,
+        ease: Linear.easeNone,
+        repeat:-1,
+        delay: -115 / icons.length * i
+      }
+    );
+    TweenMax.to(
+      element,
+      R(6,16),
+      {
+        y: '+=50',
+        repeat: -1,
+        yoyo: true,
+        ease: Sine.easeInOut,
+        delay: R(-16, -6)
+      }
+    );
+  };
+  function R(min,max) {
+    return min + Math.random() * (max-min)
+  };
+  return {
+    init: init
+  }
 }().init();
 
 window.testimonials = function() {
@@ -779,7 +782,22 @@ window.testimonials = function() {
   updateHighlight();
   addListeners();
   start();
-}();
+  }();
+}
 
+const integrationsSec = document.querySelector('#integrations');
+const options = {
+  rootMargin: '1000px',
+  threshold: 1.0,
+}
+
+const observer = new IntersectionObserver((entries) => {
+  if(entries[0].isIntersecting) {
+    observer.unobserve(entries[0].target);
+    load();
+  }   
+}, options);
+
+observer.observe(integrationsSec);
 </script>
 {% endblock %}

@@ -594,14 +594,18 @@
             way.
           </p>
         </hgroup>
-        <script charset="utf-8"
+        <!-- <script charset="utf-8"
                 type="text/javascript"
-                src="https://js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: '3776657',
-            formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
-          });
+                src="https://js.hsforms.net/forms/v2.js"></script> -->
+        <script type="module">          
+          const load = async () => {   
+            await import("https://js.hsforms.net/forms/v2.js");
+
+            hbspt.forms.create({
+              portalId: '3776657',
+              formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
+            });
+          }
         </script>
       </div>
     </div>
@@ -629,7 +633,7 @@
 
 <script type="module">
 const load = async () => {
-  const module = await import("https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js");
+  await import("https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js");
 
   window.flow = function() {
   var sizes = ["s", "m", "l"],

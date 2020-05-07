@@ -627,8 +627,7 @@
 }
 </script>
 
-
-<script type="module">
+<script async type="module">
 const load = async () => {
   const module = await import("https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js");
 
@@ -700,8 +699,8 @@ window.testimonials = function() {
   const $highlight = document.getElementById('testimonials__highlight');
 
   function activateNextQuote() {
-    $oldSpeaker = deactivateSpeaker();
-
+    const $oldSpeaker = deactivateSpeaker();
+    let $active = null;
     // go back to the beginning if at the end
     if (!$oldSpeaker.nextElementSibling) {
       $active = $testimonials.querySelector('.quotees li:first-child');
@@ -736,7 +735,7 @@ window.testimonials = function() {
 
   // finds and deacivates just the current speaker, not the quote
   function deactivateSpeaker() {
-    $speaker = $testimonials.querySelector('.quotees .is-active')
+    const $speaker = $testimonials.querySelector('.quotees .is-active')
     $speaker.classList.remove('is-active');
     return $speaker;
   }

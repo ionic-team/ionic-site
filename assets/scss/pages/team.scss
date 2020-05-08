@@ -91,9 +91,14 @@
       .avatar {
         height: 160px;
         width: 160px;
+        object-fit: cover;
         -webkit-clip-path: circle(80px at center);
         clip-path: circle(80px at center);
         transition: transform .2s ease;
+      }
+
+      ion-icon.avatar {
+        color: lightgray;
       }
 
       &[href]:hover .avatar {
@@ -101,26 +106,53 @@
       }
 
       hgroup {
+        position:relative;
         margin-top: 16px;
+        max-width: 160px;
 
         h4 {
           font-size: 16px;
           margin-bottom: 4px;
           font-weight: 600;
           color: $blackish;
+          white-space: nowrap;
         }
 
+        .social-row {
+          position:relative;
+          top: 8px;
+          & > * {
+            margin-right: 4px;
+          }
+        }
         .twitter {
+          
           &::before {
-            float: right;
             color: $blackish;
+            font-size: 22px;
             content: "\f2b0";
             font-family: "Ionicons";
-            transition: .2s color ease;
+            transition: .2s opacity ease;
+            opacity: .8;
           }
 
           &:hover::before {
-            color: $blue;
+            opacity: 1;
+          }
+        }
+
+        .linkedin {
+          &::before {
+            color: $blackish;
+            font-size: 22px;
+            content: "\f240";
+            font-family: "Ionicons";
+            transition: .2s opacity ease;
+            opacity: .8;
+          }
+
+          &:hover::before {
+            opacity: 1;
           }
         }
 
@@ -131,6 +163,8 @@
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: .03em;
+          margin-bottom: 3px;
+          white-space:nowrap;
 
           &.blue {
             color: $blue;

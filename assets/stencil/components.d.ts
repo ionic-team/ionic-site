@@ -25,7 +25,7 @@ export namespace Components {
   interface HomeComponents {}
   interface HomeNative {}
   interface HubspotDynamicContent {
-    'formId': string;
+    'listId': string;
   }
   interface HubspotForm {
     'formId': string;
@@ -320,7 +320,7 @@ declare namespace LocalJSX {
   interface HomeComponents {}
   interface HomeNative {}
   interface HubspotDynamicContent {
-    'formId'?: string;
+    'listId'?: string;
   }
   interface HubspotForm {
     'formId'?: string;

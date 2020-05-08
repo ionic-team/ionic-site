@@ -7,17 +7,20 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class HubspotDynamicContent {
 
-  @Prop() formId: string = 'default';
+  @Prop() listId: string = 'default';
 
   componentWillLoad() {
-    fetch(`/api/v1/getform/${this.formId}`)
+    const hsutk = window['getCookie']('hubspotutk');
+
+    fetch(`/api/v1/hsconverted/${this.listId}/${hsutk}`)
       .then(response => response.json())
       .then(data => console.log(data));
   }
 
   render() {
-    return (
-      <h1>Hi</h1>
-    );
+    return ([
+      <slot name="default" />,
+      <slot name="alternate" />
+    ]);
   }
 }

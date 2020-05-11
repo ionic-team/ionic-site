@@ -133,11 +133,11 @@
             content: "\f2b0";
             font-family: "Ionicons";
             transition: .2s opacity ease;
-            fill: #b8b8b8;
+            color: #a1a1a1;
           }
 
           &:hover::before {
-            fill:#757575;
+            color:#696969;
           }
         }
 
@@ -148,11 +148,11 @@
             content: "\f240";
             font-family: "Ionicons";
             transition: .2s opacity ease;
-            fill: #b8b8b8;
+            color: #a1a1a1;
           }
 
           &:hover::before {
-            fill:#757575;
+            color:#696969;
           }
         }
 

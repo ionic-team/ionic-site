@@ -120,6 +120,7 @@
 
         .social-row {
           position:relative;
+          z-index: 2;
           top: 8px;
           & > * {
             margin-right: 4px;

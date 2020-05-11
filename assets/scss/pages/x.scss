@@ -9,6 +9,10 @@
 #page-x {
   background: #000000;
 
+  @media (max-width: $screen-sm-max) {
+    padding-top: 0;
+  }
+
   h1,
   h2,
   h3,
@@ -17,21 +21,20 @@
   strong {
     color: #FFFFFF;
     font-weight: 600;
+    line-height: 1.2;
 
-    @media (max-width: $screen-sm-max) {
-      hyphens: auto;
-    }
+    // @media (max-width: $screen-sm-max) {
+    //   hyphens: auto;
+    // }
   }
 
   h1 {
     font-size: 64px;
-    line-height: 70px;
     letter-spacing: -.04em;
   }
 
   h2 {
     font-size: 48px;
-    line-height: 58px;
     letter-spacing: -.03em;
   }
 
@@ -42,7 +45,6 @@
 
   h4 {
     font-size: 20px;
-    line-height: 28px;
     letter-spacing: -.02em;
   }
 
@@ -124,6 +126,12 @@
     margin-top: 32px;
   }
 
+  @media (max-width: $screen-xs-max) {
+    h1 {
+      font-size: 53px;
+    }
+  }
+
   header {
     margin-top: 16px;
 
@@ -156,7 +164,7 @@
       li.active a {
         pointer-events: none;
         border-bottom: 2px solid #193455;
-        padding-bottom: 4px;
+        padding-bottom: 2px;
       }
 
       li a.btn {
@@ -170,10 +178,46 @@
       }
     }
 
+    @media (max-width: 560px) {
+      nav {
+        justify-content: flex-start;
+
+        & > a {
+          flex: 0 0 50%;
+        }
+
+        ul {
+          flex-direction: column;
+          text-align: left;
+          align-items: flex-start;
+          margin-bottom: 0;
+          padding-left: 0;
+        }
+
+        ul li + li {
+          margin-left: 0;
+        }
+
+
+        .btn {
+          display: none;
+        }
+
+
+      }
+    }
+
+    @media (max-width: 346px) {
+      nav > a {
+        flex: 0;
+        margin-right: 24px;
+      }
+    }
+
     hgroup {
       max-width: 654px;
       text-align: center;
-      padding: 88px 0 0;
+      padding-top: 88px;
     }
 
     .logo {
@@ -578,6 +622,10 @@
       padding-left: 0;
     }
 
+    li::before {
+      display: none;
+    }
+
     li img {
       margin-bottom: 12px;
       max-width: 56px;
@@ -623,6 +671,18 @@
     .graphics {
       width: 591px;
       margin-left: -100px;
+    }
+
+    @media (max-width: $screen-md-max) {
+      .graphics {
+        width: 50%;
+        margin-left: 0;
+      }
+    }
+    @media (max-width: $screen-sm-max) {
+      .graphics {
+        max-width: 440px;
+      }
     }
   }
 

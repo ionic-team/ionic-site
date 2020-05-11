@@ -130,6 +130,10 @@
     h1 {
       font-size: 53px;
     }
+
+    h2 {
+      font-size: 40px;
+    }
   }
 
   header {
@@ -391,6 +395,9 @@
     }
 
     @media (max-width: $screen-sm-max) {
+      margin-top: 90px;
+      margin-bottom: 90px;
+
       .container {
         align-items: center;
 
@@ -403,6 +410,7 @@
         }
       }
     }
+
   }
 
 
@@ -424,6 +432,18 @@
         margin-top: 6px;
         flex: 0 0 22px;
         margin-right: 16px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        align-items: center;
+        svg {
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
       }
     }
 
@@ -537,7 +557,26 @@
         --card-bg: #9149CA;
         --icon-bg: #7732B7;
       }
+    }
 
+    @media (max-width: $screen-xs-max) {
+      .app-backlog-animation {
+        height: 216px;
+      }
+      .app-card {
+        padding: 72px 20px 0;
+        flex: 0 0 122px;
+        width: 122px  ;
+        height: 216px;
+
+        &:not(.js-animate) + .app-card {
+          margin-left: 32px;
+        }
+
+        .label {
+          font-size: 11px
+        }
+      }
     }
   }
 
@@ -557,6 +596,8 @@
       img {
         width: 100%;
         height: 320px;
+        position: relative;
+        right: -20px;
       }
     }
 
@@ -590,6 +631,24 @@
     ion-icon {
       font-size: 20px;
       transform: translateY(4px);
+    }
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column;
+
+      &__illustration {
+        position: relative;
+        max-height: 300px;
+        display: flex;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &__content {
+        padding: 16px 32px 32px;
+      }
     }
   }
 
@@ -745,7 +804,7 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 16px;
 
-      @media (max-width: $screen-sm-max) {
+      @media (max-width: $screen-xs-max) {
         display: block;
       }
     }
@@ -917,8 +976,7 @@
   }
 
   @media (max-width: $screen-sm-max) {
-    .hero .container,
-    section .container {
+    .hero .container {
       width: 100%;
     }
     section {

@@ -120,17 +120,28 @@
 
 {% macro employee(e) %}
 <div class="employee">
-  <img class="avatar" src="/img/team/{{ e.image }}">
-  <hgroup>
+  {% if e.image %}
+  <img class="avatar" src="{{ e.image }}" />
+  {% else %}
+  <img class="avatar" src="/img/team/no-photo.png" />
+  {% endif %}
+  <hgroup>    
     <h4>
-      {% if e.twitter %}
-        <a class="twitter"
-           href="https://twitter.com/{{ e.twitter }}"
-           target="_blank"></a>
-      {% endif %}
       {{ e.name }}
-    </h4>
+    </h4>    
     <p>{{ e.dept }}</p>
+    <div class="social-row">
+      {% if e.twitter %}
+          <a class="twitter"
+            href="{{ e.twitter }}"
+            target="_blank">&#xf2b0;</a>
+      {% endif %}
+      {% if e.linkedin %}
+        <a class="linkedin"
+            href="{{ e.linkedin }}"
+            target="_blank">&#xf240;</a>
+      {% endif %}
+    </div>
   </hgroup>
 </div>
 {% endmacro %}

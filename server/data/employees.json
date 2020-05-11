@@ -3,279 +3,368 @@
     "name":"Adam Bradley",
     "dept":"Dir of Open Source Technology",
     "description":"Adam was once Marty McFly in another life, but is now back to the future of open source heading up all things Ionic Framework. When not slinging code, he can be found hanging out with his wife and kids, befriending dogs, and traveling space and time in his Delorean.",
-    "twitter":"adamdbradley",
-    "image":"adam.jpg"
+    "twitter":"https://twitter.com/adamdbradley",
+    "linkedin":"https://www.linkedin.com/in/adamdbradley/",
+    "image":"/img/team/adam-bradley.jpg"
   },
   {
     "name":"Alex Roberts",
     "dept":"Sales",
     "description":null,
     "twitter":null,
-    "image": "alex.jpg"
+    "linkedin":"https://www.linkedin.com/in/alex-roberts-827009109",
+    "image": "/img/team/alex-roberts.jpg"
+  },
+  {
+    "name":"Aly Lawton Yoder",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":null,
+    "linkedin": "https://www.linkedin.com/in/aly-yoder-98112310a",
+    "image": "/img/team/aly-yoder.png"
   },
   {
     "name":"Andrew Haire",
     "dept":"VP of Marketing",
     "description":null,
-    "twitter":"achaire",
-    "image": "andrew.png"
+    "twitter":"https://twitter.com/achaire",
+    "linkedin": "https://www.linkedin.com/in/andrewhaire/",
+    "image": "/img/team/andrew-haire.png"
   },
   {
     "name":"Ben Sperry",
     "dept":"Co-Founder & CDO",
     "description":null,
-    "twitter":"benjsperry",
-    "image": "ben.jpg"
+    "twitter":"https://twitter.com/benjsperry",
+    "linkedin":null,
+    "image": "/img/team/ben-sperry.jpg"
   },
   {
     "name":"Brandy Carney",
     "dept":"Development",
     "description":"When she isn't busy keeping her two chihuahuas from killing each other, Brandy can be found making the Ionic Framework pretty by means of Sass. She loves helping people while continuing to expand her own knowledge. After hours she can be found on her patio shopping online with a glass of wine in hand. Give her a glass and she'll write some Sass.",
-    "twitter":"brandyscarney",
-    "image": "brandy.jpg"
+    "twitter":"https://twitter.com/brandyscarney",
+    "linkedin":null,
+    "image": "/img/team/brandy-carney.jpg"
   },
   {
     "name":"Brian Manning",
     "dept":"Customer Success",
     "description":"Let’s be honest, Brian isn’t terribly interesting. He has some dogs, likes to read horror and sci-fi, and loves pistachios. When he’s not quietly abiding Brian is answering your support requests and troubleshooting your native builds.",
     "twitter":null,
-    "image": "brian.jpg"
+    "linkedin":"https://www.linkedin.com/in/brianscottmanning/",
+    "image": "/img/team/brian-manning.jpg"
   },
   {
     "name":"Brody Kidd",
     "dept":"Sales",
     "description":"If you can’t find him on call, shuffling through email, poking around on a new CRM, in our live chat support, or white boarding new business development… Odds are he is surfing lake Michigan, fly fishing the gin clear streams of the driftless region, camping in the north woods, or milking his goats.",
-    "twitter":"brodymkidd",
-    "image": "brody.jpg"
+    "twitter":"https://twitter.com/brodymkidd",
+    "linkedin":"https://www.linkedin.com/in/michael-brody-kidd-22723027",
+    "image": "/img/team/brody-kidd.jpg"
   },
   {
     "name":"Bryant Feld",
     "dept":"Customer Success",
     "description":null,
-    "twitter":"bkfwebdev",
-    "image": "bryant-feld.png"
-  },
-  {
-    "name":"Bryant Plano",
-    "dept":"Customer Success",
-    "description":null,
-    "twitter":"bryantplano",
-    "image": "bryant.jpg"
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/bryant-k-feld-6b192428/",
+    "image": "/img/team/bryant-feld.png"
   },
   {
     "name":"Cam Wiegert",
-    "dept":"Frontend/Design",
+    "dept":"Development",
     "description":"",
-    "twitter":"camwiegert",
-    "image": "cam.png"
+    "twitter":"https://twitter.com/camwiegert",
+    "linkedin":null,
+    "image":"/img/team/cam-wiegert.png"
+  },
+  {
+    "name":"Carl Poole",
+    "dept":"Development",
+    "description":null,
+    "twitter":"https://twitter.com/MobileDevDude",
+    "linkedin":null,
+    "image":"/img/team/carl-poole.jpeg"
   },
   {
     "name":"Cody Wiseman",
     "dept":"Sales",
     "description":null,
-    "twitter":"cwiseman1",
-    "image": "cody.png"
+    "twitter":"https://twitter.com/cwiseman1",
+    "linkedin":"https://www.linkedin.com/in/cwiseman1/",
+    "image":"/img/team/cody-wiseman.png"
+  },
+  {
+    "name":"Dallas James",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":"https://twitter.com/dallastjames",
+    "linkedin":null,
+    "image":"/img/team/dallas-james.jpg"
   },
   {
     "name":"Dan Imhoff",
     "dept":"Development",
     "description":"Dan \"the Sunshine Man\" builds awesome stuff for the Ionic App Platform. When not shredding it in Vim, he can be found tearing over snow in his fat bike, attending the Madison tech meetups, ignorantly rating restaurants, taking a bunch of photographs at random cities and National Parks, or, possibly, still playing LEGOs.",
-    "twitter":"dwieeb",
-    "image": "dan.jpg"
+    "twitter":"https://twitter.com/dwieeb",
+    "linkedin":null,
+    "image": "/img/team/dan-imhoff.jpg"
   },
   {
     "name":"Derek Wilson",
     "dept":"Sales",
     "description": null,
     "twitter": null,
-    "image": "derek.jpg"
+    "linkedin":"https://www.linkedin.com/in/dereklwilson2/",
+    "image": "/img/team/derek-wilson.jpg"
   },
   {
     "name":"Ely Lucas",
     "dept":"Development",
     "description":"Nestled at the base of the Colorado mountains, Ely is a software developer that fell in love with the web ${years} years ago and never looked back.  Most of his “off” time is spent enjoying time with his four kids, wife, and dog, but in that off chance he gets a free moment, he loves learning new tech and sharing at local meet ups and tech conferences.  And in the rarest of free moments, he tries to get outdoors and enjoy that great Colorado sunshine.",
-    "twitter":"elylucas",
-    "image": "ely.jpg"
+    "twitter":"https://twitter.com/elylucas",
+    "linkedin":"https://www.linkedin.com/in/elylucas/",
+    "image": "/img/team/ely-lucas.jpg"
+  },
+  {
+    "name":"Eric Horodyski",
+    "dept":"Customer Success",
+    "description":null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/eric-horodyski-74029130",
+    "image":"/img/team/eric-horodyski.jpg"
+  },
+  {
+    "name":"Faisal Raza",
+    "dept":"VP of Customer Success",
+    "description":null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/faisal-raza-1265352/",
+    "image":"/img/team/faisal-raza.jpg"
   },
   {
     "name":"Giovanni Di Milia",
     "dept":"Development",
     "description":"I am an Italian living in Boston, a Formula 1, basket and a football (the American one) fan. I like to run, try new food and beer. My secret mission is to teach people what a good Italian pizza is. While listening to '70s and 80's rock, I write code for Ionic PRO.",
-    "twitter":"giocalitri",
-    "image": "giovanni.jpg"
+    "twitter":"https://twitter.com/giocalitri",
+    "linkedin":"https://www.linkedin.com/in/giodimilia",
+    "image": "/img/team/giovanni-di-milia.jpg"
   },
   {
-    "name":"Jack Brin",
-    "dept":"Sales",
+    "name":"Ian Keith",
+    "dept":"Development",
     "description":null,
-    "twitter":"johnsarcher",
-    "image": "jack.png"
+    "twitter":null,
+    "linkedin":null,
+    "image":null
   },
   {
     "name":"Jade Vargas",
     "dept":"Sales",
     "description":null,
-    "twitter":"thejadevargas",
-    "image": "jade.jpg"
+    "twitter":"https://twitter.com/thejadevargas",
+    "linkedin":"https://www.linkedin.com/in/jadevargas",
+    "image": "/img/team/jade-vargas.jpg"
+  },
+  {
+    "name":"Jared Baumgartner",
+    "dept":"Frontend/Design",
+    "description":null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/jared-baumgartner",
+    "image":"/img/team/jared-baumgartner.jpg"
+  },
+  {
+    "name":"Jill Rosenthal",
+    "dept":"Dir of Corp Communications",
+    "description":null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/jillrosenthal",
+    "image":"/img/team/jill-rosenthal.png"
   },
   {
     "name":"Josh Thomas",
     "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
-    "twitter":"jthomas1",
-    "image": "josh.jpg"
+    "twitter":"https://twitter.com/jthomas1",
+    "linkedin":"https://www.linkedin.com/in/josh-thomas-9115223",
+    "image": "/img/team/josh-thomas.jpg"
   },
   {
     "name":"Julio Cesar Sanchez",
     "dept":"Development",
     "description":"A boy has no bio",
-    "twitter":"jcesarmobile",
-    "image": "julio.jpg"
+    "twitter":"https://twitter.com/jcesarmobile",
+    "linkedin":"https://www.linkedin.com/in/jcesarmobile/",
+    "image": "/img/team/julio-cesar-sanchez.jpg"
   },
   {
     "name":"Ken Sodemann",
     "dept":"Customer Success",
     "description":"I started my coding career in 1993 working on the Boeing 777 auto-pilot system. Since then I have worked on several different types of project, including avionics systems, sat-com systems, backend server applications, and front end web and mobile applications. When not coding, I enjoy hanging out with my wife and our cats, biking, cooking, and working on my 1960 VW Bug.",
-    "twitter":"KenSodemann",
-    "image": "ken.jpg"
+    "twitter":"https://twitter.com/KenSodemann",
+    "linkedin":"https://www.linkedin.com/in/ken-sodemann-54967032",
+    "image": "/img/team/ken-sodemann.jpg"
   },
   {
     "name":"Kevin Ports",
-    "dept":"Frontend/Design",
+    "dept":"Development",
     "description":"Kevin is a pixel wranglin man, helping out with design and front-end development at Ionic. When he’s not in the office he can probably be found playing a guitar or calling for Sasquatch deep in the Wisconsin Northwoods.",
-    "image": "kevin.png"
+    "twitter":null,
+    "linkedin":null,
+    "image": "/img/team/kevin-ports.png"
   },
   {
     "name":"Lars Mikkelsen",
     "dept":"Development",
     "description":"Lars works on the Ionic App Platform and it’s his passion to make it as fast, secure, and reliable as humanly possible. His perseverance and attention to detail ensures that the toughest of bugs never stand a chance. Outside work he enjoys exploring the Boston food scene and “hygge” with his girlfriend and their pug.",
     "twitter":null,
-    "image": "lars.jpg"
-  },
-  {
-    "name":"Lee Schmidt",
-    "dept":"Development",
-    "description":"At Ionic, Lee’s main quest is working on Creator, wielding a MacBook and a cup of coffee (he gains +1 intelligence for each additional cup). When he’s not writing code, he likes to swim, bike, run, and compete in triathlons.",
-    "twitter":"lee_schmidt",
-    "image": "lee.jpg"
+    "linkedin":"https://www.linkedin.com/in/larstmikkelsen",
+    "image": "/img/team/lars-mikkelsen.jpg"
   },
   {
     "name":"Liam DeBeasi",
     "dept":"Development",
     "description": null,
-    "twitter":"LiamDeBeasi",
-    "image": "liam.png"
+    "twitter":"https://twitter.com/LiamDeBeasi",
+    "linkedin":"https://linkedin.com/in/liamdebeasi",
+    "image": "/img/team/liam-debeasi.png"
   },
   {
     "name":"Liz Maves",
     "dept":"Administration",
     "description":"With keen attention to detail Liz works behind the scenes, providing support to Ionic employees. From onboarding new hires, stocking the lounge with healthy snacks, walking any office dog that will let her, or planning the next Ionic Bonding event; she’s almost magical. When not at Ionic HQ, you’re most likely to find Liz on the disc golf course, trying to get her first ace, or in the kitchen, preparing a delicious meal.",
-    "twitter":"Liz_ionic",
-    "image": "liz.jpg"
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/elizabeth-maves-71b82417b",
+    "image": "/img/team/liz-maves.jpg"
   },
   {
     "name":"Luke McCullough",
     "dept":"Development",
     "description": null,
-    "twitter":"lm3m",
-    "image": "luke.png"
+    "twitter":"https://twitter.com/lm3m",
+    "linkedin":"https://www.linkedin.com/in/luke-mccullough-2241173",
+    "image": "/img/team/luke-mccullough.png"
   },
   {
-    "name":"Manu Mtz.Almeida",
+    "name":"Mac McCollum",
+    "dept":"Sales",
+    "description": null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/michael-mccollum",
+    "image": null
+  },
+  {
+    "name":"Manu Martínez-Almeida",
     "dept":"Development",
     "description":"From “sunny” Spain, Manu spends most of his time building high quality components for the framework. When he’s not getting his hands dirty with performance optimizations, you can find him training for a half marathon or experimenting with hardware. He’s powered by the most bitter IPAs that can be found.",
-    "twitter":"manucorporat",
-    "image": "manu.jpg"
+    "twitter":"https://twitter.com/manucorporat",
+    "linkedin":"https://www.linkedin.com/in/manu-mart%C3%ADnez-almeida-5b390539",
+    "image": "/img/team/manu-martinez-almeida.jpg"
   },
   {
     "name":"Matt Kremer",
-    "dept":"Product Manager",
+    "dept":"Dir of Commercial Product",
     "description":"Two couches, a lazy boy, 40” TV and wired internet. Awesome man-cave? Nope, that’s just Matt’s garage where he spends his time working on Creator, the worlds most awesome project ever (or at least his mom says so). With “Anything Is Possible” tattooed on his arm, Matt enjoys tackling complex business and programming problems, as well as attempting to win board games against his wife.",
-    "twitter":"matthewkremer",
-    "image": "matt.png"
+    "twitter":"https://twitter.com/matthewkremer",
+    "linkedin":"https://www.linkedin.com/in/matthewkremer",
+    "image": "/img/team/matt-kremer.png"
   },
   {
     "name":"Matt Netkow",
     "dept":"Marketing",
-    "description":"",
-    "twitter":"dotNetkow",
-    "image": "netkow.png"
+    "description":null,
+    "twitter":"https://twitter.com/dotNetkow",
+    "linkedin":"https://www.linkedin.com/in/matthewnetkow/",
+    "image": "/img/team/matt-netkow.png"
   },
   {
     "name":"Max Lynch",
     "dept":"Co-Founder & CEO",
     "description":null,
-    "twitter":"maxlynch",
-    "image": "max.jpg"
+    "twitter":"https://twitter.com/maxlynch",
+    "linkedin":"https://www.linkedin.com/in/maxlynch",
+    "image": "/img/team/max-lynch.jpg"
   },
   {
     "name":"Melissa Raddatz",
     "dept":"Sales",
-    "description":"",
-    "twitter":"melissaraddatz1",
-    "image": "melissa.jpg"
+    "description":null,
+    "twitter":"https://twitter.com/melissaraddatz1",
+    "linkedin":"https://www.linkedin.com/in/melissaraddatz2004",
+    "image": "/img/team/melissa-raddatz.jpg"
+  },
+  {
+    "name":"Mike Fischbach",
+    "dept":"Sales",
+    "description":null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/michael-fischbach-183a29197",
+    "image": "/img/team/mike-fischbach.jpg"
   },
   {
     "name":"Mike Hartington",
     "dept":"Dev Relations",
     "description":"Deep in the frozen North, just before the great wall, a man sits with a laptop, surrounded by several cups of coffee and a glass of whiskey. Traveling across this great kingdom, he enlightens other devs and shares his knowledge through the written and spoken word. When the laptop is not near, he often finds solace in music with his guitar.",
-    "twitter":"mhartington",
-    "image": "mike.jpg"
+    "twitter":"https://twitter.com/mhartington",
+    "linkedin":"https://www.linkedin.com/in/mike-hartington-63638362",
+    "image": "/img/team/mike-hartington.jpg"
   },
   {
     "name":"Nick Hyatt",
     "dept":"Development",
     "description":"If there's snow on the ground, you'll find Nick on his cross-country skis, training for the American Birkebeiner. In the more temperate months, you can find him running around the soccer pitch, doing his best to score a goal, but mostly just trying not get in his teammates' way. Of course, year-round, regardless of weather conditions, you can find Nick hard at work on the Ionic App Platform.",
-    "twitter":"NicholasPHyatt",
-    "image": "nick.jpg"
+    "twitter":"https://twitter.com/NicholasPHyatt",
+    "linkedin":"https://www.linkedin.com/in/nicholas-hyatt-22838691",
+    "image": "/img/team/nick-hyatt.jpg"
   },
   {
     "name":"Perry Govier",
     "dept":"Frontend/Design",
     "description":"Be it code, places, gadgets, food, or conversation, Perry loves to explore it all. While AFK he's probably biking around Madison, spending time with his wife and son, \"refactoring\" his house, building something in his backyard, talking politics, or pretending to be an urban farmer.",
-    "twitter":"perrygovier",
-    "image": "perry.jpg"
+    "twitter":"https://twitter.com/perrygovier",
+    "linkedin":"https://www.linkedin.com/in/nicholas-hyatt-22838691",
+    "image": "/img/team/perry-govier.jpg"
   },
   {
     "name":"Rachel Ashton",
     "dept":"Marketing",
     "description": null,
-    "twitter": "Rachel_Ellen31",
-    "image": "ashton.png"
-  },
-  {
-    "name": "Roelf Kuitse",
-    "dept": "VP of Customer Success",
-    "description": null,
-    "twitter": "Roelf",
-    "image": "roelf.png"
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/rachelebrown",
+    "image": "/img/team/rachel-ashton.png"
   },
   {
     "name":"Ryan Bowman",
     "dept":"VP of Sales",
     "description":null,
-    "twitter":"TheRyanBowman",
-    "image": "ryan.jpg"
+    "twitter":"https://twitter.com/TheRyanBowman",
+    "linkedin":"https://www.linkedin.com/in/dryanbowman/",
+    "image": "/img/team/ryan-bowman.jpg"
   },
   {
     "name":"Swami Kumaresan",
     "dept":"President & COO",
     "description":null,
-    "twitter":"swami78",
-    "image": "swami.jpg"
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/swamik",
+    "image": "/img/team/swami-kumaresan.jpg"
+  },
+  {
+    "name":"Tim Lancina",
+    "dept":"Development",
+    "description":null,
+    "twitter":null,
+    "linkedin":null,
+    "image": "/img/team/tim-lancina.jpg"
   },
   {
     "name":"Tori Hansel",
     "dept":"Customer Success",
     "description":null,
     "twitter":null,
-    "image": "tori.jpg"
-  },
-  {
-    "name":"Tim Lancina",
-    "dept":"Development",
-    "description":"A temporarily embarrassed pro soccer player, Tim is fond of traveling the world and trying to convince his coworkers to eat bugs.  When not doing either of those, he is usually breaking things related to Ionic tooling, the platform, or the framework.",
-    "twitter":"timlancina",
-    "image": "tim.jpg"
+    "linkedin":"https://www.linkedin.com/in/victoria-hansel-a37b92105/",
+    "image": "/img/team/tori-hansel.jpg"
   }
 ]

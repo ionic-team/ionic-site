@@ -132,8 +132,8 @@
     "dept":"Customer Success",
     "description":null,
     "twitter":null,
-    "linkedin":null,
-    "image":null
+    "linkedin":"https://www.linkedin.com/in/eric-horodyski-74029130",
+    "image":"/img/team/eric-horodyski.jpg"
   },
   {
     "name":"Faisal Raza",

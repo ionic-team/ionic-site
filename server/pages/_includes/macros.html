@@ -121,9 +121,9 @@
 {% macro employee(e) %}
 <div class="employee">
   {% if e.image %}
-  <img class="avatar" src="{{ e.image }}">
+  <img class="avatar" src="{{ e.image }}" />
   {% else %}
-  <ion-icon class="avatar" name="person-circle-outline"></ion-icon>
+  <img class="avatar" src="/img/team/anon.png" />
   {% endif %}
   <hgroup>    
     <h4>

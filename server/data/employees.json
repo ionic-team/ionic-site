@@ -149,15 +149,15 @@
     "description":"I am an Italian living in Boston, a Formula 1, basket and a football (the American one) fan. I like to run, try new food and beer. My secret mission is to teach people what a good Italian pizza is. While listening to '70s and 80's rock, I write code for Ionic PRO.",
     "twitter":"https://twitter.com/giocalitri",
     "linkedin":"https://www.linkedin.com/in/giodimilia",
-    "image": "/img/team/giovanni-di-milia.jpg"
+    "image":"/img/team/giovanni-di-milia.jpg"
   },
   {
     "name":"Ian Keith",
     "dept":"Development",
     "description":null,
     "twitter":null,
-    "linkedin":null,
-    "image":null
+    "linkedin":"https://www.linkedin.com/in/iakeith",
+    "image":"/img/team/ian-keith.jpeg"
   },
   {
     "name":"Jade Vargas",

@@ -133,8 +133,9 @@
           color: #a1a1a1;
 
           &:hover, &:active, &:focus {
-              color:#696969;
-            }
+            color:#696969;
+            text-decoration: none;
+          }
         }
 
         .linkedin {
@@ -145,6 +146,7 @@
 
           &:hover, &:active, &:focus {
               color:#696969;
+              text-decoration: none;
             }    
         }
 

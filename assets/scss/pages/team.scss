@@ -135,9 +135,8 @@
             font-family: "Ionicons";
             transition: .2s color ease;
             color: #a1a1a1;
-          }
 
-          &:hover::before {
+            &:hover, &:active, &:focus {
             color:#696969;
           }
         }
@@ -150,11 +149,11 @@
             font-family: "Ionicons";
             transition: .2s color ease;
             color: #a1a1a1;
-          }
 
-          &:hover::before {
+            &:hover, &:active, &:focus {
             color:#696969;
           }
+          }          
         }
 
 

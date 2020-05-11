@@ -396,8 +396,8 @@
     });
 
     function setShading() {
-      var scrimEdgeRight = (window.innerWidth - scrimLength);
-      var scrimEdgeLeft = scrimLength;
+      var scrimEdgeRight = (window.innerWidth - scrimLength) - (cardWidth / 2);
+      var scrimEdgeLeft = scrimLength - (cardWidth / 2);
 
       for (var card of cards) {
         if (card.x > scrimEdgeRight && card.x <= winWidth) {

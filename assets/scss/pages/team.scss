@@ -126,35 +126,26 @@
             margin-right: 4px;
           }
         }
-        .twitter {
-          
-          &::before {
-            color: $blackish;
-            font-size: 22px;
-            content: "\f2b0";
-            font-family: "Ionicons";
-            transition: .2s color ease;
-            color: #a1a1a1;
+        .twitter {          
+          font-size: 22px;
+          font-family: "Ionicons";
+          transition: .2s color ease;
+          color: #a1a1a1;
 
-            &:hover, &:active, &:focus {
+          &:hover, &:active, &:focus {
               color:#696969;
             }
-          }
         }
 
         .linkedin {
-          &::before {
-            color: $blackish;
-            font-size: 22px;
-            content: "\f240";
-            font-family: "Ionicons";
-            transition: .2s color ease;
-            color: #a1a1a1;
+          font-size: 22px;
+          font-family: "Ionicons";
+          transition: .2s color ease;
+          color: #a1a1a1;    
 
-            &:hover, &:active, &:focus {
+          &:hover, &:active, &:focus {
               color:#696969;
-            }
-          }          
+            }    
         }
 
 

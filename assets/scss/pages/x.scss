@@ -697,9 +697,10 @@
     @media (max-width: $screen-sm-max) {
       .container {
         flex-direction: column;
-        align-items: unset;
+        align-items: flex-start;
       }
       ul {
+        flex: unset;
         margin-top: 24px;
         justify-content: center;
       }

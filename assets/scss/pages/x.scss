@@ -344,6 +344,11 @@
       margin-bottom: 56px;
     }
 
+    .hubspot-override--large .hbspt-form .hs_submit {
+      margin-top: 16px;
+      text-align: left;
+    }
+
     @media (max-width: $screen-xs) {
       p, ul, ul li {
         font-size: 18px;
@@ -483,7 +488,7 @@
       }
 
       &:not(.js-animate) + .app-card {
-        margin-left: 56px;
+        margin-left: 48px;
       }
 
       .icon {
@@ -825,12 +830,12 @@
       overflow: hidden;
       position: relative;
       text-align: center;
-      max-width: 1024px;
+      max-width: 768px;
       margin-left: auto;
       margin-right: auto;
 
       @media (max-width: 1280px) {
-        margin: 0 0;
+        margin: 0 auto;
       }
 
       @media (max-width: $screen-sm-max) {

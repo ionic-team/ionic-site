@@ -66,10 +66,9 @@
           </li>
         </ul>
       </hgroup>
-      <video autoplay muted loop width="100%" src="/img/x/low-code-v-full-code.mp4" poster="" class="graphics">
+      <video id="roundtrip-video" muted loop width="100%" src="/img/x/low-code-v-full-code.mp4" poster="/img/x/low-code-v-full-code-poster.png" class="graphics">
         <source src="/img/x/low-code-v-full-code.mp4" type="video/mp4">
       </video>
-      <!-- <img src="/img/x/low-code-v-full-code.png" alt="Low code meets full code" class="graphics"> -->
     </div>
   </section>
 
@@ -357,6 +356,26 @@
 {% block scripts %}
 
 <script>
+  // round trip video
+  (function(){
+    var video = document.querySelector('#roundtrip-video'),
+        isPaused = true;
+
+    var observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.intersectionRatio != 1  && !isPaused){
+            video.pause();
+            isPaused = true;
+          }
+          else if (entry.intersectionRatio == 1 && isPaused) {
+            video.play();
+            isPaused=false;
+          }
+        });
+      }, {threshold: 1});
+      observer.observe(video);
+  })();
+
   // backlog animation
   (function(){
     var winWidth = window.innerWidth,

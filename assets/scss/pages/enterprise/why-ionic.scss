@@ -2,6 +2,9 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'shared';
 
+img {
+  height: auto;
+}
 #experiences {
   .content {
     max-width: 500px;
@@ -10,6 +13,7 @@
   .graphics {
     width: 580px;
     margin-right: 28px;
+    float: left;
 
     img {
       width: 757px;

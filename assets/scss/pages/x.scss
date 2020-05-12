@@ -384,7 +384,7 @@
     margin-bottom: 192px;
 
     .container {
-      align-items: unset;
+      align-items: flex-start;
     }
 
     .container.v-center {
@@ -411,9 +411,7 @@
         }
       }
     }
-
   }
-
 
   #uncompromising {
     margin-top: 80px;
@@ -820,7 +818,8 @@
   }
 
   #schedule {
-    margin: 128px 0;
+    margin: 128px 0 0;
+    padding-bottom: 128px;
 
     .expander {
       background: #1C1D20;

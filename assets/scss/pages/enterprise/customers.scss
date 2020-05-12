@@ -2,6 +2,10 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'shared';
 
+img {
+  height: auto;
+}
+
 .ee-hero {
   padding-bottom: 62px;
 }
@@ -116,7 +120,9 @@
   }
 }
 
-#good-comapny {
+#good-company {
+  background: #F9FAFB;
+  
   h2 {
     color: #020814;
     font-size: 48px;

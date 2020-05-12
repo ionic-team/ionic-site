@@ -3,7 +3,12 @@
 @import '../components/home_slides/index';
 @import '../components/home_slides/v5';
 
+
 #page-home {
+  img {
+    height: auto;
+  }
+
   .activateOnScroll {
     opacity: 0;
     transform: translateY(48px);
@@ -511,6 +516,10 @@
       position: absolute;
       left: -188px;
       top: -22px;
+
+      img {
+        height: auto;
+      }
     }
 
     @media (max-width: $screen-sm-max) {
@@ -650,6 +659,7 @@
 
       img {
         width: 50px;
+        height: auto;
         position: absolute;
         left: 8px;
         margin-right: 8px;

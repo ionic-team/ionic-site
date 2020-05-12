@@ -85,7 +85,7 @@ function updateQuerystringParameter(uri, key, value) {
 
 window.hsSnitch = () => {
   // no hubspot forms on this page, bail
-  if (!document.querySelector('[src="//js.hsforms.net/forms/v2.js"')) return;
+  if (!document.querySelector('[src="//js.hsforms.net/forms/v2.js"]')) return;
 
   const selector = '.hs-form';
   let submitting;
@@ -97,7 +97,7 @@ window.hsSnitch = () => {
   const report = async (type) => {
     console.error(`Hubspot Error: ${type} blocked`);
     const response = await fetch('/api/v1/hsblocked', {
-      method: 'POST', 
+      method: 'POST',
       mode: 'same-origin',
       cache: 'no-cache',
       headers: {
@@ -117,7 +117,7 @@ window.hsSnitch = () => {
     if (hsFound || !!document.querySelector(selector)) return;
     report('form');
   }, 3000);
-  
+
   // listen for the form to load
   window.addEventListener('message', event => {
     // console.log(event.data);

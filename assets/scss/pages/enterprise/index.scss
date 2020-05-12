@@ -22,6 +22,9 @@ $timing: cubic-bezier(.71,.69,.45,.84);
 
 
 // #region ------------------- DEFAULT STYLES ----------------------------
+img {
+  height: auto;
+}
 h1 {
   margin: 0 0 28px 0;
   font-size: 64px;
@@ -82,7 +85,7 @@ p {
 }
 
 main {
-  overflow: visible;
+  overflow: hidden;
 }
 
 blockquote {

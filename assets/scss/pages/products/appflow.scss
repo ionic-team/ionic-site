@@ -1,7 +1,14 @@
 @import '../../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+
+
 #page-products {
+
+  img {
+    height: auto;
+  }
+
   background-color: #fff;
   height: auto !important;
   min-height: auto;

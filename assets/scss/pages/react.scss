@@ -8,6 +8,10 @@
 #page-react {
   background: #ffffff;
 
+  img {
+    height: auto;
+  }
+
   main section {
     @media (max-width: $screen-xs) {
       margin-top: 64px;

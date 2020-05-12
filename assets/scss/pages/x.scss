@@ -313,8 +313,8 @@
 
     ul li {
       font-size: 22px;
-      color: #B2BECD;
-      padding-left: 0;
+      color: #CED6E0;
+      padding-left: 36px;
     }
 
     span.small {
@@ -323,12 +323,11 @@
 
     li:before {
       content: '“';
-      margin-left: -1em;
       font-family: 'Georgia','Times New Roman', Times, serif;
       font-size: 56px;
       position: absolute;
-      top: 15px;
-      left: 20px;
+      top: 14px;
+      left: 0px;
       color: #5B708B;
       display: inline-block;
       opacity: 0.75;
@@ -355,6 +354,10 @@
       }
       .emoji {
         margin: 96px 0;
+      }
+
+      ul li {
+        padding-left: 24px;
       }
     }
   }

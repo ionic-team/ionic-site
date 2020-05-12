@@ -358,7 +358,7 @@
 <script>
   // round trip video
   (function(){
-    console.log('sript')
+
     var video = document.querySelector('#roundtrip-video'),
         isPaused = true;
 
@@ -381,6 +381,7 @@
   (function(){
     var winWidth = window.innerWidth,
         stage = document.querySelector('#app-backlog'),
+        cardContainer = document.querySelector('.app-backlog-animation'),
         cardEls = document.querySelectorAll('.app-card'),
         cards = [],
         cardWidth = cardEls[0].getBoundingClientRect().width,
@@ -388,10 +389,12 @@
         gutter = cardEls[1].getBoundingClientRect().left - cardWidth,
         startPos = 0,
         endPos = (cardWidth + gutter) * numCards,
+        containerWidth = endPos + cardWidth,
         speed = 0.5,
-        scrimLength = winWidth / 6;
+        scrimLength = 300;
 
     var setup = function() {
+      cardContainer.style.width = containerWidth + "px";
       for (var i = 0; i < cardEls.length; i++) {
         var card = cardEls[i],
             x = i * (cardWidth + gutter);
@@ -419,15 +422,31 @@
     });
 
     function setShading() {
-      var scrimEdgeRight = (window.innerWidth - scrimLength) - (cardWidth / 2);
-      var scrimEdgeLeft = scrimLength - (cardWidth / 2);
+      var leftClamp,
+          rightClamp;
+
+      if (containerWidth > winWidth) {
+        var offset = Math.abs(winWidth - containerWidth) / 2;
+        var leftClamp = offset - (scrimLength / 2);
+        var rightClamp = leftClamp + winWidth + scrimLength;
+      } else {
+        leftClamp = cardWidth;
+        rightClamp = endPos;
+      }
+
+      leftClamp -= cardWidth / 2;
+      rightClamp -= cardWidth / 2;
+
+      var scrimEdgeRight = rightClamp - scrimLength;
+      var scrimEdgeLeft = leftClamp + scrimLength;
 
       for (var card of cards) {
-        if (card.x > scrimEdgeRight && card.x <= winWidth) {
-          card.el.style.opacity = mapRange(card.x, scrimEdgeRight, winWidth, 1, 0.10);
-        }
-        if (card.x > -cardWidth && card.x <= scrimEdgeLeft) {
-          card.el.style.opacity = mapRange(card.x, -cardWidth, scrimEdgeLeft, 0.10, 1);
+        if (card.x > scrimEdgeRight && card.x <= rightClamp) {
+          card.el.style.opacity = mapRange(card.x, scrimEdgeRight, rightClamp, 1, 0.0);
+        } else if (card.x > -cardWidth && card.x <= scrimEdgeLeft) {
+          card.el.style.opacity = mapRange(card.x, leftClamp, scrimEdgeLeft, 0.0, 1);
+        } else if (card.x < leftClamp || card.x > rightClamp ){
+          card.el.style.opacity = 0;
         }
       }
     }
@@ -436,6 +455,7 @@
     function handleResize() {
       requestAnimationFrame(function(){
         winWidth = window.innerWidth;
+        setShading();
       });
     }
 

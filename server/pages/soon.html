@@ -1,0 +1,32 @@
+{% extends '_layouts/base.html' %}
+{% set title = "Shh - Something is coming soon!" %}
+{% set id = "coming-soon" %}
+{% set header_style = 'transparent' %}
+{% set pre_footer = false %}
+
+{% block main %}
+<div class="coming-soon">
+  <img src="/img/neon.svg" />
+  <h2>Please wait for the host to join...</h2>
+  <p>Sign up for updates below</p>
+  <hr />
+  <div class="container hubspot-override hubspot-override--medium">
+    <!--[if lte IE 8]>
+    <script charset="utf-8"
+            type="text/javascript"
+            src="//js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+    <script charset="utf-8"
+            type="text/javascript"
+            src="//js.hsforms.net/forms/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        portalId: "3776657",
+        formId: "03299c59-e13c-4095-8049-bf5e780774d1",
+        css: ""
+      });
+    </script>
+  </div>
+</div>
+
+{% endblock %}

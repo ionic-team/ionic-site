@@ -1,0 +1,77 @@
+.page-coming-soon {
+  background: black;
+  .pre-header {
+    display: none;
+  }
+
+  footer {
+    border-top: none;
+  }
+  .coming-soon {
+    display: flex;
+    padding: 150px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .hubspot-override {
+      padding: 0 20px 20px;
+      border-radius: 8px;
+      background: #1c1d20;
+      max-width: 630px;
+      .hbspt-form .hs-form-field {
+          margin-top: 0
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 336px;
+      animation: flicker 8s ease infinite;
+      will-change: opacity;
+    }
+    h2 {
+      color: $whiteish;
+    }
+    p {
+      color: $whiteish;
+      font-size: 18px;
+    }
+    a {
+      font-size: 16px;
+      font-weight: 500;
+
+      &::after {
+        font-family: Ionicons;
+        content: '\f287';
+        display: inline-block;
+        margin-left: 10px;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@keyframes flicker {
+  0%,
+  20%,
+  100%,
+  26%,
+  38%,
+  40%,
+  44%,
+  46%,
+  48%,
+  54% {
+    opacity: 1;
+  }
+  21%,
+  39%,
+  45%,
+  47%,
+  53% {
+    opacity: 0;
+  }
+}

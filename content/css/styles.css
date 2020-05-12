@@ -15584,6 +15584,28 @@ ul.docs-example {
 #hubspot-messages-iframe-container {
   z-index: 1; }
 
+
+.page-coming-soon .coming-soon {
+  text-align: center; }
+  .page-coming-soon .coming-soon img {
+    width: 200px;
+
+  }
+  .page-coming-soon .coming-soon p {
+    color: #9da5b3;
+    font-size: 18px; }
+  .page-coming-soon .coming-soon a {
+    font-size: 16px;
+    font-weight: 500; }
+    .page-coming-soon .coming-soon a::after {
+      font-family: Ionicons;
+      content: '\f287';
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+      top: 2px; }
+
+
 .page-404 .four-oh-four {
   text-align: center; }
   .page-404 .four-oh-four img {

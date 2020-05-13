@@ -8,19 +8,29 @@ import { Component, Prop, h } from '@stencil/core';
 export class HubspotDynamicContent {
 
   @Prop() listId: string = 'default';
+  isInList = false;
+
+  API_URL = 'https://ionic-site-new.now.sh/api/hubspot/hasconverted';
 
   componentWillLoad() {
     const hsutk = window['getCookie']('hubspotutk');
 
-    fetch(`/api/v1/hsconverted/${this.listId}/${hsutk}`)
+    fetch(`${this.API_URL}?listId=${this.listId}&hsutk=${hsutk}`)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        this.isInList = data;
+        console.log(this.isInList);
+      });
   }
 
   render() {
     return ([
-      <slot name="default" />,
-      <slot name="alternate" />
+      <div style={{display: this.isInList ? 'none' : 'block'}}>
+        <slot name="default" />
+      </div>,
+      <div style={{display: this.isInList ?  'block' : 'none'}}>
+        <slot name="alternate" />
+      </div>
     ]);
   }
 }

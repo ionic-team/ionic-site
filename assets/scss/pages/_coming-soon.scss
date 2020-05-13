@@ -56,7 +56,7 @@
         pointer-events: none;
       }
       &::after {
-        // animation: crtv-flicker 0.15s infinite;
+        animation: crtv-flicker 0.15s infinite;
         content: ' ';
         display: block;
         position: absolute;

@@ -143,6 +143,7 @@ module.exports = {
       getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
     .get('/sales', (_, res) => res.render('sales'))
+    .get('/signup', (_, res) => res.render('signup'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.render('startups'))
     .get('/subscribe', (_, res) => res.render('subscribe'))

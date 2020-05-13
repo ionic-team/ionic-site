@@ -70,6 +70,11 @@ export const oauthAuthorize = () => {
 
 export const signup = async (form: SignupForm, source: string, signupEventId="000006040735") => {
   try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.has("source")) {
+      source = params.get("source");
+    }
+
     const recaptchaCode = await recaptcha('signup');
 
     const ret = await fetch('/oauth/signup', {

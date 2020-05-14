@@ -90,12 +90,13 @@ main {
 }
 @media (max-width: $screen-sm-max) {
   .container {
-  overflow:hidden;
+    overflow:hidden;
+  }
 }
-}
-#top .container {
+#top .container, .navbar .container {
   overflow: visible;
 }
+
 //---------------------------------------------
 
 blockquote {

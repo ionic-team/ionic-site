@@ -1,0 +1,272 @@
+.page-coming-soon {
+  background: black;
+  .pre-header {
+    display: none;
+  }
+
+  footer {
+    border-top: none;
+  }
+  .coming-soon {
+    display: flex;
+    padding: 150px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .hubspot-override {
+      padding: 0 20px 20px;
+      border-radius: 8px;
+      background: #1c1d20;
+      max-width: 630px;
+      .hbspt-form .hs-form-field {
+        margin-top: 0;
+      }
+
+      .hbspt-form .submitted-message {
+        background: none;
+        padding: 20px 0 0;
+      }
+    }
+    // flicker 8s ease infinite,
+    .img-wrapper {
+      overflow: hidden;
+      position: relative;
+      &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06)
+          );
+        z-index: 2;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      &::after {
+        animation: crtv-flicker 0.15s infinite;
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(18, 16, 16, 0.1);
+        opacity: 0;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      img,svg {
+        width: 320px;
+        animation: textShadow 1.6s infinite;
+      }
+    }
+    h2 {
+      color: $whiteish;
+    }
+    p {
+      color: $whiteish;
+      font-size: 18px;
+    }
+    a {
+      font-size: 16px;
+      font-weight: 500;
+
+      &::after {
+        font-family: Ionicons;
+        content: '\f287';
+        display: inline-block;
+        margin-left: 10px;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@keyframes crtv-flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.90626;
+  }
+  20% {
+    opacity: 0.18128;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.67807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+@keyframes textShadow {
+  0% {
+    filter: drop-shadow(0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5))
+            drop-shadow(-0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  5% {
+    filter: drop-shadow(2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  10% {
+    filter: drop-shadow(0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  15% {
+    filter: drop-shadow(0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  20% {
+    filter: drop-shadow(3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  25% {
+    filter: drop-shadow(1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  30% {
+    filter: drop-shadow(0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  35% {
+    filter: drop-shadow(3.896914047650351px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-3.896914047650351px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  40% {
+    filter: drop-shadow(3.870905614848819px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-3.870905614848819px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  45% {
+    filter: drop-shadow(2.231056963361899px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.231056963361899px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  55% {
+    filter: drop-shadow(2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  60% {
+    filter: drop-shadow(2.202193051050636px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.202193051050636px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  65% {
+    filter: drop-shadow(2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5))
+       drop-shadow(-2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  70% {
+    filter: drop-shadow(0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5))
+       drop-shadow(-0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  75% {
+    filter: drop-shadow(1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  80% {
+    filter: drop-shadow(0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  85% {
+    filter: drop-shadow(0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  90% {
+    filter: drop-shadow(3.443339761481782px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-3.443339761481782px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  95% {
+    filter: drop-shadow(2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3));
+  }
+  100% {
+    filter: drop-shadow(2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5))
+      drop-shadow(-2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3));
+  }
+}
+@keyframes flicker {
+  0%,
+  20%,
+  100%,
+  26%,
+  38%,
+  40%,
+  44%,
+  46%,
+  48%,
+  54% {
+    opacity: 1;
+  }
+  21%,
+  39%,
+  45%,
+  47%,
+  53% {
+    opacity: 0;
+  }
+}

@@ -110,7 +110,7 @@
         {% for item in data.platform_items %}
           <li>
             <img src="{{item.image.url}}"
-                 loading="lazy" 
+                 loading="lazy"
                  srcset="{{item.image['1x'].url}} 1x, {{item.image.url}} 2x"
                  alt="{{item.image.alt}}">
             {{ PrismicDOM.RichText.asHtml(item.text) }}

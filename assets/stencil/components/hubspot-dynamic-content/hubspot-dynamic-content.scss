@@ -1,7 +1,12 @@
 @import '../../vars';
 
 hubspot-dynamic-content {
+  transition: .2s opacity ease-out;
+  opacity: 0;
   
+  &.ready {
+    opacity: 1;
+  }
 }
 
 

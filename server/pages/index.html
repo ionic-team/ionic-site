@@ -240,9 +240,14 @@
 
 <main>
   <div class="overflow-mask">
-    <div class="expander-wrapper activateOnScroll">
-      {% include '_includes/promos/hybrid-vs-native.html' %}
-    </div>
+    <hubspot-dynamic-content list-id="5608" class="expander-wrapper activateOnScroll">
+      <div slot="default">
+        {% include '_includes/promos/hybrid-vs-native.html' %}
+      </div>
+      <div slot="alternate">
+        {% include '_includes/promos/evaluating-ionic-for-enterprise.html' %}
+      </div>
+    </hubspot-dynamic-content>
   </div>
 
   <section id="build-with-web" class="container split">

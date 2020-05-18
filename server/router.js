@@ -42,8 +42,11 @@ module.exports = {
     // normal pages
     .get('/', (_, res) => res.render('index'))
 
+<<<<<<< HEAD
+=======
     .get('/soon', (_, res) => res.render('soon'))
 
+>>>>>>> master
     .get('/about', (_, res) => res.render('about'))
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))
@@ -163,8 +166,10 @@ module.exports = {
 
     .get('/values', (_, res) => { res.render('values'); })
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
+
     .get('/x', getPrismicAPI, (req, res, next) =>
-      getSingle(req, res, next, 'ionic_x_preview', 'x'))
+      getSingle(req, res, next, 'ionic-x-dc-landing', 'x/index'))
+    .get('/x/love-letter', (_, res) => res.render('x/love-letter'))
 
     // press releases
     .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',

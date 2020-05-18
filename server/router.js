@@ -42,11 +42,7 @@ module.exports = {
     // normal pages
     .get('/', (_, res) => res.render('index'))
 
-<<<<<<< HEAD
-=======
     .get('/soon', (_, res) => res.render('soon'))
-
->>>>>>> master
     .get('/about', (_, res) => res.render('about'))
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))

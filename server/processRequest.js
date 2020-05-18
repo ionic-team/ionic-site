@@ -1,3 +1,4 @@
+var parseUrl        = require('parseurl');
 var config          = require('./config');
 var employees       = require('./data/employees');
 var resources       = require('./data/resources');
@@ -73,6 +74,7 @@ module.exports = {
       now: new Date(),
       domain: req.get('host'),
       url: req.originalUrl,
+      search: parseUrl(req).search,
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),
       frameworkInfo: frameworkInfo,

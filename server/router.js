@@ -8,7 +8,9 @@ const { getPrismicAPI, getSingle, getPrismic, previewController } = require('./p
 
 const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const contactCtrl = require('./controllers/contactCtrl');
+const getformCtrl = require('./controllers/getformCtrl');
 const hsblockedCtrl = require('./controllers/hsblockedCtrl');
+const hsconvertedCtrl = require('./controllers/hsconvertedCtrl');
 const newsletterCtrl = require('./controllers/newsletterCtrl');
 const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const viewCtrl = require('./controllers/viewCtrl');
@@ -40,6 +42,11 @@ module.exports = {
     // normal pages
     .get('/', (_, res) => res.render('index'))
 
+<<<<<<< HEAD
+=======
+    .get('/soon', (_, res) => res.render('soon'))
+
+>>>>>>> master
     .get('/about', (_, res) => res.render('about'))
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))
@@ -184,7 +191,9 @@ module.exports = {
 
     // JSON endpoints
     .post('/contact', bp.json(), es(), contactCtrl)
+    .get('/api/v1/getform/:formId', bp.json(), es(), getformCtrl)
     .post('/api/v1/hsblocked', bp.json(), es(), hsblockedCtrl)
+    .get('/api/v1/hsconverted/:listId/:hsutk?', bp.json(), es(), hsconvertedCtrl)
     .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
     .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
 

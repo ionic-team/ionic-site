@@ -84,9 +84,20 @@ p {
   color: $colorLinkDark !important;
 }
 
+//Sticky nav won't work on mobile without these
 main {
-  overflow: hidden;
+  overflow:visible;
 }
+@media (max-width: $screen-sm-max) {
+  .container {
+    overflow:hidden;
+  }
+}
+#top .container, .navbar .container {
+  overflow: visible;
+}
+
+//---------------------------------------------
 
 blockquote {
   font-family: inherit;

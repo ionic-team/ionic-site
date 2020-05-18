@@ -28,6 +28,14 @@
     }
   }
 
+  hubspot-dynamic-content:not(.hydrated) {
+    visibility: hidden;
+
+    [slot="alternate"] {
+      display: none;
+    }
+  }
+
   #promo--hybrid-vs-native {
     margin-top: -19px;
 

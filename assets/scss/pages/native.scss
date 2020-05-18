@@ -94,7 +94,6 @@ $btnSecondaryText: #{$mainColor};
 // #endregion
 
 // #region --------------- DEFAULT STYLES -------------
-
 h1 {
   font-weight: 900;
   font-size: 64px;
@@ -185,6 +184,14 @@ a {
 
 @include box('ionic-sub-header .btn-primary', $pY:5px, $pX: 10px);
 ionic-sub-header {
+  .breadcrumbs {
+    font-size: 16px;
+  }
+  @media (max-width: $screen-sm-max) {
+    .breadcrumbs {
+      font-size: 12px;
+    }
+  }
 
   #hdrNativeLogo:hover {
     path.text {

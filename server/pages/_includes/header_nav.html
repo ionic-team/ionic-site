@@ -1,4 +1,4 @@
-<li class="dropdown dropdown--has-container">
+<li class="dropdown dropdown--has-container open">
   <a href="#"
      class="dropdown-toggle"
      role="button"
@@ -6,72 +6,91 @@
      aria-expanded="false">
     Platform {% include '_includes/svg/chevron-down.svg' %}
   </a>
-  <ul class="dropdown-menu dropdown-menu--container" id="dropdown-platform">
-    <li class=" dropdown-menu__row">
-      <ul class="dropdown-menu__column dropdown-menu__sprite-child">
-        <li><span class="dropdown-menu__text--l2">Products</span></li>
-        <li>
-          <a href="/docs" class="dropdown-menu__text--l3 icon--lg icon--framework">
-            Ionic Framework
-            <small>Cross-platform UI Toolkit for building apps</small>
-          </a>
-        </li>
-        <li>
-          <a href="/docs/native" class="dropdown-menu__text--l3 icon--lg icon--native">
-            Ionic Native
-            <small>Premium native solutions and core plugins</small>
-          </a>
-        </li>
-        {# <li>
-          <a href="/x" class="dropdown-menu__text--l3 icon--lg icon--studio">
-            Ionic X
-            <small>A visual app-building environment</small>
-          </a>
-        </li> #}
-        <li>
-          <a href="/appflow" class="dropdown-menu__text--l3 icon--lg icon--appflow">
-            Ionic Appflow
-            <small>Mobile devops cloud app management</small>
-          </a>
-        </li>
-      </ul>
-
-      <ul class="dropdown-menu__column dropdown-menu__column--highlight">
-        <li><span class="dropdown-menu__text--l2">Native Protection</span></li>
-        <li>
-          <a href="/enterprise/identity-vault" class="dropdown-menu__text--l3 icon--biometric-sign-in">
-            Biometric Sign In
-          </a>
-        </li>
-        <li>
-          <a href="/enterprise/auth-connect" class="dropdown-menu__text--l3 icon--user-authentication">
-            User Authentication
-          </a>
-        </li>
-        <li>
-          <a href="/enterprise/offline-storage" class="dropdown-menu__text--l3 icon--offline-storage">
-            Offline Storage
-          </a>
-        </li>
-        <li><span class="dropdown-menu__text--l2">Services</span></li>
-        <li>
-          <a href="/enterprise/support" class="dropdown-menu__text--l3 icon--enterprise">
-            Enterprise Support
-          </a>
-        </li>
-        <li>
-          <a href="/advisory" class="dropdown-menu__text--l3 icon--advisory">
-            Advisory
-          </a>
-        </li>
-        <li>
-          <a href="/enterprise/training" class="dropdown-menu__text--l3 icon--training">
-            Training
-          </a>
-        </li>
-      </ul>
-    </li>{# end .dropdown-menu__row #}
-  </ul>{# end .dropdown-menu__container #}
+  <div class="dropdown-menu dropdown-menu--bar">
+    <ul class="dropdown-menu--container container dropdown-menu__column dropdown-menu__sprite-child" id="dropdown-platform">
+      <li class=" dropdown-menu__row">
+        <ul class="dropdown-menu__column dropdown-menu__sprite-child">
+          <li><span class="dropdown-menu__text--l2">Build</span></li>
+          <li>
+            <a href="/docs" class="dropdown-menu__text--l3 icon--lg icon--framework">
+              Framework
+              <small>Mobile UI toolkit</small>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/native" class="dropdown-menu__text--l3 icon--lg icon--native">
+              Native
+              <small>Native runtime bridge</small>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="https://stenciljs.com" class="dropdown-menu__text--l3 icon--lg icon--capacitor dropdown-menu__external">
+              Capacitor
+              <small>Native runtime bridge</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://stenciljs.com" class="dropdown-menu__text--l3 icon--lg icon--stencil dropdown-menu__external">
+              Stencil
+              <small>Web component compiler</small>
+            </a>
+          </li>
+        </ul>
+        <ul class="dropdown-menu__column dropdown-menu__sprite-child">
+          <li><span class="dropdown-menu__text--l2">Secure</span></li>
+          <li>
+            <a href="/enterprise/identity-vault" class="dropdown-menu__text--l3 icon--lg icon--identity-vault">
+              Identity Vault
+              <small>Biometric authentication</small>
+            </a>
+          </li>
+          <li>
+            <a href="/enterprise/auth-connect" class="dropdown-menu__text--l3 icon--lg icon--auth-connect">
+              Auth Connect
+              <small>Secure single sign-on</small>
+            </a>
+          </li>
+          <li>
+            <a href="/enterprise/offline-storage" class="dropdown-menu__text--l3 icon--lg icon--offline-storage">
+              Offline Storage
+              <small>Secure data storage</small>
+            </a>
+          </li>
+        </ul>
+        <ul class="dropdown-menu__column dropdown-menu__sprite-child">
+          <li><span class="dropdown-menu__text--l2">Deliver</span></li>
+          <li>
+            <a href="/appflow" class="dropdown-menu__text--l3 icon--lg icon--appflow">
+              Ionic Appflow
+              <small>Mobile CI/CD for apps</small>
+            </a>
+          </li>
+        </ul>
+        <ul class="dropdown-menu__column dropdown-menu__column--highlight">
+          <li><span class="dropdown-menu__text--l2">Services</span></li>
+          <li>
+            <a href="/enterprise/support" class="dropdown-menu__text--l3">
+              Enterprise Support
+              <small>Accelerate your mobile development lifecycle with help from Ionic experts</small>
+            </a>
+          </li>
+          <li>
+            <a href="/advisory" class="dropdown-menu__text--l3">
+              Professional Services
+              <small>Tackle your biggest challenges with tailored solutions and expert services</small>
+            </a>
+          </li>
+          <li>
+            <a href="/enterprise/training" class="dropdown-menu__text--l3">
+              Expert Training
+              <small>Empower your team with the skills to deliver amazing apps, faster</small>
+            </a>
+          </li>
+        </ul>
+      </li>{# end .dropdown-menu__row #}
+    </ul>{# end .dropdown-menu__container #}
+  </div>
 </li>
 
 <li class="dropdown dropdown--has-container">

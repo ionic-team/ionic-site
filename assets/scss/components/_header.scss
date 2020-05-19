@@ -264,6 +264,17 @@
   // desktop width animation
   @media (min-width: $screen-sm-min) {
     .dropdown {
+      &.open .dropdown-menu,
+      &:hover .dropdown-menu {
+        opacity: 1;
+        top: 39px;
+        // z-index: 999;
+        pointer-events: all;
+        transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
+        transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.1s linear, top 0.25s step-start;
+        transition-delay: 0.2s;
+      }
+
       .dropdown-menu {
         display: block;
         position: absolute;
@@ -296,12 +307,26 @@
           list-style-type: none;
         }
 
-        &--container {
-          left: 280px;
+        &--bar.dropdown-menu {
+          border-radius: 0;
+          position: absolute;
+          left: -87px;
+          width: 100vw;
+          transform: none;
 
-          &::before {
-            right: auto;
-            left: 50px;
+          .dropdown-menu--container {
+            margin: 0 auto;
+            padding-left: 15px;
+
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
+
+          .dropdown-men__row {
+            display: flex;
+            flex-wrap: wrap;
           }
         }
 
@@ -555,17 +580,6 @@
           left: 170px;
         }
       }
-
-      &.open .dropdown-menu,
-      &:hover .dropdown-menu {
-        opacity: 1;
-        top: 39px;
-        // z-index: 999;
-        pointer-events: all;
-        transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
-        transition: transform 0.25s cubic-bezier(.17,.67,.52,1), opacity 0.1s linear, top 0.25s step-start;
-        transition-delay: 0.2s;
-      }
     }
   }
 
@@ -781,33 +795,6 @@
     width: 18px;
     height: 31px;
     display: block;
-  }
-
-  .external-icon {
-    width: 10px;
-    overflow: visible;
-  
-    .external-icon__background {
-      fill: #e5e7ea;
-      transition: .2s fill;
-    }
-    .external-icon__foreground {
-      fill: #7a8496;
-      transform: translate(1px, 0);
-      transition: .2s transform ease, .2s fill;
-    }
-  }
-  
-  a:hover {
-    .external-icon__background {
-      fill: lighten($blue, 25);
-
-    }
-  
-    .external-icon__foreground {
-      fill: $blue;
-      transform: translate(2px, -1px);
-    }
   }
 
   &.navbar-sticky {

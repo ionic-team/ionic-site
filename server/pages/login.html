@@ -109,15 +109,12 @@
             _hsq.push(["identify", { email: data.email }]);
             _hsq.push(["trackEvent", { id: "000006636951" }]);
 
-            var params = new URLSearchParams(location.search);
-            if (!params.has("client_id")) {
-              params.set("response_type", "token");
-              params.set("scope", "openid profile email");
-              params.set("client_id", "dash");
-              params.set("nonce", Math.random().toString(36).substring(2));
+            var params = new URLSearchParams(window.location.search);
+            if (params.has("client_id")) {
+              window.location.assign("/oauth/authorize?" + params.toString());
+            } else {
+              window.location.assign("{{ DASHBOARD_URL }}/login" + window.location.search);
             }
-
-            window.location.assign("/oauth/authorize?" + params.toString());
           })
           .catch(function(reason) {
             clearErrors("#login-form");

@@ -3,7 +3,6 @@ var moment              = require('moment');
 var trustedPartners     = require('../data/trusted-partners');
 
 module.exports = function(req, res) {
-
   // add timestamp to form fields
   req.body.timestamp = moment().utc().format();
 
@@ -35,6 +34,7 @@ module.exports = function(req, res) {
 
   if (req.sanitize(req.body.form) === 'application') {
     m.name = 'Trusted Partners Application';
+    handleCaptcha(req.body);
   }
 
   tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
@@ -48,6 +48,18 @@ module.exports = function(req, res) {
     res.render('trusted-partners');
   });
 };
+
+async function handleCaptcha(body) {
+  const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET}&response=${body['g-recaptcha-response']}`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+
+  console.log(await response.json());
+}
 
 function getTrustedPartnerEmailByName(name) {
   for (var i = 0; i < trustedPartners.length; i++) {

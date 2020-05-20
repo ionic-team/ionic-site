@@ -25,7 +25,7 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
   100% { transform: translateY(0px); }
 }
 
-.btn-main {
+.btn-main, .hs-button {
   animation: pushDown 200ms $timingFunction;
   animation-fill-mode: forwards;
 
@@ -101,25 +101,81 @@ body {
 @include box($mxW: 517px);
 @include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
 
-  input {
-  @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-  @include font($ff: $font-family-inter, $fs: 16px);
+  label {
+    display:none;
   }
 
-  button {
-  @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+  fieldset, .hs-form-field, .input, .hs-submit {
+    margin: 0 !important;
   }
+
+  .hs-input {
+  // @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include font($ff: $font-family-inter, $fs: 16px);
+  height: 51px;
+  border-radius: 8px;
+  max-width: 320px;
+  border: none;
+  padding: 16px 20px;
+  font-family: $font-family-inter;
+  font-size: 16px;
+  flex-grow:1;
+  }
+
+  .hbspt-form form{
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .hs-button {
+  // @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+  height: 51px;
+  background: $colorButtonMain;
+  color: white;
+  border-radius: 8px;
+  max-width: 181px;
+  border: none;
+  padding: 16px 20px;
+  font-family: $font-family-inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: 16px;
+  flex-grow:1;
+  }
+
+  // .hs-error-msgs {
+  //   position: absolute;
+  // }
 }
 
 @media (max-width: 550px) {
+  .hbspt-form form fieldset:nth-child(4), .hbspt-form form .hs-submit{
+    flex-grow: 1 !important;
+  }
   #registerForm {
-    flex-flow:column;
-    input {
-    @include box($mxW: 100%);
+    padding:0;
+    .hbspt-form {
+      width: 100%;
     }
-    button {
-    @include box($mxW: 100%);
+    .hbspt-form form{
+      flex-flow:column;
+    }
+    
+    .hs-input {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .hs-button {
+      margin-top: 16px;
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
   #heroContent {

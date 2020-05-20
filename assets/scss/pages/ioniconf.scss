@@ -98,8 +98,9 @@ body {
 }
 
 #registerForm {
-@include box($mxW: 'calc(517px + $grid-gutter-width / 2)');
+@include box($mxW: 'calc(537px + $grid-gutter-width)');
 @include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
+padding: 0px;
 
   .hs-email label:first-child {
     position:absolute;

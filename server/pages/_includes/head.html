@@ -100,9 +100,9 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/img/meta/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/img/meta/apple-touch-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/meta/apple-touch-icon-180x180.png">
-{% if favicon %}
-{% for location in favicon.locations %}
-<link rel="icon" type="image/png" href="{{location}}" sizes="{{favicon.sizes[index0]}}">
+{% if favicons %}
+{% for icon in favicons %}
+<link rel="icon" type="image/png" href="{{icon[0]}}" sizes="{{icon[1]}}">
 {% endfor %}
 {% else %}
 <link rel="icon" type="image/png" href="/img/meta/favicon-16x16.png" sizes="16x16">

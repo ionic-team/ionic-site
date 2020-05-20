@@ -1,0 +1,109 @@
+.u-flex {
+  display: flex;
+}
+.u-flex-c {
+  display:flex;
+  flex-direction:column;
+}
+.u-wrap {
+  flex-wrap:wrap;
+}
+.u-align-items-c {
+  align-items: center;
+}
+.u-align-self-c {
+  align-self:center;
+}
+.u-center-text {
+  text-align: center;
+}
+.u-w100 {
+  width: 100%;
+}
+.u-ml-auto {
+  margin-left: auto;
+}
+.u-just-cont-c {
+  justify-content: center;
+}
+
+@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
+           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
+           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $bR: null, $pos: null,
+           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null) {
+  #{$element}.u-box {
+    box-sizing: border-box;
+    padding-left: #{$pX};
+    padding-right: #{$pX};
+    padding-top: #{$pY};
+    padding-bottom: #{$pY};
+    margin-left: #{$mLeft};
+    margin-right: #{$mRight};
+    margin-top: #{$mTop};
+    margin-bottom: #{$mBot};
+    background: #{$back};
+    color: #{$color};
+    flex-basis: #{$fB};   
+    flex-grow: #{$fG};
+    width: #{$w};
+    height: #{$h};
+    max-width: #{$mxW};
+    min-width: #{$mnW};
+    max-height: #{$mxH};
+    min-height: #{$mnH};
+    border-radius: #{$bR};
+    position: #{$pos};
+    top: #{$t};
+    right: #{$r};
+    bottom: #{$b};
+    left: #{$l};
+    z-index: #{$z};
+    border: #{$bord};
+
+  }
+}
+
+@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null) {
+  #{$element}.u-font {
+    font-family: #{$ff};
+    font-weight: #{$fw};
+    font-size: #{$fs};
+    line-height: #{$lh};
+    letter-spacing: #{$ls};
+    text-transform: #{$tt};
+    white-space: #{$ws};
+  }  
+}
+@mixin spacer($el:'&', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h: null) {
+  #{$el}.u-spacer {
+    min-width: #{$mnW};
+    min-height: #{$mnH};
+    flex-basis: #{$fB};
+    flex-grow: #{$fG};
+    max-width: #{$mxW};
+    max-height: #{$mxH};
+    width: #{$w};
+    height: #{$h};
+
+  }
+}
+
+@mixin switcher($element:"&", $count:null, $threshold:null, $gap:null){
+  
+  #{$element}.u-switcher > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc((#{$gap} / 2) * -1);
+  }
+
+  #{$element}.u-switcher > * > * {
+    flex-grow: 1;
+    flex-basis: calc((#{$threshold} - (100% - #{$gap})) * 999);
+    margin: calc(#{$gap} / 2);
+  }
+
+  #{$element}.u-switcher > * > :nth-last-child(n+#{$count}),
+  #{$element}.u-switcher > * > :nth-last-child(n+#{$count}) ~ * {
+    flex-basis: 100%;
+  }
+}

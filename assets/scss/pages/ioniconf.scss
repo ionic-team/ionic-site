@@ -1,0 +1,101 @@
+@import '../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../utilities/u-ioniconf';
+
+$colorBackMain: #010610;
+$colorTitleMain: white;
+$colorTextMain: #E9EDF3;
+$colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
+$fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+
+h2, p {
+  margin: 0;
+}
+
+body {
+  padding: 0 !important;
+}
+
+#navLogo {
+  color: white;
+}
+
+#topNav {
+@include box($h: 75px, $back: rgba(0,0,0,0), $pos: absolute, $l: 0, $r: 0, $z: 1, $mLeft: auto, $mRight: auto);
+
+  svg {
+
+  }
+
+  button {
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+    justify-self:flex-end;
+  }
+}
+#hero {
+@include box($pos: relative, $h: 100vh);
+  overflow:hidden;
+
+}
+#heroBack {
+@include box($back: $colorBackMain, $mnW: 100vw, $h: auto,$pos: absolute, $z: -1, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
+display:inline-block;
+object-fit: contain;
+}
+@media (min-width: 1800px) {
+  #heroBack {
+    left: 0 !important;
+  }
+}
+#heroContent {
+@include box($h: 100vh);
+@include spacer($el: '.first', $fB: 0, $fG:1, $mxH: 146px);
+@include spacer($el: '.second', $fB: 0, $fG:1, $mxH: 80px);
+@include spacer($el: '.third', $fB: 0, $fG:1, $mxH: 24px);
+@include spacer($el: '.fourth', $fB: 0, $fG:1, $mxH: 48px);
+@include spacer($el: '.fifth', $fB: 0, $fG:1, $mxH: 16px);
+  svg {
+  @include box($pos:relative, $mxW: 408px, $mxH: 486px, $w: auto, $fB: 25vh, $fG: 1);
+  }
+  h2 {
+  @include font($ff: $fontFamilyRoboto, $fw: 500, $fs: 32px, $lh: 160%, $ls: .12em, $tt: uppercase);
+  @include box($color: $colorTitleMain);
+  }
+
+  p {
+  @include font($ff: $fontFamilyRoboto, $fw: 300, $fs: 20px, $lh: 160%, $ls: -.01em);
+  @include box($color: $colorTextMain, $mxW: 724px);
+  }
+}
+
+#registerForm {
+@include box($mxW: 517px);
+
+  input {
+  @include box($h: 51px, $bR: 8px, $fB: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1, $mBot: 16px, $mRight: 16px);
+  @include font($ff: $font-family-inter, $fs: 16px);
+  }
+  @media (max-width: $screen-xs-max) {
+  input {
+    margin-right: 0px !important;
+  }
+  }
+
+  button {
+  @include box($h: 51px, $back: $colorButtonMain, $fB: 141px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+  }
+}
+
+@media (max-width: 550px) {
+  #heroContent {
+    h2 {
+    @include font($fs:20px);
+    }
+    p {
+    @include font($fs: 16px);
+    margin: 0;
+    }
+  }
+}

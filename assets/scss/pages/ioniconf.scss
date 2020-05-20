@@ -103,7 +103,7 @@ body {
 }
 
 #registerForm {
-@include box($mxW: 'calc(537px + $grid-gutter-width)');
+@include box($mxW: 517px);
 @include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
 padding: 0px;
 
@@ -112,6 +112,18 @@ padding: 0px;
   }
   .hs_error_rollup {
     display:none;
+  }
+
+  .submitted-message {
+    padding: 0;
+    position: relative;
+    top: -30px;
+    background: rgba(0,0,0,0); 
+
+    p {
+      font-family: $fontFamilyRoboto;
+      color: $colorTextMain;
+    }
   }
 
   fieldset, .hs-form-field, .input, .hs-submit {

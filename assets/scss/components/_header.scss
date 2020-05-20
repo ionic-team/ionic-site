@@ -331,7 +331,7 @@
             }
 
             &__column {
-              flex: 0 0 256px;
+              flex: 0 1 256px;
               max-width: 256px;
               padding-left: 48px;
               padding-right: 8px;
@@ -341,8 +341,12 @@
               }
 
               &--highlight {
+                flex: 1 0;
+                max-width: unset;
+
                 a {
                   padding-left: 0;
+                  white-space: normal;
 
                   &::before,
                   &::after {
@@ -467,19 +471,25 @@
 
             &::before,
             &::after {
-              background: url('/img/ico-nav-lg.png?1') 0 0 no-repeat;
-              background-size: 36px;
-              height: 36px;
-              width: 36px;
-              top: 16px;
+              background: url('/img/ico-nav-lg.png?2') 0 0 no-repeat;
+              background-image: image-set( '/img/ico-nav-lg@1x.png' 1x,
+                                           '/img/ico-nav-lg.png' 2x);
+              background-size: 40px;
+              height: 40px;
+              width: 40px;
+              top: 14px;
             }
 
             @include hoverSprite(
               'icon--framework'
               'icon--native'
+              'icon--capacitor'
+              'icon--stencil'
+              'icon--identity-vault'
+              'icon--auth-connect'
+              'icon--offline-storage'
               'icon--appflow'
-              'icon--studio'
-            , 36);
+            , 40);
           }
 
           svg {

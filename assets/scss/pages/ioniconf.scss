@@ -9,6 +9,8 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $timingFunction: cubic-bezier(.09,.73,.71,.65);
 
+// #region ----------------------------- COMPONENT STYLES ----------------------------------
+
 @keyframes pushUp {
   to {
     transform: translateY(-1px);
@@ -35,7 +37,9 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
   }
 
 }
+// #endregion ------------------------------------------------------------------------
 
+// #region ----------------------------- GENERIC STYLES -----------------------------------
 h2, p {
   margin: 0;
 }
@@ -51,6 +55,7 @@ body {
 #navLogo {
   color: white;
 }
+// #endregion --------------------------------------------------------------------------------
 
 #topNav {
 @include box($h: 75px, $back: rgba(0,0,0,0), $pos: absolute, $l: 0, $r: 0, $z: 1, $mLeft: auto, $mRight: auto);
@@ -67,8 +72,7 @@ body {
 
 }
 #heroBack {
-@include box($back: $colorBackMain, $mnW: 100vw, $h: auto, $z: -1, $mnH: 100vh, $pos: absolute, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
-  object-fit: cover;
+@include box($mnW: 100vw, $h: auto, $z: -1, $mnH: 100vh, $pos: absolute, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
 }
 @media (min-width: 1800px) {
   #heroBack {
@@ -85,6 +89,7 @@ body {
 
   svg {
   @include box($pos:relative, $mxW: 408px, $mxH: 486px, $w: auto, $fB: 25vh, $fG: 1);
+  align-self:stretch;
   }
   h2 {
   @include font($ff: $fontFamilyRoboto, $fw: 400, $fs: 24px, $lh: 160%, $ls: .12em, $tt: uppercase);

@@ -87,23 +87,3 @@
 
   }
 }
-
-@mixin switcher($element:"&", $count:null, $threshold:null, $gap:null){
-  
-  #{$element}.u-switcher > * {
-    display: flex;
-    flex-wrap: wrap;
-    margin: calc((#{$gap} / 2) * -1);
-  }
-
-  #{$element}.u-switcher > * > * {
-    flex-grow: 1;
-    flex-basis: calc((#{$threshold} - (100% - #{$gap})) * 999);
-    margin: calc(#{$gap} / 2);
-  }
-
-  #{$element}.u-switcher > * > :nth-last-child(n+#{$count}),
-  #{$element}.u-switcher > * > :nth-last-child(n+#{$count}) ~ * {
-    flex-basis: 100%;
-  }
-}

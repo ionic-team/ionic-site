@@ -39,7 +39,11 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
 h2, p {
   margin: 0;
 }
-
+html, body {
+  background: #010610;
+  position:relative;
+  z-index: -2;
+}
 body {
   padding: 0 !important;
 }
@@ -63,7 +67,8 @@ body {
 
 }
 #heroBack {
-@include box($back: $colorBackMain, $mnW: 100vw, $h: auto,$pos: absolute, $z: -1, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
+@include box($back: $colorBackMain, $mnW: 100vw, $h: auto, $z: -1, $mnH: 100vh, $pos: absolute, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
+  object-fit: cover;
 }
 @media (min-width: 1800px) {
   #heroBack {
@@ -77,6 +82,7 @@ body {
 @include spacer($el: '.third', $fB: 0, $fG:1, $mxH: 24px);
 @include spacer($el: '.fourth', $fB: 0, $fG:1, $mxH: 48px);
 @include spacer($el: '.fifth', $fB: 0, $fG:1, $mxH: 16px);
+
   svg {
   @include box($pos:relative, $mxW: 408px, $mxH: 486px, $w: auto, $fB: 25vh, $fG: 1);
   }
@@ -93,31 +99,35 @@ body {
 
 #registerForm {
 @include box($mxW: 517px);
+@include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
 
   input {
-  @include box($h: 51px, $bR: 8px, $fB: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1, $mBot: 16px, $mRight: 16px);
+  @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
   @include font($ff: $font-family-inter, $fs: 16px);
-  }
-  @media (max-width: $screen-xs-max) {
-  input {
-    margin-right: 0px !important;
-  }
   }
 
   button {
-  @include box($h: 51px, $back: $colorButtonMain, $fB: 141px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
   @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
   }
 }
 
 @media (max-width: 550px) {
+  #registerForm {
+    flex-flow:column;
+    input {
+    @include box($mxW: 100%);
+    }
+    button {
+    @include box($mxW: 100%);
+    }
+  }
   #heroContent {
     h2 {
     @include font($fs:20px);
     }
     p {
     @include font($fs: 16px);
-    margin: 0;
     }
   }
 }

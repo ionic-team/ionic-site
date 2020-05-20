@@ -78,30 +78,33 @@ body {
 #heroContent {
 @include box($h: 100vh);
 @include spacer($el: '.first', $fB: 0, $fG:1, $mxH: 98px);
-@include spacer($el: '.second', $fB: 0, $fG:1, $mxH: 80px);
-@include spacer($el: '.third', $fB: 0, $fG:1, $mxH: 24px);
-@include spacer($el: '.fourth', $fB: 0, $fG:1, $mxH: 48px);
+@include spacer($el: '.second', $fB: 0, $fG:1, $mxH: 56px);
+@include spacer($el: '.third', $fB: 0, $fG:1, $mxH: 16px);
+@include spacer($el: '.fourth', $fB: 0, $fG:1, $mxH: 40px);
 @include spacer($el: '.fifth', $fB: 0, $fG:1, $mxH: 16px);
 
   svg {
   @include box($pos:relative, $mxW: 408px, $mxH: 486px, $w: auto, $fB: 25vh, $fG: 1);
   }
   h2 {
-  @include font($ff: $fontFamilyRoboto, $fw: 500, $fs: 32px, $lh: 160%, $ls: .12em, $tt: uppercase);
+  @include font($ff: $fontFamilyRoboto, $fw: 400, $fs: 24px, $lh: 160%, $ls: .12em, $tt: uppercase);
   @include box($color: $colorTitleMain);
   }
 
   p {
-  @include font($ff: $fontFamilyRoboto, $fw: 300, $fs: 20px, $lh: 160%, $ls: -.01em);
+  @include font($ff: $fontFamilyRoboto, $fw: normal, $fs: 20px, $lh: 160%, $ls: -.01em);
   @include box($color: $colorTextMain, $mxW: 724px);
   }
 }
 
 #registerForm {
-@include box($mxW: 517px);
+@include box($mxW: 'calc(517px + $grid-gutter-width / 2)');
 @include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
 
-  label {
+  .hs-email label:first-child {
+    position:absolute;
+  }
+  .hs_error_rollup {
     display:none;
   }
 
@@ -112,14 +115,18 @@ body {
   .hs-input {
   // @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
   // @include font($ff: $font-family-inter, $fs: 16px);
-  height: 51px;
+  height: 51px !important;
+  max-height: 51px !important;
   border-radius: 8px;
+  width: 320px;
   max-width: 320px;
   border: none;
   padding: 16px 20px;
   font-family: $font-family-inter;
   font-size: 16px;
   flex-grow:1;
+  position:relative;
+  top: 0;
   }
 
   .hbspt-form form{
@@ -148,9 +155,17 @@ body {
   flex-grow:1;
   }
 
-  // .hs-error-msgs {
-  //   position: absolute;
-  // }
+  .hs-email {
+    position: relative;
+  }
+
+  .hs-error-msgs {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+  }
 }
 
 @media (max-width: 550px) {

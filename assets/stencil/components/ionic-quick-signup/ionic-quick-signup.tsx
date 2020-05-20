@@ -29,7 +29,7 @@ export class IonicQuickSignup {
       <form
         class={`form quick-signup-form ${this.transparentInput ? 'transparent-input' : ''}`}
         role="form"
-        action="https://dashboard.ionicframework.com/signup"
+        action="/signup"
         method="GET"
         onSubmit={e => this.handleSubmit(e)}
         >

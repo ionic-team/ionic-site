@@ -89,6 +89,19 @@ export class IonicSignupForm {
 
   inputChange = (name: string) => e => this.form = { ...this.form, [name]: e.target.value };
 
+  componentWillLoad() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('name')) {
+      this.form.name = params.get('name');
+    }
+    if (params.has('email')) {
+      this.form.email = params.get('email');
+    }
+    if (params.has('username')) {
+      this.form.username = params.get('username');
+    }
+  }
+
   render() {
     const { form, inputChange } = this;
 

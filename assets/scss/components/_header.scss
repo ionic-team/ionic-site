@@ -310,7 +310,7 @@
         &--bar.dropdown-menu {
           border-radius: 0;
           position: absolute;
-          left: -87px;
+          left: calc(-50vw + 468px);
           width: 100vw;
           transform: none;
 
@@ -420,6 +420,7 @@
             color: #73849A;
             margin-top: 1px;
             font-weight: 400;
+            transform: .2s color;
           }
 
           &::before,
@@ -529,15 +530,15 @@
           color: #1A232F;
 
           &:hover {
-            color: #2171FF;
+            color: #000;
             background: transparent;
 
             small {
-              color: #7CABFF;
+              color: #000;
             }
 
             path {
-              fill: #2171FF;
+              fill: #000;
             }
           }
 

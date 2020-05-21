@@ -310,9 +310,9 @@
         &--bar.dropdown-menu {
           border-radius: 0;
           position: absolute;
-          left: calc(-50vw + 468px);
-          width: 100vw;
           transform: none;
+          width: 100vw;
+          left: calc(-50vw + 468px);
 
           .dropdown-menu {
             &--container {
@@ -343,6 +343,17 @@
               &--highlight {
                 flex: 1 0;
                 max-width: unset;
+                position: relative;
+
+                &::before {
+                  position: absolute;
+                  right: calc((50vw - 521px) * -1);
+                  top: 0;
+                  bottom: 0;
+                  background: #F9FAFD;
+                  width: calc(50vw - 521px);
+                  content: '';
+                }
 
                 a {
                   padding-left: 0;
@@ -369,6 +380,44 @@
               &.icon--lg {
                 padding-left: 55px;
                 padding-right: 0;
+              }
+            }
+          }
+
+          @media (max-width: $screen-md-max) {
+            left: calc(-50vw + 425px);
+
+            .dropdown-menu__column--highlight::before {
+              width: calc(50vw - 478px);
+              right: calc((50vw - 478px) * -1);
+            }
+          }
+
+          @media (max-width: $screen-sm-max) {
+            left: calc(-50vw + 316px);
+
+            .dropdown-menu {
+              &__row {
+                flex-wrap: wrap;
+              }
+
+              &__column--highlight {
+                flex: 1 0 100%;
+                flex-direction: row;
+                display: flex;
+
+                &::before {
+                  right: auto;
+                  top: auto;
+                  bottom: 0;
+                  width: 100vw;
+                  height: 110px;
+                  left: calc((50vw - 407px) * -1);
+                }
+
+                li:first-child {
+                  display: none;
+                }
               }
             }
           }
@@ -420,7 +469,7 @@
             color: #73849A;
             margin-top: 1px;
             font-weight: 400;
-            transform: .2s color;
+            transition: .2s color;
           }
 
           &::before,

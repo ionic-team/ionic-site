@@ -144,7 +144,7 @@ module.exports = {
 
     .get('/sales', (_, res) => res.render('sales'))
     .get('/signup', (_, res) => res.render('signup'))
-    .get('/soon', (_, res) => res.redirect('ioniconf'))
+    .get('/soon', (_, res) => res.redirect('https://ionicframework.com/ioniconf'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.render('startups'))
     .get('/subscribe', (_, res) => res.render('subscribe'))

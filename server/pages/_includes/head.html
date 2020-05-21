@@ -90,6 +90,7 @@
 <meta property="og:locale" content="en_US" />
 <link href="https://plus.google.com/+Ionicframework" rel="publisher" />
 
+
 <link rel="apple-touch-icon" sizes="57x57" href="/img/meta/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/meta/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/img/meta/apple-touch-icon-72x72.png">
@@ -99,10 +100,16 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/img/meta/apple-touch-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/img/meta/apple-touch-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/meta/apple-touch-icon-180x180.png">
+{% if favicons %}
+{% for icon in favicons %}
+<link rel="icon" type="image/png" href="{{icon[0]}}" sizes="{{icon[1]}}">
+{% endfor %}
+{% else %}
 <link rel="icon" type="image/png" href="/img/meta/favicon-16x16.png" sizes="16x16">
 <link rel="icon" type="image/png" href="/img/meta/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/img/meta/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/img/meta/favicon-192x192.png" sizes="192x192">
+{% endif %}
 <link rel="manifest" href="/manifest.json">
 
 <meta name="msapplication-TileColor" content="#da532c">

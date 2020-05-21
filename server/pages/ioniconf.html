@@ -1,0 +1,335 @@
+{% extends '_layouts/blank.html' %}
+{% set id = 'ioniconf' %}
+{% set pre_footer = false %}
+{% set title = "Ioniconf 2020" %}
+{% set meta_image = 'https://ionicframework.com/img/meta/ioniconf-ogimg.png'%}
+{% set meta_description = 'Ionic’s one day, single-track online conference on modern cross-platform app development. Learn from app architects and engineering leaders in an interactive digital experience.' %}
+{% set favicons = [['/img/meta/ioniconf-favicon-64x64.png', '64x64']] %}   
+{% set cssPath = 'ioniconf' %}
+
+{% block main %}
+
+<section id="topNav" class="container u-box u-flex u-align-items-c" >
+  <nav class="u-flex u-align-items-c u-w100">
+    <a id="navLogo" href="\" aria-label="Ionic home page">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" >
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
+      </svg>
+    </a>
+    <button class="u-box u-font u-ml-auto btn-main" id="navRegister" aria-label="go to registration field">Register Now</button>
+  </nav>
+</section>
+
+<section id="hero" class="u-box">  
+  <svg id="heroBack" class="u-box" xmlns="http://www.w3.org/2000/svg" fill="none" width="1800" height="1180" viewbox="0 0 1800 1180" preserveAspectRatio="xMidYMid slice">
+    <g opacity=".5">
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1806 58v-91l-45 91h45zM1806 149V58h-45l45 91zM1851 511h-45l-45 46 90-46zM1851 194l-45-45-45 90 90-45zM1851 784l-45-46-45 91 90-45zM1806 511v-45h-45l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1761 557l45-46-45-45v91zM1806 466v-45l-45 45h45zM1761 965l90-45h-90v45zM1851 920v-46l-90 46h90zM1851 194l-90 45v46l90-91zM1806 421l45-46h-90l45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1761 466l45-45-45-46v91zM1851 1237l46-45-136-45 90 90zM1897 1101l-46-45-90 91 136-46zM1761 1147v-91l-46 45 46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1715 1101l46-45h-46v45zM1761 965v-45h-46l46 45zM1761 375v-90l-46 45 46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1761 965l-46-45v90l46-45zM1761 1056v-91l-46 45 46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1715 1056h46l-46-46v46zM1806 149l-45-91-46 45 91 46zM1851 693v-45h-136l136 45zM1806 738l45-45-136-45 91 90zM1761 920v-91l-46 45 46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1715 920h46l-46-46v46zM1761 557v-91h-46l46 91zM1761 466v-91l-46 91h46zM1761 239l45-90-91 45 46 45zM1761 829l45-91-91 46 46 45zM1715 330l46-45-46-46v91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1761 285v-46h-46l46 46zM1761 239l-46-45v45h46zM1715 1010v-90l-45 90h45zM1715 1056v-46h-45l45 46zM1715 874l46-45h-91l45 45zM1761 829l-46-45-45 45h91zM1715 103l46-45-91-46 45 91zM1715 330v-91l-45 91h45zM1715 1101v-45l-45 45h45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1715 1056l-45-46v91l45-45zM1761 1147l-46-46h-45l91 46zM1715 648l46-91-91 91h45zM1715 648h-45v45l45-45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1806 738l-91-90-45 45 136 45zM1670 330l45-91-91 46 46 45zM1670 12v-90h-46l46 90zM1715 239v-45l-91 45h91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1624 285l91-46h-91v46zM1761 375l-46-45-91 45h137z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1715 330h-45l-46 45 91-45zM1670 693v-45l-91 90 91-45zM1670 829l45-45-136-46 91 91zM1715 874l-45-45-91 91 136-46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1670 829l-91 45v46l91-91zM1715 920v-46l-136 46h136zM1624 285h-45v45l45-45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1670 330l-46-45-45 45h91zM1624 375l46-45h-91l45 45zM1624 285v-46h-45l45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1579 285h45l-45-46v46zM1624 239V103l-45 136h45zM1579 1237l91-136-136 91 45 45zM1579 738l-45-181v181h45zM1534 557l90-46h-90v46zM1670 1101l-136-45v45h136zM1579 738h-45v46l45-46zM1670 829l-91-91-45 46 136 45zM1534 511h90l-90-45v45zM1624 375l-45-45-45 136 90-91zM1579 920v-46l-91 46h91zM1488 965l91-45h-91v45zM1579 874l-45-90-46 45 91 45zM1534 511v-45l-46 45h46zM1534 557v-46h-46l46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1488 557h46l-46-46v46zM1579 330v-45l-91 45h91zM1534 738V557l-46 181h46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1534 557h-46v181l46-181zM1534 784v-46h-46l46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1488 829l46-45-46-46v91zM1488 511l46-45h-91l45 45zM1534 1101v-45l-91 45h91zM1443 1147l91-46h-91v46zM1488 829v-91h-45l45 91zM1579 285v-46l-136 46h136zM1488 330l91-45h-136l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1443 1101l91-45h-136l45 45zM1488 330l-45-45-45 90 90-45zM1488 965v-45l-90 45h90zM1443 738h45l-90-45 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1398 375l45-90-91 45 46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1352 375h46l-46-45v45zM1398 194v-91h-46l46 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1352 194h46l-46-91v91zM1398 693v-91h-46l46 91zM1443 738l-45-45-46 45h91zM1398 194h-46v91l46-91zM1352 330l91-45h-91v45zM1443 1147v-46l-91 46h91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1443 1101l-45-45-46 91 91-46zM1398 103V-33h-46l46 136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1352 103h46l-46-136v136zM1352 602h46l-46-91v91zM1398 375h-46v136l46-136zM1488 511l-45-45-91 45h136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1488 557v-46h-136l136 46zM1398 1056v-91h-46l46 91zM1398 965v-91l-46 91h46zM1352 103V-33l-45 136h45zM1352 194v-91h-45l45 91zM1352 738l46-45h-91l45 45zM1307 874h91l-91-45v45zM1307 829l45-91-90 46 45 45zM1352 375v-45l-90 91 90-46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1352 738l-45-45-45 45h90zM1262 784l90-46h-90v46zM1307 829l-45-45v45h45zM1307 874v-45h-45l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1262 874h45l-45-45v45zM1262 1010l90-45h-90v45zM1307 874h-45v91l45-91zM1307 103h-45v91l45-91zM1262 738l45-45h-45v45zM1307 693l45-91-90 91h45zM1352-33l-45-45-45 90 90-45zM1262 103h45l-45-91v91zM1262 1010v-45l-46 45h46zM1262 738v-45l-46 45h46zM1262 784v-46h-46l46 46zM1352 511l-90-90-46 45 136 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1262 421h-46v45l46-45zM1352 330v-45h-136l136 45zM1262 103V12h-46l46 91zM1262 12l45-90-91 90h46zM1216 285l46-91h-46v91zM1262 194v-91l-46 91h46zM1262 1010h-46l-45 46 91-46zM1262 829v-45h-91l91 45zM1262 784l-46-46-45 46h91zM1216 1010l46-45-91-45 45 90zM1216 738l46-45h-91l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1171 784l45-46-45-45v91zM1216 194l46-91-91 46 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1262 103h-91v46l91-46zM1216 466v-45h-45l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1171 466h45l-45-45v45zM1171 421h45l-45-91v91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1216 421h46l-91-91 45 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1262 421l-46-136-45 45 91 91zM1262 874v-45l-137 45h137zM1171 920l91-46h-137l46 46zM1216 194l-45-45-46 45h91zM1262 1192l-91-45-46 45h137zM1171 1147v-91h-46l46 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1125 1192l46-45-46-91v136zM1171 330l45-45-91-46 46 91zM1216 194h-91v45l91-45zM1171 1056l45-46h-136l91 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1216 1010l-91 46-45-46h136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1125 1056h46l-91-46 45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1125 1056l46-136-91 90 45 46zM1171 149v-46l-91 46h91zM1125 194l46-45h-91l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1125 1056l-45-46-45 46h90zM1080 149l91-46h-136l45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1035 1056l45-46-45-45v91zM1171 920l-46-46-90 91 136-45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1080 1010l91-90-136 45 45 45zM1080 149l-45-46-4 127 49-81zM1125 239v-45l-94 36 94 9z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1125 194l-45-45-49 81 94-36zM1035 1192v-136l-46 45 46 91zM1035 103V-33h-46l46 136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M989 1101l46-45-91-46 45 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M989 1101l-45-91-45 46 90 45zM944 1192l45-91-90 91h45zM944 1010v-90l-45 45 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M899 1056l45-46-45-45v91zM899 1056v-91l-46 91h46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M899 965h-46v91l46-91zM899 1192v-136h-46l46 136zM899-33h-46v91l46-91zM853 103h91l-91-45v45zM853 58v-91l-45 45 45 46zM853 1056v-91l-45 45 45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M853 58l-45-46v46h45zM853 103V58h-45l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M808 103h45l-45-45v45zM808 12l45-45h-45v45zM899 965l45-45H808l91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M853 965h46l-91-45 45 45zM853 103h-45l-46 91 91-91zM853 1056l-45-46-46 46h91zM808 920h-46v45l46-45zM808 1010l45-45h-91l46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M853 965l-45-45-46 45h91zM808 58V12l-46 46h46zM808 103V58h-46l46 45zM808 12v-45h-46l46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M762 58l46-46-46-45v91zM762 58v-91h-45l45 91zM808 103l-46-45-45 45h91zM717 194h45l-45-91v91zM762 920h46l-91-46 45 46zM762 1056l46-46h-91l45 46zM808 1010l-46-45-45 45h91zM762 194h-45l-45 91 90-91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M762 1056l-45-46-45 137 90-91zM808 1237v-45l-136-45 136 90zM717 103l45-45h-90l45 45zM762 920l-45-46-91 91 136-45zM762 965v-45l-136 45h136zM717 1010l45-45H626l91 45zM672 58l-46-91v91h46zM626 602l46-45h-46v45zM581 874h45l-45-90v90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M717 103l-45-45-91 91 136-46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M672 58h-46l-45 91 91-91zM672 1147h-46l-45 90 91-90zM626 965v-91l-45 46 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M626 874h-45v46l45-46zM626 1147h46l-91-46 45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M672 1147l-91-91v45l91 46zM581 1237l45-90h-45v90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M626 1147l-45-46v46h45zM581 874v-90h-45l45 90zM581 421v-46l-45 46h45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M581 375l-45-45v91l45-46zM626 602v-45h-90l90 45zM581 1237v-90h-45l45 90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M536 1237h45l-45-90v90zM581 1147v-46l-45 46h45zM581 421h-45v45l45-45zM581 784l45-91-90 45 45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M536 784h45l-45-46v46zM581 1056l45-91-90 45 45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M626 965l-45-45-45 90 90-45zM536 557h90l-90-46v46zM581 421l-45 45v45l45-90zM536 1147l45-46-45-45v91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M581 1101v-45h-45l45 45zM581 1056l-45-46v46h45zM536 330l45 45-45-90v45zM536 511v-45h-46l46 45zM581 874l-45-90-46 45 91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M581 920v-46l-91-45 91 91zM536 330v-45l-46 45h46zM536 1056v-46h-46l46 46zM536 421v-91l-46 91h46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M536 330h-46v91l46-91zM536 466v-45h-46l46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M490 466h46l-46-45v45zM626 602l-90-45-46 45h136zM490 648l136-46H490v46zM626 58l-90-91-46 45 136 46zM536 738l90-45H490l46 45zM626 693l-136-45v45h136zM490 829l46-45h-91l45 45zM490 648v-46l-45 46h45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M490 602h-45v46l45-46zM490 693v-45h-45l45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M445 693h45l-45-45v45zM490 421v-91h-45l45 91zM490 330l46-45-91 45h45zM490 1010h46l-91-45 45 45zM490 693h-45v45l45-45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M536 738l-46-45-45 45h91zM536 784v-46h-91l91 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M445 784h91l-91-46v46zM536 1056l-46-46-45 46h91zM490 12l46-45h-91l45 45zM490 466v-45l-90 90 90-45zM490 602l46-45-136-46 90 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M445 602h45l-90-91 45 91zM536 557v-46H400l136 46zM536 511l-46-45-90 45h136zM490 829l-45-45-45 45h90zM490 829h-90v45l90-45zM490 12l-45-45-45 91 90-46zM490 1010l-45-45-45 45h90zM445 1056l45-46h-90l45 46zM445 965l-45-91v91h45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M400 1010l45-45h-45v45zM400 1147l45-91-91 45 46 46zM400 1010v-45l-46 45h46zM445 648v-46h-91l91 46zM400 965v-91h-46l46 91zM400 874v-45h-46l46 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354 874h46l-46-45v45zM400 829l45-45-91-46 46 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354 829h46l-46-91v91zM445 784v-46h-91l91 46zM400 58l-46 45v91l46-136zM536 285l-182-91v45l182 46zM445 693v-45l-91 45h91zM445 738v-45h-91l91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354 738h91l-91-45v45zM400 1010h-46v46l46-46zM445 1056l-45-46-46 46h91zM354 1101l91-45h-91v45zM354 1010l46-45-91-45 45 90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M400 965l-46-91-45 46 91 45zM400 1147l-46-46-45 136 91-90zM445 330l-91-91-45 46 136 45zM354 829v-91l-45 46 45 45zM354 194v-91h-45l45 91zM354 602l-45-91-46 46 91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M309 920l45-46-91-45 46 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354 874v-45h-91l91 45zM354 829l-45-45-46 45h91zM354 738v-45l-91 45h91zM309 784l45-46h-91l46 46zM309-33l-46-45v90l46-45zM263 103h46l-46-91v91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354-33h-45l-46 45 91-45zM354 103l46-45-137-46 91 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M309 103h45l-91-91 46 91zM354 194l-45-91-46 46 91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M309 103h-46v46l46-46zM309 511V285l-46 226h46zM263 557l46-46h-46v46zM263 149v-46h-45l45 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M218 194l45-45-45-46v91zM263 829l46-45h-91l45 45zM309 784l-46-46-45 46h91zM263 557v-46h-45l45 46zM263 12v-90l-45 90h45zM263 103V12h-45l45 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M218 103h45l-45-91v91zM263 149l-45 45v45l45-90zM354 239v-45l-136 45h136zM309 285l45-46H218l91 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M309 285l-91-46v46h91zM218 511h45l-45-226v226zM354 1056v-46H218l136 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M354 1101v-45l-136-46 136 91zM218 239v-45h-45l45 45zM218 194v-91l-45 91h45zM263 829l-45-45-45 90 90-45zM218 920l45-91-90 45 45 46zM218 1192l136-91-181 46 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M218 920l-45-46v91l45-45zM218 1010v-90l-45 45 45 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M173 1010h45l-45-45v45zM173 1010v-45h-46l46 45zM173 965v-91l-46 91h46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M173 874h-46v91l46-91zM218 285v-46h-91l91 46zM218 239l-45-45-46 45h91zM173 1010l-46-45v91l46-46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M218 1010h-45l-46 46 91-46zM263 557l-45-46-91 46h136zM218 12l-45-90-46 45 91 45zM218 1192l-45-45-46 45h91zM127 874h46l-46-90v90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M127 1192l46-45H82l45 45zM127 58v-91H82l45 91zM127 557l-45 45v91l45-136zM218 784l45-46-181-45 136 91zM127 239l46-45-91-45 45 90z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M82 239h45l-45-90v90zM82 693v-91l-45 46 45 45zM82 149L37 58v91h45zM37 239h45l-45-45v45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M82 239v-90l-45 45 45 45zM82 149H37v45l45-45zM82 466H37v91l45-91zM82 602l45-45H37l45 45zM127 1192l-45-45-91 45h136zM82 693l-45-45-46 90 91-45zM37 784l45-91-91 45 46 46zM37 557H-9v45l46-45zM37 648l45-46H-9l46 46z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M82 602l-45-45-46 45h91zM82 239H37l-46 46 91-46zM37 466h45l-91-91 46 91zM127 239H82L-9 375l136-136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M37 466l-46-91v91h46zM37 557v-91H-9l46 91z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M-9 557h46l-46-91v91zM37 58L-9-33l-45 45 91 46zM37 648l-46-46-45 46h91zM37 194v-45h-91l91 45zM-9 285l46-46-91-90 45 136z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M37 239v-45l-91-45 91 90zM37 1010l-46-90-45 45 91 45z" opacity=".4"/>
+        <path stroke="#445B78" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M-54 1010h91l-91-45v45zM-9 1192l91-45H-54l45 45zM37 784l-46-46-45 91 91-45z" opacity=".4"/>
+        <path fill="#435E8A" d="M83 1141a5 5 0 100 10 5 5 0 000-10zM174 189a5 5 0 100 10 5 5 0 000-10zM128 869a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#9FB2FF" d="M1262 779a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M582 869a5 5 0 100 10 5 5 0 000-10zM446 779a5 5 0 100 10 5 5 0 000-10zM1262 98a5 5 0 100 10 5 5 0 000-10zM128 960a5 5 0 100 10 5 5 0 000-10zM174 1005a5 5 0 100 10 5 5 0 000-10zM900 1051a5 5 0 100 10 5 5 0 000-10zM38 461a5 5 0 100 10 5 5 0 000-10zM264 552a5 5 0 100 10 5 5 0 000-10zM1489 960a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#CDB4FF" d="M763 189a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1353 189a5 5 0 100 10 5 5 0 000-10zM446 688a5 5 0 100 10 5 5 0 000-10zM763 1051a5 5 0 100 10 5 5 0 000-10zM1671 1005a5 5 0 100 10 5 5 0 000-10zM1716 1096a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#FF9376" d="M1399 597a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1716 1051a5 5 0 100 10 5 5 0 000-10zM400 506a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#BE64FF" d="M1172 1051a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#E97994" d="M1036 1051a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M854 98a5 5 0 100 10 5 5 0 000-10zM763 915a5 5 0 100 10 5 5 0 000-10zM174 869a5 5 0 100 10 5 5 0 000-10zM1580 280a5 5 0 100 10 5 5 0 000-10zM1081 1005a5 5 0 100 10 5 5 0 000-10zM128 234a5 5 0 100 10 5 5 0 000-10zM1535 143a5 5 0 100 10 5 5 0 000-10zM900 960a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#57ABFF" d="M944 915a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1535 552a5 5 0 100 10 5 5 0 000-10zM446 597a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#75A9FF" d="M310 915a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1489 915a5 5 0 100 10 5 5 0 000-10zM400 824a5 5 0 100 10 5 5 0 000-10zM1262 416a5 5 0 100 10 5 5 0 000-10zM264 824a5 5 0 100 10 5 5 0 000-10zM1580 733a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#4CCA77" d="M491 461a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1217 1005a5 5 0 100 10 5 5 0 000-10zM627 688a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#2BAEFF" d="M1081 143a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M673 280a5 5 0 100 10 5 5 0 000-10zM1308 98a5 5 0 100 10 5 5 0 000-10zM582 779a5 5 0 100 10 5 5 0 000-10zM1580 869a5 5 0 100 10 5 5 0 000-10zM446 642a5 5 0 100 10 5 5 0 000-10zM1580 915a5 5 0 100 10 5 5 0 000-10zM1399 1051a5 5 0 100 10 5 5 0 000-10zM174 1141a5 5 0 100 10 5 5 0 000-10zM38 642a5 5 0 100 10 5 5 0 000-10zM219 189a5 5 0 100 10 5 5 0 000-10zM400 869a5 5 0 100 10 5 5 0 000-10zM491 824a5 5 0 100 10 5 5 0 000-10zM1308 688a5 5 0 100 10 5 5 0 000-10zM627 597a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#E16F7C" d="M1353 370a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M446 325a5 5 0 100 10 5 5 0 000-10zM1262 1005a5 5 0 100 10 5 5 0 000-10zM582 143a5 5 0 100 10 5 5 0 000-10zM491 325a5 5 0 100 10 5 5 0 000-10zM264 733a5 5 0 100 10 5 5 0 000-10zM1172 98a5 5 0 100 10 5 5 0 000-10zM310 280a5 5 0 100 10 5 5 0 000-10zM355 1096a5 5 0 100 10 5 5 0 000-10zM1353 325a5 5 0 100 10 5 5 0 000-10zM491 642a5 5 0 100 10 5 5 0 000-10zM1444 461a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#FF91CC" d="M446 960a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1535 1051a5 5 0 100 10 5 5 0 000-10zM1580 325a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#9FDBFF" d="M1217 416a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1761 960a5 5 0 100 10 5 5 0 000-10zM491 1005a5 5 0 100 10 5 5 0 000-10zM400 1141a5 5 0 100 10 5 5 0 000-10zM809 98a5 5 0 100 10 5 5 0 000-10zM38 53a5 5 0 100 10 5 5 0 000-10zM809 7a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#73A8FF" d="M1489 824a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M537 779a5 5 0 100 10 5 5 0 000-10zM1761 53a5 5 0 100 10 5 5 0 000-10zM38 234a5 5 0 100 10 5 5 0 000-10zM673 1141a5 5 0 100 10 5 5 0 000-10zM128 53a5 5 0 100 10 5 5 0 000-10zM1353 98a5 5 0 100 10 5 5 0 000-10zM219 98a5 5 0 100 10 5 5 0 000-10zM582 370a5 5 0 100 10 5 5 0 000-10zM1625 280a5 5 0 100 10 5 5 0 000-10zM38 1005a5 5 0 100 10 5 5 0 000-10zM491 416a5 5 0 100 10 5 5 0 000-10zM537 325a5 5 0 100 10 5 5 0 000-10zM1353 597a5 5 0 100 10 5 5 0 000-10zM1217 733a5 5 0 100 10 5 5 0 000-10zM1535 733a5 5 0 100 10 5 5 0 000-10zM310 506a5 5 0 100 10 5 5 0 000-10zM1308 869a5 5 0 100 10 5 5 0 000-10zM1716 915a5 5 0 100 10 5 5 0 000-10zM854 960a5 5 0 100 10 5 5 0 000-10zM1761 552a5 5 0 100 10 5 5 0 000-10zM264 98a5 5 0 100 10 5 5 0 000-10zM128 1051a5 5 0 100 10 5 5 0 000-10zM1353 733a5 5 0 100 10 5 5 0 000-10zM1671 824a5 5 0 100 10 5 5 0 000-10zM1172 779a5 5 0 100 10 5 5 0 000-10zM38 143a5 5 0 100 10 5 5 0 000-10zM1353 280a5 5 0 100 10 5 5 0 000-10zM219 779a5 5 0 100 10 5 5 0 000-10zM446 733a5 5 0 100 10 5 5 0 000-10zM400 53a5 5 0 100 10 5 5 0 000-10zM718 189a5 5 0 100 10 5 5 0 000-10zM1489 552a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#DD75AD" d="M219 506a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1761 234a5 5 0 100 10 5 5 0 000-10zM1535 506a5 5 0 100 10 5 5 0 000-10zM1172 915a5 5 0 100 10 5 5 0 000-10zM1761 824a5 5 0 100 10 5 5 0 000-10zM1489 506a5 5 0 100 10 5 5 0 000-10zM582 1051a5 5 0 100 10 5 5 0 000-10zM128 552a5 5 0 100 10 5 5 0 000-10zM1444 1141a5 5 0 100 10 5 5 0 000-10zM1716 325a5 5 0 100 10 5 5 0 000-10zM83 234a5 5 0 100 10 5 5 0 000-10zM582 416a5 5 0 100 10 5 5 0 000-10zM83 597a5 5 0 100 10 5 5 0 000-10zM763 960a5 5 0 100 10 5 5 0 000-10zM1353 1141a5 5 0 100 10 5 5 0 000-10zM491 597a5 5 0 100 10 5 5 0 000-10zM355 1005a5 5 0 100 10 5 5 0 000-10zM310 779a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#84B2FF" d="M809 1005a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1716 1005a5 5 0 100 10 5 5 0 000-10zM809 53a5 5 0 100 10 5 5 0 000-10zM537 416a5 5 0 100 10 5 5 0 000-10zM1489 325a5 5 0 100 10 5 5 0 000-10zM1172 461a5 5 0 100 10 5 5 0 000-10zM1444 1096a5 5 0 100 10 5 5 0 000-10zM1036 98a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#5FE8FF" d="M1172 688a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1399 370a5 5 0 100 10 5 5 0 000-10zM1262 869a5 5 0 100 10 5 5 0 000-10zM1032 225a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#7DFBFF" d="M718 98a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M627 869a5 5 0 100 10 5 5 0 000-10zM809 915a5 5 0 100 10 5 5 0 000-10zM219 7a5 5 0 100 10 5 5 0 000-10zM1625 506a5 5 0 100 10 5 5 0 000-10zM310 98a5 5 0 100 10 5 5 0 000-10zM718 869a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#B38CFF" d="M627 960a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#5A99FF" d="M355 597a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1262 733a5 5 0 100 10 5 5 0 000-10zM446 1051a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#FFA97D" d="M537 552a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M491 7a5 5 0 100 10 5 5 0 000-10zM491 688a5 5 0 100 10 5 5 0 000-10zM38 189a5 5 0 100 10 5 5 0 000-10zM1535 1096a5 5 0 100 10 5 5 0 000-10zM1399 98a5 5 0 100 10 5 5 0 000-10zM945 98a5 5 0 100 10 5 5 0 000-10zM1172 143a5 5 0 100 10 5 5 0 000-10zM537 1141a5 5 0 100 10 5 5 0 000-10zM1172 416a5 5 0 100 10 5 5 0 000-10zM1761 461a5 5 0 100 10 5 5 0 000-10zM1535 779a5 5 0 100 10 5 5 0 000-10zM1217 461a5 5 0 100 10 5 5 0 000-10zM1172 325a5 5 0 100 10 5 5 0 000-10zM1761 915a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#FCE529" d="M219 234a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M83 688a5 5 0 100 10 5 5 0 000-10zM1716 98a5 5 0 100 10 5 5 0 000-10zM1444 733a5 5 0 100 10 5 5 0 000-10zM400 1005a5 5 0 100 10 5 5 0 000-10zM537 461a5 5 0 100 10 5 5 0 000-10zM1217 280a5 5 0 100 10 5 5 0 000-10zM990 1096a5 5 0 100 10 5 5 0 000-10zM1671 7a5 5 0 100 10 5 5 0 000-10zM1671 325a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#8EC7FF" d="M1126 869a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M219 915a5 5 0 100 10 5 5 0 000-10zM1353 506a5 5 0 100 10 5 5 0 000-10zM673 53a5 5 0 100 10 5 5 0 000-10zM38 552a5 5 0 100 10 5 5 0 000-10zM1262 824a5 5 0 100 10 5 5 0 000-10zM355 869a5 5 0 100 10 5 5 0 000-10zM1535 461a5 5 0 100 10 5 5 0 000-10zM1671 1096a5 5 0 100 10 5 5 0 000-10zM1716 642a5 5 0 100 10 5 5 0 000-10zM854 1051a5 5 0 100 10 5 5 0 000-10zM128 779a5 5 0 100 10 5 5 0 000-10zM1217 7a5 5 0 100 10 5 5 0 000-10zM1716 869a5 5 0 100 10 5 5 0 000-10zM1671 642a5 5 0 100 10 5 5 0 000-10zM582 915a5 5 0 100 10 5 5 0 000-10zM763 53a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#4DD2C2" d="M537 733a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M582 1096a5 5 0 100 10 5 5 0 000-10zM1625 234a5 5 0 100 10 5 5 0 000-10zM627 53a5 5 0 100 10 5 5 0 000-10zM355 824a5 5 0 100 10 5 5 0 000-10zM1172 1141a5 5 0 100 10 5 5 0 000-10zM1399 869a5 5 0 100 10 5 5 0 000-10zM1262 960a5 5 0 100 10 5 5 0 000-10zM355 98a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#8F83FF" d="M355 733a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M537 1005a5 5 0 100 10 5 5 0 000-10zM83 143a5 5 0 100 10 5 5 0 000-10zM1761 280a5 5 0 100 10 5 5 0 000-10zM1716 461a5 5 0 100 10 5 5 0 000-10zM537 506a5 5 0 100 10 5 5 0 000-10zM264 7a5 5 0 100 10 5 5 0 000-10zM83 461a5 5 0 100 10 5 5 0 000-10zM1353 960a5 5 0 100 10 5 5 0 000-10zM1580 234a5 5 0 100 10 5 5 0 000-10zM1126 189a5 5 0 100 10 5 5 0 000-10zM219 280a5 5 0 100 10 5 5 0 000-10zM582 1141a5 5 0 100 10 5 5 0 000-10zM627 1141a5 5 0 100 10 5 5 0 000-10zM537 1051a5 5 0 100 10 5 5 0 000-10zM355 189a5 5 0 100 10 5 5 0 000-10zM264 143a5 5 0 100 10 5 5 0 000-10zM355 234a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#78BBFF" d="M854 53a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1262 189a5 5 0 100 10 5 5 0 000-10zM38 779a5 5 0 100 10 5 5 0 000-10zM1399 960a5 5 0 100 10 5 5 0 000-10zM1671 688a5 5 0 100 10 5 5 0 000-10zM1489 733a5 5 0 100 10 5 5 0 000-10zM627 552a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#41E3FF" d="M1625 370a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M400 960a5 5 0 100 10 5 5 0 000-10zM355 688a5 5 0 100 10 5 5 0 000-10zM718 1005a5 5 0 100 10 5 5 0 000-10zM219 1005a5 5 0 100 10 5 5 0 000-10zM1444 280a5 5 0 100 10 5 5 0 000-10zM1761 1051a5 5 0 100 10 5 5 0 000-10zM1399 688a5 5 0 100 10 5 5 0 000-10zM1308 824a5 5 0 100 10 5 5 0 000-10zM174 960a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#5998FF" d="M1625 98a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1262 688a5 5 0 100 10 5 5 0 000-10zM355 1051a5 5 0 100 10 5 5 0 000-10zM673 552a5 5 0 100 10 5 5 0 000-10zM1126 1051a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#679AED" d="M1399 189a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1761 370a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#F2A85D" d="M1262 7a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M264 506a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#BF8CFF" d="M1217 189a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1126 234a5 5 0 100 10 5 5 0 000-10zM1716 189a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#3BCFE8" d="M537 280a5 5 0 100 10 5 5 0 000-10z"/>
+        <path fill="#435E8A" d="M1716 779a5 5 0 100 10 5 5 0 000-10zM1716 234a5 5 0 100 10 5 5 0 000-10zM1761 1141a5 5 0 100 10 5 5 0 000-10z"/>
+    </g>
+    <defs>
+        <linearGradient id="ioniconf_hero_paint1_linear" x1="900" x2="900" y1="149" y2="347" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#59BAFF"/>
+            <stop offset="1" stop-color="#5697FF"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint2_linear" x1="900" x2="900" y1="236" y2="456" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF56C7"/>
+            <stop offset="1" stop-color="#5CFFE2" stop-opacity=".8"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint3_linear" x1="976" x2="976" y1="253" y2="285" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#37CFFF"/>
+            <stop offset="1" stop-color="#556AFF"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint4_linear" x1="900" x2="900" y1="302" y2="390" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#A04EFF"/>
+            <stop offset="1" stop-color="#0BF" stop-opacity=".7"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint5_linear" x1="900" x2="900" y1="146" y2="546" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#58CFFF"/>
+            <stop offset=".3" stop-color="#56A5FF"/>
+            <stop offset="1" stop-color="#5E5EFF"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint6_linear" x1="900.5" x2="900.5" y1="346" y2="543" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset=".5" stop-color="#4DC8FF"/>
+            <stop offset="1" stop-color="#5E5FFF"/>
+        </linearGradient>
+        <linearGradient id="ioniconf_hero_paint7_linear" x1="730.5" x2="1072" y1="250" y2="250" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#56A4FF"/>
+            <stop offset=".5" stop-color="#2BEDA7"/>
+            <stop offset="1" stop-color="#56A4FF"/>
+        </linearGradient>
+        <filter id="ioniconf_hero_filter0_d" width="64" height="64" x="944" y="237" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset/>
+            <feGaussianBlur stdDeviation="8"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.00392157 0 0 0 0 0.0235294 0 0 0 0 0.0627451 0 0 0 1 0"/>
+            <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow"/>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow" mode="normal" result="shape"/>
+        </filter>
+    </defs>
+  </svg>
+  
+  <!-- <div id="heroBack"></div> -->
+  <article id="heroContent" class="container u-box u-flex-c u-align-items-c">
+    <div class="u-spacer first"></div>
+    <svg class="u-box u-marg-x-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 408 520">
+      <defs/>
+      <path stroke="#567BFF" stroke-dasharray=".5 16" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M375.5 298.5l-171.5-98M204 200.5l-171.5 98" opacity=".7"/>
+      <path stroke="url(#ioniconf_logo_paint0_linear)" stroke-dasharray=".5 16" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M204 2v199" opacity=".7"/>
+      <circle cx="204" cy="200" r="108" stroke="url(#ioniconf_logo_paint1_linear)" stroke-width="4" opacity=".8"/>
+      <g filter="url(#ioniconf_logo_filter0_d)">
+          <circle cx="280" cy="123" r="16" fill="url(#ioniconf_logo_paint2_linear)" fill-opacity=".8"/>
+      </g>
+      <circle cx="204" cy="200" r="44" fill="url(#ioniconf_logo_paint3_linear)"/>
+      <path stroke="url(#ioniconf_logo_paint4_linear)" stroke-width="4" d="M202.83 2.31h.01l.02-.02c.35-.21.7-.29 1.14-.29.43 0 .79.08 1.14.3h.02l.01.01 169.66 97.83.02.01h.01a2.31 2.31 0 011.14 2.02v195.66c0 .88-.48 1.65-1.14 2.01h-.01l-.02.02-169.66 97.83h-.01l-.02.02c-.35.21-.7.29-1.14.29-.43 0-.79-.08-1.14-.3h-.02l-.01-.01-169.66-97.83-.02-.01h-.01a2.31 2.31 0 01-1.14-2.02V102.17c0-.77.39-1.48 1.23-2.06l169.6-97.8z"/>
+      <path stroke="url(#ioniconf_logo_paint5_linear)" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4" d="M204 397V200"/>
+      <path stroke="url(#ioniconf_logo_paint6_linear)" stroke-width="4" d="M32.17 101.76l169.66 97.8a4.1 4.1 0 002.17.57 4.1 4.1 0 002.17-.58l169.66-97.8"/>
+      <path fill="#fff" d="M5.1 419.67c2.88 0 5.11-2.1 5.11-4.99a4.96 4.96 0 00-5.1-5.12c-3.02 0-5.11 2.1-5.11 5.12 0 2.89 2.1 4.99 5.1 4.99zm-3.14 74.75h6.16v-66.14H1.96v66.15zM47.79 496c20.68 0 33.24-16.67 33.24-34.65 0-17.98-12.56-34.65-33.24-34.65-20.69 0-33.25 16.67-33.25 34.65 0 17.98 12.56 34.65 33.25 34.65zm-26.97-34.65c0-16.01 10.47-29 26.97-29 16.49 0 26.96 12.99 26.96 29 0 16.01-10.47 29-26.96 29-16.5 0-26.97-12.99-26.97-29zM95.06 428.28h-6.15v66.15h6.15v-39.9c0-14.83 10.08-22.31 22-22.31 13.21 0 19.5 8 19.5 21.39v40.81h6.15v-42.65c0-14.3-8.64-25.07-25.14-25.07-14 0-20.55 8.54-22.5 12.34v-10.76zM155.05 419.67c2.88 0 5.1-2.1 5.1-4.99a4.96 4.96 0 00-5.1-5.12c-3.02 0-5.1 2.1-5.1 5.12 0 2.89 2.09 4.99 5.1 4.99zm-3.15 74.75h6.16v-66.14h-6.16v66.15zM164.87 460.43c0 19.69 13.88 35.57 33.9 35.57 20.16 0 30.37-14.04 32.2-26.25H215c-1.83 7.35-7.98 12.47-16.36 12.47-11.12 0-18.2-9.06-18.2-21.79 0-12.86 7.08-21.91 18.2-21.91 8.38 0 14.53 5.11 16.36 12.46h15.97c-1.83-12.2-12.04-26.25-32.2-26.25-20.02 0-33.9 15.89-33.9 35.7zM269.28 496c21.73 0 35.34-16.4 35.34-35.57 0-19.16-13.61-35.7-35.34-35.7-21.6 0-35.21 16.54-35.21 35.7 0 19.17 13.61 35.57 35.2 35.57zm-19.64-35.57c0-13.25 8.38-21.91 19.64-21.91 11.39 0 19.76 8.66 19.76 21.91 0 13.13-8.37 21.79-19.76 21.79-11.26 0-19.64-8.66-19.64-21.79zM326.1 426.31h-14.4v68.12h15.58v-39.5c0-10.64 6.16-16.8 15.97-16.8 9.3 0 13.48 6.16 13.48 15.48v40.81h15.58v-42.78c0-15.88-8.77-26.9-25.26-26.9-11.13 0-18.07 5.25-20.95 10.63v-9.06zM379.58 438.78v55.65h15.58v-55.65H408V426.3h-12.84v-2.3c0-7.47 2.48-10.1 8.77-10.1H408v-13.37s-4.22-.54-7.23-.54c-12.96 0-21.19 7.09-21.19 23.1v15.68zM341.54 516.5l3.03-3.02c1.5-1.52 2.5-2.55 3-3.1a9.3 9.3 0 001.37-1.75c.25-.45.38-.98.38-1.6a2.2 2.2 0 00-.72-1.64 2.68 2.68 0 00-1.95-.7 2.6 2.6 0 00-1.84.68c-.47.43-.77.93-.92 1.51l-2.4-.98a4.99 4.99 0 012.67-3.12 5.42 5.42 0 012.54-.58c1.04 0 1.96.22 2.76.65.82.41 1.44.99 1.88 1.73.44.72.67 1.52.67 2.4a5.5 5.5 0 01-.75 2.73c-.48.87-1.1 1.67-1.84 2.43-.32.3-1.13 1.1-2.43 2.4l-1.97 1.96.05.1h7.15v2.4h-10.68v-2.5zM361.37 519.38a5.84 5.84 0 01-3.56-1.12 7.49 7.49 0 01-2.37-3.1 11.3 11.3 0 01-.82-4.37c0-1.61.27-3.07.82-4.37a7.29 7.29 0 012.37-3.1 5.84 5.84 0 013.56-1.12c1.34 0 2.52.38 3.52 1.13a7.12 7.12 0 012.36 3.1c.56 1.29.84 2.75.84 4.36 0 1.6-.28 3.06-.84 4.37a7.3 7.3 0 01-2.36 3.1 5.8 5.8 0 01-3.52 1.12zm0-2.5c.81 0 1.52-.26 2.13-.78a5.04 5.04 0 001.42-2.19c.33-.93.5-1.97.5-3.12 0-1.15-.17-2.19-.5-3.12a4.86 4.86 0 00-1.42-2.18c-.6-.53-1.32-.8-2.13-.8-.84 0-1.56.27-2.16.8a5.13 5.13 0 00-1.42 2.18 9.53 9.53 0 00-.48 3.12c0 1.15.16 2.2.48 3.12.34.91.8 1.64 1.42 2.19.6.52 1.32.79 2.16.79zM370.23 516.5l3.02-3.02c1.5-1.52 2.5-2.55 3-3.1a9.3 9.3 0 001.37-1.75c.26-.45.39-.98.39-1.6a2.2 2.2 0 00-.72-1.64 2.68 2.68 0 00-1.95-.7 2.6 2.6 0 00-1.85.68c-.46.43-.76.93-.9 1.51l-2.4-.98a4.99 4.99 0 012.66-3.12 5.42 5.42 0 012.54-.58c1.04 0 1.96.22 2.76.65.82.41 1.44.99 1.87 1.73.45.72.67 1.52.67 2.4a5.5 5.5 0 01-.74 2.73c-.48.87-1.1 1.67-1.85 2.43-.32.3-1.13 1.1-2.42 2.4l-1.97 1.96.05.1h7.15v2.4h-10.68v-2.5zM390.05 519.38a5.84 5.84 0 01-3.55-1.12 7.49 7.49 0 01-2.38-3.1 11.3 11.3 0 01-.81-4.37c0-1.61.27-3.07.81-4.37a7.29 7.29 0 012.38-3.1 5.84 5.84 0 013.55-1.12c1.35 0 2.52.38 3.53 1.13a7.12 7.12 0 012.35 3.1c.56 1.29.84 2.75.84 4.36 0 1.6-.28 3.06-.84 4.37a7.3 7.3 0 01-2.35 3.1 5.8 5.8 0 01-3.53 1.12zm0-2.5c.82 0 1.53-.26 2.14-.78a5.04 5.04 0 001.42-2.19c.33-.93.5-1.97.5-3.12 0-1.15-.17-2.19-.5-3.12a4.86 4.86 0 00-1.42-2.18c-.6-.53-1.32-.8-2.14-.8-.83 0-1.55.27-2.16.8a5.13 5.13 0 00-1.41 2.18 9.53 9.53 0 00-.48 3.12c0 1.15.16 2.2.48 3.12.33.91.8 1.64 1.41 2.19.61.52 1.33.79 2.16.79z"/>
+      <defs>
+          <linearGradient id="ioniconf_logo_paint0_linear" x1="204" x2="204" y1="3" y2="201" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#59BAFF"/>
+              <stop offset="1" stop-color="#5697FF"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint1_linear" x1="204" x2="204" y1="90" y2="310" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF56C7"/>
+              <stop offset="1" stop-color="#5CFFE2" stop-opacity=".8"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint2_linear" x1="280" x2="280" y1="107" y2="139" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#37CFFF"/>
+              <stop offset="1" stop-color="#556AFF"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint3_linear" x1="204" x2="204" y1="156" y2="244" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#A04EFF"/>
+              <stop offset="1" stop-color="#0BF" stop-opacity=".7"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint4_linear" x1="204" x2="204" y1="0" y2="400" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#58CFFF"/>
+              <stop offset=".27" stop-color="#56A5FF"/>
+              <stop offset="1" stop-color="#5E5EFF"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint5_linear" x1="204.5" x2="204.5" y1="200" y2="397" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2CEDA8"/>
+              <stop offset=".52" stop-color="#4DC8FF"/>
+              <stop offset="1" stop-color="#5E5FFF"/>
+          </linearGradient>
+          <linearGradient id="ioniconf_logo_paint6_linear" x1="34.5" x2="376" y1="104" y2="104" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#56A4FF"/>
+              <stop offset=".49" stop-color="#2BEDA7"/>
+              <stop offset="1" stop-color="#56A4FF"/>
+          </linearGradient>
+          <filter id="ioniconf_logo_filter0_d" width="64" height="64" x="248" y="91" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+              <feOffset/>
+              <feGaussianBlur stdDeviation="8"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.00392157 0 0 0 0 0.0235294 0 0 0 0 0.0627451 0 0 0 1 0"/>
+              <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow"/>
+              <feBlend in="SourceGraphic" in2="effect1_dropShadow" mode="normal" result="shape"/>
+          </filter>
+      </defs>
+    </svg>
+    <div class="u-spacer second"></div>    
+    
+    <h2 class="u-font u-box u-center-text">June 24TH 2020 / 100% ONLINE</h2>
+    <div class="u-spacer third"></div>
+    <p class="u-font u-box u-center-text">Ionic’s one day, single-track online conference on modern cross-platform app development. Learn from app architects and engineering leaders in an interactive digital experience.</p>
+    <div class="u-spacer fourth"></div>
+    <!-- <form id="registerForm" class="u-box u-flex u-w100 u-wrap" action="#">
+      <input class="u-box u-font" type="text" placeholder="Email address" aria-label="email address"/>
+      <div class="u-spacer"></div>
+      <button class="btn-main u-box u-font u-flex u-align-items-c u-just-cont-c" aria-label="submit email">Register Now</button>
+    </form> -->
+    <div id="registerForm" class="container hubspot-override hubspot-override--medium u-box u-flex u-w100 u-wrap">
+      <!--[if lte IE 8]>
+      <script charset="utf-8"
+              type="text/javascript"
+              src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8"
+              type="text/javascript"
+              src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "3776657",
+          formId: "84157001-6990-455e-8672-cb0d936a2226",
+          onFormReady: function($form, ctx){
+            $('input.hs-input').focus(); 
+            $('#navRegister').click(function() {
+              $('input.hs-input').focus();
+            })
+            $('#navRegister').on('keypress',function(e) {
+              if(e.which == 13) {
+                $('input.hs-input').focus();
+              }
+            });
+          }
+        });
+      </script>
+    </div>
+    <div class="u-spacer fifth"></div>
+  </article>
+    
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+</script>
+{% endblock %}

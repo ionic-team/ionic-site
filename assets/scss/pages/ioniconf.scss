@@ -1,0 +1,234 @@
+//#region ----------------------------- IMPORTS ------------------------------------------
+@import '../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../utilities/u-ioniconf';
+//#endregion ----------------------------------------------------------------------------
+
+//#region ----------------------------- VARIABLES -----------------------------------------
+
+$colorBackMain: #010610;
+$colorTitleMain: white;
+$colorTextMain: #E9EDF3;
+$colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
+$fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+$timingFunction: cubic-bezier(.09,.73,.71,.65);
+
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- COMPONENT STYLES ----------------------------------
+
+@keyframes pushUp {
+  to {
+    transform: translateY(-1px);
+    filter:  hue-rotate(125deg);
+    box-shadow: 0px 4px 8px black;
+  }
+}
+@keyframes pushDown {
+  0% {
+    transform: translateY(-1px);
+    filter:  hue-rotate(125deg);
+    box-shadow: 0px 4px 8px black;
+  }
+  100% { transform: translateY(0px); }
+}
+
+.btn-main, .hs-button {
+  animation: pushDown 200ms $timingFunction;
+  animation-fill-mode: forwards;
+
+  &:hover, &:active, &:focus{
+    animation: pushUp 200ms $timingFunction;
+    animation-fill-mode: forwards;
+  }
+
+}
+// #endregion ------------------------------------------------------------------------
+
+//#region ----------------------------- GENERIC STYLES -----------------------------------
+h2, p {
+  margin: 0;
+}
+html, body {
+  background: #010610;
+  position:relative;
+  z-index: -2;
+}
+body {
+  padding: 0 !important;
+}
+
+#navLogo {
+  color: white;
+}
+// #endregion --------------------------------------------------------------------------------
+
+//#region ----------------------------- PAGE STYLES ---------------------------------------
+#topNav {
+@include box($h: 75px, $back: rgba(0,0,0,0), $pos: absolute, $l: 0, $r: 0, $z: 1, $mLeft: auto, $mRight: auto);
+
+  button {
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+    justify-self:flex-end;
+  }
+}
+#hero {
+@include box($pos: relative, $h: 100vh);
+  overflow:hidden;
+
+}
+#heroBack {
+@include box($mnW: 100vw, $h: auto, $z: -1, $mnH: 100vh, $pos: absolute, $t: 0, $l:'calc(((1800px - 100vw) / 2) * -1)');
+}
+@media (min-width: 1800px) {
+  #heroBack {
+    left: 0 !important;
+  }
+}
+#heroContent {
+@include box($h: 100vh);
+@include spacer($el: '.first', $fB: 0, $fG:1, $mxH: 98px);
+@include spacer($el: '.second', $fB: 0, $fG:1, $mxH: 56px);
+@include spacer($el: '.third', $fB: 0, $fG:1, $mxH: 16px);
+@include spacer($el: '.fourth', $fB: 0, $fG:1, $mxH: 40px);
+@include spacer($el: '.fifth', $fB: 0, $fG:1, $mxH: 16px);
+
+  svg {
+  @include box($pos:relative, $mxW: 408px, $mxH: 486px, $w: auto, $fB: 25vh, $fG: 1);
+  align-self:stretch;
+  }
+  h2 {
+  @include font($ff: $fontFamilyRoboto, $fw: 400, $fs: 24px, $lh: 160%, $ls: .12em, $tt: uppercase);
+  @include box($color: $colorTitleMain);
+  }
+
+  p {
+  @include font($ff: $fontFamilyRoboto, $fw: normal, $fs: 20px, $lh: 160%, $ls: -.01em);
+  @include box($color: $colorTextMain, $mxW: 724px);
+  }
+}
+
+#registerForm {
+@include box($mxW: 517px);
+@include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
+padding: 0px;
+  //#region -------------------------- HUBSPOT OVERRIDE ------------------------------------
+  .hs-email label:first-child {
+    position:absolute;
+  }
+  .hs_error_rollup {
+    display:none;
+  }
+
+  .submitted-message {
+    padding: 0;
+    position: relative;
+    top: -30px;
+    background: rgba(0,0,0,0); 
+
+    p {
+      font-family: $fontFamilyRoboto;
+      color: $colorTextMain;
+    }
+  }
+
+  fieldset, .hs-form-field, .input, .hs-submit {
+    margin: 0 !important;
+  }
+
+  .hs-input {
+  // @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include font($ff: $font-family-inter, $fs: 16px);
+  height: 51px !important;
+  max-height: 51px !important;
+  border-radius: 8px;
+  width: 320px;
+  max-width: 320px;
+  border: none;
+  padding: 16px 20px;
+  font-family: $font-family-inter;
+  font-size: 16px;
+  flex-grow:1;
+  position:relative;
+  top: 0;
+  }
+
+  .hbspt-form form{
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .hs-button {
+  // @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+  height: 51px;
+  background: $colorButtonMain;
+  color: white;
+  border-radius: 8px;
+  max-width: 181px;
+  border: none;
+  padding: 16px 20px;
+  font-family: $font-family-inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: 16px;
+  flex-grow:1;
+  }
+
+  .hs-email {
+    position: relative;
+  }
+
+  .hs-error-msgs {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+  }
+  //#endregion ---------------------------------------------------------------
+}
+//#endregion --------------------------------------------------------------------------------
+
+//#region ----------------------------- MEDIA QUERIES ---------------------------------------
+@media (max-width: 550px) {
+  .hbspt-form form fieldset:nth-child(4), .hbspt-form form .hs-submit{
+    flex-grow: 1 !important;
+  }
+  #registerForm {
+    padding:0;
+    .hbspt-form {
+      width: 100%;
+    }
+    .hbspt-form form{
+      flex-flow:column;
+    }
+    
+    .hs-input {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .hs-button {
+      margin-top: 16px;
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  #heroContent {
+    h2 {
+    @include font($fs:20px);
+    }
+    p {
+    @include font($fs: 16px);
+    }
+  }
+}
+
+//#endregion --------------------------------------------------------------------------------------

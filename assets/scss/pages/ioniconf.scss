@@ -1,6 +1,10 @@
+//#region ----------------------------- IMPORTS ------------------------------------------
 @import '../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../utilities/u-ioniconf';
+//#endregion ----------------------------------------------------------------------------
+
+//#region ----------------------------- VARIABLES -----------------------------------------
 
 $colorBackMain: #010610;
 $colorTitleMain: white;
@@ -9,7 +13,9 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $timingFunction: cubic-bezier(.09,.73,.71,.65);
 
-// #region ----------------------------- COMPONENT STYLES ----------------------------------
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- COMPONENT STYLES ----------------------------------
 
 @keyframes pushUp {
   to {
@@ -39,7 +45,7 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
 }
 // #endregion ------------------------------------------------------------------------
 
-// #region ----------------------------- GENERIC STYLES -----------------------------------
+//#region ----------------------------- GENERIC STYLES -----------------------------------
 h2, p {
   margin: 0;
 }
@@ -57,6 +63,7 @@ body {
 }
 // #endregion --------------------------------------------------------------------------------
 
+//#region ----------------------------- PAGE STYLES ---------------------------------------
 #topNav {
 @include box($h: 75px, $back: rgba(0,0,0,0), $pos: absolute, $l: 0, $r: 0, $z: 1, $mLeft: auto, $mRight: auto);
 
@@ -106,7 +113,7 @@ body {
 @include box($mxW: 517px);
 @include spacer($el: '& ', $mnW: 16px, $mnH: 16px);
 padding: 0px;
-
+  //#region -------------------------- HUBSPOT OVERRIDE ------------------------------------
   .hs-email label:first-child {
     position:absolute;
   }
@@ -184,8 +191,11 @@ padding: 0px;
     z-index: 10;
     bottom: 0px;
   }
+  //#endregion ---------------------------------------------------------------
 }
+//#endregion --------------------------------------------------------------------------------
 
+//#region ----------------------------- MEDIA QUERIES ---------------------------------------
 @media (max-width: 550px) {
   .hbspt-form form fieldset:nth-child(4), .hbspt-form form .hs-submit{
     flex-grow: 1 !important;
@@ -220,3 +230,5 @@ padding: 0px;
     }
   }
 }
+
+//#endregion --------------------------------------------------------------------------------------

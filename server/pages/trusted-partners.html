@@ -27,11 +27,12 @@
       development.
     </p>
     <button class="btn rounded white"
-            onclick="$('html, body').animate({scrollTop: $('#partners').offset().top + 'px'});">
+            id="findTrustedPartner"
+            onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'});">
             Find a Trusted Partner
     </button>
     <p class="sm">
-      Or <a data-toggle="modal" data-target="#applicationForm">apply</a> to
+      Or <a data-toggle="modal" data-target="#applicationForm" id="applyModalAnchor">apply</a> to
       become one.
     </p>
   </hgroup>
@@ -286,7 +287,12 @@
           <input type="hidden" name="form_name" value="need_trusted_partner" />
           <input type="hidden" name="selected-partner" ng-value="selectedCompany" />
           <input type="hidden" name="form" value="lead" />
-          <button type="submit" class="btn ionic" value="Send message">
+          <button
+            class="btn ionic g-recaptcha"
+            value="Send message"
+            data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
+            data-callback='onSubmit'
+            data-action='submit'>
             Send message
           </button>
         </form>
@@ -384,29 +390,15 @@
 
           <input type="hidden" name="form_name" value="become_trusted_partner" />
           <input type="hidden" name="form" value="application" />
-          <div id="recaptcha" class="g-recaptcha"></div>
           <button 
-            type="button"
-            class="btn ionic"
+            class="btn ionic g-recaptcha"
             value="Send message"
-            id="trustedPartnersSubmit">
+            id="trustedPartnersSubmit"
+            data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
+            data-callback='onSubmit'
+            data-action='submit'>
             Send message
           </button>
-
-          <script src='https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ' async defer></script>
-
-          <script>
-            const trustedPartnersForm = document.getElementById("trustedPartnersForm");
-            
-            // grecaptcha.render(document.querySelector("#recaptcha"), {"sitekey": "6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"});
-
-
-            // function onSubmit() {
-            //   if (trustedPartnersForm.reportValidity()) {
-            //     trustedPartnersForm.submit();
-            //   }
-            // }
-          </script>
         </form>
       </div>
     </div>
@@ -419,6 +411,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-cookies.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-sanitize.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ'></script>
+<script>
+  const trustedPartnersForm = document.getElementById("trustedPartnersForm");
+  
+  function onSubmit() {
+    if (trustedPartnersForm.reportValidity()) {
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ', {action: 'submit'});
+      });
+      trustedPartnersForm.submit();
+    }
+  }
+</script>
 <script>
 
 var IonicSiteModule = angular.module('IonicSite',

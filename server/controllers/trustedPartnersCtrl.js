@@ -2,7 +2,12 @@ var tools               = require('../tools');
 var moment              = require('moment');
 var trustedPartners     = require('../data/trusted-partners');
 
-module.exports = function(req, res) {
+module.exports = async function(req, res) {
+  const userScore = await handleCaptcha(req.body);
+  if (typeof userScore !== 'number' || userScore < .4) {
+    console.error("Captcha failed");
+    return;
+  }
   // add timestamp to form fields
   req.body.timestamp = moment().utc().format();
 
@@ -34,7 +39,6 @@ module.exports = function(req, res) {
 
   if (req.sanitize(req.body.form) === 'application') {
     m.name = 'Trusted Partners Application';
-    handleCaptcha(req.body);
   }
 
   tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
@@ -57,8 +61,9 @@ async function handleCaptcha(body) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
+  const data = await response.json()
 
-  console.log(await response.json());
+  return data.score;
 }
 
 function getTrustedPartnerEmailByName(name) {

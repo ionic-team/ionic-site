@@ -1,8 +1,16 @@
+const { RECAPTCHA_SECRET } = require('../config');
+
 var tools               = require('../tools');
 var moment              = require('moment');
 var trustedPartners     = require('../data/trusted-partners');
 
-module.exports = function(req, res) {
+module.exports = async function(req, res) {
+  const userScore = await handleCaptcha(req.body);
+
+  if (typeof userScore !== 'number' || userScore < .4) {
+    console.error("Captcha failed");
+    return;
+  }
 
   // add timestamp to form fields
   req.body.timestamp = moment().utc().format();
@@ -48,6 +56,18 @@ module.exports = function(req, res) {
     res.render('trusted-partners');
   });
 };
+
+async function handleCaptcha(body) {
+  const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${body['g-recaptcha-response']}`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  const data = await response.json()
+  return data.score;
+}
 
 function getTrustedPartnerEmailByName(name) {
   for (var i = 0; i < trustedPartners.length; i++) {

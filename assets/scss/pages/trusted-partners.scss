@@ -608,6 +608,23 @@
       padding-bottom: 64px;
     }
 
+    .grecaptcha-badge {
+      position: absolute;
+      top: calc(100% + 1em);
+      right: 0;
+    }
+  
+    .grecaptcha-logo {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
     @media (max-width: $screen-xs-max)  {
       .modal-dialog {
         position: fixed;

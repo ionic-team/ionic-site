@@ -7,6 +7,9 @@ img {
 }
 
 
+
+
+
 .ee-hero {
   max-width: 714px;
   padding-bottom: 62px;
@@ -48,6 +51,11 @@ img {
   }
 }
 .ee-main {
+  padding-top: 200px;
+  .container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
   h2 {
     font-weight: 600;
     font-size: 48px;
@@ -92,6 +100,8 @@ img {
       }
 
       @media (max-width: $screen-xs-max) {
+        position:relative;
+        left: 24px;
         width: 320px;
         max-width: 100%;
       }
@@ -115,7 +125,7 @@ img {
     }
 
     aside {
-      padding-top: 150px;
+      padding-top: 200px;
       background: none;
       padding-bottom: 0px;
     }

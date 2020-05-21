@@ -6,11 +6,79 @@ img {
   height: auto;
 }
 
-.ee-hero {
-  padding-bottom: 62px;
-}
 
+.ee-hero {
+  max-width: 714px;
+  padding-bottom: 62px;
+  h1 {
+    font-size: 64px;
+    font-weight:bold;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    color: #010610;
+  }
+  p, a {
+    font-size: 24px;
+    line-height: 160%;
+    letter-spacing: -0.04em;
+    opacity: 0.9;
+  }
+  p {
+    color: #414D5C;
+    margin: 0px;
+    font-weight: 500;
+  }
+  a{
+    color: #3880FF;
+    font-weight: 300;
+  }
+}
+#good-company {
+  h2 {
+    color: #020814;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 160%;
+    letter-spacing: -0.03em;
+    color: #414D5C;
+  }
+}
 .ee-main {
+  h2 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 112%;
+    letter-spacing: -0.04em;
+    color: #020814;
+  }
+  .left .spacer {
+    flex-grow:1;
+    max-width: 32px;
+  }
+  .right .spacer {
+
+  }
+  .left,
+  .right {
+    .content {
+      max-width: 420px;
+    }
+    .graphics {
+      margin: 0;
+    }
+  }
+
+  .cards li h4 {
+    color: #010610;
+  }
+  .cards li p {
+    line-height: 180%;
+    color: #616E7E;
+  }
   .left,
   .right {
     align-items: center;
@@ -27,6 +95,35 @@ img {
         width: 320px;
         max-width: 100%;
       }
+    }
+  }
+
+  section:first-child {
+    padding-bottom: 0;
+  }
+
+  .ee-section-wrapper{
+  
+    section {
+      justify-content:center;
+      padding-top: 120px;
+      padding-bottom: 120px;
+
+      h2 {
+        margin-bottom: 24px;
+      }
+    }
+
+    aside {
+      padding-top: 150px;
+      background: none;
+      padding-bottom: 0px;
+    }
+  }
+  p {
+    line-height: 165.6%;
+    &.sm {
+      color: #73849A;
     }
   }
 }
@@ -111,8 +208,7 @@ img {
 
 .resources hgroup {
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
   margin-bottom: 32px;
 
   p {
@@ -121,7 +217,6 @@ img {
 }
 
 #good-company {
-  background: #F9FAFB;
   
   h2 {
     color: #020814;
@@ -135,30 +230,9 @@ img {
   }
 }
 
-.ee-main {
-  section:first-child {
-    padding-bottom: 0;
-  }
-
-  .ee-section-wrapper--gradient {
-   background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
-  
-   section {
-     padding-top: 150px;
-     margin-bottom: 120px;
-   }
-  
-   aside {
-     padding-top: 150px;
-     background: none;
-     padding-bottom: 0px;
-   }
-  }
-}
-
-#marketwatch {
+#comp86400 {
   .logo {
-    width: 214px;
+    width: 137px;
     height: 32px;
   }
 
@@ -197,8 +271,8 @@ img {
 
 #shipt {
   .logo {
-    width: 192px;
-    height: 72px;
+    width: 148px;
+    height: 50px;
   }
 
   .graphics {

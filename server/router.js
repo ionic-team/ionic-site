@@ -42,7 +42,6 @@ module.exports = {
     // normal pages
     .get('/', (_, res) => res.render('index'))
 
-    .get('/soon', (_, res) => res.render('soon'))
     .get('/about', (_, res) => res.render('about'))
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))
@@ -145,6 +144,7 @@ module.exports = {
 
     .get('/sales', (_, res) => res.render('sales'))
     .get('/signup', (_, res) => res.render('signup'))
+    .get('/soon', (_, res) => res.render('ioniconf'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.render('startups'))
     .get('/subscribe', (_, res) => res.render('subscribe'))

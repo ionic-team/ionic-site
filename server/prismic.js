@@ -102,22 +102,25 @@ module.exports = {
     });
   },
 
-  previewController: (req, res) => {
+  previewController: async (req, res) => {
     const { token } = req.query;
-    if (token) {
-      req.prismic.api.previewSession(token, linkResolver, '/').then((url) => {
-        const cookies = new Cookies(req, res);
-        cookies.set(
-          Prismic.previewCookie,
-          token,
-          { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false }
-        );
-        res.redirect(302, url);
-      }).catch((err) => {
-        res.status(500).send(`Error 500 in preview: ${err.message}`);
-      });
-    } else {
-      res.send(400, 'Missing token from querystring');
+    try {
+      if (!token) throw(new Error('Missing token from querystring'));
+
+      const api = await Prismic.api(PRISMIC_ENDPOINT, { req, })
+      prismicAPI = api;
+      req.prismic = { api };
+      console.log(api);
+      const url = await req.prismic.api.previewSession(token, linkResolver, '/');
+      const cookies = new Cookies(req, res);
+      cookies.set(
+        Prismic.previewCookie,
+        token,
+        { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false }
+      );
+      res.redirect(302, url);
+    } catch(e) {
+      res.send(500, e.message);
     }
   },
 

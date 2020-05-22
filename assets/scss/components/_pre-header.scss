@@ -155,6 +155,59 @@
     }
   }
 
+  &--ioniconf {
+    background-color: #000715;
+    background-image: url('/img/announcement-bar/preheader-bg-ioniconf.png');
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    background-position: center;
+    color: #DEE3EA;
+    padding: 10px 0 12px;
+    overflow: hidden;
+
+    .container {
+      font-size: 13px;
+    }
+
+    .container > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container p {
+      margin-bottom: 0;
+      margin-left: 140px;
+      color: #DEE3EA;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: '';
+        background-image: url('/img/announcement-bar/ioniconf-logo.png');
+        background-size: 120px;
+        width: 120px;
+        height: 72px;
+        margin-right: 24px;
+        position: absolute;
+        left: -140px;
+        top: calc(50% - 36px);
+      }
+    }
+
+    a {
+      background: linear-gradient(68.35deg, #4CC3FF 0%, #4172FF 100%);
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.06);
+      font-size: 10px;
+      padding: 5px 10px;
+      margin-left: 24px;
+      line-height: 1;
+    }
+    a:hover {
+      background-color: lighten(#3880FF, 5%);
+    }
+  }
+
   &--react,
   &--confetti {
     background-color: #5991f7;

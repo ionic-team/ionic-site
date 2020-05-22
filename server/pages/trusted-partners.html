@@ -27,7 +27,7 @@
       development.
     </p>
     <button class="btn rounded white"
-            onclick="$('html, body').animate({scrollTop: $('#partners').offset().top + 'px'});">
+            onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'});">
             Find a Trusted Partner
     </button>
     <p class="sm">
@@ -213,7 +213,7 @@
             Send us a detailed message and a sales representative will
             get back to you soon.
           </p>
-        </hgroup>
+        </hgroup> {#
         <form action="/trusted-partners"
               class="form-inline container"
               method="post"
@@ -286,10 +286,16 @@
           <input type="hidden" name="form_name" value="need_trusted_partner" />
           <input type="hidden" name="selected-partner" ng-value="selectedCompany" />
           <input type="hidden" name="form" value="lead" />
-          <button type="submit" class="btn ionic" value="Send message">
+          <button
+            class="btn ionic"
+            value="Send message"
+            data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
+            data-callback='onSubmit'
+            data-action='submit'>
             Send message
           </button>
-        </form>
+        </form> #}
+
       </div>
     </div>
   </div>
@@ -309,7 +315,7 @@
                 aria-label="Close">
           <span>&times;</span>
         </button>
-        <hgroup class="hero text-center">
+        {# <hgroup class="hero text-center">
           <p class="lg">
             We are currently not accepting new applications for the Trusted
             Partners program. We will reopen the application process when the
@@ -320,8 +326,8 @@
                   data-dismiss="modal">
             Close
           </button>
-        </hgroup>
-        {#<hgroup class="hero text-center">
+        </hgroup> #}
+        <hgroup class="hero text-center">
           <h3>Apply to be a Trusted Partner</h3>
           <p class="lg">
             Let us know about your company, the apps you've built, and why you
@@ -384,26 +390,16 @@
 
           <input type="hidden" name="form_name" value="become_trusted_partner" />
           <input type="hidden" name="form" value="application" />
-          <div class="g-recaptcha"
-               data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
-               data-callback="onSubmit"
-               data-size="invisible">
-          </div>
           <button 
-            type="submit"
-            class="btn ionic"
-            value="Send message">
+            class="btn ionic g-recaptcha"
+            value="Send message"
+            id="trustedPartnersSubmit"
+            data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
+            data-callback='onSubmit'
+            data-action='submit'>
             Send message
           </button>
-          
-          <script>
-            function onSubmit(token) {
-              if(document.getElementById("trustedPartnersForm").checkValidity()) {
-                grecaptcha.execute();
-              }
-            }
-          </script>
-        </form> #}
+        </form>
       </div>
     </div>
   </div>
@@ -415,7 +411,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-cookies.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-sanitize.min.js"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src='https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ'></script>
+<script>
+  const trustedPartnersForm = document.getElementById("trustedPartnersForm");
+  
+  function onSubmit() {
+   
+    if (trustedPartnersForm.reportValidity()) {
+      
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ', {action: 'submit'});
+      });
+      trustedPartnersForm.submit();
+    }
+  }
+</script>
+
 <script>
 
 var IonicSiteModule = angular.module('IonicSite',

@@ -445,11 +445,11 @@
         }
 
         &__text--l2 {
-          font-weight: 400;
+          font-weight: 500;
           font-size: 11px;
           line-height: 15px;
-          color: #5B708B;
-          letter-spacing: .08em;
+          color: #73849A;
+          letter-spacing: .12em;
           text-transform: uppercase;
           padding: 15px 32px 10px;
         }
@@ -540,11 +540,6 @@
               'icon--offline-storage'
               'icon--appflow'
             , 40);
-          }
-
-          svg {
-            position: absolute;
-            right: 32px;
           }
         }
 

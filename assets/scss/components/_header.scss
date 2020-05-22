@@ -314,6 +314,10 @@
           width: 100vw;
           left: calc(-50vw + 468px);
 
+          &::before {
+            display: none;
+          }
+
           .dropdown-menu {
             &--container {
               margin: 0 auto;
@@ -340,31 +344,44 @@
                 min-width: auto;
               }
 
+              li.divider {
+                margin: 2px 0px 16px;
+              }
+
               &--highlight {
                 flex: 1 0;
                 max-width: unset;
                 position: relative;
+                margin-left: 30px;
 
                 &::before {
                   position: absolute;
                   right: calc((50vw - 521px) * -1);
                   top: 0;
                   bottom: 0;
-                  background: #F9FAFD;
+                  background: #F6F8FB;
                   width: calc(50vw - 521px);
                   content: '';
                 }
 
-                a {
-                  padding-left: 0;
+                a.dropdown-menu__text--l3 {
+                  padding: 13px 10px 21px 0;
                   white-space: normal;
 
                   &::before,
                   &::after {
                     display: none;
                   }
+
+                  small {
+                    margin-top: 5px;
+                  }
                 }
               }
+            }
+
+            &__text--l2 {
+              padding: 21px 32px 10px;
             }
 
             &__text--l2 {
@@ -374,12 +391,11 @@
             &__text--l3 {
               &::before,
               &::after {
-                left: 0;
+                left: -5px;
               }
 
               &.icon--lg {
-                padding-left: 55px;
-                padding-right: 0;
+                padding: 14px 0 31px 55px;
               }
             }
           }
@@ -387,9 +403,13 @@
           @media (max-width: $screen-md-max) {
             left: calc(-50vw + 425px);
 
-            .dropdown-menu__column--highlight::before {
-              width: calc(50vw - 478px);
-              right: calc((50vw - 478px) * -1);
+            .dropdown-menu__column--highlight {
+              margin-left: 0;
+
+              &::before {
+                width: calc(50vw - 478px);
+                right: calc((50vw - 478px) * -1);
+              }
             }
           }
 
@@ -609,7 +629,7 @@
           position: relative;
 
           + .dropdown-menu__column--highlight {
-            background: #F9FAFD;
+            background: #F6F8FB;
             margin-top: -10px;
             padding-top: 10px;
             border-radius: 0 16px 16px 0;

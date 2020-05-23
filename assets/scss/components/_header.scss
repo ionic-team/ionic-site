@@ -267,7 +267,7 @@
       &.open .dropdown-menu,
       &:hover .dropdown-menu {
         opacity: 1;
-        top: 39px;
+        top: 49px;
         // z-index: 999;
         pointer-events: all;
         transform: translate3d(-50%, 0, 0) scale(1,1) perspective(1px);
@@ -280,14 +280,14 @@
         position: absolute;
         border: 0;
         border-radius: 8px;
-        top: 39px;
+        top: 49px;
         padding: 0;
         right: auto;
         left: 50%;
         box-shadow: 
-          0 50px 100px -20px rgba(0,0,0,.2), 
-          0 32px 64px -28px rgba(0,0,0,.3), 
-          0 -16px 64px -8px rgba(0,0,0,.024);
+          0px 18px 24px rgba(2, 8, 20, 0.2), 
+          0px 8px 8px rgba(2, 8, 20, 0.1);
+        border-top: 1px solid #eee;
         opacity: 0;
         top: -2000px;
         pointer-events: none;
@@ -353,6 +353,7 @@
                 max-width: unset;
                 position: relative;
                 margin-left: 30px;
+                border-radius: 0;
 
                 &::before {
                   position: absolute;
@@ -431,7 +432,7 @@
                   top: auto;
                   bottom: 0;
                   width: 100vw;
-                  height: 110px;
+                  height: 124px;
                   left: calc((50vw - 407px) * -1);
                 }
 
@@ -660,10 +661,10 @@
 
         &::after {
           position: absolute;
-          top: -10px;
+          top: -20px;
           content: '';
           width: 100%;
-          height: 19px;
+          height: 20px;
         }
 
         &::before {

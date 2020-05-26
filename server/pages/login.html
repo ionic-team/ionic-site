@@ -139,15 +139,13 @@
             }
             window.localStorage.setItem(ssoIdKey, emailOrSlug);
 
-            var params = new URLSearchParams(location.search);
-            params.set("client_id", "1VIbgWbPzGM7UN9Y53MN3XflLJvJzXmS");
-            params.set("connection", result.data.uuid);
-            params.set("response_type", "token");
-            params.set("redirect_uri", "{{ DASHBOARD_URL }}/oauth2");
-            params.set("scope", "openid profile email");
-            params.set("audience", "{{ API_URL }}");
+            var params = new URLSearchParams(window.location.search);
+            var state = Object.fromEntries(params.entries());
 
-            window.location.assign("https://auth.ionicframework.com/authorize?" + params.toString());
+            var url = new URL(result.url);
+            url.searchParams.set('state', JSON.stringify(state));
+
+            window.location.assign(url.href);
           })
           .catch(function(reason) {
             handleError("#sso-form", { message: reason.message });

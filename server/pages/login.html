@@ -142,7 +142,7 @@
             var params = new URLSearchParams(window.location.search);
             var state = Object.fromEntries(params.entries());
 
-            var url = new URL(result.url);
+            var url = new URL(result.data.url);
             url.searchParams.set('state', JSON.stringify(state));
 
             window.location.assign(url.href);

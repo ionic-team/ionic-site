@@ -73,6 +73,8 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
     var params = new URLSearchParams(window.location.search);
     if (params.has("source")) {
       source = params.get("source");
+    } else if (params.has("client_id")) {
+      source = params.get("client_id");
     }
 
     const recaptchaCode = await recaptcha('signup');

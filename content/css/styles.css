@@ -11731,7 +11731,7 @@ body.light .sub-header a {
   .pre-header strong {
     font-weight: 600;
     color: #020814; }
-  .pre-header a {
+  .pre-header a{
     background-color: #73a5ff;
     color: #fff;
     border-radius: 16px;

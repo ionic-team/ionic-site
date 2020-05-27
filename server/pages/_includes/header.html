@@ -1,6 +1,9 @@
 {% include '_includes/mobile_nav.html' %}
 
 {% if not hide_pre_header and announcementBar %}
+<a href="{{announcementBar.data.link.url}}"
+         onclick="c('MarketingCTAs','btn-header-announcement', this, 0)"
+         target="_blank">
 <nav class="pre-header pre-header--{{announcementBar.data.theme | lower }}">
   <div class="container">
     <div{# id="optimizely"#}>
@@ -17,13 +20,11 @@
       <a href="/studio" #}
       {# <pre><code>{{ announcementBar | dump(2) }}</code></pre> #}
       {{PrismicDOM.RichText.asHtml(announcementBar.data.text)}}
-      <a href="{{announcementBar.data.link.url}}"
-         onclick="c('MarketingCTAs','btn-header-announcement', this, 0)"
-         target="_blank"
-         id="btn-header-announcement">{{announcementBar.data.button_text}}</a>
+      <span id="btn-header-announcement">{{announcementBar.data.button_text}}</span>
     </div>
   </div>
 </nav>
+</a>
 {% endif %}
 
 <nav class="navbar navbar-default{% if header_style %} {{ header_style }}{% endif %}">

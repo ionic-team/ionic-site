@@ -104,6 +104,7 @@ module.exports = {
       getIntegration(req, res, next, req.params.integration))
 
     .get('/ioniconf', (_, res) => res.render('ioniconf'))
+    .get('/ioniconffull', (_, res) => res.render('ioniconffull'))
     .get('/jobs', (_, res) => res.render('jobs'))
     .get('/login', (_, res) => res.render('login'))
     .get('/logout', (_, res) => res.render('logout'))

@@ -1,0 +1,42 @@
+//#region ----------------------------- IMPORTS ------------------------------------------
+@import '../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../utilities/u-ioniconf';
+//#endregion ----------------------------------------------------------------------------
+
+//#region ----------------------------- VARIABLES -----------------------------------------
+
+$colorBackMain: #000715;
+$colorTitleMain: white;
+$colorTextMain: #E9EDF3;
+$colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
+$fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+$timingFunction: cubic-bezier(.09,.73,.71,.65);
+
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- COMPONENT STYLES ----------------------------------
+
+
+// #endregion ------------------------------------------------------------------------
+
+//#region ----------------------------- GENERIC STYLES -----------------------------------
+html, body {
+  background: $colorBackMain;
+  position:relative;
+  z-index: -2;
+}
+
+// #endregion --------------------------------------------------------------------------------
+
+//#region ----------------------------- PAGE STYLES ---------------------------------------
+
+#landingBack {
+@include box($pos: absolute, $z: -1);
+}
+//#endregion --------------------------------------------------------------------------------
+
+//#region ----------------------------- MEDIA QUERIES ---------------------------------------
+
+
+//#endregion --------------------------------------------------------------------------------------

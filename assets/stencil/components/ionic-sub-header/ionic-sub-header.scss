@@ -4,6 +4,7 @@
   font-family: $font-family-inter;
   position: sticky;
   top: 0;
+  top: -.5px;
   z-index: 99;
   backdrop-filter: blur(20px);
   transition: .2s box-shadow;

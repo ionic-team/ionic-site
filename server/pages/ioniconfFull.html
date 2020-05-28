@@ -8,7 +8,25 @@
 {% set cssPath = 'ioniconfFull' %}
 
 {% block main %}
+<header id="header" class="u-box">
+  <nav id="mainNav" class="u-box">
+    <div class="container u-flex u-align-items-c u-h100" >
+      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
+        <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
+      </svg>
 
+      <ul class="u-flex u-grow u-just-cont-c">
+        <li class="u-box">Speakers</li>
+        <li class="u-box">Event</li>
+        <li class="u-box">Schedule</li>
+      </ul>
+
+      <button class="btn-main u-box u-font">Register Now</button>
+    </div>
+  </nav>
+</header>
+
+<main>
 <section id="landing">
   <svg id="landingBack" class="u-box" width="1800" height="1099" viewBox="0 0 1800 1099" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <mask id="ioniconf_hero_mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1800" height="1099">
@@ -695,9 +713,12 @@
     </defs>
   </svg>
 
-  <div class="container">
-    <article id="landingInfo">
-      <svg width="448" height="104" viewBox="0 0 448 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div id="navSpace"></div>
+
+  <div id="landingContent" class="container u-box u-flex">    
+
+    <article id="landingMain" class="u-box u-flex-c">
+      <svg viewBox="0 0 448 104" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.6055 21.3084C8.76758 21.3084 11.211 19.0335 11.211 15.9056C11.211 12.6354 8.76758 10.3606 5.6055 10.3606C2.29969 10.3606 0 12.6354 0 15.9056C0 19.0335 2.29969 21.3084 5.6055 21.3084ZM2.15595 102.294H8.9113V30.6353H2.15595V102.294Z" fill="white"/>
         <path d="M52.4701 104C75.1796 104 88.9778 85.9432 88.9778 66.4646C88.9778 46.986 75.1796 28.9292 52.4701 28.9292C29.7606 28.9292 15.9625 46.986 15.9625 66.4646C15.9625 85.9432 29.7606 104 52.4701 104ZM22.8615 66.4646C22.8615 49.1187 34.36 35.0429 52.4701 35.0429C70.5802 35.0429 82.0787 49.1187 82.0787 66.4646C82.0787 83.8105 70.5802 97.8863 52.4701 97.8863C34.36 97.8863 22.8615 83.8105 22.8615 66.4646Z" fill="white"/>
         <path d="M104.381 30.6353H97.6252V102.294H104.381V59.0712C104.381 43.005 115.448 34.9007 128.527 34.9007C143.044 34.9007 149.943 43.5737 149.943 58.076V102.294H156.699V56.0855C156.699 40.5879 147.212 28.9292 129.102 28.9292C113.723 28.9292 106.537 38.1708 104.381 42.2941V30.6353Z" fill="white"/>
@@ -708,14 +729,17 @@
         <path d="M416.794 42.0097V102.294H433.898V42.0097H448V28.5026H433.898V26.0189C433.898 17.9146 436.629 15.071 443.528 15.071C445.828 15.071 448 15.071 448 15.071V0.582364C448 0.582364 443.368 0 440.063 0C425.833 0 416.794 7.6777 416.794 25.0236V42.0097Z" fill="white"/>
       </svg>
 
-      <p>A one day, single-track online event celebrating the future of cross-platform app development — and the developer community powering the movement.</p>
+      <p class="p1 u-font">A one day, single-track online event celebrating the future of cross-platform app development — and the developer community powering the movement.</p>
     
-      <p>June 24, 2020</p>
-      <p>100% Online // Daytime hours</p>
-      <button>Register Now</button>
-    </article>
+      <p class="p2 u-font">June 24, 2020</p>
+      <p class="p3 u-font">100% Online // Daytime hours</p>
+      <button class="btn-main u-box u-font">Register Now</button>
+    </article> 
+ 
 
-    <svg id="landingImage" width="448" height="514" viewBox="0 0 448 514" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="u-spacer"></div>
+    
+    <svg id="landingImage" class="u-box" viewBox="0 0 448 514" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path opacity="0.7" d="M444.782 383.574L224 257.644" stroke="#567BFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.5 16"/>
       <path opacity="0.7" d="M224 257.643L3.21838 383.573" stroke="#567BFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.5 16"/>
       <path opacity="0.7" d="M224 2.57031L224 258.285" stroke="url(#ioniconf_logo_paint0_linear)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.5 16"/>
@@ -769,7 +793,7 @@
               <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
           </filter>
       </defs>
-    </svg>    
+    </svg> 
   </div>
 
 </section>
@@ -779,163 +803,331 @@
   <div class="container">
     <h2>Speakers</h2>
 
-    <p>Ioniconf features a lineup of experienced engineering leaders and developer experts from across the app development space.</p>
+    <p class="p2">Ioniconf features a lineup of experienced engineering leaders and developer experts from across the app development space.</p>
   
 
-    <div>
-      <article>
-        <img  src="/img/ioniconf/john-papa@2x.png"
+    <div id="speakersContent" class="u-flex u-wrap">
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/john-papa@2x.png"
               srcset="/img/ioniconf/john-papa@1x.png 1x,
                       /img/ioniconf/john-papa@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="John Papa speaking" />
         <h3>John Papa</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>      
+        </div>
+        <p class="p3">Professional Web and Mobile Developer, Developer Advocate for Microsoft, and an avid OSS and community advocate.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/ana-cidre@2x.png"
               srcset="/img/ioniconf/ana-cidre@1x.png 1x,
                       /img/ioniconf/ana-cidre@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="ana cidre headshot" />
         <h3>Ana Cidre</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">International speaker, Developer Advocate at Auth0, and organizer of GalsTech and ngSpain.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/shawn-wang@2x.png"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/shawn-wang@2x.png"
               srcset="/img/ioniconf/shawn-wang@1x.png 1x,
                       /img/ioniconf/shawn-wang@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="Shawn Wang headshot" />
         <h3>Shawn Wang</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">React developer and open source contributor. Writer, speaker, and teacher at Egghead.io.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/simon-grimm@2x.png"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/simon-grimm@2x.png"
               srcset="/img/ioniconf/simon-grimm@1x.png 1x,
                       /img/ioniconf/simon-grimm@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="Simon Grimm headshot" />
         <h3>Simon Grimm</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Ionic Developer Expert helping developers to learn Ionic Framework faster at the Ionic Academy.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/lukas-ruebbelke@2x.png"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/lukas-ruebbelke@2x.png"
               srcset="/img/ioniconf/lukas-ruebbelke@1x.png 1x,
                       /img/ioniconf/lukas-ruebbelke@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="Lukas Ruebbelke headshot" />
         <h3>Lukas Ruebbelke</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">VP of Developer Growth at BrieBug. Mentor, trainer, GDE, author, conference speaker, event organizer.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Ana Cidre headshot" />
-        <h3>Yvonne Allen</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
-      </article>
-      <article>
-        <img  src="/img/ioniconf/yvonne-allen@2x.png"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/yvonne-allen@2x.png"
               srcset="/img/ioniconf/yvonne-allen@1x.png 1x,
                       /img/ioniconf/yvonne-allen@2x.png 2x"
               loading="lazy"
               width="456" height="456"
               alt="Yvonne Allen headshot" />
+        <h3>Yvonne Allen</h3>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Java Developer Advocate at Vonage. Speaker, co-organizer for GDG Atlanta, a member of Women Who Code.</p>
+      </article>
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/cecelia-martinez@2x.png"
+              srcset="/img/ioniconf/cecelia-martinez@1x.png 1x,
+                      /img/ioniconf/cecelia-martinez@2x.png 2x"
+              loading="lazy"
+              width="456" height="456"
+              alt="Cecelia Martinez headshot" />
         <h3>Cecelia Martinez</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Success Engineer Cypress.io. Volunteer at Women Who Code Front End and Out in Tech Atlanta.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/liam-debeasi@2x.png"
+              srcset="/img/ioniconf/liam-debeasi@1x.png 1x,
+                      /img/ioniconf/liam-debeasi@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Liam DeBeasi cartoon headshot" />
         <h3>Liam DeBeasi</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Core engineer on Ionic Framework. Making sure cross-platform apps are accessible to everyone.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/jedi-weller@2x.png"
+              srcset="/img/ioniconf/jedi-weller@1x.png 1x,
+                      /img/ioniconf/jedi-weller@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Jedi Willer headshot" />
         <h3>Jedi Weller</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Speaker, community leader, and CEO at OpenForge. Advocating for empowering businesses through technology.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/aaron-saunders@2x.png"
+              srcset="/img/ioniconf/aaron-saunders@1x.png 1x,
+                      /img/ioniconf/aaron-saunders@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Aaron Saunders headshot" />
         <h3>Aaron Saunders</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Tech entrepreneur, author, and Ionic Developer Expert. CEO of Clearly Innovative.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/diana-rodriguez@2x.png"
+              srcset="/img/ioniconf/diana-rodriguez@1x.png 1x,
+                      /img/ioniconf/diana-rodriguez@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Diana Rodriguez cartoon headshot" />
         <h3>Diana Rodriguez</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Full Stack Developer & DevOps lover of all things web and cloud! Python Developer Advocate at Vonage.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/max-lynch@2x.png"
+              srcset="/img/ioniconf/max-lynch@1x.png 1x,
+                      /img/ioniconf/max-lynch@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Max Lynch headshot" />
         <h3>Max Lynch</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Co-founder and CEO at Ionic. Here is some more information on this person and it is so good to read it.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/ben-sperry@2x.png"
+              srcset="/img/ioniconf/ben-sperry@1x.png 1x,
+                      /img/ioniconf/ben-sperry@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Ben Sperry headshot" />
         <h3>Ben Sperry</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Co-founder and CDO at Ionic. Here is some more information on this person and it is so good to read it.</p>
       </article>
-      <article>
-        <img  src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
+      <article class="u-box">
+        <img  class="u-box"
+              src="/img/ioniconf/mike-hartington@2x.png"
+              srcset="/img/ioniconf/mike-hartington@1x.png 1x,
+                      /img/ioniconf/mike-hartington@2x.png 2x"
               loading="lazy"
               width="456" height="456"
-              alt="ana cidre headshot" />
+              alt="Mike Hartington with a luscious beard" />
         <h3>Mike Hartington</h3>
-        <div><img src="" alt=""><img src="" alt=""></div>
-        <p></p>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+            <defs/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+          </svg>
+        </div>
+        <p class="p3">Developer Advocate at Ionic. He is drinker of whiskey, coder of code, and MC for Ioniconf 2020.</p>
       </article>
     </div>
   </div>
@@ -945,6 +1137,100 @@
 <section>
   <div class="container">
     <h3>Topics & technologies covered:</h3>
+    <div>
+      <img  src="/img/ioniconf/logo-ionic@2x.png"
+            srcset="/img/ioniconf/logo-ionic@1x.png 1x,
+                    /img/ioniconf/logo-ionic@2x.png 2x"
+            loading="lazy"
+            width="40" height="40"
+            alt="Ionic Logo" />
+      <img  src="/img/ioniconf/logo-vue@2x.png"
+            srcset="/img/ioniconf/logo-vue@1x.png 1x,
+                    /img/ioniconf/logo-vue@2x.png 2x"
+            loading="lazy"
+            width="46" height="40"
+            alt="Vue Logo" />
+      <img  src="/img/ioniconf/logo-nodejs@2x.png"
+            srcset="/img/ioniconf/logo-nodejs@1x.png 1x,
+                    /img/ioniconf/logo-nodejs@2x.png 2x"
+            loading="lazy"
+            width="34" height="40"
+            alt="nodejs logo" />
+      <img  src="/img/ioniconf/logo-angular@2x.png"
+            srcset="/img/ioniconf/logo-angular@1x.png 1x,
+                    /img/ioniconf/logo-angular@2x.png 2x"
+            loading="lazy"
+            width="38" height="40"
+            alt="Angular Logo" />
+      <img  src="/img/ioniconf/logo-react@2x.png"
+            srcset="/img/ioniconf/logo-react@1x.png 1x,
+                    /img/ioniconf/logo-react@2x.png 2x"
+            loading="lazy"
+            width="45" height="40"
+            alt="React Logo" />
+      <img  src="/img/ioniconf/logo-javascript@2x.png"
+            srcset="/img/ioniconf/logo-javascript@1x.png 1x,
+                    /img/ioniconf/logo-javascript@2x.png 2x"
+            loading="lazy"
+            width="40" height="40"
+            alt="JavaScript Logo" />
+      <img  src="/img/ioniconf/logo-typescript@2x.png"
+            srcset="/img/ioniconf/logo-typescript@1x.png 1x,
+                    /img/ioniconf/logo-typescript@2x.png 2x"
+            loading="lazy"
+            width="40" height="40"
+            alt="TypeScript Logo" />
+      <img  src="/img/ioniconf/logo-html@2x.png"
+            srcset="/img/ioniconf/logo-html@1x.png 1x,
+                    /img/ioniconf/logo-html@2x.png 2x"
+            loading="lazy"
+            width="34" height="40"
+            alt="HTML Logo" />
+    </div>
+    <div>
+      <img  src="/img/ioniconf/logo-css@2x.png"
+            srcset="/img/ioniconf/logo-css@1x.png 1x,
+                    /img/ioniconf/logo-css@2x.png 2x"
+            loading="lazy"
+            width="34" height="40"
+            alt="CSS Logo" />
+      <img  src="/img/ioniconf/logo-capacitor@2x.png"
+            srcset="/img/ioniconf/logo-capacitor@1x.png 1x,
+                    /img/ioniconf/logo-capacitor@2x.png 2x"
+            loading="lazy"
+            width="40" height="40"
+            alt="Capacitor Logo" />
+      <img  src="/img/ioniconf/logo-auth0@2x.png"
+            srcset="/img/ioniconf/logo-auth0@1x.png 1x,
+                    /img/ioniconf/logo-auth0@2x.png 2x"
+            loading="lazy"
+            width="36" height="40"
+            alt="Auth0 Logo" />
+      <img  src="/img/ioniconf/logo-android@2x.png"
+            srcset="/img/ioniconf/logo-android@1x.png 1x,
+                    /img/ioniconf/logo-android@2x.png 2x"
+            loading="lazy"
+            width="44" height="40"
+            alt="Android Logo" />
+      <img  src="/img/ioniconf/logo-apple@2x.png"
+            srcset="/img/ioniconf/logo-apple@1x.png 1x,
+                    /img/ioniconf/logo-apple@2x.png 2x"
+            loading="lazy"
+            width="34" height="40"
+            alt="Apple Logo" />
+      <img  src="/img/ioniconf/logo-pwa@2x.png"
+            srcset="/img/ioniconf/logo-pwa@1x.png 1x,
+                    /img/ioniconf/logo-pwa@2x.png 2x"
+            loading="lazy"
+            width="44" height="40"
+            alt="PWA Logo" />
+      <img  src="/img/ioniconf/logo-stencil@2x.png"
+            srcset="/img/ioniconf/logo-stencil@1x.png 1x,
+                    /img/ioniconf/logo-stencil@2x.png 2x"
+            loading="lazy"
+            width="48" height="36"
+            alt="Stencil Logo" />
+    </div>
   </div>
   
 </section>
@@ -955,9 +1241,9 @@
     <div id="eventInfo">
       <h2>Event</h2>
 
-      <p>The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
-      <p>Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
-      <p>We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
+      <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
+      <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
+      <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
     </div>
 
     <div>
@@ -970,13 +1256,24 @@
 <section>
   <h2>Schedule</h2>
 
-  <p>Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.</p>
+  <p class="p2">Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.</p>
 </section>
 <section></section>
+</main>
+
+
+
 {% endblock %}
 
 {% block scripts %}
-<script>
+<script>  
+  const nav = document.querySelector("#mainNav");
+  let scrolled = window.scrollY > 0;
 
+  let observer = new IntersectionObserver(() => {
+    scrolled ? nav.classList.add("scrolled") : nav.classList.remove("scrolled");
+    scrolled = !scrolled;
+  });   
+  observer.observe(document.querySelector('#navSpace'));
 </script>
 {% endblock %}

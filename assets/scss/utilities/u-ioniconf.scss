@@ -5,6 +5,13 @@
   display:flex;
   flex-direction:column;
 }
+.u-grow {
+  flex-grow: 1;
+}
+.u-fill {
+  height: 100%;
+  width: 100%;
+}
 .u-wrap {
   flex-wrap:wrap;
 }
@@ -21,8 +28,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+.u-inline {
+  display:inline;
+}
 .u-w100 {
   width: 100%;
+}
+.u-h100 {
+  height: 100%;
 }
 .u-ml-auto {
   margin-left: auto;
@@ -34,7 +47,8 @@
 @mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
            $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
            $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $bR: null, $pos: null,
-           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null) {
+           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
+           $pTop:null, $pBot:null, $pLeft:null, $pRight:null) {
   #{$element}.u-box {
     box-sizing: border-box;
     padding-left: #{$pX};
@@ -63,7 +77,10 @@
     left: #{$l};
     z-index: #{$z};
     border: #{$bord};
-
+    padding-top: #{$pTop};
+    padding-right: #{$pRight};
+    padding-bottom: #{$pBot};
+    padding-left: #{$pLeft};
   }
 }
 

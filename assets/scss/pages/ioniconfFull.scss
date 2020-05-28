@@ -13,26 +13,158 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $timingFunction: cubic-bezier(.09,.73,.71,.65);
 
+:root {
+  --navHeight:78px;
+}
 //#endregion ------------------------------------------------------------------------------
 
 //#region ----------------------------- COMPONENT STYLES ----------------------------------
+@keyframes pushUp {
+  to {
+    transform: translateY(-1px);
+    filter:  hue-rotate(125deg);
+    box-shadow: 0px 4px 8px black;
+  }
+}
+@keyframes pushDown {
+  0% {
+    transform: translateY(-1px);
+    filter:  hue-rotate(125deg);
+    box-shadow: 0px 4px 8px black;
+  }
+  100% { transform: translateY(0px); }
+}
 
+.btn-main{
+  animation: pushDown 200ms $timingFunction;
+  animation-fill-mode: forwards;
+
+  &:hover, &:active, &:focus{
+    animation: pushUp 200ms $timingFunction;
+    animation-fill-mode: forwards;
+  }
+
+}
 
 // #endregion ------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC STYLES -----------------------------------
 html, body {
   background: $colorBackMain;
-  position:relative;
-  z-index: -2;
+  z-index: -2;  
+}
+
+ul {
+  list-style-type: none;
+  margin:0;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: white;
+  display: flex;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.p2 {
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -0.03em;
+  color: #DEE3EA;
+}
+
+.p3 {
+  font-size: 16px;
+  line-height: 180%;
+  letter-spacing: -0.01em;
+  color: #DEE3EA;
 }
 
 // #endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- PAGE STYLES ---------------------------------------
+#header {
+@include box($pos:sticky, $t: 0, $z:1);
+}
 
+#mainNav {
+@include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $r:0, $t:0, $pLeft: 15px, $pRight: 15px);
+  transition:background 500ms ease;
+
+  & ul > li {
+  @include box($mLeft:32px, $mRight:32px, $color:white);
+    font-size: 16px;
+  }
+
+  &.scrolled {
+    background:$colorBackMain;
+  }
+
+  button {
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+  }
+}
+
+#navSpace {
+  height: var(--navHeight);
+  
+}
 #landingBack {
 @include box($pos: absolute, $z: -1);
+}
+#landingContent {
+@include box($mTop: 165px, $mBot: 145px);
+@include spacer($el:"& ", $mxW:128px, $mnW: 32px, $fG:1);
+}
+#landingMain {
+@include box($mxW: 461px);
+
+  .p1{
+  @include font($fs:24px, $lh:160%, $ls: -.02em);
+    color: white;
+  }
+  .p2{
+  @include font($ff:$fontFamilyRoboto, $fs:24px, $lh:160%, $ls: .16em, $fw:500, $tt:uppercase);
+    color: white;
+  }
+  .p3{
+  @include font($fs:16px, $lh:160%);
+    color: #B2BECD;
+    opacity: .8;
+  }
+
+  button {
+  @include box($h: 51px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px);
+  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+    :host(.s-ionicon) {
+      background:red;
+    }
+  }
+
+}
+#landingImage {
+@include box($mxW: 448px, $h: auto, $fG:1);
+
+}
+
+#speakersContent {
+  article {
+  @include box($mxW:298px);
+    img {
+    @include box($mxW: 228px, $h:auto);
+    }
+  }
 }
 //#endregion --------------------------------------------------------------------------------
 

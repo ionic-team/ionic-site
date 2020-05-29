@@ -48,9 +48,9 @@
            $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
            $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $bR: null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
-           $pTop:null, $pBot:null, $pLeft:null, $pRight:null) {
+           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $ai:null) {
   #{$element}.u-box {
-    box-sizing: border-box;
+    display:#{$d};
     padding-left: #{$pX};
     padding-right: #{$pX};
     padding-top: #{$pY};
@@ -81,6 +81,10 @@
     padding-right: #{$pRight};
     padding-bottom: #{$pBot};
     padding-left: #{$pLeft};
+    grid-template-columns: #{$gtc};
+    grid-gap: #{$gg};
+    justify-content:#{$jc};
+    align-items:#{$ai};
   }
 }
 

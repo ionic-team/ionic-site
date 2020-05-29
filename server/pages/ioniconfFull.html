@@ -5,23 +5,26 @@
 {% set meta_image = 'https://ionicframework.com/img/meta/ioniconf-ogimg.png'%}
 {% set meta_description = 'Ionic’s one day, single-track online conference on modern cross-platform app development. Learn from app architects and engineering leaders in an interactive digital experience.' %}
 {% set favicons = [['/img/meta/ioniconf-favicon-64x64.png', '64x64']] %}   
+{% set noGlobalStyles = true %}
 {% set cssPath = 'ioniconfFull' %}
 
 {% block main %}
 <header id="header" class="u-box">
-  <nav id="mainNav" class="u-box">
+  <nav id="mainNav" class="u-box nav">
     <div class="container u-flex u-align-items-c u-h100" >
-      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
-        <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
-      </svg>
+      <a href="/">
+        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
+          <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
+        </svg>
+      </a>
 
-      <ul class="u-flex u-grow u-just-cont-c">
-        <li class="u-box">Speakers</li>
-        <li class="u-box">Event</li>
-        <li class="u-box">Schedule</li>
+      <ul class="u-flex u-grow u-just-cont-c nav__sections">
+        <li class="u-box"><a href="#">Speakers</a></li>
+        <li class="u-box"><a href="#">Event</a></li>
+        <li class="u-box"><a href="#">Schedule</a></li>
       </ul>
 
-      <button class="btn-main u-box u-font">Register Now</button>
+      <button class="btn-main nav__button u-box u-font">Register Now</button>
     </div>
   </nav>
 </header>
@@ -806,326 +809,473 @@
     <p class="p2">Ioniconf features a lineup of experienced engineering leaders and developer experts from across the app development space.</p>
   
 
-    <div id="speakersContent" class="u-flex u-wrap">
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/john-papa@2x.png"
-              srcset="/img/ioniconf/john-papa@1x.png 1x,
-                      /img/ioniconf/john-papa@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="John Papa speaking" />
-        <h3>John Papa</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+    <div id="speakersContent" class="u-box">
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/john-papa@2x.png"
+                srcset="/img/ioniconf/john-papa@1x.png 1x,
+                        /img/ioniconf/john-papa@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="John Papa speaking" />
+          <svg id="johnOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.166 5.83057V195.831C134.166 200.249 130.584 203.831 126.166 203.831H4.66614" stroke="url(#john_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.166 5.83057C139.166 3.06914 136.928 0.830566 134.166 0.830566C131.405 0.830566 129.166 3.06914 129.166 5.83057C129.166 8.59199 131.405 10.8306 134.166 10.8306C136.928 10.8306 139.166 8.59199 139.166 5.83057Z" fill="#2CEDA8"/>
+            <path d="M10.1661 203.831C10.1661 201.069 7.92756 198.831 5.16614 198.831C2.40471 198.831 0.166137 201.069 0.166137 203.831C0.166138 206.592 2.40471 208.831 5.16614 208.831C7.92756 208.831 10.1661 206.592 10.1661 203.831Z" fill="#6AC5FF"/>
+            <defs>
+            <linearGradient id="john_outline_paint0_linear" x1="134.166" y1="33.8306" x2="48.1661" y2="203.831" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset="1" stop-color="#6AC5FF"/>
+            </linearGradient>
+            </defs>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>      
+        </div>
+        <div class="card__title u-box">
+          <h3>John Papa</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Professional Web and Mobile Developer, Developer Advocate for Microsoft, and an avid OSS and community advocate.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/ana-cidre@2x.png"
-              srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                      /img/ioniconf/ana-cidre@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="ana cidre headshot" />
-        <h3>Ana Cidre</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/ana-cidre@2x.png"
+                srcset="/img/ioniconf/ana-cidre@1x.png 1x,
+                        /img/ioniconf/ana-cidre@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="ana cidre headshot" />
+          <svg id="anaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M203.167 5.83057L13.167 5.83056C8.74872 5.83056 5.167 9.41228 5.167 13.8306L5.16699 135.331" stroke="url(#ana_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M203.167 0.830567C205.928 0.830567 208.167 3.06914 208.167 5.83057C208.167 8.59199 205.928 10.8306 203.167 10.8306C200.406 10.8306 198.167 8.59199 198.167 5.83057C198.167 3.06914 200.406 0.830567 203.167 0.830567Z" fill="#FF8C4F"/>
+            <path d="M5.16699 129.831C7.92842 129.831 10.167 132.069 10.167 134.831C10.167 137.592 7.92842 139.831 5.16699 139.831C2.40557 139.831 0.166992 137.592 0.166993 134.831C0.166993 132.069 2.40557 129.831 5.16699 129.831Z" fill="#FF427D"/>
+            <defs>
+            <linearGradient id="ana_outline_paint0_linear" x1="175.167" y1="5.83058" x2="5.167" y2="91.8306" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C4F"/>
+            <stop offset="1" stop-color="#FF427D"/>
+            </linearGradient>
+            </defs>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+                  
+        </div>
+        <div class="card__title u-box">
+          <h3>Ana Cidre</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">International speaker, Developer Advocate at Auth0, and organizer of GalsTech and ngSpain.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/shawn-wang@2x.png"
-              srcset="/img/ioniconf/shawn-wang@1x.png 1x,
-                      /img/ioniconf/shawn-wang@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Shawn Wang headshot" />
-        <h3>Shawn Wang</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/shawn-wang@2x.png"
+                srcset="/img/ioniconf/shawn-wang@1x.png 1x,
+                        /img/ioniconf/shawn-wang@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Shawn Wang headshot" />
+          <svg id="shawnOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.16602 5.83058L5.16603 195.831C5.16603 200.249 8.74776 203.831 13.166 203.831L134.666 203.831" stroke="url(#shawn_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M0.166015 5.83057C0.166015 3.06914 2.40459 0.830567 5.16602 0.830567C7.92744 0.830567 10.166 3.06914 10.166 5.83057C10.166 8.59199 7.92744 10.8306 5.16602 10.8306C2.40459 10.8306 0.166016 8.59199 0.166015 5.83057Z" fill="#38EA6E"/>
+            <path d="M129.166 203.831C129.166 201.069 131.405 198.831 134.166 198.831C136.927 198.831 139.166 201.069 139.166 203.831C139.166 206.592 136.927 208.831 134.166 208.831C131.405 208.831 129.166 206.592 129.166 203.831Z" fill="#FFB547"/>
+            <defs>
+            <linearGradient id="shawn_outline_paint0_linear" x1="5.16603" y1="33.8306" x2="91.166" y2="203.831" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38EA6E"/>
+            <stop offset="1" stop-color="#FFB547"/>
+            </linearGradient>
+            </defs>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+                  
+        </div>
+        <div class="card__title u-box">
+          <h3>Shawn Wang</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">React developer and open source contributor. Writer, speaker, and teacher at Egghead.io.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/simon-grimm@2x.png"
-              srcset="/img/ioniconf/simon-grimm@1x.png 1x,
-                      /img/ioniconf/simon-grimm@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Simon Grimm headshot" />
-        <h3>Simon Grimm</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/simon-grimm@2x.png"
+                srcset="/img/ioniconf/simon-grimm@1x.png 1x,
+                        /img/ioniconf/simon-grimm@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Simon Grimm headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Simon Grimm</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Ionic Developer Expert helping developers to learn Ionic Framework faster at the Ionic Academy.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/lukas-ruebbelke@2x.png"
-              srcset="/img/ioniconf/lukas-ruebbelke@1x.png 1x,
-                      /img/ioniconf/lukas-ruebbelke@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Lukas Ruebbelke headshot" />
-        <h3>Lukas Ruebbelke</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/lukas-ruebbelke@2x.png"
+                srcset="/img/ioniconf/lukas-ruebbelke@1x.png 1x,
+                        /img/ioniconf/lukas-ruebbelke@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Lukas Ruebbelke headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Lukas Ruebbelke</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">VP of Developer Growth at BrieBug. Mentor, trainer, GDE, author, conference speaker, event organizer.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/yvonne-allen@2x.png"
-              srcset="/img/ioniconf/yvonne-allen@1x.png 1x,
-                      /img/ioniconf/yvonne-allen@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Yvonne Allen headshot" />
-        <h3>Yvonne Allen</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/yvonne-allen@2x.png"
+                srcset="/img/ioniconf/yvonne-allen@1x.png 1x,
+                        /img/ioniconf/yvonne-allen@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Yvonne Allen headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Yvonne Allen</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Java Developer Advocate at Vonage. Speaker, co-organizer for GDG Atlanta, a member of Women Who Code.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/cecelia-martinez@2x.png"
-              srcset="/img/ioniconf/cecelia-martinez@1x.png 1x,
-                      /img/ioniconf/cecelia-martinez@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Cecelia Martinez headshot" />
-        <h3>Cecelia Martinez</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/cecelia-martinez@2x.png"
+                srcset="/img/ioniconf/cecelia-martinez@1x.png 1x,
+                        /img/ioniconf/cecelia-martinez@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Cecelia Martinez headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Cecelia Martinez</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Success Engineer Cypress.io. Volunteer at Women Who Code Front End and Out in Tech Atlanta.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/liam-debeasi@2x.png"
-              srcset="/img/ioniconf/liam-debeasi@1x.png 1x,
-                      /img/ioniconf/liam-debeasi@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Liam DeBeasi cartoon headshot" />
-        <h3>Liam DeBeasi</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/liam-debeasi@2x.png"
+                srcset="/img/ioniconf/liam-debeasi@1x.png 1x,
+                        /img/ioniconf/liam-debeasi@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Liam DeBeasi cartoon headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Liam DeBeasi</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Core engineer on Ionic Framework. Making sure cross-platform apps are accessible to everyone.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/jedi-weller@2x.png"
-              srcset="/img/ioniconf/jedi-weller@1x.png 1x,
-                      /img/ioniconf/jedi-weller@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Jedi Willer headshot" />
-        <h3>Jedi Weller</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/jedi-weller@2x.png"
+                srcset="/img/ioniconf/jedi-weller@1x.png 1x,
+                        /img/ioniconf/jedi-weller@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Jedi Willer headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Jedi Weller</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Speaker, community leader, and CEO at OpenForge. Advocating for empowering businesses through technology.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/aaron-saunders@2x.png"
-              srcset="/img/ioniconf/aaron-saunders@1x.png 1x,
-                      /img/ioniconf/aaron-saunders@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Aaron Saunders headshot" />
-        <h3>Aaron Saunders</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/aaron-saunders@2x.png"
+                srcset="/img/ioniconf/aaron-saunders@1x.png 1x,
+                        /img/ioniconf/aaron-saunders@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Aaron Saunders headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Aaron Saunders</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Tech entrepreneur, author, and Ionic Developer Expert. CEO of Clearly Innovative.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/diana-rodriguez@2x.png"
-              srcset="/img/ioniconf/diana-rodriguez@1x.png 1x,
-                      /img/ioniconf/diana-rodriguez@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Diana Rodriguez cartoon headshot" />
-        <h3>Diana Rodriguez</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/diana-rodriguez@2x.png"
+                srcset="/img/ioniconf/diana-rodriguez@1x.png 1x,
+                        /img/ioniconf/diana-rodriguez@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Diana Rodriguez cartoon headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Diana Rodriguez</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Full Stack Developer & DevOps lover of all things web and cloud! Python Developer Advocate at Vonage.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/max-lynch@2x.png"
-              srcset="/img/ioniconf/max-lynch@1x.png 1x,
-                      /img/ioniconf/max-lynch@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Max Lynch headshot" />
-        <h3>Max Lynch</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/max-lynch@2x.png"
+                srcset="/img/ioniconf/max-lynch@1x.png 1x,
+                        /img/ioniconf/max-lynch@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Max Lynch headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Max Lynch</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Co-founder and CEO at Ionic. Here is some more information on this person and it is so good to read it.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/ben-sperry@2x.png"
-              srcset="/img/ioniconf/ben-sperry@1x.png 1x,
-                      /img/ioniconf/ben-sperry@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Ben Sperry headshot" />
-        <h3>Ben Sperry</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/ben-sperry@2x.png"
+                srcset="/img/ioniconf/ben-sperry@1x.png 1x,
+                        /img/ioniconf/ben-sperry@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Ben Sperry headshot" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Ben Sperry</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Co-founder and CDO at Ionic. Here is some more information on this person and it is so good to read it.</p>
       </article>
-      <article class="u-box">
-        <img  class="u-box"
-              src="/img/ioniconf/mike-hartington@2x.png"
-              srcset="/img/ioniconf/mike-hartington@1x.png 1x,
-                      /img/ioniconf/mike-hartington@2x.png 2x"
-              loading="lazy"
-              width="456" height="456"
-              alt="Mike Hartington with a luscious beard" />
-        <h3>Mike Hartington</h3>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-            <defs/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-          </svg>
+      <article class="card u-box">
+        <div class="card__images u-box">
+          <img  class="u-box"
+                src="/img/ioniconf/mike-hartington@2x.png"
+                srcset="/img/ioniconf/mike-hartington@1x.png 1x,
+                        /img/ioniconf/mike-hartington@2x.png 2x"
+                loading="lazy"
+                width="456" height="456"
+                alt="Mike Hartington with a luscious beard" />
+        </div>
+        <div class="card__title u-box">
+          <h3>Mike Hartington</h3>
+          <span class="card__icons u-flex u-align-items-c">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+                <defs/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+              </svg>      
+            </a>
+          </span>
         </div>
         <p class="p3">Developer Advocate at Ionic. He is drinker of whiskey, coder of code, and MC for Ioniconf 2020.</p>
       </article>
@@ -1270,7 +1420,7 @@
   const nav = document.querySelector("#mainNav");
   let scrolled = window.scrollY > 0;
 
-  let observer = new IntersectionObserver(() => {
+  const observer = new IntersectionObserver(() => {
     scrolled ? nav.classList.add("scrolled") : nav.classList.remove("scrolled");
     scrolled = !scrolled;
   });   

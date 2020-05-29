@@ -1,6 +1,8 @@
 //#region ----------------------------- IMPORTS ------------------------------------------
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 @import '../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../fonts';
+
 @import '../utilities/u-ioniconf';
 //#endregion ----------------------------------------------------------------------------
 
@@ -11,6 +13,8 @@ $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+$fontFamilyInter: $font-family-inter;
+$fontFamilyEina: $font-family-eina;
 $timingFunction: cubic-bezier(.09,.73,.71,.65);
 
 :root {
@@ -46,20 +50,78 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
 
 }
 
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.container:after,.container:before {
+  display: table;
+  content: " "
+}
+
+.container:after {
+  clear: both
+}
+
+@media (min-width: 768px) {
+  .container {
+      width:750px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+      width:970px
+  }
+}
+
+@media (min-width: 1104px) {
+  .container {
+      width:1054px
+  }
+}
+
+#header .nav__sections {
+  
+}
 // #endregion ------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC STYLES -----------------------------------
+
+body * {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
 html, body {
   background: $colorBackMain;
+  position:relative;
   z-index: -2;  
+}
+
+p, li, button {
+  font-family:$fontFamilyInter;
+}
+
+h1, h2, h3 {
+  font-family: $fontFamilyEina;
 }
 
 ul {
   list-style-type: none;
   margin:0;
+  padding-inline-start: 0;
 }
 
 h2 {
+  margin: 0;
   font-weight: 600;
   font-size: 48px;
   line-height: 120%;
@@ -69,11 +131,16 @@ h2 {
 }
 
 h3 {
+  margin: 0;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.01em;
   color: #FFFFFF;
+}
+
+p {
+  margin: 0;
 }
 
 .p2 {
@@ -86,7 +153,7 @@ h3 {
 .p3 {
   font-size: 16px;
   line-height: 180%;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   color: #DEE3EA;
 }
 
@@ -95,33 +162,64 @@ h3 {
 //#region ----------------------------- PAGE STYLES ---------------------------------------
 #header {
 @include box($pos:sticky, $t: 0, $z:1);
+
+  .nav {
+  @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $r:0, $t:0);
+      transition:background 500ms ease;
+    
+    .nav__sections {
+      a{        
+        display:inline-block;
+        transform:translateY(0px);
+        position: relative;
+        transition: all 0.3s cubic-bezier(.16,.66,.64,.83);
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          width: 0px;
+          height: 5px;
+          margin: 5px 0 0;
+          transition: all 0.3s cubic-bezier(.16,.66,.64,.83);
+          opacity: 0;          
+          background-image: linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%);
+        }
+      }
+      a:hover, a:active, a:focus{
+        transform:translateY(-2px);
+        &:before {          
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    
+      & > li {
+      @include box($mLeft:32px, $mRight:32px, $color:white);
+        font-size: 16px;
+      }
+    }
+
+    &.scrolled {
+      background:$colorBackMain;
+    }
+
+    .nav__button {
+    @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+    @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+    }
+  }
 }
 
-#mainNav {
-@include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $r:0, $t:0, $pLeft: 15px, $pRight: 15px);
-  transition:background 500ms ease;
 
-  & ul > li {
-  @include box($mLeft:32px, $mRight:32px, $color:white);
-    font-size: 16px;
-  }
-
-  &.scrolled {
-    background:$colorBackMain;
-  }
-
-  button {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
-  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
-  }
-}
 
 #navSpace {
   height: var(--navHeight);
   
 }
+
 #landingBack {
 @include box($pos: absolute, $z: -1);
+  
 }
 #landingContent {
 @include box($mTop: 165px, $mBot: 145px);
@@ -146,7 +244,7 @@ h3 {
 
   button {
   @include box($h: 51px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px);
-  @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
+  @include font($fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
     :host(.s-ionicon) {
       background:red;
     }
@@ -159,12 +257,41 @@ h3 {
 }
 
 #speakersContent {
-  article {
-  @include box($mxW:298px);
+@include box($d:grid, $gtc: "repeat(auto-fit, minmax(228px,1fr))", $gg: 64px);
+
+  .card {
+  @include box($mxW:298px, $mBot: 100px);
     img {
     @include box($mxW: 228px, $h:auto);
     }
   }
+
+  .card__images {
+  @include box($d:inline-block, $pos:relative, $mxH:228px);
+
+  }
+  
+  .card__title {
+  @include box($d:flex, $jc:space-between, $ai:center, $mTop:40px, $mBot: 14px);
+
+    .card__icons {
+      & > :first-child {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+
+
+#johnOutline {
+@include box($pos:absolute, $r:-5px, $b:-5px);
+}
+#anaOutline {
+@include box($pos:absolute, $t:-5px, $l:-5px);
+}
+#shawnOutline {
+@include box($pos:absolute, $l:-5px, $b:-5px);
 }
 //#endregion --------------------------------------------------------------------------------
 

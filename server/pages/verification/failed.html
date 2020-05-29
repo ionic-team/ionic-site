@@ -1,0 +1,18 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'verification-failed' %}
+{% set header_style = 'transparent light' %}
+{% set pre_footer = false %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+<main class="container hero text-center">
+  <div class="content">
+    <h3>Whoops!</h3>
+    <p>Something went wrong with email verification!</p>
+    <a class="btn" href="{{ DASHBOARD_URL }}">Continue</a>
+  </div>
+</main>
+{% endblock %}

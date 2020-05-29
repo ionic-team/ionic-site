@@ -1,0 +1,18 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'verification-success' %}
+{% set header_style = 'transparent light' %}
+{% set pre_footer = false %}
+
+{% block header_includes %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block main %}
+<main class="container hero text-center">
+  <div class="content">
+    <h3>Thank you!</h3>
+    <p>Your email has successfully been verified! Now let the fun begin!</p>
+    <a class="btn" href="{{ DASHBOARD_URL }}">Get Started!</a>
+  </div>
+</main>
+{% endblock %}

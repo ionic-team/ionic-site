@@ -163,6 +163,8 @@ module.exports = {
       bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
 
     .get('/values', (_, res) => { res.render('values'); })
+    .get('/verification/failed', (_, res) => res.render('verification/failed'))
+    .get('/verification/success', (_, res) => res.render('verification/success'))
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
     .get('/x', getPrismicAPI, (req, res, next) =>

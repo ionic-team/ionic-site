@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96">
+    <defs/>
+    <path stroke="url(#icon_testing_paint0_linear)" stroke-linecap="round" stroke-width="4" d="M7 2v0C3.8 5.13 2 9.42 2 13.89v68.22C2 86.58 3.8 90.87 7 94v0" opacity=".2"/>
+    <path stroke="url(#icon_testing_paint1_linear)" stroke-linecap="round" stroke-width="4" d="M18 2v0c-3.2 3.13-5 7.42-5 11.89v68.22c0 4.47 1.8 8.76 5 11.89v0" opacity=".4"/>
+    <path stroke="url(#icon_testing_paint2_linear)" stroke-linecap="round" stroke-width="4" d="M89 2v0c3.2 3.13 5 7.42 5 11.89v68.22c0 4.47-1.8 8.76-5 11.89v0" opacity=".2"/>
+    <path stroke="url(#icon_testing_paint3_linear)" stroke-linecap="round" stroke-width="4" d="M78 2v0c3.2 3.13 5 7.42 5 11.89v68.22c0 4.47-1.8 8.76-5 11.89v0" opacity=".4"/>
+    <rect width="55" height="93" x="20.5" y="1.5" stroke="#fff" stroke-width="3" opacity=".5" rx="16.5"/>
+    <rect width="34" height="74" x="31" y="11" fill="#fff" opacity=".2" rx="9"/>
+    <circle cx="48" cy="78" r="2" fill="#fff" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 68V52" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 46V28" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48 68V46" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48 39V28" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M66 68V57" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M66 50V28" opacity=".8"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M24 52h12"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M42 40h12"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M60 56h12"/>
+    <path stroke="#FFF9E3" stroke-linecap="round" stroke-width="2" d="M66 22v-2a10 10 0 00-10-10H40a10 10 0 00-10 10v2" opacity=".6"/>
+    <path stroke="#FFF9E3" stroke-linecap="round" stroke-width="2" d="M66 74v2a10 10 0 01-10 10H40a10 10 0 01-10-10v-2" opacity=".6"/>
+    <defs>
+        <linearGradient id="icon_testing_paint0_linear" x1="4.5" x2="4.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff" stop-opacity=".3"/>
+            <stop offset=".51" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+        </linearGradient>
+        <linearGradient id="icon_testing_paint1_linear" x1="15.5" x2="15.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff" stop-opacity=".3"/>
+            <stop offset=".51" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+        </linearGradient>
+        <linearGradient id="icon_testing_paint2_linear" x1="91.5" x2="91.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff" stop-opacity=".3"/>
+            <stop offset=".51" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+        </linearGradient>
+        <linearGradient id="icon_testing_paint3_linear" x1="80.5" x2="80.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff" stop-opacity=".3"/>
+            <stop offset=".51" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+        </linearGradient>
+    </defs>
+</svg>

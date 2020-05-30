@@ -6,6 +6,7 @@
 {% set meta_description = 'Ionic’s one day, single-track online conference on modern cross-platform app development. Learn from app architects and engineering leaders in an interactive digital experience.' %}
 {% set favicons = [['/img/meta/ioniconf-favicon-64x64.png', '64x64']] %}   
 {% set noGlobalStyles = true %}
+{% set noGlobalStencil = true %}
 {% set cssPath = 'ioniconfFull' %}
 
 {% block main %}
@@ -18,10 +19,10 @@
         </svg>
       </a>
 
-      <ul class="u-flex u-grow u-just-cont-c nav__sections">
-        <li class="u-box"><a href="#">Speakers</a></li>
-        <li class="u-box"><a href="#">Event</a></li>
-        <li class="u-box"><a href="#">Schedule</a></li>
+      <ul class="u-flex u-grow u-just-cont-c nav__sections" role="tablist">
+        <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#speakers">Speakers</a></li>
+        <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#event">Event</a></li>
+        <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#schedule">Schedule</a></li>
       </ul>
 
       <button class="btn-main nav__button u-box u-font">Register Now</button>
@@ -802,7 +803,7 @@
 </section>
 
 
-<section>
+<section id="speakers">
   <div class="container">
     <h2>Speakers</h2>
 
@@ -946,7 +947,19 @@
                         /img/ioniconf/simon-grimm@2x.png 2x"
                 loading="lazy"
                 width="456" height="456"
-                alt="Simon Grimm headshot" />
+                alt="Simon Grimm headshot" /> 
+          <svg id="simonOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.053 203.858V13.8584C134.053 9.44012 130.471 5.8584 126.053 5.8584H4.5531" stroke="url(#simon_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.053 203.858C139.053 206.62 136.815 208.858 134.053 208.858C131.292 208.858 129.053 206.62 129.053 203.858C129.053 201.097 131.292 198.858 134.053 198.858C136.815 198.858 139.053 201.097 139.053 203.858Z" fill="#2CEDA8"/>
+            <path d="M10.0531 5.8584C10.0531 8.61982 7.81452 10.8584 5.0531 10.8584C2.29168 10.8584 0.0531002 8.61982 0.0531004 5.8584C0.0531005 3.09697 2.29168 0.858399 5.0531 0.858399C7.81452 0.858399 10.0531 3.09698 10.0531 5.8584Z" fill="#6AC5FF"/>
+            <defs>
+            <linearGradient id="simon_outline_paint0_linear" x1="134.053" y1="175.858" x2="48.0531" y2="5.8584" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset="1" stop-color="#6AC5FF"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Simon Grimm</h3>
@@ -978,6 +991,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Lukas Ruebbelke headshot" />
+          <svg id="lukasOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M203.054 134.891L13.0542 134.891C8.63592 134.891 5.0542 131.309 5.0542 126.891L5.0542 5.39088" stroke="url(#lukas_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M203.054 139.891C205.816 139.891 208.054 137.652 208.054 134.891C208.054 132.129 205.816 129.891 203.054 129.891C200.293 129.891 198.054 132.129 198.054 134.891C198.054 137.652 200.293 139.891 203.054 139.891Z" fill="#FF8C4F"/>
+            <path d="M5.0542 10.8909C7.81562 10.8909 10.0542 8.65229 10.0542 5.89087C10.0542 3.12944 7.81562 0.890868 5.0542 0.890869C2.29278 0.890869 0.0541994 3.12945 0.0541997 5.89087C0.0541999 8.65229 2.29278 10.8909 5.0542 10.8909Z" fill="#FF427D"/>
+            <defs>
+            <linearGradient id="lukas_outline_paint0_linear" x1="175.054" y1="134.891" x2="5.0542" y2="48.8909" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C4F"/>
+            <stop offset="1" stop-color="#FF427D"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Lukas Ruebbelke</h3>
@@ -1009,6 +1034,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Yvonne Allen headshot" />
+          <svg id="yvonneOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.011 203.942L134.011 13.9424C134.011 9.52409 130.429 5.94237 126.011 5.94237L4.51072 5.94238" stroke="url(#yvonne_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.011 203.942C139.011 206.704 136.772 208.942 134.011 208.942C131.249 208.942 129.011 206.704 129.011 203.942C129.011 201.181 131.249 198.942 134.011 198.942C136.772 198.942 139.011 201.181 139.011 203.942Z" fill="#38EA6E"/>
+            <path d="M10.0107 5.94238C10.0107 8.70381 7.77217 10.9424 5.01074 10.9424C2.24932 10.9424 0.0107425 8.70381 0.0107424 5.94238C0.0107423 3.18096 2.24932 0.942383 5.01074 0.942383C7.77217 0.942382 10.0107 3.18096 10.0107 5.94238Z" fill="#FFB547"/>
+            <defs>
+            <linearGradient id="yvonne_outline_paint0_linear" x1="134.011" y1="175.942" x2="48.0107" y2="5.94238" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38EA6E"/>
+            <stop offset="1" stop-color="#FFB547"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Yvonne Allen</h3>
@@ -1040,6 +1077,17 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Cecelia Martinez headshot" />
+          <svg id="ceceliaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.9757 134.948L195.976 134.948C200.394 134.948 203.976 131.366 203.976 126.948L203.976 5.44801" stroke="url(#cecelia_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M5.97571 139.948C3.21428 139.948 0.975707 137.709 0.975708 134.948C0.975708 132.187 3.21428 129.948 5.97571 129.948C8.73713 129.948 10.9757 132.187 10.9757 134.948C10.9757 137.709 8.73713 139.948 5.97571 139.948Z" fill="#FF8C4F"/>
+            <path d="M203.976 10.948C201.214 10.948 198.976 8.70942 198.976 5.948C198.976 3.18657 201.214 0.947997 203.976 0.947998C206.737 0.947998 208.976 3.18657 208.976 5.948C208.976 8.70942 206.737 10.948 203.976 10.948Z" fill="#FF427D"/>
+            <defs>
+            <linearGradient id="cecelia_outline_paint0_linear" x1="33.9757" y1="134.948" x2="203.976" y2="48.948" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C4F"/>
+            <stop offset="1" stop-color="#FF427D"/>
+            </linearGradient>
+            </defs>
+          </svg>                  
         </div>
         <div class="card__title u-box">
           <h3>Cecelia Martinez</h3>
@@ -1071,6 +1119,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Liam DeBeasi cartoon headshot" />
+          <svg id="liamOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.0542 5.92432V195.924C5.0542 200.343 8.63592 203.924 13.0542 203.924H134.554" stroke="url(#liam_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M0.0541994 5.92432C0.0541996 3.16289 2.29278 0.924316 5.0542 0.924316C7.81562 0.924316 10.0542 3.16289 10.0542 5.92432C10.0542 8.68574 7.81562 10.9243 5.0542 10.9243C2.29278 10.9243 0.0541993 8.68574 0.0541994 5.92432Z" fill="#2CEDA8"/>
+            <path d="M129.054 203.924C129.054 201.163 131.293 198.924 134.054 198.924C136.816 198.924 139.054 201.163 139.054 203.924C139.054 206.686 136.816 208.924 134.054 208.924C131.293 208.924 129.054 206.686 129.054 203.924Z" fill="#6AC5FF"/>
+            <defs>
+            <linearGradient id="liam_outline_paint0_linear" x1="5.05422" y1="33.9243" x2="91.0542" y2="203.924" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset="1" stop-color="#6AC5FF"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Liam DeBeasi</h3>
@@ -1102,6 +1162,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Jedi Willer headshot" />
+          <svg id="jediOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.01 203.939L134.01 13.9389C134.01 9.52067 130.428 5.93895 126.01 5.93895L4.50975 5.93896" stroke="url(#jedi_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.01 203.939C139.01 206.7 136.771 208.939 134.01 208.939C131.248 208.939 129.01 206.7 129.01 203.939C129.01 201.178 131.248 198.939 134.01 198.939C136.771 198.939 139.01 201.178 139.01 203.939Z" fill="#38EA6E"/>
+            <path d="M10.0098 5.93896C10.0098 8.70039 7.77119 10.939 5.00977 10.939C2.24834 10.939 0.00976596 8.70039 0.00976584 5.93896C0.00976572 3.17754 2.24834 0.938965 5.00977 0.938965C7.77119 0.938965 10.0098 3.17754 10.0098 5.93896Z" fill="#FFB547"/>
+            <defs>
+            <linearGradient id="jedi_outline_paint0_linear" x1="134.01" y1="175.939" x2="48.0097" y2="5.93896" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38EA6E"/>
+            <stop offset="1" stop-color="#FFB547"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Jedi Weller</h3>
@@ -1133,6 +1205,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Aaron Saunders headshot" />
+          <svg id="aaronOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.004 203.992V13.9919C134.004 9.57366 130.422 5.99194 126.004 5.99194H4.50354" stroke="url(#aaron_saunders_paint0_linear)" stroke-width="2"/>
+            <path d="M139.004 203.992C139.004 206.753 136.765 208.992 134.004 208.992C131.242 208.992 129.004 206.753 129.004 203.992C129.004 201.231 131.242 198.992 134.004 198.992C136.765 198.992 139.004 201.231 139.004 203.992Z" fill="#2CEDA8"/>
+            <path d="M10.0035 5.99194C10.0035 8.75337 7.76496 10.9919 5.00354 10.9919C2.24212 10.9919 0.0035397 8.75337 0.00353982 5.99194C0.00353994 3.23052 2.24212 0.991943 5.00354 0.991944C7.76496 0.991944 10.0035 3.23052 10.0035 5.99194Z" fill="#6AC5FF"/>
+            <defs>
+            <linearGradient id="aaron_saunders_paint0_linear" x1="134.004" y1="175.992" x2="48.0035" y2="5.99195" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset="1" stop-color="#6AC5FF"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Aaron Saunders</h3>
@@ -1164,6 +1248,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Diana Rodriguez cartoon headshot" />
+          <svg id="dianaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M203.002 134.974L13.002 134.974C8.58368 134.974 5.00196 131.392 5.00196 126.974L5.00195 5.47389" stroke="url(#diana_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M203.002 139.974C205.763 139.974 208.002 137.735 208.002 134.974C208.002 132.212 205.763 129.974 203.002 129.974C200.241 129.974 198.002 132.212 198.002 134.974C198.002 137.735 200.241 139.974 203.002 139.974Z" fill="#FF8C4F"/>
+            <path d="M5.00195 10.9739C7.76338 10.9739 10.002 8.7353 10.002 5.97388C10.002 3.21245 7.76338 0.973876 5.00195 0.973877C2.24053 0.973877 0.00195332 3.21245 0.00195356 5.97388C0.0019538 8.7353 2.24053 10.9739 5.00195 10.9739Z" fill="#FF427D"/>
+            <defs>
+            <linearGradient id="diana_outline_paint0_linear" x1="175.002" y1="134.974" x2="5.00196" y2="48.9739" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C4F"/>
+            <stop offset="1" stop-color="#FF427D"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Diana Rodriguez</h3>
@@ -1195,6 +1291,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Max Lynch headshot" />
+          <svg id="maxOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.998 5.99586L134.998 195.996C134.998 200.414 131.416 203.996 126.998 203.996L5.49803 203.996" stroke="url(#max_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.998 5.99585C139.998 3.23443 137.759 0.99585 134.998 0.99585C132.237 0.99585 129.998 3.23443 129.998 5.99585C129.998 8.75727 132.237 10.9958 134.998 10.9958C137.759 10.9958 139.998 8.75727 139.998 5.99585Z" fill="#FFB547"/>
+            <path d="M10.998 203.996C10.998 201.234 8.75947 198.996 5.99805 198.996C3.23662 198.996 0.998047 201.234 0.998047 203.996C0.998047 206.757 3.23662 208.996 5.99805 208.996C8.75947 208.996 10.998 206.757 10.998 203.996Z" fill="#38EA6E"/>
+            <defs>
+            <linearGradient id="max_outline_paint0_linear" x1="134.998" y1="33.9959" x2="48.998" y2="203.996" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFB547"/>
+            <stop offset="1" stop-color="#38EA6E"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Max Lynch</h3>
@@ -1226,6 +1334,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Ben Sperry headshot" />
+          <svg id="benOutline" class="u-box" width="140" height="208" viewBox="0 0 140 208" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134.004 4.99976V195C134.004 199.418 130.422 203 126.004 203H4.50354" stroke="url(#ben_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M139.004 4.99976C139.004 2.23833 136.765 -0.00024448 134.004 -0.000244359C131.242 -0.000244238 129.004 2.23833 129.004 4.99976C129.004 7.76118 131.242 9.99976 134.004 9.99976C136.765 9.99976 139.004 7.76118 139.004 4.99976Z" fill="#2CEDA8"/>
+            <path d="M10.0035 203C10.0035 200.238 7.76496 198 5.00354 198C2.24212 198 0.0035397 200.238 0.00353982 203C0.00353994 205.761 2.24212 208 5.00354 208C7.76496 208 10.0035 205.761 10.0035 203Z" fill="#6AC5FF"/>
+            <defs>
+            <linearGradient id="ben_outline_paint0_linear" x1="134.004" y1="32.9997" x2="48.0035" y2="203" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset="1" stop-color="#6AC5FF"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Ben Sperry</h3>
@@ -1257,6 +1377,18 @@
                 loading="lazy"
                 width="456" height="456"
                 alt="Mike Hartington with a luscious beard" />
+          <svg id="mikeOutline" class="u-box" width="208" height="139" viewBox="0 0 208 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.99999 4.99976L195 4.99975C199.418 4.99975 203 8.58147 203 12.9997L203 134.5" stroke="url(#mike_outline_paint0_linear)" stroke-width="2"/>
+            <path d="M5 -0.000243704C2.23858 -0.000243462 -6.78525e-07 2.23833 -4.37114e-07 4.99976C-1.95703e-07 7.76118 2.23858 9.99976 5 9.99976C7.76142 9.99976 10 7.76118 10 4.99976C10 2.23833 7.76142 -0.000243945 5 -0.000243704Z" fill="#FF8C4F"/>
+            <path d="M203 129C200.239 129 198 131.238 198 134C198 136.761 200.239 139 203 139C205.761 139 208 136.761 208 134C208 131.238 205.761 129 203 129Z" fill="#FF427D"/>
+            <defs>
+            <linearGradient id="mike_outline_paint0_linear" x1="33" y1="4.99977" x2="203" y2="90.9998" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C4F"/>
+            <stop offset="1" stop-color="#FF427D"/>
+            </linearGradient>
+            </defs>
+          </svg>
+                  
         </div>
         <div class="card__title u-box">
           <h3>Mike Hartington</h3>
@@ -1284,126 +1416,344 @@
 </section>
 
 
-<section>
+<section id="topics" class="u-box">
   <div class="container">
-    <h3>Topics & technologies covered:</h3>
-    <div>
-      <img  src="/img/ioniconf/logo-ionic@2x.png"
-            srcset="/img/ioniconf/logo-ionic@1x.png 1x,
-                    /img/ioniconf/logo-ionic@2x.png 2x"
-            loading="lazy"
-            width="40" height="40"
-            alt="Ionic Logo" />
-      <img  src="/img/ioniconf/logo-vue@2x.png"
-            srcset="/img/ioniconf/logo-vue@1x.png 1x,
-                    /img/ioniconf/logo-vue@2x.png 2x"
-            loading="lazy"
-            width="46" height="40"
-            alt="Vue Logo" />
-      <img  src="/img/ioniconf/logo-nodejs@2x.png"
-            srcset="/img/ioniconf/logo-nodejs@1x.png 1x,
-                    /img/ioniconf/logo-nodejs@2x.png 2x"
-            loading="lazy"
-            width="34" height="40"
-            alt="nodejs logo" />
-      <img  src="/img/ioniconf/logo-angular@2x.png"
-            srcset="/img/ioniconf/logo-angular@1x.png 1x,
-                    /img/ioniconf/logo-angular@2x.png 2x"
-            loading="lazy"
-            width="38" height="40"
-            alt="Angular Logo" />
-      <img  src="/img/ioniconf/logo-react@2x.png"
-            srcset="/img/ioniconf/logo-react@1x.png 1x,
-                    /img/ioniconf/logo-react@2x.png 2x"
-            loading="lazy"
-            width="45" height="40"
-            alt="React Logo" />
-      <img  src="/img/ioniconf/logo-javascript@2x.png"
-            srcset="/img/ioniconf/logo-javascript@1x.png 1x,
-                    /img/ioniconf/logo-javascript@2x.png 2x"
-            loading="lazy"
-            width="40" height="40"
-            alt="JavaScript Logo" />
-      <img  src="/img/ioniconf/logo-typescript@2x.png"
-            srcset="/img/ioniconf/logo-typescript@1x.png 1x,
-                    /img/ioniconf/logo-typescript@2x.png 2x"
-            loading="lazy"
-            width="40" height="40"
-            alt="TypeScript Logo" />
-      <img  src="/img/ioniconf/logo-html@2x.png"
-            srcset="/img/ioniconf/logo-html@1x.png 1x,
-                    /img/ioniconf/logo-html@2x.png 2x"
-            loading="lazy"
-            width="34" height="40"
-            alt="HTML Logo" />
-    </div>
-    <div>
-      <img  src="/img/ioniconf/logo-css@2x.png"
-            srcset="/img/ioniconf/logo-css@1x.png 1x,
-                    /img/ioniconf/logo-css@2x.png 2x"
-            loading="lazy"
-            width="34" height="40"
-            alt="CSS Logo" />
-      <img  src="/img/ioniconf/logo-capacitor@2x.png"
-            srcset="/img/ioniconf/logo-capacitor@1x.png 1x,
-                    /img/ioniconf/logo-capacitor@2x.png 2x"
-            loading="lazy"
-            width="40" height="40"
-            alt="Capacitor Logo" />
-      <img  src="/img/ioniconf/logo-auth0@2x.png"
-            srcset="/img/ioniconf/logo-auth0@1x.png 1x,
-                    /img/ioniconf/logo-auth0@2x.png 2x"
-            loading="lazy"
-            width="36" height="40"
-            alt="Auth0 Logo" />
-      <img  src="/img/ioniconf/logo-android@2x.png"
-            srcset="/img/ioniconf/logo-android@1x.png 1x,
-                    /img/ioniconf/logo-android@2x.png 2x"
-            loading="lazy"
-            width="44" height="40"
-            alt="Android Logo" />
-      <img  src="/img/ioniconf/logo-apple@2x.png"
-            srcset="/img/ioniconf/logo-apple@1x.png 1x,
-                    /img/ioniconf/logo-apple@2x.png 2x"
-            loading="lazy"
-            width="34" height="40"
-            alt="Apple Logo" />
-      <img  src="/img/ioniconf/logo-pwa@2x.png"
-            srcset="/img/ioniconf/logo-pwa@1x.png 1x,
-                    /img/ioniconf/logo-pwa@2x.png 2x"
-            loading="lazy"
-            width="44" height="40"
-            alt="PWA Logo" />
-      <img  src="/img/ioniconf/logo-stencil@2x.png"
-            srcset="/img/ioniconf/logo-stencil@1x.png 1x,
-                    /img/ioniconf/logo-stencil@2x.png 2x"
-            loading="lazy"
-            width="48" height="36"
-            alt="Stencil Logo" />
+    <h3 class="u-box u-font u-center-text">Topics & technologies covered:</h3>
+    <div id="topicsContent">
+      <div class="u-flex u-wrap u-just-cont-c">
+        <div class="u-flex u-wrap u-just-cont-c">
+          <div>
+            <img  src="/img/ioniconf/logo-ionic@2x.png"
+                  srcset="/img/ioniconf/logo-ionic@1x.png 1x,
+                          /img/ioniconf/logo-ionic@2x.png 2x"
+                  loading="lazy"
+                  width="40" height="40"
+                  alt="Ionic Logo" />
+            <img  src="/img/ioniconf/logo-vue@2x.png"
+                  srcset="/img/ioniconf/logo-vue@1x.png 1x,
+                          /img/ioniconf/logo-vue@2x.png 2x"
+                  loading="lazy"
+                  width="46" height="40"
+                  alt="Vue Logo" />
+          </div>
+          <div>
+            <img  src="/img/ioniconf/logo-nodejs@2x.png"
+                  srcset="/img/ioniconf/logo-nodejs@1x.png 1x,
+                          /img/ioniconf/logo-nodejs@2x.png 2x"
+                  loading="lazy"
+                  width="34" height="40"
+                  alt="nodejs logo" />
+            <img  src="/img/ioniconf/logo-angular@2x.png"
+                  srcset="/img/ioniconf/logo-angular@1x.png 1x,
+                          /img/ioniconf/logo-angular@2x.png 2x"
+                  loading="lazy"
+                  width="38" height="40"
+                  alt="Angular Logo" />
+          </div>
+        </div>
+        <div class="u-flex u-wrap u-just-cont-c">
+          <div>
+            <img  src="/img/ioniconf/logo-react@2x.png"
+                  srcset="/img/ioniconf/logo-react@1x.png 1x,
+                          /img/ioniconf/logo-react@2x.png 2x"
+                  loading="lazy"
+                  width="45" height="40"
+                  alt="React Logo" />
+            <img  src="/img/ioniconf/logo-javascript@2x.png"
+                  srcset="/img/ioniconf/logo-javascript@1x.png 1x,
+                          /img/ioniconf/logo-javascript@2x.png 2x"
+                  loading="lazy"
+                  width="40" height="40"
+                  alt="JavaScript Logo" />
+          </div>
+          <div>
+            <img  src="/img/ioniconf/logo-typescript@2x.png"
+                  srcset="/img/ioniconf/logo-typescript@1x.png 1x,
+                          /img/ioniconf/logo-typescript@2x.png 2x"
+                  loading="lazy"
+                  width="40" height="40"
+                  alt="TypeScript Logo" />
+            <img  src="/img/ioniconf/logo-html@2x.png"
+                  srcset="/img/ioniconf/logo-html@1x.png 1x,
+                          /img/ioniconf/logo-html@2x.png 2x"
+                  loading="lazy"
+                  width="34" height="40"
+                  alt="HTML Logo" />
+          </div>
+        </div>
+      </div>
+      <div class="u-flex u-wrap u-just-cont-c">
+        <div class="u-flex u-wrap u-just-cont-c">
+          <div>
+            <img  src="/img/ioniconf/logo-css@2x.png"
+                  srcset="/img/ioniconf/logo-css@1x.png 1x,
+                          /img/ioniconf/logo-css@2x.png 2x"
+                  loading="lazy"
+                  width="34" height="40"
+                  alt="CSS Logo" />
+            <img  src="/img/ioniconf/logo-capacitor@2x.png"
+                  srcset="/img/ioniconf/logo-capacitor@1x.png 1x,
+                          /img/ioniconf/logo-capacitor@2x.png 2x"
+                  loading="lazy"
+                  width="40" height="40"
+                  alt="Capacitor Logo" />
+          </div>
+          <div>
+            <img  src="/img/ioniconf/logo-auth0@2x.png"
+                  srcset="/img/ioniconf/logo-auth0@1x.png 1x,
+                          /img/ioniconf/logo-auth0@2x.png 2x"
+                  loading="lazy"
+                  width="36" height="40"
+                  alt="Auth0 Logo" />
+            <img  src="/img/ioniconf/logo-android@2x.png"
+                  srcset="/img/ioniconf/logo-android@1x.png 1x,
+                          /img/ioniconf/logo-android@2x.png 2x"
+                  loading="lazy"
+                  width="44" height="40"
+                  alt="Android Logo" />
+          </div>
+        </div>
+        <div class="u-flex u-wrap u-just-cont-c">
+          <img  src="/img/ioniconf/logo-apple@2x.png"
+                srcset="/img/ioniconf/logo-apple@1x.png 1x,
+                        /img/ioniconf/logo-apple@2x.png 2x"
+                loading="lazy"
+                width="34" height="40"
+                alt="Apple Logo" />
+          <img  src="/img/ioniconf/logo-pwa@2x.png"
+                srcset="/img/ioniconf/logo-pwa@1x.png 1x,
+                        /img/ioniconf/logo-pwa@2x.png 2x"
+                loading="lazy"
+                width="44" height="40"
+                alt="PWA Logo" />
+        </div>
+        <div class="u-flex u-wrap u-just-cont-c">
+          <img  src="/img/ioniconf/logo-stencil@2x.png"
+                srcset="/img/ioniconf/logo-stencil@1x.png 1x,
+                        /img/ioniconf/logo-stencil@2x.png 2x"
+                loading="lazy"
+                width="48" height="36"
+                alt="Stencil Logo" />
+        </div>        
+      <div>
     </div>
   </div>
   
 </section>
 
 
-<section>  
-  <div class="container">
-    <div id="eventInfo">
-      <h2>Event</h2>
+<section id="event">  
+  <div class="container u-flex u-wrap">
+    <div id="eventInfo" class="u-box">
+      <h2 class="u-box">Event</h2>
 
       <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
       <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
       <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
     </div>
-
-    <div>
-
+    <div class="u-spacer"></div>
+    <div id="eventContent" class="u-box">
+      <div class="card card__automate u-box">
+        <svg class="card__icon u-box" width="102" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 104 96">
+          <defs/>
+          <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M96.8 55.1v-7.42c0-24.57-20.1-44.5-44.86-44.5a45.03 45.03 0 00-35.08 16.77M7.2 40.35v7.42c0 24.6 20.08 44.5 44.86 44.5A45.39 45.39 0 0087.1 75.63"/>
+          <circle cx="87" cy="75.5" r="4" fill="#DAEDFC"/>
+          <circle cx="17" cy="20" r="4" fill="#DAEDFC"/>
+          <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 45.84l6.14-6.24 6.42 6.24"/>
+          <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M102.82 51.04l-6.14 6.24-6.41-6.24"/>
+          <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M51.91 53.74a6.01 6.01 0 100-12.02 6.01 6.01 0 000 12.02z" opacity=".7"/>
+          <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M64.04 52.65a2.7 2.7 0 00.54 2.98l.1.1a3.28 3.28 0 11-4.64 4.64l-.1-.1a2.7 2.7 0 00-2.98-.54 2.7 2.7 0 00-1.64 2.47v.28a3.28 3.28 0 11-6.56 0v-.14A2.7 2.7 0 0047 59.86a2.7 2.7 0 00-2.98.54l-.1.1a3.28 3.28 0 11-4.64-4.64l.1-.1a2.7 2.7 0 00.54-2.98 2.7 2.7 0 00-2.47-1.64h-.28a3.28 3.28 0 110-6.56h.15a2.7 2.7 0 002.47-1.77 2.7 2.7 0 00-.54-2.98l-.1-.1a3.28 3.28 0 114.64-4.64l.1.1a2.7 2.7 0 002.98.54H47a2.7 2.7 0 001.64-2.47v-.28a3.28 3.28 0 116.56 0v.14a2.7 2.7 0 001.64 2.48 2.7 2.7 0 002.98-.54l.1-.1a3.28 3.28 0 114.64 4.64l-.1.1a2.7 2.7 0 00-.54 2.98v.13a2.7 2.7 0 002.48 1.64h.27a3.28 3.28 0 110 6.56h-.14a2.7 2.7 0 00-2.48 1.64v0z" opacity=".9"/>
+          <path fill="url(#icon_automate_paint0_radial)" d="M70.26 66.35L75.91 72a33.94 33.94 0 01-48-48h5.65v5.65a25.95 25.95 0 1036.7 36.7z"/>
+          <path fill="url(#icon_automate_paint1_radial)" d="M70.26 66.35V72h5.65a33.94 33.94 0 10-48-48h5.65v5.65a25.95 25.95 0 1136.7 36.7z"/>
+          <defs>
+              <radialGradient id="icon_automate_paint0_radial" cx="0" cy="0" r="1" gradientTransform="rotate(-135 50.87 19.45) scale(63.8892 87.1336)" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#B2CEFF" stop-opacity=".4"/>
+                  <stop offset="1" stop-color="#DAEDFC"/>
+              </radialGradient>
+              <radialGradient id="icon_automate_paint1_radial" cx="0" cy="0" r="1" gradientTransform="rotate(-135 50.87 19.45) scale(63.8892 87.1336)" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#DAEDFC"/>
+                  <stop offset="1" stop-color="#B2CEFF" stop-opacity=".4"/>
+              </radialGradient>
+          </defs>
+        </svg>
+      
+        <p class="card__text u-font u-box">Automate app deployments across iOS, Android, and the web</p>
+      </div>
+      <div class="card card__animations u-box">
+        <svg class="card__icon u-box" width="96" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 98 98">
+          <defs/>
+          <path fill="#fff" d="M49.707 1.293a1 1 0 00-1.414 0l-6.364 6.364a1 1 0 001.414 1.414L49 3.414l5.657 5.657a1 1 0 101.414-1.414l-6.364-6.364zM48 25a1 1 0 102 0h-2zm0-23v23h2V2h-2z"/>
+          <path fill="#fff" d="M89.177 74.966a1 1 0 00.708-1.225l-2.33-8.693a1 1 0 00-1.932.517l2.071 7.728-7.728 2.07a1 1 0 00.518 1.932l8.694-2.33zM69.5 61.634a1 1 0 10-1 1.732l1-1.732zm19.919 11.5L69.5 61.634l-1 1.732 19.919 11.5 1-1.732z"/>
+          <path fill="#fff" d="M8.741 74.966a1 1 0 01-.707-1.225l2.33-8.693a1 1 0 011.931.517l-2.07 7.728 7.727 2.07a1 1 0 01-.518 1.932l-8.693-2.33zM28.42 61.634a1 1 0 111 1.732l-1-1.732zM8.5 73.134l19.919-11.5 1 1.732L9.5 74.866l-1-1.732z"/>
+          <path stroke="#fff" stroke-dasharray=".5 8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M95.354 61.42c6.858-25.59-8.342-51.917-33.933-58.774C35.829-4.212 9.503 10.988 2.646 36.579c-6.858 25.592 8.342 51.918 33.933 58.775 25.592 6.858 51.918-8.342 58.775-33.933z" opacity=".7"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="6" d="M87.629 59.35c5.714-21.326-6.952-43.264-28.279-48.979-21.326-5.714-43.264 6.952-48.979 28.279-5.714 21.326 6.952 43.264 28.279 48.979 21.326 5.714 43.264-6.952 48.979-28.279z" opacity=".3"/>
+          <path stroke="#fff" stroke-dasharray=".5 8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M81 49c0-17.667-14.333-32-32-32S17 31.333 17 49s14.333 32 32 32 32-14.333 32-32z" opacity=".7"/>
+          <path fill="#fff" d="M73 49c0-13.25-10.75-24-24-24S25 35.75 25 49s10.75 24 24 24 24-10.75 24-24z" opacity=".3"/>
+          <path stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M73 49c0-13.25-10.75-24-24-24S25 35.75 25 49s10.75 24 24 24 24-10.75 24-24z"/>
+          <path fill="#fff" d="M45.04 58.812l14.306-8.646a1.361 1.361 0 000-2.325L45.04 39.194A1.346 1.346 0 0043 40.36v17.289a1.349 1.349 0 002.04 1.164z"/>
+      </svg>
+      
+        <p class="card__text u-font u-box">Add dynamic, highly performant animations to your web apps</p>
+      </div>
+      <div class="card card__staticHosting u-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 97">
+          <defs/>
+          <mask id="icon_static_hosting_a" width="96" height="96" x="0" y="1" maskUnits="userSpaceOnUse">
+              <path fill="#EDFFF2" d="M0 1h96v96H0z"/>
+          </mask>
+          <g mask="url(#icon_static_hosting_a)">
+              <circle cx="76" cy="73" r="2" fill="#ABFFCF" opacity=".5"/>
+              <circle cx="14" cy="57" r="2" fill="#ABFFCF" opacity=".5"/>
+              <circle cx="72" cy="36" r="2" fill="#ABFFCF" opacity=".5"/>
+              <circle cx="89" cy="18" r="2" fill="#F5FFF9" opacity=".5"/>
+              <circle cx="11" cy="15" r="2" fill="#ABFFCF" opacity=".3"/>
+              <circle cx="36" cy="81" r="2" fill="#ABFFCF" opacity=".2"/>
+              <g filter="url(#filter0_f)">
+                  <ellipse cx="48" cy="95" fill="#D8FFEE" rx="35" ry="8"/>
+              </g>
+              <path fill="#D8FFEE" d="M0 95h96v2H0z"/>
+              <path fill="url(#icon_static_hosting_paint0_linear)" d="M48.7 63.3a1 1 0 00-1.4 0l-6.37 6.36a1 1 0 001.41 1.41L48 65.41l5.66 5.66a1 1 0 001.41-1.41l-6.36-6.37zM47 97a1 1 0 102 0h-2zm0-33v33h2V64h-2z"/>
+              <path fill="url(#icon_static_hosting_paint1_linear)" d="M88.7 53.3a1 1 0 00-1.4 0l-6.37 6.36a1 1 0 001.41 1.41L88 55.41l5.66 5.66a1 1 0 001.41-1.41l-6.36-6.37zM87 70a1 1 0 102 0h-2zm0-16v16h2V54h-2z"/>
+              <path fill="url(#icon_static_hosting_paint2_linear)" d="M8.7 36.3a1 1 0 00-1.4 0L.92 42.65a1 1 0 101.41 1.41L8 38.41l5.66 5.66a1 1 0 001.41-1.41l-6.36-6.37zM7 65a1 1 0 102 0H7zm0-28v28h2V37H7z"/>
+          </g>
+          <path stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M56.09 37.09c14.8-14.8 23.18-30.42 18.7-34.89-4.46-4.47-20.09 3.91-34.88 18.71-14.8 14.8-23.18 30.42-18.7 34.89 4.46 4.47 20.09-3.91 34.88-18.7z" opacity=".4"/>
+          <path stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M39.91 37.09C25.1 22.29 16.73 6.67 21.21 2.2c4.46-4.47 20.09 3.91 34.88 18.71 14.8 14.8 23.18 30.42 18.7 34.89-4.46 4.47-20.09-3.91-34.88-18.7z" opacity=".6"/>
+          <path stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M72 28.6a24 24 0 10-48.01 0 24 24 0 0048.01 0z" opacity=".9"/>
+          <circle cx="48" cy="29" r="16" fill="#4BD887"/>
+          <path fill="#fff" d="M48 12h-.06a16.91 16.91 0 00-11.98 5A16.91 16.91 0 0031 29c0 4.54 1.77 8.8 4.97 12a16.9 16.9 0 0011.98 5H48c9.38 0 17-7.63 17-17 0-9.37-7.63-17-17-17zm14.72 15.86h-6.34a32.2 32.2 0 00-.8-6.23c1.4-.45 2.75-1.02 4.06-1.72 1.8 2.3 2.86 5.04 3.08 7.95zm-15.87 0H41.8c.07-2 .31-3.9.72-5.65 1.42.32 2.87.51 4.33.58v5.07zm0 2.28v5.06c-1.45.07-2.9.26-4.33.58-.4-1.75-.65-3.64-.72-5.64h5.05zm2.29 0h5c-.06 2-.3 3.9-.71 5.64-1.4-.32-2.84-.51-4.29-.58v-5.06zm0-2.28v-5.07c1.45-.07 2.9-.26 4.29-.57.4 1.75.65 3.63.72 5.64h-5.01zm8.94-9.64c-1 .5-2.04.92-3.1 1.27a16.88 16.88 0 00-2.17-4.46c1.96.68 3.75 1.77 5.27 3.19zm-5.26 1.86a23 23 0 01-3.68.49v-6c1.39.75 2.75 2.77 3.68 5.5zm-5.97-5.55v6.03a22.6 22.6 0 01-3.72-.5c.95-2.76 2.32-4.78 3.72-5.53zm-3.72.53a17.01 17.01 0 00-2.15 4.42 23.2 23.2 0 01-3.07-1.26c1.5-1.41 3.28-2.5 5.22-3.16zm-6.78 4.86a24.4 24.4 0 004.02 1.7 30.9 30.9 0 00-.8 6.23h-6.29c.21-2.9 1.27-5.63 3.07-7.93zm-3.08 10.22h6.3c.07 2.19.34 4.28.8 6.23a25.88 25.88 0 00-4.03 1.7 14.65 14.65 0 01-3.07-7.93zm4.63 9.64c1-.49 2.02-.92 3.08-1.26.58 1.74 1.3 3.24 2.15 4.43a14.93 14.93 0 01-5.23-3.17zm5.23-1.85c1.22-.27 2.47-.43 3.72-.5v6.04c-1.4-.75-2.77-2.77-3.72-5.54zm6.01 5.5v-6a23 23 0 013.68.49c-.93 2.74-2.3 4.76-3.68 5.51zm3.68-.46c.85-1.2 1.58-2.7 2.16-4.46 1.06.35 2.11.78 3.1 1.28a14.96 14.96 0 01-5.26 3.18zm6.82-4.89a24.9 24.9 0 00-4.06-1.72c.46-1.95.73-4.03.8-6.22h6.34a14.58 14.58 0 01-3.08 7.94z"/>
+          <defs>
+              <linearGradient id="icon_static_hosting_paint0_linear" x1="48.5" x2="48.5" y1="64" y2="97" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff"/>
+                  <stop offset="1" stop-color="#D8FFEE"/>
+              </linearGradient>
+              <linearGradient id="icon_static_hosting_paint1_linear" x1="88.5" x2="88.5" y1="54" y2="70" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff"/>
+                  <stop offset="1" stop-color="#D8FFEE" stop-opacity=".7"/>
+              </linearGradient>
+              <linearGradient id="icon_static_hosting_paint2_linear" x1="8.5" x2="8.5" y1="37" y2="65" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff"/>
+                  <stop offset="1" stop-color="#D8FFEE" stop-opacity=".7"/>
+              </linearGradient>
+              <filter id="icon_static_hosting_filter0_f" width="110" height="56" x="-7" y="67" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="10"/>
+              </filter>
+          </defs>
+        </svg>      
+      
+        <p class="card__text u-font u-box">Latest static hosting capabilities for web apps</p>
+      </div>
+      <div class="card card__authentication u-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 96">
+          <defs/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.04 9.63L18.96 2.65a2.58 2.58 0 00-2.62.02l-12.6 7.36a4.05 4.05 0 00-2 3.48l-.08 14.58a2.64 2.64 0 001.3 2.28l12.08 6.98a2.58 2.58 0 002.62-.02l12.6-7.36a4.06 4.06 0 002-3.48l.08-14.58a2.64 2.64 0 00-1.3-2.28z"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.57 29l15.3-8.5-.3-17.49"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.72 28.5l-13.85-8"/>
+          <path fill="#EAFAFF" d="M17.88 20.56L2.38 29.6l12.27 7.9 1.04.25 14.56-7.58L31 29l-13.12-8.44z" opacity=".5"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.3 13.2a5.3 5.3 0 01-2.22 3.82c-1.11.63-2.11.05-2.2-1.3-.09-1.4.9-3.05 2.23-3.8 1.34-.77 2.3-.2 2.2 1.29z"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M5.59 25.93a9.43 9.43 0 014.47-6.36c2.01-1.14 4.05-.98 4.41 1.31"/>
+          <path fill="#EAFAFF" d="M42 72l23-12v21.5l-.5 1.5L44 95h-2V72z" opacity=".3"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M65 80.85v-19.7c0-.65-.18-1.28-.51-1.84a3.77 3.77 0 00-1.4-1.35l-18.2-10.2a5.91 5.91 0 00-5.78 0l-18.2 10.2c-.59.32-1.07.79-1.4 1.35-.33.56-.5 1.2-.51 1.84v19.7c0 .65.18 1.28.51 1.84s.81 1.03 1.4 1.35l18.2 10.21a5.92 5.92 0 005.78 0l18.2-10.2c.59-.33 1.07-.8 1.4-1.36.33-.56.51-1.2.51-1.84z"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 60l22 12 22-12"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M42 95V72"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M47.4 60.07c-2 1.06-5.09 1.14-6.82.2-1.73-.93-1.8-2.71-.1-3.93 1.77-1.27 4.73-1.33 6.81-.2 2.09 1.12 2.15 2.85.1 3.93z"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M25.25 61.7c3.89-1.71 8.83-1.06 11.98.64 3.15 1.7 4.6 4.5 1.9 6.85"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M64.37 45.45a4.6 4.6 0 01-1.66-1.64l-8.3-14.12a2.96 2.96 0 01-.03-2.94l7.8-13.5a2.87 2.87 0 012.55-1.45l16.38.13a4.58 4.58 0 013.92 2.26l8.3 14.12a2.96 2.96 0 01.03 2.93l-7.8 13.52A2.87 2.87 0 0183 46.2l-16.38-.13c-.8 0-1.57-.22-2.26-.62zm0 0l9.1-15.76M63.31 12.85l10.16 16.84m0 0l19.67.38"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M80 19c.75 1.55 0 2.82-1.62 2.82-1.63 0-3.85-1.27-4.9-2.83-1.08-1.62-.33-2.82 1.63-2.82s4.12 1.23 4.89 2.82z"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M75.93 28.9c-1.05-2.78 1.11-4.25 4.08-4.25 2.96 0 6.82 1.47 8.98 4.24"/>
+          <path fill="#EAFAFF" d="M73.75 30.55L63.2 13.4l-8.54 14.23-.26 1.2 8.9 16.14 1.33.8 9.13-15.23z" opacity=".2"/>
+          <circle cx="32" cy="42" r="2" fill="#EAFAFF" opacity=".3"/>
+          <circle cx="84" cy="55" r="3" fill="#EAFAFF" opacity=".2"/>
+          <circle cx="75" cy="69" r="1" fill="#EAFAFF" opacity=".5"/>
+          <circle cx="54" cy="21" r="1" fill="#EAFAFF" opacity=".5"/>
+          <circle cx="61" cy="90" r="1" fill="#EAFAFF" opacity=".5"/>
+          <circle cx="55.5" cy="52.5" r="1.5" fill="#EAFAFF" opacity=".4"/>
+          <circle cx="86" cy="94" r="2" fill="#EAFAFF" opacity=".4"/>
+          <circle cx="27" cy="4" r="1" fill="#EAFAFF" opacity=".4"/>
+          <circle cx="95" cy="47" r="1" fill="#EAFAFF" opacity=".4"/>
+          <circle cx="14" cy="54" r="1" fill="#EAFAFF" opacity=".5"/>
+          <circle cx="3.5" cy="39.5" r="1.5" fill="#EAFAFF" opacity=".2"/>
+          <circle cx="17.5" cy="94.5" r="1.5" fill="#EAFAFF" opacity=".2"/>
+          <circle cx="67" cy="1" r="1" fill="#EAFAFF" opacity=".6"/>
+          <circle cx="2" cy="80" r="2" fill="#EAFAFF" opacity=".2"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-width="2" d="M87.99 65.06l-.98 3.88"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-width="2" d="M44 30l1.36 3.76"/>
+          <path stroke="#EAFAFF" stroke-linecap="round" stroke-width="2" d="M4.78 68.26l3.8 1.24"/>
+          <path fill="url(#icon_authentication_paint0_linear)" d="M11.7 40a.93.93 0 00-1.2-.65l-8.43 2.86c-.52.18-.82.76-.67 1.3.15.53.7.83 1.2.65l7.5-2.54 2.15 7.8c.15.53.7.83 1.21.65.52-.17.82-.75.67-1.3l-2.43-8.76zM30 79.35c.54 0 .98-.48.98-1.04a.96.96 0 00-.96-1L30 79.33zM12.8 62.9C8.71 54.5 8.93 46 11.62 40.79l-1.7-.93c-3.08 5.95-3.16 15.18 1.14 24.03l1.74-.99zm17.21 14.4c-2.8.06-5.99-1.23-9.06-3.74A31.66 31.66 0 0112.8 62.9l-1.74.99a33.58 33.58 0 008.66 11.31c3.29 2.68 6.89 4.22 10.27 4.14L30 77.3z"/>
+          <path fill="url(#icon_authentication_paint1_linear)" d="M68.3 71.42a.93.93 0 00.8 1.1l8.98 1.21c.55.08 1.08-.3 1.19-.84a.93.93 0 00-.81-1.1l-7.98-1.08 1.54-7.8a.93.93 0 00-.8-1.11c-.56-.07-1.09.3-1.2.84l-1.73 8.78zm11.86-33.96c-.28-.45-.9-.58-1.38-.28-.49.3-.65.9-.37 1.36l1.75-1.08zm-2.82 18.57a42.35 42.35 0 01-4.13 9.43c-1.54 2.54-3.12 4.34-4.49 5.3l1.14 1.57c1.7-1.2 3.47-3.27 5.1-5.95a44.4 44.4 0 004.32-9.88l-1.94-.47zm1.07-17.5c.74 1.21 1.13 3.51.98 6.66-.16 3.1-.83 6.87-2.05 10.84l1.94.47a47.63 47.63 0 002.14-11.32c.16-3.23-.2-6.02-1.26-7.72l-1.75 1.08z"/>
+          <path fill="url(#icon_authentication_paint2_linear)" d="M55.76 17.56c.55.03 1-.4 1-.95l-.11-8.97c0-.55-.46-1.02-1.02-1.05a.93.93 0 00-.99.95l.1 7.98-8.01-.4a.93.93 0 00-1 .94c.01.55.47 1.02 1.02 1.05l9.01.45zm-29.85-1.5c-.3.45-.15 1.07.32 1.39.47.32 1.08.22 1.38-.23l-1.7-1.16zm15.57-3.2c6.38.05 11.37 2.1 13.57 4.37l1.4-1.34c-2.76-2.85-8.4-4.97-15.08-5.03l.1 2zM27.6 17.22c.75-1.16 2.43-2.28 4.91-3.1a28.24 28.24 0 018.96-1.26l-.1-2c-3.6-.03-6.92.47-9.6 1.35-2.64.88-4.79 2.18-5.87 3.85l1.7 1.16z"/>
+          <defs>
+              <linearGradient id="icon_authentication_paint0_linear" x1="10.02" x2="39.54" y1="39.92" y2="81.04" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#EAFAFF"/>
+                  <stop offset="1" stop-color="#EAFAFF" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="icon_authentication_paint1_linear" x1="69.34" x2="71.18" y1="72.17" y2="31.35" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#EAFAFF"/>
+                  <stop offset="1" stop-color="#EAFAFF" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="icon_authentication_paint2_linear" x1="56.23" x2="22.67" y1="16.32" y2="23.02" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#EAFAFF"/>
+                  <stop offset="1" stop-color="#EAFAFF" stop-opacity="0"/>
+              </linearGradient>
+          </defs>
+        </svg>      
+      
+        <p class="card__text u-font u-box">How to build Web Components for authentication</p>
+      </div>
+      <div class="card card__testing u-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 96">
+          <defs/>
+          <path stroke="url(#icon_testing_paint0_linear)" stroke-linecap="round" stroke-width="4" d="M7 2v0C3.8 5.13 2 9.42 2 13.89v68.22C2 86.58 3.8 90.87 7 94v0" opacity=".2"/>
+          <path stroke="url(#icon_testing_paint1_linear)" stroke-linecap="round" stroke-width="4" d="M18 2v0c-3.2 3.13-5 7.42-5 11.89v68.22c0 4.47 1.8 8.76 5 11.89v0" opacity=".4"/>
+          <path stroke="url(#icon_testing_paint2_linear)" stroke-linecap="round" stroke-width="4" d="M89 2v0c3.2 3.13 5 7.42 5 11.89v68.22c0 4.47-1.8 8.76-5 11.89v0" opacity=".2"/>
+          <path stroke="url(#icon_testing_paint3_linear)" stroke-linecap="round" stroke-width="4" d="M78 2v0c3.2 3.13 5 7.42 5 11.89v68.22c0 4.47-1.8 8.76-5 11.89v0" opacity=".4"/>
+          <rect width="55" height="93" x="20.5" y="1.5" stroke="#fff" stroke-width="3" opacity=".5" rx="16.5"/>
+          <rect width="34" height="74" x="31" y="11" fill="#fff" opacity=".2" rx="9"/>
+          <circle cx="48" cy="78" r="2" fill="#fff" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 68V52" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 46V28" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48 68V46" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48 39V28" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M66 68V57" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M66 50V28" opacity=".8"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M24 52h12"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M42 40h12"/>
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M60 56h12"/>
+          <path stroke="#FFF9E3" stroke-linecap="round" stroke-width="2" d="M66 22v-2a10 10 0 00-10-10H40a10 10 0 00-10 10v2" opacity=".6"/>
+          <path stroke="#FFF9E3" stroke-linecap="round" stroke-width="2" d="M66 74v2a10 10 0 01-10 10H40a10 10 0 01-10-10v-2" opacity=".6"/>
+          <defs>
+              <linearGradient id="icon_testing_paint0_linear" x1="4.5" x2="4.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff" stop-opacity=".3"/>
+                  <stop offset=".51" stop-color="#fff"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+              </linearGradient>
+              <linearGradient id="icon_testing_paint1_linear" x1="15.5" x2="15.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff" stop-opacity=".3"/>
+                  <stop offset=".51" stop-color="#fff"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+              </linearGradient>
+              <linearGradient id="icon_testing_paint2_linear" x1="91.5" x2="91.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff" stop-opacity=".3"/>
+                  <stop offset=".51" stop-color="#fff"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+              </linearGradient>
+              <linearGradient id="icon_testing_paint3_linear" x1="80.5" x2="80.5" y1=".04" y2="95.47" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fff" stop-opacity=".3"/>
+                  <stop offset=".51" stop-color="#fff"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+              </linearGradient>
+          </defs>
+        </svg>      
+      
+        <p class="card__text u-font u-box">End-to-end mobile app testing best practices and techniques</p>
+      </div>
     </div>
   </div>
 </section>
 
 
-<section>
+<section id="schedule">
   <h2>Schedule</h2>
 
   <p class="p2">Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.</p>
@@ -1426,4 +1776,6 @@
   });   
   observer.observe(document.querySelector('#navSpace'));
 </script>
+
+
 {% endblock %}

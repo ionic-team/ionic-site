@@ -15,7 +15,7 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $fontFamilyInter: $font-family-inter;
 $fontFamilyEina: $font-family-eina;
-$timingFunction: cubic-bezier(.09,.73,.71,.65);
+$timingFunction: cubic-bezier(.16,.66,.64,.83);
 
 :root {
   --navHeight:78px;
@@ -57,15 +57,6 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
   margin-left: auto
 }
 
-.container:after,.container:before {
-  display: table;
-  content: " "
-}
-
-.container:after {
-  clear: both
-}
-
 @media (min-width: 768px) {
   .container {
       width:750px
@@ -82,10 +73,6 @@ $timingFunction: cubic-bezier(.09,.73,.71,.65);
   .container {
       width:1054px
   }
-}
-
-#header .nav__sections {
-  
 }
 // #endregion ------------------------------------------------------------------------
 
@@ -165,14 +152,14 @@ p {
 
   .nav {
   @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $r:0, $t:0);
-      transition:background 500ms ease;
+      transition:background-color .3s $timingFunction;
     
     .nav__sections {
       a{        
         display:inline-block;
         transform:translateY(0px);
         position: relative;
-        transition: all 0.3s cubic-bezier(.16,.66,.64,.83);
+        transition: all 0.3s $timingFunction;
         &:before {
           content: "";
           position: absolute;
@@ -180,13 +167,13 @@ p {
           width: 0px;
           height: 5px;
           margin: 5px 0 0;
-          transition: all 0.3s cubic-bezier(.16,.66,.64,.83);
+          transition: all 0.3s $timingFunction;
           opacity: 0;          
           background-image: linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%);
         }
       }
       a:hover, a:active, a:focus{
-        transform:translateY(-2px);
+        transform:translateY(-1px);
         &:before {          
           width: 100%;
           opacity: 1;
@@ -204,7 +191,7 @@ p {
     }
 
     .nav__button {
-    @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+    @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
     @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
     }
   }
@@ -223,7 +210,7 @@ p {
 }
 #landingContent {
 @include box($mTop: 165px, $mBot: 145px);
-@include spacer($el:"& ", $mxW:128px, $mnW: 32px, $fG:1);
+@include spacer($mxW:128px, $mnW: 32px, $fG:1);
 }
 #landingMain {
 @include box($mxW: 461px);
@@ -243,7 +230,7 @@ p {
   }
 
   button {
-  @include box($h: 51px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px);
+  @include box($h: 51px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px);
   @include font($fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
     :host(.s-ionicon) {
       background:red;
@@ -281,9 +268,89 @@ p {
     }
   }
 }
+#topics {
+@include box($mTop:100px, $mBot:100px);
+  h3 {
+  @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
+  @include box($color: #B2BECD, $mBot:8px);
+  }
+}
+
+#topicsContent {
+  img {
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-top: 48px;
+  }
+}
+
+#event {
+@include spacer($mxW:96px, $mnW: 16px, $fG:1);
+}
+
+#eventInfo {
+@include box($mxW:480px);
+
+  h2 {
+  @include box($mBot:32px);
+  }
+
+  .p2 {
+  margin-bottom: 32px;
+  }
+}
+
+#eventContent {
+@include box($mTop: 40px);
+
+  .card {
+  @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mTop:48px, $mBot:48px);
+
+    .card__text {
+    @include font($fs:22px, $lh: 180%);
+    @include box($mTop: 30px);
+    }
+
+    &.card__automate{
+    @include box($back: 'linear-gradient(237.26deg, #786CFF 0%, #6C99FF 100%)');
+
+      .card__icon {
+      @include box($mxW: 102px, $mxH: 96px);
+      }
+    }
+    &.card__animations{
+    @include box($back: 'linear-gradient(237.26deg, #FF7B5E 0%, #FF6A7B 100%)');
+
+      .card__icon {
+      @include box($mxW: 102px, $mxH: 96px);
+      }
+    }
+    &.card__staticHosting{
+    @include box($back: 'linear-gradient(237.26deg, #36DCBD 0%, #58D565 100%)');
+
+      .card__icon {
+      @include box($mxW: 102px, $mxH: 96px);
+      }
+    }
+    &.card__authentication{
+    @include box($back: 'linear-gradient(237.26deg, #4790FF 0%, #67D3F7 100%)');
+
+      .card__icon {
+      @include box($mxW: 102px, $mxH: 96px);
+      }
+    }
+    &.card__testing{
+    @include box($back: 'linear-gradient(237.26deg, #FFD84D 0%, #FFD748 0.01%, #FF9F45 100%)');
+
+      .card__icon {
+      @include box($mxW: 102px, $mxH: 96px);
+      }
+    }
+  }
+}
 
 
-
+//#region ----------------------------- OUTLINE STYLES --------------------------------------
 #johnOutline {
 @include box($pos:absolute, $r:-5px, $b:-5px);
 }
@@ -293,6 +360,41 @@ p {
 #shawnOutline {
 @include box($pos:absolute, $l:-5px, $b:-5px);
 }
+#simonOutline {
+@include box($pos:absolute, $r:-5px, $t:-5px);
+}
+#lukasOutline {
+@include box($pos:absolute, $l:-5px, $b:-5px);
+}
+#yvonneOutline {
+@include box($pos:absolute, $r:-5px, $t:-5px);
+}
+#ceceliaOutline {
+@include box($pos:absolute, $r:-5px, $b:-5px);
+}
+#liamOutline {
+@include box($pos:absolute, $l:-5px, $b:-5px);
+}
+#jediOutline {
+@include box($pos:absolute, $r:-5px, $t:-5px);
+}
+#aaronOutline {
+@include box($pos:absolute, $r:-5px, $t:-5px);
+}
+#dianaOutline {
+@include box($pos:absolute, $l:-5px, $b:-5px);
+}
+#maxOutline {
+@include box($pos:absolute, $r:-5px, $b:-5px);
+}
+#benOutline {
+@include box($pos:absolute, $r:-5px, $b:-5px);
+}
+#mikeOutline {
+@include box($pos:absolute, $t:-5px, $r:-5px);
+}
+//#endregion --------------------------------------------------------------------------------
+
 //#endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- MEDIA QUERIES ---------------------------------------

@@ -68,7 +68,7 @@ body {
 @include box($h: 75px, $back: rgba(0,0,0,0), $pos: absolute, $l: 0, $r: 0, $z: 1, $mLeft: auto, $mRight: auto);
 
   button {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $bR: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
   @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
     justify-self:flex-end;
   }
@@ -138,7 +138,7 @@ padding: 0px;
   }
 
   .hs-input {
-  // @include box($h: 51px, $bR: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include box($h: 51px, $br: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
   // @include font($ff: $font-family-inter, $fs: 16px);
   height: 51px !important;
   max-height: 51px !important;
@@ -160,7 +160,7 @@ padding: 0px;
   }
 
   .hs-button {
-  // @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $bR: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
+  // @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
   // @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
   height: 51px;
   background: $colorButtonMain;

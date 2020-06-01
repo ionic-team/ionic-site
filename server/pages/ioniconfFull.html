@@ -25,7 +25,7 @@
         <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#schedule">Schedule</a></li>
       </ul>
 
-      <button class="btn-main nav__button u-box u-font">Register Now</button>
+      <button class="btn-main nav__button u-box u-font">Register Now &#129170;</button>
     </div>
   </nav>
 </header>
@@ -733,11 +733,11 @@
         <path d="M416.794 42.0097V102.294H433.898V42.0097H448V28.5026H433.898V26.0189C433.898 17.9146 436.629 15.071 443.528 15.071C445.828 15.071 448 15.071 448 15.071V0.582364C448 0.582364 443.368 0 440.063 0C425.833 0 416.794 7.6777 416.794 25.0236V42.0097Z" fill="white"/>
       </svg>
 
-      <p class="p1 u-font">A one day, single-track online event celebrating the future of cross-platform app development — and the developer community powering the movement.</p>
+      <p class="p1 u-font u-box">A one day, single-track online event celebrating the future of cross-platform app development — and the developer community powering the movement.</p>
     
-      <p class="p2 u-font">June 24, 2020</p>
-      <p class="p3 u-font">100% Online // Daytime hours</p>
-      <button class="btn-main u-box u-font">Register Now</button>
+      <p class="p2 u-font u-box">June 24, 2020</p>
+      <p class="p3 u-font u-box">100% Online // Daytime hours</p>
+      <button class="btn-main u-box u-font">Register Now &#129170;</button>
     </article> 
  
 
@@ -1754,15 +1754,76 @@
 
 
 <section id="schedule">
-  <h2>Schedule</h2>
+  <div class="container">
+    <h2>Schedule</h2>
 
-  <p class="p2">Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.</p>
+    <p class="p2">Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.</p>
+  </div>
+  <table id="scheduleTable" class="u-box">
+    <tr>
+      <td></td>
+      <td class="schedule__timeCol">9:00 AM</td>
+      <td>WELCOME TO IONICONF 2020</td>
+      <td>
+        <img  class="u-box"
+                src="/img/ioniconf/icon-mike-hartington@2x.png"
+                srcset="/img/ioniconf/icon-mike-hartington@1x.png 1x,
+                        /img/ioniconf/icon-mike-hartington@2x.png 2x"
+                loading="lazy"
+                width="32" height="32"
+                alt="Mike Hartington Face with a mega beard" />
+      </td>
+      <td>Mike Hartington</td>
+    </tr>
+    <tr>
+      <th class="schedule__sessionCol--session1 u-font" rowspan="5"><div class="vertical">SESSION 1</div></th>
+      <td class="schedule__timeCol schedule__contentCell--session1">9:05 AM</td>
+      <td class="schedule__contentCell--session1">Opening Keynote</td>
+      <td class="schedule__contentCell--session1"></td>
+      <td class="schedule__contentCell--session1">Max Lynch & Ben Sperry</td>
+    </tr>
+    <tr>
+      <td class="schedule__timeCol schedule__contentCell--session1">9:30 AM</td>
+      <td class="schedule__contentCell--session1">Talk TBD</td>
+      <td class="schedule__contentCell--session1"></td>
+      <td class="schedule__contentCell--session1">Shawn Wang</td>
+    </tr>
+    <tr>
+      <td class="schedule__timeCol schedule__contentCell--session1">10:00 AM</td>
+      <td class="schedule__contentCell--session1">Web Components for Auth: The what, the how and the why</td>
+      <td class="schedule__contentCell--session1"></td>
+      <td class="schedule__contentCell--session1">Ana Cidre</td>
+    </tr>
+    <tr>
+      <td class="schedule__timeCol schedule__contentCell--session1">10:30 AM</td>
+      <td class="schedule__contentCell--session1">Talk TBD</td>
+      <td class="schedule__contentCell--session1"></td>
+      <td class="schedule__contentCell--session1">Yvonne Allen</td>
+    </tr>
+    <tr class="schedule__highlightRow--session1">
+      <td class="schedule__timeCol">11:00 AM</td>
+      <td colspan="3">SESSION 1 Q&A</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="schedule__timeCol">11:30</td>
+      <td colspan="3">LUNCH BREAK</td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+  </table>
 </section>
 <section></section>
 </main>
-
-
-
 {% endblock %}
 
 {% block scripts %}
@@ -1776,6 +1837,4 @@
   });   
   observer.observe(document.querySelector('#navSpace'));
 </script>
-
-
 {% endblock %}

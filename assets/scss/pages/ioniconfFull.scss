@@ -15,6 +15,7 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $fontFamilyInter: $font-family-inter;
 $fontFamilyEina: $font-family-eina;
+$fontFamilyMono: $font-family-monospace;
 $timingFunction: cubic-bezier(.16,.66,.64,.83);
 
 :root {
@@ -93,7 +94,7 @@ html, body {
   z-index: -2;  
 }
 
-p, li, button {
+p, li, button, td{
   font-family:$fontFamilyInter;
 }
 
@@ -209,28 +210,35 @@ p {
   
 }
 #landingContent {
-@include box($mTop: 165px, $mBot: 145px);
+@include box($mTop: 165px, $mBot: 145px, $fB: 50%, $fG:1);
 @include spacer($mxW:128px, $mnW: 32px, $fG:1);
 }
 #landingMain {
 @include box($mxW: 461px);
 
+  & > svg {
+  
+  }
+
   .p1{
+  @include box($mTop: 33px);
   @include font($fs:24px, $lh:160%, $ls: -.02em);
     color: white;
   }
   .p2{
+  @include box($mTop: 66px);
   @include font($ff:$fontFamilyRoboto, $fs:24px, $lh:160%, $ls: .16em, $fw:500, $tt:uppercase);
     color: white;
   }
   .p3{
+  @include box($mTop: 4px);
   @include font($fs:16px, $lh:160%);
     color: #B2BECD;
     opacity: .8;
   }
 
   button {
-  @include box($h: 51px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px);
+  @include box($h: 51px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $mTop:35px);
   @include font($fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
     :host(.s-ionicon) {
       background:red;
@@ -239,7 +247,7 @@ p {
 
 }
 #landingImage {
-@include box($mxW: 448px, $h: auto, $fG:1);
+@include box($mxW: 448px, $h: auto, $fG:1, $fB: 50%);
 
 }
 
@@ -285,7 +293,7 @@ p {
 }
 
 #event {
-@include spacer($mxW:96px, $mnW: 16px, $fG:1);
+@include spacer($mxW:96px, $mnW: 32px, $fG:1);
 }
 
 #eventInfo {
@@ -349,6 +357,51 @@ p {
   }
 }
 
+#scheduleTable {
+@include box($mxW: 1122px, $color: white, $w: 100%, $mLeft:auto, $mRight:auto);
+
+  img {
+    vertical-align:middle;
+  }
+
+  .vertical{
+    writing-mode: vertical-lr;
+  }
+  th {
+  @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em);
+    
+  }
+  tr {
+    height: 64px;
+  }
+  .blankRow {
+
+  }
+  .schedule__timeCol {
+    text-align: center;
+    white-space:nowrap;
+  }
+  .schedule__contentCell--session1 {
+    background: rgba(115, 130, 255, .15);
+  }
+  .schedule__highlightRow--session1 {
+    background: #7382FF;
+  }
+  .schedule__sessionCol--session1 {
+    background-color: rgba(0,0,0,0);
+    border-right: 4px solid #7382FF;
+  }
+
+
+
+  .schedule__time--col {
+    
+  }
+
+  .schedule__session1--cell {
+    background: rgba(115, 130, 255, .15);
+  }
+}
 
 //#region ----------------------------- OUTLINE STYLES --------------------------------------
 #johnOutline {

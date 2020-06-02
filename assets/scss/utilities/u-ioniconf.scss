@@ -89,7 +89,7 @@
   }
 }
 
-@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null) {
+@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null) {
   #{$element}.u-font {
     font-family: #{$ff};
     font-weight: #{$fw};
@@ -98,10 +98,12 @@
     letter-spacing: #{$ls};
     text-transform: #{$tt};
     white-space: #{$ws};
+    color: #{$color};
   }  
 }
-@mixin spacer($el:'& ', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h: null) {
+@mixin spacer($el:'& ', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h:null, $d:null) {
   #{$el}.u-spacer {
+    display: #{$d};
     min-width: #{$mnW};
     min-height: #{$mnH};
     flex-basis: #{$fB};

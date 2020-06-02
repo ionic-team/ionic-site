@@ -1,5 +1,6 @@
 //#region ----------------------------- IMPORTS ------------------------------------------
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../vars';
 @import '../fonts';
 
@@ -17,6 +18,7 @@ $fontFamilyInter: $font-family-inter;
 $fontFamilyEina: $font-family-eina;
 $fontFamilyMono: $font-family-monospace;
 $timingFunction: cubic-bezier(.16,.66,.64,.83);
+$timingFunction2: cubic-bezier(.19,1,.22,1);
 
 :root {
   --navHeight:78px;
@@ -77,10 +79,66 @@ $timingFunction: cubic-bezier(.16,.66,.64,.83);
 }
 // #endregion ------------------------------------------------------------------------
 
-//#region ----------------------------- GENERIC STYLES -----------------------------------
+//#region ----------------------------- ANIMATIONS -----------------------------------------
+@keyframes navMenuIn {
+  from {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes navMenuOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+//#endregion -------------------------------------------------------------------------------
+
+//#region ----------------------------- GENERIC STYLES -------------------------------------
 
 body * {
   box-sizing: border-box;
+}
+
+.noScroll {
+  overflow:hidden;
+}
+
+main {
+  overflow: hidden;
+}
+
+section {
+  margin-block-start: 200px;
+  margin-block-end: 200px;
+  overflow-x:hidden;
 }
 
 a {
@@ -88,7 +146,7 @@ a {
   color:inherit;
 }
 
-html, body {
+html, body, main {
   background: $colorBackMain;
   position:relative;
   z-index: -2;  
@@ -152,7 +210,7 @@ p {
 @include box($pos:sticky, $t: 0, $z:1);
 
   .nav {
-  @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $r:0, $t:0);
+  @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
       transition:background-color .3s $timingFunction;
     
     .nav__sections {
@@ -188,7 +246,7 @@ p {
     }
 
     &.scrolled {
-      background:$colorBackMain;
+      background:rgba(0, 7, 21, .95);
     }
 
     .nav__button {
@@ -198,6 +256,59 @@ p {
   }
 }
 
+#mobileNav {
+@include box($d:none, $ai:center, $jc:space-between, $color:white);
+}
+
+#mobileMenu {
+@include box($d:none, $pos:absolute, $w:100%, $h:100vh, $t:0, $l:0, $back: $colorBackMain, $ai:center, $jc:center);
+  overflow:hidden;
+
+  li {
+    text-align:center;
+    padding: 32px;
+  }
+  
+}
+
+
+#mobileOpenButton {
+  display:none;
+
+  &:checked ~ #mobileMenu {
+    display:flex;
+    opacity:0;
+    transition: opacity .4s;
+    animation:navMenuIn .2s $timingFunction2;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+
+  }
+
+  &:checked ~ #mobileCloseLabel {
+    display:block;
+  }
+}
+
+#mobileCloseButton {
+  &:checked ~ #mobileMenu {
+    display:none;
+  }
+}
+#mobileOpenLabel {
+@include font($fs: 28px, $fw:bold, $lh:28px);
+}
+#mobileCloseLabel {
+@include font($fw:300, $fs: 38px);
+@include box($pos:relative, $z: 2);
+}
+
+#mobileCloseButton, #mobileCloseLabel {
+  display:none;
+}
+
+
+
 
 
 #navSpace {
@@ -205,8 +316,13 @@ p {
   
 }
 
+#landing {
+  margin-block-start:0;
+  margin-block-end:0;
+}
+
 #landingBack {
-@include box($pos: absolute, $z: -1);
+@include box($pos: absolute, $z: -1, $l:calc((100% - 1800px) / 2));
   
 }
 #landingContent {
@@ -251,6 +367,26 @@ p {
 
 }
 
+#speakersTitle {
+  & > h2 {
+  @include box($mBot:34px);
+  }
+
+  & > p {
+  @include box($mxW:480px, $mBot:90px);
+  }
+}
+
+#tessellationBg {
+  // background: url("/img/ioniconf/tessellation-bg.svg");
+  // background-position: calc(35vw - 550px) 0px;
+  // background-size: 550px 2200px;
+  // background-repeat: repeat-y;
+  position:absolute;
+  z-index:-1;
+  left: calc((100% - 1800px) / 2);
+}
+
 #speakersContent {
 @include box($d:grid, $gtc: "repeat(auto-fit, minmax(228px,1fr))", $gg: 64px);
 
@@ -277,7 +413,7 @@ p {
   }
 }
 #topics {
-@include box($mTop:100px, $mBot:100px);
+@include box($mTop:-100px, $mBot:100px);
   h3 {
   @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
   @include box($color: #B2BECD, $mBot:8px);
@@ -300,19 +436,23 @@ p {
 @include box($mxW:480px);
 
   h2 {
-  @include box($mBot:32px);
+  @include box($mBot:34px);
   }
-
   .p2 {
-  margin-bottom: 32px;
+    margin-bottom:32px;
+  }
+  .pGroup {
+    margin-bottom: 90px;
   }
 }
 
 #eventContent {
-@include box($mTop: 40px);
 
   .card {
-  @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mTop:48px, $mBot:48px);
+  @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mBot:48px);
+  &:last-of-type {
+    margin-block-end:0;
+  }
 
     .card__text {
     @include font($fs:22px, $lh: 180%);
@@ -354,52 +494,6 @@ p {
       @include box($mxW: 102px, $mxH: 96px);
       }
     }
-  }
-}
-
-#scheduleTable {
-@include box($mxW: 1122px, $color: white, $w: 100%, $mLeft:auto, $mRight:auto);
-
-  img {
-    vertical-align:middle;
-  }
-
-  .vertical{
-    writing-mode: vertical-lr;
-  }
-  th {
-  @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em);
-    
-  }
-  tr {
-    height: 64px;
-  }
-  .blankRow {
-
-  }
-  .schedule__timeCol {
-    text-align: center;
-    white-space:nowrap;
-  }
-  .schedule__contentCell--session1 {
-    background: rgba(115, 130, 255, .15);
-  }
-  .schedule__highlightRow--session1 {
-    background: #7382FF;
-  }
-  .schedule__sessionCol--session1 {
-    background-color: rgba(0,0,0,0);
-    border-right: 4px solid #7382FF;
-  }
-
-
-
-  .schedule__time--col {
-    
-  }
-
-  .schedule__session1--cell {
-    background: rgba(115, 130, 255, .15);
   }
 }
 
@@ -447,10 +541,166 @@ p {
 @include box($pos:absolute, $t:-5px, $r:-5px);
 }
 //#endregion --------------------------------------------------------------------------------
+#tableWrap {
+  max-width:100%;
+  position:relative;
+  overflow-x:auto;
+}
+
+#scheduleTitle {
+  & > h2 {
+    @include box($mBot:34px);
+    }
+  
+  & > p {
+  @include box($mxW:480px, $mBot:90px);
+  }
+}
+
+#scheduleTable {
+@include box($mxW: 1122px, $color: white, $w: 100%, $h: auto, $mLeft:auto, $mRight:auto);
+  &, tr {
+    border-collapse: collapse;
+  }
+  
+  img {
+    vertical-align:middle;
+  }
+
+  #maxIcon {
+    position:absolute;
+    left: -16px;
+    z-index: 1;
+  }
+
+  .vertical{
+    writing-mode: vertical-lr;
+  }
+  th {
+  @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
+    background: $colorBackMain;
+    padding-inline-start: 6px;
+    padding-inline-end: 6px;
+    position:sticky;
+    left:0;
+    div {
+      display:inline;
+      text-align: center;
+    }
+  }
+  td {
+    line-height: 160%;
+    letter-spacing: -.01em;
+  }
+  tr {
+    height: 64px;
+    
+  }
+  .schedule__blankRow--title {
+    letter-spacing: 0.16em;
+  }
+  .schedule__timeCol {
+    text-align: center;
+    white-space: nowrap;
+    padding-inline-start: 32px;
+    padding-inline-end: 32px;
+  }
+  // .schedule__highlightRow--session1 .schedule__timeCol {
+  //   border-right: 1px solid #7382FF;
+  // }
+  .schedule__iconCol {
+    position:relative;
+  }
+  .schedule__nameCol {
+    min-width: 181px;
+    padding-inline-start: 16px;
+    padding-inline-end: 16px;
+  }
+  .schedule__infoCol {
+    padding-inline-start: 64px;
+    padding-inline-end: 64px;
+    min-width: 392px;
+  }
+  .schedule__contentCell--session1 {
+    background: rgba(115, 130, 255, .15);
+  }
+  .schedule__contentCell--session2 {
+    background: rgba(0, 216, 174, .15);
+  }
+  .schedule__contentCell--session3 {
+    background: rgba(255, 107, 123, .15);
+  }
+  .schedule__highlightRow--session1 {
+    background: #7382FF;
+  }
+  .schedule__highlightRow--session2 {
+    background: #00D8AE;
+  }
+  .schedule__highlightRow--session3 {
+    background: #FF6B7B;
+  }
+  .schedule__sessionCol--session1 {
+    box-shadow: 4px 0px 0px #7382FF;
+    color: #7382FF;
+  }
+  .schedule__sessionCol--session2 {
+    box-shadow: 4px 0px 0px #00D8AE;
+    color: #00D8AE;
+  }
+  .schedule__sessionCol--session3 {
+    box-shadow: 4px 0px 0px #FF6B7B;;
+    color: #FF6B7B;;
+  }
+
+
+
+  .schedule__time--col {
+    
+  }
+
+  .schedule__session1--cell {
+    background: rgba(115, 130, 255, .15);
+  }
+}
+
+#footer {
+@include font($fs:14px, $lh:17px, $color:white);
+
+  .footer__button {
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px, $mLeft:24px);
+  @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+  }
+}
+
+#footerContent{
+  justify-content:flex-end;
+  & > li {
+    padding-inline-start: 24px;
+    padding-inline-end: 24px;
+  }
+}
 
 //#endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- MEDIA QUERIES ---------------------------------------
+@media screen and (min-width: 1800px) {
+  #tessellationBg, #landingBack {
+    left:0 !important;
+    width:100%;
+  }
+}
 
+@media screen and (max-width: $screen-xs-max) {
+  :root {
+    --navHeight:50px;
+  }
+
+  #mainNav {
+    display:none !important;
+  }
+  #mobileNav {
+    display:flex !important;
+  }
+}
 
 //#endregion --------------------------------------------------------------------------------------

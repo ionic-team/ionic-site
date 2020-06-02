@@ -37,23 +37,45 @@
         </svg>
       </a>
       
-      <label id="mobileOpenLabel" class="u-box u-font" tabindex="0" for="mobileOpenButton">&#10998;</label>
-      <input type="radio" id="mobileOpenButton" name="mobileButton" onclick="body.classList.add('noScroll');">
+      <button id="collapse-toggle">&#10998;</button>
+  </nav>
 
-      <label id="mobileCloseLabel" class="u-box u-font" tabindex="0" for="mobileCloseButton">&times;</label>
-      <input type="radio" id="mobileCloseButton" name="mobileButton" onclick="body.classList.remove('noScroll');">
-
-      <div id="mobileMenu" class="u-box">
-        <ul class="" role="tablist">
-          <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#speakers" onclick="mobileCloseButton.checked = true">Speakers</a></li>
-          <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#event" onclick="mobileCloseButton.checked = true">Event</a></li>
-          <li class="u-box" role="tab"><a class="anchor" data-offset="150" href="#schedule" onclick="mobileCloseButton.checked = true">Schedule</a></li>
+  <nav class="mobile-nav closed">  
+    <div class="mobile-nav__pane">
+      <i class="mobile-nav__close">
+        <svg id="icon-close-mobile" width="100%" height="100%" viewBox="0 0 14 14"><g><path d="M8.65881121,7 L13.6590731,1.9984285 C14.1136423,1.54374018 14.1136423,0.795704557 13.6590731,0.341016239 C13.2045038,-0.11367208 12.456664,-0.11367208 12.0020948,0.341016239 L7.00183294,5.34258774 L2.00157109,0.341016239 C1.54700183,-0.11367208 0.799162084,-0.11367208 0.344592825,0.341016239 C0.117308196,0.568360398 0,0.869041383 0,1.16972237 C0,1.47040335 0.117308196,1.77108434 0.344592825,1.9984285 L5.34485467,7 L0.344592825,12.0015715 C0.117308196,12.2289157 2.08381216e-15,12.5295966 2.08381216e-15,12.8302776 C2.08381216e-15,13.1309586 0.117308196,13.4316396 0.344592825,13.6589838 C0.799162084,14.1136721 1.54700183,14.1136721 2.00157109,13.6589838 L7.00183294,8.65741226 L12.0020948,13.6589838 C12.456664,14.1136721 13.2045038,14.1136721 13.6590731,13.6589838 C14.1136423,13.2042954 14.1136423,12.4562598 13.6590731,12.0015715 L8.65881121,7 Z" id="Shape"></path></g></svg>
+      </i>
+  
+      <div class="mobile-nav__wrapper">
+        <a href="/" class="mobile-nav__logo">
+          <svg width="32px" height="32px" viewBox="0 0 64 64"><g><path d="M31.9135135,17.5135135 C23.9135135,17.5135135 17.427027,24 17.427027,32 C17.427027,40 23.9135135,46.4864865 31.9135135,46.4864865 C39.9135135,46.4864865 46.4,40 46.4,32 C46.3567568,24 39.8702703,17.5135135 31.9135135,17.5135135 Z"></path><circle cx="52.6702703" cy="12.1945946" r="6.61621622"></circle><path d="M60.8,18.8108108 L60.5405405,18.2054054 L60.1081081,18.7243243 C59.027027,19.9351351 57.6432432,20.8864865 56.1297297,21.4486486 L55.6972973,21.6216216 L55.8702703,22.0540541 C57.2108108,25.2108108 57.8594595,28.5837838 57.8594595,32 C57.8594595,46.3135135 46.227027,57.9891892 31.8702703,57.9891892 C17.5135135,57.9891892 5.92432432,46.3135135 5.92432432,32 C5.92432432,17.6864865 17.5567568,6.01081081 31.9135135,6.01081081 C35.8054054,6.01081081 39.5243243,6.87567568 43.027027,8.51891892 L43.4162162,8.69189189 L43.5891892,8.25945946 C44.2378378,6.74594595 45.2324324,5.44864865 46.5297297,4.41081081 L47.0486486,3.97837838 L46.4432432,3.67567568 C41.9027027,1.34054054 37.0162162,0.12972973 31.8702703,0.12972973 C14.3567568,0.12972973 0.0864864865,14.4 0.0864864865,31.9135135 C0.0864864865,49.427027 14.3567568,63.6972973 31.8702703,63.6972973 C49.3837838,63.6972973 63.6540541,49.427027 63.6540541,31.9135135 C63.6540541,27.4162162 62.7027027,23.0054054 60.8,18.8108108 Z"></path></g></svg>
+        </a>
+  
+        <ul class="mobile-nav__menu">
+          <li class="mobile-nav__menuitem">
+            <a class="anchor" data-offset="150" href="#speakers">Speakers</a>
+          </li>
+          <li class="mobile-nav__menuitem">
+            <a class="anchor" data-offset="150" href="#event">Event</a>
+          </li>
+          <li class="mobile-nav__menuitem">
+            <a class="anchor" data-offset="150" href="#schedule">Schedule</a>
+          </li>
+  
+          <li class="mobile-nav__social">
+            
+          </li>
         </ul>
       </div>
-
-      <!-- <button class="btn-main nav__button u-box u-font">Register Now &#129170;</button> -->
-
+    </div>
+    <div class="mobile-nav__footer">
+      <div>
+        <input type="text"/>
+        <button class="btn-main u-box u-font">Register Now &#129170;</button>
+      </div>
+    </div>
   </nav>
+  
 
 
 </header>
@@ -2948,8 +2970,7 @@
 {% endblock %}
 
 {% block scripts %}
-<script>  
-  const mobileCloseButton = document.querySelector("#mobileCloseButton");
+<script>
   const nav = document.querySelector("#mainNav");
   let scrolled = window.scrollY > 0;
 

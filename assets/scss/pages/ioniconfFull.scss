@@ -3,6 +3,7 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../vars';
 @import '../fonts';
+@import '../components/mobile-nav';
 
 @import '../utilities/u-ioniconf';
 //#endregion ----------------------------------------------------------------------------
@@ -80,45 +81,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 // #endregion ------------------------------------------------------------------------
 
 //#region ----------------------------- ANIMATIONS -----------------------------------------
-@keyframes navMenuIn {
-  from {
-    transform: translateY(-6px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes navMenuOut {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-6px);
-    opacity: 0;
-  }
-}
-
-@keyframes revealIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes revealOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 //#endregion -------------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC STYLES -------------------------------------
@@ -127,7 +89,7 @@ body * {
   box-sizing: border-box;
 }
 
-.noScroll {
+.no-scroll {
   overflow:hidden;
 }
 
@@ -255,61 +217,6 @@ p {
     }
   }
 }
-
-#mobileNav {
-@include box($d:none, $ai:center, $jc:space-between, $color:white);
-}
-
-#mobileMenu {
-@include box($d:none, $pos:absolute, $w:100%, $h:100vh, $t:0, $l:0, $back: $colorBackMain, $ai:center, $jc:center);
-  overflow:hidden;
-
-  li {
-    text-align:center;
-    padding: 32px;
-  }
-  
-}
-
-
-#mobileOpenButton {
-  display:none;
-
-  &:checked ~ #mobileMenu {
-    display:flex;
-    opacity:0;
-    transition: opacity .4s;
-    animation:navMenuIn .2s $timingFunction2;
-    animation-delay: 0.1s;
-    animation-fill-mode: forwards;
-
-  }
-
-  &:checked ~ #mobileCloseLabel {
-    display:block;
-  }
-}
-
-#mobileCloseButton {
-  &:checked ~ #mobileMenu {
-    display:none;
-  }
-}
-#mobileOpenLabel {
-@include font($fs: 28px, $fw:bold, $lh:28px);
-}
-#mobileCloseLabel {
-@include font($fw:300, $fs: 38px);
-@include box($pos:relative, $z: 2);
-}
-
-#mobileCloseButton, #mobileCloseLabel {
-  display:none;
-}
-
-
-
-
 
 #navSpace {
   height: var(--navHeight);

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 408 520">
+    <defs/>
+    <path stroke="#567BFF" stroke-dasharray=".5 16" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M375.5 298.5l-171.5-98" opacity=".7"/>
+    <path stroke="#567BFF" stroke-dasharray=".5 16" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M204 200.5l-171.5 98" opacity=".7"/>
+    <path stroke="url(#logo_ioniconf_full_paint0_linear)" stroke-dasharray=".5 16" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M204 2v199" opacity=".7"/>
+    <circle cx="204" cy="200" r="108" stroke="url(#logo_ioniconf_full_paint1_linear)" stroke-width="4" opacity=".8"/>
+    <g filter="url(#logo_ioniconf_full_filter0_d)">
+        <circle cx="280" cy="123" r="16" fill="url(#logo_ioniconf_full_paint2_linear)" fill-opacity=".8"/>
+    </g>
+    <circle cx="204" cy="200" r="44" fill="url(#logo_ioniconf_full_paint3_linear)"/>
+    <path stroke="url(#logo_ioniconf_full_paint4_linear)" stroke-width="4" d="M202.8 2.3h0A2 2 0 01204 2c.4 0 .8 0 1.1.3h0l169.7 97.8h0c.7.4 1.2 1.2 1.2 2v195.7c0 1-.5 1.7-1.1 2h0l-169.7 97.9h0a2 2 0 01-1.2.3 2 2 0 01-1.1-.3h0L33.1 299.9h0a2.3 2.3 0 01-1.2-2V102.1c0-.8.4-1.5 1.2-2L202.8 2.2z"/>
+    <path stroke="url(#logo_ioniconf_full_paint5_linear)" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4" d="M204 397V200"/>
+    <path stroke="url(#logo_ioniconf_full_paint6_linear)" stroke-width="4" d="M32.2 101.8l169.6 97.8a4 4 0 002.2.5 4 4 0 002.2-.5l169.6-97.8"/>
+    <path fill="#fff" d="M5.1 419.7a5 5 0 005.1-5 5 5 0 00-5-5.1c-3.1 0-5.2 2-5.2 5s2 5 5.1 5zM2 494.4H8v-66.1H2v66.1z"/>
+    <path fill="#fff" d="M47.8 496c20.7 0 33.2-16.7 33.2-34.6 0-18-12.5-34.7-33.2-34.7-20.7 0-33.3 16.7-33.3 34.7 0 18 12.6 34.6 33.3 34.6zm-27-34.6c0-16 10.5-29 27-29s27 13 27 29-10.5 29-27 29-27-13-27-29z"/>
+    <path fill="#fff" d="M95 428.3h-6v66.1h6v-39.9c0-14.8 10.1-22.3 22-22.3 13.3 0 19.6 8 19.6 21.4v40.8h6.1v-42.6c0-14.3-8.6-25.1-25.1-25.1-14 0-20.6 8.5-22.5 12.3v-10.7z"/>
+    <path fill="#fff" d="M155 419.7a5 5 0 005.2-5 5 5 0 00-5.2-5.1c-3 0-5 2-5 5s2 5 5 5zm-3.1 74.7h6.2v-66.1h-6.2v66.1z"/>
+    <path fill="#fff" d="M164.9 460.4c0 19.7 13.8 35.6 33.9 35.6a31 31 0 0032.2-26.2h-16c-1.8 7.3-8 12.4-16.4 12.4-11 0-18.2-9-18.2-21.8s7.1-21.9 18.2-21.9c8.4 0 14.6 5.1 16.4 12.5h16a31 31 0 00-32.2-26.3c-20 0-34 16-34 35.7z"/>
+    <path fill="#fff" d="M269.3 496a34.4 34.4 0 0035.3-35.6 34.5 34.5 0 00-35.3-35.7 34.5 34.5 0 00-35.2 35.7 34.4 34.4 0 0035.2 35.6zm-19.7-35.6c0-13.2 8.4-21.9 19.7-21.9 11.4 0 19.7 8.7 19.7 22 0 13-8.3 21.7-19.7 21.7-11.3 0-19.7-8.6-19.7-21.8z"/>
+    <path fill="#fff" d="M326.1 426.3h-14.4v68.1h15.6V455c0-10.6 6.1-16.8 16-16.8 9.2 0 13.4 6.2 13.4 15.5v40.8h15.6v-42.8c0-15.8-8.8-26.9-25.3-26.9-11 0-18 5.3-20.9 10.7v-9z"/>
+    <path fill="#fff" d="M379.6 438.8v55.6h15.6v-55.6H408v-12.5h-12.8V424c0-7.5 2.4-10 8.7-10h4.1v-13.5s-4.2-.5-7.2-.5c-13 0-21.2 7-21.2 23.1v15.7z"/>
+    <path fill="#fff" d="M339 517l3.2-3.2a141.7 141.7 0 004.6-5c.3-.5.4-1 .4-1.7s-.2-1.3-.7-1.8c-.6-.4-1.2-.7-2-.7-.9 0-1.5.2-2 .7-.5.5-.8 1-1 1.6l-2.5-1a5.2 5.2 0 012.8-3.3c.8-.4 1.7-.6 2.7-.6 1 0 2 .2 2.9.7.8.4 1.5 1 2 1.8.4.7.6 1.6.6 2.5 0 1-.2 2-.8 2.9-.5.9-1.1 1.7-1.9 2.5l-2.5 2.5-2.1 2v.2h7.6v2.5H339V517z"/>
+    <path fill="#fff" d="M359.8 520c-1.4 0-2.6-.4-3.7-1.2-1-.8-1.9-1.9-2.5-3.2-.5-1.4-.8-3-.8-4.6 0-1.7.3-3.2.8-4.6a7.6 7.6 0 012.5-3.2c1.1-.8 2.3-1.2 3.7-1.2a6 6 0 013.8 1.2c1 .8 1.8 1.9 2.4 3.2.6 1.4.9 3 .9 4.6 0 1.7-.3 3.2-.9 4.6a7.6 7.6 0 01-2.4 3.2 6 6 0 01-3.8 1.2zm0-2.6c1 0 1.7-.3 2.3-.8.6-.6 1.1-1.4 1.5-2.3.3-1 .5-2 .5-3.3 0-1.2-.2-2.3-.5-3.3a5 5 0 00-1.5-2.3c-.6-.5-1.4-.8-2.3-.8-.8 0-1.6.3-2.2.8-.7.6-1.2 1.4-1.5 2.3-.3 1-.5 2-.5 3.3 0 1.2.2 2.3.5 3.3s.8 1.7 1.5 2.3c.6.5 1.4.8 2.2.8z"/>
+    <path fill="#fff" d="M369.1 517a282149 282149 0 016.4-6.4c.7-.8 1.2-1.4 1.4-1.9.3-.4.4-1 .4-1.6 0-.7-.2-1.3-.7-1.8-.6-.4-1.2-.7-2-.7-.9 0-1.5.2-2 .7-.5.5-.8 1-1 1.6l-2.5-1a5.2 5.2 0 012.8-3.3c.8-.4 1.7-.6 2.7-.6 1 0 2 .2 2.9.7.8.4 1.5 1 2 1.8.4.7.6 1.6.6 2.5 0 1-.2 2-.8 2.9-.5.9-1.1 1.7-1.9 2.5L375 515l-2.1 2v.2h7.6v2.5H369V517z"/>
+    <path fill="#fff" d="M390 520c-1.5 0-2.7-.4-3.8-1.2-1-.8-1.9-1.9-2.5-3.2-.5-1.4-.8-3-.8-4.6 0-1.7.3-3.2.8-4.6a7.6 7.6 0 012.5-3.2c1.1-.8 2.3-1.2 3.7-1.2a6 6 0 013.8 1.2c1 .8 1.8 1.9 2.4 3.2.6 1.4.9 3 .9 4.6 0 1.7-.3 3.2-.9 4.6a7.7 7.7 0 01-2.4 3.2c-1.1.8-2.4 1.2-3.8 1.2zm0-2.6c.8 0 1.6-.3 2.2-.8.6-.6 1.1-1.4 1.5-2.3.3-1 .5-2 .5-3.3 0-1.2-.2-2.3-.5-3.3a5 5 0 00-1.5-2.3c-.6-.5-1.4-.8-2.3-.8-.8 0-1.6.3-2.2.8-.7.6-1.1 1.4-1.5 2.3-.3 1-.5 2-.5 3.3 0 1.2.2 2.3.5 3.3.4 1 .8 1.7 1.5 2.3.6.5 1.4.8 2.2.8z"/>
+    <defs>
+        <linearGradient id="logo_ioniconf_full_paint0_linear" x1="204" x2="204" y1="3" y2="201" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#59BAFF"/>
+            <stop offset="1" stop-color="#5697FF"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint1_linear" x1="204" x2="204" y1="90" y2="310" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF56C7"/>
+            <stop offset="1" stop-color="#5CFFE2" stop-opacity=".8"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint2_linear" x1="280" x2="280" y1="107" y2="139" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#37CFFF"/>
+            <stop offset="1" stop-color="#556AFF"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint3_linear" x1="204" x2="204" y1="156" y2="244" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#A04EFF"/>
+            <stop offset="1" stop-color="#0BF" stop-opacity=".7"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint4_linear" x1="204" x2="204" y1="0" y2="400" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#58CFFF"/>
+            <stop offset=".3" stop-color="#56A5FF"/>
+            <stop offset="1" stop-color="#5E5EFF"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint5_linear" x1="204.5" x2="204.5" y1="200" y2="397" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2CEDA8"/>
+            <stop offset=".5" stop-color="#4DC8FF"/>
+            <stop offset="1" stop-color="#5E5FFF"/>
+        </linearGradient>
+        <linearGradient id="logo_ioniconf_full_paint6_linear" x1="34.5" x2="376" y1="104" y2="104" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#56A4FF"/>
+            <stop offset=".5" stop-color="#2BEDA7"/>
+            <stop offset="1" stop-color="#56A4FF"/>
+        </linearGradient>
+        <filter id="logo_ioniconf_full_filter0_d" width="64" height="64" x="248" y="91" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset/>
+            <feGaussianBlur stdDeviation="8"/>
+            <feColorMatrix values="0 0 0 0 0.00392157 0 0 0 0 0.0235294 0 0 0 0 0.0627451 0 0 0 1 0"/>
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+        </filter>
+    </defs>
+</svg>

@@ -218,6 +218,45 @@ p {
   }
 }
 
+.mobile-nav {
+@include box($d:none, $back:$colorBackMain, $color:white);
+  .mobile-nav__close svg {
+    fill:white;
+  }
+
+  .mobile-nav__menu {
+    display:flex;
+    flex-direction:column;
+    padding-top: 34px;
+
+    .mobile-nav__menuitem {
+      flex-basis:0;
+      margin-top:0;
+      padding: 16px;
+      svg {
+        max-height: 35vh;
+      }
+  
+      a {
+        color: white;
+        text-align:center;
+      }
+    }
+  }
+}
+
+#mobileNavBar {
+  display:none;
+  justify-content:space-between;
+  button {
+  @include box($color:white, $back:none, $bord:none, $p:0);
+  @include font($fs:34px, $lh:34px, $fw:bold);
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+}
+
 #navSpace {
   height: var(--navHeight);
   
@@ -605,7 +644,7 @@ p {
   #mainNav {
     display:none !important;
   }
-  #mobileNav {
+  #mobileNavBar {
     display:flex !important;
   }
 }

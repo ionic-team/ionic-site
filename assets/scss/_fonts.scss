@@ -14,7 +14,7 @@ $interVariableUrl: $cdn + 'inter/Inter-variable-ASCII-subset.woff2';
     url($fontsDir + 'ionicons.woff2') format('woff2'),
     url($fontsDir + 'ionicons.woff') format('woff'),
     url($fontsDir + 'ionicons.ttf') format('ttf'),
-    url($fontsDir + 'ionicons.eot#iefix') format('eot')
+    url($fontsDir + 'ionicons.eot#iefix') format('eot'),
     url($fontsDir + 'ionicons.svg#Ionicons') format('svg');
   font-weight: normal;
   font-style: normal;

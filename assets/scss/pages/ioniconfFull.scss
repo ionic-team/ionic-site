@@ -2,23 +2,23 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../vars';
-@import '../fonts';
+// @import '../fonts';
 @import '../components/mobile-nav';
 
 @import '../utilities/u-ioniconf';
 
-@font-face {
-  font-family: 'Ionicons';
-  src:
-    local('Ionicons'),
-    url('/fonts/ionicons.woff2') format('woff2'),
-    url('/fonts/content/fonts/ionicons.woff') format('woff'),
-    url('/fonts/content/fonts/ionicons.ttf') format('ttf'),
-    url('/fonts/content/fonts/ionicons.eot#iefix') format('eot'),
-    url('/fonts/content/fonts/ionicons.svg#Ionicons') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Ionicons';
+//   src:
+//     local('Ionicons'),
+//     url('/fonts/ionicons.woff2') format('woff2'),
+//     url('/fonts/content/fonts/ionicons.woff') format('woff'),
+//     url('/fonts/content/fonts/ionicons.ttf') format('ttf'),
+//     url('/fonts/content/fonts/ionicons.eot#iefix') format('eot'),
+//     url('/fonts/content/fonts/ionicons.svg#Ionicons') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 //#endregion ----------------------------------------------------------------------------
 
 //#region ----------------------------- VARIABLES -----------------------------------------

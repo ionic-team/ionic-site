@@ -219,6 +219,10 @@
       &::after {
         display: none;
       }
+
+      &:hover {
+        background: none;
+      }
     }
     a:hover #btn-header-announcement{
       color: lighten(#FFD84D, 5%);

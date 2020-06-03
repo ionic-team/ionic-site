@@ -1,24 +1,21 @@
 //#region ----------------------------- IMPORTS ------------------------------------------
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../vars';
 // @import '../fonts';
-@import '../components/mobile-nav';
-
 @import '../utilities/u-ioniconf';
 
-@font-face {
-  font-family: 'Ionicons';
-  src:
-    local('Ionicons'),
-    url('/fonts/ionicons.woff2') format('woff2'),
-    url('/fonts/content/fonts/ionicons.woff') format('woff'),
-    url('/fonts/content/fonts/ionicons.ttf') format('ttf'),
-    url('/fonts/content/fonts/ionicons.eot#iefix') format('eot'),
-    url('/fonts/content/fonts/ionicons.svg#Ionicons') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Ionicons';
+//   src:
+//     local('Ionicons'),
+//     url('/fonts/ionicons.woff2') format('woff2'),
+//     url('/fonts/content/fonts/ionicons.woff') format('woff'),
+//     url('/fonts/content/fonts/ionicons.ttf') format('ttf'),
+//     url('/fonts/content/fonts/ionicons.eot#iefix') format('eot'),
+//     url('/fonts/content/fonts/ionicons.svg#Ionicons') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 //#endregion ----------------------------------------------------------------------------
 
 //#region ----------------------------- VARIABLES -----------------------------------------
@@ -117,6 +114,22 @@ main {
   overflow: hidden;
 }
 
+footer {
+  border:none;
+  padding:0;
+}
+
+a:focus, a:hover, a:active, a:visited{
+  color: white;
+  text-decoration:none;
+}
+
+nav {
+  &::before, &::after {
+    display:none !important;
+  }
+}
+
 section {
   margin-block-start: 200px;
   margin-block-end: 200px;
@@ -169,6 +182,7 @@ h3 {
 
 p {
   margin: 0;
+  font-weight:400;
 }
 
 .p2 {
@@ -188,8 +202,10 @@ p {
 // #endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- HUBSPOT OVERRIDE -----------------------------------
-
+#landingContent, #mobile-nav {
 .hbspt-form {
+  margin: 0;
+
   & > form {
     display:flex;
   }
@@ -216,6 +232,10 @@ p {
   background: rgba(0,0,0,0); 
   display:flex;
   align-items:center;
+  font-size:14px;
+  text-align:left;
+  flex-direction:row;
+  max-width:auto;
 
   p {
     font-family: $fontFamilyRoboto;
@@ -231,6 +251,7 @@ p {
     min-width: 42px;
     min-height: 42px;
     margin-right: 16px;
+    margin-bottom:0px;
   }
 }
 
@@ -292,26 +313,12 @@ flex-grow:1;
   margin: 0;
   position: absolute;
   z-index: 10;
-  top: -22px;
+  top: -28px;
 }
 
 #landingMain {
   .hbspt-form {
     margin-top: 36px;
-  }
-}
-
-.mobile-nav {
-  .hbspt-form {
-    width: 100%;
-
-    fieldset:nth-of-type(4) {
-      flex-basis: auto;
-      flex-grow:1;
-    }
-  }
-  .submitted-message {
-    text-align:center;
   }
 }
 
@@ -332,7 +339,25 @@ flex-grow:1;
 
   }
 }
+}
 
+#mobile-nav {
+  .hbspt-form {
+    width: 100%;
+
+    fieldset:nth-of-type(4) {
+      flex-basis: auto;
+      flex-grow:1;
+    }
+  }
+
+  .mobile-nav__menu {
+    height: 100vh;
+  }
+  .submitted-message {
+    text-align:center;
+  }
+}
 //#endregion -------------------------------------------------------------------------------
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
@@ -361,7 +386,7 @@ flex-grow:1;
           background-image: linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%);
         }
       }
-      a:hover, a:active, a:focus{
+      a:hover, a:active, a:focus, li.active > a{
         transform:translateY(-1px);
         &:before {          
           width: 100%;
@@ -392,7 +417,17 @@ flex-grow:1;
     fill:white;
   }
 
+  .mobile-nav__bg {
+    z-index:-1;
+    position:absolute;
+    top:0;
+  }
+
   .mobile-nav__menu {
+    margin:0;
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
     color:white;
     display:flex;
     flex-direction:column;
@@ -772,12 +807,6 @@ flex-grow:1;
     color: #FF6B7B;;
   }
 
-
-
-  .schedule__time--col {
-    
-  }
-
   .schedule__session1--cell {
     background: rgba(115, 130, 255, .15);
   }
@@ -785,6 +814,11 @@ flex-grow:1;
 
 #footer {
 @include font($fs:14px, $lh:17px, $color:white);
+@include spacer($fG:9999);
+
+  & > div.container::before, & > div.container::after {
+    display:none;
+  }
 
   .footer__button {
   @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px, $mLeft:24px);
@@ -792,12 +826,19 @@ flex-grow:1;
   }
 }
 
-#footerContent{
-  justify-content:flex-end;
+.footer__list{
+  flex-grow:1;
   & > li {
-    padding-inline-start: 24px;
-    padding-inline-end: 24px;
+    padding: 24px;
   }
+}
+
+#footerIcon {
+  object-fit: contain;
+}
+#footerIcon, .footer__button {
+  padding-top:24px;
+  padding-bottom:24px;
 }
 
 //#endregion --------------------------------------------------------------------------------
@@ -810,11 +851,26 @@ flex-grow:1;
   }
 }
 
+@media screen and (max-width: $screen-sm-max) {
+  #footer {
+    .footer__button {
+      order:2;
+    }
+    .footer__list {
+      justify-content: space-between;
+      order:3;
+    }
+  }
+}
+
 @media screen and (max-width: $screen-xs-max) {
   :root {
     --navHeight:50px;
   }
 
+  body {
+    padding-top:0px;
+  }
   #mainNav {
     display:none !important;
   }
@@ -834,5 +890,7 @@ flex-grow:1;
     order:3;
   }
 }
+
+
 
 //#endregion --------------------------------------------------------------------------------------

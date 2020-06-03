@@ -18,6 +18,9 @@
 .u-align-items-c {
   align-items: center;
 }
+.u-align-items-s {
+  align-items: stretch;
+}
 .u-align-self-c {
   align-self:center;
 }
@@ -42,6 +45,15 @@
 }
 .u-just-cont-c {
   justify-content: center;
+}
+.u-just-cont-sa {
+  justify-content: space-around;
+}
+.u-just-cont-se {
+  justify-content: space-evenly;
+}
+.u-just-cont-sb {
+  justify-content: space-between;
 }
 
 @mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,

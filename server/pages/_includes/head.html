@@ -9,13 +9,9 @@
 <link rel="preconnect" href="https://www.googleadservices.com" crossorigin>
 
 {% if dev %}
-  {% if not noGlobalStyles %}
-  <link href="/css/styles.css" rel="stylesheet">
-  {% endif %}
+<link href="/css/styles.css" rel="stylesheet">
 {% else %}
-  {% if not noGlobalStyles %}
-  <link href="/css/styles.min.css" rel="stylesheet">
-  {% endif %}
+<link href="/css/styles.min.css" rel="stylesheet">
 {% endif %}
 
 {% if cssPath %}

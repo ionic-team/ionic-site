@@ -9,9 +9,13 @@
 <link rel="preconnect" href="https://www.googleadservices.com" crossorigin>
 
 {% if dev %}
+  {% if not noGlobalStyles %}
   <link href="/css/styles.css" rel="stylesheet">
+  {% endif %}
 {% else %}
+  {% if not noGlobalStyles %}
   <link href="/css/styles.min.css" rel="stylesheet">
+  {% endif %}
 {% endif %}
 
 {% if cssPath %}
@@ -115,9 +119,15 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-70x70.png">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png">
+{% if not themeColor %}
 <meta name="theme-color" content="#4c8fff">
+{% else %}
+<meta name="theme-color" content="{{themeColor}}">
+{% endif %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+{% if not noGlobalStencil %}
 <script type="module" src="/js/stencil/ionic-site-components/ionic-site-components.esm.js"></script>
 <script nomodule src="/js/stencil/ionic-site-components.js"></script>
+{% endif %}

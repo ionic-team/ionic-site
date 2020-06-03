@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 104 96">
+    <defs/>
+    <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M96.8 55.1v-7.42c0-24.57-20.1-44.5-44.86-44.5a45.03 45.03 0 00-35.08 16.77M7.2 40.35v7.42c0 24.6 20.08 44.5 44.86 44.5A45.39 45.39 0 0087.1 75.63"/>
+    <circle cx="87" cy="75.5" r="4" fill="#DAEDFC"/>
+    <circle cx="17" cy="20" r="4" fill="#DAEDFC"/>
+    <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 45.84l6.14-6.24 6.42 6.24"/>
+    <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M102.82 51.04l-6.14 6.24-6.41-6.24"/>
+    <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M51.91 53.74a6.01 6.01 0 100-12.02 6.01 6.01 0 000 12.02z" opacity=".7"/>
+    <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M64.04 52.65a2.7 2.7 0 00.54 2.98l.1.1a3.28 3.28 0 11-4.64 4.64l-.1-.1a2.7 2.7 0 00-2.98-.54 2.7 2.7 0 00-1.64 2.47v.28a3.28 3.28 0 11-6.56 0v-.14A2.7 2.7 0 0047 59.86a2.7 2.7 0 00-2.98.54l-.1.1a3.28 3.28 0 11-4.64-4.64l.1-.1a2.7 2.7 0 00.54-2.98 2.7 2.7 0 00-2.47-1.64h-.28a3.28 3.28 0 110-6.56h.15a2.7 2.7 0 002.47-1.77 2.7 2.7 0 00-.54-2.98l-.1-.1a3.28 3.28 0 114.64-4.64l.1.1a2.7 2.7 0 002.98.54H47a2.7 2.7 0 001.64-2.47v-.28a3.28 3.28 0 116.56 0v.14a2.7 2.7 0 001.64 2.48 2.7 2.7 0 002.98-.54l.1-.1a3.28 3.28 0 114.64 4.64l-.1.1a2.7 2.7 0 00-.54 2.98v.13a2.7 2.7 0 002.48 1.64h.27a3.28 3.28 0 110 6.56h-.14a2.7 2.7 0 00-2.48 1.64v0z" opacity=".9"/>
+    <path fill="url(#icon_automate_paint0_radial)" d="M70.26 66.35L75.91 72a33.94 33.94 0 01-48-48h5.65v5.65a25.95 25.95 0 1036.7 36.7z"/>
+    <path fill="url(#icon_automate_paint1_radial)" d="M70.26 66.35V72h5.65a33.94 33.94 0 10-48-48h5.65v5.65a25.95 25.95 0 1136.7 36.7z"/>
+    <defs>
+        <radialGradient id="icon_automate_paint0_radial" cx="0" cy="0" r="1" gradientTransform="rotate(-135 50.87 19.45) scale(63.8892 87.1336)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#B2CEFF" stop-opacity=".4"/>
+            <stop offset="1" stop-color="#DAEDFC"/>
+        </radialGradient>
+        <radialGradient id="icon_automate_paint1_radial" cx="0" cy="0" r="1" gradientTransform="rotate(-135 50.87 19.45) scale(63.8892 87.1336)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#DAEDFC"/>
+            <stop offset="1" stop-color="#B2CEFF" stop-opacity=".4"/>
+        </radialGradient>
+    </defs>
+</svg>

@@ -5,11 +5,21 @@
   display:flex;
   flex-direction:column;
 }
+.u-grow {
+  flex-grow: 1;
+}
+.u-fill {
+  height: 100%;
+  width: 100%;
+}
 .u-wrap {
   flex-wrap:wrap;
 }
 .u-align-items-c {
   align-items: center;
+}
+.u-align-items-s {
+  align-items: start;
 }
 .u-align-self-c {
   align-self:center;
@@ -21,8 +31,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+.u-inline {
+  display:inline;
+}
 .u-w100 {
   width: 100%;
+}
+.u-h100 {
+  height: 100%;
 }
 .u-ml-auto {
   margin-left: auto;
@@ -30,13 +46,24 @@
 .u-just-cont-c {
   justify-content: center;
 }
+.u-just-cont-sa {
+  justify-content: space-around;
+}
+.u-just-cont-se {
+  justify-content: space-evenly;
+}
+.u-just-cont-sb {
+  justify-content: space-between;
+}
 
-@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
-           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
-           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $bR: null, $pos: null,
-           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null) {
+@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null, $fB: null, $mTop:null, $mBot:null, $mLeft:null,
+           $mRight:null, $fG: null, $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $br: null, $pos: null,
+           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
+           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $ai:null, $p: null,
+           $order:null) {
   #{$element}.u-box {
-    box-sizing: border-box;
+    display:#{$d};
+    padding: #{$p};
     padding-left: #{$pX};
     padding-right: #{$pX};
     padding-top: #{$pY};
@@ -55,7 +82,7 @@
     min-width: #{$mnW};
     max-height: #{$mxH};
     min-height: #{$mnH};
-    border-radius: #{$bR};
+    border-radius: #{$br};
     position: #{$pos};
     top: #{$t};
     right: #{$r};
@@ -63,11 +90,19 @@
     left: #{$l};
     z-index: #{$z};
     border: #{$bord};
-
+    padding-top: #{$pTop};
+    padding-right: #{$pRight};
+    padding-bottom: #{$pBot};
+    padding-left: #{$pLeft};
+    grid-template-columns: #{$gtc};
+    grid-gap: #{$gg};
+    justify-content:#{$jc};
+    align-items:#{$ai};
+    order: #{$order};
   }
 }
 
-@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null) {
+@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null) {
   #{$element}.u-font {
     font-family: #{$ff};
     font-weight: #{$fw};
@@ -76,10 +111,12 @@
     letter-spacing: #{$ls};
     text-transform: #{$tt};
     white-space: #{$ws};
+    color: #{$color};
   }  
 }
-@mixin spacer($el:'&', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h: null) {
+@mixin spacer($el:'& ', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h:null, $d:null) {
   #{$el}.u-spacer {
+    display: #{$d};
     min-width: #{$mnW};
     min-height: #{$mnH};
     flex-basis: #{$fB};

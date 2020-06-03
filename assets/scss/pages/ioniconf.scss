@@ -467,6 +467,8 @@ flex-grow:1;
 
   .mobile-nav__footer {
     background-color: $colorBackMain;
+    position:absolute;
+    z-index:2;
   }
 }
 

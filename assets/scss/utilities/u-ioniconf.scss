@@ -56,11 +56,11 @@
   justify-content: space-between;
 }
 
-@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null,
-           $fB: null, $mTop:null, $mBot:null, $mLeft:null, $mRight:null, $fG: null,
-           $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $br: null, $pos: null,
+@mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null, $fB: null, $mTop:null, $mBot:null, $mLeft:null,
+           $mRight:null, $fG: null, $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $br: null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
-           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $ai:null, $p: null) {
+           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $ai:null, $p: null,
+           $order:null) {
   #{$element}.u-box {
     display:#{$d};
     padding: #{$p};
@@ -98,6 +98,7 @@
     grid-gap: #{$gg};
     justify-content:#{$jc};
     align-items:#{$ai};
+    order: #{$order};
   }
 }
 

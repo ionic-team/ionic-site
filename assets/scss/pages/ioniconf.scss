@@ -935,7 +935,7 @@ flex-grow:1;
 @media screen and (max-width: $screen-sm-max) {
   #footer {
     .footer__button {
-      order:2;
+    @include box($order:2, $mLeft:0);      
     }
     .footer__list {
       justify-content: space-between;

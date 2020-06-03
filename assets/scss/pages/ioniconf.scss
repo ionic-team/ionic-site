@@ -804,6 +804,7 @@ flex-grow:1;
 
   .vertical{
     writing-mode: vertical-lr;
+    white-space:nowrap;
   }
   th {
   @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
@@ -852,12 +853,15 @@ flex-grow:1;
   }
   .schedule__contentCell--session1 {
     background: rgba(115, 130, 255, .15);
+    z-index:1;
   }
   .schedule__contentCell--session2 {
     background: rgba(0, 216, 174, .15);
+    z-index:1;
   }
   .schedule__contentCell--session3 {
     background: rgba(255, 107, 123, .15);
+    z-index:1;
   }
   .schedule__highlightRow--session1 {
     background: #7382FF;

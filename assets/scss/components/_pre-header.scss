@@ -187,6 +187,44 @@
     }
   }
 
+  &--blm {
+    background-color: black;
+    color: #fff;
+    padding: 10px 0 12px;
+
+    .container {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .container > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container p {
+      margin-bottom: 0;
+    }
+
+    #btn-header-announcement {
+      color: #FFD84D;
+      font-size: 13px;
+      padding: 5px 10px;
+      margin-left: 8px;
+      line-height: 1;
+      background: none;
+      text-transform: none;
+
+      &::after {
+        display: none;
+      }
+    }
+    a:hover #btn-header-announcement{
+      color: lighten(#FFD84D, 5%);
+    }
+  }
+
   &--ioniconf {
     background-color: #000715;
     background-image: url('/img/announcement-bar/preheader-bg-ioniconf.png');

@@ -851,18 +851,22 @@ flex-grow:1;
     padding-inline-end: 56px;
     min-width: 392px;
   }
+  .schedule__contentCell--session1,
+  .schedule__contentCell--session2,
+  .schedule__contentCell--session3 {
+    min-width:32px;
+    z-index:1;
+  }
   .schedule__contentCell--session1 {
     background: rgba(115, 130, 255, .15);
-    z-index:1;
   }
   .schedule__contentCell--session2 {
     background: rgba(0, 216, 174, .15);
-    z-index:1;
   }
   .schedule__contentCell--session3 {
     background: rgba(255, 107, 123, .15);
-    z-index:1;
   }
+
   .schedule__highlightRow--session1 {
     background: #7382FF;
   }

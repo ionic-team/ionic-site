@@ -142,11 +142,6 @@ main {
   overflow:visible;
 }
 
-footer {
-  border:none;
-  padding:0;
-}
-
 a:focus, a:hover, a:active, a:visited{
   color: white;
   text-decoration:none;
@@ -574,6 +569,12 @@ flex-grow:1;
 @include box($mxW: 448px, $h: auto, $fG:1, $fB: 50%);
 }
 
+#backgroundImage {
+  background:url('/img/ioniconf/bg-tessellation.min.svg');
+  background-position: center top;
+  background-size: cover;
+}
+
 #speakers {
   position:relative;
   overflow:hidden;
@@ -897,6 +898,7 @@ flex-grow:1;
 #footer {
 @include font($fs:14px, $lh:17px, $color:white);
 @include spacer($fG:9999);
+  margin-bottom:0px;
 
   & > div.container::before, & > div.container::after {
     display:none;

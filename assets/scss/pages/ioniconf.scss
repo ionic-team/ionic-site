@@ -27,6 +27,7 @@
 $colorBackMain: #000715;
 $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
+$colorTextHighlight: #5887FF;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $fontFamilyInter: $font-family-inter;
@@ -55,6 +56,25 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     box-shadow: 0px 4px 8px black;
   }
   100% { transform: translateY(0px); }
+}
+
+.highlight {
+  color: $colorTextHighlight;
+}
+
+.btn-main {
+  display:flex;
+  line-height: 16px;
+  align-items:center;
+
+    vertical-align: middle;
+
+  &:after {
+    content: ' \f119';
+    font-family: 'Ionicons';
+    font-size: 20px;
+    margin-left:4px;
+  }
 }
 
 .btn-main, .hs-button{
@@ -114,8 +134,12 @@ body * {
   overflow:hidden;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 main {
-  overflow: hidden;
+  overflow:visible;
 }
 
 footer {
@@ -137,7 +161,6 @@ nav {
 section {
   margin-block-start: 200px;
   margin-block-end: 200px;
-  overflow-x:hidden;
 }
 
 a {
@@ -317,7 +340,7 @@ flex-grow:1;
   margin: 0;
   position: absolute;
   z-index: 10;
-  top: -28px;
+  top: -20px;
 }
 
 #landingMain {
@@ -326,15 +349,20 @@ flex-grow:1;
   }
 }
 
+@media screen and (max-width: $screen-sm-max) {
+.hbspt-form {
+  fieldset:nth-of-type(4) {
+    flex-basis: auto;
+    margin-right: 0px !important;
+  }
+}
+}
+
 @media screen and (max-width: $screen-xs-max) {
   .hbspt-form {
     width: 100%;
     & > form {
       flex-direction:column;
-    }
-    fieldset:nth-of-type(4) {
-      flex-basis: auto;
-      margin-right: 0px !important;
     }
     .hs-submit {
       flex-basis: auto;
@@ -497,6 +525,8 @@ flex-grow:1;
 #landing {
   margin-block-start:0;
   margin-block-end:0;
+  position:relative;
+  overflow:hidden;
 }
 
 #landingBack {
@@ -542,8 +572,13 @@ flex-grow:1;
 }
 #landingImage {
 @include box($mxW: 448px, $h: auto, $fG:1, $fB: 50%);
-
 }
+
+#speakers {
+  position:relative;
+  overflow:hidden;
+}
+
 
 #speakersTitle {
   & > h2 {
@@ -579,7 +614,28 @@ flex-grow:1;
   .card__title {
   @include box($d:flex, $jc:space-between, $ai:center, $mTop:40px, $mBot: 14px);
 
+  @keyframes fill{
+    from { fill: $colorBackMain; }
+    to { fill: #fff; }
+  }
+  @keyframes unfill{
+    from { fill: #fff; }
+    to { fill: $colorBackMain; }
+  }
+
     .card__icons {
+      a svg{
+        animation: unfill 300ms $timingFunction2;
+        animation-fill-mode: forwards;
+      }
+
+      a:hover, a:active, a:focus {
+        svg {
+          animation: fill 300ms $timingFunction2;
+          animation-fill-mode: forwards;
+        }
+      }
+
       & > :first-child {
         margin-right: 16px;
       }
@@ -607,20 +663,19 @@ flex-grow:1;
 }
 
 #eventInfo {
-@include box($mxW:480px);
+@include box($mxW:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
 
   h2 {
   @include box($mBot:34px);
   }
-  .p2 {
-    margin-bottom:32px;
+  .p2 + .p2{
+    margin-top:32px;
   }
-  .pGroup {
-    margin-bottom: 90px;
-  }
+  
 }
 
 #eventContent {
+  margin-top: 88px;
 
   .card {
   @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mBot:48px);
@@ -791,8 +846,8 @@ flex-grow:1;
     padding-inline-end: 16px;
   }
   .schedule__infoCol {
-    padding-inline-start: 64px;
-    padding-inline-end: 64px;
+    padding-inline-start: 56px;
+    padding-inline-end: 56px;
     min-width: 392px;
   }
   .schedule__contentCell--session1 {
@@ -849,10 +904,17 @@ flex-grow:1;
   flex-grow:1;
   & > li {
     padding: 24px;
+
+    & > a {
+      &:hover, &:active, &:focus {
+        color: $colorTextHighlight;
+      }
+    }
   }
 }
 
 #footerIcon {
+  width:auto;
   object-fit: contain;
 }
 #footerIcon, .footer__button {
@@ -886,7 +948,6 @@ flex-grow:1;
   :root {
     --navHeight:50px;
   }
-
   body {
     padding-top:0px;
   }
@@ -907,6 +968,14 @@ flex-grow:1;
   }
   #landingMain {
     order:3;
+  }
+
+  #event > .container {
+    flex-wrap: wrap;
+  }
+
+  #eventInfo {
+   @include box($pos:static);
   }
 
   #footer .u-spacer {

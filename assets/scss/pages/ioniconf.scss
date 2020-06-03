@@ -1,7 +1,11 @@
 //#region ----------------------------- IMPORTS ------------------------------------------
-@import '../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
+
+@import '../vars';
 @import '../fonts';
+@import '../components/mobile-nav';
+
 @import '../utilities/u-ioniconf';
 
 @font-face {
@@ -413,8 +417,16 @@ flex-grow:1;
 
 .mobile-nav {
 @include box($d:none, $back:$colorBackMain);
-  .mobile-nav__close svg {
-    fill:white;
+
+  .mobile-nav__close{
+    opacity:1;
+
+
+    svg {
+      fill:white;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .mobile-nav__bg {
@@ -461,6 +473,11 @@ flex-grow:1;
 #mobileNavBar {
   display:none;
   justify-content:space-between;
+
+  & > a > svg{
+    position:relative;
+    z-index:9999999;
+  }
   button {
   @include box($color:white, $back:none, $bord:none, $p:0);
   @include font($fs:34px, $lh:34px, $fw:bold);
@@ -879,7 +896,7 @@ flex-grow:1;
   }
 
   #landingContent {
-  @include box($mTop:0);
+  @include box($mTop:32px);
     flex-direction: column;
   }
   #landingImage {
@@ -888,6 +905,10 @@ flex-grow:1;
   }
   #landingMain {
     order:3;
+  }
+
+  #footer .u-spacer {
+    display:none;
   }
 }
 

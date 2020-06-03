@@ -119,7 +119,11 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-70x70.png">
 <meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png">
+{% if not themeColor %}
 <meta name="theme-color" content="#4c8fff">
+{% else %}
+<meta name="theme-color" content="{{themeColor}}">
+{% endif %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 

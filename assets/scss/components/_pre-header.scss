@@ -215,17 +215,23 @@
       line-height: 1;
       background: none;
       text-transform: none;
+      transition: .2s color ease;
 
       &::after {
-        display: none;
+        content: '->';
+        font-family: unset;
+        background: none;
+        display: inline-block;
+        transition: .2s transform ease-out;
       }
 
       &:hover {
         background: none;
       }
     }
-    a:hover #btn-header-announcement{
-      color: lighten(#FFD84D, 5%);
+
+    &:hover #btn-header-announcement::after {
+      transform: translateX(2px);
     }
   }
 

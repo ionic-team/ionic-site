@@ -148,23 +148,34 @@ window.hsSnitch = () => {
 window.hsSnitch();
 
 // shorthand global analytics click event helper
-window.c = function(cat, lbl, el, val) {
+window.c = (cat, lbl, el, val) => {
   if (typeof val === 'undefined') {
-    var val = null;
+    val = null;
   }
   if (window.ga && ga.loaded) {
+
+    let linkFollowed = false;
+    const followLink = () => {
+      if (!el || linkFollowed) return;
+      linkFollowed = true;
+      if (el.target === '_blank') {
+        const newWindow = window.open(el.href);
+        // if new tab wasn't blocked, we're done
+        if (newWindow) return;
+      }
+      document.location = el.href;
+    }
+
     ga('send', {
       hitType: 'event',
       eventCategory: cat,
       eventAction: 'Click',
       eventLabel: lbl,
       eventValue: val,
-      hitCallback: function() {
-        if (!!el) {
-          document.location = el.href;
-        };
-      }
+      hitCallback: followLink
     });
+    // GA has 1 second to do its thing
+    setTimeout(followLink, 1000);
   } else {
     if (!!el) {
       document.location = el.href;

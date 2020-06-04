@@ -2,7 +2,7 @@
 
 {% if not hide_pre_header and announcementBar %}
 <a href="{{announcementBar.data.link.url}}"
-         onclick="c('MarketingCTAs','btn-header-announcement', this, 0)"
+         onclick="return c('MarketingCTAs','btn-header-announcement', this, 0);"
          target="_blank">
 <nav class="pre-header pre-header--{{announcementBar.data.theme | lower }}">
   <div class="container">

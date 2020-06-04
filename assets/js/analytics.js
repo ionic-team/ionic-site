@@ -150,7 +150,7 @@ window.hsSnitch();
 // shorthand global analytics click event helper
 window.c = (cat, lbl, el, val) => {
   if (typeof val === 'undefined') {
-    var val = null;
+    val = null;
   }
   if (window.ga && ga.loaded) {
 
@@ -166,7 +166,7 @@ window.c = (cat, lbl, el, val) => {
       document.location = el.href;
     }
 
-    const test = ga('send', {
+    ga('send', {
       hitType: 'event',
       eventCategory: cat,
       eventAction: 'Click',

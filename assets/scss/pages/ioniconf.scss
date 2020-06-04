@@ -460,14 +460,13 @@ flex-grow:1;
   }
 
   .mobile-nav__menu {
-    margin:0;
-    width:100%;
+    background: url('/img/ioniconf/bg-menu.svg');
+    padding:0;
+    padding:34px 0 160px 0;
     max-width:100%;
-    overflow:hidden;
     color:white;
     display:flex;
     flex-direction:column;
-    padding-top: 34px;
 
     .mobile-nav__menuitem {
       flex-basis:0;
@@ -493,6 +492,7 @@ flex-grow:1;
     background-color: $colorBackMain;
     position:absolute;
     z-index:2;
+    bottom:0;
   }
 }
 
@@ -567,7 +567,11 @@ flex-grow:1;
 
 }
 #landingImage {
-@include box($mxW: 448px, $h: auto, $fG:1, $fB: 50%);
+@include box($d:flex, $mxW: 448px, $h: auto, $fG:1, $fB: 50%);
+
+  svg {
+    width: 100%;
+  }
 }
 
 #backgroundImage {
@@ -972,10 +976,18 @@ flex-grow:1;
   #landingContent {
   @include box($mTop:32px);
     flex-direction: column;
+
+    .u-spacer {
+      display:none !important;
+    }
   }
   #landingImage {
-  @include box($mBot:32px, $mnH: 35vh);
+  @include box($mBot:32px, $mnH: 35vh, $mxW: 461px, $jc:center);
     order: 1;
+
+    svg {
+    @include box($mxW: 50vw);
+    }
   }
   #landingMain {
     order:3;

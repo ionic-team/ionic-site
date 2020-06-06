@@ -37,6 +37,8 @@
     color: white;
     padding: 1px 0 0 13px;
     transition: 0.3s color;
+    position: relative;
+    z-index: 10;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -147,6 +149,8 @@
         border-top: none;
         border-radius: 4px;
         transition-duration: 0.3s;
+        position: relative;
+        z-index: 10;
 
         @media (max-width: $screen-md-max) {
           margin-left: 9px;
@@ -280,8 +284,12 @@
 
         &--bar.dropdown-menu {
           transform: none;
+          transition: 
+            transform 0.25s cubic-bezier(.17,.67,.52,1), 
+            opacity 0.2s linear, 
+            top 0.25s step-start;
 
-          .dropdown-menu__column {
+          .dropdown-menu__column li {
             opacity: 1;
             transform: none;
           }
@@ -308,6 +316,9 @@
         z-index: 1;
         transition-delay: 0s;
         transform-origin: 50% 0;
+        transition: 
+          transform 0.2s cubic-bezier(0.36,0.66,0.04,1), 
+          opacity 0.2s linear, top 0.25s step-end;
         backface-visibility: hidden;
 
         &--bar.dropdown-menu {
@@ -316,16 +327,52 @@
           border-radius: 0;
           position: absolute;
           left: calc(-50vw + 468px);
+          transition: 
+            transform 0.2s ease-in, 
+            opacity 0.2s linear, 
+            top 0.25s step-end;
 
           .dropdown-menu__column {
-            opacity: 0;
-            transform: translateY(-5px);
-            transition: transform .2s ease-out .4s, opacity .2s .4s;
+            li {
+              opacity: 0;
+              transform: translateY(-10px);
+              transition: transform .2s ease-out .36s, opacity .2s .36s;
+            }
 
-            &:nth-child(2) { transition-delay: .44s; }
-            &:nth-child(3) { transition-delay: .48s; }
-            &:nth-child(4) { transition-delay: .52s; }
-            &:nth-child(5) { transition-delay: .56s; }
+            &:nth-child(1) { 
+              li:nth-child(2) { transition-delay: .37s; }
+              li:nth-child(3) { transition-delay: .38s; }
+              li:nth-child(4) { transition-delay: .39s; }
+              li:nth-child(5) { transition-delay: .40s; }
+              li:nth-child(6) { transition-delay: .41s; }
+            }
+
+            &:nth-child(2) { 
+              li:nth-child(1) { transition-delay: .40s; }
+              li:nth-child(2) { transition-delay: .41s; }
+              li:nth-child(3) { transition-delay: .42s; }
+              li:nth-child(4) { transition-delay: .43s; }
+              li:nth-child(5) { transition-delay: .44s; }
+              li:nth-child(6) { transition-delay: .45s; }
+            }
+            
+            &:nth-child(3) { 
+              li:nth-child(1) { transition-delay: .44s; }
+              li:nth-child(2) { transition-delay: .45s; }
+              li:nth-child(3) { transition-delay: .46s; }
+              li:nth-child(4) { transition-delay: .47s; }
+              li:nth-child(5) { transition-delay: .48s; }
+              li:nth-child(6) { transition-delay: .49s; }
+            }
+
+            &:nth-child(4) { 
+              li:nth-child(1) { transition-delay: .48s; }
+              li:nth-child(2) { transition-delay: .49s; }
+              li:nth-child(3) { transition-delay: .50s; }
+              li:nth-child(4) { transition-delay: .51s; }
+              li:nth-child(5) { transition-delay: .52s; }
+              li:nth-child(6) { transition-delay: .53s; }
+            }
           }
 
           &::before {

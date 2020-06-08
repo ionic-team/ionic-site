@@ -775,6 +775,9 @@ flex-grow:1;
 #mikeOutline {
 @include box($pos:absolute, $t:-5px, $r:-5px);
 }
+#karoOutline {
+@include box($pos:absolute, $b:-5px, $r:-5px);
+}
 //#endregion --------------------------------------------------------------------------------
 #tableWrap {
   max-width:100%;

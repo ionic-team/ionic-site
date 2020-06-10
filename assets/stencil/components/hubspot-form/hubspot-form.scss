@@ -1,1 +1,10 @@
 @import '../../vars';
+
+.success__message {
+  display:flex;
+  align-items:center;
+
+  svg {
+    padding-right: 16px;
+  }
+}

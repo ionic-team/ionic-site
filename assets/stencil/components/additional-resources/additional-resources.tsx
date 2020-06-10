@@ -47,7 +47,7 @@ export class AdditionalResources {
     }
   }
 
-  getResource(resource) {
+  renderResource(resource) {
     // default image in case it's not set
     let image = resource.data.hero_image ? 
       resource.data.hero_image.url.replace(/\?.*/,'') :
@@ -86,7 +86,7 @@ export class AdditionalResources {
           </h5>
         </hgroup>
         <ul class="cards">
-          {this.resources.map(resource => this.getResource(resource))}
+          {this.resources.map(resource => this.renderResource(resource))}
         </ul>
       </Host>
     );

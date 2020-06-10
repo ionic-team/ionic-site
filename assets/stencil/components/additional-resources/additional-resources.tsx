@@ -1,5 +1,5 @@
 import Prismic from 'prismic-javascript';
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, State } from '@stencil/core';
 
 @Component({
   tag: 'additional-resources',
@@ -7,34 +7,81 @@ import { Component, Prop, h, Host } from '@stencil/core';
   shadow: false
 })
 export class AdditionalResources {
-  apiURL = 'https://ionicframeworkcom.prismic.io/api/v2';
+  @Prop() page: string = 'default';
 
-  @Prop() page: string = 'Main';
+  @State() headline: string = 'Related Reading';
+  @State() resources: { [key: string]: any }[] = [];
+
+  apiURL = 'https://ionicframeworkcom.prismic.io/api/v2';
+  fields = ['title', 'tagline', 'hero_image', 'meta_image'];
+  categories = ['article', 'blog', 'book', 'case-study', 'course', 'podcast', 'video', 'webinar', 'whitepaper'];
+
 
   async componentWillLoad() {
-    const api = await Prismic.getApi('https://ionicframeworkcom.prismic.io/api/v2');
-    const response = await api.getSingle('resources_landing',  {'fetchLinks' : ['article.author']});
-    console.log(response)
+    let linkedFields = [];
+    this.categories.forEach(category => {
+      this.fields.forEach(field => {
+        linkedFields.push(`${category}.${field}`);
+      });
+    });
+
+    try {
+      const api = await Prismic.getApi(this.apiURL);
+      const response = await api.getSingle('related_resources', {'fetchLinks' : linkedFields});
+
+      this.headline = this.page === 'default' ? 
+        response.data.text.text : response.data[`${this.page}_text`].text;
+      this.headline = this.headline ?? 'Related Reading';
+
+      const resourcesTmp = this.page === 'default' ? 
+        response.data.resources : response.data[`${this.page}_resources`];
+      this.resources = resourcesTmp.map(r => r.resource);
+
+      // console.log(this.headline, this.resources)
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  getResource(resource) {
+    // default image in case it's not set
+    const image = resource.data.hero_image ? 
+      resource.data.hero_image.url :
+      'https://ionicframework.com/img/resource-center/card-webinar-hybrid-vs-native.png?1';
+    return (
+      <li>
+        <a href={`/resources/articles/${resource.uid}`}>
+          <div class="img-wrapper">
+            <img src={image + '&fit=crop&w=560&h=360'}
+                 srcset={`${image + '&fit=crop&w=280&h=180'} 1x, ${image + '&fit=crop&w=560&h=360'} 2x`}
+                 width="280" 
+                 height="180" 
+                 loading="lazy" 
+                 alt={resource.data.title}/>
+          </div>
+          <h6>{resource.type}</h6>
+          <h4>{resource.data.title}</h4>
+          <p class="small">{resource.data.tagline}</p>
+        </a>
+      </li>
+    )
   }
 
   render() {
+    if (this.resources.length < 1) return;
     return (
-      <Host>
+      <Host class="resources">
         <hgroup>
-          <h3>Related Reading</h3>
-          <h5><a href="/resources">See all resources <ion-icon name="ios-arrow-forward" role="img" class="md hydrated" aria-label="ios arrow forward"></ion-icon></a></h5>
+          <h3>{this.headline}</h3>
+          <h5>
+            <a href="/resources">
+              See all resources 
+              <ion-icon name="ios-arrow-forward" role="img" class="md hydrated" aria-label="ios arrow forward"></ion-icon>
+            </a>
+          </h5>
         </hgroup>
         <ul class="cards">
-          <li>
-            <a href="/resources/articles/what-is-a-ui-component-library">
-              <div class="img-wrapper">
-                <img src="/img/resource-center/card-what-is-a-ui-component-library.jpg" width="348" height="224" loading="lazy" alt="What is a UI Component Library"/>
-              </div>
-              <h6></h6>
-              <h4></h4>
-              <p class="small"></p>
-            </a>
-          </li>
+          {this.resources.map(resource => this.getResource(resource))}
         </ul>
       </Host>
     );

@@ -1,5 +1,6 @@
 import Prismic from 'prismic-javascript';
 import { Component, Prop, h, Host, State } from '@stencil/core';
+import defaultResources from './default.json';
 
 @Component({
   tag: 'additional-resources',
@@ -40,6 +41,9 @@ export class AdditionalResources {
       // console.log(this.headline, this.resources)
     } catch (e) {
       console.warn(e);
+      console.log('Using default Related Resources instead');
+      this.headline = 'Related Reading';
+      this.resources = defaultResources;
     }
   }
 

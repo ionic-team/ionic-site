@@ -45,15 +45,16 @@ export class AdditionalResources {
 
   getResource(resource) {
     // default image in case it's not set
-    const image = resource.data.hero_image ? 
-      resource.data.hero_image.url :
-      'https://ionicframework.com/img/resource-center/card-webinar-hybrid-vs-native.png?1';
+    let image = resource.data.hero_image ? 
+      resource.data.hero_image.url.replace(/\?.*/,'') :
+      'https://ionicframework.com/img/resource-center/card-webinar-hybrid-vs-native.png';
+    image += '?auto=compress,format&fit=crop&';
     return (
       <li>
         <a href={`/resources/articles/${resource.uid}`}>
           <div class="img-wrapper">
-            <img src={image + '&fit=crop&w=560&h=360'}
-                 srcset={`${image + '&fit=crop&w=280&h=180'} 1x, ${image + '&fit=crop&w=560&h=360'} 2x`}
+            <img src={`${image}w=560&h=360`}
+                 srcset={`${image}w=280&h=180 1x, ${image}w=560&h=360 2x`}
                  width="280" 
                  height="180" 
                  loading="lazy" 

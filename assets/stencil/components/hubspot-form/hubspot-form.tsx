@@ -90,8 +90,8 @@ export class HubspotForm {
       }
     });
     const context: { pageUri: string, pageName: string, hutk?: string} = {
-      "pageUri": "https://ionicframework.com",
-      "pageName": "Ionic"
+      "pageUri": "https://ionicframework.com/ioniconf",
+      "pageName": "Ioniconf 2020"
     }
     cookie ? context.hutk = cookie[0] : '';
 

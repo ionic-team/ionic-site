@@ -6,7 +6,6 @@
 {% set themeColor = '#000715' %}
 {% set cssPath = 'ioniconf' %}
 {% set noGlobalStyles = true %}
-{% set noGlobalStencil = true %}
 
 {% block main %}
 <header id="header" class="u-box">
@@ -140,32 +139,7 @@
       </div>
     </div>
     <div class="mobile-nav__footer">
-      <div class="hubspot-override hubspot-override--medium u-box u-flex u-w100 u-wrap">
-        <!--[if lte IE 8]>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "3776657",
-            formId: "84157001-6990-455e-8672-cb0d936a2226",
-            onFormReady: function($form, ctx){
-              $('.btn__register').click(function() {
-                $('input.hs-input').focus();
-              })
-              $('.btn__register').on('keypress',function(e) {
-                if(e.which == 13) {
-                  $('input.hs-input').focus();
-                }
-              });
-            }
-          });
-        </script>
-      </div>
+      <hubspot-form form-id="84157001-6990-455e-8672-cb0d936a2226"></hubspot-form>
     </div>
   </nav>
 </header>
@@ -877,32 +851,7 @@
     
       <p class="p2 u-font u-box">June 24, 2020</p>
       <p class="p3 u-font u-box">100% Online // CST, Daytime hours</p>
-      <div class="hubspot-override hubspot-override--medium u-box u-flex u-w100 u-wrap">
-        <!--[if lte IE 8]>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "3776657",
-            formId: "84157001-6990-455e-8672-cb0d936a2226",
-            onFormReady: function($form, ctx){
-              $('.btn__register').click(function() {
-                $('input.hs-input').focus();
-              })
-              $('.btn__register').on('keypress',function(e) {
-                if(e.which == 13) {
-                  $('input.hs-input').focus();
-                }
-              });
-            }
-          });
-        </script>
-      </div>
+      <hubspot-form form-id="84157001-6990-455e-8672-cb0d936a2226"></hubspot-form>
     </article> 
  
 

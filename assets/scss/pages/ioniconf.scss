@@ -130,6 +130,11 @@ body * {
   box-sizing: border-box;
 }
 
+fieldset {
+  border: none;
+  padding:0;
+}
+
 .no-scroll {
   overflow:hidden;
 }
@@ -228,7 +233,7 @@ p {
 .hbspt-form {
   margin: 0;
 
-  & > form {
+  & > .hs-form {
     display:flex;
   }
   fieldset:nth-of-type(4) {
@@ -384,6 +389,20 @@ flex-grow:1;
   }
   .submitted-message {
     text-align:center;
+  }
+}
+
+.success__message {
+  color:white;  
+  height: 100%;
+
+  svg {
+    min-height: 42px;
+    min-width: 42px;
+  }
+
+  p {
+    font-family:$fontFamilyRoboto;
   }
 }
 //#endregion -------------------------------------------------------------------------------

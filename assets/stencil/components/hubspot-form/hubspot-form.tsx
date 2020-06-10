@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, State } from '@stencil/core';
+import { uuid } from 'uuidv4'
 
 interface fieldProps {
   label: string,
@@ -32,6 +33,7 @@ export class HubspotForm {
   @State() blocked: boolean;
   @State() emailInvalid: boolean = false;
   @State() emailSuccess: boolean = false;
+  private wrapperId: string = "id-" + uuid();
   private formFields: fieldProps[] = []
   private formGroups: any = [];
   private submitText: String;
@@ -39,19 +41,27 @@ export class HubspotForm {
   private successMsg: HTMLElement;
 
   componentWillLoad() {
+    if (window['hbspt']) {
+      this.createHubspotForm();
+      return;
+    }
+    
     const script = document.createElement('script');
     script.onload = () => {
-      window['hbspt'].forms.create({
-        portalId: '3776657',
-        formId: this.formId,
-        target: 'hubspot-form'
-      });
-      ;
+      this.createHubspotForm();
     };
     script.onerror = this.loadBackupForm;
     script.src = '//js.hsforms.net/forms/v2.js';
 
     this.el.appendChild(script);
+  }
+
+  createHubspotForm() {
+    window['hbspt'].forms.create({
+      portalId: '3776657',
+      formId: this.formId,
+      target: `#${this.wrapperId}`
+    });
   }
 
   loadBackupForm = async () => {
@@ -60,7 +70,6 @@ export class HubspotForm {
 
     this.submitText = data.submitText;
     this.formGroups = data.formFieldGroups;
-    console.log(data.formFieldGroups);
     data.formFieldGroups.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);
@@ -115,11 +124,13 @@ export class HubspotForm {
 
   render() {
     return (
-      <div>
+      <div id={this.wrapperId} class="hbspt-form">
         { this.blocked && !this.emailSuccess &&
-        <form onSubmit={this.handleBackupSubmit} ref={e => this.formEl = e}>
+        <form onSubmit={this.handleBackupSubmit} ref={e => this.formEl = e} class="hs-form">
           { this.formGroups.map(g => <HubspotFormGroups fields={g.fields}/>)}
-          <button>{this.submitText}</button>
+          <div class="hs-submit">
+            <button class="hs-button">{this.submitText}</button>
+          </div>
         </form> }
 
         { this.emailSuccess &&

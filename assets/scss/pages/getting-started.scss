@@ -1,16 +1,80 @@
 // #region ---------------------- IMPORTS -------------------------
+
 @import '../vars';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../utilities/u-getting-started';
 // #endregion -----------------------------------------------------
 
-// #region ---------------------- COMPONENTS ---------------------
+// #region ---------------------- VARIABLES ----------------------
+$headingColor: #010610;
+$pColorMain: #2D4665;
+$pColorSecondary: #445B78;
+// #endregion -----------------------------------------------------
 
+// #region ---------------------- COMPONENTS ----------------------
+
+// #endregion -----------------------------------------------------
+
+// #region ---------------------- GENERIC -------------------------
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h2, h3 {
+  font-family: $font-family-inter;
+}
+h1 {
+@include font($fs:64px, $fw:bold, $lh:100%, $ls:-.04em, $color: $headingColor);
+}
+
+h2 {
+@include font($fs:28px, $fw: 600, $lh: 160%, $ls: -.02em, $color: $headingColor);
+}
+h3 {
+@include font($fs:28px, $fw: 500, $lh: 24px, $ls: -.01em, $color: $headingColor);
+}
+p {
+@include font($fs:16px, $ls:-.01em);
+}
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- PAGE STYLES ---------------------
 #signup-thanks {
   display: none;
+}
+
+#landing {
+@include box($pos:relative, $pt:149px, $pb:104px, $mb:143px);
+
+  .landing__content {
+    h1 {
+    @include box($mxw:455px, $mb:25px);
+    }
+    p {
+    @include box($mxw:448px);
+    @include font($fs:22px, $lh:160%, $color: $pColorMain);
+    }
+  }
+
+  .landing__image {
+  @include box($pos:absolute, $r:-140px, $t:0, $z:-1);
+  }
+}
+
+#wizard {
+  .wizard__wrapper {
+  @include box($d:flex, $brad:8px, $p: 48px 40px 48px 120px,
+               $back: #486FFF url('/img/getting-started/bg-app-wizard.svg') left center no-repeat,
+               $bs: '0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)');
+      
+    h2 {
+      color:white;
+    }
+    p {
+      color:white;
+      opacity: .8;
+    }
+  }
 }
 
 #install {

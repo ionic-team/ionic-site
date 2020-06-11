@@ -1,0 +1,23 @@
+// #region ---------------------- IMPORTS -------------------------
+@import '../vars';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../utilities/u-getting-started';
+// #endregion -----------------------------------------------------
+
+// #region ---------------------- COMPONENTS ---------------------
+
+// #endregion -----------------------------------------------------
+
+// #region ---------------------- PAGE STYLES ---------------------
+#signup-thanks {
+  display: none;
+}
+
+#install {
+@include box($d:flex, $fw:wrap);
+
+  .install__card {
+
+  }
+}
+// #endregion -----------------------------------------------------

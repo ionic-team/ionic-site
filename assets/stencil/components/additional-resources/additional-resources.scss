@@ -1,7 +1,9 @@
+@import '../../vars';
+
 .resources {
   padding-bottom: 120px;
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-xs-max) {
     padding-bottom: 60px;
   }
 
@@ -66,7 +68,9 @@
     }
 
     img {
-      width: 100%;
+      width: auto;
+      height: 180px;
+      object-fit: cover;
     }
 
     h6 {
@@ -94,7 +98,7 @@
     }
   }
 
-  @media (max-width: $screen-md) {
+  @media (max-width: $screen-sm-max) {
     .cards {
       margin-left: -12px;
       margin-right: -12px;
@@ -105,7 +109,7 @@
     }
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-sm-max) {
     .cards {
       flex-wrap: wrap;
     }
@@ -114,7 +118,7 @@
     }
   }
 
-  @media (max-width: $screen-xs) {
+  @media (max-width: $screen-xxs-max) {
     .cards li {
       flex: 0 0 100%;
     }

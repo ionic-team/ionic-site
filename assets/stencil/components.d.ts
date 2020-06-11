@@ -18,6 +18,9 @@ import {
 } from './components/react-components/react-components';
 
 export namespace Components {
+  interface AdditionalResources {
+    'page': string;
+  }
   interface BarChart {
     'color': string;
     'graphData': string | object;
@@ -120,6 +123,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLAdditionalResourcesElement extends Components.AdditionalResources, HTMLStencilElement {}
+  var HTMLAdditionalResourcesElement: {
+    prototype: HTMLAdditionalResourcesElement;
+    new (): HTMLAdditionalResourcesElement;
+  };
 
   interface HTMLBarChartElement extends Components.BarChart, HTMLStencilElement {}
   var HTMLBarChartElement: {
@@ -283,6 +292,7 @@ declare global {
     new (): HTMLUiTipElement;
   };
   interface HTMLElementTagNameMap {
+    'additional-resources': HTMLAdditionalResourcesElement;
     'bar-chart': HTMLBarChartElement;
     'home-components': HTMLHomeComponentsElement;
     'home-native': HTMLHomeNativeElement;
@@ -314,6 +324,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface AdditionalResources {
+    'page'?: string;
+  }
   interface BarChart {
     'color'?: string;
     'graphData'?: string | object;
@@ -414,6 +427,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'additional-resources': AdditionalResources;
     'bar-chart': BarChart;
     'home-components': HomeComponents;
     'home-native': HomeNative;
@@ -450,6 +464,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'additional-resources': LocalJSX.AdditionalResources & JSXBase.HTMLAttributes<HTMLAdditionalResourcesElement>;
       'bar-chart': LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;

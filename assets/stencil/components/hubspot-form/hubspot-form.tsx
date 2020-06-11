@@ -7,7 +7,6 @@ interface fieldProps {
   hidden: boolean,
   fieldType: "string" | "enumeration",
   name: string,
-  group: number,
 }
 
 const HubspotFormGroups = ({fields}) => {
@@ -60,7 +59,7 @@ export class HubspotForm {
     window['hbspt'].forms.create({
       portalId: '3776657',
       formId: this.formId,
-      target: `#${this.wrapperId}`
+      target: `#${this.wrapperId}`,
     });
   }
 

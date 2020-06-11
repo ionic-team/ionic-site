@@ -29,7 +29,7 @@
         </li>
       </ul>
 
-      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font">Register Now </button>
+      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font" onclick="focusInput()">Register Now </button>
     </div>
   </nav>
 
@@ -2050,7 +2050,7 @@
       <li class="u-box"><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
     <div>
-      <button class="btn-main btn__register footer__button u-box u-font">Register Now  </button>
+      <button class="btn-main btn__register footer__button u-box u-font" onclick="focusInput()">Register Now  </button>
     </div>
   </div>
 </section>
@@ -2084,5 +2084,12 @@
   $('[data-spy="scroll"]').on('activate.bs.scrollspy', ({ target }) => {
     target.children[0].blur();
   })
+
+  const focusInput = () => {
+    const registerInputs = Array.from(document.querySelectorAll('[name="email"].hs-input'));
+    registerInputs[1].focus();
+  }
+
+  
 </script>
 {% endblock %}

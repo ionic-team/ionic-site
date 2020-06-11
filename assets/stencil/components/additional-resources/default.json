@@ -1,0 +1,98 @@
+[
+  {
+    "id": "XFtVWhQAAB8AaRsr",
+    "type": "article",
+    "tags": [
+      "hybrid",
+      "introduction"
+    ],
+    "slug": "what-is-hybrid-app-development",
+    "lang": "en-us",
+    "uid": "what-is-hybrid-app-development",
+    "data": {
+      "title": "What is Hybrid App Development?",
+      "tagline": "Hybrid apps are a blend, hence the name hybrid, of both native and web solutions. Where the core of the application is written using web technologies. In this article we dive deep into hybrid app technology.",
+      "hero_image": {
+        "dimensions": {
+          "width": 1440,
+          "height": 720
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.prismic.io/ionicframeworkcom/2467bff206b39cd3bfa7fd8b8b0b91988d70485f_hybrid-app-development.png?auto=compress,format",
+        "1x": {
+          "dimensions": {
+            "width": 720,
+            "height": 360
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/ionicframeworkcom/879463f76f322c72c9944264eaefa0e772d415a2_hybrid-app-development.png?auto=compress,format"
+        }
+      }
+    },
+    "link_type": "Document",
+    "isBroken": false
+  },
+  {
+    "id": "XtbAQxAAACMARbZ9",
+    "type": "video",
+    "tags": [
+      "react",
+      "capacitor"
+    ],
+    "slug": "learn-to-build-mobile-apps-with-ionic-framework-reactjs-and-capacitor",
+    "lang": "en-us",
+    "uid": "build-mobile-apps-with-ionic-framework-reactjs-and-capacitor",
+    "data": {
+      "title": "Learn to Build Mobile Apps With Ionic Framework, ReactJS and Capacitor",
+      "tagline": "We start with the famous two tab application, walking through the structure of the application and how to set up the routes for the tabs."
+    },
+    "link_type": "Document",
+    "isBroken": false
+  },
+  {
+    "id": "XmEq-hEAACIAfdkR",
+    "type": "article",
+    "tags": [
+      "community",
+      "ionic"
+    ],
+    "slug": "why-developers-love-ionic",
+    "lang": "en-us",
+    "uid": "why-developers-love-ionic",
+    "data": {
+      "title": "Why Developers Love Ionic",
+      "tagline": "Ionic powers a significant portion of the Apple App Store and Google Play Store, driven entirely by the love that developers have for  building apps with our platform.",
+      "hero_image": {
+        "dimensions": {
+          "width": 1440,
+          "height": 800
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.prismic.io/ionicframeworkcom/79ff69bb-774b-48d8-b30a-b9ac533121e1_why-devs-love-ionic-article.png?auto=compress,format&rect=0,0,1440,800&w=1440&h=800",
+        "1x": {
+          "dimensions": {
+            "width": 720,
+            "height": 400
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/ionicframeworkcom/79ff69bb-774b-48d8-b30a-b9ac533121e1_why-devs-love-ionic-article.png?auto=compress,format&rect=0,0,1440,800&w=720&h=400"
+        }
+      },
+      "meta_image": {
+        "dimensions": {
+          "width": 1200,
+          "height": 630
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.prismic.io/ionicframeworkcom/79ff69bb-774b-48d8-b30a-b9ac533121e1_why-devs-love-ionic-article.png?auto=compress,format&rect=0,22,1440,756&w=1200&h=630"
+      }
+    },
+    "link_type": "Document",
+    "isBroken": false
+  }
+]

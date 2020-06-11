@@ -172,11 +172,6 @@ blockquote {
   line-height: 14px;
 }
 
-ionic-sub-header .btn:hover, .btn:active, .btn:focus,
-.ionic-sub-header--stuck .btn:hover, .btn:active, .btn:focus {
-  color:white !important;
-}
-
 .btn-main {
   @extend %btn;
   background: white;

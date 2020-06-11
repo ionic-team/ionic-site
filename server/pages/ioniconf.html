@@ -6,7 +6,6 @@
 {% set themeColor = '#000715' %}
 {% set cssPath = 'ioniconf' %}
 {% set noGlobalStyles = true %}
-{% set noGlobalStencil = true %}
 
 {% block main %}
 <header id="header" class="u-box">
@@ -30,7 +29,7 @@
         </li>
       </ul>
 
-      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font">Register Now </button>
+      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font" onclick="focusInput()">Register Now </button>
     </div>
   </nav>
 
@@ -140,32 +139,7 @@
       </div>
     </div>
     <div class="mobile-nav__footer">
-      <div class="hubspot-override hubspot-override--medium u-box u-flex u-w100 u-wrap">
-        <!--[if lte IE 8]>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "3776657",
-            formId: "84157001-6990-455e-8672-cb0d936a2226",
-            onFormReady: function($form, ctx){
-              $('.btn__register').click(function() {
-                $('input.hs-input').focus();
-              })
-              $('.btn__register').on('keypress',function(e) {
-                if(e.which == 13) {
-                  $('input.hs-input').focus();
-                }
-              });
-            }
-          });
-        </script>
-      </div>
+      <hubspot-form form-id="84157001-6990-455e-8672-cb0d936a2226"></hubspot-form>
     </div>
   </nav>
 </header>
@@ -877,33 +851,10 @@
 
       <p class="p2 u-font u-box">June 24, 2020</p>
       <p class="p3 u-font u-box">100% Online // CST, Daytime hours</p>
-      <div class="hubspot-override hubspot-override--medium u-box u-flex u-w100 u-wrap">
-        <!--[if lte IE 8]>
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8"
-                type="text/javascript"
-                src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            portalId: "3776657",
-            formId: "84157001-6990-455e-8672-cb0d936a2226",
-            onFormReady: function($form, ctx){
-              $('.btn__register').click(function() {
-                $('input.hs-input').focus();
-              })
-              $('.btn__register').on('keypress',function(e) {
-                if(e.which == 13) {
-                  $('input.hs-input').focus();
-                }
-              });
-            }
-          });
-        </script>
-      </div>
-    </article>
+
+      <hubspot-form form-id="84157001-6990-455e-8672-cb0d936a2226"></hubspot-form>
+    </article> 
+ 
 
 
     <div class="u-spacer"></div>
@@ -2101,7 +2052,7 @@
       <li class="u-box"><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
     <div>
-      <button class="btn-main btn__register footer__button u-box u-font">Register Now  </button>
+      <button class="btn-main btn__register footer__button u-box u-font" onclick="focusInput()">Register Now  </button>
     </div>
   </div>
 </section>
@@ -2135,5 +2086,12 @@
   $('[data-spy="scroll"]').on('activate.bs.scrollspy', ({ target }) => {
     target.children[0].blur();
   })
+
+  const focusInput = () => {
+    const registerInputs = Array.from(document.querySelectorAll('[name="email"].hs-input'));
+    registerInputs[1].focus();
+  }
+
+  
 </script>
 {% endblock %}

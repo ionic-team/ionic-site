@@ -1,10 +1,14 @@
 @import '../../vars';
 
+hubspot-form {
+  width: 100%;
+}
+
 .success__message {
   display:flex;
   align-items:center;
 
   svg {
-    padding-right: 16px;
+    margin-right: 16px;
   }
 }

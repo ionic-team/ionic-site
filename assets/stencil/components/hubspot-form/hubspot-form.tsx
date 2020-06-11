@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, State } from '@stencil/core';
+import { uuid } from 'uuidv4'
 
 interface fieldProps {
   label: string,
@@ -6,7 +7,6 @@ interface fieldProps {
   hidden: boolean,
   fieldType: "string" | "enumeration",
   name: string,
-  group: number,
 }
 
 const HubspotFormGroups = ({fields}) => {
@@ -32,6 +32,7 @@ export class HubspotForm {
   @State() blocked: boolean;
   @State() emailInvalid: boolean = false;
   @State() emailSuccess: boolean = false;
+  private wrapperId: string = "id-" + uuid();
   private formFields: fieldProps[] = []
   private formGroups: any = [];
   private submitText: String;
@@ -39,19 +40,27 @@ export class HubspotForm {
   private successMsg: HTMLElement;
 
   componentWillLoad() {
+    if (window['hbspt']) {
+      this.createHubspotForm();
+      return;
+    }
+    
     const script = document.createElement('script');
     script.onload = () => {
-      window['hbspt'].forms.create({
-        portalId: '3776657',
-        formId: this.formId,
-        target: 'hubspot-form'
-      });
-      ;
+      this.createHubspotForm();
     };
     script.onerror = this.loadBackupForm;
     script.src = '//js.hsforms.net/forms/v2.js';
 
     this.el.appendChild(script);
+  }
+
+  createHubspotForm() {
+    window['hbspt'].forms.create({
+      portalId: '3776657',
+      formId: this.formId,
+      target: `#${this.wrapperId}`,
+    });
   }
 
   loadBackupForm = async () => {
@@ -60,7 +69,6 @@ export class HubspotForm {
 
     this.submitText = data.submitText;
     this.formGroups = data.formFieldGroups;
-    console.log(data.formFieldGroups);
     data.formFieldGroups.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);
@@ -73,7 +81,7 @@ export class HubspotForm {
   handleBackupSubmit = async (e: UIEvent) => {
     e.preventDefault();
     const url: string = "https://api.hsforms.com/submissions/v3/integration/submit/3776657/84157001-6990-455e-8672-cb0d936a2226"
-    const cookie =  document.cookie.match(/(?<=hubspotutk=).*?(?=;)/g);
+    const cookie =  document.cookie.match(/(hubspotutk=).*?(?=;)/g);
     const fields = this.formFields.map(field => {
       return {
         "name": field.name,
@@ -81,10 +89,10 @@ export class HubspotForm {
       }
     });
     const context: { pageUri: string, pageName: string, hutk?: string} = {
-      "pageUri": "https://ionicframework.com",
-      "pageName": "Ionic"
+      "pageUri": "https://ionicframework.com/ioniconf",
+      "pageName": "Ioniconf 2020"
     }
-    cookie ? context.hutk = cookie[0] : '';
+    cookie ? context.hutk = cookie[0].split("hubspotutk=")[1] : '';
 
     const data = {
       "submittedAt": Date.now(),
@@ -105,7 +113,7 @@ export class HubspotForm {
     const resData = await response.json();
 
     if (response.status == 200){
-      const successMsg = resData.inlineMessage.match(/(?<=<p>).*?(?=&nbsp;)/g);
+      const successMsg = resData.inlineMessage.match(/(<p>).*?(?=&nbsp;)/g)[0].split("<p>")[1];
       this.successMsg = successMsg;
       this.emailSuccess = true;
     } else {
@@ -115,11 +123,13 @@ export class HubspotForm {
 
   render() {
     return (
-      <div>
+      <div id={this.wrapperId} class="hbspt-form">
         { this.blocked && !this.emailSuccess &&
-        <form onSubmit={this.handleBackupSubmit} ref={e => this.formEl = e}>
+        <form onSubmit={this.handleBackupSubmit} ref={e => this.formEl = e} class="hs-form">
           { this.formGroups.map(g => <HubspotFormGroups fields={g.fields}/>)}
-          <button>{this.submitText}</button>
+          <div class="hs-submit">
+            <button class="hs-button">{this.submitText}</button>
+          </div>
         </form> }
 
         { this.emailSuccess &&

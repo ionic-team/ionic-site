@@ -82,7 +82,7 @@ export class HubspotForm {
   handleBackupSubmit = async (e: UIEvent) => {
     e.preventDefault();
     const url: string = "https://api.hsforms.com/submissions/v3/integration/submit/3776657/84157001-6990-455e-8672-cb0d936a2226"
-    const cookie =  document.cookie.match(/(?<=hubspotutk=).*?(?=;)/g);
+    const cookie =  document.cookie.match(/(hubspotutk=).*?(?=;)/g);
     const fields = this.formFields.map(field => {
       return {
         "name": field.name,
@@ -93,7 +93,7 @@ export class HubspotForm {
       "pageUri": "https://ionicframework.com/ioniconf",
       "pageName": "Ioniconf 2020"
     }
-    cookie ? context.hutk = cookie[0] : '';
+    cookie ? context.hutk = cookie[0].split("hubspotutk=")[1] : '';
 
     const data = {
       "submittedAt": Date.now(),
@@ -114,7 +114,7 @@ export class HubspotForm {
     const resData = await response.json();
 
     if (response.status == 200){
-      const successMsg = resData.inlineMessage.match(/(?<=<p>).*?(?=&nbsp;)/g);
+      const successMsg = resData.inlineMessage.match(/(<p>).*?(?=&nbsp;)/g)[0].split("<p>")[1];
       this.successMsg = successMsg;
       this.emailSuccess = true;
     } else {

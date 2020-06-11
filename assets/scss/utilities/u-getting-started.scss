@@ -2,7 +2,7 @@
            $mr:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $brad: null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
            $pt:null, $pb:null, $pl:null, $pr:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
-           $order:null, $fd:null, $fw:null, $bs:null) {
+           $order:null, $fd:null, $fw:null, $bs:null, $o:null) {
   #{$el}.u-box {
     display:#{$d};
     padding: #{$p};
@@ -42,6 +42,7 @@
     flex-direction: #{$fd};
     flex-wrap: #{$fw};
     box-shadow: #{$bs};
+    opacity: #{$o};
   }
 }
 

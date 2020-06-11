@@ -23,6 +23,7 @@ h1, h2, h3, p {
 h2, h3 {
   font-family: $font-family-inter;
 }
+
 h1 {
 @include font($fs:64px, $fw:bold, $lh:100%, $ls:-.04em, $color: $headingColor);
 }
@@ -30,9 +31,11 @@ h1 {
 h2 {
 @include font($fs:28px, $fw: 600, $lh: 160%, $ls: -.02em, $color: $headingColor);
 }
+
 h3 {
-@include font($fs:28px, $fw: 500, $lh: 24px, $ls: -.01em, $color: $headingColor);
+@include font($fs:20px, $fw: 500, $lh: 24px, $ls: -.01em, $color: $headingColor);
 }
+
 p {
 @include font($fs:16px, $ls:-.01em);
 }
@@ -63,25 +66,34 @@ p {
 
 #wizard {
   .wizard__wrapper {
-  @include box($d:flex, $brad:8px, $p: 48px 40px 48px 120px,
+  @include box($d:flex, $brad:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
                $back: #486FFF url('/img/getting-started/bg-app-wizard.svg') left center no-repeat,
                $bs: '0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)');
       
     h2 {
-      color:white;
+    @include font($fs:24px, $color:#fff);
     }
     p {
-      color:white;
-      opacity: .8;
+    @include box($color:#fff, $mxw: 620px, $o:.8, $mt:6px);
+    @include font($lh:160%);
+
     }
   }
 }
 
 #install {
-@include box($d:flex, $fw:wrap);
+@include box($d:flex, $fw:wrap, $mt:160px);
+
+  h2 {
+  @include box($mb:26px);
+  }
 
   .install__card {
 
   }
+}
+
+#nextSteps {
+
 }
 // #endregion -----------------------------------------------------

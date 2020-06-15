@@ -163,11 +163,7 @@ module.exports = {
       bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
 
     .get('/values', (_, res) => { res.render('values'); })
-    .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
-
-    .get('/x', getPrismicAPI, (req, res, next) =>
-      getSingle(req, res, next, 'ionic-x-dc-landing', 'x/index'))
-    .get('/x/love-letter', (_, res) => res.render('x/love-letter'))
+    .get('/what-is-ionic', (_, res) => res.render('what-is-ionic')
 
     // press releases
     .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',

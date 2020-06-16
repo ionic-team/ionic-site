@@ -76,15 +76,50 @@ img {
       margin: 0;
     }
   }
+  #companies-list {
+    hgroup {
+      margin-block-end: 86px;
 
-  .cards li h4 {
-    color: #010610;
-    font-family: $font-family-inter;
+      p {
+        color: #414D5C;
+        margin-block-end:0;
+        letter-spacing: -.03em;
+        line-height: 160%;
+      }
+    }
+    .cards {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, 296px);
+      justify-content: space-between;
+      row-gap: 62px;
+      margin: 0;
+      
+      li {
+        // max-width: 296px;
+        padding: 0;
+  
+        img {
+          height: auto;
+          margin-block-end: 32px;
+        }
+  
+        h4 {
+          margin-block-start: 0;
+          margin-block-end: 12px;
+          color: #010610;
+          font-family: $font-family-inter;
+          font-weight: 500;
+        }
+        p {
+          line-height: 180%;
+          color: #616E7E;
+        }
+      }    
+    }
   }
-  .cards li p {
-    line-height: 180%;
-    color: #616E7E;
-  }
+  
+
+  
   .left,
   .right {
     align-items: center;

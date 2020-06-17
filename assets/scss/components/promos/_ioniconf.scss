@@ -1,0 +1,48 @@
+#page-home #promo--ioniconf,
+#promo--ioniconf {
+  background: #001228 url('/img/ioniconf/ioniconf-promo-bg.png') 50% 50% no-repeat;
+  background-size: cover;
+  padding-top: 49px;
+  padding-bottom: 49px;
+
+  .container {
+    justify-content: center;
+
+    hgroup {
+      padding-right: 6px;
+
+      @media (max-width: $screen-md-max) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    h3 {
+      color: #F6F8FB;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 120%;
+      letter-spacing: -0.03em;
+      margin-bottom: 38px;
+    }
+  
+    .btn {
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background: linear-gradient(74.26deg,#4cc3ff 0,#4172ff 100%);
+      color: #fff;
+      height: 39px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1em;
+      letter-spacing: .08em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-family: $font-family-inter;
+    }
+  }
+}

@@ -128,7 +128,13 @@
         e.preventDefault();
         var emailOrSlug = document.getElementById("id_emailorslug").value;
 
-        fetch("{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug))
+        var params = new URLSearchParams(window.location.search);
+        var state = Object.fromEntries(params.entries());
+
+        var url = new URL("{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug));
+        url.searchParams.set("state", JSON.stringify(state));
+
+        fetch(url.href)
           .then(function(response) {
             return response.json();
           })
@@ -139,11 +145,10 @@
             }
             window.localStorage.setItem(ssoIdKey, emailOrSlug);
 
-            var params = new URLSearchParams(window.location.search);
-            var state = Object.fromEntries(params.entries());
-
             var url = new URL(result.data.url);
-            url.searchParams.set('state', JSON.stringify(state));
+            if (!url.searchParams.has("state")) {
+              url.searchParams.set("state", JSON.stringify(state));
+            }
 
             window.location.assign(url.href);
           })

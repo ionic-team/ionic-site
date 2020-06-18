@@ -144,13 +144,7 @@
               return;
             }
             window.localStorage.setItem(ssoIdKey, emailOrSlug);
-
-            var url = new URL(result.data.url);
-            if (!url.searchParams.has("state")) {
-              url.searchParams.set("state", JSON.stringify(state));
-            }
-
-            window.location.assign(url.href);
+            window.location.assign(result.data.url);
           })
           .catch(function(reason) {
             handleError("#sso-form", { message: reason.message });

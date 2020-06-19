@@ -74,6 +74,16 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   color: $colorTextHighlight;
 }
 
+.btn-main, .hs-button{
+  animation: pushDown 200ms $timingFunction;
+  animation-fill-mode: forwards;
+
+  &:hover, &:active, &:focus{
+    animation: pushUp 200ms $timingFunction;
+    animation-fill-mode: forwards;
+  }
+}
+
 .btn-main {
   display:flex;
   line-height: 16px;

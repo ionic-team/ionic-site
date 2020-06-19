@@ -10,6 +10,7 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
 
   hgroup {
     max-width: 480px;
@@ -18,20 +19,6 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
 
   img {
     margin-bottom: 72px;
-  }
-
-  h1 {
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
-  }
-
-  p {
-    font-size: 20px;
-    line-height: 151.8%;
-    letter-spacing: -0.04em;
-    color: rgba(#fff, .9);
   }
 
   .hbspt-form {
@@ -175,5 +162,71 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
         flex-basis: auto;
       }
     }
+  }
+}
+
+
+#landingContent {
+  text-align: center;
+  margin-block-end: 79px;
+  & > h1 {
+    margin-block-start: 80px;
+    margin-block-end: 24px;
+
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -.04em;
+    color: #fff;
+  }
+
+  & > p {
+    margin-block-end: 48px;
+    font-size: 23px;
+    letter-spacing: -.04em;
+    color: #DEE3EA;
+    opacity: .9;
+  }
+  
+  #landingTweet {
+    display:inline-flex;
+    align-items: center;
+    border-radius: 100px;
+    background: rgba(98, 178, 255, 0.2);
+    padding: 12px 16px;
+    margin-top: 32px;
+  
+    svg {
+      margin-inline-end: 8px;
+    }
+  
+    p {
+      font-size: 16px;
+      letter-spacing: -.04em;
+      color: #FBFBFD;
+      opacity: .9;
+      margin: 0;
+      @media screen and (max-width: $screen-xs-max) {
+        .tweet__extra {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  #landingStream {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-block-end: 56.25%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  
+    iframe {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+    }
+  
   }
 }

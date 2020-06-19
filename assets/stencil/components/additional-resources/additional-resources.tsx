@@ -48,6 +48,7 @@ export class AdditionalResources {
   }
 
   renderResource(resource) {
+    console.log(resource)
     // default image in case it's not set
     let image = resource.data.hero_image ? 
       resource.data.hero_image.url.replace(/\?.*/,'') :
@@ -55,7 +56,7 @@ export class AdditionalResources {
     image += '?auto=compress,format&fit=crop&';
     return (
       <li>
-        <a href={`/resources/articles/${resource.uid}`}>
+        <a href={`/resources/${resource.type === 'case-study' ? 'case-studies' : `${resource.type}s`}/${resource.uid}`}>
           <div class="img-wrapper">
             <img src={`${image}w=560&h=360`}
                  srcset={`${image}w=280&h=180 1x, ${image}w=560&h=360 2x`}

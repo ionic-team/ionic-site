@@ -1,9 +1,6 @@
-const API_BASE = 'https://api.ionicjs.com';
-
 import { identify, trackEvent } from './hubspot';
 import { recaptcha } from './recaptcha';
-import { getCookie } from './cookie';
-import { ApiUser } from '../declarations';
+import { UserInfo } from '../declarations';
 
 export interface SignupForm {
   name?: string;
@@ -22,8 +19,6 @@ const makeApiError = (message, exc?, reason?) => ({
   error: exc,
   reason
 });
-
-const apiUrl = (url) => `${API_BASE}${url}`;
 
 export const login = async (email, password, source, loginEventId ="000006636951") => {
   try {
@@ -108,18 +103,10 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
   }
 }
 
-export const getAuthToken = () => {
-  return getCookie('_ionic_token');
-}
-
-export const getUser = async (): Promise<ApiUser> => {
+export const getUser = async (): Promise<UserInfo> => {
   try {
-    const ret = await fetch(apiUrl(`/users/self`), {
-      headers: {
-        'Authorization': `Bearer ${getAuthToken()}`
-      }
-    });
-    return (await ret.json()).data as ApiUser;
+    const ret = await fetch('/oauth/userinfo');
+    return await ret.json() as UserInfo;
   } catch (e) {
     return null;
   }

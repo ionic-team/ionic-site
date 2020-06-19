@@ -54,7 +54,7 @@
 
   .cards li {
     display: block;
-    flex: 0 0 33.33%;
+    flex: 0 0 32.75%;
     padding: 24px;
 
     a {
@@ -98,7 +98,7 @@
     }
   }
 
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-md-max) {
     .cards {
       margin-left: -12px;
       margin-right: -12px;

@@ -67,7 +67,11 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   line-height: 16px;
   align-items:center;
 
-    vertical-align: middle;
+  vertical-align: middle;
+
+  &:hover, &:active, &:focus {
+    cursor: not-allowed;
+  }
 
   &:after {
     content: ' \f119';
@@ -75,24 +79,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     font-size: 20px;
     margin-left:4px;
   }
-}
-
-.btn-main, .hs-button{
-  animation: pushDown 200ms $timingFunction;
-  animation-fill-mode: forwards;
-
-  &:hover, &:active, &:focus{
-    animation: pushUp 200ms $timingFunction;
-    animation-fill-mode: forwards;
-  }
-
-  // &::after {    
-  //   content: '\f119';
-  //   font-family: 'Ionicons';
-  //   font-size: 20px;
-  //   line-height: 20px;
-  // }
-
 }
 
 .container {
@@ -120,9 +106,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 }
 // #endregion ------------------------------------------------------------------------
-
-//#region ----------------------------- ANIMATIONS -----------------------------------------
-//#endregion -------------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC STYLES -------------------------------------
 
@@ -228,184 +211,6 @@ p {
 
 // #endregion --------------------------------------------------------------------------------
 
-//#region ----------------------------- HUBSPOT OVERRIDE -----------------------------------
-#landingContent, #mobile-nav {
-.hbspt-form {
-  margin: 0;
-
-  & > .hs-form {
-    display:flex;
-  }
-  fieldset:nth-of-type(4) {
-    flex-basis: 224px;
-    flex-grow:1;
-    margin-right: 16px !important;
-  }
-  .hs-submit {
-    flex-basis: 152px;
-    flex-grow:1;
-  }
-}
-.hs-email label:first-child {
-  position:absolute;
-}
-.hs_error_rollup {
-  display:none;
-}
-
-.submitted-message {
-  padding: 0;
-  position: relative;
-  background: rgba(0,0,0,0); 
-  display:flex;
-  align-items:center;
-  font-size:14px;
-  text-align:left;
-  flex-direction:row;
-  max-width:auto;
-
-  p {
-    font-family: $fontFamilyRoboto;
-    color: $colorTextMain;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    background-image: url(/img/checkmark-light-green.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    min-width: 42px;
-    min-height: 42px;
-    margin-right: 16px;
-    margin-bottom:0px;
-  }
-}
-
-fieldset, .hs-form-field, .input, .hs-submit {
-  margin: 0 !important;
-}
-
-.hs-input {
-// @include box($h: 51px, $br: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-// @include font($ff: $font-family-inter, $fs: 16px);
-height: 51px !important;
-max-height: 51px !important;
-width: 100% !important;
-border-radius: 8px;
-border: none;
-padding: 16px 20px;
-font-family: $font-family-inter;
-font-size: 16px;
-flex-grow:1;
-position:relative;
-top: 0;
-margin-bottom: 16px;
-}
-
-.hbspt-form form{
-  display:flex;
-  flex-wrap: wrap;
-}
-
-.hs-button {
-// @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-// @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
-height: 51px;
-width: 100%;
-background: $colorButtonMain;
-color: white;
-border-radius: 8px;
-border: none;
-padding: 16px 20px;
-font-family: $font-family-inter;
-font-size: 16px;
-font-weight: 600;
-line-height: 16px;
-letter-spacing: .1em;
-text-transform: uppercase;
-white-space: nowrap;
-flex-grow:1;
-}
-
-.hs-email {
-  position: relative;
-}
-
-.hs-error-msgs {
-  color:#dc3545;
-  font-weight:600;
-  font-size: 14px;
-  width: 100%;
-  margin: 0;
-  position: absolute;
-  z-index: 10;
-  top: -20px;
-}
-
-#landingMain {
-  .hbspt-form {
-    margin-top: 36px;
-  }
-}
-
-@media screen and (max-width: $screen-sm-max) {
-.hbspt-form {
-  fieldset:nth-of-type(4) {
-    flex-basis: auto;
-    margin-right: 0px !important;
-  }
-}
-}
-
-@media screen and (max-width: $screen-xs-max) {
-  .hbspt-form {
-    width: 100%;
-    & > form {
-      flex-direction:column;
-    }
-    .hs-submit {
-      flex-basis: auto;
-    }
-      
-
-  }
-}
-}
-
-#mobile-nav {
-  .hbspt-form {
-    width: 100%;
-
-    fieldset:nth-of-type(4) {
-      flex-basis: auto;
-      flex-grow:1;
-      min-width:100%;
-    }
-  }
-
-  .mobile-nav__menu {
-    min-height: 100vh;
-  }
-  .submitted-message {
-    text-align:center;
-  }
-}
-
-.success__message {
-  color:white;  
-  height: 100%;
-
-  svg {
-    min-height: 42px;
-    min-width: 42px;
-  }
-
-  p {
-    font-family:$fontFamilyRoboto;
-  }
-}
-//#endregion -------------------------------------------------------------------------------
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
 #header {
@@ -549,49 +354,31 @@ flex-grow:1;
   
 }
 #landingContent {
-@include box($mTop: 165px, $mBot: 145px, $fB: 50%, $fG:1);
-@include spacer($mxW:128px, $mnW: 32px, $fG:1);
+  text-align: center;
+
+  & > h1 {
+  @include box($mTop:80px, $mBot:24px);
+  @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
+  }
+  & > p {
+  @include box($mBot:48px);
+  @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
+  }
 }
-#landingMain {
-@include box($mxW: 461px);
 
-  & > svg {
-    max-width: 448px;
-  }
-
-  .p1{
-  @include box($mTop: 33px);
-  @include font($fs:24px, $lh:160%, $ls: -.02em);
-    color: white;
-  }
-  .p2{
-  @include box($mTop: 66px);
-  @include font($ff:$fontFamilyRoboto, $fs:24px, $lh:160%, $ls: .16em, $fw:500, $tt:uppercase);
-    color: white;
-  }
-  .p3{
-  @include box($mTop: 4px);
-  @include font($fs:16px, $lh:160%);
-    color: #B2BECD;
-    opacity: .8;
-  }
-
-  button {
-  @include box($h: 51px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $mTop:35px);
-  @include font($fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
-    :host(.s-ionicon) {
-      background:red;
-    }
-  }
-
-}
-#landingImage {
-@include box($d:flex, $mxW: 448px, $h: auto, $fG:1, $fB: 50%);
+#landingTweet {
+@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px);
 
   svg {
-    width: 100%;
+    margin-inline-end: 8px;
+  }
+
+  p {
+  @include font($fs:16px, $ls:-.04em, $color:#FBFBFD, $o:.9);
+    color: white;
   }
 }
+
 
 #backgroundImage {
   background:url('/img/ioniconf/bg-tessellation.min.svg');

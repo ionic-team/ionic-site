@@ -59,8 +59,8 @@
 @mixin box($element:'&', $pY:null, $pX:null, $back:null, $color:null, $fB: null, $mTop:null, $mBot:null, $mLeft:null,
            $mRight:null, $fG: null, $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $br: null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
-           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
-           $order:null) {
+           $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null,
+           $p: null, $o:null, $order:null) {
   #{$element}.u-box {
     display:#{$d};
     padding: #{$p};
@@ -101,10 +101,11 @@
     align-items:#{$ai};
     align-self:#{$as};
     order: #{$order};
+    opacity:#{$o};
   }
 }
 
-@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null) {
+@mixin font($element:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null, $o:null) {
   #{$element}.u-font {
     font-family: #{$ff};
     font-weight: #{$fw};
@@ -114,6 +115,7 @@
     text-transform: #{$tt};
     white-space: #{$ws};
     color: #{$color};
+    opacity: #{$o};
   }  
 }
 @mixin spacer($el:'& ', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h:null, $d:null) {

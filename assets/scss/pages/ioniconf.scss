@@ -5,6 +5,9 @@
 @import '../vars';
 @import '../fonts';
 @import '../components/mobile-nav';
+@import '../../../content/scss/bootstrap/modals';
+@import '../components/modal';
+@import '../components/hubspot_form';
 
 @import '../utilities/u-ioniconf';
 
@@ -22,8 +25,17 @@
 }
 //#endregion ----------------------------------------------------------------------------
 
-//#region ----------------------------- VARIABLES -----------------------------------------
+//#region ----------------------------- ANIMATIONS ----------------------------------------
+.modal.fade{
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+}
+.modal.fade.in {
+  opacity: 1;
+}
+//#endregion ------------------------------------------------------------------------------
 
+//#region ----------------------------- VARIABLES -----------------------------------------
 $colorBackMain: #000715;
 $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
@@ -41,7 +53,7 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 }
 //#endregion ------------------------------------------------------------------------------
 
-//#region ----------------------------- COMPONENT STYLES ----------------------------------
+//#region ----------------------------- COMPONENTS ----------------------------------------
 @keyframes pushUp {
   to {
     transform: translateY(-1px);
@@ -68,10 +80,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   align-items:center;
 
   vertical-align: middle;
-
-  &:hover, &:active, &:focus {
-    cursor: not-allowed;
-  }
 
   &:after {
     content: ' \f119';
@@ -107,7 +115,59 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 }
 // #endregion ------------------------------------------------------------------------
 
-//#region ----------------------------- GENERIC STYLES -------------------------------------
+
+#contactForm.modal {
+  .modal-content {
+    display: block;
+    position:relative;
+    background-color: transparent;   
+    color: white;
+
+    &::before {
+      content: "";
+      background: $colorBackMain;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -2;   
+      border-radius: 8px;
+    }
+
+    &::after {
+      content: "";
+      background-image: url('/img/ioniconf/bg-menu.svg');
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
+    }
+
+    h3 {
+      color: white;
+      text-align: center;
+      margin-block-end: 24px !important;
+    }
+    p {
+      color: $colorTextMain;
+      text-align: center;
+    }
+  }
+
+  label {
+    display:inline-block;
+    margin-block-end: 1px;
+
+  }
+}
+
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- GENERIC -------------------------------------------
 
 body * {
   box-sizing: border-box;
@@ -213,6 +273,42 @@ p {
 
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
+#contactForm {
+  &.modal {
+    hgroup {
+      padding-top: 18px;
+      padding-bottom: 32px;
+    }
+  
+    h3 {
+      font-size: 29px;
+      font-weight: 600;
+      color: #171a20;
+      margin: 18px 0 8px;
+      letter-spacing: -0.03em;
+    }
+  
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #4c576c;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    form {
+      max-width: 100%;
+      padding: 0 15px 15px;
+    }
+    
+    .hs_submit {
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}
+
+
 #header {
 @include box($pos:sticky, $t: 0, $z:1);
 

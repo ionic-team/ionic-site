@@ -8,6 +8,45 @@
 {% set noGlobalStyles = true %}
 
 {% block main %}
+<div class="modal collapse fade"
+     id="contactForm"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body hubspot-override">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+
+        <!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+        	portalId: "3776657",
+        	formId: "08234d58-2d5e-43e5-8714-bd969595c802",
+        	css: ""
+        });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <header id="header" class="u-box">
   <nav id="mainNav" class="u-box nav">
     <div class="container u-flex u-align-items-c u-h100" >
@@ -29,7 +68,7 @@
         </li>
       </ul>
 
-      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font" onclick="focusInput()">Register Now </button>
+      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font" data-toggle="modal" data-target="#contactForm">Contact Sales </button>
     </div>
   </nav>
 
@@ -1977,7 +2016,7 @@
       <li class="u-box"><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
     <div>
-      <button class="btn-main btn__register footer__button u-box u-font" onclick="focusInput()">Register Now  </button>
+      <button class="btn-main btn__register footer__button u-box u-font" data-toggle="modal" data-target="#contactForm">Contact Sales  </button>
     </div>
   </div>
 </section>

@@ -165,7 +165,7 @@
         var errorlist = document.querySelector(formId + " .errorlist");
         var message = errorlist.querySelector(formId + " .form-message");
         errorlist.classList.add("error");
-        message.innerHTML = loginError.message;
+        message.textContent = loginError.message;
       }
 
       if (loginErrors) {
@@ -173,7 +173,7 @@
           var errorGroup = document.querySelector("#field-" + key);
           var message = errorGroup.querySelector(formId + " .form-message");
           errorGroup.classList.add("error");
-          message.innerHTML = loginErrors[key];
+          message.textContent = loginErrors[key];
         }
       }
     }
@@ -182,14 +182,14 @@
       var errorlist = document.querySelector(formId + " .errorlist");
       var message = errorlist.querySelector(formId + " .form-message");
       errorlist.classList.remove("error");
-      message.innerHTML = "";
+      message.textContent = "";
 
       var keys = ["email", "password"];
       for (var i = 0; i < keys.length; i++) {
         var errorGroup = document.querySelector("#field-" + keys[i]);
         var message = errorGroup.querySelector(formId + " .form-message");
         errorGroup.classList.remove("error");
-        message.innerHTML = "";
+        message.textContent = "";
       }
     }
 
@@ -200,6 +200,11 @@
       ["login-header", "login-form", "sso-link"].forEach(function(id) {
         document.getElementById(id).style.removeProperty("display");
       });
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.has("error_description")) {
+        handleError("#login-form", { message: params.get("error_description") });
+      }
     }
 
     function showSSO() {
@@ -209,6 +214,11 @@
       ["sso-header", "sso-form", "login-link"].forEach(function(id) {
         document.getElementById(id).style.removeProperty("display");
       });
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.has("error_description")) {
+        handleError("#sso-form", { message: params.get("error_description") });
+      }
     }
 
     document
@@ -229,6 +239,8 @@
     if (ssoId) {
       document.getElementById("id_emailorslug").value = ssoId;
       showSSO();
+    } else {
+      showLogin();
     }
   })();
 </script>

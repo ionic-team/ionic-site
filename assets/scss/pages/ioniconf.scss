@@ -286,11 +286,12 @@ p {
   .mobile-nav__menu {
     background: url('/img/ioniconf/bg-menu.svg');
     padding:0;
-    padding:34px 0 160px 0;
+    padding-block-start:34px;
     max-width:100%;
     color:white;
     display:flex;
     flex-direction:column;
+    height: 100%;
 
     .mobile-nav__menuitem {
       flex-basis:0;
@@ -377,6 +378,20 @@ p {
   @include font($fs:16px, $ls:-.04em, $color:#FBFBFD, $o:.9);
     color: white;
   }
+  @media screen and (max-width: $screen-xs-max) {
+    .tweet__extra {
+      display: none;
+    }
+  }
+}
+
+#landingStream {
+@include box($pos:relative, $w:100%, $h:0, $pBot: 56.25%, $bord:'2px solid rgba(255, 255, 255, 0.2)');
+
+  iframe {
+  @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
+  }
+
 }
 
 

@@ -148,6 +148,7 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
   }
   
   .hs-error-msgs {
+    list-style-type: none;
     color:#dc3545;
     font-weight:600;
     font-size: 14px;
@@ -155,7 +156,9 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
     margin: 0;
     position: absolute;
     z-index: 10;
-    top: -20px;
+    bottom: 20px;
+    left:0;
+    padding:0;
   }
   
   @media screen and (max-width: $screen-sm-max) {

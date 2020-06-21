@@ -28,7 +28,8 @@ export class IonicSignupForm {
   @Prop() oauthRedirect = true;
   // Whether to allow the user to login instead
   @Prop() allowLogin = false;
-
+  // Whether to allow the user to use third-party signup
+  @Prop() allowSocial = false;
 
   @State() submitting = false;
 
@@ -42,6 +43,13 @@ export class IonicSignupForm {
 
 
   clearErrors = () => this.formErrorMap = null;
+
+  handleSocial = (e) => {
+    e.preventDefault();
+    const id = e.target.id;
+    const url = `/oauth/login/${id}` + window.location.search;
+    window.location.assign(url);
+  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -109,6 +117,19 @@ export class IonicSignupForm {
 
     return (
       <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST">
+        {this.allowSocial ? (
+          <div>
+            <button type="button" id="github" class="btn btn-block" onClick={this.handleSocial}>
+              <ion-icon name="logo-github" size="small"></ion-icon>
+              Continue with GitHub
+            </button>
+            <button type="button" id="bitbucket" class="btn btn-block" onClick={this.handleSocial}>
+              <ion-icon name="logo-bitbucket" size="small"></ion-icon>
+              Continue with Bitbucket
+            </button>
+            <div class="form-group disclaimer">OR</div>
+          </div>
+        ) : null}
         { this.formErrorMap?._form ? (
           <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
         ) : null }

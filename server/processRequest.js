@@ -78,6 +78,7 @@ module.exports = {
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),
       frameworkInfo: frameworkInfo,
+      user: await getUser(req)
       // latestBlog: lbs.getLatestPost()
     });
 
@@ -101,5 +102,17 @@ function shuffle(array) {
   return array;
 };
 
-
-
+async function getUser(req) {
+  const cookie = req.headers.cookie;
+  if (cookie && cookie.includes('__Host-ionic_token=')) {
+    try {
+      const response = await fetch(`${config.API_URL}/oauth/userinfo`, {
+        headers: { cookie },
+      });
+      return await response.json();
+    } catch (e) {
+      return null;
+    }
+  }
+  return null;
+}

@@ -2,24 +2,29 @@
 {% set title = "Ionic - Cross-Platform Mobile App Development" %}
 {% set id = "home" %}
 {% set pre_footer = false %}
-{% set header_style = 'transparent dark' %}
+{% set header_style = 'transparent light' %}
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 {% set stickyNav = true %}
 {% set cssPath = 'home' %}
 
 {% block main %}
 <div id="ionic-slider">
-  <section id="slide-ioniconf" class="container">
-    <hgroup>
-      <img src="/img/homepage/ioniconf-logo@2x.png" 
-           srcset="/img/homepage/ioniconf-logo.png 1x, /img/homepage/ioniconf-logo@2x.png 2x"  
-           alt="Ioniconf 2020 Logo"/>
-      <h1>Join us June 24, 2020</h1>
-      <p>A free one day, single-track online event celebrating the future of cross-platform app development — and the  developer community powering the movement.</p>
-    </hgroup>
-    <hubspot-form form-id="84157001-6990-455e-8672-cb0d936a2226"></hubspot-form>
-    <home-countdown event-start="1593007200"></home-countdown>
-    
+  <section id="slide-ionic-react" class="container">
+    <div class="landing__content">
+      <h1>One codebase. Any platform. Now in <span class="underline react">React.</span><span class="underline angular">Angular.</span></h1>
+      <p><span class="darken">Ionic Framework</span> is an open source mobile UI toolkit for building high quality, cross-platform native and web app experiences. Move faster with a single codebase, running everywhere.</p>
+      <div class="btn__group">
+        <button class="btn dark">Start An App</button>
+        <button class="btn light">Install</button>
+      </div>
+      <a href="#">Or speak with an app architect <ion-icon name="arrow-forward-outline"></ion-icon></a>  
+    </div>  
+    <div class="landing__img">
+      <img  src="/img/homepage/hero-ionic-react@2x.png"
+            srcset="/img/homepage/hero-ionic-react@1x.png 1x,
+                    /img/homepage/hero-ionic-react@2x.png 2x"
+            width="525" height="542">   
+    </div>
   </section>
 
 

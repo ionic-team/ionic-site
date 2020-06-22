@@ -1,6 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
-import 'moment';
-import moment from 'moment-timezone';
+import moment from 'moment';
 
 @Component({
   tag: 'home-countdown',
@@ -22,10 +21,10 @@ export class HomeCountdown {
   }
 
   update() {
-    const eventTime = moment.utc(parseInt(this.eventStart, 10), 'X').unix();
-    const currentTime = moment().utc().unix();
+    const eventTime = parseInt(this.eventStart, 10) * 1000;
+    const currentTime = new Date().getTime();
     const diffTime = eventTime - currentTime;
-    const duration = moment.duration(diffTime * 1000, 'milliseconds');
+    const duration = moment.duration(diffTime, 'milliseconds');
 
     this.days = moment.duration(duration).days();
     this.hours = moment.duration(duration).hours();

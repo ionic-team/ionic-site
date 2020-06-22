@@ -60,7 +60,7 @@
            $mRight:null, $fG: null, $w: null, $h: null, $mxW: null, $mnW: null, $mxH:null, $mnH:null, $br: null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bTop:null, $bRight:null, $bBot:null, $bLeft:null,
            $pTop:null, $pBot:null, $pLeft:null, $pRight:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null,
-           $p: null, $o:null, $order:null) {
+           $p: null, $o:null, $order:null, $bf:null) {
   #{$element}.u-box {
     display:#{$d};
     padding: #{$p};
@@ -102,6 +102,7 @@
     align-self:#{$as};
     order: #{$order};
     opacity:#{$o};
+    backdrop-filter:#{bf};
   }
 }
 

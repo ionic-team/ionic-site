@@ -474,7 +474,7 @@ p {
 }
 
 #landingTweet {
-@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px);
+@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px, $bf: blur(16px));
 
   svg {
     margin-inline-end: 8px;

@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: space-between;
 
+  .activateOnScroll {
+    display: inline-block;
+  }
+
   .landing__content {
     flex: 1 1 50%;
     max-width: 480px;
@@ -110,6 +114,16 @@
       font-weight: bold;
       margin-block-end: 24px;
 
+      & > span:nth-child(1) {
+        transition-delay: .1s;
+      }
+      & > span:nth-child(2) {
+        transition-delay: .2s;
+      }
+      & > span:nth-child(3) {
+        transition-delay: .3s;
+      }
+
       .rotate {
         display:inline-block;
         position:relative;
@@ -117,6 +131,7 @@
     }
 
     p {
+      transition-delay: .4s;
       letter-spacing: -0.02em;
       color: #445B78;      
       font-size: 22px;
@@ -140,11 +155,13 @@
     .btn__group {
       display: flex;
       flex-wrap: wrap;
+      transition-delay: .5s;
     }
 
     a {
       display: flex;
       align-items: center;
+      transition-delay: .9s;
 
       ion-icon {
         margin-inline-start: 4px;

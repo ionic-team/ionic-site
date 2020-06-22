@@ -1,5 +1,6 @@
 #slide-ionic-react {
   padding-block-start: 100px !important;
+  padding-block-end: 220px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,6 +35,7 @@
       48% {
         opacity: 0;
         transform: translateY(-20px);
+        display: block;
       }
       50% {
         opacity: 1;
@@ -46,6 +48,7 @@
       100% {
         opacity: 0;
         transform: translateY(20px);
+        display:none;
       }
     }
     @keyframes slideOutIn{
@@ -74,6 +77,8 @@
     .react {
       color: #42CCFF;
       position: absolute;
+      bottom: 0;
+      left: 0;
 
       animation: slideOutIn 16s ease -4s;
       animation-iteration-count: infinite;
@@ -104,6 +109,11 @@
       color: #020814;
       font-weight: bold;
       margin-block-end: 24px;
+
+      .rotate {
+        display:inline-block;
+        position:relative;
+      }
     }
 
     p {
@@ -146,33 +156,28 @@
     flex: 1 1 50%;
     max-width: 524px; 
 
-    svg {
+    img {
       width: 100%;
       height: auto;
+      position:relative;
+      left: 48px;
     }
   }
 
-  @media (max-width: $screen-sm-max) {
-    hgroup {
-      margin-bottom: 620px;
-    }
+  
+}
 
-    .graphic {
-      right: auto;
-      top: auto;
-      bottom: 174px;
-      left: calc(50% - 240px);
+@media (max-width: $screen-xs-max) {
+  #slide-ionic-react {
+    justify-content: flex-start;
+    .landing__img {
+      display:none;
     }
-  }
+  }  
+}
 
-  @media (max-width: $screen-xs-max) {
-    overflow: hidden;
-    padding-top: 120px;
+@media (max-width: $screen-xs-max) {
 
-    .graphic {
-      bottom: 120px;
-    }
-  }
 }
 
 

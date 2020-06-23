@@ -496,9 +496,9 @@ p {
     
     &:after {
       content: '';
-      width: 100%;
+      width: calc(100% - 1ch);
       height: 1px;
-      left: 0;
+      left: 1ch;
       top: 100%;
       position: absolute;
       background: rgba(255, 255, 255, 0);

@@ -127,6 +127,12 @@ export class IonicSignupForm {
               <ion-icon name="logo-bitbucket" size="small"></ion-icon>
               Continue with Bitbucket
             </button>
+            <button type="button" id="gitlab" class="btn btn-block" onClick={this.handleSocial}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="120 120 350 320">
+                <path d="M292.86,434.89h0L355,243.61H230.7l62.16,191.28Z M143.59,243.68h0L124.67,301.8a12.89,12.89,0,0,0,4.66,14.39L292.79,435,143.59,243.68Z M143.61,243.68h87.11L193.23,128.47a6.47,6.47,0,0,0-12.27,0L143.61,243.68Z M442.07,243.68h0L461,301.8a12.89,12.89,0,0,1-4.66,14.39L292.87,434.89l149.2-191.21Z M442.12,243.68H355l37.42-115.21a6.47,6.47,0,0,1,12.27,0l37.42,115.21Z"></path>
+              </svg>
+              Continue with GitLab
+            </button>
             <div class="form-group disclaimer">OR</div>
           </div>
         ) : null}

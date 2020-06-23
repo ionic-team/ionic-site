@@ -17,6 +17,17 @@ ionic-signup-form {
     }
   }
 
+  #gitlab {
+    background-color: #fc6d26;
+
+    svg {
+      fill: currentColor;
+      height: 18px;
+      margin: 0px 8px;
+      width: 18px;
+    }
+  }
+
   button {
     justify-content: center;
   }

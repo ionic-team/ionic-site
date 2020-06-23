@@ -489,6 +489,31 @@ p {
       display: none;
     }
   }
+
+  a {
+    color:white;
+    position: relative;
+    
+    &:after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      top: 100%;
+      position: absolute;
+      background: rgba(255, 255, 255, 0);
+      transition: all .15s ease-out;
+    }
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+
+      &:after {
+        background: rgba(255, 255, 255, 1);
+        transition: all .15s ease-in;
+      }
+    }
+  }
 }
 
 #landingStream {

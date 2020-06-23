@@ -1,188 +1,110 @@
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $colorTextMain: #E9EDF3;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
-
 #ionic-slider {
   background: #010610 url('/img/homepage/dots-lines.svg') no-repeat 50% 50%;
   background-size: cover;
 }
 #ionic-slider #slide-ioniconf {
+  clear: both;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 50px;
-  padding-top: 112px;
-  clear: both;
+  padding: 0;
+  text-align: center;
+  padding-block-start: 80px;
+  padding-block-end: 79px;
 
-  hgroup {
-    width: 480px;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  img {
-    margin-bottom: 56px;
-    max-width: 100%;
+  & > h1 { 
+    margin-block-end: 24px;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -.04em;
+    color: #fff;
   }
 
-  h1 {
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
+  & > p {
+    margin-block-end: 48px;
+    font-size: 23px;
+    letter-spacing: -.04em;
+    color: #DEE3EA;
+    opacity: .9;
   }
 
-  p {
-    font-size: 20px;
-    line-height: 151.8%;
-    letter-spacing: -0.04em;
-    color: rgba(#fff, .9);
-  }
-
-  .hbspt-form {
-    max-width: 460px;
-
-    & > .hs-form {
-      display:flex;
-    }
-    fieldset:nth-of-type(4) {
-      flex-basis: 224px;
-      flex-grow:1;
-      margin-right: 16px !important;
-    }
-    .hs-submit {
-      flex-basis: 152px;
-      flex-grow:1;
-    }
-  }
-  .hs-email label:first-child {
-    position:absolute;
-  }
-  .hs_error_rollup {
-    display:none;
-  }
+  #landingTweet {
+    display:inline-flex;
+    align-items: center;
+    border-radius: 100px;
+    background: rgba(98, 178, 255, 0.2);
+    padding: 12px 16px;
+    margin-top: 32px;
+    backdrop-filter: blur(16px);
   
-  .submitted-message {
-    padding: 0;
-    position: relative;
-    background: rgba(0,0,0,0); 
-    display:flex;
-    align-items:center;
-    font-size:14px;
-    text-align:left;
-    flex-direction:row;
-    max-width:auto;
+    svg {
+      margin-inline-end: 8px;
+    }
   
     p {
-      font-family: $fontFamilyRoboto;
-      color: $colorTextMain;
+      font-size: 16px;
+      color: #FBFBFD;
+      opacity: .9;
+      margin: 0;
+      @media screen and (max-width: $screen-xs-max) {
+        .tweet__extra {
+          display: none;
+        }
+      }
     }
-  
-    &:before {
-      content: '';
-      display: block;
-      background-image: url(/img/checkmark-light-green.svg);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      min-width: 42px;
-      min-height: 42px;
-      margin-right: 16px;
-      margin-bottom:0px;
-    }
-  }
-  
-  fieldset, .hs-form-field, .input, .hs-submit {
-    margin: 0 !important;
-  }
-  
-  .hs-input {
-    // @include box($h: 51px, $br: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-    // @include font($ff: $font-family-inter, $fs: 16px);
-    height: 51px !important;
-    max-height: 51px !important;
-    width: 100% !important;
-    border-radius: 8px;
-    border: none;
-    padding: 16px 20px;
-    font-family: $font-family-inter;
-    font-size: 16px;
-    flex-grow:1;
-    position:relative;
-    top: 0;
-    margin-bottom: 16px;
-    background: rgba(226, 235, 251, 0.2);
-    color: white;
-    
-    &::placeholder {
-      color: #B2BECD;
-    }
-  }
-  
-  .hbspt-form form{
-    display:flex;
-    flex-wrap: wrap;
-  }
 
-  .hs-submit {
-    max-width: 180px;
+    a {
+      color:white;
+      position: relative;
+      
+      &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: 100%;
+        position: absolute;
+        background: rgba(255, 255, 255, 0);
+        transition: all .15s ease-out;
+      }
+
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+
+        &:after {
+          background: rgba(255, 255, 255, 1);
+          transition: all .15s ease-in;
+        }
+      }
+    }
   }
   
-  .hs-button {
-    height: 51px;
-    width: 100%;
-    background: $colorButtonMain;
-    color: white;
-    border-radius: 8px;
-    border: none;
-    padding: 16px 20px;
-    font-family: $font-family-inter;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    flex-grow:1;
-    margin: 0 -1px;
-  }
-  
-  .hs-email {
+  #landingStream {
     position: relative;
-  }
-  
-  .hs-error-msgs {
-    list-style-type: none;
-    color:#dc3545;
-    font-weight:600;
-    font-size: 14px;
     width: 100%;
-    margin: 0;
-    position: absolute;
-    z-index: 10;
-    bottom: 20px;
-    left:0;
-    padding:0;
-  }
+    height: 0;
+    padding-block-end: 56.25%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
   
-  @media screen and (max-width: $screen-sm-max) {
-  .hbspt-form {
-    fieldset:nth-of-type(4) {
-      flex-basis: auto;
-      margin-right: 0px !important;
-    }
-  }
-  }
-  
-  @media screen and (max-width: $screen-xs-max) {
-    .hbspt-form {
+    iframe {
+      position: absolute;
+      top:0;
+      left:0;
       width: 100%;
-      & > form {
-        flex-direction:column;
-      }
-      .hs-submit {
-        flex-basis: auto;
-      }
-    }
+      height: 100%;
+    }  
+  }
+}
+
+.nav #btn-header-sign-up  {
+  background: #202632;
+  color: white;
+
+  &:hover, &:focus {
+    background: lighten(#202632, 5%);
   }
 }

@@ -149,7 +149,12 @@
       line-height: 100%;
       display:flex;
       align-items: center;
-      font-size: 16px
+      font-size: 16px;
+      box-shadow: none;
+
+      &:hover, &:active, &:focus {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
+      }
     }
 
     .btn__group {
@@ -158,8 +163,8 @@
       transition-delay: .5s;
     }
 
-    a {
-      display: flex;
+    & > a {
+      display: inline-flex;
       align-items: center;
       transition-delay: .9s;
 

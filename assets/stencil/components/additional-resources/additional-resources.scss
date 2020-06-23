@@ -11,7 +11,8 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33.3%);
     margin-left: -24px;
     margin-right: -24px;
   }
@@ -68,7 +69,7 @@
     }
 
     img {
-      width: auto;
+      width: 100%;
       height: 180px;
       object-fit: cover;
     }

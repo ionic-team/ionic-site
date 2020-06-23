@@ -48,7 +48,6 @@ export class AdditionalResources {
   }
 
   renderResource(resource) {
-    console.log(resource)
     // default image in case it's not set
     let image = resource.data.hero_image ? 
       resource.data.hero_image.url.replace(/\?.*/,'') :

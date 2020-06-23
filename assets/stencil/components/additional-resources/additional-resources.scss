@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 33.3%);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     margin-left: -24px;
     margin-right: -24px;
   }

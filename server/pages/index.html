@@ -14,7 +14,9 @@
     <p>We’re live! Tune in below for Ionic’s first virtual conference.</p>
 
     <div id="landingStream">
-      <iframe  src="https://www.youtube.com/embed/xh-B-AtsLJc?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div>
+        <iframe src="https://www.youtube.com/embed/xh-B-AtsLJc?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div id="landingTweet">
@@ -457,10 +459,9 @@
   ]
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script>
 
-<script type="module">
-const load = async () => {
-  await import("https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js");
 
   window.flow = function() {
   var sizes = ["s", "m", "l"],
@@ -613,7 +614,7 @@ window.testimonials = function() {
   addListeners();
   start();
   }();
-}
+
 
 const integrationsSec = document.querySelector('#integrations');
 const options = {

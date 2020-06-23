@@ -238,7 +238,7 @@ h1, h2, h3 {
 ul {
   list-style-type: none;
   margin:0;
-  padding-inline-start: 0;
+  padding-left: 0;
 }
 
 h2 {
@@ -392,7 +392,7 @@ p {
   .mobile-nav__menu {
     background: url('/img/ioniconf/bg-menu.svg');
     padding:0;
-    padding-block-start:34px;
+    padding-top:34px;
     max-width:100%;
     color:white;
     display:flex;
@@ -770,8 +770,8 @@ p {
   th {
   @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
     background: $colorBackMain;
-    padding-inline-start: 6px;
-    padding-inline-end: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     position:sticky;
     left:0;
     div {
@@ -793,8 +793,8 @@ p {
   .schedule__timeCol {
     text-align: center;
     white-space: nowrap;
-    padding-inline-start: 32px;
-    padding-inline-end: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   // .schedule__highlightRow--session1 .schedule__timeCol {
   //   border-right: 1px solid #7382FF;
@@ -804,12 +804,12 @@ p {
   }
   .schedule__nameCol {
     min-width: 181px;
-    padding-inline-start: 16px;
-    padding-inline-end: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .schedule__infoCol {
-    padding-inline-start: 56px;
-    padding-inline-end: 56px;
+    padding-left: 56px;
+    padding-right: 56px;
     min-width: 392px;
   }
   .schedule__sessionCol--session1,

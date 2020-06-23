@@ -1,6 +1,7 @@
 $fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
 $colorTextMain: #E9EDF3;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
+
 #ionic-slider {
   background: #010610 url('/img/homepage/dots-lines.svg') no-repeat 50% 50%;
   background-size: cover;
@@ -12,6 +13,7 @@ $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
   align-items: center;
   padding-bottom: 50px;
   padding-top: 112px;
+  clear: both;
 
   hgroup {
     width: 480px;

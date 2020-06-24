@@ -42,10 +42,6 @@ p {
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- PAGE STYLES ---------------------
-#signup-thanks {
-  display: none;
-}
-
 #landing {
 @include box($pos:relative, $pt:149px, $pb:104px, $mb:143px);
 
@@ -67,7 +63,7 @@ p {
 
 #wizard {
   .wizard__wrapper {
-  @include box($d:flex, $br:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
+  @include box($d:flex, $fw:wrap, $br:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
                $back: #486FFF url('/img/getting-started/bg-app-wizard.svg') left center no-repeat,
                $bs: '0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)');
       
@@ -82,7 +78,7 @@ p {
   }
 
   .wizard__btn {
-  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF);
+  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF, $mt: 16px);
   @include font($fs:15px, $fw:600, $tt:uppercase, $ls:.08em, $ws:nowrap, $color:white);
 
     ion-icon {

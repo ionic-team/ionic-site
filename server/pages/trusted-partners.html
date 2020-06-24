@@ -506,6 +506,14 @@ function($scope, $sce, $timeout) {
     $iframe.attr('src', mapsURL);
     $scope.showContact = false;
   });
+
+  $scope.init = function() {
+    if(!window.location.hash) return;
+    $scope.learnMore({
+      target: document.querySelector(`#partners li.${window.location.hash.substr(1)} a`)
+    });
+  }
+  $timeout($scope.init.bind(this));
 }])
 </script>
 {% endblock %}

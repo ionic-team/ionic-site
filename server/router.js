@@ -182,6 +182,8 @@ module.exports = {
       (_, res) => markdown(res, 'pr-ionic-achieves-record-revenue-growth-in-2019'))
     .get('/press/release/2020/ionic-5-brings-major-design-updates',
       (_, res) => markdown(res, 'pr-ionic-5-brings-major-design-updates'))
+    .get('/press/release/2020/capacitor-adds-support-for-swift-5-and-android-10-securty-performance',
+      (_, res) => markdown(res, 'pr-capacitor-adds-support-for-swift-5-and-android-10-securty-performance'))
 
 
 

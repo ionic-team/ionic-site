@@ -123,6 +123,13 @@ var activateOnScroll = function() {
   function init() {
     elems = document.querySelectorAll( window.activateOnScrollSelector ?
       activateOnScrollSelector : '.activateOnScroll');
+    // avoiding a potential edge bug by activating everything
+    if (window.navigator.userAgent.indexOf("Edge") > -1) {
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].classList.add('active');
+      }
+      return
+    }
     windowHeight = window.innerHeight ||
                    document.documentElement.clientHeight ||
                    document.body.clientHeight;;

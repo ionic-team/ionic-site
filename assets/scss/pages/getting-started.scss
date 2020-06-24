@@ -61,12 +61,13 @@ p {
 
   .landing__image {
   @include box($pos:absolute, $r:-140px, $t:0, $z:-1);
+  @include media($thresh:$screen-sm-max, $o:.1);
   }
 }
 
 #wizard {
   .wizard__wrapper {
-  @include box($d:flex, $brad:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
+  @include box($d:flex, $br:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
                $back: #486FFF url('/img/getting-started/bg-app-wizard.svg') left center no-repeat,
                $bs: '0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)');
       
@@ -79,6 +80,16 @@ p {
 
     }
   }
+
+  .wizard__btn {
+  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF);
+  @include font($fs:15px, $fw:600, $tt:uppercase, $ls:.08em, $ws:nowrap, $color:white);
+
+    ion-icon {
+      font-size:16px;
+      margin-left:4px;
+    }
+  }
 }
 
 #install {
@@ -88,12 +99,107 @@ p {
   @include box($mb:26px);
   }
 
-  .install__card {
+  .install_cards {
+  @include box($d:grid, $gtc:repeat(auto-fit, minmax(308px, 1fr)), $cg:50px, $rg: 64px, $w:100%, $mb:64px);
+  }
+  .account__cards {
+  @include box($d:grid, $gtc:repeat(auto-fit, minmax(335px, 1fr)), $cg:128px, $rg:64px);
+  @include media($thresh:$screen-md-max, $cg:50px);
+  }
 
+  article {
+
+    .card__step {
+    @include font($ff:$font-family-monospace, $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
+      margin-bottom: 16px;
+    }
+    
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    .card__text {
+    @include font($fs:16px, $lh: 180%, $color:#2D4665);
+      
+    }
+
+    .card__code {
+      margin-top: 32px;
+
+      pre {
+      @include box($back:#F6F7FA, $br:8px, $bord:none);
+      }
+
+      code {
+      @include box($back:none, $color:black);
+      @include font($fs:16px, $ls:-.02em, $lh:180%);
+      }
+
+      .highlight, .hljs-keyword {
+        background: #F6F7FA;
+        color: #FF7B5E;
+        font-weight: 500;
+      }
+
+      .hljs-built_in{
+        color: black;
+      }
+    
+    }
+
+    ionic-signup-form {
+    @include box($mt:32px);
+    @include media($thresh:$screen-xs-max, $mt:0px);
+    }
+  } 
+
+  .card__subText {
+  @include box($mt: 8px);
+  @include font($fs:12px, $lh:180%, $ls:-.01em, $color:#5B708B);
+
+    a {
+    @include box($d:flex, $ai:center);
+      ion-icon {
+        margin-left: 2px;
+      }
+    }
   }
 }
 
 #nextSteps {
+@include box($mt:200px, $mb:200px);
+
+  .next__cards {
+  @include box($d:grid, $gtc:repeat(auto-fill, minmax(312px, 1fr)), $cg:44px, $rg:44px);
+  }
+
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  article {
+    .card__image {
+    @include box($d:flex);
+
+      svg {
+        flex-grow:1;
+      }
+    }
+
+    .card__superTitle {
+    @include box($mt:24px, $mb:12px);
+    @include font($fs:10px, $fw:500, $lh:100%, $ls:.08em, $tt:uppercase, $color:#92A1B3);
+    }
+
+    h3 {
+    @include box($mb:12px);
+    }
+
+    p {
+    @include font($lh:160%, $color:#445B78);
+    }
+
+  }
 
 }
 // #endregion -----------------------------------------------------

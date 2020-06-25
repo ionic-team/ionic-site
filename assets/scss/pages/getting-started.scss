@@ -39,6 +39,17 @@ h3 {
 p {
 @include font($fs:16px, $ls:-.01em);
 }
+
+// a:not(.button) {
+//   border-bottom: 1px solid rgba(74, 139, 252, 0);
+//   transition: border-color .2s;
+
+//   &:hover, &:active, &:focus {
+//     transition: border-color .2s;
+//     border-color: rgba(74, 139, 252, 1);
+//     color: #4a8bfc;
+//   }
+// }
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- PAGE STYLES ---------------------
@@ -78,8 +89,15 @@ p {
   }
 
   .wizard__btn {
-  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF, $mt: 16px);
-  @include font($fs:15px, $fw:600, $tt:uppercase, $ls:.08em, $ws:nowrap, $color:white);
+  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF, $mt: 16px, $trans:'all .3s');
+  @include font($fs:15px, $fw:bold, $tt:uppercase, $ls:.08em, $ws:nowrap, $color:white);
+
+    &:hover, &:active, &:focus {
+      box-shadow:0 3px 5px rgba(0,0,0,.15);
+      background: lighten(#6C9DFF, 2%);
+      transition: all .3s;
+      text-decoration:none;
+    }
 
     ion-icon {
       font-size:16px;
@@ -92,7 +110,7 @@ p {
 @include box($d:flex, $fw:wrap, $mt:160px);
 
   h2 {
-  @include box($mb:26px);
+  @include box($mb:34px);
   }
 
   .install_cards {
@@ -106,8 +124,8 @@ p {
   article {
 
     .card__step {
-    @include font($ff:$font-family-monospace, $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
-      margin-bottom: 16px;
+    @include font($ff:'"SF Mono", "Roboto Mono", Menlo, Courier, monospace', $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
+      margin-bottom: 18px;
     }
     
     h3 {
@@ -128,7 +146,7 @@ p {
 
       code {
       @include box($back:none, $color:black);
-      @include font($fs:16px, $ls:-.02em, $lh:180%);
+      @include font($fs:16px, $ls:-.02em, $lh:180%, $fw:500);
       }
 
       .highlight, .hljs-keyword {
@@ -146,6 +164,9 @@ p {
     ionic-signup-form {
     @include box($mt:32px);
     @include media($thresh:$screen-xs-max, $mt:0px);
+    }
+    #signup-thanks {
+      margin-top: 28px;
     }
   } 
 
@@ -170,15 +191,26 @@ p {
   }
 
   h2 {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   article {
+    a {
+      &:hover, &:active, &:focus {
+        svg {
+          transform: scale(1.05,1.05);
+          transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1),
+        }
+      } 
+    }
+
+
     .card__image {
-    @include box($d:flex);
+    @include box($d:flex, $of:hidden, $br:6px);
 
       svg {
         flex-grow:1;
+        transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
       }
     }
 

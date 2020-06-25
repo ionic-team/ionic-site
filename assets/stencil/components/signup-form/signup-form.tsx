@@ -157,7 +157,7 @@ export class IonicSignupForm {
           id="submit"
           class="btn btn-block"
           disabled={disable}
-          tabindex="5">Create profile</button>
+          tabindex="5">Create Account</button>
         {this.allowLogin ? (
         <div class="well">
           Already have an account?

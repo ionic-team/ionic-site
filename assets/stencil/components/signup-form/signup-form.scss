@@ -1,8 +1,12 @@
 ionic-signup-form {
   display: block;
 
-  button {
+  #submit {
     justify-content: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
   }
 
   ui-floating-input {

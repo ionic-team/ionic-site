@@ -26,6 +26,9 @@ export namespace Components {
     'graphData': string | object;
   }
   interface HomeComponents {}
+  interface HomeCountdown {
+    'eventStart': string;
+  }
   interface HomeNative {}
   interface HubspotDynamicContent {
     'listId': string;
@@ -70,6 +73,7 @@ export namespace Components {
   }
   interface IonicSignupForm {
     'allowLogin': boolean;
+    'allowSocial': boolean;
     'buttonText': string;
     'gaEventLabel': any;
     'gaEventName': any;
@@ -141,6 +145,12 @@ declare global {
   var HTMLHomeComponentsElement: {
     prototype: HTMLHomeComponentsElement;
     new (): HTMLHomeComponentsElement;
+  };
+
+  interface HTMLHomeCountdownElement extends Components.HomeCountdown, HTMLStencilElement {}
+  var HTMLHomeCountdownElement: {
+    prototype: HTMLHomeCountdownElement;
+    new (): HTMLHomeCountdownElement;
   };
 
   interface HTMLHomeNativeElement extends Components.HomeNative, HTMLStencilElement {}
@@ -296,6 +306,7 @@ declare global {
     'additional-resources': HTMLAdditionalResourcesElement;
     'bar-chart': HTMLBarChartElement;
     'home-components': HTMLHomeComponentsElement;
+    'home-countdown': HTMLHomeCountdownElement;
     'home-native': HTMLHomeNativeElement;
     'hubspot-dynamic-content': HTMLHubspotDynamicContentElement;
     'hubspot-form': HTMLHubspotFormElement;
@@ -333,6 +344,9 @@ declare namespace LocalJSX {
     'graphData'?: string | object;
   }
   interface HomeComponents {}
+  interface HomeCountdown {
+    'eventStart'?: string;
+  }
   interface HomeNative {}
   interface HubspotDynamicContent {
     'listId'?: string;
@@ -379,6 +393,7 @@ declare namespace LocalJSX {
   }
   interface IonicSignupForm {
     'allowLogin'?: boolean;
+    'allowSocial'?: boolean;
     'buttonText'?: string;
     'gaEventLabel'?: any;
     'gaEventName'?: any;
@@ -432,6 +447,7 @@ declare namespace LocalJSX {
     'additional-resources': AdditionalResources;
     'bar-chart': BarChart;
     'home-components': HomeComponents;
+    'home-countdown': HomeCountdown;
     'home-native': HomeNative;
     'hubspot-dynamic-content': HubspotDynamicContent;
     'hubspot-form': HubspotForm;
@@ -469,6 +485,7 @@ declare module "@stencil/core" {
       'additional-resources': LocalJSX.AdditionalResources & JSXBase.HTMLAttributes<HTMLAdditionalResourcesElement>;
       'bar-chart': LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
+      'home-countdown': LocalJSX.HomeCountdown & JSXBase.HTMLAttributes<HTMLHomeCountdownElement>;
       'home-native': LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;
       'hubspot-dynamic-content': LocalJSX.HubspotDynamicContent & JSXBase.HTMLAttributes<HTMLHubspotDynamicContentElement>;
       'hubspot-form': LocalJSX.HubspotForm & JSXBase.HTMLAttributes<HTMLHubspotFormElement>;

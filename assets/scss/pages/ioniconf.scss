@@ -5,6 +5,9 @@
 @import '../vars';
 @import '../fonts';
 @import '../components/mobile-nav';
+@import '../../../content/scss/bootstrap/modals';
+@import '../components/modal';
+@import '../components/hubspot_form';
 
 @import '../utilities/u-ioniconf';
 
@@ -22,8 +25,17 @@
 }
 //#endregion ----------------------------------------------------------------------------
 
-//#region ----------------------------- VARIABLES -----------------------------------------
+//#region ----------------------------- ANIMATIONS ----------------------------------------
+.modal.fade{
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+}
+.modal.fade.in {
+  opacity: 1;
+}
+//#endregion ------------------------------------------------------------------------------
 
+//#region ----------------------------- VARIABLES -----------------------------------------
 $colorBackMain: #000715;
 $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
@@ -41,7 +53,7 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 }
 //#endregion ------------------------------------------------------------------------------
 
-//#region ----------------------------- COMPONENT STYLES ----------------------------------
+//#region ----------------------------- COMPONENTS ----------------------------------------
 @keyframes pushUp {
   to {
     transform: translateY(-1px);
@@ -62,21 +74,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   color: $colorTextHighlight;
 }
 
-.btn-main {
-  display:flex;
-  line-height: 16px;
-  align-items:center;
-
-    vertical-align: middle;
-
-  &:after {
-    content: ' \f119';
-    font-family: 'Ionicons';
-    font-size: 20px;
-    margin-left:4px;
-  }
-}
-
 .btn-main, .hs-button{
   animation: pushDown 200ms $timingFunction;
   animation-fill-mode: forwards;
@@ -85,14 +82,21 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     animation: pushUp 200ms $timingFunction;
     animation-fill-mode: forwards;
   }
+}
 
-  // &::after {    
-  //   content: '\f119';
-  //   font-family: 'Ionicons';
-  //   font-size: 20px;
-  //   line-height: 20px;
-  // }
+.btn-main {
+  display:flex;
+  line-height: 16px;
+  align-items:center;
 
+  vertical-align: middle;
+
+  &:after {
+    content: ' \f119';
+    font-family: 'Ionicons';
+    font-size: 20px;
+    margin-left:4px;
+  }
 }
 
 .container {
@@ -121,10 +125,59 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 }
 // #endregion ------------------------------------------------------------------------
 
-//#region ----------------------------- ANIMATIONS -----------------------------------------
-//#endregion -------------------------------------------------------------------------------
+//#region ----------------------------- MODAL ---------------------------------------------
+#contactForm.modal {
+  .modal-content {
+    display: block;
+    position:relative;
+    background-color: transparent;   
+    color: white;
 
-//#region ----------------------------- GENERIC STYLES -------------------------------------
+    &::before {
+      content: "";
+      background: $colorBackMain;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -2;   
+      border-radius: 8px;
+    }
+
+    &::after {
+      content: "";
+      background-image: url('/img/ioniconf/bg-menu.svg');
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
+    }
+
+    h3 {
+      color: white;
+      text-align: center;
+      margin-block-end: 24px !important;
+    }
+    p {
+      color: $colorTextMain;
+      text-align: center;
+    }
+  }
+
+  label {
+    display:inline-block;
+    margin-block-end: 1px;
+
+  }
+}
+
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- GENERIC -------------------------------------------
 
 body * {
   box-sizing: border-box;
@@ -185,7 +238,7 @@ h1, h2, h3 {
 ul {
   list-style-type: none;
   margin:0;
-  padding-inline-start: 0;
+  padding-left: 0;
 }
 
 h2 {
@@ -228,186 +281,44 @@ p {
 
 // #endregion --------------------------------------------------------------------------------
 
-//#region ----------------------------- HUBSPOT OVERRIDE -----------------------------------
-#landingContent, #mobile-nav {
-.hbspt-form {
-  margin: 0;
-
-  & > .hs-form {
-    display:flex;
-  }
-  fieldset:nth-of-type(4) {
-    flex-basis: 224px;
-    flex-grow:1;
-    margin-right: 16px !important;
-  }
-  .hs-submit {
-    flex-basis: 152px;
-    flex-grow:1;
-  }
-}
-.hs-email label:first-child {
-  position:absolute;
-}
-.hs_error_rollup {
-  display:none;
-}
-
-.submitted-message {
-  padding: 0;
-  position: relative;
-  background: rgba(0,0,0,0); 
-  display:flex;
-  align-items:center;
-  font-size:14px;
-  text-align:left;
-  flex-direction:row;
-  max-width:auto;
-
-  p {
-    font-family: $fontFamilyRoboto;
-    color: $colorTextMain;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    background-image: url(/img/checkmark-light-green.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    min-width: 42px;
-    min-height: 42px;
-    margin-right: 16px;
-    margin-bottom:0px;
-  }
-}
-
-fieldset, .hs-form-field, .input, .hs-submit {
-  margin: 0 !important;
-}
-
-.hs-input {
-// @include box($h: 51px, $br: 8px, $mxW: 320px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-// @include font($ff: $font-family-inter, $fs: 16px);
-height: 51px !important;
-max-height: 51px !important;
-width: 100% !important;
-border-radius: 8px;
-border: none;
-padding: 16px 20px;
-font-family: $font-family-inter;
-font-size: 16px;
-flex-grow:1;
-position:relative;
-top: 0;
-margin-bottom: 16px;
-}
-
-.hbspt-form form{
-  display:flex;
-  flex-wrap: wrap;
-}
-
-.hs-button {
-// @include box($h: 51px, $back: $colorButtonMain, $mxW: 181px, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $fG: 1);
-// @include font($ff: $font-family-inter, $fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
-height: 51px;
-width: 100%;
-background: $colorButtonMain;
-color: white;
-border-radius: 8px;
-border: none;
-padding: 16px 20px;
-font-family: $font-family-inter;
-font-size: 16px;
-font-weight: 600;
-line-height: 16px;
-letter-spacing: .1em;
-text-transform: uppercase;
-white-space: nowrap;
-flex-grow:1;
-}
-
-.hs-email {
-  position: relative;
-}
-
-.hs-error-msgs {
-  color:#dc3545;
-  font-weight:600;
-  font-size: 14px;
-  width: 100%;
-  margin: 0;
-  position: absolute;
-  z-index: 10;
-  top: -20px;
-}
-
-#landingMain {
-  .hbspt-form {
-    margin-top: 36px;
-  }
-}
-
-@media screen and (max-width: $screen-sm-max) {
-.hbspt-form {
-  fieldset:nth-of-type(4) {
-    flex-basis: auto;
-    margin-right: 0px !important;
-  }
-}
-}
-
-@media screen and (max-width: $screen-xs-max) {
-  .hbspt-form {
-    width: 100%;
-    & > form {
-      flex-direction:column;
-    }
-    .hs-submit {
-      flex-basis: auto;
-    }
-      
-
-  }
-}
-}
-
-#mobile-nav {
-  .hbspt-form {
-    width: 100%;
-
-    fieldset:nth-of-type(4) {
-      flex-basis: auto;
-      flex-grow:1;
-      min-width:100%;
-    }
-  }
-
-  .mobile-nav__menu {
-    min-height: 100vh;
-  }
-  .submitted-message {
-    text-align:center;
-  }
-}
-
-.success__message {
-  color:white;  
-  height: 100%;
-
-  svg {
-    min-height: 42px;
-    min-width: 42px;
-  }
-
-  p {
-    font-family:$fontFamilyRoboto;
-  }
-}
-//#endregion -------------------------------------------------------------------------------
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
+#contactForm {
+  &.modal {
+    hgroup {
+      padding-top: 18px;
+      padding-bottom: 32px;
+    }
+  
+    h3 {
+      font-size: 29px;
+      font-weight: 600;
+      color: #171a20;
+      margin: 18px 0 8px;
+      letter-spacing: -0.03em;
+    }
+  
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #4c576c;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    form {
+      max-width: 100%;
+      padding: 0 15px 15px;
+    }
+    
+    .hs_submit {
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}
+
+
 #header {
 @include box($pos:sticky, $t: 0, $z:1);
 
@@ -481,11 +392,12 @@ flex-grow:1;
   .mobile-nav__menu {
     background: url('/img/ioniconf/bg-menu.svg');
     padding:0;
-    padding:34px 0 160px 0;
+    padding-top:34px;
     max-width:100%;
     color:white;
     display:flex;
     flex-direction:column;
+    height: 100%;
 
     .mobile-nav__menuitem {
       flex-basis:0;
@@ -549,49 +461,70 @@ flex-grow:1;
   
 }
 #landingContent {
-@include box($mTop: 165px, $mBot: 145px, $fB: 50%, $fG:1);
-@include spacer($mxW:128px, $mnW: 32px, $fG:1);
+  text-align: center;
+
+  & > h1 {
+  @include box($mTop:80px, $mBot:24px);
+  @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
+  }
+  & > p {
+  @include box($mBot:48px);
+  @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
+  }
 }
-#landingMain {
-@include box($mxW: 461px);
 
-  & > svg {
-    max-width: 448px;
+#landingTweet {
+@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px, $bf: blur(16px));
+
+  svg {
+    margin-inline-end: 8px;
   }
 
-  .p1{
-  @include box($mTop: 33px);
-  @include font($fs:24px, $lh:160%, $ls: -.02em);
+  p {
+  @include font($fs:16px, $ls:-.04em, $color:#FBFBFD, $o:.9);
     color: white;
   }
-  .p2{
-  @include box($mTop: 66px);
-  @include font($ff:$fontFamilyRoboto, $fs:24px, $lh:160%, $ls: .16em, $fw:500, $tt:uppercase);
-    color: white;
-  }
-  .p3{
-  @include box($mTop: 4px);
-  @include font($fs:16px, $lh:160%);
-    color: #B2BECD;
-    opacity: .8;
-  }
-
-  button {
-  @include box($h: 51px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 20px, $pY: 16px, $mTop:35px);
-  @include font($fw: 600, $fs: 16px, $lh: 16px, $ls: .1em, $tt: uppercase, $ws: nowrap);
-    :host(.s-ionicon) {
-      background:red;
+  @media screen and (max-width: $screen-xs-max) {
+    .tweet__extra {
+      display: none;
     }
   }
 
-}
-#landingImage {
-@include box($d:flex, $mxW: 448px, $h: auto, $fG:1, $fB: 50%);
+  a {
+    color:white;
+    position: relative;
+    
+    &:after {
+      content: '';
+      width: calc(100% - 1ch);
+      height: 1px;
+      left: 1ch;
+      top: 100%;
+      position: absolute;
+      background: rgba(255, 255, 255, 0);
+      transition: all .15s ease-out;
+    }
 
-  svg {
-    width: 100%;
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+
+      &:after {
+        background: rgba(255, 255, 255, 1);
+        transition: all .15s ease-in;
+      }
+    }
   }
 }
+
+#landingStream {
+@include box($pos:relative, $w:100%, $h:0, $pBot: 56.25%, $bord:'2px solid rgba(255, 255, 255, 0.2)');
+
+  iframe {
+  @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
+  }
+
+}
+
 
 #backgroundImage {
   background:url('/img/ioniconf/bg-tessellation.min.svg');
@@ -824,12 +757,6 @@ flex-grow:1;
     vertical-align:middle;
   }
 
-  #maxIcon {
-    position:absolute;
-    left: -16px;
-    z-index: 1;
-  }
-
   .vertical{
     writing-mode: vertical-lr;
     white-space:nowrap;
@@ -837,8 +764,8 @@ flex-grow:1;
   th {
   @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
     background: $colorBackMain;
-    padding-inline-start: 6px;
-    padding-inline-end: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     position:sticky;
     left:0;
     div {
@@ -860,8 +787,8 @@ flex-grow:1;
   .schedule__timeCol {
     text-align: center;
     white-space: nowrap;
-    padding-inline-start: 32px;
-    padding-inline-end: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   // .schedule__highlightRow--session1 .schedule__timeCol {
   //   border-right: 1px solid #7382FF;
@@ -871,12 +798,12 @@ flex-grow:1;
   }
   .schedule__nameCol {
     min-width: 181px;
-    padding-inline-start: 16px;
-    padding-inline-end: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .schedule__infoCol {
-    padding-inline-start: 56px;
-    padding-inline-end: 56px;
+    padding-left: 56px;
+    padding-right: 56px;
     min-width: 392px;
   }
   .schedule__sessionCol--session1,

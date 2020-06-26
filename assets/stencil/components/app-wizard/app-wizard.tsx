@@ -3,7 +3,7 @@ import { Component, State, h, Listen, Element } from '@stencil/core';
 import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
 import { trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
-import { ApiUser } from '../../declarations';
+import { UserInfo } from '../../declarations';
 
 import { Emoji } from '../emoji-picker/emoji-picker';
 import { generateAppIconForThemeAndEmoji, generateAppIconForThemeAndImage } from '../../util/app-icon';
@@ -71,7 +71,7 @@ export class AppWizard {
   @State() loginErrors = null;
   @State() creatingApp = false;
 
-  user: ApiUser;
+  user: UserInfo;
 
   // The current appId from the server
   appId: string;

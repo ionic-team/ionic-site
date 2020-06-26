@@ -1,6 +1,30 @@
 ionic-signup-form {
   display: block;
 
+  #github {
+    background-color: #24292e;
+
+    ion-icon {
+      margin: 0px 8px;
+    }
+  }
+
+  #bitbucket {
+    background-color: #0052cc;
+
+    ion-icon {
+      margin: 0px 8px;
+    }
+  }
+
+  #gitlab {
+    background-color: #fc6d26;
+
+    ion-icon {
+      margin: 0px 8px;
+    }
+  }
+
   #submit {
     justify-content: center;
     text-transform: uppercase;

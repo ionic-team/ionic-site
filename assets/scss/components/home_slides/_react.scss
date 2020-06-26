@@ -1,141 +1,205 @@
 #slide-ionic-react {
-  background: white;
-  padding-top: 120px;
+  padding-block-start: 100px !important;
+  padding-block-end: 220px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  hgroup {
-    margin-bottom: 80px;
+  .activateOnScroll {
+    display: inline-block;
   }
 
-  h4 {
-    display: flex;
-    align-items: center;
+  .landing__content {
+    flex: 1 1 50%;
+    max-width: 480px;
 
-    &::before {
-      background: url('/img/homepage/ico-ionic-react.png');
-      background-size: 100%;
-      content: '';
-      display: inline-block;
-      height: 48px;
-      width: 45px;
-      margin-right: 8px;
+    .darken {
+      color: #001A3A;
+      font-weight: 500;
     }
-  }
 
-  h1 {
-    font-size: 64px;
-    max-width: 440px;
-    line-height: 70px;
-    letter-spacing: -.04em;
-    color: #020814;
-    font-weight: 600;
-    margin-top: 32px;
-
-    strong {
-      color: #44B4FF;
-      font-weight: 600;
-      display: block;
+    .underline {
+      display:inline-block;
+      position: relative;
+      &:after {
+        content: '';
+        width: 100%;
+        height: 4px;
+        left: 0;
+        bottom: -3px;
+        position: absolute;
+      }
     }
-  }
 
-  ul {
-    padding: 0;
-    margin-top: 24px;
-    margin-bottom: 32px;
-  }
+    @keyframes slideInOut{
+      0% {
+        opacity:0;
+        transform: translateY(-20px);
+      }
+      48% {
+        opacity: 0;
+        transform: translateY(-20px);
+        display: block;
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+      98% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(20px);
+        display:none;
+      }
+    }
+    @keyframes slideOutIn{
+      0% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+      48% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+      50% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      98% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
 
-  li {
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: -.02em;
-    padding-left: 28px;
-    color: rgba(#2f3a48, .9);
-    list-style: none;
-    margin-bottom: 12px;
-    position: relative;
-
-    &::before {
-      color: #44B4FF;
-      content: url('/img/homepage/checkmark.svg');
-      display: inline-block;
-      height: 14px;
-      width: 11px;
+    .react {
+      color: #42CCFF;
       position: absolute;
-      left: 0;
-    }
-
-    code {
-      color: #020814;
-      padding-right: 6px;
-      padding-left: 6px;
-    }
-  }
-
-  .btn {
-    background: #44B4FF;
-    border-radius: 10px;
-  }
-
-  .graphic {
-    height: 560px;
-    width: 480px;
-    position: absolute;
-    right: 16px;
-    top: 160px;
-    border-radius: 16px;
-    box-shadow: 
-      0px 20px 40px rgba(2, 8, 20, 0.1), 
-      0px 0px 16px rgba(2, 8, 20, 0.08);
-
-    &__container {
-      position: absolute;
-      top: 0;
-      right: 0;
       bottom: 0;
       left: 0;
-      overflow: hidden;
-      border-radius: 16px;
+
+      animation: slideOutIn 16s ease -4s;
+      animation-iteration-count: infinite;
+
+      &:after {
+        background: rgba(89, 210, 255, .3);
+      }
     }
+
+    .angular {
+      color: #EF4D4D;
+      position: relative;
+      opacity: 0;
+      transform: translateY(-10px);
+
+      animation: slideInOut 16s ease -4s;
+      animation-iteration-count: infinite;
+
+      &:after {
+        background: rgba(239, 77, 77, .3);
+      }
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 100%;
+      letter-spacing: -.04em;
+      color: #020814;
+      font-weight: bold;
+      margin-block-end: 24px;
+
+      & > span:nth-child(1) {
+        transition-delay: .1s;
+      }
+      & > span:nth-child(2) {
+        transition-delay: .2s;
+      }
+      & > span:nth-child(3) {
+        transition-delay: .3s;
+      }
+
+      .rotate {
+        display:inline-block;
+        position:relative;
+      }
+    }
+
+    p {
+      transition-delay: .4s;
+      letter-spacing: -0.02em;
+      color: #445B78;      
+      font-size: 22px;
+      line-height: 160%;
+      margin-block-end: 32px;
+    }
+
+    .btn {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      border-radius: 8px;
+      font-weight: 700;
+      padding: 16px 20px;
+      margin-block-end: 20px;
+      line-height: 100%;
+      display:flex;
+      align-items: center;
+      font-size: 16px;
+      box-shadow: none;
+
+      &:hover, &:active, &:focus {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    .btn__group {
+      display: flex;
+      flex-wrap: wrap;
+      transition-delay: .5s;
+    }
+
+    & > a {
+      display: inline-flex;
+      align-items: center;
+      transition-delay: .9s;
+
+      ion-icon {
+        margin-inline-start: 4px;
+      }
+    }
+  }
+  
+  .landing__img {
+    flex: 1 1 50%;
+    max-width: 524px; 
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    #ionic-react-app {
-      width: 480px;
-      height: 560px;
-    }
-
-    #ionic-react-code {
-      top: -12px;
-      left: -24px;
-      width: 528px;
-      height: 608px;
+      width: 100%;
+      height: auto;
+      position:relative;
+      left: 48px;
     }
   }
 
-  @media (max-width: $screen-sm-max) {
-    hgroup {
-      margin-bottom: 620px;
-    }
+  
+}
 
-    .graphic {
-      right: auto;
-      top: auto;
-      bottom: 174px;
-      left: calc(50% - 240px);
+@media (max-width: $screen-xs-max) {
+  #slide-ionic-react {
+    justify-content: flex-start;
+    .landing__img {
+      display:none;
     }
-  }
+  }  
+}
 
-  @media (max-width: $screen-xs-max) {
-    overflow: hidden;
-    padding-top: 120px;
+@media (max-width: $screen-xs-max) {
 
-    .graphic {
-      bottom: 120px;
-    }
-  }
 }
 
 

@@ -74,7 +74,7 @@
     "helmet": "^3.21.2",
     "http-proxy-middleware": "^1.0.0",
     "hubspot": "^2.3.6",
-    "ionicons": "5.0.0",
+    "ionicons": "5.1.0",
     "jquery": "3.5.0",
     "jsforce": "^1.9.3",
     "marked": "^0.8.0",

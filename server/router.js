@@ -167,10 +167,6 @@ module.exports = {
     .get('/verification/success', (_, res) => res.render('verification/success'))
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
-    .get('/x', getPrismicAPI, (req, res, next) =>
-      getSingle(req, res, next, 'ionic-x-dc-landing', 'x/index'))
-    .get('/x/love-letter', (_, res) => res.render('x/love-letter'))
-
     // press releases
     .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',
       (_, res) => markdown(res, 'pr-170725-dev-survey-says-the-web-is-wi'))
@@ -186,6 +182,8 @@ module.exports = {
       (_, res) => markdown(res, 'pr-ionic-achieves-record-revenue-growth-in-2019'))
     .get('/press/release/2020/ionic-5-brings-major-design-updates',
       (_, res) => markdown(res, 'pr-ionic-5-brings-major-design-updates'))
+    .get('/press/release/2020/capacitor-adds-support-for-swift-5-and-android-10-securty-performance',
+      (_, res) => markdown(res, 'pr-capacitor-adds-support-for-swift-5-and-android-10-securty-performance'))
 
 
 

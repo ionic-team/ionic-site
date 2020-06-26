@@ -14,11 +14,6 @@
       (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
       })(window,document.getElementById('optimizely'),'optimize-loading','dataLayer',4000,
       {'GTM-TKMGCBC':true});</script> #}
-
-      {# <strong>Studio is almost here!</strong>
-      Join the waitlist to be the first in line on launch
-      <a href="/studio" #}
-      {# <pre><code>{{ announcementBar | dump(2) }}</code></pre> #}
       {{PrismicDOM.RichText.asHtml(announcementBar.data.text)}}
       <span id="btn-header-announcement">{{announcementBar.data.button_text}}</span>
     </div>
@@ -86,6 +81,14 @@
           </ul>{# end .dropdown-menu__container #}
         </li>
 
+        {% if user %}
+        <li class="sm-hide">
+          <a href="/logout">Log out</a>
+        </li>
+        <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
+          <a href="{{ DASHBOARD_URL }}" id="btn-header-dashboard">Dashboard</a>
+        </li>
+        {% else %}
         <li class="sm-hide">
           <a href="/login?source=framework-{{id | default(id, 'default', true)}}">
             Log in</a>
@@ -94,6 +97,7 @@
           <a href="/getting-started"
              id="btn-header-sign-up">Get Started</a>
         </li>
+        {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar">
         {% include '_includes/header_nav.html' %}

@@ -7,7 +7,14 @@ ionic-signup-form {
     font-size: 15px;
     letter-spacing: 0.1em;
     font-weight: bold;
+
+    &:disabled {
+      background: #E9EDF3;
+      color: #B2BECD;
+      box-shadow: none;
+    }
   }
+
 
   ui-floating-input {
     margin-bottom: 25px;

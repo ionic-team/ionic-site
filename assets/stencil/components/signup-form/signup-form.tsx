@@ -1,4 +1,4 @@
-import { Component, h, State, Prop, Event } from "@stencil/core";
+import { Component, h, Host, State, Prop, Event } from "@stencil/core";
 import { SignupForm, signup, oauthAuthorize } from "../../util/auth";
 import { FormErrors } from "../../forms";
 import { trackClick } from "../../util/analytics";
@@ -29,8 +29,12 @@ export class IonicSignupForm {
   // Whether to allow the user to login instead
   @Prop() allowLogin = false;
 
+  @Prop() buttonText = 'Create Profile';
 
-  @State() submitting = false;
+
+  @State() formStatus: 'dormant' | 'submitting' | 'submitted' = 'dormant';
+
+  @State () disabled = true;
 
   @State() formErrorMap: { [key: string]: string };
 
@@ -48,7 +52,7 @@ export class IonicSignupForm {
 
     this.clearErrors();
 
-    this.submitting = true;
+    this.formStatus = 'submitting';
 
     if (this.gaEventName && this.gaEventLabel) {
       await trackClick(this.gaEventName, this.gaEventLabel);
@@ -67,11 +71,10 @@ export class IonicSignupForm {
         await oauthAuthorize();
       } else {
         this.signedUp.emit(this.form);
+        this.formStatus = 'submitted'
       }
     } catch (e) {
       this.formErrorMap = { '_form': `Unable to sign up: ${e.message}` };
-    } finally {
-      this.submitting = false;
     }
   }
 
@@ -105,10 +108,12 @@ export class IonicSignupForm {
   render() {
     const { form, inputChange } = this;
 
-    const disable = this.submitting;
-
     return (
-      <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST">
+    <Host>
+      {this.formStatus !== 'submitted' &&
+      <form class="form" id="signup-form" role="form"
+      onSubmit={this.handleSubmit} method="POST"
+      onInput={() => { this.disabled = false}}>
         { this.formErrorMap?._form ? (
           <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
         ) : null }
@@ -119,7 +124,6 @@ export class IonicSignupForm {
           inputTabIndex={1}
           required={true}
           value={form.name}
-          disabled={disable}
           message={this.formErrorMap?.name}
           onChange={inputChange('name')} />
         <ui-floating-input
@@ -129,7 +133,6 @@ export class IonicSignupForm {
           inputTabIndex={2}
           required={true}
           value={form.email}
-          disabled={disable}
           message={this.formErrorMap?.email}
           onChange={inputChange('email')} />
         <ui-floating-input
@@ -139,7 +142,6 @@ export class IonicSignupForm {
           inputTabIndex={3}
           required={true}
           value={form.username}
-          disabled={disable}
           message={this.formErrorMap?.username}
           onChange={inputChange('username')} />
         <ui-floating-input
@@ -149,15 +151,14 @@ export class IonicSignupForm {
           inputTabIndex={4}
           required={true}
           value={form.password}
-          disabled={disable}
           message={this.formErrorMap?.password}
           onChange={inputChange('password')} />
         <button
           type="submit"
           id="submit"
           class="btn btn-block"
-          disabled={disable}
-          tabindex="5">Create Account</button>
+          disabled={this.disabled}
+          tabindex="5">{this.buttonText}</button>
         {this.allowLogin ? (
         <div class="well">
           Already have an account?
@@ -168,10 +169,20 @@ export class IonicSignupForm {
           </a>
         </div>
         ) : null}
-        <div class="form-group disclaimer">
+        <p class="form-group disclaimer">
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
-        </div>
-      </form>
+        </p>
+      </form>}
+      {this.formStatus === 'submitted' &&
+      <div id="signup-thanks">
+        <h2 class="u-box u-font">Thanks!</h2>
+        <p class="u-box u-font">
+          Thanks for joining the Ionic community!
+          As part of your account, you get access to the <a href="http://forum.ionicframework.com/">Ionic Forum</a>,
+          and the ability to push live, remote app updates with <a href="https://dashboard.ionicframework.com/">Appflow</a> (and more!).
+        </p>
+      </div>}
+    </Host>
     )
   }
 }

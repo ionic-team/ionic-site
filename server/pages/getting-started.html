@@ -131,7 +131,7 @@
         <div class="card__step u-font">01</div>
         <h3 class="u-font">Install Ionic</h3>
         <p class="card__text u-font">Install <a href="https://nodejs.org/en/">Node.js</a>, then install the latest Ionic command-line tools in your terminal. Follow the <a href="https://ionicframework.com/docs/developing/android">Android</a> and <a href="https://ionicframework.com/docs/developing/ios">iOS</a> platform guides to install their required tools.</p>
-        <div class="card__code">
+        <div class="card__code u-box">
           <pre class="u-box"><code class="u-box u-font">npm install -g @<span class="highlight">ionic/cli</span></code></pre>
         </div>
         <p class="card__subText u-box u-font">New to command line? Read our <a class="u-box" href="https://blog.ionicframework.com/new-to-the-command-line/">Terminal tutorial <ion-icon name="arrow-forward-outline"/></a></p>
@@ -140,44 +140,34 @@
         <div class="card__step u-font">02</div>
         <h3 class="u-font">Start an app</h3>
         <p class="card__text u-font">Create an app using one of our ready-made app templates, or a blank one to start fresh. Check out the <a href="https://market.ionicframework.com">Market</a> for more designs.</p>
-        <div class="card__code">
+        <div class="card__code u-box">
           <pre class="u-box"><code class="u-box u-font">ionic start myApp <span class="highlight">tabs</span></code></pre>
         </div>
       </article>
       <article class="install__card u-box">
         <div class="card__step u-font">03</div>
         <h3 class="u-font">Run your app</h3>
-        <p class="card__text u-font">Much of your app can be built in the browser with ionic serve. We suggest starting with this workflow. When you’re ready, check out our <a href="https://ionicframework.com/docs/deployment/app-store">Deploying</a> guide.</p>
-        <div class="card__code">
+        <p class="card__text u-font">Much of your app can be built in the browser with <strong class="u-font">ionic serve</strong>. We suggest starting with this workflow. When you’re ready, check out our <a href="https://ionicframework.com/docs/deployment/app-store">Deploying</a> guide.</p>
+        <div class="card__code u-box">
           <pre class="u-box"><code class="u-box u-font">cd myApp<br/>ionic serve</code></pre>
         </div>
       </article>
     </div>
     <div class="account__cards u-box u-media">
       <article class="">
-        <div class="card__step u-font">04</div>
-        <h3 class="u-font">Create a free Ionic account</h3>
+        <h2 class="u-font">Create a free Ionic account</h3>
         <p class="card__text u-font">Sign up and get free access to the Ionic Forum, live training events, news updates, and more. Ionic developers often say the <a href="https://ionicframework.com/community">Ionic Community</a> is one of the best parts about building Ionic apps, and we'd love to have you!</p>
       </article>
       <article>
         <ionic-signup-form
-          class="u-box u-media"
+          button-text="Create account"
           source="framework-getting-started"
           ga-event-name="Get started"
           ga-event-label="btn-get-started-signup-submit"
           hubspot-event-id="000006040735"
-          id="signup-form"
           allow-login="false"
           oauth-redirect="false">
         </ionic-signup-form>
-        <div id="signup-thanks" style="display:none;">
-          <h3 class="u-font">Thanks!</h2>
-          <p class="card__text u-font">
-            Thanks for joining the Ionic community!
-            As part of your account, you get access to the <a href="http://forum.ionicframework.com/">Ionic Forum</a>,
-            and the ability to push live, remote app updates with <a href="https://dashboard.ionicframework.com/">Appflow</a> (and more!).
-          </p>
-        </div>
       </article>
     </div>
   </section>
@@ -225,13 +215,4 @@
 {% block scripts %}
 {# Google reCAPTCHA #}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
-<script>
-  const signupForm = document.querySelector('ionic-signup-form');
-  const signupThanks = document.querySelector('#signup-thanks');
-
-  signupForm.addEventListener('signedUp', (e) => {
-    signupForm.style.display = 'none';
-    signupThanks.style.display = 'block';
-  });
-</script>
 {% endblock %}

@@ -29,7 +29,8 @@ h1 {
 }
 
 h2 {
-@include font($fs:28px, $fw: 600, $lh: 160%, $ls: -.02em, $color: $headingColor);
+@include font($fs:28px, $fw: 600, $lh: 112%, $ls: -.02em, $color: $headingColor);
+  font-family: $font-family-eina;
 }
 
 h3 {
@@ -58,7 +59,7 @@ p {
 
   .landing__content {
     h1 {
-    @include box($mxw:455px, $mb:25px);
+    @include box($mxw:455px, $mb:32px);
     }
     p {
     @include box($mxw:448px);
@@ -110,63 +111,87 @@ p {
 @include box($d:flex, $fw:wrap, $mt:160px);
 
   h2 {
-  @include box($mb:34px);
+  @include box($mb:35px);
   }
 
   .install_cards {
-  @include box($d:grid, $gtc:repeat(auto-fit, minmax(308px, 1fr)), $cg:50px, $rg: 64px, $w:100%, $mb:64px);
+  @include box($d:grid, $gtc:repeat(auto-fit, minmax(308px, 1fr)), $cg:50px, $rg: 64px, $w:100%);
+
+    h3 {
+      line-height: 24px;
+    }
+
+    strong {
+    @include font($fw:600, $ff:$font-family-monospace, $color:black);
+    }
   }
   .account__cards {
-  @include box($d:grid, $gtc:repeat(auto-fit, minmax(335px, 1fr)), $cg:128px, $rg:64px);
+  @include box($d:grid, $gtc:repeat(auto-fit, minmax(335px, 1fr)), $cg:128px, $rg:64px, $mt:144px);
   @include media($thresh:$screen-md-max, $cg:50px);
+
+    h2 {
+      margin-bottom: 16px;
+
+    }
   }
 
   article {
 
     .card__step {
-    @include font($ff:'"SF Mono", "Roboto Mono", Menlo, Courier, monospace', $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
-      margin-bottom: 18px;
+    @include font($ff:$font-family-monospace, $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
+      margin-bottom: 24px;
     }
     
     h3 {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
-    .card__text {
-    @include font($fs:16px, $lh: 180%, $color:#2D4665);
-      
+    .card__text, #signup-thanks > p {
+    @include font($fs:16px, $lh: 180%, $color:#2D4665);      
     }
 
     .card__code {
-      margin-top: 32px;
+    @include box($h:64px, $mt:32px);
 
       pre {
-      @include box($back:#F6F7FA, $br:8px, $bord:none);
+      @include box($d:flex, $ai:center, $back:#1C334F, $br:8px, $bord:none, $h:100%, $p:'0 20px');
       }
 
       code {
-      @include box($back:none, $color:black);
-      @include font($fs:16px, $ls:-.02em, $lh:180%, $fw:500);
+      @include box($back:none, $color:white, $p:0);
+      @include font($fs:16px, $ls:-.02em, $lh:130%, $fw:500);
       }
 
       .highlight, .hljs-keyword {
-        background: #F6F7FA;
-        color: #FF7B5E;
+        background: #1C334F;
+        color: #46B1FF;
         font-weight: 500;
       }
 
-      .hljs-built_in{
-        color: black;
+      .hljs-built_in, .hljs-tag{
+        color: white;
       }
     
     }
 
-    ionic-signup-form {
-    @include box($mt:32px);
-    @include media($thresh:$screen-xs-max, $mt:0px);
+    #submit {
+      text-transform: none;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -.02em;
     }
-    #signup-thanks {
-      margin-top: 28px;
+
+    ui-floating-input {
+      &:nth-child(1) {
+        display: inline-block;
+        margin-right: 6px;
+        width: calc(50% - 6px);
+      }
+      &:nth-child(2) {
+        display: inline-block;
+        margin-left: 6px;
+        width: calc(50% - 6px);
+      }
     }
   } 
 
@@ -175,7 +200,7 @@ p {
   @include font($fs:12px, $lh:180%, $ls:-.01em, $color:#5B708B);
 
     a {
-    @include box($d:flex, $ai:center);
+    @include box($d:inline-flex, $ai:center);
       ion-icon {
         margin-left: 2px;
       }
@@ -184,7 +209,7 @@ p {
 }
 
 #nextSteps {
-@include box($mt:200px, $mb:200px);
+@include box($mt:144px, $mb:200px);
 
   .next__cards {
   @include box($d:grid, $gtc:repeat(auto-fill, minmax(312px, 1fr)), $cg:44px, $rg:44px);

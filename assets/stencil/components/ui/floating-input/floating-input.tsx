@@ -49,24 +49,22 @@ export class FloatingInput {
     this.checkChange(e);
   }
 
+  handleBlur = () => {
+    this.setFocus(false);
+    this.message = '';
+  }
+
   render() {
     const { label, type, name, inputId, inputTabIndex,
             required, value, disabled, autocomplete, message } = this;
 
-    const classes = ['ui-floating-input'];
-
-    if (this.focused) {
-      classes.push('focused');
-    }
-
-    if (this.value) {
-      classes.push('has-value');
-    }
-
     return [
-      <div class={classes.join(' ')}>
+      <div class={{'ui-floating-input': true,
+                    'focused': this.focused,
+                    'has-value': this.value !== ''}}>
         <input
           id={inputId}
+          class={{'invalid': this.message !== ''}}
           type={type}
           name={name}
           tabindex={inputTabIndex}
@@ -79,11 +77,11 @@ export class FloatingInput {
           onKeyUp={this.handleKeyUp}
           onClick={this.handleClick}
           onFocus={_e => this.setFocus(true)}
-          onBlur={_e => this.setFocus(false)}
+          onBlur={this.handleBlur}
           />
         <label>{label}</label>
       </div>,
-      message ? <div class="form-message form-message--small">{message}</div> : null
+      message && <div class="form-message form-message--small">{message}</div>
     ];
   }
 }

@@ -1,0 +1,131 @@
+@mixin box($el:'&', $back:null, $color:null, $fb: null, $mt:null, $mb:null, $ml:null,
+           $mr:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
+           $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
+           $pt:null, $pb:null, $pl:null, $pr:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
+           $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null, $trans:null, $of:null) {
+  #{$el}.u-box {
+    display:#{$d};
+    padding: #{$p};
+    margin-left: #{$ml};
+    margin-right: #{$mr};
+    margin-top: #{$mt};
+    margin-bottom: #{$mb};
+    background: #{$back};
+    color: #{$color};
+    flex-basis: #{$fb};   
+    flex-grow: #{$fg};
+    width: #{$w};
+    height: #{$h};
+    max-width: #{$mxw};
+    min-width: #{$mnw};
+    max-height: #{$mxh};
+    min-height: #{$mnh};
+    border-radius: #{$br};
+    position: #{$pos};
+    top: #{$t};
+    right: #{$r};
+    bottom: #{$b};
+    left: #{$l};
+    z-index: #{$z};
+    border: #{$bord};
+    padding-top: #{$pt};
+    padding-right: #{$pr};
+    padding-bottom: #{$pb};
+    padding-left: #{$pl};
+    grid-template-columns: #{$gtc};
+    grid-gap: #{$gg};
+    column-gap: #{$cg};
+    row-gap: #{$rg};
+    justify-content:#{$jc};
+    justify-self:#{$js};
+    align-items:#{$ai};
+    align-self:#{$as};
+    order: #{$order};
+    flex-direction: #{$fd};
+    flex-wrap: #{$fw};
+    box-shadow: #{$bs};
+    opacity: #{$o};
+    transition: #{$trans};
+    overflow:#{$of};
+  }
+}
+
+@mixin media($el:'&', $type:'max', $thresh:null, $back:null, $color:null, $fb: null, $mt:null, $mb:null, $ml:null,
+$mr:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
+$t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
+$pt:null, $pb:null, $pl:null, $pr:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
+$order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {
+  @media screen and (#{$type}-width: $thresh) {
+    #{$el}.u-media {
+      display:#{$d};
+      padding: #{$p};
+      margin-left: #{$ml};
+      margin-right: #{$mr};
+      margin-top: #{$mt};
+      margin-bottom: #{$mb};
+      background: #{$back};
+      color: #{$color};
+      flex-basis: #{$fb};   
+      flex-grow: #{$fg};
+      width: #{$w};
+      height: #{$h};
+      max-width: #{$mxw};
+      min-width: #{$mnw};
+      max-height: #{$mxh};
+      min-height: #{$mnh};
+      border-radius: #{$br};
+      position: #{$pos};
+      top: #{$t};
+      right: #{$r};
+      bottom: #{$b};
+      left: #{$l};
+      z-index: #{$z};
+      border: #{$bord};
+      padding-top: #{$pt};
+      padding-right: #{$pr};
+      padding-bottom: #{$pb};
+      padding-left: #{$pl};
+      grid-template-columns: #{$gtc};
+      grid-gap: #{$gg};
+      column-gap: #{$cg};
+      row-gap: #{$rg};
+      justify-content:#{$jc};
+      justify-self:#{$js};
+      align-items:#{$ai};
+      align-self:#{$as};
+      order: #{$order};
+      flex-direction: #{$fd};
+      flex-wrap: #{$fw};
+      box-shadow: #{$bs};
+      opacity: #{$o};
+    }
+  }
+}
+
+
+@mixin font($el:'&', $ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null) {
+  #{$el}.u-font {
+    font-family: #{$ff};
+    font-weight: #{$fw};
+    font-size: #{$fs};
+    line-height: #{$lh};
+    letter-spacing: #{$ls};
+    text-transform: #{$tt};
+    white-space: #{$ws};
+    color: #{$color};
+  }  
+}
+@mixin spacer($el:'& ', $mnW:null, $mnH:null, $fB:null, $fG:null, $mxW: null, $mxH:null, $w:null, $h:null, $d:null) {
+  #{$el}.u-spacer {
+    display: #{$d};
+    min-width: #{$mnW};
+    min-height: #{$mnH};
+    flex-basis: #{$fB};
+    flex-grow: #{$fG};
+    max-width: #{$mxW};
+    max-height: #{$mxH};
+    width: #{$w};
+    height: #{$h};
+
+  }
+}

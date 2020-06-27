@@ -74,6 +74,7 @@ export namespace Components {
   interface IonicSignupForm {
     'allowLogin': boolean;
     'allowSocial': boolean;
+    'buttonText': string;
     'gaEventLabel': any;
     'gaEventName': any;
     'hubspotEventId': string;
@@ -393,6 +394,7 @@ declare namespace LocalJSX {
   interface IonicSignupForm {
     'allowLogin'?: boolean;
     'allowSocial'?: boolean;
+    'buttonText'?: string;
     'gaEventLabel'?: any;
     'gaEventName'?: any;
     'hubspotEventId'?: string;

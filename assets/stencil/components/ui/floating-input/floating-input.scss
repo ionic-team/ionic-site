@@ -1,11 +1,11 @@
 ui-floating-input {
   display: block;
+  position: relative;
 
   .ui-floating-input {
     position: relative;
-    border: 1px solid var(--c-indigo-400);
+    
     background: var(--c-indigo-50);
-    border-radius: 8px;
 
     &.focused {
       border-color: var(--c-blue-800);
@@ -28,6 +28,8 @@ ui-floating-input {
         cursor: auto;
       }
     }
+
+    
   }
 
   label {
@@ -56,8 +58,8 @@ ui-floating-input {
   }
 
   input {
-    background: none;
-    border: none;
+    border: 1px solid var(--c-indigo-400);
+    border-radius: 8px;
     padding: 20px 16px 6px;
 
     color: var(--c-carbon-800);
@@ -65,7 +67,6 @@ ui-floating-input {
     width: 100%;
 
     &:focus {
-      outline: none;
     }
 
     &:required {
@@ -73,6 +74,10 @@ ui-floating-input {
     }
 
     &:valid {
+    }
+
+    &.invalid {
+      border: 1px solid var(--c-red-600);
     }
   }
 
@@ -83,7 +88,7 @@ ui-floating-input {
     &--small {
       font-size: 11px;
       line-height: 16px;
-      margin-top: 6px;
+      margin-top: 2px;
     }
   }
 }

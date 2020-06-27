@@ -182,6 +182,8 @@ p {
     }
 
     ui-floating-input {
+      position: relative;
+
       &:nth-child(1) {
         display: inline-block;
         margin-right: 6px;
@@ -192,6 +194,13 @@ p {
         margin-left: 6px;
         width: calc(50% - 6px);
       }
+
+      .form-message {
+        position: absolute;
+        top: 100%;
+      }
+
+
     }
   } 
 

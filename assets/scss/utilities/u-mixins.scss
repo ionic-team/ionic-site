@@ -1,9 +1,10 @@
-@mixin box($back:null, $color:null, $fb: null, $mis:null, $mie:null, $mbs:null,
-           $mbe:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
+@mixin box($back:null, $color:null, $fb: null, $mis:null, $mie:null, $mbs:null, $mbe:null, $c:null,
+           $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
            $pbs:null, $pbe:null, $pis:null, $pie:null, $pi:null, $pb:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
-           $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null, $trans:null, $of:null) {
+           $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null, $trans:null, $tf:null, $of:null) {
   display:#{$d};
+  content: "#{$c}";
   padding: #{$p};
   margin-inline-start: #{$mis};
   margin-inline-end: #{$mie};
@@ -48,10 +49,11 @@
   opacity: #{$o};
   transition: #{$trans};
   overflow:#{$of};
+  transform:#{$tf};
 }
 
-@mixin media($type:'max-width', $val:null, $back:null, $color:null, $fb: null, $mt:null, $mb:null, $ml:null,
-$mr:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
+@mixin media($type:'max-width', $val:null, $back:null, $color:null, $fb: null, $mis:null, $mie:null, $mbs:null, $mbe:null,
+$fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
 $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
 $pbs:null, $pbe:null, $pis:null, $pie:null, $pi:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
 $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {

@@ -229,28 +229,23 @@ p {
   .nav {
   @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
       transition:background-color .3s $timingFunction;
+
+    .nav__wrap {
+    @include box($d:flex);
+    }
     
     .nav__sections {
-      a{        
-        display:inline-block;
-        transform:translateY(0px);
-        position: relative;
-        transition: all 0.3s $timingFunction;
-        &:before {
-          content: "";
-          position: absolute;
-          bottom: -10px;
-          width: 0px;
-          height: 5px;
-          margin: 5px 0 0;
-          transition: all 0.3s $timingFunction;
-          opacity: 0;          
-          background-image: linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%);
+      a {        
+      @include box($d:inline-block, $pos:relative, $trans:all 0.3s $timingFunction, $tf:translateY(0px));
+
+        &::before {
+        @include box($c:'', $pos:absolute, $b:-10px, $w:0, $h:5px, $mbs:5px, $trans:all 0.3s $timingFunction, $o:0,
+                     $back:linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%));
         }
       }
       a:hover, a:active, a:focus, li.active > a{
         transform:translateY(-1px);
-        &:before {          
+        &:before {       
           width: 100%;
           opacity: 1;
         }
@@ -354,21 +349,19 @@ p {
 }
 
 #landing {
-@include box($mb:0, $p:relative, $o:hidden);
+@include box($mbs:0, $mbe:0, $p:relative, $o:hidden);
   .landing__wrap {
 
   }
-
   .landing__content {
-    text-align: center;
-  
+    h6 {
+    @include font($fw:500, $fs:16px, $lh:160%, $ls:.16em, $tt:uppercase);
+    }
     h1 {
-    @include box($mbs:80px, $mbe:24px);
-    @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
+
     }
     p {
-    @include box($mbe:48px);
-    @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
+
     }
   }
   .landing__img {

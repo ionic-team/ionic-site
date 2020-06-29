@@ -5,11 +5,9 @@
 @import '../vars';
 @import '../fonts';
 @import '../components/mobile-nav';
-@import '../../../content/scss/bootstrap/modals';
-@import '../components/modal';
 @import '../components/hubspot_form';
 
-@import '../utilities/u-ioniconf';
+@import '../utilities/u-mixins';
 
 @font-face {
   font-family: 'Ionicons';
@@ -26,13 +24,7 @@
 //#endregion ----------------------------------------------------------------------------
 
 //#region ----------------------------- ANIMATIONS ----------------------------------------
-.modal.fade{
-  transition: opacity 0.3s ease-out;
-  opacity: 0;
-}
-.modal.fade.in {
-  opacity: 1;
-}
+
 //#endregion ------------------------------------------------------------------------------
 
 //#region ----------------------------- VARIABLES -----------------------------------------
@@ -124,58 +116,6 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 }
 // #endregion ------------------------------------------------------------------------
-
-//#region ----------------------------- MODAL ---------------------------------------------
-#contactForm.modal {
-  .modal-content {
-    display: block;
-    position:relative;
-    background-color: transparent;   
-    color: white;
-
-    &::before {
-      content: "";
-      background: $colorBackMain;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -2;   
-      border-radius: 8px;
-    }
-
-    &::after {
-      content: "";
-      background-image: url('/img/ioniconf/bg-menu.svg');
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -1;   
-    }
-
-    h3 {
-      color: white;
-      text-align: center;
-      margin-block-end: 24px !important;
-    }
-    p {
-      color: $colorTextMain;
-      text-align: center;
-    }
-  }
-
-  label {
-    display:inline-block;
-    margin-block-end: 1px;
-
-  }
-}
-
-//#endregion ------------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC -------------------------------------------
 
@@ -283,42 +223,6 @@ p {
 
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
-#contactForm {
-  &.modal {
-    hgroup {
-      padding-top: 18px;
-      padding-bottom: 32px;
-    }
-  
-    h3 {
-      font-size: 29px;
-      font-weight: 600;
-      color: #171a20;
-      margin: 18px 0 8px;
-      letter-spacing: -0.03em;
-    }
-  
-    p {
-      font-size: 18px;
-      line-height: 28px;
-      color: #4c576c;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  
-    form {
-      max-width: 100%;
-      padding: 0 15px 15px;
-    }
-    
-    .hs_submit {
-      text-align: center;
-      font-weight: 600;
-    }
-  }
-}
-
-
 #header {
 @include box($pos:sticky, $t: 0, $z:1);
 
@@ -353,7 +257,7 @@ p {
       }
     
       & > li {
-      @include box($mLeft:32px, $mRight:32px, $color:white);
+      @include box($mis:32px, $mie:32px, $color:white);
         font-size: 16px;
       }
     }
@@ -363,7 +267,7 @@ p {
     }
 
     .nav__button {
-    @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
+    @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pi: 12px, $pb: 10px);
     @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
     }
   }
@@ -415,7 +319,7 @@ p {
   }
 
   .mobile-nav__register {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pi: 12px, $pb: 10px);
   @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
   }
 
@@ -450,79 +354,31 @@ p {
 }
 
 #landing {
-  margin-block-start:0;
-  margin-block-end:0;
-  position:relative;
-  overflow:hidden;
+@include box($mb:0, $p:relative, $o:hidden);
+  .landing__wrap {
+
+  }
+
+  .landing__content {
+    text-align: center;
+  
+    h1 {
+    @include box($mbs:80px, $mbe:24px);
+    @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
+    }
+    p {
+    @include box($mbe:48px);
+    @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
+    }
+  }
+  .landing__img {
+
+  }
 }
 
 #landingBack {
 @include box($pos: absolute, $z: -1, $l:calc((100% - 1800px) / 2));
   
-}
-#landingContent {
-  text-align: center;
-
-  & > h1 {
-  @include box($mTop:80px, $mBot:24px);
-  @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
-  }
-  & > p {
-  @include box($mBot:48px);
-  @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
-  }
-}
-
-#landingTweet {
-@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px, $bf: blur(16px));
-
-  svg {
-    margin-inline-end: 8px;
-  }
-
-  p {
-  @include font($fs:16px, $ls:-.04em, $color:#FBFBFD, $o:.9);
-    color: white;
-  }
-  @media screen and (max-width: $screen-xs-max) {
-    .tweet__extra {
-      display: none;
-    }
-  }
-
-  a {
-    color:white;
-    position: relative;
-    
-    &:after {
-      content: '';
-      width: calc(100% - 1ch);
-      height: 1px;
-      left: 1ch;
-      top: 100%;
-      position: absolute;
-      background: rgba(255, 255, 255, 0);
-      transition: all .15s ease-out;
-    }
-
-    &:hover, &:active, &:focus {
-      text-decoration: none;
-
-      &:after {
-        background: rgba(255, 255, 255, 1);
-        transition: all .15s ease-in;
-      }
-    }
-  }
-}
-
-#landingStream {
-@include box($pos:relative, $w:100%, $h:0, $pBot: 56.25%, $bord:'2px solid rgba(255, 255, 255, 0.2)');
-
-  iframe {
-  @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
-  }
-
 }
 
 
@@ -532,79 +388,12 @@ p {
   background-size: cover;
 }
 
-#speakers {
-  position:relative;
-  overflow:hidden;
-}
 
-
-#speakersTitle {
-  & > h2 {
-  @include box($mBot:34px);
-  }
-
-  & > p {
-  @include box($mxW:480px, $mBot:90px);
-  }
-}
-
-#tessellationBg {
-  position:absolute;
-  z-index:-1;
-  left: calc((100% - 1800px) / 2);
-}
-
-#speakersContent {
-@include box($d:grid, $gtc: "repeat(auto-fit, minmax(228px,1fr))", $gg: 64px);
-
-  .card {
-  @include box($mxW:298px, $mBot: 100px);
-    img {
-    @include box($mxW: 228px, $h:auto);
-    }
-  }
-
-  .card__images {
-  @include box($d:inline-block, $pos:relative, $mxH:228px);
-
-  }
-  
-  .card__title {
-  @include box($d:flex, $jc:space-between, $ai:center, $mTop:40px, $mBot: 14px);
-
-  @keyframes fill{
-    from { fill: $colorBackMain; }
-    to { fill: #fff; }
-  }
-  @keyframes unfill{
-    from { fill: #fff; }
-    to { fill: $colorBackMain; }
-  }
-
-    .card__icons {
-      a svg{
-        animation: unfill 300ms $timingFunction2;
-        animation-fill-mode: forwards;
-      }
-
-      a:hover, a:active, a:focus {
-        svg {
-          animation: fill 300ms $timingFunction2;
-          animation-fill-mode: forwards;
-        }
-      }
-
-      & > :first-child {
-        margin-right: 16px;
-      }
-    }
-  }
-}
 #topics {
-@include box($mTop:-100px, $mBot:100px);
+@include box($mbs:-100px, $mbe:100px);
   h3 {
   @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
-  @include box($color: #B2BECD, $mBot:8px);
+  @include box($color: #B2BECD, $mbe:8px);
   }
 }
 
@@ -617,14 +406,14 @@ p {
 }
 
 #event {
-@include spacer($mxW:96px, $mnW: 32px, $fG:1);
+
 }
 
 #eventInfo {
-@include box($mxW:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
+@include box($mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
 
   h2 {
-  @include box($mBot:34px);
+  @include box($mbe:34px);
   }
   .p2 + .p2{
     margin-top:32px;
@@ -636,222 +425,57 @@ p {
   margin-top: 88px;
 
   .card {
-  @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mBot:48px);
+  @include box($mxw: 448px, $color:white, $p: 48px, $br:8px, $mbe:48px);
   &:last-of-type {
     margin-block-end:0;
   }
 
     .card__text {
     @include font($fs:22px, $lh: 180%);
-    @include box($mTop: 30px);
+    @include box($mbs: 30px);
     }
 
     &.card__automate{
     @include box($back: 'linear-gradient(237.26deg, #786CFF 0%, #6C99FF 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__animations{
     @include box($back: 'linear-gradient(237.26deg, #FF7B5E 0%, #FF6A7B 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__staticHosting{
     @include box($back: 'linear-gradient(237.26deg, #36DCBD 0%, #58D565 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__authentication{
     @include box($back: 'linear-gradient(237.26deg, #4790FF 0%, #67D3F7 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__testing{
     @include box($back: 'linear-gradient(237.26deg, #FFD84D 0%, #FFD748 0.01%, #FF9F45 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
   }
 }
 
-//#region ----------------------------- OUTLINE STYLES --------------------------------------
-#johnOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#anaOutline {
-@include box($pos:absolute, $t:-5px, $l:-5px);
-}
-#shawnOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#simonOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#lukasOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#yvonneOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#ceceliaOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#liamOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#jediOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#aaronOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#dianaOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#maxOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#benOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#mikeOutline {
-@include box($pos:absolute, $t:-5px, $r:-5px);
-}
-#karoOutline {
-@include box($pos:absolute, $b:-5px, $r:-5px);
-}
-//#endregion --------------------------------------------------------------------------------
-#tableWrap {
-  max-width:100%;
-  position:relative;
-  overflow-x:auto;
-}
-
-#scheduleTitle {
-  & > h2 {
-    @include box($mBot:34px);
-    }
-  
-  & > p {
-  @include box($mxW:480px, $mBot:90px);
-  }
-}
-
-#scheduleTable {
-@include box($mxW: 1122px, $color: white, $w: 100%, $h: auto, $mLeft:auto, $mRight:auto);
-  &, tr {
-    border-collapse: collapse;
-  }
-  
-  img {
-    vertical-align:middle;
-  }
-
-  .vertical{
-    writing-mode: vertical-lr;
-    white-space:nowrap;
-  }
-  th {
-  @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
-    background: $colorBackMain;
-    padding-left: 6px;
-    padding-right: 6px;
-    position:sticky;
-    left:0;
-    div {
-      display:inline;
-      text-align: center;
-    }
-  }
-  td {
-    line-height: 160%;
-    letter-spacing: -.01em;
-  }
-  tr {
-    height: 64px;
-    
-  }
-  .schedule__blankRow--title {
-    letter-spacing: 0.16em;
-  }
-  .schedule__timeCol {
-    text-align: center;
-    white-space: nowrap;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  // .schedule__highlightRow--session1 .schedule__timeCol {
-  //   border-right: 1px solid #7382FF;
-  // }
-  .schedule__iconCol {
-    position:relative;
-  }
-  .schedule__nameCol {
-    min-width: 181px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  .schedule__infoCol {
-    padding-left: 56px;
-    padding-right: 56px;
-    min-width: 392px;
-  }
-  .schedule__sessionCol--session1,
-  .schedule__sessionCol--session2,
-  .schedule__sessionCol--session3 {
-    min-width:32px;
-    z-index:1;
-  }
-  .schedule__contentCell--session1 {
-    background: rgba(115, 130, 255, .15);
-  }
-  .schedule__contentCell--session2 {
-    background: rgba(0, 216, 174, .15);
-  }
-  .schedule__contentCell--session3 {
-    background: rgba(255, 107, 123, .15);
-  }
-
-  .schedule__highlightRow--session1 {
-    background: #7382FF;
-  }
-  .schedule__highlightRow--session2 {
-    background: #00D8AE;
-  }
-  .schedule__highlightRow--session3 {
-    background: #FF6B7B;
-  }
-  .schedule__sessionCol--session1 {
-    box-shadow: 4px 0px 0px #7382FF;
-    color: #7382FF;
-  }
-  .schedule__sessionCol--session2 {
-    box-shadow: 4px 0px 0px #00D8AE;
-    color: #00D8AE;
-  }
-  .schedule__sessionCol--session3 {
-    box-shadow: 4px 0px 0px #FF6B7B;;
-    color: #FF6B7B;;
-  }
-
-  .schedule__session1--cell {
-    background: rgba(115, 130, 255, .15);
-  }
-}
 
 #footer {
 @include font($fs:14px, $lh:17px, $color:white);
-@include spacer($fG:9999);
   margin-bottom:0px;
 
   & > div.container::before, & > div.container::after {
@@ -859,7 +483,7 @@ p {
   }
 
   .footer__button {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px, $mLeft:24px);
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pb: 12px, $pi: 10px, $mis:24px);
   @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
   }
 }
@@ -899,7 +523,7 @@ p {
 @media screen and (max-width: $screen-sm-max) {
   #footer {
     .footer__button {
-    @include box($order:2, $mLeft:0);      
+    @include box($order:2, $mis:0);      
     }
     .footer__list {
       justify-content: space-between;
@@ -923,7 +547,7 @@ p {
   }
 
   #landingContent {
-  @include box($mTop:32px);
+  @include box($mbs:32px);
     flex-direction: column;
 
     .u-spacer {
@@ -931,11 +555,11 @@ p {
     }
   }
   #landingImage {
-  @include box($mBot:32px, $mnH: 35vh, $mxW: 461px, $jc:center);
+  @include box($mbe:32px, $mnh: 35vh, $mxw: 461px, $jc:center);
     order: 1;
 
     svg {
-    @include box($mxW: 50vw);
+    @include box($mxw: 50vw);
     }
   }
   #landingMain {

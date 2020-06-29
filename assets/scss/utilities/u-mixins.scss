@@ -1,7 +1,7 @@
 @mixin box($back:null, $color:null, $fb: null, $mis:null, $mie:null, $mbs:null,
            $mbe:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
-           $pt:null, $pb:null, $pl:null, $pr:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
+           $pbs:null, $pbe:null, $pis:null, $pie:null, $pi:null, $pb:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
            $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null, $trans:null, $of:null) {
   display:#{$d};
   padding: #{$p};
@@ -27,10 +27,12 @@
   left: #{$l};
   z-index: #{$z};
   border: #{$bord};
-  padding-top: #{$pt};
-  padding-right: #{$pr};
-  padding-bottom: #{$pb};
-  padding-left: #{$pl};
+  padding-inline-start: #{$pis};
+  padding-inline-end: #{$pie};
+  padding-block-start: #{$pbs};
+  padding-block-end: #{$pbe};
+  padding-inline: #{$pi};
+  padding-block: #{$pb};
   grid-template-columns: #{$gtc};
   grid-gap: #{$gg};
   column-gap: #{$cg};
@@ -51,7 +53,7 @@
 @mixin media($type:'max-width', $val:null, $back:null, $color:null, $fb: null, $mt:null, $mb:null, $ml:null,
 $mr:null, $fg: null, $w: null, $h: null, $mxw: null, $mnw: null, $mxh:null, $mnh:null, $pos: null,
 $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null,
-$pt:null, $pb:null, $pl:null, $pr:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
+$pbs:null, $pbe:null, $pis:null, $pie:null, $pi:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
 $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {
   @media screen and (#{$type}: $val) {
     display:#{$d};
@@ -78,10 +80,12 @@ $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {
     left: #{$l};
     z-index: #{$z};
     border: #{$bord};
-    padding-top: #{$pt};
-    padding-right: #{$pr};
-    padding-bottom: #{$pb};
-    padding-left: #{$pl};
+    padding-inline-start: #{$pis};
+    padding-inline-end: #{$pie};
+    padding-block-start: #{$pbs};
+    padding-block-end: #{$pbe};
+    padding-inline: #{$pi};
+    padding-block: #{$pb};
     grid-template-columns: #{$gtc};
     grid-gap: #{$gg};
     column-gap: #{$cg};
@@ -99,7 +103,7 @@ $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {
 }
 
 
-@mixin font($ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null) {
+@mixin font($ff: null, $fw: null, $fs: null, $lh: null, $ls: null, $tt: null, $ws: null, $color:null, $o:null) {
   font-family: #{$ff};
   font-weight: #{$fw};
   font-size: #{$fs};
@@ -108,4 +112,5 @@ $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null) {
   text-transform: #{$tt};
   white-space: #{$ws};
   color: #{$color};
+  opacity: #{$o};
 }

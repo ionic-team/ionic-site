@@ -33,6 +33,8 @@ export class IonicSignupForm {
 
   @Prop() buttonText = 'Create Profile';
 
+  @Prop() message = false;
+
   @State() formStatus: 'dormant' | 'submitting' | 'submitted' = 'dormant';
 
   @State () disabled = true;
@@ -196,7 +198,7 @@ export class IonicSignupForm {
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
         </p>
       </form>}
-      {this.formStatus === 'submitted' &&
+      {this.formStatus === 'submitted' && this.message &&
       <div id="signup-thanks">
         <h2 class="u-box u-font">Thanks!</h2>
         <p class="u-box u-font">

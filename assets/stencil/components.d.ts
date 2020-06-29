@@ -78,6 +78,7 @@ export namespace Components {
     'gaEventLabel': any;
     'gaEventName': any;
     'hubspotEventId': string;
+    'message': boolean;
     'oauthRedirect': boolean;
     'source': any;
   }
@@ -398,6 +399,7 @@ declare namespace LocalJSX {
     'gaEventLabel'?: any;
     'gaEventName'?: any;
     'hubspotEventId'?: string;
+    'message'?: boolean;
     'oauthRedirect'?: boolean;
     'onLoginInstead'?: (event: CustomEvent<void>) => void;
     'onSignedUp'?: (event: CustomEvent<SignupForm>) => void;

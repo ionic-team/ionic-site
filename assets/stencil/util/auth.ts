@@ -106,6 +106,9 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
 export const getUser = async (): Promise<UserInfo> => {
   try {
     const ret = await fetch('/oauth/userinfo');
+    if (!ret.ok) {
+      return null;
+    }
     return await ret.json() as UserInfo;
   } catch (e) {
     return null;

@@ -1,30 +1,6 @@
 ionic-signup-form {
   display: block;
 
-  #github {
-    background-color: #24292e;
-
-    ion-icon {
-      margin: 0px 8px;
-    }
-  }
-
-  #bitbucket {
-    background-color: #0052cc;
-
-    ion-icon {
-      margin: 0px 8px;
-    }
-  }
-
-  #gitlab {
-    background-color: #fc6d26;
-
-    ion-icon {
-      margin: 0px 8px;
-    }
-  }
-
   #submit {
     justify-content: center;
     text-transform: uppercase;
@@ -42,23 +18,22 @@ ionic-signup-form {
 
   ui-floating-input {
     margin-bottom: 25px;
-  }
+    position: relative;
 
-  .well {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #E1E5ED;
-    border-radius: 6px;
-    margin-top: 16px;
-    color: #3B424D;
-    font-size: 14px;
-    font-weight: 600;
+    &:nth-of-type(1) {
+      display: inline-block;
+      margin-right: 6px;
+      width: calc(50% - 6px);
+    }
+    &:nth-of-type(2) {
+      display: inline-block;
+      margin-left: 6px;
+      width: calc(50% - 6px);
+    }
 
-    .text-link {
-      margin-left: 5px;
+    .form-message {
+      position: absolute;
+      top: 100%;
     }
   }
 

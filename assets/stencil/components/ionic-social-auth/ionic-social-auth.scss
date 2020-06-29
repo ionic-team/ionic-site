@@ -1,0 +1,23 @@
+ionic-social-auth {
+  display: block;
+
+  button {
+    justify-content: center;
+
+    ion-icon {
+      margin: 0px 8px;
+    }
+  }
+
+  #github {
+    background-color: #24292e;
+  }
+
+  #bitbucket {
+    background-color: #0052cc;
+  }
+
+  #gitlab {
+    background-color: #fc6d26;
+  }
+}

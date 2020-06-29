@@ -52,6 +52,7 @@ export namespace Components {
     'open': boolean;
     'openEvent': MouseEvent;
   }
+  interface IonicLoginForm {}
   interface IonicNewsletterSignup {
     'arrowMode': boolean;
     'buttonText': string;
@@ -84,6 +85,7 @@ export namespace Components {
   }
   interface IonicSlider {}
   interface IonicSnapBar {}
+  interface IonicSocialAuth {}
   interface IonicSubHeader {
     'darkMode': boolean;
   }
@@ -208,6 +210,12 @@ declare global {
     new (): HTMLIonicEmojiPickerElement;
   };
 
+  interface HTMLIonicLoginFormElement extends Components.IonicLoginForm, HTMLStencilElement {}
+  var HTMLIonicLoginFormElement: {
+    prototype: HTMLIonicLoginFormElement;
+    new (): HTMLIonicLoginFormElement;
+  };
+
   interface HTMLIonicNewsletterSignupElement extends Components.IonicNewsletterSignup, HTMLStencilElement {}
   var HTMLIonicNewsletterSignupElement: {
     prototype: HTMLIonicNewsletterSignupElement;
@@ -248,6 +256,12 @@ declare global {
   var HTMLIonicSnapBarElement: {
     prototype: HTMLIonicSnapBarElement;
     new (): HTMLIonicSnapBarElement;
+  };
+
+  interface HTMLIonicSocialAuthElement extends Components.IonicSocialAuth, HTMLStencilElement {}
+  var HTMLIonicSocialAuthElement: {
+    prototype: HTMLIonicSocialAuthElement;
+    new (): HTMLIonicSocialAuthElement;
   };
 
   interface HTMLIonicSubHeaderElement extends Components.IonicSubHeader, HTMLStencilElement {}
@@ -317,6 +331,7 @@ declare global {
     'ionic-bar-chart': HTMLIonicBarChartElement;
     'ionic-button': HTMLIonicButtonElement;
     'ionic-emoji-picker': HTMLIonicEmojiPickerElement;
+    'ionic-login-form': HTMLIonicLoginFormElement;
     'ionic-newsletter-signup': HTMLIonicNewsletterSignupElement;
     'ionic-quick-signup': HTMLIonicQuickSignupElement;
     'ionic-react-demo': HTMLIonicReactDemoElement;
@@ -324,6 +339,7 @@ declare global {
     'ionic-signup-form': HTMLIonicSignupFormElement;
     'ionic-slider': HTMLIonicSliderElement;
     'ionic-snap-bar': HTMLIonicSnapBarElement;
+    'ionic-social-auth': HTMLIonicSocialAuthElement;
     'ionic-sub-header': HTMLIonicSubHeaderElement;
     'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
@@ -373,6 +389,7 @@ declare namespace LocalJSX {
     'open'?: boolean;
     'openEvent'?: MouseEvent;
   }
+  interface IonicLoginForm {}
   interface IonicNewsletterSignup {
     'arrowMode'?: boolean;
     'buttonText'?: string;
@@ -407,6 +424,7 @@ declare namespace LocalJSX {
   }
   interface IonicSlider {}
   interface IonicSnapBar {}
+  interface IonicSocialAuth {}
   interface IonicSubHeader {
     'darkMode'?: boolean;
   }
@@ -459,6 +477,7 @@ declare namespace LocalJSX {
     'ionic-bar-chart': IonicBarChart;
     'ionic-button': IonicButton;
     'ionic-emoji-picker': IonicEmojiPicker;
+    'ionic-login-form': IonicLoginForm;
     'ionic-newsletter-signup': IonicNewsletterSignup;
     'ionic-quick-signup': IonicQuickSignup;
     'ionic-react-demo': IonicReactDemo;
@@ -466,6 +485,7 @@ declare namespace LocalJSX {
     'ionic-signup-form': IonicSignupForm;
     'ionic-slider': IonicSlider;
     'ionic-snap-bar': IonicSnapBar;
+    'ionic-social-auth': IonicSocialAuth;
     'ionic-sub-header': IonicSubHeader;
     'ionic-toggle': IonicToggle;
     'ionic-toggle-button': IonicToggleButton;
@@ -497,6 +517,7 @@ declare module "@stencil/core" {
       'ionic-bar-chart': LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
       'ionic-button': LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
       'ionic-emoji-picker': LocalJSX.IonicEmojiPicker & JSXBase.HTMLAttributes<HTMLIonicEmojiPickerElement>;
+      'ionic-login-form': LocalJSX.IonicLoginForm & JSXBase.HTMLAttributes<HTMLIonicLoginFormElement>;
       'ionic-newsletter-signup': LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
       'ionic-quick-signup': LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
       'ionic-react-demo': LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
@@ -504,6 +525,7 @@ declare module "@stencil/core" {
       'ionic-signup-form': LocalJSX.IonicSignupForm & JSXBase.HTMLAttributes<HTMLIonicSignupFormElement>;
       'ionic-slider': LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
+      'ionic-social-auth': LocalJSX.IonicSocialAuth & JSXBase.HTMLAttributes<HTMLIonicSocialAuthElement>;
       'ionic-sub-header': LocalJSX.IonicSubHeader & JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement>;
       'ionic-toggle': LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;
       'ionic-toggle-button': LocalJSX.IonicToggleButton & JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement>;

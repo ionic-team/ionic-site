@@ -1,0 +1,26 @@
+ionic-login-form {
+  display: block;
+
+  ui-floating-input {
+    margin-bottom: 25px;
+  }
+
+  #login-form.hide-password #field-password {
+    height: 0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+  }
+
+  .errorlist {
+    display: none;
+    color: #f45454;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 28px;
+
+    &.error {
+      display: block;
+    }
+  }
+}

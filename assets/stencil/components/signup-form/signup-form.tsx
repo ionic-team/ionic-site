@@ -50,13 +50,6 @@ export class IonicSignupForm {
 
   clearErrors = () => this.formErrorMap = null;
 
-  handleSocial = (e) => {
-    e.preventDefault();
-    const id = e.target.id;
-    const url = `/oauth/login/${id}` + window.location.search;
-    window.location.assign(url);
-  };
-
   handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -122,23 +115,7 @@ export class IonicSignupForm {
     <Host>
       {this.formStatus !== 'submitted' &&
       <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
-        {this.allowSocial ? (
-          <div>
-            <button type="button" id="github" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-github" size="small"></ion-icon>
-              Continue with GitHub
-            </button>
-            <button type="button" id="bitbucket" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-bitbucket" size="small"></ion-icon>
-              Continue with Bitbucket
-            </button>
-            <button type="button" id="gitlab" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-gitlab" size="small"></ion-icon>
-              Continue with GitLab
-            </button>
-            <div class="form-group disclaimer">OR</div>
-          </div>
-        ) : null}
+        {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
         { this.formErrorMap?._form ? (
           <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
         ) : null }
@@ -152,23 +129,23 @@ export class IonicSignupForm {
           message={this.formErrorMap?.name}
           onChange={inputChange('name')} />
         <ui-floating-input
-          type="email"
-          label="Email"
-          name="email"
-          inputTabIndex={2}
-          required={true}
-          value={form.email}
-          message={this.formErrorMap?.email}
-          onChange={inputChange('email')} />
-        <ui-floating-input
           type="text"
           label="Username"
           name="username"
-          inputTabIndex={3}
+          inputTabIndex={2}
           required={true}
           value={form.username}
           message={this.formErrorMap?.username}
           onChange={inputChange('username')} />
+        <ui-floating-input
+          type="email"
+          label="Email"
+          name="email"
+          inputTabIndex={3}
+          required={true}
+          value={form.email}
+          message={this.formErrorMap?.email}
+          onChange={inputChange('email')} />
         <ui-floating-input
           type="password"
           label="Password"
@@ -185,11 +162,11 @@ export class IonicSignupForm {
           disabled={this.disabled}
           tabindex="5">{this.buttonText}</button>
         {this.allowLogin ? (
-        <div class="well">
-          Already have an account?
-          <a href="#"
+        <div>
+          Already have an account?{" "}
+          <a href={`/login${window.location.search}`}
              class="text-link"
-             onClick={e => { e.preventDefault(); this.loginInstead.emit() }}>
+          >
                Log in
           </a>
         </div>

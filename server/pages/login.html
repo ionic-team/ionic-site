@@ -126,13 +126,9 @@
 
     function getAuthConnection() {
       var emailOrSlug = email.value;
+      var url = "{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug) + window.location.search;
 
-      var state = Object.fromEntries(params.entries());
-
-      var url = new URL("{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug));
-      url.searchParams.set("state", JSON.stringify(state));
-
-      fetch(url.href)
+      fetch(url)
         .then(function (response) {
           return response.json();
         })

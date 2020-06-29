@@ -31,16 +31,13 @@ export class IonicLoginForm {
 
   async getAuthConnection() {
     const emailOrSlug = this.form.email;
-
-    // TODO
-    // const state = Object.fromEntries(this.params.entries());
-    const state = {};
-
-    const url = new URL(`${window.API_URL}/auth/connections/${encodeURIComponent(emailOrSlug)}`);
-    url.searchParams.set("state", JSON.stringify(state));
+    const url =
+      `${window.API_URL}/auth/connections/` +
+      encodeURIComponent(emailOrSlug) +
+      window.location.search;
 
     try {
-      const response = await fetch(url.href);
+      const response = await fetch(url);
       const result = await response.json();
       if (result.error || !result.data.url) {
         this.showPassword();
@@ -62,8 +59,6 @@ export class IonicLoginForm {
     form.classList.remove("hide-password");
     // TODO:
     // this.password.focus();
-    // this.password.required = true;
-    // this.password.tabIndex = 2;
     this.passwordLogin = true;
     this.buttonText = "Log in";
   }
@@ -95,7 +90,7 @@ export class IonicLoginForm {
   }
 
   render() {
-    const { form, inputChange } = this;
+    const { form, inputChange, passwordLogin } = this;
 
     const disable = false;
 
@@ -126,8 +121,8 @@ export class IonicLoginForm {
               label="Password"
               name="password"
               autocomplete="current-password"
-              inputTabIndex={-1}
-              required={false}
+              inputTabIndex={passwordLogin ? 2 : -1}
+              required={passwordLogin}
               value={form.password}
               disabled={disable}
               message={this.formErrorMap?.password}

@@ -33,7 +33,7 @@ $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
 $colorTextHighlight: #5887FF;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
-$fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+$fontFamilyRoboto: 'Roboto Mono', Menlo, Courier, monospace;
 $fontFamilyInter: $font-family-inter;
 $fontFamilyEina: $font-family-eina;
 $fontFamilyMono: $font-family-monospace;
@@ -66,28 +66,15 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   color: $colorTextHighlight;
 }
 
-.btn-main, .hs-button{
+.btn-main {
+@include box($d:inline-flex, $ai:center, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $p:16px 20px);
+@include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap, $tt:uppercase, $ls:.1em);
   animation: pushDown 200ms $timingFunction;
   animation-fill-mode: forwards;
 
   &:hover, &:active, &:focus{
     animation: pushUp 200ms $timingFunction;
     animation-fill-mode: forwards;
-  }
-}
-
-.btn-main {
-  display:flex;
-  line-height: 16px;
-  align-items:center;
-
-  vertical-align: middle;
-
-  &:after {
-    content: ' \f119';
-    font-family: 'Ionicons';
-    font-size: 20px;
-    margin-left:4px;
   }
 }
 
@@ -181,12 +168,20 @@ ul {
   padding-left: 0;
 }
 
+h1 {
+  margin:0;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
 h2 {
   margin: 0;
   font-weight: 600;
   font-size: 48px;
   line-height: 120%;
-  color: white;
+  color: #fff;
   display: flex;
   letter-spacing: -0.03em;
 }
@@ -197,12 +192,13 @@ h3 {
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.01em;
-  color: #FFFFFF;
+  color: #FFF;
 }
 
 p {
   margin: 0;
   font-weight:400;
+  color: #fff;
 }
 
 .p2 {
@@ -227,14 +223,15 @@ p {
 @include box($pos:sticky, $t: 0, $z:1);
 
   .nav {
-  @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
-      transition:background-color .3s $timingFunction;
+  @include box($d:flex, $ai:center, $h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
+    transition: background-color .3s $timingFunction;
 
     .nav__wrap {
     @include box($d:flex);
     }
     
     .nav__sections {
+    @include box($d:flex, $ai:center, $w:100%, $jc:center);
       a {        
       @include box($d:inline-block, $pos:relative, $trans:all 0.3s $timingFunction, $tf:translateY(0px));
 
@@ -259,11 +256,6 @@ p {
 
     &.scrolled {
       background:rgba(0, 7, 21, .95);
-    }
-
-    .nav__button {
-    @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pi: 12px, $pb: 10px);
-    @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
     }
   }
 }
@@ -349,23 +341,33 @@ p {
 }
 
 #landing {
-@include box($mbs:0, $mbe:0, $p:relative, $o:hidden);
-  .landing__wrap {
+@include box($mbs:0, $mbe:0, $p:relative, $of:hidden);
 
+  .landing__wrap {
+  @include box($d:flex, $ai:center, $jc:space-between, $mbs:121px);
+  @include media($val:$screen-sm-max, $fd:column);
   }
   .landing__content {
-    h6 {
-    @include font($fw:500, $fs:16px, $lh:160%, $ls:.16em, $tt:uppercase);
-    }
+  @include box($mxw:448px);
+  @include media($val:$screen-sm-max, $order:2, $mbs:48px);
+
     h1 {
+    @include box($mbe:24px);
 
+      span {
+      @include box($d:block, $mbe:40px);
+      @include font($fw:500, $fs:16px, $lh:160%, $ls:.16em, $ff:$fontFamilyRoboto, $tt:uppercase);    
+      }
     }
-    p {
 
+    p {
+    @include box($mbe:40px);
+    @include font($fs:24px, $lh:160%, $ls:-.02em);
     }
   }
   .landing__img {
-
+  @include box($h:100%, $w:100%, $mxw:448px);
+  @include media($val:$screen-sm-max, $mxw:50%);
   }
 }
 
@@ -386,24 +388,30 @@ p {
 @include box($mbs:-100px, $mbe:100px);
   h3 {
   @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
-  @include box($color: #B2BECD, $mbe:8px);
+  @include box($color: #B2BECD, $mbe:8px, $ta:center);
   }
 }
 
 #topicsContent {
+@include box($d:flex, $fd:column, $ai:center);
   img {
     margin-left: 36px;
     margin-right: 36px;
     margin-top: 48px;
   }
+  div {
+    display: inline-block;
+    text-align:center;
+  }
 }
 
 #event {
-
+  .container {
+  }
 }
 
 #eventInfo {
-@include box($mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
+@include box($d:inline-block, $va:top, $mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
 
   h2 {
   @include box($mbe:34px);
@@ -415,6 +423,7 @@ p {
 }
 
 #eventContent {
+@include box($d:inline-block);
   margin-top: 88px;
 
   .card {

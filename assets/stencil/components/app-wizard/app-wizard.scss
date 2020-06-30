@@ -577,12 +577,17 @@
   }
 
   .form-errors {
-    margin: 24px 0;
+    margin-bottom: 12px;
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
+    background-color: var(--c-red-0);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
   }
-  
+
   @media screen and (max-width: 480px) {
     .notice {
       position: static;

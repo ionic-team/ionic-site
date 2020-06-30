@@ -168,7 +168,7 @@ export class IonicSignupForm {
               tabindex="5">{this.buttonText}</button>
             </form>
             {this.allowLogin ? (
-            <div class="well">
+            <div class="login-prompt">
               Already have an account?{" "}
               <a href={`/login${window.location.search}`}
                 class="text-link">

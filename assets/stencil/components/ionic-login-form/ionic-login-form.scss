@@ -6,6 +6,10 @@ ionic-login-form {
     margin-bottom: 48px;
     display: grid;
     grid-gap: 12px;
+
+    ui-floating-input {
+      margin-bottom: 0;
+    }
   }
 
   #login-form.hide-password #field-password {
@@ -24,7 +28,7 @@ ionic-login-form {
     font-weight: 500;
   }
 
-  .well {
+  .signup-prompt {
     text-align: center;
     color: #414D5C;
   }

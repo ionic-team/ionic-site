@@ -143,7 +143,7 @@ export class IonicLoginForm {
             {this.buttonText}
           </button>
         </form>
-        <div class="well">
+        <div class="signup-prompt">
           Don’t have an account?{" "}
           <a href={`/signup${window.location.search}`} class="text-link">
             Sign up

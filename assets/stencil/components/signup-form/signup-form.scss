@@ -13,21 +13,23 @@ ionic-signup-form {
     display: grid;
     grid-gap: 12px;
     grid-template-columns: 1fr 1fr;
-  }
 
-  ui-floating-input:not(:nth-child(1)):not(:nth-child(2)),
-  #submit {
-    grid-column: 1 / 3;
-  }
+    ui-floating-input:not(:nth-child(1)):not(:nth-child(2)),
+    #submit {
+      grid-column: 1 / 3;
+    }
 
-  ui-floating-input {
-    position: relative;
+    ui-floating-input {
+      position: relative;
+      margin-bottom: 0;
 
-    .form-message {
-      position: absolute;
-      top: 100%;
+      .form-message {
+        position: absolute;
+        top: 100%;
+      }
     }
   }
+
 
   #submit {
     &:disabled {
@@ -49,7 +51,7 @@ ionic-signup-form {
     font-weight: 500;
   }
 
-  .well {
+  .login-prompt {
     text-align: center;
     color: #414D5C;
   }

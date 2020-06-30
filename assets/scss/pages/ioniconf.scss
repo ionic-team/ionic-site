@@ -223,7 +223,7 @@ p {
 @include box($pos:sticky, $t: 0, $z:1);
 
   .nav {
-  @include box($d:flex, $ai:center, $h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
+  @include box($ai:center, $h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
     transition: background-color .3s $timingFunction;
 
     .nav__wrap {
@@ -258,6 +258,15 @@ p {
       background:rgba(0, 7, 21, .95);
     }
   }
+}
+#mainNav {
+@include box($d:flex);
+@include media($val:$screen-xs-max, $d:none);
+}
+
+#mobileNavBar {
+@include box($d:none);
+@include media($val:$screen-xs-max, $d:flex);
 }
 
 .mobile-nav {
@@ -480,8 +489,12 @@ p {
 @include font($fs:14px, $lh:17px, $color:white);
   margin-bottom:0px;
 
-  & > div.container::before, & > div.container::after {
-    display:none;
+  // & > div.container::before, & > div.container::after {
+  //   display:none;
+  // }
+
+  .footer__wrap {
+  @include box($d:flex, $ai:center);
   }
 
   .footer__button {
@@ -491,6 +504,7 @@ p {
 }
 
 .footer__list{
+@include box($d:flex, $ai:center);
   flex-grow:1;
   & > li {
     padding: 24px;

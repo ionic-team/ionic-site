@@ -5,10 +5,6 @@
   display: grid;
   grid-template-rows: auto 1fr;
 
-  @media (max-width: $screen-xs-max) {
-    padding-top: 0px;
-  }
-
   header {
     padding: 20px;
 
@@ -42,5 +38,14 @@
 
   h1 {
     font-size: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-top: 0px;
+
+    .container {
+      padding-top: 32px;
+    }
   }
 }

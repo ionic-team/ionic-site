@@ -28,6 +28,16 @@
           <a class="anchor" data-offset="100" href="#event">Event</a>
         </li>
       </ul>
+      <div>
+        <label class="btn-secondary" for="headerUpdates"
+               onClick="this.querySelector('input[name=email]').focus()">
+          <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="headerUpdates" role="button" type="checkbox"/>
+          <span class="text">Sign up for updates</span>
+          <hubspot-form 
+            form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
+            submit-text="&#xf119;"/>
+        </label>
+      </div>
     </div>
   </nav>
 
@@ -132,8 +142,6 @@
             <a class="anchor" data-offset="150" href="#event">Event</a>
           </li>
         </ul>
-        <div>345</div>
-        <!-- <hubspot-form form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"></hubspot-form> -->
       </div>
     </div>
   </nav>
@@ -1600,7 +1608,14 @@
       <li class=""><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
     <div>
-
+      <label class="btn-secondary" for="footerUpdates"
+             onClick="this.querySelector('input[name=email]').focus()">
+        <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="footerUpdates" role="button" type="checkbox"/>
+        <span class="text">Sign up for updates</span>
+        <hubspot-form 
+          form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
+          submit-text="&#xf119;"/>
+      </label>
     </div>
   </div>
 </section>

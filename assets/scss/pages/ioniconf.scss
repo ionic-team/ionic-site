@@ -5,7 +5,6 @@
 @import '../vars';
 @import '../fonts';
 @import '../components/mobile-nav';
-@import '../components/hubspot_form';
 
 @import '../utilities/u-mixins';
 
@@ -78,6 +77,57 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 }
 
+.btn-secondary {
+@include box($d:flex, $ai:center, $curs: pointer, $pos:relative, $bord: 1px solid $colorTextHighlight, $h:39px, $br:8px, $back:transparent);
+@include font($fw:600, $fs:16px, $lh:19px, $ws:nowrap, $color:#fff);
+
+  .text {
+  @include box($d:flex, $ai:center, $z:1, $p:10px 12px, $pie:30px);
+  }
+
+  .checkbox {
+  @include box($pos:absolute, $r:12px, $pis:12px);
+    &::before {
+    @include box($d:flex, $ai:center, $c:'\f119', $curs:pointer, $pos:absolute, $back:$colorBackMain, $t:0, $l:0, $r:0, $b:0, $z:2);
+    @include font($ff:Ionicons, $fs:24px);
+    }
+  }
+
+  .checkbox:checked {
+  @include box($z:-1);
+    & ~ hubspot-form {
+    @include box($o:1, $trans:all .15s ease-in, $tf:translateY(0px), $z:1);
+    }
+
+    & ~ .text {
+    @include box($o:0, $trans:all .15s ease-in, $tf:translateY(10px));
+    }
+  
+  }
+
+  hubspot-form {
+  @include box($pos:absolute, $h:100%, $w:100%, $o:0, $tf:translateY(-10px));
+    fieldset {
+    @include box($w:100%, $h:100%);
+    }
+    label {
+    @include box($v:hidden, $pos:absolute);
+    }
+    input {
+    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px);
+    @include font($lh: 16px, $color:#000, $fw:400);
+    }
+    .button {
+    @include box($d:flex, $ai:center, $pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back: #fff, $p:10px 12px);
+    @include font($ff:Ionicons, $color:black, $fs:24px);
+    }
+    .success {
+    @include box($pos:absolute, $t:1px, $r:1px, $h:calc(100% - 2px));
+    }
+  }
+}
+
+
 .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -102,6 +152,8 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
       width:1054px
   }
 }
+
+
 // #endregion ------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC -------------------------------------------
@@ -113,6 +165,7 @@ body * {
 fieldset {
   border: none;
   padding:0;
+  margin:0;
 }
 
 .no-scroll {
@@ -154,7 +207,7 @@ html, body, main {
   z-index: -2;  
 }
 
-p, li, button, td{
+p, li, button, td, input, label{
   font-family:$fontFamilyInter;
 }
 

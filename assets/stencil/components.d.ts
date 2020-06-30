@@ -35,6 +35,7 @@ export namespace Components {
   }
   interface HubspotForm {
     'formId': string;
+    'submitText': string;
   }
   interface IconExternal {}
   interface IonicAppWizard {}
@@ -353,6 +354,7 @@ declare namespace LocalJSX {
   }
   interface HubspotForm {
     'formId'?: string;
+    'submitText'?: string;
   }
   interface IconExternal {}
   interface IonicAppWizard {}

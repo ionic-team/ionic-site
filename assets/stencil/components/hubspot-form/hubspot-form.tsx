@@ -114,6 +114,7 @@ export class HubspotForm {
       this.emailSuccess = true;
     } else {
       this.emailInvalid = true;
+      console.log(response.text);
     }
   }
 

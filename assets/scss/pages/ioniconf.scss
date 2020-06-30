@@ -78,19 +78,33 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 }
 
 .btn-secondary {
-@include box($d:flex, $ai:center, $curs: pointer, $pos:relative, $bord: 1px solid $colorTextHighlight, $h:39px, $br:8px, $back:transparent);
+@include box($d:flex, $ai:center, $curs: pointer, $pos:relative, $bord:1px solid $colorTextHighlight, $h:39px, $br:8px, $back:transparent);
 @include font($fw:600, $fs:16px, $lh:19px, $ws:nowrap, $color:#fff);
+  transition: all .15s ease-in; 
+
+  &:hover, &:active, &:focus, &:focus-within {
+  @include box($bord:1px solid #ff4db5);
+    transition: all .15s ease-in;   
+
+    & .checkbox, & .arrow {
+      transform: translateX(4px);
+      transition: all .15s ease-in; 
+    }
+  }
 
   .text {
   @include box($d:flex, $ai:center, $z:1, $p:10px 12px, $pie:30px);
   }
 
+  .arrow {
+  @include box($d:flex, $ai:center, $w:13px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:12px);
+  @include font($ff:Ionicons, $fs:24px);
+  transition: all .15s ease-in; 
+  }
+
   .checkbox {
-  @include box($pos:absolute, $r:12px, $pis:12px);
-    &::before {
-    @include box($d:flex, $ai:center, $c:'\f119', $curs:pointer, $pos:absolute, $back:$colorBackMain, $t:0, $l:0, $r:0, $b:0, $z:2);
-    @include font($ff:Ionicons, $fs:24px);
-    }
+  @include box($pos:absolute, $r:12px, $pis:12px, $z:-1);
+  transition: all .15s ease-in; 
   }
 
   .checkbox:checked {
@@ -101,6 +115,9 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 
     & ~ .text {
     @include box($o:0, $trans:all .15s ease-in, $tf:translateY(10px));
+    }
+    & ~ .arrow {
+    @include box($z:-1);
     }
   
   }

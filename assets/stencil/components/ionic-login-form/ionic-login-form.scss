@@ -17,7 +17,7 @@ ionic-login-form {
   }
 
   .form-errors {
-    margin-bottom: 12px;
+    margin-bottom: 40px;
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
@@ -26,6 +26,13 @@ ionic-login-form {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  .forgot-password {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2px;
+    font-size: 12px;
   }
 
   .signup-prompt {

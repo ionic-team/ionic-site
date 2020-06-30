@@ -15,8 +15,7 @@ export class IonicSocialAuth {
 
   render() {
     return (
-      <form class="form" id="ionic-social-auth">
-        <div>
+      <form id="ionic-social-auth">
           <button type="button" id="github" class="btn btn-block" onClick={this.handleSubmit}>
             <ion-icon name="logo-github" size="small"></ion-icon>
             Continue with GitHub
@@ -29,8 +28,7 @@ export class IonicSocialAuth {
             <ion-icon name="logo-gitlab" size="small"></ion-icon>
             Continue with GitLab
           </button>
-          <div class="form-group disclaimer">OR</div>
-        </div>
+          <div class="or"><span>OR</span></div>
       </form>
     );
   }

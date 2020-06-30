@@ -114,67 +114,75 @@ export class IonicSignupForm {
     return (
     <Host>
       {this.formStatus !== 'submitted' &&
-      <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
-        {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
-        { this.formErrorMap?._form ? (
-          <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
-        ) : null }
-        <ui-floating-input
-          type="text"
-          label="Full name"
-          name="name"
-          inputTabIndex={1}
-          required={true}
-          value={form.name}
-          message={this.formErrorMap?.name}
-          onChange={inputChange('name')} />
-        <ui-floating-input
-          type="text"
-          label="Username"
-          name="username"
-          inputTabIndex={2}
-          required={true}
-          value={form.username}
-          message={this.formErrorMap?.username}
-          onChange={inputChange('username')} />
-        <ui-floating-input
-          type="email"
-          label="Email"
-          name="email"
-          inputTabIndex={3}
-          required={true}
-          value={form.email}
-          message={this.formErrorMap?.email}
-          onChange={inputChange('email')} />
-        <ui-floating-input
-          type="password"
-          label="Password"
-          name="password"
-          inputTabIndex={4}
-          required={true}
-          value={form.password}
-          message={this.formErrorMap?.password}
-          onChange={inputChange('password')} />
-        <button
-          type="submit"
-          id="submit"
-          class="btn btn-block"
-          disabled={this.disabled}
-          tabindex="5">{this.buttonText}</button>
-        {this.allowLogin ? (
-        <div>
-          Already have an account?{" "}
-          <a href={`/login${window.location.search}`}
-             class="text-link"
-          >
-               Log in
-          </a>
+        <section>
+          <div>
+            { this.formErrorMap?._form ? (
+                <FormErrors>{this.formErrorMap._form}</FormErrors>
+              ) : null }
+            {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
+          </div>
+
+          <div>
+            <form id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
+            <ui-floating-input
+              type="text"
+              label="Full name"
+              name="name"
+              inputTabIndex={1}
+              required={true}
+              value={form.name}
+              message={this.formErrorMap?.name}
+              onChange={inputChange('name')} />
+            <ui-floating-input
+              type="text"
+              label="Username"
+              name="username"
+              inputTabIndex={2}
+              required={true}
+              value={form.username}
+              message={this.formErrorMap?.username}
+              onChange={inputChange('username')} />
+            <ui-floating-input
+              type="email"
+              label="Email"
+              name="email"
+              inputTabIndex={3}
+              required={true}
+              value={form.email}
+              message={this.formErrorMap?.email}
+              onChange={inputChange('email')} />
+            <ui-floating-input
+              type="password"
+              label="Password"
+              name="password"
+              inputTabIndex={4}
+              required={true}
+              value={form.password}
+              message={this.formErrorMap?.password}
+              onChange={inputChange('password')} />
+            <button
+              type="submit"
+              id="submit"
+              class="btn btn-block"
+              disabled={this.disabled}
+              tabindex="5">{this.buttonText}</button>
+            </form>
+            {this.allowLogin ? (
+            <div class="well">
+              Already have an account?{" "}
+              <a href={`/login${window.location.search}`}
+                class="text-link">
+                  Log in
+              </a>
+            </div>
+          ) : null}
         </div>
-        ) : null}
-        <p class="form-group disclaimer">
+
+        <p class="disclaimer">
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
         </p>
-      </form>}
+
+      </section>}
       {this.formStatus === 'submitted' && this.message &&
       <div id="signup-thanks">
         <h2 class="u-box u-font">Thanks!</h2>

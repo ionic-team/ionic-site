@@ -1,28 +1,22 @@
 {% extends '_layouts/blank.html' %}
 {% set title = "Ionic - Login" %}
 {% set id = "login" %}
-{% set header_style = 'transparent light' %}
 {% set meta_description = "Log in to Ionic." %}
+{% set cssPath = 'auth' %}
 
 {% block main %}
-<header class="navbar navbar-default transparent light">
-  <a class="navbar-brand" href="/">
+<header>
+  <a href="/">
     {% include '_includes/svg/ionic-black.svg' %}
   </a>
 </header>
 <main>
-  <div class="banner">
-    <hgroup class="container">
+  <div class="container">
+    <div class="auth-form-container">
       <h1>Log in to Ionic</h1>
-    </hgroup>
-  </div>
-  <section class="container">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <ionic-login-form></ionic-login-form>
-      </div>
+      <ionic-login-form></ionic-login-form>
     </div>
-  </section>
+  </div>
 </main>
 {% endblock %}
 

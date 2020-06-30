@@ -1,26 +1,39 @@
 ionic-login-form {
-  display: block;
+  width: 100%;
 
-  ui-floating-input {
-    margin-bottom: 25px;
+  #login-form {
+    margin-top: 12px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-gap: 12px;
   }
 
   #login-form.hide-password #field-password {
-    height: 0px;
-    margin-bottom: 0px;
-    overflow: hidden;
+    display: none;
   }
 
-  .errorlist {
-    display: none;
-    color: #f45454;
+  .form-errors {
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--c-red-800);
+    background-color: var(--c-red-0);
+    padding: 8px;
+    border-radius: 8px;
     font-size: 14px;
-    line-height: 20px;
-    font-weight: 600;
-    margin-bottom: 28px;
+    font-weight: 500;
+  }
 
-    &.error {
-      display: block;
-    }
+  .well {
+    text-align: center;
+    color: #414D5C;
+  }
+
+  .btn {
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

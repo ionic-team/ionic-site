@@ -100,14 +100,14 @@ export class IonicLoginForm {
     const disable = false;
 
     return (
-      <div>
+      <section>
         {this.formErrorMap?._form ? (
           <FormErrors>
-            <span>{this.formErrorMap._form}</span>
+            {this.formErrorMap._form}
           </FormErrors>
         ) : null}
         <ionic-social-auth></ionic-social-auth>
-        <form class="form hide-password" id="login-form" role="form" onSubmit={this.handleSubmit}>
+        <form class="hide-password" id="login-form" role="form" onSubmit={this.handleSubmit}>
           <ui-floating-input
             type="text"
             label="Email or organization ID"
@@ -149,7 +149,7 @@ export class IonicLoginForm {
             Sign up
           </a>
         </div>
-      </div>
+      </section>
     );
   }
 }

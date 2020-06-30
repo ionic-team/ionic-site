@@ -1,38 +1,32 @@
 {% extends '_layouts/blank.html' %}
 {% set title = "Ionic - Signup" %}
 {% set id = "signup" %}
-{% set header_style = 'transparent light' %}
 {% set meta_description = "Create your Ionic account." %}
+{% set cssPath = 'auth' %}
 
 {% block main %}
-<header class="navbar navbar-default transparent light">
-  <a class="navbar-brand" href="/">
+<header>
+  <a href="/">
     {% include '_includes/svg/ionic-black.svg' %}
   </a>
 </header>
 <main>
-  <div class="banner">
-    <hgroup class="container">
+  <div class="container">
+    <div class="auth-form-container">
       <h1>Create your Ionic account</h1>
-    </hgroup>
-  </div>
-  <section class="container">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <ionic-signup-form
-          source="framework-signup"
-          ga-event-name="Get started"
-          ga-event-label="btn-get-started-signup-submit"
-          hubspot-event-id="000006040735"
-          id="signup-form"
-          allow-login="true"
-          allow-social="true"
-          oauth-redirect="false"
-          button-text="Create account ➔"
-        ></ionic-signup-form>
-      </div>
+      <ionic-signup-form
+        source="framework-signup"
+        ga-event-name="Get started"
+        ga-event-label="btn-get-started-signup-submit"
+        hubspot-event-id="000006040735"
+        id="signup-form"
+        allow-login="true"
+        allow-social="true"
+        oauth-redirect="false"
+        button-text="Create account ➔"
+      ></ionic-signup-form>
     </div>
-  </section>
+  </div>
 </main>
 {% endblock %}
 

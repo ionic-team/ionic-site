@@ -10,11 +10,11 @@
 
   .activateOnScroll {
     opacity: 0;
-    transform: translateY(48px);
+    transform: translateX(400px);
     transition: .4s opacity, .8s transform cubic-bezier(.07,.89,.79,.95);
 
     &.active {
-      transform: translateY(0);
+      transform: translateX(0);
       opacity: 1;
     }
   }

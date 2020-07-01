@@ -11,7 +11,7 @@ const SSO_ID_KEY = "_ionic_sso_id";
 })
 export class IonicLoginForm {
   @State() passwordLogin = false;
-  @State() buttonText = "Continue ➔";
+  @State() buttonText = "Continue ->";
   @State() formErrorMap: { [key: string]: string };
   @State() form: LoginForm = {
     email: "",

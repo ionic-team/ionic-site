@@ -13,7 +13,10 @@ ionic-login-form {
   }
 
   #login-form.hide-password #field-password {
-    display: none;
+    // hide the password form but make it visible to password managers
+    height: 0;
+    margin-bottom: 0;
+    overflow: hidden;
   }
 
   .form-errors {

@@ -171,7 +171,12 @@ export class IonicSignupForm {
             <div class="login-prompt">
               Already have an account?{" "}
               <a href={`/login${window.location.search}`}
-                class="text-link">
+                class="text-link"
+                onClick={(e) => {
+                  if (this.loginInstead.emit().defaultPrevented) {
+                    e.preventDefault();
+                  }
+                }}>
                   Log in
               </a>
             </div>

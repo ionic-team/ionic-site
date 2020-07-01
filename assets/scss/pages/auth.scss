@@ -1,0 +1,51 @@
+@import '../vars';
+
+#page-login,
+#page-signup {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  header {
+    padding: 20px;
+
+    a {
+      color: #B2BECD;;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .container {
+    padding-top: 60px;
+    height: 100%;
+  }
+
+  .auth-form-container {
+    height: 100%;
+    display: grid;
+    grid-gap: 32px;
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    justify-items: center;
+
+    & > * {
+      max-width: 400px;
+    }
+  }
+
+  h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-top: 0px;
+
+    .container {
+      padding-top: 32px;
+    }
+  }
+}

@@ -548,7 +548,10 @@ export class AppWizard {
             allow-login="true"
             oauth-redirect="false"
             onSignedUp={this.handleSignup}
-            onLoginInstead={() => this.showSignup = false}
+            onLoginInstead={(e) => {
+              e.preventDefault();
+              this.showSignup = false;
+            }}
           ></ionic-signup-form>
         ) : (
         <LoginForm

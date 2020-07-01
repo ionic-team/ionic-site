@@ -1,3 +1,12 @@
+declare global {
+  interface Window {
+    API_URL: string;
+    DASHBOARD_URL: string;
+    _hsq: any[];
+    c: (cat, lbl, el?, val?) => void;
+  }
+}
+
 /**
  * An (incomplete) representation of the user model for the API
  */

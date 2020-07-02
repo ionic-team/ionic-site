@@ -489,30 +489,6 @@ export class AppWizard {
     )
   }
 
-  renderConfigure() {
-    return (
-      <div>
-        <hgroup>
-          <h2>Configure {this.appName}</h2>
-          <h4>Some extra information needed to correctly build native apps</h4>
-        </hgroup>
-        <form class="form" onSubmit={this.next}>
-          <div class="form-group" id="field-appurl">
-            <label htmlFor="id_appurl">Company or App URL</label>
-            <input type="text" id="id_appurl" name="appurl" value={this.appUrl} tabindex="1" onInput={this.handleInput('appUrl')} />
-            <div class="form-message form-message--small"></div>
-          </div>
-          <div class="form-group" id="field-bundleid">
-            <label htmlFor="id_bundleid">Bundle ID</label>
-            <input type="text" id="id_bundleid" name="bundleid" value={this.bundleId} tabindex="1" onInput={this.handleInput('bundleId')} />
-            <div class="form-message form-message--small"></div>
-          </div>
-          <Button class="next-button-wrapper"><span>Next</span></Button>
-        </form>
-      </div>
-    )
-  }
-
   renderProfile() {
     if (this.email) {
       return (
@@ -631,7 +607,6 @@ ionic start
   renderStep() {
     switch (this.step) {
       case this.STEP_BASICS: return this.renderBasics();
-      //case 1: return this.renderConfigure();
       case this.STEP_PROFILE: return this.renderProfile();
       case this.STEP_FINISH: return this.renderFinish();
     }

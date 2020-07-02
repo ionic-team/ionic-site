@@ -1,7 +1,7 @@
 import { Component, State, h, Listen, Element } from '@stencil/core';
 
-import { login, SignupForm, LoginForm, getUser } from '../../util/auth';
-import { trackEvent } from '../../util/hubspot';
+import { login, LoginForm, getUser } from '../../util/auth';
+import { identify, trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { UserInfo } from '../../declarations';
 
@@ -71,7 +71,7 @@ export class AppWizard {
   @State() loginErrors = null;
   @State() creatingApp = false;
 
-  user: UserInfo;
+  @State() user: UserInfo;
 
   // The current appId from the server
   appId: string;
@@ -108,7 +108,6 @@ export class AppWizard {
   // Form state
   @State() authenticating = false;
   @State() theme = THEMES[0];
-  @State() email = '';
   @State() appName = '';
   @State() framework = 'react';
   @State() template = 'tabs';
@@ -127,8 +126,7 @@ export class AppWizard {
   async componentDidLoad() {
     try {
       // Get the user to see if they are logged in
-      const user = await getUser();
-      this.user = user;
+      this.user = await getUser();
       this.setStep(this.STEP_BASICS);
     } catch (e) {
     }
@@ -154,24 +152,13 @@ export class AppWizard {
     this.setStep(this.step + 1 % this.STEPS.length);
   }
 
-  basicsNext = (e?) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-
-    if (this.user) {
-      this.finish();
-    } else {
-      this.next(e);
-    }
-  }
-
   login = async (e) => {
     e.preventDefault();
 
     try {
       this.authenticating = true;
       await login(this.loginForm.email, this.loginForm.password, 'start-wizard', 'Start Wizard Log In');
-      this.email = this.loginForm.email;
+      this.user = await getUser();
       this.authenticating = false;
       return this.finish();
     } catch (e) {
@@ -182,9 +169,8 @@ export class AppWizard {
 
   }
 
-  handleSignup = (e: CustomEvent<SignupForm>) => {
-    const form = e.detail;
-    this.email = form.email;
+  handleSignup = async () => {
+    this.user = await getUser();
     this.finish();
   }
 
@@ -194,10 +180,21 @@ export class AppWizard {
     return this.finish();
   }
 
-  finish = async () => {
-    try {
-      this.setStep(this.STEPS.length - 1);
+  finish = () => {
+    this.setStep(this.STEPS.length - 1);
+    if (this.user) {
+      identify(this.user.email, this.user.sub);
+    }
+    trackEvent({
+      id: 'Start Wizard Finish'
+    });
+  };
 
+  basicsNext = async (e?) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+
+    try {
       this.creatingApp = true;
 
       const created = await this.save();
@@ -208,9 +205,11 @@ export class AppWizard {
         return;
       }
 
-      trackEvent({
-        id: 'Start Wizard Finish'
-      });
+      if (this.user) {
+        this.finish();
+      } else {
+        this.next(e);
+      }
     } catch (e) {
       try {
         const data = JSON.parse(e.message);
@@ -254,7 +253,7 @@ export class AppWizard {
         type: this.framework,
         'package-id': this.bundleId,
         tid: this.getHubspotId(),
-        email: this.email,
+        email: this.user?.email,
         appId: this.appId,
         template: this.template,
         name: this.appName,
@@ -386,7 +385,16 @@ export class AppWizard {
   };
 
   renderBasics() {
-    const { showEmojiPicker } = this;
+    const { showEmojiPicker, creatingApp } = this;
+
+    let buttonText;
+    if (creatingApp) {
+      buttonText = <span><ion-spinner /></span>;
+    } else if (this.user) {
+      buttonText = <span>Create App</span>;
+    } else {
+      buttonText = <span>Continue <ion-icon name="ios-arrow-forward" /></span>;
+    }
 
     return (
       <div>
@@ -476,12 +484,8 @@ export class AppWizard {
               }} />
           </div>
           <div ref={e => this.submitButtonWrapRef = e} class="next-button-wrapper">
-            <Button>
-            { this.user ? (
-              <span>Create App</span>
-            ) : (
-              <span>Continue <ion-icon name="ios-arrow-forward" /></span>
-            )}
+            <Button disabled={creatingApp}>
+              {buttonText}
             </Button>
           </div>
         </form>
@@ -490,7 +494,7 @@ export class AppWizard {
   }
 
   renderProfile() {
-    if (this.email) {
+    if (this.user) {
       return (
         <div>
           <hgroup>
@@ -499,7 +503,7 @@ export class AppWizard {
           </hgroup>
           <div class="logged-in">
             <p>
-              Logged in as {this.email}
+              Logged in as {this.user.email}
             </p>
             <form onSubmit={e => { e.preventDefault(); this.finish() }} class="next-button-wrapper">
               <Button><span>Finish</span></Button>
@@ -555,8 +559,6 @@ npm install -g @ionic/cli
 ionic start
     `;
 
-    const creating = this.creatingApp;
-
     return (
       <div class="finish">
         <hgroup>
@@ -566,15 +568,9 @@ ionic start
             Run this to see your amazing new app:
           </h4>
         </hgroup>
-        {creating ? (
-        <div class="creating-app">
-          <pre><code>Creating app <ion-spinner /></code></pre>
-        </div>
-        ) : (
         <div>
           <pre><code>{instructions}</code></pre>
         </div>
-        )}
         <div class="info">
           Requires <b><code>@ionic/cli</code> 6.5.0</b> or above<br />
           Need help? See the full <a href="https://ionicframework.com/docs/installation/cli">installation guide</a>
@@ -634,8 +630,8 @@ ionic start
   }
 }
 
-const Button = (_props, children) => (
-  <button type="submit" class="btn btn-block">{ children }</button>
+const Button = (props, children) => (
+  <button type="submit" class="btn btn-block" {...props}>{ children }</button>
 );
 
 const AppIcon = ({ img, emoji, theme, onChooseEmoji, isDropping,

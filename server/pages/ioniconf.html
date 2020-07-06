@@ -33,7 +33,7 @@
                onClick="this.querySelector('input[name=email]').focus()">
           <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="headerUpdates" role="button" type="checkbox"/>
           <span class="text">Sign up for updates</span>
-          <span class="arrow">&#xf119;</span>
+          <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
           <hubspot-form 
             form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
             submit-text="&#xf119;"/>
@@ -43,12 +43,12 @@
   </nav>
 
   <nav id="mobileNavBar" class="nav container">
-      <a class=" " href="/">
+      <a class="nav__logo" href="/">
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
           <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
         </svg>
       </a>
-      <button id="collapse-toggle" class=" ">&#10998;</button>
+      <button id="collapse-toggle"><ion-icon name="ellipsis-vertical"></ion-icon></button>
   </nav>
 
   <nav id="mobile-nav" class="mobile-nav closed ">
@@ -845,7 +845,7 @@
   
       <p>Our live online event is over, but you can still relive the moments anytime below. We’ll see you next year!</p>
 
-      <a class="btn-main anchor" href="#talks" data-offset="100" >Watch the Talks</a>
+      <!-- <a class="btn-main anchor" href="#talks" data-offset="100">Watch the Talks</a> -->
     </div>
 
     <div class="landing__img">
@@ -909,9 +909,12 @@
 
 <section id="keynote" class="container">
   <h2>Watch the Keynote</h2>
+  <div class="keynote__video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yiUGWrvq0kk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </section>
 
-<section id="talks" class="container">
+<!-- <section id="talks" class="container">
   <h2>Talks</h2>
   <div>
     <article class="card">
@@ -1253,7 +1256,7 @@
       <p>Javascript and IoT: A true love story</p>
     </article>
   </div>
-</section>
+</section> -->
 
 <section id="topics" class="">
   <div class="container">
@@ -1383,11 +1386,13 @@
 <section id="event">
   <div class="container">
     <div id="eventInfo">
-      <h2 class="">Event</h2>
-      <div>
-        <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
-        <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
-        <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
+      <div class="sticky">
+        <h2 class="">Event</h2>
+        <div>
+          <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
+          <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
+          <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
+        </div>
       </div>
     </div>
     <div id="eventContent" class="">
@@ -1584,7 +1589,7 @@
           </defs>
         </svg>
 
-        <p class="card__text  ">End-to-end mobile app testing best practices and techniques</p>
+        <p class="card__text">End-to-end mobile app testing best practices and techniques</p>
       </div>
     </div>
   </div>
@@ -1608,11 +1613,12 @@
       <li class=""><a class="anchor" data-offset="100" href="#event">Event</a></li>
       <li class=""><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
-    <div>
+    <div class="footer__cta">
       <label class="btn-secondary" for="footerUpdates"
              onClick="this.querySelector('input[name=email]').focus()">
         <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="footerUpdates" role="button" type="checkbox"/>
         <span class="text">Sign up for updates</span>
+        <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
         <hubspot-form 
           form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
           submit-text="&#xf119;"/>

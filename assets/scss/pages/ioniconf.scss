@@ -87,7 +87,7 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     transition: all .15s ease-in;   
 
     & .checkbox, & .arrow {
-      transform: translateX(4px);
+      transform: translateX(2px);
       transition: all .15s ease-in; 
     }
   }
@@ -97,13 +97,13 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 
   .arrow {
-  @include box($d:flex, $ai:center, $w:13px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:12px);
+  @include box($d:flex, $ai:center, $w:18px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:8px);
   @include font($ff:Ionicons, $fs:24px);
   transition: all .15s ease-in; 
   }
 
   .checkbox {
-  @include box($pos:absolute, $r:12px, $pis:12px, $z:-1);
+  @include box($pos:absolute, $r:10px, $pis:12px, $z:-1);
   transition: all .15s ease-in; 
   }
 
@@ -191,10 +191,6 @@ fieldset {
 
 body {
   overflow-x: hidden;
-}
-
-main {
-  overflow:visible;
 }
 
 a:focus, a:hover, a:active, a:visited{
@@ -401,16 +397,13 @@ p {
   display:none;
   justify-content:space-between;
 
-  & > a > svg{
-    position:relative;
-    z-index:9999999;
+  .nav__logo{
+  @include box($d:flex, $ai:center);
   }
   button {
-  @include box($color:white, $back:none, $bord:none, $p:0);
+  @include box($d:flex, $ai:center, $color:white, $back:none, $bord:none, $p:0);
   @include font($fs:34px, $lh:34px, $fw:bold);
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
+
   }
 }
 
@@ -420,11 +413,11 @@ p {
 }
 
 #landing {
-@include box($mbs:0, $mbe:0, $p:relative, $of:hidden);
+@include box($mbs:0, $mbe:0, $pbe:246px, $pos:relative, $of:hidden);
 
   .landing__wrap {
-  @include box($d:flex, $ai:center, $jc:space-between, $mbs:121px);
-  @include media($val:$screen-sm-max, $fd:column);
+  @include box($d:flex, $ai:center, $jc:space-between, $pbs:121px);
+  @include media($val:$screen-sm-max, $fd:column, $ai:flex-start);
   }
   .landing__content {
   @include box($mxw:448px);
@@ -462,9 +455,24 @@ p {
   background-size: cover;
 }
 
+#keynote {
+@include box($mbs:0);
+
+  h2 {
+  @include box($pbe:32px);
+  }
+  
+  .keynote__video {
+  @include box($pos:relative, $pbe:56.25%, $pbs:25px,$h:0,$bord:2px solid rgba(255, 255, 255, 0.5));
+
+    iframe {
+    @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
+    }
+  }
+}
+
 
 #topics {
-@include box($mbs:-100px, $mbe:100px);
   h3 {
   @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
   @include box($color: #B2BECD, $mbe:8px, $ta:center);
@@ -486,11 +494,17 @@ p {
 
 #event {
   .container {
+  @include box($d:flex, $jc:space-between);
+  }
+
+  .sticky {
+  @include box($pos:sticky, $t:calc(var(--navHeight) + 44px));
   }
 }
 
 #eventInfo {
-@include box($d:inline-block, $va:top, $mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
+@include box($d:inline-block, $va:top, $mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px), $mie:16px);
+@include media($val:$screen-xs-max, $mie:0);
 
   h2 {
   @include box($mbe:34px);
@@ -502,7 +516,8 @@ p {
 }
 
 #eventContent {
-@include box($d:inline-block);
+@include box($d:inline-block, $mis:16px);
+@include media($val:$screen-xs-max, $mis:0);
   margin-top: 88px;
 
   .card {
@@ -564,17 +579,17 @@ p {
   // }
 
   .footer__wrap {
-  @include box($d:flex, $ai:center);
+  @include box($d:flex, $ai:center, $fw:wrap);
+  @include media($val:$screen-xs-max, $jc:center);
   }
 
-  .footer__button {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pb: 12px, $pi: 10px, $mis:24px);
-  @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+  .footer__cta {
+  @include box($p:24px 0px);
   }
 }
 
 .footer__list{
-@include box($d:flex, $ai:center);
+@include box($d:flex, $ai:center, $jc:space-evenly, $fw:wrap);
   flex-grow:1;
   & > li {
     padding: 24px;
@@ -587,15 +602,13 @@ p {
   }
 }
 
+
+
 #footerIcon {
   width:auto;
   object-fit: contain;
+  padding: 24px 0;
 }
-#footerIcon, .footer__button {
-  padding-top:24px;
-  padding-bottom:24px;
-}
-
 //#endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- MEDIA QUERIES ---------------------------------------
@@ -603,18 +616,6 @@ p {
   #tessellationBg, #landingBack {
     left:0 !important;
     width:100%;
-  }
-}
-
-@media screen and (max-width: $screen-sm-max) {
-  #footer {
-    .footer__button {
-    @include box($order:2, $mis:0);      
-    }
-    .footer__list {
-      justify-content: space-between;
-      order:3;
-    }
   }
 }
 

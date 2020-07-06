@@ -11,9 +11,18 @@
   </a>
 </header>
 <main>
-  <div class="container">
+  <div class="container-fluid">
     <div class="auth-form-container">
+      {% if query.source == 'wizard-1' %}
+      <ionic-switcher items="Create app,Account" index="1"></ionic-switcher>
+      <h1>Sign up and connect your app</h1>
+      <p>
+        Sign up for free with your Git host. We will automatically create a repo for your app and
+        connect it to your Ionic dashboard.
+      </p>
+      {% else %}
       <h1>Create your Ionic account</h1>
+      {% endif %}
       <ionic-signup-form
         source="framework-signup"
         ga-event-name="Get started"
@@ -25,6 +34,27 @@
         button-text="Create account ➔"
       ></ionic-signup-form>
     </div>
+    {% if query.source == 'wizard-1' %}
+    <aside class="sidebar">
+      <h2>What you get</h2>
+      <ul>
+        <li>Centralized cloud dashboard</li>
+        <li>Hosted web app previews</li>
+        <li>Live app deployments</li>
+      </ul>
+      <p>Paid tier access to</p>
+      <ul>
+        <li>Native app binary builds</li>
+        <li>Mobile CI/CD automation</li>
+      </ul>
+      <div class="notice">
+        <p>Don’t want to create an account?</p>
+        <p>
+          <a href="/start#state={{ query.state | escape }}">Install your app locally via CLI</a>
+        </p>
+      </div>
+    </aside>
+    {% endif %}
   </div>
 </main>
 {% endblock %}

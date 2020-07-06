@@ -1,6 +1,6 @@
 import { Component, State, h, Listen, Element } from '@stencil/core';
 
-import { login, LoginForm, getUser } from '../../util/auth';
+import { getUser } from '../../util/auth';
 import { identify, trackEvent } from '../../util/hubspot';
 import { getUtmParams } from '../../util/analytics';
 import { UserInfo } from '../../declarations';
@@ -114,20 +114,22 @@ export class AppWizard {
   @State() bundleId = '';
   @State() appUrl = '';
   @State() appIcon: string;
-  /*
-  @State() authorEmail = 'max@ionic.io';
-  @State() authorName = 'Max';
-  */
-
-  @State() loginForm: LoginForm = {
-    email: ''
-  };
 
   async componentDidLoad() {
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    if (params.has('state')) {
+      this.appId = params.get('state');
+    }
+
+    if (this.appId) {
+      this.finish();
+    } else {
+      this.setStep(this.STEP_BASICS);
+    }
+
     try {
       // Get the user to see if they are logged in
       this.user = await getUser();
-      this.setStep(this.STEP_BASICS);
     } catch (e) {
     }
   }
@@ -146,39 +148,16 @@ export class AppWizard {
     history.pushState({ step: this.step }, null, `#${hash}`);
   }
 
-  next = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setStep(this.step + 1 % this.STEPS.length);
-  }
-
-  login = async (e) => {
-    e.preventDefault();
-
-    try {
-      this.authenticating = true;
-      await login(this.loginForm.email, this.loginForm.password, 'start-wizard', 'Start Wizard Log In');
-      this.user = await getUser();
-      this.authenticating = false;
-      return this.finish();
-    } catch (e) {
-      this.authenticating = false;
-      this.loginErrors = e;
-      return;
-    }
-
-  }
-
-  handleSignup = async () => {
-    this.user = await getUser();
-    this.finish();
-  }
-
-  skipAuth = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    return this.finish();
-  }
+  authorize = () => {
+    const params = new URLSearchParams();
+    params.set("scope", "openid profile email");
+    params.set("response_type", "id_token token");
+    params.set("client_id", "wizard");
+    params.set("state", this.appId || '');
+    params.set("nonce", Math.random().toString(36).substring(2));
+    params.set("source", "wizard-1");
+    window.location.assign(`/signup?${params.toString()}`);
+  };
 
   finish = () => {
     this.setStep(this.STEPS.length - 1);
@@ -208,7 +187,7 @@ export class AppWizard {
       if (this.user) {
         this.finish();
       } else {
-        this.next(e);
+        this.authorize();
       }
     } catch (e) {
       try {
@@ -289,16 +268,6 @@ export class AppWizard {
 
   getHubspotId = () => {
     return window.getCookie('hubspotutk');
-  }
-
-  handleChangeStep = (step) => {
-    if (step === this.STEP_PROFILE && this.step === this.STEP_BASICS) {
-      this.submitButtonWrapRef?.querySelector('button').click();
-      return;
-    }
-    if (step !== this.step) {
-      this.setStep(step);
-    }
   }
 
   handlePickEmoji = (e) => {
@@ -493,70 +462,10 @@ export class AppWizard {
     )
   }
 
-  renderProfile() {
-    if (this.user) {
-      return (
-        <div>
-          <hgroup>
-            <h2>Complete your profile</h2>
-            <h4>Get access to the community, forum, and more</h4>
-          </hgroup>
-          <div class="logged-in">
-            <p>
-              Logged in as {this.user.email}
-            </p>
-            <form onSubmit={e => { e.preventDefault(); this.finish() }} class="next-button-wrapper">
-              <Button><span>Finish</span></Button>
-            </form>
-          </div>
-        </div>
-      )
-    }
-    return (
-      <div>
-        <hgroup>
-          <h2>Complete your profile</h2>
-          <h4>Get access to the community, forum, and more</h4>
-        </hgroup>
-        { this.showSignup ? (
-          <ionic-signup-form
-            source="wizard-1"
-            ga-event-name="Wizard Signup"
-            ga-event-label="btn-wizard-signup-submit"
-            hubspot-event-id="000006040735"
-            id="signup-form"
-            allow-login="true"
-            oauth-redirect="false"
-            onSignedUp={this.handleSignup}
-            onLoginInstead={(e) => {
-              e.preventDefault();
-              this.showSignup = false;
-            }}
-          ></ionic-signup-form>
-        ) : (
-        <LoginForm
-          handleSubmit={this.login}
-          disable={this.authenticating}
-          errors={this.loginErrors}
-          signupInstead={() => this.showSignup = true}
-          form={this.loginForm}
-          inputChange={(name) => e => this.loginForm[name] = e.target.value}
-          />
-        )}
-        <div class="skip">
-          <a href="#" onClick={this.skipAuth}>Skip this step &raquo;</a>
-        </div>
-      </div>
-    );
-  }
-
   renderFinish() {
-    const instructions = this.appId ? `
+    const instructions = `
 npm install -g @ionic/cli cordova-res
 ionic start --start-id ${this.appId}
-    ` : `
-npm install -g @ionic/cli
-ionic start
     `;
 
     return (
@@ -603,7 +512,7 @@ ionic start
   renderStep() {
     switch (this.step) {
       case this.STEP_BASICS: return this.renderBasics();
-      case this.STEP_PROFILE: return this.renderProfile();
+      case this.STEP_PROFILE: return null;
       case this.STEP_FINISH: return this.renderFinish();
     }
   }
@@ -613,10 +522,9 @@ ionic start
       <div id="app-wizard" onDragOver={this.handleRootDragOver} onDrop={this.handleRootDrop}>
         <div class="wrapper">
           {this.step < 2 ? (
-          <Switcher
-            items={this.STEPS.slice(0, 3).map(s => s.name)}
+          <ionic-switcher
+            items={this.STEPS.map(s => s.name).join()}
             index={this.step}
-            onChange={this.handleChangeStep}
             />
           ) : null}
           {this.renderStep()}
@@ -761,90 +669,6 @@ const TemplateSwitcher = ({ value, onChange }) => (
     </div>
   ))}
   </div>
-);
-
-const Switcher = ({ items, index, onChange }) => {
-  return (
-  <div class="switcher">
-    {items.map((item, i) => {
-      const completed = i < index || index === items.length - 1;
-      const inactive = i > index;
-      return [
-        <div
-          key={item}
-          class={`switcher-button${ completed ? ' switcher-button-completed' : ''}${ inactive ? ' switcher-button-inactive' : ''}`}
-          onClick={_ => onChange(i)}
-          >
-          {completed ? (
-            <ion-icon name="checkmark-circle" />
-          ) : (
-            <div class="empty-circle" />
-          )}
-          {item}
-        </div>,
-        i < items.length - 1 ? <div class="switcher-separator" /> : null
-      ]
-    })}
-  </div>
-  )
-};
-
-interface LoginFormProps {
-  form: LoginForm;
-  handleSubmit: (e) => Promise<void>;
-  errors: any;
-  disable: boolean;
-  signupInstead: () => void;
-  inputChange: (name: string) => (e: any) => void;
-}
-const LoginForm = ({ form, disable, handleSubmit, errors, signupInstead, inputChange }: LoginFormProps) => (
-  <form class="form" id="login-form" role="form" onSubmit={handleSubmit} method="POST">
-    { errors ? (
-    <div class="errorlist">
-      <FormErrors>{errors.message}{errors.reason ? `: ${errors.reason}` : ``}</FormErrors>
-    </div>
-    ) : null }
-    <ui-floating-input
-      type="email"
-      label="Email"
-      name="email"
-      autocomplete="username"
-      inputTabIndex={1}
-      required={true}
-      value={form.email}
-      disabled={disable}
-      onChange={inputChange('email')} />
-    <ui-floating-input
-      type="password"
-      label="Password"
-      name="password"
-      autocomplete="current-password"
-      inputTabIndex={2}
-      required={true}
-      value={form.password}
-      disabled={disable}
-      onChange={inputChange('password')} />
-    {/*
-    <div class="forgot-password">
-      <a target="_blank" href="https://dashboard.ionicframework.com/reset-password" title="Reset Password?">Forgot password?</a>
-    </div>
-    */}
-    <button
-      type="submit"
-      id="submit"
-      class="btn btn-block"
-      disabled={disable}
-      tabindex="3">
-        Log in
-    </button>
-    <div class="well">
-      Don't have an account? <a class="text-link" href="#" onClick={(e) => { e.preventDefault(); signupInstead() }}>Sign up</a>
-    </div>
-  </form>
-)
-
-const FormErrors = (_props, children) => (
-  <div class="form-errors">{children}</div>
 );
 
 const InfoCircle = () => (

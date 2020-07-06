@@ -74,6 +74,7 @@ module.exports = {
       now: new Date(),
       domain: req.get('host'),
       url: req.originalUrl,
+      query: req.query,
       search: parseUrl(req).search,
       dev: req.get('host').indexOf('localhost') === 0,
       trustedPartners: shuffle(trustedPartners),

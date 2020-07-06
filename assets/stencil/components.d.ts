@@ -90,6 +90,10 @@ export namespace Components {
   interface IonicSubHeader {
     'darkMode': boolean;
   }
+  interface IonicSwitcher {
+    'index': number;
+    'items': string;
+  }
   interface IonicToggle {}
   interface IonicToggleButton {
     'deselect': () => Promise<void>;
@@ -271,6 +275,12 @@ declare global {
     new (): HTMLIonicSubHeaderElement;
   };
 
+  interface HTMLIonicSwitcherElement extends Components.IonicSwitcher, HTMLStencilElement {}
+  var HTMLIonicSwitcherElement: {
+    prototype: HTMLIonicSwitcherElement;
+    new (): HTMLIonicSwitcherElement;
+  };
+
   interface HTMLIonicToggleElement extends Components.IonicToggle, HTMLStencilElement {}
   var HTMLIonicToggleElement: {
     prototype: HTMLIonicToggleElement;
@@ -342,6 +352,7 @@ declare global {
     'ionic-snap-bar': HTMLIonicSnapBarElement;
     'ionic-social-auth': HTMLIonicSocialAuthElement;
     'ionic-sub-header': HTMLIonicSubHeaderElement;
+    'ionic-switcher': HTMLIonicSwitcherElement;
     'ionic-toggle': HTMLIonicToggleElement;
     'ionic-toggle-button': HTMLIonicToggleButtonElement;
     'ionic-toggle-tab': HTMLIonicToggleTabElement;
@@ -430,6 +441,10 @@ declare namespace LocalJSX {
   interface IonicSubHeader {
     'darkMode'?: boolean;
   }
+  interface IonicSwitcher {
+    'index'?: number;
+    'items'?: string;
+  }
   interface IonicToggle {}
   interface IonicToggleButton {
     'onToggleSelected'?: (event: CustomEvent<any>) => void;
@@ -489,6 +504,7 @@ declare namespace LocalJSX {
     'ionic-snap-bar': IonicSnapBar;
     'ionic-social-auth': IonicSocialAuth;
     'ionic-sub-header': IonicSubHeader;
+    'ionic-switcher': IonicSwitcher;
     'ionic-toggle': IonicToggle;
     'ionic-toggle-button': IonicToggleButton;
     'ionic-toggle-tab': IonicToggleTab;
@@ -529,6 +545,7 @@ declare module "@stencil/core" {
       'ionic-snap-bar': LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
       'ionic-social-auth': LocalJSX.IonicSocialAuth & JSXBase.HTMLAttributes<HTMLIonicSocialAuthElement>;
       'ionic-sub-header': LocalJSX.IonicSubHeader & JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement>;
+      'ionic-switcher': LocalJSX.IonicSwitcher & JSXBase.HTMLAttributes<HTMLIonicSwitcherElement>;
       'ionic-toggle': LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;
       'ionic-toggle-button': LocalJSX.IonicToggleButton & JSXBase.HTMLAttributes<HTMLIonicToggleButtonElement>;
       'ionic-toggle-tab': LocalJSX.IonicToggleTab & JSXBase.HTMLAttributes<HTMLIonicToggleTabElement>;

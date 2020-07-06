@@ -229,87 +229,6 @@
     margin-left: 4px;
   }
 
-  .switcher {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-
-    margin-left: 18px;
-
-    max-width: 90%;
-
-    .empty-circle {
-      display: inline-block;
-      vertical-align: middle;
-      width: 10px;
-      height: 10px;
-      border-radius: 10px;
-      border: 1px solid var(--c-carbon-900);
-    }
-
-    .switcher-separator {
-      display: inline-block;
-      width: 22px;
-      height: 1px;
-      margin: 0px 6px;
-      background-color: var(--c-indigo-400);
-    }
-
-    .switcher-button {
-      text-align: left;
-      color: #020814;
-      width: auto;
-      cursor: pointer;
-
-      position: relative;
-
-      ion-icon, .empty-circle {
-        vertical-align: middle;
-        margin-right: 7px;
-        margin-bottom: 1px
-      }
-
-      &.switcher-button-completed {
-        &:after {
-          background-color: var(--c-blue-800);
-        }
-
-        color: #3880FF;
-        ion-icon {
-          color: #3880FF;
-          fill: #3880FF;
-          stroke: #3880FF;
-        }
-      }
-
-      &.switcher-button-inactive {
-        color: #92A1B3;
-        .empty-circle {
-          border-color: var(--c-indigo-400);
-        }
-      }
-    }
-  }
-
-  .logged-in {
-    p {
-      margin: 50px 0;
-    }
-  }
-
-  .skip {
-    margin-top: 16px;
-    text-align: center;
-    color: rgb(155, 155, 155);
-    font-size: 12px;
-    a {
-      color: rgb(155, 155, 155);
-      font-size: 12px;
-      text-decoration: none;
-    }
-  }
-
   .finish {
     text-align: center;
     hgroup {
@@ -551,41 +470,6 @@
         margin-right: 0;
       }
     }
-  }
-
-  .disclaimer {
-    font-weight: 400;
-    margin-top: 24px;
-    display: block;
-    text-align: center;
-    font-size: 11px;
-    color: #a0a9b7;
-  }
-
-  .well {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #E1E5ED;
-    border-radius: 6px;
-    margin-top: 16px;
-    color: #3B424D;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .form-errors {
-    margin-bottom: 12px;
-    text-align: center;
-    font-weight: bold;
-    color: var(--c-red-800);
-    background-color: var(--c-red-0);
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
   }
 
   @media screen and (max-width: 480px) {

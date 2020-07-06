@@ -357,8 +357,11 @@ p {
 
   .mobile-nav__menu {
     background: url('/img/ioniconf/bg-menu.svg');
+    background-size:cover;
+    background-repeat:no-repeat;
     padding:0;
     padding-top:34px;
+    padding-block-end: 67px;
     max-width:100%;
     color:white;
     display:flex;
@@ -386,10 +389,23 @@ p {
   }
 
   .mobile-nav__footer {
+    display:flex;
+    justify-content: center;
     background-color: $colorBackMain;
     position:absolute;
     z-index:2;
     bottom:0;
+
+    .footer__cta {
+      width:100%;
+    }
+
+    .text {
+      padding-inline-start: 0px;
+      padding-inline-end: 0px;
+      margin-left:auto;
+      margin-right:auto;
+    }
   }
 }
 

@@ -34,7 +34,7 @@
     border: 1px solid rgba($c-aqua, .3);
     border-radius: 8px;
     max-width: 533px;
-    padding: 1px $expander-padding 13px;
+    padding: 13px $expander-padding 17px $expander-padding;
     margin-left: -1 * $expander-padding;
     margin-right: -1 * $expander-padding;
     margin-bottom: 187px;
@@ -50,7 +50,6 @@
       font-size: 22px;
       line-height: 35px;
       letter-spacing: -0.02em;
-      margin-top: 18px;
       margin-bottom: 0px;
     }
 
@@ -135,7 +134,7 @@ $expander-padding-with-gap: $expander-padding + $card-expander-gap;
 .card {
   flex: 1 0 200px;
   margin-bottom: 12px;
-  padding: 18px $expander-padding-with-gap 109px;
+  padding: 28px $expander-padding-with-gap 109px;
   position: relative;
   list-style: none;
   transition: .1s transform ease-out;

@@ -12,7 +12,7 @@ interface fieldProps {
 const HubspotFormGroups = ({fields}) => {
   return (
     <fieldset hidden={!fields.every(field => field.hidden === false)}>
-      { fields.map(({label, placeholder, hidden, fieldType, name, selectedOptions}) => [
+      { fields.map(({label, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
         <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>

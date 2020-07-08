@@ -15,7 +15,7 @@ const HubspotFormGroups = ({fields}) => {
       { fields.map(({label, placeholder, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
-        <input required placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
+        <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
       ]) }
     </fieldset>
   )

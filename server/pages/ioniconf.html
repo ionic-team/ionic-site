@@ -8,82 +8,50 @@
 {% set noGlobalStyles = true %}
 
 {% block main %}
-<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body hubspot-override">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="hero text-center">
-          <h3>Contact us</h3>
-          <p class="lg">
-            Send us a detailed message and an Ionic Sales Representative will
-            get back to you soon.
-          </p>
-        </hgroup>
-
-        <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-        	portalId: "3776657",
-        	formId: "08234d58-2d5e-43e5-8714-bd969595c802",
-        	css: ""
-        });
-        </script>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<header id="header" class="u-box">
-  <nav id="mainNav" class="u-box nav">
-    <div class="container u-flex u-align-items-c u-h100" >
+<header id="header">
+  <nav id="mainNav" class="nav">
+    <div class="nav__wrap | container">
       <a href="/">
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
           <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
         </svg>
       </a>
 
-      <ul class="u-flex u-grow u-just-cont-c nav__sections" role="tablist">
-        <li class="u-box" role="tab">
-          <a class="anchor" data-offset="100" href="#schedule">Schedule</a>
+      <ul class="nav__sections" role="tablist">
+        <li class="" role="tab">
+          <a class="anchor" data-offset="100" href="#keynote">Keynote</a>
         </li>
-        <li class="u-box" role="tab">
-          <a class="anchor" data-offset="100" href="#speakers">Speakers</a>
+        <li class="" role="tab">
+          <a class="anchor" data-offset="100" href="#talks">Talks</a>
         </li>
-        <li class="u-box" role="tab">
+        <li class="" role="tab">
           <a class="anchor" data-offset="100" href="#event">Event</a>
         </li>
       </ul>
-
-      <button id="navRegister" class="btn-main nav__button btn__register u-box u-font" data-toggle="modal" data-target="#contactForm">Contact Sales </button>
+      <div>
+        <label class="btn-secondary" for="headerUpdates"
+               onClick="this.querySelector('input[name=email]').focus()">
+          <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="headerUpdates" role="button" type="checkbox"/>
+          <span class="text">Sign up for updates</span>
+          <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+          <hubspot-form 
+            form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
+            submit-text="->"/>
+        </label>
+      </div>
     </div>
   </nav>
 
-  <nav id="mobileNavBar" class="u-box nav container">
-
-      <a class="u-flex u-align-items-c" href="/">
+  <nav id="mobileNavBar" class="nav container">
+      <a class="nav__logo" href="/">
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
           <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M30.4327 9.05578L30.5633 9.36054C31.5211 11.4721 32 13.6925 32 16C32 24.8163 24.8163 32 16 32C7.18367 32 0 24.8163 0 16C0 7.18367 7.18367 0 16 0C18.5905 0 21.0503 0.609524 23.3143 1.7415L23.619 1.89388L23.3578 2.11156C22.7048 2.63401 22.2041 3.28707 21.8776 4.04898L21.7905 4.26667L21.5946 4.17959C19.8313 3.35238 17.9592 2.91701 16 2.91701C8.77279 2.91701 2.91701 8.77279 2.91701 16C2.91701 23.2272 8.77279 29.083 16 29.083C23.2272 29.083 29.083 23.2054 29.083 16C29.083 14.2803 28.7565 12.5823 28.0816 10.9932L27.9946 10.7755L28.2122 10.6884C28.9741 10.4054 29.6707 9.92653 30.215 9.31701L30.4327 9.05578ZM26.4707 9.36057C28.3102 9.36057 29.8014 7.8694 29.8014 6.02996C29.8014 4.19051 28.3102 2.69934 26.4707 2.69934C24.6313 2.69934 23.1401 4.19051 23.1401 6.02996C23.1401 7.8694 24.6313 9.36057 26.4707 9.36057ZM15.9999 8.70754C11.9727 8.70754 8.7074 11.9728 8.7074 16.0001C8.7074 20.0273 11.9727 23.2926 15.9999 23.2926C20.0271 23.2926 23.2924 20.0273 23.2924 16.0001C23.2924 11.9728 20.0271 8.70754 15.9999 8.70754Z" fill="currentColor"></path>
         </svg>
       </a>
-
-      <button id="collapse-toggle" class="u-box u-font">&#10998;</button>
+      <button id="collapse-toggle"><ion-icon name="ellipsis-vertical"></ion-icon></button>
   </nav>
 
-  <nav id="mobile-nav" class="mobile-nav closed u-box">
+  <nav id="mobile-nav" class="mobile-nav closed ">
     <div class="mobile-nav__pane">
       <i class="mobile-nav__close">
         <svg id="icon-close-mobile" width="100%" height="100%" viewBox="0 0 14 14"><g><path d="M8.65881121,7 L13.6590731,1.9984285 C14.1136423,1.54374018 14.1136423,0.795704557 13.6590731,0.341016239 C13.2045038,-0.11367208 12.456664,-0.11367208 12.0020948,0.341016239 L7.00183294,5.34258774 L2.00157109,0.341016239 C1.54700183,-0.11367208 0.799162084,-0.11367208 0.344592825,0.341016239 C0.117308196,0.568360398 0,0.869041383 0,1.16972237 C0,1.47040335 0.117308196,1.77108434 0.344592825,1.9984285 L5.34485467,7 L0.344592825,12.0015715 C0.117308196,12.2289157 2.08381216e-15,12.5295966 2.08381216e-15,12.8302776 C2.08381216e-15,13.1309586 0.117308196,13.4316396 0.344592825,13.6589838 C0.799162084,14.1136721 1.54700183,14.1136721 2.00157109,13.6589838 L7.00183294,8.65741226 L12.0020948,13.6589838 C12.456664,14.1136721 13.2045038,14.1136721 13.6590731,13.6589838 C14.1136423,13.2042954 14.1136423,12.4562598 13.6590731,12.0015715 L8.65881121,7 Z" id="Shape"></path></g></svg>
@@ -166,10 +134,10 @@
             </svg>
           </li>
           <li class="mobile-nav__menuitem">
-            <a class="anchor" data-offset="150" href="#schedule">Schedule</a>
+            <a class="anchor" data-offset="150" href="#keynote">Keynote</a>
           </li>
           <li class="mobile-nav__menuitem">
-            <a class="anchor" data-offset="150" href="#speakers">Speakers</a>
+            <a class="anchor" data-offset="150" href="#talks">Talks</a>
           </li>
           <li class="mobile-nav__menuitem">
             <a class="anchor" data-offset="150" href="#event">Event</a>
@@ -177,12 +145,25 @@
         </ul>
       </div>
     </div>
+    <div class="mobile-nav__footer">
+      <div class="footer__cta">
+        <label class="btn-secondary" for="mobileNavUpdates"
+               onClick="this.querySelector('input[name=email]').focus()">
+          <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="mobileNavUpdates" role="button" type="checkbox"/>
+          <span class="text">Sign up for updates</span>
+          <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+          <hubspot-form 
+            form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
+            submit-text="->"/>
+        </label>
+      </div>
+    </div>
   </nav>
 </header>
 
 <main>
 <section id="landing">
-  <svg id="landingBack" class="u-box" width="1800" height="1099" viewBox="0 0 1800 1099" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg id="landingBack" class="" width="1800" height="1099" viewBox="0 0 1800 1099" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <mask id="ioniconf_hero_mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1800" height="1099">
         <rect width="1800" height="1099" fill="#C4C4C4"/>
     </mask>
@@ -868,796 +849,459 @@
   </svg>
   <div id="navSpace"></div>
 
-  <div id="landingContent" class="container u-box">
-    <h1 class="u-font u-box">Welcome to Ioniconf 2020</h1>
-    {# <p class="u-font u-box">Tune in at 9AM CDT for Ionic’s first virtual conference.</p> #}
-    <p class="u-font u-box">We’re live! Tune in below for Ionic’s first virtual conference.</p>
+  <div class="landing__wrap container">
+    <div class="landing__content">
+      <h1>
+        <span>June 24, 2020 // 100% online</span>
+        Thanks for being a part of Ioniconf 2020!
+      </h1>
+  
+      <p>Our live online event is over, but you can still relive the moments anytime below. We’ll see you next year!</p>
 
-    <div id="landingStream" class="u-box">
-      <div>
-        <iframe class="u-box" src="https://www.youtube.com/embed/xh-B-AtsLJc?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <a class="btn-main anchor" href="#talks" data-offset="100">Watch the Talks</a>
     </div>
 
-    <div id="landingTweet" class="u-box">
-      <svg width="20" height="17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2.4a8.4 8.4 0 01-2.36.63c.86-.5 1.5-1.3 1.8-2.23-.8.47-1.68.8-2.6.98a4.13 4.13 0 00-7.1 2.76c0 .3.04.62.11.92a11.7 11.7 0 01-8.46-4.22 3.99 3.99 0 001.28 5.39 4.06 4.06 0 01-1.87-.5v.04a4.06 4.06 0 003.3 3.96 4.2 4.2 0 01-1.86.07A4.1 4.1 0 006.08 13 8.32 8.32 0 010 14.68a11.61 11.61 0 006.28 1.82A11.5 11.5 0 0017.95 4.49c.8-.57 1.5-1.28 2.05-2.1z" fill="#0091FA"/>
-      </svg>
-      <p><span class="tweet__extra u-box">Tweet us your questions using the hashtag </span><a href="https://twitter.com/search?q=%23askioniconf" target="_blank" rel="noopener nofollow"><strong>#askioniconf</strong></a></p>
+    <div class="landing__img">
+      <svg viewbox="0 0 448 514" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity=".7" d="M444.8 383.6L224 257.6M224 257.6L3.2 383.6" stroke="#567BFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.5 16"/>
+        <path opacity=".7" d="M224 2.6v255.7" stroke="url(#logo_ioniconf_paint0_linear)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.5 16"/>
+        <path opacity=".8" d="M363.6 257c0 77-62.5 139.4-139.6 139.4A139.5 139.5 0 0184.4 257c0-77 62.5-139.3 139.6-139.3S363.6 180 363.6 257z" stroke="url(#logo_ioniconf_paint1_linear)" stroke-width="4"/>
+        <g filter="url(#logo_ioniconf_filter0_d)">
+            <circle cx="321.8" cy="158.1" fill="url(#logo_ioniconf_paint2_linear)" fill-opacity=".8" r="20.6"/>
+        </g>
+        <ellipse cx="224" cy="257" rx="56.6" ry="56.5" fill="url(#logo_ioniconf_paint3_linear)"/>
+        <path d="M222.2 2.5h0c.6-.4 1.2-.5 1.8-.5.6 0 1.2.1 1.8.5h0l218.4 125.7h0c1 .6 1.8 1.8 1.8 3v251.5c0 1.3-.7 2.5-1.8 3v.1h0L225.8 511.5h0c-.6.4-1.2.5-1.8.5-.6 0-1.2-.1-1.8-.5h0L3.8 385.8h0c-1-.6-1.8-1.8-1.8-3V131.2c0-1.2.6-2.3 1.9-3.1L222.2 2.5z" stroke="url(#logo_ioniconf_paint4_linear)" stroke-width="4"/>
+        <path d="M224 510.1V257" stroke="url(#logo_ioniconf_paint5_linear)" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round"/>
+        <path d="M2.8 130.8l218.4 125.6c1 .6 1.9.8 2.8.8 1 0 1.9-.2 2.8-.8l218.4-125.6" stroke="url(#logo_ioniconf_paint6_linear)" stroke-width="4"/>
+        <defs>
+            <linearGradient id="logo_ioniconf_paint0_linear" x1="224" y1="3.9" x2="224" y2="258.3" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#59BAFF"/>
+                <stop offset="1" stop-color="#5697FF"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint1_linear" x1="224" y1="115.7" x2="224" y2="398.4" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF56C7"/>
+                <stop offset="1" stop-color="#5CFFE2" stop-opacity=".8"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint2_linear" x1="321.8" y1="137.5" x2="321.8" y2="178.6" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#37CFFF"/>
+                <stop offset="1" stop-color="#556AFF"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint3_linear" x1="224" y1="200.5" x2="224" y2="313.5" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#A04EFF"/>
+                <stop offset="1" stop-color="#0BF" stop-opacity=".8"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint4_linear" x1="224" y1="0" x2="224" y2="514" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#58CFFF"/>
+                <stop offset=".3" stop-color="#56A5FF"/>
+                <stop offset="1" stop-color="#5E5EFF"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint5_linear" x1="224.5" y1="257" x2="224.5" y2="510.1" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2CEDA8"/>
+                <stop offset=".5" stop-color="#4DC8FF"/>
+                <stop offset="1" stop-color="#5E5FFF"/>
+            </linearGradient>
+            <linearGradient id="logo_ioniconf_paint6_linear" x1="5.8" y1="133.6" x2="445.4" y2="133.6" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#56A4FF"/>
+                <stop offset=".5" stop-color="#2BEDA7"/>
+                <stop offset="1" stop-color="#56A4FF"/>
+            </linearGradient>
+            <filter id="logo_ioniconf_filter0_d" x="285.2" y="121.5" width="73.2" height="73.1" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="8"/>
+                <feColorMatrix values="0 0 0 0 0.00392157 0 0 0 0 0.0235294 0 0 0 0 0.0627451 0 0 0 1 0"/>
+                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+            </filter>
+        </defs>
+      </svg>  
     </div>
   </div>
 </section>
 
 <div id="backgroundImage">
-<section id="schedule">
-  <div class="container">
-    <div id="scheduleTitle">
-      <h2 class="u-box">Schedule</h2>
-
-      <p class="p2 u-box">Our one day, single track lineup of industry leaders and developer experts covering topics from across the app development ecosystem.  All times below are Central Time (CDT).</p>
-    </div>
-  </div>
-  <div id="tableWrap">
-    <table id="scheduleTable" class="u-box" border="0" cellpadding="0" cellspacing="0">
-      <tbody>
-        <tr>
-          <th></th>
-          <td class="schedule__timeCol">9:00 AM</td>
-          <td class="schedule__blankRow--title schedule__infoCol">WELCOME TO IONICONF 2020</td>
-          <td class="schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-mike-hartington@2x.png"
-                  srcset="/img/ioniconf/icon-mike-hartington@1x.png 1x,
-                          /img/ioniconf/icon-mike-hartington@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Mike Hartington Face with a mega beard" />
-          </td>
-          <td class="schedule__nameCol">Mike Hartington</td>
-        </tr>
-        <tr>
-          <th class="schedule__sessionCol--session1 u-font" rowspan="6"><div class="vertical">SESSION 1</div></th>
-          <td class="schedule__timeCol schedule__contentCell--session1">9:05 AM</td>
-          <td class="schedule__contentCell--session1 schedule__infoCol">Opening Keynote</td>
-          <td class="schedule__contentCell--session1 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-max-lynch@2x.png"
-                  srcset="/img/ioniconf/icon-max-lynch@1x.png 1x,
-                          /img/ioniconf/icon-max-lynch@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Max Lynch icon" />
-          </td>
-          <td class="schedule__contentCell--session1 schedule__nameCol">Max Lynch</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session1">9:30 AM</td>
-          <td class="schedule__contentCell--session1 schedule__infoCol">What's new in React</td>
-          <td class="schedule__contentCell--session1 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-shawn-wang@2x.png"
-                  srcset="/img/ioniconf/icon-shawn-wang@1x.png 1x,
-                          /img/ioniconf/icon-shawn-wang@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Shawn Wang icon" />
-          </td>
-          <td class="schedule__contentCell--session1 schedule__nameCol">Shawn Wang</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session1">10:00 AM</td>
-          <td class="schedule__contentCell--session1 schedule__infoCol">Web Components for Auth: The what, the how and the why</td>
-          <td class="schedule__contentCell--session1 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-ana-cidre@2x.png"
-                  srcset="/img/ioniconf/icon-ana-cidre@1x.png 1x,
-                          /img/ioniconf/icon-ana-cidre@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Ana Cidre icon" />
-          </td>
-          <td class="schedule__contentCell--session1 schedule__nameCol">Ana Cidre</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session1">10:30 AM</td>
-          <td class="schedule__contentCell--session1 schedule__infoCol">Warp your Reality with WebVR and Angular</td>
-          <td class="schedule__contentCell--session1 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-yvonne-allen@2x.png"
-                  srcset="/img/ioniconf/icon-yvonne-allen@1x.png 1x,
-                          /img/ioniconf/icon-yvonne-allen@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Yvonne Allen icon" />
-          </td>
-          <td class="schedule__contentCell--session1 schedule__nameCol">Yvonne Allen</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session1">11:00 AM</td>
-          <td class="schedule__contentCell--session1 schedule__infoCol">Smile! The web is your photobooth!</td>
-          <td class="schedule__contentCell--session1 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-diana-rodriguez@2x.png"
-                  srcset="/img/ioniconf/icon-diana-rodriguez@1x.png 1x,
-                          /img/ioniconf/icon-diana-rodriguez@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Diana Rodriguez icon" />
-          </td>
-          <td class="schedule__contentCell--session1 schedule__nameCol">Diana Rodriguez</td>
-        </tr>
-        <tr class="schedule__highlightRow--session1">
-          <td class="schedule__timeCol">11:30 AM</td>
-          <td class="schedule__infoCol schedule__blankRow--title " colspan="3">SESSION 1 Q&A</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td class="schedule__timeCol">12:00 PM</td>
-          <td class="schedule__infoCol schedule__blankRow--title " colspan="3">LUNCH BREAK</td>
-        </tr>
-        <tr>
-          <th class="schedule__sessionCol--session2 u-font" rowspan="5"><div class="vertical">SESSION 2</div></th>
-          <td class="schedule__timeCol schedule__contentCell--session2">12:30 PM</td>
-          <td class="schedule__contentCell--session2 schedule__infoCol">Code to Scale: Build and deploy static web apps in minutes</td>
-          <td class="schedule__contentCell--session2 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-john-papa@2x.png"
-                  srcset="/img/ioniconf/icon-john-papa@1x.png 1x,
-                          /img/ioniconf/icon-john-papa@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="John Papa icon" />
-          </td>
-          <td class="schedule__contentCell--session2 schedule__nameCol">John Papa</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session2">1:00 PM</td>
-          <td class="schedule__contentCell--session2 schedule__infoCol">High Torque Delivery with Ionic</td>
-          <td class="schedule__contentCell--session2 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-lukas-ruebbelke@2x.png"
-                  srcset="/img/ioniconf/icon-lukas-ruebbelke@1x.png 1x,
-                          /img/ioniconf/icon-lukas-ruebbelke@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Lukas Ruebbelke icon" />
-          </td>
-          <td class="schedule__contentCell--session2 schedule__nameCol">Lukas Ruebbelke</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session2">1:30 PM</td>
-          <td class="schedule__contentCell--session2 schedule__infoCol">Demystifying Angular Routing</td>
-          <td class="schedule__contentCell--session2 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-simon-grim@2x.png"
-                  srcset="/img/ioniconf/icon-simon-grim@1x.png 1x,
-                          /img/ioniconf/icon-simon-grim@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Simon Grimm icon" />
-          </td>
-          <td class="schedule__contentCell--session2 schedule__nameCol">Simon Grimm</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session2">2:00 PM</td>
-          <td class="schedule__contentCell--session2 schedule__infoCol">End-to-end testing mobile apps with Ionic and Cypress</td>
-          <td class="schedule__contentCell--session2 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-cecelia-martinez@2x.png"
-                  srcset="/img/ioniconf/icon-cecelia-martinez@1x.png 1x,
-                          /img/ioniconf/icon-cecelia-martinez@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Cecelia Martinez icon" />
-          </td>
-          <td class="schedule__contentCell--session2 schedule__nameCol">Cecelia Martinez</td>
-        </tr>
-        <tr class="schedule__highlightRow--session2">
-          <td class="schedule__timeCol">2:30 PM</td>
-          <td class="schedule__infoCol schedule__blankRow--title " colspan="3">SESSION 2 Q&A</td>
-        </tr>
-        <tr>
-          <th class="schedule__sessionCol--session3 u-font" rowspan="5"><div class="vertical">SESSION 3</div></th>
-          <td class="schedule__timeCol schedule__contentCell--session3">3:00 PM</td>
-          <td class="schedule__contentCell--session3 schedule__infoCol">How to Create A Successful Product Launch Strategy</td>
-          <td class="schedule__contentCell--session3 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-jedi-weller@2x.png"
-                  srcset="/img/ioniconf/icon-jedi-weller@1x.png 1x,
-                          /img/ioniconf/icon-jedi-weller@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Jedi Weller icon" />
-          </td>
-          <td class="schedule__contentCell--session3 schedule__nameCol">Jedi Weller</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session3">3:30 PM</td>
-          <td class="schedule__contentCell--session3 schedule__infoCol">Javascript and IoT: A true love story</td>
-          <td class="schedule__contentCell--session3 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-karo-ladino@2x.png"
-                  srcset="/img/ioniconf/icon-karo-ladino@1x.png 1x,
-                          /img/ioniconf/icon-karo-ladino@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Karo Ladino icon" />
-          </td>
-          <td class="schedule__contentCell--session3 schedule__nameCol">Karo Ladino</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session3">4:00 PM</td>
-          <td class="schedule__contentCell--session3 schedule__infoCol">Beyond Fast: An animation deep dive</td>
-          <td class="schedule__contentCell--session3 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-liam-debeasi@2x.png"
-                  srcset="/img/ioniconf/icon-liam-debeasi@1x.png 1x,
-                          /img/ioniconf/icon-liam-debeasi@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Liam Debeasi icon" />
-          </td>
-          <td class="schedule__contentCell--session3 schedule__nameCol">Liam DeBeasi</td>
-        </tr>
-        <tr>
-          <td class="schedule__timeCol schedule__contentCell--session3">4:30 PM</td>
-          <td class="schedule__contentCell--session3 schedule__infoCol">State management with React Context</td>
-          <td class="schedule__contentCell--session3 schedule__iconCol">
-            <img  class="u-box"
-                  src="/img/ioniconf/icon-aaron-saunders@2x.png"
-                  srcset="/img/ioniconf/icon-aaron-saunders@1x.png 1x,
-                          /img/ioniconf/icon-aaron-saunders@2x.png 2x"
-                  loading="lazy"
-                  width="32" height="32"
-                  alt="Aaron Saunders icon" />
-          </td>
-          <td class="schedule__contentCell--session3 schedule__nameCol">Aaron Saunders</td>
-        </tr>
-        <tr class="schedule__highlightRow--session3">
-          <td class="schedule__timeCol">5:00 PM</td>
-          <td class="schedule__infoCol schedule__blankRow--title " colspan="3">SESSION 3 Q&A</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td class="schedule__timeCol">5:25 PM</td>
-          <td class="schedule__infoCol schedule__blankRow--title " colspan="3">CLOSING REMARKS</td>
-        </tr>
-      </tbody>
-    </table>
+<section id="keynote" class="container">
+  <h2>Watch the Keynote</h2>
+  <div class="keynote__video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yiUGWrvq0kk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </section>
 
-<section id="speakers">
-  <div class="container">
-    <div id="speakersTitle">
-      <h2 class="u-box">Speakers</h2>
-
-      <p class="p2 u-box">Ioniconf features a lineup of experienced engineering leaders and developer experts from across the app development space.</p>
-    </div>
-
-    <div id="speakersContent" class="u-box">
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/john-papa@2x.png"
-                srcset="/img/ioniconf/john-papa@1x.png 1x,
-                        /img/ioniconf/john-papa@2x.png 2x"
+<section id="talks" class="container">
+  <h2>Talks</h2>
+  <div class="talks__cards">
+    <article class="card">  
+      <div class="card__video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Qox56z4xH6o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="card__title ">
+        <span class="info">
+          <img  class=""
+                src="/img/ioniconf/icon-shawn-wang@2x.png"
+                srcset="/img/ioniconf/icon-shawn-wang@1x.png 1x,
+                        /img/ioniconf/icon-shawn-wang@2x.png 2x"
                 loading="lazy"
-                width="456" height="456"
-                alt="John Papa speaking" />
-          <svg id="johnOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.166 5.83057V195.831C134.166 200.249 130.584 203.831 126.166 203.831H4.66614" stroke="url(#john_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M139.166 5.83057C139.166 3.06914 136.928 0.830566 134.166 0.830566C131.405 0.830566 129.166 3.06914 129.166 5.83057C129.166 8.59199 131.405 10.8306 134.166 10.8306C136.928 10.8306 139.166 8.59199 139.166 5.83057Z" fill="#2CEDA8"/>
-            <path d="M10.1661 203.831C10.1661 201.069 7.92756 198.831 5.16614 198.831C2.40471 198.831 0.166137 201.069 0.166137 203.831C0.166138 206.592 2.40471 208.831 5.16614 208.831C7.92756 208.831 10.1661 206.592 10.1661 203.831Z" fill="#6AC5FF"/>
-            <defs>
-            <linearGradient id="john_outline_paint0_linear" x1="134.166" y1="33.8306" x2="48.1661" y2="203.831" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#2CEDA8"/>
-            <stop offset="1" stop-color="#6AC5FF"/>
-            </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="card__title u-box">
-          <h3>John Papa</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/John_Papa" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/papajohn/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Professional Web and Mobile Developer, Developer Advocate for <span class="highlight">Microsoft</span>, and an avid OSS and community advocate.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/ana-cidre@2x.png"
-                srcset="/img/ioniconf/ana-cidre@1x.png 1x,
-                        /img/ioniconf/ana-cidre@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="ana cidre headshot" />
-          <svg id="anaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M203.167 5.83057L13.167 5.83056C8.74872 5.83056 5.167 9.41228 5.167 13.8306L5.16699 135.331" stroke="url(#ana_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M203.167 0.830567C205.928 0.830567 208.167 3.06914 208.167 5.83057C208.167 8.59199 205.928 10.8306 203.167 10.8306C200.406 10.8306 198.167 8.59199 198.167 5.83057C198.167 3.06914 200.406 0.830567 203.167 0.830567Z" fill="#FF8C4F"/>
-            <path d="M5.16699 129.831C7.92842 129.831 10.167 132.069 10.167 134.831C10.167 137.592 7.92842 139.831 5.16699 139.831C2.40557 139.831 0.166992 137.592 0.166993 134.831C0.166993 132.069 2.40557 129.831 5.16699 129.831Z" fill="#FF427D"/>
-            <defs>
-            <linearGradient id="ana_outline_paint0_linear" x1="175.167" y1="5.83058" x2="5.167" y2="91.8306" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8C4F"/>
-            <stop offset="1" stop-color="#FF427D"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Ana Cidre</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/AnaCidre_" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/ana-cidre/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">International speaker, Developer Advocate at <span class="highlight">Auth0</span>, and organizer of GalsTech and ngSpain.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/shawn-wang@2x.png"
-                srcset="/img/ioniconf/shawn-wang@1x.png 1x,
-                        /img/ioniconf/shawn-wang@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Shawn Wang headshot" />
-          <svg id="shawnOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.16602 5.83058L5.16603 195.831C5.16603 200.249 8.74776 203.831 13.166 203.831L134.666 203.831" stroke="url(#shawn_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M0.166015 5.83057C0.166015 3.06914 2.40459 0.830567 5.16602 0.830567C7.92744 0.830567 10.166 3.06914 10.166 5.83057C10.166 8.59199 7.92744 10.8306 5.16602 10.8306C2.40459 10.8306 0.166016 8.59199 0.166015 5.83057Z" fill="#38EA6E"/>
-            <path d="M129.166 203.831C129.166 201.069 131.405 198.831 134.166 198.831C136.927 198.831 139.166 201.069 139.166 203.831C139.166 206.592 136.927 208.831 134.166 208.831C131.405 208.831 129.166 206.592 129.166 203.831Z" fill="#FFB547"/>
-            <defs>
-            <linearGradient id="shawn_outline_paint0_linear" x1="5.16603" y1="33.8306" x2="91.166" y2="203.831" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#38EA6E"/>
-            <stop offset="1" stop-color="#FFB547"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
+                width="32" height="32"
+                alt="Shawn Wang icon" />
           <h3>Shawn Wang</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/swyx" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/shawnswyxwang/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">React developer and open source contributor. Writer, speaker, and Senior Developer Advocate for <span class="highlight">AWSAmplify</span>.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/simon-grimm@2x.png"
-                srcset="/img/ioniconf/simon-grimm@1x.png 1x,
-                        /img/ioniconf/simon-grimm@2x.png 2x"
+        </span>
+        <span class="social">
+          <a href="https://twitter.com/swyx" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/shawnswyxwang/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p class="card__info">What's new in React</p>
+    </article>
+    <article class="card">
+      <div class="card__video">  
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/e-ns4WH4k4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="card__title ">
+        <span class="info">
+          <img  src="/img/ioniconf/icon-ana-cidre@2x.png"
+                srcset="/img/ioniconf/icon-ana-cidre@1x.png 1x,
+                        /img/ioniconf/icon-ana-cidre@2x.png 2x"
                 loading="lazy"
-                width="456" height="456"
-                alt="Simon Grimm headshot" />
-          <svg id="simonOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.053 203.858V13.8584C134.053 9.44012 130.471 5.8584 126.053 5.8584H4.5531" stroke="url(#simon_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M139.053 203.858C139.053 206.62 136.815 208.858 134.053 208.858C131.292 208.858 129.053 206.62 129.053 203.858C129.053 201.097 131.292 198.858 134.053 198.858C136.815 198.858 139.053 201.097 139.053 203.858Z" fill="#2CEDA8"/>
-            <path d="M10.0531 5.8584C10.0531 8.61982 7.81452 10.8584 5.0531 10.8584C2.29168 10.8584 0.0531002 8.61982 0.0531004 5.8584C0.0531005 3.09697 2.29168 0.858399 5.0531 0.858399C7.81452 0.858399 10.0531 3.09698 10.0531 5.8584Z" fill="#6AC5FF"/>
-            <defs>
-            <linearGradient id="simon_outline_paint0_linear" x1="134.053" y1="175.858" x2="48.0531" y2="5.8584" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#2CEDA8"/>
-            <stop offset="1" stop-color="#6AC5FF"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Simon Grimm</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/schlimmson" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/simongr/" target="_blank" rel=noopener >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Ionic Developer Expert helping developers to learn Ionic Framework faster at the <span class="highlight">Ionic Academy</span>.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/lukas-ruebbelke@2x.png"
-                srcset="/img/ioniconf/lukas-ruebbelke@1x.png 1x,
-                        /img/ioniconf/lukas-ruebbelke@2x.png 2x"
+                width="32" height="32"
+                alt="Ana Cidre icon" />
+          <h3>Ana Cidre</h3>
+        </span>
+        <span class="social">
+          <a href="https://twitter.com/AnaCidre_" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ana-cidre/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p class="card__info">Web Components for Auth: The what, the how and the why</p>
+    </article>
+    <article class="card">
+      <div class="card__video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/D4sMJHl5rbc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="card__title">
+        <span class="info">
+          <img  src="/img/ioniconf/icon-yvonne-allen@2x.png"
+                srcset="/img/ioniconf/icon-yvonne-allen@1x.png 1x,
+                        /img/ioniconf/icon-yvonne-allen@2x.png 2x"
                 loading="lazy"
-                width="456" height="456"
-                alt="Lukas Ruebbelke headshot" />
-          <svg id="lukasOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M203.054 134.891L13.0542 134.891C8.63592 134.891 5.0542 131.309 5.0542 126.891L5.0542 5.39088" stroke="url(#lukas_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M203.054 139.891C205.816 139.891 208.054 137.652 208.054 134.891C208.054 132.129 205.816 129.891 203.054 129.891C200.293 129.891 198.054 132.129 198.054 134.891C198.054 137.652 200.293 139.891 203.054 139.891Z" fill="#FF8C4F"/>
-            <path d="M5.0542 10.8909C7.81562 10.8909 10.0542 8.65229 10.0542 5.89087C10.0542 3.12944 7.81562 0.890868 5.0542 0.890869C2.29278 0.890869 0.0541994 3.12945 0.0541997 5.89087C0.0541999 8.65229 2.29278 10.8909 5.0542 10.8909Z" fill="#FF427D"/>
-            <defs>
-            <linearGradient id="lukas_outline_paint0_linear" x1="175.054" y1="134.891" x2="5.0542" y2="48.8909" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8C4F"/>
-            <stop offset="1" stop-color="#FF427D"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Lukas Ruebbelke</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/simpulton" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/lukasruebbelke/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">VP of Developer Growth at <span class="highlight">BrieBug</span>. Mentor, trainer, GDE, author, conference speaker, event organizer.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/yvonne-allen@2x.png"
-                srcset="/img/ioniconf/yvonne-allen@1x.png 1x,
-                        /img/ioniconf/yvonne-allen@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Yvonne Allen headshot" />
-          <svg id="yvonneOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.011 203.942L134.011 13.9424C134.011 9.52409 130.429 5.94237 126.011 5.94237L4.51072 5.94238" stroke="url(#yvonne_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M139.011 203.942C139.011 206.704 136.772 208.942 134.011 208.942C131.249 208.942 129.011 206.704 129.011 203.942C129.011 201.181 131.249 198.942 134.011 198.942C136.772 198.942 139.011 201.181 139.011 203.942Z" fill="#38EA6E"/>
-            <path d="M10.0107 5.94238C10.0107 8.70381 7.77217 10.9424 5.01074 10.9424C2.24932 10.9424 0.0107425 8.70381 0.0107424 5.94238C0.0107423 3.18096 2.24932 0.942383 5.01074 0.942383C7.77217 0.942382 10.0107 3.18096 10.0107 5.94238Z" fill="#FFB547"/>
-            <defs>
-            <linearGradient id="yvonne_outline_paint0_linear" x1="134.011" y1="175.942" x2="48.0107" y2="5.94238" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#38EA6E"/>
-            <stop offset="1" stop-color="#FFB547"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
+                width="32" height="32"
+                alt="Yvonne Allen icon" />
           <h3>Yvonne Allen</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/yallen011" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/yvonne-allen-52b59316/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Java Developer Advocate at <span class="highlight">Vonage</span>. Speaker, co-organizer for GDG Atlanta, a member of Women Who Code.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/cecelia-martinez@2x.png"
-                srcset="/img/ioniconf/cecelia-martinez@1x.png 1x,
-                        /img/ioniconf/cecelia-martinez@2x.png 2x"
+        </span>
+        <span class="social">
+          <a href="https://twitter.com/yallen011" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/yvonne-allen-52b59316/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p class="card__info">Warp your Reality with WebVR and Angular</p>
+    </article>
+    <article class="card">
+      <div class="card__video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EhdEUdPEPF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="card__title">
+        <span class="info">
+          <img  src="/img/ioniconf/icon-diana-rodriguez@2x.png"
+                srcset="/img/ioniconf/icon-diana-rodriguez@1x.png 1x,
+                        /img/ioniconf/icon-diana-rodriguez@2x.png 2x"
                 loading="lazy"
-                width="456" height="456"
-                alt="Cecelia Martinez headshot" />
-          <svg id="ceceliaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.9757 134.948L195.976 134.948C200.394 134.948 203.976 131.366 203.976 126.948L203.976 5.44801" stroke="url(#cecelia_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M5.97571 139.948C3.21428 139.948 0.975707 137.709 0.975708 134.948C0.975708 132.187 3.21428 129.948 5.97571 129.948C8.73713 129.948 10.9757 132.187 10.9757 134.948C10.9757 137.709 8.73713 139.948 5.97571 139.948Z" fill="#FF8C4F"/>
-            <path d="M203.976 10.948C201.214 10.948 198.976 8.70942 198.976 5.948C198.976 3.18657 201.214 0.947997 203.976 0.947998C206.737 0.947998 208.976 3.18657 208.976 5.948C208.976 8.70942 206.737 10.948 203.976 10.948Z" fill="#FF427D"/>
-            <defs>
-            <linearGradient id="cecelia_outline_paint0_linear" x1="33.9757" y1="134.948" x2="203.976" y2="48.948" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8C4F"/>
-            <stop offset="1" stop-color="#FF427D"/>
-            </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="card__title u-box">
-          <h3>Cecelia Martinez</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/ceceliacreates" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/ceceliamartinez/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Success Engineer <span class="highlight">Cypress.io</span>. Volunteer at Women Who Code Front End and Out in Tech Atlanta.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/liam-debeasi@2x.png"
-                srcset="/img/ioniconf/liam-debeasi@1x.png 1x,
-                        /img/ioniconf/liam-debeasi@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Liam DeBeasi cartoon headshot" />
-          <svg id="liamOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.0542 5.92432V195.924C5.0542 200.343 8.63592 203.924 13.0542 203.924H134.554" stroke="url(#liam_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M0.0541994 5.92432C0.0541996 3.16289 2.29278 0.924316 5.0542 0.924316C7.81562 0.924316 10.0542 3.16289 10.0542 5.92432C10.0542 8.68574 7.81562 10.9243 5.0542 10.9243C2.29278 10.9243 0.0541993 8.68574 0.0541994 5.92432Z" fill="#2CEDA8"/>
-            <path d="M129.054 203.924C129.054 201.163 131.293 198.924 134.054 198.924C136.816 198.924 139.054 201.163 139.054 203.924C139.054 206.686 136.816 208.924 134.054 208.924C131.293 208.924 129.054 206.686 129.054 203.924Z" fill="#6AC5FF"/>
-            <defs>
-            <linearGradient id="liam_outline_paint0_linear" x1="5.05422" y1="33.9243" x2="91.0542" y2="203.924" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#2CEDA8"/>
-            <stop offset="1" stop-color="#6AC5FF"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Liam DeBeasi</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/LiamDeBeasi" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/liamdebeasi/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Core engineer on Ionic Framework. Making sure cross-platform apps are accessible to everyone.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/jedi-weller@2x.png"
-                srcset="/img/ioniconf/jedi-weller@1x.png 1x,
-                        /img/ioniconf/jedi-weller@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Jedi Willer headshot" />
-          <svg id="jediOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.01 203.939L134.01 13.9389C134.01 9.52067 130.428 5.93895 126.01 5.93895L4.50975 5.93896" stroke="url(#jedi_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M139.01 203.939C139.01 206.7 136.771 208.939 134.01 208.939C131.248 208.939 129.01 206.7 129.01 203.939C129.01 201.178 131.248 198.939 134.01 198.939C136.771 198.939 139.01 201.178 139.01 203.939Z" fill="#38EA6E"/>
-            <path d="M10.0098 5.93896C10.0098 8.70039 7.77119 10.939 5.00977 10.939C2.24834 10.939 0.00976596 8.70039 0.00976584 5.93896C0.00976572 3.17754 2.24834 0.938965 5.00977 0.938965C7.77119 0.938965 10.0098 3.17754 10.0098 5.93896Z" fill="#FFB547"/>
-            <defs>
-            <linearGradient id="jedi_outline_paint0_linear" x1="134.01" y1="175.939" x2="48.0097" y2="5.93896" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#38EA6E"/>
-            <stop offset="1" stop-color="#FFB547"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Jedi Weller</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/jedihacks" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/jedidiahweller/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Speaker, community leader, and CEO at <span class="highlight">OpenForge</span>. Advocating for empowering businesses through technology.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/aaron-saunders@2x.png"
-                srcset="/img/ioniconf/aaron-saunders@1x.png 1x,
-                        /img/ioniconf/aaron-saunders@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Aaron Saunders headshot" />
-          <svg id="aaronOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.004 203.992V13.9919C134.004 9.57366 130.422 5.99194 126.004 5.99194H4.50354" stroke="url(#aaron_saunders_paint0_linear)" stroke-width="2"/>
-            <path d="M139.004 203.992C139.004 206.753 136.765 208.992 134.004 208.992C131.242 208.992 129.004 206.753 129.004 203.992C129.004 201.231 131.242 198.992 134.004 198.992C136.765 198.992 139.004 201.231 139.004 203.992Z" fill="#2CEDA8"/>
-            <path d="M10.0035 5.99194C10.0035 8.75337 7.76496 10.9919 5.00354 10.9919C2.24212 10.9919 0.0035397 8.75337 0.00353982 5.99194C0.00353994 3.23052 2.24212 0.991943 5.00354 0.991944C7.76496 0.991944 10.0035 3.23052 10.0035 5.99194Z" fill="#6AC5FF"/>
-            <defs>
-            <linearGradient id="aaron_saunders_paint0_linear" x1="134.004" y1="175.992" x2="48.0035" y2="5.99195" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#2CEDA8"/>
-            <stop offset="1" stop-color="#6AC5FF"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
-          <h3>Aaron Saunders</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/aaronksaunders" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/aaronksaunders/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Tech entrepreneur, author, and Ionic Developer Expert. CEO of <span class="highlight">Clearly Innovative</span>.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/diana-rodriguez@2x.png"
-                srcset="/img/ioniconf/diana-rodriguez@1x.png 1x,
-                        /img/ioniconf/diana-rodriguez@2x.png 2x"
-                loading="lazy"
-                width="456" height="456"
-                alt="Diana Rodriguez cartoon headshot" />
-          <svg id="dianaOutline" class="u-box" width="209" height="140" viewBox="0 0 209 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M203.002 134.974L13.002 134.974C8.58368 134.974 5.00196 131.392 5.00196 126.974L5.00195 5.47389" stroke="url(#diana_outline_paint0_linear)" stroke-width="2"/>
-            <path d="M203.002 139.974C205.763 139.974 208.002 137.735 208.002 134.974C208.002 132.212 205.763 129.974 203.002 129.974C200.241 129.974 198.002 132.212 198.002 134.974C198.002 137.735 200.241 139.974 203.002 139.974Z" fill="#FF8C4F"/>
-            <path d="M5.00195 10.9739C7.76338 10.9739 10.002 8.7353 10.002 5.97388C10.002 3.21245 7.76338 0.973876 5.00195 0.973877C2.24053 0.973877 0.00195332 3.21245 0.00195356 5.97388C0.0019538 8.7353 2.24053 10.9739 5.00195 10.9739Z" fill="#FF427D"/>
-            <defs>
-            <linearGradient id="diana_outline_paint0_linear" x1="175.002" y1="134.974" x2="5.00196" y2="48.9739" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8C4F"/>
-            <stop offset="1" stop-color="#FF427D"/>
-            </linearGradient>
-            </defs>
-          </svg>
-
-        </div>
-        <div class="card__title u-box">
+                width="32" height="32"
+                alt="Diana Rodriguez icon" />
           <h3>Diana Rodriguez</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/cotufa82" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/nerdattack82/" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-            </a>
-          </span>
-        </div>
-        <p class="p3">Full Stack Developer & DevOps lover of all things web and cloud! Python Developer Advocate at <span class="highlight">Vonage</span>.</p>
-      </article>
-      <article class="card u-box">
-        <div class="card__images u-box">
-          <img  class="u-box"
-                src="/img/ioniconf/karo-ladino@2x.png"
-                srcset="/img/ioniconf/karo-ladino@1x.png 1x,
-                        /img/ioniconf/karo-ladino@2x.png 2x"
+        </span>
+        <span class="social">
+          <a href="https://twitter.com/cotufa82" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nerdattack82/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p class="card__info">Smile! The web is your photobooth!</p>
+    </article>
+
+<!-- <article class="card">
+      <div class="card__title">
+        <img  class=""
+              src="/img/ioniconf/icon-john-papa@2x.png"
+              srcset="/img/ioniconf/icon-john-papa@1x.png 1x,
+                      /img/ioniconf/icon-john-papa@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="John Papa icon" />
+        <h3>John Papa</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/John_Papa" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/papajohn/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>Code to Scale: Build and deploy static web apps in minutes</p>
+    </article>
+    
+    <article class="card">
+      <div class="card__title">
+        <img  src="/img/ioniconf/icon-simon-grim@2x.png"
+              srcset="/img/ioniconf/icon-simon-grim@1x.png 1x,
+                      /img/ioniconf/icon-simon-grim@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="Simon Grimm icon" />
+        <h3>Simon Grimm</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/schlimmson" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/simongr/" target="_blank" rel=noopener >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>Demystifying Angular Routing</p>
+    </article>
+    <article class="card ">
+      <div class="card__title ">
+        <img  class=""
+                src="/img/ioniconf/icon-lukas-ruebbelke@2x.png"
+                srcset="/img/ioniconf/icon-lukas-ruebbelke@1x.png 1x,
+                        /img/ioniconf/icon-lukas-ruebbelke@2x.png 2x"
                 loading="lazy"
-                width="456" height="456"
-                alt="Karo Ladino headshot" />
-          <svg id="karoOutline" class="u-box" width="140" height="209" viewBox="0 0 140 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M134.998 5.99586L134.998 195.996C134.998 200.414 131.416 203.996 126.998 203.996L5.49803 203.996" stroke="url(#paint0_linear)" stroke-width="2"/>
-            <path d="M139.998 5.99585C139.998 3.23443 137.759 0.99585 134.998 0.99585C132.237 0.99585 129.998 3.23443 129.998 5.99585C129.998 8.75727 132.237 10.9958 134.998 10.9958C137.759 10.9958 139.998 8.75727 139.998 5.99585Z" fill="#FFB547"/>
-            <path d="M10.998 203.996C10.998 201.234 8.75947 198.996 5.99805 198.996C3.23662 198.996 0.998047 201.234 0.998047 203.996C0.998047 206.757 3.23662 208.996 5.99805 208.996C8.75947 208.996 10.998 206.757 10.998 203.996Z" fill="#38EA6E"/>
-            <defs>
-            <linearGradient id="paint0_linear" x1="134.998" y1="33.9959" x2="48.998" y2="203.996" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FFB547"/>
-            <stop offset="1" stop-color="#38EA6E"/>
-            </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div class="card__title u-box">
-          <h3>Karo Ladino</h3>
-          <span class="card__icons u-flex u-align-items-c">
-            <a href="https://twitter.com/karobotco" target="_blank" rel=noopener>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
-              </svg>
-            </a>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
-                <defs/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
-                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
-              </svg>
-          </span>
-        </div>
-        <p class="p3">Robotics engineer, hardware hacker and designer. COO of <span class="highlight">Code On</span>.</p>
-      </article>
-    </div>
-  </div>
-</section>
+                width="32" height="32"
+                alt="Lukas Ruebbelke icon" />
+        <h3>Lukas Ruebbelke</h3>
+        <span class="card__icons  ">
+          <a href="https://twitter.com/simpulton" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/lukasruebbelke/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>High Torque Delivery with Ionic</p>
+    </article>
 
+    <article class="card">
+      <div class="card__title">
+        <img  class=""
+                src="/img/ioniconf/icon-cecelia-martinez@2x.png"
+                srcset="/img/ioniconf/icon-cecelia-martinez@1x.png 1x,
+                        /img/ioniconf/icon-cecelia-martinez@2x.png 2x"
+                loading="lazy"
+                width="32" height="32"
+                alt="Cecelia Martinez icon" />
+        <h3>Cecelia Martinez</h3>
+        <span class="card__icons  ">
+          <a href="https://twitter.com/ceceliacreates" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ceceliamartinez/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>End-to-end testing mobile apps with Ionic and Cypress</p>
+    </article>
+    <article class="card ">
+      <div class="card__title">
+        <img  src="/img/ioniconf/icon-liam-debeasi@2x.png"
+              srcset="/img/ioniconf/icon-liam-debeasi@1x.png 1x,
+                      /img/ioniconf/icon-liam-debeasi@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="Liam Debeasi icon" />
+        <h3>Liam DeBeasi</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/LiamDeBeasi" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/liamdebeasi/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>Beyond Fast: An animation deep dive</p>
+    </article>
+    <article class="card">
+      <div class="card__title">
+        <img  src="/img/ioniconf/icon-jedi-weller@2x.png"
+              srcset="/img/ioniconf/icon-jedi-weller@1x.png 1x,
+                      /img/ioniconf/icon-jedi-weller@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="Jedi Weller icon" />
+        <h3>Jedi Weller</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/jedihacks" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/jedidiahweller/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>How to Create A Successful Product Launch Strategy</p>
+    </article>
+    <article class="card">
+      <div class="card__title">
+        <img  src="/img/ioniconf/icon-aaron-saunders@2x.png"
+              srcset="/img/ioniconf/icon-aaron-saunders@1x.png 1x,
+                      /img/ioniconf/icon-aaron-saunders@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="Aaron Saunders icon" />
+        <h3>Aaron Saunders</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/aaronksaunders" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/aaronksaunders/" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+          </a>
+        </span>
+      </div>
+      <p>State management with React Context</p>
+    </article>
 
-<section id="topics" class="u-box">
+    <article class="card">
+      <div class="card__title">
+        <img  src="/img/ioniconf/icon-karo-ladino@2x.png"
+              srcset="/img/ioniconf/icon-karo-ladino@1x.png 1x,
+                      /img/ioniconf/icon-karo-ladino@2x.png 2x"
+              loading="lazy"
+              width="32" height="32"
+              alt="Karo Ladino icon" />
+        <h3>Karo Ladino</h3>
+        <span class="card__icons">
+          <a href="https://twitter.com/karobotco" target="_blank" rel=noopener>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="18" viewBox="0 0 20 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M19.17.84A8.63 8.63 0 0116.6 2.2 3.63 3.63 0 0014.72.95c-.73-.2-1.5-.15-2.2.14-.7.3-1.3.81-1.72 1.5a4.26 4.26 0 00-.63 2.29v.9a8.13 8.13 0 01-4.15-1.02A8.99 8.99 0 012.8 1.73s-3.27 8.03 4.1 11.6a8.96 8.96 0 01-5.73 1.78c7.36 4.45 16.36 0 16.36-10.26 0-.25-.02-.5-.07-.74a7.06 7.06 0 001.7-3.27z"/>
+            </svg>
+          </a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18">
+              <defs/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M12.37 5.88c1.27 0 2.49.54 3.39 1.48a5.2 5.2 0 011.4 3.58v5.89h-3.2v-5.9c0-.44-.16-.87-.46-1.19-.3-.31-.71-.49-1.13-.49-.43 0-.84.18-1.14.5-.3.31-.46.74-.46 1.19v5.89h-3.2v-5.9c0-1.33.5-2.62 1.4-3.57a4.68 4.68 0 013.4-1.48v0z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M4.37 6.73h-3.2v10.1h3.2V6.73z"/>
+              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" d="M2.77 4.2c.88 0 1.6-.76 1.6-1.69 0-.93-.72-1.68-1.6-1.68-.89 0-1.6.75-1.6 1.68 0 .93.71 1.69 1.6 1.69z"/>
+            </svg>
+        </span>
+      </div>
+      <p>Javascript and IoT: A true love story</p>
+    </article> -->
+  </div> 
+</section> 
+
+<section id="topics" class="">
   <div class="container">
-    <h3 class="u-box u-font u-center-text">Topics & technologies covered:</h3>
+    <h3>Topics & technologies covered:</h3>
     <div id="topicsContent">
-      <div class="u-flex u-wrap u-just-cont-c">
-        <div class="u-flex u-wrap u-just-cont-c">
+      <div class="">
+        <div class="">
           <div>
             <img  src="/img/ioniconf/logo-ionic@2x.png"
                   srcset="/img/ioniconf/logo-ionic@1x.png 1x,
@@ -1687,7 +1331,7 @@
                   alt="Angular Logo" />
           </div>
         </div>
-        <div class="u-flex u-wrap u-just-cont-c">
+        <div class=" u-wrap u-just-cont-c">
           <div>
             <img  src="/img/ioniconf/logo-react@2x.png"
                   srcset="/img/ioniconf/logo-react@1x.png 1x,
@@ -1718,8 +1362,8 @@
           </div>
         </div>
       </div>
-      <div class="u-flex u-wrap u-just-cont-c">
-        <div class="u-flex u-wrap u-just-cont-c">
+      <div class=" u-wrap u-just-cont-c">
+        <div class=" u-wrap u-just-cont-c">
           <div>
             <img  src="/img/ioniconf/logo-css@2x.png"
                   srcset="/img/ioniconf/logo-css@1x.png 1x,
@@ -1749,7 +1393,7 @@
                   alt="Android Logo" />
           </div>
         </div>
-        <div class="u-flex u-wrap u-just-cont-c">
+        <div class=" u-wrap u-just-cont-c">
           <img  src="/img/ioniconf/logo-apple@2x.png"
                 srcset="/img/ioniconf/logo-apple@1x.png 1x,
                         /img/ioniconf/logo-apple@2x.png 2x"
@@ -1763,7 +1407,7 @@
                 width="44" height="40"
                 alt="PWA Logo" />
         </div>
-        <div class="u-flex u-wrap u-just-cont-c">
+        <div class=" u-wrap u-just-cont-c">
           <img  src="/img/ioniconf/logo-stencil@2x.png"
                 srcset="/img/ioniconf/logo-stencil@1x.png 1x,
                         /img/ioniconf/logo-stencil@2x.png 2x"
@@ -1774,25 +1418,24 @@
       <div>
     </div>
   </div>
-
 </section>
 
 
 <section id="event">
-  <div class="container u-flex u-align-items-s">
-    <div id="eventInfo" class="u-box">
-      <h2 class="u-box">Event</h2>
-
-      <div>
-        <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
-        <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
-        <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
+  <div class="container">
+    <div id="eventInfo">
+      <div class="sticky">
+        <h2 class="">Event</h2>
+        <div>
+          <p class="p2">The cross-platform app development space is rapidly evolving, and developers now have plethora of frameworks and tooling to choose from.</p>
+          <p class="p2">Ioniconf will cover some of the most interesting techniques and tools in the space, and offer best practices, practical tips, and insight into how developers are tackling cross-platform development with new approaches.</p>
+          <p class="p2">We’re bringing together experts in the mobile and broader web ecosystem to offer a deep dive into modern approaches for building and shipping cross-platform apps.</p>
+        </div>
       </div>
     </div>
-    <div class="u-spacer"></div>
-    <div id="eventContent" class="u-box">
-      <div class="card card__automate u-box">
-        <svg class="card__icon u-box" width="102" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 104 96">
+    <div id="eventContent" class="">
+      <div class="card card__automate ">
+        <svg class="card__icon " width="102" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 104 96">
           <defs/>
           <path stroke="#DAEDFC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M96.8 55.1v-7.42c0-24.57-20.1-44.5-44.86-44.5a45.03 45.03 0 00-35.08 16.77M7.2 40.35v7.42c0 24.6 20.08 44.5 44.86 44.5A45.39 45.39 0 0087.1 75.63"/>
           <circle cx="87" cy="75.5" r="4" fill="#DAEDFC"/>
@@ -1815,10 +1458,10 @@
           </defs>
         </svg>
 
-        <p class="card__text u-font u-box">Automate app deployments across iOS, Android, and the web</p>
+        <p class="card__text  ">Automate app deployments across iOS, Android, and the web</p>
       </div>
-      <div class="card card__animations u-box">
-        <svg class="card__icon u-box" width="96" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 98 98">
+      <div class="card card__animations ">
+        <svg class="card__icon " width="96" height="96" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 98 98">
           <defs/>
           <path fill="#fff" d="M49.707 1.293a1 1 0 00-1.414 0l-6.364 6.364a1 1 0 001.414 1.414L49 3.414l5.657 5.657a1 1 0 101.414-1.414l-6.364-6.364zM48 25a1 1 0 102 0h-2zm0-23v23h2V2h-2z"/>
           <path fill="#fff" d="M89.177 74.966a1 1 0 00.708-1.225l-2.33-8.693a1 1 0 00-1.932.517l2.071 7.728-7.728 2.07a1 1 0 00.518 1.932l8.694-2.33zM69.5 61.634a1 1 0 10-1 1.732l1-1.732zm19.919 11.5L69.5 61.634l-1 1.732 19.919 11.5 1-1.732z"/>
@@ -1831,9 +1474,9 @@
           <path fill="#fff" d="M45.04 58.812l14.306-8.646a1.361 1.361 0 000-2.325L45.04 39.194A1.346 1.346 0 0043 40.36v17.289a1.349 1.349 0 002.04 1.164z"/>
       </svg>
 
-        <p class="card__text u-font u-box">Add dynamic, highly performant animations to your web apps</p>
+        <p class="card__text  ">Add dynamic, highly performant animations to your web apps</p>
       </div>
-      <div class="card card__staticHosting u-box">
+      <div class="card card__staticHosting ">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 97">
           <defs/>
           <mask id="icon_static_hosting_a" width="96" height="96" x="0" y="1" maskUnits="userSpaceOnUse">
@@ -1880,9 +1523,9 @@
           </defs>
         </svg>
 
-        <p class="card__text u-font u-box">Latest static hosting capabilities for web apps</p>
+        <p class="card__text  ">Latest static hosting capabilities for web apps</p>
       </div>
-      <div class="card card__authentication u-box">
+      <div class="card card__authentication ">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 96">
           <defs/>
           <path stroke="#EAFAFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.04 9.63L18.96 2.65a2.58 2.58 0 00-2.62.02l-12.6 7.36a4.05 4.05 0 00-2 3.48l-.08 14.58a2.64 2.64 0 001.3 2.28l12.08 6.98a2.58 2.58 0 002.62-.02l12.6-7.36a4.06 4.06 0 002-3.48l.08-14.58a2.64 2.64 0 00-1.3-2.28z"/>
@@ -1937,9 +1580,9 @@
           </defs>
         </svg>
 
-        <p class="card__text u-font u-box">How to build Web Components for authentication</p>
+        <p class="card__text  ">How to build Web Components for authentication</p>
       </div>
-      <div class="card card__testing u-box">
+      <div class="card card__testing ">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none" viewBox="0 0 96 96">
           <defs/>
           <path stroke="url(#icon_testing_paint0_linear)" stroke-linecap="round" stroke-width="4" d="M7 2v0C3.8 5.13 2 9.42 2 13.89v68.22C2 86.58 3.8 90.87 7 94v0" opacity=".2"/>
@@ -1984,17 +1627,17 @@
           </defs>
         </svg>
 
-        <p class="card__text u-font u-box">End-to-end mobile app testing best practices and techniques</p>
+        <p class="card__text">End-to-end mobile app testing best practices and techniques</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="footer" class="u-box u-font">
-  <div class="container u-flex u-wrap u-align-items-c u-just-cont-sa">
+<section id="footer" class=" ">
+  <div class="footer__wrap | container">
     <div>
       <img  id="footerIcon"
-            class="u-box"
+            class=""
             src="/img/ioniconf/logo-ioniconf-footer@2x.png"
             srcset="/img/ioniconf/logo-ioniconf-footer@1x.png 1x,
                     /img/ioniconf/logo-ioniconf-footer@2x.png 2x"
@@ -2002,15 +1645,22 @@
             width="368" height="96"
             alt="Ioniconf 2020 Logo" />
     </div>
-    <div class="u-spacer"></div>
-    <ul class="footer__list u-flex u-wrap u-align-items-c u-just-cont-sb">
-      <li class="u-box"><a class="anchor" data-offset="100" href="#speakers">Speakers</a></li>
-      <li class="u-box"><a class="anchor" data-offset="100" href="#event">Event</a></li>
-      <li class="u-box"><a class="anchor" data-offset="100" href="#schedule">Schedule</a></li>
-      <li class="u-box"><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
+    <ul class="footer__list">
+      <li class=""><a class="anchor" data-offset="100" href="#keynote">Keynote</a></li>
+      <li class=""><a class="anchor" data-offset="100" href="#talks">Talks</a></li>
+      <li class=""><a class="anchor" data-offset="100" href="#event">Event</a></li>
+      <li class=""><a href="https://ionicframework.com/code-of-conduct" target="_blank" rel=noopener>Code of Conduct</a></li>
     </ul>
-    <div>
-      <button class="btn-main btn__register footer__button u-box u-font" data-toggle="modal" data-target="#contactForm">Contact Sales  </button>
+    <div class="footer__cta">
+      <label class="btn-secondary" for="footerUpdates"
+             onClick="this.querySelector('input[name=email]').focus()">
+        <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="footerUpdates" role="button" type="checkbox"/>
+        <span class="text">Sign up for updates</span>
+        <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+        <hubspot-form 
+          form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
+          submit-text="->"/>
+      </label>
     </div>
   </div>
 </section>

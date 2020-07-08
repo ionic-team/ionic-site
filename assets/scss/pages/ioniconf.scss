@@ -5,11 +5,8 @@
 @import '../vars';
 @import '../fonts';
 @import '../components/mobile-nav';
-@import '../../../content/scss/bootstrap/modals';
-@import '../components/modal';
-@import '../components/hubspot_form';
 
-@import '../utilities/u-ioniconf';
+@import '../utilities/u-mixins';
 
 @font-face {
   font-family: 'Ionicons';
@@ -26,13 +23,7 @@
 //#endregion ----------------------------------------------------------------------------
 
 //#region ----------------------------- ANIMATIONS ----------------------------------------
-.modal.fade{
-  transition: opacity 0.3s ease-out;
-  opacity: 0;
-}
-.modal.fade.in {
-  opacity: 1;
-}
+
 //#endregion ------------------------------------------------------------------------------
 
 //#region ----------------------------- VARIABLES -----------------------------------------
@@ -41,7 +32,7 @@ $colorTitleMain: white;
 $colorTextMain: #E9EDF3;
 $colorTextHighlight: #5887FF;
 $colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
-$fontFamilyRoboto: 'Roboto Mono', Menlo, monospace;
+$fontFamilyRoboto: 'Roboto Mono', Menlo, Courier, monospace;
 $fontFamilyInter: $font-family-inter;
 $fontFamilyEina: $font-family-eina;
 $fontFamilyMono: $font-family-monospace;
@@ -74,7 +65,9 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   color: $colorTextHighlight;
 }
 
-.btn-main, .hs-button{
+.btn-main {
+@include box($d:inline-flex, $ai:center, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $p:16px 20px);
+@include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap, $tt:uppercase, $ls:.1em);
   animation: pushDown 200ms $timingFunction;
   animation-fill-mode: forwards;
 
@@ -84,20 +77,73 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 }
 
-.btn-main {
-  display:flex;
-  line-height: 16px;
-  align-items:center;
+.btn-secondary {
+@include box($d:flex, $ai:center, $curs: pointer, $pos:relative, $bord:1px solid $colorTextHighlight, $h:39px, $br:8px, $back:transparent);
+@include font($fw:600, $fs:16px, $lh:19px, $ws:nowrap, $color:#fff);
+  transition: all .15s ease-in; 
 
-  vertical-align: middle;
+  &:hover, &:active, &:focus, &:focus-within {
+  @include box($bord:1px solid #ff4db5);
+    transition: all .15s ease-in;   
 
-  &:after {
-    content: ' \f119';
-    font-family: 'Ionicons';
-    font-size: 20px;
-    margin-left:4px;
+    & .checkbox, & .arrow {
+      transform: translateX(2px);
+      transition: all .15s ease-in; 
+    }
+  }
+
+  .text {
+  @include box($d:flex, $ai:center, $z:1, $p:10px 12px, $pie:30px);
+  }
+
+  .arrow {
+  @include box($d:flex, $ai:center, $w:18px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:8px);
+  @include font($ff:Ionicons, $fs:24px);
+  transition: all .15s ease-in; 
+  }
+
+  .checkbox {
+  @include box($pos:absolute, $r:10px, $pis:12px, $z:-1);
+  transition: all .15s ease-in; 
+  }
+
+  .checkbox:checked {
+  @include box($z:-1);
+    & ~ hubspot-form {
+    @include box($o:1, $trans:all .15s ease-in, $tf:translateY(0px), $z:1);
+    }
+
+    & ~ .text {
+    @include box($o:0, $trans:all .15s ease-in, $tf:translateY(10px));
+    }
+    & ~ .arrow {
+    @include box($z:-1);
+    }
+  
+  }
+
+  hubspot-form {
+  @include box($pos:absolute, $h:100%, $w:100%, $o:0, $tf:translateY(-10px));
+    fieldset {
+    @include box($w:100%, $h:100%);
+    }
+    label {
+    @include box($v:hidden, $pos:absolute);
+    }
+    input {
+    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px, $pie: 36px);
+    @include font($lh: 16px, $color:#000, $fw:400);
+    }
+    .button {
+    @include box($d:flex, $ai:center, $pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back: #fff, $p:12px 6px);
+    @include font($color:black, $fs:18px);
+    }
+    .success {
+    @include box($pos:absolute, $t:1px, $r:1px, $h:calc(100% - 2px));
+    }
   }
 }
+
 
 .container {
   padding-right: 15px;
@@ -123,59 +169,9 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
       width:1054px
   }
 }
+
+
 // #endregion ------------------------------------------------------------------------
-
-//#region ----------------------------- MODAL ---------------------------------------------
-#contactForm.modal {
-  .modal-content {
-    display: block;
-    position:relative;
-    background-color: transparent;   
-    color: white;
-
-    &::before {
-      content: "";
-      background: $colorBackMain;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -2;   
-      border-radius: 8px;
-    }
-
-    &::after {
-      content: "";
-      background-image: url('/img/ioniconf/bg-menu.svg');
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -1;   
-    }
-
-    h3 {
-      color: white;
-      text-align: center;
-      margin-block-end: 24px !important;
-    }
-    p {
-      color: $colorTextMain;
-      text-align: center;
-    }
-  }
-
-  label {
-    display:inline-block;
-    margin-block-end: 1px;
-
-  }
-}
-
-//#endregion ------------------------------------------------------------------------------
 
 //#region ----------------------------- GENERIC -------------------------------------------
 
@@ -186,6 +182,7 @@ body * {
 fieldset {
   border: none;
   padding:0;
+  margin:0;
 }
 
 .no-scroll {
@@ -194,10 +191,6 @@ fieldset {
 
 body {
   overflow-x: hidden;
-}
-
-main {
-  overflow:visible;
 }
 
 a:focus, a:hover, a:active, a:visited{
@@ -225,13 +218,14 @@ html, body, main {
   background: $colorBackMain;
   position:relative;
   z-index: -2;  
-}
-
-p, li, button, td{
   font-family:$fontFamilyInter;
 }
 
-h1, h2, h3 {
+button {
+  font-family:$fontFamilyInter;
+}
+
+h1, h2{
   font-family: $fontFamilyEina;
 }
 
@@ -241,12 +235,20 @@ ul {
   padding-left: 0;
 }
 
+h1 {
+  margin:0;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
 h2 {
   margin: 0;
   font-weight: 600;
   font-size: 48px;
   line-height: 120%;
-  color: white;
+  color: #fff;
   display: flex;
   letter-spacing: -0.03em;
 }
@@ -257,12 +259,13 @@ h3 {
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.01em;
-  color: #FFFFFF;
+  color: #FFF;
 }
 
 p {
   margin: 0;
   font-weight:400;
+  color: #fff;
 }
 
 .p2 {
@@ -283,77 +286,37 @@ p {
 
 
 //#region ----------------------------- PAGE STYLES ----------------------------------------
-#contactForm {
-  &.modal {
-    hgroup {
-      padding-top: 18px;
-      padding-bottom: 32px;
-    }
-  
-    h3 {
-      font-size: 29px;
-      font-weight: 600;
-      color: #171a20;
-      margin: 18px 0 8px;
-      letter-spacing: -0.03em;
-    }
-  
-    p {
-      font-size: 18px;
-      line-height: 28px;
-      color: #4c576c;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  
-    form {
-      max-width: 100%;
-      padding: 0 15px 15px;
-    }
-    
-    .hs_submit {
-      text-align: center;
-      font-weight: 600;
-    }
-  }
-}
-
-
 #header {
 @include box($pos:sticky, $t: 0, $z:1);
 
   .nav {
-  @include box($h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
-      transition:background-color .3s $timingFunction;
+  @include box($ai:center, $h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
+    transition: background-color .3s $timingFunction;
+
+    .nav__wrap {
+    @include box($d:flex);
+    }
     
     .nav__sections {
-      a{        
-        display:inline-block;
-        transform:translateY(0px);
-        position: relative;
-        transition: all 0.3s $timingFunction;
-        &:before {
-          content: "";
-          position: absolute;
-          bottom: -10px;
-          width: 0px;
-          height: 5px;
-          margin: 5px 0 0;
-          transition: all 0.3s $timingFunction;
-          opacity: 0;          
-          background-image: linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%);
+    @include box($d:flex, $ai:center, $w:100%, $jc:center);
+      a {        
+      @include box($d:inline-block, $pos:relative, $trans:all 0.3s $timingFunction, $tf:translateY(0px));
+
+        &::before {
+        @include box($c:'', $pos:absolute, $b:-10px, $w:0, $h:5px, $mbs:5px, $trans:all 0.3s $timingFunction, $o:0,
+                     $back:linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%));
         }
       }
       a:hover, a:active, a:focus, li.active > a{
         transform:translateY(-1px);
-        &:before {          
+        &:before {       
           width: 100%;
           opacity: 1;
         }
       }
     
       & > li {
-      @include box($mLeft:32px, $mRight:32px, $color:white);
+      @include box($mis:32px, $mie:32px, $color:white);
         font-size: 16px;
       }
     }
@@ -361,12 +324,16 @@ p {
     &.scrolled {
       background:rgba(0, 7, 21, .95);
     }
-
-    .nav__button {
-    @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
-    @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
-    }
   }
+}
+#mainNav {
+@include box($d:flex);
+@include media($val:$screen-xs-max, $d:none);
+}
+
+#mobileNavBar {
+@include box($d:none);
+@include media($val:$screen-xs-max, $d:flex);
 }
 
 .mobile-nav {
@@ -391,8 +358,11 @@ p {
 
   .mobile-nav__menu {
     background: url('/img/ioniconf/bg-menu.svg');
+    background-size:cover;
+    background-repeat:no-repeat;
     padding:0;
     padding-top:34px;
+    padding-block-end: 67px;
     max-width:100%;
     color:white;
     display:flex;
@@ -415,15 +385,28 @@ p {
   }
 
   .mobile-nav__register {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px);
+  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pi: 12px, $pb: 10px);
   @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
   }
 
   .mobile-nav__footer {
+    display:flex;
+    justify-content: center;
     background-color: $colorBackMain;
     position:absolute;
     z-index:2;
     bottom:0;
+
+    .footer__cta {
+      width:100%;
+    }
+
+    .text {
+      padding-inline-start: 0px;
+      padding-inline-end: 0px;
+      margin-left:auto;
+      margin-right:auto;
+    }
   }
 }
 
@@ -431,16 +414,13 @@ p {
   display:none;
   justify-content:space-between;
 
-  & > a > svg{
-    position:relative;
-    z-index:9999999;
+  .nav__logo{
+  @include box($d:flex, $ai:center);
   }
   button {
-  @include box($color:white, $back:none, $bord:none, $p:0);
+  @include box($d:flex, $ai:center, $color:white, $back:none, $bord:none, $p:0);
   @include font($fs:34px, $lh:34px, $fw:bold);
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
+
   }
 }
 
@@ -450,79 +430,39 @@ p {
 }
 
 #landing {
-  margin-block-start:0;
-  margin-block-end:0;
-  position:relative;
-  overflow:hidden;
+@include box($mbs:0, $mbe:0, $pbe:246px, $pos:relative, $of:hidden);
+
+  .landing__wrap {
+  @include box($d:flex, $ai:center, $jc:space-between, $pbs:121px);
+  @include media($val:$screen-sm-max, $fd:column, $ai:flex-start);
+  }
+  .landing__content {
+  @include box($mxw:448px);
+  @include media($val:$screen-sm-max, $order:2, $mbs:48px);
+
+    h1 {
+    @include box($mbe:24px);
+
+      span {
+      @include box($d:block, $mbe:40px);
+      @include font($fw:500, $fs:16px, $lh:160%, $ls:.16em, $ff:$fontFamilyRoboto, $tt:uppercase);    
+      }
+    }
+
+    p {
+    @include box($mbe:40px);
+    @include font($fs:24px, $lh:160%, $ls:-.02em);
+    }
+  }
+  .landing__img {
+  @include box($h:100%, $w:100%, $mxw:448px);
+  @include media($val:$screen-sm-max, $mxw:50%);
+  }
 }
 
 #landingBack {
 @include box($pos: absolute, $z: -1, $l:calc((100% - 1800px) / 2));
   
-}
-#landingContent {
-  text-align: center;
-
-  & > h1 {
-  @include box($mTop:80px, $mBot:24px);
-  @include font($fs:64px, $lh:100%, $ls:-.04em, $color:#fff);
-  }
-  & > p {
-  @include box($mBot:48px);
-  @include font($fs:23px, $ls:-.04em, $color:#DEE3EA, $o:.9);
-  }
-}
-
-#landingTweet {
-@include box($d:inline-flex, $ai:center, $br:100px, $back:rgba(98, 178, 255, 0.2), $p:'12px 16px', $mTop:32px, $bf: blur(16px));
-
-  svg {
-    margin-inline-end: 8px;
-  }
-
-  p {
-  @include font($fs:16px, $ls:-.04em, $color:#FBFBFD, $o:.9);
-    color: white;
-  }
-  @media screen and (max-width: $screen-xs-max) {
-    .tweet__extra {
-      display: none;
-    }
-  }
-
-  a {
-    color:white;
-    position: relative;
-    
-    &:after {
-      content: '';
-      width: calc(100% - 1ch);
-      height: 1px;
-      left: 1ch;
-      top: 100%;
-      position: absolute;
-      background: rgba(255, 255, 255, 0);
-      transition: all .15s ease-out;
-    }
-
-    &:hover, &:active, &:focus {
-      text-decoration: none;
-
-      &:after {
-        background: rgba(255, 255, 255, 1);
-        transition: all .15s ease-in;
-      }
-    }
-  }
-}
-
-#landingStream {
-@include box($pos:relative, $w:100%, $h:0, $pBot: 56.25%, $bord:'2px solid rgba(255, 255, 255, 0.2)');
-
-  iframe {
-  @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
-  }
-
 }
 
 
@@ -532,99 +472,103 @@ p {
   background-size: cover;
 }
 
-#speakers {
-  position:relative;
-  overflow:hidden;
-}
+#keynote {
+@include box($mbs:0);
 
-
-#speakersTitle {
-  & > h2 {
-  @include box($mBot:34px);
-  }
-
-  & > p {
-  @include box($mxW:480px, $mBot:90px);
-  }
-}
-
-#tessellationBg {
-  position:absolute;
-  z-index:-1;
-  left: calc((100% - 1800px) / 2);
-}
-
-#speakersContent {
-@include box($d:grid, $gtc: "repeat(auto-fit, minmax(228px,1fr))", $gg: 64px);
-
-  .card {
-  @include box($mxW:298px, $mBot: 100px);
-    img {
-    @include box($mxW: 228px, $h:auto);
-    }
-  }
-
-  .card__images {
-  @include box($d:inline-block, $pos:relative, $mxH:228px);
-
+  h2 {
+  @include box($pbe:32px);
   }
   
-  .card__title {
-  @include box($d:flex, $jc:space-between, $ai:center, $mTop:40px, $mBot: 14px);
+  .keynote__video {
+  @include box($pos:relative, $pbe:56.25%, $pbs:25px,$h:0,$bord:2px solid rgba(255, 255, 255, 0.5));
 
-  @keyframes fill{
-    from { fill: $colorBackMain; }
-    to { fill: #fff; }
-  }
-  @keyframes unfill{
-    from { fill: #fff; }
-    to { fill: $colorBackMain; }
-  }
-
-    .card__icons {
-      a svg{
-        animation: unfill 300ms $timingFunction2;
-        animation-fill-mode: forwards;
-      }
-
-      a:hover, a:active, a:focus {
-        svg {
-          animation: fill 300ms $timingFunction2;
-          animation-fill-mode: forwards;
-        }
-      }
-
-      & > :first-child {
-        margin-right: 16px;
-      }
+    iframe {
+    @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
     }
   }
 }
+
+#talks {
+  .talks__cards {
+  @include box($d:grid, $gtc:repeat(auto-fill, minmax(298px, 1fr)), $cg:63px, $rg:40px, $mbs:36px);
+  }
+
+  .card__video {
+  @include box($pos:relative, $pbe:56.25%, $pbs:25px,$h:0,$bord:2px solid rgba(255, 255, 255, 0.5));
+
+    iframe {
+    @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
+    }
+  }
+  .card__title {
+  @include box($d:flex, $ai:center, $jc:space-between, $mbs:32px, $mbe:20px);
+
+    .info {
+    @include box($d:flex, $ai:center);
+      
+      img {
+      @include box($mie:12px);
+      }
+    }
+    .social {
+    @include box($d:grid, $gtc:repeat(2, minmax(18px, 20px)), $cg:16px);    
+
+      a {
+      @include box($d:flex, $ai:center);
+
+        svg {
+        @include box($f:transparent, $trans:fill .1s ease-in);
+
+          &:hover, &:active, &:focus, &:focus-within {
+          @include box($f:#fff, $trans:fill .1s ease-in);
+          }
+        }
+      }
+    }
+  }
+  .card__info {
+  @include box($mnh:73px);
+  @include font($lh:140%, $ls:-.03em);
+  }
+}
+
+
 #topics {
-@include box($mTop:-100px, $mBot:100px);
   h3 {
   @include font($ff: $fontFamilyRoboto, $fw:500, $fs:16px, $lh:160%, $ls: .16em, $tt:uppercase);
-  @include box($color: #B2BECD, $mBot:8px);
+  @include box($color: #B2BECD, $mbe:8px, $ta:center);
   }
 }
 
 #topicsContent {
+@include box($d:flex, $fd:column, $ai:center);
   img {
     margin-left: 36px;
     margin-right: 36px;
     margin-top: 48px;
   }
+  div {
+    display: inline-block;
+    text-align:center;
+  }
 }
 
 #event {
-@include spacer($mxW:96px, $mnW: 32px, $fG:1);
+  .container {
+  @include box($d:flex, $jc:space-between);
+  }
+
+  .sticky {
+  @include box($pos:sticky, $t:calc(var(--navHeight) + 44px));
+  }
 }
 
 #eventInfo {
-@include box($mxW:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px));
+@include box($d:inline-block, $va:top, $mxw:480px, $pos:sticky, $t: calc(var(--navHeight) + 44px), $mie:16px);
+@include media($val:$screen-xs-max, $mie:0);
 
   h2 {
-  @include box($mBot:34px);
+  @include box($mbe:34px);
   }
   .p2 + .p2{
     margin-top:32px;
@@ -633,238 +577,80 @@ p {
 }
 
 #eventContent {
+@include box($d:inline-block, $mis:16px);
+@include media($val:$screen-xs-max, $mis:0);
   margin-top: 88px;
 
   .card {
-  @include box($mxW: 448px, $color:white, $p: 48px, $br:8px, $mBot:48px);
+  @include box($mxw: 448px, $color:white, $p: 48px, $br:8px, $mbe:48px);
   &:last-of-type {
     margin-block-end:0;
   }
 
     .card__text {
     @include font($fs:22px, $lh: 180%);
-    @include box($mTop: 30px);
+    @include box($mbs: 30px);
     }
 
     &.card__automate{
     @include box($back: 'linear-gradient(237.26deg, #786CFF 0%, #6C99FF 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__animations{
     @include box($back: 'linear-gradient(237.26deg, #FF7B5E 0%, #FF6A7B 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__staticHosting{
     @include box($back: 'linear-gradient(237.26deg, #36DCBD 0%, #58D565 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__authentication{
     @include box($back: 'linear-gradient(237.26deg, #4790FF 0%, #67D3F7 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
     &.card__testing{
     @include box($back: 'linear-gradient(237.26deg, #FFD84D 0%, #FFD748 0.01%, #FF9F45 100%)');
 
       .card__icon {
-      @include box($mxW: 102px, $mxH: 96px);
+      @include box($mxw: 102px, $mxh: 96px);
       }
     }
   }
 }
 
-//#region ----------------------------- OUTLINE STYLES --------------------------------------
-#johnOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#anaOutline {
-@include box($pos:absolute, $t:-5px, $l:-5px);
-}
-#shawnOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#simonOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#lukasOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#yvonneOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#ceceliaOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#liamOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#jediOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#aaronOutline {
-@include box($pos:absolute, $r:-5px, $t:-5px);
-}
-#dianaOutline {
-@include box($pos:absolute, $l:-5px, $b:-5px);
-}
-#maxOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#benOutline {
-@include box($pos:absolute, $r:-5px, $b:-5px);
-}
-#mikeOutline {
-@include box($pos:absolute, $t:-5px, $r:-5px);
-}
-#karoOutline {
-@include box($pos:absolute, $b:-5px, $r:-5px);
-}
-//#endregion --------------------------------------------------------------------------------
-#tableWrap {
-  max-width:100%;
-  position:relative;
-  overflow-x:auto;
-}
-
-#scheduleTitle {
-  & > h2 {
-    @include box($mBot:34px);
-    }
-  
-  & > p {
-  @include box($mxW:480px, $mBot:90px);
-  }
-}
-
-#scheduleTable {
-@include box($mxW: 1122px, $color: white, $w: 100%, $h: auto, $mLeft:auto, $mRight:auto);
-  &, tr {
-    border-collapse: collapse;
-  }
-  
-  img {
-    vertical-align:middle;
-  }
-
-  .vertical{
-    writing-mode: vertical-lr;
-    white-space:nowrap;
-  }
-  th {
-  @include font($ff:$fontFamilyMono, $fs:16px, $ls:.9em, $lh: 16px);    
-    background: $colorBackMain;
-    padding-left: 6px;
-    padding-right: 6px;
-    position:sticky;
-    left:0;
-    div {
-      display:inline;
-      text-align: center;
-    }
-  }
-  td {
-    line-height: 160%;
-    letter-spacing: -.01em;
-  }
-  tr {
-    height: 64px;
-    
-  }
-  .schedule__blankRow--title {
-    letter-spacing: 0.16em;
-  }
-  .schedule__timeCol {
-    text-align: center;
-    white-space: nowrap;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  // .schedule__highlightRow--session1 .schedule__timeCol {
-  //   border-right: 1px solid #7382FF;
-  // }
-  .schedule__iconCol {
-    position:relative;
-  }
-  .schedule__nameCol {
-    min-width: 181px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  .schedule__infoCol {
-    padding-left: 56px;
-    padding-right: 56px;
-    min-width: 392px;
-  }
-  .schedule__sessionCol--session1,
-  .schedule__sessionCol--session2,
-  .schedule__sessionCol--session3 {
-    min-width:32px;
-    z-index:1;
-  }
-  .schedule__contentCell--session1 {
-    background: rgba(115, 130, 255, .15);
-  }
-  .schedule__contentCell--session2 {
-    background: rgba(0, 216, 174, .15);
-  }
-  .schedule__contentCell--session3 {
-    background: rgba(255, 107, 123, .15);
-  }
-
-  .schedule__highlightRow--session1 {
-    background: #7382FF;
-  }
-  .schedule__highlightRow--session2 {
-    background: #00D8AE;
-  }
-  .schedule__highlightRow--session3 {
-    background: #FF6B7B;
-  }
-  .schedule__sessionCol--session1 {
-    box-shadow: 4px 0px 0px #7382FF;
-    color: #7382FF;
-  }
-  .schedule__sessionCol--session2 {
-    box-shadow: 4px 0px 0px #00D8AE;
-    color: #00D8AE;
-  }
-  .schedule__sessionCol--session3 {
-    box-shadow: 4px 0px 0px #FF6B7B;;
-    color: #FF6B7B;;
-  }
-
-  .schedule__session1--cell {
-    background: rgba(115, 130, 255, .15);
-  }
-}
 
 #footer {
 @include font($fs:14px, $lh:17px, $color:white);
-@include spacer($fG:9999);
   margin-bottom:0px;
 
-  & > div.container::before, & > div.container::after {
-    display:none;
+  // & > div.container::before, & > div.container::after {
+  //   display:none;
+  // }
+
+  .footer__wrap {
+  @include box($d:flex, $ai:center, $fw:wrap);
+  @include media($val:$screen-xs-max, $jc:center);
   }
 
-  .footer__button {
-  @include box($h: 39px, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $pX: 12px, $pY: 10px, $mLeft:24px);
-  @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap);
+  .footer__cta {
+  @include box($p:24px 0px);
   }
 }
 
 .footer__list{
+@include box($d:flex, $ai:center, $jc:space-evenly, $fw:wrap);
   flex-grow:1;
   & > li {
     padding: 24px;
@@ -877,15 +663,13 @@ p {
   }
 }
 
+
+
 #footerIcon {
   width:auto;
   object-fit: contain;
+  padding: 24px 0;
 }
-#footerIcon, .footer__button {
-  padding-top:24px;
-  padding-bottom:24px;
-}
-
 //#endregion --------------------------------------------------------------------------------
 
 //#region ----------------------------- MEDIA QUERIES ---------------------------------------
@@ -893,18 +677,6 @@ p {
   #tessellationBg, #landingBack {
     left:0 !important;
     width:100%;
-  }
-}
-
-@media screen and (max-width: $screen-sm-max) {
-  #footer {
-    .footer__button {
-    @include box($order:2, $mLeft:0);      
-    }
-    .footer__list {
-      justify-content: space-between;
-      order:3;
-    }
   }
 }
 
@@ -923,7 +695,7 @@ p {
   }
 
   #landingContent {
-  @include box($mTop:32px);
+  @include box($mbs:32px);
     flex-direction: column;
 
     .u-spacer {
@@ -931,11 +703,11 @@ p {
     }
   }
   #landingImage {
-  @include box($mBot:32px, $mnH: 35vh, $mxW: 461px, $jc:center);
+  @include box($mbe:32px, $mnh: 35vh, $mxw: 461px, $jc:center);
     order: 1;
 
     svg {
-    @include box($mxW: 50vw);
+    @include box($mxw: 50vw);
     }
   }
   #landingMain {

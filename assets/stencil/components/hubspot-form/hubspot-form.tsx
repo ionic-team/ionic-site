@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, State } from '@stencil/core';
+import { Component, Prop, Element, h, State, Host } from '@stencil/core';
 import { uuid } from 'uuidv4'
 
 interface fieldProps {
@@ -11,11 +11,11 @@ interface fieldProps {
 
 const HubspotFormGroups = ({fields}) => {
   return (
-    <fieldset>
-      { fields.map(({label, placeholder, hidden, fieldType, name}) => [
+    <fieldset hidden={!fields.every(field => field.hidden === false)}>
+      { fields.map(({label, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
-        <input placeholder={placeholder} type={fieldType} hidden={hidden} name={name} class="hs-input"/>
+        <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
       ]) }
     </fieldset>
   )
@@ -28,59 +28,60 @@ const HubspotFormGroups = ({fields}) => {
 })
 export class HubspotForm {
   @Prop() formId: string = 'default';
+  @Prop() submitText: string;
   @Element() el: HTMLElement;
-  @State() blocked: boolean;
+  @State() data = false;
   @State() emailInvalid: boolean = false;
   @State() emailSuccess: boolean = false;
   private wrapperId: string = "id-" + uuid();
   private formFields: fieldProps[] = []
   private formGroups: any = [];
-  private submitText: String;
+  
   private formEl: HTMLFormElement;
-  private successMsg: HTMLElement;
 
-  componentWillLoad() {
-    if (window['hbspt']) {
-      this.createHubspotForm();
-      return;
-    }
+  // componentWillLoad() {
+    // if (window['hbspt']) {
+    //   this.createHubspotForm();
+    //   return;
+    // }
     
-    const script = document.createElement('script');
-    script.onload = () => {
-      this.createHubspotForm();
-    };
-    script.onerror = this.loadBackupForm;
-    script.src = '//js.hsforms.net/forms/v2.js';
+    // const script = document.createElement('script');
+    // script.onload = () => {
+    //   this.createHubspotForm();
+    // };
+    // script.onerror = this.loadBackupForm;
+    // script.src = '//js.hsforms.net/forms/v2.js';
 
-    this.el.appendChild(script);
-  }
+    // this.el.appendChild(script);
+  // }
 
   createHubspotForm() {
-    window['hbspt'].forms.create({
-      portalId: '3776657',
-      formId: this.formId,
-      target: `#${this.wrapperId}`,
-    });
+    // window['hbspt'].forms.create({
+    //   portalId: '3776657',
+    //   formId: this.formId,
+    //   target: `#${this.wrapperId}`,
+    // });
   }
 
-  loadBackupForm = async () => {
-    const response = await fetch(`/api/v1/getform/${this.formId}`)
-    const data = await response.json()
+  componentWillLoad = async () => {
+    const response = await fetch(`/api/v1/getform/${this.formId}`);
+    const data = await response.json();
 
-    this.submitText = data.submitText;
     this.formGroups = data.formFieldGroups;
+    !this.submitText ? this.submitText = data.submitText : '';
+
     data.formFieldGroups.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);
       })
     });
     
-    this.blocked = true;
+    this.data = true;
   }
 
-  handleBackupSubmit = async (e: UIEvent) => {
+  handleSubmit = async (e: UIEvent) => {
     e.preventDefault();
-    const url: string = "https://api.hsforms.com/submissions/v3/integration/submit/3776657/84157001-6990-455e-8672-cb0d936a2226"
+    const url: string = `https://api.hsforms.com/submissions/v3/integration/submit/3776657/${this.formId}`
     const cookie =  document.cookie.match(/(hubspotutk=).*?(?=;)/g);
     const fields = this.formFields.map(field => {
       return {
@@ -88,6 +89,8 @@ export class HubspotForm {
         "value": this.formEl[`${field.name}`].value
       }
     });
+
+
     const context: { pageUri: string, pageName: string, hutk?: string} = {
       "pageUri": "https://ionicframework.com/ioniconf",
       "pageName": "Ioniconf 2020"
@@ -110,11 +113,7 @@ export class HubspotForm {
       body: JSON.stringify(data) 
     });
 
-    const resData = await response.json();
-
-    if (response.status == 200){
-      const successMsg = resData.inlineMessage.match(/(<p>).*?(?=&nbsp;)/g)[0].split("<p>")[1];
-      this.successMsg = successMsg;
+    if (response.status.toString().charAt(0) == '2'){
       this.emailSuccess = true;
     } else {
       this.emailInvalid = true;
@@ -122,25 +121,21 @@ export class HubspotForm {
   }
 
   render() {
-    return (
-      <div id={this.wrapperId} class="hbspt-form">
-        { this.blocked && !this.emailSuccess &&
-        <form onSubmit={this.handleBackupSubmit} ref={e => this.formEl = e} class="hs-form">
-          { this.formGroups.map(g => <HubspotFormGroups fields={g.fields}/>)}
-          <div class="hs-submit">
-            <button class="hs-button">{this.submitText}</button>
-          </div>
-        </form> }
+    if (!this.data) return;
 
-        { this.emailSuccess &&
-        <div class="success__message">
-          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return (
+      <Host id={this.wrapperId} class="hbspt-form">
+        <form onSubmit={this.handleSubmit} ref={e => this.formEl = e} class="hs-form">
+          { this.formGroups?.map(g => <HubspotFormGroups fields={g.fields}/>)}
+          
+          { this.emailSuccess ?
+          <svg class="success" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 42c11.598 0 21-9.402 21-21S32.598 0 21 0 0 9.402 0 21s9.402 21 21 21z" fill="#D3F3DB"/>
             <path d="M13.87 20.97a1.75 1.75 0 00-2.54 2.408l2.54-2.407zm3.588 6.33l-1.27 1.204a1.75 1.75 0 002.54 0l-1.27-1.204zM30.67 15.904a1.75 1.75 0 00-2.54-2.408l2.54 2.408zm-19.34 7.474l4.858 5.126 2.54-2.408-4.858-5.125-2.54 2.407zm7.398 5.126l11.942-12.6-2.54-2.408-11.942 12.6 2.54 2.408z" fill="#43C465"/>
-          </svg>
-          <p>{this.successMsg}</p>
-        </div> }
-      </div>
+          </svg> :
+          <button class="button" aria-label="submit email">{this.submitText}</button>}
+        </form> 
+      </Host>
     );
   }
 }

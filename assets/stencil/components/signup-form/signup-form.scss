@@ -3,8 +3,27 @@ ionic-signup-form {
 
   section {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 1fr auto;
     height: 100%;
+  }
+
+  hgroup {
+    text-align: center;
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin-top: 16px;
+      color: #414D5C;
+    }
   }
 
   #signup-form {
@@ -57,7 +76,7 @@ ionic-signup-form {
   }
 
   .disclaimer {
-    margin: 12px 0 24px;
+    margin: 12px 0 0;
     font-size: 12px;
     text-align: center;
 

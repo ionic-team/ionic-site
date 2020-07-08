@@ -79,10 +79,12 @@ export namespace Components {
     'buttonText': string;
     'gaEventLabel': any;
     'gaEventName': any;
+    'heading': string;
     'hubspotEventId': string;
     'message': boolean;
     'oauthRedirect': boolean;
     'source': any;
+    'subheading': string;
   }
   interface IonicSlider {}
   interface IonicSnapBar {}
@@ -428,12 +430,14 @@ declare namespace LocalJSX {
     'buttonText'?: string;
     'gaEventLabel'?: any;
     'gaEventName'?: any;
+    'heading'?: string;
     'hubspotEventId'?: string;
     'message'?: boolean;
     'oauthRedirect'?: boolean;
     'onLoginInstead'?: (event: CustomEvent<void>) => void;
     'onSignedUp'?: (event: CustomEvent<SignupForm>) => void;
     'source'?: any;
+    'subheading'?: string;
   }
   interface IonicSlider {}
   interface IonicSnapBar {}

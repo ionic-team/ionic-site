@@ -1,48 +1,40 @@
+ionic-app-wizard {
+  width: 100%;
+}
+
 #app-wizard {
-  .notice {
-    position: fixed;
-    padding: 10px 15px;
-    bottom: 14px;
-    right: 14px;
-    background: var(--c-grey-100);
-    border: 1px solid var(--c-grey-300);
-    border-radius: 8px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
 
-  }
-
-  .wrapper {
-    width: 400px;
-    margin: 10px auto;
-    margin-top: -22px;
-  }
-
-  button ion-icon {
-    vertical-align: middle;
-    margin-top: -1px
-  }
-
-  ion-segment {
-    max-width: 284px;
-    margin: auto;
+  .form-area {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   hgroup {
     text-align: center;
-    margin: 58px 0 48px 0;
+    margin-bottom: 32px;
 
     h2 {
-      margin-top: 0;
       font-size: 32px;
       line-height: 22px;
       letter-spacing: -0.03em;
     }
 
-    h4 {
+    p {
       font-weight: normal;
       font-size: 18px;
+      letter-spacing: -0.02em;
       margin-top: 16px;
-      color: var(--c-carbon-400);
+      color: #414D5C;
     }
+  }
+
+  button ion-icon {
+    vertical-align: middle;
+    margin-top: -1px
   }
 
   label {

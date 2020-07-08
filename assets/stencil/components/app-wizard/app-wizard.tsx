@@ -48,11 +48,11 @@ export class AppWizard {
 
   STEPS = [
     {
-      name: 'App Style',
+      name: 'Create app',
       id: 'basics'
     },
     {
-      name: 'Profile',
+      name: 'Account',
       id: 'profile'
     },
     {
@@ -87,7 +87,7 @@ export class AppWizard {
       '1f60b', // yum
       '1f601', // grin
       '1f60e', // shades
-      '1f61c', //  
+      '1f61c', //
       '1f929', // starstruck
       '1f604', // smile
       '1f603', // smiley
@@ -362,14 +362,14 @@ export class AppWizard {
     } else if (this.user) {
       buttonText = <span>Create App</span>;
     } else {
-      buttonText = <span>Continue <ion-icon name="ios-arrow-forward" /></span>;
+      buttonText = <span>Continue -></span>;
     }
 
     return (
       <div>
         <hgroup>
           <h2>Welcome to Ionic</h2>
-          <h4>Let's start your first app</h4>
+          <p>Let's start your first app</p>
         </hgroup>
         <form class="form" onSubmit={this.basicsNext}>
           <ui-floating-input
@@ -449,7 +449,7 @@ export class AppWizard {
               onChange={framework => {
                 if (framework !== 'vue') {
                   this.framework = framework;
-                } 
+                }
               }} />
           </div>
           <div ref={e => this.submitButtonWrapRef = e} class="next-button-wrapper">
@@ -468,14 +468,16 @@ npm install -g @ionic/cli cordova-res
 ionic start --start-id ${this.appId}
     `;
 
+    document.querySelector('.header__feedback').classList.add('is-visible');
+
     return (
       <div class="finish">
         <hgroup>
           <span class="icon">🎉</span>
           <h2>You're all set</h2>
-          <h4>
+          <p>
             Run this to see your amazing new app:
-          </h4>
+          </p>
         </hgroup>
         <div>
           <pre><code>{instructions}</code></pre>
@@ -520,18 +522,19 @@ ionic start --start-id ${this.appId}
   render() {
     return (
       <div id="app-wizard" onDragOver={this.handleRootDragOver} onDrop={this.handleRootDrop}>
-        <div class="wrapper">
-          {this.step < 2 ? (
+        {this.step < 2 ? (
           <ionic-switcher
-            items={this.STEPS.map(s => s.name).join()}
+            items={[this.STEPS[0], this.STEPS[1]].map(s => s.name).join()}
             index={this.step}
             />
           ) : null}
+
+        <div class="form-area">
           {this.renderStep()}
         </div>
-        <div class="notice">
+        <div class="notice notice--fixed">
           Prefer to install manually? <br />
-          <a href="https://ionicframework.com/getting-started">Follow our CLI installation guide</a>
+          <a href="https://ionicframework.com/getting-started#install">Follow our CLI installation guide</a>
         </div>
       </div>
     );

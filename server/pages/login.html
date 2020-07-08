@@ -6,15 +6,19 @@
 
 {% block main %}
 <header>
-  <a href="/">
+  <a href="/" class="header__logo">
     {% include '_includes/svg/ionic-black.svg' %}
   </a>
 </header>
 <main>
   <div class="container-fluid">
     <div class="auth-form-container">
-      <h1>Log in to Ionic</h1>
-      <ionic-login-form></ionic-login-form>
+      <div class="form-area">
+        <hgroup>
+          <h2>Log in to Ionic</h2>
+        </hgroup>
+        <ionic-login-form></ionic-login-form>
+      </div>
     </div>
   </div>
 </main>

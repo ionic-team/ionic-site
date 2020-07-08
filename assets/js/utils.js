@@ -348,7 +348,7 @@ window.stickyNav = {
   handleScroll: function () {
     var self = this;
     requestAnimationFrame(function(){
-      if (window.scrollY > 70) {
+      if (window.scrollY > 102) {
         self.show();
       } else {
         self.hide();

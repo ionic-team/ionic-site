@@ -33,6 +33,8 @@ export class IonicSignupForm {
 
   @Prop() buttonText = 'Create Profile';
 
+  @Prop() message = false;
+
   @State() formStatus: 'dormant' | 'submitting' | 'submitted' = 'dormant';
 
   @State () disabled = true;
@@ -47,13 +49,6 @@ export class IonicSignupForm {
 
 
   clearErrors = () => this.formErrorMap = null;
-
-  handleSocial = (e) => {
-    e.preventDefault();
-    const id = e.target.id;
-    const url = `/oauth/login/${id}` + window.location.search;
-    window.location.assign(url);
-  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -119,84 +114,81 @@ export class IonicSignupForm {
     return (
     <Host>
       {this.formStatus !== 'submitted' &&
-      <form class="form" id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
-        {this.allowSocial ? (
+        <section>
           <div>
-            <button type="button" id="github" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-github" size="small"></ion-icon>
-              Continue with GitHub
-            </button>
-            <button type="button" id="bitbucket" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-bitbucket" size="small"></ion-icon>
-              Continue with Bitbucket
-            </button>
-            <button type="button" id="gitlab" class="btn btn-block" onClick={this.handleSocial}>
-              <ion-icon name="logo-gitlab" size="small"></ion-icon>
-              Continue with GitLab
-            </button>
-            <div class="form-group disclaimer">OR</div>
+            { this.formErrorMap?._form ? (
+                <FormErrors>{this.formErrorMap._form}</FormErrors>
+              ) : null }
+            {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
           </div>
-        ) : null}
-        { this.formErrorMap?._form ? (
-          <FormErrors><span>{this.formErrorMap._form}</span></FormErrors>
-        ) : null }
-        <ui-floating-input
-          type="text"
-          label="Full name"
-          name="name"
-          inputTabIndex={1}
-          required={true}
-          value={form.name}
-          message={this.formErrorMap?.name}
-          onChange={inputChange('name')} />
-        <ui-floating-input
-          type="email"
-          label="Email"
-          name="email"
-          inputTabIndex={2}
-          required={true}
-          value={form.email}
-          message={this.formErrorMap?.email}
-          onChange={inputChange('email')} />
-        <ui-floating-input
-          type="text"
-          label="Username"
-          name="username"
-          inputTabIndex={3}
-          required={true}
-          value={form.username}
-          message={this.formErrorMap?.username}
-          onChange={inputChange('username')} />
-        <ui-floating-input
-          type="password"
-          label="Password"
-          name="password"
-          inputTabIndex={4}
-          required={true}
-          value={form.password}
-          message={this.formErrorMap?.password}
-          onChange={inputChange('password')} />
-        <button
-          type="submit"
-          id="submit"
-          class="btn btn-block"
-          disabled={this.disabled}
-          tabindex="5">{this.buttonText}</button>
-        {this.allowLogin ? (
-        <div class="well">
-          Already have an account?
-          <a href="#"
-             class="text-link"
-             onClick={e => { e.preventDefault(); this.loginInstead.emit() }}>
-               Log in
-          </a>
+
+          <div>
+            <form id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
+            <ui-floating-input
+              type="text"
+              label="Full name"
+              name="name"
+              inputTabIndex={1}
+              required={true}
+              value={form.name}
+              message={this.formErrorMap?.name}
+              onChange={inputChange('name')} />
+            <ui-floating-input
+              type="text"
+              label="Username"
+              name="username"
+              inputTabIndex={2}
+              required={true}
+              value={form.username}
+              message={this.formErrorMap?.username}
+              onChange={inputChange('username')} />
+            <ui-floating-input
+              type="email"
+              label="Email"
+              name="email"
+              inputTabIndex={3}
+              required={true}
+              value={form.email}
+              message={this.formErrorMap?.email}
+              onChange={inputChange('email')} />
+            <ui-floating-input
+              type="password"
+              label="Password"
+              name="password"
+              inputTabIndex={4}
+              required={true}
+              value={form.password}
+              message={this.formErrorMap?.password}
+              onChange={inputChange('password')} />
+            <button
+              type="submit"
+              id="submit"
+              class="btn btn-block"
+              disabled={this.disabled}
+              tabindex="5">{this.buttonText}</button>
+            </form>
+            {this.allowLogin ? (
+            <div class="login-prompt">
+              Already have an account?{" "}
+              <a href={`/login${window.location.search}`}
+                class="text-link"
+                onClick={(e) => {
+                  if (this.loginInstead.emit().defaultPrevented) {
+                    e.preventDefault();
+                  }
+                }}>
+                  Log in
+              </a>
+            </div>
+          ) : null}
         </div>
-        ) : null}
-        <p class="form-group disclaimer">
+
+        <p class="disclaimer">
           By signing up you agree to our <a target="_blank" href="/tos">Terms of Service</a> and <a target="_blank" href="/privacy">Privacy Policy</a>
         </p>
-      </form>}
-      {this.formStatus === 'submitted' &&
+
+      </section>}
+      {this.formStatus === 'submitted' && this.message &&
       <div id="signup-thanks">
         <h2 class="u-box u-font">Thanks!</h2>
         <p class="u-box u-font">

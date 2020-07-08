@@ -5,6 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-feature-settings: 'calt' on;
 
   @media (max-width: $screen-xs-max) {
     padding-top: 50px;

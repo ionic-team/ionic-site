@@ -34,23 +34,28 @@
 
     @keyframes slideInOut{
       0% {
-        opacity:0;
+        z-index: -1;
+        opacity: 0;
         transform: translateY(-20px);
       }
       48% {
+        z-index: -1;
         opacity: 0;
         transform: translateY(-20px);
         display: block;
       }
       50% {
+        z-index: 1;
         opacity: 1;
         transform: translateY(0px);
       }
       98% {
+        z-index: 1;
         opacity: 1;
         transform: translateY(0px);
       }
       100% {
+        z-index: -1;
         opacity: 0;
         transform: translateY(20px);
         display:none;
@@ -58,28 +63,34 @@
     }
     @keyframes slideOutIn{
       0% {
+        z-index:1;
         opacity: 1;
         transform: translateY(0px);
       }
       48% {
+        z-index:1;
         opacity: 1;
         transform: translateY(0px);
       }
       50% {
+        z-index:-1;
         opacity: 0;
         transform: translateY(20px);
       }
       98% {
+        z-index:-1;
         opacity: 0;
         transform: translateY(-20px);
       }
       100% {
+        z-index: 1;
         opacity: 1;
         transform: translateY(0px);
       }
     }
 
     .react {
+      z-index: 1;
       color: #42CCFF;
       position: absolute;
       bottom: 0;
@@ -88,13 +99,14 @@
       animation: slideOutIn 16s ease -4s;
       animation-iteration-count: infinite;
 
-      &:after {
+      &::after {
         background: rgba(89, 210, 255, .3);
-        bottom: 6px;
+        bottom: 1px;
       }
     }
 
     .angular {
+      z-index: -1;
       color: #EF4D4D;
       position: relative;
       opacity: 0;
@@ -103,11 +115,17 @@
       animation: slideInOut 16s ease -4s;
       animation-iteration-count: infinite;
 
-      &:after {
+      &::after {
         background: rgba(239, 77, 77, .3);
         position:absolute;
-        bottom: 6px;
+        bottom: 1px;
       }
+    }
+
+    a {
+     &:hover, &:focus, &:active {
+       text-decoration: none;
+     } 
     }
 
     h1 {

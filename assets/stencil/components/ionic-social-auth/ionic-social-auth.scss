@@ -1,0 +1,57 @@
+ionic-social-auth {
+  form {
+    display: grid;
+    grid-gap: 12px;
+  }
+
+  button {
+    justify-content: center;
+
+    ion-icon {
+      margin: 0px 12px;
+    }
+
+    &.btn-block + .btn-block {
+      margin-top: 0;
+    }
+  }
+
+  #github {
+    background-color: #24292e;
+  }
+
+  #bitbucket {
+    background-color: #0052cc;
+  }
+
+  #gitlab {
+    background-color: #fc6d26;
+  }
+
+  .or {
+    position: relative;
+    text-align: center;
+
+    span {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      color: #B2BECD;
+      font-size: 10px;
+      background-color: #fff;
+      padding: 12px;
+    }
+
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 1px;
+      top: 50%;
+      background-color: #DEE3EA;
+    }
+
+  }
+}

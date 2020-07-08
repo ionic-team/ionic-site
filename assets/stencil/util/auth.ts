@@ -22,6 +22,13 @@ const makeApiError = (message, exc?, reason?) => ({
 
 export const login = async (email, password, source, loginEventId ="000006636951") => {
   try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("source")) {
+      source = params.get("source");
+    } else if (params.has("client_id")) {
+      source = params.get("client_id");
+    }
+
     const ret = await fetch('/oauth/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -52,15 +59,12 @@ export const login = async (email, password, source, loginEventId ="000006636951
 }
 
 export const oauthAuthorize = () => {
-  var params = new URLSearchParams(location.search);
-  if (!params.has("client_id")) {
-    params.set("response_type", "token");
-    params.set("scope", "openid profile email");
-    params.set("client_id", "dash");
-    params.set("nonce", Math.random().toString(36).substring(2));
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("client_id")) {
+    window.location.assign(`/oauth/authorize${window.location.search}`);
+  } else {
+    window.location.assign(`${window.DASHBOARD_URL}/login${window.location.search}`);
   }
-
-  window.location.assign(`/oauth/authorize?${params.toString()}`);
 }
 
 export const signup = async (form: SignupForm, source: string, signupEventId="000006040735") => {
@@ -106,6 +110,9 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
 export const getUser = async (): Promise<UserInfo> => {
   try {
     const ret = await fetch('/oauth/userinfo');
+    if (!ret.ok) {
+      return null;
+    }
     return await ret.json() as UserInfo;
   } catch (e) {
     return null;

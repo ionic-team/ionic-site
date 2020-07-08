@@ -1,41 +1,31 @@
-{% extends '_layouts/base.html' %}
+{% extends '_layouts/blank.html' %}
 {% set title = "Ionic - Signup" %}
 {% set id = "signup" %}
-{% set pre_footer = false %}
-{% set header_style = 'transparent light' %}
-{% set meta_description = "Create a free Ionic account." %}
-{% set stickyNav = false %}
+{% set meta_description = "Create your Ionic account." %}
+{% set cssPath = 'auth' %}
 
 {% block main %}
-<div class="banner banner--hero">
-  <hgroup class="container">
-    <h1>Create a free Ionic account</h1>
-  </hgroup>
-</div>
+<header>
+  <a href="/">
+    {% include '_includes/svg/ionic-black.svg' %}
+  </a>
+</header>
 <main>
-  <section class="tab-content" id="content-account">
-    <div class="container">
-      <div class="form-row">
-        <div class="col form-wrapper">
-          <ionic-signup-form
-            source="framework-signup"
-            ga-event-name="Get started"
-            ga-event-label="btn-get-started-signup-submit"
-            hubspot-event-id="000006040735"
-            id="signup-form"
-            allow-login="false"
-            allow-social="true"
-            oauth-redirect="false"
-          ></ionic-signup-form>
-        </div>
-      </div>
-      <div class="content-row">
-        <div class="col col--centered col--full">
-          Already have an account? <a href="/login{{ search | escape }}">Log in</a>
-        </div>
-      </div>
+  <div class="container">
+    <div class="auth-form-container">
+      <h1>Create your Ionic account</h1>
+      <ionic-signup-form
+        source="framework-signup"
+        ga-event-name="Get started"
+        ga-event-label="btn-get-started-signup-submit"
+        hubspot-event-id="000006040735"
+        id="signup-form"
+        allow-login="true"
+        allow-social="true"
+        button-text="Create account ➔"
+      ></ionic-signup-form>
     </div>
-  </section>
+  </div>
 </main>
 {% endblock %}
 
@@ -58,13 +48,4 @@
 ></script>
 {# Google reCAPTCHA #}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
-<script>
-  (function () {
-    var signupForm = document.querySelector("ionic-signup-form");
-    signupForm.addEventListener("signedUp", function (e) {
-      var url = "{{ DASHBOARD_URL }}/login" + window.location.search;
-      window.location.assign(url);
-    });
-  })();
-</script>
 {% endblock %}

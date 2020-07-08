@@ -1,219 +1,40 @@
-{% extends '_layouts/base.html' %}
+{% extends '_layouts/blank.html' %}
 {% set title = "Ionic - Login" %}
 {% set id = "login" %}
-{% set pre_footer = false %}
-{% set header_style = 'transparent light' %}
 {% set meta_description = "Log in to Ionic." %}
-{% set stickyNav = false %}
+{% set cssPath = 'auth' %}
 
 {% block main %}
-<div class="banner banner--hero">
-  <hgroup class="container">
-    <h1>Log in to Ionic</h1>
-  </hgroup>
-</div>
+<header>
+  <a href="/">
+    {% include '_includes/svg/ionic-black.svg' %}
+  </a>
+</header>
 <main>
-  <section class="tab-content" id="content-account">
-    <div class="container">
-      <div class="form-row">
-        <div class="col form-wrapper">
-          <form class="form hide-password" id="login-form" role="form">
-            <div class="errorlist">
-              <div>Unable to log in:</div>
-              <div class="form-message"></div>
-            </div>
-            <div class="form-group" id="field-email">
-              <label for="id_email">Email or organization ID</label>
-              <input type="text" id="id_email" name="email" autocomplete="username" tabindex="1" required>
-              <div class="form-message form-message--small"></div>
-            </div>
-            <div class="form-group" id="field-password">
-              <label for="id_password">
-                Password
-                <div class="forgot-password">
-                  <a href="{{ DASHBOARD_URL }}/reset-password" title="Reset Password?">Forgot password?</a>
-                </div>
-              </label>
-              <input type="password" id="id_password" name="password" autocomplete="current-password" tabindex="-1">
-              <div class="form-message form-message--small"></div>
-            </div>
-            <button type="submit" id="submit" class="btn btn-block" tabindex="3">Continue</button>
-            <div class="well">
-              Don't have an account? <a class="text-link" href="/signup{{ search | escape }}">Sign up</a>
-            </div>
-          </form>
-        </div>
-      </div>
+  <div class="container">
+    <div class="auth-form-container">
+      <h1>Log in to Ionic</h1>
+      <ionic-login-form></ionic-login-form>
     </div>
-  </section>
+  </div>
 </main>
 {% endblock %}
 
 {% block scripts %}
 {# Promise, fetch, URLSearchParams polyfills #}
-<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js" integrity="sha384-Oa9qd3zGPgIOjIcotuclp6o+1G/FJtvOBKJRGkHSQt/nQWcZY/UwxnQYvVL5dfV5" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js" integrity="sha384-izk5QhlJG4UwhAQ3P3QgvguhYiTV1GRKBu41DyczWbFPX3hVK89Q+CLwVAzBBcy8" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.6.4/minified.js" integrity="sha384-0klsXCJV+cWaC+zXWBGWot1n1vMkFkbxy6BtBjwrn+fEoS5kflOTchfH9PUQPaN+" crossorigin="anonymous"></script>
-<script>
-  (function () {
-    var ssoIdKey = "_ionic_sso_id";
-    var params = new URLSearchParams(window.location.search);
-    var form = document.getElementById("login-form");
-    var email = document.getElementById("id_email");
-    var password = document.getElementById("id_password");
-    var submit = document.getElementById("submit");
-    var passwordLogin = false;
-
-    // handle login form submission
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      if (passwordLogin) {
-        handleLogin();
-      } else {
-        getAuthConnection();
-      }
-    });
-
-    function handleLogin() {
-      var source;
-      if (params.has("source")) {
-        source = params.get("source");
-      } else if (params.has("client_id")) {
-        source = params.get("client_id");
-      } else {
-        source = "framework-login";
-      }
-
-      var data = {
-        email: email.value,
-        password: password.value,
-        source: source
-      };
-
-      window.localStorage.removeItem(ssoIdKey);
-
-      fetch("/oauth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (result) {
-          if (result.error) {
-            handleError(result.error);
-            return;
-          }
-
-          window.c("Log in", "btn-login-submit");
-          var _hsq = (window._hsq = window._hsq || []);
-          _hsq.push(["identify", { email: data.email }]);
-          _hsq.push(["trackEvent", { id: "000006636951" }]);
-
-          if (params.has("client_id")) {
-            window.location.assign("/oauth/authorize?" + params.toString());
-          } else {
-            window.location.assign("{{ DASHBOARD_URL }}/login" + window.location.search);
-          }
-        })
-        .catch(function (reason) {
-          clearErrors();
-          handleError({ message: reason.message });
-        });
-    }
-
-    function getAuthConnection() {
-      var emailOrSlug = email.value;
-
-      var state = Object.fromEntries(params.entries());
-
-      var url = new URL("{{ API_URL }}/auth/connections/" + encodeURIComponent(emailOrSlug));
-      url.searchParams.set("state", JSON.stringify(state));
-
-      fetch(url.href)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (result) {
-          if (result.error || !result.data.url) {
-            showPassword();
-            return;
-          }
-          var _hsq = (window._hsq = window._hsq || []);
-          _hsq.push(["identify", { email: emailOrSlug }]);
-          _hsq.push(["trackEvent", { id: "000006636951" }]);
-
-          window.localStorage.setItem(ssoIdKey, emailOrSlug);
-          window.location.assign(result.data.url);
-        })
-        .catch(function (reason) {
-          clearErrors();
-          handleError({ message: reason.message });
-        });
-    }
-
-    function handleError(response) {
-      var loginError = response;
-      var loginErrors =
-        loginError && loginError.details
-          ? loginError.details.reduce(function (acc, current) {
-              acc[current.parameter] = current.errors.join(" ");
-              return acc;
-            }, {})
-          : {};
-
-      if (loginError) {
-        var errorlist = document.querySelector(".errorlist");
-        var message = errorlist.querySelector(".form-message");
-        errorlist.classList.add("error");
-        message.textContent = loginError.message;
-      }
-
-      if (loginErrors) {
-        for (var key in loginErrors) {
-          var errorGroup = document.querySelector("#field-" + key);
-          var message = errorGroup.querySelector(".form-message");
-          errorGroup.classList.add("error");
-          message.textContent = loginErrors[key];
-        }
-      }
-    }
-
-    function clearErrors() {
-      var errorlist = document.querySelector(".errorlist");
-      var message = errorlist.querySelector(".form-message");
-      errorlist.classList.remove("error");
-      message.textContent = "";
-
-      var keys = ["email", "password"];
-      for (var i = 0; i < keys.length; i++) {
-        var errorGroup = document.querySelector("#field-" + keys[i]);
-        var message = errorGroup.querySelector(".form-message");
-        errorGroup.classList.remove("error");
-        message.textContent = "";
-      }
-    }
-
-    function showPassword() {
-      form.classList.remove("hide-password");
-      password.focus();
-      password.required = true;
-      password.tabIndex = 2;
-      passwordLogin = true;
-      submit.textContent = "Log in";
-    }
-
-    if (params.has("error_description")) {
-      handleError({ message: params.get("error_description") });
-    }
-
-    var ssoId = window.localStorage.getItem(ssoIdKey);
-    if (ssoId) {
-      email.value = ssoId;
-    }
-    email.focus({ preventScroll: true });
-  })();
-</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js"
+  integrity="sha384-Oa9qd3zGPgIOjIcotuclp6o+1G/FJtvOBKJRGkHSQt/nQWcZY/UwxnQYvVL5dfV5"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js"
+  integrity="sha384-izk5QhlJG4UwhAQ3P3QgvguhYiTV1GRKBu41DyczWbFPX3hVK89Q+CLwVAzBBcy8"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.6.4/minified.js"
+  integrity="sha384-0klsXCJV+cWaC+zXWBGWot1n1vMkFkbxy6BtBjwrn+fEoS5kflOTchfH9PUQPaN+"
+  crossorigin="anonymous"
+></script>
 {% endblock %}

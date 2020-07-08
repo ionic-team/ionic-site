@@ -1,37 +1,37 @@
 ionic-signup-form {
-  display: block;
+  width: 100%;
 
-  #github {
-    background-color: #24292e;
+  section {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+  }
 
-    ion-icon {
-      margin: 0px 8px;
+  #signup-form {
+    margin-top: 12px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: 1fr 1fr;
+
+    ui-floating-input:not(:nth-child(1)):not(:nth-child(2)),
+    #submit {
+      grid-column: 1 / 3;
+    }
+
+    ui-floating-input {
+      position: relative;
+      margin-bottom: 0;
+
+      .form-message {
+        position: absolute;
+        top: 100%;
+      }
     }
   }
 
-  #bitbucket {
-    background-color: #0052cc;
-
-    ion-icon {
-      margin: 0px 8px;
-    }
-  }
-
-  #gitlab {
-    background-color: #fc6d26;
-
-    ion-icon {
-      margin: 0px 8px;
-    }
-  }
 
   #submit {
-    justify-content: center;
-    text-transform: uppercase;
-    font-size: 15px;
-    letter-spacing: 0.1em;
-    font-weight: bold;
-
     &:disabled {
       background: #E9EDF3;
       color: #B2BECD;
@@ -39,37 +39,44 @@ ionic-signup-form {
     }
   }
 
-
-  ui-floating-input {
-    margin-bottom: 25px;
-  }
-
-  .well {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #E1E5ED;
-    border-radius: 6px;
-    margin-top: 16px;
-    color: #3B424D;
-    font-size: 14px;
-    font-weight: 600;
-
-    .text-link {
-      margin-left: 5px;
-    }
-  }
-
-  .disclaimer {
-    margin-top: 16px;
-  }
-
   .form-errors {
-    margin: 24px 0;
+    margin-bottom: 12px;
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
+    background-color: var(--c-red-0);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .login-prompt {
+    text-align: center;
+    color: #414D5C;
+  }
+
+  .disclaimer {
+    margin: 12px 0 24px;
+    font-size: 12px;
+    text-align: center;
+
+    &,
+    a {
+      color: #92A0B3;
+    }
+
+    a {
+      border-bottom: 1px solid #CED6E0;
+    }
+  }
+
+  .btn {
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
   }
 }

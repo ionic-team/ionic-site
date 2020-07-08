@@ -69,7 +69,7 @@ export class HubspotForm {
     console.log(response);
     !this.submitText ? this.submitText = data.submitText : '';
     this.formGroups = data.formFieldGroups;
-    data.formFieldGroups.forEach(({fields}) => {
+    data.formFieldGroups?.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);
       })

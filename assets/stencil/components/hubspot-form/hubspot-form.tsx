@@ -12,7 +12,7 @@ interface fieldProps {
 const HubspotFormGroups = ({fields}) => {
   return (
     <fieldset hidden={!fields.every(field => field.hidden === false)}>
-      { fields.map(({label, hidden, fieldType, name, selectedOptions}) => [
+      { fields?.map(({label, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
         <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
@@ -63,12 +63,10 @@ export class HubspotForm {
     // });
   }
 
-  componentWillLoad = async () => {
+  connectedCallback = async () => {
     const response = await fetch(`/api/v1/getform/${this.formId}`)
     const data = await response.json();
-    console.log(response);
     !this.submitText ? this.submitText = data.submitText : '';
-    this.formGroups = data.formFieldGroups;
     data.formFieldGroups?.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);

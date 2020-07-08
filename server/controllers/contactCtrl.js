@@ -2,9 +2,6 @@ const config    = require('../config');
 const tools     = require('../tools');
 const sg = require('sendgrid')(config.SENDGRID_APIKEY);
 
-const jsforce = require('jsforce');
-var sfConn = new jsforce.Connection()
-
 module.exports = function(req, res) {
   var cleanForm = {}
   for (var p in req.body) {

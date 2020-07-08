@@ -97,8 +97,8 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
 
   .arrow {
-  @include box($d:flex, $ai:center, $w:18px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:8px);
-  @include font($ff:Ionicons, $fs:24px);
+  @include box($d:flex, $ai:center, $w:18px, $curs:pointer, $pos:absolute, $back:$colorBackMain, $r:8px, $z:1);
+  @include font($fs:18px);
   transition: all .15s ease-in; 
   }
 
@@ -221,7 +221,7 @@ html, body, main {
   font-family:$fontFamilyInter;
 }
 
-button {
+button, .mobile-nav {
   font-family:$fontFamilyInter;
 }
 

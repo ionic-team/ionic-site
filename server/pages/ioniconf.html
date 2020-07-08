@@ -33,7 +33,7 @@
                onClick="this.querySelector('input[name=email]').focus()">
           <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="headerUpdates" role="button" type="checkbox"/>
           <span class="text">Sign up for updates</span>
-          <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+          <span class="arrow">-></span>
           <hubspot-form 
             form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
             submit-text="->"/>
@@ -151,7 +151,7 @@
                onClick="this.querySelector('input[name=email]').focus()">
           <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="mobileNavUpdates" role="button" type="checkbox"/>
           <span class="text">Sign up for updates</span>
-          <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+          <span class="arrow">-></span>
           <hubspot-form 
             form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
             submit-text="->"/>
@@ -1656,7 +1656,7 @@
              onClick="this.querySelector('input[name=email]').focus()">
         <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="footerUpdates" role="button" type="checkbox"/>
         <span class="text">Sign up for updates</span>
-        <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
+        <span class="arrow">-></span>
         <hubspot-form 
           form-id="76e5f69f-85fd-4579-afce-a1892d48bb32"
           submit-text="->"/>
@@ -1694,12 +1694,6 @@
   $('[data-spy="scroll"]').on('activate.bs.scrollspy', ({ target }) => {
     target.children[0].blur();
   })
-
-  const focusInput = () => {
-    const registerInputs = Array.from(document.querySelectorAll('[name="email"].hs-input'));
-    registerInputs[1].focus();
-  }
-
 
 </script>
 {% endblock %}

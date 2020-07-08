@@ -39,7 +39,7 @@ export class HubspotForm {
   
   private formEl: HTMLFormElement;
 
-  componentWillLoad() {
+  // componentWillLoad() {
     // if (window['hbspt']) {
     //   this.createHubspotForm();
     //   return;
@@ -53,7 +53,7 @@ export class HubspotForm {
     // script.src = '//js.hsforms.net/forms/v2.js';
 
     // this.el.appendChild(script);
-  }
+  // }
 
   createHubspotForm() {
     // window['hbspt'].forms.create({
@@ -63,10 +63,10 @@ export class HubspotForm {
     // });
   }
 
-  connectedCallback = async () => {
+  componentWillLoad = async () => {
     const response = await fetch(`/api/v1/getform/${this.formId}`)
     const data = await response.json();
-
+    console.log(response);
     !this.submitText ? this.submitText = data.submitText : '';
     this.formGroups = data.formFieldGroups;
     data.formFieldGroups.forEach(({fields}) => {

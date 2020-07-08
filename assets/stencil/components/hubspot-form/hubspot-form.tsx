@@ -15,7 +15,7 @@ const HubspotFormGroups = ({fields}) => {
       { fields.map(({label, placeholder, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
-        <input placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
+        <input required placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
       ]) }
     </fieldset>
   )
@@ -110,11 +110,10 @@ export class HubspotForm {
       body: JSON.stringify(data) 
     });
 
-    if (response.status == 200){
+    if (response.status.toString().charAt(0) == '2'){
       this.emailSuccess = true;
     } else {
       this.emailInvalid = true;
-      console.log(response.text);
     }
   }
 
@@ -125,7 +124,6 @@ export class HubspotForm {
       <Host id={this.wrapperId} class="hbspt-form">
         <form onSubmit={this.handleSubmit} ref={e => this.formEl = e} class="hs-form">
           { this.formGroups.map(g => <HubspotFormGroups fields={g.fields}/>)}
-
           
           { this.emailSuccess ?
           <svg class="success" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">

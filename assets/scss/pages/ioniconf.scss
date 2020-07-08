@@ -131,12 +131,12 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     @include box($v:hidden, $pos:absolute);
     }
     input {
-    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px);
+    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px, $pie: 36px);
     @include font($lh: 16px, $color:#000, $fw:400);
     }
     .button {
-    @include box($d:flex, $ai:center, $pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back: #fff, $p:10px 12px);
-    @include font($ff:Ionicons, $color:black, $fs:24px);
+    @include box($d:flex, $ai:center, $pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back: #fff, $p:12px 6px);
+    @include font($color:black, $fs:18px);
     }
     .success {
     @include box($pos:absolute, $t:1px, $r:1px, $h:calc(100% - 2px));
@@ -218,13 +218,14 @@ html, body, main {
   background: $colorBackMain;
   position:relative;
   z-index: -2;  
-}
-
-p, li, button, td, input, label{
   font-family:$fontFamilyInter;
 }
 
-h1, h2, h3 {
+button {
+  font-family:$fontFamilyInter;
+}
+
+h1, h2{
   font-family: $fontFamilyEina;
 }
 
@@ -484,6 +485,50 @@ p {
     iframe {
     @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
     }
+  }
+}
+
+#talks {
+  .talks__cards {
+  @include box($d:grid, $gtc:repeat(auto-fill, minmax(298px, 1fr)), $cg:63px, $rg:40px, $mbs:36px);
+  }
+
+  .card__video {
+  @include box($pos:relative, $pbe:56.25%, $pbs:25px,$h:0,$bord:2px solid rgba(255, 255, 255, 0.5));
+
+    iframe {
+    @include box($pos:absolute, $t:0, $l:0, $w:100%, $h:100%);
+    }
+  }
+  .card__title {
+  @include box($d:flex, $ai:center, $jc:space-between, $mbs:32px, $mbe:20px);
+
+    .info {
+    @include box($d:flex, $ai:center);
+      
+      img {
+      @include box($mie:12px);
+      }
+    }
+    .social {
+    @include box($d:grid, $gtc:repeat(2, minmax(18px, 20px)), $cg:16px);    
+
+      a {
+      @include box($d:flex, $ai:center);
+
+        svg {
+        @include box($f:transparent, $trans:fill .1s ease-in);
+
+          &:hover, &:active, &:focus, &:focus-within {
+          @include box($f:#fff, $trans:fill .1s ease-in);
+          }
+        }
+      }
+    }
+  }
+  .card__info {
+  @include box($mnh:73px);
+  @include font($lh:140%, $ls:-.03em);
   }
 }
 

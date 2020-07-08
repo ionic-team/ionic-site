@@ -66,8 +66,8 @@ export class HubspotForm {
   componentWillLoad = async () => {
     const response = await fetch(`/api/v1/getform/${this.formId}`);
     console.log("Response: ", response);
-    const data = await response.json();
-    console.log("Data JSON: ", response);
+    const { body } = await response.json();
+    console.log("body JSON: ", body);
     this.formGroups = data.formFieldGroups;
     !this.submitText ? this.submitText = data.submitText : '';
     console.log(data.formFieldGroups);

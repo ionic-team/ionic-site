@@ -10,9 +10,10 @@ interface fieldProps {
 }
 
 const HubspotFormGroups = ({fields}) => {
+  console.log(fields);
   return (
     <fieldset hidden={!fields.every(field => field.hidden === false)}>
-      { fields?.map(({label, hidden, fieldType, name, selectedOptions}) => [
+      { fields.map(({label, hidden, fieldType, name, selectedOptions}) => [
         label ?
         <label hidden={hidden}>{label}</label> : '',
         <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
@@ -63,11 +64,13 @@ export class HubspotForm {
     // });
   }
 
-  connectedCallback = async () => {
+  componentWillLoad = async () => {
     const response = await fetch(`/api/v1/getform/${this.formId}`)
     const data = await response.json();
+    this.formGroups = data.formFieldGroups;
     !this.submitText ? this.submitText = data.submitText : '';
-    data.formFieldGroups?.forEach(({fields}) => {
+
+    data.formFieldGroups.forEach(({fields}) => {
       fields.forEach(field => {
         this.formFields.push(field);
       })
@@ -86,6 +89,8 @@ export class HubspotForm {
         "value": this.formEl[`${field.name}`].value
       }
     });
+
+
     const context: { pageUri: string, pageName: string, hutk?: string} = {
       "pageUri": "https://ionicframework.com/ioniconf",
       "pageName": "Ioniconf 2020"
@@ -117,11 +122,11 @@ export class HubspotForm {
 
   render() {
     if (!this.data) return;
-
+    console.log(this.formFields);
     return (
       <Host id={this.wrapperId} class="hbspt-form">
         <form onSubmit={this.handleSubmit} ref={e => this.formEl = e} class="hs-form">
-          { this.formGroups.map(g => <HubspotFormGroups fields={g.fields}/>)}
+          { this.formGroups?.map(g => <HubspotFormGroups fields={g.fields}/>)}
           
           { this.emailSuccess ?
           <svg class="success" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">

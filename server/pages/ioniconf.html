@@ -30,7 +30,7 @@
       </ul>
       <div>
         <label class="btn-secondary" for="headerUpdates"
-               onClick="this.querySelector('input[name=email]').focus()">
+               onClick="() => { focusTextbox(this) }">
           <input tabindex="0" class="checkbox" aria-label="Sign up for updates" id="headerUpdates" role="button" type="checkbox"/>
           <span class="text">Sign up for updates</span>
           <span class="arrow"><ion-icon name="arrow-forward-outline"></ion-icon></span>
@@ -1700,6 +1700,9 @@
     registerInputs[1].focus();
   }
 
+  function focusTextbox(e) {
+    e.querySelector('input[name=email]').focus();
+  }
 
 </script>
 {% endblock %}

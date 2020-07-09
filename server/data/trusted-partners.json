@@ -24,6 +24,18 @@
     "company-size": "5-20"
   },
   {
+    "slug":"clearlyinnovative",
+    "name":"Clearly Innovative",
+    "level":"gold",
+    "link":"https://clearlyinnovative.com",
+    "short-description":"<strong>Clearly Innovative</strong> create highly integrated solutions that empower our clients to be effective, innovative industry leaders.",
+    "long-description":"<p>Clearly Innovative is a minority-owned solutions provider that develops digital products. Our clients range from dynamic startups to inspiring enterprise-level organizations.</p><p>Driven by our team's collective creativity and passion for technology we strive to transform your vision into a winning product. As a leader in early adaption and implementation of cutting edge technologies, we provide services focused on strategy, user experience, design and development.</p>",
+    "address":"2301-D Georgia Ave NW<br>Washington, DC 20001",
+    "features": null,
+    "coordinates":null,
+    "company-size": "5-20"
+  },
+  {
     "slug":"briebug",
     "name":"Briebug",
     "level":"platinum",

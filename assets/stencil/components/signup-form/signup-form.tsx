@@ -31,7 +31,11 @@ export class IonicSignupForm {
   // Whether to allow the user to use third-party signup
   @Prop() allowSocial = false;
 
-  @Prop() buttonText = 'Create Profile';
+  @Prop() heading: string;
+
+  @Prop() subheading: string;
+
+  @Prop() buttonText = 'Create profile';
 
   @Prop() message = false;
 
@@ -115,57 +119,63 @@ export class IonicSignupForm {
     <Host>
       {this.formStatus !== 'submitted' &&
         <section>
-          <div>
+          <div class="form-area">
             { this.formErrorMap?._form ? (
                 <FormErrors>{this.formErrorMap._form}</FormErrors>
               ) : null }
-            {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
-          </div>
 
-          <div>
+            { this.heading &&
+              <hgroup>
+                <h2>{this.heading}</h2>
+                { this.subheading && <p>{this.subheading}</p> }
+              </hgroup>
+            }
+
+            {this.allowSocial ? <ionic-social-auth></ionic-social-auth> : null}
+
             <form id="signup-form" role="form" onSubmit={this.handleSubmit} method="POST" onInput={() => { this.disabled = false}}>
-            <ui-floating-input
-              type="text"
-              label="Full name"
-              name="name"
-              inputTabIndex={1}
-              required={true}
-              value={form.name}
-              message={this.formErrorMap?.name}
-              onChange={inputChange('name')} />
-            <ui-floating-input
-              type="text"
-              label="Username"
-              name="username"
-              inputTabIndex={2}
-              required={true}
-              value={form.username}
-              message={this.formErrorMap?.username}
-              onChange={inputChange('username')} />
-            <ui-floating-input
-              type="email"
-              label="Email"
-              name="email"
-              inputTabIndex={3}
-              required={true}
-              value={form.email}
-              message={this.formErrorMap?.email}
-              onChange={inputChange('email')} />
-            <ui-floating-input
-              type="password"
-              label="Password"
-              name="password"
-              inputTabIndex={4}
-              required={true}
-              value={form.password}
-              message={this.formErrorMap?.password}
-              onChange={inputChange('password')} />
-            <button
-              type="submit"
-              id="submit"
-              class="btn btn-block"
-              disabled={this.disabled}
-              tabindex="5">{this.buttonText}</button>
+              <ui-floating-input
+                type="text"
+                label="Full name"
+                name="name"
+                inputTabIndex={1}
+                required={true}
+                value={form.name}
+                message={this.formErrorMap?.name}
+                onChange={inputChange('name')} />
+              <ui-floating-input
+                type="text"
+                label="Username"
+                name="username"
+                inputTabIndex={2}
+                required={true}
+                value={form.username}
+                message={this.formErrorMap?.username}
+                onChange={inputChange('username')} />
+              <ui-floating-input
+                type="email"
+                label="Email"
+                name="email"
+                inputTabIndex={3}
+                required={true}
+                value={form.email}
+                message={this.formErrorMap?.email}
+                onChange={inputChange('email')} />
+              <ui-floating-input
+                type="password"
+                label="Password"
+                name="password"
+                inputTabIndex={4}
+                required={true}
+                value={form.password}
+                message={this.formErrorMap?.password}
+                onChange={inputChange('password')} />
+              <button
+                type="submit"
+                id="submit"
+                class="btn btn-block"
+                disabled={this.disabled}
+                tabindex="5">{this.buttonText}</button>
             </form>
             {this.allowLogin ? (
             <div class="login-prompt">

@@ -3,32 +3,23 @@
 {% set id = "start" %}
 {% set pre_footer = false %}
 {% set meta_description = "Create your own beautiful mobile app with just a few clicks and the power of Ionic Framework." %}
-{% set stickyNav = true %}
+{% set cssPath = 'auth' %}
 
 {% block main %}
-<main>
-  <nav class="navbar navbar-default transparent light">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-          {% include '_includes/svg/ionic-black.svg' %}
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-      
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a
-              href="https://github.com/ionic-team/app-wizard-issues/issues/new?assignees=&labels=&template=bug_report.md&title="
-              target="_blank">Send Feedback</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <ionic-app-wizard></ionic-app-wizard>
-</main>
+<header>
+  <a class="header__logo" href="/" >
+    {% include '_includes/svg/ionic-black.svg' %}
+  </a>
 
-{% endblock %} {% block scripts %}
+  <a class="header__feedback" href="https://github.com/ionic-team/app-wizard-issues/issues/new?assignees=&labels=&template=bug_report.md&title=" target="_blank">Send Feedback</a>
+</header>
+<main>
+  <div class="container-fluid">
+    <ionic-app-wizard></ionic-app-wizard>
+  </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
 <script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
 {% endblock %}

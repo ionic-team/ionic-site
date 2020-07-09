@@ -1,51 +1,217 @@
 @import '../vars';
 
 #page-login,
-#page-signup {
+#page-signup,
+#page-start {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "header sidebar"
+                       "main sidebar"
+                       "footer sidebar";
 
   header {
+    grid-area: header;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
-    a {
-      color: #B2BECD;;
+    .header__logo {
+      color: #B2BECD;
+      display: inline-block;
+
+      &, svg {
+        width: 24px;
+        height: 24px;
+      }
     }
 
-    svg {
-      width: 24px;
-      height: 24px;
+    .header__feedback {
+      color: #676F80;
+      display: none;
+
+      &.is-visible {
+        display: inline-block;
+      }
     }
   }
 
-  .container {
-    padding-top: 60px;
+  main {
+    grid-area: main;
+    padding: 22px 0;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background: #F6F8FB;
+    padding: 32px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2,
+      li,
+      p {
+        font-family: $font-family-inter;
+        letter-spacing: -0.02em;
+      }
+
+      h2,
+      p {
+        font-weight: 500;
+        line-height: 1.12;
+        margin-bottom: 8px;
+      }
+
+      h2 {
+        font-size: 20px;
+        color: #010610;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #445B78;
+        margin: 12px 0;
+        list-style-type: none;
+        display: flex;
+
+        ion-icon {
+          margin-right: 8px;
+          flex: 0 0 20px;
+          font-size: 20px;
+          color: #0054E9;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        color: #445B78;
+        margin-top: 32px;
+      }
+    }
+  }
+
+  .container-fluid {
+    display: flex;
     height: 100%;
   }
 
   .auth-form-container {
     height: 100%;
     display: grid;
-    grid-gap: 32px;
     grid-template-rows: auto 1fr;
     align-content: start;
     justify-items: center;
+    flex: auto;
+    text-align: center;
+    grid-template-areas: "switcher"
+                          "main";
 
-    & > * {
+    & > *:not(ionic-signup-form),
+    ionic-signup-form .form-area > * {
+      width: 100%;
       max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    ionic-signup-form .form-area > hgroup {
+      max-width: 560px;
+    }
+
+    & > *:not(ionic-switcher) {
+      grid-area: main;
+    }
+
+    ionic-switcher {
+      grid-area: switcher;
     }
   }
 
-  h1 {
-    font-size: 32px;
+  hgroup {
     text-align: center;
+    margin-bottom: 32px;
   }
 
-  @media (max-width: $screen-xs-max) {
-    padding-top: 0px;
+  .form-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px 0;
+  }
 
-    .container {
-      padding-top: 32px;
+  .notice {
+    padding: 10px 15px;
+    background: var(--c-grey-100);
+    border: 1px solid var(--c-grey-300);
+    border-radius: 8px;
+
+    p:first-child {
+      font-weight: 500;
+    }
+
+    &--fixed {
+      position: fixed;
+      bottom: 14px;
+      right: 14px;
+    }
+
+    &--transparent {
+      background: transparent;
+    }
+  }
+
+  .grecaptcha-badge {
+    left: 0px !important;
+    transition: width 0.3s ease 0s !important;
+    width: 70px !important;
+
+    &:hover {
+      width: 256px !important;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    padding-top: 0;
+
+    header {
+      position: absolute;
+    }
+
+    .sidebar {
+      grid-area: footer;
+      position: static;
+      padding: 20px;
+      height: auto;
+      background: transparent;
+
+      &__content {
+        display: none;
+      }
+    }
+
+    .notice {
+      text-align: center;
+
+      &--fixed {
+        position: static;
+      }
     }
   }
 }

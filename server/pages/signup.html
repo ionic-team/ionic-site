@@ -6,15 +6,24 @@
 
 {% block main %}
 <header>
-  <a href="/">
+  <a class="header__logo" href="/">
     {% include '_includes/svg/ionic-black.svg' %}
   </a>
 </header>
 <main>
-  <div class="container">
+  <div class="container-fluid">
     <div class="auth-form-container">
-      <h1>Create your Ionic account</h1>
+      {% if query.source == 'wizard-1' %}
+          <ionic-switcher items="Create app,Account" index="1"></ionic-switcher>
+      {% endif %}
+
       <ionic-signup-form
+        {% if query.source == 'wizard-1' %}
+          heading="Sign up &amp; connect your app"
+          subheading="Sign up for free with your Git host. We will automatically create a repo for your app and connect it to your Ionic dashboard."
+        {% else %}
+          heading="Create your Ionic account"
+        {% endif %}
         source="framework-signup"
         ga-event-name="Get started"
         ga-event-label="btn-get-started-signup-submit"
@@ -22,11 +31,35 @@
         id="signup-form"
         allow-login="true"
         allow-social="true"
-        button-text="Create account ➔"
+        button-text="Create account ->"
       ></ionic-signup-form>
     </div>
   </div>
 </main>
+
+{% if query.source == 'wizard-1' %}
+  <aside class="sidebar">
+    <div class="sidebar__content">
+      <h2>What you get</h2>
+      <ul>
+        <li><ion-icon name="checkmark-outline"></ion-icon>Centralized cloud dashboard</li>
+        <li><ion-icon name="checkmark-outline"></ion-icon>Hosted web app previews</li>
+        <li><ion-icon name="checkmark-outline"></ion-icon>Live app deployments</li>
+      </ul>
+      <p>Paid tier access to</p>
+      <ul>
+        <li><ion-icon name="checkmark-outline"></ion-icon>Native app binary builds</li>
+        <li><ion-icon name="checkmark-outline"></ion-icon>Mobile CI/CD automation</li>
+      </ul>
+    </div>
+    <div class="notice notice--transparent">
+      <p>Don’t want to create an account?</p>
+      <p>
+        <a href="/start#state={{ query.state | escape }}">Install your app locally via CLI</a>
+      </p>
+    </div>
+  </aside>
+{% endif %}
 {% endblock %}
 
 {% block scripts %}

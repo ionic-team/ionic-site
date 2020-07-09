@@ -23,28 +23,24 @@
 //#endregion ----------------------------------------------------------------------------
 
 //#region ----------------------------- ANIMATIONS ----------------------------------------
-
-//#endregion ------------------------------------------------------------------------------
-
-//#region ----------------------------- VARIABLES -----------------------------------------
-$colorBackMain: #000715;
-$colorTitleMain: white;
-$colorTextMain: #E9EDF3;
-$colorTextHighlight: #5887FF;
-$colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
-$fontFamilyRoboto: 'Roboto Mono', Menlo, Courier, monospace;
-$fontFamilyInter: $font-family-inter;
-$fontFamilyEina: $font-family-eina;
-$fontFamilyMono: $font-family-monospace;
-$timingFunction: cubic-bezier(.16,.66,.64,.83);
-$timingFunction2: cubic-bezier(.19,1,.22,1);
-
-:root {
-  --navHeight:78px;
+@keyframes fadeDown {
+  0% {
+    z-index:-1;
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  1% {
+    z-index:1;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    z-index:1;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-//#endregion ------------------------------------------------------------------------------
 
-//#region ----------------------------- COMPONENTS ----------------------------------------
 @keyframes pushUp {
   to {
     transform: translateY(-1px);
@@ -60,6 +56,26 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   }
   100% { transform: translateY(0px); }
 }
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- VARIABLES -----------------------------------------
+$colorBackMain: #000715;
+$colorTitleMain: white;
+$colorTextMain: #E9EDF3;
+$colorTextHighlight: #5887FF;
+$colorButtonMain: linear-gradient(74.26deg, #4CC3FF 0%, #4172FF 100%);
+$fontFamilyRoboto: 'Roboto Mono', Menlo, Courier, monospace;
+$fontFamilyInter: $font-family-inter;
+$fontFamilyEina: $font-family-eina;
+$fontFamilyMono: $font-family-monospace;
+$timingFunction: cubic-bezier(.17,.67,.52,1);
+
+:root {
+  --navHeight:78px;
+}
+//#endregion ------------------------------------------------------------------------------
+
+//#region ----------------------------- COMPONENTS ----------------------------------------
 
 .highlight {
   color: $colorTextHighlight;
@@ -68,11 +84,11 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
 .btn-main {
 @include box($d:inline-flex, $ai:center, $back: $colorButtonMain, $color: white, $br: 8px, $bord: none, $p:16px 20px);
 @include font($fw: 600, $fs: 16px, $lh: 16px, $ws: nowrap, $tt:uppercase, $ls:.1em);
-  animation: pushDown 200ms $timingFunction;
+  animation: pushDown .25s $timingFunction;
   animation-fill-mode: forwards;
 
   &:hover, &:active, &:focus{
-    animation: pushUp 200ms $timingFunction;
+    animation: pushUp .25s $timingFunction;
     animation-fill-mode: forwards;
   }
 }
@@ -110,11 +126,11 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
   .checkbox:checked {
   @include box($z:-1);
     & ~ hubspot-form {
-    @include box($o:1, $trans:all .15s ease-in, $tf:translateY(0px), $z:1);
+    @include box($o:1, $a:fadeDown .25s cubic-bezier(.17,.67,.52,1), $afm:forwards);
     }
 
     & ~ .text {
-    @include box($o:0, $trans:all .15s ease-in, $tf:translateY(10px));
+    @include box($o:0, $trans:all .25s cubic-bezier(.17,.67,.52,1), $tf:translateY(10px));
     }
     & ~ .arrow {
     @include box($z:-1);
@@ -131,11 +147,11 @@ $timingFunction2: cubic-bezier(.19,1,.22,1);
     @include box($v:hidden, $pos:absolute);
     }
     input {
-    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px, $pie: 36px);
+    @include box($h:100%, $w:100%, $br:8px, $bord:none, $p:10px 12px, $pie: 42px);
     @include font($lh: 16px, $color:#000, $fw:400);
     }
     .button {
-    @include box($d:flex, $ai:center, $pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back: #fff, $p:12px 6px);
+    @include box($pos:absolute, $r:0, $t:1px, $h:calc(100% - 2px), $bord:none, $br:8px, $back:transparent, $p:0px 6px);
     @include font($color:black, $fs:18px);
     }
     .success {
@@ -291,7 +307,7 @@ p {
 
   .nav {
   @include box($ai:center, $h: var(--navHeight), $pos:absolute, $back: transparent, $l:0, $t:0, $w:100%);
-    transition: background-color .3s $timingFunction;
+    transition: background-color .25s $timingFunction;
 
     .nav__wrap {
     @include box($d:flex);
@@ -300,10 +316,10 @@ p {
     .nav__sections {
     @include box($d:flex, $ai:center, $w:100%, $jc:center);
       a {        
-      @include box($d:inline-block, $pos:relative, $trans:all 0.3s $timingFunction, $tf:translateY(0px));
+      @include box($d:inline-block, $pos:relative, $trans:all 0.25s $timingFunction, $tf:translateY(0px));
 
         &::before {
-        @include box($c:'', $pos:absolute, $b:-10px, $w:0, $h:5px, $mbs:5px, $trans:all 0.3s $timingFunction, $o:0,
+        @include box($c:'', $pos:absolute, $b:-10px, $w:0, $h:5px, $mbs:5px, $trans:all 0.25s $timingFunction, $o:0,
                      $back:linear-gradient(74.26deg, #ff4db5 0%, #ff4262 100%));
         }
       }
@@ -402,10 +418,7 @@ p {
     }
 
     .text {
-      padding-inline-start: 0px;
-      padding-inline-end: 0px;
-      margin-left:auto;
-      margin-right:auto;
+    @include box($d:inline-flex, $w:100%, $ai:center, $jc:center);
     }
   }
 }

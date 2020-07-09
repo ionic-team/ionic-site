@@ -3,7 +3,7 @@
            $t:null, $r:null, $b:null, $l:null, $z:null, $bord:null, $bt:null, $br:null, $bb:null, $bl:null, $bi:null,
            $pbs:null, $pbe:null, $pis:null, $pie:null, $pi:null, $pb:null, $d:null, $gtc:null, $gg:null, $jc:null, $js:null, $ai:null, $as:null, $p: null,
            $order:null, $fd:null, $fw:null, $bs:null, $o:null, $rg:null, $cg:null, $trans:null, $tf:null, $of:null, $ta:null,
-           $v:null, $curs:null, $contain:null, $f:null) {
+           $v:null, $curs:null, $contain:null, $f:null, $a:null, $afm:null) {
   display:#{$d};
   @if $c {
     content: "#{$c}";
@@ -60,6 +60,8 @@
   cursor: #{$curs};
   contain: #{$contain};
   fill: #{$f};
+  animation:#{$a};
+  animation-fill-mode: #{$afm};
 }
 
 @mixin media($type:'max-width', $val:null, $back:null, $color:null, $fb: null, $mis:null, $mie:null, $mbs:null, $mbe:null,

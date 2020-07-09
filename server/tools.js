@@ -17,7 +17,7 @@ var sfConn = new jsforce.Connection()
 module.exports = {
   // CloudFlare
   bustCloudflareCache: () => {
-    if (!config.CF_EMAIL || !config.CF_TOKEN || !config.CF_ZONE) {
+    if (!config.CF_TOKEN || !config.CF_ZONE) {
       // return console.log('Insufficient credentials to bust CloudFlare cache');
       return; // silently fail to bust cache
     }
@@ -25,10 +25,9 @@ module.exports = {
     let CFAPI = 'https://api.cloudflare.com';
     let options = {
       url: CFAPI + '/client/v4/zones/' + config.CF_ZONE + '/purge_cache',
-      method: 'DELETE',
+      method: 'POST',
       headers: {
-        'X-Auth-Email': config.CF_EMAIL,
-        'X-Auth-Key': config.CF_TOKEN,
+        'Authorization': 'Bearer ' + config.CF_TOKEN,
         'Content-Type': 'application/json'
       },
       body: '{"purge_everything":true}'

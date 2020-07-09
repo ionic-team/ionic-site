@@ -10,7 +10,6 @@ module.exports = {
   DASHBOARD_URL: process.env.DASHBOARD_URL || 'https://dashboard.ionicframework.com',
 
   // CloudFlare
-  CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,
   CF_ZONE: process.env.CF_ZONE || null,
 

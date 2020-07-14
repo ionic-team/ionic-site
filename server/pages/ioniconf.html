@@ -1678,15 +1678,18 @@
 
   const navBars = { mainNav: document.querySelector("#mainNav"),
                     mobileNavBar: document.querySelector("#mobileNavBar") }
-  let scrolled = window.scrollY > 0;
 
+  
+  
+  let scrolled = location.hash ? true : window.scrollY > 0;
+  console.log(scrolled);
+  
   const observer = new IntersectionObserver(() => {
     for (const nav in navBars) {
       scrolled ? navBars[nav].classList.add("scrolled") :
-                 navBars[nav].classList.remove("scrolled");
+                navBars[nav].classList.remove("scrolled");
     }
     scrolled = !scrolled;
-
   });
   observer.observe(document.querySelector('#navSpace'));
 

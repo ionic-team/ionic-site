@@ -1,0 +1,41 @@
+<svg width="460" height="311" viewBox="0 0 460 311" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#video_overlay_filter0_dd)">
+        <rect x="32" y="23" width="396" height="240" rx="16" fill="white"/>
+    </g>
+    <circle opacity="0.06" cx="230" cy="144" r="144" fill="#00CEAB"/>
+    <circle opacity="0.12" cx="230" cy="144" r="96" fill="#00CEAB"/>
+    <g filter="url(#video_overlay_filter1_dd)">
+        <circle cx="230" cy="144" r="60" fill="white"/>
+    </g>
+    <path d="M218.145 167.719C217.353 167.717 216.576 167.51 215.889 167.117C214.342 166.24 213.38 164.539 213.38 162.691V125.309C213.38 123.456 214.342 121.76 215.889 120.883C216.592 120.479 217.391 120.271 218.202 120.281C219.013 120.292 219.807 120.519 220.5 120.941L252.449 140.066C253.115 140.483 253.664 141.063 254.044 141.751C254.425 142.438 254.624 143.211 254.624 143.997C254.624 144.783 254.425 145.556 254.044 146.244C253.664 146.932 253.115 147.512 252.449 147.929L220.494 167.059C219.785 167.487 218.973 167.716 218.145 167.719Z" fill="#00CEAB"/>
+    <defs>
+        <filter id="video_overlay_filter0_dd" x="0" y="7" width="460" height="304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="16"/>
+            <feGaussianBlur stdDeviation="16"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.00755134 0 0 0 0 0.0324193 0 0 0 0 0.0786026 0 0 0 0.08 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="8"/>
+            <feGaussianBlur stdDeviation="8"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.00755134 0 0 0 0 0.0324193 0 0 0 0 0.0786026 0 0 0 0.08 0"/>
+            <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+        </filter>
+        <filter id="video_overlay_filter1_dd" x="154" y="76" width="152" height="152" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="8"/>
+            <feGaussianBlur stdDeviation="8"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.00755134 0 0 0 0 0.0324193 0 0 0 0 0.0786026 0 0 0 0.08 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="4"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.00755134 0 0 0 0 0.0324193 0 0 0 0 0.0786026 0 0 0 0.08 0"/>
+            <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+        </filter>
+    </defs>
+</svg>

@@ -28,12 +28,12 @@ img {
 @keyframes popInBlur {
   0% {
     transform: scale3d(.9, .9, 1);
-    backdrop-filter: blur(0px);
+
     opacity: 0;
   }
   100% {
     transform: scale3d(1, 1, 1);
-    backdrop-filter: blur(20px);
+    // backdrop-filter: blur(20px);
     opacity: 1;
   }
 }
@@ -90,7 +90,9 @@ img {
     border-radius: 16px;
 
     opacity: 0;
-    animation: popInBlur .5s cubic-bezier(.22,.84,.67,.81) 1s forwards;
+    animation: popIn .5s cubic-bezier(.22,.84,.67,.81) 1s forwards;
+    transition: backdrop-filter .1s ease 1.5s;
+    backdrop-filter: blur(20px);
 
     svg {
       display: block;

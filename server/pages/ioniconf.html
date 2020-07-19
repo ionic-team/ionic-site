@@ -1680,18 +1680,20 @@
                     mobileNavBar: document.querySelector("#mobileNavBar") }
 
   
+  setTimeout(() => {
+    let scrolled = location.hash ? true : window.scrollY > 0;
   
-  let scrolled = location.hash ? true : window.scrollY > 0;
-  console.log(scrolled);
+    const observer = new IntersectionObserver(() => {
+      console.log(scrolled);
+      for (const nav in navBars) {
+        scrolled ? navBars[nav].classList.add("scrolled") :
+                  navBars[nav].classList.remove("scrolled");
+      }
+      scrolled = !scrolled;
+    });
+    observer.observe(document.querySelector('#navSpace'));
+  }, 500);
   
-  const observer = new IntersectionObserver(() => {
-    for (const nav in navBars) {
-      scrolled ? navBars[nav].classList.add("scrolled") :
-                navBars[nav].classList.remove("scrolled");
-    }
-    scrolled = !scrolled;
-  });
-  observer.observe(document.querySelector('#navSpace'));
 
   $('main').scrollspy({ target: '#mainNav' });
   $('[data-spy="scroll"]').on('activate.bs.scrollspy', ({ target }) => {

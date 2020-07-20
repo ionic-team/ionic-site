@@ -4,10 +4,6 @@
 @import './shared';
 @import './solutions/shared';
 
-img {
-  height: auto;
-}
-
 @keyframes spin-in {
   0% {
     transform: 
@@ -25,33 +21,6 @@ img {
     opacity: 1;
   }
 }
-@keyframes popInBlur {
-  0% {
-    transform: scale3d(.9, .9, 1);
-    backdrop-filter: blur(0px);
-    opacity: 0;
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-    backdrop-filter: blur(20px);
-    opacity: 1;
-  }
-}
-@keyframes popIn {
-  0% {
-    transform: scale3d(.9, .9, 1);
-    opacity: 0;
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 #page-auth-connect {
   ionic-sub-header .btn {
@@ -62,121 +31,9 @@ img {
     .btn {
       margin-top: 26px;
     }
-    @media screen and (max-width: $screen-sm-max) {
-      #header-video {      
-        margin-block-end: 94px;
-      }
-    }
   }
 }
 
-#header-video {
-  position: absolute;
-  right: 93px;
-  top: 250px;
-  text-align: center;
-
-
-  .video-overlay, .video, .video iframe, .video-blur {
-    max-width: 100%;
-  }
-
-  .video-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0px 16px 32px rgba(2, 8, 20, 0.08), 0px 8px 16px rgba(2, 8, 20, 0.08);
-    border-radius: 16px;
-
-    opacity: 0;
-    animation: popInBlur .5s cubic-bezier(.22,.84,.67,.81) 1s forwards;
-
-    svg {
-      display: block;
-    }
-
-    .video-blur {
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
-    }
-    .video-circles {
-      position: absolute;
-    }
-    .video-play {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      &:hover .video-play-btn, &:focus .video-play-btn, &:active .video-play-btn, &:focus-within .video-play-btn {
-        transition: transform .25s ease, filter .25 ease;
-        transform: translateX(4px) scale(1.03);
-        filter: drop-shadow(0 7px 14px rgba(0, 0, 0, 0.04)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
-        path {
-          transition: fill .25s ease;
-          fill: #00e8c0;
-        }        
-      }
-      &:focus {
-        outline: none;
-      }
-
-      .video-play-circle {
-        filter: drop-shadow(0px 8px 16px rgba(2, 8, 20, 0.12));        
-      }
-      .video-play-btn {
-        filter: drop-shadow(0 7px 14px rgba(0, 0, 0, 0)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0));
-        position: absolute;
-        transition: transform .25s ease;
-        transform: translateX(4px);
-
-        path {
-          transition: fill .25s ease;
-        }
-      }
-    }  
-    &.play {
-    }  
-  }
-  .video {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    opacity: 0;
-    display: none;
-
-    iframe {
-      display: block;
-    }
-
-    &.play {
-      display:block;
-      animation: fadeIn .5s ease-in;
-      animation-fill-mode: forwards;
-    }
-  }
-  .video-desc {
-    opacity: 0;
-    animation: popIn .5s cubic-bezier(.22,.84,.67,.81) 1.25s forwards;
-    margin-top: 12px;
-    font-family: $font-family-monospace;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: .16em;
-    font-size: 12px;
-    color: #445B78;
-    background: transparent;
-  }
-
-  @media screen and (max-width: $screen-sm-max) {
-    display: inline-block;
-    position: relative;
-    top: 0px;
-    right: initial;
-  }
-}
 
 .cta h3 {
   color: #00CEAB;

@@ -1,17 +1,5 @@
 [
   {
-    "slug":"bendyworks",
-    "name":"Bendyworks",
-    "level":"gold",
-    "link":"https://bendyworks.com/",
-    "short-description":"<strong>Bendyworks</strong> provides enterprise-level Ionic app development, app lifecycle management, and mobile solutions guidance.",
-    "long-description":"<p>We at Bendyworks are excited to bring our long history of web application development to the phone with Ionic. From business intelligence apps to everyday employee tools and everywhere in between, we love breathing life into our clients' ideas.</p><p>Given our experience, we are exceptionally positioned to deliver high quality Ionic apps with comprehensive server backends, though we love constructing without a backend, too. When you're looking to build a mobile asset for your business, look no further than Bendyworks</p>",
-    "address":"106 E Doty St #200<br>Madison, WI 53703, USA",
-    "features":null,
-    "coordinates":[23.3,35.9],
-    "company-size": "5-20"
-  },
-  {
     "slug":"benoveltylimited",
     "name":"beNovelty Limited",
     "level":"gold",

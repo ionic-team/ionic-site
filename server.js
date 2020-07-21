@@ -74,16 +74,7 @@ function start() {
   app.use(checkForRedirects);
 
   // check if this is a valid static file
-  app.use(
-    express.static('dist', {
-      etag: true,
-      setHeaders: (res, path) => {
-        if (path.includes('/p-')) {
-          res.setHeader('Cache-Control', 'public, max-age=86400');
-        }
-      }
-    })
-  );
+  app.use(express.static('dist', { maxAge: 1000 * 60 * 60 * 24 * 7 }));
   // cache images and static assets for 1 week
   app.use(express.static('content', { maxAge: 1000 * 60 * 60 * 24 * 7 }));
 

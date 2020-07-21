@@ -28,14 +28,23 @@
   }
 
   .top {
+    position: relative;
     .btn {
       margin-top: 26px;
     }
   }
 }
 
-.cta h3 {
-  color: #00CEAB;
+auth-connect-promo{
+
+}
+
+.cta {
+  overflow: visible;
+
+  h3 {
+    color: #00CEAB;
+  }
 }
 
 #promo--how-to {

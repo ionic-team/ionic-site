@@ -1,0 +1,60 @@
+:host {
+  --scale-x: 1;
+  --scale-y: 1;
+  --left: 0;
+  --top: 0;
+
+  position: absolute;
+  top: var(--left);
+  left: var(--top);
+  z-index: 999;  
+
+  transition: all .3s ease;
+}
+
+svg {
+  display: block;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .background {
+    transform: scale(var(--scale-x), var(--scale-y));
+    backdrop-filter: blur(20px);
+
+    transition: all .3s ease;
+
+    &.expand {
+      
+      right: 0;
+    }
+  }
+  
+  .circles {
+    position: absolute;
+    
+  }
+
+  .play-circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .outer-circle {
+      filter: drop-shadow(0px 8px 16px rgba(2, 8, 20, 0.08)) drop-shadow(0px 4px 8px rgba(2, 8, 20, 0.08));
+    }
+
+    .play {
+      position: absolute;
+      transform: translateX(3px);
+    }
+  }
+  
+  
+}
+

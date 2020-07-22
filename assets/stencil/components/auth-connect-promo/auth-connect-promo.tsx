@@ -15,6 +15,10 @@ export class AuthConnectPromo {
     height: number
   }
   private overlay = {
+    origin: {
+      width: 396,
+      height: 240
+    },
     width: 396,
     height: 240,
   }
@@ -33,19 +37,32 @@ export class AuthConnectPromo {
   @State() expanded = false;
 
   componentWillLoad() {
+    this.sequence();
+  }
+
+  sequence() {
     this.getContainer();
+    this.checkScreenSize();
     this.getFullSizeDimensions();
     this.getCoordinates();
-    this.getScale();  
+    this.getScale();
   }
 
   getContainer = () => {
-    this.smallScreen = window.innerWidth < 992;
-
     const container = document.body.querySelector('.top.container') as HTMLElement;
     this.container = {
-      width: this.smallScreen ? container.offsetWidth : container.offsetWidth + this.gutter,
+      width: container.offsetWidth,
       height: container.offsetHeight
+    }
+  }
+
+  checkScreenSize() {
+    this.smallScreen = window.innerWidth < 992;
+
+    if (this.container.width < this.overlay.origin.width) {
+      this.overlay.width = this.container.width;
+    } else {
+      this.overlay.width = this.overlay.origin.width;
     }
   }
 
@@ -63,11 +80,11 @@ export class AuthConnectPromo {
    
     if (smallScreen) {
       const { left, top, width, height } = document.querySelector('#dummy-element').getBoundingClientRect();
-      const leftVal = left + (width / 2) - (this.fullSize.width / 2)
+      const leftVal = left + this.overlay.width / 2 - (this.fullSize.width / 2)
       const topVal = top + (height / 2) - (this.fullSize.height / 2)
 
       this.coordinates = {
-        left: leftVal + window.scrollX,
+        left: leftVal + window.scrollX - this.gutter,
         top: topVal + window.scrollY,
       }
       this.previousCoordinates = this.coordinates;
@@ -111,22 +128,35 @@ export class AuthConnectPromo {
   }
 
   getFullSizeDimensions = () => {
-    const { aspectRatio } = this;
+    const { aspectRatio, gutter } = this;
     const ratio = aspectRatio.x / aspectRatio.y;
     const ratioInverse = aspectRatio.y / aspectRatio.x;
 
     if (window.innerWidth * aspectRatio.y  >= window.innerHeight * aspectRatio.x) {
-      const height = window.innerHeight * ratio >= this.container.width ? this.container.width * ratioInverse - (this.gutter * 2) : window.innerHeight;
-
+      const height = window.innerHeight * ratio >= this.container.width ? this.container.width * ratioInverse : window.innerHeight;
       this.fullSize = {
-        width: height * ratio,
-        height
+        width: (height - gutter * 2) * ratio,
+        height: height - (gutter * 2)
       }
     } else {
-      this.fullSize = {
+      // let widthRounded = Math.round(this.container.width);
+      // let heightRounded = Math.round(this.container.height);
+
+      // let deviance = widthRounded / heightRounded - ratio;
+      
+      // if (deviance > .1 || deviance < -.1) {
+      //   console.log("got here", deviance);
+      // }
+
+      // while(deviance > .2 || deviance < -.2) {
+      //   widthRounded - 1;
+      //   deviance = widthRounded / heightRounded - ratio;
+      // }
+      this.fullSize = {        
         width: this.container.width,
-        height: this.container.width * (aspectRatio.y / aspectRatio.x),
+        height: this.container.width * ratioInverse,
       }
+
       
     }
   }
@@ -138,33 +168,32 @@ export class AuthConnectPromo {
     this.backdropEl.classList.remove("in");
     this.expanded = false;
     this.coordinates = this.previousCoordinates;
+    this.getCoordinates();
   }
 
   @Listen('resize', { target: 'window'})
   updateItemOffsets() {
     requestAnimationFrame(() => {
-      this.getContainer();
-      this.getFullSizeDimensions();
-      this.getCoordinates();
-      this.getScale();
+      this.sequence();
     })
   }
 
   render() {
     const { coordinates, fullSize, scaleRatio, expanded } = this;
     return (
-      <Host class={{ "expanded": expanded }}>
+      <Host
+      style={{
+        '--left': coordinates.left.toString().concat('px'),
+        '--top': coordinates.top.toString().concat('px'),
+        '--width': fullSize.width.toString().concat('px'),
+        '--height': fullSize.height.toString().concat('px'),
+        '--scale-x': scaleRatio.x.toString(),
+        '--scale-y': scaleRatio.y.toString()
+      }}
+      class={{ "expanded": expanded }}>
         <div id="backdrop" ref={e => {this.backdropEl = e}} class="fade" onClick={() => this.handleExit()}></div>
         <div
-          class="wrapper"
-          style={{
-            '--left': coordinates.left.toString().concat('px'),
-            '--top': coordinates.top.toString().concat('px'),
-            '--width': fullSize.height.toString(),
-            '--height': fullSize.width.toString(),
-            '--scale-x': scaleRatio.x.toString(),
-            '--scale-y': scaleRatio.y.toString()
-          }}
+          class="wrapper"          
         >
           <div class="overlay" ref={e => this.overlayEl = e}>
             <div class="video">
@@ -178,7 +207,7 @@ export class AuthConnectPromo {
               fill="white" xmlns="http://www.w3.org/2000/svg"
             >
             </svg>
-            <div class={{ 'transparent-circles': true, 'played': this.expanded }}>
+            <div class="transparent-circles">
               <svg class="big-circle" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle opacity="0.06" cx="144" cy="144" r="144" fill="#00CEAB" />
               </svg>
@@ -187,10 +216,7 @@ export class AuthConnectPromo {
               </svg>
             </div>
             <div
-              class={{
-                'play-circle': true,
-                'played': this.expanded,
-              }}
+              class="play-circle"
               role="button"
               aria-label="play video"
               onClick={!expanded ? this.handlePlay : () => {}}>

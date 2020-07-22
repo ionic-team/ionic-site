@@ -47,6 +47,9 @@ $timing: cubic-bezier(.23,.87,.62,.96);
 }
 
 :host {
+  width: var(--width);
+  height: var(--height);
+  
   &.expanded {
     .wrapper {
       --scale-x: 1 !important;
@@ -110,8 +113,8 @@ $timing: cubic-bezier(.23,.87,.62,.96);
   position: absolute;
   top: var(--top);
   left: var(--left);
-  width: var(--width);
-  height: var(--height);
+  // width: var(--width);
+  // height: var(--height);
 
   transition: top .3s $timing, left .3s $timing, width .3s $timing, height .3s $timing;
 
@@ -124,6 +127,7 @@ $timing: cubic-bezier(.23,.87,.62,.96);
     width: 100%; 
 
     .standin {
+      opacity: 0;
       animation: fadeOut .3s $timing forwards;
       transition: all .3s $timing;
       z-index: -1;
@@ -143,8 +147,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transform: scale3d(.9, .9, 1);
+  opacity: 1;
 
   .blur {
     border-radius: 32px;
@@ -154,21 +157,21 @@ svg {
     transition: all .3s $timing;
   }
 
-  &.pop-in {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
-    transition: all 1s $timing;
+  // &.pop-in {
+  //   opacity: 1;
+  //   transform: scale3d(1, 1, 1);
+  //   transition: all 1s $timing;
 
-    .blur {
-      // backdrop-filter: blur(60px);
-      // transition: all .3s $timing 1s;
-    }
+  //   .blur {
+  //     // backdrop-filter: blur(60px);
+  //     // transition: all .3s $timing 1s;
+  //   }
 
-    .subtitle {
-      opacity: 1;
-      transition: opacity 1s $timing .5s;
-    }
-  }
+  //   .subtitle {
+  //     opacity: 1;
+  //     transition: opacity 1s $timing .5s;
+  //   }
+  // }
 }
 
 .big-circle {
@@ -227,7 +230,7 @@ svg {
   font-family: var.$font-family-mono;
   position: absolute;
   color: #445B78;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .6s $timing .3s;
 
   &.toggle {

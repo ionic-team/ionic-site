@@ -1,0 +1,241 @@
+@use '../../vars' as var;
+
+//#region -------------------------------- ANIMATIONS ------------------------------------
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index:1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    z-index:1;
+  }
+  17% {
+    opacity: 1;
+    z-index:1;
+  }
+  83% {
+    opacity: 1;
+    z-index: 1;
+  }
+  99% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes bringToFront {
+  from {
+    z-index:1;
+  }
+  to {
+    z-index: 1043;
+  }
+}
+// #endregion --------------------------------------------------------------------
+
+$timing: cubic-bezier(.23,.87,.62,.96);
+
+::slotted(#player) {
+  opacity: 0;
+  border-radius: 16px;
+}
+
+:host {
+  width: var(--width);
+  height: var(--height);
+  
+  &.expanded {
+    .wrapper {
+      --scale-x: 1 !important;
+      --scale-y: 1 !important;
+      z-index: 1041;
+
+      .video {
+        opacity: 1;
+        transition: all .3s $timing; 
+
+        .standin {
+          animation: fadeInOut 1.8s $timing 0s forwards;
+          position: absolute;
+          background: white;          
+        }
+      }
+      .subtitle {
+        opacity: 0;
+        transition: opacity .3s $timing 0s;
+      }
+    }
+
+    .overlay {
+      z-index: 1041;
+      .transparent-circles {
+        opacity: 0;
+        transition: all .3s $timing;
+      }
+  
+      .play-circle {
+        transition: opacity .3s $timing 1.2s;
+        z-index: 1042;
+        opacity: 0;
+      }
+
+      .blur {    
+        z-index: -1;
+        border-radius: 16px;  
+        backdrop-filter: unset;
+        animation: fadeOut .3s $timing .6s forwards;
+      } 
+      &.played {
+        .transparent-circles, .play-circle {
+          transition: all .3s $timing;
+          z-index: -1;
+        }
+      }
+    }     
+
+    ::slotted(#player) {
+      z-index: 1;
+      opacity: 1;
+      transition: all .3s $timing .9s; 
+      animation: bringToFront .3s $timing 1.2s forwards;
+    }          
+  }
+}
+
+.wrapper {
+  z-index: 0;
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  // width: var(--width);
+  // height: var(--height);
+
+  transition: top .3s $timing, left .3s $timing, width .3s $timing, height .3s $timing;
+
+  .video {
+    opacity:0;
+    transition: all .3s $timing;
+    position: absolute;
+    transform: scale(var(--scale-x), var(--scale-y));
+    height: 100%;
+    width: 100%; 
+
+    .standin {
+      opacity: 0;
+      animation: fadeOut .3s $timing forwards;
+      transition: all .3s $timing;
+      z-index: -1;
+      border-radius: 16px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+svg {
+  display: block;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+
+  .blur {
+    border-radius: 32px;
+    transform: scale(var(--scale-x), var(--scale-y));
+    backdrop-filter: blur(60px);
+    box-shadow: 0px 16px 32px rgba(2, 8, 20, 0.08), 0px 8px 16px rgba(2, 8, 20, 0.08);
+    transition: all .3s $timing;
+  }
+
+  // &.pop-in {
+  //   opacity: 1;
+  //   transform: scale3d(1, 1, 1);
+  //   transition: all 1s $timing;
+
+  //   .blur {
+  //     // backdrop-filter: blur(60px);
+  //     // transition: all .3s $timing 1s;
+  //   }
+
+  //   .subtitle {
+  //     opacity: 1;
+  //     transition: opacity 1s $timing .5s;
+  //   }
+  // }
+}
+
+.big-circle {
+  position: absolute;    
+}
+.small-circle {
+  position: absolute;    
+}
+.transparent-circles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+.play-circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .outer-circle {
+    filter: drop-shadow(0px 8px 16px rgba(2, 8, 20, 0.08)) drop-shadow(0px 4px 8px rgba(2, 8, 20, 0.08));
+  }
+
+  .play {
+    position: absolute;
+    transform: translateX(3px);
+    transition: all .3s $timing;
+
+    path{
+      transition: all .3s $timing;        
+    } 
+  }
+
+  &:hover {
+    .play {
+      transition: all .3s $timing;
+      transform: translateX(3px) scale(1.02);
+      filter: drop-shadow(0px 8px 16px rgba(2, 8, 20, 0.08)) drop-shadow(0px 4px 8px rgba(2, 8, 20, 0.08));
+
+      path{
+        transition: all .3s $timing;        
+        fill: #00e8c0;
+      } 
+    }  
+  }
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 112%;
+  font-family: var.$font-family-mono;
+  position: absolute;
+  color: #445B78;
+  opacity: 1;
+  transition: opacity .6s $timing .3s;
+
+  &.toggle {
+    opacity: 0;
+    transition: opacity .1s $timing;
+  }
+}
+

@@ -21,6 +21,7 @@ export namespace Components {
   interface AdditionalResources {
     'page': string;
   }
+  interface AuthConnectPromo {}
   interface BarChart {
     'color': string;
     'graphData': string | object;
@@ -143,6 +144,12 @@ declare global {
   var HTMLAdditionalResourcesElement: {
     prototype: HTMLAdditionalResourcesElement;
     new (): HTMLAdditionalResourcesElement;
+  };
+
+  interface HTMLAuthConnectPromoElement extends Components.AuthConnectPromo, HTMLStencilElement {}
+  var HTMLAuthConnectPromoElement: {
+    prototype: HTMLAuthConnectPromoElement;
+    new (): HTMLAuthConnectPromoElement;
   };
 
   interface HTMLBarChartElement extends Components.BarChart, HTMLStencilElement {}
@@ -332,6 +339,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'additional-resources': HTMLAdditionalResourcesElement;
+    'auth-connect-promo': HTMLAuthConnectPromoElement;
     'bar-chart': HTMLBarChartElement;
     'home-components': HTMLHomeComponentsElement;
     'home-countdown': HTMLHomeCountdownElement;
@@ -370,6 +378,7 @@ declare namespace LocalJSX {
   interface AdditionalResources {
     'page'?: string;
   }
+  interface AuthConnectPromo {}
   interface BarChart {
     'color'?: string;
     'graphData'?: string | object;
@@ -486,6 +495,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'additional-resources': AdditionalResources;
+    'auth-connect-promo': AuthConnectPromo;
     'bar-chart': BarChart;
     'home-components': HomeComponents;
     'home-countdown': HomeCountdown;
@@ -527,6 +537,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'additional-resources': LocalJSX.AdditionalResources & JSXBase.HTMLAttributes<HTMLAdditionalResourcesElement>;
+      'auth-connect-promo': LocalJSX.AuthConnectPromo & JSXBase.HTMLAttributes<HTMLAuthConnectPromoElement>;
       'bar-chart': LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
       'home-components': LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
       'home-countdown': LocalJSX.HomeCountdown & JSXBase.HTMLAttributes<HTMLHomeCountdownElement>;

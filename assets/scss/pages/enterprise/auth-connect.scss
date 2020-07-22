@@ -3,6 +3,12 @@
 
 @import './shared';
 @import './solutions/shared';
+html {
+  height: auto;
+}
+body {
+  // overflow: hidden;
+}
 
 @keyframes spin-in {
   0% {
@@ -40,8 +46,6 @@ auth-connect-promo{
 }
 
 .cta {
-  overflow: visible;
-
   h3 {
     color: #00CEAB;
   }

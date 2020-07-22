@@ -1,15 +1,103 @@
-:host {
-  --scale-x: 1;
-  --scale-y: 1;
-  --left: 0;
-  --top: 0;
+@keyframes fadeOut {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOut {
+  0% { opacity: 0 }
+  25% { opacity: 1 }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0
+  }
+}
 
+:host {
+  &.expanded {
+    .wrapper {
+      --scale-x: 1 !important;
+      --scale-y: 1 !important;
+
+      .video {
+        .standin {
+          opacity: 1;
+          transition: opacity .3s ease;
+          animation: fadeOut .3s ease 1.5s forwards;
+          position: absolute;
+          background: white;
+          z-index: 1;
+        }
+  
+        iframe {
+          visibility: visible;
+          transition: visibility 0s ease .6s;
+        }
+      }
+    }
+
+    .background-overlay {
+      opacity: .5;
+    }
+
+    .overlay .blur {      
+      backdrop-filter: initial;
+      animation: fadeOut .3s ease .6s forwards;
+    }
+
+    
+  }
+}
+
+.wrapper {
   position: absolute;
-  top: var(--left);
-  left: var(--top);
-  z-index: 999;  
+  top: var(--top);
+  left: var(--left);
+  width: var(--width);
+  height: var(--height);
+  z-index: 1000;  
 
   transition: all .3s ease;
+
+  .video {
+    transition: all .3s ease;
+    position: absolute;
+    transform: scale(var(--scale-x), var(--scale-y));
+    height: 100%;
+    width: 100%; 
+
+    .standin {
+      border-radius: 8px;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      visibility: hidden;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.background-overlay {
+  transition: all .3s ease;
+  opacity: 0;
+  background: black;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
 }
 
 svg {
@@ -21,16 +109,11 @@ svg {
   align-items: center;
   justify-content: center;
 
-  .background {
+  .blur {
     transform: scale(var(--scale-x), var(--scale-y));
     backdrop-filter: blur(20px);
 
     transition: all .3s ease;
-
-    &.expand {
-      
-      right: 0;
-    }
   }
   
   .circles {

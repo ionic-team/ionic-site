@@ -8,6 +8,7 @@ import { Component, Host, h, State, Listen } from '@stencil/core';
 })
 export class AuthConnectPromo {
   private backdropEl: HTMLElement;
+  private overlayEl: HTMLElement;
 
   private container: {
     width: number,
@@ -21,6 +22,7 @@ export class AuthConnectPromo {
     x: 16,
     y: 9,
   }
+  private gutter = 15;
   private previousCoordinates: { left: number, top: number }
   private scaleRatio: { x: number, y: number };
   private fullSize: { width: number, height: number };
@@ -34,11 +36,7 @@ export class AuthConnectPromo {
     this.getContainer();
     this.getFullSizeDimensions();
     this.getCoordinates();
-    this.getScale();    
-  }
-
-  componentDidLoad() {
-
+    this.getScale();  
   }
 
   getContainer = () => {
@@ -46,7 +44,7 @@ export class AuthConnectPromo {
 
     const container = document.body.querySelector('.top.container') as HTMLElement;
     this.container = {
-      width: container.offsetWidth,
+      width: this.smallScreen ? container.offsetWidth : container.offsetWidth + this.gutter,
       height: container.offsetHeight
     }
   }
@@ -96,7 +94,10 @@ export class AuthConnectPromo {
     }
   }
 
-  handlePlay = () => {    
+  handlePlay = () => {   
+    setTimeout(() => {
+      this.overlayEl.classList.add("played");
+    }, 1200)     
     document.body.classList.add("no-scroll");
     this.backdropEl.classList.add("modal-backdrop");
     this.backdropEl.classList.add("in");
@@ -115,8 +116,7 @@ export class AuthConnectPromo {
     const ratioInverse = aspectRatio.y / aspectRatio.x;
 
     if (window.innerWidth * aspectRatio.y  >= window.innerHeight * aspectRatio.x) {
-      const gutter = 30;
-      const height = window.innerHeight * ratio >= this.container.width ? this.container.width * ratioInverse - gutter : window.innerHeight;
+      const height = window.innerHeight * ratio >= this.container.width ? this.container.width * ratioInverse - (this.gutter * 2) : window.innerHeight;
 
       this.fullSize = {
         width: height * ratio,
@@ -132,6 +132,7 @@ export class AuthConnectPromo {
   }
 
   handleExit = () => {
+    this.overlayEl.classList.remove("played");
     document.body.classList.remove('no-scroll');
     this.backdropEl.classList.remove("modal-backdrop");
     this.backdropEl.classList.remove("in");
@@ -165,7 +166,7 @@ export class AuthConnectPromo {
             '--scale-y': scaleRatio.y.toString()
           }}
         >
-          <div class="overlay">
+          <div class="overlay" ref={e => this.overlayEl = e}>
             <div class="video">
               <div class="standin"></div>
               <slot />
@@ -177,7 +178,7 @@ export class AuthConnectPromo {
               fill="white" xmlns="http://www.w3.org/2000/svg"
             >
             </svg>
-            <div class="transparent-circles">
+            <div class={{ 'transparent-circles': true, 'played': this.expanded }}>
               <svg class="big-circle" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle opacity="0.06" cx="144" cy="144" r="144" fill="#00CEAB" />
               </svg>
@@ -185,7 +186,14 @@ export class AuthConnectPromo {
                 <circle opacity="0.12" cx="144" cy="144" r="96" fill="#00CEAB" />
               </svg>
             </div>
-            <div class="play-circle" role="button" aria-label="play video" onClick={!expanded ? this.handlePlay : () => {}}>
+            <div
+              class={{
+                'play-circle': true,
+                'played': this.expanded,
+              }}
+              role="button"
+              aria-label="play video"
+              onClick={!expanded ? this.handlePlay : () => {}}>
               <svg class="outer-circle" width="120" height="120" viewBox="-60 -60 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle r="60" fill="white" />
               </svg>

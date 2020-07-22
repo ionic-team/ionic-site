@@ -63,6 +63,10 @@ $timing: cubic-bezier(.23,.87,.62,.96);
           background: white;          
         }
       }
+      .subtitle {
+        opacity: 0;
+        transition: opacity .3s $timing 0s;
+      }
     }
 
     .overlay {
@@ -84,6 +88,12 @@ $timing: cubic-bezier(.23,.87,.62,.96);
         backdrop-filter: unset;
         animation: fadeOut .3s $timing .6s forwards;
       } 
+      &.played {
+        .transparent-circles, .play-circle {
+          transition: all .3s $timing;
+          z-index: -1;
+        }
+      }
     }     
 
     ::slotted(#player) {
@@ -133,6 +143,8 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: scale3d(.9, .9, 1);
 
   .blur {
     border-radius: 32px;
@@ -140,6 +152,22 @@ svg {
     backdrop-filter: blur(60px);
     box-shadow: 0px 16px 32px rgba(2, 8, 20, 0.08), 0px 8px 16px rgba(2, 8, 20, 0.08);
     transition: all .3s $timing;
+  }
+
+  &.pop-in {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    transition: all 1s $timing;
+
+    .blur {
+      // backdrop-filter: blur(60px);
+      // transition: all .3s $timing 1s;
+    }
+
+    .subtitle {
+      opacity: 1;
+      transition: opacity 1s $timing .5s;
+    }
   }
 }
 
@@ -199,7 +227,7 @@ svg {
   font-family: var.$font-family-mono;
   position: absolute;
   color: #445B78;
-  opacity: 1;
+  opacity: 0;
   transition: opacity .6s $timing .3s;
 
   &.toggle {

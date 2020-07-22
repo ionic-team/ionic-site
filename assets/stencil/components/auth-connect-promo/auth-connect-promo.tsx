@@ -79,7 +79,7 @@ export class AuthConnectPromo {
 
    
     if (smallScreen) {
-      const { left, top, width, height } = document.querySelector('#dummy-element').getBoundingClientRect();
+      const { left, top, height } = document.querySelector('#dummy-element').getBoundingClientRect();
       const leftVal = left + this.overlay.width / 2 - (this.fullSize.width / 2)
       const topVal = top + (height / 2) - (this.fullSize.height / 2)
 

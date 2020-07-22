@@ -37,7 +37,12 @@
   </div>
 </div>
 
-<auth-connect-promo></auth-connect-promo>
+<div class="container">
+  <div id="dummy-element"></div>
+</div>
+<auth-connect-promo>
+  <div id="player"></div>  
+</auth-connect-promo>
 
 <nav id="sticky-bar">
   <ul class="container nav" role="tablist">
@@ -208,4 +213,36 @@
 <script>
 $('body').scrollspy({ target: '#sticky-bar', offset: 150 })
 </script>
+<script>
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '100%',
+      width: '100%',
+      videoId: 'rq9MEt_gOf0',
+      events: {
+        'onReady': onPlayerReady,
+      }
+    });
+  }
+
+  function onPlayerReady(event) {    
+    document.querySelector('auth-connect-promo .play-circle').addEventListener('click', () => {
+      setTimeout(() => {
+        event.target.playVideo();
+      }, 900)
+    }); 
+
+    document.querySelector('#backdrop').addEventListener('click', () => {
+      event.target.stopVideo();
+    });
+  }
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 {% endblock %}

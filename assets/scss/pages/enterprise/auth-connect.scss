@@ -41,11 +41,21 @@ body {
   }
 }
 
-auth-connect-promo{
 
+#dummy-element {
+  width: 396px;
+  height: 240px;
+  display: none;
+  position: relative;
+  top: -120px;
+  z-index: -1;
+  @media screen and (max-width: $screen-sm-max) {
+    display: inline-block;
+  }
 }
 
 .cta {
+  clear: left;
   h3 {
     color: #00CEAB;
   }

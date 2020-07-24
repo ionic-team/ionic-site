@@ -6,6 +6,7 @@
 {% set stickyNav = true %}
 {% set header_style = 'transparent light' %}
 {% set cssPath = 'getting-started' %}
+{% set recaptcha = true %}
 
 {% block main %}
 <main>
@@ -211,9 +212,4 @@
 </main>
 
 {% include '_includes/promos/quad-cta.html' %}
-{% endblock %}
-
-{% block scripts %}
-{# Google reCAPTCHA #}
-<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
 {% endblock %}

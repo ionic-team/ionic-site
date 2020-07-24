@@ -3,6 +3,7 @@
 {% set id = "signup" %}
 {% set meta_description = "Create your Ionic account." %}
 {% set cssPath = 'auth' %}
+{% set recaptcha = true %}
 
 {% block main %}
 <header>
@@ -79,6 +80,4 @@
   integrity="sha384-0klsXCJV+cWaC+zXWBGWot1n1vMkFkbxy6BtBjwrn+fEoS5kflOTchfH9PUQPaN+"
   crossorigin="anonymous"
 ></script>
-{# Google reCAPTCHA #}
-<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
 {% endblock %}

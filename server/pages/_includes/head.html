@@ -121,6 +121,10 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+{% if recaptcha %}
+<script src="https://www.google.com/recaptcha/api.js?render=6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"></script>
+{% endif %}
+
 {% if not noGlobalStencil %}
 <script type="module" src="/js/stencil/ionic-site-components/ionic-site-components.esm.js"></script>
 <script nomodule src="/js/stencil/ionic-site-components.js"></script>

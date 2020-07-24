@@ -110,6 +110,15 @@ export class IonicSignupForm {
     if (params.has('username')) {
       this.form.username = params.get('username');
     }
+
+    this.formErrorMap = { _form: 'Error: Failed to load Google reCAPTCHA. Please disable ad blocking and try again.' }
+    if (typeof window.grecaptcha !== 'undefined') {
+      if (window.grecaptcha.execute !== 'undefined') {
+        this.formErrorMap = null;
+      } else {
+        window.grecaptcha.ready(() => this.formErrorMap = null);
+      }
+    }
   }
 
   render() {

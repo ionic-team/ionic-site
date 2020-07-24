@@ -1,11 +1,12 @@
 ionic-login-form {
+  --row-gap: 10px;
   width: 100%;
 
   #login-form {
-    margin-top: 12px;
-    margin-bottom: 48px;
+    margin-top: var(--row-gap);
+    margin-bottom: 32px;
     display: grid;
-    grid-gap: 12px;
+    grid-gap: var(--row-gap);
 
     ui-floating-input {
       margin-bottom: 0;

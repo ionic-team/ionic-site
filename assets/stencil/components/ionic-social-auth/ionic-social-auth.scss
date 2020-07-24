@@ -1,7 +1,9 @@
 ionic-social-auth {
+  --row-gap: 10px;
+
   form {
     display: grid;
-    grid-gap: 12px;
+    grid-gap: var(--row-gap);
   }
 
   button {
@@ -39,7 +41,7 @@ ionic-social-auth {
       color: #B2BECD;
       font-size: 10px;
       background-color: #fff;
-      padding: 12px;
+      padding: 0 12px;
     }
 
     &::before{

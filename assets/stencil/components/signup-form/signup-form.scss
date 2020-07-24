@@ -1,4 +1,5 @@
 ionic-signup-form {
+  --row-gap: 10px;
   width: 100%;
 
   section {
@@ -9,7 +10,6 @@ ionic-signup-form {
 
   hgroup {
     text-align: center;
-    margin-bottom: 32px;
 
     h2 {
       font-size: 32px;
@@ -27,16 +27,11 @@ ionic-signup-form {
   }
 
   #signup-form {
-    margin-top: 12px;
-    margin-bottom: 48px;
+    margin-top: var(--row-gap);
+    margin-bottom: 32px;
     display: grid;
-    grid-gap: 12px;
-    grid-template-columns: 1fr 1fr;
-
-    ui-floating-input:not(:nth-child(1)):not(:nth-child(2)),
-    #submit {
-      grid-column: 1 / 3;
-    }
+    grid-gap: var(--row-gap);
+    grid-auto-flow: row;
 
     ui-floating-input {
       position: relative;
@@ -59,7 +54,7 @@ ionic-signup-form {
   }
 
   .form-errors {
-    margin-bottom: 12px;
+    margin-bottom: var(--row-gap);
     text-align: center;
     font-weight: bold;
     color: var(--c-red-800);
@@ -76,7 +71,7 @@ ionic-signup-form {
   }
 
   .disclaimer {
-    margin: 12px 0 0;
+    margin: var(--row-gap) 0 0;
     font-size: 12px;
     text-align: center;
 

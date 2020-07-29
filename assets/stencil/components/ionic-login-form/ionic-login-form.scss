@@ -42,6 +42,9 @@ ionic-login-form {
   .signup-prompt {
     text-align: center;
     color: #414D5C;
+    p + p {
+      margin-top: 8px;
+    }
   }
 
   .btn {

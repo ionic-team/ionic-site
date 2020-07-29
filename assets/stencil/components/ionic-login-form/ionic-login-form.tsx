@@ -128,21 +128,24 @@ export class IonicLoginForm {
               message={this.formErrorMap?.password}
               onChange={inputChange("password")}
             />
-            <div class="forgot-password">
-              <a href={`${window.DASHBOARD_URL}/reset-password`} title="Reset Password?">
-                Forgot password?
-              </a>
-            </div>
+
           </div>
           <button type="submit" id="submit" class="btn btn-block" tabindex="3">
             {this.buttonText}
           </button>
         </form>
         <div class="signup-prompt">
-          Don’t have an account?{" "}
-          <a href={`/signup${window.location.search}`} class="text-link">
-            Sign up
-          </a>
+          <p>
+            <a href={`${window.DASHBOARD_URL}/reset-password`} title="Reset Password?">
+              Forgot password?
+            </a>
+          </p>
+          <p>
+            Don’t have an account?{" "}
+            <a href={`/signup${window.location.search}`} class="text-link">
+              Sign up
+            </a>
+          </p>
         </div>
       </section>
     );

@@ -1,6 +1,5 @@
 import { Component, Prop, State, h } from '@stencil/core';
 import { EmailOutlineIcon } from '../../icons';
-import { uuid } from 'uuidv4';
 
 @Component({
   tag: 'ionic-newsletter-signup',
@@ -9,7 +8,7 @@ import { uuid } from 'uuidv4';
 })
 export class IonicNewsletterSignup {
   @Prop() srLabel = {
-    id: uuid(),
+    id: Math.random().toString(36).substring(2),
     text: 'enter email to join newsletter',
   } 
   @Prop() placeholder: string = 'Email address';

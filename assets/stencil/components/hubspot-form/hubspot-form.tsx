@@ -1,5 +1,5 @@
 import { Component, Prop, Element, h, State, Host } from '@stencil/core';
-import { uuid } from 'uuidv4'
+
 
 interface fieldProps {
   label: string,
@@ -33,7 +33,7 @@ export class HubspotForm {
   @State() data = false;
   @State() emailInvalid: boolean = false;
   @State() emailSuccess: boolean = false;
-  private wrapperId: string = "id-" + uuid();
+  private wrapperId: string = "id-" + Math.random().toString(36).substring(2);
   private formFields: fieldProps[] = []
   private formGroups: any = [];
   

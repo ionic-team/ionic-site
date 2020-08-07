@@ -36,7 +36,7 @@
   "dependencies": {
     "@ionic/core": "5.0.0",
     "@sentry/node": "^5.11.0",
-    "@stencil/core": "1.8.7",
+    "@stencil/core": "1.17.3",
     "@stencil/sass": "1.1.1",
     "@stencil/utils": "latest",
     "@types/node": "13.1.6",
@@ -87,13 +87,13 @@
     "prismjs": "^1.19.0",
     "redis": "^2.8.0",
     "request": "^2.88.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "sendgrid": "^5.2.3",
     "shortid": "^2.2.15",
     "throng": "^4.0.0",
     "twilio": "^3.39.2",
     "twitter": "^1.7.1",
-    "typed.js": "^2.0.11",
-    "uuidv4": "^6.0.8"
+    "typed.js": "^2.0.11"
   },
   "module": "dist/js/stencil/esm/index.js",
   "main": "dist/js/stencil/index.js",

@@ -1,10 +1,16 @@
 const { sass } = require('@stencil/sass');
+const nodePolyfills = require('rollup-plugin-node-polyfills');
 
 exports.config = {
   namespace: 'ionic-site-components',
   plugins: [
     sass()
   ],
+  rollupPlugins: {
+    after: [
+      nodePolyfills()
+    ]
+  },
   outputTargets: [
     // {
     //   type: 'dist',

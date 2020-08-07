@@ -362,7 +362,7 @@ export class AppWizard {
     } else if (this.user) {
       buttonText = <span>Create App</span>;
     } else {
-      buttonText = <span>Continue -></span>;
+      buttonText = <span>Continue {'->'}</span>;
     }
 
     return (

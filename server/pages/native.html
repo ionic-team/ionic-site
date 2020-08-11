@@ -165,7 +165,29 @@
         </div>
       </div>
     </section>
+  </div>
 
+  <section class="whitepaperCta">
+    <div class="container">
+      <img  src="/img/native/book@2x.png"
+            srcset="/img/native/book@1x.png 1x,
+                    /img/native/book@2x.png 2x"
+            loading="lazy"
+            width="512" height="383"
+            alt="Book Cover: Building cross-platform apps with Capacitor"/>
+      <div class="whitepaperCta__content">
+        <h3>
+          See when and why to use Capacitor to build cross-platform apps.&nbsp;
+          <span>We wrote a guide to help you get started.</span>
+        </h3>
+        <button class="btn sm" data-toggle="modal" data-target="#modal-data-sheet">
+          Read our Guide <span style="letterSpacing: 0">-></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container main1 stack">
     <section id="plugins" class="strip box">
       <div id="pluginsText" class="box stack">
         <h2>Premier, supported native plugins</h2>
@@ -352,7 +374,43 @@
 </section>
 
 {% include '_includes/promos/newsletter-signup.html' %}
-
+<div class="modal collapse fade modal--form"
+     id="modal-data-sheet"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="promo--ionic-for-enterprise">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body form hubspot-override hubspot-override--large">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h2>Building Cross-Platform  Apps with Capacitor</h2>
+          <p class="lg">Fill out the form below to download our free whitepaper</p>
+        </hgroup>
+        <!--[if lte IE 8]>
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "3776657",
+          	formId: "9151dc0b-42d9-479f-b7b8-649e0e7bd1bc",
+            css: ""
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

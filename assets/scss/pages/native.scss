@@ -481,3 +481,63 @@ ionic-sub-header {
   }
 
 }
+
+.whitepaperCta {
+  background: linear-gradient(90deg, #F1FAFF 0%, #B8E3FF 44.999%, #F2F8FD 45%);
+  margin-bottom: 80px;
+
+  .container {
+    position: relative;
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: calc(45% - 520px);
+
+    @media (max-width: $screen-md-max) {
+      left: calc(45% - 460px);
+    }
+  }
+
+  &__content {
+    padding-left: calc(45% + 60px);
+  }
+
+  h3 {
+    margin-bottom: 2rem;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+
+    span {
+      color: rgba(97,110,126,.7);
+    }
+  }
+
+  .btn {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: $screen-md) {
+    background: linear-gradient(180deg, #F1FAFF 0%, #B8E3FF 44.999%, #F2F8FD 45%);
+    padding-top: 0;
+
+    &__content {
+      padding-left: 0;
+      padding-top: 260px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    img {
+      bottom: 55%;
+      left: calc(50% - 260px);
+    }
+  }
+}

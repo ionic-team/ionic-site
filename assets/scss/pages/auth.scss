@@ -28,6 +28,12 @@
         width: 24px;
         height: 24px;
       }
+
+      &--appflow {
+        &, svg {
+          width: 114px;
+        }
+      }
     }
 
     .header__feedback {

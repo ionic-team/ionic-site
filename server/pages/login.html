@@ -6,9 +6,15 @@
 
 {% block main %}
 <header>
-  <a href="/" class="header__logo">
-    {% include '_includes/svg/ionic-black.svg' %}
-  </a>
+  {% if query.source === 'appflow' %}
+    <a class="header__logo header__logo--appflow" href="/">
+      {% include '_includes/svg/appflow-logo-w-text.svg' %}
+    </a>
+  {% else %}
+    <a class="header__logo" href="/">
+      {% include '_includes/svg/ionic-black.svg' %}
+    </a>
+  {% endif %}
 </header>
 <main>
   <div class="container-fluid">

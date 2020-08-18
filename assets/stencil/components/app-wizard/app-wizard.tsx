@@ -153,6 +153,7 @@ export class AppWizard {
     params.set("scope", "openid profile email");
     params.set("response_type", "id_token token");
     params.set("client_id", "wizard");
+    params.set("redirect_uri", window.location.origin + '/start')
     params.set("state", this.appId || '');
     params.set("nonce", Math.random().toString(36).substring(2));
     params.set("source", "wizard-1");

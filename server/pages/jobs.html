@@ -33,7 +33,7 @@
   </hgroup>
   <div id='lever-jobs-container'></div>
   <script type='text/javascript'>
-    window.leverJobsOptions = {accountName: 'Ionic', includeCss: true};
+    window.leverJobsOptions = {accountName: 'Ionic', includeCss: false};
   </script>
 </section>
 <section class="hero top container what-we">
@@ -277,7 +277,7 @@ window.loadLeverJobs = function (options) {
 
         for (var k = 0; k < groupedPostings[i].teams[j].postings.length; k ++) {
           content += '<li class="lever-job" data-department="' + groupedPostings[i].departmentTitle +'" data-team="' + groupedPostings[i].teams[j].postings[k].categories.team + '" data-location="' + groupedPostings[i].teams[j].postings[k].categories.location + '"data-work-type="' + groupedPostings[i].teams[j].postings[k].categories.commitment + '">' +
-          '<a class="lever-job-title" href="' + groupedPostings[i].teams[j].postings[k].hostedUrl + '">' + sanitizeForHTML(groupedPostings[i].teams[j].postings[k].text) + '</a><span class="lever-job-tag">' + (sanitizeForHTML(groupedPostings[i].teams[j].postings[k].categories.location) || '') + '</span></li>';
+          '<a class="lever-job-title" href="' + groupedPostings[i].teams[j].postings[k].hostedUrl + '" target="_blank">' + sanitizeForHTML(groupedPostings[i].teams[j].postings[k].text) + '</a><span class="lever-job-tag">' + (sanitizeForHTML(groupedPostings[i].teams[j].postings[k].categories.location) || '') + '</span></li>';
         }
 
         content += '</ul></li></ul>';

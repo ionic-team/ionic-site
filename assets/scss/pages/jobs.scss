@@ -215,20 +215,34 @@
       li,
       .rbox-opening-li {
         list-style: none;
-        padding: 29px 0 5px;
+        padding: 16px 0;
         position: relative;
 
+        .lever-team-title {
+          font-size: 24px;
+        }
+
         strong,
+        .lever-job-title,
         .rbox-opening-li-title {
-          font-size: 18px;
+          font-size: 16px;
           line-height: 1.4em;
-          color: $blackish;
+          color: $blue;
+          font-weight: 500;
+          transition: .2s color;
+
+          &:hover {
+            color: darken($blue, 10);
+          }
         }
 
         .location,
+        .lever-job-tag,
         .rbox-job-shortdesc {
           font-weight: 400;
-          font-size: 16px;
+          font-size: 14px;
+          float: right;
+          color: $darkish-grey;
         }
 
         .learn-more {
@@ -254,6 +268,10 @@
       .rbox-opening-li {
         padding-bottom: 29px;
       }
+    }
+
+    .lever-team ul li  + li {
+      border-top: 1px solid $lighter-grey;
     }
 
     .details {

@@ -216,12 +216,7 @@
       .rbox-opening-li {
         list-style: none;
         padding: 29px 0 5px;
-        border-top: 1px solid $lighter-grey;
         position: relative;
-
-        &:last-child {
-          border-bottom: 1px solid $lighter-grey;
-        }
 
         strong,
         .rbox-opening-li-title {

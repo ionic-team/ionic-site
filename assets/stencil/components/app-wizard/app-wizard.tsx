@@ -173,10 +173,10 @@ export class AppWizard {
       this.setStep(this.STEPS.length - 1);
     } else {
       const currentOrigin = window.location.origin.toLowerCase();
-      let urlBase = currentOrigin.indexOf('ionicframework.com') > -1 ? 
-         'https://dashboard.ionicframework.com' : 
-          currentOrigin.indexOf('staging') > -1 ?
-          'https://staging.ionicjs.com' : 'http://localhost:8080'
+      let urlBase = currentOrigin.indexOf('staging.ionicframework.com') > -1 ? 
+         'https://staging.ionicjs.com' : 
+          currentOrigin.indexOf('ionicframework.com') > -1 ?
+          'https://dashboard.ionicframework.com' : 'http://localhost:8080'
       window.location.href = `${urlBase}/create-app/${this.appId}`
     }    
   };

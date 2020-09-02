@@ -121,8 +121,10 @@ export class AppWizard {
       this.appId = params.get('state');
     }
 
+    const stayOnFinish = params.has('finish');
+
     if (this.appId) {
-      this.finish();
+      this.finish(stayOnFinish);
     } else {
       this.setStep(this.STEP_BASICS);
     }
@@ -160,14 +162,23 @@ export class AppWizard {
     window.location.assign(`/signup?${params.toString()}`);
   };
 
-  finish = () => {
-    this.setStep(this.STEPS.length - 1);
+  finish = (stayOnFinish = false) => {
     if (this.user) {
       identify(this.user.email, this.user.sub);
     }
     trackEvent({
       id: 'Start Wizard Finish'
     });
+    if(stayOnFinish) {
+      this.setStep(this.STEPS.length - 1);
+    } else {
+      const currentOrigin = window.location.origin.toLowerCase();
+      let urlBase = currentOrigin.indexOf('ionicframework.com') > -1 ? 
+         'https://dashboard.ionicframework.com' : 
+          currentOrigin.indexOf('staging') > -1 ?
+          'https://staging.ionicjs.com' : 'http://localhost:8080'
+      window.location.href = `${urlBase}/create-app/${this.appId}`
+    }    
   };
 
   basicsNext = async (e?) => {

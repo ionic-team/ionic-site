@@ -119,6 +119,9 @@ export class AppWizard {
     const params = new URLSearchParams(window.location.hash.slice(1));
     if (params.has('state')) {
       this.appId = params.get('state');
+    } else if (params.has('pwa')) {
+      window.location.hash = '';
+      trackEvent({id: 'Starting_PWA_Wizard'});
     }
 
     const stayOnFinish = params.has('finish');

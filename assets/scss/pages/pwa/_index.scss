@@ -5,6 +5,16 @@
   }
   img {
     height: auto;
+
+    &.promo__image {
+      height: 156px;
+      width: unset;
+    }
+  }
+
+  svg.logo {
+    width: 200px;
+    padding: 0 0 40px;
   }
 
   font-size: 1.4rem;
@@ -327,4 +337,8 @@
     }
   }
 
+  // Promo buttons
+  .promo_button{
+      margin-top: 40px;
+  }
 }

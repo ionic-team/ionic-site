@@ -117,7 +117,7 @@ module.exports = {
     .get('/pro/package', (_, res) => res.render('pro/package'))
 
     .get('/pwa', (_, res) => res.render('pwa/index'))
-    .get('/pwa/toolkit', (_, res) => res.render('pwa/toolkit'))
+    .get('/pwa/toolkit', (_, res) => res.redirect('https://ionicframework.com/pwa'))
 
     .get('/react', (_, res) => res.render('react'))
 

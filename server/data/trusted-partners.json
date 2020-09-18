@@ -61,6 +61,18 @@
     "company-size": "50-200"
   },
   {
+    "slug":"modus",
+    "name":"Modus Create",
+    "level":"gold",
+    "link":"https://moduscreate.com/contact/",
+    "short-description":"<strong>Modus Create</strong> is a consulting firm that helps companies transform for success in the digital future",
+    "long-description":"<p>Modus Create is a consulting firm that helps companies transform for success in the digital future. Clients work with Modus to effect transformational change through a unique collaborative engagement model that focuses on strategy, product design/build, user experience, company culture, and process change to accelerate their response to digital disruption.</p>",
+    "address":"12100 Sunset Hills Road<br>Suite 150<br>Reston, Virginia, 20190",
+    "features":null,
+    "coordinates":[27.3,37.5],
+    "company-size": "10-50"
+  },
+  {
     "slug":"openforge",
     "name":"OpenForge",
     "level":"platinum",

@@ -42,7 +42,7 @@ We know our customers work hard to deliver mission critical apps that support th
 
 What is Ionic’s communication strategy through the duration of this pandemic?
 
-Ionic is committed to communicating critical updates with our clients and community members. We have posted our strategy [here](http://ionicframework.com/covid-19) and will continue to keep this page updated as our strategy evolves.
+Ionic is committed to communicating critical updates with our clients and community members. We have posted our strategy [here](https://ionicframework.com/covid-19) and will continue to keep this page updated as our strategy evolves.
 
 Who can I contact for further inquiry?
 

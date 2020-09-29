@@ -652,4 +652,20 @@
       }
     }
   }
+
+  #applicationForm {
+    .modal-dialog {
+      max-width: 500px;
+    }
+
+    .modal-body {
+      max-height: calc(100vh - 60px);
+      overflow: scroll;
+      position: static;
+    }
+
+    .hero {
+      padding-top: 0;
+    }
+  }
 }

@@ -335,72 +335,15 @@
             are applying.
           </p>
         </hgroup>
-        <form action="/trusted-partners"
-              id="trustedPartnersForm"
-              class="form-inline container"
-              method="post"
-              name="application">
-          <input class="form-control"
-                 type="text"
-                 name="first_name"
-                 placeholder="Your first name *"
-                 required>
-          <input class="form-control"
-                type="text"
-                name="last_name"
-                placeholder="Your last name *"
-                required>
-          <input class="form-control"
-                 type="email"
-                 name="email"
-                 placeholder="Email *"
-                 ng-model="email"
-                 ng-class="{ 'invalid': contact.email.$error.email }"
-                 required>
-          <input class="form-control"
-                 type="text"
-                 name="company"
-                 placeholder="Company name *"
-                 required>
-          <div class="select-wrapper"><select class="form-control select-helper"
-                  name="employees"
-                  required>
-            <option value="null" disabled selected>Employees *</option>
-            <option value="1-5">1-5</option>
-            <option value="5-20">5-20</option>
-            <option value="20-50">20-50</option>
-            <option value="50-500">50-500</option>
-            <option value="500+">500+</option>
-          </select><div class="up"></div><div class="dn"></div></div>
-          <input class="form-control"
-                 type="tel"
-                 name="phone"
-                 placeholder="Phone *"
-                 required>
-          <input class="form-control full-width"
-                 type="text"
-                 name="title"
-                 placeholder="Job title *"
-                 required>
-          <textarea name="message"
-                    cols="30"
-                    rows="10"
-                    placeholder="Please tell us about your case studies and projects with Ionic."
-                    required
-                    ></textarea>
-
-          <input type="hidden" name="form_name" value="become_trusted_partner" />
-          <input type="hidden" name="form" value="application" />
-          <button 
-            class="btn ionic g-recaptcha"
-            value="Send message"
-            id="trustedPartnersSubmit"
-            data-sitekey="6LfbcKAUAAAAACUDq_t59TP8MawQXB37DVEeSOjZ"
-            data-callback='onSubmit'
-            data-action='submit'>
-            Send message
-          </button>
-        </form>
+        <script charset="utf-8"
+          type="text/javascript"
+          src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: '3776657',
+            formId: '9388c84e-ecdf-4fe4-9cc5-71d914845a82'
+          });
+        </script>
       </div>
     </div>
   </div>

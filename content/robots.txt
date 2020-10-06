@@ -11,5 +11,6 @@ Disallow: /docs/pt/
 Disallow: /docs/zh/
 
 Sitemap: https://ionicframework.com/sitemap.xml
-Sitemap: https://ionicframework.com/docs/v1/sitemap.xml
-Sitemap: https://ionicframework.com/docs/v3/sitemap.xml
+Sitemap: https://ionicframework.com/docs/sitemap.xml
+Sitemap: https://ionicframework.com/blog/sitemap_index.xml
+Sitemap: https://ionicframework.com/resources/sitemap.xml

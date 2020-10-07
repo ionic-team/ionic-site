@@ -16,3 +16,5 @@ Sitemap: https://ionicframework.com/blog/post-sitemap.xml
 Sitemap: https://ionicframework.com/blog/category-sitemap.xml
 Sitemap: https://ionicframework.com/blog/author-sitemap.xml
 Sitemap: https://ionicframework.com/resources/sitemap.xml
+Sitemap: https://ionicframework.com/docs/v1/sitemap.xml
+Sitemap: https://ionicframework.com/docs/v3/sitemap.xml

@@ -110,7 +110,9 @@ async function getUser(req) {
       const response = await fetch(`${config.API_URL}/oauth/userinfo`, {
         headers: { cookie },
       });
-      return await response.json();
+      if (response.ok) {
+        return await response.json();
+      }
     } catch (e) {
       return null;
     }

@@ -9,7 +9,7 @@
 
 {% block main %}
 <div id="ionic-slider">
-  <section id="slide-ionic-react" class="container">
+  {# <section id="slide-ionic-react" class="container">
     <div class="landing__content">
       <h1>
         <span class="activateOnScroll">One codebase. </span>
@@ -28,6 +28,70 @@
             srcset="/img/homepage/hero-ionic-react@1x.png 1x,
                     /img/homepage/hero-ionic-react@2x.png 2x"
             width="525" height="542">   
+    </div>
+  </section> #}
+
+  <img
+    class="hero-image-vue"
+    loading="eager"
+    srcset="/img/homepage/hero-ionic-vue.png 1x,
+            /img/homepage/hero-ionic-vue@2x.jpg 2x"
+    width="1800" height="911"
+    alt="Abstract shapes colored green and gray"
+  />
+  <section id="slide-ionic-vue">    
+    <div class="container">
+      <div class="heading-group">
+        <h1>
+          <span class="activateOnScroll">One codebase.</span>
+          <span class="activateOnScroll">Any platform.</span>
+          <span class="activateOnScroll">
+            Now in
+            <a
+              href="/docs/vue/overview"
+              class="underline highlight"
+            >
+              Vue.
+            </a>
+          </span>
+        </h1>
+        <ul>
+          <li class="activateOnScroll">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Over 100 mobile UI Vue components
+          </li>
+          <li class="activateOnScroll">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Standard Vue tooling based on Vue 3
+          </li>
+          <li class="activateOnScroll">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Target iOS / Android / Electron / PWA
+          </li>
+        </ul>
+        <div class="ctas activateOnScroll">
+          <a href="/docs/vue/overview" class="button button--dark">
+            Try Ionic Vue<span class="arrow"> -&gt;</span>
+          </a>
+          <a href="/docs" class="button button--light">
+            Docs<span class="arrow"> -&gt;</span>
+          </a>
+          
+        </div>
+        <img
+          class="icons-image activateOnScroll"
+          loading="eager"
+          src="/img/homepage/platform-icons.png"
+          width="122" height="12"
+          alt="Icons for Apple, Android, Windows, React, and PWA"
+        />
+      </div>      
     </div>
   </section>
 

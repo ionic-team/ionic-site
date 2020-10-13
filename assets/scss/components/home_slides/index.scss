@@ -6,6 +6,11 @@
   display: block;
   min-height: 860px;
   position: relative;
+  padding-top: 203px;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 30vh !important;
+  }
 
   // Part of the vue.scss style package
   .hero-image-vue {

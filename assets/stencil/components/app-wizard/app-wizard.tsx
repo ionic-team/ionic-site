@@ -17,7 +17,7 @@ const TEMPLATES = [
 const FRAMEWORKS = [
   { name: 'React', id: 'react' },
   { name: 'Angular', id: 'angular' },
-  { name: 'Vue (soon)', id: 'vue', soon: true },
+  { name: 'Vue', id: 'vue' },
 ]
 
 const THEMES = [
@@ -454,7 +454,7 @@ export class AppWizard {
             <label>
               Pick a JavaScript Framework
               <ui-tip
-                text="React is beginner friendly, Angular is popular for enterprise"
+                text="React and Vue are beginner friendly, Angular is popular for enterprise"
                 position="top">
                 <InfoCircle />
               </ui-tip>
@@ -462,9 +462,7 @@ export class AppWizard {
             <FrameworkSwitcher
               value={this.framework}
               onChange={framework => {
-                if (framework !== 'vue') {
-                  this.framework = framework;
-                }
+                this.framework = framework;
               }} />
           </div>
           <div ref={e => this.submitButtonWrapRef = e} class="next-button-wrapper">
@@ -666,7 +664,7 @@ const FrameworkSwitcher = ({ value, onChange }) => (
   {FRAMEWORKS.map(f => (
     <div
       key={f.id}
-      class={`framework ${value === f.id ? 'selected' : ''}${f.soon ? ' soon' : ''}`}
+      class={`framework ${value === f.id ? 'selected' : ''}`}
       onClick={() => onChange(f.id)}>
       <div class={`framework-logo framework-${f.id}`} />
       <h5>{f.name}</h5>

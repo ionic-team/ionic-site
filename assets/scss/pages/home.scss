@@ -1,7 +1,7 @@
 @import '../vars';
 @import '../mixins';
 @import '../components/home_slides/index';
-@import '../components/home_slides/react';
+@import '../components/home_slides/vue';
 
 #page-home {
   img {
@@ -36,7 +36,6 @@
   }
 
   #promo--hybrid-vs-native {
-    margin-top: -19px;
 
     @media (max-width: $screen-sm-max) {
       margin-top: 0;

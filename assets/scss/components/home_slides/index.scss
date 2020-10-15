@@ -6,10 +6,10 @@
   display: block;
   min-height: 860px;
   position: relative;
-  padding-top: 203px;
+  padding-top: clamp(120px, 22vh, 203px);
 
   @media screen and (max-width: 768px) {
-    padding-top: 30vh !important;
+    padding-top: 21.5vh !important;
   }
 
   // Part of the vue.scss style package
@@ -181,7 +181,7 @@
   }
 
   @media (max-width: $screen-sm-max) {
-    overflow: hidden;
+    // overflow: hidden;
     width: 100%;
   }
 }

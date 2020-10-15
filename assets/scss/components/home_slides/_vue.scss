@@ -93,6 +93,9 @@ section#slide-ionic-vue {
   
   .ctas {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: -16px;
+    margin-left: -8px;
     align-items: center;
     justify-content: center;
 
@@ -103,6 +106,8 @@ section#slide-ionic-vue {
     }
 
     .button {
+      margin-top: 16px;
+      margin-left: 8px;
       display: inline-block;
       border-radius: 1000px;
       font-weight: 600;
@@ -142,10 +147,6 @@ section#slide-ionic-vue {
         &:focus {
           box-shadow: 0 0 0 3px #59d99f;
         }
-      }
-
-      + .button {
-        margin-left: 8px;
       }
     }
   }

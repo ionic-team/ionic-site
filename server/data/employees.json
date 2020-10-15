@@ -8,14 +8,6 @@
     "image":"/img/team/adam-bradley.jpg"
   },
   {
-    "name":"Alex Roberts",
-    "dept":"Sales",
-    "description":null,
-    "twitter":null,
-    "linkedin":"https://www.linkedin.com/in/alex-roberts-827009109",
-    "image": "/img/team/alex-roberts.jpg"
-  },
-  {
     "name":"Aly Lawton Yoder",
     "dept":"Customer Success",
     "description":null,
@@ -62,22 +54,6 @@
     "twitter":"https://twitter.com/brodymkidd",
     "linkedin":"https://www.linkedin.com/in/michael-brody-kidd-22723027",
     "image": "/img/team/brody-kidd.jpg"
-  },
-  {
-    "name":"Bryant Feld",
-    "dept":"Customer Success",
-    "description":null,
-    "twitter":null,
-    "linkedin":"https://www.linkedin.com/in/bryant-k-feld-6b192428/",
-    "image": "/img/team/bryant-feld.png"
-  },
-  {
-    "name":"Cam Wiegert",
-    "dept":"Development",
-    "description":"",
-    "twitter":"https://twitter.com/camwiegert",
-    "linkedin":null,
-    "image":"/img/team/cam-wiegert.png"
   },
   {
     "name":"Carl Poole",
@@ -176,14 +152,6 @@
     "image":"/img/team/jared-baumgartner.jpg"
   },
   {
-    "name":"Jill Rosenthal",
-    "dept":"Dir of Corp Communications",
-    "description":null,
-    "twitter":null,
-    "linkedin":"https://www.linkedin.com/in/jillrosenthal",
-    "image":"/img/team/jill-rosenthal.png"
-  },
-  {
     "name":"Josh Thomas",
     "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
@@ -246,22 +214,6 @@
     "twitter":"https://twitter.com/lm3m",
     "linkedin":"https://www.linkedin.com/in/luke-mccullough-2241173",
     "image": "/img/team/luke-mccullough.png"
-  },
-  {
-    "name":"Mac McCollum",
-    "dept":"Sales",
-    "description": null,
-    "twitter":null,
-    "linkedin":"https://www.linkedin.com/in/michael-mccollum",
-    "image": null
-  },
-  {
-    "name":"Manu Martínez-Almeida",
-    "dept":"Development",
-    "description":"From “sunny” Spain, Manu spends most of his time building high quality components for the framework. When he’s not getting his hands dirty with performance optimizations, you can find him training for a half marathon or experimenting with hardware. He’s powered by the most bitter IPAs that can be found.",
-    "twitter":"https://twitter.com/manucorporat",
-    "linkedin":"https://www.linkedin.com/in/manu-mart%C3%ADnez-almeida-5b390539",
-    "image": "/img/team/manu-martinez-almeida.jpg"
   },
   {
     "name":"Matt Kremer",

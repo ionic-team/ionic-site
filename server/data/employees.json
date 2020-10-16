@@ -72,6 +72,14 @@
     "image":"/img/team/cody-wiseman.png"
   },
   {
+    "name":"Cory LaViska",
+    "dept":"Development",
+    "description": null,
+    "twitter": "https://twitter.com/claviska",
+    "linkedin": null,
+    "image": "/img/team/cory-laviska.jpg"
+  },
+  {
     "name":"Dallas James",
     "dept":"Customer Success",
     "description":null,
@@ -94,6 +102,14 @@
     "twitter": null,
     "linkedin":"https://www.linkedin.com/in/dereklwilson2/",
     "image": "/img/team/derek-wilson.jpg"
+  },
+  {
+    "name":"Devin Shoemaker",
+    "dept":"Development",
+    "description": null,
+    "twitter": "https://twitter.com/paranoidcoder",
+    "linkedin": null,
+    "image": "/img/team/devin-shoemaker.jpg"
   },
   {
     "name":"Ely Lucas",
@@ -152,6 +168,14 @@
     "image":"/img/team/jared-baumgartner.jpg"
   },
   {
+    "name":"Jeff Jewett",
+    "dept":"VP GTM Ops & Demand Generation",
+    "description": null,
+    "twitter": " https://twitter.com/jeffreyajewett/",
+    "linkedin": "https://www.linkedin.com/in/jeffreyajewett/",
+    "image": "/img/team/jeff-jewett.jpg"
+  },
+  {
     "name":"Josh Thomas",
     "dept":"Development",
     "description":"Josh spends most of his spare time listening to programming podcasts, discovering new music genres, or complaining about the Wisconsin winters. This elder Ionic member has a fondness for clean, functional code; strict quality standards; and all things JavaScript.",
@@ -198,6 +222,14 @@
     "twitter":"https://twitter.com/LiamDeBeasi",
     "linkedin":"https://linkedin.com/in/liamdebeasi",
     "image": "/img/team/liam-debeasi.png"
+  },
+  {
+    "name":"Lindsey Turner",
+    "dept":"Sales",
+    "description": null,
+    "twitter":null,
+    "linkedin":"http://linkedin.com/in/lindseylturner",
+    "image":"/img/team/lindsey-turner.jpg"
   },
   {
     "name":"Liz Maves",

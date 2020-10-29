@@ -224,6 +224,14 @@
     "image": "/img/team/liam-debeasi.png"
   },
   {
+    "name":"Likhith Aalla",
+    "dept":"Development",
+    "description": null,
+    "twitter":null,
+    "linkedin":"https://www.linkedin.com/in/likhith-aalla/",
+    "image": "/img/team/likhith-aalla.jpg"
+  },
+  {
     "name":"Lindsey Turner",
     "dept":"Sales",
     "description": null,

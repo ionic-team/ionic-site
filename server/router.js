@@ -80,6 +80,7 @@ module.exports = {
     .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
     .get('/framework', (_, res) => res.render('framework'))
     .get('/getting-started', (_, res) => res.render('getting-started'))
+    .get('/getting-started-with-ionic-vue', (_, res) => res.render('getting-started-with-ionic-vue'))
 
     .get('/go/pwa-architects-guide', (_, res) =>
       res.render('go/pwa-architects-guide/index'))

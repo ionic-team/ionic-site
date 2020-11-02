@@ -110,6 +110,10 @@ h3 {
       padding-block-end: 124px;
       padding-inline-end: 96px;
 
+      @media screen and (max-width: $screen-sm-max) {
+        padding-inline-end: 0;
+      }
+
       &::before {
         content: '';
         position: absolute;
@@ -142,6 +146,11 @@ h3 {
     article:last-of-type {
       padding: 128px 0px 131px 64px;
 
+      @media screen and (max-width: $screen-sm-max) {
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+      }
+
       &::before {
         content: '';
         position: absolute;
@@ -152,6 +161,10 @@ h3 {
         top: 0;
         bottom: 0;
         background: #C1EDDA;
+
+        @media screen and (max-width: $screen-sm-max) {
+          left: -45.56vw;
+        }
       }  
 
       .speaker {        
@@ -178,6 +191,10 @@ h3 {
       padding-block-end: 96px;
       padding-inline-end: 96px;
 
+      @media screen and (max-width: $screen-sm-max) {
+        padding-inline-end: 0px;
+      }
+
       &::before {
         content: '';
         position: absolute;
@@ -188,6 +205,10 @@ h3 {
         top: 0;
         bottom: 0;
         background: #8398AE;
+
+        @media screen and (max-width: $screen-sm-max) {
+          right: -54.44vw;
+        }
       }
 
       h2 {
@@ -197,6 +218,10 @@ h3 {
     }
     article:last-of-type {
       padding: 96px 0px 132px 64px;
+
+      @media screen and (max-width: $screen-sm-max) {
+        padding-inline-start: 0px;
+      }
 
       &::before {
         content: '';
@@ -208,6 +233,10 @@ h3 {
         top: 0;
         bottom: 0;
         background: #EAFCF4;
+
+        @media screen and (max-width: $screen-sm-max) {
+          left: -45.56vw;
+        }
       }  
 
       h2 {
@@ -228,6 +257,8 @@ h3 {
   position: relative;
   display: flex;
 
+  max-width: 544px;   
+
   * {
     width: 100%;
   }
@@ -245,7 +276,7 @@ h3 {
       border: 0;
       padding: 24px 22px;
       height: 64px;
-
+      padding-inline-end: 142px;
 
       font-family: $ff-roboto;
       font-size: 14px;
@@ -268,23 +299,58 @@ h3 {
     right: 0;
     width: 160px;
 
+    background: #1DCD83;
+
+    transition: background-color .2s ease-out;
+
+    &:hover {
+      background: #29e094;
+    }
+
     input {
+      --arrow-size: 1.06em;
+
       cursor: pointer;
       height: 48px;
       border: none;
+      padding: 16px 20px;
+      text-align: left;
 
-      font-family: $ff-inter;
+      font-family: $ff-roboto;
       font-size: 14px;
       font-weight: 700;
 
-      background: #1DCD83;
       color: #fff;
+      background: transparent;
+
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHBvbHlsaW5lIHBvaW50cz0nMjY4IDExMiA0MTIgMjU2IDI2OCA0MDAnIHN0eWxlPSdmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1taXRlcmxpbWl0OjEwO3N0cm9rZS13aWR0aDo0OHB4Jy8+PGxpbmUgeDE9JzM5MicgeTE9JzI1NicgeDI9JzEwMCcgeTI9JzI1Nicgc3R5bGU9J2ZpbGw6bm9uZTtzdHJva2U6I2ZmZjtzdHJva2UtbGluZWNhcDpzcXVhcmU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjQ4cHgnLz48L3N2Zz4=);
+      background-size: var(--arrow-size);
+      background-position: calc(100% - 18px) center;
+      background-repeat: no-repeat;
+
+
     }
   }
 
   .hs-error-msg {
     font-size: 14px;
     color: red;
+  }
+
+  .submitted-message p {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-inline-end: 8px;
+      height: 24px;
+      width: 24px;
+      background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxRENEODMiLz4KPHBhdGggZD0iTTE3IDhMMTAgMTZMNyAxMyIgc3Ryb2tlPSIjRTNFREZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K);
+    }
+
+    color: #fff;
   }
 }
 
@@ -303,6 +369,17 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 32px;
+    row-gap: 64px;
+
+    @media screen and (max-width: $screen-sm-max) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-row: auto auto;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      grid-template-columns: 1fr;
+      grid-template-row: auto auto auto auto;
+    }
 
     li a {
       display: block;
@@ -345,15 +422,16 @@ h3 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 32px 32px 0 0;
+    margin: -32px -32px 0 0;
 
     > * {
-      margin: -32px -32px 0 0;
+      margin: 32px 32px 0 0;
     }
   }
 
   .info {
     display: flex;
+
     > div {
       font-size: 12px;
       line-height: 160%;

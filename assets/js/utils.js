@@ -40,6 +40,7 @@ $(document).ready(function() {
 (function () {
   // pre-header announcement animation
   var announcement = document.querySelector('.pre-header__announcement');
+
   if (announcement) {
     var lastClear = localStorage.getItem('last-clear');
     var timeNow  = (new Date()).getTime();
@@ -348,7 +349,8 @@ window.stickyNav = {
   handleScroll: function () {
     var self = this;
     requestAnimationFrame(function(){
-      if (window.scrollY > 102) {
+      //header nav height + announcement bar height
+      if (window.scrollY > (70 + 0)) {
         self.show();
       } else {
         self.hide();

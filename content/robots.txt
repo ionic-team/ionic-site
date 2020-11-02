@@ -1,4 +1,6 @@
 User-Agent: *
+Crawl-delay: 0.5
+
 Disallow: /docs//demos
 Disallow: /docs/pages/theming/color-generator
 Disallow: /docs/v3/demos/

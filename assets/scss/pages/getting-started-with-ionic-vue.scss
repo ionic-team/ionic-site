@@ -92,6 +92,9 @@ h3 {
 
 
 #top {
+  --left-width: 56.3%;
+  --right-width: 43.7%;
+
   .strip {
     display: flex;
 
@@ -104,7 +107,12 @@ h3 {
     position: absolute;
     z-index: -1;
     height: 100%;
+    min-width: 100%;
     width: auto;
+
+    @media screen and (max-width: $screen-lg) {
+      display: none;
+    }
   }
 
   .strip-0 {
@@ -113,7 +121,7 @@ h3 {
    
     }
     article:first-of-type {
-      flex-basis: 57%;
+      flex-basis: var(--left-width);
 
       padding-block-start: 20px;
       padding-block-end: 124px;
@@ -138,6 +146,10 @@ h3 {
         top: 0;
         bottom: 0;
         background: linear-gradient(180deg, #FFFFFF 31.25%, #F8F9FC 100%);
+
+        @media screen and (max-width: $screen-sm-max) {
+          right: -54.44vw;
+        }
       }    
 
 
@@ -152,6 +164,11 @@ h3 {
 
         margin-block-start: 72px;
         margin-block-end: 32px;
+
+        .divider {
+          display: inline-block !important;
+          margin: 0 10px;
+        }
       }
 
       p {
@@ -159,7 +176,7 @@ h3 {
       }
     }
     article:last-of-type {
-      flex-basis: 43%;
+      flex-basis: var(--right-width);
       padding: 128px 0px 131px 64px;
 
       @media screen and (max-width: $screen-sm-max) {
@@ -209,7 +226,7 @@ h3 {
       position: relative;
     }
     article:first-of-type {
-      flex-basis: 57%;
+      flex-basis: var(--left-width);
 
       padding-block-start: 96px;
       padding-block-end: 96px;
@@ -246,7 +263,7 @@ h3 {
       }
     }
     article:last-of-type {
-      flex-basis: 43%;
+      flex-basis: var(--right-width);
 
       padding: 96px 0px 132px 64px;
 
@@ -349,7 +366,7 @@ h3 {
       cursor: pointer;
       height: 48px;
       border: none;
-      padding: 16px 20px;
+      padding: 15px 20px 17px;
       text-align: left;
 
       font-family: $ff-roboto;
@@ -417,32 +434,59 @@ h3 {
       grid-template-row: auto auto auto auto;
     }
 
-    li a {
-      display: block;
+    li {
       position: relative;
-      padding: 19px 42px 19px 16px;
-      background: #697D91;
-      color: #fff;
-
-      font-family: $ff-roboto;
-      font-weight: 500;
-      line-height: 160%;
-      letter-spacing: -0.02em;
-
-      box-shadow: 10px -10px 0px rgba(40, 54, 69, .6);
 
       &::after {
-        content: '';        
         position: absolute;
-        letter-spacing: 0;
-        font-family: $ff-inter;
+        right: -10px;
+        top: -10px;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(40, 54, 69, .6);
+        z-index: 1;
 
-        top: 50%;
-        transform: translateY(-50%);
-        right: 16px;
-        width: 18px;
-        height: 18px;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDJsNyA3LTcgN00xNSA5SDEiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiLz48L3N2Zz4=);
+        transition: background-color .15s ease-out;
+      }
+      &:hover::after {
+        background: rgba(40, 54, 69, .45);
+      }
+    
+      a {
+        display: block;
+        position: relative;
+        padding: 19px 42px 19px 16px;
+        background: #697D91;
+        color: #fff;
+
+        font-family: $ff-roboto;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: -0.02em;
+        z-index: 2;
+
+        transition: background-color .15s ease-out,
+                    transform .15s ease-out;
+
+        &:hover {
+          background: #74889a;
+          transform: translate(1px, -1px);
+        }
+
+        &::after {
+          content: '';        
+          position: absolute;
+          letter-spacing: 0;
+          font-family: $ff-inter;
+
+          top: 50%;
+          transform: translateY(-50%);
+          right: 16px;
+          width: 18px;
+          height: 18px;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDJsNyA3LTcgN00xNSA5SDEiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiLz48L3N2Zz4=);
+        }
       }
     }
   }
@@ -477,10 +521,10 @@ h3 {
       a {
         color: inherit;
 
-        transition: opacity .2s ease-out;
+        transition: color .15s ease-out;
 
         &:hover {
-          opacity: .7;
+          color: #fff
         }
       }
     }
@@ -490,9 +534,21 @@ h3 {
   }
 
   .social {
-    a + a {
-      display: inline-block;
-      margin-inline-start: 18px;
+    a {
+      + a {
+        display: inline-block;
+        margin-inline-start: 18px;
+      }
+
+      svg path {
+        transition: fill .15s ease-out; 
+      }
+
+      &:hover, &:active, &:focus {
+        svg path {
+          fill: #fff;
+        }
+      }
     }
   }
 }

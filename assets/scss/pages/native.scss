@@ -321,6 +321,7 @@ ionic-sub-header {
 @include box ('#supGuidance h2', $color: $colorTitle);
 @include box ('#supGuidance p', $color: $colorSubtext3);
 #supGuidance {
+  margin-bottom: 200px;
   width: 100%;
   justify-content: space-between;
   svg {

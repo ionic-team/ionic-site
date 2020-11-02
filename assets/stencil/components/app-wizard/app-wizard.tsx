@@ -122,6 +122,10 @@ export class AppWizard {
     } else if (params.has('pwa')) {
       window.location.hash = '';
       trackEvent({id: 'Starting_PWA_Wizard'});
+    } else if (params.has('vue')) {
+      this.framework = 'vue';
+      window.location.hash = '';
+      trackEvent({id: 'Starting_Vue_Wizard'});
     }
 
     const stayOnFinish = params.has('finish');

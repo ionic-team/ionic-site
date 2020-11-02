@@ -350,7 +350,8 @@ h3 {
   .hs-submit {
     position: absolute;
     right: 0;
-    width: 160px;
+    width: auto;
+    flex-basis: 160px;
 
     background: #1DCD83;
 
@@ -366,7 +367,7 @@ h3 {
       cursor: pointer;
       height: 48px;
       border: none;
-      padding: 15px 20px 17px;
+      padding: 15px 40px 17px 20px;
       text-align: left;
 
       font-family: $ff-roboto;

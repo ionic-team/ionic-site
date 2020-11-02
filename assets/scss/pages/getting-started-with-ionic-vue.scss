@@ -1,4 +1,5 @@
 @import '../vars';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 $ff-roboto: 'Roboto Mono', 'Source Code Pro', monospace;
 $ff-inter: Inter, "Inter UI", Helvetica, Arial, sans-serif;
@@ -56,6 +57,7 @@ p, li {
   font-family: $ff-roboto;
   color: #3D574C;
   line-height: 160%;
+  letter-spacing: -0.02em;
 }
 
 h1 {
@@ -91,13 +93,18 @@ h3 {
 
 #top {
   .strip {
-    display: grid;
-    grid-template-columns: .5444fr .4556fr;
+    display: flex;
 
     @media screen and (max-width: $screen-sm-max) {
-      grid-template-columns: none;
-      grid-template-row: 1fr 1fr;
+      flex-direction: column;
     }
+  }
+
+  .vue-lines {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: auto;
   }
 
   .strip-0 {
@@ -106,12 +113,19 @@ h3 {
    
     }
     article:first-of-type {
+      flex-basis: 57%;
+
       padding-block-start: 20px;
       padding-block-end: 124px;
       padding-inline-end: 96px;
 
       @media screen and (max-width: $screen-sm-max) {
         padding-inline-end: 0;
+      }
+
+      .vue-lines {
+        top: 0;
+        right: 0;
       }
 
       &::before {
@@ -128,6 +142,7 @@ h3 {
 
 
       sup {
+        font-weight: 700;
         font-size: 12px;
         line-height: 160%;
         letter-spacing: 0.16em;
@@ -144,11 +159,18 @@ h3 {
       }
     }
     article:last-of-type {
+      flex-basis: 43%;
       padding: 128px 0px 131px 64px;
 
       @media screen and (max-width: $screen-sm-max) {
         padding-inline-start: 0;
         padding-inline-end: 0;
+      }
+
+      .vue-lines {
+        top: 0;
+        left: 0;
+
       }
 
       &::before {
@@ -187,12 +209,19 @@ h3 {
       position: relative;
     }
     article:first-of-type {
+      flex-basis: 57%;
+
       padding-block-start: 96px;
       padding-block-end: 96px;
       padding-inline-end: 96px;
 
       @media screen and (max-width: $screen-sm-max) {
         padding-inline-end: 0px;
+      }
+
+      .vue-lines {
+        top: 0;
+        right: 0;
       }
 
       &::before {
@@ -217,10 +246,17 @@ h3 {
       }
     }
     article:last-of-type {
+      flex-basis: 43%;
+
       padding: 96px 0px 132px 64px;
 
       @media screen and (max-width: $screen-sm-max) {
         padding-inline-start: 0px;
+      }
+
+      .vue-lines {
+        top: 0;
+        left: 0;
       }
 
       &::before {

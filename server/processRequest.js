@@ -83,7 +83,15 @@ module.exports = {
       // latestBlog: lbs.getLatestPost()
     });
 
-    res.setHeader('Link', '<https://code.ionicframework.com/assets/fonts/eina/eina-01-bold.woff2>;rel=preload;as=font;type=font/woff2;crossorigin=anonymous,<https://code.ionicframework.com/assets/fonts/inter/Inter-variable-ASCII-subset.woff2>;rel=preload;as=font;type=font/woff2;crossorigin=anonymous');
+
+    const linkParams = ';rel=preload;as=font;type=font/woff2';
+    let linkStr = `<https://ionicframework.com/fonts/eina/eina-01-regular.woff2>${linkParams}`;
+    linkStr += `;<https://ionicframework.com/fonts/inter/Inter-variable-ASCII-subset.woff2>${linkParams}`;
+    linkStr += `;<https://ionicframework.com/fonts/eina/eina-01-semibold.woff2>${linkParams}`;
+    linkStr += `;<https://ionicframework.com/fonts/eina/eina-01-bold.woff2>${linkParams}`;
+    linkStr += `;<https://ionicframework.com/fonts/ionicons.woff2?v=3.0.0-alpha.3>${linkParams}`;
+
+    res.setHeader('Link', linkStr);
 
     return next();
   }

@@ -84,7 +84,7 @@ module.exports = {
     });
 
 
-    const linkParams = ';rel=preload;as=font;type=font/woff2';
+    const linkParams = ';rel=preload;as=font;type=font/woff2;crossorigin=anonymous';
     let linkStr = `<https://ionicframework.com/fonts/eina/eina-01-regular.woff2>${linkParams}`;
     linkStr += `,<https://ionicframework.com/fonts/inter/Inter-variable-ASCII-subset.woff2>${linkParams}`;
     linkStr += `,<https://ionicframework.com/fonts/eina/eina-01-semibold.woff2>${linkParams}`;

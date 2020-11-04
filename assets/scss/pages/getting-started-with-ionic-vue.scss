@@ -356,6 +356,10 @@ h3 {
     max-width: 544px;   
   }
 
+  fieldset:not(:first-of-type) {
+    display: none;
+  }
+
   .hs-email {
     padding-inline-end: 27px;
 

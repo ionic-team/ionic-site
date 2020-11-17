@@ -385,7 +385,6 @@ h3 {
   }
 
   form {
-    display: flex;
     align-items: center;
     max-width: 544px;   
   }
@@ -419,11 +418,21 @@ h3 {
     }
   }
 
+  .hs-fieldtype-booleancheckbox {
+    margin-top: 16px;
+
+    input[type=checkbox] {
+      width: auto;
+      margin-right: 8px;
+    }
+  }
+
   .hs-submit {
     position: absolute;
     right: 0;
+    top: 8px;
     width: auto;
-    flex-basis: 160px;
+    width: 180px;
 
     background: #1DCD83;
 

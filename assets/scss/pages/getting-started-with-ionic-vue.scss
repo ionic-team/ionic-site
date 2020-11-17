@@ -90,23 +90,39 @@ h3 {
   color: 	#00ce7c;
 }
 
+#live {
+  background: #435466;
+  padding-top: 16px;
+  padding-bottom: 16px;
 
+  .embed-container { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    max-width: 100%;
+    margin: 32px 0;
 
-.embed-container { 
-  position: relative; 
-  padding-bottom: 56.25%; 
-  height: 0; 
-  overflow: hidden; 
-  max-width: 100%; 
-} 
-.embed-container iframe, 
-.embed-container object, 
-.embed-container embed { 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%; 
+    &::after {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(40, 54, 69, 0.6);
+      transition: background-color .15s ease-out;
+    }
+  } 
+  .embed-container iframe, 
+  .embed-container object, 
+  .embed-container embed { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    z-index: 1;
+  }
 }
 
 #top {

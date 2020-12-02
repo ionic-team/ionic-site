@@ -164,6 +164,7 @@ module.exports = {
     .get('/values', (_, res) => { res.render('values'); })
     .get('/verification/failed', (_, res) => res.render('verification/failed'))
     .get('/verification/success', (_, res) => res.render('verification/success'))
+    .get('/vue', (_, res) => res.render('vue'))
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
     // press releases

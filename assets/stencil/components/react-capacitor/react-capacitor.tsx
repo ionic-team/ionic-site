@@ -104,9 +104,12 @@ LocalNotifications.schedule({
       code: `
 import { Plugins } from '@capacitor/core';
 const { Camera } = Plugins;
+
 // Take a picture or video, or load from the library
-const picture = await Camera.getPicture({
-  encodingType: this.camera.EncodingType.JPEG
+const picture = await Camera.getPhoto({
+  resultType: CameraResultType.Uri,
+  source: CameraSource.Camera,
+  quality: 100,
 });`,
     },
 
@@ -118,6 +121,7 @@ const picture = await Camera.getPicture({
       code: `
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
+
 // get the users current position
 const position = await Geolocation.getCurrentPosition();
 

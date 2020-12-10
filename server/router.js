@@ -42,7 +42,7 @@ module.exports = {
     // normal pages
     .get('/', (_, res) => res.render('index'))
 
-    .get('/about', (_, res) => res.render('about'))
+    .get('/about', (_, res) => res.redirect('https://ionic.io/about'))
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))
 
@@ -58,16 +58,16 @@ module.exports = {
     .get('/covid-19', (_, res) => markdown(res, 'corona'))
     .get('/creator', (_, res) => res.render('creator/index'))
     .get('/creator/support', (_, res) => res.render('creator/support'))
-    .get('/customers', (_, res) => res.render('https://ionic.io/customers'))
-    .get('/demo', (_, res) => res.render('demo'))
+    .get('/customers', (_, res) => res.redirect('https://ionic.io/customers'))
+    .get('/demo', (_, res) => res.redirect('https://ionic.io/demo'))
     .get('/developers', (_, res) => res.render('developers'))
     .get('/ds', (_, res) => res.render('ds'))
 
     .get('/enterprise', (_, res) => res.render('enterprise/index'))
     .get('/enterprise/auth-connect', (_, res) => res.redirect('https://ionic.io/products/auth-connect')
-    .get('/enterprise/contact', (_, res) => res.render('enterprise/contact'))
-    .get('/enterprise/identity-vault', (_, res) => res.render('https://ionic.io/products/identity-vault'))
-    .get('/enterprise/offline-storage', (_, res) => res.render('https://ionic.io/products/offline-storage'))
+    .get('/enterprise/contact', (_, res) => res.redirect('https://ionic.io/contact/sales'))
+    .get('/enterprise/identity-vault', (_, res) => res.redirect('https://ionic.io/products/identity-vault'))
+    .get('/enterprise/offline-storage', (_, res) => res.redirect('https://ionic.io/products/offline-storage'))
     .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
 
     .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))

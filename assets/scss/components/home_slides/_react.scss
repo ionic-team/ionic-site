@@ -36,15 +36,16 @@
       0% {
         z-index: -1;
         opacity: 0;
+        pointer-events: none;
         transform: translateY(-20px);
       }
-      48% {
+      64% {
         z-index: -1;
         opacity: 0;
+        pointer-events: all;
         transform: translateY(-20px);
-        display: block;
       }
-      50% {
+      66% {
         z-index: 1;
         opacity: 1;
         transform: translateY(0px);
@@ -52,73 +53,53 @@
       98% {
         z-index: 1;
         opacity: 1;
+        pointer-events: none;
         transform: translateY(0px);
       }
       100% {
         z-index: -1;
         opacity: 0;
         transform: translateY(20px);
-        display:none;
       }
     }
-    @keyframes slideOutIn{
-      0% {
-        z-index:1;
-        opacity: 1;
-        transform: translateY(0px);
-      }
-      48% {
-        z-index:1;
-        opacity: 1;
-        transform: translateY(0px);
-      }
-      50% {
-        z-index:-1;
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      98% {
-        z-index:-1;
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        z-index: 1;
-        opacity: 1;
-        transform: translateY(0px);
+
+    .angular, 
+    .react,
+    .vue {
+      position: absolute;
+      bottom: -14px;
+      animation: slideInOut 24s ease infinite;
+
+      &::after {
+        position:absolute;
+        bottom: 1px;
       }
     }
 
     .react {
-      z-index: 1;
       color: #42CCFF;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-
-      animation: slideOutIn 16s ease -4s;
-      animation-iteration-count: infinite;
+      animation-delay: -16s;
 
       &::after {
         background: rgba(89, 210, 255, .3);
-        bottom: 1px;
       }
     }
 
     .angular {
-      z-index: -1;
       color: #EF4D4D;
-      position: relative;
-      opacity: 0;
-      transform: translateY(-10px);
-
-      animation: slideInOut 16s ease -4s;
-      animation-iteration-count: infinite;
+      animation-delay: -24s;
 
       &::after {
         background: rgba(239, 77, 77, .3);
-        position:absolute;
-        bottom: 1px;
+      }
+    }
+
+    .vue {
+      color: #42B983;
+      animation-delay: -8s;
+
+      &::after {
+        background:  rgba(66, 185, 131, .3);
       }
     }
 
@@ -156,22 +137,21 @@
       transition-delay: .4s;
       letter-spacing: -0.02em;
       color: #445B78;      
-      font-size: 22px;
+      font-size: 20px;
       line-height: 160%;
-      margin-block-end: 32px;
+      margin-block-end: 40px;
     }
 
     .btn {
       text-transform: uppercase;
       letter-spacing: .1em;
-      border-radius: 8px;
       font-weight: 700;
       padding: 16px 20px;
       margin-block-end: 20px;
       line-height: 100%;
       display:flex;
       align-items: center;
-      font-size: 16px;
+      font-size: 14px;
       box-shadow: none;
 
       &:hover, &:active, &:focus {
@@ -193,6 +173,15 @@
       ion-icon {
         margin-inline-start: 4px;
       }
+    }
+
+    ion-icon {
+      display: inline-block;
+      transition: .3s transform ease-out;
+    }
+
+    a:hover ion-icon {
+      transform: translateX(3px);
     }
   }
   

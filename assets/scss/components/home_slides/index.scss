@@ -6,7 +6,7 @@
   display: block;
   min-height: 860px;
   position: relative;
-  padding-top: clamp(120px, 22vh, 203px);
+  padding-top: clamp(32px, 10vh, 100px);
 
   @media screen and (max-width: 768px) {
     padding-top: 21.5vh !important;

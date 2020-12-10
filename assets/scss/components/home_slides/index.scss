@@ -1,4 +1,4 @@
-@import '../../vars';
+@import "../../vars";
 
 #ionic-slider {
   // background: #01050c;
@@ -56,13 +56,12 @@
       font-size: 64px;
       line-height: 74px;
       margin-bottom: 16px;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
     }
 
     p {
       font-size: 24px;
       line-height: 36px;
-      font-family: $font-family-eina;
       letter-spacing: -0.03em;
       color: #e4f1ff;
     }
@@ -73,7 +72,7 @@
       margin-top: 18px;
       padding: 20px 22px;
       margin-right: -4px;
-      letter-spacing: .1em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
 
       ion-icon {
@@ -82,20 +81,19 @@
         vertical-align: -2px;
         width: 16px;
         height: 16px;
-
       }
     }
 
     .version-text {
-      color: rgba(255, 255, 255, .6);
+      color: rgba(255, 255, 255, 0.6);
       font-weight: 500;
       font-size: 11px;
-      
+
       a {
-        color: rgba(255, 255, 255, .6);
-  
+        color: rgba(255, 255, 255, 0.6);
+
         &:hover {
-          color: rgba(255, 255, 255, .8);
+          color: rgba(255, 255, 255, 0.8);
           text-decoration: none;
         }
       }
@@ -116,7 +114,7 @@
     left: 0;
     right: 0;
 
-    .container  {
+    .container {
       position: relative;
     }
   }
@@ -134,23 +132,23 @@
       font-size: 14px;
       line-height: 17px;
       letter-spacing: -0.02em;
-      color: #92A1B3;
+      color: #92a1b3;
       padding: 0 16px;
-      transition: .3s color;
+      transition: 0.3s color;
 
       svg {
         vertical-align: -3px;
 
         path {
-          transition: .3s fill;
+          transition: 0.3s fill;
         }
       }
 
       &:hover {
-        color: darken(#92A1B3, 10);
+        color: darken(#92a1b3, 10);
 
         svg path {
-          fill: darken(#92A1B3, 10);
+          fill: darken(#92a1b3, 10);
         }
       }
     }

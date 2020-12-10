@@ -1,7 +1,6 @@
-@import '../../vars';
-@import '../../mixins';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
+@import "../../vars";
+@import "../../mixins";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 main hgroup {
   margin-top: 24px;
@@ -16,15 +15,14 @@ main hgroup {
     font-size: 11px;
     font-weight: 600;
     color: #9cabc4;
-    font-family: $font-family-eina;
   }
 
   h4 {
     margin-top: 62px;
     font-size: 12px;
-    color: #92A1B3;
+    color: #92a1b3;
     text-transform: uppercase;
-    letter-spacing: .14em;
+    letter-spacing: 0.14em;
   }
 
   h1 {
@@ -39,7 +37,7 @@ main hgroup {
     margin: 13px auto;
     font-size: 20px;
     line-height: 1.8em;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
   }
 
   .byline {
@@ -48,7 +46,7 @@ main hgroup {
     line-height: 29px;
     font-size: 16px;
     letter-spacing: -0.02em;
-    color: #92A1B3;
+    color: #92a1b3;
     margin-bottom: 42px;
 
     .avatar {
@@ -79,7 +77,7 @@ main hgroup {
         letter-spacing: 0.08em;
         vertical-align: 1px;
         display: inline-block;
-        border: 1px solid #E9EDF3;
+        border: 1px solid #e9edf3;
         // transition: color 0.2s, border-color 0.2s, background-color 0.2s;
       }
     }
@@ -119,7 +117,7 @@ aside {
     text-transform: uppercase;
     color: #a4b3cc;
     font-weight: 600;
-    letter-spacing: .16em;
+    letter-spacing: 0.16em;
   }
 
   ul {
@@ -141,7 +139,7 @@ aside {
   a {
     color: #52678c;
     display: block;
-    transition: .2s transform ease, .2s color;
+    transition: 0.2s transform ease, 0.2s color;
 
     &:hover,
     &:active,
@@ -157,7 +155,7 @@ aside {
 
     &.nav-level-heading3 {
       padding-left: 12px;
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 
@@ -174,7 +172,7 @@ aside {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: .07em;
+    letter-spacing: 0.07em;
 
     ion-icon {
       font-size: 18px;
@@ -199,14 +197,13 @@ aside {
     }
 
     a {
-      color: #CBD2DD;
+      color: #cbd2dd;
       font-size: 20px;
 
       &:hover {
         color: $blue;
       }
     }
-
 
     #web-share {
       display: none;
@@ -271,7 +268,7 @@ article {
     line-height: 1.3;
     margin-top: 2.3em;
     margin-bottom: 1.2em;
-    letter-spacing: -.014em;
+    letter-spacing: -0.014em;
     font-weight: 600;
 
     strong {
@@ -279,7 +276,9 @@ article {
     }
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     margin: 1em 0;
   }
 
@@ -303,10 +302,10 @@ article {
   ul,
   ol {
     font-size: 16px;
-    letter-spacing: -.011em;
+    letter-spacing: -0.011em;
     line-height: 1.75em;
     margin-bottom: 1.8em;
-    color: #5B708B;
+    color: #5b708b;
   }
 
   ul,
@@ -325,11 +324,11 @@ article {
       padding-left: 18px;
 
       &:before {
-        content: '';
+        content: "";
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: #B2BECD;
+        background: #b2becd;
         position: absolute;
         top: 12px;
         left: 0;
@@ -359,7 +358,7 @@ article {
       top: -6px;
       left: 54px;
       font-size: 180px;
-      content: '\201C';
+      content: "\201C";
       color: #e3e7ec;
     }
 
@@ -367,7 +366,7 @@ article {
       font-size: 18px;
       position: relative;
       z-index: 1;
-      letter-spacing: .022em;
+      letter-spacing: 0.022em;
       line-height: 1.8em;
 
       &:last-child {
@@ -377,7 +376,7 @@ article {
 
     cite {
       font-size: 15px;
-      letter-spacing: .02em;
+      letter-spacing: 0.02em;
 
       span {
         color: #9da9bd;
@@ -408,7 +407,7 @@ article {
     }
 
     img {
-      box-shadow: 0 4px 48px rgba(0,0,0,.2);
+      box-shadow: 0 4px 48px rgba(0, 0, 0, 0.2);
     }
 
     figcaption {
@@ -416,8 +415,6 @@ article {
       font-size: 11px;
       margin-top: 13px;
     }
-
-
 
     @media (max-width: $screen-xs-max) {
       margin-right: 0;
@@ -459,10 +456,10 @@ article {
     }
 
     table tbody tr td {
-      border-top-color: #DEE3EA;
+      border-top-color: #dee3ea;
     }
     table > thead > tr > th {
-      border-bottom-color: #E9EDF3;
+      border-bottom-color: #e9edf3;
       font-weight: 600;
     }
   }
@@ -477,7 +474,7 @@ article {
 
       ion-icon {
         display: inline-block;
-        transition: .2s transform ease;
+        transition: 0.2s transform ease;
       }
 
       &:hover ion-icon {
@@ -488,7 +485,7 @@ article {
     h4 {
       text-transform: uppercase;
       font-size: 14px;
-      letter-spacing: .12em;
+      letter-spacing: 0.12em;
     }
   }
 

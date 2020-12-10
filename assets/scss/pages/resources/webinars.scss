@@ -1,19 +1,11 @@
-@import '../../vars';
-@import '../../mixins';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
-h1,
-h2,
-h3,
-h4,
-.btn {
-  font-family: $font-family-eina;
-}
+@import "../../vars";
+@import "../../mixins";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 // hacks to override enterprise header styles
 
 .pre-header.back {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 
   a,
   a ion-icon {
@@ -23,7 +15,7 @@ h4,
 
 #sub-header {
   & > .container::before {
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .breadcrumbs li,
@@ -36,15 +28,15 @@ h4,
   }
 
   .breadcrumbs li a {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 
     &:hover {
-      color: rgba(255,255,255,1);
+      color: rgba(255, 255, 255, 1);
     }
   }
 
- .breadcrumbs li::after {
-    color: rgba(255,255,255,0.3);
+  .breadcrumbs li::after {
+    color: rgba(255, 255, 255, 0.3);
     margin-left: 7px;
     margin-right: 6px;
     font-size: 14px;
@@ -65,11 +57,11 @@ h4,
   }
 
   .navbar-nav > li:not(.header-btn-white) > a {
-   color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
 
-   &:hover {
-     color: rgba(255,255,255,0.6);
-   }
+    &:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
   }
 
   #header-btn-outline {
@@ -91,8 +83,7 @@ h4,
 
 .cta {
   background-color: #12223a;
-  background-image:
-    url('/img/resource-center/webinars/bg-header.jpg'),
+  background-image: url("/img/resource-center/webinars/bg-header.jpg"),
     linear-gradient(120deg, #4864ec, #84aff4);
   background-size: cover, 100%;
   background-position: 50% 50%;
@@ -100,16 +91,14 @@ h4,
   padding-top: 138px;
 
   &.podcasts {
-    background-image:
-      url('/img/resource-center/bg-header-podcasts.jpg?3'),
+    background-image: url("/img/resource-center/bg-header-podcasts.jpg?3"),
       linear-gradient(to bottom, #010c29, #02133c);
     background-size: cover, 100%;
     background-position: 50% 50%;
   }
 
   &.videos {
-    background-image:
-      url('/img/resource-center/bg-header-videos.jpg'),
+    background-image: url("/img/resource-center/bg-header-videos.jpg"),
       linear-gradient(to bottom, #010c29, #02133c);
     background-size: cover, 100%;
     background-position: 50% 50%;
@@ -137,7 +126,7 @@ h4,
   strong {
     text-transform: uppercase;
     font-size: 13px;
-    letter-spacing: .12em;
+    letter-spacing: 0.12em;
   }
 
   .btn {
@@ -145,7 +134,7 @@ h4,
     margin-top: 41px;
     padding: 15px 25px 16px;
     font-size: 15px;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -180,7 +169,7 @@ article {
   h4 {
     font-weight: 400;
     font-size: 22px;
-    letter-spacing: -.018em;
+    letter-spacing: -0.018em;
     line-height: 1.46em;
     color: #596a89;
 
@@ -203,7 +192,7 @@ article {
   p {
     font-size: 16px;
     line-height: 1.8em;
-    letter-spacing: -.008em;
+    letter-spacing: -0.008em;
   }
 
   ul {
@@ -217,18 +206,19 @@ article {
     font-size: 16px;
     list-style: none;
     margin-left: 4px;
-    letter-spacing: -.004em;
+    letter-spacing: -0.004em;
     position: relative;
     margin-left: 0;
     padding-left: 44px;
     margin-bottom: 20px;
 
     &::before {
-      background: url('/img/resource-center/webinars/ico-check.png') no-repeat 0 0;
+      background: url("/img/resource-center/webinars/ico-check.png") no-repeat 0
+        0;
       background-size: 24px;
       width: 24px;
       height: 24px;
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -240,7 +230,7 @@ article {
     text-transform: uppercase;
     font-size: 15px;
     padding: 17px 24px 14px;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -254,7 +244,7 @@ aside {
   h4 {
     text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 
   .host {
@@ -274,7 +264,6 @@ aside {
       font-size: 16px;
       font-weight: 600;
       color: #151d2b;
-      font-family: $font-family-eina;
     }
 
     span {
@@ -298,13 +287,13 @@ aside {
       font-weight: 600;
       font-size: 18px;
       margin-bottom: 1px;
-      letter-spacing: -.01em;
+      letter-spacing: -0.01em;
     }
 
     p {
       margin-bottom: 16px;
       line-height: 1.8em;
-      letter-spacing: -.008em;
+      letter-spacing: -0.008em;
     }
 
     .btn {

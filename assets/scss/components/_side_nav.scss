@@ -27,12 +27,13 @@
       border-radius: 4px;
       margin-bottom: 10px;
       text-align: center;
-      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
+      transition: 0.2s border-color, 0.2s color, 0.2s background,
+        0.2s box-shadow;
 
       &::before {
-        font-family: 'Ionicons';
+        font-family: "Ionicons";
         -webkit-font-smoothing: antialiased;
-        content: '\f3cf';
+        content: "\f3cf";
         font-size: 16px;
         font-weight: 800;
         position: relative;
@@ -41,7 +42,7 @@
       }
 
       &:hover {
-        border-color: #DFE3E8;
+        border-color: #dfe3e8;
         color: $blue;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
         background: #fdfdfd;
@@ -67,15 +68,15 @@
       }
 
       &::before {
-        font-family: 'Ionicons';
-        content: '\f4a5';
+        font-family: "Ionicons";
+        content: "\f4a5";
         font-size: 16px;
         font-weight: 800;
         color: #bdc3cc;
         position: absolute;
         top: 16px;
         left: 34px;
-        transition: .2s color;
+        transition: 0.2s color;
       }
 
       input {
@@ -86,7 +87,7 @@
         font-weight: 500;
         color: #bdc3cc;
         box-shadow: none;
-        transition: .2s border-color, .2s box-shadow;
+        transition: 0.2s border-color, 0.2s box-shadow;
 
         &:focus,
         &:hover {
@@ -108,7 +109,8 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
+      transition: 0.2s border-color, 0.2s color, 0.2s background,
+        0.2s box-shadow;
 
       &:hover {
         border-color: $blue;
@@ -119,7 +121,7 @@
     }
 
     &:hover {
-      transition: .2s border-color;
+      transition: 0.2s border-color;
 
       &::before {
         color: $blue;
@@ -127,16 +129,16 @@
     }
 
     &.api-select::before {
-      font-family: 'Ionicons';
+      font-family: "Ionicons";
       -webkit-font-smoothing: antialiased;
-      content: '\f3d0';
+      content: "\f3d0";
       font-size: 14px;
       font-weight: 800;
       color: #a4abb5;
       position: absolute;
       top: 17px;
       right: 20px;
-      transition: .2s color;
+      transition: 0.2s color;
     }
   }
 
@@ -171,7 +173,6 @@
       text-transform: uppercase;
       font-size: 10px;
       font-weight: 700;
-      font-family: $font-family-eina;
       letter-spacing: 2px;
       text-decoration: none;
       display: block;
@@ -185,10 +186,10 @@
         right: 0;
         top: 0;
         bottom: 0;
-        content: '';
+        content: "";
         border-right: 2px solid $blue;
         transform: scaleY(0.0001);
-        transition: transform .08s ease-in-out;
+        transition: transform 0.08s ease-in-out;
       }
     }
 
@@ -205,8 +206,7 @@
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s,
-                    padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s,
-                    color 0.2s;
+          padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s, color 0.2s;
 
         &:empty {
           display: none;
@@ -288,18 +288,18 @@
       }
 
       &::before {
-        background: white url('/img/docs/ionic-side-icon.png') no-repeat 0 50%;
+        background: white url("/img/docs/ionic-side-icon.png") no-repeat 0 50%;
         background-size: 28px;
         border-radius: 6px;
         position: absolute;
-        content: '';
+        content: "";
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         z-index: 1;
         box-shadow: 0 2px 8px rgba(black, 0.2);
-        transition: .3s box-shadow ease-out;
+        transition: 0.3s box-shadow ease-out;
       }
 
       &:hover::before {
@@ -313,14 +313,14 @@
       color: #0f1622;
       font-weight: 600;
       text-transform: none;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
     }
 
     span {
       font-size: 10px;
       font-weight: 400;
       text-transform: none;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
     }
 
     a > i {
@@ -332,7 +332,6 @@
     }
   }
 }
-
 
 body:not(.ng-scope) {
   .side-nav ul a {

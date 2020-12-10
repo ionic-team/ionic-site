@@ -1,10 +1,7 @@
-@import '../../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
-
+@import "../../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-products {
-
   img {
     height: auto;
   }
@@ -14,31 +11,24 @@
   min-height: auto;
 
   ionic-sub-header .btn {
-    background-color: #6A7FFF;
+    background-color: #6a7fff;
   }
 
   .pre-header {
     margin-bottom: 0px;
   }
 
-  .cta,
-  .pro-nav,
-  .pro-video,
-  main {
-    font-family: $font-family-eina;
-  }
-
   #sub-header > .container {
     align-items: center;
 
     &:before {
-      border-top-color: rgba(255,255,255,0.1);
+      border-top-color: rgba(255, 255, 255, 0.1);
     }
   }
 
   > .cta {
     position: relative;
-    background-image: linear-gradient( 90deg, #634CF2 0%, #67A5F8 100%);
+    background-image: linear-gradient(90deg, #634cf2 0%, #67a5f8 100%);
     margin-top: 0;
     padding-top: 12px;
 
@@ -46,37 +36,37 @@
       &:nth-child(1) {
         opacity: 0.05;
         top: $y-begin;
-        left: (100%/$x-spacing) * 0;
+        left: (100% / $x-spacing) * 0;
       }
       &:nth-child(2) {
-        opacity: 0.10;
+        opacity: 0.1;
         top: ($y-begin - ($y-spacing * 1));
-        left: (100%/$x-spacing) * 1;
+        left: (100% / $x-spacing) * 1;
       }
       &:nth-child(3) {
         opacity: 0.09;
         top: ($y-begin - ($y-spacing * 2));
-        left: (100%/$x-spacing) * 2;
+        left: (100% / $x-spacing) * 2;
       }
       &:nth-child(4) {
         opacity: 0.15;
         top: ($y-begin - ($y-spacing * 3));
-        left: (100%/$x-spacing) * 3;
+        left: (100% / $x-spacing) * 3;
       }
       &:nth-child(5) {
         opacity: 0.16;
         top: ($y-begin - ($y-spacing * 4));
-        left: (100%/$x-spacing) * 4;
+        left: (100% / $x-spacing) * 4;
       }
       &:nth-child(6) {
         opacity: 0.08;
         top: ($y-begin - ($y-spacing * 5));
-        left: (100%/$x-spacing) * 5;
+        left: (100% / $x-spacing) * 5;
       }
     }
 
     .cta__background {
-      content: '';
+      content: "";
       background-position: center center;
       background-size: cover;
       display: block;
@@ -86,7 +76,7 @@
       z-index: 0;
       top: 0;
       left: 0;
-      background-image: linear-gradient(90deg, #634CF2 0%, #67A5F8 100%);
+      background-image: linear-gradient(90deg, #634cf2 0%, #67a5f8 100%);
       // background-image: url("/img/pro/pro-hero-bg.png");
       background-size: cover;
       opacity: 0.5;
@@ -96,8 +86,13 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        background-image: linear-gradient(90deg, #fff 0%, rgba(255,255,255, 0) 75%);
-        transform: translate(-20px, 0) rotate(-3deg) skew(16deg, 0deg) scale(1, 1.5);
+        background-image: linear-gradient(
+          90deg,
+          #fff 0%,
+          rgba(255, 255, 255, 0) 75%
+        );
+        transform: translate(-20px, 0) rotate(-3deg) skew(16deg, 0deg)
+          scale(1, 1.5);
         transform-origin: top;
 
         @include bg-layout(6.5, 75%, 25%);
@@ -119,7 +114,7 @@
       .announcement {
         transition: box-shadow 0.3s;
         display: inline-block;
-        background-color: #F5D15F;
+        background-color: #f5d15f;
         color: #534926;
         font-family: $font-family-inter;
         padding: 3px 14px 4px;
@@ -140,8 +135,8 @@
         i::after {
           transition: left 0.2s;
           font-style: normal;
-          content: '\f3d1';
-          font-family: 'Ionicons';
+          content: "\f3d1";
+          font-family: "Ionicons";
           font-size: 12px;
           position: relative;
           margin-left: 2px;
@@ -149,7 +144,8 @@
         }
 
         &:hover {
-          box-shadow: 0px 4px 8px rgba(2, 8, 20, 0.1), 0px 2px 4px rgba(2, 8, 20, 0.08);
+          box-shadow: 0px 4px 8px rgba(2, 8, 20, 0.1),
+            0px 2px 4px rgba(2, 8, 20, 0.08);
         }
         &:hover i::after {
           left: 1px;
@@ -161,24 +157,23 @@
         font-size: 56px;
         line-height: 60px;
         font-weight: 700;
-        letter-spacing: -.038em;
+        letter-spacing: -0.038em;
         margin-bottom: 264x;
       }
 
       p {
-        letter-spacing: -.03em;
+        letter-spacing: -0.03em;
         max-width: 700px;
         line-height: 1.6em;
         font-size: 22px;
         font-weight: 400;
         color: #fff;
-        font-family: $font-family-eina;
       }
 
       .cta-buttons {
         margin-top: 30px;
         color: white;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
 
         > .btn {
           align-items: center;
@@ -188,7 +183,7 @@
           font-size: 16px;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.10em;
+          letter-spacing: 0.1em;
           padding: 18px 24px 16px;
 
           &:not(:hover) {
@@ -202,14 +197,14 @@
         }
 
         .sales {
-          color: rgba(white, .5);
+          color: rgba(white, 0.5);
           margin-top: 6px;
           display: inline-block;
           text-decoration: underline;
-          transition: .2s color;
+          transition: 0.2s color;
 
           &:hover {
-            color: rgba(white, .8);
+            color: rgba(white, 0.8);
           }
         }
 
@@ -219,7 +214,7 @@
         }
       }
 
-      @media (max-width: $screen-sm)  {
+      @media (max-width: $screen-sm) {
         max-width: 480px;
         margin-left: auto;
         margin-right: auto;
@@ -227,7 +222,7 @@
         padding-bottom: 40px;
       }
 
-      @media (max-width: $screen-xs)  {
+      @media (max-width: $screen-xs) {
         padding-top: 14px;
 
         h1 {
@@ -264,12 +259,24 @@
         opacity: 0;
       }
 
-      .announcement { animation-delay: .4s; }
-      h1 { animation-delay: .6s; }
-      p { animation-delay: .9s; }
-      .cta-buttons .btn { animation-delay: 1.1s; }
-      .cta-buttons .btn:last-child { animation-delay: 1.2s; }
-      .cta-buttons + img { animation-delay: 2s;}
+      .announcement {
+        animation-delay: 0.4s;
+      }
+      h1 {
+        animation-delay: 0.6s;
+      }
+      p {
+        animation-delay: 0.9s;
+      }
+      .cta-buttons .btn {
+        animation-delay: 1.1s;
+      }
+      .cta-buttons .btn:last-child {
+        animation-delay: 1.2s;
+      }
+      .cta-buttons + img {
+        animation-delay: 2s;
+      }
     }
   }
 
@@ -293,14 +300,14 @@
       margin-bottom: -70px;
     }
 
-    @media (max-width: 1054px)  {
+    @media (max-width: 1054px) {
       .app-screenshot {
         height: unset;
         padding-top: 54%;
       }
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       .app-screenshot {
         padding-top: 58%;
         width: calc(100vw - 16px);
@@ -327,7 +334,7 @@
       }
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       .app-screenshot {
         padding-top: 64%;
       }
@@ -354,7 +361,7 @@
       position: relative;
 
       &.dark {
-        color: rgba(white, .8);
+        color: rgba(white, 0.8);
 
         h2,
         .hero__cta {
@@ -388,11 +395,11 @@
         color: #808fa7;
 
         &::before {
-          background: url('/img/pro/product-header-icons.png') 0 0 no-repeat;
+          background: url("/img/pro/product-header-icons.png") 0 0 no-repeat;
           background-size: 64px;
           width: 64px;
           height: 64px;
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
         }
@@ -412,7 +419,7 @@
       margin-left: 30px;
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       &__cta-bar {
         flex-direction: column;
       }
@@ -432,8 +439,8 @@
       transition: border-bottom-color 100ms ease-in-out;
 
       &:after {
-        content: '\f287';
-        font-family: 'Ionicons';
+        content: "\f287";
+        font-family: "Ionicons";
         font-size: 16px;
         margin-left: 5px;
       }
@@ -469,11 +476,11 @@
         right: 0;
         left: 0;
         bottom: 0;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         opacity: 0;
-        transition: .2s opacity;
+        transition: 0.2s opacity;
       }
     }
 
@@ -490,11 +497,10 @@
       margin-bottom: 30px;
     }
 
-
     h3 {
       font-size: 36px;
       font-weight: 700;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       margin-bottom: 30px;
     }
 
@@ -504,13 +510,13 @@
       margin-bottom: 23px;
       margin-top: 14px;
       font-weight: 700;
-      letter-spacing: -.015em;
+      letter-spacing: -0.015em;
     }
 
     p {
       font-size: 16px;
       font-weight: 600;
-      letter-spacing: -.026em;
+      letter-spacing: -0.026em;
       line-height: 1.8em;
       margin-bottom: 30px;
       color: #5e6777;
@@ -537,15 +543,15 @@
       }
 
       &::after {
-        font-family: 'Ionicons';
-        content: '\f287';
+        font-family: "Ionicons";
+        content: "\f287";
         font-size: 15px;
         line-height: 10px;
         vertical-align: -1px;
         margin-left: 8px;
         font-weight: 600;
         display: inline-block;
-        transition: .2s transform;
+        transition: 0.2s transform;
       }
 
       &:hover::after {
@@ -553,7 +559,7 @@
       }
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       .content {
         h2 {
           font-size: 30px;
@@ -588,7 +594,7 @@
         font-family: $font-family-inter;
         font-size: 20px;
         line-height: 160%;
-        color: #616E7E;
+        color: #616e7e;
         font-weight: 400;
       }
     }
@@ -604,7 +610,7 @@
       h4 {
         font-size: 20px;
         text-transform: none;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
         margin-top: 5px;
         margin-bottom: 13px;
         font-weight: 600;
@@ -616,7 +622,7 @@
         font-size: 16px;
         line-height: 28px;
         color: #687e99;
-        letter-spacing: -.015em;
+        letter-spacing: -0.015em;
         font-weight: 400;
       }
     }
@@ -627,23 +633,27 @@
       position: relative;
 
       &::before {
-        background: url('/img/pro/pro-feature-icons.png') 0 0 no-repeat;
+        background: url("/img/pro/pro-feature-icons.png") 0 0 no-repeat;
         background-size: 48px;
         height: 48px;
         width: 48px;
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
       }
 
-      &.faster::before { background-position: 0 -48px; }
-      &.happier::before { background-position: 0 -96px; }
+      &.faster::before {
+        background-position: 0 -48px;
+      }
+      &.happier::before {
+        background-position: 0 -96px;
+      }
       & + li {
         margin-left: 24px;
       }
     }
 
-    @media (max-width: 520px)  {
+    @media (max-width: 520px) {
       .features {
         display: block;
       }
@@ -652,7 +662,7 @@
         text-align: center;
 
         &::before {
-          left: calc( 50% - 24px);
+          left: calc(50% - 24px);
         }
 
         + li {
@@ -661,12 +671,12 @@
       }
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       padding-bottom: 68px;
       padding-top: 102px;
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       padding-bottom: 48px;
       padding-top: 72px;
 
@@ -698,7 +708,7 @@
       color: #010610;
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       margin-top: 0;
 
       h4 {
@@ -718,28 +728,27 @@
     justify-content: space-between;
 
     [class^="customer-logo"] {
-      background-image: url('/img/pro/pro-customer-sprite.png');
+      background-image: url("/img/pro/pro-customer-sprite.png");
       background-repeat: no-repeat;
       background-size: 72px 187px;
       margin: 24px 42px;
     }
-    @media (max-width: $screen-md)  {
+    @media (max-width: $screen-md) {
       justify-content: start;
       [class^="customer-logo"] {
         margin: 24px 28px;
       }
     }
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       justify-content: center;
       padding: 8px;
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       [class^="customer-logo"] {
         margin: 16px 16px;
       }
     }
-
 
     .customer-logo--aaa {
       width: 50px;
@@ -769,7 +778,7 @@
     .customer-logo--nbc {
       background-position: 0 -126px;
       width: 49px;
-    	height: 28px;
+      height: 28px;
     }
     .customer-logo--target {
       background-position: 0 -154px;
@@ -779,14 +788,14 @@
   }
 
   .deploy-to-appstores {
-    background: linear-gradient(0deg, #E7F4FF, #E7F4FF);
+    background: linear-gradient(0deg, #e7f4ff, #e7f4ff);
 
     .pill {
       display: inline-block;
       font-family: $font-family-inter;
-      background: #D1EAFF;
+      background: #d1eaff;
       border-radius: 20px;
-      color: #4D8DFF;
+      color: #4d8dff;
       padding: 8px 14px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -842,7 +851,7 @@
         display: block;
         width: 72px;
         height: 72px;
-        background-image:url('/img/appflow/appstore-icon-sprite.png');
+        background-image: url("/img/appflow/appstore-icon-sprite.png");
         background-size: 72px 218px;
         background-repeat: no-repeat;
       }
@@ -859,7 +868,7 @@
       }
     }
 
-    @media (max-width: $screen-md)  {
+    @media (max-width: $screen-md) {
       .content {
         padding-top: 80px;
       }
@@ -871,7 +880,7 @@
       }
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       .content {
         flex-direction: column;
         align-items: center;
@@ -901,12 +910,17 @@
   }
 
   #updates {
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
     background-size: 100%;
 
     h4 {
-
-      &::before { background-position: 0 0; }
+      &::before {
+        background-position: 0 0;
+      }
     }
 
     .content {
@@ -950,7 +964,7 @@
     .anim-updates__device {
       width: 801px;
       height: 481px;
-      background-image: url('/img/pro/updates-illustration-device.png');
+      background-image: url("/img/pro/updates-illustration-device.png");
       background-repeat: no-repeat;
       background-size: 801px 481px;
       position: absolute;
@@ -968,10 +982,11 @@
       top: 3px;
       left: 506px;
       transform-origin: top left;
-      transform: rotateX(65.4deg) rotateY(1.4deg) rotateZ(32.9deg) skew(-2.0deg, -4.1deg);
+      transform: rotateX(65.4deg) rotateY(1.4deg) rotateZ(32.9deg)
+        skew(-2deg, -4.1deg);
       border-radius: 32px;
     }
-    @media (max-width: $screen-md)  {
+    @media (max-width: $screen-md) {
       .anim-updates {
         transform: translate(-180px, -56px) scale(0.7);
       }
@@ -981,7 +996,7 @@
         min-height: unset;
       }
     }
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       .anim-updates {
         transform: translateX(-50%) scale(0.7);
         opacity: 0.3;
@@ -999,7 +1014,7 @@
       }
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       .anim-updates {
         transform: translateX(-50%) scale(0.5);
       }
@@ -1011,11 +1026,17 @@
   }
 
   #build {
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
     padding: 100px 0;
 
     h4 {
-      &::before { background-position: 0 -64px; }
+      &::before {
+        background-position: 0 -64px;
+      }
     }
 
     .anim-build {
@@ -1040,11 +1061,11 @@
     .content {
       padding-top: 200px;
     }
-    @media (max-width: $screen-md)  {
+    @media (max-width: $screen-md) {
       padding: 0;
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       .container {
         display: flex;
         flex-direction: column-reverse;
@@ -1083,7 +1104,7 @@
       }
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       .anim-build {
         margin-top: 100px;
         margin-bottom: 24px;
@@ -1094,20 +1115,25 @@
       .content {
         padding-bottom: 100px;
       }
-
     }
   }
 
   #automate {
     background-color: #f9fafc;
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
 
     background-size: 100%;
     position: relative;
     padding-bottom: 160px;
 
     h4 {
-      &::before { background-position: 0 -128px; }
+      &::before {
+        background-position: 0 -128px;
+      }
     }
 
     .anim-automate {
@@ -1116,7 +1142,6 @@
       left: 50%;
       margin-left: -400px;
       transform: scale(1.1);
-
 
       svg {
         .connector {
@@ -1143,11 +1168,9 @@
       svg > g {
         transform: translateY(50px);
       }
-
-
     }
 
-    @media (max-width: $screen-md)  {
+    @media (max-width: $screen-md) {
       padding-bottom: 320px;
 
       .content {
@@ -1168,7 +1191,7 @@
       }
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       padding-bottom: 180px;
       .content {
         padding-top: 100px;
@@ -1199,7 +1222,7 @@
           margin: 0;
           color: #fff;
           font-size: 13px;
-          line-height: 17px
+          line-height: 17px;
         }
 
         span {
@@ -1209,7 +1232,7 @@
         }
 
         &:before {
-          content: '';
+          content: "";
           display: block;
           width: 20px;
           height: 50px;
@@ -1220,21 +1243,21 @@
       }
 
       .master:before {
-        background-image: url('/img/pro/pro-automate-animation/master.png');
+        background-image: url("/img/pro/pro-automate-animation/master.png");
         width: 100px;
         height: 30px;
         background-size: 100px 30px;
       }
 
       .staging:before {
-        background-image: url('/img/pro/pro-automate-animation/staging.png');
+        background-image: url("/img/pro/pro-automate-animation/staging.png");
         width: 110px;
         height: 30px;
         background-size: 110px 30px;
       }
 
       .qa:before {
-        background-image: url('/img/pro/pro-automate-animation/qa.png');
+        background-image: url("/img/pro/pro-automate-animation/qa.png");
         width: 61px;
         height: 30px;
         background-size: 61px 30px;
@@ -1249,33 +1272,33 @@
       }
 
       .android:before {
-        background-image: url('/img/pro/pro-automate-animation/android.png');
+        background-image: url("/img/pro/pro-automate-animation/android.png");
       }
 
       .ios:before {
-        background-image: url('/img/pro/pro-automate-animation/ios.png');
+        background-image: url("/img/pro/pro-automate-animation/ios.png");
       }
 
       .web:before {
-        background-image: url('/img/pro/pro-automate-animation/js.png');
+        background-image: url("/img/pro/pro-automate-animation/js.png");
       }
 
       .testflight:before {
-        background-image: url('/img/pro/pro-automate-animation/testflight.png');
+        background-image: url("/img/pro/pro-automate-animation/testflight.png");
         width: 53px;
         height: 53px;
         background-size: 53px 53px;
       }
 
       .playstore:before {
-        background-image: url('/img/pro/pro-automate-animation/playstore.png');
+        background-image: url("/img/pro/pro-automate-animation/playstore.png");
         width: 50px;
         height: 55px;
         background-size: 50px 55px;
       }
 
       .webhook:before {
-        background-image: url('/img/pro/pro-automate-animation/webhook.png');
+        background-image: url("/img/pro/pro-automate-animation/webhook.png");
         width: 58px;
         height: 54px;
         background-size: 58px 54px;
@@ -1323,7 +1346,7 @@
 
   .pro-features {
     padding: 186px 0;
-    background-color: #7870FB;
+    background-color: #7870fb;
 
     hgroup {
       text-align: center;
@@ -1380,28 +1403,42 @@
         line-height: 28px;
       }
 
-      &:nth-child(2) { transition-delay: .1s !important }
-      &:nth-child(3) { transition-delay: .2s !important }
-      &:nth-child(4) { transition-delay: .3s !important }
-      &:nth-child(5) { transition-delay: .4s !important }
-      &:nth-child(6) { transition-delay: .5s !important }
-      &:nth-child(7) { transition-delay: .6s !important }
-      &:nth-child(8) { transition-delay: .7s !important }
+      &:nth-child(2) {
+        transition-delay: 0.1s !important;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.2s !important;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.3s !important;
+      }
+      &:nth-child(5) {
+        transition-delay: 0.4s !important;
+      }
+      &:nth-child(6) {
+        transition-delay: 0.5s !important;
+      }
+      &:nth-child(7) {
+        transition-delay: 0.6s !important;
+      }
+      &:nth-child(8) {
+        transition-delay: 0.7s !important;
+      }
     }
 
     [class^="pro-feature--"] h5::before {
       display: block;
-      content: '';
+      content: "";
       width: 24px;
       height: 24px;
-      background-image: url('/img/pro/pro-feature-sprite.png');
+      background-image: url("/img/pro/pro-feature-sprite.png");
       background-repeat: no-repeat;
       background-size: 24px 192px;
       margin-right: 12px;
     }
 
     .pro-feature--app-dashboard h5::before {
-        background-position: 0 0;
+      background-position: 0 0;
     }
 
     .pro-feature--configurable h5::before {
@@ -1432,13 +1469,13 @@
       background-position: 0 calc(-7 * 24px);
     }
 
-    @media (max-width: $screen-md-max)  {
+    @media (max-width: $screen-md-max) {
       li {
         flex: 0 0 33%;
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       padding: 90px 0;
       text-align: center;
 
@@ -1451,20 +1488,24 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       hgroup h3 {
         font-size: 30px;
       }
 
       li {
         flex: 0 0 100%;
-        margin-top: 36px
+        margin-top: 36px;
       }
     }
   }
 
   .get-started {
-    background: linear-gradient( 45deg, rgb(27,31,58) 0%, rgb(41,47,82) 100%);
+    background: linear-gradient(
+      45deg,
+      rgb(27, 31, 58) 0%,
+      rgb(41, 47, 82) 100%
+    );
 
     overflow: auto;
 
@@ -1476,7 +1517,7 @@
     }
 
     hgroup {
-      letter-spacing: -.025em;
+      letter-spacing: -0.025em;
       flex-grow: 1;
     }
 
@@ -1485,7 +1526,7 @@
       font-size: 28px;
       line-height: 36px;
       font-weight: 400;
-      letter-spacing: -0.02em;;
+      letter-spacing: -0.02em;
       margin: 0;
       max-width: 680px;
 
@@ -1506,7 +1547,7 @@
     .btn {
       font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.1em;
       font-weight: 700;
       border-radius: 100px;
       background-color: #5fa3ff;
@@ -1517,10 +1558,10 @@
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .container {
         display: block;
-        text-align: center
+        text-align: center;
       }
 
       hgroup {

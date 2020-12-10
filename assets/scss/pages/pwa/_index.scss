@@ -1,5 +1,4 @@
 #page-pwa {
-
   img:not(.promo__illustration) {
     width: auto;
   }
@@ -87,13 +86,7 @@
     max-width: 1140px;
   }
 
-  .cta,
-  .panel {
-    font-family: $font-family-eina;
-  }
-
   // CTA
-
   .cta {
     background-image: url("/img/pwa/pwa-hero.jpg");
     background-position: center center;
@@ -122,7 +115,7 @@
   }
 
   .cta .lede {
-   color: #cfe1fa;
+    color: #cfe1fa;
   }
 
   .cta .lede > strong {
@@ -172,14 +165,30 @@
     margin: 0 auto 2rem;
     width: $features-icon-size;
 
-    &--reliable     { background-position-y: 0; }
-    &--fast         { background-position-y: $features-icon-size * -1; }
-    &--accessible   { background-position-y: $features-icon-size * -2; }
-    &--web-based    { background-position-y: $features-icon-size * -3; }
-    &--discoverable { background-position-y: $features-icon-size * -4; }
-    &--small        { background-position-y: $features-icon-size * -5; }
-    &--instant      { background-position-y: $features-icon-size * -6; }
-    &--simple       { background-position-y: $features-icon-size * -7; }
+    &--reliable {
+      background-position-y: 0;
+    }
+    &--fast {
+      background-position-y: $features-icon-size * -1;
+    }
+    &--accessible {
+      background-position-y: $features-icon-size * -2;
+    }
+    &--web-based {
+      background-position-y: $features-icon-size * -3;
+    }
+    &--discoverable {
+      background-position-y: $features-icon-size * -4;
+    }
+    &--small {
+      background-position-y: $features-icon-size * -5;
+    }
+    &--instant {
+      background-position-y: $features-icon-size * -6;
+    }
+    &--simple {
+      background-position-y: $features-icon-size * -7;
+    }
   }
 
   @media screen and (min-width: $screen-md-min) {
@@ -247,12 +256,24 @@
     padding-bottom: 88%;
     position: relative;
 
-    &.starbucks { background-image: url("/img/pwa/pwa-starbucks-bg.jpg"); }
-    &.pinterest { background-image: url("/img/pwa/pwa-pinterest-bg.jpg"); }
-    &.uber { background-image: url("/img/pwa/pwa-uber-bg.jpg"); }
-    &.lyft { background-image: url("/img/pwa/pwa-lyft-bg.jpg"); }
-    &.twitter { background-image: url("/img/pwa/pwa-twitter-bg.jpg"); }
-    &.forbes { background-image: url("/img/pwa/pwa-forbes-bg.jpg"); }
+    &.starbucks {
+      background-image: url("/img/pwa/pwa-starbucks-bg.jpg");
+    }
+    &.pinterest {
+      background-image: url("/img/pwa/pwa-pinterest-bg.jpg");
+    }
+    &.uber {
+      background-image: url("/img/pwa/pwa-uber-bg.jpg");
+    }
+    &.lyft {
+      background-image: url("/img/pwa/pwa-lyft-bg.jpg");
+    }
+    &.twitter {
+      background-image: url("/img/pwa/pwa-twitter-bg.jpg");
+    }
+    &.forbes {
+      background-image: url("/img/pwa/pwa-forbes-bg.jpg");
+    }
   }
 
   .example__content {
@@ -338,7 +359,7 @@
   }
 
   // Promo buttons
-  .promo_button{
-      margin-top: 40px;
+  .promo_button {
+    margin-top: 40px;
   }
 }

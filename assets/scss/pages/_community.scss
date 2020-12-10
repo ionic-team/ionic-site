@@ -1,10 +1,9 @@
 #page-community {
-
   img {
     width: auto;
     height: auto;
   }
-  
+
   .banner,
   main {
     font-family: $font-family-inter;
@@ -15,7 +14,6 @@
     h4,
     strong {
       color: #0f1622;
-      font-family: $font-family-eina;
     }
 
     a {
@@ -29,8 +27,7 @@
 
   .banner {
     background: #fcfdff no-repeat 0 0;
-    background-image:
-      url('/img/community/hero-bg.jpg'),
+    background-image: url("/img/community/hero-bg.jpg"),
       linear-gradient(to bottom, #fafcfd, #f4f5f7);
     background-size: cover, 100%;
     padding-top: 226px;
@@ -42,7 +39,6 @@
       will-change: trasnform;
 
       li {
-
         @media (max-width: $screen-xs-max) {
           padding-right: 15px;
         }
@@ -58,13 +54,13 @@
     h1 {
       font-size: 48px;
       font-weight: 700;
-      letter-spacing: -.04em;
+      letter-spacing: -0.04em;
       margin-bottom: 23px;
     }
 
     p {
       font-size: 22px;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       line-height: 36px;
     }
 
@@ -80,15 +76,16 @@
     li {
       font-size: 24px;
 
-      &:first-child a { padding-left: 0; }
+      &:first-child a {
+        padding-left: 0;
+      }
 
       a {
         padding: 0 20px;
-        font-family: $font-family-eina;
-        letter-spacing: -.024em;
-        transition: all .15s ease;
+        letter-spacing: -0.024em;
+        transition: all 0.15s ease;
         color: #0079ff;
-        transition: .1s opacity, .1s color;
+        transition: 0.1s opacity, 0.1s color;
 
         &:hover {
           color: lighten(#0079ff, 15);
@@ -104,7 +101,7 @@
         font-size: 19px;
         vertical-align: -10%;
         display: inline-block;
-        transition: .1s transform ease-out;
+        transition: 0.1s transform ease-out;
       }
     }
 
@@ -134,7 +131,7 @@
       strong {
         display: block;
         font-size: 37px;
-        letter-spacing: -.04em;
+        letter-spacing: -0.04em;
         line-height: 40px;
       }
 
@@ -157,28 +154,44 @@
       opacity: 0;
     }
 
-    h1 { animation-delay: .8s; }
+    h1 {
+      animation-delay: 0.8s;
+    }
 
-    p { animation-delay: 1s; }
+    p {
+      animation-delay: 1s;
+    }
 
     hgroup li {
       animation-delay: 1.6s;
 
-      &:nth-child(2) { animation-delay: 1.7s; }
+      &:nth-child(2) {
+        animation-delay: 1.7s;
+      }
 
-      &:nth-child(3) { animation-delay: 1.8s; }
+      &:nth-child(3) {
+        animation-delay: 1.8s;
+      }
 
-      &:nth-child(4) { animation-delay: 1.9s; }
+      &:nth-child(4) {
+        animation-delay: 1.9s;
+      }
     }
 
     .features li {
       animation-delay: 2.2s;
 
-      &:nth-child(2) { animation-delay: 2.3s; }
+      &:nth-child(2) {
+        animation-delay: 2.3s;
+      }
 
-      &:nth-child(3) { animation-delay: 2.4s; }
+      &:nth-child(3) {
+        animation-delay: 2.4s;
+      }
 
-      &:nth-child(4) { animation-delay: 2.5s; }
+      &:nth-child(4) {
+        animation-delay: 2.5s;
+      }
     }
 
     @media (max-width: $screen-xs-max) {
@@ -207,7 +220,6 @@
       justify-content: space-between;
 
       @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
-
         .btns {
           padding-top: 0;
           margin-left: 24px;
@@ -231,14 +243,14 @@
       h2 {
         font-size: 31px;
         font-weight: 700;
-        letter-spacing: -.006em;
+        letter-spacing: -0.006em;
         margin-bottom: 12px;
       }
 
       p {
         font-size: 18px;
         line-height: 28px;
-        letter-spacing: -.005em;
+        letter-spacing: -0.005em;
       }
     }
 
@@ -253,10 +265,10 @@
     .btn {
       font-size: 16px;
       padding: 14px 18px 12px;
-      letter-spacing: -.01em;
-      font-family: $font-family-eina;
+      letter-spacing: -0.01em;
+      font-family: $font-family-inter;
       font-weight: 700;
-      transition: all .2s ease;
+      transition: all 0.2s ease;
     }
 
     ul {
@@ -278,7 +290,7 @@
         padding: 16px 35px 14px 73px;
         position: relative;
         display: block;
-        transition: .4s transform ease;
+        transition: 0.4s transform ease;
 
         &::before {
           position: absolute;
@@ -286,57 +298,37 @@
           right: 0;
           left: 0;
           bottom: 0;
-          content: '';
-          box-shadow:
-            0 6px 12px rgba(0,8,24,.08),
-            0 2px 4px rgba(0,8,24,.04);
+          content: "";
+          box-shadow: 0 6px 12px rgba(0, 8, 24, 0.08),
+            0 2px 4px rgba(0, 8, 24, 0.04);
           border-radius: 30px;
-          transition: box-shadow .1s ease, transform .1s ease;
+          transition: box-shadow 0.1s ease, transform 0.1s ease;
         }
 
         &::after {
-          background: url('/img/community/flags.png') 0 0 no-repeat;
+          background: url("/img/community/flags.png") 0 0 no-repeat;
           background-size: 48px;
           position: absolute;
           left: 11px;
           top: calc(50% - 24px);
           height: 48px;
           width: 48px;
-          content: '';
+          content: "";
         }
 
         @include sprite(
-          'uk'
-          'ch'
-          'de'
-          'il'
-          'us'
-          'br'
-          'nl'
-          'es'
-          'ams'
-          'in'
-          'yvr'
-          'tr'
-          'au'
-          'dk'
-          'hu'
-          'co'
-          'jp'
-          'ug'
-          'hk'
-          'ng'
-          'tz'
-          'th'
-        , 48, '::after');
+          "uk" "ch" "de" "il" "us" "br" "nl" "es" "ams" "in" "yvr" "tr" "au"
+            "dk" "hu" "co" "jp" "ug" "hk" "ng" "tz" "th",
+          48,
+          "::after"
+        );
 
         &:hover {
           transform: translateY(-1px);
 
           &::before {
-            box-shadow:
-              0 10px 18px rgba(0,8,24,.1),
-              0 4px 8px rgba(0,8,24,.08);
+            box-shadow: 0 10px 18px rgba(0, 8, 24, 0.1),
+              0 4px 8px rgba(0, 8, 24, 0.08);
             transform: scale3d(1.01, 1.02, 1);
           }
         }
@@ -352,7 +344,7 @@
 
       strong {
         font-weight: 600;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
         font-size: 14px;
         line-height: 16px;
         color: #0f1622;
@@ -360,7 +352,7 @@
 
       span {
         font-size: 12px;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
         color: #506176;
       }
     }
@@ -422,7 +414,7 @@
 
       p {
         font-size: 18px;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
         line-height: 28px;
       }
     }
@@ -449,7 +441,7 @@
 
       &::before,
       &::after {
-        content: '';
+        content: "";
         position: absolute;
       }
 
@@ -460,41 +452,31 @@
         bottom: 0;
         border-radius: 8px;
         pointer-events: none;
-        box-shadow:
-          0 4px 8px rgba(0,8,24,.08),
-          0px 8px 32px rgba(0,8,24,0.1);
-        transition: .2s box-shadow ease-out, .2s transform ease-out;
+        box-shadow: 0 4px 8px rgba(0, 8, 24, 0.08),
+          0px 8px 32px rgba(0, 8, 24, 0.1);
+        transition: 0.2s box-shadow ease-out, 0.2s transform ease-out;
       }
 
       &::after {
         top: -20px;
         right: calc(50% - 45px);
-        background: url('/img/community/community-leaders-avatars.png') 0 0 no-repeat;
+        background: url("/img/community/community-leaders-avatars.png") 0 0
+          no-repeat;
         background-size: 90px;
         height: 90px;
         width: 90px;
       }
 
       @include sprite(
-        'simon'
-        'josh'
-        'jorge'
-        'veni'
-        'ashteya'
-        'paul'
-        'sani'
-        'leif'
-        'david'
-        'chris'
-        'dayana'
-        'aaron'
-      , 90, '::after');
+        "simon" "josh" "jorge" "veni" "ashteya" "paul" "sani" "leif" "david"
+          "chris" "dayana" "aaron",
+        90,
+        "::after"
+      );
 
       &:hover::before {
-        box-shadow:
-        0 2px 8px rgba(0,8,24,.08),
-        0px 8px 32px rgba(0,8,24,0.1),
-        0 8px 18px rgba(0,8,24,.1);
+        box-shadow: 0 2px 8px rgba(0, 8, 24, 0.08),
+          0px 8px 32px rgba(0, 8, 24, 0.1), 0 8px 18px rgba(0, 8, 24, 0.1);
       }
     }
 
@@ -502,16 +484,16 @@
       display: block;
       font-size: 15px;
       font-weight: 600;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
     }
 
     p {
       font-size: 14px;
       margin-top: 7px;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
 
       a {
-        transition: .2s color ease-out;
+        transition: 0.2s color ease-out;
 
         &:hover {
           color: darken($blue, 15);
@@ -527,15 +509,13 @@
       height: 20px;
       font-size: 20px;
       color: #d6ddea;
-      transition: .2s transform ease-out, .2s color ease-out;
+      transition: 0.2s transform ease-out, 0.2s color ease-out;
 
       &:hover {
         color: $blue;
         transform: scale3d(1.2, 1.2, 1);
       }
     }
-
-
 
     @media (max-width: $screen-sm-max) {
       ul {
@@ -573,8 +553,6 @@
           margin-top: 24px;
           margin-left: 0;
         }
-
-
       }
     }
 
@@ -584,14 +562,14 @@
       h2 {
         font-size: 24px;
         font-weight: 700;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
       }
 
       p {
         font-size: 16px;
         margin-top: 17px;
         line-height: 1.5em;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
         margin-bottom: 0;
       }
     }
@@ -608,7 +586,7 @@
       h3 {
         font-size: 16px;
         font-weight: 600;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
       }
 
       ionic-newsletter-signup {
@@ -640,15 +618,15 @@
         position: relative;
 
         &::before {
-          background: url('/img/community/social-icons.png') 0 0 no-repeat;
+          background: url("/img/community/social-icons.png") 0 0 no-repeat;
           background-size: 70px;
           height: 70px;
           width: 70px;
           position: absolute;
-          content: '';
+          content: "";
           top: calc(50% - 33px);
           left: -2px;
-          transition: .2s transform ease-out;
+          transition: 0.2s transform ease-out;
           backface-visibility: hidden;
           transform: translateX(0);
           outline: 1px solid transparent;
@@ -670,19 +648,14 @@
       }
 
       @include sprite(
-        'slack'
-        'forum'
-        'twitter'
-        'github'
-        'so'
-        'facebook'
-        'youtube'
-        'blog'
-        'medium'
-      , 70, ' a::before');
+        "slack" "forum" "twitter" "github" "so" "facebook" "youtube" "blog"
+          "medium",
+        70,
+        " a::before"
+      );
 
       strong {
-        transition: .2s color ease;
+        transition: 0.2s color ease;
       }
 
       strong {
@@ -695,7 +668,7 @@
 
       span {
         font-size: 13px;
-        letter-spacing: .014em;
+        letter-spacing: 0.014em;
         color: #6c7e95;
       }
     }
@@ -714,14 +687,14 @@
       h2 {
         font-weight: 700;
         font-size: 32px;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
       }
 
       p {
         margin-top: 12px;
         font-size: 18px;
         line-height: 28px;
-        letter-spacing: .006em;
+        letter-spacing: 0.006em;
       }
     }
 
@@ -733,7 +706,7 @@
       h3 {
         font-size: 20px;
         text-transform: uppercase;
-        letter-spacing: .08em;
+        letter-spacing: 0.08em;
         font-weight: 700;
       }
 
@@ -779,15 +752,15 @@
           position: relative;
 
           &::before {
-            background: url('/img/community/latest-rss-icons.png') 0 0 no-repeat;
+            background: url("/img/community/latest-rss-icons.png") 0 0 no-repeat;
             background-size: 28px;
             height: 28px;
             width: 28px;
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
-            transition: .2s transform ease-out;
+            transition: 0.2s transform ease-out;
           }
 
           &:hover {
@@ -812,12 +785,12 @@
         strong,
         p,
         span {
-          transition: .2s color ease;
+          transition: 0.2s color ease;
         }
 
         strong {
           display: block;
-          letter-spacing: -.018em;
+          letter-spacing: -0.018em;
           font-weight: 600;
           line-height: 1.75em;
         }
@@ -828,7 +801,7 @@
           margin-top: 3px;
           font-size: 13px;
           line-height: 1.9em;
-          letter-spacing: -.02em;
+          letter-spacing: -0.02em;
         }
 
         span {
@@ -836,7 +809,7 @@
           color: #8796a9;
           font-size: 12px;
           margin-top: 12px;
-          letter-spacing: .03em;
+          letter-spacing: 0.03em;
         }
       }
 
@@ -855,12 +828,14 @@
     }
 
     .videos {
-      li a::before { background-position: 0 -28px; }
+      li a::before {
+        background-position: 0 -28px;
+      }
     }
   }
 
   .education {
-    background: #121b2c url('/img/community/community-edu-bg.jpg') no-repeat;
+    background: #121b2c url("/img/community/community-edu-bg.jpg") no-repeat;
     background-position: 50% 0;
     background-size: 1680px;
     margin-top: 93px;
@@ -879,7 +854,7 @@
 
     p,
     h4 {
-      opacity: .8;
+      opacity: 0.8;
     }
 
     hgroup {
@@ -894,7 +869,7 @@
         font-size: 18px;
         margin-top: 13px;
         line-height: 1.6em;
-        letter-spacing: -.026em;
+        letter-spacing: -0.026em;
       }
 
       @media (max-width: $screen-sm-max) {
@@ -915,7 +890,6 @@
       @media (max-width: $screen-md-max) {
         justify-content: space-around;
       }
-
     }
 
     li {
@@ -937,10 +911,10 @@
           right: 0;
           bottom: 0;
           left: 0;
-          content: '';
+          content: "";
           background: #3880ff;
           border-radius: 8px;
-          transition: .2s transform ease;
+          transition: 0.2s transform ease;
         }
 
         &:hover::before {
@@ -951,7 +925,7 @@
       h4 {
         font-size: 11px;
         text-transform: uppercase;
-        letter-spacing: .15em;
+        letter-spacing: 0.15em;
         margin-bottom: 8px;
         font-weight: 700;
       }
@@ -960,7 +934,7 @@
         font-size: 21px;
         margin-top: 0;
         font-weight: 700;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
       }
 
       p {
@@ -969,17 +943,31 @@
         font-size: 12px;
         left: 28px;
         right: 28px;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
         line-height: 1.4em;
       }
 
-      &:nth-child(2) a::before { background: #287ea1; }
-      &:nth-child(3) a::before { background: #da5b70; }
-      &:nth-child(4) a::before { background: #95b251; }
-      &:nth-child(5) a::before { background: #30aeeb; }
-      &:nth-child(6) a::before { background: #4a628a; }
-      &:nth-child(7) a::before { background: #8d5ce3; }
-      &:nth-child(8) a::before { background: #f48f63; }
+      &:nth-child(2) a::before {
+        background: #287ea1;
+      }
+      &:nth-child(3) a::before {
+        background: #da5b70;
+      }
+      &:nth-child(4) a::before {
+        background: #95b251;
+      }
+      &:nth-child(5) a::before {
+        background: #30aeeb;
+      }
+      &:nth-child(6) a::before {
+        background: #4a628a;
+      }
+      &:nth-child(7) a::before {
+        background: #8d5ce3;
+      }
+      &:nth-child(8) a::before {
+        background: #f48f63;
+      }
     }
   }
 }

@@ -1,8 +1,6 @@
 #page-contributors {
-
   main {
     color: #161a1f;
-    font-family: $font-family-eina;
     font-weight: 600;
   }
 
@@ -29,32 +27,38 @@
   }
 
   .cta h1 {
-    color: #73ABFF;
+    color: #73abff;
     font-size: 48px;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
 
   .cta h1 span {
-    color: #3880FF;
+    color: #3880ff;
   }
 
   .cta .typed-cursor {
-    color: rgba(0,0,0,0);
+    color: rgba(0, 0, 0, 0);
     display: inline-block;
     width: 4px;
     height: 56px;
     position: relative;
     top: -4px;
-    background: #BFD6FF;
+    background: #bfd6ff;
     opacity: 1;
     animation: typedjsBlink 1s infinite;
   }
 
-  @keyframes typedjsBlink{
-    0% { opacity: 1; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1; }
+  @keyframes typedjsBlink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .cta p {
@@ -117,9 +121,15 @@
     margin-right: 2em;
     width: 48px;
 
-    &.talk    { background-position-y: 0; }
-    &.story     { background-position-y: -48px * 1; }
-    &.blog   { background-position-y: -48px * 2; }
+    &.talk {
+      background-position-y: 0;
+    }
+    &.story {
+      background-position-y: -48px * 1;
+    }
+    &.blog {
+      background-position-y: -48px * 2;
+    }
   }
 
   .feature__text strong {
@@ -142,7 +152,6 @@
   .feature-list > li {
     margin-bottom: 2em;
   }
-
 
   @media (min-width: $screen-sm) {
     .feature-list {
@@ -175,7 +184,7 @@
     &:before,
     &:after {
       display: block;
-      content: '';
+      content: "";
       width: 100%;
       height: 100px;
       position: absolute;
@@ -186,11 +195,19 @@
 
     &:before {
       top: 0;
-      background-image: linear-gradient(-180deg, rgba(#242355, 1) 0%, rgba(#242355, 0) 100%);
+      background-image: linear-gradient(
+        -180deg,
+        rgba(#242355, 1) 0%,
+        rgba(#242355, 0) 100%
+      );
     }
     &:after {
       bottom: 0;
-      background-image: linear-gradient(-180deg, rgba(#242355, 0) 0%, rgba(#242355, 1) 100%);
+      background-image: linear-gradient(
+        -180deg,
+        rgba(#242355, 0) 0%,
+        rgba(#242355, 1) 100%
+      );
     }
 
     hgroup {
@@ -205,7 +222,7 @@
 
     h1 {
       font-size: 36px;
-      color: #FFFFFF;
+      color: #ffffff;
       letter-spacing: -1.2px;
       line-height: 48px;
       font-weight: 700;
@@ -213,17 +230,17 @@
 
     p {
       font-size: 18px;
-      color: #BFC5E5;
+      color: #bfc5e5;
       letter-spacing: -0.62px;
       line-height: 30px;
     }
 
     &.image-fallback:after {
-      content: '';
+      content: "";
       display: block;
       width: 388px;
       height: 658px;
-      background-image: url('../img/contributors/contributors-topics.png');
+      background-image: url("../img/contributors/contributors-topics.png");
       background-repeat: no-repeat;
       background-size: 388px 658px;
       position: absolute;
@@ -237,7 +254,7 @@
     @media (max-width: $screen-sm) {
       &:before {
         height: 400px;
-        opacity: 1
+        opacity: 1;
       }
       &:after {
         opacity: 0.3;
@@ -297,7 +314,7 @@
     display: flex;
     flex: 1;
     padding: 80px;
-      color: #24282e;
+    color: #24282e;
 
     @media (max-width: $screen-xs) {
       padding: 40px;
@@ -310,12 +327,11 @@
     }
 
     &.morony {
-      background-color: #E9F2FF;
+      background-color: #e9f2ff;
     }
 
     &.verganara {
-      background-color: #D0E2FD;
-
+      background-color: #d0e2fd;
     }
   }
 
@@ -330,7 +346,7 @@
     margin-bottom: 1em;
     border-radius: 62px;
     border: 3px solid #fff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
     &.morony {
       background-position-y: 0;
@@ -368,11 +384,11 @@
   }
 
   .morony a blockquote > small > span {
-    color: #93A8C6;
+    color: #93a8c6;
   }
 
   .verganara a blockquote > small > span {
-    color: #5C749B;
+    color: #5c749b;
   }
 
   .apply {
@@ -397,8 +413,9 @@
   .apply__form {
     flex: 0 0 685px;
     padding: 46px;
-    background: #FFFFFF;
-    box-shadow: 0 2px 8px 0 rgba(0,14,39,0.12), 0 10px 20px 0 rgba(0,14,39,0.12);
+    background: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(0, 14, 39, 0.12),
+      0 10px 20px 0 rgba(0, 14, 39, 0.12);
     border-radius: 15px;
 
     h2 {
@@ -407,7 +424,7 @@
       font-size: 36px;
       letter-spacing: -1.2px;
       line-height: 48px;
-      color: #161A1F;
+      color: #161a1f;
     }
 
     .hbspt-form {
@@ -427,7 +444,7 @@
       font-size: 22px;
       font-weight: 700;
       letter-spacing: -0.03em;
-      color: #161A1F;
+      color: #161a1f;
       margin: 0 0 36px;
     }
   }
@@ -447,14 +464,14 @@
     h5 {
       font-size: 18px;
       font-weight: 600;
-      color: #161A1F;
+      color: #161a1f;
       line-height: 22px;
       margin: 0 0 5px;
     }
 
     p {
       font-size: 14px;
-      color: #747F92;
+      color: #747f92;
       letter-spacing: -0.25px;
       line-height: 24px;
       max-width: 280px;
@@ -481,7 +498,7 @@
     .apply__benefits {
       padding-left: 0;
     }
-    .benefit-list__item p{
+    .benefit-list__item p {
       max-width: none;
     }
   }

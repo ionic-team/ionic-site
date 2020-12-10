@@ -1,7 +1,7 @@
-@import '../vars';
-@import '../mixins';
-@import '../components/home_slides/index';
-@import '../components/home_slides/react';
+@import "../vars";
+@import "../mixins";
+@import "../components/home_slides/index";
+@import "../components/home_slides/react";
 
 #page-home {
   img {
@@ -11,7 +11,8 @@
   .activateOnScroll {
     opacity: 0;
     transform: translateY(48px);
-    transition: .4s opacity, .8s transform cubic-bezier(.07,.89,.79,.95);
+    transition: 0.4s opacity,
+      0.8s transform cubic-bezier(0.07, 0.89, 0.79, 0.95);
 
     &.active {
       transform: translateY(0);
@@ -36,7 +37,6 @@
   }
 
   #promo--hybrid-vs-native {
-
     @media (max-width: $screen-sm-max) {
       margin-top: 0;
     }
@@ -100,12 +100,12 @@
       align-items: flex-end;
       margin-bottom: 66px;
 
-      >:nth-child(1) {
+      > :nth-child(1) {
         flex: 0 1 480px;
         margin-bottom: 0;
       }
 
-      >:nth-child(2) {
+      > :nth-child(2) {
         flex: 0 1 440px;
         margin-left: auto;
         margin-bottom: 4px;
@@ -113,13 +113,13 @@
 
       @media (max-width: $screen-md-max) {
         flex-direction: column;
-        
-        >:nth-child(1) {
+
+        > :nth-child(1) {
           flex: 1;
           margin-bottom: 16px;
         }
-  
-        >:nth-child(2) {
+
+        > :nth-child(2) {
           flex: 1;
           margin-right: auto;
           margin-bottom: 4px;
@@ -131,7 +131,7 @@
       font-weight: 600;
       font-size: 48px;
       line-height: 110%;
-      letter-spacing: -.05em;
+      letter-spacing: -0.05em;
       color: #020814;
 
       + p {
@@ -143,13 +143,13 @@
       font-size: 32px;
       line-height: 120%;
       letter-spacing: -0.03em;
-      color: #1A232F;
+      color: #1a232f;
     }
 
     h4 {
       font-size: 12px;
-      color: #5B708B;
-      letter-spacing: .16em;
+      color: #5b708b;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-family: $font-family-monospace;
 
@@ -169,18 +169,18 @@
 
     p {
       font-size: 16px;
-      color: #5B708B;
+      color: #5b708b;
       line-height: 29px;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
 
     hgroup p,
     p.lg {
-      color: #5B708B;
+      color: #5b708b;
       font-size: 20px;
       line-height: 32px;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       margin-bottom: 23px;
 
       strong {
@@ -193,8 +193,8 @@
       background: transparent;
 
       &::before {
-        content: '';
-        background: #D1EBFF;
+        content: "";
+        background: #d1ebff;
         position: absolute;
         left: 0;
         right: -2px;
@@ -209,18 +209,18 @@
       line-height: 34px;
       margin-top: 4px;
       padding-top: 0;
-      color: #4D8DFF;
+      color: #4d8dff;
       display: inline-block;
       position: relative;
       background: none;
       letter-spacing: -0.03em;
       font-weight: 600;
-      font-family: $font-family-eina;
+      font-family: $font-family-inter;
       position: relative;
-      transition: .3s opacity;
+      transition: 0.3s opacity;
 
       &:hover {
-        opacity: .6;
+        opacity: 0.6;
       }
 
       &:hover,
@@ -230,8 +230,8 @@
       }
 
       &::after {
-        font-family: 'Ionicons';
-        content: '';
+        font-family: "Ionicons";
+        content: "";
         font-size: 23px;
         font-weight: 400;
         vertical-align: -3px;
@@ -256,7 +256,7 @@
     }
   }
 
-  .overflow-mask { 
+  .overflow-mask {
     overflow: hidden;
     max-width: 100vw;
   }
@@ -285,11 +285,11 @@
       }
 
       &:nth-child(2) {
-        transition-delay: .1s;
+        transition-delay: 0.1s;
       }
 
       &:nth-child(3) {
-        transition-delay: .2s;
+        transition-delay: 0.2s;
       }
     }
   }
@@ -307,8 +307,8 @@
       &::before,
       &::after {
         position: absolute;
-        border: 0px solid #E9EDF3;
-        content: '';
+        border: 0px solid #e9edf3;
+        content: "";
       }
 
       &::before {
@@ -331,7 +331,7 @@
       font-size: 20px;
       line-height: 28px;
       letter-spacing: -0.03em;
-      color: #414D5C;
+      color: #414d5c;
       padding: 30px;
       display: flex;
       flex-direction: column;
@@ -407,20 +407,20 @@
           sup {
             font-size: 32px;
           }
-  
+
           sup {
             vertical-align: 8px;
           }
-  
+
           sub {
             vertical-align: 8px;
-  
+
             small {
               font-size: 28px;
             }
           }
         }
-        }
+      }
     }
   }
 
@@ -440,15 +440,15 @@
         line-height: 30px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: #1A232F;
+        color: #1a232f;
         margin-right: 16px;
 
         a {
           vertical-align: 8px;
           background-size: 100%;
           display: inline-block;
-          opacity: .6;
-          transition: .2s opacity;
+          opacity: 0.6;
+          transition: 0.2s opacity;
 
           &:hover {
             opacity: 1;
@@ -478,7 +478,6 @@
   }
 
   #components {
-
   }
 
   #native {
@@ -517,7 +516,7 @@
 
   #community {
     // position: static;
-    z-index:1;
+    z-index: 1;
 
     .graphics {
       position: absolute;
@@ -531,7 +530,7 @@
 
     @media (max-width: $screen-sm-max) {
       padding-bottom: 800px;
-      
+
       .graphics {
         top: auto;
         bottom: 0;
@@ -545,7 +544,7 @@
   }
 
   #integrations {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
     padding-bottom: 100px;
     overflow: visible;
     overflow-x: hidden;
@@ -563,9 +562,9 @@
     .integration-list {
       position: relative;
       height: 360px;
-      display:block;
-	    margin: 0 0 48px;
-	    padding: 0;
+      display: block;
+      margin: 0 0 48px;
+      padding: 0;
       position: relative;
       opacity: 0;
       animation: fadeIn 1s 1s forwards;
@@ -577,9 +576,9 @@
 
       img {
         position: absolute;
-		    width: 128px;
-		    border-radius: 50%;
-        box-shadow: 0 6px 24px rgba(black, .1);
+        width: 128px;
+        border-radius: 50%;
+        box-shadow: 0 6px 24px rgba(black, 0.1);
 
         &.m {
           width: 64px;
@@ -597,7 +596,7 @@
 
     h3 {
       padding-top: 78px;
-      background: url('/img/homepage/heart.png') no-repeat top center;
+      background: url("/img/homepage/heart.png") no-repeat top center;
       background-size: 88px;
       text-align: center;
       font-weight: 600;
@@ -616,14 +615,14 @@
       margin: 20px auto;
       font-size: 22px;
       line-height: 37px;
-      color: #5B708B;
+      color: #5b708b;
       text-align: center;
       opacity: 0;
-      transition: .3s opacity;
+      transition: 0.3s opacity;
 
       &::before {
-        content: '“';
-        color: #DEE3EA;
+        content: "“";
+        color: #dee3ea;
         font-size: 64px;
         position: absolute;
         top: 26px;
@@ -636,7 +635,7 @@
 
       @media (max-width: $screen-sm-max) {
         left: 0;
-        width: 100%
+        width: 100%;
       }
     }
 
@@ -650,11 +649,11 @@
       position: relative;
 
       li {
-        opacity: .5;
+        opacity: 0.5;
         cursor: pointer;
         // flex: 0 1 190px;
         margin-bottom: 32px;
-        transition: .2s opacity;
+        transition: 0.2s opacity;
         display: block;
         padding: 6px 18px 10px 60px;
         position: relative;
@@ -686,7 +685,7 @@
         font-size: 12px;
         line-height: 23px;
         letter-spacing: -0.02em;
-        color: #73849A;
+        color: #73849a;
         display: block;
       }
 
@@ -704,17 +703,16 @@
     &__highlight {
       background: transparent;
       position: absolute;
-      box-shadow: 
-        0px 8px 16px rgba(2, 8, 20, 0.1), 
+      box-shadow: 0px 8px 16px rgba(2, 8, 20, 0.1),
         0px 4px 8px rgba(2, 8, 20, 0.08);
       border-radius: 40px;
       box-sizing: content-box;
-      transition: .2s all ease-out;
+      transition: 0.2s all ease-out;
     }
   }
 
   #start {
-    background: linear-gradient(270deg, #6EB1FF 0%, #4D8DFF 100%);
+    background: linear-gradient(270deg, #6eb1ff 0%, #4d8dff 100%);
     padding-top: 72px;
     padding-bottom: 62px;
 
@@ -743,7 +741,7 @@
     h3,
     p {
       letter-spacing: -0.03em;
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     .btn {
@@ -754,7 +752,7 @@
       letter-spacing: 0.08em;
       border-radius: 10px;
       text-transform: uppercase;
-      color: #4D8DFF;
+      color: #4d8dff;
       padding: 14px 15px;
     }
   }

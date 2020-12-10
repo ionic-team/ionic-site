@@ -1,9 +1,8 @@
-@import '../vars';
-@import '../mixins';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../vars";
+@import "../mixins";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 .banner {
-
   hgroup {
     padding-top: 75px;
     max-width: 700px;
@@ -18,7 +17,7 @@
     margin-top: 61px;
     font-size: 32px;
     font-weight: 600;
-    letter-spacing: -.008em;
+    letter-spacing: -0.008em;
     color: #0f151f;
   }
 
@@ -52,11 +51,11 @@
     position: relative;
     font-weight: 600;
     font-size: 16px;
-    letter-spacing: -.02em;
+    letter-spacing: -0.02em;
 
     &::before {
-      font-family: 'Ionicons';
-      content: '\f2bc';
+      font-family: "Ionicons";
+      content: "\f2bc";
       color: #5c77ff;
       position: absolute;
       left: 0;
@@ -75,9 +74,8 @@ main {
   h1,
   h2,
   h3 {
-    font-family: $font-family-eina;
     font-weight: 700;
-    letter-spacing: -.008em;
+    letter-spacing: -0.008em;
     color: #0f1620;
   }
 
@@ -97,7 +95,7 @@ main {
   }
 
   p {
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     margin-bottom: 22px;
     line-height: 2em;
 
@@ -105,7 +103,7 @@ main {
       color: #7058fd;
       background: #eff2f7;
       padding: 2px 8px;
-      letter-spacing: .02em;
+      letter-spacing: 0.02em;
     }
   }
 
@@ -131,7 +129,7 @@ main {
     p {
       line-height: 1.64em;
       font-size: 18px;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
     }
   }
 
@@ -150,7 +148,7 @@ main {
   }
 
   p {
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     margin-bottom: 17px;
   }
 
@@ -181,11 +179,11 @@ main {
 
     &::before {
       position: absolute;
-      content: 'shell';
+      content: "shell";
       text-transform: uppercase;
       font-size: 11px;
       font-weight: 500;
-      top: .2em;
+      top: 0.2em;
       right: 1em;
       color: #cdd4de;
     }

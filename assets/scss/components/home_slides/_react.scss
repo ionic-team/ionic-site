@@ -130,6 +130,7 @@
       .rotate {
         display:inline-block;
         position:relative;
+        height: 48px;
       }
     }
 
@@ -209,8 +210,10 @@
   }  
 }
 
-@media (max-width: $screen-xs-max) {
-
+@media (max-width: 460px) {
+  #slide-ionic-react .landing__content h1 .rotate {
+    display: block;
+  }
 }
 
 

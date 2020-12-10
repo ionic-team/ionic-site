@@ -1,5 +1,5 @@
 #pre-footer {
-  font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
+  font-family: $font-family-inter;
   background: $whiteish;
   color: #727a87;
   padding-top: 80px;
@@ -9,7 +9,7 @@
     list-style: none;
 
     &::after {
-      content: '';
+      content: "";
       clear: both;
     }
 
@@ -20,11 +20,11 @@
       position: relative;
 
       &::before {
-        background: url('/img/home/icons-lg.png?1') no-repeat 0 -372px;
+        background: url("/img/home/icons-lg.png?1") no-repeat 0 -372px;
         background-size: 93px;
         height: 93px;
         width: 93px;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         left: -9px;
@@ -33,7 +33,7 @@
 
       &::after {
         border-right: 1px solid #dde1ea;
-        content: '';
+        content: "";
         position: absolute;
         right: -10%;
         top: 15px;
@@ -65,21 +65,21 @@
         font-weight: 600;
         font-size: 20px;
         margin-bottom: 5px;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
 
         &::after {
-          font-family: 'Ionicons';
-          content: '\f287';
-          font-size: .9em;
+          font-family: "Ionicons";
+          content: "\f287";
+          font-size: 0.9em;
           margin-left: 10px;
           position: relative;
           display: inline-block;
-          transition: .3s transform;
+          transition: 0.3s transform;
         }
 
         &:hover,
         &:active,
-        &:focus  {
+        &:focus {
           color: darken($blue, 10);
           text-decoration: none;
 
@@ -97,7 +97,6 @@
         font-weight: 600;
         letter-spacing: -0.02em;
       }
-
 
       @media (max-width: $screen-xs-max) {
         float: none;

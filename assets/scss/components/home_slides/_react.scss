@@ -39,13 +39,13 @@
         pointer-events: none;
         transform: translateY(-20px);
       }
-      64% {
+      66% {
         z-index: -1;
         opacity: 0;
         pointer-events: all;
         transform: translateY(-20px);
       }
-      66% {
+      68% {
         z-index: 1;
         opacity: 1;
         transform: translateY(0px);
@@ -68,7 +68,7 @@
     .vue {
       position: absolute;
       bottom: -14px;
-      animation: slideInOut 24s ease infinite;
+      animation: slideInOut 18s ease infinite;
 
       &::after {
         position:absolute;
@@ -78,7 +78,7 @@
 
     .react {
       color: #42CCFF;
-      animation-delay: -16s;
+      animation-delay: -12s;
 
       &::after {
         background: rgba(89, 210, 255, .3);
@@ -87,7 +87,7 @@
 
     .angular {
       color: #EF4D4D;
-      animation-delay: -24s;
+      animation-delay: -18s;
 
       &::after {
         background: rgba(239, 77, 77, .3);
@@ -96,7 +96,7 @@
 
     .vue {
       color: #42B983;
-      animation-delay: -8s;
+      animation-delay: -6s;
 
       &::after {
         background:  rgba(66, 185, 131, .3);

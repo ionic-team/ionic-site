@@ -1,46 +1,46 @@
-$font-family-eina: 'Eina', 'Helvetica Neue', Helvetica, sans-serif;
-$font-family-inter: 'Inter', 'Inter UI', Helvetica, Arial, sans-serif;
-$font-family-system: apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+$font-family-inter: "Inter", "Inter UI", Helvetica, Arial, sans-serif;
+$font-family-system: apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
+  sans-serif;
 
-$font-family-monospace: 'SF Mono', 'Roboto Mono', Menlo, monospace;
-$font-family-serif: 'Adobe Caslon', Georgia, Times, 'Times New Roman', serif;
+$font-family-monospace: "SF Mono", "Roboto Mono", Menlo, monospace;
+$font-family-serif: "Adobe Caslon", Georgia, Times, "Times New Roman", serif;
 
 $font-family-default: $font-family-inter;
 
-$blue:          #4a8bfc;
-$blue-800:      #4D8DFF;
-$light-blue:    #529eff;
-$green:         #00CEAB;
-$orange:        #fcb52c;
-$purple:        #7580F4;
-$red:           #f8556c;
-$navy:          #104784;
+$blue: #4a8bfc;
+$blue-800: #4d8dff;
+$light-blue: #529eff;
+$green: #00ceab;
+$orange: #fcb52c;
+$purple: #7580f4;
+$red: #f8556c;
+$navy: #104784;
 
-$whiteish:      #f9fafb;
-$lighter-grey:  #ebeef2;
-$light-grey:    #e6e9ee;
+$whiteish: #f9fafb;
+$lighter-grey: #ebeef2;
+$light-grey: #e6e9ee;
 $lightish-grey: #a0a5b0;
-$grey:          #9da5b3;
-$darkish-grey:  #898989;
-$dark-grey:     #576070;
-$blackish:      #4C555A;
-$blacker:       #24282e;
+$grey: #9da5b3;
+$darkish-grey: #898989;
+$dark-grey: #576070;
+$blackish: #4c555a;
+$blacker: #24282e;
 
 $sidenav-width: 230px;
 $platform-preview-width: 467px;
 
 // bootstrap overrides
-$navbar-default-bg:     $blue;
+$navbar-default-bg: $blue;
 $navbar-default-border: $blue;
-$navbar-default-brand-color: rgba(white, .8);
-$navbar-default-link-color:  rgba(white, .8);
+$navbar-default-brand-color: rgba(white, 0.8);
+$navbar-default-link-color: rgba(white, 0.8);
 $navbar-default-brand-hover-color: #fff;
-$navbar-default-link-hover-color:  #fff;
+$navbar-default-link-hover-color: #fff;
 $navbar-default-link-active-color: #fff;
 $navbar-default-link-active-bg: transparent;
 
-$grid-gutter-width:       30px;
-$screen-lg:               1104px;
+$grid-gutter-width: 30px;
+$screen-lg: 1104px;
 $container-large-desktop: (1024px + $grid-gutter-width);
 
 // $navbar-default-brand-hover-bg;
@@ -52,5 +52,5 @@ $container-large-desktop: (1024px + $grid-gutter-width);
 // $navbar-default-toggle-icon-bar-bg;
 
 // bootstrap variables and mixins
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";

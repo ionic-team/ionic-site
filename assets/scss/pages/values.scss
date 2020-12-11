@@ -1,11 +1,11 @@
-@import '../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-values {
   .navbar ~ .banner {
     background: #181830 no-repeat center top;
-    background-image: url('/img/values/values-cta-bg.jpg'),
-                      linear-gradient(to right, #f4f7fb 0%, #d9dfe8 100%);
+    background-image: url("/img/values/values-cta-bg.jpg"),
+      linear-gradient(to right, #f4f7fb 0%, #d9dfe8 100%);
     background-size: cover, 100%;
     height: 360px;
 
@@ -30,7 +30,6 @@
       color: $blacker;
       position: relative;
       margin-bottom: 10px;
-      font-family: $font-family-eina;
 
       span {
         font-weight: 700;
@@ -51,7 +50,7 @@
   }
 
   .hero {
-    background: no-repeat center top url('/img/values/meet-team.jpg');
+    background: no-repeat center top url("/img/values/meet-team.jpg");
     background-size: cover;
     height: 260px;
     padding-top: 87px;
@@ -62,7 +61,7 @@
 
     .btn.white {
       text-transform: none;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
       font-weight: 600;
       font-size: 14px;
       border-radius: 3px;

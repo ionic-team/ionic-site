@@ -3,19 +3,18 @@
 }
 
 footer {
-  border-top: 1px solid #F3F5F9;
+  border-top: 1px solid #f3f5f9;
   padding-top: 70px;
   padding-bottom: 20px;
   font-weight: 500;
-  font-family: $font-family-eina;
 
   .logo svg {
-    fill: #3880FF;
+    fill: #3880ff;
     width: 78px;
     height: 26px;
   }
 
-  nav  {
+  nav {
     display: flex;
     justify-content: space-between;
 
@@ -46,14 +45,14 @@ footer {
         font-weight: 600;
         font-size: 16px;
         padding-bottom: 4px;
-        letter-spacing: -.01em;
+        letter-spacing: -0.01em;
       }
 
       a {
         line-height: 1;
         font-size: 14px;
         letter-spacing: -0.01em;
-        color: #73849A;
+        color: #73849a;
         font-weight: 400;
         padding: 11px 0;
         display: inline-block;
@@ -91,7 +90,8 @@ footer {
     }
 
     hgroup {
-      background: url('/img/footer/footer-newsletter-icon.png') no-repeat 1px 8px;
+      background: url("/img/footer/footer-newsletter-icon.png") no-repeat 1px
+        8px;
       background-size: 40px;
       padding-left: 63px;
       min-height: 50px;
@@ -102,14 +102,14 @@ footer {
         margin-bottom: 3px;
         padding-top: 11px;
         font-weight: 600;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
       }
 
       p {
         font-family: $font-family-inter;
         font-size: 14px;
-        color: #73849A;
-        letter-spacing: -.016em;
+        color: #73849a;
+        letter-spacing: -0.016em;
         font-weight: 400;
       }
     }
@@ -126,8 +126,6 @@ footer {
         flex: 0 0 100%;
         margin-bottom: 40px;
       }
-
-
     }
 
     .signup {
@@ -152,7 +150,7 @@ footer {
 
       ul {
         flex: 0 0 33%;
-        margin-bottom: 36px
+        margin-bottom: 36px;
       }
 
       ul li a {
@@ -231,7 +229,7 @@ footer {
       height: 1em;
     }
 
-    a[id^=btn-footer] {
+    a[id^="btn-footer"] {
       position: relative;
       height: 16px;
       width: 16px;
@@ -242,14 +240,12 @@ footer {
       justify-content: center;
 
       svg {
-        fill: #CED6E0;
+        fill: #ced6e0;
       }
 
       &:hover svg {
-        fill: #B4BBC5;
+        fill: #b4bbc5;
       }
-
     }
-
   }
 }

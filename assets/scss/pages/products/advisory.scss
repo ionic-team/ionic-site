@@ -1,21 +1,18 @@
-@import '../../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
+@import "../../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-products-advisory {
-
   img {
     height: auto;
   }
-  
 
   .top {
     text-align: center;
-    background-color: #171E2A;
+    background-color: #171e2a;
     margin-top: -148px;
     padding-top: 235px;
     padding-bottom: 140px;
-    background-image: url('/img/products/advisory/advisory-hero-bg.png');
+    background-image: url("/img/products/advisory/advisory-hero-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -28,7 +25,7 @@
         font-size: 12px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #B2BECD;
+        color: #b2becd;
         font-family: $font-family-monospace;
         margin-bottom: 0;
       }
@@ -48,11 +45,10 @@
       }
 
       p {
-        font-family: $font-family-eina;
         font-size: 22px;
         line-height: 30px;
         max-width: 540px;
-        color: #DEE3EA;
+        color: #dee3ea;
       }
 
       .btn {
@@ -80,7 +76,6 @@
           font-size: 18px;
         }
       }
-
     }
 
     @media (max-width: $screen-sm) {
@@ -97,23 +92,22 @@
       font-size: 32px;
       line-height: 42px;
       letter-spacing: -0.03em;
-      color: #1A232F;
+      color: #1a232f;
       margin-bottom: 20px;
     }
-
 
     h4 {
       font-weight: 600;
       font-size: 18px;
       line-height: 24px;
       letter-spacing: -0.02em;
-      color: #1A232F;
+      color: #1a232f;
       margin-top: 16px;
       margin-bottom: 6px;
     }
 
     p {
-      color: #4E5B6A;
+      color: #4e5b6a;
       line-height: 26px;
       font-size: 16px;
       letter-spacing: -0.01em;
@@ -121,11 +115,10 @@
     }
 
     p.large {
-      color: #27323F;
+      color: #27323f;
       line-height: 39px;
       font-size: 22px;
       letter-spacing: -0.02em;
-      font-family: $font-family-eina;
       margin-bottom: 24px;
     }
 
@@ -133,13 +126,14 @@
       line-height: 22px;
       font-size: 14px;
       letter-spacing: -0.02em;
-      color: #5B708B;
+      color: #5b708b;
     }
 
     .btn {
       color: #fff;
-      background: #3880FF;
-      box-shadow: 0px 0px 2px rgba(0, 20, 56, 0.14), 0px 2px 3px rgba(0, 20, 56, 0.08);
+      background: #3880ff;
+      box-shadow: 0px 0px 2px rgba(0, 20, 56, 0.14),
+        0px 2px 3px rgba(0, 20, 56, 0.08);
       border-radius: 84px;
       font-weight: 700;
       font-size: 14px;
@@ -156,7 +150,7 @@
       }
 
       &:hover {
-        background-color: lighten(#3880FF, 2%);
+        background-color: lighten(#3880ff, 2%);
         ion-icon {
           transform: translate(1px, -1px);
         }
@@ -195,16 +189,16 @@
       align-items: center;
     }
 
-    [class^='customer-logo'] {
+    [class^="customer-logo"] {
       display: block;
-      background-image: url('/img/products/advisory/advisory-logo-sprite.png');
+      background-image: url("/img/products/advisory/advisory-logo-sprite.png");
       background-repeat: no-repeat;
       background-size: 176px 193px;
     }
 
     .customer-logo--aaa {
       width: 72px;
-	    height: 42px;
+      height: 42px;
       background-position: 0 0;
     }
 
@@ -239,7 +233,7 @@
     }
 
     @media (max-width: $screen-md) {
-      [class^='customer-logo']{
+      [class^="customer-logo"] {
         transform: scale(0.75);
       }
     }
@@ -258,8 +252,8 @@
         margin: -10px auto;
         max-width: 460px;
       }
-      [class^='customer-logo']{
-        transform: scale(0.70);
+      [class^="customer-logo"] {
+        transform: scale(0.7);
         margin: 3px;
       }
     }
@@ -315,16 +309,16 @@
       font-size: 13px;
 
       &.blue {
-        color: #3880FF;
+        color: #3880ff;
       }
       &.purple {
-        color: #6030FF;
+        color: #6030ff;
       }
       &.green {
-        color: #43C465;
+        color: #43c465;
       }
       &.gray {
-        color: #5B708B;
+        color: #5b708b;
       }
     }
 
@@ -361,7 +355,7 @@
     .well {
       padding: 54px 54px 48px;
       border-radius: 8px;
-      background-color: #F4F6FC;
+      background-color: #f4f6fc;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
@@ -379,7 +373,7 @@
       line-height: 32px;
       font-size: 20px;
       letter-spacing: -0.02em;
-      color: #73849A;
+      color: #73849a;
       margin-bottom: 0;
 
       strong {
@@ -485,7 +479,7 @@
 
       & > li {
         display: block;
-        border-top: 1px solid #DEE3EA;
+        border-top: 1px solid #dee3ea;
         display: flex;
         padding-top: 32px;
       }
@@ -493,7 +487,6 @@
       h4 {
         margin-top: 4px;
         font-size: 20px;
-
       }
 
       h5 {
@@ -545,7 +538,7 @@
   }
 
   .call-to-action {
-    background-color: #F6F8FB;
+    background-color: #f6f8fb;
     padding-top: 140px;
     padding-bottom: 100px;
 
@@ -562,12 +555,12 @@
         font-weight: 600;
         text-align: center;
         letter-spacing: -0.02em;
-        color: #616E7E;
+        color: #616e7e;
         margin-bottom: 4px;
 
         em {
           font-style: normal;
-          color: #1A232F;
+          color: #1a232f;
         }
       }
       p {
@@ -575,7 +568,7 @@
         font-size: 18px;
         text-align: center;
         letter-spacing: -0.01em;
-        color: #5B708B;
+        color: #5b708b;
 
         b {
           font-weight: 500;
@@ -586,6 +579,5 @@
     @media (max-width: $screen-sm) {
       padding-top: 80px;
     }
-
   }
 }

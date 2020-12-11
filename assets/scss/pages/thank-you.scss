@@ -1,12 +1,6 @@
-@import '../vars';
+@import "../vars";
 #page-thank-you {
   font-family: $font-family-inter;
-
-  h1,
-  h2,
-  h3 {
-    font-family: $font-family-eina;
-  }
 
   main {
     padding-bottom: 0px;
@@ -22,7 +16,7 @@
     &::before {
       background-color: #f6f8fc;
       border-bottom: 1px solid #e5e7eb;
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -48,7 +42,7 @@
     }
 
     p {
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       line-height: 2em;
       font-size: 16px;
       margin-bottom: 16px;
@@ -95,7 +89,7 @@
       max-width: 790px;
       text-align: center;
       line-height: 1.4em;
-      letter-spacing: -.04em;
+      letter-spacing: -0.04em;
       font-weight: 600;
       padding-right: 15px;
       padding-left: 15px;
@@ -114,11 +108,11 @@
 
       &::before,
       &::after {
-        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background: url("/img/homepage/enterprise-logos.png") 0 0 no-repeat;
         background-size: 100%;
         width: 494px;
         height: 42px;
-        content: '';
+        content: "";
         max-width: 100%;
         margin-bottom: 32px;
         display: inline-block;

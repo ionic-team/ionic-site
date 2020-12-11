@@ -1,4 +1,4 @@
-@import '../../vars';
+@import "../../vars";
 
 ionic-quick-signup {
   display: block;
@@ -33,7 +33,7 @@ ionic-quick-signup {
     }
 
     button.btn.white {
-      font-family: $font-family-eina;
+      font-family: $font-family-inter;
       border-radius: 8px;
       text-transform: none;
       font-weight: 600;
@@ -76,4 +76,3 @@ ionic-quick-signup {
     }
   }
 }
-

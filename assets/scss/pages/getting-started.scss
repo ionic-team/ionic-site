@@ -1,14 +1,14 @@
 // #region ---------------------- IMPORTS -------------------------
 
-@import '../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import '../utilities/u-getting-started';
+@import "../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../utilities/u-getting-started";
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- VARIABLES ----------------------
 $headingColor: #010610;
-$pColorMain: #2D4665;
-$pColorSecondary: #445B78;
+$pColorMain: #2d4665;
+$pColorSecondary: #445b78;
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- COMPONENTS ----------------------
@@ -16,29 +16,50 @@ $pColorSecondary: #445B78;
 // #endregion -----------------------------------------------------
 
 // #region ---------------------- GENERIC -------------------------
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-family: $font-family-inter;
 }
 
 h1 {
-@include font($fs:64px, $fw:bold, $lh:100%, $ls:-.04em, $color: $headingColor);
+  @include font(
+    $fs: 64px,
+    $fw: bold,
+    $lh: 100%,
+    $ls: -0.04em,
+    $color: $headingColor
+  );
 }
 
 h2 {
-@include font($fs:28px, $fw: 600, $lh: 112%, $ls: -.02em, $color: $headingColor);
-  font-family: $font-family-eina;
+  @include font(
+    $fs: 28px,
+    $fw: 600,
+    $lh: 112%,
+    $ls: -0.02em,
+    $color: $headingColor
+  );
 }
 
 h3 {
-@include font($fs:20px, $fw: 500, $lh: 24px, $ls: -.01em, $color: $headingColor);
+  @include font(
+    $fs: 20px,
+    $fw: 500,
+    $lh: 24px,
+    $ls: -0.01em,
+    $color: $headingColor
+  );
 }
 
 p {
-@include font($fs:16px, $ls:-.01em);
+  @include font($fs: 16px, $ls: -0.01em);
 }
 
 // a:not(.button) {
@@ -55,140 +76,190 @@ p {
 
 // #region ---------------------- PAGE STYLES ---------------------
 #landing {
-@include box($pos:relative, $pt:149px, $pb:104px, $mb:143px);
+  @include box($pos: relative, $pt: 149px, $pb: 104px, $mb: 143px);
 
   .landing__content {
     h1 {
-    @include box($mxw:455px, $mb:32px);
+      @include box($mxw: 455px, $mb: 32px);
     }
     p {
-    @include box($mxw:448px);
-    @include font($fs:22px, $lh:160%, $color: $pColorMain);
+      @include box($mxw: 448px);
+      @include font($fs: 22px, $lh: 160%, $color: $pColorMain);
     }
   }
 
   .landing__image {
-  @include box($pos:absolute, $r:-140px, $t:0, $z:-1);
-  @include media($thresh:$screen-sm-max, $o:.1);
+    @include box($pos: absolute, $r: -140px, $t: 0, $z: -1);
+    @include media($thresh: $screen-sm-max, $o: 0.1);
   }
 }
 
 #wizard {
   .wizard__wrapper {
-  @include box($d:flex, $fw:wrap, $br:8px, $p: 48px 40px 48px 120px, $jc:space-between, $ai:flex-end,
-               $back: #486FFF url('/img/getting-started/bg-app-wizard.svg') left center no-repeat,
-               $bs: '0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)');
-      
+    @include box(
+      $d: flex,
+      $fw: wrap,
+      $br: 8px,
+      $p: 48px 40px 48px 120px,
+      $jc: space-between,
+      $ai: flex-end,
+      $back: #486fff url("/img/getting-started/bg-app-wizard.svg") left center
+        no-repeat,
+      $bs: "0px 8px 16px rgba(2, 8, 20, 0.08), 0px 4px 8px rgba(2, 8, 20, 0.12)"
+    );
+
     h2 {
-    @include font($fs:24px, $color:#fff);
+      @include font($fs: 24px, $color: #fff);
     }
     p {
-    @include box($color:#fff, $mxw: 620px, $o:.8, $mt:6px);
-    @include font($lh:160%);
-
+      @include box($color: #fff, $mxw: 620px, $o: 0.8, $mt: 6px);
+      @include font($lh: 160%);
     }
   }
 
   .wizard__btn {
-  @include box($d:flex, $ai:center, $br:8px, $p:'10px 12px', $bord:none, $back:#6C9DFF, $mt: 16px, $trans:'all .3s');
-  @include font($fs:15px, $fw:bold, $tt:uppercase, $ls:.08em, $ws:nowrap, $color:white);
+    @include box(
+      $d: flex,
+      $ai: center,
+      $br: 8px,
+      $p: "10px 12px",
+      $bord: none,
+      $back: #6c9dff,
+      $mt: 16px,
+      $trans: "all .3s"
+    );
+    @include font(
+      $fs: 15px,
+      $fw: bold,
+      $tt: uppercase,
+      $ls: 0.08em,
+      $ws: nowrap,
+      $color: white
+    );
 
-    &:hover, &:active, &:focus {
-      box-shadow:0 3px 5px rgba(0,0,0,.15);
-      background: lighten(#6C9DFF, 2%);
-      transition: all .3s;
-      text-decoration:none;
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+      background: lighten(#6c9dff, 2%);
+      transition: all 0.3s;
+      text-decoration: none;
     }
 
     ion-icon {
-      font-size:16px;
-      margin-left:4px;
+      font-size: 16px;
+      margin-left: 4px;
     }
   }
 }
 
 #install {
-@include box($d:flex, $fw:wrap, $mt:160px);
+  @include box($d: flex, $fw: wrap, $mt: 160px);
 
   h2 {
-  @include box($mb:35px);
+    @include box($mb: 35px);
   }
 
   .install_cards {
-  @include box($d:grid, $gtc:repeat(auto-fit, minmax(308px, 1fr)), $cg:50px, $rg: 64px, $w:100%);
+    @include box(
+      $d: grid,
+      $gtc: repeat(auto-fit, minmax(308px, 1fr)),
+      $cg: 50px,
+      $rg: 64px,
+      $w: 100%
+    );
 
     h3 {
       line-height: 24px;
     }
 
     strong {
-    @include font($fw:600, $ff:$font-family-monospace, $color:black);
+      @include font($fw: 600, $ff: $font-family-monospace, $color: black);
     }
   }
   .account__cards {
-  @include box($d:grid, $gtc:repeat(auto-fit, minmax(335px, 1fr)), $cg:128px, $rg:64px, $mt:144px);
-  @include media($thresh:$screen-md-max, $cg:50px);
+    @include box(
+      $d: grid,
+      $gtc: repeat(auto-fit, minmax(335px, 1fr)),
+      $cg: 128px,
+      $rg: 64px,
+      $mt: 144px
+    );
+    @include media($thresh: $screen-md-max, $cg: 50px);
 
     h2 {
       margin-bottom: 16px;
-
     }
   }
 
   article {
-
     .card__step {
-    @include font($ff:$font-family-monospace, $lh:100%, $ls:.08em, $fw:500, $color:#92A1B3);
+      @include font(
+        $ff: $font-family-monospace,
+        $lh: 100%,
+        $ls: 0.08em,
+        $fw: 500,
+        $color: #92a1b3
+      );
       margin-bottom: 24px;
     }
-    
+
     h3 {
       margin-bottom: 20px;
     }
 
-    .card__text, #signup-thanks > p {
-    @include font($fs:16px, $lh: 180%, $color:#2D4665);      
+    .card__text,
+    #signup-thanks > p {
+      @include font($fs: 16px, $lh: 180%, $color: #2d4665);
     }
 
     .card__code {
-    @include box($h:64px, $mt:32px);
+      @include box($h: 64px, $mt: 32px);
 
       pre {
-      @include box($d:flex, $ai:center, $back:#1C334F, $br:8px, $bord:none, $h:100%, $p:'0 20px');
+        @include box(
+          $d: flex,
+          $ai: center,
+          $back: #1c334f,
+          $br: 8px,
+          $bord: none,
+          $h: 100%,
+          $p: "0 20px"
+        );
       }
 
       code {
-      @include box($back:none, $color:white, $p:0);
-      @include font($fs:16px, $ls:-.02em, $lh:130%, $fw:500);
+        @include box($back: none, $color: white, $p: 0);
+        @include font($fs: 16px, $ls: -0.02em, $lh: 130%, $fw: 500);
       }
 
-      .highlight, .hljs-keyword {
-        background: #1C334F;
-        color: #46B1FF;
+      .highlight,
+      .hljs-keyword {
+        background: #1c334f;
+        color: #46b1ff;
         font-weight: 500;
       }
 
-      .hljs-built_in, .hljs-tag{
+      .hljs-built_in,
+      .hljs-tag {
         color: white;
       }
-    
     }
 
     #submit {
       text-transform: none;
       font-weight: 600;
       font-size: 16px;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
     }
-
-  } 
+  }
 
   .card__subText {
-  @include box($mt: 8px);
-  @include font($fs:12px, $lh:180%, $ls:-.01em, $color:#5B708B);
+    @include box($mt: 8px);
+    @include font($fs: 12px, $lh: 180%, $ls: -0.01em, $color: #5b708b);
 
     a {
-    @include box($d:inline-flex, $ai:center);
+      @include box($d: inline-flex, $ai: center);
       ion-icon {
         margin-left: 2px;
       }
@@ -197,10 +268,15 @@ p {
 }
 
 #nextSteps {
-@include box($mt:144px, $mb:200px);
+  @include box($mt: 144px, $mb: 200px);
 
   .next__cards {
-  @include box($d:grid, $gtc:repeat(auto-fill, minmax(312px, 1fr)), $cg:44px, $rg:44px);
+    @include box(
+      $d: grid,
+      $gtc: repeat(auto-fill, minmax(312px, 1fr)),
+      $cg: 44px,
+      $rg: 44px
+    );
   }
 
   h2 {
@@ -209,38 +285,44 @@ p {
 
   article {
     a {
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         svg {
-          transform: scale(1.05,1.05);
-          transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1),
+          transform: scale(1.05, 1.05);
+          transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
         }
-      } 
+      }
     }
 
-
     .card__image {
-    @include box($d:flex, $of:hidden, $br:6px);
+      @include box($d: flex, $of: hidden, $br: 6px);
 
       svg {
-        flex-grow:1;
+        flex-grow: 1;
         transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
       }
     }
 
     .card__superTitle {
-    @include box($mt:24px, $mb:12px);
-    @include font($fs:10px, $fw:500, $lh:100%, $ls:.08em, $tt:uppercase, $color:#92A1B3);
+      @include box($mt: 24px, $mb: 12px);
+      @include font(
+        $fs: 10px,
+        $fw: 500,
+        $lh: 100%,
+        $ls: 0.08em,
+        $tt: uppercase,
+        $color: #92a1b3
+      );
     }
 
     h3 {
-    @include box($mb:12px);
+      @include box($mb: 12px);
     }
 
     p {
-    @include font($lh:160%, $color:#445B78);
+      @include font($lh: 160%, $color: #445b78);
     }
-
   }
-
 }
 // #endregion -----------------------------------------------------

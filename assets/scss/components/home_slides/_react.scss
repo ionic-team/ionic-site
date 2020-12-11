@@ -42,23 +42,25 @@
       66% {
         z-index: -1;
         opacity: 0;
-        pointer-events: all;
+        pointer-events: none;
         transform: translateY(-20px);
       }
       68% {
         z-index: 1;
         opacity: 1;
+        pointer-events: all;
         transform: translateY(0px);
       }
       98% {
         z-index: 1;
         opacity: 1;
-        pointer-events: none;
+        pointer-events: all;
         transform: translateY(0px);
       }
       100% {
         z-index: -1;
         opacity: 0;
+        pointer-events: none;
         transform: translateY(20px);
       }
     }
@@ -67,7 +69,7 @@
     .react,
     .vue {
       position: absolute;
-      bottom: -14px;
+      bottom: -9px;
       animation: slideInOut 18s ease infinite;
 
       &::after {

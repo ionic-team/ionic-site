@@ -67,7 +67,7 @@ module.exports = {
     .get('/enterprise/auth-connect', (_, res) => res.redirect('https://ionic.io/products/auth-connect'))
     .get('/enterprise/contact', (_, res) => res.redirect('https://ionic.io/contact/sales'))
     .get('/enterprise/identity-vault', (_, res) => res.redirect('https://ionic.io/products/identity-vault'))
-    .get('/enterprise/offline-storage', (_, res) => res.redirect('https://ionic.io/products/offline-storage'))
+    .get('/enterprise/offline-storage', (_, res) => res.redirect('https://ionic.io/products/secure-storage'))
     .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
 
     .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
@@ -147,7 +147,7 @@ module.exports = {
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.render('startups'))
     .get('/subscribe', (_, res) => res.render('subscribe'))
-    .get('/support', (_, res) => res.render('support'))
+    .get('/support', (_, res) => res.redirect('https://ionic.io/support'))
     .get('/survey/2017', (_, res) => res.render('survey/2017'))
     .get('/survey/2018', (_, res) => res.render('survey/2018'))
     .get('/survey/2020', (_, res) => res.render('survey/2020'))

@@ -1,10 +1,6 @@
-{% extends "_layouts/base.html" %}
-{% set id = 'team' %}
-{% set title = 'Get to Know the Team Behind Ionic' %}
-{% import "_includes/macros.html" as macros %}
-{% set cssPath = 'team' %}
-
-{% block main %}
+{% extends "_layouts/base.html" %} {% set id = 'team' %} {% set title = 'Get to
+Know the Team Behind Ionic' %} {% import "_includes/macros.html" as macros %} {%
+set cssPath = 'team' %} {% block main %}
 <div class="cta banner">
   <hgroup class="container">
     <h1>The team</h1>
@@ -13,7 +9,7 @@
   <div class="bar tabbed" data-spy="affix" data-offset-top="375">
     <div class="container" id="discover-nav" offset="-400">
       <ul class="categories nav">
-        <li><a class="about" href="/about">About Us</a></li>
+        <li><a class="about" href="https://ionic.io/about">About Us</a></li>
         <li><a class="values" href="/values">Values</a></li>
         <li><a class="active team" href="/team">Our Team</a></li>
         <li><a class="jobs" href="/jobs">Jobs</a></li>
@@ -33,17 +29,15 @@
 </hgroup>
 
 <section class="container employees">
-  {% for e in employees %}
-    {{ macros.employee(e) }}
-  {% endfor  %}
-  {% if employees.length % 4 != 0 %}
-    <a class="employee apply" href="/jobs">
-      <img class="avatar" src="/img/team/apply.jpg"/>
-      <hgroup>
-        <h4>You?</h4>
-        <p class="blue">Check openings</p>
-      </hgroup>
-    </a>
+  {% for e in employees %} {{ macros.employee(e) }} {% endfor %} {% if
+  employees.length % 4 != 0 %}
+  <a class="employee apply" href="/jobs">
+    <img class="avatar" src="/img/team/apply.jpg" />
+    <hgroup>
+      <h4>You?</h4>
+      <p class="blue">Check openings</p>
+    </hgroup>
+  </a>
   {% endif %}
 </section>
 

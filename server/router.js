@@ -64,7 +64,7 @@ module.exports = {
     .get('/ds', (_, res) => res.render('ds'))
 
     .get('/enterprise', (_, res) => res.render('enterprise/index'))
-    .get('/enterprise/auth-connect', (_, res) => res.redirect('https://ionic.io/products/auth-connect')
+    .get('/enterprise/auth-connect', (_, res) => res.redirect('https://ionic.io/products/auth-connect'))
     .get('/enterprise/contact', (_, res) => res.redirect('https://ionic.io/contact/sales'))
     .get('/enterprise/identity-vault', (_, res) => res.redirect('https://ionic.io/products/identity-vault'))
     .get('/enterprise/offline-storage', (_, res) => res.redirect('https://ionic.io/products/offline-storage'))

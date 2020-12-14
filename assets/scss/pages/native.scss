@@ -247,7 +247,7 @@ ionic-sub-header {
   
   @include box(h1, $color: $colorTitle);
   h1 {
-    
+    letter-spacing: -2.56px;
   }
 
   @include box(p, $color: $colorSubtext1);

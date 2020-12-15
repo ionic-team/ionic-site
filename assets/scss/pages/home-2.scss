@@ -43,9 +43,6 @@
   }
 
   section {
-    padding-top: 170px;
-    line-height: 1.75em;
-    padding-bottom: 200px;
     position: relative;
 
     &.center {
@@ -57,7 +54,9 @@
       display: flex;
 
       .content {
-        max-width: 440px;
+        > * {
+          max-width: 448px;
+        }
 
         @media (max-width: $screen-md-max) {
           max-width: 400px;
@@ -129,8 +128,15 @@
 
     h2 {
       font-size: 48px;
-      line-height: 110%;
-      color: #020814;
+      line-height: 112%;
+      display: flex;
+      flex-direction: column;
+      color: 	#657482;
+
+      em {
+        font-style: normal;
+        color: #03060B;
+      }
 
       + p {
         margin-top: 16px;
@@ -138,10 +144,11 @@
     }
 
     h3 {
-      font-size: 32px;
-      line-height: 120%;
-      letter-spacing: -0.03em;
-      color: #1a232f;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 112%;
+      letter-spacing: -0.02em;
+      color: #010610;;
     }
 
     h4 {
@@ -175,11 +182,10 @@
 
     hgroup p,
     p.lg {
-      color: #5b708b;
+      color: #445B78;
       font-size: 20px;
-      line-height: 32px;
-      letter-spacing: -0.03em;
-      margin-bottom: 23px;
+      line-height: 160%;
+      letter-spacing: -0.02em;
 
       strong {
         font-weight: 600;
@@ -202,43 +208,12 @@
       }
     }
 
-    .cta {
+    .link {
+      font-weight: 500;
       font-size: 20px;
-      line-height: 34px;
-      margin-top: 4px;
-      padding-top: 0;
-      color: #4d8dff;
-      display: inline-block;
-      position: relative;
-      background: none;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      font-family: $font-family-inter;
-      position: relative;
-      transition: 0.3s opacity;
-
-      &:hover {
-        opacity: 0.6;
-      }
-
-      &:hover,
-      &:active,
-      &:focus {
-        text-decoration: none;
-      }
-
-      &::after {
-        font-family: "Ionicons";
-        content: "";
-        font-size: 23px;
-        font-weight: 400;
-        vertical-align: -3px;
-        margin-left: 5px;
-      }
-
-      + .cta {
-        margin-left: 30px;
-      }
+      line-height: 112%;
+      letter-spacing: -0.02em;
+      color: #4D8DFF;
     }
 
     pre code {
@@ -260,7 +235,26 @@
   }
 
   #build-with-web {
-    padding-bottom: 64px;
+    padding-block-start: clamp(160px, 26vw, 248px); 
+
+    hgroup {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      max-width: 672px;
+
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      margin-block-end: 80px;
+
+      h2 {
+        margin-block-end: 24px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
 
     ul {
       list-style: none;
@@ -268,6 +262,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       padding-left: 0;
+      margin: 0;
 
       @media (max-width: $screen-sm-max) {
         justify-content: space-around;
@@ -276,10 +271,18 @@
 
     li {
       flex: 0 1 310px;
-      margin-bottom: 64px;
+
+      h3 {
+        margin-block-end: 20px;
+      }
+
+      p {
+        margin: 0;
+      }
 
       img {
-        margin-bottom: 25px;
+        margin-block-end: 32px;
+        border-radius: 16px;
       }
 
       &:nth-child(2) {
@@ -293,6 +296,19 @@
   }
 
   #performance {
+    padding-block-start: clamp(160px, 26vw, 257px);
+    padding-block-end: clamp(100px, 20vw, 152px);
+
+    hgroup {
+      h2 {
+        margin-block-end: 32px;
+      }
+      
+      p {
+        margin-block-end: 32px;
+      }
+    }
+
     .graphics {
       display: grid;
       grid-template-columns: 270px 270px;
@@ -330,45 +346,61 @@
       line-height: 28px;
       letter-spacing: -0.03em;
       color: #414d5c;
-      padding: 30px;
+      padding: 44px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
       span {
         max-width: 175px;
+
+        > sup {
+          display: inline-block;
+
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 100%;
+          letter-spacing: -0.03em;
+          color: #2D4665;
+        }
       }
 
       strong {
         display: block;
-        font-size: 104px;
-        font-weight: 400;
+        font-size: 96px;
+        font-weight: 600;
         line-height: 100%;
         letter-spacing: -0.08em;
-        color: #020814;
+        color: #03060B;
         margin-left: -7px;
 
         sub,
         sup {
-          font-size: 54px;
+          font-size: 32px;
           font-weight: 600;
           letter-spacing: -0.04em;
           margin-left: 6px;
         }
 
         sub {
-          vertical-align: 13px;
-
-          small {
-            font-size: 48px;
-            vertical-align: 0;
-          }
+          vertical-align: 9px;
         }
 
         sup {
-          vertical-align: 8px;
+          vertical-align: 24px;
+          font-weight: 800;
         }
+      }
+
+      .subtext {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: -0.03em;
+        color: #2D4665;
+        max-width: 161px;
       }
     }
 
@@ -424,7 +456,8 @@
 
   #agnostic {
     overflow: visible;
-    padding-bottom: 30px;
+    padding-block-start: clamp(100px, 26vw, 252px);
+    padding-block-end: clamp(66px, 18vw, 113px)x;
 
     .frameworks {
       margin-bottom: 33px;
@@ -476,15 +509,38 @@
   }
 
   #components {
+    padding-block-start: clamp(160px, 26vw, 250px);
+
+    hgroup {
+      @media screen and (max-width: $screen-md-max) {
+        align-items: flex-start;
+        max-width: 430px;
+      }
+    }
   }
 
   #native {
-    padding-bottom: 400px;
+    padding-block-start: clamp(200px, 29vw, 294px);
+    padding-block-end: 50px;
+
+    hgroup {
+      h2 {
+        max-width: 464px;
+      }
+      p {
+        margin-block-end: 32px;
+      }
+    }
 
     .graphics {
       margin-top: -16px;
       margin-right: -68px;
       position: relative;
+
+      @media screen and (max-width: $screen-sm-max) {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+      }
 
       > img {
         position: absolute;
@@ -516,6 +572,23 @@
     // position: static;
     z-index: 1;
 
+    margin-block-start: clamp(220px, 30vw, 338px);
+    padding-block-start: clamp(90px, 12vw, 120px);
+    margin-block-end: clamp(160px, 28vw, 360px);
+
+    hgroup {
+      h2 {
+        max-width: 451px;
+      }
+      p {
+        margin-block-start: 32px;
+        margin-block-end: 32px;
+      }
+      .link + .link {
+        margin-inline-start: 28px;
+      }
+    }
+
     .graphics {
       position: absolute;
       left: -188px;
@@ -543,18 +616,25 @@
 
   #integrations {
     background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
-    padding-bottom: 100px;
     overflow: visible;
     overflow-x: hidden;
 
+    padding-block-start: clamp(100px, 13vw, 150px);
+
     .content {
-      max-width: 894px;
+      max-width: 736px;
     }
 
-    hgroup p {
-      max-width: 580px;
-      margin-right: auto;
-      margin-left: auto;
+    hgroup {
+      h2 {
+        display: block;
+        margin-block-end: 24px;
+      }
+
+      p {
+        margin: 0;
+        margin-block-end: 32px;
+      }
     }
 
     .integration-list {
@@ -590,18 +670,18 @@
   }
 
   #testimonials {
-    padding-top: 100px;
+    padding-top: clamp(120px, 22vw, 200px);
 
-    h3 {
+    h2 {
       padding-top: 78px;
       background: url("/img/homepage/heart.png") no-repeat top center;
       background-size: 88px;
       text-align: center;
-      font-weight: 600;
+      display: block;
 
-      strong {
-        font-weight: 700;
-      }
+      font-size: 32px;
+      line-height: 120%;
+      letter-spacing: -0.03em;
     }
 
     blockquote {
@@ -710,9 +790,11 @@
   }
 
   #start {
-    background: linear-gradient(270deg, #6eb1ff 0%, #4d8dff 100%);
-    padding-top: 72px;
-    padding-bottom: 62px;
+    margin-block-start: clamp(100px, 16vw, 154px);
+
+    background: #3880FF;
+    padding-top: 91px;
+    padding-bottom: 91px;
 
     .container {
       display: flex;
@@ -726,32 +808,42 @@
       }
     }
 
-    hgroup {
-      font-size: 23px;
-      max-width: 790px;
+    h2 {
+      font-size: 32px;
+      line-height: 120%;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
     }
 
-    h3 {
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
 
-    h3,
     p {
       letter-spacing: -0.03em;
       color: #ffffff;
+      margin: 0;
+      margin-block-end: 8px;
     }
 
     .btn {
+      display: flex;
+
+      padding: 16px 20px;
       margin-left: auto;
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 21px;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
       letter-spacing: 0.08em;
-      border-radius: 10px;
+      border-radius: 100px;
       text-transform: uppercase;
       color: #4d8dff;
-      padding: 14px 15px;
+      height: 48px;
+
+      span {
+        white-space: pre;
+      }
+
+      svg {
+        display: block;
+      }
     }
   }
 }

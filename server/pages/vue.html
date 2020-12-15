@@ -388,5 +388,9 @@ ionic start --type=vue
     </div>
   </div>
   `).insertBefore('#tweet-share'));
+
+  // Hubspot event tracking
+  var _hsq = (window._hsq = window._hsq || []);
+  _hsq.push(["trackEvent", { id: "viewed-vue-landing" }]);
 </script>
 {% endblock %}

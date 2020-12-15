@@ -4,6 +4,10 @@
 @import "../components/home_slides/react";
 
 #page-home {
+  a:hover, a:focus {
+    color: #4a8bfc;
+  }
+  
   img {
     height: auto;
   }
@@ -214,6 +218,12 @@
       line-height: 112%;
       letter-spacing: -0.02em;
       color: #4D8DFF;
+
+      transition: opacity .2s ease-out;
+
+      &:hover, &:active, &:focus {
+        opacity: .7;
+      }
     }
 
     pre code {

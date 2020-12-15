@@ -4,9 +4,7 @@
 @import "../components/home_slides/react";
 
 #page-home {
-  a:hover, a:focus {
-    color: #4a8bfc;
-  }
+
   
   img {
     height: auto;
@@ -295,6 +293,13 @@
 
       p {
         margin: 0;
+        a {
+          transition: opacity .2s ease-out;
+        }
+        a:hover, a:focus {
+          color: #4a8bfc;
+          opacity: .7;
+        }
       }
 
       img {

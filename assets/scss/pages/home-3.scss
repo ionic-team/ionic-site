@@ -237,6 +237,10 @@
   #build-with-web {
     padding-block-start: clamp(160px, 26vw, 248px); 
 
+    @media screen and (max-width: $screen-xs-max) {
+      padding-block-end: 100px;
+    }
+
     hgroup {
       display: flex;
       flex-direction: column;
@@ -263,6 +267,7 @@
       justify-content: space-between;
       padding-left: 0;
       margin: 0;
+      margin-block-start: -64px;
 
       @media (max-width: $screen-sm-max) {
         justify-content: space-around;
@@ -271,6 +276,8 @@
 
     li {
       flex: 0 1 310px;
+
+      margin-block-start: 64px;
 
       h3 {
         margin-block-end: 20px;
@@ -456,8 +463,8 @@
 
   #agnostic {
     overflow: visible;
-    padding-block-start: clamp(100px, 26vw, 252px);
-    padding-block-end: clamp(66px, 18vw, 113px)x;
+    padding-block-start: clamp(40px, 26vw, 252px);
+    padding-block-end: clamp(66px, 18vw, 113px);
 
     .frameworks {
       margin-bottom: 33px;

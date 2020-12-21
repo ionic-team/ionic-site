@@ -8,19 +8,30 @@
 {% set hide_pre_header = true %}
 
 {% block main %}
-<header>
-  <a href="/" class="back-button">
-    <ion-icon name="ios-arrow-back"></ion-icon>
-    Ionic Home
-  </a>
+<div class="header-wrapper">
+  <header>
+    <a href="/" class="back-button">
+      <ion-icon name="ios-arrow-back"></ion-icon>
+      Ionic Home
+    </a>
 
-  <hgroup class="container">
-    <img src="/img/react/logo.png" alt="Ionic Logo" class="logo" />
-    <h1>Build iOS & Android apps from a single codebase. All in Vue.</h1>
-    <a href="https://ionicframework.com/start#vue" target="_blank" id="ionic-react-get-started-cta" class="btn anchor get-started">Start an app</a>
-    <a href="#start" id="ionic-react-live-demo-cta" class="btn anchor live-demo">Live Demo</a>
-  </hgroup>
-</header>
+    <hgroup class="container">
+      <img src="/img/vue/logo@2x.png" alt="Ionic Logo" class="logo" width="116" height="64" />
+      <h1>Build iOS & Android apps from a single codebase. <span class="highlight">All in Vue.</span></h1>
+      <div class="cta-row">
+        <a href="https://ionicframework.com/start#vue" target="_blank" id="ionic-react-get-started-cta" class="primary-btn">
+          Start an app
+          <span class="arrow"> -></span>
+        </a>
+        <a href="#start" id="ionic-react-live-demo-cta" class="secondary-btn">
+          Live Demo
+          <span class="arrow"> -></span>
+        </a>
+      </div>
+      
+    </hgroup>
+  </header>
+</div>
 
 <nav id="sticky-bar">
   <ul class="container nav" role="tablist">

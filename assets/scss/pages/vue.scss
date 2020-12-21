@@ -27,20 +27,6 @@
   .grid-cols-2	{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-cols-3	{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .grid-cols-4	{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  
-  h1, 
-  h2,
-  h3, 
-  h4,
-  h5,
-  strong {
-    color: #111111;
-    font-weight: 600;
-
-    @media (max-width: $screen-sm-max) {
-      hyphens: auto;
-    }
-  }
 
   code {
     background: #DFF8FE;
@@ -52,10 +38,6 @@
     float: left;
   }
 
-  .logo {
-    width: 128px;
-  }
-
   vue-components {
     height: 566px;
     width: 100%;
@@ -63,15 +45,51 @@
     margin: auto;
   }
 
+  .highlight {
+    color: #37BE81;
+  }
+
+  %btn {
+    border-radius: 1000px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 112%;
+    letter-spacing: -0.02em;
+
+    padding: 16px 20px;
+  }
+
+  .primary-btn {
+    @extend %btn;
+    background: #37BE81;
+    color: #fff;
+    
+  }
+  .secondary-btn {
+    @extend %btn;
+    background: #E6F5EF;
+    color: #37BE81;
+  }
+
+  .header-wrapper {
+    background: linear-gradient(180deg, rgba(251, 252, 253, 0) 0%, #FBFCFD 100%);
+  }
   header {
     position: relative;
-
-    background-color: #131A23;
+    background-color: #FBFCFD;
     color: white;
-    background-image: url('/img/react/react-cta-bg.png');
+    background-image: url('/img/vue/vue-cta-bg.png');
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: auto 100%;
     background-position: center bottom;
+
+    min-height: 672px;
+    display: flex;
+    align-items: center;
 
     .back-button {
       position: absolute;
@@ -93,15 +111,13 @@
     }
 
     h1 {
-      color: white;
-      font-size: 48px;
-      line-height: 110%;
-      @media (max-width: $screen-sm) {
-        font-size: 48px;
-      }
-      @media (max-width: $screen-xs) {
-        font-size: 24px;
-      }
+      color: #001A3A;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 100%;
+      letter-spacing: -0.05em;
+
+      margin-block-end: 40px;
     }
 
     .container {
@@ -111,68 +127,11 @@
     }
 
     .logo {
-      height: 72px;
-      width: 72px;
+      margin-block-end: 40px;
     }
 
-    p {
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    a.btn {
-      padding-top: 18px;
-      padding-bottom: 18px;
-      margin-top: 24px;
-      font-size: 15px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    a.btn.get-started {
-      background-color: #42b883;
-      border-radius: 10px;
-    }
-    a.btn.live-demo {
-      background-color: #414D5C;
-      border-radius: 10px;
-
-      @media (max-width: $screen-xs) {
-        display: none;
-      }
-    }
-    a.btn.live-demo-mobile {
-      display: none;
-
-      @media (max-width: $screen-xs) {
-        display: inline-block;
-      }
-    }
-
-    .keep-reading {
-      margin-top: 32px;
-      font-size: 14px;
-      display: block;
-      color: rgba(white,.5);
-      transition: .2s color;
-      text-decoration: none;
-
-      ion-icon {
-        display: block;
-        font-size: 26px;
-        height: 26px;
-        text-align: center;
-        margin: 0 auto;
-        transition: .2s transform ease-out;
-      }
-
-      &:hover {
-        color: rgba(white,.7);
-
-        ion-icon {
-          transform: translateY(4px);
-        }
-      }
+    .cta-row {
+      margin-block-end: 30px;
     }
   }
 

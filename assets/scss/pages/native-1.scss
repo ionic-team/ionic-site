@@ -247,7 +247,6 @@ ionic-sub-header {
   
   @include box(h1, $color: $colorTitle);
   h1 {
-    
   }
 
   @include box(p, $color: $colorSubtext1);

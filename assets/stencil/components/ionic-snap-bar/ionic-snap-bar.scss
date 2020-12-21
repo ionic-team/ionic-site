@@ -1,4 +1,4 @@
-@import '../../vars';
+@import "../../vars";
 
 ionic-snap-bar {
   background: linear-gradient(to right, #17203d, #1f2c53);
@@ -7,7 +7,6 @@ ionic-snap-bar {
   position: relative;
   padding: 0 24px;
   z-index: 1;
-  font-family: $font-family-eina;
 
   &.hydrated {
     display: block;
@@ -19,11 +18,11 @@ ionic-snap-bar {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    color: rgba(white, .6);
+    color: rgba(white, 0.6);
     margin: 0 auto;
     max-width: 586px;
     height: 0;
-    transition: .4s height ease, .4s padding ease;
+    transition: 0.4s height ease, 0.4s padding ease;
 
     &.active {
       height: 48px;
@@ -45,7 +44,7 @@ ionic-snap-bar {
       font-weight: 600;
       display: inline-block;
       transform: scaleY(0);
-      transition: .2s transform ease
+      transition: 0.2s transform ease;
     }
 
     a {
@@ -53,17 +52,17 @@ ionic-snap-bar {
       text-transform: uppercase;
       color: #fff;
       text-decoration: none;
-      background: rgba(56,128,255,.28);
+      background: rgba(56, 128, 255, 0.28);
       display: inline-block;
       padding: 6px 12px 4px;
       font-size: 10px;
-      letter-spacing: .1em;
+      letter-spacing: 0.1em;
       margin-bottom: 2px;
-      transition: .2s background ease;
+      transition: 0.2s background ease;
       font-weight: 800;
 
       &::after {
-        content: '';
+        content: "";
         border: solid white;
         border-width: 0 1px 1px 0;
         display: inline-block;
@@ -74,7 +73,7 @@ ionic-snap-bar {
       }
 
       &:hover {
-        background: rgba(56,128,255,.4);
+        background: rgba(56, 128, 255, 0.4);
       }
     }
 
@@ -85,14 +84,12 @@ ionic-snap-bar {
     h4 {
       font-weight: 700;
       color: white;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
     }
   }
 
-
-
   .close {
-    color: rgba(white, .3);
+    color: rgba(white, 0.3);
     position: absolute;
     font-size: 24px;
     right: 16px;
@@ -100,14 +97,10 @@ ionic-snap-bar {
     cursor: pointer;
     pointer-events: none;
     opacity: 0;
-    transition: .4s opacity ease, .2s color ease;
+    transition: 0.4s opacity ease, 0.2s color ease;
 
     &:hover {
-      color: rgba(white, .5);
+      color: rgba(white, 0.5);
     }
   }
 }
-
-
-
-

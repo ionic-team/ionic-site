@@ -1,10 +1,9 @@
-{% extends "_layouts/base.html" %}
-{% set id = 'about' %}
-{% set title = 'About Ionic Cross-Platform Mobile Development Technologies' %}
-{% set meta_description = "Ionic is the easiest way for web developers to build, grow, and scale cross-platform mobile apps. From our popular open source Framework,our goal is to enable more people and organizations to create better apps, faster." %}
-{% set cssPath = 'about' %}
-
-{% block main %}
+{% extends "_layouts/base.html" %} {% set id = 'about' %} {% set title = 'About
+Ionic Cross-Platform Mobile Development Technologies' %} {% set meta_description
+= "Ionic is the easiest way for web developers to build, grow, and scale
+cross-platform mobile apps. From our popular open source Framework,our goal is
+to enable more people and organizations to create better apps, faster." %} {%
+set cssPath = 'about' %} {% block main %}
 <div class="cta banner">
   <hgroup class="container">
     <h1>All about Ionic</h1>
@@ -18,7 +17,9 @@
   <div class="bar tabbed" data-spy="affix" data-offset-top="375">
     <div class="container" id="discover-nav" offset="-400">
       <ul class="categories nav">
-        <li><a class="about active" href="/about">About Us</a></li>
+        <li>
+          <a class="about active" href="https://ionic.io/about">About Us</a>
+        </li>
         <li><a class="values" href="/values">Values</a></li>
         <li><a class="our team" href="/team">Our Team</a></li>
         <li><a class="jobs" href="/jobs">Jobs</a></li>
@@ -45,7 +46,7 @@
       <p>Company is accepted into the Winter 13 Techstars Cloud class.</p>
     </div>
     <div class="period right">
-      <h4>Ionic Framework released </h4>
+      <h4>Ionic Framework released</h4>
       <p>
         Early preview is released to massive adoption and positive reception.
       </p>
@@ -66,7 +67,9 @@
     </div>
     <div class="period right">
       <h4>Ionic v2 announced</h4>
-      <p>First peek at Ionic Framework v2 released at London Angular Connect.</p>
+      <p>
+        First peek at Ionic Framework v2 released at London Angular Connect.
+      </p>
     </div>
   </div>
   <div class="content">
@@ -92,7 +95,7 @@
     <p class="lg light">
       Ionic not only makes app development easier, faster, and more
       accessible&mdash;it makes it more fun. Mobile is all about finding new
-      ways to  change the way humans interact with the world, and we couldn’t
+      ways to change the way humans interact with the world, and we couldn’t
       think of anything more fun than that.
     </p>
   </div>
@@ -139,15 +142,19 @@
 <div class="hero dark text-center">
   <hgroup class="container">
     <h3>We’re building the future of mobile</h3>
-    <p><a href="/team">Meet the team behind Ionic
-      <span class="ion-ios-arrow-round-forward-outline"></span></a></p>
+    <p>
+      <a href="/team"
+        >Meet the team behind Ionic
+        <span class="ion-ios-arrow-round-forward-outline"></span
+      ></a>
+    </p>
   </hgroup>
 </div>
-{% endblock %}
-
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script>
-setTimeout(() => document.getElementById('timeline').classList.add('active'), 1500);
+  setTimeout(
+    () => document.getElementById("timeline").classList.add("active"),
+    1500
+  );
 </script>
 {% endblock %}

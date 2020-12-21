@@ -2,12 +2,6 @@
 #page-go-why-hybrid {
   font-family: $font-family-inter;
 
-  h1,
-  h2,
-  h3 {
-    font-family: $font-family-eina;
-  }
-
   .banner {
     background-color: #f6f8fc;
     border-bottom: 1px solid #e5e7eb;
@@ -81,16 +75,15 @@
       margin-bottom: 48px;
 
       &::before {
-        background-image:
-          url('/img/articles/pwa-cover-title.png'),
-          url('/img/articles/pwa-cover-bg.png'),
+        background-image: url("/img/articles/pwa-cover-title.png"),
+          url("/img/articles/pwa-cover-bg.png"),
           linear-gradient(60deg, #73c5ff 0, #3880ff 100%);
         background-size: 64%, 100%, 100%;
         background-repeat: no-repeat, repeat, repeat;
         background-position: 20% 12%, 50% 50%, 50% 50%;
         height: 281px;
         width: 186px;
-        content: '';
+        content: "";
         float: left;
         margin-left: 6px;
         margin-right: 61px;
@@ -98,12 +91,12 @@
         transform: rotateY(12deg);
         margin-top: -64px;
         margin-bottom: 12px;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, .2);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
       }
     }
 
     p {
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       line-height: 2em;
       font-size: 16px;
       margin-bottom: 16px;
@@ -120,14 +113,14 @@
       font-size: 16px;
       line-height: 32px;
       position: relative;
-      letter-spacing: -.021em;
+      letter-spacing: -0.021em;
 
       strong {
         font-weight: 500;
       }
 
       &:before {
-        content: '•';
+        content: "•";
         opacity: 0.8;
         position: absolute;
         left: 7px;
@@ -165,7 +158,7 @@
       max-width: 760px;
       text-align: center;
       line-height: 1.4em;
-      letter-spacing: -.04em;
+      letter-spacing: -0.04em;
       font-weight: 600;
     }
 
@@ -182,11 +175,11 @@
 
       &::before,
       &::after {
-        background: url('/img/homepage/enterprise-logos.png') 0 0 no-repeat;
+        background: url("/img/homepage/enterprise-logos.png") 0 0 no-repeat;
         background-size: 100%;
         width: 494px;
         height: 42px;
-        content: '';
+        content: "";
         max-width: 100%;
         margin-bottom: 32px;
         display: inline-block;
@@ -210,7 +203,7 @@
     }
 
     hgroup {
-      letter-spacing: -.025em;
+      letter-spacing: -0.025em;
       flex-grow: 1;
     }
 
@@ -267,7 +260,7 @@
       margin-top: 128px;
     }
 
-    .get-started .btn + .btn  {
+    .get-started .btn + .btn {
       margin-top: 8px;
     }
   }

@@ -5,95 +5,30 @@
 {% set header_style = 'transparent light' %}
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 {% set stickyNav = true %}
-{% set cssPath = 'home-1' %}
+{% set cssPath = 'home-5' %}
 
 {% block main %}
 <div id="ionic-slider">
-  {# <section id="slide-ionic-react" class="container">
+  <section id="slide-ionic-react" class="container">
     <div class="landing__content">
       <h1>
         <span class="activateOnScroll">One codebase. </span>
         <span class="activateOnScroll">Any platform. </span>
-        <span class="activateOnScroll">Now in <span class="rotate"><a href="https://ionicframework.com/react" class="underline react">React.</a><a href="https://ionicframework.com/docs/angular/overview" class="underline angular">Angular.</a></span></span>
+        <span class="activateOnScroll">Now in <span class="rotate"><a href="https://ionicframework.com/docs/vue/overview" class="underline vue">Vue.</a><a href="https://ionicframework.com/docs/angular/overview" class="underline angular">Angular.</a><a href="https://ionicframework.com/react" class="underline react">React.</a></span></span>
       </h1>
-      <p class="activateOnScroll"><span class="darken">Ionic Framework</span> is an open source mobile UI toolkit for building high quality, cross-platform native and web app experiences. Move faster with a single codebase, running everywhere.</p>
+      <p class="activateOnScroll">An open source mobile UI toolkit for building high quality, cross-platform native and web app experiences. Move faster with a single code base, running everywhere with JavaScript and the Web.</p>
       <div class="btn__group activateOnScroll">
-        <a href="/start" class="btn dark">Start An App</a>
-        <a href="/getting-started" class="btn light">Install</a>
+        <a href="/start">Start an app <span class="arrow"> -></span></a>
+        <a href="/enterprise/strategy-session">Talk to an expert <span class="arrow"> -></span></a>  
       </div>
-      <a href="/enterprise/strategy-session" class="activateOnScroll">Or speak with an app architect <ion-icon name="arrow-forward-outline"></ion-icon></a>  
     </div>  
     <div class="landing__img">
       <img  src="/img/homepage/hero-ionic-react@2x.png"
-            srcset="/img/homepage/hero-ionic-react@1x.png 1x,
+            srcset="/img/homepage/hero-ionic-react.png 1x,
                     /img/homepage/hero-ionic-react@2x.png 2x"
             width="525" height="542">   
     </div>
-  </section> #}
-
-  <img
-    class="hero-image-vue"
-    loading="eager"
-    srcset="/img/homepage/hero-ionic-vue.png 1x,
-            /img/homepage/hero-ionic-vue@2x.jpg 2x"
-    width="1800" height="911"
-    alt="Abstract shapes colored green and gray"
-  />
-  <section id="slide-ionic-vue">    
-    <div class="container">
-      <div class="heading-group">
-        <h1>
-          <span class="activateOnScroll">One codebase.</span>
-          <span class="activateOnScroll">Any platform.</span>
-          <span class="activateOnScroll">
-            Now in
-            <span
-              class="underline highlight"
-            >
-              Vue.
-            </span>
-          </span>
-        </h1>
-        <ul>
-          <li class="activateOnScroll">
-            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Over 100 mobile UI Vue components
-          </li>
-          <li class="activateOnScroll">
-            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Standard Vue tooling based on Vue 3
-          </li>
-          <li class="activateOnScroll">
-            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 6.5L4.36 10L13 1" stroke="#425874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Target iOS / Android / Electron / PWA
-          </li>
-        </ul>
-        <div class="ctas activateOnScroll">
-          <a href="/start#vue" class="button button--dark">
-            Try Ionic Vue<span class="arrow"> -&gt;</span>
-          </a>
-          <a href="/blog/announcing-ionic-vue" class="button button--light">
-            Announcement blog<span class="arrow"> -&gt;</span>
-          </a>
-          
-        </div>
-        <img
-          class="icons-image activateOnScroll"
-          loading="eager"
-          src="/img/homepage/platform-icons.png"
-          width="122" height="12"
-          alt="Icons for Apple, Android, Windows, React, and PWA"
-        />
-      </div>      
-    </div>
   </section>
-
 
   <aside>
     <div class="container">
@@ -143,13 +78,14 @@
     </hubspot-dynamic-content>
   </div>
 
-  <section id="build-with-web" class="container split">
+  <section id="build-with-web" class="container">
     <hgroup>
-      <h2 class="activateOnScroll">Cross-platform apps. Built with the web.</h2>
+      <h2 class="activateOnScroll">
+        Cross-platform apps.
+        <em>Powered by the Web.</em>
+      </h2>
       <p class="activateOnScroll">
-        Free and open source, Ionic offers a library of mobile-optimized UI 
-        components, gestures, and tools for building fast, highly interactive 
-        apps.
+        Free and open source, Ionic offers a library of mobile-optimized UI components, gestures, and tools for building fast, highly interactive apps.
       </p>
     </hgroup>
     <ul>
@@ -159,12 +95,10 @@
              loading="lazy"
              width="288" height="228"
              alt="Ionic Components">
-        <h5>Beautiful, reusable components</h5>
+        <h3>Pre-designed UI components</h3>
         <p>
           Ionic’s <a href="https://ionicframework.com/docs/components">UI 
-          components</a> display beautifully on all mobile devices and platforms. 
-          Start with ready-made components, typography, and a gorgeous base 
-          theme that adapts to each platform.
+          components</a> look great on all mobile devices and platforms. Start with pre-made components, typography, and a base theme that adapts to each platform.
         </p>
       </li>
       <li class="activateOnScroll">
@@ -173,27 +107,22 @@
              loading="lazy"
              width="290" height="228"
              alt="Cross-Platform Development">
-        <h5>Write once, run anywhere</h5>
+        <h3>Write once, run anywhere</h3>
         <p>
-          Ionic enables web developers to ship apps to the app stores and as a 
-          PWA with a single shared code base. With Ionic’s 
+          Ionic lets developers to ship apps to the app stores and as a PWA with a single code base. With 
           <a href="https://ionicframework.com/docs/intro/concepts#adaptive-styling">
-          Adaptive Styling</a>, your app looks and feels at home on every 
-          platform and device.
+          Adaptive Styling</a>, apps look and feel at home on every platform.
         </p>
       </li>
       <li class="activateOnScroll">
         <img src="/img/homepage/tooling.png" 
-             srcset="/img/homepage/tooling-1x.png 1x, /img/homepage/tooling.png 2x" 
+             srcset="/img/homepage/tooling.png 1x, /img/homepage/tooling@2x.png 2x" 
              loading="lazy"
-             width="288" height="228"
+             width="320" height="228"
              alt="Ionic CLI">
-        <h5>Developer friendly tooling</h5>
+        <h3>Developer-friendly tooling</h3>
         <p>
-          Create, build, test, and deploy your app with a powerful <a 
-          href="https://ionicframework.com/docs/cli">CLI</a>. Access features 
-          like Live Reload, cross-platform deployments, and integrations. You 
-          can even use the CLI’s of your favorite JS frameworks.</a>
+          Create, build, test, and deploy your app with the <a href="https://ionicframework.com/docs/cli">Ionic CLI</a>. Take advantage of Live Reload, deployments, integrations, and even use your favorite JS framework’s CLI.</a>
         </p>
       </li>
     </ul>
@@ -202,42 +131,44 @@
     <section id="performance" class="left container">
       <hgroup class="content">
         <h4 class="activateOnScroll">Performance obsessed</h4>
-        <h2 class="activateOnScroll">Build <span class="highlight">fast apps</span>,<br> faster than before.</h2>
+        <h2 class="activateOnScroll">
+          Fast apps.
+          <em>Out-of-the-box.</em>
+        </h2>
         <p class="activateOnScroll">
-          Ionic is built to perform and run fast on all of the latest mobile 
-          devices. Build out-of-the-box blazing fast apps with a small footprint 
-          and built-in best practices like hardware accelerated transitions, 
-          touch-optimized gestures, pre-rendering, and AOT compiling.
+          Ionic is built to perform and run fast on the all of the latest mobile devices. Build blazing fast apps with a small footprint and built-in best practices like hardware accelerated transitions, touch-optimized gestures, pre-rendering, and AOT compiling.
         </p>
-        <a href="/getting-started" class="cta">Start building</a>
+        <a href="/getting-started" class="link activateOnScroll">
+          Start building<span class="arrow"> -></span>
+        </a>
       </hgroup>
       <ul class="graphics activateOnScroll">
         <li>
           <span>
-            Up to
-            <strong>60<sub><small>FPS</small></sub></strong>
-            Scrolling on mobile and desktop
+            <sup>Up to</sup>
+            <strong>60<sub>FPS</sub></strong>
+            <span class="subtext">Scrolling on mobile and desktop</span>
           </span>
         </li>
         <li>
           <span>
-            Consistent
+            <sup>Consistent</sup>
             <strong>100<sup>%</sup></strong>
-            Lighthouse PWA performance score
+            <span class="subtext">Lighthouse PWA performance score</span>
           </span>
         </li>
         <li>
           <span>
-            Down to
-            <strong>2.2<sub>s</sub></strong>
-            Time to<br>Interactive 
+            <sup>Down to</sup>
+            <strong>1.8<sub>Sec</sub></strong>
+            <span class="subtext">Time to<br>Interactive </span>
           </span>
         </li>
         <li>
           <span>
-            Up to
+            <sup>Up to</sup>
             <strong>2<sub>x</sub></strong>
-            Faster than previous versions
+            <span class="subtext">Faster than previous versions</span>
           </span>
         </li>
       </ul>
@@ -253,7 +184,10 @@
          alt="Angular, React, Vue, and Plain 'ole Javascript">
     <hgroup class="content">
       <h4 class="activateOnScroll">Framework Agnostic</h4>
-      <h2 class="activateOnScroll">Build with your favorite <span class="highlight">Framework</span>.</h2>
+      <h2 class="activateOnScroll">
+        Build with the
+        <em>tech you prefer</em>
+      </h2>
       <p class="activateOnScroll">
         We don’t make assumptions about the tech stacks you or your team 
         prefers to build with. That’s why Ionic is engineered to integrate 
@@ -298,7 +232,10 @@
     <hgroup>
       <div>
         <h4 class="activateOnScroll">100+ ui components</h4>
-        <h2 class="activateOnScroll"><span class="highlight">Simple</span>, declarative UI component design.</h2>
+        <h2 class="activateOnScroll">
+          Simple, declarative
+          <em>UI Components</em>
+        </h2>
       </div>
       <p class="activateOnScroll">
         Ionic’s components are written in HTML, CSS, and JavaScript, making it 
@@ -313,25 +250,20 @@
   <div class="overflow-mask">
     <section id="native" class="left container">
       <hgroup class="content">
-        <h4 class="activateOnScroll">Native Power</h4>
-        <h2 class="activateOnScroll">Access core <span class="highlight">native</span> device functionality.</h2>
+        <h4 class="activateOnScroll">Native Access</h4>
+        <h2 class="activateOnScroll">
+          Core native 
+          <em>device functionality.</em>
+        </h2>
         <p class="activateOnScroll">
-          Ionic makes it easy to access native device features with just a little 
-          bit of JavaScript. Choose from a rich library of over 120 native device 
-          plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive 
-          into the full native SDK when you need it. There’s no limit to what you 
-          can build.
+          Access native device features with just a little bit of JavaScript. Choose from a rich library of over 120 native device plugins for accessing Camera, Geolocation, Bluetooth, and more, or dive into the full native SDK when you need it. There’s no limit to what you can build.
         </p>
-        <a href="/native" class="cta activateOnScroll">Explore Ionic Native</a>
+        <a href="/native" class="link activateOnScroll">
+          Explore Native APIs<span class="arrow"> -></span>
+        </a>
       </hgroup>
       <div class="graphics">
         <home-native></home-native>
-        <img class="graphics activateOnScroll"
-             src="/img/homepage/phones.png" 
-             srcset="/img/homepage/phones-1x.png 1x, /img/homepage/phones.png 2x" 
-             width="499" height="761"
-             loading="lazy"
-             alt="Access Native Android and iOS APIs">
       </div>
     </section>
   </div>
@@ -340,35 +272,33 @@
     <div class="graphics">
       <img class="graphics activateOnScroll"
            src="/img/homepage/community.png" 
-           srcset="/img/homepage/community-1x.png 1x, /img/homepage/community.png 2x" 
+           srcset="/img/homepage/community.png 1x, /img/homepage/community@2x.png 2x" 
            width="868" height="839"
            loading="lazy"
            alt="5m Developers, 10m Apps Created, 100+ Meetups">
     </div>
     <hgroup class="content">
-      <h4 class="activateOnScroll">A global community</h4>
-      <h2 class="activateOnScroll">Built for <span class="highlight">developers</span>. Trusted by <span class="highlight">enterprise</span>.</h2>
+      <h4 class="activateOnScroll">Global Scale</h4>
+      <h2 class="activateOnScroll">
+        Build for developers
+        <em>Loved by enterprise</em>
+      </h2>
       <p class="activateOnScroll">
-        More than 5 Million developers in over 200 countries around the world 
-        are using Ionic to power their app development. Join the thousands of 
-        global meetups, forums, and events that makes building with Ionic so 
-        much fun.
+        More than 5 Million developers in over 200 countries around the world are using Ionic to power their app development. Join the thousands of global meetups, forums, and events that makes building with Ionic so much fun.
       </p>
-      <a href="/community" class="cta activateOnScroll">Community Hub</a>
-      <a href="/customers" class="cta activateOnScroll">Customers</a>
+      <a href="/community" class="activateOnScroll link">Community Hub<span class="arrow"> -></span></a>
+      <a href="https://ionic.io/customers" class="activateOnScroll link">Customers<span class="arrow"> -></span></a>
     </hgroup>
   </section>
 
   <section id="integrations" class="center">
     <hgroup class="content container">
       <h4 class="activateOnScroll">Premier integrations</h4>
-      <h2 class="activateOnScroll">Yes, you can <span class="highlight">integrate</span> with that.</h2>
+      <h2 class="activateOnScroll">Yes, you can <em>build with that.</em></h2>
       <p class="lg activateOnScroll">
-        From community plugins to premium supported integrations, Ionic has you 
-        covered. Power-up your app workflow with integrations into your favorite 
-        stacks.
+        From community plugins to premium supported integrations, Ionic has you covered. Power-up your app workflow with integrations into your favorite stacks.
       </p>
-      <a href="/integrations" class="cta">See Integrations</a>
+      <a href="/integrations" class="link">See Integrations<span class="arrow"> -></span></a>
     </hgroup>
     <ul id="integration-list" class="integration-list">
       <li><img src="/img/homepage/integrations/paypal-integration.png" width="256" height="256" loading="lazy" alt="Paypal"/></li>
@@ -390,9 +320,9 @@
 
   
 <section class="loved-by container" id="testimonials">
-  <h3 class="activateOnScroll">
-    <strong class="highlight">Loved</strong> by some of our favorite people on earth
-  </h3>
+  <h2 class="activateOnScroll">
+    Loved by some of our <em>favorite people on earth.</em>
+  </h2>
   <blockquote class="quote schinsky">
     I was so inspired when I found Ionic. It fills a gap that’s missing when
     building for mobile and solves many complexities that otherwise require
@@ -451,11 +381,11 @@
   <section id="start">
     <div class="container">
       <hgroup>
-        <h3 class="activateOnScroll">Start building cross-plaftorm apps today</h3>
+        <h2 class="activateOnScroll">Start building cross-plaftorm apps today</h2>
         <p class="activateOnScroll">Ionic is quick to install and it’s easy to get started.</p>
       </hgroup>
       <a href="/getting-started" class="btn white">
-        Get Started
+        <span>Get Started </span>
         <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle opacity="0.24" cx="9" cy="8" r="8" fill="#51A7FF"/>
           <rect x="9" y="14" width="10" height="2" fill="#4D8DFF"/>

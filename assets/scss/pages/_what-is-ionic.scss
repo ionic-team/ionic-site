@@ -2,15 +2,7 @@
   .banner,
   main {
     font-family: $font-family-inter;
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: $font-family-eina;
-    }
   }
-
 
   .banner {
     max-width: 800px;
@@ -21,9 +13,9 @@
       padding-top: 80px;
       font-size: 40px;
       line-height: 52px;
-      letter-spacing: -.008em;
+      letter-spacing: -0.008em;
       font-weight: 700;
-      background: url('/img/what-is-ionic/ionic-icon.png') no-repeat 50% 0;
+      background: url("/img/what-is-ionic/ionic-icon.png") no-repeat 50% 0;
       background-size: 48px;
       color: #0f1622;
     }
@@ -32,11 +24,11 @@
   main {
     a {
       text-decoration: none;
-      transition: .2s opacity;
+      transition: 0.2s opacity;
 
       &:hover {
         color: $blue;
-        opacity: .8;
+        opacity: 0.8;
       }
     }
 
@@ -60,8 +52,12 @@
       display: block;
     }
 
-    .left .graphic {  margin-left: 104px; }
-    .right .graphic {  margin-right: 104px; }
+    .left .graphic {
+      margin-left: 104px;
+    }
+    .right .graphic {
+      margin-right: 104px;
+    }
 
     .content {
       flex: 1;
@@ -77,7 +73,7 @@
       font-size: 35px;
       line-height: 47px;
       font-weight: 700;
-      letter-spacing: -.008em;
+      letter-spacing: -0.008em;
       margin-bottom: 20px;
       margin-top: 0;
       color: #0f1622;
@@ -86,13 +82,13 @@
     p {
       font-size: 20px;
       line-height: 36px;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       margin-bottom: 32px;
 
       &.sm {
         font-size: 15px;
         line-height: 32px;
-        letter-spacing: .01em;
+        letter-spacing: 0.01em;
       }
 
       &:last-child {
@@ -126,14 +122,18 @@
 
       li {
         list-style: none;
-        background: url('/img/what-is-ionic/web-icons.png') no-repeat 0 0;
+        background: url("/img/what-is-ionic/web-icons.png") no-repeat 0 0;
         background-size: 40px;
         width: 40px;
         height: 40px;
         margin-right: 22px;
 
-        &.css { background-position: 0 -40px; }
-        &.js { background-position: 0 -80px; }
+        &.css {
+          background-position: 0 -40px;
+        }
+        &.js {
+          background-position: 0 -80px;
+        }
       }
     }
 
@@ -162,15 +162,14 @@
       }
 
       ion-icon {
-        font-size: .9em;
+        font-size: 0.9em;
         vertical-align: -7%;
         margin-left: -2px;
       }
     }
 
     .global {
-      background-image:
-        url('/img/what-is-ionic/community-bg.png'),
+      background-image: url("/img/what-is-ionic/community-bg.png"),
         linear-gradient(to bottom, #f7f9fc, #fefefe);
       background-size: cover, 100%;
       background-repeat: no-repeat;
@@ -204,11 +203,12 @@
         margin: 57px 0;
 
         &::before {
-          background: url('/img/what-is-ionic/community-icons.png') no-repeat 0 0;
+          background: url("/img/what-is-ionic/community-icons.png") no-repeat 0
+            0;
           background-size: 88px;
           height: 88px;
           width: 88px;
-          content: '';
+          content: "";
           position: absolute;
           top: calc(50% - 44px);
           left: 0;
@@ -227,7 +227,6 @@
           font-size: 34px;
           font-weight: 600;
           display: block;
-          font-family: $font-family-eina;
           line-height: 33px;
         }
 
@@ -236,15 +235,20 @@
           font-size: 19px;
         }
 
-        &:nth-child(2)::before { background-position: 0 -88px; }
-        &:nth-child(3)::before { background-position: 0 -176px; }
-        &:nth-child(4)::before { background-position: 0 -264px; }
+        &:nth-child(2)::before {
+          background-position: 0 -88px;
+        }
+        &:nth-child(3)::before {
+          background-position: 0 -176px;
+        }
+        &:nth-child(4)::before {
+          background-position: 0 -264px;
+        }
       }
     }
 
     .web {
-      background-image:
-        url('/img/what-is-ionic/philosophy-bg.png'),
+      background-image: url("/img/what-is-ionic/philosophy-bg.png"),
         linear-gradient(to bottom, #f7f9fc, #fefefe);
       background-size: cover, 100%;
       background-repeat: no-repeat;
@@ -255,7 +259,7 @@
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: .14em;
+        letter-spacing: 0.14em;
         margin-top: 0;
         margin-bottom: 24px;
         color: #0f1622;
@@ -289,7 +293,6 @@
 
         .container {
           flex-direction: column;
-
         }
 
         &.left .container {
@@ -303,7 +306,7 @@
         text-align: center;
       }
 
-      .what  {
+      .what {
         .graphic {
           margin: 0;
         }

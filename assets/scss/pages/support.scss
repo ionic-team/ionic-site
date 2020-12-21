@@ -1,10 +1,10 @@
-@import '../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-support {
   .cta {
     background: #4192fe no-repeat center bottom;
-    background-image: url('/img/support/cta-bg.png');
+    background-image: url("/img/support/cta-bg.png");
     background-size: cover;
 
     hgroup {
@@ -96,13 +96,14 @@
         font-family: $font-family-inter;
         font-size: 20px;
         line-height: 30px;
-        color: #616E7E;
+        color: #616e7e;
         margin-bottom: 0;
         letter-spacing: -0.02em;
       }
 
       .btn {
-        box-shadow: 0px 2px 6px rgba(2, 8, 20, 0.08), 0px 1px 2px rgba(2, 8, 20, 0.1);
+        box-shadow: 0px 2px 6px rgba(2, 8, 20, 0.08),
+          0px 1px 2px rgba(2, 8, 20, 0.1);
         border-radius: 8px;
         padding: 12px 18px;
         font-weight: 600;
@@ -177,7 +178,7 @@
         font-size: 24px;
         line-height: 30px;
         letter-spacing: -0.01em;
-        color: #1A232F;
+        color: #1a232f;
         margin-bottom: 10px;
         margin-top: 20px;
       }
@@ -186,7 +187,7 @@
         font-size: 16px;
         line-height: 27px;
         letter-spacing: -0.01em;
-        color: #616E7E;
+        color: #616e7e;
       }
 
       .link-text {
@@ -194,7 +195,7 @@
         font-size: 16px;
         line-height: 27px;
         letter-spacing: -0.01em;
-        color: #3880FF;
+        color: #3880ff;
         display: inline-flex;
         align-items: center;
       }
@@ -212,7 +213,6 @@
         transform: translate(3px, 1px);
       }
     }
-
 
     @media (max-width: $screen-md) {
       margin: 0 -16px;
@@ -241,7 +241,7 @@
         padding: 0;
       }
 
-      &__card + .card-list__card  {
+      &__card + .card-list__card {
         margin-top: 32px;
       }
     }
@@ -261,11 +261,11 @@
 
       svg path {
         transition: 0.2s fill;
-        fill: #414D5C;
+        fill: #414d5c;
       }
 
       &:hover svg path {
-        fill: #3880FF;
+        fill: #3880ff;
       }
 
       span {
@@ -275,11 +275,11 @@
         line-height: 25px;
         text-align: center;
         letter-spacing: -0.01em;
-        color: #414D5C;
+        color: #414d5c;
       }
 
       &:hover span {
-        color: #3880FF;
+        color: #3880ff;
       }
     }
 
@@ -363,23 +363,23 @@
       &::before {
         border-radius: 4px;
         background: white;
-        box-shadow: 0 1px 4px rgba(0,0,0,.15);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        content: '';
+        content: "";
         display: block;
-        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),
-                    .3s box-shadow;
+        transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+          0.3s box-shadow;
       }
 
       &:hover {
         text-decoration: none;
 
         &::before {
-          box-shadow: 0 4px 10px rgba(0,0,0,.15);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
           transform: scale(1.05);
         }
       }
@@ -398,32 +398,48 @@
 
       &::after {
         background-repeat: no-repeat;
-        background-image: url('/img/support/support-thumbnails.png');
+        background-image: url("/img/support/support-thumbnails.png");
         background-size: 48px;
         width: 48px;
         height: 48px;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         left: 29px;
         top: 34px;
-        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12);
+        transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
       }
 
-      &.slack::after {           background-position: 0 -48px; }
-      &.so::after {              background-position: 0 -96px; }
-      &.account::after {         background-position: 0 -144px; }
-      &.bug::after {             background-position: 0 -192px; }
-      &.troubleshooting::after { background-position: 0 -240px; }
-      &.resources::after {       background-position: 0 -288px; }
-      &.github::after {          background-position: 0 -336px; }
-      &.faq::after {             background-position: 0 -384px; }
+      &.slack::after {
+        background-position: 0 -48px;
+      }
+      &.so::after {
+        background-position: 0 -96px;
+      }
+      &.account::after {
+        background-position: 0 -144px;
+      }
+      &.bug::after {
+        background-position: 0 -192px;
+      }
+      &.troubleshooting::after {
+        background-position: 0 -240px;
+      }
+      &.resources::after {
+        background-position: 0 -288px;
+      }
+      &.github::after {
+        background-position: 0 -336px;
+      }
+      &.faq::after {
+        background-position: 0 -384px;
+      }
 
       h3 {
         color: #272a2f;
         font-size: 16px;
         position: relative;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
         margin-bottom: 8px;
       }
 
@@ -438,8 +454,8 @@
   }
 
   .banner {
-    background: #18263E;
-    background-image: url('/img/support/support-banner-bg.jpg');
+    background: #18263e;
+    background-image: url("/img/support/support-banner-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -451,7 +467,7 @@
     hgroup {
       margin-top: 0;
       padding: 86px 0;
-      color: rgba(white, .95);
+      color: rgba(white, 0.95);
       text-align: left;
       max-width: 430px;
 
@@ -464,7 +480,7 @@
         font-size: 40px;
         line-height: 50px;
         letter-spacing: -0.03em;
-        color: #FFFFFF;
+        color: #ffffff;
       }
 
       p,
@@ -487,7 +503,7 @@
         font-size: 19px;
         line-height: 32px;
         letter-spacing: -0.02em;
-        color: #639CFF;
+        color: #639cff;
 
         ion-icon {
           transform: translate(1px, 1px);
@@ -515,8 +531,8 @@
     }
   }
 
-section.newsletter-signup {
-    background-color: #F6F8FB;
+  section.newsletter-signup {
+    background-color: #f6f8fb;
 
     .container {
       margin-top: 0;
@@ -538,16 +554,15 @@ section.newsletter-signup {
         font-size: 28px;
         line-height: normal;
         letter-spacing: -0.03em;
-        color: #3880FF;
+        color: #3880ff;
         margin-bottom: 0;
       }
 
       p {
-        font-family: $font-family-eina;
         font-size: 20px;
         line-height: 36px;
         letter-spacing: -0.02em;
-        color: #73849A;
+        color: #73849a;
         margin-bottom: 0;
       }
     }
@@ -578,7 +593,6 @@ section.newsletter-signup {
         padding-top: 60px;
         padding-bottom: 98px;
       }
-
     }
   }
 }

@@ -1,16 +1,19 @@
-h1,
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: $font-family-eina;
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
 a {
-  transition: color .2s;
+  transition: color 0.2s;
 
   &:hover {
     text-decoration: none;

@@ -1,5 +1,4 @@
 .mobile-nav {
-  font-family: $font-family-eina;
   transition: opacity 0.4s;
   position: fixed;
   z-index: 99999;
@@ -139,7 +138,7 @@
 
   a {
     width: 100%;
-    color: #414D5C;
+    color: #414d5c;
     display: inline-block;
   }
 }
@@ -168,7 +167,7 @@
   margin-top: 28px;
 
   a {
-    color: #BFC8DA;
+    color: #bfc8da;
     font-size: 28px;
   }
 }
@@ -232,7 +231,7 @@
     padding: 12px 14px 10px;
     vertical-align: middle;
     margin-right: 0;
-    background: #4D8DFF;
+    background: #4d8dff;
     border-radius: 8px;
   }
 
@@ -276,7 +275,7 @@
 }
 
 .mobile-nav--enterprise .mobile-nav__footer {
-  background: #F9F9F9;
+  background: #f9f9f9;
   justify-content: center;
 
   a {
@@ -284,7 +283,7 @@
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.05em;
-    color: #3880FF;
+    color: #3880ff;
     text-transform: uppercase;
   }
 
@@ -296,7 +295,7 @@
     display: inline-block;
     vertical-align: -2px;
     opacity: 0;
-    transition: .2s transform ease, .2s opacity;
+    transition: 0.2s transform ease, 0.2s opacity;
     margin-right: 4px;
 
     &.hydrated {

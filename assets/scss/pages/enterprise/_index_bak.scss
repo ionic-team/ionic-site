@@ -1,8 +1,7 @@
 #page-enterprise {
-  font-family: $font-family-eina;
-
   .navbar.transparent ~ .banner {
-    background: #293340 no-repeat center bottom url('/img/enterprise/cta-background.jpg');
+    background: #293340 no-repeat center bottom
+      url("/img/enterprise/cta-background.jpg");
     background-size: cover;
     padding-top: 300px;
     padding-bottom: 0;
@@ -21,11 +20,12 @@
       padding-bottom: 0;
 
       &::before {
-        background: no-repeat 50% 0 url('/img/enterprise/ionic-enterprise-icon.png');
+        background: no-repeat 50% 0
+          url("/img/enterprise/ionic-enterprise-icon.png");
         background-size: 80px;
         width: 80px;
         height: 80px;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: -104px;
@@ -52,7 +52,7 @@
     }
 
     h1 em {
-      font-family: 'Georgia', serif;
+      font-family: "Georgia", serif;
       font-size: 36px;
       font-style: italic;
       font-weight: normal;
@@ -69,7 +69,7 @@
 
     .logos {
       background-color: #212a36;
-      overflow:hidden;
+      overflow: hidden;
       padding: 34px 0;
       width: 100%;
       flex: 1 0 auto;
@@ -88,15 +88,16 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      background: no-repeat center bottom url('/img/enterprise/cta-background.jpg');
+      background: no-repeat center bottom
+        url("/img/enterprise/cta-background.jpg");
       background-size: cover;
-      filter: url('#blur');
+      filter: url("#blur");
       filter: blur(20px);
       z-index: 1;
 
       &:after {
         display: block;
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         top: 0;
@@ -164,7 +165,7 @@
   }
 
   .logos .logo {
-    background: url('/img/enterprise/logo-sprite.png') no-repeat;
+    background: url("/img/enterprise/logo-sprite.png") no-repeat;
     background-size: 324px 381px;
     background-position: center center;
 
@@ -213,7 +214,7 @@
       width: 145px;
       height: 22px;
     }
-    &--airbus{
+    &--airbus {
       background-position: -5px -44px;
       width: 128px;
       height: 24px;
@@ -239,7 +240,7 @@
       height: 24px;
     }
     &--aaa {
-      background-position:  -5px -228px;
+      background-position: -5px -228px;
       width: 54px;
       height: 32px;
     }
@@ -344,7 +345,7 @@
       margin-bottom: 40px;
 
       h3 {
-        margin-bottom: 0
+        margin-bottom: 0;
       }
 
       a {
@@ -538,7 +539,7 @@
     &:after {
       transition: opacity 1s, transform 1s;
       display: block;
-      content: '';
+      content: "";
       background-repeat: none;
       position: absolute;
       z-index: -1;
@@ -556,21 +557,21 @@
   }
 
   .framework-section:after {
-    background-image: url('/img/enterprise/framework-bg.jpg');
+    background-image: url("/img/enterprise/framework-bg.jpg");
     width: 480px;
     height: 749px;
     right: 80px;
   }
 
   .pro-section:after {
-    background-image: url('/img/enterprise/pro-bg.jpg');
+    background-image: url("/img/enterprise/pro-bg.jpg");
     width: 1274px;
     height: 844px;
     left: -80px;
   }
 
   .support-section:after {
-    background-image: url('/img/enterprise/support-bg.jpg');
+    background-image: url("/img/enterprise/support-bg.jpg");
     width: 564px;
     height: 690px;
     right: 80px;
@@ -610,8 +611,7 @@
 
   .iv {
     background: #152b40;
-    background:
-      url('/img/enterprise/bg-pattern.png') repeat 50% 50%,
+    background: url("/img/enterprise/bg-pattern.png") repeat 50% 50%,
       linear-gradient(to right, #102132 0%, #1f3d5a 100%);
     background-size: 512px, 100%;
     margin-top: 32px;
@@ -623,12 +623,12 @@
       position: relative;
 
       &::before {
-        background: url('/img/enterprise/identity-vault-icon.png') repeat 0 0;
+        background: url("/img/enterprise/identity-vault-icon.png") repeat 0 0;
         background-size: 90px;
         height: 90px;
         width: 90px;
         position: absolute;
-        content: '';
+        content: "";
         top: 5px;
         left: 15px;
       }
@@ -637,7 +637,7 @@
     strong {
       text-transform: uppercase;
       font-size: 9px;
-      letter-spacing: .23em;
+      letter-spacing: 0.23em;
       color: #809ab3;
     }
 
@@ -652,7 +652,7 @@
       color: #98cdff;
       margin-bottom: 0;
       font-size: 18px;
-      letter-spacing: .024em;
+      letter-spacing: 0.024em;
       font-weight: 500;
     }
 
@@ -663,7 +663,7 @@
       font-size: 14px;
       font-weight: 700;
       padding: 14px 16px 11px;
-      letter-spacing: .06em;
+      letter-spacing: 0.06em;
       margin-left: 20px;
 
       i {
@@ -717,7 +717,7 @@
     }
 
     hgroup {
-      letter-spacing: -.025em;
+      letter-spacing: -0.025em;
       flex-grow: 1;
     }
 
@@ -742,13 +742,13 @@
       padding: 15px 18px 12px;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .form {
         padding-top: 24px;
       }
       .container {
         display: block;
-        text-align: center
+        text-align: center;
       }
       h2 {
         margin-bottom: 10px;

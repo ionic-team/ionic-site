@@ -1,19 +1,11 @@
 #page-products-for-teams {
-
-  main,
-  #sub-header,
-  .cta {
-    font-family: $font-family-eina;
-  }
-
   #sub-header > .container {
     align-items: center;
   }
 
   .cta {
     background-color: #12223a;
-    background-image:
-      url('/img/pro/teams-hero-bg.jpg'),
+    background-image: url("/img/pro/teams-hero-bg.jpg"),
       linear-gradient(120deg, #12223a, #000a1c);
     background-size: cover, 100%;
     background-position: 50% 50%;
@@ -66,13 +58,15 @@
     position: relative;
 
     &::before {
-      background-image:
-        linear-gradient(rgba(200, 225, 255, 0.08), rgba(200, 220, 255, 0.08)),
+      background-image: linear-gradient(
+          rgba(200, 225, 255, 0.08),
+          rgba(200, 220, 255, 0.08)
+        ),
         url(/img/pro/teams-hero-bg.jpg);
       background-size: 100%, cover;
       background-position: 50% 50%, 50% 50%;
       position: absolute;
-      content: '';
+      content: "";
       top: calc(100% - 661px);
       width: 100%;
       height: 661px;
@@ -183,15 +177,27 @@
 
   .ship,
   .collaborate {
-    @media (min-width: $screen-sm) { background-position: center right -400px; }
-    @media (min-width: $screen-lg) { background-position: center right -150px; }
-    @media (min-width: 1400px) { background-position: center right -50px; }
+    @media (min-width: $screen-sm) {
+      background-position: center right -400px;
+    }
+    @media (min-width: $screen-lg) {
+      background-position: center right -150px;
+    }
+    @media (min-width: 1400px) {
+      background-position: center right -50px;
+    }
   }
 
   .listen {
-    @media (min-width: $screen-sm) { background-position: center left -350px; }
-    @media (min-width: $screen-lg) { background-position: center left -150px; }
-    @media (min-width: 1400px) { background-position: center left -50px; }
+    @media (min-width: $screen-sm) {
+      background-position: center left -350px;
+    }
+    @media (min-width: $screen-lg) {
+      background-position: center left -150px;
+    }
+    @media (min-width: 1400px) {
+      background-position: center left -50px;
+    }
   }
 
   .ship,
@@ -232,15 +238,33 @@
     margin-bottom: 0;
     width: 48px;
 
-    &.sharing { background-position-y: 0; }
-    &.ci { background-position-y: -48px * 1; }
-    &.feed { background-position-y: -48px * 2; }
-    &.collab { background-position-y: -48px * 3; }
-    &.binaries { background-position-y: -48px * 4; }
-    &.channels { background-position-y: -48px * 5; }
-    &.cd { background-position-y: -48px * 6; }
-    &.monitoring { background-position-y: -48px * 7; }
-    &.rapid { background-position-y: -48px * 8; }
+    &.sharing {
+      background-position-y: 0;
+    }
+    &.ci {
+      background-position-y: -48px * 1;
+    }
+    &.feed {
+      background-position-y: -48px * 2;
+    }
+    &.collab {
+      background-position-y: -48px * 3;
+    }
+    &.binaries {
+      background-position-y: -48px * 4;
+    }
+    &.channels {
+      background-position-y: -48px * 5;
+    }
+    &.cd {
+      background-position-y: -48px * 6;
+    }
+    &.monitoring {
+      background-position-y: -48px * 7;
+    }
+    &.rapid {
+      background-position-y: -48px * 8;
+    }
   }
 
   .features__list {
@@ -307,7 +331,7 @@
   .quotes__napa .case-study-pill {
     background-color: #5635c2;
     border-radius: 20px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     display: inline-block;
     font-size: 12px;
     line-height: 1;
@@ -364,7 +388,7 @@
   }
 
   .quotes blockquote > small {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     margin-top: 2em;
     text-align: right;
 
@@ -396,7 +420,7 @@
   }
 
   .get-started hgroup {
-    letter-spacing: -.025em;
+    letter-spacing: -0.025em;
     flex-grow: 1;
 
     @media (max-width: $screen-sm-max) {
@@ -427,5 +451,4 @@
       background-color: #3d4b5f;
     }
   }
-
 }

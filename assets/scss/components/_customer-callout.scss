@@ -1,5 +1,5 @@
 .customer-callout {
-  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
   margin-top: 120px;
   margin-bottom: 140px;
   padding-top: 140px;
@@ -18,20 +18,19 @@
       line-height: 40px;
       text-align: center;
       letter-spacing: -0.02em;
-      color: #1A232F;
+      color: #1a232f;
     }
 
-     p {
-       font-family: $font-family-eina;
-       font-size: 20px;
-       line-height: 33px;
-       text-align: center;
-       letter-spacing: -0.02em;
-       color: #5B708B;
-       max-width: 860px;
-       margin-left: auto;
-       margin-right: auto;
-     }
+    p {
+      font-size: 20px;
+      line-height: 33px;
+      text-align: center;
+      letter-spacing: -0.02em;
+      color: #5b708b;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__logos {
@@ -43,7 +42,7 @@
     width: 100%;
 
     li {
-      background: url('/img/customer-logos.jpg');
+      background: url("/img/customer-logos.jpg");
       background-size: 428px 46px;
       background-repeat: no-repeat;
       display: block;
@@ -54,7 +53,7 @@
       justify-content: center;
       flex-wrap: wrap;
       max-width: 460px;
-      
+
       li {
         margin: 20px;
       }
@@ -88,5 +87,4 @@
     background-position: -380px 0;
     width: 50px;
   }
-
 }

@@ -1,9 +1,9 @@
-@import '../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-strategy-session {
   .cta {
-    background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
     box-shadow: inset 0px -1px 0px rgba(0, 15, 41, 0.06);
     margin-top: -136px;
     padding-top: 136px;
@@ -21,11 +21,10 @@
     }
 
     p {
-      font-family: $font-family-eina;
       font-size: 22px;
       line-height: 36px;
       letter-spacing: -0.02em;
-      color: rgba(#414D5C, .9);
+      color: rgba(#414d5c, 0.9);
     }
 
     @media (max-width: $screen-sm) {
@@ -72,7 +71,7 @@
       font-size: 26px;
       line-height: 39px;
       letter-spacing: -0.02em;
-      color: #1A232F;
+      color: #1a232f;
     }
 
     ul {
@@ -89,10 +88,10 @@
   }
 
   .checkmark-list--large i {
-    background: #E7F4FF;
+    background: #e7f4ff;
 
-    ion-icon  {
-      color: #4D8DFF;
+    ion-icon {
+      color: #4d8dff;
     }
   }
 
@@ -102,8 +101,9 @@
     z-index: 90;
     margin-top: -260px;
     margin-left: auto;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1), 0px 8px 16px rgba(2, 8, 20, 0.08);
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(2, 8, 20, 0.1),
+      0px 8px 16px rgba(2, 8, 20, 0.08);
     border-radius: 8px;
     padding: 48px 56px 56px;
     box-sizing: border-box;
@@ -135,13 +135,13 @@
         }
       }
       .inputs-list.multi-container {
-        li:nth-last-child(n+6):first-child,
-        li:nth-last-child(n+6):first-child ~ li {
+        li:nth-last-child(n + 6):first-child,
+        li:nth-last-child(n + 6):first-child ~ li {
           width: 100%;
           float: none;
           padding-right: 0;
         }
-        li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+        li:nth-last-child(n + 6):first-child ~ li:nth-child(even) {
           padding-left: 0;
         }
       }
@@ -171,7 +171,7 @@
 
       img {
         width: 100%;
-        background: #EDF4F9;
+        background: #edf4f9;
         border-radius: 50%;
       }
     }
@@ -183,9 +183,9 @@
       flex: 1;
 
       &::before {
-        content: '';
+        content: "";
         display: block;
-        background-image: url('/img/strategy-session/quotes.svg');
+        background-image: url("/img/strategy-session/quotes.svg");
         width: 32px;
         height: 24px;
         position: absolute;
@@ -198,7 +198,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 20px;
-      color: #5B708B;
+      color: #5b708b;
       margin: 0 0 16px;
       letter-spacing: -0.01em;
     }
@@ -206,7 +206,7 @@
     &__name {
       font-size: 14px;
       line-height: 22px;
-      color: #1A232F;
+      color: #1a232f;
       margin: 0;
     }
 
@@ -215,7 +215,7 @@
       line-height: 17px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #73849A;
+      color: #73849a;
       margin: 0 0 16px;
     }
 
@@ -231,21 +231,19 @@
       &__img {
         align-items: center;
       }
-      img{
+      img {
         max-width: 210px;
       }
 
       &__caption {
-        border-top: 1px solid #E9EDF3;
+        border-top: 1px solid #e9edf3;
         padding-left: 46px;
         &::before {
           left: 0;
         }
       }
     }
-
   }
-
 }
 
-@import '../components/customer-callout';
+@import "../components/customer-callout";

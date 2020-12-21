@@ -1,15 +1,14 @@
-@import '../../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
-@import './shared';
-@import './solutions/shared';
-
+@import "./shared";
+@import "./solutions/shared";
 
 #page-identity-vault {
   img {
     height: auto;
   }
-  
+
   #sticky-bar {
     li.active a:not(.btn) {
       color: $navy;
@@ -23,14 +22,6 @@
   main {
     font-family: $font-family-inter;
     overflow: visible;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    .btn {
-      font-family: $font-family-eina;
-    }
 
     h2 {
       font-size: 40px;
@@ -47,7 +38,7 @@
       font-size: 16px;
       line-height: 28px;
       letter-spacing: -0.03em;
-      color: #5B708B;
+      color: #5b708b;
     }
 
     hgroup p,
@@ -56,7 +47,7 @@
       font-size: 20px;
       line-height: 32px;
       letter-spacing: -0.03em;
-      color: #4E5B6A;
+      color: #4e5b6a;
 
       strong {
         font-weight: 500;
@@ -75,7 +66,7 @@
       margin-top: 0;
       margin-bottom: 0;
 
-      @media (max-width: $screen-xs-max)  {
+      @media (max-width: $screen-xs-max) {
         &,
         &.center {
           .content {
@@ -100,18 +91,19 @@
         font-size: 16px;
         line-height: 26px;
         letter-spacing: -0.02em;
-        color: #616E7E;
+        color: #616e7e;
         margin-bottom: 18px;
-  
+
         &::before {
-          background: url('/img/enterprise/identity-vault/sprite-checkmark.png') 0 bottom no-repeat;
+          background: url("/img/enterprise/identity-vault/sprite-checkmark.png")
+            0 bottom no-repeat;
           background-size: 24px;
           width: 24px;
           height: 24px;
           position: absolute;
           left: 0;
           top: 2px;
-          content: '';
+          content: "";
         }
       }
     }
@@ -119,16 +111,16 @@
     .contact-sales {
       font-size: 16px;
       font-weight: 500;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       margin-top: 9px;
       display: inline-block;
       text-decoration: none;
-      
+
       ion-icon {
         font-size: 16px;
         vertical-align: -3px;
         display: inline-block;
-        transition: .3s transform ease;
+        transition: 0.3s transform ease;
       }
 
       &:hover,
@@ -152,11 +144,12 @@
       position: relative;
 
       &::after {
-        background: url('/img/enterprise/identity-vault/hero-img.png') 0 0 no-repeat;
+        background: url("/img/enterprise/identity-vault/hero-img.png") 0 0
+          no-repeat;
         background-size: 100%;
         width: 560px;
         height: 728px;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         right: -42px;
@@ -187,7 +180,6 @@
       margin-bottom: 48px;
       font-family: $font-family-inter;
 
-
       svg {
         vertical-align: -24px;
         margin-right: 10px;
@@ -200,7 +192,7 @@
       font-size: 24px;
       line-height: 38px;
       letter-spacing: -0.03em;
-      color: rgba(#414D5C, 0.9);
+      color: rgba(#414d5c, 0.9);
     }
 
     .btn {
@@ -208,14 +200,14 @@
       padding: 14px 17px 12px 16px;
       font-weight: 700;
       font-size: 14px;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 80px;
       background: $navy;
 
       &::after {
-        font-family: 'Ionicons';
-        content: '';
+        font-family: "Ionicons";
+        content: "";
         font-size: 23px;
         font-weight: 400;
         vertical-align: -4px;
@@ -223,13 +215,13 @@
       }
     }
 
-    @media (max-width: $screen-md-max)  {
+    @media (max-width: $screen-md-max) {
       hgroup {
         max-width: 420px;
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       hgroup {
         max-width: 100%;
       }
@@ -247,7 +239,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       padding-top: 400px;
 
       .container::after {
@@ -293,7 +285,7 @@
       margin-bottom: 25px;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .split {
         display: block;
 
@@ -317,7 +309,8 @@
 
       &::before,
       &::after {
-        background: url('/img/enterprise/identity-vault/iv-diagram-states.png') 0 0 no-repeat;
+        background: url("/img/enterprise/identity-vault/iv-diagram-states.png")
+          0 0 no-repeat;
         background-size: 100%;
         width: 980px;
         height: 215px;
@@ -326,8 +319,8 @@
         top: 24px;
         bottom: 0;
         pointer-events: none;
-        content: '';
-        transition: .2s opacity, .2s transform ease-out;
+        content: "";
+        transition: 0.2s opacity, 0.2s transform ease-out;
       }
 
       &::after {
@@ -351,7 +344,7 @@
         margin-left: 13px;
         vertical-align: -4px;
         box-shadow: 0 0 4px inset rgba(0, 0, 0, 0.1);
-        transition: .2s border-color;
+        transition: 0.2s border-color;
         position: relative;
         cursor: pointer;
 
@@ -359,13 +352,13 @@
           background: white;
           width: 16px;
           height: 16px;
-          content: '';
+          content: "";
           box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
           position: absolute;
           top: 1px;
           left: 2px;
           border-radius: 9px;
-          transition: .2s transform ease;
+          transition: 0.2s transform ease;
         }
       }
 
@@ -389,7 +382,7 @@
         }
       }
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         min-height: 244px;
 
         &::before,
@@ -399,7 +392,7 @@
         }
       }
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         min-height: 194px;
 
         &::before,
@@ -409,7 +402,7 @@
         }
       }
 
-      @media (max-width: $screen-xs-max)  {
+      @media (max-width: $screen-xs-max) {
         display: none;
       }
     }
@@ -445,32 +438,42 @@
       position: relative;
       margin-bottom: 33px;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         flex-basis: 256px;
       }
 
       &::before {
-        background: url('/img/enterprise/identity-vault/benefits-icons.png') 0 0 no-repeat;
+        background: url("/img/enterprise/identity-vault/benefits-icons.png") 0 0
+          no-repeat;
         background-size: 48px;
         width: 48px;
         height: 48px;
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
       }
 
-      &.protection::before { background-position: 0 -48px;  }
-      &.code::before { background-position: 0 -96px;  }
-      &.backend::before { background-position: 0 -144px;  }
-      &.tokens::before { background-position: 0 -192px;  }
-      &.support::before { background-position: 0 -240px;  }
+      &.protection::before {
+        background-position: 0 -48px;
+      }
+      &.code::before {
+        background-position: 0 -96px;
+      }
+      &.backend::before {
+        background-position: 0 -144px;
+      }
+      &.tokens::before {
+        background-position: 0 -192px;
+      }
+      &.support::before {
+        background-position: 0 -240px;
+      }
 
       strong {
         font-size: 20px;
         font-weight: 600;
-        font-family: $font-family-eina;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
       }
 
       p {
@@ -478,9 +481,7 @@
       }
     }
 
-
-
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       hgroup {
         padding-top: 0;
       }
@@ -490,9 +491,7 @@
       }
     }
 
-
-
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       li {
         flex-basis: 100%;
 
@@ -508,17 +507,18 @@
     position: relative;
 
     &::before {
-      background: url('/img/enterprise/identity-vault/protection-img.png') 0 0 no-repeat;
+      background: url("/img/enterprise/identity-vault/protection-img.png") 0 0
+        no-repeat;
       background-size: 100%;
       width: 560px;
       height: 560px;
-      content: '';
+      content: "";
       position: absolute;
       top: 71px;
       right: 19px;
       display: block;
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         width: 280px;
         height: 280px;
         display: block;
@@ -532,7 +532,7 @@
       padding-top: 0;
       margin-top: 136px;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         width: calc(50% - 66px);
         padding-bottom: 0;
 
@@ -541,7 +541,7 @@
         }
       }
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         width: 460px;
       }
     }
@@ -566,7 +566,7 @@
       list-style: none;
       margin-top: 39px;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         display: block;
       }
     }
@@ -580,18 +580,19 @@
       margin-bottom: 22px;
 
       &::before {
-        background: url('/img/enterprise/identity-vault/checkmark.png') 0 0 no-repeat;
+        background: url("/img/enterprise/identity-vault/checkmark.png") 0 0
+          no-repeat;
         background-size: 20px;
         width: 20px;
         height: 20px;
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 1px;
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       display: block;
       padding-top: 200px;
 
@@ -615,7 +616,8 @@
     padding-bottom: 99px;
 
     &::before {
-      background: url('/img/enterprise/identity-vault/integration-img.png') 0 0 no-repeat;
+      background: url("/img/enterprise/identity-vault/integration-img.png") 0 0
+        no-repeat;
       background-size: 100%;
       width: 560px;
       height: 560px;
@@ -629,13 +631,13 @@
       margin-bottom: 214px;
       width: calc(50% - 59px);
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         padding-top: 0px;
         width: calc(50% - 100px);
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       &::before {
         width: 280px;
         height: 280px;
@@ -650,7 +652,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       padding-top: 330px;
 
       &::before {
@@ -674,14 +676,14 @@
   }
 
   section.what-you-got {
-    background: #101928 url('/img/enterprise/identity-vault/bg-panes.png') 50% 0 no-repeat;
+    background: #101928 url("/img/enterprise/identity-vault/bg-panes.png") 50% 0
+      no-repeat;
     background-size: 1000px;
 
     .container {
       position: relative;
       padding-bottom: 130px;
     }
-
 
     hgroup {
       padding-top: 0;
@@ -696,7 +698,7 @@
     }
 
     p {
-      color: #CED6E0;
+      color: #ced6e0;
     }
 
     ul {
@@ -709,7 +711,7 @@
       color: white;
       margin-bottom: 38px;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         flex-basis: calc(50% - 50px);
       }
 
@@ -724,7 +726,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       background-size: cover;
 
       hgroup {
@@ -747,7 +749,7 @@
       h5 {
         font-style: normal;
         font-weight: 600;
-        color: #4E5B6A;
+        color: #4e5b6a;
         font-size: 24px;
         line-height: 32px;
         letter-spacing: -0.02em;
@@ -766,12 +768,12 @@
       margin-right: auto;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       padding-top: 0;
       padding-bottom: 40px;
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       .form textarea.hs-input {
         width: calc(100% - 18px) !important;
       }
@@ -801,7 +803,7 @@
       padding-bottom: 140px;
       margin-left: auto;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         padding-top: 100px;
         width: calc(50% - 100px);
         padding-bottom: 120px;
@@ -814,7 +816,7 @@
 
     h3 {
       font-weight: 600;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
     }
 
     p {
@@ -824,7 +826,7 @@
       padding-right: 80px;
       display: block;
       margin-bottom: 22px;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
     }
 
     .btn {
@@ -837,14 +839,13 @@
       }
     }
 
-    @media (max-width: $screen-md-max)  {
+    @media (max-width: $screen-md-max) {
       .card {
         left: 0;
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
-
+    @media (max-width: $screen-sm-max) {
       img {
         width: 230px;
       }
@@ -856,7 +857,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       .container {
         padding-top: 200px;
       }
@@ -865,7 +866,7 @@
         left: calc(50% - 115px);
       }
 
-      hgroup  {
+      hgroup {
         text-align: center;
         width: 100%;
       }

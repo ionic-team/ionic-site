@@ -1,13 +1,13 @@
 // This is a collection of generics for the products pages
 .products-page {
-  font-family: "Eina", "Helvetica Neue", Helvetica, sans-serif; // todo: Set Eina globally
+  font-family: $font-family-inter;
   position: relative;
 
   .top {
     position: relative;
 
     h1 {
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       font-weight: 700;
       font-size: 48px;
     }
@@ -17,7 +17,7 @@
       font-weight: 600;
       margin-top: 17px;
       display: inline-block;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       line-height: 1.5em;
       color: #2f3744;
     }
@@ -37,7 +37,7 @@
       h2 {
         font-size: 36px;
         font-weight: 700;
-        letter-spacing: -.03em;
+        letter-spacing: -0.03em;
         color: #161a1f;
       }
 
@@ -73,18 +73,18 @@
         background-size: 100%;
         height: 48px;
         width: 48px;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 0;
       }
 
       strong {
-        letter-spacing: -.03em;
+        letter-spacing: -0.03em;
         display: inline-block;
         font-size: 17px;
         text-transform: none;
-        letter-spacing: .001em;
+        letter-spacing: 0.001em;
         margin-top: 4px;
         margin-bottom: 10px;
       }
@@ -92,13 +92,13 @@
       p {
         font-size: 16px;
         font-weight: 600;
-        letter-spacing: -.026em;
+        letter-spacing: -0.026em;
         line-height: 1.8em;
         margin-bottom: 30px;
         color: #5e6777;
       }
 
-      @media (max-width: $screen-xs-max)  {
+      @media (max-width: $screen-xs-max) {
         display: block;
         flex-basis: 100%;
         text-align: center;
@@ -112,8 +112,10 @@
 
   section.left,
   section.right,
-  section.both  {
-    .container { position: relative; }
+  section.both {
+    .container {
+      position: relative;
+    }
 
     hgroup {
       padding-top: 208px;
@@ -121,7 +123,7 @@
       width: calc(50% - 147px);
       position: relative;
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         width: calc(50% - 48px);
       }
 
@@ -130,14 +132,14 @@
         background-size: 100%;
         height: 64px;
         width: 64px;
-        content: '';
+        content: "";
         position: absolute;
         top: 126px;
         display: block;
       }
 
       &::after {
-        content: '';
+        content: "";
         clear: both;
         display: table;
       }
@@ -153,7 +155,7 @@
       p {
         font-size: 16px;
         font-weight: 600;
-        letter-spacing: -.026em;
+        letter-spacing: -0.026em;
         line-height: 1.8em;
         margin-bottom: 30px;
         color: #5e6777;
@@ -176,7 +178,7 @@
 
       &.activateOnScroll {
         filter: blur(10px);
-        transition: .4s opacity, .4s filter;
+        transition: 0.4s opacity, 0.4s filter;
 
         &.active {
           opacity: 1;
@@ -184,7 +186,7 @@
         }
       }
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         right: -20%;
       }
     }
@@ -199,7 +201,7 @@
       right: auto;
       left: 0;
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         left: -20%;
       }
     }
@@ -234,7 +236,7 @@
         display: none;
       }
 
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         text-align: center;
       }
     }
@@ -251,7 +253,7 @@
     h2 {
       color: white;
       font-size: 28px;
-      letter-spacing: -.03em;
+      letter-spacing: -0.03em;
       margin-top: 30px;
       margin-bottom: 5px;
       font-weight: 600;
@@ -260,7 +262,7 @@
     p {
       font-size: 20px;
       font-weight: 600;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       color: #003e82;
     }
 
@@ -274,14 +276,13 @@
           margin-right: -5px;
         }
 
-
-        @media (max-width: $screen-xs-max)  {
+        @media (max-width: $screen-xs-max) {
           text-align: center;
           display: block;
           margin: 16px auto;
         }
       }
-      @media (max-width: $screen-sm-max)  {
+      @media (max-width: $screen-sm-max) {
         width: 100%;
       }
     }

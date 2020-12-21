@@ -1,22 +1,30 @@
-{% extends "_layouts/base.html" %}
-{% set id = 'identity-vault' %}
-{% set header_style = 'transparent products-page' %}
-{% set pre_footer = false %}
-{% set header_style = 'transparent light' %}
-{% set cssPath = 'enterprise/identity-vault' %}
-{% set meta_image = 'https://ionicframework.com/img/meta/identity-vault-og.png'%}
-{% set title = 'Identity Vault - Ionic Framework' %}
-{% set meta_description = 'Protect your Ionic app users with the latest in multi-layer native security and best practices for storing biometric authentication data on device. Identity Vault works at the native layer, bringing together dozens of native capabilities and security APIs for the best possible frontend protection.' %}
-{% set meta_keywords = 'Ionic Framework, enterprise app development, enterprise app security, mobile security, app security, app authentication, mobile user authentication, biometric app security, biometric authentication, mobile biometric protection, iOS secure enclave, Android Fingerprint & Pin, Background data hiding, frontend authentication app, frontend app security, data at-rest encryption' %}
-
-{% block main %}
+{% extends "_layouts/base.html" %} {% set id = 'identity-vault' %} {% set
+header_style = 'transparent products-page' %} {% set pre_footer = false %} {%
+set header_style = 'transparent light' %} {% set cssPath =
+'enterprise/identity-vault' %} {% set meta_image =
+'https://ionicframework.com/img/meta/identity-vault-og.png'%} {% set title =
+'Identity Vault - Ionic Framework' %} {% set meta_description = 'Protect your
+Ionic app users with the latest in multi-layer native security and best
+practices for storing biometric authentication data on device. Identity Vault
+works at the native layer, bringing together dozens of native capabilities and
+security APIs for the best possible frontend protection.' %} {% set
+meta_keywords = 'Ionic Framework, enterprise app development, enterprise app
+security, mobile security, app security, app authentication, mobile user
+authentication, biometric app security, biometric authentication, mobile
+biometric protection, iOS secure enclave, Android Fingerprint & Pin, Background
+data hiding, frontend authentication app, frontend app security, data at-rest
+encryption' %} {% block main %}
 <ionic-sub-header>
-  <ul slot="breadcrumbs" style="font-size: 16px;">
+  <ul slot="breadcrumbs" style="font-size: 16px">
     <li><a href="/native">Native</a></li>
     <li><a href="#">Identity Vault</a></li>
   </ul>
   <ul slot="right">
-    <li><a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"><ion-icon name="ios-download"></ion-icon> Datasheet</a></li>
+    <li>
+      <a class="has-icon" data-toggle="modal" data-target="#modal-data-sheet"
+        ><ion-icon name="ios-download"></ion-icon> Datasheet</a
+      >
+    </li>
     <li><a href="/docs/enterprise/identity-vault">Docs</a></li>
     <li><a href="#demo" class="demo btn anchor">Get a demo</a></li>
   </ul>
@@ -27,8 +35,9 @@
       <h3>{% include '_includes/svg/identity-vault.svg' %} Identity Vault</h3>
       <h1>Secure Biometric Authentication.</h1>
       <p>
-        Protect your users with the most secure mobile biometric authentication 
-        available. Boost your security to new or existing hybrid mobile apps in minutes.
+        Protect your users with the most secure mobile biometric authentication
+        available. Boost your security to new or existing hybrid mobile apps in
+        minutes.
       </p>
       <a class="btn sm anchor" href="#demo">Get a Demo</a>
     </hgroup>
@@ -37,253 +46,317 @@
 
 <nav id="sticky-bar">
   <ul class="container nav" role="tablist">
-    <li><a class="anchor" data-offset="150" href="#safety">Keep Your Data Safe</a></li>
-    <li><a class="anchor" data-offset="150" href="#layered">Multi-layered Security</a></li>
-    <li><a class="anchor" data-offset="150" href="#focus">Focus on Your App</a></li>
-    <li><a class="anchor" data-offset="150" href="#security">Native Layer Security</a></li>
+    <li>
+      <a class="anchor" data-offset="150" href="#safety">Keep Your Data Safe</a>
+    </li>
+    <li>
+      <a class="anchor" data-offset="150" href="#layered"
+        >Multi-layered Security</a
+      >
+    </li>
+    <li>
+      <a class="anchor" data-offset="150" href="#focus">Focus on Your App</a>
+    </li>
+    <li>
+      <a class="anchor" data-offset="150" href="#security"
+        >Native Layer Security</a
+      >
+    </li>
     <li><a class="anchor" data-offset="150" href="#features">Features</a></li>
   </ul>
 </nav>
 
 <main>
-<section id="safety" class="gandalf container">
-  <div class="split">
-    <hgroup>
-      <h2>Keep it secret.<br> Keep it safe.</h2>
-      <h5>The App Security Problem:</h5>
+  <section id="safety" class="gandalf container">
+    <div class="split">
+      <hgroup>
+        <h2>
+          Keep it secret.<br />
+          Keep it safe.
+        </h2>
+        <h5>The App Security Problem:</h5>
+        <p>
+          Many frontend authentication app workflows use unsecure practices,
+          like storing tokens unencrypted or using weak authentication logic
+          that can be easily compromised.
+          <strong>Identity Vault fixes this.</strong>
+        </p>
+      </hgroup>
+      <ul class="checkmark-list">
+        <li>Built and supported by Ionic’s native mobile experts</li>
+        <li>
+          Biometrics, data at-rest encryption, and active session management
+        </li>
+        <li>
+          Integrate to new or existing Ionic apps, and any backend auth provider
+        </li>
+        <li>
+          A native, always-on-device security that protects your users’ data
+        </li>
+      </ul>
+    </div>
+    <figure class="activateOnScroll" data-offset="250">
+      <strong>Ionic Identity Vault</strong>
+      <a onClick="toggleFigure(this)"></a>
+    </figure>
+  </section>
+
+  <section id="layered" class="center points container">
+    <hgroup class="content">
+      <h2>Powerful, multi-layered frontend security</h2>
       <p>
-        Many frontend authentication app workflows use unsecure practices, like 
-        storing tokens unencrypted or using weak authentication logic that can 
-        be easily compromised. <strong>Identity Vault fixes this.</strong>
+        <strong>Identity Vault</strong> uses the most advanced frontend security
+        capabilities and best practices to protect users from data loss and
+        unauthorized access.
       </p>
     </hgroup>
-    <ul class="checkmark-list">
-      <li>Built and supported by Ionic’s native mobile experts</li>
-      <li>Biometrics, data at-rest encryption, and active session management</li>
-      <li>Integrate to new or existing Ionic apps, and any backend auth provider</li>
-      <li>A native, always-on-device security that protects your users’ data</li>
+    <ul>
+      <li class="biometrics">
+        <strong>Biometric authentication</strong>
+        <p>
+          Bring the latest in biometric authentication to all of your Ionic
+          apps, including native fingerprint identification and facial
+          recognition for a secure, intuitive user experience across the board.
+        </p>
+      </li>
+      <li class="protection">
+        <strong>Protection that’s always on</strong>
+        <p>
+          Always-on Session Management safeguards data even when not using your
+          app, with background screen protection for sensitive data and apps,
+          and automatic logout based on inactivity time.
+        </p>
+      </li>
+      <li class="code">
+        <strong>Easy code integration</strong>
+        <p>
+          Identity Vault is a completely modular, easy to consume user service
+          that extends your app logic to handle everything you need for secure
+          token storage and session management.
+        </p>
+      </li>
+      <li class="backend">
+        <strong>Pair with any backend auth</strong>
+        <p>
+          Works seamlessly with
+          <a href="https://ionic.io/products/auth-connect">Auth Connect</a> to
+          easily integrate with popular backend authentication providers,
+          including Active Directory, Okta, Auth0, custom REST APIs, and others.
+        </p>
+      </li>
+      <li class="tokens">
+        <strong>Data at-rest encryption</strong>
+        <p>
+          Identity Vault provides a safe, private, and encrypted method of
+          storing authentication tokens and other sensitive data, protecting
+          them with advanced methods like fingerprint and facial ID.
+        </p>
+      </li>
+      <li class="support">
+        <strong>Ongoing updates &amp; support</strong>
+        <p>
+          Your subscription to Identity Vault includes ongoing updates and
+          maintenance, including new API features, patches, updates, and
+          compatibility upgrades for new iOS & Android releases.
+        </p>
+      </li>
     </ul>
-  </div>
-  <figure class="activateOnScroll" data-offset="250">
-    <strong>Ionic Identity Vault</strong>
-    <a onClick="toggleFigure(this)"></a>
-  </figure>
-</section>
+  </section>
 
-<section id="layered" class="center points container">
-  <hgroup class="content">
-    <h2>Powerful, multi-layered frontend security</h2>
-    <p>
-      <strong>Identity Vault</strong> uses the most advanced frontend security 
-      capabilities and best practices to protect users from data loss and 
-      unauthorized access.
-    </p>
-  </hgroup>
-  <ul>
-    <li class="biometrics">
-      <strong>Biometric authentication</strong>
-      <p>
-        Bring the latest in biometric authentication to all of your Ionic apps, 
-        including native fingerprint identification and facial recognition for a 
-        secure, intuitive user experience across the board.
-      </p>
-    </li>
-    <li class="protection">
-      <strong>Protection that’s always on</strong>
-      <p>
-        Always-on Session Management safeguards data even when not using your 
-        app, with background screen protection for sensitive data and apps, and 
-        automatic logout based on inactivity time.
-      </p>
-    </li>
-    <li class="code">
-      <strong>Easy code integration</strong>
-      <p>
-        Identity Vault is a completely modular, easy to consume user service 
-        that extends your app logic to handle everything you need for secure 
-        token storage and session management.
-      </p>
-    </li>
-    <li class="backend">
-      <strong>Pair with any backend auth</strong>
-      <p>
-        Works seamlessly with <a href="/enterprise/auth-connect">Auth Connect</a> to easily 
-        integrate with popular backend authentication providers, including 
-        Active Directory, Okta, Auth0, custom REST APIs, and others.
-      </p>
-    </li>
-    <li class="tokens">
-      <strong>Data at-rest encryption</strong>
-      <p>
-        Identity Vault provides a safe, private, and encrypted method of storing 
-        authentication tokens and other sensitive data, protecting them with 
-        advanced methods like fingerprint and facial ID.
-      </p>
-    </li>
-    <li class="support">
-      <strong>Ongoing updates &amp; support</strong>
-      <p>
-        Your subscription to Identity Vault includes ongoing updates and 
-        maintenance, including new API features, patches, updates, and 
-        compatibility upgrades for new iOS & Android releases.
-      </p>
-    </li>
-  </ul>
-</section>
-
-<section id="focus" class="left protect container">
-  <hgroup class="content">
-    <h2>Protect your users<br>Focus on your app</h2>
-    <p class="lg">
-      Identity Vault offers everything you need to deliver and maintain highly 
-      secure client-side user sign in for all of your Ionic apps, right out of 
-      the box. Our Enterprise Customer Success team has the expertise and skills 
-      to solve any problems that come up.
-    </p>
-    <p class="normal">
-      Get the latest in frontend security, so your team can concentrate on 
-      valuable features and experiences that will set your app apart.
-    </p>
-    <a href="/enterprise/contact" class="contact-sales">Contact sales to learn more<ion-icon name="ios-arrow-forward"></ion-icon></a>
-  </hgroup>
-</section>
-
-<section id="security" class="right integrations container">
-  <hgroup class="content">
-    <h2>Deep native security integrations</h2>
-    <p class="lg">
-      Identity Vault works at the native layer, bringing together over a dozen 
-      native capabilities and security APIs for the best possible frontend 
-      protection.
-    </p>
-    <ul class="checkmark-list checkmark-list--split">
-      <li>TouchID</li>
-      <li>Android Fingerprint &amp; PIN</li>
-      <li>FaceID</li>
-      <li>Android KeyStore</li>
-      <li>Apple Keychain</li>
-      <li>Native Session Timeouts</li>
-      <li>iOS Secure Enclave</li>
-      <li>Background Data Hiding</li>
-    </ul>
-  </hgroup>
-</section>
-
-<section id="features" class="center dark what-you-got">
-  <div class="container">
-    <hgroup>
-      <h2>What you get with Identity Vault</h2>
+  <section id="focus" class="left protect container">
+    <hgroup class="content">
+      <h2>Protect your users<br />Focus on your app</h2>
       <p class="lg">
-        Focus on your app and user experience and let Ionic Identity Vault 
-        enable and automate security, encryption, session management, and more.
+        Identity Vault offers everything you need to deliver and maintain highly
+        secure client-side user sign in for all of your Ionic apps, right out of
+        the box. Our Enterprise Customer Success team has the expertise and
+        skills to solve any problems that come up.
       </p>
+      <p class="normal">
+        Get the latest in frontend security, so your team can concentrate on
+        valuable features and experiences that will set your app apart.
+      </p>
+      <a href="https://ionic.io/contact/sales" class="contact-sales"
+        >Contact sales to learn more<ion-icon
+          name="ios-arrow-forward"
+        ></ion-icon
+      ></a>
     </hgroup>
-    <ul class="checkmark-list checkmark-list--split">
-      <li>Safe, private, and encrypted storage of authentication tokens</li>
-      <li>Modular, easy to consume service that integrates your apps</li>
-      <li>Developer-friendly docs, tutorials, and videos to get you started</li>
-      <li>Works with <a href="/enterprise/auth-connect">Auth Connect</a> to easily integrate with any auth provider</li>
-      <li>Always-on Session Management to keep your users protected</li>
-      <li>Ongoing updates &amp; maintenance, backed by Ionic’s app experts</li>
-      <li>Available advisory services and mission-critical support SLAs</li>
-      <li>Deep native integration, with the best native frontend security</li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<section id="demo" class="center demo container">
-  <hgroup>
-    <h5>Get started with</h5>
-    <h2>Identity Vault</h2>
-  </hgroup>
-  <div class="form hubspot-override hubspot-override--large">
-    <!--[if lte IE 8]>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-    <![endif]-->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-    	  portalId: '3776657',
-    	  formId: 'f0652949-799e-47e0-82ea-ba27e690a7b8',
-        css: ''
-      });
-    </script>
-  </div>
-</section>
+  <section id="security" class="right integrations container">
+    <hgroup class="content">
+      <h2>Deep native security integrations</h2>
+      <p class="lg">
+        Identity Vault works at the native layer, bringing together over a dozen
+        native capabilities and security APIs for the best possible frontend
+        protection.
+      </p>
+      <ul class="checkmark-list checkmark-list--split">
+        <li>TouchID</li>
+        <li>Android Fingerprint &amp; PIN</li>
+        <li>FaceID</li>
+        <li>Android KeyStore</li>
+        <li>Apple Keychain</li>
+        <li>Native Session Timeouts</li>
+        <li>iOS Secure Enclave</li>
+        <li>Background Data Hiding</li>
+      </ul>
+    </hgroup>
+  </section>
 
-<section class="right watch">
-  <div class="container">
-    <a class="card"
-       target="_blank"
-       href="https://go.ionicframework.com/identity-vault">
-      <img src="/img/enterprise/identity-vault/video-thumbnail.png"
-           alt="card with ionic logo and video play button hovering in front"
-           loading="lazy"
-           width="920"
-           height="760" />
-    </a>
+  <section id="features" class="center dark what-you-got">
+    <div class="container">
+      <hgroup>
+        <h2>What you get with Identity Vault</h2>
+        <p class="lg">
+          Focus on your app and user experience and let Ionic Identity Vault
+          enable and automate security, encryption, session management, and
+          more.
+        </p>
+      </hgroup>
+      <ul class="checkmark-list checkmark-list--split">
+        <li>Safe, private, and encrypted storage of authentication tokens</li>
+        <li>Modular, easy to consume service that integrates your apps</li>
+        <li>
+          Developer-friendly docs, tutorials, and videos to get you started
+        </li>
+        <li>
+          Works with
+          <a href="https://ionic.io/products/auth-connect">Auth Connect</a> to
+          easily integrate with any auth provider
+        </li>
+        <li>Always-on Session Management to keep your users protected</li>
+        <li>
+          Ongoing updates &amp; maintenance, backed by Ionic’s app experts
+        </li>
+        <li>Available advisory services and mission-critical support SLAs</li>
+        <li>Deep native integration, with the best native frontend security</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="demo" class="center demo container">
     <hgroup>
-      <h3>Watch our Solution Walkthrough</h3>
-      <p>
-        Curious how exactly <strong>Identity Vault</strong> secures your app and
-        protects your users? Watch our video overview that covers everything you
-        need to know.
-      </p>
-      <a class="btn sm white"
-         target="_blank"
-         href="https://go.ionicframework.com/identity-vault">
-        <img src="/img/enterprise/identity-vault/play-video-btn-icon.png" loading="lazy" width="32" height="32" alt="play button icon" />
-        Watch the video
-      </a>
+      <h5>Get started with</h5>
+      <h2>Identity Vault</h2>
     </hgroup>
-  </div>
-</section>
-</main>
-{% endblock %}
+    <div class="form hubspot-override hubspot-override--large">
+      <!--[if lte IE 8]>
+        <script
+          charset="utf-8"
+          type="text/javascript"
+          src="//js.hsforms.net/forms/v2-legacy.js"
+        ></script>
+      <![endif]-->
+      <script
+        charset="utf-8"
+        type="text/javascript"
+        src="//js.hsforms.net/forms/v2.js"
+      ></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "3776657",
+          formId: "f0652949-799e-47e0-82ea-ba27e690a7b8",
+          css: "",
+        });
+      </script>
+    </div>
+  </section>
 
-{% block modals %}
-<div class="modal collapse fade modal--form"
-     id="modal-data-sheet"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="promo--ionic-for-enterprise">
+  <section class="right watch">
+    <div class="container">
+      <a
+        class="card"
+        target="_blank"
+        href="https://go.ionicframework.com/identity-vault"
+      >
+        <img
+          src="/img/enterprise/identity-vault/video-thumbnail.png"
+          alt="card with ionic logo and video play button hovering in front"
+          loading="lazy"
+          width="920"
+          height="760"
+        />
+      </a>
+      <hgroup>
+        <h3>Watch our Solution Walkthrough</h3>
+        <p>
+          Curious how exactly <strong>Identity Vault</strong> secures your app
+          and protects your users? Watch our video overview that covers
+          everything you need to know.
+        </p>
+        <a
+          class="btn sm white"
+          target="_blank"
+          href="https://go.ionicframework.com/identity-vault"
+        >
+          <img
+            src="/img/enterprise/identity-vault/play-video-btn-icon.png"
+            loading="lazy"
+            width="32"
+            height="32"
+            alt="play button icon"
+          />
+          Watch the video
+        </a>
+      </hgroup>
+    </div>
+  </section>
+</main>
+{% endblock %} {% block modals %}
+<div
+  class="modal collapse fade modal--form"
+  id="modal-data-sheet"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="promo--ionic-for-enterprise"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body form hubspot-override hubspot-override--large">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
         <hgroup class="hero text-center">
           <h2>Before we send it&hellip;</h2>
           <p class="lg">
-            We just need some basic information so we can send the Datasheet your way.
+            We just need some basic information so we can send the Datasheet
+            your way.
           </p>
         </hgroup>
 
         <!--[if lte IE 8]>
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <script
+            charset="utf-8"
+            type="text/javascript"
+            src="//js.hsforms.net/forms/v2-legacy.js"
+          ></script>
         <![endif]-->
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script
+          charset="utf-8"
+          type="text/javascript"
+          src="//js.hsforms.net/forms/v2.js"
+        ></script>
         <script>
           hbspt.forms.create({
             portalId: "3776657",
-            formId: "8ac8655d-3f54-4844-8d7c-19fb01da1dd7"
+            formId: "8ac8655d-3f54-4844-8d7c-19fb01da1dd7",
           });
         </script>
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
-
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script>
-function toggleFigure(el) {
-  el.parentElement.classList.toggle('active');
-}
+  function toggleFigure(el) {
+    el.parentElement.classList.toggle("active");
+  }
 </script>
 {% endblock %}

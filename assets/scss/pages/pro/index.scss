@@ -1,5 +1,5 @@
-@import '../../vars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import "../../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 #page-products {
   background-color: #fff;
@@ -8,24 +8,21 @@
     margin-bottom: 0px;
   }
 
-  .cta,
-  .pro-nav,
-  .pro-video,
-  main {
-    font-family: $font-family-eina;
-  }
-
   #sub-header > .container {
     align-items: center;
 
     &:before {
-      border-top-color: rgba(255,255,255,0.1);
+      border-top-color: rgba(255, 255, 255, 0.1);
     }
   }
 
   > .cta {
     position: relative;
-    background-image: linear-gradient( 90deg, rgb(101,33,252) 0%, rgb(56,159,255) 100%);
+    background-image: linear-gradient(
+      90deg,
+      rgb(101, 33, 252) 0%,
+      rgb(56, 159, 255) 100%
+    );
     margin-top: -140px;
     padding-top: 140px;
 
@@ -48,37 +45,37 @@
       &:nth-child(1) {
         opacity: 0.05;
         top: $y-begin;
-        left: (100%/$x-spacing) * 0;
+        left: (100% / $x-spacing) * 0;
       }
       &:nth-child(2) {
-        opacity: 0.10;
+        opacity: 0.1;
         top: ($y-begin - ($y-spacing * 1));
-        left: (100%/$x-spacing) * 1;
+        left: (100% / $x-spacing) * 1;
       }
       &:nth-child(3) {
         opacity: 0.09;
         top: ($y-begin - ($y-spacing * 2));
-        left: (100%/$x-spacing) * 2;
+        left: (100% / $x-spacing) * 2;
       }
       &:nth-child(4) {
         opacity: 0.15;
         top: ($y-begin - ($y-spacing * 3));
-        left: (100%/$x-spacing) * 3;
+        left: (100% / $x-spacing) * 3;
       }
       &:nth-child(5) {
         opacity: 0.16;
         top: ($y-begin - ($y-spacing * 4));
-        left: (100%/$x-spacing) * 4;
+        left: (100% / $x-spacing) * 4;
       }
       &:nth-child(6) {
         opacity: 0.08;
         top: ($y-begin - ($y-spacing * 5));
-        left: (100%/$x-spacing) * 5;
+        left: (100% / $x-spacing) * 5;
       }
     }
 
     .cta__background {
-      content: '';
+      content: "";
       background-position: center center;
       background-size: cover;
       display: block;
@@ -88,7 +85,11 @@
       z-index: 0;
       top: -4px;
       left: 0;
-      background-image: linear-gradient(90deg, rgb(96,48,252) 0%, rgb(95,162,254) 100%);
+      background-image: linear-gradient(
+        90deg,
+        rgb(96, 48, 252) 0%,
+        rgb(95, 162, 254) 100%
+      );
       // background-image: url("/img/pro/pro-hero-bg.png");
       background-size: cover;
       opacity: 0.5;
@@ -98,8 +99,13 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        background-image: linear-gradient(90deg, #fff 0%, rgba(255,255,255, 0) 75%);
-        transform: translate(-20px, 0) rotate(-3deg) skew(16deg, 0deg) scale(1, 1.5);
+        background-image: linear-gradient(
+          90deg,
+          #fff 0%,
+          rgba(255, 255, 255, 0) 75%
+        );
+        transform: translate(-20px, 0) rotate(-3deg) skew(16deg, 0deg)
+          scale(1, 1.5);
         transform-origin: top;
 
         @include bg-layout(6.5, 75%, 25%);
@@ -132,12 +138,12 @@
         font-size: 56px;
         line-height: 60px;
         font-weight: 700;
-        letter-spacing: -.038em;
+        letter-spacing: -0.038em;
         margin-bottom: 264x;
       }
 
       p {
-        letter-spacing: -.03em;
+        letter-spacing: -0.03em;
         max-width: 724px;
         line-height: 1.8em;
         margin: 0 auto;
@@ -149,10 +155,10 @@
 
       .cta-buttons {
         margin-top: 30px;
-        padding-left:24px;
-        padding-right:24px;
+        padding-left: 24px;
+        padding-right: 24px;
         color: white;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
 
         > .btn {
           align-items: center;
@@ -162,7 +168,7 @@
           font-size: 15px;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.10em;
+          letter-spacing: 0.1em;
           padding: 14px 26px;
 
           &:not(:hover) {
@@ -176,8 +182,8 @@
 
           &:after {
             transition: transform 0.3s;
-            content: '\f287';
-            font-family: 'Ionicons';
+            content: "\f287";
+            font-family: "Ionicons";
             font-size: 15px;
             margin-left: 8px;
           }
@@ -188,22 +194,22 @@
         }
 
         .sales {
-          color: rgba(white, .5);
+          color: rgba(white, 0.5);
           margin-top: 6px;
           display: inline-block;
           text-decoration: underline;
-          transition: .2s color;
+          transition: 0.2s color;
 
           &:hover {
-            color: rgba(white, .8);
+            color: rgba(white, 0.8);
           }
         }
       }
-      @media (max-width: $screen-sm)  {
+      @media (max-width: $screen-sm) {
         padding-bottom: 140px;
       }
 
-      @media (max-width: $screen-xs)  {
+      @media (max-width: $screen-xs) {
         padding-top: 14px;
 
         h1 {
@@ -251,7 +257,8 @@
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,14,41,0.08), 0 30px 60px rgba(0,11,34,0.15);
+      box-shadow: 0 8px 16px rgba(0, 14, 41, 0.08),
+        0 30px 60px rgba(0, 11, 34, 0.15);
 
       img {
         width: 100%;
@@ -287,11 +294,10 @@
     //   }
     // }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       margin-top: -76px;
     }
   }
-
 
   .customer-logos {
     padding: 0;
@@ -305,26 +311,25 @@
     justify-content: space-between;
 
     [class^="customer-logo"] {
-      background-image: url('/img/pro/pro-customer-sprite.png');
+      background-image: url("/img/pro/pro-customer-sprite.png");
       background-repeat: no-repeat;
       background-size: 121px 256px;
       margin: 34px 42px;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       justify-content: center;
       [class^="customer-logo"] {
         margin: 22px 34px;
       }
     }
 
-    @media (max-width: $screen-sm-min)  {
+    @media (max-width: $screen-sm-min) {
       padding: 8px;
       [class^="customer-logo"] {
         margin: 16px 18px;
       }
     }
-
 
     .customer-logo--lendingclub {
       width: 121px;
@@ -354,7 +359,7 @@
     .customer-logo--comcast {
       background-position: 0 -105px;
       width: 73px;
-    	height: 20px;
+      height: 20px;
     }
     .customer-logo--amtrak {
       background-position: 0 -126px;
@@ -486,10 +491,10 @@
 
       &::before {
         display: block;
-        content: '';
+        content: "";
         width: 24px;
         height: 24px;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAwCAYAAAC4wJK5AAAD/ElEQVRogc3a24tVZRzG8c9ac9jOOOjIMGoMSXQxRBc16UWS4YVikBKKUGTEUF35BwjhX5BCF0EXRhcVU0QUCBYR5AESJIkwu4kYL4JA85A56dC4Z2xWF+8a3TOzD2vtw5oeWOzN3uv9/Z4v73G974qSJHHwY+1QH7ZhK0bTaxAD6f/TmMJkep3HOcy0mri7xfJ92Itx7EApQ5mnK76XcQYTOKFJoGYhBnEQhzDUZAwC9PPpdRNv4z2hxjIrzpk0wutCc3hLawBLNZTGnExzRFkL5oHYiJP4AMN53OXUcJrjZJqzobJCbMdF7GzOV1Pamebc3ujG+Oc/Ggbbj2+xoWVb+bUhzb2/3k2NamI/vpBt1OmUSqmHmiD1ILbj0wb3FKVY8FK1adUyuBGfW9kaWKqS4GlZZ68GEeETK9MHGmmD4G3R8FsN4jXFjkJ5tVPweF9LIQZxtCg3Leio4BXLIQ7q7ETWLg0LXrEYok9YC62IhtewOt8wckjwvAhir/auhTJrZB37trB3Sy6QIcHzIojxNnvLpJF17B6ju4u1/ex5ilL2tfU4DyD6hOeBQlUJsKD+XnqzQ+xAXwxx5FkFT2zVAGZm+fICd+5mDlPCtlATkWfa7LGu6gH8NZ073NYYIh5rm8MG2jjYVgAYjREl4aG+41q/hj3tBWABImJd6xbra/0aXti8uNO2AQAGQ00kVuct2V8KE1QWdRAABkJNRNkfygkT0r4t4RppUIcdBkA6T0RR9v2evt4ws67tD21791htkCIAMB0jiSN3spboiuiq6Ji1QAoCgKkYSXfst6wlpsuc+DF8LmgpSIEAMBkj6epyKU+p2zO1QZ7YVCgACxCrenyft2QtkG2jhQLA+RgeXe9MFJnLW7oaSKXuznUcoIxzMWx+xFRvtx+aiVILZPYeX//UUQDCjvpMDMdO+bfUbaLZSPdB0tVneY6vLnD9dluM1tMERBevJI6d4vERa3+94vf5RMZ5eLlKPWwa4vIt/qnRxNqom3jYQk3AL5f9XerxbitRy3NculoIAOEsY4Ylux0Dq7wTR24VYqE13RAOY7AE4sZtf3Z3OVy4pfx6U8Vp0rIdwNl73o8j3xVqKZ9O46PKH6ptYybziZdxvQhHOXUNryKp/LHWrvhVvChMJv8XlfGS4G2R6p09nMUrmO+QqTyaF7ycrfZnowOU41a+Rsqph+O1bshyCnQczwntsWhdS3PXBCD7UdZZjAkjQ1E6neas2oQqFT/5UOagV7ELbwiTTad0I82xS5VOXE15DxUTfCjsUx0W1i/t0s005miaI6l/+wM1ezI6hSPCAuwAvtFc5y+nZQ+ksY7I+V4Hrb9lM4PP0mvFXhX6D3mVKTX2fENsAAAAAElFTkSuQmCC');
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAwCAYAAAC4wJK5AAAD/ElEQVRogc3a24tVZRzG8c9ac9jOOOjIMGoMSXQxRBc16UWS4YVikBKKUGTEUF35BwjhX5BCF0EXRhcVU0QUCBYR5AESJIkwu4kYL4JA85A56dC4Z2xWF+8a3TOzD2vtw5oeWOzN3uv9/Z4v73G974qSJHHwY+1QH7ZhK0bTaxAD6f/TmMJkep3HOcy0mri7xfJ92Itx7EApQ5mnK76XcQYTOKFJoGYhBnEQhzDUZAwC9PPpdRNv4z2hxjIrzpk0wutCc3hLawBLNZTGnExzRFkL5oHYiJP4AMN53OXUcJrjZJqzobJCbMdF7GzOV1Pamebc3ujG+Oc/Ggbbj2+xoWVb+bUhzb2/3k2NamI/vpBt1OmUSqmHmiD1ILbj0wb3FKVY8FK1adUyuBGfW9kaWKqS4GlZZ68GEeETK9MHGmmD4G3R8FsN4jXFjkJ5tVPweF9LIQZxtCg3Leio4BXLIQ7q7ETWLg0LXrEYok9YC62IhtewOt8wckjwvAhir/auhTJrZB37trB3Sy6QIcHzIojxNnvLpJF17B6ju4u1/ex5ilL2tfU4DyD6hOeBQlUJsKD+XnqzQ+xAXwxx5FkFT2zVAGZm+fICd+5mDlPCtlATkWfa7LGu6gH8NZ073NYYIh5rm8MG2jjYVgAYjREl4aG+41q/hj3tBWABImJd6xbra/0aXti8uNO2AQAGQ00kVuct2V8KE1QWdRAABkJNRNkfygkT0r4t4RppUIcdBkA6T0RR9v2evt4ws67tD21791htkCIAMB0jiSN3spboiuiq6Ji1QAoCgKkYSXfst6wlpsuc+DF8LmgpSIEAMBkj6epyKU+p2zO1QZ7YVCgACxCrenyft2QtkG2jhQLA+RgeXe9MFJnLW7oaSKXuznUcoIxzMWx+xFRvtx+aiVILZPYeX//UUQDCjvpMDMdO+bfUbaLZSPdB0tVneY6vLnD9dluM1tMERBevJI6d4vERa3+94vf5RMZ5eLlKPWwa4vIt/qnRxNqom3jYQk3AL5f9XerxbitRy3NculoIAOEsY4Ylux0Dq7wTR24VYqE13RAOY7AE4sZtf3Z3OVy4pfx6U8Vp0rIdwNl73o8j3xVqKZ9O46PKH6ptYybziZdxvQhHOXUNryKp/LHWrvhVvChMJv8XlfGS4G2R6p09nMUrmO+QqTyaF7ycrfZnowOU41a+Rsqph+O1bshyCnQczwntsWhdS3PXBCD7UdZZjAkjQ1E6neas2oQqFT/5UOagV7ELbwiTTad0I82xS5VOXE15DxUTfCjsUx0W1i/t0s005miaI6l/+wM1ezI6hSPCAuwAvtFc5y+nZQ+ksY7I+V4Hrb9lM4PP0mvFXhX6D3mVKTX2fENsAAAAAElFTkSuQmCC");
         background-repeat: no-repeat;
         background-size: 100%;
         position: absolute;
@@ -506,7 +511,7 @@
 
       p {
         color: #545c6a;
-        font-size:15px;
+        font-size: 15px;
         line-height: 24px;
       }
     }
@@ -529,7 +534,7 @@
       position: relative;
 
       &.dark {
-        color: rgba(white, .8);
+        color: rgba(white, 0.8);
 
         h2,
         .hero__cta {
@@ -562,11 +567,11 @@
         color: #808fa7;
 
         &::before {
-          background: url('/img/pro/product-header-icons.png') 0 0 no-repeat;
+          background: url("/img/pro/product-header-icons.png") 0 0 no-repeat;
           background-size: 64px;
           width: 64px;
           height: 64px;
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
         }
@@ -586,7 +591,7 @@
       margin-left: 30px;
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       &__cta-bar {
         flex-direction: column;
       }
@@ -606,8 +611,8 @@
       transition: border-bottom-color 100ms ease-in-out;
 
       &:after {
-        content: '\f287';
-        font-family: 'Ionicons';
+        content: "\f287";
+        font-family: "Ionicons";
         font-size: 16px;
         margin-left: 5px;
       }
@@ -643,11 +648,11 @@
         right: 0;
         left: 0;
         bottom: 0;
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         opacity: 0;
-        transition: .2s opacity;
+        transition: 0.2s opacity;
       }
     }
 
@@ -664,11 +669,10 @@
       margin-bottom: 30px;
     }
 
-
     h3 {
       font-size: 36px;
       font-weight: 700;
-      letter-spacing: -.02em;
+      letter-spacing: -0.02em;
       margin-bottom: 30px;
     }
 
@@ -678,13 +682,13 @@
       margin-bottom: 23px;
       margin-top: 14px;
       font-weight: 700;
-      letter-spacing: -.015em;
+      letter-spacing: -0.015em;
     }
 
     p {
       font-size: 16px;
       font-weight: 600;
-      letter-spacing: -.026em;
+      letter-spacing: -0.026em;
       line-height: 1.8em;
       margin-bottom: 30px;
       color: #5e6777;
@@ -711,15 +715,15 @@
       }
 
       &::after {
-        font-family: 'Ionicons';
-        content: '\f287';
+        font-family: "Ionicons";
+        content: "\f287";
         font-size: 15px;
         line-height: 10px;
         vertical-align: -1px;
         margin-left: 8px;
         font-weight: 600;
         display: inline-block;
-        transition: .2s transform;
+        transition: 0.2s transform;
       }
 
       &:hover::after {
@@ -727,7 +731,7 @@
       }
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       .content {
         h2 {
           font-size: 30px;
@@ -775,7 +779,7 @@
       h4 {
         font-size: 20px;
         text-transform: none;
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
         margin-top: 5px;
         margin-bottom: 13px;
         font-weight: 600;
@@ -786,7 +790,7 @@
         font-size: 16px;
         line-height: 28px;
         color: #687e99;
-        letter-spacing: -.015em;
+        letter-spacing: -0.015em;
         font-weight: 400;
       }
     }
@@ -797,23 +801,27 @@
       position: relative;
 
       &::before {
-        background: url('/img/pro/pro-feature-icons.png') 0 0 no-repeat;
+        background: url("/img/pro/pro-feature-icons.png") 0 0 no-repeat;
         background-size: 48px;
         height: 48px;
         width: 48px;
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
       }
 
-      &.faster::before { background-position: 0 -48px; }
-      &.happier::before { background-position: 0 -96px; }
+      &.faster::before {
+        background-position: 0 -48px;
+      }
+      &.happier::before {
+        background-position: 0 -96px;
+      }
       & + li {
         margin-left: 24px;
       }
     }
 
-    @media (max-width: 520px)  {
+    @media (max-width: 520px) {
       .features {
         display: block;
       }
@@ -822,7 +830,7 @@
         text-align: center;
 
         &::before {
-          left: calc( 50% - 24px);
+          left: calc(50% - 24px);
         }
 
         + li {
@@ -831,12 +839,12 @@
       }
     }
 
-    @media (max-width: $screen-sm)  {
+    @media (max-width: $screen-sm) {
       padding-bottom: 68px;
       padding-top: 102px;
     }
 
-    @media (max-width: $screen-xs)  {
+    @media (max-width: $screen-xs) {
       padding-bottom: 48px;
       padding-top: 72px;
 
@@ -856,12 +864,17 @@
   }
 
   #updates {
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
     background-size: 100%;
 
     h4 {
-
-      &::before { background-position: 0 0; }
+      &::before {
+        background-position: 0 0;
+      }
     }
 
     .content {
@@ -869,7 +882,7 @@
       position: relative;
       z-index: 10;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         padding-top: 148px;
       }
     }
@@ -909,7 +922,7 @@
     .anim-updates__device {
       width: 726px;
       height: 437px;
-      background-image: url('/img/pro/updates-illustration-device.png');
+      background-image: url("/img/pro/updates-illustration-device.png");
       background-repeat: no-repeat;
       background-size: 726px 437px;
       position: absolute;
@@ -927,11 +940,11 @@
       top: 28px;
       left: 406px;
       transform-origin: top left;
-      transform: rotateX(60deg) rotateY(0.7deg) rotateZ(36.5deg) skew(2deg, -1.5deg);
+      transform: rotateX(60deg) rotateY(0.7deg) rotateZ(36.5deg)
+        skew(2deg, -1.5deg);
     }
 
-
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .anim-updates {
         display: none;
       }
@@ -951,11 +964,17 @@
   }
 
   #build {
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
     padding: 100px 0;
 
     h4 {
-      &::before { background-position: 0 -64px; }
+      &::before {
+        background-position: 0 -64px;
+      }
     }
 
     .anim-build {
@@ -981,7 +1000,7 @@
       padding-top: 140px;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .container::before {
         background-size: 40%;
         top: 128px;
@@ -995,7 +1014,7 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       background-image: none;
       padding: 0;
 
@@ -1025,7 +1044,9 @@
     .btn {
       color: #607d79;
 
-      &::before { background-position: 0 -256px; }
+      &::before {
+        background-position: 0 -256px;
+      }
     }
 
     .anim-reporting {
@@ -1077,7 +1098,7 @@
       z-index: 5;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .content {
         min-height: 0;
         padding-top: 64px;
@@ -1087,11 +1108,11 @@
         opacity: 0.7;
       }
       .anim-reporting__clipped {
-        transform: scale(0.80);
+        transform: scale(0.8);
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       padding: 0;
 
       .anim-reporting {
@@ -1120,16 +1141,18 @@
     h4 {
       color: #d26d00;
 
-      &::before { background-position: 0 -320px; }
+      &::before {
+        background-position: 0 -320px;
+      }
     }
 
     .container::before {
-      background-image: url('/img/pro/product-push-img.png');
+      background-image: url("/img/pro/product-push-img.png");
       background-position: left 0;
       top: 80px;
       bottom: 80px;
 
-      @media (max-width: $screen-md-max)  {
+      @media (max-width: $screen-md-max) {
         top: 130px;
         bottom: 130px;
       }
@@ -1140,7 +1163,7 @@
       width: 35%;
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .container::before {
         display: none;
       }
@@ -1161,14 +1184,20 @@
 
   #automate {
     background-color: #f9fafc;
-    background-image: linear-gradient( 0deg, rgb(255,255,255) 0%, rgb(246,248,251) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgb(246, 248, 251) 100%
+    );
 
     background-size: 100%;
     position: relative;
     padding-bottom: 160px;
 
     h4 {
-      &::before { background-position: 0 -128px; }
+      &::before {
+        background-position: 0 -128px;
+      }
     }
 
     .anim-automate {
@@ -1176,7 +1205,6 @@
       top: 220px;
       left: 50%;
       margin-left: -400px;
-
 
       svg {
         .connector {
@@ -1203,11 +1231,9 @@
       svg > g {
         transform: translateY(50px);
       }
-
-
     }
 
-    @media (max-width: $screen-md-max)  {
+    @media (max-width: $screen-md-max) {
       padding-bottom: 390px;
 
       .content {
@@ -1227,7 +1253,7 @@
       }
     }
 
-    @media (max-width: $screen-sm-min)  {
+    @media (max-width: $screen-sm-min) {
       padding: 0;
 
       .anim-automate {
@@ -1267,7 +1293,7 @@
           margin: 0;
           color: #fff;
           font-size: 13px;
-          line-height: 17px
+          line-height: 17px;
         }
 
         span {
@@ -1277,7 +1303,7 @@
         }
 
         &:before {
-          content: '';
+          content: "";
           display: block;
           width: 20px;
           height: 50px;
@@ -1288,21 +1314,21 @@
       }
 
       .master:before {
-        background-image: url('/img/pro/pro-automate-animation/master.png');
+        background-image: url("/img/pro/pro-automate-animation/master.png");
         width: 100px;
         height: 30px;
         background-size: 100px 30px;
       }
 
       .staging:before {
-        background-image: url('/img/pro/pro-automate-animation/staging.png');
+        background-image: url("/img/pro/pro-automate-animation/staging.png");
         width: 110px;
         height: 30px;
         background-size: 110px 30px;
       }
 
       .qa:before {
-        background-image: url('/img/pro/pro-automate-animation/qa.png');
+        background-image: url("/img/pro/pro-automate-animation/qa.png");
         width: 61px;
         height: 30px;
         background-size: 61px 30px;
@@ -1317,33 +1343,33 @@
       }
 
       .android:before {
-        background-image: url('/img/pro/pro-automate-animation/android.png');
+        background-image: url("/img/pro/pro-automate-animation/android.png");
       }
 
       .ios:before {
-        background-image: url('/img/pro/pro-automate-animation/ios.png');
+        background-image: url("/img/pro/pro-automate-animation/ios.png");
       }
 
       .web:before {
-        background-image: url('/img/pro/pro-automate-animation/js.png');
+        background-image: url("/img/pro/pro-automate-animation/js.png");
       }
 
       .testflight:before {
-        background-image: url('/img/pro/pro-automate-animation/testflight.png');
+        background-image: url("/img/pro/pro-automate-animation/testflight.png");
         width: 53px;
         height: 53px;
         background-size: 53px 53px;
       }
 
       .playstore:before {
-        background-image: url('/img/pro/pro-automate-animation/playstore.png');
+        background-image: url("/img/pro/pro-automate-animation/playstore.png");
         width: 50px;
         height: 55px;
         background-size: 50px 55px;
       }
 
       .webhook:before {
-        background-image: url('/img/pro/pro-automate-animation/webhook.png');
+        background-image: url("/img/pro/pro-automate-animation/webhook.png");
         width: 58px;
         height: 54px;
         background-size: 58px 54px;
@@ -1448,17 +1474,17 @@
 
     [class^="pro-feature--"] h5::before {
       display: block;
-      content: '';
+      content: "";
       width: 24px;
       height: 24px;
-      background-image: url('/img/pro/pro-feature-sprite.png');
+      background-image: url("/img/pro/pro-feature-sprite.png");
       background-repeat: no-repeat;
       background-size: 24px 192px;
       margin-right: 12px;
     }
 
     .pro-feature--app-dashboard h5::before {
-        background-position: 0 0;
+      background-position: 0 0;
     }
 
     .pro-feature--configurable h5::before {
@@ -1489,13 +1515,13 @@
       background-position: 0 calc(-7 * 24px);
     }
 
-    @media (max-width: $screen-md-max)  {
+    @media (max-width: $screen-md-max) {
       li {
         flex: 0 0 33%;
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       padding: 90px 0;
       text-align: center;
 
@@ -1508,20 +1534,24 @@
       }
     }
 
-    @media (max-width: $screen-xs-max)  {
+    @media (max-width: $screen-xs-max) {
       hgroup h3 {
         font-size: 30px;
       }
 
       li {
         flex: 0 0 100%;
-        margin-top: 36px
+        margin-top: 36px;
       }
     }
   }
 
   .get-started {
-    background: linear-gradient( 45deg, rgb(27,31,58) 0%, rgb(41,47,82) 100%);
+    background: linear-gradient(
+      45deg,
+      rgb(27, 31, 58) 0%,
+      rgb(41, 47, 82) 100%
+    );
 
     overflow: auto;
 
@@ -1533,7 +1563,7 @@
     }
 
     hgroup {
-      letter-spacing: -.025em;
+      letter-spacing: -0.025em;
       flex-grow: 1;
     }
 
@@ -1542,7 +1572,7 @@
       font-size: 28px;
       line-height: 36px;
       font-weight: 400;
-      letter-spacing: -0.02em;;
+      letter-spacing: -0.02em;
       margin: 0;
       max-width: 680px;
 
@@ -1563,7 +1593,7 @@
     .btn {
       font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.1em;
       font-weight: 700;
       border-radius: 100px;
       background-color: #5fa3ff;
@@ -1574,10 +1604,10 @@
       }
     }
 
-    @media (max-width: $screen-sm-max)  {
+    @media (max-width: $screen-sm-max) {
       .container {
         display: block;
-        text-align: center
+        text-align: center;
       }
 
       hgroup {

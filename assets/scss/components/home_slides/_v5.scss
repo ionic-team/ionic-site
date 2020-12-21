@@ -3,11 +3,10 @@
   padding-bottom: 245px;
 
   h4 {
-    font-family: $font-family-eina;
     font-size: 24px;
     line-height: 29px;
     letter-spacing: -0.03em;
-    color: #5B708B;
+    color: #5b708b;
     font-weight: 600;
     text-transform: none;
     margin-bottom: 30px;
@@ -31,9 +30,15 @@
     span {
       display: block;
 
-      &:nth-child(1) { transition-delay: .1s; }
-      &:nth-child(2) { transition-delay: .2s; }
-      &:nth-child(3) { transition-delay: .3s; }
+      &:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
     }
   }
 
@@ -43,20 +48,28 @@
   }
 
   li {
-    background: url('/img/homepage/checkmark.svg') no-repeat left 11px;
+    background: url("/img/homepage/checkmark.svg") no-repeat left 11px;
     background-size: 16px;
     padding-left: 28px;
     font-size: 24px;
     line-height: 38px;
     letter-spacing: -0.02em;
-    color: rgba(#1A232F,0.9);
+    color: rgba(#1a232f, 0.9);
     list-style: none;
     margin-bottom: 4px;
 
-    &:nth-child(1) { transition-delay: .5s; }
-    &:nth-child(2) { transition-delay: .6s; }
-    &:nth-child(3) { transition-delay: .7s; }
-    &:nth-child(4) { transition-delay: .8s; }
+    &:nth-child(1) {
+      transition-delay: 0.5s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.6s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.7s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.8s;
+    }
   }
 
   .btn {
@@ -66,17 +79,16 @@
     text-transform: uppercase;
     padding: 15px 19px 13px;
     border-radius: 10px;
-    box-shadow: 
-      0px 2px 4px rgba(2, 8, 20, 0.1), 
+    box-shadow: 0px 2px 4px rgba(2, 8, 20, 0.1),
       0px 1px 2px rgba(2, 8, 20, 0.08);
 
     img {
       margin: -1px -3px 0 2px;
       width: 19px;
     }
-    
+
     &-wrapper {
-      transition-delay: .9s;
+      transition-delay: 0.9s;
     }
   }
 
@@ -88,7 +100,7 @@
     > * {
       position: absolute;
       opacity: 0;
-      animation: fadeInUp .8s ease-out 1s forwards;
+      animation: fadeInUp 0.8s ease-out 1s forwards;
 
       &:nth-child(1) {
         right: -104px;
@@ -152,7 +164,7 @@
       &:nth-child(11) {
         right: 140px;
         top: -43px;
-        animation-delay: 2.0s;
+        animation-delay: 2s;
       }
 
       &:nth-child(12) {
@@ -219,7 +231,7 @@
 
     .graphic {
       top: auto;
-      transform: scale(.75);
+      transform: scale(0.75);
       right: calc(50% - 120px);
       bottom: 530px;
     }
@@ -231,4 +243,3 @@
     }
   }
 }
-

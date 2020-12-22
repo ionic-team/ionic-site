@@ -10,6 +10,27 @@
                        "main sidebar"
                        "footer sidebar";
 
+  &.start {
+    grid-template-columns: minmax(min-content, 4fr) 5fr;
+    grid-template-areas: "siebar header"
+                         "sidebar main"
+                         "sidebar footer";
+
+    header {
+      display: none;
+    }
+
+    @media (max-width: $screen-xs-max) {
+
+      grid-template-columns: auto;
+      grid-template-areas: "header"
+                           "sidebar"
+                           "main"
+                           "footer";
+    }
+  }
+
+
   header {
     grid-area: header;
     padding: 20px;
@@ -217,6 +238,98 @@
 
       &--fixed {
         position: static;
+      }
+    }
+  }
+}
+
+.start {
+  position: relative;
+  grid-area: sidebar;
+  flex-basis: 45.56%;
+
+  .background {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #4998FF 0%, rgba(65, 110, 255, 0.2) 100%);;
+    object-fit: cover;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+
+    .start-spacer {
+      flex-basis: 23.49%;
+    }
+
+    .horizontal-group {
+      display: flex;
+
+      .start-spacer {
+        flex-grow: 1;
+      }
+
+      .end-spacer {
+        flex-basis: 58px;
+      }
+
+      .heading-group {
+        position: relative;
+        font-size: 0;
+
+        .home-icon {
+          margin-block-end: 32px;
+          display: block;
+        }
+
+        .ui-heading {
+          font-size: 48px;
+          color: #fff;
+          margin-bottom: 48px;
+        }
+
+        ul {
+          padding: 0;
+        }
+
+        li {
+          display: flex;
+          align-items: flex-start;
+          font-size: 20px;
+          line-height: 112%;
+          letter-spacing: -0.02em;
+          color: #E3EDFF;
+
+
+          & + li {
+            margin-block-start: 32px;
+          }
+
+          img {
+            border-radius: 1000px;
+            margin-block-start: 2px;
+            width: auto;
+            margin-inline-end: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    .horizontal-group {
+      justify-content: center;
+      align-items: center;
+      padding: 32px 8px 48px;
+
+      .start-spacer {
+        display: none;
       }
     }
   }

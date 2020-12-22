@@ -1,9 +1,13 @@
-@import '../../vars';
+@import "../../vars";
 // @import '../../../../node_modules/prismjs/themes/prism-tomorrow';
-@import '../../prism-ionic';
+@import "../../prism-ionic";
 
 :host {
   display: block;
+
+  * {
+    box-sizing: border-box;
+  }
 
   .grid {
     height: 100%;
@@ -28,7 +32,7 @@
   }
 
   .code-header {
-    background: #0B1521;
+    background: #0b1521;
     border-radius: 10px 0 0 0;
     font-size: 12px;
     font-weight: 600;
@@ -46,7 +50,7 @@
     }
 
     li {
-      color: #7A8EA7;
+      color: #7a8ea7;
       border: 1px solid transparent;
       list-style: none;
       padding: 20px;
@@ -54,12 +58,12 @@
       user-select: none;
       z-index: 1;
       position: relative;
-      transition: .2s color, .2s background-color;
+      transition: 0.2s color, 0.2s background-color;
 
       &::after {
         position: absolute;
         height: 1px;
-        content: '';
+        content: "";
         bottom: -2px;
         left: 0;
         right: 0;
@@ -67,13 +71,13 @@
       }
 
       &.active {
-        background: #1C2B3E;
-        border-color: #283A50;
-        border-bottom-color: #1C2B3E;
-        color: #FFFFFF;
+        background: #1c2b3e;
+        border-color: #283a50;
+        border-bottom-color: #1c2b3e;
+        color: #ffffff;
 
         &::after {
-          background: #1C2B3E;
+          background: #1c2b3e;
         }
       }
 
@@ -82,7 +86,7 @@
       }
 
       &:hover {
-        color: #FFFFFF;
+        color: #ffffff;
       }
 
       @media (max-width: $screen-xs-max) {
@@ -91,19 +95,19 @@
     }
 
     a {
-      background: rgba(#7CABFF, 0.3);
-      color: #7CABFF;
+      background: rgba(#7cabff, 0.3);
+      color: #7cabff;
       border-radius: 16px;
       padding: 8px;
       align-self: center;
       margin-right: 20px;
-      transition: .2s background-color;
-      
+      transition: 0.2s background-color;
+
       &:hover,
       &:active,
       &:focus {
         text-decoration: none;
-        background: rgba(#7CABFF, 0.5);
+        background: rgba(#7cabff, 0.5);
       }
 
       @media (max-width: $screen-xs-max) {
@@ -113,8 +117,8 @@
   }
 
   .preview-header {
-    background: #F9FAFC;
-    border: 1px solid #E9EDF3;
+    background: #f9fafc;
+    border: 1px solid #e9edf3;
     border-bottom: none;
     border-radius: 10px 10px 0px 0px;
     display: flex;
@@ -125,7 +129,7 @@
       display: flex;
       justify-content: center;
       width: 142px;
-      background: #E9EDF3;
+      background: #e9edf3;
     }
 
     ion-segment-button {
@@ -149,11 +153,17 @@
   }
 
   .preview-content.code {
-    background: #1C2B3E;
+    background: #1c2b3e;
     display: block;
     overflow: hidden;
 
-    pre  {
+    li {
+      height: 100%;
+    }
+
+    pre {
+      height: 100%;
+      overflow-x: auto;
       background: transparent;
       padding: 0;
       margin: 0;
@@ -161,10 +171,10 @@
       border: none;
       font-size: 13px;
       line-height: 23px;
-      letter-spacing: -.01em;
+      letter-spacing: -0.01em;
       font-weight: 500;
       font-family: $font-family-mono;
-      padding: 24px 0 24px 48px;
+      padding: 24px 48px;
 
       @media (max-width: $screen-xs-max) {
         padding: 24px 0 48px 16px;
@@ -177,8 +187,8 @@
   }
 
   .preview-content {
-    background: radial-gradient(#E8EBEF 10%, #FCFDFE 10%) repeat;
-    border: 1px solid #E9EDF3;
+    background: radial-gradient(#e8ebef 10%, #fcfdfe 10%) repeat;
+    border: 1px solid #e9edf3;
     background-size: 10px 10px;
     border-radius: 0 0 10px 10px;
     display: flex;

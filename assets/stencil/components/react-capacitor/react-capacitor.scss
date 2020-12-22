@@ -1,6 +1,6 @@
-@import '../../vars';
+@import "../../vars";
 // @import '../../../../node_modules/prismjs/themes/prism-tomorrow';
-@import '../../prism-ionic';
+@import "../../prism-ionic";
 
 :host {
   display: flex;
@@ -15,7 +15,7 @@
   }
 
   .code-header {
-    background: #0B1521;
+    background: #0b1521;
     z-index: 1;
     position: relative;
     border-radius: 10px 10px 0 0;
@@ -40,18 +40,18 @@
     }
 
     li {
-      color: #7A8EA7;
+      color: #7a8ea7;
       border: 1px solid transparent;
       list-style: none;
       padding: 20px;
       cursor: pointer;
       position: relative;
-      transition: .2s color, .2s background-color;
+      transition: 0.2s color, 0.2s background-color;
 
       &::after {
         position: absolute;
         height: 1px;
-        content: '';
+        content: "";
         bottom: -2px;
         left: 0;
         right: 0;
@@ -59,13 +59,13 @@
       }
 
       &.active {
-        background: #1C2B3E;
-        border-color: #283A50;
-        border-bottom-color: #1C2B3E;
-        color: #FFFFFF;
+        background: #1c2b3e;
+        border-color: #283a50;
+        border-bottom-color: #1c2b3e;
+        color: #ffffff;
 
         &::after {
-          background: #1C2B3E;
+          background: #1c2b3e;
         }
       }
 
@@ -74,7 +74,7 @@
       }
 
       &:hover {
-        color: #FFFFFF;
+        color: #ffffff;
       }
 
       @media (max-width: 530px) {
@@ -83,19 +83,19 @@
     }
 
     a {
-      background: rgba(#7CABFF, 0.3);
-      color: #7CABFF;
+      background: rgba(#7cabff, 0.3);
+      color: #7cabff;
       border-radius: 16px;
       padding: 8px;
       align-self: center;
       margin-right: 20px;
-      transition: .2s background-color;
-      
+      transition: 0.2s background-color;
+
       &:hover,
       &:active,
       &:focus {
         text-decoration: none;
-        background: rgba(#7CABFF, 0.5);
+        background: rgba(#7cabff, 0.5);
       }
 
       @media (max-width: 470px) {
@@ -108,13 +108,16 @@
   }
 
   .tab-content {
-    background: #1C2B3E;
-    border: 1px solid #283A50;
+    background: #1c2b3e;
+    border: 1px solid #283a50;
     border-radius: 10px;
     align-items: flex-start;
     position: relative;
-    margin-top: 0;
+    margin: 0;
     padding: 0;
+
+    display: flex;
+    overflow-x: auto;
 
     height: 100%;
 
@@ -126,7 +129,7 @@
       }
     }
 
-    pre  {
+    pre {
       background: transparent;
       padding: 0;
       margin: 0;
@@ -135,10 +138,10 @@
       border-radius: 10px;
       font-size: 13px;
       line-height: 23px;
-      letter-spacing: -.01em;
+      letter-spacing: -0.01em;
       font-weight: 500;
       font-family: $font-family-mono;
-      padding: 24px 16px 48px 56px;
+      padding: 1.5rem 3rem;
 
       code {
         white-space: pre;

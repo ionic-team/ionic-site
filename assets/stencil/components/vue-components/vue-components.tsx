@@ -1,96 +1,87 @@
-import {
-    Component,
-    // Element,
-    // Prop,
-    State,
-    h,
-    Prop,
-    Watch
-  } from '@stencil/core';
-  
-  import '@ionic/core';
-  import Prism from 'prismjs';
-  
-  
-  export type ComponentType = 'card' | 'lists' | 'actionSheet';
-  
-  @Component({
-    tag: 'vue-components',
-    styleUrl: 'vue-components.scss',
-    shadow: true
-  })
-  export class VueComponents {
-    @Prop() component: ComponentType = 'card';
-    @State() activeTab: ComponentType = 'card';
-    @State() activeView = 'preview';
-  
-    constructor() {
-    }
-  
-    @Watch('component')
-    handleComponentChange() {
-      this.activeTab = this.component;
-    }
-  
-    componentWillLoad() {
-    }
-  
-    componentDidLoad() {
-    }
-  
-    resizeIframe(el) {
-      setTimeout(() => {
-        console.log(el.contentWindow.document.documentElement.scrollHeight)
-        el.style.height = (el.contentWindow.document.documentElement.scrollHeight || 350) + 'px';
-      }, 50)
-    }
-  
-  
-    renderCode = (code) => {
-      return (
-        <pre><code innerHTML={Prism.highlight(
-          code,
-          Prism.languages.html, 
-          'html'
-        )}></code></pre>
-      );
-    }
-  
-    render() {
-      return (
-        <div class="grid">
-          <header class="preview-header">
-            <ion-segment mode="ios" 
-                        value={this.activeView}
-                        color="medium" 
-                        onIonChange={e => this.activeView = e.detail.value }>
-              <ion-segment-button value="preview">
-                <ion-label>Preview</ion-label>
-              </ion-segment-button>
-              <ion-segment-button value="code">
-                <ion-label>Code</ion-label>
-              </ion-segment-button>
-            </ion-segment>
-          </header>
-  
-          <ul class={`preview-content${ this.activeView === 'code' ? ' code' : ''}`}>
-            {Object.keys(this.markup).map(key => (
-              <li class={this.activeTab === key ? 'active' : 'innactive'}>
-                <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
-                        frameborder="0"
-                        scrolling="no"
-                        style={{ display: this.activeView === 'preview' ? 'block' : 'none' }}
-                        onLoad={e => this.resizeIframe(e.target)}></iframe>
-                {this.activeView === 'code' ? this.renderCode(this.markup[key].display) : null}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-  
-    ionicInjector(code) {
-      return `
+import { Component, State, h, Prop, Watch } from "@stencil/core";
+
+import "@ionic/core";
+import Prism from "prismjs";
+
+export type ComponentType = "card" | "lists" | "actionSheet";
+
+@Component({
+  tag: "vue-components",
+  styleUrl: "vue-components.scss",
+  shadow: true,
+})
+export class VueComponents {
+  @Prop() component: ComponentType = "card";
+  @State() activeTab: ComponentType = "card";
+  @State() activeView = "preview";
+
+  @Watch("component")
+  handleComponentChange() {
+    this.activeTab = this.component;
+  }
+
+  resizeIframe(el) {
+    setTimeout(() => {
+      el.style.height =
+        (el.contentWindow.document.documentElement.scrollHeight || 350) + "px";
+    }, 50);
+  }
+
+  renderCode = (code) => {
+    return (
+      <pre>
+        <code
+          innerHTML={Prism.highlight(code, Prism.languages.html, "html")}
+        ></code>
+      </pre>
+    );
+  };
+
+  render() {
+    return (
+      <div class="grid">
+        <header class="preview-header">
+          <ion-segment
+            mode="ios"
+            value={this.activeView}
+            color="medium"
+            onIonChange={(e) => (this.activeView = e.detail.value)}
+          >
+            <ion-segment-button value="preview">
+              <ion-label>Preview</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="code">
+              <ion-label>Code</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </header>
+
+        <ul
+          class={`preview-content${this.activeView === "code" ? " code" : ""}`}
+        >
+          {Object.keys(this.markup).map((key) => (
+            <li class={this.activeTab === key ? "active" : "innactive"}>
+              <iframe
+                srcdoc={this.ionicInjector(this.markup[key].src)}
+                frameborder="0"
+                scrolling="no"
+                style={{
+                  display: this.activeView === "preview" ? "block" : "none",
+                }}
+                onLoad={(e) => this.resizeIframe(e.target)}
+              ></iframe>
+              {this.activeView === "code"
+                ? this.renderCode(this.markup[key].display)
+                : null}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  ionicInjector(code) {
+    return `
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
@@ -100,11 +91,11 @@ import {
     }
   }</script>
   ${code}`;
-    }
-  
-    markup = {
-      card: {
-        display: `
+  }
+
+  markup = {
+    card: {
+      display: `
   <ion-card>
     <ion-img :src="/assets/myImg.png"></ion-img>
     <ion-card-header>
@@ -123,10 +114,13 @@ import {
       </ion-item>
     </ion-card-content>
   </ion-card>`,
-        src: `
+      src: `
           <style>
             html, body {
               height: 380px;
+            }
+            ion-card {
+              border-radius: 1rem;
             }
             ion-card img {
               width: 100%;
@@ -151,7 +145,7 @@ import {
             }
           </style>
           <ion-card>
-            <img src="/img/homepage/demo-image.png" />
+            <img src="/img/vue/demo-image@2x.png" loading="lazy" width="288" height="148"  />
             <ion-card-header>
               <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
               <ion-card-title>Card Title</ion-card-title>
@@ -174,9 +168,9 @@ import {
                 </ion-row>
               </ion-grid>
             </ion-card-content>
-          </ion-card>`
-      },
-  
+          </ion-card>`,
+    },
+
     lists: {
       display: `
   <ion-list>
@@ -250,11 +244,11 @@ import {
               </ion-item>
             </ion-list>
           </ion-content>
-        </ion-app>`
-      },
-      
-      actionSheet: {
-        display: `
+        </ion-app>`,
+    },
+
+    actionSheet: {
+      display: `
   <ion-button
     @click="setShowActionSheet(true)"
     expand="block">Show Action Sheet</ion-button>
@@ -264,7 +258,7 @@ import {
     :buttons="buttons"
     @onDidDismiss="setShowActionSheet(false)">
   </ion-action-sheet>`,
-        src: `
+      src: `
         <ion-app>
           <ion-content fullscreen class="ion-padding">
             <ion-button expand="block">Open Action Sheet</ion-button>
@@ -293,8 +287,7 @@ import {
             await actionSheet.present();
           }
         </script>
-      `
-      }
-    }
-  }
-  
+      `,
+    },
+  };
+}

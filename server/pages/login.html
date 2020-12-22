@@ -1,19 +1,15 @@
-{% extends '_layouts/blank.html' %}
-{% set title = "Ionic - Login" %}
-{% set id = "login" %}
-{% set meta_description = "Log in to Ionic." %}
-{% set cssPath = 'auth' %}
-
-{% block main %}
+{% extends '_layouts/blank.html' %} {% set title = "Ionic - Login" %} {% set id
+= "login" %} {% set meta_description = "Log in to Ionic." %} {% set cssPath =
+'auth-v2' %} {% block main %}
 <header>
   {% if query.source === 'appflow' %}
-    <a class="header__logo header__logo--appflow" href="/">
-      {% include '_includes/svg/appflow-logo-w-text.svg' %}
-    </a>
+  <a class="header__logo header__logo--appflow" href="/">
+    {% include '_includes/svg/appflow-logo-w-text.svg' %}
+  </a>
   {% else %}
-    <a class="header__logo" href="/">
-      {% include '_includes/svg/ionic-black.svg' %}
-    </a>
+  <a class="header__logo" href="/">
+    {% include '_includes/svg/ionic-black.svg' %}
+  </a>
   {% endif %}
 </header>
 <main>
@@ -28,10 +24,8 @@
     </div>
   </div>
 </main>
-{% endblock %}
-
-{% block scripts %}
-{# Promise, fetch, URLSearchParams polyfills #}
+{% endblock %} {% block scripts %} {# Promise, fetch, URLSearchParams polyfills
+#}
 <script
   src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js"
   integrity="sha384-Oa9qd3zGPgIOjIcotuclp6o+1G/FJtvOBKJRGkHSQt/nQWcZY/UwxnQYvVL5dfV5"

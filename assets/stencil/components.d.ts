@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SignupForm } from "./util/auth";
 import { TabType } from "./components/react-capacitor/react-capacitor";
 import { ComponentType } from "./components/react-components/react-components";
+import { ComponentType as ComponentType1 } from "./components/vue-components/vue-components";
 export namespace Components {
     interface AdditionalResources {
         "page": string;
@@ -138,6 +139,9 @@ export namespace Components {
         "disabled": boolean;
         "position": 'top' | 'right' | 'bottom' | 'left';
         "text": string;
+    }
+    interface VueComponents {
+        "component": ComponentType;
     }
 }
 declare global {
@@ -339,6 +343,12 @@ declare global {
         prototype: HTMLUiTipElement;
         new (): HTMLUiTipElement;
     };
+    interface HTMLVueComponentsElement extends Components.VueComponents, HTMLStencilElement {
+    }
+    var HTMLVueComponentsElement: {
+        prototype: HTMLVueComponentsElement;
+        new (): HTMLVueComponentsElement;
+    };
     interface HTMLElementTagNameMap {
         "additional-resources": HTMLAdditionalResourcesElement;
         "auth-connect-promo": HTMLAuthConnectPromoElement;
@@ -373,6 +383,7 @@ declare global {
         "twitter-script": HTMLTwitterScriptElement;
         "ui-floating-input": HTMLUiFloatingInputElement;
         "ui-tip": HTMLUiTipElement;
+        "vue-components": HTMLVueComponentsElement;
     }
 }
 declare namespace LocalJSX {
@@ -506,6 +517,9 @@ declare namespace LocalJSX {
         "position"?: 'top' | 'right' | 'bottom' | 'left';
         "text"?: string;
     }
+    interface VueComponents {
+        "component"?: ComponentType;
+    }
     interface IntrinsicElements {
         "additional-resources": AdditionalResources;
         "auth-connect-promo": AuthConnectPromo;
@@ -540,6 +554,7 @@ declare namespace LocalJSX {
         "twitter-script": TwitterScript;
         "ui-floating-input": UiFloatingInput;
         "ui-tip": UiTip;
+        "vue-components": VueComponents;
     }
 }
 export { LocalJSX as JSX };
@@ -579,6 +594,7 @@ declare module "@stencil/core" {
             "twitter-script": LocalJSX.TwitterScript & JSXBase.HTMLAttributes<HTMLTwitterScriptElement>;
             "ui-floating-input": LocalJSX.UiFloatingInput & JSXBase.HTMLAttributes<HTMLUiFloatingInputElement>;
             "ui-tip": LocalJSX.UiTip & JSXBase.HTMLAttributes<HTMLUiTipElement>;
+            "vue-components": LocalJSX.VueComponents & JSXBase.HTMLAttributes<HTMLVueComponentsElement>;
         }
     }
 }

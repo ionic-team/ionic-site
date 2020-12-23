@@ -104,10 +104,23 @@ LocalNotifications.schedule({
       code: `
 import { Plugins } from '@capacitor/core';
 const { Camera } = Plugins;
-// Take a picture or video, or load from the library
-const picture = await Camera.getPicture({
-  encodingType: this.camera.EncodingType.JPEG
-});`,
+
+async takeProfilePicture() {
+  // Take a picture or video, or load from the library
+  const picture = await Camera.getPhoto({
+    resultType: CameraResultType.Uri,
+    source: CameraSource.Camera,
+    quality: 100,
+  });
+
+  const confirmed = await 
+    this.dialogs.confirm("Set as new picture?");
+  if (confirmed) {
+    // upload pic to the server
+    return this.userService.uploadProfilePic(picture);
+  }
+}
+`,
     },
 
     geolocation: {
@@ -118,6 +131,7 @@ const picture = await Camera.getPicture({
       code: `
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
+
 // get the users current position
 const position = await Geolocation.getCurrentPosition();
 

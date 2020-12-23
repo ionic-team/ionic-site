@@ -3,22 +3,37 @@
 @import "../../prism-ionic";
 
 :host {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 10px;
-  position: relative;
+  display: block;
 
-  @media (max-width: $screen-xs-max) {
-    width: 100%;
-    max-width: 560px;
+  * {
+    box-sizing: border-box;
+  }
+
+  .grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+  }
+
+  border-radius: 10px;
+  margin-right: -24px;
+  margin-left: -24px;
+
+  @media (min-width: 1200px) {
+    margin-right: -64px;
+    margin-left: -64px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    grid-template-columns: minmax(200px, 1fr) 290px;
+    margin-right: -8px;
+    margin-left: -8px;
   }
 
   .code-header {
     background: #0b1521;
-    z-index: 1;
-    position: relative;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 0 0 0;
     font-size: 12px;
     font-weight: 600;
     line-height: 13px;
@@ -26,17 +41,12 @@
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
-    user-select: none;
 
     ul {
       display: flex;
       flex-direction: row;
       padding: 0;
       margin: 0;
-
-      @media (max-width: 400px) {
-        overflow-x: auto;
-      }
     }
 
     li {
@@ -45,6 +55,8 @@
       list-style: none;
       padding: 20px;
       cursor: pointer;
+      user-select: none;
+      z-index: 1;
       position: relative;
       transition: 0.2s color, 0.2s background-color;
 
@@ -77,7 +89,7 @@
         color: #ffffff;
       }
 
-      @media (max-width: 530px) {
+      @media (max-width: $screen-xs-max) {
         padding: 20px 10px;
       }
     }
@@ -98,28 +110,38 @@
         background: rgba(#7cabff, 0.5);
       }
 
-      @media (max-width: 470px) {
+      @media (max-width: $screen-xs-max) {
         display: none;
       }
     }
   }
 
-  .tab-content {
+  .preview-header {
+    background: #f9fafc;
+    border: 1px solid #e9edf3;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-segment {
+      display: flex;
+      justify-content: center;
+      width: 142px;
+      background: #e9edf3;
+    }
+
+    ion-segment-button {
+      flex: 0 1;
+    }
   }
 
-  .tab-content {
-    background: #1c2b3e;
-    border: 1px solid #283a50;
-    border-radius: 10px;
-    align-items: flex-start;
+  .tab-content,
+  .preview-content {
     position: relative;
-    margin: 0;
     padding: 0;
-
-    display: flex;
-    overflow-x: auto;
-
-    height: 100%;
+    margin: 0;
 
     li {
       display: none;
@@ -128,51 +150,69 @@
         display: block;
       }
     }
+  }
+
+  .preview-content.code {
+    background: #1c2b3e;
+    display: block;
+    overflow: hidden;
+
+    li {
+      height: 100%;
+    }
 
     pre {
+      height: 100%;
+      overflow-x: auto;
       background: transparent;
       padding: 0;
       margin: 0;
       color: white;
       border: none;
-      border-radius: 10px;
       font-size: 13px;
       line-height: 23px;
       letter-spacing: -0.01em;
       font-weight: 500;
       font-family: $font-family-mono;
-      padding: 1.5rem 3rem;
+      padding: 24px 48px;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 24px 0 48px 16px;
+      }
 
       code {
         white-space: pre;
       }
     }
+  }
 
-    .tag {
+  .preview-content {
+    background: radial-gradient(#e8ebef 10%, #fcfdfe 10%) repeat;
+    border: 1px solid #e9edf3;
+    background-size: 10px 10px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    iframe {
       background: transparent;
-      margin-left: 0;
-      padding: 0;
-      border-radius: 0;
-      font-weight: 700;
-      font-size: inherit;
-      text-transform: none;
-      letter-spacing: 0;
     }
   }
 
-  .preview-icon {
-    position: absolute;
-    padding: 0;
-    bottom: -70px;
-    right: -20px;
+  @media (max-width: 525px) {
+    grid-template-columns: 100%;
 
-    li {
-      display: none;
-      list-style: none;
+    .code-header {
+      border-radius: 10px 10px 0 0;
 
-      &.active {
-        display: block;
+      li {
+        padding: 20px;
       }
+    }
+
+    .tab-content {
+      border-radius: 0 0 10px 10px;
     }
   }
 }

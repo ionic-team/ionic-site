@@ -5,8 +5,15 @@
   font-size: 16px;
 }
 
+@media (max-width: $screen-xs-max) {
+  body {
+    padding-top: 0;
+  }
+}
+
 #page-vue {
   // #region ------------ GENERAL STYLES ----------------
+
   img {
     object-fit: contain;
     max-width: 100%;
@@ -68,6 +75,10 @@
     color: #37be81;
     background: initial;
   }
+
+  a {
+    text-decoration: none;
+  }
   //#endregion
 
   // #region ------------ COMPONENTS --------------------
@@ -83,17 +94,31 @@
     letter-spacing: -0.02em;
 
     padding: 1rem 1.5rem;
+
+    transition: background-color 0.2s ease-out;
   }
 
   .primary-btn {
     @extend %btn;
     background: #37be81;
     color: #fff;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #45c98e;
+    }
   }
   .secondary-btn {
     @extend %btn;
     background: #e6f5ef;
     color: #37be81;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #edf7f2;
+    }
   }
 
   .components-list {
@@ -188,6 +213,26 @@
           color: #37be81 !important;
         }
       }
+
+      .try-it {
+        @extend %btn;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 157.33%;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: #37be81;
+        background: #e3faf1;
+
+        padding: 0.5rem 1rem;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background: #edf7f2;
+        }
+      }
     }
   }
 
@@ -213,9 +258,23 @@
     text-align: center;
 
     .back-button {
+      @extend %btn;
       position: absolute;
       top: 20px;
       left: 20px;
+
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      padding: 0.5rem 0.75rem;
+      background: #f6f8fc;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #4a8bfc;
+      }
     }
 
     hgroup {
@@ -404,6 +463,14 @@
         border-radius: 100px;
 
         color: #20bd76;
+
+        transition: background-color 0.2s ease-out;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background: #edf7f2;
+        }
       }
     }
   }

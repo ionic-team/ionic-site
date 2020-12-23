@@ -604,7 +604,11 @@ ionic start --type=vue
   </section>
 </main>
 
-{% include '_includes/footer.html' %} {% endblock %} {% block scripts %}
+{% include '_includes/footer.html' %}
+
+{% endblock %}
+
+{% block scripts %}
 <script>
   $("#components-list li").click(function () {
     const type = $(this).attr("data-type");

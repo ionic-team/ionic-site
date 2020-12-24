@@ -22,6 +22,7 @@
     .underline {
       display: inline-block;
       position: relative;
+
       &:after {
         content: "";
         width: 100%;
@@ -32,45 +33,56 @@
       }
     }
 
-    @keyframes slideInOut {
+    @keyframes fadeDown {
       0% {
         z-index: -1;
         opacity: 0;
-        pointer-events: none;
-        transform: translateY(-20px);
+        transform: translateY(-15px);
       }
-      66% {
+      33.3% {
         z-index: -1;
         opacity: 0;
-        pointer-events: none;
-        transform: translateY(-20px);
+        transform: translateY(-15px);
       }
-      68% {
+      35% {
         z-index: 1;
         opacity: 1;
-        pointer-events: all;
         transform: translateY(0px);
       }
-      98% {
+      66.6% {
         z-index: 1;
         opacity: 1;
-        pointer-events: all;
         transform: translateY(0px);
+      }
+      68.3% {
+        z-index: -1;
+        opacity: 0;
+        transform: translateY(15px);
       }
       100% {
         z-index: -1;
         opacity: 0;
-        pointer-events: none;
-        transform: translateY(20px);
+        transform: translateY(15px);
       }
+    }
+
+    .space {
+      white-space: pre;
+    }
+
+    .words {
+      position: relative;
+      display: inline-block;
     }
 
     .angular,
     .react,
     .vue {
+      left: 0;
+      white-space: pre;
       position: absolute;
-      bottom: -9px;
-      animation: slideInOut 18s ease infinite;
+
+      animation: fadeDown 24s infinite;
 
       &::after {
         position: absolute;
@@ -80,7 +92,13 @@
 
     .react {
       color: #42ccff;
-      animation-delay: -12s;
+      animation-delay: -8s;
+
+      opacity: 1;
+      transform: translateY(10px);
+
+      // transition: opacity .2s, transform .2s;
+      // transition-delay: 8s;
 
       &::after {
         background: rgba(89, 210, 255, 0.3);
@@ -88,8 +106,11 @@
     }
 
     .angular {
+      position: relative;
       color: #ef4d4d;
-      animation-delay: -18s;
+      animation-delay: 8s;
+
+      opacity: 0;
 
       &::after {
         background: rgba(239, 77, 77, 0.3);
@@ -98,7 +119,8 @@
 
     .vue {
       color: #42b983;
-      animation-delay: -6s;
+
+      opacity: 0;
 
       &::after {
         background: rgba(66, 185, 131, 0.3);

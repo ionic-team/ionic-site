@@ -1,13 +1,9 @@
-{% extends '_layouts/blank.html' %}
-{% set id = 'vue' %}
-{% set header_style = 'transparent' %}
-{% set cssPath = 'vue' %}
-{% set title = 'Build Native and Progressive Web Apps with Vue and Ionic' %}
-{% set meta_image = 'https://ionicframework.com/img/meta/ionic-vue-og.png'%}
-{% set meta_description = 'Cross-platform development with Vue and Ionic Framework' %}
-{% set hide_pre_header = true %}
-
-{% block main %}
+{% extends '_layouts/blank.html' %} {% set id = 'vue' %} {% set header_style =
+'transparent' %} {% set cssPath = 'vue' %} {% set title = 'Build Native and
+Progressive Web Apps with Vue and Ionic' %} {% set meta_image =
+'https://ionicframework.com/img/meta/ionic-vue-og.png'%} {% set meta_description
+= 'Cross-platform development with Vue and Ionic Framework' %} {% set
+hide_pre_header = true %} {% block main %}
 <div class="header-wrapper">
   <header>
     <a href="/" class="back-button">
@@ -37,7 +33,11 @@
           Start an app
           <span class="arrow"> -></span>
         </a>
-        <a href="https://ionic.io/demo" id="ionic-react-live-demo-cta" class="secondary-btn">
+        <a
+          href="https://ionic.io/demo"
+          id="ionic-react-live-demo-cta"
+          class="secondary-btn"
+        >
           Live Demo
           <span class="arrow"> -></span>
         </a>
@@ -270,9 +270,9 @@
           <h2>Build once, run natively on iOS, Android, & the Web.</h2>
           <p class="p2">
             Ionic Vue apps use the
-            <a class="highlight" href="capacitorjs.com">Capacitor</a> project
-            (instead of Cordova) to unlock every native API across iOS, Android,
-            Electron, and Web.
+            <a class="highlight" href="https://capacitorjs.com">Capacitor</a>
+            project (instead of Cordova) to unlock every native API across iOS,
+            Android, Electron, and Web.
           </p>
           <ul id="native-list" class="components-list">
             <li data-type="camera" class="selected">
@@ -604,11 +604,7 @@ ionic start --type=vue
   </section>
 </main>
 
-{% include '_includes/footer.html' %}
-
-{% endblock %}
-
-{% block scripts %}
+{% include '_includes/footer.html' %} {% endblock %} {% block scripts %}
 <script>
   $("#components-list li").click(function () {
     const type = $(this).attr("data-type");

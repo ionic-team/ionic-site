@@ -1,8 +1,7 @@
-import { Component, h, Host, State, Prop, Event } from "@stencil/core";
+import { Component, h, Host, State, Prop, Event, EventEmitter } from "@stencil/core";
 import { SignupForm, signup, oauthAuthorize } from "../../util/auth";
 import { FormErrors } from "../../forms";
 import { trackClick } from "../../util/analytics";
-import { EventEmitter } from "@ionic/core/dist/types/stencil.core";
 
 
 @Component({

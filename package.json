@@ -35,7 +35,7 @@
   "homepage": "https://github.com/ionic-team/ionic-site",
   "dependencies": {
     "@ionic-internal/ionic-ds": "^2.0.6",
-    "@ionic/core": "5.0.0",
+    "@ionic/core": "5.1.0",
     "@sentry/node": "^5.11.0",
     "@stencil/core": "1.17.3",
     "@stencil/sass": "1.1.1",
@@ -75,7 +75,7 @@
     "helmet": "^3.21.2",
     "http-proxy-middleware": "^1.0.0",
     "hubspot": "^2.3.6",
-    "ionicons": "5.1.0",
+    "ionicons": "5.2.0",
     "jquery": "3.5.0",
     "jsforce": "1.9.3",
     "lodash": "4.17.15",

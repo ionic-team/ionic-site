@@ -45,9 +45,9 @@ export class VueComponents {
             mode="ios"
             value={this.activeView}
             color="medium"
-            onIonChange={(e) => (this.activeView = e.detail.value)}
+            onIonChange={e => this.activeView = e.detail.value }
           >
-            <ion-segment-button value="preview">
+            <ion-segment-button value="preview" >
               <ion-label>Preview</ion-label>
             </ion-segment-button>
             <ion-segment-button value="code">

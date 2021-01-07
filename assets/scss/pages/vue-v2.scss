@@ -299,7 +299,7 @@
 
   #intro {
     margin-block-start: 12.5rem;
-    margin-block-end: 14rem;
+    margin-block-end: 8rem;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -329,7 +329,7 @@
     display: flex;
     justify-content: space-between;
 
-    margin-block-start: -4rem;
+    padding-block-start: 2rem;
     margin-inline-start: -2rem;
     max-width: 100%;
 

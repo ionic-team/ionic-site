@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SignupForm } from "./util/auth";
 import { TabType } from "./components/react-capacitor/react-capacitor";
 import { ComponentType } from "./components/react-components/react-components";
-import { ComponentType as ComponentType1 } from "./components/vue-components/vue-components";
+import { TabType as TabType1 } from "./components/vue-components/vue-components";
 export namespace Components {
     interface AdditionalResources {
         "page": string;
@@ -141,7 +141,7 @@ export namespace Components {
         "text": string;
     }
     interface VueComponents {
-        "component": ComponentType;
+        "tab": TabType;
     }
 }
 declare global {
@@ -518,7 +518,7 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface VueComponents {
-        "component"?: ComponentType;
+        "tab"?: TabType;
     }
     interface IntrinsicElements {
         "additional-resources": AdditionalResources;

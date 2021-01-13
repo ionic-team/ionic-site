@@ -146,11 +146,11 @@
 </div>
 {% endmacro %}
 
-{% macro pageSpecificCSS(dev, page) %}
+{% macro pageSpecificCSS(dev, page, cssVersion) %}
   {% if dev %}
-    <link href="/css/pages/{{page}}.css" rel="stylesheet">
+    <link href="/css/pages/{{page}}.css{{'?v=' + cssVersion if cssVersion}}" rel="stylesheet">
   {% else %}
-    <link href="/css/pages/{{page}}.min.css" rel="stylesheet">
+    <link href="/css/pages/{{page}}.min.css{{'?v=' + cssVersion if cssVersion}}" rel="stylesheet">
   {% endif %}
 {% endmacro %}
 

@@ -115,7 +115,7 @@
           out-of-the-box controls than native, accelerating custom app design.
         </p>
         <ul id="components-list" class="components-list">
-          <li data-tab="card" class="selected">
+          <li data-tab="card">
             <div class="icon">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" y="1" width="28" height="24" rx="4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -178,7 +178,7 @@
             Electron, and Web.
           </p>
           <ul id="native-list" class="components-list">
-            <li data-tab="camera" class="selected">
+            <li data-tab="camera">
               <div class="icon">
                 <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21.3633 4.951L19.5715 1.7965C19.1939 1.306 18.6763 1 18.0962 1H11.9038C11.3237 1 10.8061 1.306 10.4285 1.7965L8.63673 4.951C8.25913 5.44225 7.7725 5.8 7.19231 5.8H3.15385C2.58261 5.8 2.03477 6.05286 1.63085 6.50294C1.22692 6.95303 1 7.56348 1 8.2V22.6C1 23.2365 1.22692 23.847 1.63085 24.2971C2.03477 24.7471 2.58261 25 3.15385 25H26.8462C27.4174 25 27.9652 24.7471 28.3692 24.2971C28.7731 23.847 29 23.2365 29 22.6V8.2C29 7.56348 28.7731 6.95303 28.3692 6.50294C27.9652 6.05286 27.4174 5.8 26.8462 5.8H22.875C22.2928 5.8 21.7409 5.44225 21.3633 4.951Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -186,7 +186,10 @@
                   <path d="M6.11467 5.2625V3.75H4.49928V5.2625" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <div class="title"><span class="word">Camera</span></div>
+              <div class="title">
+                <span class="word">Camera</span>
+                <div class="progress"></div>
+              </div>
             </li>
             <li data-tab="notifications">
               <div class="icon">
@@ -195,7 +198,9 @@
                   <circle cx="25" cy="5" r="4" transform="rotate(-180 25 5)" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <div class="title"><span class="word">Notifications</span></div>
+              <div class="title">
+                <span class="word">Notifications</span>
+                <div class="progress"></div></div>
             </li>
             <li data-tab="geolocation">
               <div class="icon">
@@ -204,7 +209,10 @@
                   <path d="M13 16.4074C15.2091 16.4074 17 14.6166 17 12.4074C17 10.1983 15.2091 8.40742 13 8.40742C10.7909 8.40742 9 10.1983 9 12.4074C9 14.6166 10.7909 16.4074 13 16.4074Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <div class="title"><span class="word">Geolocation</span></div>
+              <div class="title">
+                <span class="word">Geolocation</span>
+                <div class="progress"></div>
+              </div>
             </li>
           </ul>
         </hgroup>
@@ -453,22 +461,67 @@ ionic start --type=vue
 <script>
   const exampleRotation = (listId, stencilComponentName) => {
     const $stencilComponent = document.getElementsByTagName(stencilComponentName)[0];
-    let $currentlySelected = document.querySelector(`#${listId} li.selected`);
+    const $list = document.querySelector(`#${listId}`);
+    const animationDuration = 5000;
+    let animation, 
+        $currentlySelected;
     
-    const select = $el => {
+    const select = ($el, stayPut) => {
+      if (animation) {
+        animation.finish();
+      }
       $stencilComponent.setAttribute('tab', $el.dataset['tab']);
-      document.querySelector(`#${listId} li.selected`).classList.remove('selected');
+      $currentlySelected?.classList.remove('selected');
       $el.classList.add('selected');
       $currentlySelected = $el;
+      if (!stayPut) {
+        animate($el.querySelector('.progress'))
+      }
     };
 
+    const animate = $bar => {
+      animation = $bar.animate(
+        [
+          { transform: 'scale(0, 1)' },
+          { transform: 'scale(1, 1)' }
+        ], {
+          fill: 'forwards',
+          duration: animationDuration
+        })
+      animation.finished.then((a) => {
+        // when done animating, select the next demo
+        if ($currentlySelected.nextElementSibling) {
+          select($currentlySelected.nextElementSibling);
+        } else {
+          select($list.querySelector('li:first-child'));
+        }
+      })
+    };
+
+    const pause = () => animation.pause();
+    const play = () => animation.play();
+
     const initiate = () => {
-      document.querySelectorAll(`#${listId} li`).forEach($li => {
-        $li.onclick = ev => select(ev.currentTarget);
+      $list.querySelectorAll('li').forEach($li => {
+        $li.onclick = ev => {
+          animation.cancel();
+          select(ev.currentTarget, true);
+          // if the user clicks, we stop animating
+          $list.removeEventListener('mouseenter', pause);
+          $stencilComponent.removeEventListener('mouseenter', pause);
+          $list.removeEventListener('mouseleave', play);
+          $stencilComponent.removeEventListener('mouseleave', play);
+        }
       });
 
+      // pause the animation if the user is interacting w/ the demo
+      $list.addEventListener('mouseenter', pause);
+      $stencilComponent.addEventListener('mouseenter', pause);
+      $list.addEventListener('mouseleave', play);
+      $stencilComponent.addEventListener('mouseleave', play);
+
       if (!$currentlySelected) {
-        select(document.querySelector(`#${listId} li:first-child`));
+        select($list.querySelector(' li:first-child'));
       }
     }
 

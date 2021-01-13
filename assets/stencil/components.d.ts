@@ -7,8 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SignupForm } from "./util/auth";
 import { TabType } from "./components/react-capacitor/react-capacitor";
-import { ComponentType } from "./components/react-components/react-components";
-import { TabType as TabType1 } from "./components/vue-components/vue-components";
+import { TabType as TabType1 } from "./components/react-components/react-components";
+import { TabType as TabType2 } from "./components/vue-components/vue-components";
 export namespace Components {
     interface AdditionalResources {
         "page": string;
@@ -117,7 +117,7 @@ export namespace Components {
         "tab": TabType;
     }
     interface ReactComponents {
-        "component": ComponentType;
+        "tab": TabType;
     }
     interface TwitterScript {
     }
@@ -495,7 +495,7 @@ declare namespace LocalJSX {
         "tab"?: TabType;
     }
     interface ReactComponents {
-        "component"?: ComponentType;
+        "tab"?: TabType;
     }
     interface TwitterScript {
     }

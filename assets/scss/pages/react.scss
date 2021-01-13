@@ -279,8 +279,21 @@
 
       .title {
         padding: 16px 0;
-        border-bottom: 2px solid #E6E6E8;
         flex: 1;
+        position: relative;
+
+        .progress {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2px;
+          opacity: 0;
+          background: #009DFF;
+          bottom: -1px;
+          transform-origin: 0 0;
+
+          transition: opacity 0.2s ease-out;
+        }
       }
 
       &.selected {
@@ -290,8 +303,8 @@
             stroke: #009DFF;
           }
         }
-        .title {
-          border-bottom: 2px solid #009DFF;
+        .title .progress {
+          opacity: 1;
         }
       }
     }

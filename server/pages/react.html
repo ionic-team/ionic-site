@@ -45,7 +45,7 @@
           Ionic React comes with more out-of-the-box controls than native, accelerating custom app design.
         </p>
         <ul id="components-list">
-          <li data-type="card" class="selected">
+          <li data-tab="card">
             <div class="icon">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" y="1" width="28" height="24" rx="4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,9 +53,9 @@
                 <path d="M7 11H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Cards</div>
+            <div class="title">Cards<div class="progress"></div></div>
           </li>
-          <li data-type="lists">
+          <li data-tab="lists">
             <div class="icon">
               <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.5 20H31" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -66,9 +66,9 @@
                 <path d="M2 1C2.55228 1 3 1.44772 3 2C3 2.55228 2.55228 3 2 3C1.44772 3 1 2.55228 1 2C1 1.44772 1.44772 1 2 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Lists</div>
+            <div class="title">Lists<div class="progress"></div></div>
           </li>
-          <li data-type="actionSheet">
+          <li data-tab="actionSheet">
             <div class="icon">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1V19C1 22.3137 3.68629 25 7 25H23C26.3137 25 29 22.3137 29 19V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -78,10 +78,10 @@
                 <path d="M6 20H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Action Sheet</div>
+            <div class="title">Action Sheet<div class="progress"></div></div>
           </li>
-          <a target="_blank" href="https://ionicframework.com/docs/components" class="more anchor">Explore components <ion-icon name="ios-arrow-forward"></ion-icon></a>
-        </p>
+        </ul>
+        <a target="_blank" href="https://ionicframework.com/docs/components" class="more anchor">Explore components <ion-icon name="ios-arrow-forward"></ion-icon></a>
       </hgroup>
       <react-components></react-components>
     </div>
@@ -119,7 +119,7 @@
           to unlock every native API across iOS, Android, Electron, and Web. 
         </p>
         <ul id="native-list">
-          <li data-type="camera" class="selected">
+          <li data-tab="camera">
             <div class="icon">
               <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.3633 4.951L19.5715 1.7965C19.1939 1.306 18.6763 1 18.0962 1H11.9038C11.3237 1 10.8061 1.306 10.4285 1.7965L8.63673 4.951C8.25913 5.44225 7.7725 5.8 7.19231 5.8H3.15385C2.58261 5.8 2.03477 6.05286 1.63085 6.50294C1.22692 6.95303 1 7.56348 1 8.2V22.6C1 23.2365 1.22692 23.847 1.63085 24.2971C2.03477 24.7471 2.58261 25 3.15385 25H26.8462C27.4174 25 27.9652 24.7471 28.3692 24.2971C28.7731 23.847 29 23.2365 29 22.6V8.2C29 7.56348 28.7731 6.95303 28.3692 6.50294C27.9652 6.05286 27.4174 5.8 26.8462 5.8H22.875C22.2928 5.8 21.7409 5.44225 21.3633 4.951Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -127,27 +127,27 @@
                 <path d="M6.11467 5.2625V3.75H4.49928V5.2625" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Camera</div>
+            <div class="title">Camera<div class="progress"></div></div>
           </li>
-          <li data-type="notifications">
+          <li data-tab="notifications">
             <div class="icon">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M27 13V23C27 26.3137 24.3137 29 21 29H7C3.68629 29 1 26.3137 1 23V9C1 5.68629 3.68629 3 7 3H17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <circle cx="25" cy="5" r="4" transform="rotate(-180 25 5)" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Notifications</div>
+            <div class="title">Notifications<div class="progress"></div></div>
           </li>
-          <li data-type="geolocation">
+          <li data-tab="geolocation">
             <div class="icon">
               <svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13 1C6.375 1 1 5.72254 1 11.539C1 21 9 28.8375 11.9375 32.5008C12.0594 32.6554 12.2192 32.7813 12.4039 32.868C12.5886 32.9548 12.7928 33 13 33C13.2072 33 13.4115 32.9548 13.5961 32.868C13.7808 32.7813 13.9406 32.6554 14.0625 32.5008C17 28.8391 25 20.5556 25 11.539C25 5.72254 19.625 1 13 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M13 16.4074C15.2091 16.4074 17 14.6166 17 12.4074C17 10.1983 15.2091 8.40742 13 8.40742C10.7909 8.40742 9 10.1983 9 12.4074C9 14.6166 10.7909 16.4074 13 16.4074Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="title">Geolocation</div>
+            <div class="title">Geolocation<div class="progress"></div></div>
           </li>
-        </p>
+        </ul>
       </hgroup>
       <react-capacitor></react-capacitor>
     </div>
@@ -339,18 +339,77 @@ ionic start --type=react
 
 {% block scripts %}
 <script>
-  $('#components-list li').click(function() {
-    const type = $(this).attr('data-type');
-    $('react-components').prop('component', type);
-    $('#components-list li').removeClass('selected');
-    $(this).addClass('selected');
-  });
-  $('#native-list li').click(function() {
-    const type = $(this).attr('data-type');
-    $('react-capacitor').prop('tab', type);
-    $('#native-list li').removeClass('selected');
-    $(this).addClass('selected');
-  });
+  const exampleRotation = (listId, stencilComponentName) => {
+    const $stencilComponent = document.getElementsByTagName(stencilComponentName)[0];
+    const $list = document.querySelector(`#${listId}`);
+    const animationDuration = 5000;
+    let animation, 
+        $currentlySelected;
+    
+    const select = ($el, stayPut) => {
+      if (animation) {
+        animation.finish();
+      }
+      $stencilComponent.setAttribute('tab', $el.dataset['tab']);
+      $currentlySelected?.classList.remove('selected');
+      $el.classList.add('selected');
+      $currentlySelected = $el;
+      if (!stayPut) {
+        animate($el.querySelector('.progress'))
+      }
+    };
+
+    const animate = $bar => {
+      animation = $bar.animate(
+        [
+          { transform: 'scale(0, 1)' },
+          { transform: 'scale(1, 1)' }
+        ], {
+          fill: 'forwards',
+          duration: animationDuration
+        })
+      animation.finished.then((a) => {
+        // when done animating, select the next demo
+        if ($currentlySelected.nextElementSibling) {
+          select($currentlySelected.nextElementSibling);
+        } else {
+          select($list.querySelector('li:first-child'));
+        }
+      })
+    };
+
+    const pause = () => animation.pause();
+    const play = () => animation.play();
+
+    const initiate = () => {
+      $list.querySelectorAll('li').forEach($li => {
+        $li.onclick = ev => {
+          animation.cancel();
+          select(ev.currentTarget, true);
+          // if the user clicks, we stop animating
+          $list.removeEventListener('mouseenter', pause);
+          $stencilComponent.removeEventListener('mouseenter', pause);
+          $list.removeEventListener('mouseleave', play);
+          $stencilComponent.removeEventListener('mouseleave', play);
+        }
+      });
+
+      // pause the animation if the user is interacting w/ the demo
+      $list.addEventListener('mouseenter', pause);
+      $stencilComponent.addEventListener('mouseenter', pause);
+      $list.addEventListener('mouseleave', play);
+      $stencilComponent.addEventListener('mouseleave', play);
+
+      if (!$currentlySelected) {
+        select($list.querySelector(' li:first-child'));
+      }
+    }
+
+    initiate();
+  };
+  exampleRotation('components-list', 'react-components');
+  exampleRotation('native-list', 'react-capacitor');
+
   const tweets = [
     {
       author_username: 'vjeux',

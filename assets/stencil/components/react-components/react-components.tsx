@@ -12,7 +12,7 @@ import '@ionic/core';
 import Prism from 'prismjs';
 
 
-export type ComponentType = 'card' | 'lists' | 'actionSheet';
+export type TabType = 'card' | 'lists' | 'actionSheet';
 
 @Component({
   tag: 'react-components',
@@ -20,16 +20,16 @@ export type ComponentType = 'card' | 'lists' | 'actionSheet';
   shadow: true
 })
 export class ReactComponents {
-  @Prop() component: ComponentType = 'card';
-  @State() activeTab: ComponentType = 'card';
+  @Prop() tab: TabType = 'card';
+  @State() activeTab: TabType = 'card';
   @State() activeView = 'preview';
 
   constructor() {
   }
 
-  @Watch('component')
-  handleComponentChange() {
-    this.activeTab = this.component;
+  @Watch('tab')
+  handleTabChange() {
+    this.activeTab = this.tab;
   }
 
   componentWillLoad() {

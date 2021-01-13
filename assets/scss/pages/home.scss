@@ -4,11 +4,10 @@
 @import "../components/home_slides/react-1";
 
 #page-home {
-  
   img {
     height: auto;
   }
- 
+
   .activateOnScroll {
     opacity: 0;
     transform: translateY(48px);
@@ -132,11 +131,11 @@
       line-height: 112%;
       display: flex;
       flex-direction: column;
-      color: 	#657482;
+      color: #657482;
 
       em {
         font-style: normal;
-        color: #03060B;
+        color: #03060b;
       }
 
       + p {
@@ -149,12 +148,12 @@
       font-size: 20px;
       line-height: 112%;
       letter-spacing: -0.02em;
-      color: #010610;;
+      color: #010610;
     }
 
     h4 {
       font-size: 12px;
-      color: #92A0B3;
+      color: #92a0b3;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-family: "Roboto Mono", "SF Mono", Menlo, monospace;
@@ -183,7 +182,7 @@
 
     hgroup p,
     p.lg {
-      color: #445B78;
+      color: #445b78;
       font-size: 20px;
       line-height: 160%;
       letter-spacing: -0.02em;
@@ -214,12 +213,14 @@
       font-size: 20px;
       line-height: 112%;
       letter-spacing: -0.02em;
-      color: #4D8DFF;
+      color: #4d8dff;
 
-      transition: opacity .2s ease-out;
+      transition: opacity 0.2s ease-out;
 
-      &:hover, &:active, &:focus {
-        opacity: .7;
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 0.7;
       }
     }
 
@@ -242,7 +243,8 @@
   }
 
   #build-with-web {
-    padding-block-start: clamp(160px, 26vw, 248px); 
+    padding-top: 248px;
+    padding-block-start: clamp(160px, 26vw, 248px);
 
     @media screen and (max-width: $screen-xs-max) {
       padding-block-end: 100px;
@@ -293,11 +295,12 @@
       p {
         margin: 0;
         a {
-          transition: opacity .2s ease-out;
+          transition: opacity 0.2s ease-out;
         }
-        a:hover, a:focus {
+        a:hover,
+        a:focus {
           color: #4a8bfc;
-          opacity: .7;
+          opacity: 0.7;
         }
       }
 
@@ -317,6 +320,8 @@
   }
 
   #performance {
+    padding-top: 257px;
+    padding-bottom: 152px;
     padding-block-start: clamp(160px, 26vw, 257px);
     padding-block-end: clamp(100px, 20vw, 152px);
 
@@ -324,7 +329,7 @@
       h2 {
         margin-block-end: 32px;
       }
-      
+
       p {
         margin-block-end: 32px;
       }
@@ -383,7 +388,7 @@
           font-size: 20px;
           line-height: 100%;
           letter-spacing: -0.03em;
-          color: #2D4665;
+          color: #2d4665;
         }
       }
 
@@ -393,7 +398,7 @@
         font-weight: 600;
         line-height: 100%;
         letter-spacing: -0.08em;
-        color: #03060B;
+        color: #03060b;
         margin-left: -7px;
 
         sub,
@@ -420,7 +425,7 @@
         font-size: 16px;
         line-height: 140%;
         letter-spacing: -0.03em;
-        color: #2D4665;
+        color: #2d4665;
         max-width: 161px;
       }
     }
@@ -477,6 +482,9 @@
 
   #agnostic {
     overflow: visible;
+
+    padding-top: 252px;
+    padding-bottom: 113px;
     padding-block-start: clamp(40px, 26vw, 252px);
     padding-block-end: clamp(66px, 18vw, 113px);
 
@@ -530,6 +538,7 @@
   }
 
   #components {
+    padding-top: 250px;
     padding-block-start: clamp(160px, 26vw, 250px);
 
     hgroup {
@@ -541,6 +550,8 @@
   }
 
   #native {
+    padding-top: 294px;
+    padding-bottom: 50px;
     padding-block-start: clamp(200px, 29vw, 294px);
     padding-block-end: 50px;
 
@@ -590,8 +601,11 @@
   }
 
   #community {
-    // position: static;
     z-index: 1;
+
+    margin-top: 338px;
+    padding-top: 120px;
+    margin-bottom: 360px;
 
     margin-block-start: clamp(220px, 30vw, 338px);
     padding-block-start: clamp(90px, 12vw, 120px);
@@ -640,6 +654,7 @@
     overflow: visible;
     overflow-x: hidden;
 
+    padding-top: 150px;
     padding-block-start: clamp(100px, 13vw, 150px);
 
     .content {
@@ -691,7 +706,8 @@
   }
 
   #testimonials {
-    padding-top: clamp(120px, 22vw, 200px);
+    padding-top: 200px;
+    padding-block-start: clamp(120px, 22vw, 200px);
 
     h2 {
       padding-top: 78px;
@@ -811,9 +827,10 @@
   }
 
   #start {
+    margin-top: 154px;
     margin-block-start: clamp(100px, 16vw, 154px);
 
-    background: #3880FF;
+    background: #3880ff;
     padding-top: 91px;
     padding-bottom: 91px;
 
@@ -833,9 +850,8 @@
       font-size: 32px;
       line-height: 120%;
       letter-spacing: -0.03em;
-      color: #FFFFFF;
+      color: #ffffff;
     }
-
 
     p {
       letter-spacing: -0.03em;

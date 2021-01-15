@@ -379,6 +379,10 @@
 
     react-capacitor {
       max-width: 32rem;
+
+      @media screen and (min-width: $screen-md) {
+        min-height: 487px;
+      }
     }
 
     hgroup {

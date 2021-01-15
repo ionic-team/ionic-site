@@ -402,6 +402,10 @@
       height: 100%;
       flex: 1;
       margin-right: 64px;
+
+      @media screen and (min-width: $screen-md) {
+        min-height: 469px;
+      }
     }
 
     .content {

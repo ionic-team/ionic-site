@@ -1,6 +1,6 @@
 @import '../../vars';
 
-hubspot-form {
+hubspot-form:not(.no-default-styles) {
   display: block;
 
   max-width: 420px;

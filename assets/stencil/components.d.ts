@@ -33,7 +33,9 @@ export namespace Components {
         "ajax": boolean;
         "formId"?: string;
         "goToWebinarKey"?: string;
+        "noDefaultStyles": boolean;
         "portalId": string;
+        "submitText": any;
     }
     interface IconExternal {
     }
@@ -412,8 +414,10 @@ declare namespace LocalJSX {
         "ajax"?: boolean;
         "formId"?: string;
         "goToWebinarKey"?: string;
+        "noDefaultStyles"?: boolean;
         "onFormSubmitted"?: (event: CustomEvent<any>) => void;
         "portalId"?: string;
+        "submitText"?: any;
     }
     interface IconExternal {
     }

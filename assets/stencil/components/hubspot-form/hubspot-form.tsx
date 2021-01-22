@@ -23,6 +23,8 @@ export class HubspotForm {
   @Prop() portalId = '3776657';
   @Prop() goToWebinarKey?: string;
   @Prop() ajax = false;
+  @Prop() noDefaultStyles = false;
+  @Prop() submitText = undefined;
 
   @Event() formSubmitted?: EventEmitter;
 
@@ -64,6 +66,11 @@ export class HubspotForm {
         goToWebinarWebinarKey: this.goToWebinarKey || '',
         css: '',
         onFormReady: this.handleFormReady,
+        translations: {
+          en: {
+            submitText: this.submitText,
+          }
+        }
       });
     });
   };
@@ -121,7 +128,9 @@ export class HubspotForm {
 
   render() {
     return (
-      <Host>
+      <Host class={{
+        'no-default-styles': this.noDefaultStyles,
+      }}>
         <div class="hubspot-override">
           <div id={this.getFormElementId()} />
         </div>

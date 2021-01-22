@@ -208,7 +208,7 @@ $timingFunction: cubic-bezier(0.17, 0.67, 0.52, 1);
       );
       @include font($lh: 16px, $color: #000, $fw: 400);
     }
-    .button {
+    .hs-button {
       @include box(
         $pos: absolute,
         $r: 0,
@@ -217,9 +217,11 @@ $timingFunction: cubic-bezier(0.17, 0.67, 0.52, 1);
         $bord: none,
         $br: 8px,
         $back: transparent,
-        $p: 0px 6px
+        $p: 0px 6px,
+        $w: 40px,
       );
       @include font($color: black, $fs: 18px);
+        white-space: nowrap;
     }
     .success {
       @include box($pos: absolute, $t: 1px, $r: 1px, $h: calc(100% - 2px));

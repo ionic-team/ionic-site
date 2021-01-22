@@ -333,7 +333,7 @@ textarea.hs-input {
     }
   }
 
-  @media (max-width: vars.$screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     fieldset.form-columns-2 .hs-form-field {
       width: 100%;
       float: none;
@@ -443,7 +443,7 @@ textarea.hs-input {
     border-radius: 6px;
   }
 
-  @media (max-width: vars.$screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     fieldset.form-columns-2 .hs-form-field {
       padding: 0;
     }

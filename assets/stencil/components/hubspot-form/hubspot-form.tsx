@@ -24,7 +24,7 @@ const HubspotFormGroups = ({fields}) => {
 @Component({
   tag: 'hubspot-form',
   styleUrl: 'hubspot-form.scss',
-  shadow: false
+  scoped: false
 })
 export class HubspotForm {
   @Prop() formId: string = 'default';

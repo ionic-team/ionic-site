@@ -15,8 +15,11 @@
         <span>We break down all the myths and misconceptions.</span>
       </h2>
       <a
-        href="http://go.ionicframework.com/hybrid-vs-native-guide"
-        onclick="c('test', 'home-cards', this, 'hybrid-v-native')"
+      data-toggle="modal" data-target="#hubspotForm"
+        onclick="(e) => {
+          e.preventDefault();
+          c('test', 'home-cards', this, 'hybrid-v-native');
+         }"
         >Read the free eBook <span class="arrow">-></span></a
       >
     </div>

@@ -39,7 +39,7 @@
     border-color: $red;
   }
 
-  input,
+  input:not(.hs-button),
   .select-wrapper,
   input.form-control {
     width: 190px;

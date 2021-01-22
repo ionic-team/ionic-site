@@ -1,11 +1,9 @@
 @import '../../vars';
 
-hubspot-form {
-  --c-label: var(--c-carbon-90);
-  --arrow-size: 1em;
+capacitor-hubspot-form {
+  display: block;
 
   max-width: 420px;
-  display: block;
   margin: 0 auto;
   font-weight: 400;
 
@@ -28,8 +26,9 @@ hubspot-form {
   select.hs-input {
     border: 1px solid #e1e5ed;
     // padding: 15px 5px 15px 18px;
+    font-weight: 500;
     border-radius: 4px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
     box-shadow: none;
     outline: none;
     height: 30px;
@@ -60,15 +59,13 @@ hubspot-form {
 
   select.hs-input {
     height: 44px;
-    width: 100% !important;
+    width: calc(100% + 6px) !important;
   }
 
   textarea.hs-input {
     padding: 12px;
-    width: 100% !important;
+    width: calc(100% + 3px) !important;
     min-height: 192px;
-    font-family: var(--f-family-text);
-    color: var(--c-carbon-90);
   }
 
   .hs_submit input.hs-button {
@@ -90,10 +87,12 @@ hubspot-form {
     background: var(--c-ionic-brand);
     border: 0;
     outline: 0;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 
     &:hover {
       border: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
       background: #5995fc;
       color: #fff;
       outline: 0;
@@ -104,7 +103,7 @@ hubspot-form {
     &:focus:not(.inactive) {
       border: 0;
       color: #fff;
-      box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
       background: #5995fc;
       outline: 0;
     }
@@ -135,13 +134,7 @@ hubspot-form {
     margin: 0 auto;
   }
 
-
   .hubspot-override .hs-form {
-
-    .input {
-      margin: 0 !important;
-    }
-
     font-family: var(--f-family-system);
     // TODO these styles are only used on contributors landing,
     // need to be applied to all hubspot forms
@@ -163,13 +156,13 @@ hubspot-form {
     }
 
     label {
-      font-family: var(--f-family-text);
-      margin-bottom: 8px;
-      color: var(--c-label);
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 112%;
-      letter-spacing: -.02em;
+      margin-bottom: 3px;
+    }
+
+    .hs-form-required {
+      display: inline;
+      color: #f45454;
+      margin-left: 4px;
     }
 
     .hs-richtext {
@@ -178,28 +171,28 @@ hubspot-form {
 
     .hs-input,
     input.hs-input {
-      height: 56px;
       transition: border 0.3s;
+      font-weight: 500;
       background-color: #fff;
       background-image: none;
-      border: 1px solid #CED6E0;
-      line-height: 1.12;
-      border-radius: 8px;
-      padding: 17px 16px;
-      font-size: 16px;
+      border: 1px solid #ced6e3;
+      line-height: 1.39286;
+      border-radius: 4px;
+      padding: 11px 15px;
+      font-size: 15px;
       margin-bottom: 0;
-      color: var(--c-carbon-90);
-      letter-spacing: -.01em;
+      color: #505863;
     }
 
-    input.hs-input[type="number"] {
+    input.hs-input[type='number'] {
       float: none;
     }
 
-    input.hs-input[type="text"],
-    input.hs-input[type="email"],
-    input.hs-input[type="tel"]  {
-      width: 100% !important;
+    input.hs-input[type='text'],
+    input.hs-input[type='email'],
+    input.hs-input[type='tel'] {
+      height: auto;
+      width: 100%;
       float: none;
 
       &:focus {
@@ -207,8 +200,8 @@ hubspot-form {
       }
     }
 
-    input.hs-input[type="radio"],
-    input.hs-input[type="checkbox"] {
+    input.hs-input[type='radio'],
+    input.hs-input[type='checkbox'] {
       height: auto;
       margin-right: 8px;
     }
@@ -218,33 +211,18 @@ hubspot-form {
     }
 
     select.hs-input {
-      height: 54px;
-      padding-left: 16px;
-      padding-inline-end: 48px;
-      position: relative;
+      height: 44px;
 
       appearance: none;
-      -webkit-appearance: none;
       -moz-appearance: none;
-
-      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHBvbHlsaW5lIHBvaW50cz0nMTEyIDE4NCAyNTYgMzI4IDQwMCAxODQnIHN0eWxlPSdmaWxsOm5vbmU7c3Ryb2tlOiM0NDVCNzg7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0OHB4Jy8+PC9zdmc+");
-      background-size: 1.2em;
-      background-position: calc(100% - .9em) center;
+      background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+      background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+      background-size: 5px 5px, 5px 5px, 1px 1.5em;
       background-repeat: no-repeat;
-
-      &:active {
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHRpdGxlPmlvbmljb25zLXY1LWE8L3RpdGxlPjxwb2x5bGluZSBwb2ludHM9JzExMiAzMjggMjU2IDE4NCA0MDAgMzI4JyBzdHlsZT0nZmlsbDpub25lO3N0cm9rZTojNDQ1Qjc4O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NDhweCcvPjwvc3ZnPg==");
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    fieldset:first-of-type .hs-form-field {
-      margin-block-start: 0px;
     }
 
-    fieldset.form-columns-2 .input {
+    form fieldset.form-columns-2 .input {
       margin: 0;
     }
 
@@ -269,13 +247,13 @@ hubspot-form {
     .inputs-list.multi-container {
       overflow: hidden;
 
-      li:nth-last-child(n+6):first-child,
-      li:nth-last-child(n+6):first-child ~ li {
+      li:nth-last-child(n + 6):first-child,
+      li:nth-last-child(n + 6):first-child ~ li {
         width: 50%;
         float: left;
         padding-right: 11px;
       }
-      li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+      li:nth-last-child(n + 6):first-child ~ li:nth-child(even) {
         padding-right: 0;
         padding-left: 11px;
       }
@@ -286,7 +264,7 @@ hubspot-form {
       display: flex;
     }
 
-    .hs-form-checkbox-display .hs-input[type="checkbox"]{
+    .hs-form-checkbox-display .hs-input[type='checkbox'] {
       margin-right: 10px;
     }
 
@@ -295,14 +273,10 @@ hubspot-form {
       color: #505863;
     }
 
-
-    .hs-error-msg {
-      margin: 10px 0;
-      display: inline-block;
-      padding: 0;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--c-red-100);
+    .hs-error-msgs {
+      padding: 5px 0 0;
+      font-size: 11px;
+      color: #f45454;
     }
 
     .hs_submit {
@@ -310,23 +284,25 @@ hubspot-form {
     }
 
     .hs_submit input.hs-button {
-      transition: all .3s ease-out;
+      transition: all 0.3s ease;
       margin: 0;
       float: none;
       margin: auto;
-      font-family: var(--f-family-text);
       font-size: 16px;
-      font-weight: 600;
-      padding: 19px 20px;
+      font-weight: 700;
+      padding: 12px 20px;
       vertical-align: middle;
       color: white;
-      background: var(--c-blue-80);
-      border-radius: 1000px;
-      line-height: 112%;
-      letter-spacing: -0.02em;
+      background: #3880ff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      line-height: 18px;
+      letter-spacing: -0.01em;
 
       &:hover {
-        background: var(--c-blue-70);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12),
+          0 3px 6px rgba(0, 0, 0, 0.08);
+        background: #4d8dfd;
         color: #fff;
         outline: none;
       }
@@ -343,47 +319,19 @@ hubspot-form {
         }
       }
       .inputs-list.multi-container {
-        li:nth-last-child(n+6):first-child,
-        li:nth-last-child(n+6):first-child ~ li {
+        li:nth-last-child(n + 6):first-child,
+        li:nth-last-child(n + 6):first-child ~ li {
           width: 100%;
           float: none;
           padding-right: 0;
         }
-        li:nth-last-child(n+6):first-child ~ li:nth-child(even) {
+        li:nth-last-child(n + 6):first-child ~ li:nth-child(even) {
           padding-left: 0;
         }
       }
       .hs_submit input.hs-button {
         width: 100%;
       }
-    }
-  }
-
-  .hubspot-override.submit-arrow .hs-form {
-    .hs_submit input.hs-button {
-      padding: 19px 20px;
-      padding-inline-end: calc(var(--arrow-size) + 24px);
-      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHBvbHlsaW5lIHBvaW50cz0nMjY4IDExMiA0MTIgMjU2IDI2OCA0MDAnIHN0eWxlPSdmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1taXRlcmxpbWl0OjEwO3N0cm9rZS13aWR0aDo0OHB4Jy8+PGxpbmUgeDE9JzM5MicgeTE9JzI1NicgeDI9JzEwMCcgeTI9JzI1Nicgc3R5bGU9J2ZpbGw6bm9uZTtzdHJva2U6I2ZmZjtzdHJva2UtbGluZWNhcDpzcXVhcmU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjQ4cHgnLz48L3N2Zz4=");
-      background-size: var(--arrow-size);
-      background-position: calc(100% - 20px) center;
-      background-repeat: no-repeat;
-    }
-  }
-
-  .hubspot-override.button-position--start .hs-form {
-    .hs_submit input.hs-button {
-      float: left;
-    }
-  }
-  .hubspot-override.button-position--end .hs-form {
-    .hs_submit input.hs-button {
-      float: right;
-    }
-  }
-  .hubspot-override.button-position--center .hs-form {
-    .hs_submit input.hs-button {
-      margin-inline-start: auto;
-      margin-inline-end: auto;
     }
   }
 

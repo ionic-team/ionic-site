@@ -1,140 +1,131 @@
-import { Component, Prop, Element, h, State, Host } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  Element,
+  State,
+  Listen,
+} from '@stencil/core';
+import { importResource } from '../../util/common';
 
-
-interface fieldProps {
-  label: string,
-  placeholder: string,
-  hidden: boolean,
-  fieldType: "string" | "enumeration",
-  name: string,
-}
-
-const HubspotFormGroups = ({fields}) => {
-  return (
-    <fieldset hidden={!fields.every(field => field.hidden === false)}>
-      { fields.map(({label, hidden, fieldType, name, selectedOptions}) => [
-        label ?
-        <label hidden={hidden}>{label}</label> : '',
-        <input required={!hidden} placeholder="Email" type={fieldType} hidden={hidden} name={name} value={selectedOptions[0]} class="hs-input"/>
-      ]) }
-    </fieldset>
-  )
-}
+declare var window: any;
 
 @Component({
   tag: 'hubspot-form',
   styleUrl: 'hubspot-form.scss',
-  scoped: false
 })
 export class HubspotForm {
-  @Prop() formId: string = 'default';
-  @Prop() submitText: string;
-  @Element() el: HTMLElement;
-  @State() data = false;
-  @State() emailInvalid: boolean = false;
-  @State() emailSuccess: boolean = false;
-  private wrapperId: string = "id-" + Math.random().toString(36).substring(2);
-  private formFields: fieldProps[] = []
-  private formGroups: any = [];
-  
-  private formEl: HTMLFormElement;
+  @Element() el?: HTMLElement;
+  @Prop() formId?: string;
+  @Prop() portalId = '3776657';
+  @Prop() goToWebinarKey?: string;
+  @Prop() ajax = false;
 
-  // componentWillLoad() {
-    // if (window['hbspt']) {
-    //   this.createHubspotForm();
-    //   return;
-    // }
-    
-    // const script = document.createElement('script');
-    // script.onload = () => {
-    //   this.createHubspotForm();
-    // };
-    // script.onerror = this.loadBackupForm;
-    // script.src = '//js.hsforms.net/forms/v2.js';
+  @Event() formSubmitted?: EventEmitter;
 
-    // this.el.appendChild(script);
-  // }
+  @State() error: string | null = null;
 
-  createHubspotForm() {
-    // window['hbspt'].forms.create({
-    //   portalId: '3776657',
-    //   formId: this.formId,
-    //   target: `#${this.wrapperId}`,
-    // });
+  scriptEl?: HTMLScriptElement;
+
+  componentDidLoad() {
+    importResource(
+      { propertyName: 'hbspt', link: '//js.hsforms.net/forms/v2.js' },
+      this.handleScriptLoad,
+    );
   }
 
-  componentWillLoad = async () => {
-    const response = await fetch(`/api/v1/getform/${this.formId}`);
-    const data = await response.json();
+  @Listen('message', { target: 'window' })
+  handleWindowMessage(e: MessageEvent) {
+    if (e.data && e.data.formGuid && this.ajax) {
+      // Don't let hubspot do anything
+      e.preventDefault();
+      e.stopImmediatePropagation();
 
-    this.formGroups = data.formFieldGroups;
-    !this.submitText ? this.submitText = data.submitText : '';
-
-    data.formFieldGroups.forEach(({fields}) => {
-      fields.forEach(field => {
-        this.formFields.push(field);
-      })
-    });
-    
-    this.data = true;
-  }
-
-  handleSubmit = async (e: UIEvent) => {
-    e.preventDefault();
-    const url: string = `https://api.hsforms.com/submissions/v3/integration/submit/3776657/${this.formId}`
-    const cookie =  document.cookie.match(/(hubspotutk=).*?(?=;)/g);
-    const fields = this.formFields.map(field => {
-      return {
-        "name": field.name,
-        "value": this.formEl[`${field.name}`].value
+      if (e.data.accepted === true) {
+        this.formSubmitted?.emit();
+      } else if (e.data.accepted === false) {
+        this.error =
+          'Unable to submit. Please check your information and try again.';
+      } else {
+        this.error = '';
       }
-    });
-
-
-    const context: { pageUri: string, pageName: string, hutk?: string} = {
-      "pageUri": "https://ionicframework.com/ioniconf",
-      "pageName": "Ioniconf 2020"
-    }
-    cookie ? context.hutk = cookie[0].split("hubspotutk=")[1] : '';
-
-    const data = {
-      "submittedAt": Date.now(),
-      "fields": fields,
-      "context": context
-    }
-  
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer', 
-      body: JSON.stringify(data) 
-    });
-
-    if (response.status.toString().charAt(0) == '2'){
-      this.emailSuccess = true;
-    } else {
-      this.emailInvalid = true;
     }
   }
+
+  handleScriptLoad = () => {
+    requestAnimationFrame(() => {
+      window.hbspt.forms.create({
+        portalId: '3776657',
+        formId: this.formId,
+        target: `#${this.getFormElementId()}`,
+        goToWebinarWebinarKey: this.goToWebinarKey || '',
+        css: '',
+        onFormReady: this.handleFormReady,
+      });
+    });
+  };
+
+  handleFormReady = (_e: any, _c: any) => {
+    // Don't override the form if not using the ajax method
+    if (!this.ajax) {
+      return;
+    }
+
+    const formEl = this.el?.querySelector(
+      `#${this.getFormElementId()} form`,
+    ) as HTMLFormElement;
+    if (!formEl) {
+      return;
+    }
+
+    formEl.addEventListener('submit', (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    });
+
+    formEl
+      .querySelector('input[type="submit"]')
+      ?.addEventListener('click', e => {
+        this.submitForm(formEl);
+        e.preventDefault();
+      });
+  };
+
+  getFormElementId = () => `hbspt-form-${this.formId}`;
+
+  submitForm = async (form: HTMLFormElement) => {
+    const data = new FormData(form);
+
+    try {
+      const ret = await fetch(form.getAttribute('action')!, {
+        method: 'POST',
+        body: data,
+      });
+
+      if (ret.status !== 200) {
+        this.error = 'Error submitting form';
+      } else {
+        // The response from hubspot is a script tag. I know, it's truly magnificent
+        const frame = document.createElement('iframe');
+        frame.srcdoc = await ret.text();
+        document.body.appendChild(frame);
+      }
+    } catch (e) {
+      this.error = 'Unable to submit form';
+    }
+  };
 
   render() {
-    if (!this.data) return;
-
     return (
-      <Host id={this.wrapperId} class="hbspt-form">
-        <form onSubmit={this.handleSubmit} ref={e => this.formEl = e} class="hs-form">
-          { this.formGroups?.map(g => <HubspotFormGroups fields={g.fields}/>)}
-          
-          { this.emailSuccess ?
-          <svg class="success" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 42c11.598 0 21-9.402 21-21S32.598 0 21 0 0 9.402 0 21s9.402 21 21 21z" fill="#D3F3DB"/>
-            <path d="M13.87 20.97a1.75 1.75 0 00-2.54 2.408l2.54-2.407zm3.588 6.33l-1.27 1.204a1.75 1.75 0 002.54 0l-1.27-1.204zM30.67 15.904a1.75 1.75 0 00-2.54-2.408l2.54 2.408zm-19.34 7.474l4.858 5.126 2.54-2.408-4.858-5.125-2.54 2.407zm7.398 5.126l11.942-12.6-2.54-2.408-11.942 12.6 2.54 2.408z" fill="#43C465"/>
-          </svg> :
-          <button class="button" aria-label="submit email">{this.submitText}</button>}
-        </form> 
+      <Host>
+        <div class="hubspot-override">
+          <div id={this.getFormElementId()} />
+        </div>
+        {this.error ? <div class="hs-error-msgs">{this.error}</div> : null}
       </Host>
     );
   }

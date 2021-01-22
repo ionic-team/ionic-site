@@ -30,8 +30,10 @@ export namespace Components {
         "listId": string;
     }
     interface HubspotForm {
-        "formId": string;
-        "submitText": string;
+        "ajax": boolean;
+        "formId"?: string;
+        "goToWebinarKey"?: string;
+        "portalId": string;
     }
     interface IconExternal {
     }
@@ -407,8 +409,11 @@ declare namespace LocalJSX {
         "listId"?: string;
     }
     interface HubspotForm {
+        "ajax"?: boolean;
         "formId"?: string;
-        "submitText"?: string;
+        "goToWebinarKey"?: string;
+        "onFormSubmitted"?: (event: CustomEvent<any>) => void;
+        "portalId"?: string;
     }
     interface IconExternal {
     }

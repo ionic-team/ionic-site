@@ -152,6 +152,15 @@ window.c = (cat, lbl, el, val) => {
   if (typeof val === 'undefined') {
     val = null;
   }
+
+  try {
+    window._hsq.push(['trackEvent', {
+      id: lbl
+    }])
+  } catch(e) {
+    console.warn('Hubspot blocked', e);
+  }
+
   if (window.ga && ga.loaded) {
 
     let linkFollowed = false;

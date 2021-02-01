@@ -55,7 +55,7 @@ thead {
 
   .btn,
   .btn.micro {
-    padding: 6px 10px 3px;
+    padding: 6px 10px 6px;
     text-transform: none;
     letter-spacing: -0.01em;
     font-size: 12px;
@@ -78,6 +78,11 @@ thead {
     &:hover {
       background: lighten(#3880FF, 3%);
     }
+
+    &:hover:active,
+    &:active {
+      background: darken(#3880FF, 5%);
+    }
   }
 
   .btn--dark,
@@ -88,6 +93,11 @@ thead {
 
     &:hover {
       background: lighten(#213049, 10%);
+    }
+
+    &:hover:active,
+    &:active {
+      background: darken(#213049, 10%);
     }
   }
 
@@ -204,7 +214,7 @@ tbody {
 
 tfoot {
   .btn.sm {
-    padding: 11px 13px 8px;
+    padding: 11px 13px 11px;
     font-size: 14px;
     line-height: 19px;
     border-radius: 8px;

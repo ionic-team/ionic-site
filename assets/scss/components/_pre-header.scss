@@ -429,12 +429,26 @@
     }
 
     #btn-header-announcement {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 8.5px 12px;
 
       font-weight: 600;
       font-size: 13px;
       line-height: 112%;
       color: #fff;
+
+      white-space: nowrap;
+      text-transform: none;
+
+      &::after {
+        display: none;
+      }
+
+      .arrow {
+        letter-spacing: 0;
+      }
     }
   }
 }

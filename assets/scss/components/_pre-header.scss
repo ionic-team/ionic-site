@@ -398,4 +398,43 @@
       }
     }
   }
+
+  &--q1-event {
+    background-image: url('/img/announcement-bar/bg-q1-event.png');
+    background-size: 1800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    padding: 0;
+
+    .container > div {
+      min-height: 74px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: #CAD3E1;
+
+      strong, b {
+        color: #fff;
+      }
+    }
+
+    #btn-header-announcement {
+      padding: 8.5px 12px;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 112%;
+      color: #fff;
+    }
+  }
 }

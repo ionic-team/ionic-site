@@ -5,7 +5,7 @@
 {% set cssPath = 'auth' %}
 {% set cssVersion = 2 %}
 {% set recaptcha = true %}
-{% if query.source == 'start'%}
+{% if query.source == 'start' or query.source == 'ionic_io_homepage' %}
   {% set header_style = 'start' %}
 {% endif %}
 
@@ -21,7 +21,7 @@
     </a>
   {% endif %}
 </header>
-{% if query.source == 'start'%}
+{% if query.source == 'start' or query.source == 'ionic_io_homepage' %}
   <aside class="start">
     <img class="background" src="https://images.prismic.io/ionicframeworkcom/848e1069-e502-4fec-94ef-ef54cb064bf0_top-0.png?auto=compress,format&amp;rect=0,0,1640,2248&amp;w=820&amp;h=1124&amp;q=65" srcset="https://images.prismic.io/ionicframeworkcom/848e1069-e502-4fec-94ef-ef54cb064bf0_top-0.png?auto=compress,format&amp;rect=0,0,1640,2248&amp;w=820&amp;h=1124&amp;q=65 1x, https://images.prismic.io/ionicframeworkcom/848e1069-e502-4fec-94ef-ef54cb064bf0_top-0.png?auto=compress,format&amp;rect=0,0,1640,2248&amp;w=1640&amp;h=2248&amp;q=65 2x" width="820" height="1124" alt="Faded Ionic logo with floating marks around">
     <div class="content">

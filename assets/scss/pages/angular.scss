@@ -1,0 +1,750 @@
+@import "../vars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+$angular-red-1: #DD0031;
+$angular-red-2: #C3002F;
+$angular-red-3: #F70037;
+
+:root {
+  font-size: 16px;
+}
+
+@media (max-width: $screen-xs-max) {
+  body {
+    padding-top: 0;
+  }
+}
+
+#page-angular {
+  // #region ------------ GENERAL STYLES ----------------
+
+  img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    color: #001a3a;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+  }
+
+  h2,
+  h3 {
+    color: #03060b;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 112%;
+    letter-spacing: -0.05em;
+
+    margin-block-end: 24px;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 112%;
+    letter-spacing: -0.02em;
+  }
+
+  .p2 {
+    color: #2d4665;
+    font-size: 20px;
+    line-height: 160%;
+    letter-spacing: -0.02em;
+
+    margin: 0;
+  }
+
+  .p3 {
+    color: #2d4665;
+    font-size: 16px;
+    line-height: 180%;
+    letter-spacing: -0.02em;
+
+    margin: 0;
+  }
+
+  .highlight {
+    color: $angular-red-1;
+    background: initial;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  //#endregion
+
+  // #region ------------ COMPONENTS --------------------
+  %btn {
+    border-radius: 1000px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 112%;
+    letter-spacing: -0.02em;
+
+    padding: 1rem 1.5rem;
+
+    transition: background-color 0.2s ease-out;
+  }
+
+  .primary-btn {
+    @extend %btn;
+    background: $angular-red-1;
+    color: #fff;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $angular-red-3;
+    }
+  }
+  .secondary-btn {
+    @extend %btn;
+    background: #e6f5ef;
+    color: $angular-red-1;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #edf7f2;
+    }
+  }
+
+  .components-list {
+    margin-block-start: 2rem;
+
+    svg {
+      display: block;
+    }
+    li {
+      display: flex;
+      align-items: center;
+
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      color: #1a232f;
+
+      cursor: pointer;
+
+      transition: color 0.1s ease-out;
+
+      svg {
+        margin-block-end: 2px;
+      }
+
+      rect,
+      path,
+      circle {
+        transition: stroke 0.1s ease-out;
+      }
+
+      .icon {
+        margin-inline-end: 2rem;
+      }
+
+      .title {
+        flex-grow: 1;
+        position: relative;
+        border-block-end: 1px solid #eaedf4;
+
+        .word {
+          display: inline-block;
+          padding-block-start: 1rem;
+          padding-block-end: 1rem;
+        }
+
+        .progress {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2px;
+          opacity: 0;
+          background: $angular-red-1;
+          bottom: -1px;
+          transform-origin: 0 0;
+
+          transition: opacity 0.2s ease-out;
+        }
+      }
+    }
+    li.selected {
+      color: $angular-red-1;
+
+      .progress {
+        opacity: 1;
+      }
+
+      rect,
+      path,
+      circle {
+        stroke: currentColor;
+      }
+    }
+  }
+  // #endregion -----------------------------------------
+
+  // #region ------------ GENERAL -----------------------
+  #sticky-bar {
+    .nav {
+      min-height: 4.75rem;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        &.active .anchor {
+          color: $angular-red-1 !important;
+        }
+        .anchor:hover,
+        .anchor:active,
+        .anchor:focus {
+          color: $angular-red-1 !important;
+        }
+      }
+
+      .try-it {
+        @extend %btn;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 157.33%;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: $angular-red-1;
+        background: #e3faf1;
+
+        padding: 0.5rem 1rem;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background: #edf7f2;
+        }
+      }
+    }
+  }
+
+  .header-wrapper {
+    background: linear-gradient(
+      180deg,
+      rgba(251, 252, 253, 0) 0%,
+      #fbfcfd 100%
+    );
+  }
+  header {
+    position: relative;
+    background-color: #fbfcfd;
+    color: white;
+    background-image: url("/img/vue/vue-cta-bg.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center bottom;
+
+    min-height: 672px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .back-button {
+      @extend %btn;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      padding: 0.5rem 0.75rem;
+      background: #f6f8fc;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #4a8bfc;
+      }
+    }
+
+    hgroup {
+      max-width: 650px;
+      margin-block-start: 1rem;
+
+      h1 {
+        margin-block-end: 40px;
+      }
+
+      .logo {
+        margin-block-end: 40px;
+      }
+
+      .cta-row {
+        margin-block-end: 30px;
+      }
+    }
+  }
+
+  #intro {
+    margin-block-start: 12.5rem;
+    margin-block-end: 8rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5rem;
+    row-gap: 4rem;
+
+    @media screen and (max-width: $screen-md-max) {
+      column-gap: 2rem;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+      grid-template-columns: initial;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    article {
+      img {
+        margin-block-end: 32px;
+      }
+
+      h3 {
+        margin-block-end: 20px;
+      }
+    }
+  }
+
+  #components {
+    display: flex;
+    justify-content: space-between;
+
+    padding-block-start: 2rem;
+    margin-inline-start: -2rem;
+    max-width: 100%;
+
+    @media screen and (max-width: $screen-xs-max) {
+      flex-direction: column;
+    }
+
+    > * {
+      flex-basis: 50%;
+      margin-block-start: 4rem;
+      margin-inline-start: 2rem;
+    }
+
+    hgroup {
+      max-width: 480px;
+    }
+
+    vue-components {
+      width: 100%;
+      max-width: 32rem;
+    }
+  }
+
+  #native {
+    margin-block-start: 232px;
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (max-width: $screen-xs-max) {
+        flex-direction: column-reverse;
+        max-width: 100%;
+      }
+
+      margin-block-start: -4rem;
+      margin-inline-start: -4rem;
+
+      > * {
+        flex-basis: 50%;
+        min-width: 0;
+
+        margin-block-start: 4rem;
+        margin-inline-start: 4rem;
+      }
+    }
+
+    react-capacitor {
+      max-width: 32rem;
+
+      @media screen and (min-width: $screen-md) {
+        min-height: 487px;
+      }
+    }
+
+    hgroup {
+      max-width: 30rem;
+    }
+  }
+
+  #samples {
+    margin-block-start: 14rem;
+    margin-block-end: 14rem;
+
+    hgroup {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      margin-inline-start: -1rem;
+      margin-block-start: -1rem;
+      margin-block-end: 4rem;
+
+      > * {
+        margin-inline-start: 1rem;
+        margin-block-start: 1rem;
+      }
+
+      h2 {
+        max-width: 28rem;
+      }
+
+      p {
+        max-width: 30rem;
+        margin-block-end: 2rem;
+      }
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 4rem;
+
+      @media screen and (max-width: $screen-md-max) {
+        column-gap: 2rem;
+      }
+      @media screen and (max-width: $screen-xs-max) {
+        grid-template-columns: initial;
+        grid-template-rows: 1fr 1fr 1fr;
+        max-width: 22rem;
+      }
+
+      .feature {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        img {
+          display: block;
+          border-radius: 1rem;
+        }
+
+        h3 {
+          margin: 2rem 0 1rem;
+        }
+
+        p {
+          margin-block-end: 1rem;
+          flex-grow: 1;
+        }
+      }
+
+      .try-it {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 120%;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.02em;
+
+        padding: 0.53125rem 0.75rem;
+        background: #e8faf4;
+        border-radius: 100px;
+
+        color: #20bd76;
+
+        transition: background-color 0.2s ease-out;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background: #edf7f2;
+        }
+      }
+    }
+  }
+
+  #enterprise {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-inline-start: -2rem;
+    margin-block-start: -2rem;
+
+    @media screen and (max-width: $screen-xs-max) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    > * {
+      margin-inline-start: 2rem;
+      margin-block-start: 2rem;
+    }
+
+    .graphics {
+      flex-basis: 60%;
+
+      img {
+        display: block;
+        margin-inline-start: -1rem;
+
+        @media screen and (max-width: $screen-xs-max) {
+          margin: 0;
+        }
+      }
+    }
+
+    hgroup {
+      flex-basis: 40%;
+      max-width: 30rem;
+
+      p {
+        margin-block-end: 2rem;
+      }
+    }
+  }
+
+  #why {
+    margin-block-start: 14rem;
+    margin-block-end: 14rem;
+
+    hgroup {
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto 4rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 4rem;
+
+      @media screen and (max-width: $screen-md-max) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-row: 1fr 1fr;
+      }
+      @media screen and (max-width: $screen-xs-max) {
+        grid-template-columns: initial;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+
+      .feature {
+        display: grid;
+        align-items: center;
+        grid-template-rows: 3.5rem min-content min-content;
+
+        h3 {
+          margin-block-start: 1.5rem;
+          margin-block-end: 1rem;
+        }
+      }
+    }
+  }
+
+  #accolades {
+    columns: 2;
+    column-gap: 4rem;
+
+    @media screen and (max-width: $screen-xs-max) {
+      columns: 1;
+    }
+
+    h2 {
+      margin-block-end: 1rem;
+    }
+
+    .tweet {
+      background: #f6f8fc;
+      border-radius: 8px;
+      position: relative;
+
+      padding: 2rem;
+      margin-block-start: 4rem;
+
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+
+      .tweet-author {
+        display: grid;
+        grid-template-columns: 2.5rem max-content;
+        column-gap: 1rem;
+
+        margin-block-end: 1.25rem;
+
+        &-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        h3 {
+          font-weight: 500;
+          font-size: 16px;
+          letter-spacing: -0.02em;
+          color: #020814;
+
+          a {
+            color: inherit;
+          }
+        }
+
+        h5 {
+          font-weight: normal;
+          font-size: 12px;
+          letter-spacing: -0.02em;
+          color: #414d5c;
+          margin: 0.25rem 0 0 0;
+
+          a {
+            color: inherit;
+          }
+        }
+
+        img {
+          border-radius: 1000px;
+        }
+      }
+
+      .tweet-footer {
+        display: flex;
+        justify-content: space-between;
+
+        margin-block-start: 1.5rem;
+
+        font-size: 10px;
+        line-height: 160%;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #616e7e;
+
+        a {
+          color: inherit;
+        }
+      }
+
+      &-twitter-icon {
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+
+        width: 1rem;
+        height: 1rem;
+
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2LjUgMS41NDAzNkMxNS45MDE2IDEuODAxMDQgMTUuMjYyIDEuOTc3MDggMTQuNTg3OSAyLjA1ODMzQzE1LjI3NTcgMS42NTIwOCAxNS44MDUzIDEuMDA4ODUgMTYuMDUyOSAwLjI0Mzc1QzE1LjQwOTggMC42MTk1MzEgMTQuNjk4IDAuODkzNzUgMTMuOTM4IDEuMDM5MzJDMTMuMzI5MyAwLjM5OTQ3OSAxMi40NjI2IDAgMTEuNTA2NiAwQzkuNjY2NzMgMCA4LjE3NzY1IDEuNDY5MjcgOC4xNzc2NSAzLjI4MDQ3QzguMTc3NjUgMy41Mzc3NiA4LjIwNTE2IDMuNzg4MjggOC4yNjM2MyA0LjAyODY1QzUuNDk1MjQgMy44OTMyMyAzLjAzOTgxIDIuNTg2NDYgMS4zOTk0MSAwLjU5OTIxOUMxLjExMzk3IDEuMDgzMzMgMC45NDg5MDMgMS42NDg3IDAuOTQ4OTAzIDIuMjQ3OTJDMC45NDg5MDMgMy4zODU0MiAxLjU0MDQxIDQuMzkwODkgMi40MzQ1NSA0Ljk3OTk1QzEuODg0MzEgNC45NjY0MSAxLjM2ODQ2IDQuODE3NDUgMC45MjEzOTIgNC41NzAzMVY0LjYxMDk0QzAuOTIxMzkyIDYuMjAyMDggMi4wNzAwMSA3LjUyNTc4IDMuNTkzNDggNy44MjcwOEMzLjMxNDkzIDcuOTAxNTYgMy4wMTkxNyA3Ljk0MjE5IDIuNzE2NTQgNy45NDIxOUMyLjUwMzMyIDcuOTQyMTkgMi4yOTM1NSA3LjkyMTg4IDIuMDkwNjUgNy44ODEyNUMyLjUxMzY0IDkuMTg0NjQgMy43NDQ4IDEwLjEzMjYgNS4yMDI5MyAxMC4xNTk2QzQuMDY0NjIgMTEuMDM5OCAyLjYyNzEzIDExLjU2NDYgMS4wNjU4MyAxMS41NjQ2QzAuNzk3NTg4IDExLjU2NDYgMC41MzI3ODYgMTEuNTQ3NyAwLjI3MTQyMyAxMS41MTcyQzEuNzM5ODcgMTIuNDU4MyAzLjQ5MDMxIDEzIDUuMzY4IDEzQzExLjQ5OTcgMTMgMTQuODQ5MyA3Ljk5OTc0IDE0Ljg0OTMgMy42NjMwMkMxNC44NDkzIDMuNTIwODMgMTQuODQ1OCAzLjM3ODY1IDE0LjgzOSAzLjIzOTg0QzE1LjQ4ODkgMi43NzYwNCAxNi4wNTI5IDIuMjAwNTIgMTYuNSAxLjU0MDM2WiIgZmlsbD0iIzRDQTBFQyIvPgo8L3N2Zz4K");
+        background-repeat: no-repeat;
+      }
+    }
+
+    .tweet-share {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      h4 {
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+        color: #020814;
+      }
+
+      a {
+        font-size: 16px;
+        line-height: 180%;
+        letter-spacing: -0.02em;
+
+        color: #009dff;
+      }
+    }
+  }
+
+  #start {
+    margin-block-start: 10rem;
+    margin-block-end: 10rem;
+
+    background-color: $angular-red-3;
+    box-shadow: 0px 16px 32px -2px rgba(0, 0, 0, 0.1),
+      0px 8px 16px -2px rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+
+    .wrapper {
+      padding: clamp(1rem, 6vw, 4rem);
+    }
+
+    .inside-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-block-start: -2rem;
+      margin-inline-start: -2rem;
+
+      > * {
+        margin-inline-start: 2rem;
+        margin-block-start: 2rem;
+      }
+    }
+
+    hgroup {
+      h2 {
+        max-width: 22.3125rem;
+        color: #fff;
+
+        margin-block-end: 0.5rem;
+      }
+      p {
+        color: #f1fdf5;
+      }
+    }
+
+    .code {
+      max-width: calc(100% - 2rem);
+      width: 27.375rem;
+
+      background: $angular-red-2;
+      border-radius: 16px;
+      padding-inline-start: clamp(1rem, 6vw, 2.375rem);
+      padding-inline-end: clamp(1rem, 4vw, 2.375rem);
+
+      pre,
+      code,
+      span {
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 160%;
+        letter-spacing: -0.06em;
+
+        background: $angular-red-2;
+        border: none;
+        margin: 0;
+        color: #fff;
+      }
+    }
+  }
+  // #endregion -----------------------------------------
+}
